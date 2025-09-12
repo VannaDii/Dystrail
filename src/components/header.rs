@@ -1,0 +1,1 @@
+use yew::prelude::*; #[function_component(Header)] pub fn header()->Html{ html!{ <header><a href="#main" class="sr-only">{"Skip to content"}</a></header> } }

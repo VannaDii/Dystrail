@@ -1,0 +1,9 @@
+app-title = Dystrail
+nav-home = Inicio
+nav-settings = Ajustes
+cta-start = PULSA UNA TECLA PARA EMPEZAR
+share-code = Código para compartir
+start-with-code = Iniciar con código
+mode-classic = Clásico
+mode-deep = Lo Más Hondo
+loading = Cargando… { $pct }%
