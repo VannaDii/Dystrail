@@ -6,7 +6,8 @@
     "skip_to_content": "Passer au contenu",
     "select_mode": "Choisir un mode",
     "loading": "Chargement… {{pct}}%",
-    "loading_encounters": "Chargement des rencontres…"
+    "loading_encounters": "Chargement des rencontres…",
+    "continue": "Continuer"
   },
   "share": {
     "code": "Code de partage",
@@ -80,6 +81,26 @@
     "saved": "Jeu enregistré"
   },
   "footer": { "copyright": "© Dystrail" },
+  "persona": {
+    "choose": "Choisissez votre Persona :",
+    "selected_budget_prefix": "Budget de départ",
+    "preview": "Départ : Fournitures {sup} · Créd {cred} · San {san} · Mor {mor} · Alliés {allies} · Budget ${budget}",
+    "mult": "Multiplicateur ×{mult}",
+    "preview_wait": "Sélectionnez une persona pour voir les détails.",
+    "journalist": { "name": "Journaliste", "desc": "Crédible et débrouillard; excelle avec les reçus." },
+    "organizer": { "name": "Organisateur", "desc": "Fait grandir le moral et les alliés." },
+    "whistleblower": { "name": "Lanceur d'alerte", "desc": "Attire les risques; trouve plus de reçus." },
+    "lobbyist": { "name": "Lobbyiste", "desc": "Les connexions réduisent les coûts." },
+    "staffer": { "name": "Assistant", "desc": "Équilibré; pas d'atout fort." },
+    "satirist": { "name": "Satiriste", "desc": "Fait face par l'humour; restaure la santé mentale." },
+    "mods": {
+      "receipts_pct": "+{pct}% Preuves",
+      "store_discount_pct": "-{pct}% Magasin",
+      "bribe_discount_pct": "-{pct}% Pots-de-vin",
+      "eo_heat_pct": "+{pct}% Chaleur des décrets",
+      "satire_sustain": "L'humour soutient la santé mentale"
+    }
+  },
   "menu": {
     "title": "Menu principal",
     "help": "Appuyez sur 1–8/0 ou cliquez sur un élément. Graine : {{seed}}",
@@ -94,5 +115,8 @@
     "settings": "Paramètres",
     "quit": "Quitter"
   },
-  "dialogs": { "confirm": "Êtes-vous sûr ?", "close": "Fermer" }
+  "dialogs": {
+    "confirm": "Êtes-vous sûr ?",
+    "close": "Fermer"
+  }
 }

@@ -1,10 +1,10 @@
-use web_sys::KeyboardEvent;
 use yew::prelude::*;
 
 use crate::a11y::set_status;
-use wasm_bindgen::JsCast;
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
+use wasm_bindgen::JsCast;
+use web_sys::KeyboardEvent;
 
 #[derive(Properties, PartialEq, Clone)]
 pub struct MenuItemProps {
@@ -83,7 +83,10 @@ pub fn main_menu(p: &MainMenuProps) -> Html {
             if let Some(list) = list_ref.cast::<web_sys::Element>() {
                 let sel = format!("[role='menuitem'][data-key='{idx}']");
                 if let Ok(Some(el)) = list.query_selector(&sel) {
-                    let _ = el.dyn_into::<web_sys::HtmlElement>().ok().map(|e| e.focus());
+                    let _ = el
+                        .dyn_into::<web_sys::HtmlElement>()
+                        .ok()
+                        .map(|e| e.focus());
                 }
             }
         });

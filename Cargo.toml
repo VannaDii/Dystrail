@@ -2,6 +2,7 @@
 name = "dystrail"
 version = "0.10.0"
 edition = "2021"
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib"]

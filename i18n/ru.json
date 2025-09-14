@@ -6,7 +6,8 @@
     "skip_to_content": "Перейти к содержимому",
     "select_mode": "Выберите режим",
     "loading": "Загрузка… {{pct}}%",
-    "loading_encounters": "Загрузка событий…"
+    "loading_encounters": "Загрузка событий…",
+    "continue": "Продолжить"
   },
   "share": {
     "code": "Код для обмена",
@@ -80,6 +81,26 @@
     "saved": "Игра сохранена"
   },
   "footer": { "copyright": "© Dystrail" },
+  "persona": {
+    "choose": "Выберите персону:",
+    "selected_budget_prefix": "Стартовый бюджет",
+    "preview": "Старт: Запасы {sup} · Кред {cred} · Разум {san} · Мораль {mor} · Союзники {allies} · Бюджет ${budget}",
+    "mult": "Множитель ×{mult}",
+    "preview_wait": "Выберите персону для подробностей.",
+    "journalist": { "name": "Журналист", "desc": "Достоверный и находчивый; живёт чеками." },
+    "organizer": { "name": "Организатор", "desc": "Укрепляет мораль и союзников." },
+    "whistleblower": { "name": "Информатор", "desc": "Притягивает риск; находит больше чеков." },
+    "lobbyist": { "name": "Лоббист", "desc": "Связи снижают затраты." },
+    "staffer": { "name": "Сотрудник", "desc": "Сбалансирован; без сильных перков." },
+    "satirist": { "name": "Сатирик", "desc": "Держится на юморе; восстанавливает рассудок." },
+    "mods": {
+      "receipts_pct": "+{pct}% Чеки",
+      "store_discount_pct": "-{pct}% Магазин",
+      "bribe_discount_pct": "-{pct}% Взятки",
+      "eo_heat_pct": "+{pct}% Жара указов",
+      "satire_sustain": "Юмор поддерживает рассудок"
+    }
+  },
   "menu": {
     "title": "Главное меню",
     "help": "Нажмите 1–8/0 или кликните по пункту. Сид: {{seed}}",
@@ -94,5 +115,8 @@
     "settings": "Настройки",
     "quit": "Выход"
   },
-  "dialogs": { "confirm": "Вы уверены?", "close": "Закрыть" }
+  "dialogs": {
+    "confirm": "Вы уверены?",
+    "close": "Закрыть"
+  }
 }

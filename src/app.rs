@@ -10,6 +10,7 @@ use yew_router::prelude::*;
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Phase {
     Boot,
+    Persona,
     Menu,
     Travel,
     Encounter,
@@ -41,20 +42,21 @@ pub fn app_inner() -> Html {
     let current_language = use_state(crate::i18n::current_lang);
     let data_ready = !data.encounters.is_empty();
 
-    // Add routing hooks
-    let navigator = use_navigator().unwrap();
+    // Add routing hooks - handle potential failures gracefully
+    let navigator = use_navigator();
     let route = use_route::<Route>().unwrap_or(Route::Home);
 
     // Sync route with phase (only when phase changes programmatically)
     {
-        let navigator = navigator.clone();
-        let phase = phase.clone();
+        let nav_opt = navigator.clone();
         let route = route.clone();
         use_effect_with(phase.clone(), move |phase| {
-            let new_route = Route::from_phase(phase);
-            // Only update route if it's different to prevent circular updates
-            if new_route != route {
-                navigator.push(&new_route);
+            if let Some(nav) = nav_opt.as_ref() {
+                let new_route = Route::from_phase(phase);
+                // Only update route if it's different to prevent circular updates
+                if new_route != route {
+                    nav.push(&new_route);
+                }
             }
         });
     }
@@ -79,7 +81,7 @@ pub fn app_inner() -> Html {
             wasm_bindgen_futures::spawn_local(async move {
                 let loaded = EncounterData::load_from_static().await;
                 data.set(loaded);
-                phase.set(Phase::Menu);
+                phase.set(Phase::Persona);
             });
             || {}
         });
@@ -107,13 +109,15 @@ pub fn app_inner() -> Html {
         let data = data.clone();
         let run_seed = run_seed.clone();
         Callback::from(move |()| {
+            // Try to decode the share code first
             if let Some((is_deep, seed)) = decode_to_seed(&code) {
                 let mode = if is_deep {
                     GameMode::Deep
                 } else {
                     GameMode::Classic
                 };
-                let gs = GameState::default().with_seed(seed, mode, (*data).clone());
+                let base = (*state).clone().unwrap_or_default();
+                let gs = base.with_seed(seed, mode, (*data).clone());
                 let mode_label = if is_deep {
                     crate::i18n::t("mode.deep")
                 } else {
@@ -125,6 +129,22 @@ pub fn app_inner() -> Html {
                 state.set(Some(gs));
                 run_seed.set(seed);
                 phase.set(Phase::Travel);
+            } else {
+                // Fallback to classic mode if code decode fails
+                let entropy = js_sys::Date::now().to_bits();
+                let new_code = generate_code_from_entropy(false, entropy);
+                code.set(new_code.clone().into());
+                if let Some((_, seed)) = decode_to_seed(&new_code) {
+                    let base = (*state).clone().unwrap_or_default();
+                    let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
+                    let mode_label = crate::i18n::t("mode.classic");
+                    let mut m = std::collections::HashMap::new();
+                    m.insert("mode", mode_label.as_str());
+                    logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                    state.set(Some(gs));
+                    run_seed.set(seed);
+                    phase.set(Phase::Travel);
+                }
             }
         })
     };
@@ -146,7 +166,8 @@ pub fn app_inner() -> Html {
                 } else {
                     GameMode::Classic
                 };
-                let gs = GameState::default().with_seed(seed, mode, (*data).clone());
+                let base = (*state).clone().unwrap_or_default();
+                let gs = base.with_seed(seed, mode, (*data).clone());
                 let mode_label = if deep {
                     crate::i18n::t("mode.deep")
                 } else {
@@ -326,23 +347,39 @@ pub fn app_inner() -> Html {
                 <p class="muted">{ i18n::t("ui.cta_start") }</p>
             </section>
         },
+        Phase::Persona => {
+            // On-persona selected callback
+            let on_selected = {
+                let state = state.clone();
+                Callback::from(move |per: crate::game::personas::Persona| {
+                    let mut gs = (*state).clone().unwrap_or_default();
+                    gs.apply_persona(&per);
+                    state.set(Some(gs));
+                })
+            };
+            let on_continue = {
+                let phase = phase.clone();
+                Callback::from(move |()| phase.set(Phase::Menu))
+            };
+            html! {
+              <section class="panel retro-menu">
+                <crate::components::ui::persona_select::PersonaSelect on_selected={Some(on_selected)} on_continue={Some(on_continue)} />
+              </section>
+            }
+        }
         Phase::Menu => {
             // Main menu actions wiring
             let on_select = {
                 let start_with_code = start_with_code.clone();
-                let start_mode = start_mode.clone();
+                let _start_mode = start_mode.clone();
                 let show_save = show_save.clone();
                 let show_settings = show_settings.clone();
                 let phase = phase.clone();
                 Callback::from(move |idx: u8| {
                     match idx {
                         1 => {
-                            // Travel: prefer start with code if valid else classic
-                            if *code_valid {
-                                start_with_code.emit(());
-                            } else {
-                                start_mode.emit(false);
-                            }
+                            // Travel: always try start with code first, fall back to classic mode
+                            start_with_code.emit(());
                         }
                         7 => {
                             show_save.set(true);

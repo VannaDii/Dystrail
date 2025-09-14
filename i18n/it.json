@@ -12,7 +12,8 @@
     "skip_to_content": "Salta al contenuto",
     "select_mode": "Seleziona modalità",
     "loading": "Caricamento… {{pct}}%",
-    "loading_encounters": "Caricamento incontri…"
+    "loading_encounters": "Caricamento incontri…",
+    "continue": "Continua"
   },
   "share": {
     "code": "Codice Condiviso",
@@ -101,6 +102,26 @@
     "copyright": "© Dystrail"
   }
   ,
+  "persona": {
+    "choose": "Scegli la tua Persona:",
+    "selected_budget_prefix": "Budget iniziale",
+    "preview": "Inizio: Provviste {sup} · Cred {cred} · San {san} · Mor {mor} · Alleati {allies} · Budget ${budget}",
+    "mult": "Moltiplicatore ×{mult}",
+    "preview_wait": "Seleziona una persona per i dettagli.",
+    "journalist": { "name": "Giornalista", "desc": "Credibile e ingegnoso; vive di ricevute." },
+    "organizer": { "name": "Organizzatore", "desc": "Costruisce morale e alleati." },
+    "whistleblower": { "name": "Informatori", "desc": "Attira rischi; trova più ricevute." },
+    "lobbyist": { "name": "Lobbista", "desc": "Le connessioni riducono i costi." },
+    "staffer": { "name": "Assistente", "desc": "Bilanciato; senza grandi bonus." },
+    "satirist": { "name": "Satiro", "desc": "Resiste con umorismo; ripristina la sanità mentale." },
+    "mods": {
+      "receipts_pct": "+{pct}% Ricevute",
+      "store_discount_pct": "-{pct}% Negozio",
+      "bribe_discount_pct": "-{pct}% Mazzette",
+      "eo_heat_pct": "+{pct}% Calore EO",
+      "satire_sustain": "L'umorismo sostiene la sanità"
+    }
+  },
   "menu": {
     "title": "Menu Principale",
     "help":  "Premi 1–8/0 o clicca un elemento. Seed: {{seed}}",

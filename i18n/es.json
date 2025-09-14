@@ -12,7 +12,8 @@
     "skip_to_content": "Ir al contenido",
     "select_mode": "Seleccionar modo",
     "loading": "Cargando… {{pct}}%",
-    "loading_encounters": "Cargando encuentros…"
+    "loading_encounters": "Cargando encuentros…",
+    "continue": "Continuar"
   },
   "share": {
     "code": "Código para compartir",
@@ -101,6 +102,26 @@
     "copyright": "© Dystrail"
   }
   ,
+  "persona": {
+    "choose": "Elige tu Persona:",
+    "selected_budget_prefix": "Presupuesto inicial",
+    "preview": "Inicio: Suministros {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Presupuesto ${budget}",
+    "mult": "Multiplicador ×{mult}",
+    "preview_wait": "Selecciona una persona para ver detalles.",
+    "journalist": { "name": "Periodista", "desc": "Creíble y hábil; prospera con recibos." },
+    "organizer": { "name": "Organizador", "desc": "Construye moral y aliados." },
+    "whistleblower": { "name": "Denunciante", "desc": "Atrae calor; encuentra más recibos." },
+    "lobbyist": { "name": "Cabildero", "desc": "Conexiones reducen costos." },
+    "staffer": { "name": "Funcionario", "desc": "Equilibrado; sin ventajas fuertes." },
+    "satirist": { "name": "Satírico", "desc": "Afronta con humor; restaura cordura." },
+    "mods": {
+      "receipts_pct": "+{pct}% Recibos",
+      "store_discount_pct": "-{pct}% Tienda",
+      "bribe_discount_pct": "-{pct}% Sobornos",
+      "eo_heat_pct": "+{pct}% Calor EO",
+      "satire_sustain": "El humor mantiene la cordura"
+    }
+  },
   "menu": {
     "title": "Menú Principal",
     "help":  "Pulsa 1–8/0 o haz clic en un elemento. Semilla: {{seed}}",

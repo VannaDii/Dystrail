@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::game::data::{Encounter, EncounterData};
 use crate::game::encounters::pick_encounter;
 use crate::game::exec_orders::ExecOrder;
+use crate::game::personas::{Persona, PersonaMods};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GameMode {
@@ -67,6 +68,7 @@ impl Stats {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GamePhase {
     Boot,
+    Persona,
     Menu,
     Travel,
     Encounter,
@@ -81,6 +83,14 @@ pub struct GameState {
     pub day: u32,
     pub region: Region,
     pub stats: Stats,
+    #[serde(default)]
+    pub budget: i32,
+    #[serde(default)]
+    pub persona_id: Option<String>,
+    #[serde(default)]
+    pub score_mult: f32,
+    #[serde(default)]
+    pub mods: PersonaMods,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     pub current_encounter: Option<Encounter>,
@@ -99,6 +109,10 @@ impl Default for GameState {
             day: 1,
             region: Region::Heartland,
             stats: Stats::default(),
+            budget: 100,
+            persona_id: None,
+            score_mult: 1.0,
+            mods: PersonaMods::default(),
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             current_encounter: None,
@@ -255,5 +269,22 @@ impl GameState {
     }
     pub fn next_pct(&mut self) -> u8 {
         (self.next_u32() % 100) as u8
+    }
+}
+
+impl GameState {
+    pub fn apply_persona(&mut self, p: &Persona) {
+        self.persona_id = Some(p.id.clone());
+        // Override starting stats (do not touch hp/pants)
+        self.stats.supplies = p.start.supplies;
+        self.stats.credibility = p.start.credibility;
+        self.stats.sanity = p.start.sanity;
+        self.stats.morale = p.start.morale;
+        self.stats.allies = p.start.allies;
+        self.budget = p.start.budget;
+        self.score_mult = p.score_mult;
+        self.mods = p.mods.clone();
+        self.stats.clamp();
+        self.save();
     }
 }

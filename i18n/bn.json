@@ -6,7 +6,8 @@
     "skip_to_content": "কন্টেন্টে যান",
     "select_mode": "মোড নির্বাচন করুন",
     "loading": "লোড হচ্ছে… {{pct}}%",
-    "loading_encounters": "এনকাউন্টার লোড হচ্ছে…"
+    "loading_encounters": "এনকাউন্টার লোড হচ্ছে…",
+    "continue": "চালিয়ে যান"
   },
   "share": {
     "code": "শেয়ার কোড",
@@ -80,6 +81,26 @@
     "saved": "গেম সংরক্ষণ হয়েছে"
   },
   "footer": { "copyright": "© Dystrail" },
+  "persona": {
+    "choose": "আপনার চরিত্র বাছুন:",
+    "selected_budget_prefix": "শুরুর বাজেট",
+    "preview": "শুরু: সরঞ্জাম {sup} · ক্রেড {cred} · মানসিকতা {san} · মনোবল {mor} · মিত্র {allies} · বাজেট ${budget}",
+    "mult": "গুণক ×{mult}",
+    "preview_wait": "বিস্তারিত দেখতে চরিত্র বাছুন।",
+    "journalist": { "name": "সাংবাদিক", "desc": "বিশ্বাসযোগ্য এবং চৌকস; প্রমাণ সংগ্রহে দক্ষ।" },
+    "organizer": { "name": "সংগঠক", "desc": "মনোবল ও মিত্র বাড়ায়।" },
+    "whistleblower": { "name": "হুইসলব্লোয়ার", "desc": "ঝুঁকি টানে; বেশি প্রমাণ পায়।" },
+    "lobbyist": { "name": "লবিস্ট", "desc": "যোগাযোগ খরচ কমায়।" },
+    "staffer": { "name": "কর্মী", "desc": "সামঞ্জস্যপূর্ণ; বড় কোনো সুবিধা নেই।" },
+    "satirist": { "name": "ব্যঙ্গকার", "desc": "রসিকতায় সামলে নেয়; মানসিকতা ফেরে।" },
+    "mods": {
+      "receipts_pct": "+{pct}% প্রমাণ",
+      "store_discount_pct": "-{pct}% দোকান",
+      "bribe_discount_pct": "-{pct}% ঘুষ",
+      "eo_heat_pct": "+{pct}% EO তাপ",
+      "satire_sustain": "হাস্যরস মানসিকতা টিকিয়ে রাখে"
+    }
+  },
   "menu": {
     "title": "প্রধান মেনু",
     "help": "1–8/0 চাপুন বা আইটেমে ক্লিক করুন। বীজ: {{seed}}",
@@ -94,5 +115,8 @@
     "settings": "সেটিংস",
     "quit": "প্রস্থান"
   },
-  "dialogs": { "confirm": "আপনি কি নিশ্চিত?", "close": "বন্ধ" }
+  "dialogs": {
+    "confirm": "আপনি কি নিশ্চিত?",
+    "close": "বন্ধ"
+  }
 }

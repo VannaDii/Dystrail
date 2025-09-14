@@ -12,7 +12,8 @@
     "skip_to_content": "الانتقال إلى المحتوى",
     "select_mode": "اختر الوضع",
     "loading": "جارٍ التحميل… {{pct}}%",
-    "loading_encounters": "جارٍ تحميل الأحداث…"
+    "loading_encounters": "جارٍ تحميل الأحداث…",
+    "continue": "تابع"
   },
   "share": {
     "code": "رمز المشاركة",
@@ -101,6 +102,26 @@
     "copyright": "© دايستريل"
   }
   ,
+  "persona": {
+    "choose": "اختر شخصيتك:",
+    "selected_budget_prefix": "الميزانية الابتدائية",
+    "preview": "البداية: مؤن {sup} · مصداقية {cred} · عقل {san} · معنويات {mor} · حلفاء {allies} · الميزانية ${budget}",
+    "mult": "المضاعف ×{mult}",
+    "preview_wait": "اختر شخصية لعرض التفاصيل.",
+    "journalist": { "name": "صحفي", "desc": "موثوق وبارع؛ يزدهر بجمع الإثباتات." },
+    "organizer": { "name": "منظم", "desc": "يبني المعنويات والحلفاء." },
+    "whistleblower": { "name": "مبلغ عن المخالفات", "desc": "يجذب الانتباه؛ يعثر على مزيد من الإثباتات." },
+    "lobbyist": { "name": "جماعي ضغط", "desc": "العلاقات تقلل التكاليف." },
+    "staffer": { "name": "موظف", "desc": "متوازن؛ بلا ميزات قوية." },
+    "satirist": { "name": "ساخر", "desc": "يتماسك بالفكاهة؛ يستعيد العقل." },
+    "mods": {
+      "receipts_pct": "+{pct}% إثباتات",
+      "store_discount_pct": "-{pct}% متجر",
+      "bribe_discount_pct": "-{pct}% رشاوى",
+      "eo_heat_pct": "+{pct}% سخونة الأوامر التنفيذية",
+      "satire_sustain": "الفكاهة تعزز العقل"
+    }
+  },
   "menu": {
     "title": "القائمة الرئيسية",
     "help":  "اضغط 1–8/0 أو انقر على عنصر. البذرة: {{seed}}",

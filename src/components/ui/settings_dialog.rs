@@ -24,7 +24,9 @@ pub fn settings_dialog(p: &Props) -> Html {
             let mut prev_focus: Option<web_sys::HtmlElement> = None;
             if *open {
                 if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-                    prev_focus = doc.active_element().and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok());
+                    prev_focus = doc
+                        .active_element()
+                        .and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok());
                 }
                 if let Some(el) = node.cast::<web_sys::Element>() {
                     if let Ok(list) = el.query_selector_all(
@@ -40,7 +42,9 @@ pub fn settings_dialog(p: &Props) -> Html {
                 }
             }
             move || {
-                if let Some(el) = prev_focus { let _ = el.focus(); }
+                if let Some(el) = prev_focus {
+                    let _ = el.focus();
+                }
             }
         });
     }

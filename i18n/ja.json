@@ -6,7 +6,8 @@
     "skip_to_content": "コンテンツへスキップ",
     "select_mode": "モードを選択",
     "loading": "読み込み中… {{pct}}%",
-    "loading_encounters": "イベントを読み込み中…"
+    "loading_encounters": "イベントを読み込み中…",
+    "continue": "続行"
   },
   "share": {
     "code": "共有コード",
@@ -80,6 +81,26 @@
     "saved": "ゲームを保存しました"
   },
   "footer": { "copyright": "© Dystrail" },
+  "persona": {
+    "choose": "役割を選択してください:",
+    "selected_budget_prefix": "初期予算",
+    "preview": "開始: 物資 {sup} · 信用 {cred} · 正気 {san} · 士気 {mor} · 仲間 {allies} · 予算 ${budget}",
+    "mult": "倍率 ×{mult}",
+    "preview_wait": "役割を選ぶと詳細が表示されます。",
+    "journalist": { "name": "ジャーナリスト", "desc": "信用でき機転が利く；証拠集めが得意。" },
+    "organizer": { "name": "オーガナイザー", "desc": "士気と仲間を増やす。" },
+    "whistleblower": { "name": "内部告発者", "desc": "注目を集める；より多くの証拠を見つける。" },
+    "lobbyist": { "name": "ロビイスト", "desc": "コネでコスト削減。" },
+    "staffer": { "name": "スタッフ", "desc": "バランス型；特筆すべき強みなし。" },
+    "satirist": { "name": "風刺家", "desc": "ユーモアで耐える；正気を回復。" },
+    "mods": {
+      "receipts_pct": "+{pct}% 証拠",
+      "store_discount_pct": "-{pct}% 店",
+      "bribe_discount_pct": "-{pct}% 賄賂",
+      "eo_heat_pct": "+{pct}% 大統領令の注目度",
+      "satire_sustain": "ユーモアで正気を支える"
+    }
+  },
   "menu": {
     "title": "メインメニュー",
     "help": "1–8/0を押すか項目をクリック。シード: {{seed}}",
@@ -94,5 +115,8 @@
     "settings": "設定",
     "quit": "終了"
   },
-  "dialogs": { "confirm": "本当に実行しますか？", "close": "閉じる" }
+  "dialogs": {
+    "confirm": "よろしいですか？",
+    "close": "閉じる"
+  }
 }

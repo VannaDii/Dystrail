@@ -7,6 +7,7 @@
     "dystrail",
     "Español",
     "fargs",
+    "Français",
     "gloo",
     "Italiano",
     "labelledby",
@@ -15,10 +16,13 @@
     "onchange",
     "onclick",
     "oninput",
+    "Português",
     "serde",
     "thiserror",
     "unic",
     "valuenow",
-    "العربية"
+    "Русский",
+    "العربية",
+    "हिन्दी"
   ]
 }

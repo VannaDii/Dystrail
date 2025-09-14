@@ -6,7 +6,8 @@
     "skip_to_content": "跳到内容",
     "select_mode": "选择模式",
     "loading": "正在加载… {{pct}}%",
-    "loading_encounters": "正在加载事件…"
+    "loading_encounters": "正在加载事件…",
+    "continue": "继续"
   },
   "share": {
     "code": "分享代码",
@@ -79,6 +80,26 @@
     "loaded": "已加载存档",
     "saved": "已保存游戏"
   },
+  "persona": {
+    "choose": "选择你的身份:",
+    "selected_budget_prefix": "起始预算",
+    "preview": "起始：补给 {sup} · 信誉 {cred} · 理智 {san} · 士气 {mor} · 盟友 {allies} · 预算 ${budget}",
+    "mult": "分数乘数 ×{mult}",
+    "preview_wait": "选择身份以查看详情。",
+    "journalist": { "name": "记者", "desc": "可信且机敏；擅长收集证据。" },
+    "organizer": { "name": "组织者", "desc": "建立士气与盟友。" },
+    "whistleblower": { "name": "揭发者", "desc": "吸引火力；找到更多证据。" },
+    "lobbyist": { "name": "说客", "desc": "人脉降低成本。" },
+    "staffer": { "name": "助理", "desc": "均衡；无显著加成。" },
+    "satirist": { "name": "讽刺家", "desc": "以幽默应对；恢复理智。" },
+    "mods": {
+      "receipts_pct": "+{pct}% 证据",
+      "store_discount_pct": "-{pct}% 商店",
+      "bribe_discount_pct": "-{pct}% 贿赂",
+      "eo_heat_pct": "+{pct}% 行政令热度",
+      "satire_sustain": "幽默维持理智"
+    }
+  },
   "footer": { "copyright": "© Dystrail" },
   "menu": {
     "title": "主菜单",
@@ -94,5 +115,8 @@
     "settings": "设置",
     "quit": "退出"
   },
-  "dialogs": { "confirm": "你确定吗？", "close": "关闭" }
+  "dialogs": {
+    "confirm": "你确定吗？",
+    "close": "关闭"
+  }
 }

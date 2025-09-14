@@ -4,6 +4,8 @@ use yew_router::prelude::*;
 pub enum Route {
     #[at("/")]
     Home,
+    #[at("/persona")]
+    Persona,
     #[at("/game")]
     Game,
     #[at("/travel")]
@@ -20,6 +22,7 @@ impl Route {
     #[must_use]
     pub fn from_phase(phase: &crate::app::Phase) -> Self {
         match phase {
+            crate::app::Phase::Persona => Route::Persona,
             crate::app::Phase::Menu | crate::app::Phase::Boot => Route::Home,
             crate::app::Phase::Travel => Route::Travel,
             crate::app::Phase::Encounter => Route::Encounter,
@@ -31,7 +34,8 @@ impl Route {
     #[must_use]
     pub fn to_phase(&self) -> Option<crate::app::Phase> {
         match self {
-            Route::Game | Route::Home => Some(crate::app::Phase::Menu),
+            Route::Persona => Some(crate::app::Phase::Persona),
+            Route::Home | Route::Game => Some(crate::app::Phase::Menu),
             Route::Travel => Some(crate::app::Phase::Travel),
             Route::Encounter => Some(crate::app::Phase::Encounter),
             Route::Boss => Some(crate::app::Phase::Boss),

@@ -1,5 +1,24 @@
 # AGENT.md — Codex Operating Instructions (Rust + Yew, A11y + i18n Required)
 
+IMPORTANT: NEVER TAKE SHORT CUTS! ONLY USE TERMINAL COMMANDS AS A LAST RESORT.
+
+- **Stable Rust** (latest stable channel pinned).
+- **Yew** (component framework).
+- **yew_router** (routing).
+- **serde** + **serde_json** (JSON-based i18n messages with variable interpolation).
+- **gloo** / **web-sys** (browser interop).
+- **wasm-bindgen-test** (wasm tests).
+- **console_error_panic_hook** (dev diagnostics only).
+- **trunk** (build/serve).
+- **binaryen/wasm-opt** (size/perf).
+- **axe-core** via Playwright script (a11y CI audit).
+- **cargo-audit**, **cargo-deny** (security/licensing).
+- **serde** + **serde_wasm_bindgen** (data).
+- **thiserror** / **anyhow** (errors).
+- **yew-style-inliner** or CSS pipeline via Trunk (for SSR-ish critical path styles if needed).
+
+> For date/number formatting, prefer the browser's **Intl** API through `web-sys` bindings to keep WASM small; use the custom JSON-based i18n system for message translations and variable interpolation. (Rust + Yew, A11y + i18n Required)
+
 You are an implementation agent working in a Rust + Yew web app repository. Your output MUST be production-ready, accessible (WCAG 2.2 AA), localized (multiple languages incl. RTL), and conform to Rust best practices.
 
 If any requirement conflicts, **fail the pipeline** and open a TODO with remediation steps.
@@ -55,10 +74,10 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 ├─ index.html
 ├─ static/                 # favicons, manifest, images
 ├─ i18n/
-│  ├─ en/app.ftl
-│  ├─ it/app.ftl
-│  ├─ es/app.ftl
-│  └─ ar/app.ftl          # RTL example
+│  ├─ en.json
+│  ├─ it.json
+│  ├─ es.json
+│  └─ ar.json               # RTL example
 ├─ src/
 │  ├─ main.rs
 │  ├─ app.rs
@@ -120,11 +139,11 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 
 ### 4.2 - Internationalization & Localization
 
-- Store messages in `i18n/<locale>/*.ftl`. Keys are **namespaced** (`app.nav.home`, `form.error.required`).
+- Store messages in `i18n/<locale>.json`. Keys are **namespaced** (`app.nav.home`, `form.error.required`).
 - Implement a **language switcher** in `Header`; saves preference (localStorage) and updates `<html lang>` and `dir="rtl"` for RTL locales.
-- Support **pluralization** and **select** variants via Fluent.
+- Support **variable interpolation** via JSON templates with `{{var}}` and `{var}` syntax.
 - Use browser **Intl** for number/date formatting; never hardcode formats.
-- **Do not** concatenate translated strings; always pass variables to Fluent.
+- **Do not** concatenate translated strings; always pass variables to the translation functions.
 - Provide `ar` (RTL) and verify layout flips (flex direction, icons, carets). Wrap where needed with logical CSS (e.g., `margin-inline-start`).
 
 ### 4.3 - Code Quality & Architecture
@@ -156,19 +175,20 @@ fn main() {
 ### 5.2 - src/i18n.rs (loader + context)
 
 ```rust
-use fluent_bundle::{FluentBundle, FluentResource, FluentArgs};
+use serde_json::Value;
 use std::collections::HashMap;
-use unic_langid::LanguageIdentifier;
 
-pub struct I18n {
-    bundle: FluentBundle<FluentResource>,
-    lang: LanguageIdentifier,
-    rtl: bool,
+pub struct I18nBundle {
+    pub lang: String,
+    pub rtl: bool,
+    translations: Value,
+    fallback: Value,
 }
 
-impl I18n {
-    pub fn t(&self, key: &str, args: Option<&FluentArgs>) -> String { /* resolve string or fallback */ }
-    pub fn set_lang(&mut self, lang: &LanguageIdentifier) { /* rebuild bundle, set rtl */ }
+impl I18nBundle {
+    pub fn t(&self, key: &str) -> String { /* resolve string or fallback */ }
+    pub fn tr(&self, key: &str, args: Option<&HashMap<&str, &str>>) -> String { /* resolve with variable interpolation */ }
+    pub fn set_lang(&mut self, lang: &str) { /* rebuild bundle, set rtl, update DOM lang/dir */ }
     pub fn is_rtl(&self) -> bool { self.rtl }
 }
 ```
@@ -188,22 +208,29 @@ pub fn trap_focus_in(container_id: &str) { /* on keydown Tab, cycle focusables *
 
 ⸻
 
-## 6 - i18n Message Example (i18n/en/app.ftl)
+## 6 - i18n Message Example (i18n/en.json)
 
-```text
-app-title = Rust + Yew Demo
-nav-home = Home
-nav-settings = Settings
-greeting = Hello, { $name }!
-items-count =
-    { $count ->
-       [0] No items
-       [one] 1 item
-      *[other] { $count } items
+```json
+{
+  "app": {
+    "title": "Rust + Yew Demo"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "greeting": "Hello, {{name}}!",
+  "items": {
+    "count": {
+      "zero": "No items",
+      "one": "1 item",
+      "other": "{{count}} items"
     }
+  }
+}
 ```
 
-Example RTL (i18n/ar/app.ftl) mirrors keys and uses culturally appropriate phrasing. Ensure caret icons and layout flip using logical properties (padding-inline-start).
+Example RTL (i18n/ar.json) mirrors keys and uses culturally appropriate phrasing. Ensure caret icons and layout flip using logical properties (padding-inline-start).
 
 ⸻
 
@@ -223,7 +250,7 @@ Example RTL (i18n/ar/app.ftl) mirrors keys and uses culturally appropriate phras
 
 ### 7.3 - i18n Coverage
 
-- Parse all .ftl keys and fail if any key is missing in any shipped locale.
+- Parse all .json keys and fail if any key is missing in any shipped locale.
 - Render smoke test per locale to catch runtime resolution issues.
 
 ⸻
@@ -235,7 +262,7 @@ Example RTL (i18n/ar/app.ftl) mirrors keys and uses culturally appropriate phras
 3. security: cargo audit, cargo deny check.
 4. tests-unit: cargo test + wasm-bindgen-test.
 5. tests-e2e-a11y: npm ci && npx playwright install --with-deps && npx playwright test.
-6. i18n-coverage: custom Rust/Node script to assert all .ftl keys exist per locale.
+6. i18n-coverage: custom Rust/Node script to assert all .json keys exist per locale.
 7. artifact: upload dist/ output; store Axe/Playwright reports.
 
 Any failure blocks merge. CI must run on PRs and default branch.

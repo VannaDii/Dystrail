@@ -6,7 +6,8 @@
     "skip_to_content": "Ir para o conteúdo",
     "select_mode": "Selecionar modo",
     "loading": "Carregando… {{pct}}%",
-    "loading_encounters": "Carregando encontros…"
+    "loading_encounters": "Carregando encontros…",
+    "continue": "Continuar"
   },
   "share": {
     "code": "Código de compartilhamento",
@@ -80,6 +81,26 @@
     "saved": "Jogo salvo"
   },
   "footer": { "copyright": "© Dystrail" },
+  "persona": {
+    "choose": "Escolha sua Persona:",
+    "selected_budget_prefix": "Orçamento inicial",
+    "preview": "Início: Suprimentos {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Orçamento ${budget}",
+    "mult": "Multiplicador ×{mult}",
+    "preview_wait": "Selecione uma persona para ver detalhes.",
+    "journalist": { "name": "Jornalista", "desc": "Crível e engenhoso; vive de recibos." },
+    "organizer": { "name": "Organizador", "desc": "Constrói moral e aliados." },
+    "whistleblower": { "name": "Denunciante", "desc": "Atrai risco; encontra mais recibos." },
+    "lobbyist": { "name": "Lobista", "desc": "Conexões reduzem custos." },
+    "staffer": { "name": "Assessor", "desc": "Equilibrado; sem grandes vantagens." },
+    "satirist": { "name": "Satirista", "desc": "Aguenta com humor; restaura sanidade." },
+    "mods": {
+      "receipts_pct": "+{pct}% Recibos",
+      "store_discount_pct": "-{pct}% Loja",
+      "bribe_discount_pct": "-{pct}% Subornos",
+      "eo_heat_pct": "+{pct}% Calor EO",
+      "satire_sustain": "O humor sustenta a sanidade"
+    }
+  },
   "menu": {
     "title": "Menu principal",
     "help": "Pressione 1–8/0 ou clique em um item. Semente: {{seed}}",
@@ -94,5 +115,8 @@
     "settings": "Configurações",
     "quit": "Sair"
   },
-  "dialogs": { "confirm": "Tem certeza?", "close": "Fechar" }
+  "dialogs": {
+    "confirm": "Tem certeza?",
+    "close": "Fechar"
+  }
 }

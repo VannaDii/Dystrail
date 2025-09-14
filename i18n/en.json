@@ -12,7 +12,8 @@
     "skip_to_content": "Skip to content",
     "select_mode": "Select Mode",
     "loading": "Loading… {{pct}}%",
-    "loading_encounters": "Loading encounters…"
+    "loading_encounters": "Loading encounters…",
+    "continue": "Continue"
   },
   "share": {
     "code": "Share Code",
@@ -101,6 +102,26 @@
     "copyright": "© Dystrail"
   }
   ,
+  "persona": {
+    "choose": "Choose your Persona:",
+    "selected_budget_prefix": "Starting budget",
+    "preview": "Starting: Supplies {sup} · Cred {cred} · San {san} · Mor {mor} · Allies {allies} · Budget ${budget}",
+    "mult": "Multiplier ×{mult}",
+    "preview_wait": "Select a persona to see details.",
+    "journalist": { "name": "Journalist", "desc": "Credible and resourceful; thrives on receipts." },
+    "organizer": { "name": "Organizer", "desc": "Builds morale and allies." },
+    "whistleblower": { "name": "Whistleblower", "desc": "Draws heat; finds more receipts." },
+    "lobbyist": { "name": "Lobbyist", "desc": "Connections reduce costs." },
+    "staffer": { "name": "Staffer", "desc": "Balanced; no strong perks." },
+    "satirist": { "name": "Satirist", "desc": "Copes with humor; restores sanity." },
+    "mods": {
+      "receipts_pct": "+{pct}% Receipts",
+      "store_discount_pct": "-{pct}% Store",
+      "bribe_discount_pct": "-{pct}% Bribes",
+      "eo_heat_pct": "+{pct}% EO Heat",
+      "satire_sustain": "Humor sustains sanity"
+    }
+  },
   "menu": {
     "title": "Main Menu",
     "help":  "Press 1–8/0 or click an item. Seed: {{seed}}",
