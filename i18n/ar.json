@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "دايستريل"
+  },
+  "nav": {
+    "home": "الصفحة الرئيسية",
+    "settings": "الإعدادات",
+    "language": "اللغة"
+  },
+  "ui": {
+    "cta_start": "اضغط أي مفتاح للبدء",
+    "skip_to_content": "الانتقال إلى المحتوى",
+    "select_mode": "اختر الوضع",
+    "loading": "جارٍ التحميل… {{pct}}%",
+    "loading_encounters": "جارٍ تحميل الأحداث…"
+  },
+  "share": {
+    "code": "رمز المشاركة",
+    "start_with_code": "ابدأ بالرمز",
+    "code_help": "التنسيق: CL-كلمة00 أو DP-كلمة00",
+    "run": "مشاركة الجولة"
+  },
+  "mode": {
+    "classic": "كلاسيكي",
+    "deep": "الأعماق"
+  },
+  "travel": {
+    "title": "السفر",
+    "next": "تابع إلى المرحلة التالية"
+  },
+  "stats": {
+    "day_region": "اليوم {{day}} — {{region}}",
+    "hp_short": "صحة",
+    "sanity_short": "عقل",
+    "cred_short": "مصداقية",
+    "sup_short": "مؤن",
+    "mor_short": "معنويات",
+    "allies_short": "حلفاء",
+    "pants": "السراويل {{pct}}%",
+    "pants_label": "مقياس السراويل"
+  },
+  "region": {
+    "heartland": "قلب البلاد",
+    "rustbelt": "حزام الصدأ",
+    "beltway": "الحزام الدائري"
+  },
+  "eo": {
+    "prefix": "أمر:",
+    "shutdown": "إغلاق حكومي",
+    "travel_ban_lite": "حظر سفر (خفيف)",
+    "gas_stove_police": "شرطة مواقد الغاز",
+    "book_panic": "ذعر الكتب",
+    "deportation_sweep": "حملة ترحيل",
+    "tariff_tsunami": "تسونامي الرسوم",
+    "doe_eliminated": "إزالة وزارة التعليم",
+    "war_dept_reorg": "إعادة تنظيم وزارة الحرب"
+  },
+  "boss": {
+    "title": "الزعيم المعرقل",
+    "phases_hint": "واجه المراحل: الإغلاق، نقاط النظام، سيل التعديلات.",
+    "begin": "ابدأ المواجهة"
+  },
+  "result": {
+    "title": "النتيجة",
+    "title_aria": "النتيجة",
+    "thanks": "شكرًا للعب",
+    "pants_emergency": "حالة طوارئ وطنية للسراويل",
+    "pants_emergency_desc": "بلغ المقياس 100% — فشل مجيد.",
+    "passed_cloture": "نجحت في الإغلاق!",
+    "passed_cloture_desc": "مصداقيتك صنعت الفارق.",
+    "survived_filibuster": "نجوت من التعطيل",
+    "survived_filibuster_desc": "مسيرة متعبة لكنها منتصرة إلى واشنطن.",
+    "exhausted": "مرهق",
+    "exhausted_desc": "تنهار تحت الإجراءات."
+  },
+  "game": {
+    "seed_label": "البذرة:"
+  },
+  "log": {
+    "booting": "يجري الإقلاع…",
+    "seed_set": "تم تعيين البذرة",
+    "traveled": "سافرت",
+    "encounter": "حدث!",
+    "pants_emergency": "حالة طوارئ وطنية للسراويل!",
+    "run_begins": "بدأت الجولة ({{mode}})"
+  },
+  "save": {
+    "header": "حفظ/تحميل",
+    "title": "حفظ / تحميل",
+    "save": "احفظ الآن",
+    "load": "تحميل",
+    "export": "نسخ JSON للتصدير",
+    "import_label": "ألصق JSON للحفظ",
+    "import_button": "استيراد",
+    "close": "إغلاق",
+    "error": "ملف حفظ غير صالح",
+    "loaded": "تم تحميل الحفظ",
+    "saved": "تم حفظ اللعبة"
+  },
+  "footer": {
+    "copyright": "© دايستريل"
+  }
+  ,
+  "menu": {
+    "title": "القائمة الرئيسية",
+    "help":  "اضغط 1–8/0 أو انقر على عنصر. البذرة: {{seed}}",
+    "selected": "تم اختيار",
+    "travel": "السفر",
+    "camp":   "التخييم",
+    "status": "الحالة",
+    "pace":   "تغيير الوتيرة",
+    "diet":   "نظام غذائي",
+    "inventory": "استخدام الجرد",
+    "share":  "حفظ/مشاركة البذرة",
+    "settings": "الإعدادات",
+    "quit":   "خروج"
+  },
+  "dialogs": {
+    "confirm": "هل أنت متأكد؟",
+    "close":   "إغلاق"
+  }
+}

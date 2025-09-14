@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "首页", "settings": "设置", "language": "语言" },
+  "ui": {
+    "cta_start": "按任意键开始",
+    "skip_to_content": "跳到内容",
+    "select_mode": "选择模式",
+    "loading": "正在加载… {{pct}}%",
+    "loading_encounters": "正在加载事件…"
+  },
+  "share": {
+    "code": "分享代码",
+    "start_with_code": "使用代码开始",
+    "code_help": "格式：CL-WORD00 或 DP-WORD00",
+    "run": "分享旅程"
+  },
+  "mode": { "classic": "经典", "deep": "深水区" },
+  "travel": { "title": "旅行", "next": "前往下一段" },
+  "stats": {
+    "day_region": "第{{day}}天 — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "理智",
+    "cred_short": "信誉",
+    "sup_short": "物资",
+    "mor_short": "士气",
+    "allies_short": "盟友",
+    "pants": "裤子 {{pct}}%",
+    "pants_label": "裤子计量表"
+  },
+  "region": { "heartland": "腹地", "rustbelt": "锈带", "beltway": "首都环城" },
+  "eo": {
+    "prefix": "行政令:",
+    "shutdown": "政府关门",
+    "travel_ban_lite": "旅行禁令（轻度）",
+    "gas_stove_police": "燃气灶警察",
+    "book_panic": "图书恐慌",
+    "deportation_sweep": "驱逐扫荡",
+    "tariff_tsunami": "关税海啸",
+    "doe_eliminated": "教育部撤销",
+    "war_dept_reorg": "战争部重组"
+  },
+  "boss": {
+    "title": "冗长辩论头目",
+    "phases_hint": "面对阶段：闭幕投票、秩序问题、修正案洪流。",
+    "begin": "开始挑战"
+  },
+  "result": {
+    "title": "结果",
+    "title_aria": "结果",
+    "thanks": "感谢游玩",
+    "pants_emergency": "全国裤子紧急状态",
+    "pants_emergency_desc": "裤子计量表达到100%——你壮烈失败了。",
+    "passed_cloture": "你通过了闭幕投票！",
+    "passed_cloture_desc": "你的信誉扭转了局面。",
+    "survived_filibuster": "你挺过了冗长辩论",
+    "survived_filibuster_desc": "历尽艰辛但胜利地向华盛顿前进。",
+    "exhausted": "精疲力竭",
+    "exhausted_desc": "你在程序面前倒下了。"
+  },
+  "game": { "seed_label": "种子:" },
+  "log": {
+    "booting": "正在启动…",
+    "seed_set": "已设置种子",
+    "traveled": "已旅行",
+    "encounter": "遭遇！",
+    "pants_emergency": "全国裤子紧急！",
+    "run_begins": "运行开始（{{mode}}）"
+  },
+  "save": {
+    "header": "保存/加载",
+    "title": "保存 / 加载",
+    "save": "立即保存",
+    "load": "加载",
+    "export": "复制导出 JSON",
+    "import_label": "粘贴存档 JSON",
+    "import_button": "导入",
+    "close": "关闭",
+    "error": "无效的存档 JSON",
+    "loaded": "已加载存档",
+    "saved": "已保存游戏"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "主菜单",
+    "help": "按 1–8/0 或点击项目。种子：{{seed}}",
+    "selected": "已选择",
+    "travel": "旅行",
+    "camp": "露营",
+    "status": "状态",
+    "pace": "改变速度",
+    "diet": "饮食信息",
+    "inventory": "使用物品",
+    "share": "保存/分享种子",
+    "settings": "设置",
+    "quit": "退出"
+  },
+  "dialogs": { "confirm": "你确定吗？", "close": "关闭" }
+}

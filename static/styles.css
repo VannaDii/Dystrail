@@ -1,0 +1,729 @@
+/* Oregon Trail Inspired Retro Styling */
+:root {
+  /* Authentic Oregon Trail brown/tan color palette */
+  --bg: #000000;
+  --panel: #2D1B00;
+  --panel-border: #D4A574;
+  --text: #D4A574;
+  --text-dim: #B8956A;
+  --text-bright: #F4E4C1;
+  --accent: #F4E4C1;
+  --accent-2: #D4A574;
+  --button-bg: #4A3728;
+  --button-border: #D4A574;
+  --shadow: #1A1000;
+}
+
+/* High Contrast theme toggled via .hc on <html> */
+html.hc {
+  --bg: #0b0e12;
+  --panel: #141922;
+  --panel-border: #e9ecef;
+  --text: #e9ecef;
+  --text-dim: #d0d6dd;
+  --text-bright: #ffffff;
+  --accent: #00D9C0;
+  --accent-2: #00A896;
+}
+
+/* Import retro pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  background: #000000;
+  color: var(--text);
+  image-rendering: pixelated;
+  cursor: default;
+  min-height: 100vh;
+}
+
+/* Oregon Trail style numbered menu */
+.ot-menu ul[role="menu"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ot-menuitem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  min-height: 44px; /* touch target */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.ot-menuitem:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.ot-menuitem .num {
+  color: var(--accent);
+  font-weight: bold;
+  min-width: 2ch;
+}
+.ot-menuitem .label {
+  color: var(--text-bright);
+}
+.ot-menu p.muted {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Main container */
+#main {
+  display: block;
+  max-width: min(800px, 95vw);
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--bg);
+}
+
+/* Oregon Trail style panels */
+.panel {
+  background: var(--panel);
+  border: 3px solid var(--panel-border);
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 600px;
+  /* Classic retro shadow effect */
+  box-shadow: 6px 6px 0 var(--shadow);
+  position: relative;
+  /* Add decorative border pattern */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--panel-border) 0px,
+      var(--panel-border) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--panel-border) 0px,
+      var(--panel-border) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  background-size: 100% 10px, 10px 100%;
+  background-position: 0 0, 0 0;
+  background-repeat: repeat-x, repeat-y;
+}
+
+/* Add Oregon Trail-style decorative corners */
+.panel::before,
+.panel::after {
+  content: "◊";
+  position: absolute;
+  font-size: 16px;
+  color: var(--accent);
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1;
+}
+
+.panel::before {
+  top: 8px;
+  left: 8px;
+}
+
+.panel::after {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Panel titles */
+.panel h1, .panel h2, .panel h3 {
+  color: var(--text-bright);
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Controls layout */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+/* Oregon Trail style buttons */
+button {
+  appearance: none;
+  background: var(--button-bg);
+  color: var(--text-bright);
+  border: 3px solid var(--button-border);
+  padding: 12px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--shadow);
+  transition: none;
+  position: relative;
+  min-width: 120px;
+}
+
+button:hover {
+  background: var(--panel);
+  color: var(--text-bright);
+  box-shadow: 3px 3px 0 var(--shadow);
+}
+
+button:active {
+  box-shadow: 1px 1px 0 var(--shadow);
+  transform: translate(1px, 1px);
+}
+
+button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  background: var(--shadow);
+  color: var(--text-dim);
+  border-color: var(--text-dim);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Oregon Trail ASCII-style decorative elements */
+button::before {
+  content: "» ";
+  color: var(--accent);
+  font-weight: bold;
+}
+
+button:disabled::before {
+  color: var(--text-dim);
+}
+
+/* Form inputs */
+input, textarea, select {
+  background: var(--bg);
+  color: var(--text-bright);
+  border: 3px solid var(--panel-border);
+  padding: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  box-shadow: inset 3px 3px 0 var(--shadow);
+  line-height: 1.4;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+/* Field layout */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Text styling */
+.muted {
+  color: var(--text-dim);
+  word-break: keep-all;
+}
+
+/* Stats display */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-weight: bold;
+}
+
+.stats-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 12px 0;
+  list-style: none;
+}
+
+.stats-list li {
+  background: var(--button-bg);
+  border: 1px solid var(--panel-border);
+  padding: 8px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Executive order display */
+.order {
+  margin-top: 8px;
+  color: var(--accent);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Image rendering */
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Progress bars - Oregon Trail style */
+.bar-wrap {
+  height: 20px;
+  background: var(--bg);
+  border: 2px solid var(--panel-border);
+  margin: 16px 0;
+  overflow: hidden;
+  box-shadow: inset 2px 2px 0 var(--shadow);
+}
+
+.bar-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0px,
+    var(--accent) 4px,
+    var(--accent-2) 4px,
+    var(--accent-2) 8px
+  );
+  /* Retro pixelated bar animation */
+  background-size: 8px 100%;
+}
+
+/* Modal/Drawer styling */
+.drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.drawer-body {
+  width: min(600px, 90vw);
+  background: var(--panel);
+  border: 3px solid var(--panel-border);
+  padding: 24px;
+  box-shadow: 6px 6px 0 var(--shadow);
+}
+
+/* Log display */
+.log {
+  background: var(--bg);
+  border: 2px solid var(--panel-border);
+  padding: 16px;
+  margin-top: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: inset 2px 2px 0 var(--shadow);
+}
+
+.log p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.log p:last-child {
+  margin-bottom: 0;
+}
+
+/* Retro animations */
+@media (prefers-reduced-motion: no-preference) {
+  .bar-fill {
+    animation: retroPulse 2s infinite;
+  }
+}
+
+@keyframes retroPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Base responsive design - Mobile First */
+.panel {
+  padding: 16px;
+  margin: 12px 0;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.controls {
+  gap: 8px;
+}
+
+#main {
+  margin: 10px auto;
+  padding: 10px;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .panel {
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .controls {
+    gap: 12px;
+  }
+
+  #main {
+    margin: 20px auto;
+    padding: 20px;
+  }
+}/* Retro component-specific styling */
+.retro-btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  font-weight: bold;
+}
+
+.retro-btn-primary:hover {
+  background: var(--text-bright);
+  color: var(--bg);
+  border-color: var(--text-bright);
+}
+
+.retro-btn-choice {
+  min-width: 200px;
+  text-align: left;
+}
+
+.retro-encounter {
+  border-color: var(--accent);
+}
+
+.encounter-desc {
+  background: var(--bg);
+  border: 1px solid var(--panel-border);
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: inset 1px 1px 0 var(--shadow);
+}
+
+/* Share code bar styling */
+.share-code-input {
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.share-code-input:invalid {
+  border-color: #FF0000;
+  background: #330000;
+}
+
+/* Stats bar retro styling */
+.stats-panel {
+  background: var(--bg);
+  border: 2px solid var(--panel-border);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stats-row:last-child {
+  margin-bottom: 0;
+}
+
+.stat-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  color: var(--text-bright);
+  font-weight: bold;
+}
+
+/* Menu styling - Mobile First */
+.retro-menu {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.retro-header {
+  margin-bottom: 20px;
+}
+
+  /* Desktop layout improvements */
+  .header-with-controls {
+    flex-direction: row; /* Horizontal layout on desktop */
+    align-items: center;
+  }
+
+  .header-controls-row {
+    display: contents; /* Flatten the controls back into main flex */
+  }
+
+  .header-center {
+    order: 0; /* Reset order on desktop */
+  }/* Controls row on mobile - below ASCII art */
+.header-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.header-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0; /* Allow shrinking */
+  order: -1; /* Put ASCII art first on mobile */
+}
+
+.header-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Language selector in menu */
+.header-left select {
+  appearance: none;
+  background: var(--button-bg);
+  color: var(--text);
+  border: 2px solid var(--button-border);
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--shadow);
+  min-width: auto;
+  position: relative;
+  line-height: 1;
+}
+
+.header-left select:hover {
+  background-color: var(--panel);
+  color: var(--text-bright);
+}
+
+.header-left select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Save button in menu header */
+.header-right button {
+  padding: 6px 10px;
+  font-size: 11px;
+  min-width: auto;
+}
+
+.header-right button::before {
+  content: "💾 ";
+  color: var(--accent);
+}
+
+/* ASCII Art - Mobile First */
+.ascii-art {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  color: var(--accent);
+  font-size: 10px;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Desktop and larger screens */
+@media (min-width: 768px) {
+  .header-with-controls {
+    gap: 16px;
+  }
+
+  .header-left select {
+    padding: 6px 8px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+
+  .header-right button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .ascii-art {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+}
+
+.retro-menu img {
+  margin-bottom: 24px;
+  /* Oregon Trail green monochrome effect for logo */
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(42%)
+    sepia(100%)
+    hue-rotate(120deg)
+    brightness(1.5)
+    contrast(1.2);
+}
+
+.mode-selection {
+  margin-top: 24px;
+}
+
+.mode-selection h3 {
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+
+/* Boot screen */
+.boot-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.boot-screen img {
+  margin-bottom: 32px;
+}
+
+/* Result screen */
+.result-panel {
+  text-align: center;
+  border-color: var(--accent);
+}
+
+.result-title {
+  color: var(--accent);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.result-summary {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.seed-display {
+  background: var(--bg);
+  border: 2px solid var(--panel-border);
+  padding: 16px;
+  margin: 16px 0;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  box-shadow: inset 2px 2px 0 var(--shadow);
+}
+
+/* Save drawer specific styling */
+.save-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.save-textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+}

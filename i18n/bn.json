@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "হোম", "settings": "সেটিংস", "language": "ভাষা" },
+  "ui": {
+    "cta_start": "শুরু করতে যেকোন কী চাপুন",
+    "skip_to_content": "কন্টেন্টে যান",
+    "select_mode": "মোড নির্বাচন করুন",
+    "loading": "লোড হচ্ছে… {{pct}}%",
+    "loading_encounters": "এনকাউন্টার লোড হচ্ছে…"
+  },
+  "share": {
+    "code": "শেয়ার কোড",
+    "start_with_code": "কোড দিয়ে শুরু করুন",
+    "code_help": "ফরম্যাট: CL-WORD00 অথবা DP-WORD00",
+    "run": "রান শেয়ার করুন"
+  },
+  "mode": { "classic": "ক্লাসিক", "deep": "ডিপ এন্ড" },
+  "travel": { "title": "ভ্রমণ", "next": "পরের ধাপে যাত্রা" },
+  "stats": {
+    "day_region": "দিন {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "San",
+    "cred_short": "ক্রেড",
+    "sup_short": "সরঞ্জাম",
+    "mor_short": "মনোবল",
+    "allies_short": "মিত্র",
+    "pants": "প্যান্টস {{pct}}%",
+    "pants_label": "প্যান্টস মিটার"
+  },
+  "region": { "heartland": "হার্টল্যান্ড", "rustbelt": "রস্ট বেল্ট", "beltway": "বেল্টওয়ে" },
+  "eo": {
+    "prefix": "আদেশ:",
+    "shutdown": "সরকারি বন্ধ",
+    "travel_ban_lite": "ভ্রমণ নিষেধাজ্ঞা (হালকা)",
+    "gas_stove_police": "গ্যাস-চুলা পুলিশ",
+    "book_panic": "বই আতঙ্ক",
+    "deportation_sweep": "নির্বাসন অভিযান",
+    "tariff_tsunami": "শুল্ক সুনামি",
+    "doe_eliminated": "শিক্ষা মন্ত্রণালয় বিলুপ্ত",
+    "war_dept_reorg": "যুদ্ধ বিভাগ পুনর্গঠন"
+  },
+  "boss": {
+    "title": "ফিলিবাস্টার বস",
+    "phases_hint": "পর্যায়গুলো মোকাবেলা করুন: ক্লোচার, অর্ডারের পয়েন্ট, সংশোধনী বন্যা।",
+    "begin": "বস শুরু করুন"
+  },
+  "result": {
+    "title": "ফলাফল",
+    "title_aria": "ফলাফল",
+    "thanks": "খেলার জন্য ধন্যবাদ",
+    "pants_emergency": "জাতীয় প্যান্ট জরুরি",
+    "pants_emergency_desc": "প্যান্ট মিটার ১০০%—আপনি গৌরবে ব্যর্থ।",
+    "passed_cloture": "আপনি ক্লোচার পাস করেছেন!",
+    "passed_cloture_desc": "আপনার মর্যাদা দিন বাঁচিয়েছে।",
+    "survived_filibuster": "আপনি ফিলিবাস্টার থেকে বেঁচে গেছেন",
+    "survived_filibuster_desc": "পরাজিত কিন্তু বিজয়ীভাবে ডি.সি.-র দিকে।",
+    "exhausted": "ক্লান্ত",
+    "exhausted_desc": "আপনি প্রক্রিয়ায় ভেঙে পড়লেন।"
+  },
+  "game": { "seed_label": "বীজ:" },
+  "log": {
+    "booting": "বুট হচ্ছে…",
+    "seed_set": "বীজ সেট",
+    "traveled": "ভ্রমণ করেছে",
+    "encounter": "এনকাউন্টার!",
+    "pants_emergency": "জাতীয় প্যান্ট জরুরি!",
+    "run_begins": "রান শুরু ({{mode}})"
+  },
+  "save": {
+    "header": "সংরক্ষণ/লোড",
+    "title": "সংরক্ষণ / লোড",
+    "save": "এখনই সংরক্ষণ",
+    "load": "লোড",
+    "export": "এক্সপোর্ট JSON কপি",
+    "import_label": "সেভ JSON পেস্ট করুন",
+    "import_button": "ইমপোর্ট",
+    "close": "বন্ধ",
+    "error": "অবৈধ সেভ JSON",
+    "loaded": "সেভ লোড হয়েছে",
+    "saved": "গেম সংরক্ষণ হয়েছে"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "প্রধান মেনু",
+    "help": "1–8/0 চাপুন বা আইটেমে ক্লিক করুন। বীজ: {{seed}}",
+    "selected": "নির্বাচিত",
+    "travel": "ভ্রমণ",
+    "camp": "ক্যাম্প",
+    "status": "অবস্থা",
+    "pace": "গতি পরিবর্তন",
+    "diet": "খাদ্য তথ্য",
+    "inventory": "ইনভেন্টরি ব্যবহার করুন",
+    "share": "বীজ সেভ/শেয়ার",
+    "settings": "সেটিংস",
+    "quit": "প্রস্থান"
+  },
+  "dialogs": { "confirm": "আপনি কি নিশ্চিত?", "close": "বন্ধ" }
+}

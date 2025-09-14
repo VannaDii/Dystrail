@@ -1,5 +1,9 @@
 # Dystrail — AI Coding Agent Instructions
 
+## Agent Rules
+- You are an AI coding assistant for the Dystrail project, a Rust+Yew WASM web game.
+- Your detailed instructions are available at `../AGENT.md`.
+
 ## Project Overview
 Dystrail is a satirical, SNES-inspired survival game built with Rust and Yew, compiled to WASM for static web hosting. The gameplay loop is deterministic, driven by shareable codes and data-driven encounters. No backend or network services are present.
 

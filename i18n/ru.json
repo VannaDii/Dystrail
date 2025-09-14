@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "Домой", "settings": "Настройки", "language": "Язык" },
+  "ui": {
+    "cta_start": "НАЖМИТЕ ЛЮБУЮ КЛАВИШУ, ЧТОБЫ НАЧАТЬ",
+    "skip_to_content": "Перейти к содержимому",
+    "select_mode": "Выберите режим",
+    "loading": "Загрузка… {{pct}}%",
+    "loading_encounters": "Загрузка событий…"
+  },
+  "share": {
+    "code": "Код для обмена",
+    "start_with_code": "Начать с кода",
+    "code_help": "Формат: CL-WORD00 или DP-WORD00",
+    "run": "Поделиться забегом"
+  },
+  "mode": { "classic": "Классика", "deep": "Глубокие воды" },
+  "travel": { "title": "Путешествие", "next": "В путь на следующий этап" },
+  "stats": {
+    "day_region": "День {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "Разум",
+    "cred_short": "Довер",
+    "sup_short": "Зап",
+    "mor_short": "Морал",
+    "allies_short": "Союзники",
+    "pants": "Штаны {{pct}}%",
+    "pants_label": "Индикатор штанов"
+  },
+  "region": { "heartland": "Сердце страны", "rustbelt": "Ржавый пояс", "beltway": "Кольцевая" },
+  "eo": {
+    "prefix": "Указ:",
+    "shutdown": "Закрытие правительства",
+    "travel_ban_lite": "Запрет на поездки (лайт)",
+    "gas_stove_police": "Газовая полиция плит",
+    "book_panic": "Книжная паника",
+    "deportation_sweep": "Массовая депортация",
+    "tariff_tsunami": "Тарифное цунами",
+    "doe_eliminated": "Минобразования ликвидирован",
+    "war_dept_reorg": "Реорганизация военного ведомства"
+  },
+  "boss": {
+    "title": "Босс-филибастер",
+    "phases_hint": "Пройдите этапы: клоутюр, вопросы порядка, поток поправок.",
+    "begin": "Начать босса"
+  },
+  "result": {
+    "title": "Итог",
+    "title_aria": "Итог",
+    "thanks": "Спасибо за игру",
+    "pants_emergency": "НАЦИОНАЛЬНАЯ ШТАННАЯ ТРЕВОГА",
+    "pants_emergency_desc": "Индикатор штанов достиг 100% — вы славно провалились.",
+    "passed_cloture": "ВЫ ПРОШЛИ КЛОУТЮР!",
+    "passed_cloture_desc": "Ваша репутация решила исход.",
+    "survived_filibuster": "ВЫ ПЕРЕЖИЛИ ФИЛИБАСТЕР",
+    "survived_filibuster_desc": "Потрёпанное, но победное шествие к DC.",
+    "exhausted": "ИСТОЩЕН",
+    "exhausted_desc": "Вы рушитесь под тяжестью процедур."
+  },
+  "game": { "seed_label": "Сид:" },
+  "log": {
+    "booting": "Загрузка…",
+    "seed_set": "Сид установлен",
+    "traveled": "Путешествовали",
+    "encounter": "Встреча!",
+    "pants_emergency": "Национальная штанная тревога!",
+    "run_begins": "Забег начат ({{mode}})"
+  },
+  "save": {
+    "header": "Сохранить/Загрузить",
+    "title": "Сохранить / Загрузить",
+    "save": "Сохранить сейчас",
+    "load": "Загрузить",
+    "export": "Копировать экспорт JSON",
+    "import_label": "Вставить JSON сохранения",
+    "import_button": "Импорт",
+    "close": "Закрыть",
+    "error": "Неверный JSON сохранения",
+    "loaded": "Сохранение загружено",
+    "saved": "Игра сохранена"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "Главное меню",
+    "help": "Нажмите 1–8/0 или кликните по пункту. Сид: {{seed}}",
+    "selected": "Выбрано",
+    "travel": "Путешествие",
+    "camp": "Лагерь",
+    "status": "Статус",
+    "pace": "Изменить темп",
+    "diet": "Инфо о диете",
+    "inventory": "Использовать инвентарь",
+    "share": "Сохранить/Поделиться сидом",
+    "settings": "Настройки",
+    "quit": "Выход"
+  },
+  "dialogs": { "confirm": "Вы уверены?", "close": "Закрыть" }
+}

@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "ui": {
+    "cta_start": "PRESS ANY KEY TO BEGIN",
+    "skip_to_content": "Skip to content",
+    "select_mode": "Select Mode",
+    "loading": "Loading… {{pct}}%",
+    "loading_encounters": "Loading encounters…"
+  },
+  "share": {
+    "code": "Share Code",
+    "start_with_code": "Start with Code",
+    "code_help": "Format: CL-WORD00 or DP-WORD00",
+    "run": "Share Run"
+  },
+  "mode": {
+    "classic": "Classic",
+    "deep": "The Deep End"
+  },
+  "travel": {
+    "title": "Travel",
+    "next": "Travel Next Leg"
+  },
+  "stats": {
+    "day_region": "Day {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "San",
+    "cred_short": "Cred",
+    "sup_short": "Sup",
+    "mor_short": "Mor",
+    "allies_short": "Allies",
+    "pants": "Pants {{pct}}%",
+    "pants_label": "Pants Meter"
+  },
+  "region": {
+    "heartland": "Heartland",
+    "rustbelt": "Rust Belt",
+    "beltway": "Beltway"
+  },
+  "eo": {
+    "prefix": "EO:",
+    "shutdown": "Government Shutdown",
+    "travel_ban_lite": "Travel Ban Lite",
+    "gas_stove_police": "Gas-Stove Police",
+    "book_panic": "Book Panic",
+    "deportation_sweep": "Deportation Sweep",
+    "tariff_tsunami": "Tariff Tsunami",
+    "doe_eliminated": "DoE Eliminated",
+    "war_dept_reorg": "War Dept Reorg"
+  },
+  "boss": {
+    "title": "Filibuster Boss",
+    "phases_hint": "Face the phases: Cloture, Points of Order, Amendment Flood.",
+    "begin": "Begin Boss"
+  },
+  "result": {
+    "title": "Result",
+    "title_aria": "Result",
+    "thanks": "Thanks for playing",
+    "pants_emergency": "NATIONAL PANTS EMERGENCY",
+    "pants_emergency_desc": "PantsMeter hit 100%—you failed gloriously.",
+    "passed_cloture": "YOU PASSED CLOTURE!",
+    "passed_cloture_desc": "Your credibility carried the day.",
+    "survived_filibuster": "YOU SURVIVED THE FILIBUSTER",
+    "survived_filibuster_desc": "A battered but victorious march to DC.",
+    "exhausted": "EXHAUSTED",
+    "exhausted_desc": "You collapse under procedure."
+  },
+  "game": {
+    "seed_label": "Seed:"
+  },
+  "log": {
+    "booting": "Booting…",
+    "seed_set": "Seed set",
+    "traveled": "Traveled",
+    "encounter": "Encounter!",
+    "pants_emergency": "National Pants Emergency!",
+    "run_begins": "Run begins ({{mode}})"
+  },
+  "save": {
+    "header": "Save/Load",
+    "title": "Save / Load",
+    "save": "Save Now",
+    "load": "Load",
+    "export": "Copy Export JSON",
+    "import_label": "Paste save JSON",
+    "import_button": "Import",
+    "close": "Close",
+    "error": "Invalid save JSON",
+    "loaded": "Save loaded",
+    "saved": "Game saved"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  }
+  ,
+  "menu": {
+    "title": "Main Menu",
+    "help":  "Press 1–8/0 or click an item. Seed: {{seed}}",
+    "selected": "Selected",
+    "travel": "Travel",
+    "camp":   "Camp",
+    "status": "Status",
+    "pace":   "Change Pace",
+    "diet":   "Info Diet",
+    "inventory": "Use Inventory",
+    "share":  "Save/Share Seed",
+    "settings": "Settings",
+    "quit":   "Quit"
+  },
+  "dialogs": {
+    "confirm": "Are you sure?",
+    "close":   "Close"
+  }
+}

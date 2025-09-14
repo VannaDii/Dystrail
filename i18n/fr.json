@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "Accueil", "settings": "Paramètres", "language": "Langue" },
+  "ui": {
+    "cta_start": "APPUYEZ SUR UNE TOUCHE POUR COMMENCER",
+    "skip_to_content": "Passer au contenu",
+    "select_mode": "Choisir un mode",
+    "loading": "Chargement… {{pct}}%",
+    "loading_encounters": "Chargement des rencontres…"
+  },
+  "share": {
+    "code": "Code de partage",
+    "start_with_code": "Démarrer avec un code",
+    "code_help": "Format : CL-WORD00 ou DP-WORD00",
+    "run": "Partager la partie"
+  },
+  "mode": { "classic": "Classique", "deep": "Le grand bain" },
+  "travel": { "title": "Voyager", "next": "Parcourir l’étape suivante" },
+  "stats": {
+    "day_region": "Jour {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "San",
+    "cred_short": "Créd",
+    "sup_short": "Rav",
+    "mor_short": "Mor",
+    "allies_short": "Alliés",
+    "pants": "Pantalon {{pct}}%",
+    "pants_label": "Jauge de pantalon"
+  },
+  "region": { "heartland": "Cœur du pays", "rustbelt": "Ceinture de rouille", "beltway": "Périphérique" },
+  "eo": {
+    "prefix": "Décret:",
+    "shutdown": "Fermeture du gouvernement",
+    "travel_ban_lite": "Interdiction de voyager (allégée)",
+    "gas_stove_police": "Police des cuisinières à gaz",
+    "book_panic": "Panique des livres",
+    "deportation_sweep": "Rafle d’expulsion",
+    "tariff_tsunami": "Tsunami tarifaire",
+    "doe_eliminated": "Ministère de l’Éducation supprimé",
+    "war_dept_reorg": "Réorg. du Département de la Guerre"
+  },
+  "boss": {
+    "title": "Boss du filibuster",
+    "phases_hint": "Affrontez les phases : clôture, points d’ordre, déluge d’amendements.",
+    "begin": "Lancer le boss"
+  },
+  "result": {
+    "title": "Résultat",
+    "title_aria": "Résultat",
+    "thanks": "Merci d’avoir joué",
+    "pants_emergency": "URGENCE NATIONALE DU PANTALON",
+    "pants_emergency_desc": "La jauge de pantalon a atteint 100 % — échec glorieux.",
+    "passed_cloture": "VOUS AVEZ PASSÉ LA CLÔTURE !",
+    "passed_cloture_desc": "Votre crédibilité a fait la différence.",
+    "survived_filibuster": "VOUS AVEZ SURVÉCU AU FILIBUSTER",
+    "survived_filibuster_desc": "Une marche éprouvée mais victorieuse vers DC.",
+    "exhausted": "ÉPUISÉ",
+    "exhausted_desc": "Vous vous effondrez sous la procédure."
+  },
+  "game": { "seed_label": "Graine :" },
+  "log": {
+    "booting": "Démarrage…",
+    "seed_set": "Graine définie",
+    "traveled": "A voyagé",
+    "encounter": "Rencontre !",
+    "pants_emergency": "Urgence nationale du pantalon !",
+    "run_begins": "Départ de la partie ({{mode}})"
+  },
+  "save": {
+    "header": "Enregistrer/Charger",
+    "title": "Enregistrer / Charger",
+    "save": "Enregistrer maintenant",
+    "load": "Charger",
+    "export": "Copier le JSON d’export",
+    "import_label": "Coller le JSON de sauvegarde",
+    "import_button": "Importer",
+    "close": "Fermer",
+    "error": "JSON de sauvegarde invalide",
+    "loaded": "Sauvegarde chargée",
+    "saved": "Jeu enregistré"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "Menu principal",
+    "help": "Appuyez sur 1–8/0 ou cliquez sur un élément. Graine : {{seed}}",
+    "selected": "Sélectionné",
+    "travel": "Voyager",
+    "camp": "Camper",
+    "status": "Statut",
+    "pace": "Changer l’allure",
+    "diet": "Infos diététiques",
+    "inventory": "Utiliser l’inventaire",
+    "share": "Sauver/Partager la graine",
+    "settings": "Paramètres",
+    "quit": "Quitter"
+  },
+  "dialogs": { "confirm": "Êtes-vous sûr ?", "close": "Fermer" }
+}

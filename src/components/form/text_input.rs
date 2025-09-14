@@ -1,1 +1,0 @@
-use yew::prelude::*; #[derive(Properties,PartialEq,Clone)] pub struct Props{pub id:AttrValue, #[prop_or_default] pub value:AttrValue, #[prop_or_default] pub oninput:Callback<InputEvent>} #[function_component(TextInput)] pub fn text_input(p:&Props)->Html{ html!{ <input id={p.id.clone()} value={p.value.clone()} oninput={p.oninput.clone()} /> } }

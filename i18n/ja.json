@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "ホーム", "settings": "設定", "language": "言語" },
+  "ui": {
+    "cta_start": "何かキーを押して開始",
+    "skip_to_content": "コンテンツへスキップ",
+    "select_mode": "モードを選択",
+    "loading": "読み込み中… {{pct}}%",
+    "loading_encounters": "イベントを読み込み中…"
+  },
+  "share": {
+    "code": "共有コード",
+    "start_with_code": "コードで開始",
+    "code_help": "形式: CL-WORD00 または DP-WORD00",
+    "run": "ランを共有"
+  },
+  "mode": { "classic": "クラシック", "deep": "ディープエンド" },
+  "travel": { "title": "旅", "next": "次の区間へ進む" },
+  "stats": {
+    "day_region": "日 {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "正気",
+    "cred_short": "信用",
+    "sup_short": "物資",
+    "mor_short": "士気",
+    "allies_short": "仲間",
+    "pants": "パンツ {{pct}}%",
+    "pants_label": "パンツメーター"
+  },
+  "region": { "heartland": "ハートランド", "rustbelt": "ラストベルト", "beltway": "ベルトウェイ" },
+  "eo": {
+    "prefix": "大統領令:",
+    "shutdown": "政府閉鎖",
+    "travel_ban_lite": "旅行禁止（ライト）",
+    "gas_stove_police": "ガスコンロ警察",
+    "book_panic": "本パニック",
+    "deportation_sweep": "強制送還一斉摘発",
+    "tariff_tsunami": "関税津波",
+    "doe_eliminated": "教育省廃止",
+    "war_dept_reorg": "戦争省再編"
+  },
+  "boss": {
+    "title": "フィリバスターボス",
+    "phases_hint": "フェーズに挑め：クローチャー、秩序の問題、修正案の洪水。",
+    "begin": "ボス開始"
+  },
+  "result": {
+    "title": "結果",
+    "title_aria": "結果",
+    "thanks": "プレイしてくれてありがとう",
+    "pants_emergency": "全国パンツ緊急事態",
+    "pants_emergency_desc": "パンツメーターが100%—見事に失敗した。",
+    "passed_cloture": "クローチャーを通過！",
+    "passed_cloture_desc": "あなたの信用が勝利をもたらした。",
+    "survived_filibuster": "フィリバスターを生き延びた",
+    "survived_filibuster_desc": "傷だらけだが勝利してDCへ。",
+    "exhausted": "疲弊",
+    "exhausted_desc": "手続きに押し潰された。"
+  },
+  "game": { "seed_label": "シード:" },
+  "log": {
+    "booting": "起動中…",
+    "seed_set": "シード設定",
+    "traveled": "旅した",
+    "encounter": "遭遇！",
+    "pants_emergency": "全国パンツ緊急！",
+    "run_begins": "ラン開始（{{mode}}）"
+  },
+  "save": {
+    "header": "保存/読込",
+    "title": "保存 / 読み込み",
+    "save": "今すぐ保存",
+    "load": "読み込み",
+    "export": "エクスポートJSONをコピー",
+    "import_label": "セーブJSONを貼り付け",
+    "import_button": "取り込み",
+    "close": "閉じる",
+    "error": "無効なセーブJSON",
+    "loaded": "セーブを読み込みました",
+    "saved": "ゲームを保存しました"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "メインメニュー",
+    "help": "1–8/0を押すか項目をクリック。シード: {{seed}}",
+    "selected": "選択済み",
+    "travel": "旅",
+    "camp": "野営",
+    "status": "ステータス",
+    "pace": "速度を変更",
+    "diet": "食事情報",
+    "inventory": "インベントリを使う",
+    "share": "シードを保存/共有",
+    "settings": "設定",
+    "quit": "終了"
+  },
+  "dialogs": { "confirm": "本当に実行しますか？", "close": "閉じる" }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "raw_milk",
+    "name": "Raw Milk Stand",
+    "desc": "A dubious raw milk stand tempts the party.",
+    "weight": 5,
+    "regions": ["Heartland"],
+    "modes": ["classic","deep_end"],
+    "choices": [
+      { "label": "Drink the milk", "effects": { "hp": -1, "sanity": -1, "pants": 5, "log": "The milk was a choice." } },
+      { "label": "Politely decline", "effects": { "credibility": 1, "morale": 1, "log": "You keep it together." } }
+    ]
+  },
+  {
+    "id": "tariff_whiplash",
+    "name": "Tariff Whiplash",
+    "desc": "A surprise tariff now applies to... your stuff.",
+    "weight": 5,
+    "regions": ["RustBelt","Beltway"],
+    "modes": ["classic","deep_end"],
+    "choices": [
+      { "label": "Pay the tariff", "effects": { "supplies": -2, "credibility": 1, "pants": 5, "log": "You pay the tariff. It stings." } },
+      { "label": "Smuggle it", "effects": { "supplies": 1, "credibility": -1, "pants": 7, "log": "Border Beagle sniffs judgement." } }
+    ]
+  }
+]
+

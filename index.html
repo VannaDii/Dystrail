@@ -11,13 +11,12 @@
   <meta property="og:image" content="/static/img/social-card.png"/>
   <link rel="icon" href="/static/favicon.ico"/>
   <link rel="apple-touch-icon" href="/static/img/logo.png"/>
+  <link rel="stylesheet" href="/static/styles.css"/>
+  <link data-trunk rel="rust" href="Cargo.toml" data-wasm-opt="z" />
+  <link data-trunk rel="copy-dir" href="static" />
 </head>
 <body>
   <a href="#app" class="sr-only">Skip to content</a>
   <main id="app" role="main"></main>
-  <script type="module">
-    import init from "./dystrail.js";
-    init();
-  </script>
 </body>
 </html>

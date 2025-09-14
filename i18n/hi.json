@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "मुखपृष्ठ", "settings": "सेटिंग्स", "language": "भाषा" },
+  "ui": {
+    "cta_start": "शुरू करने के लिए कोई भी कुंजी दबाएँ",
+    "skip_to_content": "सामग्री पर जाएँ",
+    "select_mode": "मोड चुनें",
+    "loading": "लोड हो रहा है… {{pct}}%",
+    "loading_encounters": "मुठभेड़ों को लोड किया जा रहा है…"
+  },
+  "share": {
+    "code": "कोड साझा करें",
+    "start_with_code": "कोड से शुरू करें",
+    "code_help": "प्रारूप: CL-WORD00 या DP-WORD00",
+    "run": "रन साझा करें"
+  },
+  "mode": { "classic": "क्लासिक", "deep": "डीप एंड" },
+  "travel": { "title": "यात्रा", "next": "अगला चरण यात्रा करें" },
+  "stats": {
+    "day_region": "दिन {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "मानस",
+    "cred_short": "प्रतिष्",
+    "sup_short": "सामान",
+    "mor_short": "हौसला",
+    "allies_short": "सहयोगी",
+    "pants": "पैंट {{pct}}%",
+    "pants_label": "पैंट मीटर"
+  },
+  "region": { "heartland": "हार्टलैंड", "rustbelt": "रस्ट बेल्ट", "beltway": "बेल्टवे" },
+  "eo": {
+    "prefix": "आदेश:",
+    "shutdown": "सरकारी बंद",
+    "travel_ban_lite": "यात्रा प्रतिबंध (हल्का)",
+    "gas_stove_police": "गैस-स्टोव पुलिस",
+    "book_panic": "किताब घबराहट",
+    "deportation_sweep": "निर्वासन छापेमारी",
+    "tariff_tsunami": "टैरिफ सुनामी",
+    "doe_eliminated": "शिक्षा विभाग समाप्त",
+    "war_dept_reorg": "युद्ध विभाग पुनर्गठन"
+  },
+  "boss": {
+    "title": "फिलिबस्टर बॉस",
+    "phases_hint": "चरणों का सामना करें: क्लोचर, ऑर्डर के बिंदु, संशोधन बाढ़।",
+    "begin": "बॉस शुरू करें"
+  },
+  "result": {
+    "title": "परिणाम",
+    "title_aria": "परिणाम",
+    "thanks": "खेलने के लिए धन्यवाद",
+    "pants_emergency": "राष्ट्रीय पैंट आपातकाल",
+    "pants_emergency_desc": "पैंट मीटर 100%—आप शानदार ढंग से असफल हुए।",
+    "passed_cloture": "आपने क्लोचर पास किया!",
+    "passed_cloture_desc": "आपकी प्रतिष्ठा ने दिन बचाया।",
+    "survived_filibuster": "आप फिलिबस्टर से बचे",
+    "survived_filibuster_desc": "थके हुए पर विजयी होकर DC की ओर।",
+    "exhausted": "निढाल",
+    "exhausted_desc": "आप प्रक्रिया के आगे ढह गए।"
+  },
+  "game": { "seed_label": "बीज:" },
+  "log": {
+    "booting": "बूट हो रहा है…",
+    "seed_set": "बीज सेट",
+    "traveled": "यात्रा की",
+    "encounter": "सामना!",
+    "pants_emergency": "राष्ट्रीय पैंट आपातकाल!",
+    "run_begins": "दौड़ शुरू ({{mode}})"
+  },
+  "save": {
+    "header": "सेव/लोड",
+    "title": "सेव / लोड",
+    "save": "अभी सेव करें",
+    "load": "लोड",
+    "export": "एक्सपोर्ट JSON कॉपी करें",
+    "import_label": "सेव JSON पेस्ट करें",
+    "import_button": "आयात करें",
+    "close": "बंद करें",
+    "error": "अमान्य सेव JSON",
+    "loaded": "सेव लोड हुआ",
+    "saved": "गेम सेव हुआ"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "मुख्य मेनू",
+    "help": "1–8/0 दबाएँ या किसी आइटम पर क्लिक करें। बीज: {{seed}}",
+    "selected": "चुना गया",
+    "travel": "यात्रा",
+    "camp": "शिविर",
+    "status": "स्थिति",
+    "pace": "गति बदलें",
+    "diet": "आहार जानकारी",
+    "inventory": "सूची का उपयोग करें",
+    "share": "बीज सेव/शेयर",
+    "settings": "सेटिंग्स",
+    "quit": "छोड़ें"
+  },
+  "dialogs": { "confirm": "क्या आप सुनिश्चित हैं?", "close": "बंद करें" }
+}

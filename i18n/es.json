@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Inicio",
+    "settings": "Ajustes",
+    "language": "Idioma"
+  },
+  "ui": {
+    "cta_start": "PULSA UNA TECLA PARA EMPEZAR",
+    "skip_to_content": "Ir al contenido",
+    "select_mode": "Seleccionar modo",
+    "loading": "Cargando… {{pct}}%",
+    "loading_encounters": "Cargando encuentros…"
+  },
+  "share": {
+    "code": "Código para compartir",
+    "start_with_code": "Iniciar con código",
+    "code_help": "Formato: CL-PALABRA00 o DP-PALABRA00",
+    "run": "Compartir partida"
+  },
+  "mode": {
+    "classic": "Clásico",
+    "deep": "Lo Más Hondo"
+  },
+  "travel": {
+    "title": "Viaje",
+    "next": "Viajar al siguiente tramo"
+  },
+  "stats": {
+    "day_region": "Día {{day}} — {{region}}",
+    "hp_short": "PV",
+    "sanity_short": "San",
+    "cred_short": "Cred",
+    "sup_short": "Sumin",
+    "mor_short": "Moral",
+    "allies_short": "Aliados",
+    "pants": "Pantalones {{pct}}%",
+    "pants_label": "Medidor de Pantalones"
+  },
+  "region": {
+    "heartland": "Heartland",
+    "rustbelt": "Cinturón del Óxido",
+    "beltway": "Beltway"
+  },
+  "eo": {
+    "prefix": "OE:",
+    "shutdown": "Cierre del Gobierno",
+    "travel_ban_lite": "Prohibición de Viaje (Lite)",
+    "gas_stove_police": "Policía de Cocinas de Gas",
+    "book_panic": "Pánico de Libros",
+    "deportation_sweep": "Redada de Deportación",
+    "tariff_tsunami": "Tsunami Arancelario",
+    "doe_eliminated": "DoE Eliminado",
+    "war_dept_reorg": "Reorg. Depto. de Guerra"
+  },
+  "boss": {
+    "title": "Jefe Filibustero",
+    "phases_hint": "Enfrenta las fases: Clotura, Puntos de Orden, Inundación de Enmiendas.",
+    "begin": "Comenzar Jefe"
+  },
+  "result": {
+    "title": "Resultado",
+    "title_aria": "Resultado",
+    "thanks": "Gracias por jugar",
+    "pants_emergency": "¡EMERGENCIA NACIONAL DE PANTALONES!",
+    "pants_emergency_desc": "El medidor llegó al 100%—fracaso glorioso.",
+    "passed_cloture": "¡APROBASTE LA CLOTURA!",
+    "passed_cloture_desc": "Tu credibilidad salvó el día.",
+    "survived_filibuster": "SOBREVIVISTE AL FILIBUSTERISMO",
+    "survived_filibuster_desc": "Marcha maltrecha pero victoriosa a DC.",
+    "exhausted": "AGOTADO",
+    "exhausted_desc": "Caes bajo el procedimiento."
+  },
+  "game": {
+    "seed_label": "Semilla:"
+  },
+  "log": {
+    "booting": "Iniciando…",
+    "seed_set": "Semilla establecida",
+    "traveled": "Viajaste",
+    "encounter": "¡Encuentro!",
+    "pants_emergency": "¡Emergencia nacional de pantalones!",
+    "run_begins": "Comienza la partida ({{mode}})"
+  },
+  "save": {
+    "header": "Guardar/Cargar",
+    "title": "Guardar / Cargar",
+    "save": "Guardar ahora",
+    "load": "Cargar",
+    "export": "Copiar JSON de exportación",
+    "import_label": "Pega el JSON de guardado",
+    "import_button": "Importar",
+    "close": "Cerrar",
+    "error": "JSON de guardado no válido",
+    "loaded": "Guardado cargado",
+    "saved": "Juego guardado"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  }
+  ,
+  "menu": {
+    "title": "Menú Principal",
+    "help":  "Pulsa 1–8/0 o haz clic en un elemento. Semilla: {{seed}}",
+    "selected": "Seleccionado",
+    "travel": "Viajar",
+    "camp":   "Acampar",
+    "status": "Estado",
+    "pace":   "Cambiar Ritmo",
+    "diet":   "Dieta Info",
+    "inventory": "Usar Inventario",
+    "share":  "Guardar/Compartir Semilla",
+    "settings": "Ajustes",
+    "quit":   "Salir"
+  },
+  "dialogs": {
+    "confirm": "¿Estás seguro?",
+    "close":   "Cerrar"
+  }
+}

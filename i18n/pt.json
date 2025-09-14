@@ -1,0 +1,98 @@
+{
+  "app": { "title": "Dystrail" },
+  "nav": { "home": "Início", "settings": "Configurações", "language": "Idioma" },
+  "ui": {
+    "cta_start": "PRESSIONE QUALQUER TECLA PARA COMEÇAR",
+    "skip_to_content": "Ir para o conteúdo",
+    "select_mode": "Selecionar modo",
+    "loading": "Carregando… {{pct}}%",
+    "loading_encounters": "Carregando encontros…"
+  },
+  "share": {
+    "code": "Código de compartilhamento",
+    "start_with_code": "Iniciar com código",
+    "code_help": "Formato: CL-WORD00 ou DP-WORD00",
+    "run": "Compartilhar partida"
+  },
+  "mode": { "classic": "Clássico", "deep": "Modo Profundo" },
+  "travel": { "title": "Viajar", "next": "Viajar próximo trecho" },
+  "stats": {
+    "day_region": "Dia {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "San",
+    "cred_short": "Cred",
+    "sup_short": "Supr",
+    "mor_short": "Mor",
+    "allies_short": "Aliados",
+    "pants": "Calças {{pct}}%",
+    "pants_label": "Medidor de Calças"
+  },
+  "region": { "heartland": "Interior", "rustbelt": "Cinturão da Ferrugem", "beltway": "Periferia" },
+  "eo": {
+    "prefix": "DE:",
+    "shutdown": "Fechamento do Governo",
+    "travel_ban_lite": "Proibição de Viagem (leve)",
+    "gas_stove_police": "Polícia do Fogão a Gás",
+    "book_panic": "Pânico dos Livros",
+    "deportation_sweep": "Varredura de Deportação",
+    "tariff_tsunami": "Tsunami Tarifário",
+    "doe_eliminated": "Ministério da Educação Eliminado",
+    "war_dept_reorg": "Reorganização do Departamento de Guerra"
+  },
+  "boss": {
+    "title": "Chefe do Filibuster",
+    "phases_hint": "Enfrente as fases: Cloture, Pontos de Ordem, Enxurrada de Emendas.",
+    "begin": "Iniciar Chefe"
+  },
+  "result": {
+    "title": "Resultado",
+    "title_aria": "Resultado",
+    "thanks": "Obrigado por jogar",
+    "pants_emergency": "EMERGÊNCIA NACIONAL DAS CALÇAS",
+    "pants_emergency_desc": "Medidor de Calças chegou a 100% — você falhou gloriosamente.",
+    "passed_cloture": "VOCÊ PASSOU O CLOTURE!",
+    "passed_cloture_desc": "Sua credibilidade decidiu o dia.",
+    "survived_filibuster": "VOCÊ SOBREVIVEU AO FILIBUSTER",
+    "survived_filibuster_desc": "Uma marcha surrada mas vitoriosa rumo a DC.",
+    "exhausted": "ESGOTADO",
+    "exhausted_desc": "Você desaba diante do procedimento."
+  },
+  "game": { "seed_label": "Semente:" },
+  "log": {
+    "booting": "Inicializando…",
+    "seed_set": "Semente definida",
+    "traveled": "Viajou",
+    "encounter": "Encontro!",
+    "pants_emergency": "Emergência nacional das calças!",
+    "run_begins": "Partida começa ({{mode}})"
+  },
+  "save": {
+    "header": "Salvar/Carregar",
+    "title": "Salvar / Carregar",
+    "save": "Salvar agora",
+    "load": "Carregar",
+    "export": "Copiar JSON de exportação",
+    "import_label": "Colar JSON do save",
+    "import_button": "Importar",
+    "close": "Fechar",
+    "error": "JSON de save inválido",
+    "loaded": "Save carregado",
+    "saved": "Jogo salvo"
+  },
+  "footer": { "copyright": "© Dystrail" },
+  "menu": {
+    "title": "Menu principal",
+    "help": "Pressione 1–8/0 ou clique em um item. Semente: {{seed}}",
+    "selected": "Selecionado",
+    "travel": "Viajar",
+    "camp": "Acampar",
+    "status": "Status",
+    "pace": "Mudar Ritmo",
+    "diet": "Info da Dieta",
+    "inventory": "Usar Inventário",
+    "share": "Salvar/Compartilhar Semente",
+    "settings": "Configurações",
+    "quit": "Sair"
+  },
+  "dialogs": { "confirm": "Tem certeza?", "close": "Fechar" }
+}

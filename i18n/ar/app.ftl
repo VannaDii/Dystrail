@@ -1,9 +1,0 @@
-app-title = دايستريل
-nav-home = الصفحة الرئيسية
-nav-settings = الإعدادات
-cta-start = اضغط أي مفتاح للبدء
-share-code = رمز المشاركة
-start-with-code = ابدأ بالرمز
-mode-classic = كلاسيكي
-mode-deep = الأعماق
-loading = جارٍ التحميل… { $pct }%

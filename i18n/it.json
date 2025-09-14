@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Impostazioni",
+    "language": "Lingua"
+  },
+  "ui": {
+    "cta_start": "PREMI UN TASTO PER INIZIARE",
+    "skip_to_content": "Salta al contenuto",
+    "select_mode": "Seleziona modalità",
+    "loading": "Caricamento… {{pct}}%",
+    "loading_encounters": "Caricamento incontri…"
+  },
+  "share": {
+    "code": "Codice Condiviso",
+    "start_with_code": "Avvia con codice",
+    "code_help": "Formato: CL-PAROLA00 o DP-PAROLA00",
+    "run": "Condividi partita"
+  },
+  "mode": {
+    "classic": "Classico",
+    "deep": "Oltre il Limite"
+  },
+  "travel": {
+    "title": "Viaggio",
+    "next": "Prosegui al tratto successivo"
+  },
+  "stats": {
+    "day_region": "Giorno {{day}} — {{region}}",
+    "hp_short": "PF",
+    "sanity_short": "San",
+    "cred_short": "Cred",
+    "sup_short": "Prov",
+    "mor_short": "Mor",
+    "allies_short": "Alleati",
+    "pants": "Pantaloni {{pct}}%",
+    "pants_label": "Indicatore Pantaloni"
+  },
+  "region": {
+    "heartland": "Cuore della Nazione",
+    "rustbelt": "Rust Belt",
+    "beltway": "Beltway"
+  },
+  "eo": {
+    "prefix": "DE:",
+    "shutdown": "Chiusura del Governo",
+    "travel_ban_lite": "Divieto di Viaggio (Lite)",
+    "gas_stove_police": "Polizia dei Fornelli a Gas",
+    "book_panic": "Panico dei Libri",
+    "deportation_sweep": "Retata di Deportazione",
+    "tariff_tsunami": "Tsunami di Dazi",
+    "doe_eliminated": "Eliminazione del DoE",
+    "war_dept_reorg": "Riorg. Dip. Guerra"
+  },
+  "boss": {
+    "title": "Boss Filibuster",
+    "phases_hint": "Affronta le fasi: Cloture, Punti d'Ordine, Diluvio di Emendamenti.",
+    "begin": "Inizia Boss"
+  },
+  "result": {
+    "title": "Risultato",
+    "title_aria": "Risultato",
+    "thanks": "Grazie per aver giocato",
+    "pants_emergency": "EMERGENZA NAZIONALE DEI PANTALONI",
+    "pants_emergency_desc": "L'indicatore ha raggiunto il 100%—fallimento glorioso.",
+    "passed_cloture": "HAI SUPERATO LA CLOTURE!",
+    "passed_cloture_desc": "La tua credibilità ha fatto la differenza.",
+    "survived_filibuster": "HAI SOPRAVVISSUTO AL FILIBUSTER",
+    "survived_filibuster_desc": "Marcia malconcia ma vittoriosa verso DC.",
+    "exhausted": "ESAUSTO",
+    "exhausted_desc": "Crolli sotto le procedure."
+  },
+  "game": {
+    "seed_label": "Seed:"
+  },
+  "log": {
+    "booting": "Avvio…",
+    "seed_set": "Seed impostato",
+    "traveled": "Viaggiato",
+    "encounter": "Incontro!",
+    "pants_emergency": "Emergenza nazionale dei pantaloni!",
+    "run_begins": "Inizio partita ({{mode}})"
+  },
+  "save": {
+    "header": "Salva/Carica",
+    "title": "Salva / Carica",
+    "save": "Salva ora",
+    "load": "Carica",
+    "export": "Copia JSON di esportazione",
+    "import_label": "Incolla JSON salvataggio",
+    "import_button": "Importa",
+    "close": "Chiudi",
+    "error": "JSON di salvataggio non valido",
+    "loaded": "Salvataggio caricato",
+    "saved": "Partita salvata"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  }
+  ,
+  "menu": {
+    "title": "Menu Principale",
+    "help":  "Premi 1–8/0 o clicca un elemento. Seed: {{seed}}",
+    "selected": "Selezionato",
+    "travel": "Viaggia",
+    "camp":   "Accampa",
+    "status": "Stato",
+    "pace":   "Cambia Andatura",
+    "diet":   "Dieta Info",
+    "inventory": "Usa Inventario",
+    "share":  "Salva/Condividi Seed",
+    "settings": "Impostazioni",
+    "quit":   "Esci"
+  },
+  "dialogs": {
+    "confirm": "Sei sicuro?",
+    "close":   "Chiudi"
+  }
+}
