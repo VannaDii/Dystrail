@@ -118,5 +118,54 @@
   "dialogs": {
     "confirm": "Tem certeza?",
     "close": "Fechar"
+  },
+  "store": {
+    "title": "Equipamentos",
+    "budget": "Orçamento: {amount}",
+    "categories": {
+      "fuel_food": "Combustível / Comida",
+      "vehicle":   "Peças do Veículo",
+      "ppe":       "EPI e Roupas",
+      "docs":      "Documentos e Licenças"
+    },
+    "items": {
+      "rations":     { "name": "Pacote de Rações", "desc": "Não perecível. Te mantém em movimento." },
+      "water":       { "name": "Galões de Água", "desc": "Hidratação é importante." },
+      "spare_tire":  { "name": "Pneu Sobressalente", "desc": "Conserta furos rapidamente." },
+      "battery":     { "name": "Bateria", "desc": "Partidas a frio." },
+      "alternator":  { "name": "Alternador", "desc": "Carga restaurada." },
+      "fuel_pump":   { "name": "Bomba de Combustível", "desc": "Quando o grupo fica sem combustível." },
+      "masks":       { "name": "Máscaras", "desc": "Proteção contra fumaça/doença." },
+      "coats":       { "name": "Casacos Quentes", "desc": "Resistência ao frio." },
+      "ponchos":     { "name": "Ponchos", "desc": "Amigos da tempestade." },
+      "press_pass":  { "name": "Carteira de Imprensa", "desc": "Pode agir como licença." },
+      "legal_fund":  { "name": "Fundo Legal", "desc": "Protege sua credibilidade." }
+    },
+    "menu": {
+      "home": "Equipamentos — Orçamento: {budget}",
+      "view_cart": "Ver Carrinho / Pagar",
+      "continue": "Continuar",
+      "back": "Voltar"
+    },
+    "qty_prompt": {
+      "title": "{item} — {price} cada",
+      "add1": "Adicionar +1",
+      "add5": "Adicionar +5",
+      "rem1": "Remover -1",
+      "rem_all": "Remover Tudo"
+    },
+    "cart": {
+      "title": "Carrinho",
+      "line": "{item}  x{qty}  = {line_total}",
+      "total": "Total: {sum}   Orçamento restante: {left}",
+      "checkout": "Pagar"
+    },
+    "alerts": {
+      "added": "Adicionado {item} ({price}). Orçamento restante {left}.",
+      "removed": "Removido {item}. Orçamento restante {left}.",
+      "max_qty": "Quantidade máxima atingida para {item}.",
+      "unique": "{item} é único; você já tem um.",
+      "over_budget": "Acima do orçamento; ajuste seu carrinho."
+    }
   }
 }

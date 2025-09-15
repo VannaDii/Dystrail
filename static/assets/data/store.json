@@ -1,0 +1,138 @@
+{
+  "categories": [
+    {
+      "id": "fuel_food",
+      "name": "Fuel / Food",
+      "items": [
+        {
+          "id": "rations",
+          "name": "Rations Pack",
+          "desc": "Non-perishable. Keeps you going.",
+          "price_cents": 500,
+          "unique": false,
+          "max_qty": 99,
+          "grants": { "supplies": 3 },
+          "tags": []
+        },
+        {
+          "id": "water",
+          "name": "Water Jugs",
+          "desc": "Hydration matters.",
+          "price_cents": 400,
+          "unique": false,
+          "max_qty": 99,
+          "grants": { "supplies": 2 },
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "vehicle",
+      "name": "Vehicle Spares",
+      "items": [
+        {
+          "id": "spare_tire",
+          "name": "Spare Tire",
+          "desc": "Fix blowouts fast.",
+          "price_cents": 2000,
+          "unique": false,
+          "max_qty": 3,
+          "grants": { "spare_tire": 1 },
+          "tags": []
+        },
+        {
+          "id": "battery",
+          "name": "Battery",
+          "desc": "Cold starts.",
+          "price_cents": 2500,
+          "unique": false,
+          "max_qty": 2,
+          "grants": { "spare_battery": 1 },
+          "tags": []
+        },
+        {
+          "id": "alternator",
+          "name": "Alternator",
+          "desc": "Charge restored.",
+          "price_cents": 2500,
+          "unique": false,
+          "max_qty": 1,
+          "grants": { "spare_alt": 1 },
+          "tags": []
+        },
+        {
+          "id": "fuel_pump",
+          "name": "Fuel Pump",
+          "desc": "When the party runs dry.",
+          "price_cents": 2500,
+          "unique": false,
+          "max_qty": 1,
+          "grants": { "spare_pump": 1 },
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "ppe",
+      "name": "PPE & Clothing",
+      "items": [
+        {
+          "id": "masks",
+          "name": "Masks",
+          "desc": "Smoke/illness protection.",
+          "price_cents": 600,
+          "unique": false,
+          "max_qty": 3,
+          "grants": {},
+          "tags": ["plague_resist"]
+        },
+        {
+          "id": "coats",
+          "name": "Warm Coats",
+          "desc": "Cold snap resilience.",
+          "price_cents": 1000,
+          "unique": false,
+          "max_qty": 2,
+          "grants": {},
+          "tags": ["cold_resist"]
+        },
+        {
+          "id": "ponchos",
+          "name": "Ponchos",
+          "desc": "Storm friendly.",
+          "price_cents": 800,
+          "unique": false,
+          "max_qty": 2,
+          "grants": {},
+          "tags": ["rain_resist"]
+        }
+      ]
+    },
+    {
+      "id": "docs",
+      "name": "Documents & Permits",
+      "items": [
+        {
+          "id": "press_pass",
+          "name": "Press Pass",
+          "desc": "Can act as a permit.",
+          "price_cents": 1800,
+          "unique": true,
+          "max_qty": 1,
+          "grants": {},
+          "tags": ["permit"]
+        },
+        {
+          "id": "legal_fund",
+          "name": "Legal Fund",
+          "desc": "Buffer your credibility.",
+          "price_cents": 1500,
+          "unique": false,
+          "max_qty": 3,
+          "grants": { "credibility": 1 },
+          "tags": []
+        }
+      ]
+    }
+  ]
+}

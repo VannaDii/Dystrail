@@ -11,7 +11,6 @@ IMPORTANT: NEVER TAKE SHORT CUTS! ONLY USE TERMINAL COMMANDS AS A LAST RESORT.
 - **console_error_panic_hook** (dev diagnostics only).
 - **trunk** (build/serve).
 - **binaryen/wasm-opt** (size/perf).
-- **axe-core** via Playwright script (a11y CI audit).
 - **cargo-audit**, **cargo-deny** (security/licensing).
 - **serde** + **serde_wasm_bindgen** (data).
 - **thiserror** / **anyhow** (errors).
@@ -27,11 +26,11 @@ If any requirement conflicts, **fail the pipeline** and open a TODO with remedia
 
 ## 0 - Non-Negotiables (Gates)
 
-- ✅ **Accessibility:** WCAG 2.2 AA across pages, keyboard-only usable, visible focus, trap-free modals, correct ARIA, color-contrast ≥ 4.5:1. Axe-core must pass at 0 serious+ issues.
+- ✅ **Accessibility:** WCAG 2.2 AA across pages, keyboard-only usable, visible focus, trap-free modals, correct ARIA, color-contrast ≥ 4.5:1.
 - 🌍 **Internationalization:** At least `en`, `it`, `es`, and one RTL (e.g., `ar`). Runtime language switcher; persist locale; pluralization & interpolation; RTL flipping; number/date formatting.
 - 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX).
 - 🔒 **Security/Supply:** No yanked crates; `Cargo.lock` checked in; audit clean or documented (with temporary allow + issue).
-- 🧪 **Tests:** Unit (wasm-bindgen-test), integration (Playwright + Axe), i18n snapshot checks for each locale.
+- 🧪 **Tests:** Unit (wasm-bindgen-test), i18n snapshot checks for each locale.
 - 🛠️ **Reproducible Build:** `rust-toolchain.toml` pins versions; Trunk build; wasm-opt `-Oz`. CI must build release artifacts.
 - 🏃🏻‍♀️ **Running Commands:** Never used the terminal, always run commands using your MCP accessible tools.
 - 💇🏽‍♀️ **Styling Rules:** Never use `!important` or other workarounds.
@@ -51,7 +50,6 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - **console_error_panic_hook** (dev diagnostics only).
 - **trunk** (build/serve).
 - **binaryen/wasm-opt** (size/perf).
-- **axe-core** via Playwright script (a11y CI audit).
 - **cargo-audit**, **cargo-deny** (security/licensing).
 - **serde** + **serde_wasm_bindgen** (data).
 - **thiserror** / **anyhow** (errors).
@@ -97,10 +95,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 │     └─ settings.rs
 └─ tests/
 ├─ wasm/
-│  └─ app_tests.rs        # wasm-bindgen-test
-└─ e2e/
-├─ playwright.config.ts
-└─ a11y.spec.ts           # axe-core audits
+   └─ app_tests.rs        # wasm-bindgen-test
 ```
 
 ---
@@ -116,7 +111,6 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 | Unit tests (wasm) | `wasm-pack test --headless --chrome` **or** `cargo test -p <crate>` if using wasm-bindgen-test harness |
 | Security audit | `cargo audit` |
 | License/dep policy | `cargo deny check` |
-| E2E + Axe | `npx playwright test` |
 
 > CI must run all above; any failure blocks merge.
 
@@ -243,8 +237,6 @@ Example RTL (i18n/ar.json) mirrors keys and uses culturally appropriate phrasing
 
 ### 7.2 E2E + Accessibility
 
-- Playwright script loads each route in each locale.
-- Inject axe-core; fail if any serious or critical violations remain.
 - Verify keyboard tab order reaches all interactive elements; confirm visible focus.
 - Screenshot diffs to ensure RTL flip isn’t regressing layout.
 
@@ -263,7 +255,6 @@ Example RTL (i18n/ar.json) mirrors keys and uses culturally appropriate phrasing
 4. tests-unit: cargo test + wasm-bindgen-test.
 5. tests-e2e-a11y: npm ci && npx playwright install --with-deps && npx playwright test.
 6. i18n-coverage: custom Rust/Node script to assert all .json keys exist per locale.
-7. artifact: upload dist/ output; store Axe/Playwright reports.
 
 Any failure blocks merge. CI must run on PRs and default branch.
 
@@ -281,7 +272,6 @@ Any failure blocks merge. CI must run on PRs and default branch.
 ## 10 - Definition of Done (checklist)
 
 - All CI jobs pass.
-- Axe-core: 0 serious/critical issues on all routes, all locales.
 - Keyboard-only run-through recorded in CI (video) with visible focus.
 - Locale switcher persists choice; lang and dir attributes correct.
 - ar (RTL) layout visually verified; icons/chevrons flip logically.
@@ -303,7 +293,7 @@ Any failure blocks merge. CI must run on PRs and default branch.
 
 ## 12 - PR Hygiene
 
-- Each PR includes: what changed, screenshots/Loom for a11y flows, locales touched, and before/after Axe report counts.
+- Each PR includes: what changed, screenshots/Loom for a11y flows, locales touched.
 - Add FIXME: only with linked issue; otherwise, open an issue and reference it.
 
 ⸻

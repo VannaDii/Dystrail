@@ -2,6 +2,7 @@ use gloo::storage::{LocalStorage, Storage};
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use serde::{Deserialize, Serialize};
+use std::collections::HashSet;
 
 use crate::game::data::{Encounter, EncounterData};
 use crate::game::encounters::pick_encounter;
@@ -65,6 +66,48 @@ impl Stats {
     }
 }
 
+/// Player inventory including spares and tags
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Inventory {
+    #[serde(default)]
+    pub spares: Spares,
+    #[serde(default)]
+    pub tags: HashSet<String>,
+}
+
+impl Default for Inventory {
+    fn default() -> Self {
+        Self {
+            spares: Spares::default(),
+            tags: HashSet::new(),
+        }
+    }
+}
+
+/// Vehicle and equipment spares
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Spares {
+    #[serde(default)]
+    pub tire: i32,
+    #[serde(default)]
+    pub battery: i32,
+    #[serde(default)]
+    pub alt: i32, // alternator
+    #[serde(default)]
+    pub pump: i32, // fuel pump
+}
+
+impl Default for Spares {
+    fn default() -> Self {
+        Self {
+            tire: 0,
+            battery: 0,
+            alt: 0,
+            pump: 0,
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GamePhase {
     Boot,
@@ -85,6 +128,11 @@ pub struct GameState {
     pub stats: Stats,
     #[serde(default)]
     pub budget: i32,
+    /// Budget in cents for precise calculations
+    #[serde(default)]
+    pub budget_cents: i64,
+    #[serde(default)]
+    pub inventory: Inventory,
     #[serde(default)]
     pub persona_id: Option<String>,
     #[serde(default)]
@@ -110,6 +158,8 @@ impl Default for GameState {
             region: Region::Heartland,
             stats: Stats::default(),
             budget: 100,
+            budget_cents: 10_000, // $100.00 in cents
+            inventory: Inventory::default(),
             persona_id: None,
             score_mult: 1.0,
             mods: PersonaMods::default(),
@@ -282,9 +332,48 @@ impl GameState {
         self.stats.morale = p.start.morale;
         self.stats.allies = p.start.allies;
         self.budget = p.start.budget;
+        self.budget_cents = (p.start.budget * 100) as i64; // Convert dollars to cents
         self.score_mult = p.score_mult;
         self.mods = p.mods.clone();
         self.stats.clamp();
         self.save();
+    }
+
+    /// Apply store purchases to the game state
+    pub fn apply_store_purchase(&mut self, total_cost_cents: i64, grants: &crate::game::store::Grants, tags: &[String]) {
+        // Deduct cost from budget
+        self.budget_cents -= total_cost_cents;
+        self.budget = (self.budget_cents / 100) as i32; // Update legacy budget field
+
+        // Apply grants to stats
+        self.stats.supplies += grants.supplies;
+        self.stats.credibility += grants.credibility;
+
+        // Apply grants to spares
+        self.inventory.spares.tire += grants.spare_tire;
+        self.inventory.spares.battery += grants.spare_battery;
+        self.inventory.spares.alt += grants.spare_alt;
+        self.inventory.spares.pump += grants.spare_pump;
+
+        // Add tags (using set semantics - no duplicates)
+        for tag in tags {
+            self.inventory.tags.insert(tag.clone());
+        }
+
+        // Clamp stats to valid ranges
+        self.stats.clamp();
+
+        // Save the updated state
+        self.save();
+    }
+
+    /// Check if the player has enough budget for a purchase
+    pub fn can_afford(&self, cost_cents: i64) -> bool {
+        self.budget_cents >= cost_cents
+    }
+
+    /// Get the remaining budget in cents
+    pub fn remaining_budget_cents(&self) -> i64 {
+        self.budget_cents
     }
 }

@@ -118,5 +118,54 @@
   "dialogs": {
     "confirm": "よろしいですか？",
     "close": "閉じる"
+  },
+  "store": {
+    "title": "装備調達",
+    "budget": "予算: {amount}",
+    "categories": {
+      "fuel_food": "燃料 / 食料",
+      "vehicle": "車両スペア",
+      "ppe": "保護具・衣類",
+      "docs": "書類・許可証"
+    },
+    "items": {
+      "rations": { "name": "レーション", "desc": "保存が利く。継続を支える。" },
+      "water": { "name": "水タンク", "desc": "水分補給は重要。" },
+      "spare_tire": { "name": "スペアタイヤ", "desc": "パンクを素早く修理。" },
+      "battery": { "name": "バッテリー", "desc": "寒冷始動。" },
+      "alternator": { "name": "オルタネーター", "desc": "充電復旧。" },
+      "fuel_pump": { "name": "燃料ポンプ", "desc": "パーティが枯渇した時。" },
+      "masks": { "name": "マスク", "desc": "煙・病気から保護。" },
+      "coats": { "name": "防寒コート", "desc": "寒波への耐性。" },
+      "ponchos": { "name": "ポンチョ", "desc": "嵐に優しい。" },
+      "press_pass": { "name": "記者証", "desc": "許可証として機能可能。" },
+      "legal_fund": { "name": "法的資金", "desc": "信用力をバッファー。" }
+    },
+    "menu": {
+      "home": "装備調達 — 予算: {budget}",
+      "view_cart": "カート確認 / 決済",
+      "continue": "続行",
+      "back": "戻る"
+    },
+    "qty_prompt": {
+      "title": "{item} — {price} 各",
+      "add1": "+1追加",
+      "add5": "+5追加",
+      "rem1": "-1除去",
+      "rem_all": "全て除去"
+    },
+    "cart": {
+      "title": "カート",
+      "line": "{item}  x{qty}  = {line_total}",
+      "total": "合計: {sum}   残り予算: {left}",
+      "checkout": "決済"
+    },
+    "alerts": {
+      "added": "{item} ({price}) を追加。残り予算 {left}。",
+      "removed": "{item} を除去。残り予算 {left}。",
+      "max_qty": "{item} の最大数量に達しました。",
+      "unique": "{item} は唯一；既に所持しています。",
+      "over_budget": "予算超過；カートを調整してください。"
+    }
   }
 }

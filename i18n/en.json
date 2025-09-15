@@ -139,5 +139,54 @@
   "dialogs": {
     "confirm": "Are you sure?",
     "close":   "Close"
+  },
+  "store": {
+    "title": "Outfitting",
+    "budget": "Budget: {amount}",
+    "categories": {
+      "fuel_food": "Fuel / Food",
+      "vehicle":   "Vehicle Spares",
+      "ppe":       "PPE & Clothing",
+      "docs":      "Documents & Permits"
+    },
+    "items": {
+      "rations":     { "name": "Rations Pack", "desc": "Non-perishable. Keeps you going." },
+      "water":       { "name": "Water Jugs", "desc": "Hydration matters." },
+      "spare_tire":  { "name": "Spare Tire",  "desc": "Fix blowouts fast." },
+      "battery":     { "name": "Battery",     "desc": "Cold starts." },
+      "alternator":  { "name": "Alternator",  "desc": "Charge restored." },
+      "fuel_pump":   { "name": "Fuel Pump",   "desc": "When the party runs dry." },
+      "masks":       { "name": "Masks",       "desc": "Smoke/illness protection." },
+      "coats":       { "name": "Warm Coats",  "desc": "Cold snap resilience." },
+      "ponchos":     { "name": "Ponchos",     "desc": "Storm friendly." },
+      "press_pass":  { "name": "Press Pass",  "desc": "Can act as a permit." },
+      "legal_fund":  { "name": "Legal Fund",  "desc": "Buffer your credibility." }
+    },
+    "menu": {
+      "home": "Outfitting — Budget: {budget}",
+      "view_cart": "View Cart / Checkout",
+      "continue": "Continue",
+      "back": "Back"
+    },
+    "qty_prompt": {
+      "title": "{item} — {price} each",
+      "add1": "Add +1",
+      "add5": "Add +5",
+      "rem1": "Remove -1",
+      "rem_all": "Remove All"
+    },
+    "cart": {
+      "title": "Cart",
+      "line": "{item}  x{qty}  = {line_total}",
+      "total": "Total: {sum}   Budget left: {left}",
+      "checkout": "Checkout"
+    },
+    "alerts": {
+      "added": "Added {item} ({price}). Budget left {left}.",
+      "removed": "Removed {item}. Budget left {left}.",
+      "max_qty": "Max quantity reached for {item}.",
+      "unique": "{item} is unique; you already have one.",
+      "over_budget": "Over budget; adjust your cart."
+    }
   }
 }

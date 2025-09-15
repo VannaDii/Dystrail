@@ -1,5 +1,6 @@
 pub mod encounter_card;
 pub mod main_menu;
+pub mod outfitting_store;
 pub mod persona_select;
 pub mod result_screen;
 pub mod save_drawer;

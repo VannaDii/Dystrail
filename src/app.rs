@@ -11,6 +11,7 @@ use yew_router::prelude::*;
 pub enum Phase {
     Boot,
     Persona,
+    Outfitting,
     Menu,
     Travel,
     Encounter,
@@ -359,12 +360,31 @@ pub fn app_inner() -> Html {
             };
             let on_continue = {
                 let phase = phase.clone();
-                Callback::from(move |()| phase.set(Phase::Menu))
+                Callback::from(move |()| phase.set(Phase::Outfitting))
             };
             html! {
               <section class="panel retro-menu">
                 <crate::components::ui::persona_select::PersonaSelect on_selected={Some(on_selected)} on_continue={Some(on_continue)} />
               </section>
+            }
+        }
+        Phase::Outfitting => {
+            // Outfitting Store
+            let current_state = (*state).clone().unwrap_or_default();
+            let on_continue = {
+                let state = state.clone();
+                let phase = phase.clone();
+                Callback::from(move |(new_state, _grants, _tags): (crate::game::GameState, crate::game::store::Grants, Vec<String>)| {
+                    state.set(Some(new_state));
+                    phase.set(Phase::Menu);
+                })
+            };
+            html! {
+                <section class="panel retro-menu">
+                    <crate::components::ui::outfitting_store::OutfittingStore
+                        game_state={current_state}
+                        on_continue={on_continue} />
+                </section>
             }
         }
         Phase::Menu => {

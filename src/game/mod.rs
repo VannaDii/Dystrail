@@ -5,6 +5,8 @@ pub mod exec_orders;
 pub mod personas;
 pub mod seed;
 pub mod state;
+pub mod store;
 
 pub use personas::{Persona, PersonaMods, PersonaStart};
-pub use state::{GameMode, GameState, Region, Stats};
+pub use state::{GameMode, GameState, Region, Stats, Inventory, Spares};
+pub use store::{Store, StoreItem, StoreCategory, Cart, CartLine, Grants, calculate_effective_price, calculate_cart_total};
