@@ -6,6 +6,8 @@ mod app;
 pub mod components;
 pub mod game;
 pub mod i18n;
+#[cfg(test)]
+mod i18n_coverage_tests;
 pub mod input;
 pub mod routes;
 

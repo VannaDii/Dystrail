@@ -124,22 +124,22 @@
     "budget": "预算: {amount}",
     "categories": {
       "fuel_food": "燃料 / 食物",
-      "vehicle":   "车辆备件",
-      "ppe":       "防护装备和服装",
-      "docs":      "文件和许可证"
+      "vehicle": "车辆备件",
+      "ppe": "防护装备和服装",
+      "docs": "文件和许可证"
     },
     "items": {
-      "rations":     { "name": "口粮包", "desc": "不易腐坏。让你继续前进。" },
-      "water":       { "name": "水壶", "desc": "水分很重要。" },
-      "spare_tire":  { "name": "备用轮胎", "desc": "快速修复爆胎。" },
-      "battery":     { "name": "电池", "desc": "冷启动。" },
-      "alternator":  { "name": "发电机", "desc": "充电恢复。" },
-      "fuel_pump":   { "name": "燃油泵", "desc": "当团队燃料耗尽时。" },
-      "masks":       { "name": "口罩", "desc": "烟雾/疾病防护。" },
-      "coats":       { "name": "保暖外套", "desc": "抗寒能力。" },
-      "ponchos":     { "name": "雨衣", "desc": "适应风暴。" },
-      "press_pass":  { "name": "记者证", "desc": "可作为许可证。" },
-      "legal_fund":  { "name": "法律基金", "desc": "缓冲你的信誉。" }
+      "rations": { "name": "口粮包", "desc": "不易腐坏。让你继续前进。" },
+      "water": { "name": "水壶", "desc": "水分很重要。" },
+      "spare_tire": { "name": "备用轮胎", "desc": "快速修复爆胎。" },
+      "battery": { "name": "电池", "desc": "冷启动。" },
+      "alternator": { "name": "发电机", "desc": "充电恢复。" },
+      "fuel_pump": { "name": "燃油泵", "desc": "当团队燃料耗尽时。" },
+      "masks": { "name": "口罩", "desc": "烟雾/疾病防护。" },
+      "coats": { "name": "保暖外套", "desc": "抗寒能力。" },
+      "ponchos": { "name": "雨衣", "desc": "适应风暴。" },
+      "press_pass": { "name": "记者证", "desc": "可作为许可证。" },
+      "legal_fund": { "name": "法律基金", "desc": "缓冲你的信誉。" }
     },
     "menu": {
       "home": "装备 — 预算: {budget}",
@@ -166,6 +166,30 @@
       "max_qty": "{item} 已达到最大数量。",
       "unique": "{item} 是唯一的；你已经有一个了。",
       "over_budget": "超出预算；调整你的购物车。"
+    }
+  },
+  "pacediet": {
+    "title": "节奏与信息饮食 — 今日",
+    "menu": {
+      "pace_steady": "节奏: [稳定]",
+      "pace_heated": "节奏:  激烈",
+      "pace_blitz": "节奏:  闪电",
+      "diet_quiet": "信息:  安静",
+      "diet_mixed": "信息: [混合]",
+      "diet_doom": "信息:  末日滚动",
+      "back": "返回"
+    },
+    "announce": {
+      "pace_set": "节奏设置为 {pace} ({sanity} 理智，{pants} 裤子，{chance} 遭遇几率)。",
+      "diet_set": "信息饮食设置为 {diet} ({sanity} 理智，{pants} 裤子，{receipt} 收据几率)。"
+    },
+    "tooltips": {
+      "steady": "距离 ×1.0；理智 0；裤子 0；遭遇 +0%",
+      "heated": "距离 ×1.2；理智 -1；裤子 +3；遭遇 +5%",
+      "blitz": "距离 ×1.4；理智 -2；裤子 +6；遭遇 +10%",
+      "quiet": "收据 -5%；理智 +1；裤子 -2",
+      "mixed": "收据 0%；理智 0；裤子 0",
+      "doom": "收据 +8%；理智 -2；裤子 +4"
     }
   }
 }

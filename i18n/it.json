@@ -100,8 +100,7 @@
   },
   "footer": {
     "copyright": "© Dystrail"
-  }
-  ,
+  },
   "persona": {
     "choose": "Scegli la tua Persona:",
     "selected_budget_prefix": "Budget iniziale",
@@ -124,43 +123,43 @@
   },
   "menu": {
     "title": "Menu Principale",
-    "help":  "Premi 1–8/0 o clicca un elemento. Seed: {{seed}}",
+    "help": "Premi 1–8/0 o clicca un elemento. Seed: {{seed}}",
     "selected": "Selezionato",
     "travel": "Viaggia",
-    "camp":   "Accampa",
+    "camp": "Accampa",
     "status": "Stato",
-    "pace":   "Cambia Andatura",
-    "diet":   "Dieta Info",
+    "pace": "Cambia Andatura",
+    "diet": "Dieta Info",
     "inventory": "Usa Inventario",
-    "share":  "Salva/Condividi Seed",
+    "share": "Salva/Condividi Seed",
     "settings": "Impostazioni",
-    "quit":   "Esci"
+    "quit": "Esci"
   },
   "dialogs": {
     "confirm": "Sei sicuro?",
-    "close":   "Chiudi"
+    "close": "Chiudi"
   },
   "store": {
     "title": "Equipaggiamento",
     "budget": "Budget: {amount}",
     "categories": {
       "fuel_food": "Carburante / Cibo",
-      "vehicle":   "Ricambi Veicolo",
-      "ppe":       "DPI e Abbigliamento",
-      "docs":      "Documenti e Permessi"
+      "vehicle": "Ricambi Veicolo",
+      "ppe": "DPI e Abbigliamento",
+      "docs": "Documenti e Permessi"
     },
     "items": {
-      "rations":     { "name": "Pacchetto Razioni", "desc": "Non deperibile. Ti fa andare avanti." },
-      "water":       { "name": "Taniche d'Acqua", "desc": "L'idratazione conta." },
-      "spare_tire":  { "name": "Pneumatico di Scorta", "desc": "Ripara le forature velocemente." },
-      "battery":     { "name": "Batteria", "desc": "Avviamenti a freddo." },
-      "alternator":  { "name": "Alternatore", "desc": "Carica ripristinata." },
-      "fuel_pump":   { "name": "Pompa Carburante", "desc": "Quando il gruppo resta a secco." },
-      "masks":       { "name": "Maschere", "desc": "Protezione fumo/malattia." },
-      "coats":       { "name": "Cappotti Caldi", "desc": "Resistenza al freddo." },
-      "ponchos":     { "name": "Poncho", "desc": "Amici delle tempeste." },
-      "press_pass":  { "name": "Tessera Stampa", "desc": "Può agire come permesso." },
-      "legal_fund":  { "name": "Fondo Legale", "desc": "Ammortizza la tua credibilità." }
+      "rations": { "name": "Pacchetto Razioni", "desc": "Non deperibile. Ti fa andare avanti." },
+      "water": { "name": "Taniche d'Acqua", "desc": "L'idratazione conta." },
+      "spare_tire": { "name": "Pneumatico di Scorta", "desc": "Ripara le forature velocemente." },
+      "battery": { "name": "Batteria", "desc": "Avviamenti a freddo." },
+      "alternator": { "name": "Alternatore", "desc": "Carica ripristinata." },
+      "fuel_pump": { "name": "Pompa Carburante", "desc": "Quando il gruppo resta a secco." },
+      "masks": { "name": "Maschere", "desc": "Protezione fumo/malattia." },
+      "coats": { "name": "Cappotti Caldi", "desc": "Resistenza al freddo." },
+      "ponchos": { "name": "Poncho", "desc": "Amici delle tempeste." },
+      "press_pass": { "name": "Tessera Stampa", "desc": "Può agire come permesso." },
+      "legal_fund": { "name": "Fondo Legale", "desc": "Ammortizza la tua credibilità." }
     },
     "menu": {
       "home": "Equipaggiamento — Budget: {budget}",
@@ -187,6 +186,30 @@
       "max_qty": "Quantità massima raggiunta per {item}.",
       "unique": "{item} è unico; ne hai già uno.",
       "over_budget": "Budget superato; aggiusta il carrello."
+    }
+  },
+  "pacediet": {
+    "title": "Ritmo e Dieta Info — Oggi",
+    "menu": {
+      "pace_steady": "Ritmo: [Costante]",
+      "pace_heated": "Ritmo:  Intenso",
+      "pace_blitz": "Ritmo:  Blitz",
+      "diet_quiet": "Info:  Quiete",
+      "diet_mixed": "Info: [Mista]",
+      "diet_doom": "Info:  Scrolling ossessivo",
+      "back": "Indietro"
+    },
+    "announce": {
+      "pace_set": "Ritmo impostato a {pace} ({sanity} Sanità, {pants} Pantaloni, {chance} probabilità incontro).",
+      "diet_set": "Dieta info impostata a {diet} ({sanity} Sanità, {pants} Pantaloni, {receipt} probabilità ricevuta)."
+    },
+    "tooltips": {
+      "steady": "Distanza ×1.0; San 0; Pantaloni 0; Incontro +0%",
+      "heated": "Distanza ×1.2; San -1; Pantaloni +3; Incontro +5%",
+      "blitz": "Distanza ×1.4; San -2; Pantaloni +6; Incontro +10%",
+      "quiet": "Ricevute -5%; San +1; Pantaloni -2",
+      "mixed": "Ricevute 0%; San 0; Pantaloni 0",
+      "doom": "Ricevute +8%; San -2; Pantaloni +4"
     }
   }
 }

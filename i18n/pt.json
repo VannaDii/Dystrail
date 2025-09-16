@@ -124,22 +124,22 @@
     "budget": "Orçamento: {amount}",
     "categories": {
       "fuel_food": "Combustível / Comida",
-      "vehicle":   "Peças do Veículo",
-      "ppe":       "EPI e Roupas",
-      "docs":      "Documentos e Licenças"
+      "vehicle": "Peças do Veículo",
+      "ppe": "EPI e Roupas",
+      "docs": "Documentos e Licenças"
     },
     "items": {
-      "rations":     { "name": "Pacote de Rações", "desc": "Não perecível. Te mantém em movimento." },
-      "water":       { "name": "Galões de Água", "desc": "Hidratação é importante." },
-      "spare_tire":  { "name": "Pneu Sobressalente", "desc": "Conserta furos rapidamente." },
-      "battery":     { "name": "Bateria", "desc": "Partidas a frio." },
-      "alternator":  { "name": "Alternador", "desc": "Carga restaurada." },
-      "fuel_pump":   { "name": "Bomba de Combustível", "desc": "Quando o grupo fica sem combustível." },
-      "masks":       { "name": "Máscaras", "desc": "Proteção contra fumaça/doença." },
-      "coats":       { "name": "Casacos Quentes", "desc": "Resistência ao frio." },
-      "ponchos":     { "name": "Ponchos", "desc": "Amigos da tempestade." },
-      "press_pass":  { "name": "Carteira de Imprensa", "desc": "Pode agir como licença." },
-      "legal_fund":  { "name": "Fundo Legal", "desc": "Protege sua credibilidade." }
+      "rations": { "name": "Pacote de Rações", "desc": "Não perecível. Te mantém em movimento." },
+      "water": { "name": "Galões de Água", "desc": "Hidratação é importante." },
+      "spare_tire": { "name": "Pneu Sobressalente", "desc": "Conserta furos rapidamente." },
+      "battery": { "name": "Bateria", "desc": "Partidas a frio." },
+      "alternator": { "name": "Alternador", "desc": "Carga restaurada." },
+      "fuel_pump": { "name": "Bomba de Combustível", "desc": "Quando o grupo fica sem combustível." },
+      "masks": { "name": "Máscaras", "desc": "Proteção contra fumaça/doença." },
+      "coats": { "name": "Casacos Quentes", "desc": "Resistência ao frio." },
+      "ponchos": { "name": "Ponchos", "desc": "Amigos da tempestade." },
+      "press_pass": { "name": "Carteira de Imprensa", "desc": "Pode agir como licença." },
+      "legal_fund": { "name": "Fundo Legal", "desc": "Protege sua credibilidade." }
     },
     "menu": {
       "home": "Equipamentos — Orçamento: {budget}",
@@ -166,6 +166,30 @@
       "max_qty": "Quantidade máxima atingida para {item}.",
       "unique": "{item} é único; você já tem um.",
       "over_budget": "Acima do orçamento; ajuste seu carrinho."
+    }
+  },
+  "pacediet": {
+    "title": "Ritmo e Dieta de Info — Hoje",
+    "menu": {
+      "pace_steady": "Ritmo: [Constante]",
+      "pace_heated": "Ritmo:  Intenso",
+      "pace_blitz": "Ritmo:  Blitz",
+      "diet_quiet": "Info:  Calma",
+      "diet_mixed": "Info: [Mista]",
+      "diet_doom": "Info:  Rolagem excessiva",
+      "back": "Voltar"
+    },
+    "announce": {
+      "pace_set": "Ritmo definido para {pace} ({sanity} Sanidade, {pants} Calças, {chance} chance de encontro).",
+      "diet_set": "Dieta de info definida para {diet} ({sanity} Sanidade, {pants} Calças, {receipt} chance de recibo)."
+    },
+    "tooltips": {
+      "steady": "Distância ×1.0; San 0; Calças 0; Encontro +0%",
+      "heated": "Distância ×1.2; San -1; Calças +3; Encontro +5%",
+      "blitz": "Distância ×1.4; San -2; Calças +6; Encontro +10%",
+      "quiet": "Recibos -5%; San +1; Calças -2",
+      "mixed": "Recibos 0%; San 0; Calças 0",
+      "doom": "Recibos +8%; San -2; Calças +4"
     }
   }
 }

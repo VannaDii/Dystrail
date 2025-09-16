@@ -100,8 +100,7 @@
   },
   "footer": {
     "copyright": "© Dystrail"
-  }
-  ,
+  },
   "persona": {
     "choose": "Choose your Persona:",
     "selected_budget_prefix": "Starting budget",
@@ -124,43 +123,43 @@
   },
   "menu": {
     "title": "Main Menu",
-    "help":  "Press 1–8/0 or click an item. Seed: {{seed}}",
+    "help": "Press 1–8/0 or click an item. Seed: {{seed}}",
     "selected": "Selected",
     "travel": "Travel",
-    "camp":   "Camp",
+    "camp": "Camp",
     "status": "Status",
-    "pace":   "Change Pace",
-    "diet":   "Info Diet",
+    "pace": "Change Pace",
+    "diet": "Info Diet",
     "inventory": "Use Inventory",
-    "share":  "Save/Share Seed",
+    "share": "Save/Share Seed",
     "settings": "Settings",
-    "quit":   "Quit"
+    "quit": "Quit"
   },
   "dialogs": {
     "confirm": "Are you sure?",
-    "close":   "Close"
+    "close": "Close"
   },
   "store": {
     "title": "Outfitting",
     "budget": "Budget: {amount}",
     "categories": {
       "fuel_food": "Fuel / Food",
-      "vehicle":   "Vehicle Spares",
-      "ppe":       "PPE & Clothing",
-      "docs":      "Documents & Permits"
+      "vehicle": "Vehicle Spares",
+      "ppe": "PPE & Clothing",
+      "docs": "Documents & Permits"
     },
     "items": {
-      "rations":     { "name": "Rations Pack", "desc": "Non-perishable. Keeps you going." },
-      "water":       { "name": "Water Jugs", "desc": "Hydration matters." },
-      "spare_tire":  { "name": "Spare Tire",  "desc": "Fix blowouts fast." },
-      "battery":     { "name": "Battery",     "desc": "Cold starts." },
-      "alternator":  { "name": "Alternator",  "desc": "Charge restored." },
-      "fuel_pump":   { "name": "Fuel Pump",   "desc": "When the party runs dry." },
-      "masks":       { "name": "Masks",       "desc": "Smoke/illness protection." },
-      "coats":       { "name": "Warm Coats",  "desc": "Cold snap resilience." },
-      "ponchos":     { "name": "Ponchos",     "desc": "Storm friendly." },
-      "press_pass":  { "name": "Press Pass",  "desc": "Can act as a permit." },
-      "legal_fund":  { "name": "Legal Fund",  "desc": "Buffer your credibility." }
+      "rations": { "name": "Rations Pack", "desc": "Non-perishable. Keeps you going." },
+      "water": { "name": "Water Jugs", "desc": "Hydration matters." },
+      "spare_tire": { "name": "Spare Tire", "desc": "Fix blowouts fast." },
+      "battery": { "name": "Battery", "desc": "Cold starts." },
+      "alternator": { "name": "Alternator", "desc": "Charge restored." },
+      "fuel_pump": { "name": "Fuel Pump", "desc": "When the party runs dry." },
+      "masks": { "name": "Masks", "desc": "Smoke/illness protection." },
+      "coats": { "name": "Warm Coats", "desc": "Cold snap resilience." },
+      "ponchos": { "name": "Ponchos", "desc": "Storm friendly." },
+      "press_pass": { "name": "Press Pass", "desc": "Can act as a permit." },
+      "legal_fund": { "name": "Legal Fund", "desc": "Buffer your credibility." }
     },
     "menu": {
       "home": "Outfitting — Budget: {budget}",
@@ -187,6 +186,30 @@
       "max_qty": "Max quantity reached for {item}.",
       "unique": "{item} is unique; you already have one.",
       "over_budget": "Over budget; adjust your cart."
+    }
+  },
+  "pacediet": {
+    "title": "Pace & Info-Diet — Today",
+    "menu": {
+      "pace_steady": "Pace: [Steady]",
+      "pace_heated": "Pace:  Heated",
+      "pace_blitz": "Pace:  Blitz",
+      "diet_quiet": "Diet:  Quiet",
+      "diet_mixed": "Diet: [Mixed]",
+      "diet_doom": "Diet:  Doomscroll",
+      "back": "Back"
+    },
+    "announce": {
+      "pace_set": "Pace set to {pace} ({sanity} Sanity, {pants} Pants, {chance} encounter chance).",
+      "diet_set": "Diet set to {diet} ({sanity} Sanity, {pants} Pants, {receipt} receipt-chance)."
+    },
+    "tooltips": {
+      "steady": "Distance x1.0; San 0; Pants 0; Encounter +0%",
+      "heated": "Distance x1.2; San -1; Pants +3; Encounter +5%",
+      "blitz": "Distance x1.4; San -2; Pants +6; Encounter +10%",
+      "quiet": "Receipts -5%; San +1; Pants -2",
+      "mixed": "Receipts 0%; San 0; Pants 0",
+      "doom": "Receipts +8%; San -2; Pants +4"
     }
   }
 }

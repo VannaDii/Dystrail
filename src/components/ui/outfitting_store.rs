@@ -554,7 +554,7 @@ fn render_home_screen(
         vars
     }));
 
-    let categories = vec![
+    let categories = [
         (1u8, i18n::t("store.categories.fuel_food")),
         (2u8, i18n::t("store.categories.vehicle")),
         (3u8, i18n::t("store.categories.ppe")),

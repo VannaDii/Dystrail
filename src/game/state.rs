@@ -9,6 +9,16 @@ use crate::game::encounters::pick_encounter;
 use crate::game::exec_orders::ExecOrder;
 use crate::game::personas::{Persona, PersonaMods};
 
+/// Default pace setting
+fn default_pace() -> String {
+    "steady".to_string()
+}
+
+/// Default diet setting
+fn default_diet() -> String {
+    "mixed".to_string()
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GameMode {
     Classic,
@@ -67,7 +77,7 @@ impl Stats {
 }
 
 /// Player inventory including spares and tags
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct Inventory {
     #[serde(default)]
     pub spares: Spares,
@@ -75,17 +85,8 @@ pub struct Inventory {
     pub tags: HashSet<String>,
 }
 
-impl Default for Inventory {
-    fn default() -> Self {
-        Self {
-            spares: Spares::default(),
-            tags: HashSet::new(),
-        }
-    }
-}
-
 /// Vehicle and equipment spares
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct Spares {
     #[serde(default)]
     pub tire: i32,
@@ -95,17 +96,6 @@ pub struct Spares {
     pub alt: i32, // alternator
     #[serde(default)]
     pub pump: i32, // fuel pump
-}
-
-impl Default for Spares {
-    fn default() -> Self {
-        Self {
-            tire: 0,
-            battery: 0,
-            alt: 0,
-            pump: 0,
-        }
-    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -139,6 +129,21 @@ pub struct GameState {
     pub score_mult: f32,
     #[serde(default)]
     pub mods: PersonaMods,
+    /// Current pace setting
+    #[serde(default = "default_pace")]
+    pub pace: String,
+    /// Current info diet setting
+    #[serde(default = "default_diet")]
+    pub diet: String,
+    /// Calculated receipt finding bonus percentage for this tick
+    #[serde(default)]
+    pub receipt_bonus_pct: i32,
+    /// Base encounter chance for today after pace modifiers
+    #[serde(default)]
+    pub encounter_chance_today: f32,
+    /// Distance multiplier for today
+    #[serde(default)]
+    pub distance_today: f32,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     pub current_encounter: Option<Encounter>,
@@ -163,6 +168,11 @@ impl Default for GameState {
             persona_id: None,
             score_mult: 1.0,
             mods: PersonaMods::default(),
+            pace: default_pace(),
+            diet: default_diet(),
+            receipt_bonus_pct: 0,
+            encounter_chance_today: 0.35,
+            distance_today: 1.0,
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             current_encounter: None,
@@ -375,5 +385,194 @@ impl GameState {
     /// Get the remaining budget in cents
     pub fn remaining_budget_cents(&self) -> i64 {
         self.budget_cents
+    }
+
+    /// Apply pace and diet settings to game state for the current day
+    pub fn apply_pace_and_diet(&mut self, config: &crate::game::pacing::PacingConfig) {
+        let pace_cfg = config.get_pace_safe(&self.pace);
+        let diet_cfg = config.get_diet_safe(&self.diet);
+
+        // Apply sanity and pants deltas
+        self.stats.sanity += pace_cfg.sanity + diet_cfg.sanity;
+        self.stats.pants = (self.stats.pants + pace_cfg.pants + diet_cfg.pants)
+            .clamp(config.limits.pants_floor, config.limits.pants_ceiling);
+
+        // Calculate receipt bonus (used by forage/receipt-finding events)
+        // Note: persona bonus would be added here if personas provide receipt bonuses
+        self.receipt_bonus_pct = diet_cfg.receipt_find_pct_delta;
+
+        // Set encounter chance base (pace delta applied to base)
+        let base = config.limits.encounter_base + pace_cfg.encounter_chance_delta;
+        self.encounter_chance_today = base.clamp(0.0, 1.0);
+
+        // Set distance multiplier for today
+        self.distance_today = config.limits.distance_base * pace_cfg.dist_mult;
+
+        // Clamp stats to valid ranges
+        self.stats.clamp();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::pacing::PacingConfig;
+
+    #[test]
+    fn test_default_game_state_has_correct_pace_diet() {
+        let game_state = GameState::default();
+
+        assert_eq!(game_state.pace, "steady");
+        assert_eq!(game_state.diet, "mixed");
+        assert_eq!(game_state.encounter_chance_today, 0.35); // default base
+        assert_eq!(game_state.distance_today, 1.0); // default distance
+        assert_eq!(game_state.receipt_bonus_pct, 0);
+        assert_eq!(game_state.day, 1);
+        assert_eq!(game_state.region, Region::Heartland);
+        assert_eq!(game_state.mode, GameMode::Classic);
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_steady_mixed() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        let initial_sanity = game_state.stats.sanity;
+        let initial_pants = game_state.stats.pants;
+
+        // Apply steady pace and mixed diet (should be neutral)
+        game_state.apply_pace_and_diet(&config);
+
+        assert_eq!(game_state.stats.sanity, initial_sanity);
+        assert_eq!(game_state.stats.pants, initial_pants);
+        assert_eq!(game_state.encounter_chance_today, 0.35); // base = 0.35 + 0.0 delta
+        assert_eq!(game_state.receipt_bonus_pct, 0); // mixed base
+        assert!(game_state.distance_today > 0.0);
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_with_effects() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        // Set pace and diet with known effects
+        game_state.pace = "heated".to_string(); // sanity: -1, pants: +3
+        game_state.diet = "doom".to_string(); // sanity: -2, pants: +4
+
+        let initial_sanity = game_state.stats.sanity;
+        let initial_pants = game_state.stats.pants;
+
+        game_state.apply_pace_and_diet(&config);
+
+        // Should have lower sanity (-3 total) and higher pants (+7 total)
+        assert_eq!(game_state.stats.sanity, initial_sanity - 3);
+        assert_eq!(game_state.stats.pants, initial_pants + 7);
+        assert_eq!(game_state.encounter_chance_today, 0.4); // 0.35 base + 0.05 delta
+        assert_eq!(game_state.receipt_bonus_pct, 8); // doom receipt bonus
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_stats_clamping() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        // Set stats to extreme values
+        game_state.stats.sanity = 0;
+        game_state.stats.pants = 95;
+
+        // Apply effects that would push beyond limits
+        game_state.pace = "blitz".to_string();
+        game_state.diet = "doom".to_string();
+
+        game_state.apply_pace_and_diet(&config);
+
+        // Stats should be clamped to valid ranges
+        assert!(game_state.stats.sanity >= 0);
+        assert!(game_state.stats.sanity <= 100);
+        assert!(game_state.stats.pants >= 0);
+        assert!(game_state.stats.pants <= 100);
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_invalid_options() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        // Set invalid pace and diet
+        game_state.pace = "invalid_pace".to_string();
+        game_state.diet = "invalid_diet".to_string();
+
+        let initial_sanity = game_state.stats.sanity;
+        let initial_pants = game_state.stats.pants;
+
+        // Should fall back to defaults without crashing
+        game_state.apply_pace_and_diet(&config);
+
+        // Should use defaults (steady/mixed)
+        assert_eq!(game_state.stats.sanity, initial_sanity);
+        assert_eq!(game_state.stats.pants, initial_pants);
+        assert_eq!(game_state.encounter_chance_today, 0.35); // base encounter chance
+        assert_eq!(game_state.receipt_bonus_pct, 0);
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_distance_calculation() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        // Test different paces
+        game_state.pace = "steady".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let steady_distance = game_state.distance_today; // 1.0 * 1.0
+
+        game_state.pace = "heated".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let heated_distance = game_state.distance_today; // 1.0 * 1.2
+
+        game_state.pace = "blitz".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let blitz_distance = game_state.distance_today; // 1.0 * 1.4
+
+        // Higher pace should yield more distance
+        assert!(heated_distance > steady_distance);
+        assert!(blitz_distance > heated_distance);
+
+        // Check specific expected values
+        assert_eq!(steady_distance, 1.0);
+        assert_eq!(heated_distance, 1.2);
+        assert_eq!(blitz_distance, 1.4);
+    }
+
+    #[test]
+    fn test_apply_pace_and_diet_encounter_chance() {
+        let config = PacingConfig::default_config();
+        let mut game_state = GameState::default();
+
+        // Test different paces for encounter chance
+        game_state.pace = "steady".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let steady_chance = game_state.encounter_chance_today; // 0.35 + 0.0
+
+        game_state.pace = "heated".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let heated_chance = game_state.encounter_chance_today; // 0.35 + 0.05
+
+        game_state.pace = "blitz".to_string();
+        game_state.apply_pace_and_diet(&config);
+        let blitz_chance = game_state.encounter_chance_today; // 0.35 + 0.1
+
+        // Higher pace should yield higher encounter chance
+        assert!(heated_chance > steady_chance);
+        assert!(blitz_chance > heated_chance);
+
+        // Check specific expected values
+        assert_eq!(steady_chance, 0.35);
+        assert_eq!(heated_chance, 0.4);
+        assert_eq!(blitz_chance, 0.45);
+
+        // All chances should be within valid range
+        assert!(steady_chance >= 0.0 && steady_chance <= 1.0);
+        assert!(heated_chance >= 0.0 && heated_chance <= 1.0);
+        assert!(blitz_chance >= 0.0 && blitz_chance <= 1.0);
     }
 }

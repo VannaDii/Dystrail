@@ -1,8 +1,10 @@
 use crate::game::data::EncounterData;
+use crate::game::pacing::PacingConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{GameMode, GameState, Region};
 use crate::i18n;
 use crate::routes::Route;
+use std::rc::Rc;
 use wasm_bindgen::JsCast;
 use yew::prelude::*;
 use yew_router::prelude::*;
@@ -34,6 +36,7 @@ pub fn app_inner() -> Html {
     let code = use_state(|| AttrValue::from("CL-ORANGE42"));
     let code_valid = use_state(|| true);
     let data = use_state(EncounterData::empty);
+    let pacing_config = use_state(PacingConfig::default_config);
     let state = use_state(|| None::<GameState>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
@@ -78,10 +81,13 @@ pub fn app_inner() -> Html {
     {
         let phase = phase.clone();
         let data = data.clone();
+        let pacing_config = pacing_config.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
-                let loaded = EncounterData::load_from_static().await;
-                data.set(loaded);
+                let loaded_data = EncounterData::load_from_static().await;
+                let loaded_pacing = PacingConfig::load_from_static().await;
+                data.set(loaded_data);
+                pacing_config.set(loaded_pacing);
                 phase.set(Phase::Persona);
             });
             || {}
@@ -188,8 +194,11 @@ pub fn app_inner() -> Html {
         let state = state.clone();
         let logs = logs.clone();
         let phase = phase.clone();
+        let pacing_cfg = (*pacing_config).clone();
         Callback::from(move |()| {
             if let Some(mut gs) = (*state).clone() {
+                // Apply pace and diet effects before traveling
+                gs.apply_pace_and_diet(&pacing_cfg);
                 let (ended, info_key) = gs.travel_next_leg();
                 let mut lg = (*logs).clone();
                 lg.push(crate::i18n::t(&info_key));
@@ -201,6 +210,26 @@ pub fn app_inner() -> Html {
                     phase.set(Phase::Boss);
                 }
                 logs.set(lg);
+                state.set(Some(gs));
+            }
+        })
+    };
+
+    let on_pace_change = {
+        let state = state.clone();
+        Callback::from(move |new_pace: String| {
+            if let Some(mut gs) = (*state).clone() {
+                gs.pace = new_pace;
+                state.set(Some(gs));
+            }
+        })
+    };
+
+    let on_diet_change = {
+        let state = state.clone();
+        Callback::from(move |new_diet: String| {
+            if let Some(mut gs) = (*state).clone() {
+                gs.diet = new_diet;
                 state.set(Some(gs));
             }
         })
@@ -461,10 +490,18 @@ pub fn app_inner() -> Html {
         }
         Phase::Travel => {
             if let Some(gs) = (*state).clone() {
+                let pacing_config_rc = Rc::new((*pacing_config).clone());
                 html! {
                     <>
                         <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={Some(gs.current_order)} />
-                        <crate::components::ui::travel_panel::TravelPanel on_travel={do_travel} logs={(*logs).clone()} />
+                        <crate::components::ui::travel_panel::TravelPanel
+                            on_travel={do_travel}
+                            logs={(*logs).clone()}
+                            game_state={(*state).clone().map(Rc::new)}
+                            pacing_config={pacing_config_rc}
+                            on_pace_change={on_pace_change}
+                            on_diet_change={on_diet_change}
+                        />
                         { if data_ready { Html::default() } else { html!{ <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> } } }
                     </>
                 }

@@ -100,8 +100,7 @@
   },
   "footer": {
     "copyright": "© Dystrail"
-  }
-  ,
+  },
   "persona": {
     "choose": "Elige tu Persona:",
     "selected_budget_prefix": "Presupuesto inicial",
@@ -124,43 +123,43 @@
   },
   "menu": {
     "title": "Menú Principal",
-    "help":  "Pulsa 1–8/0 o haz clic en un elemento. Semilla: {{seed}}",
+    "help": "Pulsa 1–8/0 o haz clic en un elemento. Semilla: {{seed}}",
     "selected": "Seleccionado",
     "travel": "Viajar",
-    "camp":   "Acampar",
+    "camp": "Acampar",
     "status": "Estado",
-    "pace":   "Cambiar Ritmo",
-    "diet":   "Dieta Info",
+    "pace": "Cambiar Ritmo",
+    "diet": "Dieta Info",
     "inventory": "Usar Inventario",
-    "share":  "Guardar/Compartir Semilla",
+    "share": "Guardar/Compartir Semilla",
     "settings": "Ajustes",
-    "quit":   "Salir"
+    "quit": "Salir"
   },
   "dialogs": {
     "confirm": "¿Estás seguro?",
-    "close":   "Cerrar"
+    "close": "Cerrar"
   },
   "store": {
     "title": "Equipamiento",
     "budget": "Presupuesto: {amount}",
     "categories": {
       "fuel_food": "Combustible / Comida",
-      "vehicle":   "Repuestos de Vehículo",
-      "ppe":       "EPP y Ropa",
-      "docs":      "Documentos y Permisos"
+      "vehicle": "Repuestos de Vehículo",
+      "ppe": "EPP y Ropa",
+      "docs": "Documentos y Permisos"
     },
     "items": {
-      "rations":     { "name": "Paquete de Raciones", "desc": "No perecedero. Te mantiene en marcha." },
-      "water":       { "name": "Garrafas de Agua", "desc": "La hidratación importa." },
-      "spare_tire":  { "name": "Neumático de Repuesto", "desc": "Repara pinchazos rápido." },
-      "battery":     { "name": "Batería", "desc": "Arranques en frío." },
-      "alternator":  { "name": "Alternador", "desc": "Carga restaurada." },
-      "fuel_pump":   { "name": "Bomba de Combustible", "desc": "Cuando el grupo se queda seco." },
-      "masks":       { "name": "Mascarillas", "desc": "Protección contra humo/enfermedad." },
-      "coats":       { "name": "Abrigos Cálidos", "desc": "Resistencia al frío extremo." },
-      "ponchos":     { "name": "Ponchos", "desc": "Amigables con las tormentas." },
-      "press_pass":  { "name": "Pase de Prensa", "desc": "Puede actuar como permiso." },
-      "legal_fund":  { "name": "Fondo Legal", "desc": "Amortigua tu credibilidad." }
+      "rations": { "name": "Paquete de Raciones", "desc": "No perecedero. Te mantiene en marcha." },
+      "water": { "name": "Garrafas de Agua", "desc": "La hidratación importa." },
+      "spare_tire": { "name": "Neumático de Repuesto", "desc": "Repara pinchazos rápido." },
+      "battery": { "name": "Batería", "desc": "Arranques en frío." },
+      "alternator": { "name": "Alternador", "desc": "Carga restaurada." },
+      "fuel_pump": { "name": "Bomba de Combustible", "desc": "Cuando el grupo se queda seco." },
+      "masks": { "name": "Mascarillas", "desc": "Protección contra humo/enfermedad." },
+      "coats": { "name": "Abrigos Cálidos", "desc": "Resistencia al frío extremo." },
+      "ponchos": { "name": "Ponchos", "desc": "Amigables con las tormentas." },
+      "press_pass": { "name": "Pase de Prensa", "desc": "Puede actuar como permiso." },
+      "legal_fund": { "name": "Fondo Legal", "desc": "Amortigua tu credibilidad." }
     },
     "menu": {
       "home": "Equipamiento — Presupuesto: {budget}",
@@ -187,6 +186,30 @@
       "max_qty": "Cantidad máxima alcanzada para {item}.",
       "unique": "{item} es único; ya tienes uno.",
       "over_budget": "Sobre presupuesto; ajusta tu carrito."
+    }
+  },
+  "pacediet": {
+    "title": "Ritmo y Dieta de Info — Hoy",
+    "menu": {
+      "pace_steady": "Ritmo: [Constante]",
+      "pace_heated": "Ritmo:  Intenso",
+      "pace_blitz": "Ritmo:  Blitz",
+      "diet_quiet": "Info:  Tranquila",
+      "diet_mixed": "Info: [Mixta]",
+      "diet_doom": "Info:  Scrolling excesivo",
+      "back": "Atrás"
+    },
+    "announce": {
+      "pace_set": "Ritmo establecido en {pace} ({sanity} Cordura, {pants} Pantalones, {chance} probabilidad de encuentro).",
+      "diet_set": "Dieta de info establecida en {diet} ({sanity} Cordura, {pants} Pantalones, {receipt} probabilidad de recibo)."
+    },
+    "tooltips": {
+      "steady": "Distancia ×1.0; Cor 0; Pantalones 0; Encuentro +0%",
+      "heated": "Distancia ×1.2; Cor -1; Pantalones +3; Encuentro +5%",
+      "blitz": "Distancia ×1.4; Cor -2; Pantalones +6; Encuentro +10%",
+      "quiet": "Recibos -5%; Cor +1; Pantalones -2",
+      "mixed": "Recibos 0%; Cor 0; Pantalones 0",
+      "doom": "Recibos +8%; Cor -2; Pantalones +4"
     }
   }
 }

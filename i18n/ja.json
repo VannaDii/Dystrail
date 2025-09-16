@@ -167,5 +167,29 @@
       "unique": "{item} は唯一；既に所持しています。",
       "over_budget": "予算超過；カートを調整してください。"
     }
+  },
+  "pacediet": {
+    "title": "ペースと情報ダイエット — 今日",
+    "menu": {
+      "pace_steady": "ペース: [安定]",
+      "pace_heated": "ペース:  激しい",
+      "pace_blitz": "ペース:  電撃",
+      "diet_quiet": "情報:  静寂",
+      "diet_mixed": "情報: [混合]",
+      "diet_doom": "情報:  破滅スクロール",
+      "back": "戻る"
+    },
+    "announce": {
+      "pace_set": "ペースを {pace} に設定 ({sanity} 正気度、{pants} パンツ、{chance} 遭遇確率)。",
+      "diet_set": "情報ダイエットを {diet} に設定 ({sanity} 正気度、{pants} パンツ、{receipt} レシート確率)。"
+    },
+    "tooltips": {
+      "steady": "距離 ×1.0；正気 0；パンツ 0；遭遇 +0%",
+      "heated": "距離 ×1.2；正気 -1；パンツ +3；遭遇 +5%",
+      "blitz": "距離 ×1.4；正気 -2；パンツ +6；遭遇 +10%",
+      "quiet": "レシート -5%；正気 +1；パンツ -2",
+      "mixed": "レシート 0%；正気 0；パンツ 0",
+      "doom": "レシート +8%；正気 -2；パンツ +4"
+    }
   }
 }

@@ -1,0 +1,57 @@
+{
+  "pace": [
+    {
+      "id": "steady",
+      "name": "Steady",
+      "dist_mult": 1.0,
+      "sanity": 0,
+      "pants": 0,
+      "encounter_chance_delta": 0.0
+    },
+    {
+      "id": "heated",
+      "name": "Heated",
+      "dist_mult": 1.2,
+      "sanity": -1,
+      "pants": 3,
+      "encounter_chance_delta": 0.05
+    },
+    {
+      "id": "blitz",
+      "name": "Blitz",
+      "dist_mult": 1.4,
+      "sanity": -2,
+      "pants": 6,
+      "encounter_chance_delta": 0.1
+    }
+  ],
+  "diet": [
+    {
+      "id": "quiet",
+      "name": "Quiet",
+      "receipt_find_pct_delta": -5,
+      "sanity": 1,
+      "pants": -2
+    },
+    {
+      "id": "mixed",
+      "name": "Mixed",
+      "receipt_find_pct_delta": 0,
+      "sanity": 0,
+      "pants": 0
+    },
+    {
+      "id": "doom",
+      "name": "Doomscroll",
+      "receipt_find_pct_delta": 8,
+      "sanity": -2,
+      "pants": 4
+    }
+  ],
+  "limits": {
+    "pants_floor": 0,
+    "pants_ceiling": 100,
+    "encounter_base": 0.35,
+    "distance_base": 1.0
+  }
+}

@@ -124,22 +124,22 @@
     "budget": "Budget: {amount}",
     "categories": {
       "fuel_food": "Carburant / Nourriture",
-      "vehicle":   "Pièces de Véhicule",
-      "ppe":       "EPI et Vêtements",
-      "docs":      "Documents et Permis"
+      "vehicle": "Pièces de Véhicule",
+      "ppe": "EPI et Vêtements",
+      "docs": "Documents et Permis"
     },
     "items": {
-      "rations":     { "name": "Pack de Rations", "desc": "Non périssable. Vous fait avancer." },
-      "water":       { "name": "Bidons d'Eau", "desc": "L'hydratation compte." },
-      "spare_tire":  { "name": "Pneu de Secours", "desc": "Répare les crevaisons rapidement." },
-      "battery":     { "name": "Batterie", "desc": "Démarrages à froid." },
-      "alternator":  { "name": "Alternateur", "desc": "Charge restaurée." },
-      "fuel_pump":   { "name": "Pompe à Carburant", "desc": "Quand le groupe tombe en panne sèche." },
-      "masks":       { "name": "Masques", "desc": "Protection fumée/maladie." },
-      "coats":       { "name": "Manteaux Chauds", "desc": "Résistance au froid." },
-      "ponchos":     { "name": "Ponchos", "desc": "Adaptés aux tempêtes." },
-      "press_pass":  { "name": "Carte de Presse", "desc": "Peut agir comme un permis." },
-      "legal_fund":  { "name": "Fonds Juridique", "desc": "Amortit votre crédibilité." }
+      "rations": { "name": "Pack de Rations", "desc": "Non périssable. Vous fait avancer." },
+      "water": { "name": "Bidons d'Eau", "desc": "L'hydratation compte." },
+      "spare_tire": { "name": "Pneu de Secours", "desc": "Répare les crevaisons rapidement." },
+      "battery": { "name": "Batterie", "desc": "Démarrages à froid." },
+      "alternator": { "name": "Alternateur", "desc": "Charge restaurée." },
+      "fuel_pump": { "name": "Pompe à Carburant", "desc": "Quand le groupe tombe en panne sèche." },
+      "masks": { "name": "Masques", "desc": "Protection fumée/maladie." },
+      "coats": { "name": "Manteaux Chauds", "desc": "Résistance au froid." },
+      "ponchos": { "name": "Ponchos", "desc": "Adaptés aux tempêtes." },
+      "press_pass": { "name": "Carte de Presse", "desc": "Peut agir comme un permis." },
+      "legal_fund": { "name": "Fonds Juridique", "desc": "Amortit votre crédibilité." }
     },
     "menu": {
       "home": "Équipement — Budget: {budget}",
@@ -166,6 +166,30 @@
       "max_qty": "Quantité max atteinte pour {item}.",
       "unique": "{item} est unique; vous en avez déjà un.",
       "over_budget": "Budget dépassé; ajustez votre panier."
+    }
+  },
+  "pacediet": {
+    "title": "Rythme et Régime d'infos — Aujourd'hui",
+    "menu": {
+      "pace_steady": "Rythme: [Régulier]",
+      "pace_heated": "Rythme:  Intense",
+      "pace_blitz": "Rythme:  Blitz",
+      "diet_quiet": "Infos:  Calme",
+      "diet_mixed": "Infos: [Mixte]",
+      "diet_doom": "Infos:  Défilement morbide",
+      "back": "Retour"
+    },
+    "announce": {
+      "pace_set": "Rythme défini à {pace} ({sanity} Sanité, {pants} Pantalon, {chance} chance de rencontre).",
+      "diet_set": "Régime d'infos défini à {diet} ({sanity} Sanité, {pants} Pantalon, {receipt} chance de reçu)."
+    },
+    "tooltips": {
+      "steady": "Distance ×1.0; San 0; Pantalon 0; Rencontre +0%",
+      "heated": "Distance ×1.2; San -1; Pantalon +3; Rencontre +5%",
+      "blitz": "Distance ×1.4; San -2; Pantalon +6; Rencontre +10%",
+      "quiet": "Reçus -5%; San +1; Pantalon -2",
+      "mixed": "Reçus 0%; San 0; Pantalon 0",
+      "doom": "Reçus +8%; San -2; Pantalon +4"
     }
   }
 }
