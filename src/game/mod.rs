@@ -7,8 +7,10 @@ pub mod personas;
 pub mod seed;
 pub mod state;
 pub mod store;
+pub mod vehicle;
 
 pub use personas::{Persona, PersonaMods, PersonaStart};
 pub use state::{GameMode, GameState, Region, Stats, Inventory, Spares};
 pub use store::{Store, StoreItem, StoreCategory, Cart, CartLine, Grants, calculate_effective_price, calculate_cart_total};
 pub use pacing::{PacingConfig, PaceCfg, DietCfg, PacingLimits};
+pub use vehicle::{Part, Vehicle, Breakdown, VehicleConfig, breakdown_roll, weighted_pick};

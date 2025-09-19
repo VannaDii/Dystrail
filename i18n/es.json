@@ -207,9 +207,45 @@
       "steady": "Distancia ×1.0; Cor 0; Pantalones 0; Encuentro +0%",
       "heated": "Distancia ×1.2; Cor -1; Pantalones +3; Encuentro +5%",
       "blitz": "Distancia ×1.4; Cor -2; Pantalones +6; Encuentro +10%",
-      "quiet": "Recibos -5%; Cor +1; Pantalones -2",
-      "mixed": "Recibos 0%; Cor 0; Pantalones 0",
-      "doom": "Recibos +8%; Cor -2; Pantalones +4"
+      "quiet": "Recibos -5%；cordura +1；pantalones -2",
+      "mixed": "Recibos 0%；cordura 0；pantalones 0",
+      "doom": "Recibos +8%；cordura -2；pantalones +4"
+    }
+  },
+  "camp": {
+    "title": "Campamento",
+    "repair_vehicle": "Reparar Vehículo",
+    "help": "Presiona 1 o 0 para seleccionar una opción",
+    "repair": {
+      "title": "Reparación del Vehículo"
+    }
+  },
+  "vehicle": {
+    "title": "Estado del Vehículo",
+    "no_active": "No hay avería activa.",
+    "breakdown": "Avería — fallo de {part}. Viaje bloqueado.",
+    "spares": {
+      "tire": "Usar Neumático de Repuesto",
+      "battery": "Usar Batería de Repuesto",
+      "alt": "Usar Alternador de Repuesto",
+      "pump": "Usar Bomba de Combustible de Repuesto"
+    },
+    "hack_fix": "Arreglo Chapucero (Suministros -3, Credibilidad -1, Día +1)",
+    "wait_mechanic": "Esperar al Mecánico (Día +1)",
+    "back": "Atrás",
+    "help": "Use las teclas numéricas 1-5 o 0 para atrás",
+    "announce": {
+      "used_spare": "Repuesto {part} usado. Suministros -{sup}.",
+      "hack_applied": "Arreglo chapucero aplicado. Suministros -{sup}, Credibilidad -{cred}, Día +{day}.",
+      "cleared": "Vehículo reparado.",
+      "blocked": "Viaje bloqueado hasta reparación.",
+      "no_spare": "No hay repuesto disponible para {part}."
+    },
+    "parts": {
+      "tire": "Neumático",
+      "battery": "Batería",
+      "alt": "Alternador",
+      "pump": "Bomba de Combustible"
     }
   }
 }

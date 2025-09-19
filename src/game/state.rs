@@ -8,6 +8,7 @@ use crate::game::data::{Encounter, EncounterData};
 use crate::game::encounters::pick_encounter;
 use crate::game::exec_orders::ExecOrder;
 use crate::game::personas::{Persona, PersonaMods};
+use crate::game::vehicle::{Vehicle, Breakdown};
 
 /// Default pace setting
 fn default_pace() -> String {
@@ -148,6 +149,15 @@ pub struct GameState {
     pub receipts: Vec<String>,
     pub current_encounter: Option<Encounter>,
     pub current_order: ExecOrder,
+    /// Vehicle state and spares
+    #[serde(default)]
+    pub vehicle: Vehicle,
+    /// Active breakdown blocking travel
+    #[serde(default)]
+    pub breakdown: Option<Breakdown>,
+    /// Whether travel is blocked due to breakdown
+    #[serde(default)]
+    pub travel_blocked: bool,
     #[serde(skip)]
     pub rng: Option<ChaCha20Rng>,
     #[serde(skip)]
@@ -177,6 +187,9 @@ impl Default for GameState {
             receipts: vec![],
             current_encounter: None,
             current_order: ExecOrder::Shutdown,
+            vehicle: Vehicle::default(),
+            breakdown: None,
+            travel_blocked: false,
             rng: None,
             data: None,
         }
@@ -261,9 +274,11 @@ impl GameState {
     }
 
     pub fn travel_next_leg(&mut self) -> (bool, String) {
+        // Step 1: Apply Pace & Diet deltas (basic costs)
         let mut supplies_cost = 1;
         let mut sanity_cost = 1;
-        // rotate EO every 4 days
+
+        // Step 2: Apply Executive Order effects
         let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
         self.current_order = ExecOrder::ALL[idx];
         self.current_order
@@ -273,9 +288,21 @@ impl GameState {
         self.stats.pants += 1;
         self.day += 1;
         self.region = Self::region_by_day(self.day);
+
+        // Step 3: Vehicle breakdown roll
+        self.step3_vehicle();
+
+        // Check for failure conditions
         if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
             return (true, String::from("log.pants-emergency"));
         }
+
+        // If travel is blocked by breakdown, don't continue
+        if self.travel_blocked {
+            return (false, String::from("log.travel-blocked"));
+        }
+
+        // Step 4: Encounter chance computation & roll
         let mut trigger_enc = false;
         if let Some(rng) = self.rng.as_mut() {
             let roll: f32 = rng.random();
@@ -410,6 +437,106 @@ impl GameState {
 
         // Clamp stats to valid ranges
         self.stats.clamp();
+    }
+
+    /// Step 3 of daily tick: Vehicle breakdown roll and status check
+    pub fn step3_vehicle(&mut self) {
+        // If breakdown already exists, travel is blocked
+        if self.breakdown.is_some() {
+            self.travel_blocked = true;
+            return;
+        }
+
+        // Load vehicle config (for now use defaults, future: async load)
+        let cfg = crate::game::vehicle::VehicleConfig::default();
+
+        // Perform breakdown roll
+        if let Some(rng) = self.rng.as_mut() {
+            if let Some(part) = crate::game::vehicle::breakdown_roll(&self.pace, "Clear", &cfg, rng) {
+                self.breakdown = Some(crate::game::vehicle::Breakdown {
+                    part,
+                    day_started: self.day as i32,
+                });
+                self.travel_blocked = true;
+                // Log the breakdown (UI will announce via aria-live)
+                self.logs.push(format!("vehicle.breakdown.{:?}", part).to_lowercase());
+            }
+        }
+    }
+
+    /// Try to use a spare part to fix the current breakdown
+    pub fn try_use_spare(&mut self) -> bool {
+        if let Some(breakdown) = &self.breakdown {
+            let cfg = crate::game::vehicle::VehicleConfig::default();
+            let part = breakdown.part;
+            let available = match part {
+                crate::game::vehicle::Part::Tire => self.inventory.spares.tire > 0,
+                crate::game::vehicle::Part::Battery => self.inventory.spares.battery > 0,
+                crate::game::vehicle::Part::Alternator => self.inventory.spares.alt > 0,
+                crate::game::vehicle::Part::FuelPump => self.inventory.spares.pump > 0,
+            };
+
+            if available {
+                // Consume the spare
+                match part {
+                    crate::game::vehicle::Part::Tire => self.inventory.spares.tire -= 1,
+                    crate::game::vehicle::Part::Battery => self.inventory.spares.battery -= 1,
+                    crate::game::vehicle::Part::Alternator => self.inventory.spares.alt -= 1,
+                    crate::game::vehicle::Part::FuelPump => self.inventory.spares.pump -= 1,
+                }
+
+                // Apply repair costs
+                self.stats.supplies -= cfg.repair_costs.use_spare_supplies;
+
+                // Clear breakdown
+                self.breakdown = None;
+                self.travel_blocked = false;
+
+                // Log repair
+                self.logs.push(format!("vehicle.repair.spare.{:?}", part).to_lowercase());
+                return true;
+            }
+        }
+        false
+    }
+
+    /// Apply hack fix to clear breakdown
+    pub fn hack_fix(&mut self) {
+        if self.breakdown.is_some() {
+            let cfg = crate::game::vehicle::VehicleConfig::default();
+
+            // Apply costs
+            self.stats.supplies -= cfg.repair_costs.hack_supplies;
+            self.stats.credibility -= cfg.repair_costs.hack_cred;
+            self.day += cfg.repair_costs.hack_day as u32;
+
+            // Clear breakdown
+            self.breakdown = None;
+            self.travel_blocked = false;
+
+            // Log hack fix
+            self.logs.push("vehicle.repair.hack".to_string());
+        }
+    }
+
+    /// Wait for mechanic (future hook for encounters)
+    pub fn wait_mechanic(&mut self) {
+        let cfg = crate::game::vehicle::VehicleConfig::default();
+
+        // Always advance day
+        self.day += cfg.mechanic_hook.day_cost as u32;
+
+        // If mechanic hook is enabled, chance to clear breakdown
+        if cfg.mechanic_hook.enabled && self.breakdown.is_some() {
+            if let Some(rng) = self.rng.as_mut() {
+                let roll: f32 = rng.random();
+                if roll < cfg.mechanic_hook.chance_clear {
+                    self.breakdown = None;
+                    self.travel_blocked = false;
+                    self.logs.push("vehicle.repair.mechanic".to_string());
+                }
+            }
+        }
     }
 }
 
@@ -574,5 +701,132 @@ mod tests {
         assert!(steady_chance >= 0.0 && steady_chance <= 1.0);
         assert!(heated_chance >= 0.0 && heated_chance <= 1.0);
         assert!(blitz_chance >= 0.0 && blitz_chance <= 1.0);
+    }
+
+    #[test]
+    fn test_vehicle_spare_usage() {
+        use rand::SeedableRng;
+        use rand_chacha::ChaCha20Rng;
+
+        // Create test GameState using default
+        let mut gs = GameState::default();
+        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+
+        // Set up a breakdown
+        gs.breakdown = Some(crate::game::vehicle::Breakdown {
+            part: crate::game::vehicle::Part::Tire,
+            day_started: 1,
+        });
+        gs.travel_blocked = true;
+
+        // Test using spare when available
+        gs.inventory.spares.tire = 2;
+        gs.stats.supplies = 10;
+
+        let success = gs.try_use_spare();
+        assert!(success, "Should successfully use spare tire");
+        assert_eq!(gs.inventory.spares.tire, 1, "Should consume one spare tire");
+        assert_eq!(gs.stats.supplies, 9, "Should consume 1 supply");
+        assert!(gs.breakdown.is_none(), "Should clear breakdown");
+        assert!(!gs.travel_blocked, "Should unblock travel");
+    }
+
+    #[test]
+    fn test_vehicle_spare_usage_no_spare() {
+        use rand::SeedableRng;
+        use rand_chacha::ChaCha20Rng;
+
+        let mut gs = GameState::default();
+        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+
+        // Set up a breakdown with no spares
+        gs.breakdown = Some(crate::game::vehicle::Breakdown {
+            part: crate::game::vehicle::Part::Battery,
+            day_started: 1,
+        });
+        gs.inventory.spares.battery = 0;
+        gs.travel_blocked = true; // Explicitly set travel blocked
+
+        let success = gs.try_use_spare();
+        assert!(!success, "Should fail when no spare available");
+        assert!(gs.breakdown.is_some(), "Should not clear breakdown");
+        assert!(gs.travel_blocked, "Should remain blocked");
+    }
+
+    #[test]
+    fn test_vehicle_hack_fix() {
+        use rand::SeedableRng;
+        use rand_chacha::ChaCha20Rng;
+
+        let mut gs = GameState::default();
+        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+
+        // Set up a breakdown
+        gs.breakdown = Some(crate::game::vehicle::Breakdown {
+            part: crate::game::vehicle::Part::Alternator,
+            day_started: 5,
+        });
+        gs.travel_blocked = true;
+        gs.stats.supplies = 10;
+        gs.stats.credibility = 10;
+        gs.day = 5;
+
+        gs.hack_fix();
+
+        assert!(gs.breakdown.is_none(), "Should clear breakdown");
+        assert!(!gs.travel_blocked, "Should unblock travel");
+        assert_eq!(gs.stats.supplies, 7, "Should consume 3 supplies");
+        assert_eq!(gs.stats.credibility, 9, "Should lose 1 credibility");
+        assert_eq!(gs.day, 6, "Should advance 1 day");
+    }
+
+    #[test]
+    fn test_vehicle_wait_mechanic() {
+        use rand::SeedableRng;
+        use rand_chacha::ChaCha20Rng;
+
+        let mut gs = GameState::default();
+        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+
+        // Set up a breakdown
+        gs.breakdown = Some(crate::game::vehicle::Breakdown {
+            part: crate::game::vehicle::Part::FuelPump,
+            day_started: 3,
+        });
+        gs.day = 3;
+
+        gs.wait_mechanic();
+
+        assert_eq!(gs.day, 4, "Should advance 1 day");
+        // Breakdown should remain (wait_mechanic is basic implementation)
+        assert!(gs.breakdown.is_some(), "Breakdown should remain in basic implementation");
+    }
+
+    #[test]
+    fn test_vehicle_step3_integration() {
+        use rand::SeedableRng;
+        use rand_chacha::ChaCha20Rng;
+
+        let mut gs = GameState::default();
+        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+
+        // Test that existing breakdown blocks travel
+        gs.breakdown = Some(crate::game::vehicle::Breakdown {
+            part: crate::game::vehicle::Part::Tire,
+            day_started: 1,
+        });
+
+        gs.step3_vehicle();
+
+        assert!(gs.travel_blocked, "Should remain blocked with existing breakdown");
+
+        // Test with no breakdown - should potentially create one (probabilistic)
+        gs.breakdown = None;
+        gs.travel_blocked = false;
+
+        // For deterministic testing, we'll just test that the function doesn't panic
+        // and handles the no-breakdown case properly
+        gs.step3_vehicle();
+        // The function should complete without error regardless of breakdown outcome
     }
 }

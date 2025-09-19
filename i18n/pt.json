@@ -191,5 +191,33 @@
       "mixed": "Recibos 0%; San 0; Calças 0",
       "doom": "Recibos +8%; San -2; Calças +4"
     }
+  },
+  "vehicle": {
+    "title": "Status do Veículo",
+    "no_active": "Nenhuma avaria ativa.",
+    "breakdown": "Avaria — falha de {part}. Viagem bloqueada.",
+    "spares": {
+      "tire": "Usar Pneu Sobressalente",
+      "battery": "Usar Bateria Sobressalente",
+      "alt": "Usar Alternador Sobressalente",
+      "pump": "Usar Bomba de Combustível Sobressalente"
+    },
+    "hack_fix": "Conserto Improvisado (Suprimentos -3, Credibilidade -1, Dia +1)",
+    "wait_mechanic": "Aguardar Mecânico (Dia +1)",
+    "back": "Voltar",
+    "help": "Use as teclas numéricas 1-5 ou 0 para voltar",
+    "announce": {
+      "used_spare": "Peça sobressalente {part} usada. Suprimentos -{sup}.",
+      "hack_applied": "Conserto improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day}.",
+      "cleared": "Veículo reparado.",
+      "blocked": "Viagem bloqueada até reparação.",
+      "no_spare": "Nenhuma peça sobressalente disponível para {part}."
+    },
+    "parts": {
+      "tire": "Pneu",
+      "battery": "Bateria",
+      "alt": "Alternador",
+      "pump": "Bomba de Combustível"
+    }
   }
 }

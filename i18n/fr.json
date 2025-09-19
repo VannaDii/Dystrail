@@ -187,9 +187,45 @@
       "steady": "Distance ×1.0; San 0; Pantalon 0; Rencontre +0%",
       "heated": "Distance ×1.2; San -1; Pantalon +3; Rencontre +5%",
       "blitz": "Distance ×1.4; San -2; Pantalon +6; Rencontre +10%",
-      "quiet": "Reçus -5%; San +1; Pantalon -2",
-      "mixed": "Reçus 0%; San 0; Pantalon 0",
-      "doom": "Reçus +8%; San -2; Pantalon +4"
+      "quiet": "Reçus -5%；santé mentale +1；pantalons -2",
+      "mixed": "Reçus 0%；santé mentale 0；pantalons 0",
+      "doom": "Reçus +8%；santé mentale -2；pantalons +4"
+    }
+  },
+  "camp": {
+    "title": "Campement",
+    "repair_vehicle": "Réparer le véhicule",
+    "help": "Appuyez sur 1 ou 0 pour sélectionner une option",
+    "repair": {
+      "title": "Réparation du véhicule"
+    }
+  },
+  "vehicle": {
+    "title": "État du Véhicule",
+    "no_active": "Aucune panne active.",
+    "breakdown": "Panne — défaillance {part}. Voyage bloqué.",
+    "spares": {
+      "tire": "Utiliser Pneu de Rechange",
+      "battery": "Utiliser Batterie de Rechange",
+      "alt": "Utiliser Alternateur de Rechange",
+      "pump": "Utiliser Pompe à Carburant de Rechange"
+    },
+    "hack_fix": "Réparation de Fortune (Fournitures -3, Crédibilité -1, Jour +1)",
+    "wait_mechanic": "Attendre le Mécanicien (Jour +1)",
+    "back": "Retour",
+    "help": "Utilisez les touches numériques 1-5 ou 0 pour retour",
+    "announce": {
+      "used_spare": "Pièce de rechange {part} utilisée. Fournitures -{sup}.",
+      "hack_applied": "Réparation de fortune appliquée. Fournitures -{sup}, Crédibilité -{cred}, Jour +{day}.",
+      "cleared": "Véhicule réparé.",
+      "blocked": "Voyage bloqué jusqu'à réparation.",
+      "no_spare": "Aucune pièce de rechange disponible pour {part}."
+    },
+    "parts": {
+      "tire": "Pneu",
+      "battery": "Batterie",
+      "alt": "Alternateur",
+      "pump": "Pompe à Carburant"
     }
   }
 }

@@ -211,5 +211,41 @@
       "mixed": "Receipts 0%; San 0; Pants 0",
       "doom": "Receipts +8%; San -2; Pants +4"
     }
+  },
+  "camp": {
+    "title": "Camp",
+    "repair_vehicle": "Repair Vehicle",
+    "help": "Press 1 or 0 to select an option",
+    "repair": {
+      "title": "Vehicle Repair"
+    }
+  },
+  "vehicle": {
+    "title": "Vehicle Status",
+    "no_active": "No active breakdown.",
+    "breakdown": "Breakdown — {part} failure. Travel is blocked.",
+    "spares": {
+      "tire": "Use Spare Tire",
+      "battery": "Use Spare Battery",
+      "alt": "Use Spare Alternator",
+      "pump": "Use Spare Fuel Pump"
+    },
+    "hack_fix": "Hack Fix (Supplies -3, Credibility -1, Day +1)",
+    "wait_mechanic": "Wait for Mechanic (Day +1)",
+    "back": "Back",
+    "help": "Use number keys 1-5 or 0 for back",
+    "announce": {
+      "used_spare": "Used spare {part}. Supplies -{sup}.",
+      "hack_applied": "Hack fix applied. Supplies -{sup}, Credibility -{cred}, Day +{day}.",
+      "cleared": "Vehicle repaired.",
+      "blocked": "Travel blocked until repaired.",
+      "no_spare": "No spare available for {part}."
+    },
+    "parts": {
+      "tire": "Tire",
+      "battery": "Battery",
+      "alt": "Alternator",
+      "pump": "Fuel Pump"
+    }
   }
 }

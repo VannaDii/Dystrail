@@ -393,6 +393,55 @@ img {
   margin-bottom: 0;
 }
 
+/* Alert banners - Oregon Trail style */
+.alert {
+  background: var(--panel);
+  border: 3px solid var(--accent-2);
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 4px 4px 0 var(--shadow);
+  position: relative;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.alert::before {
+  content: "⚠";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.breakdown-alert {
+  border-color: #FF6B35;
+  background: linear-gradient(45deg, var(--panel) 0%, #2D1000 100%);
+}
+
+.breakdown-alert::before {
+  content: "🔧";
+  color: #FF6B35;
+}
+
+.alert p {
+  margin: 0 0 8px 0;
+  padding-left: 24px;
+  color: var(--text-bright);
+  font-weight: bold;
+}
+
+.alert p:last-child {
+  margin-bottom: 0;
+}
+
+.help-text {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+
 /* Retro animations */
 @media (prefers-reduced-motion: no-preference) {
   .bar-fill {

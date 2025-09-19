@@ -211,5 +211,33 @@
       "mixed": "Ricevute 0%; San 0; Pantaloni 0",
       "doom": "Ricevute +8%; San -2; Pantaloni +4"
     }
+  },
+  "vehicle": {
+    "title": "Stato del Veicolo",
+    "no_active": "Nessun guasto attivo.",
+    "breakdown": "Guasto — fallimento {part}. Viaggio bloccato.",
+    "spares": {
+      "tire": "Usa Pneumatico di Scorta",
+      "battery": "Usa Batteria di Scorta",
+      "alt": "Usa Alternatore di Scorta",
+      "pump": "Usa Pompa Carburante di Scorta"
+    },
+    "hack_fix": "Riparazione di Fortuna (Forniture -3, Credibilità -1, Giorno +1)",
+    "wait_mechanic": "Aspetta il Meccanico (Giorno +1)",
+    "back": "Indietro",
+    "help": "Usa i tasti numerici 1-5 o 0 per indietro",
+    "announce": {
+      "used_spare": "Pezzo di ricambio {part} usato. Forniture -{sup}.",
+      "hack_applied": "Riparazione di fortuna applicata. Forniture -{sup}, Credibilità -{cred}, Giorno +{day}.",
+      "cleared": "Veicolo riparato.",
+      "blocked": "Viaggio bloccato fino alla riparazione.",
+      "no_spare": "Nessun pezzo di ricambio disponibile per {part}."
+    },
+    "parts": {
+      "tire": "Pneumatico",
+      "battery": "Batteria",
+      "alt": "Alternatore",
+      "pump": "Pompa Carburante"
+    }
   }
 }

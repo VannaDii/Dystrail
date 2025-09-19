@@ -191,5 +191,33 @@
       "mixed": "收据 0%；理智 0；裤子 0",
       "doom": "收据 +8%；理智 -2；裤子 +4"
     }
+  },
+  "vehicle": {
+    "title": "车辆状态",
+    "no_active": "没有故障。",
+    "breakdown": "故障 — {part}失效。行程受阻。",
+    "spares": {
+      "tire": "使用备胎",
+      "battery": "使用备用电池",
+      "alt": "使用备用发电机",
+      "pump": "使用备用燃油泵"
+    },
+    "hack_fix": "临时修理（补给品 -3，信誉 -1，天数 +1）",
+    "wait_mechanic": "等待修理工（天数 +1）",
+    "back": "返回",
+    "help": "使用数字键1-5或0返回",
+    "announce": {
+      "used_spare": "已使用备用{part}。补给品 -{sup}。",
+      "hack_applied": "已应用临时修理。补给品 -{sup}，信誉 -{cred}，天数 +{day}。",
+      "cleared": "车辆已修理。",
+      "blocked": "行程受阻直到修理。",
+      "no_spare": "没有可用的{part}备件。"
+    },
+    "parts": {
+      "tire": "轮胎",
+      "battery": "电池",
+      "alt": "发电机",
+      "pump": "燃油泵"
+    }
   }
 }

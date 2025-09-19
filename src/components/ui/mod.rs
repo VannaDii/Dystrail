@@ -1,3 +1,4 @@
+pub mod camp_panel;
 pub mod encounter_card;
 pub mod main_menu;
 pub mod outfitting_store;
@@ -9,3 +10,4 @@ pub mod settings_dialog;
 pub mod share_code_bar;
 pub mod stats_bar;
 pub mod travel_panel;
+pub mod vehicle_status;

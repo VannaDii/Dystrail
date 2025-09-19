@@ -16,6 +16,7 @@ pub enum Phase {
     Outfitting,
     Menu,
     Travel,
+    Camp,
     Encounter,
     Boss,
     Result,
@@ -430,6 +431,10 @@ pub fn app_inner() -> Html {
                             // Travel: always try start with code first, fall back to classic mode
                             start_with_code.emit(());
                         }
+                        2 => {
+                            // Camp
+                            phase.set(Phase::Camp);
+                        }
                         7 => {
                             show_save.set(true);
                         }
@@ -439,7 +444,7 @@ pub fn app_inner() -> Html {
                         0 => {
                             phase.set(Phase::Boot);
                         }
-                        2..=6 | 9..=u8::MAX => {}
+                        3..=6 | 9..=u8::MAX => {}
                     }
                 })
             };
@@ -503,6 +508,25 @@ pub fn app_inner() -> Html {
                             on_diet_change={on_diet_change}
                         />
                         { if data_ready { Html::default() } else { html!{ <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> } } }
+                    </>
+                }
+            } else {
+                Html::default()
+            }
+        }
+        Phase::Camp => {
+            if let Some(gs) = (*state).clone() {
+                html! {
+                    <>
+                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={Some(gs.current_order)} />
+                        <crate::components::ui::camp_panel::CampPanel
+                            game_state={Rc::new(gs)}
+                            on_repair_vehicle={Callback::from(move |_| {})} // TODO: implement repair action
+                            on_back={Callback::from({
+                                let phase = phase.clone();
+                                move |_| phase.set(Phase::Menu)
+                            })}
+                        />
                     </>
                 }
             } else {
