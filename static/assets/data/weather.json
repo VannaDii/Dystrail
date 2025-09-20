@@ -1,0 +1,91 @@
+{
+  "limits": {
+    "max_extreme_streak": 3,
+    "encounter_cap": 1.0,
+    "pants_floor": 0,
+    "pants_ceiling": 100
+  },
+  "effects": {
+    "Clear": {
+      "supplies": 0,
+      "sanity": 0,
+      "pants": 0,
+      "enc_delta": 0.0
+    },
+    "Storm": {
+      "supplies": 1,
+      "sanity": -1,
+      "pants": 2,
+      "enc_delta": 0.05
+    },
+    "HeatWave": {
+      "supplies": 1,
+      "sanity": -1,
+      "pants": 1,
+      "enc_delta": 0.03
+    },
+    "ColdSnap": {
+      "supplies": 0,
+      "sanity": -1,
+      "pants": 0,
+      "enc_delta": 0.0
+    },
+    "Smoke": {
+      "supplies": 1,
+      "sanity": -1,
+      "pants": 1,
+      "enc_delta": 0.03
+    }
+  },
+  "mitigation": {
+    "ColdSnap": {
+      "tag": "cold_resist",
+      "sanity": 0
+    },
+    "Smoke": {
+      "tag": "plague_resist",
+      "sanity": 0
+    },
+    "Storm": {
+      "tag": "rain_resist",
+      "pants": 1
+    }
+  },
+  "weights": {
+    "Heartland": {
+      "Clear": 60,
+      "Storm": 15,
+      "HeatWave": 10,
+      "ColdSnap": 10,
+      "Smoke": 5
+    },
+    "RustBelt": {
+      "Clear": 55,
+      "Storm": 20,
+      "HeatWave": 8,
+      "ColdSnap": 12,
+      "Smoke": 5
+    },
+    "Beltway": {
+      "Clear": 50,
+      "Storm": 25,
+      "HeatWave": 10,
+      "ColdSnap": 10,
+      "Smoke": 5
+    }
+  },
+  "exec_mods": {
+    "TariffTsunami": {
+      "enc_delta": 0.0
+    },
+    "NatGuardDeployment": {
+      "enc_delta": 0.02
+    },
+    "DoEEliminated": {
+      "enc_delta": 0.0
+    },
+    "WarDept": {
+      "enc_delta": 0.0
+    }
+  }
+}

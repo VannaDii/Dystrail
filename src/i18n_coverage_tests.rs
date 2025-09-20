@@ -98,6 +98,50 @@ mod tests {
     }
 
     #[test]
+    fn test_weather_keys_coverage() {
+        let locales = [
+            "ar", "bn", "en", "es", "fr", "hi", "it", "ja", "pt", "ru", "zh",
+        ];
+        let required_keys = [
+            "weather.title",
+            "weather.announce",
+            "weather.states.Clear",
+            "weather.states.Storm",
+            "weather.states.HeatWave",
+            "weather.states.ColdSnap",
+            "weather.states.Smoke",
+            "weather.effects.sup",
+            "weather.effects.san",
+            "weather.effects.pants",
+            "weather.effects.enc",
+            "weather.details.header",
+            "weather.details.state",
+            "weather.details.effects",
+            "weather.details.gear",
+            "weather.details.notes",
+            "weather.details.back",
+            "weather.gear.storm",
+            "weather.gear.smoke",
+            "weather.gear.cold",
+            "weather.notes.storm_crossings",
+        ];
+
+        for locale in locales {
+            let path = format!("i18n/{}.json", locale);
+            let content = std::fs::read_to_string(&path)
+                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+
+            let json: Value = serde_json::from_str(&content)
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+
+            for key in required_keys {
+                let found = find_nested_key(&json, key);
+                assert!(found, "Missing key '{}' in locale '{}'", key, locale);
+            }
+        }
+    }
+
+    #[test]
     fn test_no_missing_interpolation_variables() {
         let locales = [
             "ar", "bn", "en", "es", "fr", "hi", "it", "ja", "pt", "ru", "zh",

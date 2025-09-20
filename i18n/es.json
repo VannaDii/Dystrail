@@ -247,5 +247,38 @@
       "alt": "Alternador",
       "pump": "Bomba de Combustible"
     }
+  },
+  "weather": {
+    "title": "Clima",
+    "announce": "Clima: {state}. Suministros {sup}, Cordura {san}, Ansiedad {pants}, Encuentros {enc}.",
+    "states": {
+      "Clear": "Despejado",
+      "Storm": "Tormenta",
+      "HeatWave": "Ola de Calor",
+      "ColdSnap": "Ola de Frío",
+      "Smoke": "Humo"
+    },
+    "effects": {
+      "sup": "{val} Suministros",
+      "san": "{val} Cordura",
+      "pants": "{val} Ansiedad",
+      "enc": "{val}% Encuentros"
+    },
+    "details": {
+      "header": "Detalles del Clima:",
+      "state": "• Estado: {state}",
+      "effects": "• Efectos hoy: {effects}",
+      "gear": "• Mitigación equipamiento: {text}",
+      "notes": "• Notas: {note}",
+      "back": "0) Atrás"
+    },
+    "gear": {
+      "storm": "Los ponchos reducen las penalizaciones de tormenta (rain_resist).",
+      "smoke": "Las mascarillas reducen las penalizaciones de humo (plague_resist).",
+      "cold": "Los abrigos cálidos reducen las penalizaciones de frío (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Los cruces son más arriesgados durante tormentas."
+    }
   }
 }

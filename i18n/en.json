@@ -247,5 +247,38 @@
       "alt": "Alternator",
       "pump": "Fuel Pump"
     }
+  },
+  "weather": {
+    "title": "Weather",
+    "announce": "Weather: {state}. Supplies {sup}, Sanity {san}, Pants {pants}, Encounter {enc}.",
+    "states": {
+      "Clear": "Clear",
+      "Storm": "Storm",
+      "HeatWave": "Heat Wave",
+      "ColdSnap": "Cold Snap",
+      "Smoke": "Smoke"
+    },
+    "effects": {
+      "sup": "{val} Supplies",
+      "san": "{val} Sanity",
+      "pants": "{val} Pants",
+      "enc": "{val}% Encounter"
+    },
+    "details": {
+      "header": "Weather Details:",
+      "state": "• State: {state}",
+      "effects": "• Effects today: {effects}",
+      "gear": "• Gear mitigation: {text}",
+      "notes": "• Notes: {note}",
+      "back": "0) Back"
+    },
+    "gear": {
+      "storm": "Ponchos reduce Storm penalties (rain_resist).",
+      "smoke": "Masks reduce Smoke penalties (plague_resist).",
+      "cold": "Warm coats reduce Cold penalties (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Crossings are riskier during storms."
+    }
   }
 }

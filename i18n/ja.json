@@ -219,5 +219,38 @@
       "alt": "オルタネーター",
       "pump": "燃料ポンプ"
     }
+  },
+  "weather": {
+    "title": "天気",
+    "announce": "天気：{state}。補給{sup}、正気{san}、不安{pants}、遭遇{enc}。",
+    "states": {
+      "Clear": "晴れ",
+      "Storm": "嵐",
+      "HeatWave": "熱波",
+      "ColdSnap": "寒波",
+      "Smoke": "煙"
+    },
+    "effects": {
+      "sup": "{val}補給",
+      "san": "{val}正気",
+      "pants": "{val}不安",
+      "enc": "{val}%遭遇"
+    },
+    "details": {
+      "header": "天気詳細：",
+      "state": "• 状態：{state}",
+      "effects": "• 今日の効果：{effects}",
+      "gear": "• 装備軽減：{text}",
+      "notes": "• 注記：{note}",
+      "back": "0) 戻る"
+    },
+    "gear": {
+      "storm": "ポンチョは嵐のペナルティを軽減します（rain_resist）。",
+      "smoke": "マスクは煙のペナルティを軽減します（plague_resist）。",
+      "cold": "暖かいコートは寒さのペナルティを軽減します（cold_resist）。"
+    },
+    "notes": {
+      "storm_crossings": "嵐の間は渡河がより危険です。"
+    }
   }
 }

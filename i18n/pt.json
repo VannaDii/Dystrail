@@ -219,5 +219,38 @@
       "alt": "Alternador",
       "pump": "Bomba de Combustível"
     }
+  },
+  "weather": {
+    "title": "Clima",
+    "announce": "Clima: {state}. Suprimentos {sup}, Sanidade {san}, Ansiedade {pants}, Encontros {enc}.",
+    "states": {
+      "Clear": "Limpo",
+      "Storm": "Tempestade",
+      "HeatWave": "Onda de Calor",
+      "ColdSnap": "Onda de Frio",
+      "Smoke": "Fumaça"
+    },
+    "effects": {
+      "sup": "{val} Suprimentos",
+      "san": "{val} Sanidade",
+      "pants": "{val} Ansiedade",
+      "enc": "{val}% Encontros"
+    },
+    "details": {
+      "header": "Detalhes do Clima:",
+      "state": "• Estado: {state}",
+      "effects": "• Efeitos hoje: {effects}",
+      "gear": "• Mitigação equipamento: {text}",
+      "notes": "• Notas: {note}",
+      "back": "0) Voltar"
+    },
+    "gear": {
+      "storm": "Capas de chuva reduzem penalidades de tempestade (rain_resist).",
+      "smoke": "Máscaras reduzem penalidades de fumaça (plague_resist).",
+      "cold": "Casacos quentes reduzem penalidades de frio (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Travessias são mais arriscadas durante tempestades."
+    }
   }
 }

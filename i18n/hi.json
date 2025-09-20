@@ -219,5 +219,38 @@
       "alt": "अल्टरनेटर",
       "pump": "फ्यूल पंप"
     }
+  },
+  "weather": {
+    "title": "मौसम",
+    "announce": "मौसम: {state}। आपूर्ति {sup}, मानसिक स्वास्थ्य {san}, चिंता {pants}, मुठभेड़ {enc}।",
+    "states": {
+      "Clear": "साफ",
+      "Storm": "तूफान",
+      "HeatWave": "गर्मी की लहर",
+      "ColdSnap": "ठंड की लहर",
+      "Smoke": "धुआं"
+    },
+    "effects": {
+      "sup": "{val} आपूर्ति",
+      "san": "{val} मानसिक स्वास्थ्य",
+      "pants": "{val} चिंता",
+      "enc": "{val}% मुठभेड़"
+    },
+    "details": {
+      "header": "मौसम विवरण:",
+      "state": "• स्थिति: {state}",
+      "effects": "• आज के प्रभाव: {effects}",
+      "gear": "• उपकरण शमन: {text}",
+      "notes": "• नोट्स: {note}",
+      "back": "0) वापस"
+    },
+    "gear": {
+      "storm": "पोंचो तूफान दंड कम करते हैं (rain_resist)।",
+      "smoke": "मास्क धुआं दंड कम करते हैं (plague_resist)।",
+      "cold": "गर्म कोट ठंड दंड कम करते हैं (cold_resist)।"
+    },
+    "notes": {
+      "storm_crossings": "तूफान के दौरान पार करना अधिक जोखिम भरा है।"
+    }
   }
 }

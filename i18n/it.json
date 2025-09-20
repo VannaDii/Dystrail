@@ -239,5 +239,38 @@
       "alt": "Alternatore",
       "pump": "Pompa Carburante"
     }
+  },
+  "weather": {
+    "title": "Meteo",
+    "announce": "Meteo: {state}. Provviste {sup}, Sanità {san}, Ansia {pants}, Incontri {enc}.",
+    "states": {
+      "Clear": "Sereno",
+      "Storm": "Tempesta",
+      "HeatWave": "Ondata di Calore",
+      "ColdSnap": "Ondata di Freddo",
+      "Smoke": "Fumo"
+    },
+    "effects": {
+      "sup": "{val} Provviste",
+      "san": "{val} Sanità",
+      "pants": "{val} Ansia",
+      "enc": "{val}% Incontri"
+    },
+    "details": {
+      "header": "Dettagli Meteo:",
+      "state": "• Stato: {state}",
+      "effects": "• Effetti oggi: {effects}",
+      "gear": "• Mitigazione equipaggiamento: {text}",
+      "notes": "• Note: {note}",
+      "back": "0) Indietro"
+    },
+    "gear": {
+      "storm": "I poncho riducono le penalità della tempesta (rain_resist).",
+      "smoke": "Le maschere riducono le penalità del fumo (plague_resist).",
+      "cold": "I cappotti caldi riducono le penalità del freddo (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Gli attraversamenti sono più rischiosi durante le tempeste."
+    }
   }
 }

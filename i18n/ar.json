@@ -247,5 +247,38 @@
       "alt": "مولد",
       "pump": "مضخة وقود"
     }
+  },
+  "weather": {
+    "title": "الطقس",
+    "announce": "الطقس: {state}. إمدادات {sup}، صحة عقلية {san}، قلق {pants}، مواجهة {enc}.",
+    "states": {
+      "Clear": "صافٍ",
+      "Storm": "عاصفة",
+      "HeatWave": "موجة حر",
+      "ColdSnap": "موجة برد",
+      "Smoke": "دخان"
+    },
+    "effects": {
+      "sup": "{val} إمدادات",
+      "san": "{val} صحة عقلية",
+      "pants": "{val} قلق",
+      "enc": "{val}% مواجهة"
+    },
+    "details": {
+      "header": "تفاصيل الطقس:",
+      "state": "• الحالة: {state}",
+      "effects": "• التأثيرات اليوم: {effects}",
+      "gear": "• تخفيف المعدات: {text}",
+      "notes": "• ملاحظات: {note}",
+      "back": "0) رجوع"
+    },
+    "gear": {
+      "storm": "المعاطف المطرية تقلل عقوبات العاصفة (rain_resist).",
+      "smoke": "الأقنعة تقلل عقوبات الدخان (plague_resist).",
+      "cold": "المعاطف الدافئة تقلل عقوبات البرد (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "المعابر أكثر خطورة أثناء العواصف."
+    }
   }
 }

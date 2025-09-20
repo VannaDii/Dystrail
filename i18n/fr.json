@@ -227,5 +227,38 @@
       "alt": "Alternateur",
       "pump": "Pompe à Carburant"
     }
+  },
+  "weather": {
+    "title": "Météo",
+    "announce": "Météo : {state}. Provisions {sup}, Sanité {san}, Anxiété {pants}, Rencontre {enc}.",
+    "states": {
+      "Clear": "Clair",
+      "Storm": "Tempête",
+      "HeatWave": "Vague de Chaleur",
+      "ColdSnap": "Vague de Froid",
+      "Smoke": "Fumée"
+    },
+    "effects": {
+      "sup": "{val} Provisions",
+      "san": "{val} Sanité",
+      "pants": "{val} Anxiété",
+      "enc": "{val}% Rencontre"
+    },
+    "details": {
+      "header": "Détails Météo :",
+      "state": "• État : {state}",
+      "effects": "• Effets aujourd'hui : {effects}",
+      "gear": "• Atténuation équipement : {text}",
+      "notes": "• Notes : {note}",
+      "back": "0) Retour"
+    },
+    "gear": {
+      "storm": "Les ponchos réduisent les pénalités de tempête (rain_resist).",
+      "smoke": "Les masques réduisent les pénalités de fumée (plague_resist).",
+      "cold": "Les manteaux chauds réduisent les pénalités de froid (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Les traversées sont plus risquées pendant les tempêtes."
+    }
   }
 }

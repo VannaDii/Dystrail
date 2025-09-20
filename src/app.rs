@@ -1,5 +1,6 @@
 use crate::game::data::EncounterData;
 use crate::game::pacing::PacingConfig;
+use crate::game::weather::WeatherConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{GameMode, GameState, Region};
 use crate::i18n;
@@ -38,6 +39,7 @@ pub fn app_inner() -> Html {
     let code_valid = use_state(|| true);
     let data = use_state(EncounterData::empty);
     let pacing_config = use_state(PacingConfig::default_config);
+    let weather_config = use_state(WeatherConfig::default_config);
     let state = use_state(|| None::<GameState>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
@@ -83,12 +85,15 @@ pub fn app_inner() -> Html {
         let phase = phase.clone();
         let data = data.clone();
         let pacing_config = pacing_config.clone();
+        let weather_config = weather_config.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
                 let loaded_data = EncounterData::load_from_static().await;
                 let loaded_pacing = PacingConfig::load_from_static().await;
+                let loaded_weather = WeatherConfig::load_from_static().await;
                 data.set(loaded_data);
                 pacing_config.set(loaded_pacing);
+                weather_config.set(loaded_weather);
                 phase.set(Phase::Persona);
             });
             || {}

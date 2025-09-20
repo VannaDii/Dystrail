@@ -219,5 +219,38 @@
       "alt": "发电机",
       "pump": "燃油泵"
     }
+  },
+  "weather": {
+    "title": "天气",
+    "announce": "天气：{state}。补给{sup}，理智{san}，焦虑{pants}，遭遇{enc}。",
+    "states": {
+      "Clear": "晴朗",
+      "Storm": "风暴",
+      "HeatWave": "热浪",
+      "ColdSnap": "寒潮",
+      "Smoke": "烟雾"
+    },
+    "effects": {
+      "sup": "{val}补给",
+      "san": "{val}理智",
+      "pants": "{val}焦虑",
+      "enc": "{val}%遭遇"
+    },
+    "details": {
+      "header": "天气详情：",
+      "state": "• 状态：{state}",
+      "effects": "• 今日效果：{effects}",
+      "gear": "• 装备减免：{text}",
+      "notes": "• 备注：{note}",
+      "back": "0) 返回"
+    },
+    "gear": {
+      "storm": "雨衣可减少风暴惩罚（rain_resist）。",
+      "smoke": "口罩可减少烟雾惩罚（plague_resist）。",
+      "cold": "保暖外套可减少寒冷惩罚（cold_resist）。"
+    },
+    "notes": {
+      "storm_crossings": "风暴期间过境更加危险。"
+    }
   }
 }

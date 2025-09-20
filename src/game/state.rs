@@ -9,6 +9,7 @@ use crate::game::encounters::pick_encounter;
 use crate::game::exec_orders::ExecOrder;
 use crate::game::personas::{Persona, PersonaMods};
 use crate::game::vehicle::{Vehicle, Breakdown};
+use crate::game::weather::{WeatherState, WeatherConfig};
 
 /// Default pace setting
 fn default_pace() -> String {
@@ -33,7 +34,7 @@ impl GameMode {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Region {
     Heartland,
     RustBelt,
@@ -158,6 +159,9 @@ pub struct GameState {
     /// Whether travel is blocked due to breakdown
     #[serde(default)]
     pub travel_blocked: bool,
+    /// Weather state and history for streak tracking
+    #[serde(default)]
+    pub weather_state: WeatherState,
     #[serde(skip)]
     pub rng: Option<ChaCha20Rng>,
     #[serde(skip)]
@@ -190,6 +194,7 @@ impl Default for GameState {
             vehicle: Vehicle::default(),
             breakdown: None,
             travel_blocked: false,
+            weather_state: WeatherState::default(),
             rng: None,
             data: None,
         }
@@ -274,39 +279,20 @@ impl GameState {
     }
 
     pub fn travel_next_leg(&mut self) -> (bool, String) {
-        // Step 1: Apply Pace & Diet deltas (basic costs)
-        let mut supplies_cost = 1;
-        let mut sanity_cost = 1;
+        // Step 1: Apply Pace & Diet deltas (called from app.rs before this function)
+        // (This is already handled in app.rs via apply_pace_and_diet call)
 
-        // Step 2: Apply Executive Order effects
-        let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
-        self.current_order = ExecOrder::ALL[idx];
-        self.current_order
-            .apply_daily(self.day, &mut supplies_cost, &mut sanity_cost);
-        self.stats.supplies -= supplies_cost;
-        self.stats.sanity -= sanity_cost;
-        self.stats.pants += 1;
-        self.day += 1;
-        self.region = Self::region_by_day(self.day);
+        // Step 2: Apply Weather effects
+        self.apply_weather_effects();
 
         // Step 3: Vehicle breakdown roll
         self.step3_vehicle();
 
-        // Check for failure conditions
-        if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
-            return (true, String::from("log.pants-emergency"));
-        }
-
-        // If travel is blocked by breakdown, don't continue
-        if self.travel_blocked {
-            return (false, String::from("log.travel-blocked"));
-        }
-
-        // Step 4: Encounter chance computation & roll
+        // Step 4: Encounter chance computation & roll (now uses weather-modified encounter chance)
         let mut trigger_enc = false;
         if let Some(rng) = self.rng.as_mut() {
             let roll: f32 = rng.random();
-            if roll < 0.35 {
+            if roll < self.encounter_chance_today {
                 trigger_enc = true;
             }
         }
@@ -318,7 +304,42 @@ impl GameState {
                 }
             }
         }
+
+        // Step 5: Executive Orders (moved after encounter roll as per spec)
+        let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
+        self.current_order = ExecOrder::ALL[idx];
+        let mut supplies_cost = 1;
+        let mut sanity_cost = 1;
+        self.current_order
+            .apply_daily(self.day, &mut supplies_cost, &mut sanity_cost);
+        self.stats.supplies -= supplies_cost;
+        self.stats.sanity -= sanity_cost;
+        self.stats.pants += 1;
+
+        // Step 6: Distance/region update and day advance
+        self.day += 1;
+        self.region = Self::region_by_day(self.day);
+
+        // Check for failure conditions after all effects
+        if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
+            return (true, String::from("log.pants-emergency"));
+        }
+
+        // If travel is blocked by breakdown, don't continue
+        if self.travel_blocked {
+            return (false, String::from("log.travel-blocked"));
+        }
+
         (false, String::from("log.traveled"))
+    }
+
+    /// Apply weather effects as step 2 of daily tick
+    fn apply_weather_effects(&mut self) {
+        // For now, use default weather config (future: load from static)
+        let weather_cfg = WeatherConfig::default_config();
+
+        // Process daily weather
+        crate::game::weather::process_daily_weather(self, &weather_cfg);
     }
 
     pub fn apply_choice(&mut self, idx: usize) {
@@ -450,9 +471,17 @@ impl GameState {
         // Load vehicle config (for now use defaults, future: async load)
         let cfg = crate::game::vehicle::VehicleConfig::default();
 
-        // Perform breakdown roll
+        // Perform breakdown roll with current weather
         if let Some(rng) = self.rng.as_mut() {
-            if let Some(part) = crate::game::vehicle::breakdown_roll(&self.pace, "Clear", &cfg, rng) {
+            let weather_str = match self.weather_state.today {
+                crate::game::weather::Weather::Clear => "Clear",
+                crate::game::weather::Weather::Storm => "Storm",
+                crate::game::weather::Weather::HeatWave => "HeatWave",
+                crate::game::weather::Weather::ColdSnap => "ColdSnap",
+                crate::game::weather::Weather::Smoke => "Smoke",
+            };
+
+            if let Some(part) = crate::game::vehicle::breakdown_roll(&self.pace, weather_str, &cfg, rng) {
                 self.breakdown = Some(crate::game::vehicle::Breakdown {
                     part,
                     day_started: self.day as i32,
