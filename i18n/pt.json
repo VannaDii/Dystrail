@@ -252,5 +252,42 @@
     "notes": {
       "storm_crossings": "Travessias são mais arriscadas durante tempestades."
     }
+  },
+  "camp": {
+    "title": "Acampamento",
+    "desc": "Escolha uma ação.",
+    "repair_vehicle": "Reparar Veículo",
+    "help": "Pressione 1-4 ou 0 para selecionar uma opção",
+    "menu": {
+      "rest": "Descansar (+2 Sanidade, +1 HP, Suprimentos -1, Dia +1)",
+      "repair": "Reparar Veículo (se quebrado)",
+      "forage": "Procurar Suprimentos (50% Suprimentos +1 / 30% Nada / 20% Recibos +1)",
+      "therapy": "Terapia/Diário (+2 Sanidade, queimar 1 Recibo, Dia +1) [cooldown: {days} dias]",
+      "close": "Fechar",
+      "back": "Voltar",
+      "use_spare": "Usar Peça de Reposição",
+      "hack_fix": "Reparo Improvisado (Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day})"
+    },
+    "announce": {
+      "rest": "Descansado. Sanidade +2, HP +1, Suprimentos -1. Dia +1.",
+      "repair_spare": "Peça de reposição {part} usada. Suprimentos -{sup}. Veículo reparado.",
+      "repair_hack": "Reparo improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}. Dia +{day}.",
+      "forage_sup": "Busca bem-sucedida: Suprimentos +1.",
+      "forage_receipt": "Encontrou uma pista útil: Recibos +1.",
+      "forage_none": "Procurou mas não encontrou nada.",
+      "therapy": "Você refletiu e escreveu no diário. Sanidade +2, queimou 1 Recibo. Dia +1.",
+      "cooldown": "Terapia em cooldown por mais {days} dias.",
+      "no_receipt": "Nenhum recibo disponível para queimar.",
+      "no_breakdown": "Nenhuma avaria ativa."
+    },
+    "repair": {
+      "title": "Reparo do Veículo"
+    },
+    "parts": {
+      "tire": "Pneu",
+      "battery": "Bateria",
+      "alt": "Alternador",
+      "pump": "Bomba de Combustível"
+    }
   }
 }

@@ -272,5 +272,42 @@
     "notes": {
       "storm_crossings": "Gli attraversamenti sono più rischiosi durante le tempeste."
     }
+  },
+  "camp": {
+    "title": "Accampa",
+    "desc": "Scegli un'azione.",
+    "repair_vehicle": "Ripara Veicolo",
+    "help": "Premi 1-4 o 0 per selezionare un'opzione",
+    "menu": {
+      "rest": "Riposa (+2 Sanità, +1 HP, Forniture -1, Giorno +1)",
+      "repair": "Ripara Veicolo (se guasto)",
+      "forage": "Cerca Rifornimenti (50% Forniture +1 / 30% Niente / 20% Ricevute +1)",
+      "therapy": "Terapia/Diario (+2 Sanità, brucia 1 Ricevuta, Giorno +1) [cooldown: {days} giorni]",
+      "close": "Chiudi",
+      "back": "Indietro",
+      "use_spare": "Usa Ricambio",
+      "hack_fix": "Riparazione di Fortuna (Forniture -{sup}, Credibilità -{cred}, Giorno +{day})"
+    },
+    "announce": {
+      "rest": "Riposato. Sanità +2, HP +1, Forniture -1. Giorno +1.",
+      "repair_spare": "Ricambio {part} usato. Forniture -{sup}. Veicolo riparato.",
+      "repair_hack": "Riparazione di fortuna applicata. Forniture -{sup}, Credibilità -{cred}. Giorno +{day}.",
+      "forage_sup": "Ricerca riuscita: Forniture +1.",
+      "forage_receipt": "Trovata una pista utile: Ricevute +1.",
+      "forage_none": "Cercato ma non trovato niente.",
+      "therapy": "Hai riflettuto e scritto nel diario. Sanità +2, bruciata 1 Ricevuta. Giorno +1.",
+      "cooldown": "La terapia è in cooldown per altri {days} giorni.",
+      "no_receipt": "Nessuna ricevuta disponibile da bruciare.",
+      "no_breakdown": "Nessun guasto attivo."
+    },
+    "repair": {
+      "title": "Riparazione Veicolo"
+    },
+    "parts": {
+      "tire": "Pneumatico",
+      "battery": "Batteria",
+      "alt": "Alternatore",
+      "pump": "Pompa Carburante"
+    }
   }
 }

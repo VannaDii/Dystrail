@@ -13,6 +13,7 @@ pub enum Part {
 
 impl Part {
     /// Get the translation key for this part
+    #[must_use]
     pub fn key(self) -> &'static str {
         match self {
             Part::Tire => "vehicle.parts.tire",
@@ -158,26 +159,24 @@ impl Default for VehicleConfig {
 impl VehicleConfig {
     /// Load configuration from JSON, falling back to defaults
     pub async fn load() -> Self {
-        match gloo::net::http::Request::get("/static/assets/data/vehicle.json")
+        if let Ok(response) = gloo::net::http::Request::get("/static/assets/data/vehicle.json")
             .send()
             .await
+            && response.ok()
+            && let Ok(text) = response.text().await
+            && let Ok(config) = serde_json::from_str(&text)
         {
-            Ok(response) => {
-                if response.ok() {
-                    if let Ok(text) = response.text().await {
-                        if let Ok(config) = serde_json::from_str(&text) {
-                            return config;
-                        }
-                    }
-                }
-            }
-            Err(_) => {}
+            return config;
         }
         // Fall back to defaults if loading fails
         Self::default()
     }
 
     /// Validate configuration values
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if any configuration value is invalid.
     pub fn validate(&self) -> Result<(), String> {
         if !(0.0..=1.0).contains(&self.base_breakdown_chance) {
             return Err("base_breakdown_chance must be between 0 and 1".to_string());
@@ -185,13 +184,13 @@ impl VehicleConfig {
 
         for (name, factor) in &self.pace_factor {
             if *factor <= 0.0 {
-                return Err(format!("pace_factor for {} must be > 0", name));
+                return Err(format!("pace_factor for {name} must be > 0"));
             }
         }
 
         for (name, factor) in &self.weather_factor {
             if *factor <= 0.0 {
-                return Err(format!("weather_factor for {} must be > 0", name));
+                return Err(format!("weather_factor for {name} must be > 0"));
             }
         }
 

@@ -77,12 +77,12 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
     let _live_region_ref = use_node_ref();
 
     // Calculate discount from persona
-    let discount_pct = props.game_state.mods.store_discount_pct as f64;
+    let discount_pct = f64::from(props.game_state.mods.store_discount_pct);
 
     // Load store data on mount
     {
         let store_state = store_state.clone();
-        use_effect_with((), move |_| {
+        use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
                 match load_store_data().await {
                     Ok(store_data) => {
@@ -247,16 +247,15 @@ fn handle_menu_selection(
                 handle_back_navigation(state, store_state);
             } else {
                 // Select item for quantity prompt
-                if let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id) {
-                    if let Some(item) = category.items.get((index - 1) as usize) {
-                        let mut new_state = state.clone();
-                        new_state.current_screen = StoreScreen::QuantityPrompt(item.id.clone());
-                        new_state.focus_idx = 1;
-                        store_state.set(new_state);
+                if let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id)
+                    && let Some(item) = category.items.get((index - 1) as usize) {
+                    let mut new_state = state.clone();
+                    new_state.current_screen = StoreScreen::QuantityPrompt(item.id.clone());
+                    new_state.focus_idx = 1;
+                    store_state.set(new_state);
 
-                        let item_name = i18n::t(&format!("store.items.{}.name", item.id));
-                        announce_to_screen_reader(&item_name);
-                    }
+                    let item_name = i18n::t(&format!("store.items.{}.name", item.id));
+                    announce_to_screen_reader(&item_name);
                 }
             }
         }
@@ -298,7 +297,7 @@ fn get_max_menu_index(state: &StoreState) -> u8 {
         StoreScreen::Home => 5, // Categories 1-4, cart 5, continue 0
         StoreScreen::Category(category_id) => {
             if let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id) {
-                category.items.len() as u8 // Items 1-N, back 0
+                u8::try_from(category.items.len()).unwrap_or(255) // Items 1-N, back 0
             } else {
                 1
             }
@@ -308,7 +307,7 @@ fn get_max_menu_index(state: &StoreState) -> u8 {
             if state.cart.lines.is_empty() {
                 1 // Only checkout/back
             } else {
-                state.cart.lines.len() as u8 // Cart items 1-N, checkout 0
+                u8::try_from(state.cart.lines.len()).unwrap_or(255) // Cart items 1-N, checkout 0
             }
         }
     }
@@ -389,7 +388,7 @@ fn can_add_item(cart: &Cart, item: &StoreItem, qty_to_add: i32, budget_cents: i6
 
     // Check budget
     let effective_price = calculate_effective_price(item.price_cents, discount_pct);
-    let additional_cost = effective_price * qty_to_add as i64;
+    let additional_cost = effective_price * i64::from(qty_to_add);
     let new_total = cart.total_cents + additional_cost;
 
     new_total <= budget_cents
@@ -399,7 +398,7 @@ fn can_add_item(cart: &Cart, item: &StoreItem, qty_to_add: i32, budget_cents: i6
 fn announce_quantity_change(item: &StoreItem, qty: i32, added: bool, state: &StoreState, budget_cents: i64) {
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-    let price_str = format_currency(if added { effective_price * qty as i64 } else { effective_price });
+    let price_str = format_currency(if added { effective_price * i64::from(qty) } else { effective_price });
     let remaining = budget_cents - state.cart.total_cents;
     let remaining_str = format_currency(remaining);
 
@@ -498,41 +497,37 @@ fn handle_checkout(state: &StoreState, props: &OutfittingStoreProps) {
 }
 
 /// Format currency using Intl API
+#[allow(clippy::cast_precision_loss)]
 fn format_currency(cents: i64) -> String {
     let dollars = cents as f64 / 100.0;
 
     // Use the browser's Intl API for currency formatting
-    if let Some(window) = window() {
-        if let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) {
-            if let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) {
-                if let Ok(formatter) = js_sys::Reflect::construct(
-                    &number_format.into(),
-                    &js_sys::Array::of2(
-                        &"en-US".into(),
-                        &{
-                            let options = js_sys::Object::new();
-                            js_sys::Reflect::set(&options, &"style".into(), &"currency".into()).unwrap();
-                            js_sys::Reflect::set(&options, &"currency".into(), &"USD".into()).unwrap();
-                            options
-                        }.into()
-                    )
-                ) {
-                    if let Ok(result) = js_sys::Reflect::apply(
-                        &js_sys::Reflect::get(&formatter, &"format".into()).unwrap().into(),
-                        &formatter,
-                        &js_sys::Array::of1(&dollars.into())
-                    ) {
-                        if let Some(formatted) = result.as_string() {
-                            return formatted;
-                        }
-                    }
-                }
-            }
-        }
+    if let Some(window) = window()
+        && let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into())
+        && let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into())
+        && let Ok(formatter) = js_sys::Reflect::construct(
+            &number_format.into(),
+            &js_sys::Array::of2(
+                &"en-US".into(),
+                &{
+                    let options = js_sys::Object::new();
+                    js_sys::Reflect::set(&options, &"style".into(), &"currency".into()).unwrap();
+                    js_sys::Reflect::set(&options, &"currency".into(), &"USD".into()).unwrap();
+                    options
+                }.into()
+            )
+        )
+        && let Ok(result) = js_sys::Reflect::apply(
+            &js_sys::Reflect::get(&formatter, &"format".into()).unwrap().into(),
+            &formatter,
+            &js_sys::Array::of1(&dollars.into())
+        )
+        && let Some(formatted) = result.as_string() {
+        return formatted;
     }
 
     // Fallback formatting
-    format!("${:.2}", dollars)
+    format!("${dollars:.2}")
 }
 
 /// Announce message to screen readers
@@ -604,17 +599,14 @@ fn render_category_screen(
     list_ref: &NodeRef,
     on_keydown: &Callback<KeyboardEvent>,
 ) -> Html {
-    let category = match state.store_data.categories.iter().find(|c| c.id == *category_id) {
-        Some(cat) => cat,
-        None => return html! { <div>{ "Category not found" }</div> },
-    };
+    let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id) else { return html! { <div>{ "Category not found" }</div> } };
 
     let budget_str = format_currency(game_state.budget_cents - state.cart.total_cents);
-    let category_name = i18n::t(&format!("store.categories.{}", category_id));
+    let category_name = i18n::t(&format!("store.categories.{category_id}"));
     let title = format!("{} — {}: {}", category_name, i18n::t("store.budget"), budget_str);
 
     let mut items: Vec<(u8, String, String, i64)> = category.items.iter().enumerate().map(|(i, item)| {
-        let idx = (i + 1) as u8;
+        let idx = u8::try_from(i + 1).unwrap_or(255);
         let name = i18n::t(&format!("store.items.{}.name", item.id));
         let desc = i18n::t(&format!("store.items.{}.desc", item.id));
         let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
@@ -644,10 +636,10 @@ fn render_category_screen(
                                 <span class="num">{ format!("{})", idx) }</span>
                                 <span class="label">
                                     { name.clone() }{ price_str }
-                                    { if !desc.is_empty() {
-                                        html! { <span class="desc">{ format!(" ({})", desc) }</span> }
-                                    } else {
+                                    { if desc.is_empty() {
                                         html! {}
+                                    } else {
+                                        html! { <span class="desc">{ format!(" ({})", desc) }</span> }
                                     }}
                                 </span>
                             </li>
@@ -668,10 +660,7 @@ fn render_quantity_screen(
     list_ref: &NodeRef,
     on_keydown: &Callback<KeyboardEvent>,
 ) -> Html {
-    let item = match state.store_data.find_item(item_id) {
-        Some(item) => item,
-        None => return html! { <div>{ "Item not found" }</div> },
-    };
+    let Some(item) = state.store_data.find_item(item_id) else { return html! { <div>{ "Item not found" }</div> } };
 
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
@@ -746,10 +735,10 @@ fn render_quantity_screen(
                                 <span class="num">{ format!("{})", idx) }</span>
                                 <span class="label">
                                     { label.clone() }
-                                    { if !preview.is_empty() {
-                                        html! { <span class="preview">{ format!(" {}", preview) }</span> }
-                                    } else {
+                                    { if preview.is_empty() {
                                         html! {}
+                                    } else {
+                                        html! { <span class="preview">{ format!(" {}", preview) }</span> }
                                     }}
                                 </span>
                             </li>
@@ -786,10 +775,10 @@ fn render_cart_screen(
     // Add cart items
     for (i, line) in state.cart.lines.iter().enumerate() {
         if let Some(item) = state.store_data.find_item(&line.item_id) {
-            let idx = (i + 1) as u8;
+            let idx = u8::try_from(i + 1).unwrap_or(255);
             let item_name = i18n::t(&format!("store.items.{}.name", item.id));
             let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-            let line_total = effective_price * line.qty as i64;
+            let line_total = effective_price * i64::from(line.qty);
             let line_total_str = format_currency(line_total);
 
             let qty_str = line.qty.to_string();
@@ -838,10 +827,10 @@ fn render_cart_screen(
                                 }) }
                             </ul>
                             <p class="cart-total" aria-live="polite">{ cart_total_line }</p>
-                            { if !can_checkout {
-                                html! { <p class="error" role="alert">{ i18n::t("store.alerts.over_budget") }</p> }
-                            } else {
+                            { if can_checkout {
                                 html! {}
+                            } else {
+                                html! { <p class="error" role="alert">{ i18n::t("store.alerts.over_budget") }</p> }
                             }}
                         </>
                     }

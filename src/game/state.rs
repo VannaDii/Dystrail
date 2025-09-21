@@ -10,6 +10,7 @@ use crate::game::exec_orders::ExecOrder;
 use crate::game::personas::{Persona, PersonaMods};
 use crate::game::vehicle::{Vehicle, Breakdown};
 use crate::game::weather::{WeatherState, WeatherConfig};
+use crate::game::camp::CampState;
 
 /// Default pace setting
 fn default_pace() -> String {
@@ -162,6 +163,9 @@ pub struct GameState {
     /// Weather state and history for streak tracking
     #[serde(default)]
     pub weather_state: WeatherState,
+    /// Camp state and cooldowns
+    #[serde(default)]
+    pub camp: CampState,
     #[serde(skip)]
     pub rng: Option<ChaCha20Rng>,
     #[serde(skip)]
@@ -195,6 +199,7 @@ impl Default for GameState {
             breakdown: None,
             travel_blocked: false,
             weather_state: WeatherState::default(),
+            camp: CampState::default(),
             rng: None,
             data: None,
         }
@@ -296,13 +301,12 @@ impl GameState {
                 trigger_enc = true;
             }
         }
-        if trigger_enc {
-            if let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref()) {
-                if let Some(enc) = pick_encounter(data, self.mode.is_deep(), self.region, rng) {
-                    self.current_encounter = Some(enc.clone());
-                    return (false, String::from("log.encounter"));
-                }
-            }
+        if trigger_enc
+            && let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref())
+            && let Some(enc) = pick_encounter(data, self.mode.is_deep(), self.region, rng)
+        {
+            self.current_encounter = Some(enc.clone());
+            return (false, String::from("log.encounter"));
         }
 
         // Step 5: Executive Orders (moved after encounter roll as per spec)
@@ -343,25 +347,25 @@ impl GameState {
     }
 
     pub fn apply_choice(&mut self, idx: usize) {
-        if let Some(enc) = self.current_encounter.clone() {
-            if let Some(choice) = enc.choices.get(idx) {
-                let eff = &choice.effects;
-                self.stats.hp += eff.hp;
-                self.stats.sanity += eff.sanity;
-                self.stats.credibility += eff.credibility;
-                self.stats.supplies += eff.supplies;
-                self.stats.morale += eff.morale;
-                self.stats.allies += eff.allies;
-                self.stats.pants += eff.pants;
-                if let Some(r) = &eff.add_receipt {
-                    self.receipts.push(r.clone());
-                }
-                if eff.use_receipt {
-                    let _ = self.receipts.pop();
-                }
-                if let Some(log) = &eff.log {
-                    self.logs.push(log.clone());
-                }
+        if let Some(enc) = self.current_encounter.clone()
+            && let Some(choice) = enc.choices.get(idx)
+        {
+            let eff = &choice.effects;
+            self.stats.hp += eff.hp;
+            self.stats.sanity += eff.sanity;
+            self.stats.credibility += eff.credibility;
+            self.stats.supplies += eff.supplies;
+            self.stats.morale += eff.morale;
+            self.stats.allies += eff.allies;
+            self.stats.pants += eff.pants;
+            if let Some(r) = &eff.add_receipt {
+                self.receipts.push(r.clone());
+            }
+            if eff.use_receipt {
+                let _ = self.receipts.pop();
+            }
+            if let Some(log) = &eff.log {
+                self.logs.push(log.clone());
             }
         }
         self.current_encounter = None;
@@ -390,7 +394,7 @@ impl GameState {
         self.stats.morale = p.start.morale;
         self.stats.allies = p.start.allies;
         self.budget = p.start.budget;
-        self.budget_cents = (p.start.budget * 100) as i64; // Convert dollars to cents
+        self.budget_cents = i64::from(p.start.budget * 100); // Convert dollars to cents
         self.score_mult = p.score_mult;
         self.mods = p.mods.clone();
         self.stats.clamp();
@@ -401,7 +405,10 @@ impl GameState {
     pub fn apply_store_purchase(&mut self, total_cost_cents: i64, grants: &crate::game::store::Grants, tags: &[String]) {
         // Deduct cost from budget
         self.budget_cents -= total_cost_cents;
-        self.budget = (self.budget_cents / 100) as i32; // Update legacy budget field
+        #[allow(clippy::cast_possible_truncation)]
+        {
+            self.budget = (self.budget_cents / 100) as i32; // Update legacy budget field
+        }
 
         // Apply grants to stats
         self.stats.supplies += grants.supplies;
@@ -426,11 +433,13 @@ impl GameState {
     }
 
     /// Check if the player has enough budget for a purchase
+    #[must_use]
     pub fn can_afford(&self, cost_cents: i64) -> bool {
         self.budget_cents >= cost_cents
     }
 
     /// Get the remaining budget in cents
+    #[must_use]
     pub fn remaining_budget_cents(&self) -> i64 {
         self.budget_cents
     }
@@ -482,13 +491,15 @@ impl GameState {
             };
 
             if let Some(part) = crate::game::vehicle::breakdown_roll(&self.pace, weather_str, &cfg, rng) {
+                #[allow(clippy::cast_possible_wrap)]
+                let day_started = self.day as i32;
                 self.breakdown = Some(crate::game::vehicle::Breakdown {
                     part,
-                    day_started: self.day as i32,
+                    day_started,
                 });
                 self.travel_blocked = true;
                 // Log the breakdown (UI will announce via aria-live)
-                self.logs.push(format!("vehicle.breakdown.{:?}", part).to_lowercase());
+                self.logs.push(format!("vehicle.breakdown.{part:?}").to_lowercase());
             }
         }
     }
@@ -522,7 +533,7 @@ impl GameState {
                 self.travel_blocked = false;
 
                 // Log repair
-                self.logs.push(format!("vehicle.repair.spare.{:?}", part).to_lowercase());
+                self.logs.push(format!("vehicle.repair.spare.{part:?}").to_lowercase());
                 return true;
             }
         }
@@ -537,7 +548,10 @@ impl GameState {
             // Apply costs
             self.stats.supplies -= cfg.repair_costs.hack_supplies;
             self.stats.credibility -= cfg.repair_costs.hack_cred;
-            self.day += cfg.repair_costs.hack_day as u32;
+            #[allow(clippy::cast_sign_loss)]
+            {
+                self.day += cfg.repair_costs.hack_day as u32;
+            }
 
             // Clear breakdown
             self.breakdown = None;
@@ -553,17 +567,21 @@ impl GameState {
         let cfg = crate::game::vehicle::VehicleConfig::default();
 
         // Always advance day
-        self.day += cfg.mechanic_hook.day_cost as u32;
+        #[allow(clippy::cast_sign_loss)]
+        {
+            self.day += cfg.mechanic_hook.day_cost as u32;
+        }
 
         // If mechanic hook is enabled, chance to clear breakdown
-        if cfg.mechanic_hook.enabled && self.breakdown.is_some() {
-            if let Some(rng) = self.rng.as_mut() {
-                let roll: f32 = rng.random();
-                if roll < cfg.mechanic_hook.chance_clear {
-                    self.breakdown = None;
-                    self.travel_blocked = false;
-                    self.logs.push("vehicle.repair.mechanic".to_string());
-                }
+        if cfg.mechanic_hook.enabled
+            && self.breakdown.is_some()
+            && let Some(rng) = self.rng.as_mut()
+        {
+            let roll: f32 = rng.random();
+            if roll < cfg.mechanic_hook.chance_clear {
+                self.breakdown = None;
+                self.travel_blocked = false;
+                self.logs.push("vehicle.repair.mechanic".to_string());
             }
         }
     }

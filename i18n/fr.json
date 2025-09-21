@@ -194,10 +194,39 @@
   },
   "camp": {
     "title": "Campement",
+    "desc": "Choisissez une action.",
     "repair_vehicle": "Réparer le véhicule",
-    "help": "Appuyez sur 1 ou 0 pour sélectionner une option",
+    "help": "Appuyez sur 1-4 ou 0 pour sélectionner une option",
+    "menu": {
+      "rest": "Se reposer (+2 Sanité, +1 HP, Fournitures -1, Jour +1)",
+      "repair": "Réparer le véhicule (si en panne)",
+      "forage": "Chercher des fournitures (50% Fournitures +1 / 30% Rien / 20% Reçus +1)",
+      "therapy": "Thérapie/Journal (+2 Sanité, brûler 1 Reçu, Jour +1) [cooldown: {days} jours]",
+      "close": "Fermer",
+      "back": "Retour",
+      "use_spare": "Utiliser pièce de rechange",
+      "hack_fix": "Réparation de fortune (Fournitures -{sup}, Crédibilité -{cred}, Jour +{day})"
+    },
+    "announce": {
+      "rest": "Repos terminé. Sanité +2, HP +1, Fournitures -1. Jour +1.",
+      "repair_spare": "Pièce de rechange {part} utilisée. Fournitures -{sup}. Véhicule réparé.",
+      "repair_hack": "Réparation de fortune appliquée. Fournitures -{sup}, Crédibilité -{cred}. Jour +{day}.",
+      "forage_sup": "Recherche réussie : Fournitures +1.",
+      "forage_receipt": "Trouvé une piste utile : Reçus +1.",
+      "forage_none": "Cherché mais rien trouvé.",
+      "therapy": "Vous avez réfléchi et écrit dans votre journal. Sanité +2, brûlé 1 Reçu. Jour +1.",
+      "cooldown": "La thérapie est en cooldown pour {days} jours de plus.",
+      "no_receipt": "Aucun reçu disponible à brûler.",
+      "no_breakdown": "Aucune panne active."
+    },
     "repair": {
       "title": "Réparation du véhicule"
+    },
+    "parts": {
+      "tire": "Pneu",
+      "battery": "Batterie",
+      "alt": "Alternateur",
+      "pump": "Pompe à Carburant"
     }
   },
   "vehicle": {

@@ -252,5 +252,42 @@
     "notes": {
       "storm_crossings": "风暴期间过境更加危险。"
     }
+  },
+  "camp": {
+    "title": "营地",
+    "desc": "选择一个行动。",
+    "repair_vehicle": "修理车辆",
+    "help": "按1-4或0选择选项",
+    "menu": {
+      "rest": "休息（+2理智，+1生命，物资-1，天数+1）",
+      "repair": "修理车辆（如果故障）",
+      "forage": "觅食（50%物资+1 / 30%无 / 20%收据+1）",
+      "therapy": "治疗/记日记（+2理智，消耗1收据，天数+1）[冷却：{days}天]",
+      "close": "关闭",
+      "back": "返回",
+      "use_spare": "使用备件",
+      "hack_fix": "临时修理（物资-{sup}，信誉-{cred}，天数+{day}）"
+    },
+    "announce": {
+      "rest": "已休息。理智+2，生命+1，物资-1。天数+1。",
+      "repair_spare": "使用了备件{part}。物资-{sup}。车辆已修理。",
+      "repair_hack": "应用了临时修理。物资-{sup}，信誉-{cred}。天数+{day}。",
+      "forage_sup": "觅食成功：物资+1。",
+      "forage_receipt": "发现有用线索：收据+1。",
+      "forage_none": "觅食但什么都没找到。",
+      "therapy": "你反思并写了日记。理智+2，消耗1收据。天数+1。",
+      "cooldown": "治疗冷却中，还需{days}天。",
+      "no_receipt": "没有可消耗的收据。",
+      "no_breakdown": "没有活跃故障。"
+    },
+    "repair": {
+      "title": "车辆修理"
+    },
+    "parts": {
+      "tire": "轮胎",
+      "battery": "电池",
+      "alt": "发电机",
+      "pump": "燃油泵"
+    }
   }
 }

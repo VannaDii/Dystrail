@@ -65,12 +65,10 @@ impl EncounterData {
 impl EncounterData {
     pub async fn load_from_static() -> Self {
         let url = "/static/assets/data/game.json";
-        if let Ok(resp) = gloo_net::http::Request::get(url).send().await {
-            if resp.status() == 200 {
-                if let Ok(list) = resp.json::<Vec<Encounter>>().await {
-                    return Self { encounters: list };
-                }
-            }
+        if let Ok(resp) = gloo_net::http::Request::get(url).send().await
+            && resp.status() == 200
+            && let Ok(list) = resp.json::<Vec<Encounter>>().await {
+            return Self { encounters: list };
         }
         Self::empty()
     }

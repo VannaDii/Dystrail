@@ -57,24 +57,20 @@ pub fn save_drawer(p: &Props) -> Html {
         use_effect_with(
             (open, ret, container_ref),
             move |(open, ret, container_ref)| {
-                if *open {
-                    if let Some(el) = container_ref.cast::<web_sys::Element>() {
-                        if let Ok(list) = el.query_selector_all("button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])") {
-                        if let Some(first) = list.get(0).and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok()) { let _ = first.focus(); }
-                    }
-                    }
-                }
+                if *open
+                    && let Some(el) = container_ref.cast::<web_sys::Element>()
+                    && let Ok(list) = el.query_selector_all("button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])")
+                    && let Some(first) = list.get(0).and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok()) { let _ = first.focus(); }
                 let ret_id = ret.clone();
                 move || {
-                    if let Some(id) = ret_id.clone() {
-                        if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-                            let id_str = id.to_string();
-                            if let Some(el) = doc.get_element_by_id(&id_str) {
-                                let _ = el
-                                    .dyn_into::<web_sys::HtmlElement>()
-                                    .ok()
-                                    .map(|e| e.focus());
-                            }
+                    if let Some(id) = ret_id.clone()
+                        && let Some(doc) = web_sys::window().and_then(|w| w.document()) {
+                        let id_str = id.to_string();
+                        if let Some(el) = doc.get_element_by_id(&id_str) {
+                            let _ = el
+                                .dyn_into::<web_sys::HtmlElement>()
+                                .ok()
+                                .map(|e| e.focus());
                         }
                     }
                 }

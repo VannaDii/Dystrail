@@ -41,7 +41,7 @@ pub fn travel_panel(p: &Props) -> Html {
 
     let on_hide_pace_diet = {
         let show_pace_diet = show_pace_diet.clone();
-        Callback::from(move |_| {
+        Callback::from(move |()| {
             show_pace_diet.set(false);
         })
     };
@@ -55,8 +55,7 @@ pub fn travel_panel(p: &Props) -> Html {
 
     // Check if travel is blocked due to vehicle breakdown
     let travel_blocked = p.game_state.as_ref()
-        .map(|gs| gs.travel_blocked)
-        .unwrap_or(false);
+        .is_some_and(|gs| gs.travel_blocked);
 
     // Prepare breakdown message if needed
     let breakdown_msg = if let Some(gs) = p.game_state.as_ref() {
@@ -298,9 +297,9 @@ fn render_weather_details(game_state: &GameState) -> Html {
 /// Format a stat delta with proper sign
 fn format_delta(stat: &str, value: i32) -> String {
     if value >= 0 {
-        format!("{} +{}", stat, value)
+        format!("{stat} +{value}")
     } else {
-        format!("{} {}", stat, value) // negative sign already included
+        format!("{stat} {value}") // negative sign already included
     }
 }
 
@@ -339,8 +338,8 @@ fn format_weather_announcement(weather: crate::game::weather::Weather, effect: O
             parts.join(", ")
         };
 
-        format!("Weather: {}. {}", weather_name, effects_text)
+        format!("Weather: {weather_name}. {effects_text}")
     } else {
-        format!("Weather: {}", weather_name)
+        format!("Weather: {weather_name}")
     }
 }

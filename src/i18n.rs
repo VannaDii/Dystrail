@@ -79,10 +79,10 @@ pub fn set_lang(lang: &str) {
                 });
             });
         }
-        if let Some(win) = web_sys::window() {
-            if let Ok(Some(storage)) = win.local_storage() {
-                let _ = storage.set_item("dystrail.locale", lang);
-            }
+        if let Some(win) = web_sys::window()
+            && let Ok(Some(storage)) = win.local_storage()
+        {
+            let _ = storage.set_item("dystrail.locale", lang);
         }
     }
 }

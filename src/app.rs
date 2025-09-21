@@ -1,6 +1,7 @@
 use crate::game::data::EncounterData;
 use crate::game::pacing::PacingConfig;
 use crate::game::weather::WeatherConfig;
+use crate::game::CampConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{GameMode, GameState, Region};
 use crate::i18n;
@@ -40,6 +41,7 @@ pub fn app_inner() -> Html {
     let data = use_state(EncounterData::empty);
     let pacing_config = use_state(PacingConfig::default_config);
     let weather_config = use_state(WeatherConfig::default_config);
+    let camp_config = use_state(CampConfig::default_config);
     let state = use_state(|| None::<GameState>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
@@ -86,14 +88,17 @@ pub fn app_inner() -> Html {
         let data = data.clone();
         let pacing_config = pacing_config.clone();
         let weather_config = weather_config.clone();
+        let camp_config = camp_config.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
                 let loaded_data = EncounterData::load_from_static().await;
                 let loaded_pacing = PacingConfig::load_from_static().await;
                 let loaded_weather = WeatherConfig::load_from_static().await;
+                let loaded_camp = CampConfig::load_from_static().await;
                 data.set(loaded_data);
                 pacing_config.set(loaded_pacing);
                 weather_config.set(loaded_weather);
+                camp_config.set(loaded_camp);
                 phase.set(Phase::Persona);
             });
             || {}
@@ -327,14 +332,12 @@ pub fn app_inner() -> Html {
     let on_export_cb = {
         let state = state.clone();
         Callback::from(move |()| {
-            if let Some(gs) = (*state).clone() {
-                if let Ok(text) = serde_json::to_string(&gs) {
-                    if let Some(win) = web_sys::window() {
-                        let nav = win.navigator();
-                        let cb = nav.clipboard();
-                        let _ = cb.write_text(&text);
-                    }
-                }
+            if let Some(gs) = (*state).clone()
+                && let Ok(text) = serde_json::to_string(&gs)
+                && let Some(win) = web_sys::window() {
+                let nav = win.navigator();
+                let cb = nav.clipboard();
+                let _ = cb.write_text(&text);
             }
         })
     };
@@ -521,16 +524,23 @@ pub fn app_inner() -> Html {
         }
         Phase::Camp => {
             if let Some(gs) = (*state).clone() {
+                let camp_config_rc = Rc::new((*camp_config).clone());
                 html! {
                     <>
                         <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={Some(gs.current_order)} />
                         <crate::components::ui::camp_panel::CampPanel
-                            game_state={Rc::new(gs)}
-                            on_repair_vehicle={Callback::from(move |_| {})} // TODO: implement repair action
-                            on_back={Callback::from({
+                            game_state={Rc::new(gs.clone())}
+                            camp_config={camp_config_rc}
+                            on_state_change={{
+                                let state = state.clone();
+                                Callback::from(move |new_state| {
+                                    state.set(Some(new_state));
+                                })
+                            }}
+                            on_close={{
                                 let phase = phase.clone();
-                                move |_| phase.set(Phase::Menu)
-                            })}
+                                Callback::from(move |()| phase.set(Phase::Menu))
+                            }}
                         />
                     </>
                 }

@@ -63,15 +63,14 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     {
         let list_ref = list_ref.clone();
         use_effect_with(*selected, move |sel| {
-            if let Some(i) = *sel {
-                if let Some(list) = list_ref.cast::<web_sys::Element>() {
-                    let sel = format!("[role='radio'][data-key='{}']", i + 1);
-                    if let Ok(Some(el)) = list.query_selector(&sel) {
-                        let _ = el
-                            .dyn_into::<web_sys::HtmlElement>()
-                            .ok()
-                            .map(|e| e.focus());
-                    }
+            if let Some(i) = *sel
+                && let Some(list) = list_ref.cast::<web_sys::Element>() {
+                let sel = format!("[role='radio'][data-key='{}']", i + 1);
+                if let Ok(Some(el)) = list.query_selector(&sel) {
+                    let _ = el
+                        .dyn_into::<web_sys::HtmlElement>()
+                        .ok()
+                        .map(|e| e.focus());
                 }
             }
         });
@@ -86,10 +85,9 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
             if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
             {
                 if n == 0 {
-                    if selected.is_some() {
-                        if let Some(cb) = on_continue.clone() {
-                            cb.emit(());
-                        }
+                    if selected.is_some()
+                        && let Some(cb) = on_continue.clone() {
+                        cb.emit(());
                     }
                 } else {
                     let idx = (n as usize).saturating_sub(1);

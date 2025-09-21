@@ -74,11 +74,13 @@ pub struct Cart {
 
 impl Cart {
     /// Create a new empty cart.
+    #[must_use]
     pub fn new() -> Self {
         Self::default()
     }
 
     /// Find a cart line by item ID.
+    #[must_use]
     pub fn find_line(&self, item_id: &str) -> Option<&CartLine> {
         self.lines.iter().find(|line| line.item_id == item_id)
     }
@@ -131,11 +133,13 @@ impl Cart {
     }
 
     /// Get the current quantity of an item in the cart.
+    #[must_use]
     pub fn get_quantity(&self, item_id: &str) -> i32 {
-        self.find_line(item_id).map(|line| line.qty).unwrap_or(0)
+        self.find_line(item_id).map_or(0, |line| line.qty)
     }
 
     /// Check if the cart is empty.
+    #[must_use]
     pub fn is_empty(&self) -> bool {
         self.lines.is_empty()
     }
@@ -143,6 +147,7 @@ impl Cart {
 
 impl Store {
     /// Find an item by ID across all categories.
+    #[must_use]
     pub fn find_item(&self, item_id: &str) -> Option<&StoreItem> {
         for category in &self.categories {
             for item in &category.items {
@@ -155,6 +160,7 @@ impl Store {
     }
 
     /// Get all items as a flat map by ID.
+    #[must_use]
     pub fn items_by_id(&self) -> HashMap<String, &StoreItem> {
         let mut map = HashMap::new();
         for category in &self.categories {
@@ -168,6 +174,8 @@ impl Store {
 
 /// Calculate the effective price after persona discount.
 /// Returns price in cents, rounded up.
+#[must_use]
+#[allow(clippy::cast_precision_loss, clippy::cast_possible_truncation)]
 pub fn calculate_effective_price(base_price_cents: i64, discount_pct: f64) -> i64 {
     if discount_pct <= 0.0 {
         return base_price_cents;
@@ -179,13 +187,14 @@ pub fn calculate_effective_price(base_price_cents: i64, discount_pct: f64) -> i6
 }
 
 /// Calculate the total cost of a cart with persona discount applied.
+#[must_use]
 pub fn calculate_cart_total(cart: &Cart, store: &Store, discount_pct: f64) -> i64 {
     let mut total = 0i64;
 
     for line in &cart.lines {
         if let Some(item) = store.find_item(&line.item_id) {
             let effective_price = calculate_effective_price(item.price_cents, discount_pct);
-            total += effective_price * line.qty as i64;
+            total += effective_price * i64::from(line.qty);
         }
     }
 

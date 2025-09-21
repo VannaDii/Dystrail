@@ -28,17 +28,15 @@ pub fn settings_dialog(p: &Props) -> Html {
                         .active_element()
                         .and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok());
                 }
-                if let Some(el) = node.cast::<web_sys::Element>() {
-                    if let Ok(list) = el.query_selector_all(
+                if let Some(el) = node.cast::<web_sys::Element>()
+                    && let Ok(list) = el.query_selector_all(
                         "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
-                    ) {
-                        if let Some(first) = list
-                            .get(0)
-                            .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
-                        {
-                            let _ = first.focus();
-                        }
-                    }
+                    )
+                    && let Some(first) = list
+                        .get(0)
+                        .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
+                {
+                    let _ = first.focus();
                 }
             }
             move || {

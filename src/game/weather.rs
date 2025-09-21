@@ -6,8 +6,9 @@ use std::collections::HashMap;
 use crate::game::{GameState, Region};
 
 /// Weather conditions that affect daily gameplay
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 pub enum Weather {
+    #[default]
     Clear,
     Storm,
     HeatWave,
@@ -32,12 +33,6 @@ impl Weather {
             Weather::ColdSnap => "weather.states.ColdSnap",
             Weather::Smoke => "weather.states.Smoke",
         }
-    }
-}
-
-impl Default for Weather {
-    fn default() -> Self {
-        Weather::Clear
     }
 }
 
@@ -105,9 +100,13 @@ impl Default for WeatherState {
 
 impl WeatherConfig {
     /// Load weather configuration from JSON string
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if the JSON string cannot be parsed or if validation fails.
     pub fn from_json(json_str: &str) -> Result<Self, String> {
         let config: WeatherConfig =
-            serde_json::from_str(json_str).map_err(|e| format!("JSON parse error: {}", e))?;
+            serde_json::from_str(json_str).map_err(|e| format!("JSON parse error: {e}"))?;
         config.validate()?;
         Ok(config)
     }
@@ -115,14 +114,12 @@ impl WeatherConfig {
     /// Load weather configuration from static assets
     pub async fn load_from_static() -> Self {
         let url = "/static/assets/data/weather.json";
-        if let Ok(resp) = Request::get(url).send().await {
-            if resp.status() == 200 {
-                if let Ok(json_str) = resp.text().await {
-                    if let Ok(config) = Self::from_json(&json_str) {
-                        return config;
-                    }
-                }
-            }
+        if let Ok(resp) = Request::get(url).send().await
+            && resp.status() == 200
+            && let Ok(json_str) = resp.text().await
+            && let Ok(config) = Self::from_json(&json_str)
+        {
+            return config;
         }
         // If loading fails, use embedded defaults
         Self::default_config()
@@ -139,14 +136,14 @@ impl WeatherConfig {
             Weather::Smoke,
         ] {
             if !self.effects.contains_key(&weather) {
-                return Err(format!("Missing effect for weather: {:?}", weather));
+                return Err(format!("Missing effect for weather: {weather:?}"));
             }
         }
 
         // Check that all regions have weights
         for region in [Region::Heartland, Region::RustBelt, Region::Beltway] {
             if !self.weights.contains_key(&region) {
-                return Err(format!("Missing weights for region: {:?}", region));
+                return Err(format!("Missing weights for region: {region:?}"));
             }
 
             let region_weights = self.weights.get(&region).unwrap();
@@ -158,7 +155,7 @@ impl WeatherConfig {
                 Weather::Smoke,
             ] {
                 if !region_weights.contains_key(&weather) {
-                    return Err(format!("Missing weight for {:?} in {:?}", weather, region));
+                    return Err(format!("Missing weight for {weather:?} in {region:?}"));
                 }
             }
         }
@@ -167,6 +164,8 @@ impl WeatherConfig {
     }
 
     /// Get embedded default configuration if loading fails
+    #[must_use]
+    #[allow(clippy::too_many_lines)]
     pub fn default_config() -> Self {
         use std::collections::HashMap;
 
@@ -300,6 +299,10 @@ impl WeatherConfig {
 }
 
 /// Select today's weather based on region weights and streak limits
+///
+/// # Panics
+///
+/// Panics if RNG is not initialized or if weather weights don't exist for the current region.
 pub fn select_weather_for_today(gs: &mut GameState, cfg: &WeatherConfig) -> Weather {
     let rng = gs.rng.as_mut().expect("RNG must be initialized");
 
@@ -356,6 +359,10 @@ pub fn select_weather_for_today(gs: &mut GameState, cfg: &WeatherConfig) -> Weat
 }
 
 /// Apply weather effects to game state
+///
+/// # Panics
+///
+/// Panics if weather effect configuration doesn't exist for today's weather.
 pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     // Update streak counters
     let today = gs.weather_state.today;
@@ -381,14 +388,14 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     let delta_enc = effect.enc_delta;
 
     // Apply gear mitigation
-    if let Some(mitigation) = cfg.mitigation.get(&today) {
-        if gs.inventory.tags.contains(&mitigation.tag) {
-            if let Some(san) = mitigation.sanity {
-                delta_san = san;
-            }
-            if let Some(pants) = mitigation.pants {
-                delta_pants = pants;
-            }
+    if let Some(mitigation) = cfg.mitigation.get(&today)
+        && gs.inventory.tags.contains(&mitigation.tag)
+    {
+        if let Some(san) = mitigation.sanity {
+            delta_san = san;
+        }
+        if let Some(pants) = mitigation.pants {
+            delta_pants = pants;
         }
     }
 

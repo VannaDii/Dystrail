@@ -1,0 +1,30 @@
+{
+  "rest": {
+    "sanity": 2,
+    "hp": 1,
+    "supplies": -1,
+    "day": 1
+  },
+  "therapy": {
+    "sanity": 2,
+    "burn_receipt": 1,
+    "day": 1,
+    "cooldown_days": 3
+  },
+  "forage": {
+    "weights": {
+      "supplies": 50,
+      "none": 30,
+      "receipt": 20
+    },
+    "receipt_bonus_cap": 25
+  },
+  "repair": {
+    "hack": {
+      "supplies": 3,
+      "credibility": 1,
+      "day": 1
+    },
+    "use_spare_supplies": 1
+  }
+}

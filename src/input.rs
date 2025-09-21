@@ -22,10 +22,10 @@ pub fn numeric_key_to_index(key: &str) -> Option<u8> {
 // Parses KeyboardEvent.code such as "Digit3" or "Numpad5"
 #[must_use]
 pub fn numeric_code_to_index(code: &str) -> Option<u8> {
-    if let Some(last) = code.chars().last() {
-        if last.is_ascii_digit() {
-            return numeric_key_to_index(&last.to_string());
-        }
+    if let Some(last) = code.chars().last()
+        && last.is_ascii_digit()
+    {
+        return numeric_key_to_index(&last.to_string());
     }
     None
 }

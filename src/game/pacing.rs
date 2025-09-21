@@ -39,9 +39,13 @@ pub struct PacingConfig {
 
 impl PacingConfig {
     /// Load pacing configuration from JSON string
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if the JSON string cannot be parsed or if validation fails.
     pub fn from_json(json_str: &str) -> Result<Self, String> {
         let config: PacingConfig =
-            serde_json::from_str(json_str).map_err(|e| format!("JSON parse error: {}", e))?;
+            serde_json::from_str(json_str).map_err(|e| format!("JSON parse error: {e}"))?;
         config.validate()?;
         Ok(config)
     }
@@ -49,20 +53,19 @@ impl PacingConfig {
     /// Load pacing configuration from static assets
     pub async fn load_from_static() -> Self {
         let url = "/static/assets/data/pacing.json";
-        if let Ok(resp) = gloo_net::http::Request::get(url).send().await {
-            if resp.status() == 200 {
-                if let Ok(json_str) = resp.text().await {
-                    if let Ok(config) = Self::from_json(&json_str) {
-                        return config;
-                    }
-                }
-            }
+        if let Ok(resp) = gloo_net::http::Request::get(url).send().await
+            && resp.status() == 200
+            && let Ok(json_str) = resp.text().await
+            && let Ok(config) = Self::from_json(&json_str)
+        {
+            return config;
         }
         // If loading fails, use embedded defaults
         Self::default_config()
     }
 
     /// Get embedded default configuration if loading fails
+    #[must_use]
     pub fn default_config() -> Self {
         Self {
             pace: vec![
@@ -146,13 +149,13 @@ impl PacingConfig {
 
         // Check for duplicate IDs
         let pace_ids: Vec<&str> = self.pace.iter().map(|p| p.id.as_str()).collect();
-        let unique_pace_ids: std::collections::HashSet<&str> = pace_ids.iter().cloned().collect();
+        let unique_pace_ids: std::collections::HashSet<&str> = pace_ids.iter().copied().collect();
         if pace_ids.len() != unique_pace_ids.len() {
             return Err("Duplicate pace IDs found".to_string());
         }
 
         let diet_ids: Vec<&str> = self.diet.iter().map(|d| d.id.as_str()).collect();
-        let unique_diet_ids: std::collections::HashSet<&str> = diet_ids.iter().cloned().collect();
+        let unique_diet_ids: std::collections::HashSet<&str> = diet_ids.iter().copied().collect();
         if diet_ids.len() != unique_diet_ids.len() {
             return Err("Duplicate diet IDs found".to_string());
         }
@@ -161,16 +164,19 @@ impl PacingConfig {
     }
 
     /// Find pace configuration by ID
+    #[must_use]
     pub fn find_pace(&self, id: &str) -> Option<&PaceCfg> {
         self.pace.iter().find(|p| p.id == id)
     }
 
     /// Find diet configuration by ID
+    #[must_use]
     pub fn find_diet(&self, id: &str) -> Option<&DietCfg> {
         self.diet.iter().find(|d| d.id == id)
     }
 
     /// Get pace configuration by ID, falling back to "steady" if not found
+    #[must_use]
     pub fn get_pace_safe(&self, id: &str) -> &PaceCfg {
         self.find_pace(id)
             .or_else(|| self.find_pace("steady"))
@@ -178,6 +184,7 @@ impl PacingConfig {
     }
 
     /// Get diet configuration by ID, falling back to "mixed" if not found
+    #[must_use]
     pub fn get_diet_safe(&self, id: &str) -> &DietCfg {
         self.find_diet(id)
             .or_else(|| self.find_diet("mixed"))

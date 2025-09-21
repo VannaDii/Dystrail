@@ -214,10 +214,39 @@
   },
   "camp": {
     "title": "Campamento",
+    "desc": "Elige una acción.",
     "repair_vehicle": "Reparar Vehículo",
-    "help": "Presiona 1 o 0 para seleccionar una opción",
+    "help": "Presiona 1-4 o 0 para seleccionar una opción",
+    "menu": {
+      "rest": "Descansar (+2 Cordura, +1 HP, Suministros -1, Día +1)",
+      "repair": "Reparar Vehículo (si está averiado)",
+      "forage": "Buscar Suministros (50% Suministros +1 / 30% Nada / 20% Recibos +1)",
+      "therapy": "Terapia/Diario (+2 Cordura, quemar 1 Recibo, Día +1) [cooldown: {days} días]",
+      "close": "Cerrar",
+      "back": "Atrás",
+      "use_spare": "Usar Repuesto",
+      "hack_fix": "Reparación Improvisada (Suministros -{sup}, Credibilidad -{cred}, Día +{day})"
+    },
+    "announce": {
+      "rest": "Descansado. Cordura +2, HP +1, Suministros -1. Día +1.",
+      "repair_spare": "Repuesto {part} usado. Suministros -{sup}. Vehículo reparado.",
+      "repair_hack": "Reparación improvisada aplicada. Suministros -{sup}, Credibilidad -{cred}. Día +{day}.",
+      "forage_sup": "Búsqueda exitosa: Suministros +1.",
+      "forage_receipt": "Encontrada una pista útil: Recibos +1.",
+      "forage_none": "Buscaste pero no encontraste nada.",
+      "therapy": "Reflexionaste y escribiste en tu diario. Cordura +2, quemado 1 Recibo. Día +1.",
+      "cooldown": "La terapia está en cooldown por {days} días más.",
+      "no_receipt": "No hay recibos disponibles para quemar.",
+      "no_breakdown": "No hay averías activas."
+    },
     "repair": {
       "title": "Reparación del Vehículo"
+    },
+    "parts": {
+      "tire": "Neumático",
+      "battery": "Batería",
+      "alt": "Alternador",
+      "pump": "Bomba de Combustible"
     }
   },
   "vehicle": {

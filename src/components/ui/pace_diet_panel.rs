@@ -203,13 +203,13 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 class={class}
                 role="menuitem"
                 tabindex={if is_focused { "0" } else { "-1" }}
-                aria-describedby={format!("tooltip-{}", idx)}
+                aria-describedby={format!("tooltip-{idx}")}
                 {onclick}
                 {onfocus}
             >
                 <span class="line-number">{format!("{})", idx)}</span>
                 <span class="line-text">{text}</span>
-                <div id={format!("tooltip-{}", idx)} class="sr-only">{tooltip}</div>
+                <div id={format!("tooltip-{idx}")} class="sr-only">{tooltip}</div>
             </li>
         }
     };

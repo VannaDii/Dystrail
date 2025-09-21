@@ -1,4 +1,5 @@
 pub mod boss;
+pub mod camp;
 pub mod data;
 pub mod encounters;
 pub mod exec_orders;
@@ -16,3 +17,4 @@ pub use store::{Store, StoreItem, StoreCategory, Cart, CartLine, Grants, calcula
 pub use pacing::{PacingConfig, PaceCfg, DietCfg, PacingLimits};
 pub use vehicle::{Part, Vehicle, Breakdown, VehicleConfig, breakdown_roll, weighted_pick};
 pub use weather::{Weather, WeatherState, WeatherConfig, WeatherEffect, WeatherMitigation, process_daily_weather};
+pub use camp::{CampConfig, CampState, camp_rest, camp_forage, camp_therapy, camp_repair_spare, camp_repair_hack, can_repair, can_therapy};

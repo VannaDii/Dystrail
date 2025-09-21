@@ -46,4 +46,4 @@ Dystrail is a satirical, SNES-inspired survival game built with Rust and Yew, co
 3. UI will reflect new encounters automatically if data shape matches.
 
 ---
-For questions or unclear conventions, review `PROJECT_PLAN.md` and `README.md` for rationale and gameplay details.
+For questions or unclear conventions, review `../PROJECT_PLAN.md`, `../AGENT.md`, and `../README.md` for rationale and gameplay details.

@@ -214,10 +214,39 @@
   },
   "camp": {
     "title": "Camp",
+    "desc": "Choose an action.",
     "repair_vehicle": "Repair Vehicle",
-    "help": "Press 1 or 0 to select an option",
+    "help": "Press 1-4 or 0 to select an option",
+    "menu": {
+      "rest": "Rest (+2 Sanity, +1 HP, Supplies -1, Day +1)",
+      "repair": "Repair Vehicle (if broken)",
+      "forage": "Forage (50% Supplies +1 / 30% None / 20% Receipts +1)",
+      "therapy": "Therapy/Journaling (+2 Sanity, burn 1 Receipt, Day +1) [cooldown: {days} days]",
+      "close": "Close",
+      "back": "Back",
+      "use_spare": "Use Spare",
+      "hack_fix": "Hack Fix (Supplies -{sup}, Credibility -{cred}, Day +{day})"
+    },
+    "announce": {
+      "rest": "Rested. Sanity +2, HP +1, Supplies -1. Day +1.",
+      "repair_spare": "Used spare {part}. Supplies -{sup}. Vehicle repaired.",
+      "repair_hack": "Hack fix applied. Supplies -{sup}, Credibility -{cred}. Day +{day}.",
+      "forage_sup": "Foraged successfully: Supplies +1.",
+      "forage_receipt": "Found a useful lead: Receipts +1.",
+      "forage_none": "Foraged but found nothing.",
+      "therapy": "You journaled and reflected. Sanity +2, burned 1 Receipt. Day +1.",
+      "cooldown": "Therapy is on cooldown for {days} more days.",
+      "no_receipt": "No receipts available to burn.",
+      "no_breakdown": "No active breakdown."
+    },
     "repair": {
       "title": "Vehicle Repair"
+    },
+    "parts": {
+      "tire": "Tire",
+      "battery": "Battery",
+      "alt": "Alternator",
+      "pump": "Fuel Pump"
     }
   },
   "vehicle": {
