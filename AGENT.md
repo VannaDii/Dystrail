@@ -44,7 +44,6 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - **Stable Rust** (latest stable channel pinned).
 - **Yew** (component framework).
 - **yew_router** (routing).
-- **fluent-bundle** + **fluent-templates** (i18n messages; plural rules).
 - **gloo** / **web-sys** (browser interop).
 - **wasm-bindgen-test** (wasm tests).
 - **console_error_panic_hook** (dev diagnostics only).
@@ -55,7 +54,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - **thiserror** / **anyhow** (errors).
 - **yew-style-inliner** or CSS pipeline via Trunk (for SSR-ish critical path styles if needed).
 
-> For date/number formatting, prefer the browser’s **Intl** API through `web-sys` bindings to keep WASM small; use Fluent for pluralization/gender.
+> For date/number formatting, prefer the browser’s **Intl** API through `web-sys` bindings to keep WASM small.
 
 ---
 
