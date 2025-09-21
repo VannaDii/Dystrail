@@ -1,0 +1,37 @@
+{
+  "types": {
+    "checkpoint": {
+      "detour": { "days": 2, "supplies": -2, "pants": 1 },
+      "bribe": {
+        "base_cost_cents": 1000,
+        "success_chance": 1.0,
+        "on_fail": { "days": 0, "pants": 0 }
+      },
+      "permit": { "cred_gain": 1 }
+    },
+    "bridge_out": {
+      "detour": { "days": 3, "supplies": -3, "pants": 2 },
+      "bribe": {
+        "base_cost_cents": 1500,
+        "success_chance": 1.0,
+        "on_fail": { "days": 0, "pants": 0 }
+      },
+      "permit": { "cred_gain": 1 }
+    }
+  },
+  "global_mods": {
+    "weather": {
+      "Storm": { "detour": { "days": 1, "pants": 1 } }
+    },
+    "exec_orders": {
+      "Shutdown": {
+        "bribe_success_chance": 0.5,
+        "on_fail": { "days": 1, "pants": 3 }
+      }
+    }
+  },
+  "money": {
+    "currency": "USD",
+    "allow_negative_budget": true
+  }
+}

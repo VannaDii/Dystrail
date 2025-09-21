@@ -55,9 +55,16 @@ fn fallback_bundle() -> I18nBundle {
 }
 
 fn saved_lang() -> Option<String> {
-    let win = web_sys::window()?;
-    let storage = win.local_storage().ok()??;
-    storage.get_item("dystrail.locale").ok().flatten()
+    #[cfg(not(test))]
+    {
+        let win = web_sys::window()?;
+        let storage = win.local_storage().ok()??;
+        storage.get_item("dystrail.locale").ok().flatten()
+    }
+    #[cfg(test)]
+    {
+        Some("en".to_string())
+    }
 }
 
 thread_local! {
@@ -70,19 +77,22 @@ thread_local! {
 pub fn set_lang(lang: &str) {
     if let Some(b) = build_bundle(lang) {
         CURRENT.with(|cell| cell.replace(b));
-        if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-            let _ = doc.document_element().map(|el| {
-                CURRENT.with(|cell| {
-                    let read = cell.borrow();
-                    let _ = el.set_attribute("lang", &read.lang);
-                    let _ = el.set_attribute("dir", if read.rtl { "rtl" } else { "ltr" });
-                });
-            });
-        }
-        if let Some(win) = web_sys::window()
-            && let Ok(Some(storage)) = win.local_storage()
+        #[cfg(not(test))]
         {
-            let _ = storage.set_item("dystrail.locale", lang);
+            if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
+                let _ = doc.document_element().map(|el| {
+                    CURRENT.with(|cell| {
+                        let read = cell.borrow();
+                        let _ = el.set_attribute("lang", &read.lang);
+                        let _ = el.set_attribute("dir", if read.rtl { "rtl" } else { "ltr" });
+                    });
+                });
+            }
+            if let Some(win) = web_sys::window()
+                && let Ok(Some(storage)) = win.local_storage()
+            {
+                let _ = storage.set_item("dystrail.locale", lang);
+            }
         }
     }
 }

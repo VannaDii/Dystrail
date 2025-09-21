@@ -242,8 +242,9 @@ pub fn camp_therapy(gs: &mut GameState, cfg: &CampConfig) -> String {
             gs.receipts.pop();
         }
     }
-    gs.day += u32::try_from(cfg.therapy.day).unwrap_or(1);
+    // Record therapy day before advancing the day
     gs.camp.last_therapy_day = Some(i32::try_from(gs.day).unwrap_or(0));
+    gs.day += u32::try_from(cfg.therapy.day).unwrap_or(1);
 
     gs.stats.clamp();
 
@@ -291,6 +292,11 @@ pub fn camp_repair_spare(gs: &mut GameState, cfg: &CampConfig, part: Part) -> St
 
 /// Execute hack fix repair
 pub fn camp_repair_hack(gs: &mut GameState, cfg: &CampConfig) -> String {
+    // Check if there's actually a breakdown to repair
+    if gs.breakdown.is_none() {
+        return i18n::tr("camp.error.no_breakdown", None);
+    }
+
     gs.stats.supplies -= cfg.repair.hack.supplies;
     gs.stats.credibility -= cfg.repair.hack.credibility;
     gs.day += u32::try_from(cfg.repair.hack.day).unwrap_or(1);

@@ -289,5 +289,36 @@
       "alt": "Alternador",
       "pump": "Bomba de Combustível"
     }
+  },
+  "cross": {
+    "title": "Posto de Controle",
+    "prompt": "Posto de controle à frente. Escolha:",
+    "options": {
+      "detour": "Desvio — Dias {days}, Suprimentos {supplies}, Calças {pants} (Seguro)",
+      "bribe": "Suborno — Custo {cost} (ver política)",
+      "permit": "Permissão — Gaste 1 Recibo ou use Passe de Imprensa (Cred +1)",
+      "back": "Voltar"
+    },
+    "desc": {
+      "detour": "Garantido; adiciona tempo e custa suprimentos; pouco estresse.",
+      "bribe": "Desconto de persona se aplica; pode falhar sob Shutdown.",
+      "permit": "Consome 1 Recibo ou usa etiqueta de permissão se presente."
+    },
+    "announce": {
+      "detour_applied": "Desvio tomado. Dias {days}, Suprimentos {supplies}, Calças {pants}.",
+      "bribe_paid_passed": "Suborno pago {cost}. Passagem concedida.",
+      "bribe_paid_failed": "Suborno pago {cost} mas falhou. Dias {days}, Calças {pants}.",
+      "permit_used_receipt": "Permissão aceita via Recibo. Cred +1.",
+      "permit_used_tag": "Permissão aceita via etiqueta. Cred +1.",
+      "no_receipt_or_tag": "Sem recibos e sem etiqueta de permissão.",
+      "insufficient_funds": "Fundos insuficientes."
+    },
+    "policy": {
+      "shutdown": "Shutdown em efeito: sucesso de suborno é {chance}%."
+    },
+    "types": {
+      "checkpoint": "Posto de Controle",
+      "bridge_out": "Ponte Cortada"
+    }
   }
 }

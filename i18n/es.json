@@ -309,5 +309,36 @@
     "notes": {
       "storm_crossings": "Los cruces son más arriesgados durante tormentas."
     }
+  },
+  "cross": {
+    "title": "Puesto de Control",
+    "prompt": "Puesto de control adelante. Elige:",
+    "options": {
+      "detour": "Desvío — Días {days}, Suministros {supplies}, Pantalones {pants} (Seguro)",
+      "bribe": "Soborno — Costo {cost} (ver política)",
+      "permit": "Permiso — Gasta 1 Recibo o usa Pase de Prensa (Cred +1)",
+      "back": "Atrás"
+    },
+    "desc": {
+      "detour": "Garantizado; añade tiempo y cuesta suministros; poco estrés.",
+      "bribe": "Descuento de persona aplica; puede fallar bajo Cierre.",
+      "permit": "Consume 1 Recibo o usa etiqueta de permiso si está presente."
+    },
+    "announce": {
+      "detour_applied": "Desvío tomado. Días {days}, Suministros {supplies}, Pantalones {pants}.",
+      "bribe_paid_passed": "Soborno pagado {cost}. Paso concedido.",
+      "bribe_paid_failed": "Soborno pagado {cost} pero falló. Días {days}, Pantalones {pants}.",
+      "permit_used_receipt": "Permiso aceptado vía Recibo. Cred +1.",
+      "permit_used_tag": "Permiso aceptado vía etiqueta. Cred +1.",
+      "no_receipt_or_tag": "Sin recibos y sin etiqueta de permiso.",
+      "insufficient_funds": "Fondos insuficientes."
+    },
+    "policy": {
+      "shutdown": "Cierre en efecto: éxito de soborno es {chance}%."
+    },
+    "types": {
+      "checkpoint": "Puesto de Control",
+      "bridge_out": "Puente Cortado"
+    }
   }
 }

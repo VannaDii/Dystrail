@@ -309,5 +309,36 @@
       "alt": "Alternatore",
       "pump": "Pompa Carburante"
     }
+  },
+  "cross": {
+    "title": "Posto di Blocco",
+    "prompt": "Posto di blocco avanti. Scegli:",
+    "options": {
+      "detour": "Deviazione — Giorni {days}, Rifornimenti {supplies}, Pantaloni {pants} (Sicuro)",
+      "bribe": "Mazzetta — Costo {cost} (vedi politica)",
+      "permit": "Permesso — Spendi 1 Ricevuta o usa Pass Stampa (Cred +1)",
+      "back": "Indietro"
+    },
+    "desc": {
+      "detour": "Garantito; aggiunge tempo e costa rifornimenti; poco stress.",
+      "bribe": "Sconto persona si applica; può fallire sotto Shutdown.",
+      "permit": "Consuma 1 Ricevuta o usa tag permesso se presente."
+    },
+    "announce": {
+      "detour_applied": "Deviazione presa. Giorni {days}, Rifornimenti {supplies}, Pantaloni {pants}.",
+      "bribe_paid_passed": "Mazzetta pagata {cost}. Passaggio concesso.",
+      "bribe_paid_failed": "Mazzetta pagata {cost} ma fallita. Giorni {days}, Pantaloni {pants}.",
+      "permit_used_receipt": "Permesso accettato via Ricevuta. Cred +1.",
+      "permit_used_tag": "Permesso accettato via tag. Cred +1.",
+      "no_receipt_or_tag": "Nessuna ricevuta e nessun tag permesso.",
+      "insufficient_funds": "Fondi insufficienti."
+    },
+    "policy": {
+      "shutdown": "Shutdown in effetto: successo mazzetta è {chance}%."
+    },
+    "types": {
+      "checkpoint": "Posto di Blocco",
+      "bridge_out": "Ponte Interrotto"
+    }
   }
 }

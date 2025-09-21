@@ -309,5 +309,36 @@
     "notes": {
       "storm_crossings": "Crossings are riskier during storms."
     }
+  },
+  "cross": {
+    "title": "Checkpoint",
+    "prompt": "Checkpoint ahead. Choose:",
+    "options": {
+      "detour": "Detour — Days {days}, Supplies {supplies}, Pants {pants} (Safe)",
+      "bribe": "Bribe — Cost {cost} (see policy)",
+      "permit": "Permit — Spend 1 Receipt or use Press Pass (Cred +1)",
+      "back": "Back"
+    },
+    "desc": {
+      "detour": "Guaranteed; adds time and costs supplies; small stress.",
+      "bribe": "Persona discount applies; may fail under Shutdown.",
+      "permit": "Consumes 1 Receipt or uses permit tag if present."
+    },
+    "announce": {
+      "detour_applied": "Detour taken. Days {days}, Supplies {supplies}, Pants {pants}.",
+      "bribe_paid_passed": "Bribe paid {cost}. Passage granted.",
+      "bribe_paid_failed": "Bribe paid {cost} but failed. Days {days}, Pants {pants}.",
+      "permit_used_receipt": "Permit accepted via Receipt. Cred +1.",
+      "permit_used_tag": "Permit accepted via tag. Cred +1.",
+      "no_receipt_or_tag": "No receipts and no permit tag.",
+      "insufficient_funds": "Insufficient funds."
+    },
+    "policy": {
+      "shutdown": "Shutdown in effect: bribe success is {chance}%."
+    },
+    "types": {
+      "checkpoint": "Checkpoint",
+      "bridge_out": "Bridge Out"
+    }
   }
 }

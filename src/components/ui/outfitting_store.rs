@@ -511,8 +511,9 @@ fn format_currency(cents: i64) -> String {
                 &"en-US".into(),
                 &{
                     let options = js_sys::Object::new();
-                    js_sys::Reflect::set(&options, &"style".into(), &"currency".into()).unwrap();
-                    js_sys::Reflect::set(&options, &"currency".into(), &"USD".into()).unwrap();
+                    // Set currency formatting options, ignore errors for fallback behavior
+                    let _ = js_sys::Reflect::set(&options, &"style".into(), &"currency".into());
+                    let _ = js_sys::Reflect::set(&options, &"currency".into(), &"USD".into());
                     options
                 }.into()
             )

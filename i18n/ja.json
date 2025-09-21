@@ -289,5 +289,36 @@
       "alt": "オルタネーター",
       "pump": "燃料ポンプ"
     }
+  },
+  "cross": {
+    "title": "検問所",
+    "prompt": "前方に検問所。選択してください：",
+    "options": {
+      "detour": "迂回 — 日数 {days}、物資 {supplies}、パンツ {pants} (安全)",
+      "bribe": "賄賂 — コスト {cost} (ポリシーを参照)",
+      "permit": "許可証 — レシート1枚を使用またはプレスパスを使用 (信頼度+1)",
+      "back": "戻る"
+    },
+    "desc": {
+      "detour": "保証付き；時間を追加し物資を消費；軽微なストレス。",
+      "bribe": "ペルソナ割引が適用；シャットダウン時に失敗する可能性。",
+      "permit": "レシート1枚を消費するか許可証タグを使用（存在する場合）。"
+    },
+    "announce": {
+      "detour_applied": "迂回を取りました。日数 {days}、物資 {supplies}、パンツ {pants}。",
+      "bribe_paid_passed": "賄賂 {cost} を支払いました。通行許可。",
+      "bribe_paid_failed": "賄賂 {cost} を支払いましたが失敗。日数 {days}、パンツ {pants}。",
+      "permit_used_receipt": "レシート経由で許可証受理。信頼度+1。",
+      "permit_used_tag": "タグ経由で許可証受理。信頼度+1。",
+      "no_receipt_or_tag": "レシートも許可証タグもありません。",
+      "insufficient_funds": "資金不足。"
+    },
+    "policy": {
+      "shutdown": "シャットダウン有効：賄賂成功率 {chance}%。"
+    },
+    "types": {
+      "checkpoint": "検問所",
+      "bridge_out": "橋梁遮断"
+    }
   }
 }

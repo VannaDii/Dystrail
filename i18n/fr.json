@@ -289,5 +289,36 @@
     "notes": {
       "storm_crossings": "Les traversées sont plus risquées pendant les tempêtes."
     }
+  },
+  "cross": {
+    "title": "Point de Contrôle",
+    "prompt": "Point de contrôle en vue. Choisissez :",
+    "options": {
+      "detour": "Détour — Jours {days}, Provisions {supplies}, Pantalons {pants} (Sûr)",
+      "bribe": "Pot-de-vin — Coût {cost} (voir politique)",
+      "permit": "Permis — Dépensez 1 Reçu ou utilisez Passe Presse (Cred +1)",
+      "back": "Retour"
+    },
+    "desc": {
+      "detour": "Garanti ; ajoute du temps et coûte des provisions ; peu de stress.",
+      "bribe": "Remise de persona s'applique ; peut échouer sous Fermeture.",
+      "permit": "Consomme 1 Reçu ou utilise étiquette permis si présente."
+    },
+    "announce": {
+      "detour_applied": "Détour pris. Jours {days}, Provisions {supplies}, Pantalons {pants}.",
+      "bribe_paid_passed": "Pot-de-vin payé {cost}. Passage accordé.",
+      "bribe_paid_failed": "Pot-de-vin payé {cost} mais échoué. Jours {days}, Pantalons {pants}.",
+      "permit_used_receipt": "Permis accepté via Reçu. Cred +1.",
+      "permit_used_tag": "Permis accepté via étiquette. Cred +1.",
+      "no_receipt_or_tag": "Aucun reçu et aucune étiquette permis.",
+      "insufficient_funds": "Fonds insuffisants."
+    },
+    "policy": {
+      "shutdown": "Fermeture en effet : succès pot-de-vin est {chance}%."
+    },
+    "types": {
+      "checkpoint": "Point de Contrôle",
+      "bridge_out": "Pont Coupé"
+    }
   }
 }

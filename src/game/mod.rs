@@ -1,5 +1,6 @@
 pub mod boss;
 pub mod camp;
+pub mod crossings;
 pub mod data;
 pub mod encounters;
 pub mod exec_orders;
@@ -18,3 +19,4 @@ pub use pacing::{PacingConfig, PaceCfg, DietCfg, PacingLimits};
 pub use vehicle::{Part, Vehicle, Breakdown, VehicleConfig, breakdown_roll, weighted_pick};
 pub use weather::{Weather, WeatherState, WeatherConfig, WeatherEffect, WeatherMitigation, process_daily_weather};
 pub use camp::{CampConfig, CampState, camp_rest, camp_forage, camp_therapy, camp_repair_spare, camp_repair_hack, can_repair, can_therapy};
+pub use crossings::{CrossingKind, CrossingConfig, apply_detour, apply_bribe, apply_permit, can_use_permit, can_afford_bribe, calculate_bribe_cost};

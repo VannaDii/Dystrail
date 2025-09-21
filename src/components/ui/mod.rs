@@ -1,4 +1,5 @@
 pub mod camp_panel;
+pub mod crossing_card;
 pub mod encounter_card;
 pub mod main_menu;
 pub mod outfitting_store;

@@ -100,7 +100,7 @@ footer {
 
 /* Accessibility */
 .sr-only {
-  position: absolute !important;
+  position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
@@ -164,12 +164,12 @@ footer {
 
 .panel::before {
   top: 8px;
-  left: 8px;
+  inset-inline-start: 8px;
 }
 
 .panel::after {
   bottom: 8px;
-  right: 8px;
+  inset-inline-end: 8px;
 }
 
 /* Panel titles */
@@ -409,7 +409,7 @@ img {
   content: "⚠";
   position: absolute;
   top: 8px;
-  left: 8px;
+  inset-inline-start: 8px;
   font-size: 16px;
   color: var(--accent);
 }
@@ -426,7 +426,7 @@ img {
 
 .alert p {
   margin: 0 0 8px 0;
-  padding-left: 24px;
+  padding-inline-start: 24px;
   color: var(--text-bright);
   font-weight: bold;
 }
@@ -510,7 +510,7 @@ button {
 
 .retro-btn-choice {
   min-width: 200px;
-  text-align: left;
+  text-align: start;
 }
 
 .retro-encounter {

@@ -289,5 +289,36 @@
       "alt": "发电机",
       "pump": "燃油泵"
     }
+  },
+  "cross": {
+    "title": "检查站",
+    "prompt": "前方检查站。选择：",
+    "options": {
+      "detour": "绕道 — 天数 {days}，物资 {supplies}，裤子 {pants} (安全)",
+      "bribe": "贿赂 — 费用 {cost} (见政策)",
+      "permit": "许可证 — 花费1个收据或使用记者证 (信誉+1)",
+      "back": "返回"
+    },
+    "desc": {
+      "detour": "保证安全；增加时间和消耗物资；轻微压力。",
+      "bribe": "人物折扣适用；在关闭状态下可能失败。",
+      "permit": "消耗1个收据或使用许可证标签（如果有）。"
+    },
+    "announce": {
+      "detour_applied": "已绕道。天数 {days}，物资 {supplies}，裤子 {pants}。",
+      "bribe_paid_passed": "已付贿赂 {cost}。通行许可。",
+      "bribe_paid_failed": "已付贿赂 {cost} 但失败。天数 {days}，裤子 {pants}。",
+      "permit_used_receipt": "通过收据接受许可证。信誉+1。",
+      "permit_used_tag": "通过标签接受许可证。信誉+1。",
+      "no_receipt_or_tag": "没有收据和许可证标签。",
+      "insufficient_funds": "资金不足。"
+    },
+    "policy": {
+      "shutdown": "关闭生效：贿赂成功率为 {chance}%。"
+    },
+    "types": {
+      "checkpoint": "检查站",
+      "bridge_out": "桥梁中断"
+    }
   }
 }
