@@ -32,7 +32,7 @@ If any requirement conflicts, **fail the pipeline** and open a TODO with remedia
 - 🔒 **Security/Supply:** No yanked crates; `Cargo.lock` checked in; audit clean or documented (with temporary allow + issue).
 - 🧪 **Tests:** Unit (wasm-bindgen-test), i18n snapshot checks for each locale.
 - 🛠️ **Reproducible Build:** `rust-toolchain.toml` pins versions; Trunk build; wasm-opt `-Oz`. CI must build release artifacts.
-- 🏃🏻‍♀️ **Running Commands:** Never used the terminal, always run commands using your MCP accessible tools.
+- 🏃🏻‍♀️ **Running Commands:** Never used the terminal, unless it's for **Rust Quality** commands (`cargo`, `rustfmt`, etc.), always run commands using your MCP accessible tools.
 - 💇🏽‍♀️ **Styling Rules:** Never use `!important` or other workarounds.
 
 ---
