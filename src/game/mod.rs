@@ -6,6 +6,7 @@ pub mod encounters;
 pub mod exec_orders;
 pub mod pacing;
 pub mod personas;
+pub mod result;
 pub mod seed;
 pub mod state;
 pub mod store;
@@ -20,3 +21,4 @@ pub use vehicle::{Part, Vehicle, Breakdown, VehicleConfig, breakdown_roll, weigh
 pub use weather::{Weather, WeatherState, WeatherConfig, WeatherEffect, WeatherMitigation, process_daily_weather};
 pub use camp::{CampConfig, CampState, camp_rest, camp_forage, camp_therapy, camp_repair_spare, camp_repair_hack, can_repair, can_therapy};
 pub use crossings::{CrossingKind, CrossingConfig, apply_detour, apply_bribe, apply_permit, can_use_permit, can_afford_bribe, calculate_bribe_cost};
+pub use result::{ResultConfig, ResultSummary, Ending, select_ending, compute_scores, result_summary, load_result_config};

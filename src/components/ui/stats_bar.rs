@@ -44,12 +44,12 @@ pub fn stats_bar(p: &Props) -> Html {
             </div>
             <div class="stats-row">
                 <div class="stats-list" aria-label="Party Stats">
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.hp_short"), p.stats.hp)}</span>
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.sanity_short"), p.stats.sanity)}</span>
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.cred_short"), p.stats.credibility)}</span>
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.sup_short"), p.stats.supplies)}</span>
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.mor_short"), p.stats.morale)}</span>
-                    <span class="stat-label">{format!("{}: {}", i18n::t("stats.allies_short"), p.stats.allies)}</span>
+                    <span class="stat-label">{format!("{hp_label}: {hp}", hp_label = i18n::t("stats.hp_short"), hp = p.stats.hp)}</span>
+                    <span class="stat-label">{format!("{sanity_label}: {sanity}", sanity_label = i18n::t("stats.sanity_short"), sanity = p.stats.sanity)}</span>
+                    <span class="stat-label">{format!("{cred_label}: {cred}", cred_label = i18n::t("stats.cred_short"), cred = p.stats.credibility)}</span>
+                    <span class="stat-label">{format!("{sup_label}: {sup}", sup_label = i18n::t("stats.sup_short"), sup = p.stats.supplies)}</span>
+                    <span class="stat-label">{format!("{mor_label}: {mor}", mor_label = i18n::t("stats.mor_short"), mor = p.stats.morale)}</span>
+                    <span class="stat-label">{format!("{allies_label}: {allies}", allies_label = i18n::t("stats.allies_short"), allies = p.stats.allies)}</span>
                 </div>
             </div>
             <div class="stats-row">
@@ -57,10 +57,10 @@ pub fn stats_bar(p: &Props) -> Html {
                     { pants_text }
                 </span>
                 <div class="bar-wrap">
-                    <div class="bar-fill" style={format!("width: {}%", p.stats.pants)}></div>
+                    <div class="bar-fill" style={format!("width: {pants}%", pants = p.stats.pants)}></div>
                 </div>
             </div>
-            { if let Some(order) = eo { html!{<div class="order" aria-live="polite">{ format!("{} {}", i18n::t("eo.prefix"), i18n::t(order.name_key())) }</div>} } else { html!{} } }
+            { if let Some(order) = eo { html!{<div class="order" aria-live="polite">{ format!("{prefix} {order_name}", prefix = i18n::t("eo.prefix"), order_name = i18n::t(order.name_key())) }</div>} } else { html!{} } }
         </section>
     }
 }

@@ -64,15 +64,52 @@
   "result": {
     "title": "Resultado",
     "title_aria": "Resultado",
-    "thanks": "Gracias por jugar",
-    "pants_emergency": "¡EMERGENCIA NACIONAL DE PANTALONES!",
-    "pants_emergency_desc": "El medidor llegó al 100%—fracaso glorioso.",
-    "passed_cloture": "¡APROBASTE LA CLOTURA!",
-    "passed_cloture_desc": "Tu credibilidad salvó el día.",
-    "survived_filibuster": "SOBREVIVISTE AL FILIBUSTERISMO",
-    "survived_filibuster_desc": "Marcha maltrecha pero victoriosa a DC.",
-    "exhausted": "AGOTADO",
-    "exhausted_desc": "Caes bajo el procedimiento."
+    "headline": {
+      "victory": "¡APROBASTE LA CLOTURA!",
+      "boss_loss": "EL FILIBUSTERISMO TE APLASTÓ",
+      "pants": "¡EMERGENCIA NACIONAL DE PANTALONES!",
+      "sanity": "FRACTURA DE CORDURA",
+      "collapse": "COLAPSO EN LOS ESCALONES"
+    },
+    "badges": {
+      "mode_deep": "+5% (solo visual)"
+    },
+    "labels": {
+      "seed": "Semilla",
+      "persona": "Persona",
+      "mode": "Modo",
+      "score": "Puntuación",
+      "stats": "Estadísticas",
+      "days": "Días",
+      "encounters": "Encuentros",
+      "receipts": "Recibos",
+      "allies": "Aliados",
+      "supplies": "Suministros",
+      "credibility": "Credibilidad",
+      "pants_pct": "Pantalones"
+    },
+    "epilogue": {
+      "victory": "Los historiadores citarán tus recibos. Los cabilderos maldicen tu nombre.",
+      "boss_loss": "Se les acabó el tiempo. Te fuiste con más historias que votos.",
+      "pants": "El cintillo hizo el resto. El GIF es para siempre.",
+      "sanity": "Lo absurdo te rompió antes que el Senado.",
+      "collapse": "Llegaste a los escalones pero no al final. Próxima vez."
+    },
+    "menu": {
+      "copy_share": "Copiar Texto para Compartir",
+      "copy_seed": "Copiar Semilla",
+      "replay_seed": "Repetir Esta Semilla",
+      "new_run": "Nueva Partida (Semilla Aleatoria)",
+      "export": "Exportar Guardado",
+      "title": "Título"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Puntuación {score} · Semilla {seed} · Persona {persona} ({mult}) · Modo {mode}"
+    },
+    "announce": {
+      "copied": "Copiado al portapapeles.",
+      "copy_failed": "Error al copiar. Por favor copia manualmente."
+    }
   },
   "game": {
     "seed_label": "Semilla:"

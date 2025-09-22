@@ -398,7 +398,6 @@ mod tests {
     #[test]
     fn test_budget_edge_cases() {
         // Test that very large budget calculations don't overflow
-        let _large_budget = i64::MAX / 2;
         let large_price = 1_000_000_000; // $10 million in cents
 
         // Should be able to handle large calculations

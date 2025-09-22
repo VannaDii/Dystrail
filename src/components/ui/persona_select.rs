@@ -192,7 +192,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
                         onclick={on_click}
                         data-key={idx.to_string()}>
                       <span class="num">{ format!("{}{})", idx, ")") }</span>
-                      <span class="label">{ format!("{} — {}", disp_name, disp_desc) }</span>
+                      <span class="label">{ format!("{disp_name} — {disp_desc}") }</span>
                     </li>
                   }
               })}

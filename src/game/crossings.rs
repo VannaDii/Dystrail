@@ -235,7 +235,7 @@ pub fn apply_detour(gs: &mut GameState, cfg: &CrossingConfig, kind: CrossingKind
         days.to_string()
     };
     let supplies_str = if base.supplies >= 0 {
-        format!("+{}", base.supplies)
+        format!("+{supplies}", supplies = base.supplies)
     } else {
         base.supplies.to_string()
     };
@@ -312,12 +312,12 @@ pub fn apply_bribe(gs: &mut GameState, cfg: &CrossingConfig, kind: CrossingKind)
         gs.stats.clamp();
 
         let days_str = if fail_cfg.days >= 0 {
-            format!("+{}", fail_cfg.days)
+            format!("+{days}", days = fail_cfg.days)
         } else {
             fail_cfg.days.to_string()
         };
         let pants_str = if fail_cfg.pants >= 0 {
-            format!("+{}", fail_cfg.pants)
+            format!("+{pants}", pants = fail_cfg.pants)
         } else {
             fail_cfg.pants.to_string()
         };

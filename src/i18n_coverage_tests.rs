@@ -29,16 +29,16 @@ mod tests {
         ];
 
         for locale in locales {
-            let path = format!("i18n/{}.json", locale);
+            let path = format!("i18n/{locale}.json");
             let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+                .unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
-                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
 
             for key in required_keys {
                 let found = find_nested_key(&json, key);
-                assert!(found, "Missing key '{}' in locale '{}'", key, locale);
+                assert!(found, "Missing key '{key}' in locale '{locale}'");
             }
         }
     }
@@ -51,16 +51,16 @@ mod tests {
         let required_keys = ["travel.title", "travel.next"];
 
         for locale in locales {
-            let path = format!("i18n/{}.json", locale);
+            let path = format!("i18n/{locale}.json");
             let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+                .unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
-                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
 
             for key in required_keys {
                 let found = find_nested_key(&json, key);
-                assert!(found, "Missing key '{}' in locale '{}'", key, locale);
+                assert!(found, "Missing key '{key}' in locale '{locale}'");
             }
         }
     }
@@ -88,12 +88,12 @@ mod tests {
         ];
 
         for locale in locales {
-            let path = format!("i18n/{}.json", locale);
+            let path = format!("i18n/{locale}.json");
             let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+                .unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let _json: Value = serde_json::from_str(&content)
-                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
         }
     }
 
@@ -127,16 +127,16 @@ mod tests {
         ];
 
         for locale in locales {
-            let path = format!("i18n/{}.json", locale);
+            let path = format!("i18n/{locale}.json");
             let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+                .unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
-                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
 
             for key in required_keys {
                 let found = find_nested_key(&json, key);
-                assert!(found, "Missing key '{}' in locale '{}'", key, locale);
+                assert!(found, "Missing key '{key}' in locale '{locale}'");
             }
         }
     }
@@ -148,13 +148,13 @@ mod tests {
         ];
 
         for locale in locales {
-            let path = format!("i18n/{}.json", locale);
+            let path = format!("i18n/{locale}.json");
             let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {}", path));
+                .unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             // Check that the JSON parses correctly
             let _json: Value = serde_json::from_str(&content)
-                .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", path));
+                .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
 
             // The i18n system supports both {{var}} and {var} patterns, so both are valid.
             // We should only check for truly malformed patterns like unmatched braces.
@@ -164,20 +164,17 @@ mod tests {
             let close_count = content.matches('}').count();
             assert_eq!(
                 open_count, close_count,
-                "Unmatched braces in {}: {} open, {} close",
-                locale, open_count, close_count
+                "Unmatched braces in {locale}: {open_count} open, {close_count} close"
             );
 
             // Check for obviously malformed patterns like {{{ or }}} (triple braces)
             assert!(
                 !content.contains("{{{"),
-                "Found triple opening brace in {}",
-                locale
+                "Found triple opening brace in {locale}"
             );
             assert!(
                 !content.contains("}}}"),
-                "Found triple closing brace in {}",
-                locale
+                "Found triple closing brace in {locale}"
             );
         }
     }

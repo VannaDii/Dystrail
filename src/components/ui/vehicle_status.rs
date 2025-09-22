@@ -46,7 +46,7 @@ pub fn vehicle_menu_item(p: &VehicleMenuItemProps) -> Html {
           aria-disabled={p.disabled.to_string()}
           onclick={on_click}
           class={classes}>
-         <span class="num">{ format!("{}{})", idx, ")") }</span>
+         <span class="num">{ format!("{idx})") }</span>
          <span class="label">{ p.label.clone() }</span>
       </li>
     }
@@ -277,7 +277,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 let count = spare_counts.map_or(0, |(tire, _, _, _)| tire);
                 let enabled = breakdown_part == Some(Part::Tire) && count > 0;
                 (
-                    format!("{} (x{})", i18n::t("vehicle.spares.tire"), count),
+                    format!("{tire} (x{count})", tire = i18n::t("vehicle.spares.tire"), count = count),
                     enabled,
                 )
             }),
@@ -285,7 +285,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 let count = spare_counts.map_or(0, |(_, battery, _, _)| battery);
                 let enabled = breakdown_part == Some(Part::Battery) && count > 0;
                 (
-                    format!("{} (x{})", i18n::t("vehicle.spares.battery"), count),
+                    format!("{battery} (x{count})", battery = i18n::t("vehicle.spares.battery"), count = count),
                     enabled,
                 )
             }),
@@ -293,7 +293,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 let count = spare_counts.map_or(0, |(_, _, alt, _)| alt);
                 let enabled = breakdown_part == Some(Part::Alternator) && count > 0;
                 (
-                    format!("{} (x{})", i18n::t("vehicle.spares.alt"), count),
+                    format!("{alt} (x{count})", alt = i18n::t("vehicle.spares.alt"), count = count),
                     enabled,
                 )
             }),
@@ -301,7 +301,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 let count = spare_counts.map_or(0, |(_, _, _, pump)| pump);
                 let enabled = breakdown_part == Some(Part::FuelPump) && count > 0;
                 (
-                    format!("{} (x{})", i18n::t("vehicle.spares.pump"), count),
+                    format!("{pump} (x{count})", pump = i18n::t("vehicle.spares.pump"), count = count),
                     enabled,
                 )
             }),

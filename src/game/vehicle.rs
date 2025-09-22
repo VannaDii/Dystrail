@@ -406,7 +406,7 @@ mod tests {
         let cfg = VehicleConfig::default();
 
         // Verify default values match requirements
-        assert_eq!(cfg.base_breakdown_chance, 0.005);
+        assert!((cfg.base_breakdown_chance - 0.005).abs() < f32::EPSILON);
         assert_eq!(cfg.pace_factor.get("steady"), Some(&1.0));
         assert_eq!(cfg.pace_factor.get("heated"), Some(&1.2));
         assert_eq!(cfg.pace_factor.get("blitz"), Some(&1.5));

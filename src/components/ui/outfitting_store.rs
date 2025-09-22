@@ -189,7 +189,7 @@ async fn load_store_data() -> Result<Store, Box<dyn std::error::Error>> {
         .await?;
 
     if !response.ok() {
-        return Err(format!("HTTP {}: {}", response.status(), response.status_text()).into());
+        return Err(format!("HTTP {status}: {status_text}", status = response.status(), status_text = response.status_text()).into());
     }
 
     let json_text = response.text().await?;
@@ -216,7 +216,7 @@ fn handle_menu_selection(
                         store_state.set(new_state);
 
                         // Announce navigation
-                        let category_name = i18n::t(&format!("store.categories.{}", category.id));
+                        let category_name = i18n::t(&format!("store.categories.{category_id}", category_id = category.id));
                         announce_to_screen_reader(&category_name);
                     }
                 }
@@ -518,17 +518,18 @@ fn format_currency(cents: i64) -> String {
                 }.into()
             )
         )
+        && let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into())
         && let Ok(result) = js_sys::Reflect::apply(
-            &js_sys::Reflect::get(&formatter, &"format".into()).unwrap().into(),
+            &format_fn.into(),
             &formatter,
             &js_sys::Array::of1(&dollars.into())
         )
         && let Some(formatted) = result.as_string() {
-        return formatted;
+        formatted
+    } else {
+        // Fallback formatting
+        format!("${dollars:.2}")
     }
-
-    // Fallback formatting
-    format!("${dollars:.2}")
 }
 
 /// Announce message to screen readers
@@ -604,7 +605,7 @@ fn render_category_screen(
 
     let budget_str = format_currency(game_state.budget_cents - state.cart.total_cents);
     let category_name = i18n::t(&format!("store.categories.{category_id}"));
-    let title = format!("{} — {}: {}", category_name, i18n::t("store.budget"), budget_str);
+    let title = format!("{category_name} — {budget_label}: {budget_str}", budget_label = i18n::t("store.budget"));
 
     let mut items: Vec<(u8, String, String, i64)> = category.items.iter().enumerate().map(|(i, item)| {
         let idx = u8::try_from(i + 1).unwrap_or(255);
@@ -625,7 +626,7 @@ fn render_category_screen(
                     { for items.iter().enumerate().map(|(i, (idx, name, desc, price))| {
                         let focused = state.focus_idx == *idx;
                         let posinset = u8::try_from(i).unwrap_or(0) + 1;
-                        let price_str = if *idx == 0 { String::new() } else { format!(" — {}", format_currency(*price)) };
+                        let price_str = if *idx == 0 { String::new() } else { format!(" — {formatted_price}", formatted_price = format_currency(*price)) };
 
                         html!{
                             <li role="menuitem"
@@ -717,7 +718,7 @@ fn render_quantity_screen(
             <section role="region" aria-labelledby="qty-title" onkeydown={on_keydown}>
                 <h1 id="qty-title">{ title }</h1>
                 { if current_qty > 0 {
-                    html! { <p class="current-qty">{ format!("Current in cart: {}", current_qty) }</p> }
+                    html! { <p class="current-qty">{ format!("Current in cart: {current_qty}") }</p> }
                 } else {
                     html! {}
                 }}
@@ -739,7 +740,7 @@ fn render_quantity_screen(
                                     { if preview.is_empty() {
                                         html! {}
                                     } else {
-                                        html! { <span class="preview">{ format!(" {}", preview) }</span> }
+                                        html! { <span class="preview">{ format!(" {preview}") }</span> }
                                     }}
                                 </span>
                             </li>

@@ -64,15 +64,52 @@
   "result": {
     "title": "Result",
     "title_aria": "Result",
-    "thanks": "Thanks for playing",
-    "pants_emergency": "NATIONAL PANTS EMERGENCY",
-    "pants_emergency_desc": "PantsMeter hit 100%—you failed gloriously.",
-    "passed_cloture": "YOU PASSED CLOTURE!",
-    "passed_cloture_desc": "Your credibility carried the day.",
-    "survived_filibuster": "YOU SURVIVED THE FILIBUSTER",
-    "survived_filibuster_desc": "A battered but victorious march to DC.",
-    "exhausted": "EXHAUSTED",
-    "exhausted_desc": "You collapse under procedure."
+    "headline": {
+      "victory": "YOU PASSED CLOTURE!",
+      "boss_loss": "FILIBUSTER CRUSHED YOU",
+      "pants": "NATIONAL PANTS EMERGENCY",
+      "sanity": "SANITY FRACTURE",
+      "collapse": "COLLAPSE ON THE STEPS"
+    },
+    "badges": {
+      "mode_deep": "+5% (display only)"
+    },
+    "labels": {
+      "seed": "Seed",
+      "persona": "Persona",
+      "mode": "Mode",
+      "score": "Score",
+      "stats": "Stats",
+      "days": "Days",
+      "encounters": "Encounters",
+      "receipts": "Receipts",
+      "allies": "Allies",
+      "supplies": "Supplies",
+      "credibility": "Credibility",
+      "pants_pct": "Pants"
+    },
+    "epilogue": {
+      "victory": "Historians will cite your receipts. Lobbyists curse your name.",
+      "boss_loss": "They ran out the clock. You left with more stories than votes.",
+      "pants": "The chyron did the rest. The GIF is forever.",
+      "sanity": "The absurdity broke you before the Senate did.",
+      "collapse": "You reached the steps but not the finish. Next run."
+    },
+    "menu": {
+      "copy_share": "Copy Share Text",
+      "copy_seed": "Copy Seed",
+      "replay_seed": "Replay This Seed",
+      "new_run": "New Run (Random Seed)",
+      "export": "Export Save",
+      "title": "Title"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Score {score} · Seed {seed} · Persona {persona} ({mult}) · Mode {mode}"
+    },
+    "announce": {
+      "copied": "Copied to clipboard.",
+      "copy_failed": "Copy failed. Please copy manually."
+    }
   },
   "game": {
     "seed_label": "Seed:"

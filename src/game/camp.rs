@@ -372,7 +372,7 @@ mod tests {
         assert_eq!(state.stats.hp, initial_hp + 1); // +1
         assert_eq!(state.stats.supplies, initial_supplies - 1); // -1
         assert_eq!(state.day, initial_day + 1); // +1
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -385,7 +385,7 @@ mod tests {
 
         // Supplies should not go below 0
         assert!(state.stats.supplies >= 0);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -408,7 +408,7 @@ mod tests {
         assert_eq!(state.receipts.len(), initial_receipts - 1); // -1 burned
         assert_eq!(state.day, initial_day + 1); // +1
         assert_eq!(state.camp.last_therapy_day, Some(1)); // Therapy day recorded
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -425,7 +425,7 @@ mod tests {
         // Should return error message and unchanged state
         assert_eq!(state.receipts.len(), 0);
         assert_eq!(state.day, initial_day); // No day change
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -444,7 +444,7 @@ mod tests {
         // Should return cooldown message and unchanged state
         assert_eq!(state.receipts.len(), initial_receipts);
         assert_eq!(state.day, initial_day);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -462,7 +462,7 @@ mod tests {
         let _receipts_changed = state.receipts.len() != initial_receipts;
 
         // At least one of these should be true (or neither - for "nothing" outcome)
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -484,7 +484,7 @@ mod tests {
         assert!(state.breakdown.is_none());
         assert_eq!(state.inventory.spares.tire, 0);
         assert!(state.stats.supplies <= initial_supplies); // Supplies consumed or same
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -501,7 +501,7 @@ mod tests {
 
         // Should return error message and unchanged state
         assert_eq!(state.breakdown.as_ref().unwrap().part, Part::Tire);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -527,7 +527,7 @@ mod tests {
         assert!(state.stats.supplies <= initial_supplies); // Supplies consumed or same
         assert!(state.stats.credibility <= initial_credibility); // Credibility lost or same
         assert!(state.day >= initial_day); // Day advanced or same
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -544,7 +544,7 @@ mod tests {
         assert!(state.breakdown.is_none());
         assert_eq!(state.stats.supplies, initial_supplies);
         assert_eq!(state.stats.credibility, initial_credibility);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -609,12 +609,12 @@ mod tests {
         assert!(can_therapy(&state, &config));
         let msg = camp_therapy(&mut state, &config);
         assert_eq!(state.camp.last_therapy_day, Some(1));
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
 
         // Second attempt should fail due to cooldown
         assert!(!can_therapy(&state, &config));
         let msg = camp_therapy(&mut state, &config);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
         assert_eq!(state.camp.last_therapy_day, Some(1)); // Unchanged
     }
 
@@ -634,7 +634,7 @@ mod tests {
         assert!(state.stats.sanity <= 10); // Max sanity
         assert!(state.stats.hp <= 10); // Max hp
         assert!(state.stats.supplies <= 20); // Max supplies
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -651,11 +651,11 @@ mod tests {
         assert!(state.stats.sanity >= 0); // Should not go negative
         assert!(state.stats.hp >= 0); // Should not go negative
         assert!(state.stats.supplies >= 0); // Should not go negative
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
 
         // Therapy with no receipts should fail
         let msg = camp_therapy(&mut state, &config);
-        assert!(msg.len() > 0);
+        assert!(!msg.is_empty());
     }
 
     #[test]
@@ -686,7 +686,7 @@ mod tests {
 
             // Should repair breakdown
             assert!(state.breakdown.is_none());
-            assert!(msg.len() > 0);
+            assert!(!msg.is_empty());
         }
     }
 }

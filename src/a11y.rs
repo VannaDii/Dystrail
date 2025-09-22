@@ -1,11 +1,18 @@
 // Accessibility helpers
-// Visible focus ring (critical CSS injected at startup)
+
+/// Get CSS for visible focus indicators and screen reader utilities
+///
+/// Returns critical accessibility CSS that should be injected early in the page load.
+/// Includes focus ring styles and screen reader helper classes.
 #[must_use]
 pub fn visible_focus_css() -> &'static str {
     ":focus{outline:3px solid #00D9C0;outline-offset:2px} .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}"
 }
 
-// Live region status helper (updates #menu-helper aria-live region if present)
+/// Update the live region status for screen readers
+///
+/// Updates the text content of the #menu-helper element if present.
+/// This provides announcements to assistive technology users.
 pub fn set_status(msg: &str) {
     if let Some(win) = web_sys::window()
         && let Some(doc) = win.document()
@@ -14,7 +21,10 @@ pub fn set_status(msg: &str) {
     }
 }
 
-// High-contrast mode toggle: adds/removes `hc` class on <html> and persists to localStorage
+/// Toggle high-contrast mode for accessibility
+///
+/// Adds or removes the 'hc' class from the HTML element and persists the choice.
+/// This enables high-contrast styling for users with visual impairments.
 pub fn set_high_contrast(enabled: bool) {
     if let Some(win) = web_sys::window() {
         if let Some(doc) = win.document()
@@ -31,12 +41,17 @@ pub fn set_high_contrast(enabled: bool) {
     }
 }
 
+/// Check if high-contrast mode is currently enabled
+///
+/// Reads the saved preference from localStorage to determine if high-contrast
+/// styling should be active. Returns false if no preference is stored.
 #[must_use]
 pub fn high_contrast_enabled() -> bool {
     if let Some(win) = web_sys::window()
         && let Ok(Some(storage)) = win.local_storage()
         && let Ok(Some(v)) = storage.get_item("dystrail.hc") {
-        return v == "1";
+        v == "1"
+    } else {
+        false
     }
-    false
 }

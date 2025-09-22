@@ -18,7 +18,7 @@
 9. **Executive Orders** → rotating global debuffs affecting gameplay.
 10. **Vehicle Management** → maintain and upgrade your transportation.
 11. **Filibuster Boss** → multi-phase final challenge.
-12. **Result Screen** → detailed ending with stats and **shareable seed**.
+12. **Result Screen** → comprehensive ending analysis with deterministic scoring, detailed statistics breakdown, shareable text generation, and replay functionality via **OT-style keyboard navigation** (1-9/0 keys).
 
 ## ✨ Features
 - **SNES-lite 16-bit style** palette and sprites.
@@ -34,6 +34,7 @@
 - **Pants Meter**: reach 💩 100% → **National Pants Emergency** fail state.
 - **Internationalization**: Support for 11 languages (EN, ES, FR, IT, PT, DE, RU, AR, ZH, HI, BN, JA).
 - **Data-driven content**: all encounters, personas, and systems configurable via JSON.
+- **Result System**: deterministic scoring with configurable weights, comprehensive statistics tracking, and social sharing capabilities.
 - **Accessibility**: WCAG AA compliance, keyboard navigation, high-contrast & reduced-motion toggles.
 - **Responsive design**: works on desktop and mobile with touch-friendly controls.
 - **Meta tags**: clean social media unfurls on Discord, Slack, X/Twitter, Facebook.
@@ -52,6 +53,7 @@
   - `weather.json` — weather system data
   - `camp.json` — camping and rest mechanics
   - `store.json` — shop items and prices
+  - `result.json` — result screen configuration and scoring parameters
 - `i18n/` — internationalization files for 11 languages
 
 ## 🛠 Dev Setup
@@ -147,6 +149,7 @@ Add translations to `i18n/{language}.json` files. Use `en.json` as the reference
 - `src/app.rs` — main application and routing logic
 - `src/components/ui/` — all UI components (menus, panels, dialogs)
 - `src/game/` — game logic (state, encounters, personas, systems)
+- `src/game/result.rs` — result screen logic and deterministic scoring algorithms
 - `src/i18n.rs` — internationalization management
 - `tests/wasm/` — WebAssembly test suite
 
@@ -159,6 +162,7 @@ Add translations to `i18n/{language}.json` files. Use `en.json` as the reference
 - ✅ Internationalization (11 languages)
 - ✅ Save/load system with multiple slots
 - ✅ Data-driven encounter and configuration system
+- ✅ Result screen with deterministic scoring and social sharing
 
 ### Phase 2 (Planned)
 - 🔊 **Audio System:** encounter chimes, success/fail stings, filibuster fanfare

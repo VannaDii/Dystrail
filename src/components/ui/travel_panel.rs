@@ -22,6 +22,10 @@ impl PartialEq for Props {
     }
 }
 
+/// Travel panel component displaying current travel status and progress
+///
+/// Shows day, region, weather, and provides controls for pace/diet and weather details.
+/// Includes accessibility features and keyboard navigation support.
 #[function_component(TravelPanel)]
 pub fn travel_panel(p: &Props) -> Html {
     let show_pace_diet = use_state(|| false);
@@ -189,7 +193,7 @@ fn render_weather_info(game_state: &GameState) -> Html {
         if parts.is_empty() {
             String::new()
         } else {
-            format!(" ({})", parts.join(", "))
+            format!(" ({parts})", parts = parts.join(", "))
         }
     } else {
         String::new()
@@ -211,11 +215,11 @@ fn render_weather_info(game_state: &GameState) -> Html {
                aria-expanded="false"
                onclick={Callback::from(move |_| {})}>
                 <span class="day-region">
-                    { format!("Day {} — Region: {}", game_state.day, region_name) }
+                    { format!("Day {day} — Region: {region}", day = game_state.day, region = region_name) }
                 </span>
                 <br />
                 <span class="weather-state">
-                    { format!("Weather: {}{}", weather_state_name, effects_text) }
+                    { format!("Weather: {weather}{effects}", weather = weather_state_name, effects = effects_text) }
                 </span>
             </p>
 
@@ -282,13 +286,13 @@ fn render_weather_details(game_state: &GameState) -> Html {
 
     html! {
         <div class="weather-details">
-            <p>{ format!("• State: {}", weather_state_name) }</p>
-            <p>{ format!("• Effects today: {}", effects_list) }</p>
+            <p>{ format!("• State: {state}", state = weather_state_name) }</p>
+            <p>{ format!("• Effects today: {effects}", effects = effects_list) }</p>
             if !mitigation_text.is_empty() {
-                <p>{ format!("• Gear mitigation: {}", mitigation_text) }</p>
+                <p>{ format!("• Gear mitigation: {mitigation}", mitigation = mitigation_text) }</p>
             }
             if !notes_text.is_empty() {
-                <p>{ format!("• Notes: {}", notes_text) }</p>
+                <p>{ format!("• Notes: {notes_text}") }</p>
             }
         </div>
     }
@@ -306,9 +310,9 @@ fn format_delta(stat: &str, value: i32) -> String {
 /// Format a percentage delta with proper sign
 fn format_percent(stat: &str, value: f32) -> String {
     if value >= 0.0 {
-        format!("{} +{:.0}%", stat, value * 100.0)
+        format!("{stat} +{value:.0}%", stat = stat, value = value * 100.0)
     } else {
-        format!("{} {:.0}%", stat, value * 100.0) // negative sign already included
+        format!("{stat} {value:.0}%", stat = stat, value = value * 100.0) // negative sign already included
     }
 }
 

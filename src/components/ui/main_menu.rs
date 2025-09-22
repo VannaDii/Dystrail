@@ -68,7 +68,7 @@ pub fn main_menu(p: &MainMenuProps) -> Html {
                 _ => "",
             };
             let label = i18n::t(label_key);
-            let msg = format!("{} {}", i18n::t("menu.selected"), label);
+            let msg = format!("{selected} {label}", selected = i18n::t("menu.selected"));
             set_status(&msg);
             if let Some(cb) = on.clone() {
                 cb.emit(idx);

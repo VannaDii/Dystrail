@@ -232,12 +232,12 @@ pub fn camp_panel(p: &Props) -> Html {
                                         let on_action = on_action.clone();
                                         Callback::from(move |_| on_action.emit(idx))
                                     }
-                                    class={format!("ot-menuitem {}", disabled_class)}
+                                    class={format!("ot-menuitem {disabled_class}")}
                                 >
-                                    <span class="num">{ format!("{})", idx) }</span>
+                                    <span class="num">{ format!("{idx})") }</span>
                                     <span class="label">{ label }</span>
                                     { if idx == 2 && !can_repair_now {
-                                        html!{ <span class="note">{ format!(" ({})", i18n::t("camp.announce.no_breakdown")) }</span> }
+                                        html!{ <span class="note">{ format!(" ({note})", note = i18n::t("camp.announce.no_breakdown")) }</span> }
                                     } else { html!{} } }
                                 </li>
                             }
@@ -268,7 +268,7 @@ pub fn camp_panel(p: &Props) -> Html {
                     tabindex="0"
                 >
                     <h2 id="repair-title">{ i18n::t("camp.repair.title") }</h2>
-                    <p>{ format!("{}: {}", i18n::t("vehicle.breakdown"), part_name) }</p>
+                    <p>{ format!("{breakdown_label}: {part_name}", breakdown_label = i18n::t("vehicle.breakdown")) }</p>
 
                     <ul role="menu" aria-label={i18n::t("camp.repair.title")} ref={list_ref}>
                         { for items.into_iter().enumerate().map(|(i, (idx, label, _enabled))| {
@@ -288,7 +288,7 @@ pub fn camp_panel(p: &Props) -> Html {
                                     }
                                     class="ot-menuitem"
                                 >
-                                    <span class="num">{ format!("{})", idx) }</span>
+                                    <span class="num">{ format!("{idx})") }</span>
                                     <span class="label">{ label }</span>
                                 </li>
                             }

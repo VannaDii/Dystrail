@@ -67,7 +67,7 @@ pub fn crossing_option(p: &CrossingOptionProps) -> Html {
             aria-disabled={ if p.disabled { "true" } else { "false" } }
             onclick={on_click}
             class={ classes!("ot-menuitem", if p.disabled { Some("disabled") } else { None }) }>
-            <span class="num">{ format!("{})", idx) }</span>
+            <span class="num">{ format!("{idx})") }</span>
             <span class="label">{ p.label.clone() }</span>
             <small id={desc_id} class="muted desc">{ p.desc.clone() }</small>
         </li>
@@ -131,7 +131,7 @@ fn build_crossing_viewmodel(
         detour_days.to_string()
     };
     let supplies_str = if type_cfg.detour.supplies >= 0 {
-        format!("+{}", type_cfg.detour.supplies)
+        format!("+{supplies}", supplies = type_cfg.detour.supplies)
     } else {
         type_cfg.detour.supplies.to_string()
     };

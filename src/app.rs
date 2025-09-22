@@ -4,6 +4,7 @@ use crate::game::weather::WeatherConfig;
 use crate::game::CampConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{GameMode, GameState, Region};
+use crate::game::{ResultConfig, load_result_config};
 use crate::i18n;
 use crate::routes::Route;
 use std::rc::Rc;
@@ -24,6 +25,10 @@ pub enum Phase {
     Result,
 }
 
+/// Main application component providing browser routing
+///
+/// Sets up the router context for the entire application and renders the main `AppInner` component.
+/// This is the top-level component that gets mounted to the DOM.
 #[function_component(App)]
 pub fn app() -> Html {
     html! {
@@ -42,6 +47,7 @@ pub fn app_inner() -> Html {
     let pacing_config = use_state(PacingConfig::default_config);
     let weather_config = use_state(WeatherConfig::default_config);
     let camp_config = use_state(CampConfig::default_config);
+    let result_config = use_state(ResultConfig::default);
     let state = use_state(|| None::<GameState>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
@@ -89,16 +95,19 @@ pub fn app_inner() -> Html {
         let pacing_config = pacing_config.clone();
         let weather_config = weather_config.clone();
         let camp_config = camp_config.clone();
+        let result_config = result_config.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
                 let loaded_data = EncounterData::load_from_static().await;
                 let loaded_pacing = PacingConfig::load_from_static().await;
                 let loaded_weather = WeatherConfig::load_from_static().await;
                 let loaded_camp = CampConfig::load_from_static().await;
+                let loaded_result = load_result_config().await.unwrap_or_default();
                 data.set(loaded_data);
                 pacing_config.set(loaded_pacing);
                 weather_config.set(loaded_weather);
                 camp_config.set(loaded_camp);
+                result_config.set(loaded_result);
                 phase.set(Phase::Persona);
             });
             || {}
@@ -467,7 +476,7 @@ pub fn app_inner() -> Html {
             { "A Political Survival Adventure" }<br/>
             { "═══════════════════════════════" }
                                             </pre>
-                                            <p class="muted" aria-live="polite">{ format!("{} {}", i18n::t("game.seed_label"), (*code).clone()) }</p>
+                                            <p class="muted" aria-live="polite">{ format!("{seed_label} {code}", seed_label = i18n::t("game.seed_label"), code = (*code).clone()) }</p>
                                         </div>
                                         <div class="header-controls-row">
                                             <div class="header-left">
@@ -574,26 +583,55 @@ pub fn app_inner() -> Html {
         },
         Phase::Result => {
             if let Some(gs) = (*state).clone() {
-                let code_str = encode_friendly(gs.mode.is_deep(), *run_seed);
-                let (title, summary) = if gs.stats.pants >= 100 {
-                    (
-                        i18n::t("result.pants_emergency"),
-                        i18n::t("result.pants_emergency_desc"),
-                    )
-                } else if let Some((t, s)) = (*result).clone() {
-                    (t, s)
-                } else {
-                    (i18n::t("result.title"), i18n::t("result.thanks"))
+                let result_config_data = (*result_config).clone();
+                let boss_won = false; // Determine if boss was defeated based on game state
+
+                let on_replay_seed = {
+                    let seed = *run_seed;
+                    let state = state.clone();
+                    Callback::from(move |()| {
+                        // Use default and set seed
+                        let new_game = GameState { seed, ..GameState::default() };
+                        state.set(Some(new_game));
+                    })
                 };
-                let to_copy = format!("Dystrail — {title}: {code_str}");
-                let on_share = Callback::from(move |()| {
-                    if let Some(win) = web_sys::window() {
-                        let nav = win.navigator();
-                        let cb = nav.clipboard();
-                        let _ = cb.write_text(&to_copy);
-                    }
-                });
-                html! { <crate::components::ui::result_screen::ResultScreen title={title} summary={summary} seed_code={AttrValue::from(code_str)} on_share={on_share} /> }
+
+                let on_new_run = {
+                    let state = state.clone();
+                    Callback::from(move |()| {
+                        state.set(Some(GameState::default()));
+                    })
+                };
+
+                let on_title = {
+                    let phase = phase.clone();
+                    Callback::from(move |()| {
+                        phase.set(Phase::Boot);
+                    })
+                };
+
+                let on_export = {
+                    let seed = *run_seed;
+                    let game_state = gs.clone();
+                    Callback::from(move |()| {
+                        let code_str = encode_friendly(game_state.mode.is_deep(), seed);
+                        if let Some(win) = web_sys::window() {
+                            let nav = win.navigator();
+                            let cb = nav.clipboard();
+                            let _ = cb.write_text(&code_str);
+                        }
+                    })
+                };
+
+                html! { <crate::components::ui::result_screen::ResultScreen
+                    game_state={gs}
+                    result_config={result_config_data}
+                    boss_won={boss_won}
+                    on_replay_seed={on_replay_seed}
+                    on_new_run={on_new_run}
+                    on_title={on_title}
+                    on_export={on_export}
+                /> }
             } else {
                 Html::default()
             }

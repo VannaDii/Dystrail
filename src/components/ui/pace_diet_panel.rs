@@ -207,7 +207,7 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 {onclick}
                 {onfocus}
             >
-                <span class="line-number">{format!("{})", idx)}</span>
+                <span class="line-number">{format!("{idx})")}</span>
                 <span class="line-text">{text}</span>
                 <div id={format!("tooltip-{idx}")} class="sr-only">{tooltip}</div>
             </li>

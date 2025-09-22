@@ -598,8 +598,8 @@ mod tests {
 
         assert_eq!(game_state.pace, "steady");
         assert_eq!(game_state.diet, "mixed");
-        assert_eq!(game_state.encounter_chance_today, 0.35); // default base
-        assert_eq!(game_state.distance_today, 1.0); // default distance
+        assert!((game_state.encounter_chance_today - 0.35).abs() < f32::EPSILON); // default base
+        assert!((game_state.distance_today - 1.0).abs() < f32::EPSILON); // default distance
         assert_eq!(game_state.receipt_bonus_pct, 0);
         assert_eq!(game_state.day, 1);
         assert_eq!(game_state.region, Region::Heartland);
@@ -619,7 +619,7 @@ mod tests {
 
         assert_eq!(game_state.stats.sanity, initial_sanity);
         assert_eq!(game_state.stats.pants, initial_pants);
-        assert_eq!(game_state.encounter_chance_today, 0.35); // base = 0.35 + 0.0 delta
+        assert!((game_state.encounter_chance_today - 0.35).abs() < f32::EPSILON); // base = 0.35 + 0.0 delta
         assert_eq!(game_state.receipt_bonus_pct, 0); // mixed base
         assert!(game_state.distance_today > 0.0);
     }
@@ -627,11 +627,11 @@ mod tests {
     #[test]
     fn test_apply_pace_and_diet_with_effects() {
         let config = PacingConfig::default_config();
-        let mut game_state = GameState::default();
-
-        // Set pace and diet with known effects
-        game_state.pace = "heated".to_string(); // sanity: -1, pants: +3
-        game_state.diet = "doom".to_string(); // sanity: -2, pants: +4
+        let mut game_state = GameState {
+            pace: "heated".to_string(), // sanity: -1, pants: +3
+            diet: "doom".to_string(), // sanity: -2, pants: +4
+            ..Default::default()
+        };
 
         let initial_sanity = game_state.stats.sanity;
         let initial_pants = game_state.stats.pants;
@@ -641,7 +641,7 @@ mod tests {
         // Should have lower sanity (-3 total) and higher pants (+7 total)
         assert_eq!(game_state.stats.sanity, initial_sanity - 3);
         assert_eq!(game_state.stats.pants, initial_pants + 7);
-        assert_eq!(game_state.encounter_chance_today, 0.4); // 0.35 base + 0.05 delta
+        assert!((game_state.encounter_chance_today - 0.4).abs() < f32::EPSILON); // 0.35 base + 0.05 delta
         assert_eq!(game_state.receipt_bonus_pct, 8); // doom receipt bonus
     }
 
@@ -670,11 +670,11 @@ mod tests {
     #[test]
     fn test_apply_pace_and_diet_invalid_options() {
         let config = PacingConfig::default_config();
-        let mut game_state = GameState::default();
-
-        // Set invalid pace and diet
-        game_state.pace = "invalid_pace".to_string();
-        game_state.diet = "invalid_diet".to_string();
+        let mut game_state = GameState {
+            pace: "invalid_pace".to_string(),
+            diet: "invalid_diet".to_string(),
+            ..Default::default()
+        };
 
         let initial_sanity = game_state.stats.sanity;
         let initial_pants = game_state.stats.pants;
@@ -685,17 +685,19 @@ mod tests {
         // Should use defaults (steady/mixed)
         assert_eq!(game_state.stats.sanity, initial_sanity);
         assert_eq!(game_state.stats.pants, initial_pants);
-        assert_eq!(game_state.encounter_chance_today, 0.35); // base encounter chance
+        assert!((game_state.encounter_chance_today - 0.35).abs() < f32::EPSILON); // base encounter chance
         assert_eq!(game_state.receipt_bonus_pct, 0);
     }
 
     #[test]
     fn test_apply_pace_and_diet_distance_calculation() {
         let config = PacingConfig::default_config();
-        let mut game_state = GameState::default();
+        let mut game_state = GameState {
+            pace: "steady".to_string(),
+            ..Default::default()
+        };
 
         // Test different paces
-        game_state.pace = "steady".to_string();
         game_state.apply_pace_and_diet(&config);
         let steady_distance = game_state.distance_today; // 1.0 * 1.0
 
@@ -712,18 +714,20 @@ mod tests {
         assert!(blitz_distance > heated_distance);
 
         // Check specific expected values
-        assert_eq!(steady_distance, 1.0);
-        assert_eq!(heated_distance, 1.2);
-        assert_eq!(blitz_distance, 1.4);
+        assert!((steady_distance - 1.0).abs() < f32::EPSILON);
+        assert!((heated_distance - 1.2).abs() < f32::EPSILON);
+        assert!((blitz_distance - 1.4).abs() < f32::EPSILON);
     }
 
     #[test]
     fn test_apply_pace_and_diet_encounter_chance() {
         let config = PacingConfig::default_config();
-        let mut game_state = GameState::default();
+        let mut game_state = GameState {
+            pace: "steady".to_string(),
+            ..GameState::default()
+        };
 
         // Test different paces for encounter chance
-        game_state.pace = "steady".to_string();
         game_state.apply_pace_and_diet(&config);
         let steady_chance = game_state.encounter_chance_today; // 0.35 + 0.0
 
@@ -740,14 +744,14 @@ mod tests {
         assert!(blitz_chance > heated_chance);
 
         // Check specific expected values
-        assert_eq!(steady_chance, 0.35);
-        assert_eq!(heated_chance, 0.4);
-        assert_eq!(blitz_chance, 0.45);
+        assert!((steady_chance - 0.35).abs() < f32::EPSILON);
+        assert!((heated_chance - 0.4).abs() < f32::EPSILON);
+        assert!((blitz_chance - 0.45).abs() < f32::EPSILON);
 
         // All chances should be within valid range
-        assert!(steady_chance >= 0.0 && steady_chance <= 1.0);
-        assert!(heated_chance >= 0.0 && heated_chance <= 1.0);
-        assert!(blitz_chance >= 0.0 && blitz_chance <= 1.0);
+        assert!((0.0..=1.0).contains(&steady_chance));
+        assert!((0.0..=1.0).contains(&heated_chance));
+        assert!((0.0..=1.0).contains(&blitz_chance));
     }
 
     #[test]
@@ -755,16 +759,16 @@ mod tests {
         use rand::SeedableRng;
         use rand_chacha::ChaCha20Rng;
 
-        // Create test GameState using default
-        let mut gs = GameState::default();
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
-
-        // Set up a breakdown
-        gs.breakdown = Some(crate::game::vehicle::Breakdown {
-            part: crate::game::vehicle::Part::Tire,
-            day_started: 1,
-        });
-        gs.travel_blocked = true;
+        // Create test GameState with breakdown
+        let mut gs = GameState {
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            breakdown: Some(crate::game::vehicle::Breakdown {
+                part: crate::game::vehicle::Part::Tire,
+                day_started: 1,
+            }),
+            travel_blocked: true,
+            ..GameState::default()
+        };
 
         // Test using spare when available
         gs.inventory.spares.tire = 2;
@@ -783,16 +787,18 @@ mod tests {
         use rand::SeedableRng;
         use rand_chacha::ChaCha20Rng;
 
-        let mut gs = GameState::default();
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+        let mut gs = GameState {
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            breakdown: Some(crate::game::vehicle::Breakdown {
+                part: crate::game::vehicle::Part::Battery,
+                day_started: 1,
+            }),
+            travel_blocked: true,
+            ..GameState::default()
+        };
 
-        // Set up a breakdown with no spares
-        gs.breakdown = Some(crate::game::vehicle::Breakdown {
-            part: crate::game::vehicle::Part::Battery,
-            day_started: 1,
-        });
+        // Set up no spares
         gs.inventory.spares.battery = 0;
-        gs.travel_blocked = true; // Explicitly set travel blocked
 
         let success = gs.try_use_spare();
         assert!(!success, "Should fail when no spare available");
@@ -805,18 +811,19 @@ mod tests {
         use rand::SeedableRng;
         use rand_chacha::ChaCha20Rng;
 
-        let mut gs = GameState::default();
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+        let mut gs = GameState {
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            breakdown: Some(crate::game::vehicle::Breakdown {
+                part: crate::game::vehicle::Part::Alternator,
+                day_started: 5,
+            }),
+            travel_blocked: true,
+            day: 5,
+            ..GameState::default()
+        };
 
-        // Set up a breakdown
-        gs.breakdown = Some(crate::game::vehicle::Breakdown {
-            part: crate::game::vehicle::Part::Alternator,
-            day_started: 5,
-        });
-        gs.travel_blocked = true;
         gs.stats.supplies = 10;
         gs.stats.credibility = 10;
-        gs.day = 5;
 
         gs.hack_fix();
 
@@ -832,15 +839,15 @@ mod tests {
         use rand::SeedableRng;
         use rand_chacha::ChaCha20Rng;
 
-        let mut gs = GameState::default();
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
-
-        // Set up a breakdown
-        gs.breakdown = Some(crate::game::vehicle::Breakdown {
-            part: crate::game::vehicle::Part::FuelPump,
-            day_started: 3,
-        });
-        gs.day = 3;
+        let mut gs = GameState {
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            breakdown: Some(crate::game::vehicle::Breakdown {
+                part: crate::game::vehicle::Part::FuelPump,
+                day_started: 3,
+            }),
+            day: 3,
+            ..GameState::default()
+        };
 
         gs.wait_mechanic();
 
@@ -854,15 +861,16 @@ mod tests {
         use rand::SeedableRng;
         use rand_chacha::ChaCha20Rng;
 
-        let mut gs = GameState::default();
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
+        let mut gs = GameState {
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            breakdown: Some(crate::game::vehicle::Breakdown {
+                part: crate::game::vehicle::Part::Tire,
+                day_started: 1,
+            }),
+            ..GameState::default()
+        };
 
         // Test that existing breakdown blocks travel
-        gs.breakdown = Some(crate::game::vehicle::Breakdown {
-            part: crate::game::vehicle::Part::Tire,
-            day_started: 1,
-        });
-
         gs.step3_vehicle();
 
         assert!(gs.travel_blocked, "Should remain blocked with existing breakdown");

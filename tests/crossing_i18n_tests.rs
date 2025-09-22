@@ -7,12 +7,12 @@ fn test_crossing_i18n_coverage() {
     let expected_keys = get_expected_crossing_keys();
 
     for locale in &locales {
-        let file_path = format!("i18n/{}.json", locale);
+        let file_path = format!("i18n/{locale}.json");
         let content = std::fs::read_to_string(&file_path)
-            .unwrap_or_else(|_| panic!("Failed to read {}", file_path));
+            .unwrap_or_else(|_| panic!("Failed to read {file_path}"));
 
         let json: Value = serde_json::from_str(&content)
-            .unwrap_or_else(|_| panic!("Failed to parse JSON in {}", file_path));
+            .unwrap_or_else(|_| panic!("Failed to parse JSON in {file_path}"));
 
         let mut missing_keys = Vec::new();
         for key in &expected_keys {
@@ -21,13 +21,11 @@ fn test_crossing_i18n_coverage() {
             }
         }
 
-        if !missing_keys.is_empty() {
-            panic!(
+        assert!(missing_keys.is_empty(),
                 "Missing i18n keys in {}: {}",
                 file_path,
                 missing_keys.join(", ")
             );
-        }
     }
 }
 

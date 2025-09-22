@@ -64,15 +64,52 @@
   "result": {
     "title": "Risultato",
     "title_aria": "Risultato",
-    "thanks": "Grazie per aver giocato",
-    "pants_emergency": "EMERGENZA NAZIONALE DEI PANTALONI",
-    "pants_emergency_desc": "L'indicatore ha raggiunto il 100%—fallimento glorioso.",
-    "passed_cloture": "HAI SUPERATO LA CLOTURE!",
-    "passed_cloture_desc": "La tua credibilità ha fatto la differenza.",
-    "survived_filibuster": "HAI SOPRAVVISSUTO AL FILIBUSTER",
-    "survived_filibuster_desc": "Marcia malconcia ma vittoriosa verso DC.",
-    "exhausted": "ESAUSTO",
-    "exhausted_desc": "Crolli sotto le procedure."
+    "headline": {
+      "victory": "HAI SUPERATO LA CLOTURE!",
+      "boss_loss": "IL FILIBUSTER TI HA SCHIACCIATO",
+      "pants": "EMERGENZA NAZIONALE DEI PANTALONI",
+      "sanity": "FRATTURA MENTALE",
+      "collapse": "CROLLO SUI GRADINI"
+    },
+    "badges": {
+      "mode_deep": "+5% (solo visivo)"
+    },
+    "labels": {
+      "seed": "Seed",
+      "persona": "Persona",
+      "mode": "Modalità",
+      "score": "Punteggio",
+      "stats": "Statistiche",
+      "days": "Giorni",
+      "encounters": "Incontri",
+      "receipts": "Ricevute",
+      "allies": "Alleati",
+      "supplies": "Provviste",
+      "credibility": "Credibilità",
+      "pants_pct": "Pantaloni"
+    },
+    "epilogue": {
+      "victory": "Gli storici citeranno le tue ricevute. I lobbisti maledicono il tuo nome.",
+      "boss_loss": "Hanno fatto scadere il tempo. Te ne sei andato con più storie che voti.",
+      "pants": "Il ticker ha fatto il resto. La GIF è per sempre.",
+      "sanity": "L'assurdità ti ha spezzato prima del Senato.",
+      "collapse": "Hai raggiunto i gradini ma non la fine. Prossima volta."
+    },
+    "menu": {
+      "copy_share": "Copia Testo Condivisione",
+      "copy_seed": "Copia Seed",
+      "replay_seed": "Rigioca Questo Seed",
+      "new_run": "Nuova Partita (Seed Casuale)",
+      "export": "Esporta Salvataggio",
+      "title": "Titolo"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Punteggio {score} · Seed {seed} · Persona {persona} ({mult}) · Modalità {mode}"
+    },
+    "announce": {
+      "copied": "Copiato negli appunti.",
+      "copy_failed": "Copia fallita. Copia manualmente."
+    }
   },
   "game": {
     "seed_label": "Seed:"

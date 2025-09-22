@@ -446,11 +446,12 @@ mod tests {
     use rand_chacha::ChaCha20Rng;
 
     fn create_test_game_state() -> GameState {
-        let mut gs = GameState::default();
-        gs.region = Region::Heartland;
-        gs.rng = Some(ChaCha20Rng::seed_from_u64(42));
-        gs.weather_state = WeatherState::default();
-        gs
+        GameState {
+            region: Region::Heartland,
+            rng: Some(ChaCha20Rng::seed_from_u64(42)),
+            weather_state: WeatherState::default(),
+            ..GameState::default()
+        }
     }
 
     #[test]
@@ -492,11 +493,10 @@ mod tests {
         // (This is probabilistic, but with enough trials should hold)
         let mut extreme_count = 0;
         for _ in 0..100 {
-            if let Ok(weather) = select_weather_for_today(&mut gs, &cfg) {
-                if weather.is_extreme() {
+            if let Ok(weather) = select_weather_for_today(&mut gs, &cfg)
+                && weather.is_extreme() {
                     extreme_count += 1;
                 }
-            }
         }
 
         // Should be significantly fewer extremes when at streak limit
@@ -699,10 +699,10 @@ mod tests {
         }"#;
 
         let config = WeatherConfig::from_json(json_str).unwrap_or_else(|e| {
-            panic!("Test failed: Should parse valid JSON but got error: {}", e);
+            panic!("Test failed: Should parse valid JSON but got error: {e}");
         });
         assert_eq!(config.limits.max_extreme_streak, 2);
-        assert_eq!(config.limits.encounter_cap, 0.8);
+        assert!((config.limits.encounter_cap - 0.8).abs() < f32::EPSILON);
         assert_eq!(config.limits.pants_floor, 5);
         assert_eq!(config.limits.pants_ceiling, 95);
 
