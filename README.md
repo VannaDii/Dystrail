@@ -32,7 +32,7 @@
 - **Modes**: `CL` (Classic) and `DP` (The Deep End) with different encounter pools.
 - **Share Codes**: `CL-WORD42` / `DP-ORANGE97` — short, memorable, deterministic seeds.
 - **Pants Meter**: reach 💩 100% → **National Pants Emergency** fail state.
-- **Internationalization**: Support for 11 languages (EN, ES, FR, IT, PT, DE, RU, AR, ZH, HI, BN, JA).
+- **Internationalization**: Support for 20 languages (EN, ES, FR, IT, PT, DE, RU, AR, ZH, HI, BN, JA, KO, ID, TR, TA, TE, MR, PA, JV).
 - **Data-driven content**: all encounters, personas, and systems configurable via JSON.
 - **Result System**: deterministic scoring with configurable weights, comprehensive statistics tracking, and social sharing capabilities.
 - **Accessibility**: WCAG AA compliance, keyboard navigation, high-contrast & reduced-motion toggles.
@@ -54,7 +54,7 @@
   - `camp.json` — camping and rest mechanics
   - `store.json` — shop items and prices
   - `result.json` — result screen configuration and scoring parameters
-- `i18n/` — internationalization files for 11 languages
+- `i18n/` — internationalization files for 20 languages
 
 ## 🛠 Dev Setup
 **Prerequisites:**
@@ -159,7 +159,7 @@ Add translations to `i18n/{language}.json` files. Use `en.json` as the reference
 - ✅ Core game mechanics and survival systems
 - ✅ Persona system with 6 unique characters
 - ✅ Comprehensive UI with accessibility features
-- ✅ Internationalization (11 languages)
+- ✅ Internationalization (20 languages)
 - ✅ Save/load system with multiple slots
 - ✅ Data-driven encounter and configuration system
 - ✅ Result screen with deterministic scoring and social sharing

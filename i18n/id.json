@@ -1,0 +1,381 @@
+{
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Beranda",
+    "settings": "Pengaturan",
+    "language": "Bahasa"
+  },
+  "ui": {
+    "cta_start": "TEKAN TOMBOL APA SAJA UNTUK MULAI",
+    "skip_to_content": "Lewati ke konten",
+    "select_mode": "Pilih Mode",
+    "loading": "Memuat… {{pct}}%",
+    "loading_encounters": "Memuat pertemuan…",
+    "continue": "Lanjutkan"
+  },
+  "share": {
+    "code": "Kode Bagikan",
+    "start_with_code": "Mulai dengan Kode",
+    "code_help": "Format: CL-WORD00 atau DP-WORD00",
+    "run": "Bagikan Permainan"
+  },
+  "mode": {
+    "classic": "Klasik",
+    "deep": "Ujung Dalam"
+  },
+  "travel": {
+    "title": "Perjalanan",
+    "next": "Perjalanan Etape Berikutnya"
+  },
+  "stats": {
+    "day_region": "Hari {{day}} — {{region}}",
+    "hp_short": "HP",
+    "sanity_short": "Waras",
+    "cred_short": "Kredib",
+    "sup_short": "Pers",
+    "mor_short": "Mor",
+    "allies_short": "Sekutu",
+    "pants": "Celana {{pct}}%",
+    "pants_label": "Meter Celana"
+  },
+  "region": {
+    "heartland": "Jantung Negeri",
+    "rustbelt": "Sabuk Karat",
+    "beltway": "Beltway"
+  },
+  "eo": {
+    "prefix": "EO:",
+    "shutdown": "Penutupan Pemerintah",
+    "travel_ban_lite": "Larangan Perjalanan Lite",
+    "gas_stove_police": "Polisi Kompor Gas",
+    "book_panic": "Panik Buku",
+    "deportation_sweep": "Gelombang Deportasi",
+    "tariff_tsunami": "Tsunami Tarif",
+    "doe_eliminated": "Kemendikbud Dihapus",
+    "war_dept_reorg": "Reorganisasi Kemhan"
+  },
+  "boss": {
+    "title": "Boss Filibuster",
+    "phases_hint": "Hadapi fase: Cloture, Keberatan Prosedur, Banjir Amandemen.",
+    "begin": "Mulai Boss"
+  },
+  "result": {
+    "title": "Hasil",
+    "title_aria": "Hasil",
+    "headline": {
+      "victory": "ANDA LOLOS CLOTURE!",
+      "boss_loss": "FILIBUSTER MENGHANCURKAN ANDA",
+      "pants": "DARURAT CELANA NASIONAL",
+      "sanity": "KERETAKAN KEWARASAN",
+      "collapse": "JATUH DI TANGGA"
+    },
+    "badges": {
+      "mode_deep": "+5% (tampilan saja)"
+    },
+    "labels": {
+      "seed": "Seed",
+      "persona": "Persona",
+      "mode": "Mode",
+      "score": "Skor",
+      "stats": "Statistik",
+      "days": "Hari",
+      "encounters": "Pertemuan",
+      "receipts": "Bukti",
+      "allies": "Sekutu",
+      "supplies": "Persediaan",
+      "credibility": "Kredibilitas",
+      "pants_pct": "Celana"
+    },
+    "epilogue": {
+      "victory": "Sejarawan akan mengutip bukti Anda. Pelobi mengutuk nama Anda.",
+      "boss_loss": "Mereka menghabiskan waktu. Anda pergi dengan lebih banyak cerita daripada suara.",
+      "pants": "Chyron melakukan sisanya. GIF itu selamanya.",
+      "sanity": "Absurditas menghancurkan Anda sebelum Senat melakukannya.",
+      "collapse": "Anda mencapai tangga tapi bukan garis finish. Coba lagi."
+    },
+    "menu": {
+      "copy_share": "Salin Teks Bagikan",
+      "copy_seed": "Salin Seed",
+      "replay_seed": "Ulang Seed Ini",
+      "new_run": "Permainan Baru (Seed Acak)",
+      "export": "Ekspor Simpanan",
+      "title": "Judul"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Skor {score} · Seed {seed} · Persona {persona} ({mult}) · Mode {mode}"
+    },
+    "announce": {
+      "copied": "Disalin ke clipboard.",
+      "copy_failed": "Gagal menyalin. Silakan salin manual."
+    }
+  },
+  "game": {
+    "seed_label": "Seed:"
+  },
+  "log": {
+    "booting": "Booting…",
+    "seed_set": "Seed diatur",
+    "traveled": "Bepergian",
+    "encounter": "Pertemuan!",
+    "pants_emergency": "Darurat Celana Nasional!",
+    "run_begins": "Permainan dimulai ({{mode}})"
+  },
+  "save": {
+    "header": "Simpan/Muat",
+    "title": "Simpan / Muat",
+    "save": "Simpan Sekarang",
+    "load": "Muat",
+    "export": "Salin JSON Ekspor",
+    "import_label": "Tempel JSON simpanan",
+    "import_button": "Impor",
+    "close": "Tutup",
+    "error": "JSON simpanan tidak valid",
+    "loaded": "Simpanan dimuat",
+    "saved": "Permainan disimpan"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
+  "persona": {
+    "choose": "Pilih Persona Anda:",
+    "selected_budget_prefix": "Budget awal",
+    "preview": "Mulai: Persediaan {sup} · Kredib {cred} · Waras {san} · Mor {mor} · Sekutu {allies} · Budget ${budget}",
+    "mult": "Pengali ×{mult}",
+    "preview_wait": "Pilih persona untuk melihat detail.",
+    "journalist": { "name": "Jurnalis", "desc": "Kredibel dan banyak akal; berkembang dengan bukti." },
+    "organizer": { "name": "Organisator", "desc": "Membangun moral dan sekutu." },
+    "whistleblower": { "name": "Whistleblower", "desc": "Menarik perhatian; menemukan lebih banyak bukti." },
+    "lobbyist": { "name": "Pelobi", "desc": "Koneksi mengurangi biaya." },
+    "staffer": { "name": "Staf", "desc": "Seimbang; tidak ada keuntungan kuat." },
+    "satirist": { "name": "Satiris", "desc": "Menghadapi dengan humor; memulihkan kewarasan." },
+    "mods": {
+      "receipts_pct": "+{pct}% Bukti",
+      "store_discount_pct": "-{pct}% Toko",
+      "bribe_discount_pct": "-{pct}% Suap",
+      "eo_heat_pct": "+{pct}% Panas EO",
+      "satire_sustain": "Humor mempertahankan kewarasan"
+    }
+  },
+  "menu": {
+    "title": "Menu Utama",
+    "help": "Tekan 1–8/0 atau klik item. Seed: {{seed}}",
+    "selected": "Dipilih",
+    "travel": "Perjalanan",
+    "camp": "Kemah",
+    "status": "Status",
+    "pace": "Ubah Kecepatan",
+    "diet": "Diet Info",
+    "inventory": "Gunakan Inventori",
+    "share": "Simpan/Bagikan Seed",
+    "settings": "Pengaturan",
+    "quit": "Keluar"
+  },
+  "dialogs": {
+    "confirm": "Anda yakin?",
+    "close": "Tutup"
+  },
+  "store": {
+    "title": "Perlengkapan",
+    "budget": "Budget: {amount}",
+    "categories": {
+      "fuel_food": "Bahan Bakar / Makanan",
+      "vehicle": "Suku Cadang Kendaraan",
+      "ppe": "APD & Pakaian",
+      "docs": "Dokumen & Izin"
+    },
+    "items": {
+      "rations": { "name": "Paket Jatah", "desc": "Tahan lama. Membuat Anda terus berjalan." },
+      "water": { "name": "Jerigen Air", "desc": "Hidrasi penting." },
+      "spare_tire": { "name": "Ban Serep", "desc": "Perbaiki ban bocor dengan cepat." },
+      "battery": { "name": "Baterai", "desc": "Start dingin." },
+      "alternator": { "name": "Alternator", "desc": "Muatan dipulihkan." },
+      "fuel_pump": { "name": "Pompa Bahan Bakar", "desc": "Ketika pesta kehabisan." },
+      "masks": { "name": "Masker", "desc": "Perlindungan asap/penyakit." },
+      "coats": { "name": "Mantel Hangat", "desc": "Ketahanan cuaca dingin." },
+      "ponchos": { "name": "Ponco", "desc": "Ramah badai." },
+      "press_pass": { "name": "Kartu Pers", "desc": "Bisa bertindak sebagai izin." },
+      "legal_fund": { "name": "Dana Hukum", "desc": "Penyangga kredibilitas Anda." }
+    },
+    "menu": {
+      "home": "Perlengkapan — Budget: {budget}",
+      "view_cart": "Lihat Keranjang / Checkout",
+      "continue": "Lanjutkan",
+      "back": "Kembali"
+    },
+    "qty_prompt": {
+      "title": "{item} — {price} setiap",
+      "add1": "Tambah +1",
+      "add5": "Tambah +5",
+      "rem1": "Hapus -1",
+      "rem_all": "Hapus Semua"
+    },
+    "cart": {
+      "title": "Keranjang",
+      "line": "{item}  x{qty}  = {line_total}",
+      "total": "Total: {sum}   Budget tersisa: {left}",
+      "checkout": "Checkout"
+    },
+    "alerts": {
+      "added": "Ditambahkan {item} ({price}). Budget tersisa {left}.",
+      "removed": "Dihapus {item}. Budget tersisa {left}.",
+      "max_qty": "Kuantitas maksimum tercapai untuk {item}.",
+      "unique": "{item} unik; Anda sudah memiliki satu.",
+      "over_budget": "Melebihi budget; sesuaikan keranjang Anda."
+    }
+  },
+  "pacediet": {
+    "title": "Kecepatan & Diet-Info — Hari Ini",
+    "menu": {
+      "pace_steady": "Kecepatan: [Stabil]",
+      "pace_heated": "Kecepatan:  Panas",
+      "pace_blitz": "Kecepatan:  Kilat",
+      "diet_quiet": "Diet:  Tenang",
+      "diet_mixed": "Diet: [Campuran]",
+      "diet_doom": "Diet:  Doomscroll",
+      "back": "Kembali"
+    },
+    "announce": {
+      "pace_set": "Kecepatan diatur ke {pace} ({sanity} Kewarasan, {pants} Celana, {chance} peluang pertemuan).",
+      "diet_set": "Diet diatur ke {diet} ({sanity} Kewarasan, {pants} Celana, {receipt} peluang-bukti)."
+    },
+    "tooltips": {
+      "steady": "Jarak x1.0; Waras 0; Celana 0; Pertemuan +0%",
+      "heated": "Jarak x1.2; Waras -1; Celana +3; Pertemuan +5%",
+      "blitz": "Jarak x1.4; Waras -2; Celana +6; Pertemuan +10%",
+      "quiet": "Bukti -5%; Waras +1; Celana -2",
+      "mixed": "Bukti 0%; Waras 0; Celana 0",
+      "doom": "Bukti +8%; Waras -2; Celana +4"
+    }
+  },
+  "camp": {
+    "title": "Kemah",
+    "desc": "Pilih tindakan.",
+    "repair_vehicle": "Perbaiki Kendaraan",
+    "help": "Tekan 1-4 atau 0 untuk memilih opsi",
+    "menu": {
+      "rest": "Istirahat (+2 Kewarasan, +1 HP, Persediaan -1, Hari +1)",
+      "repair": "Perbaiki Kendaraan (jika rusak)",
+      "forage": "Mencari Makan (50% Persediaan +1 / 30% Tidak Ada / 20% Bukti +1)",
+      "therapy": "Terapi/Jurnal (+2 Kewarasan, bakar 1 Bukti, Hari +1) [cooldown: {days} hari]",
+      "close": "Tutup",
+      "back": "Kembali",
+      "use_spare": "Gunakan Suku Cadang",
+      "hack_fix": "Perbaikan Hack (Persediaan -{sup}, Kredibilitas -{cred}, Hari +{day})"
+    },
+    "announce": {
+      "rest": "Beristirahat. Kewarasan +2, HP +1, Persediaan -1. Hari +1.",
+      "repair_spare": "Menggunakan suku cadang {part}. Persediaan -{sup}. Kendaraan diperbaiki.",
+      "repair_hack": "Perbaikan hack diterapkan. Persediaan -{sup}, Kredibilitas -{cred}. Hari +{day}.",
+      "forage_sup": "Berhasil mencari makan: Persediaan +1.",
+      "forage_receipt": "Menemukan petunjuk berguna: Bukti +1.",
+      "forage_none": "Mencari makan tapi tidak menemukan apa-apa.",
+      "therapy": "Anda menulis jurnal dan berefleksi. Kewarasan +2, membakar 1 Bukti. Hari +1.",
+      "cooldown": "Terapi sedang cooldown selama {days} hari lagi.",
+      "no_receipt": "Tidak ada bukti untuk dibakar.",
+      "no_breakdown": "Tidak ada kerusakan aktif."
+    },
+    "repair": {
+      "title": "Perbaikan Kendaraan"
+    },
+    "parts": {
+      "tire": "Ban",
+      "battery": "Baterai",
+      "alt": "Alternator",
+      "pump": "Pompa Bahan Bakar"
+    }
+  },
+  "vehicle": {
+    "title": "Status Kendaraan",
+    "no_active": "Tidak ada kerusakan aktif.",
+    "breakdown": "Kerusakan — Kegagalan {part}. Perjalanan diblokir.",
+    "spares": {
+      "tire": "Gunakan Ban Serep",
+      "battery": "Gunakan Baterai Serep",
+      "alt": "Gunakan Alternator Serep",
+      "pump": "Gunakan Pompa Bahan Bakar Serep"
+    },
+    "hack_fix": "Perbaikan Hack (Persediaan -3, Kredibilitas -1, Hari +1)",
+    "wait_mechanic": "Tunggu Mekanik (Hari +1)",
+    "back": "Kembali",
+    "help": "Gunakan tombol angka 1-5 atau 0 untuk kembali",
+    "announce": {
+      "used_spare": "Menggunakan suku cadang {part}. Persediaan -{sup}.",
+      "hack_applied": "Perbaikan hack diterapkan. Persediaan -{sup}, Kredibilitas -{cred}, Hari +{day}.",
+      "cleared": "Kendaraan diperbaiki.",
+      "blocked": "Perjalanan diblokir sampai diperbaiki.",
+      "no_spare": "Tidak ada suku cadang untuk {part}."
+    },
+    "parts": {
+      "tire": "Ban",
+      "battery": "Baterai",
+      "alt": "Alternator",
+      "pump": "Pompa Bahan Bakar"
+    }
+  },
+  "weather": {
+    "title": "Cuaca",
+    "announce": "Cuaca: {state}. Persediaan {sup}, Kewarasan {san}, Celana {pants}, Pertemuan {enc}.",
+    "states": {
+      "Clear": "Cerah",
+      "Storm": "Badai",
+      "HeatWave": "Gelombang Panas",
+      "ColdSnap": "Cuaca Dingin",
+      "Smoke": "Asap"
+    },
+    "effects": {
+      "sup": "{val} Persediaan",
+      "san": "{val} Kewarasan",
+      "pants": "{val} Celana",
+      "enc": "{val}% Pertemuan"
+    },
+    "details": {
+      "header": "Detail Cuaca:",
+      "state": "• Status: {state}",
+      "effects": "• Efek hari ini: {effects}",
+      "gear": "• Mitigasi perlengkapan: {text}",
+      "notes": "• Catatan: {note}",
+      "back": "0) Kembali"
+    },
+    "gear": {
+      "storm": "Ponco mengurangi penalti Badai (rain_resist).",
+      "smoke": "Masker mengurangi penalti Asap (plague_resist).",
+      "cold": "Mantel hangat mengurangi penalti Dingin (cold_resist)."
+    },
+    "notes": {
+      "storm_crossings": "Penyeberangan lebih berisiko saat badai."
+    }
+  },
+  "cross": {
+    "title": "Pos Pemeriksaan",
+    "prompt": "Pos pemeriksaan di depan. Pilih:",
+    "options": {
+      "detour": "Jalan Memutar — Hari {days}, Persediaan {supplies}, Celana {pants} (Aman)",
+      "bribe": "Suap — Biaya {cost} (lihat kebijakan)",
+      "permit": "Izin — Habiskan 1 Bukti atau gunakan Kartu Pers (Kredib +1)",
+      "back": "Kembali"
+    },
+    "desc": {
+      "detour": "Dijamin; menambah waktu dan biaya persediaan; stres kecil.",
+      "bribe": "Diskon persona berlaku; mungkin gagal saat Shutdown.",
+      "permit": "Menghabiskan 1 Bukti atau menggunakan tag izin jika ada."
+    },
+    "announce": {
+      "detour_applied": "Jalan memutar diambil. Hari {days}, Persediaan {supplies}, Celana {pants}.",
+      "bribe_paid_passed": "Suap dibayar {cost}. Izin lewat diberikan.",
+      "bribe_paid_failed": "Suap dibayar {cost} tapi gagal. Hari {days}, Celana {pants}.",
+      "permit_used_receipt": "Izin diterima via Bukti. Kredib +1.",
+      "permit_used_tag": "Izin diterima via tag. Kredib +1.",
+      "no_receipt_or_tag": "Tidak ada bukti dan tidak ada tag izin.",
+      "insufficient_funds": "Dana tidak mencukupi."
+    },
+    "policy": {
+      "shutdown": "Shutdown berlaku: sukses suap adalah {chance}%."
+    },
+    "types": {
+      "checkpoint": "Pos Pemeriksaan",
+      "bridge_out": "Jembatan Putus"
+    }
+  }
+}
