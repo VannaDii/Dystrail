@@ -9,6 +9,8 @@ allow = [
     "Unicode-3.0",
     "0BSD",
     "Unlicense",
+    "MPL-2.0",
+    "CDLA-Permissive-2.0",
 ]
 
 [bans]
@@ -17,6 +19,7 @@ multiple-versions = "warn"
 [advisories]
 ignore = [
     "RUSTSEC-2024-0370",  # proc-macro-error unmaintained but used by yew
+    "RUSTSEC-2024-0436",  # paste unmaintained but used by thirtyfour (selenium testing)
 ]
 
 [sources]

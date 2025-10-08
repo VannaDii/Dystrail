@@ -22,11 +22,12 @@ serde_json = { workspace = true }
 thiserror = { workspace = true }
 colored = { workspace = true }
 log = { workspace = true }
-env_logger = "0.10"
+env_logger = "0.11"
 
 # Pure logic testing
 rand = { workspace = true }
 rand_chacha = { workspace = true }
+regex = { workspace = true }
 
 # Browser automation
 thirtyfour = { workspace = true }

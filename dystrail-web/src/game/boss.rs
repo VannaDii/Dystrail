@@ -27,7 +27,7 @@ pub fn run_boss_minigame(state: &mut GameState) -> BossOutcome {
         if roll < 30 {
             state.stats.pants += 7;
         }
-        if roll % 2 == 0 {
+        if roll.is_multiple_of(2) {
             state.stats.sanity -= 1;
         }
         state.stats.clamp();

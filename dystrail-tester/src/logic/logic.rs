@@ -1,20 +1,10 @@
-
 use colored::Colorize;
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, Instant};
 
 use dystrail_web::game::GameState;
 
-pub mod reports;
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct LogicTestResult {
-    pub scenario_name: String,
-    pub seed: i64,
-    pub passed: bool,
-    pub duration: Duration,
-    pub error: Option<String>,
-}
+// LogicTestResult removed as it was unused
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ScenarioResult {
@@ -40,7 +30,7 @@ impl LogicTester {
 
     pub fn run_scenario(
         &mut self,
-        scenario: &crate::scenario::TestScenario,
+        scenario: &crate::common::scenario::TestScenario,
         seeds: &[i64],
         iterations: usize,
     ) -> Vec<ScenarioResult> {
@@ -64,7 +54,7 @@ impl LogicTester {
 
     fn run_single_scenario(
         &mut self,
-        scenario: &crate::scenario::TestScenario,
+        scenario: &crate::common::scenario::TestScenario,
         seed: i64,
         iterations: usize,
     ) -> ScenarioResult {
@@ -120,7 +110,8 @@ impl LogicTester {
         let avg_duration = if performance_data.is_empty() {
             Duration::ZERO
         } else {
-            performance_data.iter().sum::<Duration>() / u32::try_from(performance_data.len()).unwrap_or(1)
+            performance_data.iter().sum::<Duration>()
+                / u32::try_from(performance_data.len()).unwrap_or(1)
         };
 
         ScenarioResult {
@@ -163,7 +154,10 @@ mod duration_vec_serde {
     where
         S: Serializer,
     {
-        let millis: Vec<u128> = durations.iter().map(std::time::Duration::as_millis).collect();
+        let millis: Vec<u128> = durations
+            .iter()
+            .map(std::time::Duration::as_millis)
+            .collect();
         millis.serialize(serializer)
     }
 

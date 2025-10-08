@@ -59,11 +59,11 @@ impl BrowserScenario for Smoke {
 
         // Basic assertions - game should be running
         if let Some(hp) = state.hp {
-            anyhow::ensure!(hp > 0, "Player HP should be > 0, got {}", hp);
+            anyhow::ensure!(hp > 0, "Player HP should be > 0, got {hp}");
         }
 
         if let Some(day) = state.day {
-            anyhow::ensure!(day >= 1, "Game day should be >= 1, got {}", day);
+            anyhow::ensure!(day >= 1, "Game day should be >= 1, got {day}");
         }
 
         Ok(())

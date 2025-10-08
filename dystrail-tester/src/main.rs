@@ -1,19 +1,16 @@
-mod bridge;
 mod browser;
 mod logic;
-mod scenario;
-mod util;
+mod common;
 
 use anyhow::Result;
 use clap::{Parser, ValueEnum};
 use colored::Colorize;
 use std::time::Instant;
 
-use bridge::TestBridge;
-use browser::{BrowserConfig, BrowserKind, new_session};
+use browser::{TestBridge, BrowserConfig, BrowserKind, new_session};
 use logic::LogicTester;
-use scenario::{ScenarioCtx, get_scenario};
-use util::{artifacts_dir, capture_artifacts, split_csv};
+use common::{artifacts_dir, capture_artifacts, split_csv};
+use common::scenario::{ScenarioCtx, get_scenario};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 pub enum TestMode {
@@ -88,7 +85,26 @@ async fn main() -> Result<()> {
     println!("{}", "================================".cyan());
 
     let start_time = Instant::now();
-    let scenarios = split_csv(&args.scenarios);
+    let mut scenarios = split_csv(&args.scenarios);
+
+    // Expand 'all' to include all comprehensive test scenarios
+    if scenarios.contains(&"all".to_string()) {
+        scenarios.retain(|s| s != "all");
+        scenarios.extend_from_slice(&[
+            "smoke".to_string(),
+            "basic-game-creation".to_string(),
+            "share-code-consistency".to_string(),
+            "deterministic-gameplay".to_string(),
+            "encounter-choices".to_string(),
+            "vehicle-system".to_string(),
+            "weather-effects".to_string(),
+            "resource-management".to_string(),
+            "stats-boundaries".to_string(),
+            "inventory-operations".to_string(),
+            "game-mode-variations".to_string(),
+        ]);
+    }
+
     let seeds: Vec<i64> = split_csv(&args.seeds)
         .into_iter()
         .filter_map(|s| s.parse().ok())
@@ -106,8 +122,8 @@ async fn main() -> Result<()> {
         for scenario_name in &scenarios {
             if let Some(combined_scenario) = get_scenario(scenario_name) {
                 if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
-                    let results = logic_tester
-                        .run_scenario(&logic_scenario, &seeds, args.iterations);
+                    let results =
+                        logic_tester.run_scenario(&logic_scenario, &seeds, args.iterations);
                     all_results.extend(results);
                 } else {
                     eprintln!(
