@@ -31,7 +31,7 @@ impl LogicTester {
     pub fn run_scenario(
         &mut self,
         scenario: &crate::common::scenario::TestScenario,
-        seeds: &[i64],
+        seeds: &[u64],
         iterations: usize,
     ) -> Vec<ScenarioResult> {
         let mut results = Vec::new();
@@ -55,7 +55,7 @@ impl LogicTester {
     fn run_single_scenario(
         &mut self,
         scenario: &crate::common::scenario::TestScenario,
-        seed: i64,
+        seed: u64,
         iterations: usize,
     ) -> ScenarioResult {
         let mut successes = 0;
@@ -67,7 +67,7 @@ impl LogicTester {
 
             // Create a fresh game state for each iteration
             let mut game_state = GameState {
-                seed: seed.unsigned_abs() + i as u64,
+                seed: seed.wrapping_add(u64::try_from(i).unwrap_or(u64::MAX)),
                 ..Default::default()
             };
 

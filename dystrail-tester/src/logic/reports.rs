@@ -3,7 +3,7 @@ use colored::Colorize;
 use serde_json;
 use std::time::Duration;
 
-use super::ScenarioResult;
+use super::{PlayabilityRecord, ScenarioResult};
 
 pub fn generate_console_report(results: &[ScenarioResult], total_duration: Duration) {
     println!();
@@ -110,4 +110,39 @@ pub fn generate_markdown_report(results: &[ScenarioResult]) {
         }
         println!();
     }
+}
+
+pub fn generate_csv_report(records: &[PlayabilityRecord]) {
+    println!(
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents"
+    );
+
+    for record in records {
+        let metrics = &record.metrics;
+        let mode = format!("{:?}", record.mode);
+        let strategy = record.strategy.to_string();
+
+        println!(
+            "{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
+            quote(&record.scenario_name),
+            quote(&mode),
+            quote(&strategy),
+            quote(&record.seed_code),
+            record.seed_value,
+            metrics.days_survived,
+            quote(&metrics.ending_type),
+            metrics.encounters_faced,
+            metrics.vehicle_breakdowns,
+            metrics.final_hp,
+            metrics.final_supplies,
+            metrics.final_sanity,
+            metrics.final_pants,
+            metrics.final_budget_cents,
+        );
+    }
+}
+
+fn quote(value: &str) -> String {
+    let escaped = value.replace('"', "\"\"");
+    format!("\"{escaped}\"")
 }

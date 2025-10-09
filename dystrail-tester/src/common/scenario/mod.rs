@@ -12,7 +12,7 @@ pub mod smoke;
 #[derive(Debug, Clone)]
 pub struct ScenarioCtx<'a> {
     pub base_url: String,
-    pub seed: i64,
+    pub seed: u64,
     pub bridge: TestBridge<'a>,
     pub verbose: bool,
 }

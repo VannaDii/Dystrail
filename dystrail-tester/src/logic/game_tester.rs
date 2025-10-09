@@ -3,6 +3,7 @@ use dystrail_game::pacing::PacingConfig;
 use dystrail_game::{GameMode, GameState};
 use rand::SeedableRng;
 use rand_chacha::ChaCha20Rng;
+use std::fmt;
 
 #[derive(Debug, Clone)]
 pub struct PlayabilityMetrics {
@@ -39,6 +40,17 @@ pub enum GameplayStrategy {
     Aggressive,      // Take risks for faster progress
     Balanced,        // Moderate approach
     ResourceManager, // Focus on resource efficiency
+}
+
+impl fmt::Display for GameplayStrategy {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            GameplayStrategy::Conservative => f.write_str("Conservative"),
+            GameplayStrategy::Aggressive => f.write_str("Aggressive"),
+            GameplayStrategy::Balanced => f.write_str("Balanced"),
+            GameplayStrategy::ResourceManager => f.write_str("Resource Manager"),
+        }
+    }
 }
 
 pub struct GameTester {

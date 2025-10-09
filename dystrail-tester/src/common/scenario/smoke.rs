@@ -1,4 +1,4 @@
-use anyhow::Result;
+use anyhow::{Context, Result};
 use std::time::Duration;
 use thirtyfour::prelude::*;
 
@@ -19,7 +19,8 @@ impl BrowserScenario for Smoke {
         ctx.bridge.ensure_available().await?;
 
         // Set deterministic seed and fast sim
-        ctx.bridge.seed(ctx.seed).await?;
+        let bridge_seed = i64::try_from(ctx.seed).context("seed exceeds browser bridge range")?;
+        ctx.bridge.seed(bridge_seed).await?;
         ctx.bridge.speed(4.0).await?;
 
         if ctx.verbose {

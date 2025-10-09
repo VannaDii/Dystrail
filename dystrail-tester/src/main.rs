@@ -10,7 +10,7 @@ use std::time::Instant;
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario};
 use common::{artifacts_dir, capture_artifacts, split_csv};
-use logic::LogicTester;
+use logic::{LogicTester, resolve_seed_inputs, run_playability_analysis};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 pub enum TestMode {
@@ -46,7 +46,7 @@ struct Args {
 
     /// Output report format
     #[arg(long, default_value = "console")]
-    #[arg(value_parser = ["json", "markdown", "console"])]
+    #[arg(value_parser = ["json", "markdown", "console", "csv"])]
     report: String,
 
     /// Verbose output
@@ -105,10 +105,9 @@ async fn main() -> Result<()> {
         ]);
     }
 
-    let seeds: Vec<i64> = split_csv(&args.seeds)
-        .into_iter()
-        .filter_map(|s| s.parse().ok())
-        .collect();
+    let seed_tokens = split_csv(&args.seeds);
+    let seed_infos = resolve_seed_inputs(&seed_tokens)?;
+    let logic_seeds: Vec<u64> = seed_infos.iter().map(|s| s.seed).collect();
 
     let mut all_results: Vec<logic::ScenarioResult> = Vec::new();
 
@@ -123,7 +122,7 @@ async fn main() -> Result<()> {
             if let Some(combined_scenario) = get_scenario(scenario_name) {
                 if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
                     let results =
-                        logic_tester.run_scenario(&logic_scenario, &seeds, args.iterations);
+                        logic_tester.run_scenario(&logic_scenario, &logic_seeds, args.iterations);
                     all_results.extend(results);
                 } else {
                     eprintln!(
@@ -172,17 +171,18 @@ async fn main() -> Result<()> {
 
             for scenario_name in &scenarios {
                 if let Some(scenario) = get_scenario(scenario_name) {
-                    for &seed in &seeds {
+                    for seed_info in &seed_infos {
                         let bridge = TestBridge::new(&driver);
                         let ctx = ScenarioCtx {
                             base_url: args.base_url.clone(),
-                            seed,
+                            seed: seed_info.seed,
                             bridge,
                             verbose: args.verbose,
                         };
 
                         let label = format!("{kind:?}").to_lowercase();
-                        let dir = artifacts_dir(&args.artifacts_dir, &label, scenario_name, seed);
+                        let dir =
+                            artifacts_dir(&args.artifacts_dir, &label, scenario_name, seed_info.seed);
 
                         let scenario_start = Instant::now();
                         match scenario.run_browser(&driver, &ctx).await {
@@ -191,7 +191,7 @@ async fn main() -> Result<()> {
                                 println!(
                                     "✅ [{} seed {}] {} - {:?}",
                                     label.green(),
-                                    seed,
+                                    seed_info.seed,
                                     scenario_name,
                                     duration
                                 );
@@ -201,7 +201,7 @@ async fn main() -> Result<()> {
                                 eprintln!(
                                     "❌ [{} seed {}] {} - {:?}: {:#}",
                                     label.red(),
-                                    seed,
+                                    seed_info.seed,
                                     scenario_name,
                                     duration,
                                     e
@@ -217,17 +217,36 @@ async fn main() -> Result<()> {
         }
     }
 
-    let duration = start_time.elapsed();
-
-    // Generate reports (logic results only for now)
-    if !all_results.is_empty() {
-        match args.report.as_str() {
-            "json" => logic::reports::generate_json_report(&all_results)?,
-            "markdown" => logic::reports::generate_markdown_report(&all_results),
-            _ => logic::reports::generate_console_report(&all_results, duration),
+    match args.report.as_str() {
+        "json" => {
+            if all_results.is_empty() {
+                println!("[]");
+            } else {
+                logic::reports::generate_json_report(&all_results)?;
+            }
+        }
+        "markdown" => {
+            if all_results.is_empty() {
+                println!("# Dystrail Logic Test Results\n\n_No scenarios executed._");
+            } else {
+                logic::reports::generate_markdown_report(&all_results);
+            }
+        }
+        "csv" => {
+            let playability = run_playability_analysis(&seed_infos, args.verbose);
+            logic::reports::generate_csv_report(&playability);
+        }
+        _ => {
+            let duration = start_time.elapsed();
+            if all_results.is_empty() {
+                println!("No logic scenarios executed.");
+            } else {
+                logic::reports::generate_console_report(&all_results, duration);
+            }
         }
     }
 
+    let duration = start_time.elapsed();
     println!();
     println!("🏁 Total time: {duration:?}");
 

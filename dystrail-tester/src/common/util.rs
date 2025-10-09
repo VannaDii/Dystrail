@@ -3,7 +3,7 @@ use chrono::Utc;
 use std::{fs, path::Path};
 use thirtyfour::prelude::*;
 
-pub fn artifacts_dir(base: &str, browser: &str, scenario: &str, seed: i64) -> String {
+pub fn artifacts_dir(base: &str, browser: &str, scenario: &str, seed: u64) -> String {
     let ts = Utc::now().format("%Y%m%dT%H%M%S");
     format!("{base}/{browser}/{scenario}/seed-{seed}/{ts}")
 }
