@@ -1,11 +1,19 @@
-use crate::game::state::GameState;
+//! Boss fight system
+use crate::state::GameState;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum BossOutcome {
     PassedCloture,
     SurvivedFlood,
     PantsEmergency,
     Exhausted,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Boss {
+    pub name: String,
+    pub hp: i32,
 }
 
 pub fn run_boss_minigame(state: &mut GameState) -> BossOutcome {

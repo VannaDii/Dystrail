@@ -25,7 +25,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let personas = personas.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
-                let list = PersonasList::load().await;
+                let list = PersonasList::load();
                 personas.set(list.0);
             });
             || {}
@@ -64,7 +64,8 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let list_ref = list_ref.clone();
         use_effect_with(*selected, move |sel| {
             if let Some(i) = *sel
-                && let Some(list) = list_ref.cast::<web_sys::Element>() {
+                && let Some(list) = list_ref.cast::<web_sys::Element>()
+            {
                 let sel = format!("[role='radio'][data-key='{}']", i + 1);
                 if let Ok(Some(el)) = list.query_selector(&sel) {
                     let _ = el
@@ -86,7 +87,8 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
             {
                 if n == 0 {
                     if selected.is_some()
-                        && let Some(cb) = on_continue.clone() {
+                        && let Some(cb) = on_continue.clone()
+                    {
                         cb.emit(());
                     }
                 } else {

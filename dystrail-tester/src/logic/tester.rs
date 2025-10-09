@@ -2,7 +2,7 @@ use colored::Colorize;
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, Instant};
 
-use dystrail_web::game::GameState;
+use dystrail_game::GameState;
 
 // LogicTestResult removed as it was unused
 

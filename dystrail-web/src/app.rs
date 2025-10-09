@@ -1,9 +1,9 @@
+use crate::game::CampConfig;
 use crate::game::data::EncounterData;
 use crate::game::pacing::PacingConfig;
-use crate::game::weather::WeatherConfig;
-use crate::game::CampConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{GameMode, GameState, Region};
+use crate::game::weather::WeatherConfig;
 use crate::game::{ResultConfig, load_result_config};
 use crate::i18n;
 use crate::routes::Route;
@@ -98,11 +98,11 @@ pub fn app_inner() -> Html {
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
             wasm_bindgen_futures::spawn_local(async move {
-                let loaded_data = EncounterData::load_from_static().await;
-                let loaded_pacing = PacingConfig::load_from_static().await;
-                let loaded_weather = WeatherConfig::load_from_static().await;
-                let loaded_camp = CampConfig::load_from_static().await;
-                let loaded_result = load_result_config().await.unwrap_or_default();
+                let loaded_data = EncounterData::load_from_static();
+                let loaded_pacing = PacingConfig::load_from_static();
+                let loaded_weather = WeatherConfig::load_from_static();
+                let loaded_camp = CampConfig::load_from_static();
+                let loaded_result = load_result_config().unwrap_or_default();
                 data.set(loaded_data);
                 pacing_config.set(loaded_pacing);
                 weather_config.set(loaded_weather);
@@ -343,7 +343,8 @@ pub fn app_inner() -> Html {
         Callback::from(move |()| {
             if let Some(gs) = (*state).clone()
                 && let Ok(text) = serde_json::to_string(&gs)
-                && let Some(win) = web_sys::window() {
+                && let Some(win) = web_sys::window()
+            {
                 let nav = win.navigator();
                 let cb = nav.clipboard();
                 let _ = cb.write_text(&text);
@@ -421,10 +422,16 @@ pub fn app_inner() -> Html {
             let on_continue = {
                 let state = state.clone();
                 let phase = phase.clone();
-                Callback::from(move |(new_state, _grants, _tags): (crate::game::GameState, crate::game::store::Grants, Vec<String>)| {
-                    state.set(Some(new_state));
-                    phase.set(Phase::Menu);
-                })
+                Callback::from(
+                    move |(new_state, _grants, _tags): (
+                        crate::game::GameState,
+                        crate::game::store::Grants,
+                        Vec<String>,
+                    )| {
+                        state.set(Some(new_state));
+                        phase.set(Phase::Menu);
+                    },
+                )
             };
             html! {
                 <section class="panel retro-menu">
@@ -591,7 +598,10 @@ pub fn app_inner() -> Html {
                     let state = state.clone();
                     Callback::from(move |()| {
                         // Use default and set seed
-                        let new_game = GameState { seed, ..GameState::default() };
+                        let new_game = GameState {
+                            seed,
+                            ..GameState::default()
+                        };
                         state.set(Some(new_game));
                     })
                 };

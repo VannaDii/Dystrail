@@ -3,7 +3,7 @@ use thirtyfour::prelude::*;
 
 use crate::browser::TestBridge;
 use crate::logic::game_tester::{GameTester, GameplayStrategy};
-use dystrail_web::game::{GameMode, GameState};
+use dystrail_game::{GameMode, GameState};
 
 pub mod full_game;
 pub mod playability;
@@ -179,10 +179,12 @@ impl BrowserScenario for BasicGameCreationTest {
 
 impl CombinedScenario for BasicGameCreationTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Basic Game State Creation")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Basic Game State Creation")
+                .unwrap(),
+        )
     }
 }
 
@@ -195,10 +197,12 @@ impl BrowserScenario for ShareCodeConsistencyTest {
 
 impl CombinedScenario for ShareCodeConsistencyTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Share Code Generation and Parsing")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Share Code Generation and Parsing")
+                .unwrap(),
+        )
     }
 }
 
@@ -211,10 +215,12 @@ impl BrowserScenario for DeterministicGameplayTest {
 
 impl CombinedScenario for DeterministicGameplayTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Deterministic Game Behavior")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Deterministic Game Behavior")
+                .unwrap(),
+        )
     }
 }
 
@@ -227,10 +233,12 @@ impl BrowserScenario for EncounterChoicesTest {
 
 impl CombinedScenario for EncounterChoicesTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Encounter Choice Processing")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Encounter Choice Processing")
+                .unwrap(),
+        )
     }
 }
 
@@ -243,10 +251,12 @@ impl BrowserScenario for VehicleSystemTest {
 
 impl CombinedScenario for VehicleSystemTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Vehicle System Integration")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Vehicle System Integration")
+                .unwrap(),
+        )
     }
 }
 
@@ -259,10 +269,12 @@ impl BrowserScenario for WeatherEffectsTest {
 
 impl CombinedScenario for WeatherEffectsTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Weather System Effects")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Weather System Effects")
+                .unwrap(),
+        )
     }
 }
 
@@ -275,10 +287,12 @@ impl BrowserScenario for ResourceManagementTest {
 
 impl CombinedScenario for ResourceManagementTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Resource Management")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Resource Management")
+                .unwrap(),
+        )
     }
 }
 
@@ -291,10 +305,12 @@ impl BrowserScenario for StatsBoundariesTest {
 
 impl CombinedScenario for StatsBoundariesTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Stats Boundary Conditions")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Stats Boundary Conditions")
+                .unwrap(),
+        )
     }
 }
 
@@ -307,10 +323,12 @@ impl BrowserScenario for InventoryOperationsTest {
 
 impl CombinedScenario for InventoryOperationsTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Inventory Operations")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Inventory Operations")
+                .unwrap(),
+        )
     }
 }
 
@@ -323,10 +341,12 @@ impl BrowserScenario for GameModeVariationsTest {
 
 impl CombinedScenario for GameModeVariationsTest {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(crate::common::scenarios::get_all_scenarios()
-            .into_iter()
-            .find(|s| s.name == "Game Mode Variations")
-            .unwrap())
+        Some(
+            crate::common::scenarios::get_all_scenarios()
+                .into_iter()
+                .find(|s| s.name == "Game Mode Variations")
+                .unwrap(),
+        )
     }
 }
 
@@ -351,7 +371,9 @@ pub fn get_scenario(name: &str) -> Option<Box<dyn CombinedScenario + Send + Sync
         // Comprehensive test scenarios
         "basic-game-creation" | "basic" => Some(Box::new(BasicGameCreationTest)),
         "share-code-consistency" | "share-code" => Some(Box::new(ShareCodeConsistencyTest)),
-        "deterministic-gameplay" | "deterministic-game" => Some(Box::new(DeterministicGameplayTest)),
+        "deterministic-gameplay" | "deterministic-game" => {
+            Some(Box::new(DeterministicGameplayTest))
+        }
         "encounter-choices" | "encounters" => Some(Box::new(EncounterChoicesTest)),
         "vehicle-system" | "vehicle" => Some(Box::new(VehicleSystemTest)),
         "weather-effects" | "weather" => Some(Box::new(WeatherEffectsTest)),

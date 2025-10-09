@@ -1,11 +1,14 @@
-use crate::i18n;
-use crate::game::{GameState, CampConfig, camp_rest, camp_forage, camp_therapy, camp_repair_spare, camp_repair_hack, can_repair, can_therapy};
 use crate::a11y::set_status;
+use crate::game::{
+    CampConfig, GameState, camp_forage, camp_repair_hack, camp_repair_spare, camp_rest,
+    camp_therapy, can_repair, can_therapy,
+};
+use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
 use std::rc::Rc;
-use yew::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
+use yew::prelude::*;
 
 #[derive(Properties, Clone)]
 pub struct Props {
@@ -17,8 +20,8 @@ pub struct Props {
 
 impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.game_state, &other.game_state) &&
-        Rc::ptr_eq(&self.camp_config, &other.camp_config)
+        Rc::ptr_eq(&self.game_state, &other.game_state)
+            && Rc::ptr_eq(&self.camp_config, &other.camp_config)
     }
 }
 
@@ -70,7 +73,7 @@ pub fn camp_panel(p: &Props) -> Html {
                 }
                 (CampView::Main, 2) => {
                     // Repair Vehicle
-                    if can_repair(&new_state) {
+                    if can_repair(&new_state, &camp_config) {
                         view_setter.set(CampView::Repair);
                         return;
                     }
@@ -189,7 +192,7 @@ pub fn camp_panel(p: &Props) -> Html {
 
     match &*current_view {
         CampView::Main => {
-            let can_repair_now = can_repair(&p.game_state);
+            let can_repair_now = can_repair(&p.game_state, &p.camp_config);
             let can_therapy_now = can_therapy(&p.game_state, &p.camp_config);
 
             let items = vec![
@@ -250,7 +253,8 @@ pub fn camp_panel(p: &Props) -> Html {
         }
         CampView::Repair => {
             let breakdown = p.game_state.breakdown.as_ref();
-            let part_name = breakdown.map_or_else(|| "Unknown".to_string(), |b| i18n::t(b.part.key()));
+            let part_name =
+                breakdown.map_or_else(|| "Unknown".to_string(), |b| i18n::t(b.part.key()));
 
             let items = vec![
                 (1_u8, i18n::t("camp.menu.use_spare"), true),

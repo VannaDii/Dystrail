@@ -30,8 +30,8 @@ mod tests {
 
         for locale in locales {
             let path = format!("i18n/{locale}.json");
-            let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {path}"));
+            let content =
+                std::fs::read_to_string(&path).unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
                 .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
@@ -52,8 +52,8 @@ mod tests {
 
         for locale in locales {
             let path = format!("i18n/{locale}.json");
-            let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {path}"));
+            let content =
+                std::fs::read_to_string(&path).unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
                 .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
@@ -89,8 +89,8 @@ mod tests {
 
         for locale in locales {
             let path = format!("i18n/{locale}.json");
-            let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {path}"));
+            let content =
+                std::fs::read_to_string(&path).unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let _json: Value = serde_json::from_str(&content)
                 .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
@@ -128,8 +128,8 @@ mod tests {
 
         for locale in locales {
             let path = format!("i18n/{locale}.json");
-            let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {path}"));
+            let content =
+                std::fs::read_to_string(&path).unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             let json: Value = serde_json::from_str(&content)
                 .unwrap_or_else(|_| panic!("Failed to parse JSON in {path}"));
@@ -149,8 +149,8 @@ mod tests {
 
         for locale in locales {
             let path = format!("i18n/{locale}.json");
-            let content = std::fs::read_to_string(&path)
-                .unwrap_or_else(|_| panic!("Failed to read {path}"));
+            let content =
+                std::fs::read_to_string(&path).unwrap_or_else(|_| panic!("Failed to read {path}"));
 
             // Check that the JSON parses correctly
             let _json: Value = serde_json::from_str(&content)

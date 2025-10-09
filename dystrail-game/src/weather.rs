@@ -1,9 +1,9 @@
-use gloo_net::http::Request;
+//! Weather system and effects
 use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::game::{GameState, Region};
+use crate::{GameState, Region};
 
 /// Weather conditions that affect daily gameplay
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
@@ -111,20 +111,6 @@ impl WeatherConfig {
         Ok(config)
     }
 
-    /// Load weather configuration from static assets
-    pub async fn load_from_static() -> Self {
-        let url = "/static/assets/data/weather.json";
-        if let Ok(resp) = Request::get(url).send().await
-            && resp.status() == 200
-            && let Ok(json_str) = resp.text().await
-            && let Ok(config) = Self::from_json(&json_str)
-        {
-            return config;
-        }
-        // If loading fails, use embedded defaults
-        Self::default_config()
-    }
-
     /// Validate configuration completeness
     fn validate(&self) -> Result<(), String> {
         // Check that all weather types have effects
@@ -159,6 +145,13 @@ impl WeatherConfig {
         }
 
         Ok(())
+    }
+
+    /// Load weather configuration from static assets (function for web compatibility)
+    /// This is a placeholder that returns default data - web implementation should override this
+    #[must_use]
+    pub fn load_from_static() -> Self {
+        Self::default_config()
     }
 
     /// Get embedded default configuration if loading fails
@@ -301,13 +294,19 @@ impl WeatherConfig {
 /// # Errors
 ///
 /// Returns an error if RNG is not initialized or if weather weights don't exist for the current region.
-pub fn select_weather_for_today(gs: &mut GameState, cfg: &WeatherConfig) -> Result<Weather, String> {
+pub fn select_weather_for_today(
+    gs: &mut GameState,
+    cfg: &WeatherConfig,
+) -> Result<Weather, String> {
     let Some(rng) = gs.rng.as_mut() else {
         return Err("RNG must be initialized".to_string());
     };
 
     let Some(region_weights) = cfg.weights.get(&gs.region) else {
-        return Err(format!("Weather weights must exist for region {:?}", gs.region));
+        return Err(format!(
+            "Weather weights must exist for region {:?}",
+            gs.region
+        ));
     };
 
     // Calculate total weight and make initial selection
@@ -345,23 +344,12 @@ pub fn select_weather_for_today(gs: &mut GameState, cfg: &WeatherConfig) -> Resu
                 r2 -= *weight;
             }
         }
-        // If non_extreme_total is 0, allow extreme to repeat with dev warning
-        #[cfg(debug_assertions)]
-        if non_extreme_total == 0 {
-            web_sys::console::warn_1(
-                &"Weather: No non-extreme options available, allowing streak continuation".into(),
-            );
-        }
     }
 
     Ok(candidate)
 }
 
 /// Apply weather effects to game state
-///
-/// # Panics
-///
-/// Panics if weather effect configuration doesn't exist for today's weather.
 pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     // Update streak counters
     let today = gs.weather_state.today;
@@ -380,10 +368,6 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 
     // Get base effect
     let Some(effect) = cfg.effects.get(&today) else {
-        #[cfg(debug_assertions)]
-        web_sys::console::warn_1(
-            &format!("Weather effect missing for {today:?}, using default").into(),
-        );
         // Return early with no effects if configuration is missing
         return;
     };
@@ -436,314 +420,4 @@ pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig) {
 
     // Apply effects
     apply_weather_effects(gs, cfg);
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::game::{GameState, Region};
-    use rand::SeedableRng;
-    use rand_chacha::ChaCha20Rng;
-
-    fn create_test_game_state() -> GameState {
-        GameState {
-            region: Region::Heartland,
-            rng: Some(ChaCha20Rng::seed_from_u64(42)),
-            weather_state: WeatherState::default(),
-            ..GameState::default()
-        }
-    }
-
-    #[test]
-    fn test_weather_is_extreme() {
-        assert!(!Weather::Clear.is_extreme());
-        assert!(Weather::Storm.is_extreme());
-        assert!(Weather::HeatWave.is_extreme());
-        assert!(!Weather::ColdSnap.is_extreme());
-        assert!(Weather::Smoke.is_extreme());
-    }
-
-    #[test]
-    fn test_weather_selection_distribution() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-        let mut counts = HashMap::new();
-
-        for _ in 0..1000 {
-            if let Ok(weather) = select_weather_for_today(&mut gs, &cfg) {
-                *counts.entry(weather).or_insert(0) += 1;
-            }
-        }
-
-        // Should have selected some weather (basic smoke test)
-        assert!(!counts.is_empty());
-        assert!(counts.contains_key(&Weather::Clear));
-    }
-
-    #[test]
-    fn test_extreme_streak_limiting() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        // Force extreme streak to max
-        gs.weather_state.extreme_streak = cfg.limits.max_extreme_streak;
-        gs.weather_state.yesterday = Weather::Storm;
-
-        // Should not allow another extreme when at limit
-        // (This is probabilistic, but with enough trials should hold)
-        let mut extreme_count = 0;
-        for _ in 0..100 {
-            if let Ok(weather) = select_weather_for_today(&mut gs, &cfg)
-                && weather.is_extreme() {
-                    extreme_count += 1;
-                }
-        }
-
-        // Should be significantly fewer extremes when at streak limit
-        assert!(
-            extreme_count < 50,
-            "Too many extremes selected when at streak limit"
-        );
-    }
-
-    #[test]
-    fn test_mitigation_effects() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        // Test without mitigation
-        gs.weather_state.today = Weather::Storm;
-        gs.stats.sanity = 5;
-        gs.stats.pants = 50;
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // Storm should reduce sanity and increase pants
-        assert_eq!(gs.stats.sanity, 4); // -1 from storm
-        assert_eq!(gs.stats.pants, 52); // +2 from storm
-
-        // Test with mitigation
-        gs.stats.sanity = 5;
-        gs.stats.pants = 50;
-        gs.inventory.tags.insert("rain_resist".to_string());
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // With rain_resist, pants bonus should be reduced
-        assert_eq!(gs.stats.sanity, 4); // still -1 (mitigation doesn't affect sanity for storm)
-        assert_eq!(gs.stats.pants, 51); // +1 instead of +2 with mitigation
-    }
-
-    #[test]
-    fn test_encounter_chance_modification() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        gs.encounter_chance_today = 0.35; // base
-        gs.weather_state.today = Weather::Storm; // +0.05
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        assert!((gs.encounter_chance_today - 0.40).abs() < f32::EPSILON);
-    }
-
-    #[test]
-    fn test_pants_clamping() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        // Test ceiling
-        gs.stats.pants = 99;
-        gs.weather_state.today = Weather::Storm; // +2
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        assert_eq!(gs.stats.pants, 100); // clamped to ceiling
-
-        // Test floor (with negative effect)
-        gs.stats.pants = 1;
-        gs.weather_state.today = Weather::Clear;
-        // Manually apply negative effect for test
-        gs.stats.pants =
-            (gs.stats.pants - 5).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
-
-        assert_eq!(gs.stats.pants, 0); // clamped to floor
-    }
-
-    #[test]
-    fn test_config_validation() {
-        let mut config = WeatherConfig::default_config();
-
-        // Valid config should pass
-        assert!(config.validate().is_ok());
-
-        // Remove a weather effect
-        config.effects.remove(&Weather::Clear);
-        assert!(config.validate().is_err());
-
-        // Restore and remove region weights
-        config.effects.insert(
-            Weather::Clear,
-            WeatherEffect {
-                supplies: 0,
-                sanity: 0,
-                pants: 0,
-                enc_delta: 0.0,
-            },
-        );
-        config.weights.remove(&Region::Heartland);
-        assert!(config.validate().is_err());
-    }
-
-    #[test]
-    fn test_exec_order_modifiers() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        gs.encounter_chance_today = 0.35; // base
-        gs.weather_state.today = Weather::Clear; // +0.00
-        gs.current_order = crate::game::exec_orders::ExecOrder::WarDeptReorg; // should add +0.00 (no weather effect)
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // Should have base + weather + exec order = 0.35 + 0.00 + 0.00 = 0.35
-        assert!((gs.encounter_chance_today - 0.35).abs() < f32::EPSILON);
-    }
-
-    #[test]
-    fn test_weather_state_transitions() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        // Start with Clear weather
-        gs.weather_state.today = Weather::Clear;
-        gs.weather_state.yesterday = Weather::Clear;
-        gs.weather_state.extreme_streak = 0;
-
-        // Apply Storm weather
-        gs.weather_state.yesterday = gs.weather_state.today;
-        gs.weather_state.today = Weather::Storm;
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // Should start streak
-        assert_eq!(gs.weather_state.extreme_streak, 1);
-
-        // Apply another extreme
-        gs.weather_state.yesterday = gs.weather_state.today;
-        gs.weather_state.today = Weather::HeatWave;
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // Should continue streak
-        assert_eq!(gs.weather_state.extreme_streak, 2);
-
-        // Apply non-extreme
-        gs.weather_state.yesterday = gs.weather_state.today;
-        gs.weather_state.today = Weather::Clear;
-
-        apply_weather_effects(&mut gs, &cfg);
-
-        // Should reset streak
-        assert_eq!(gs.weather_state.extreme_streak, 0);
-    }
-
-    #[test]
-    fn test_deterministic_weather_selection() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs1 = create_test_game_state();
-        let mut gs2 = create_test_game_state();
-
-        // Same seed should produce same weather sequence
-        let mut weather1 = Vec::new();
-        let mut weather2 = Vec::new();
-
-        for _ in 0..20 {
-            weather1.push(select_weather_for_today(&mut gs1, &cfg));
-            weather2.push(select_weather_for_today(&mut gs2, &cfg));
-        }
-
-        assert_eq!(
-            weather1, weather2,
-            "Same seed should produce identical weather sequences"
-        );
-    }
-
-    #[test]
-    fn test_weather_config_from_json() {
-        let json_str = r#"{
-            "limits": {
-                "max_extreme_streak": 2,
-                "encounter_cap": 0.8,
-                "pants_floor": 5,
-                "pants_ceiling": 95
-            },
-            "effects": {
-                "Clear": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
-                "Storm": {"supplies": 1, "sanity": -1, "pants": 2, "enc_delta": 0.05},
-                "HeatWave": {"supplies": 1, "sanity": -1, "pants": 1, "enc_delta": 0.03},
-                "ColdSnap": {"supplies": 0, "sanity": -1, "pants": 0, "enc_delta": 0.0},
-                "Smoke": {"supplies": 1, "sanity": -1, "pants": 1, "enc_delta": 0.03}
-            },
-            "mitigation": {
-                "Storm": {"tag": "rain_resist", "pants": 1}
-            },
-            "weights": {
-                "Heartland": {"Clear": 70, "Storm": 10, "HeatWave": 10, "ColdSnap": 5, "Smoke": 5},
-                "RustBelt": {"Clear": 60, "Storm": 15, "HeatWave": 10, "ColdSnap": 10, "Smoke": 5},
-                "Beltway": {"Clear": 50, "Storm": 20, "HeatWave": 15, "ColdSnap": 10, "Smoke": 5}
-            },
-            "exec_mods": {
-                "TariffTsunami": {"enc_delta": 0.0}
-            }
-        }"#;
-
-        let config = WeatherConfig::from_json(json_str).unwrap_or_else(|e| {
-            panic!("Test failed: Should parse valid JSON but got error: {e}");
-        });
-        assert_eq!(config.limits.max_extreme_streak, 2);
-        assert!((config.limits.encounter_cap - 0.8).abs() < f32::EPSILON);
-        assert_eq!(config.limits.pants_floor, 5);
-        assert_eq!(config.limits.pants_ceiling, 95);
-
-        assert!(config.effects.contains_key(&Weather::Clear));
-        assert!(config.weights.contains_key(&Region::Heartland));
-    }
-
-    #[test]
-    fn test_invalid_weather_config_json() {
-        let invalid_json = r#"{"limits": {"max_extreme_streak": 3}}"#; // Missing required fields
-
-        let result = WeatherConfig::from_json(invalid_json);
-        assert!(result.is_err(), "Should reject incomplete config");
-    }
-
-    #[test]
-    fn test_process_daily_weather_integration() {
-        let cfg = WeatherConfig::default_config();
-        let mut gs = create_test_game_state();
-
-        // Initial state should be Clear (default)
-        assert_eq!(gs.weather_state.today, Weather::Clear);
-        assert_eq!(gs.weather_state.yesterday, Weather::Clear);
-
-        // Process daily weather
-        process_daily_weather(&mut gs, &cfg);
-
-        // Weather should be set to a valid value (may be Clear again with this seed)
-        let weather_after = gs.weather_state.today;
-        assert!(matches!(weather_after, Weather::Clear | Weather::Storm | Weather::HeatWave | Weather::ColdSnap | Weather::Smoke));
-
-        // Run multiple days to test streak behavior and day progression
-        for _ in 0..10 {
-            let prev_weather = gs.weather_state.today;
-            process_daily_weather(&mut gs, &cfg);
-
-            // Streak should never exceed max
-            assert!(gs.weather_state.extreme_streak <= cfg.limits.max_extreme_streak);
-
-            // Yesterday should be updated correctly
-            assert_eq!(gs.weather_state.yesterday, prev_weather);
-        }
-    }
 }

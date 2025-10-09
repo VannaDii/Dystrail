@@ -1,9 +1,9 @@
-use crate::i18n;
 use crate::game::{GameState, ResultConfig, ResultSummary, result_summary};
-use yew::prelude::*;
-use web_sys::{window, HtmlTextAreaElement};
-use wasm_bindgen::JsCast;
+use crate::i18n;
 use gloo::utils::document;
+use wasm_bindgen::JsCast;
+use web_sys::{HtmlTextAreaElement, window};
+use yew::prelude::*;
 
 /// Properties for the result screen component
 #[derive(Properties, Clone)]
@@ -20,8 +20,7 @@ pub struct Props {
 impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
         // Compare only the meaningful parts for re-rendering
-        self.boss_won == other.boss_won &&
-        self.result_config == other.result_config
+        self.boss_won == other.boss_won && self.result_config == other.result_config
         // We don't compare callbacks or game_state as they change frequently
     }
 }
@@ -162,7 +161,7 @@ impl Component for ResultScreen {
 impl ResultScreen {
     fn get_summary(ctx: &Context<Self>) -> Result<ResultSummary, String> {
         let props = ctx.props();
-        result_summary(&props.game_state, &props.result_config, props.boss_won)
+        result_summary(&props.game_state, &props.result_config)
     }
 
     fn render_menu_item(&self, index: u8, label: &str, on_action: &Callback<u8>) -> Html {
@@ -337,26 +336,26 @@ impl ResultScreen {
         if let Some(window) = window()
             && let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into())
             && let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into())
-            && let Ok(formatter) = js_sys::Reflect::construct(
-                &number_format.into(),
-                &js_sys::Array::new(),
-            )
+            && let Ok(formatter) =
+                js_sys::Reflect::construct(&number_format.into(), &js_sys::Array::new())
             && let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into())
             && let Ok(result) = js_sys::Reflect::apply(
                 &format_fn.into(),
                 &formatter,
                 &js_sys::Array::of1(&(n.into())),
             )
-            && let Some(formatted) = result.as_string() {
-                formatted
-            } else {
-                // Fallback to simple formatting
-                n.to_string()
-            }
+            && let Some(formatted) = result.as_string()
+        {
+            formatted
+        } else {
+            // Fallback to simple formatting
+            n.to_string()
+        }
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {
-        ctx.link().send_message(Msg::AnnouncementChange(message.to_string()));
+        ctx.link()
+            .send_message(Msg::AnnouncementChange(message.to_string()));
     }
 }
 

@@ -1,0 +1,22 @@
+[package]
+name = "dystrail-game"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Core game logic for Dystrail - platform-agnostic game engine"
+
+[dependencies]
+# Core dependencies for game logic
+serde = { workspace = true }
+serde_json = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Optional dependencies for specific features
+tokio = { version = "1.0", optional = true, features = ["macros", "rt"] }
+
+[features]
+default = []
+async = ["tokio"]

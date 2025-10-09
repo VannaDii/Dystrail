@@ -1,16 +1,16 @@
 mod browser;
-mod logic;
 mod common;
+mod logic;
 
 use anyhow::Result;
 use clap::{Parser, ValueEnum};
 use colored::Colorize;
 use std::time::Instant;
 
-use browser::{TestBridge, BrowserConfig, BrowserKind, new_session};
-use logic::LogicTester;
-use common::{artifacts_dir, capture_artifacts, split_csv};
+use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario};
+use common::{artifacts_dir, capture_artifacts, split_csv};
+use logic::LogicTester;
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 pub enum TestMode {

@@ -60,9 +60,10 @@ fn saved_lang() -> String {
         let win = web_sys::window();
         if let Some(win) = win
             && let Ok(Some(storage)) = win.local_storage()
-            && let Ok(Some(lang)) = storage.get_item("dystrail.locale") {
-                return lang;
-            }
+            && let Ok(Some(lang)) = storage.get_item("dystrail.locale")
+        {
+            return lang;
+        }
         "en".to_string()
     }
     #[cfg(test)]

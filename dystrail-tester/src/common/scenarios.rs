@@ -6,8 +6,8 @@
 #![allow(dead_code)] // These functions are preserved test scenarios
 
 use anyhow::Result;
-use dystrail_web::game::{GameState, GameMode};
-use serde::{Serialize, Deserialize};
+use dystrail_game::{GameMode, GameState};
+use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
 use crate::common::scenario::TestScenario;
@@ -81,7 +81,11 @@ pub fn get_scenarios_by_names(names: &[String]) -> Vec<TestScenario> {
     let all_scenarios = get_all_scenarios();
     all_scenarios
         .into_iter()
-        .filter(|s| names.iter().any(|name| s.name.to_lowercase().contains(&name.to_lowercase())))
+        .filter(|s| {
+            names
+                .iter()
+                .any(|name| s.name.to_lowercase().contains(&name.to_lowercase()))
+        })
         .collect()
 }
 
@@ -150,7 +154,10 @@ fn test_basic_game_creation(game_state: &mut GameState) -> Result<()> {
     }
 
     if game_state.budget <= 0 {
-        anyhow::bail!("Default budget should be positive, got {}", game_state.budget);
+        anyhow::bail!(
+            "Default budget should be positive, got {}",
+            game_state.budget
+        );
     }
 
     if game_state.day == 0 {
@@ -159,17 +166,24 @@ fn test_basic_game_creation(game_state: &mut GameState) -> Result<()> {
 
     // Basic sanity checks
     anyhow::ensure!(game_state.stats.hp > 0, "Health must be positive");
-    anyhow::ensure!(game_state.stats.supplies >= 0, "Supplies cannot be negative");
+    anyhow::ensure!(
+        game_state.stats.supplies >= 0,
+        "Supplies cannot be negative"
+    );
     anyhow::ensure!(game_state.day >= 1, "Day must be at least 1");
 
     Ok(())
 }
 
 fn test_share_code_consistency(_game_state: &mut GameState) -> Result<()> {
-    use dystrail_web::game::seed::{encode_friendly, decode_to_seed};
+    use dystrail_game::seed::{decode_to_seed, encode_friendly};
 
     // Test share code round-trip consistency
-    let test_seeds = vec![0xDEAD_BEEF_CAFE_BABE, 0x1234_5678_9ABC_DEF0, 0x0000_0000_0000_0001];
+    let test_seeds = vec![
+        0xDEAD_BEEF_CAFE_BABE,
+        0x1234_5678_9ABC_DEF0,
+        0x0000_0000_0000_0001,
+    ];
 
     for seed in test_seeds {
         // Test classic mode round-trip
@@ -177,7 +191,10 @@ fn test_share_code_consistency(_game_state: &mut GameState) -> Result<()> {
         if let Some((is_deep, decoded_seed)) = decode_to_seed(&classic_code) {
             anyhow::ensure!(!is_deep, "Classic code should decode as not deep");
             let re_encoded = encode_friendly(false, decoded_seed);
-            anyhow::ensure!(re_encoded == classic_code, "Classic round-trip failed: {classic_code} != {re_encoded}");
+            anyhow::ensure!(
+                re_encoded == classic_code,
+                "Classic round-trip failed: {classic_code} != {re_encoded}"
+            );
         } else {
             anyhow::bail!("Failed to decode classic share code: {classic_code}");
         }
@@ -187,7 +204,10 @@ fn test_share_code_consistency(_game_state: &mut GameState) -> Result<()> {
         if let Some((is_deep, decoded_seed)) = decode_to_seed(&deep_code) {
             anyhow::ensure!(is_deep, "Deep code should decode as deep");
             let re_encoded = encode_friendly(true, decoded_seed);
-            anyhow::ensure!(re_encoded == deep_code, "Deep round-trip failed: {deep_code} != {re_encoded}");
+            anyhow::ensure!(
+                re_encoded == deep_code,
+                "Deep round-trip failed: {deep_code} != {re_encoded}"
+            );
         } else {
             anyhow::bail!("Failed to decode deep share code: {deep_code}");
         }
@@ -198,7 +218,10 @@ fn test_share_code_consistency(_game_state: &mut GameState) -> Result<()> {
     for code in known_codes {
         if let Some((is_deep, decoded_seed)) = decode_to_seed(code) {
             let re_encoded = encode_friendly(is_deep, decoded_seed);
-            anyhow::ensure!(re_encoded == code, "Known code round-trip failed: {code} != {re_encoded}");
+            anyhow::ensure!(
+                re_encoded == code,
+                "Known code round-trip failed: {code} != {re_encoded}"
+            );
         } else {
             anyhow::bail!("Failed to decode known share code: {code}");
         }
@@ -229,7 +252,10 @@ fn test_deterministic_gameplay(game_state: &mut GameState) -> Result<()> {
 
     anyhow::ensure!(game_state.day == 1, "Day should reset to 1");
     anyhow::ensure!(game_state.stats.hp == initial_stats.hp, "HP should reset");
-    anyhow::ensure!(game_state.stats.supplies == initial_stats.supplies, "Supplies should reset");
+    anyhow::ensure!(
+        game_state.stats.supplies == initial_stats.supplies,
+        "Supplies should reset"
+    );
 
     Ok(())
 }
@@ -252,16 +278,25 @@ fn test_encounter_choices(game_state: &mut GameState) -> Result<()> {
     game_state.stats.supplies += 2;
     game_state.budget -= 10;
 
-    anyhow::ensure!(game_state.stats.hp == initial_hp - 1, "HP choice should affect stats");
-    anyhow::ensure!(game_state.stats.supplies == initial_supplies + 2, "Supply choice should affect stats");
-    anyhow::ensure!(game_state.budget == initial_budget - 10, "Budget choice should affect stats");
+    anyhow::ensure!(
+        game_state.stats.hp == initial_hp - 1,
+        "HP choice should affect stats"
+    );
+    anyhow::ensure!(
+        game_state.stats.supplies == initial_supplies + 2,
+        "Supply choice should affect stats"
+    );
+    anyhow::ensure!(
+        game_state.budget == initial_budget - 10,
+        "Budget choice should affect stats"
+    );
 
     Ok(())
 }
 
 fn setup_vehicle_test(game_state: &mut GameState) {
     // Set up vehicle for testing
-    game_state.vehicle = dystrail_web::game::vehicle::Vehicle::default();
+    game_state.vehicle = dystrail_game::vehicle::Vehicle::default();
     game_state.inventory.spares.tire = 2;
     game_state.inventory.spares.battery = 1;
 }
@@ -281,18 +316,21 @@ fn test_vehicle_breakdown(game_state: &mut GameState) -> Result<()> {
     );
 
     // Verify breakdown state can be set
-    game_state.breakdown = Some(dystrail_web::game::vehicle::Breakdown {
-        part: dystrail_web::game::vehicle::Part::Tire,
+    game_state.breakdown = Some(dystrail_game::vehicle::Breakdown {
+        part: dystrail_game::vehicle::Part::Tire,
         day_started: i32::try_from(game_state.day).unwrap_or(1),
     });
-    anyhow::ensure!(game_state.breakdown.is_some(), "Should be able to set breakdown state");
+    anyhow::ensure!(
+        game_state.breakdown.is_some(),
+        "Should be able to set breakdown state"
+    );
 
     Ok(())
 }
 
 fn setup_weather_test(game_state: &mut GameState) {
     // Initialize weather system
-    game_state.weather_state = dystrail_web::game::weather::WeatherState::default();
+    game_state.weather_state = dystrail_game::weather::WeatherState::default();
 }
 
 fn test_weather_effects(game_state: &mut GameState) -> Result<()> {
@@ -336,7 +374,10 @@ fn test_resource_management(game_state: &mut GameState) -> Result<()> {
     // Test that stats clamp properly
     game_state.stats.supplies = -5; // Invalid value
     game_state.stats.clamp();
-    anyhow::ensure!(game_state.stats.supplies >= 0, "Stats should clamp to valid ranges");
+    anyhow::ensure!(
+        game_state.stats.supplies >= 0,
+        "Stats should clamp to valid ranges"
+    );
 
     Ok(())
 }
@@ -352,8 +393,14 @@ fn test_stats_boundaries(game_state: &mut GameState) -> Result<()> {
 
     anyhow::ensure!(game_state.stats.hp <= 10, "HP should clamp to max 10");
     anyhow::ensure!(game_state.stats.sanity >= 0, "Sanity should clamp to min 0");
-    anyhow::ensure!(game_state.stats.credibility <= 20, "Credibility should clamp to max 20");
-    anyhow::ensure!(game_state.stats.supplies >= 0, "Supplies should clamp to min 0");
+    anyhow::ensure!(
+        game_state.stats.credibility <= 20,
+        "Credibility should clamp to max 20"
+    );
+    anyhow::ensure!(
+        game_state.stats.supplies >= 0,
+        "Supplies should clamp to min 0"
+    );
 
     Ok(())
 }
@@ -367,8 +414,14 @@ fn setup_inventory_test(game_state: &mut GameState) {
 
 fn test_inventory_operations(game_state: &mut GameState) -> Result<()> {
     // Test spare parts
-    anyhow::ensure!(game_state.inventory.spares.tire == 3, "Should have 3 tire spares");
-    anyhow::ensure!(game_state.inventory.spares.battery == 1, "Should have 1 battery spare");
+    anyhow::ensure!(
+        game_state.inventory.spares.tire == 3,
+        "Should have 3 tire spares"
+    );
+    anyhow::ensure!(
+        game_state.inventory.spares.battery == 1,
+        "Should have 1 battery spare"
+    );
 
     // Test tags
     anyhow::ensure!(
@@ -395,7 +448,10 @@ fn test_inventory_operations(game_state: &mut GameState) -> Result<()> {
 fn test_game_modes(game_state: &mut GameState) -> Result<()> {
     // Test mode switching
     game_state.mode = GameMode::Classic;
-    anyhow::ensure!(!game_state.mode.is_deep(), "Classic mode should not be deep");
+    anyhow::ensure!(
+        !game_state.mode.is_deep(),
+        "Classic mode should not be deep"
+    );
 
     game_state.mode = GameMode::Deep;
     anyhow::ensure!(game_state.mode.is_deep(), "Deep mode should be deep");

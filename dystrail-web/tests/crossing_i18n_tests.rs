@@ -3,7 +3,9 @@ use serde_json::Value;
 /// Test that all crossing i18n keys exist in all locales
 #[test]
 fn test_crossing_i18n_coverage() {
-    let locales = ["ar", "en", "fr", "it", "pt", "zh", "bn", "es", "hi", "ja", "ru"];
+    let locales = [
+        "ar", "en", "fr", "it", "pt", "zh", "bn", "es", "hi", "ja", "ru",
+    ];
     let expected_keys = get_expected_crossing_keys();
 
     for locale in &locales {
@@ -21,39 +23,56 @@ fn test_crossing_i18n_coverage() {
             }
         }
 
-        assert!(missing_keys.is_empty(),
-                "Missing i18n keys in {}: {}",
-                file_path,
-                missing_keys.join(", ")
-            );
+        assert!(
+            missing_keys.is_empty(),
+            "Missing i18n keys in {}: {}",
+            file_path,
+            missing_keys.join(", ")
+        );
     }
 }
 
 /// Test interpolation structure is present in English locale
 #[test]
 fn test_crossing_i18n_interpolation_structure() {
-    let content = std::fs::read_to_string("i18n/en.json")
-        .expect("Failed to read English locale file");
+    let content =
+        std::fs::read_to_string("i18n/en.json").expect("Failed to read English locale file");
 
-    let json: serde_json::Value = serde_json::from_str(&content)
-        .expect("Failed to parse English JSON");
+    let json: serde_json::Value =
+        serde_json::from_str(&content).expect("Failed to parse English JSON");
 
     let cross = json.get("cross").expect("Missing cross section");
 
     // Test that interpolatable strings contain placeholders
-    let detour_option = cross.get("options").and_then(|o| o.get("detour"))
+    let detour_option = cross
+        .get("options")
+        .and_then(|o| o.get("detour"))
         .and_then(|v| v.as_str())
         .expect("Missing detour option");
 
-    assert!(detour_option.contains("{days}"), "detour option should have days placeholder");
-    assert!(detour_option.contains("{supplies}"), "detour option should have supplies placeholder");
-    assert!(detour_option.contains("{pants}"), "detour option should have pants placeholder");
+    assert!(
+        detour_option.contains("{days}"),
+        "detour option should have days placeholder"
+    );
+    assert!(
+        detour_option.contains("{supplies}"),
+        "detour option should have supplies placeholder"
+    );
+    assert!(
+        detour_option.contains("{pants}"),
+        "detour option should have pants placeholder"
+    );
 
-    let bribe_option = cross.get("options").and_then(|o| o.get("bribe"))
+    let bribe_option = cross
+        .get("options")
+        .and_then(|o| o.get("bribe"))
         .and_then(|v| v.as_str())
         .expect("Missing bribe option");
 
-    assert!(bribe_option.contains("{cost}"), "bribe option should have cost placeholder");
+    assert!(
+        bribe_option.contains("{cost}"),
+        "bribe option should have cost placeholder"
+    );
 }
 
 /// Test that configuration JSON is valid
@@ -62,8 +81,8 @@ fn test_crossing_config_structure() {
     let config_content = std::fs::read_to_string("static/assets/data/crossings.json")
         .expect("crossings.json should exist");
 
-    let config: serde_json::Value = serde_json::from_str(&config_content)
-        .expect("crossings.json should be valid JSON");
+    let config: serde_json::Value =
+        serde_json::from_str(&config_content).expect("crossings.json should be valid JSON");
 
     // Should have types section
     assert!(config.get("types").is_some());

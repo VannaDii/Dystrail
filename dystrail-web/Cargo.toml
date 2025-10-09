@@ -10,6 +10,7 @@ name = "dystrail_web"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+dystrail-game = { path = "../dystrail-game" }
 yew = { workspace = true }
 yew-router = { workspace = true }
 wasm-bindgen = { workspace = true }

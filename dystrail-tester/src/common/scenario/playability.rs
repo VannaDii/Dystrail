@@ -1,5 +1,5 @@
 use anyhow::Result;
-use dystrail_web::game::result::{ResultConfig, select_ending};
+use dystrail_game::result::{ResultConfig, select_ending};
 use thirtyfour::prelude::*;
 
 use super::{BrowserScenario, CombinedScenario, ScenarioCtx, TestScenario};

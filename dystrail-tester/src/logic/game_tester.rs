@@ -1,6 +1,6 @@
-use dystrail_web::game::data::EncounterData;
-use dystrail_web::game::pacing::PacingConfig;
-use dystrail_web::game::{GameMode, GameState};
+use dystrail_game::data::EncounterData;
+use dystrail_game::pacing::PacingConfig;
+use dystrail_game::{GameMode, GameState};
 use rand::SeedableRng;
 use rand_chacha::ChaCha20Rng;
 
@@ -160,7 +160,7 @@ impl GameTester {
     }
 
     fn choose_encounter_action(
-        encounter: &dystrail_web::game::data::Encounter,
+        encounter: &dystrail_game::data::Encounter,
         _game_state: &GameState,
         strategy: GameplayStrategy,
     ) -> usize {

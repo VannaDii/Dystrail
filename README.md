@@ -12,12 +12,13 @@
 3. **Outfitting Store** → purchase supplies and gear before departure.
 4. **Share Code & Mode** → prefilled seed (e.g., `CL-ORANGE42`), paste a friend/streamer's code to replay their run.
 5. **Mode Select** → **Classic** or **The Deep End** (edgier encounters).
-6. **Travel System** → manage pace and diet while burning supplies; weather affects progress.
+6. **Travel System** → manage pace and diet while burning supplies; weather affects progress and breakdown chances.
 7. **Camp Management** → rest, resupply, and recover between legs.
 8. **Encounters** → multi-choice cards with stat effects (Raw Milk, Tariffs, Brain Worms, 5G towers, etc.).
 9. **Executive Orders** → rotating global debuffs affecting gameplay.
-10. **Vehicle Management** → maintain and upgrade your transportation.
-11. **Filibuster Boss** → multi-phase final challenge.
+10. **Vehicle Breakdowns** → random failures requiring spare parts or repair time.
+11. **Border Crossings** → navigate checkpoints with permits, bribes, or alternative routes.
+12. **Filibuster Boss** → multi-phase final challenge.
 12. **Result Screen** → comprehensive ending analysis with deterministic scoring, detailed statistics breakdown, shareable text generation, and replay functionality via **OT-style keyboard navigation** (1-9/0 keys).
 
 ## ✨ Features
@@ -25,8 +26,9 @@
 - **Six unique personas** with distinct starting stats and gameplay modifiers.
 - **Comprehensive survival mechanics**: supplies, sanity, credibility, morale, allies, budget.
 - **Dynamic weather and pacing systems** affecting travel and resource consumption.
-- **Vehicle management** with maintenance and upgrade systems.
+- **Vehicle breakdown system** with realistic maintenance and repair mechanics.
 - **Camp system** for rest and resupply between travel legs.
+- **Border crossings** with permit, bribe, or detour options.
 - **Outfitting store** for gear and supply management.
 - **Save system** with multiple save slots and import/export functionality.
 - **Modes**: `CL` (Classic) and `DP` (The Deep End) with different encounter pools.
@@ -40,12 +42,12 @@
 - **Meta tags**: clean social media unfurls on Discord, Slack, X/Twitter, Facebook.
 
 ## 📦 Assets & Data
-- `static/img/palette.png` — locked SNES-lite color palette
-- `static/img/spritesheet.png` — game sprites and tiles
-- `static/img/logo.png` — DYSTRAIL wordmark
-- `static/img/social-card.png` — 1200×630 Open Graph/Twitter card
-- `static/favicon.ico` — pants sprite favicon
-- `static/assets/data/` — game configuration files:
+- `dystrail-web/static/img/palette.png` — locked SNES-lite color palette
+- `dystrail-web/static/img/spritesheet.png` — game sprites and tiles
+- `dystrail-web/static/img/logo.png` — DYSTRAIL wordmark
+- `dystrail-web/static/img/social-card.png` — 1200×630 Open Graph/Twitter card
+- `dystrail-web/static/favicon.ico` — pants sprite favicon
+- `dystrail-web/static/assets/data/` — game configuration files:
   - `game.json` — encounters and choices
   - `personas.json` — character classes and stats
   - `pacing.json` — travel pace configurations
@@ -53,8 +55,9 @@
   - `weather.json` — weather system data
   - `camp.json` — camping and rest mechanics
   - `store.json` — shop items and prices
+  - `crossings.json` — border crossing configurations
   - `result.json` — result screen configuration and scoring parameters
-- `i18n/` — internationalization files for 20 languages
+- `dystrail-web/i18n/` — internationalization files for 20 languages
 
 ## 🛠 Dev Setup
 **Prerequisites:**
@@ -69,26 +72,38 @@ cargo install trunk
 # Clone and run dev server
 git clone https://github.com/VannaDii/Dystrail.git
 cd Dystrail
+cd dystrail-web  # Navigate to web frontend
 trunk serve --open
 ```
 
 **Building:**
 ```bash
-# Production build
+# Production build (from dystrail-web directory)
+cd dystrail-web
 trunk build --release
+
+# Or build all workspace crates
+cargo build --release
 ```
 
 **Testing:**
 ```bash
-# Run WASM tests
-wasm-pack test --headless --firefox
+# Run all tests across workspace
 cargo test
+
+# Run specific crate tests
+cargo test -p dystrail-game
+cargo test -p dystrail-web
+cargo test -p dystrail-tester
+
+# Run WASM tests in browser
+wasm-pack test --headless --firefox dystrail-web
 ```
 
 ## ➕ Contributing
 
 ### Adding Encounters
-Edit `static/assets/data/game.json`:
+Edit `dystrail-web/static/assets/data/game.json`:
 ```json
 {
   "id": "tariff_whiplash",
@@ -112,7 +127,7 @@ Edit `static/assets/data/game.json`:
 ```
 
 ### Adding Personas
-Edit `static/assets/data/personas.json`:
+Edit `dystrail-web/static/assets/data/personas.json`:
 ```json
 {
   "my_persona": {
@@ -126,7 +141,7 @@ Edit `static/assets/data/personas.json`:
 ```
 
 ### Internationalization
-Add translations to `i18n/{language}.json` files. Use `en.json` as the reference template.
+Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as the reference template.
 
 ### Code Style
 - Use Rust 2024 edition conventions
@@ -136,20 +151,35 @@ Add translations to `i18n/{language}.json` files. Use `en.json` as the reference
 
 ## 🏗️ Architecture
 
+**Workspace Structure:**
+- `dystrail-game/` — Platform-agnostic core game engine (Rust library)
+- `dystrail-web/` — Web frontend using Yew framework (WebAssembly)
+- `dystrail-tester/` — Automated testing and scenario validation tools
+
 **Frontend:** Rust + Yew (React-like) → WebAssembly
 **Deployment:** Static hosting (GitHub Pages, Netlify, Vercel)
 **State Management:** Yew hooks (`use_state`, `use_reducer`) + LocalStorage
 **Routing:** Yew Router for SPA navigation
 **Styling:** CSS with retro/pixel-art aesthetic
-**Assets:** Static files served from `/static/`
+**Assets:** Static files served from `dystrail-web/static/`
 **Data:** JSON configuration files loaded at runtime
 **I18n:** Runtime language switching with fallback to English
 
-**Key Modules:**
+**Core Game Engine (`dystrail-game/`):**
+- `src/state.rs` — core game state and turn progression logic
+- `src/encounters.rs` — encounter system and selection algorithms
+- `src/personas.rs` — character classes and abilities
+- `src/vehicle.rs` — vehicle breakdown and maintenance systems
+- `src/weather.rs` — weather effects and seasonal changes
+- `src/pacing.rs` — pace and diet configuration
+- `src/camp.rs` — rest and resupply mechanics
+- `src/crossings.rs` — border crossing challenges
+- `src/result.rs` — deterministic scoring and ending analysis
+
+**Web Frontend (`dystrail-web/`):**
 - `src/app.rs` — main application and routing logic
 - `src/components/ui/` — all UI components (menus, panels, dialogs)
-- `src/game/` — game logic (state, encounters, personas, systems)
-- `src/game/result.rs` — result screen logic and deterministic scoring algorithms
+- `src/game/` — web-specific game integrations
 - `src/i18n.rs` — internationalization management
 - `tests/wasm/` — WebAssembly test suite
 

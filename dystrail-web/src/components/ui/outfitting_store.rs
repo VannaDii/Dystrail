@@ -11,8 +11,8 @@ use yew::prelude::*;
 
 use crate::a11y::set_status;
 use crate::game::{
-    store::{Store, StoreItem, Cart, calculate_cart_total, calculate_effective_price, Grants},
-    GameState
+    GameState,
+    store::{Cart, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price},
 };
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
@@ -43,7 +43,10 @@ pub struct StoreState {
 impl Default for StoreState {
     fn default() -> Self {
         Self {
-            store_data: Store { categories: vec![] },
+            store_data: Store {
+                categories: vec![],
+                items: vec![],
+            },
             cart: Cart::new(),
             current_screen: StoreScreen::Home,
             focus_idx: 1,
@@ -63,9 +66,9 @@ pub struct OutfittingStoreProps {
 impl PartialEq for OutfittingStoreProps {
     fn eq(&self, other: &Self) -> bool {
         // Compare relevant fields for equality
-        self.game_state.budget_cents == other.game_state.budget_cents &&
-        self.game_state.persona_id == other.game_state.persona_id &&
-        self.game_state.mods.store_discount_pct == other.game_state.mods.store_discount_pct
+        self.game_state.budget_cents == other.game_state.budget_cents
+            && self.game_state.persona_id == other.game_state.persona_id
+            && self.game_state.mods.store_discount_pct == other.game_state.mods.store_discount_pct
         // Note: Callbacks are not compared as they don't implement PartialEq
     }
 }
@@ -89,7 +92,8 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
                         let mut state = (*store_state).clone();
                         state.store_data = store_data;
                         state.discount_pct = discount_pct;
-                        state.cart.total_cents = calculate_cart_total(&state.cart, &state.store_data, discount_pct);
+                        state.cart.total_cents =
+                            calculate_cart_total(&state.cart, &state.store_data, discount_pct);
                         store_state.set(state);
                     }
                     Err(e) => {
@@ -105,7 +109,8 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
         let store_state = store_state.clone();
         use_effect_with(store_state.cart.clone(), move |cart| {
             let mut state = (*store_state).clone();
-            state.cart.total_cents = calculate_cart_total(cart, &state.store_data, state.discount_pct);
+            state.cart.total_cents =
+                calculate_cart_total(cart, &state.store_data, state.discount_pct);
             store_state.set(state);
         });
     }
@@ -119,7 +124,8 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
             let state = (*store_state).clone();
 
             // Handle numeric key activation
-            if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code())) {
+            if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
+            {
                 handle_menu_selection(n, &state, &store_state, &props);
                 e.prevent_default();
                 return;
@@ -137,7 +143,11 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
                 }
                 "ArrowDown" => {
                     let max_idx = get_max_menu_index(&state);
-                    let next = if state.focus_idx >= max_idx { 1 } else { state.focus_idx + 1 };
+                    let next = if state.focus_idx >= max_idx {
+                        1
+                    } else {
+                        state.focus_idx + 1
+                    };
                     let mut new_state = state;
                     new_state.focus_idx = next;
                     store_state.set(new_state);
@@ -145,7 +155,11 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
                 }
                 "ArrowUp" => {
                     let max_idx = get_max_menu_index(&state);
-                    let prev = if state.focus_idx <= 1 { max_idx } else { state.focus_idx - 1 };
+                    let prev = if state.focus_idx <= 1 {
+                        max_idx
+                    } else {
+                        state.focus_idx - 1
+                    };
                     let mut new_state = state;
                     new_state.focus_idx = prev;
                     store_state.set(new_state);
@@ -175,10 +189,26 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
 
     // Render based on current screen
     match &store_state.current_screen {
-        StoreScreen::Home => render_home_screen(&store_state, &props.game_state, &list_ref, &on_keydown),
-        StoreScreen::Category(category_id) => render_category_screen(category_id, &store_state, &props.game_state, &list_ref, &on_keydown),
-        StoreScreen::QuantityPrompt(item_id) => render_quantity_screen(item_id, &store_state, &props.game_state, &list_ref, &on_keydown),
-        StoreScreen::Cart => render_cart_screen(&store_state, &props.game_state, &list_ref, &on_keydown),
+        StoreScreen::Home => {
+            render_home_screen(&store_state, &props.game_state, &list_ref, &on_keydown)
+        }
+        StoreScreen::Category(category_id) => render_category_screen(
+            category_id,
+            &store_state,
+            &props.game_state,
+            &list_ref,
+            &on_keydown,
+        ),
+        StoreScreen::QuantityPrompt(item_id) => render_quantity_screen(
+            item_id,
+            &store_state,
+            &props.game_state,
+            &list_ref,
+            &on_keydown,
+        ),
+        StoreScreen::Cart => {
+            render_cart_screen(&store_state, &props.game_state, &list_ref, &on_keydown)
+        }
     }
 }
 
@@ -189,7 +219,12 @@ async fn load_store_data() -> Result<Store, Box<dyn std::error::Error>> {
         .await?;
 
     if !response.ok() {
-        return Err(format!("HTTP {status}: {status_text}", status = response.status(), status_text = response.status_text()).into());
+        return Err(format!(
+            "HTTP {status}: {status_text}",
+            status = response.status(),
+            status_text = response.status_text()
+        )
+        .into());
     }
 
     let json_text = response.text().await?;
@@ -202,7 +237,7 @@ fn handle_menu_selection(
     index: u8,
     state: &StoreState,
     store_state: &UseStateHandle<StoreState>,
-    props: &OutfittingStoreProps
+    props: &OutfittingStoreProps,
 ) {
     match &state.current_screen {
         StoreScreen::Home => {
@@ -216,7 +251,10 @@ fn handle_menu_selection(
                         store_state.set(new_state);
 
                         // Announce navigation
-                        let category_name = i18n::t(&format!("store.categories.{category_id}", category_id = category.id));
+                        let category_name = i18n::t(&format!(
+                            "store.categories.{category_id}",
+                            category_id = category.id
+                        ));
                         announce_to_screen_reader(&category_name);
                     }
                 }
@@ -247,8 +285,13 @@ fn handle_menu_selection(
                 handle_back_navigation(state, store_state);
             } else {
                 // Select item for quantity prompt
-                if let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id)
-                    && let Some(item) = category.items.get((index - 1) as usize) {
+                if let Some(category) = state
+                    .store_data
+                    .categories
+                    .iter()
+                    .find(|c| c.id == *category_id)
+                    && let Some(item) = category.items.get((index - 1) as usize)
+                {
                     let mut new_state = state.clone();
                     new_state.current_screen = StoreScreen::QuantityPrompt(item.id.clone());
                     new_state.focus_idx = 1;
@@ -296,7 +339,12 @@ fn get_max_menu_index(state: &StoreState) -> u8 {
     match &state.current_screen {
         StoreScreen::Home => 5, // Categories 1-4, cart 5, continue 0
         StoreScreen::Category(category_id) => {
-            if let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id) {
+            if let Some(category) = state
+                .store_data
+                .categories
+                .iter()
+                .find(|c| c.id == *category_id)
+            {
                 u8::try_from(category.items.len()).unwrap_or(255) // Items 1-N, back 0
             } else {
                 1
@@ -332,18 +380,44 @@ fn handle_quantity_selection(
         match index {
             1 => {
                 // Add +1
-                if can_add_item(&new_state.cart, item, 1, props.game_state.budget_cents, state.discount_pct) {
+                if can_add_item(
+                    &new_state.cart,
+                    item,
+                    1,
+                    props.game_state.budget_cents,
+                    state.discount_pct,
+                ) {
                     new_state.cart.add_item(item_id, 1);
-                    announce_quantity_change(item, 1, true, &new_state, props.game_state.budget_cents);
+                    announce_quantity_change(
+                        item,
+                        1,
+                        true,
+                        &new_state,
+                        props.game_state.budget_cents,
+                    );
                 } else {
                     announce_cannot_add(item);
                 }
             }
             2 => {
                 // Add +5 (if not unique)
-                if !item.unique && can_add_item(&new_state.cart, item, 5, props.game_state.budget_cents, state.discount_pct) {
+                if !item.unique
+                    && can_add_item(
+                        &new_state.cart,
+                        item,
+                        5,
+                        props.game_state.budget_cents,
+                        state.discount_pct,
+                    )
+                {
                     new_state.cart.add_item(item_id, 5);
-                    announce_quantity_change(item, 5, true, &new_state, props.game_state.budget_cents);
+                    announce_quantity_change(
+                        item,
+                        5,
+                        true,
+                        &new_state,
+                        props.game_state.budget_cents,
+                    );
                 } else {
                     announce_cannot_add(item);
                 }
@@ -352,27 +426,46 @@ fn handle_quantity_selection(
                 // Remove -1
                 if new_state.cart.get_quantity(item_id) > 0 {
                     new_state.cart.remove_item(item_id, 1);
-                    announce_quantity_change(item, 1, false, &new_state, props.game_state.budget_cents);
+                    announce_quantity_change(
+                        item,
+                        1,
+                        false,
+                        &new_state,
+                        props.game_state.budget_cents,
+                    );
                 }
             }
             4 => {
                 // Remove all
                 if new_state.cart.get_quantity(item_id) > 0 {
                     new_state.cart.remove_all_item(item_id);
-                    announce_quantity_change(item, 0, false, &new_state, props.game_state.budget_cents);
+                    announce_quantity_change(
+                        item,
+                        0,
+                        false,
+                        &new_state,
+                        props.game_state.budget_cents,
+                    );
                 }
             }
             _ => return,
         }
 
         // Update cart total
-        new_state.cart.total_cents = calculate_cart_total(&new_state.cart, &state.store_data, state.discount_pct);
+        new_state.cart.total_cents =
+            calculate_cart_total(&new_state.cart, &state.store_data, state.discount_pct);
         store_state.set(new_state);
     }
 }
 
 /// Check if an item can be added to the cart
-fn can_add_item(cart: &Cart, item: &StoreItem, qty_to_add: i32, budget_cents: i64, discount_pct: f64) -> bool {
+fn can_add_item(
+    cart: &Cart,
+    item: &StoreItem,
+    qty_to_add: i32,
+    budget_cents: i64,
+    discount_pct: f64,
+) -> bool {
     let current_qty = cart.get_quantity(&item.id);
     let new_qty = current_qty + qty_to_add;
 
@@ -395,28 +488,44 @@ fn can_add_item(cart: &Cart, item: &StoreItem, qty_to_add: i32, budget_cents: i6
 }
 
 /// Announce quantity changes to screen readers
-fn announce_quantity_change(item: &StoreItem, qty: i32, added: bool, state: &StoreState, budget_cents: i64) {
+fn announce_quantity_change(
+    item: &StoreItem,
+    qty: i32,
+    added: bool,
+    state: &StoreState,
+    budget_cents: i64,
+) {
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-    let price_str = format_currency(if added { effective_price * i64::from(qty) } else { effective_price });
+    let price_str = format_currency(if added {
+        effective_price * i64::from(qty)
+    } else {
+        effective_price
+    });
     let remaining = budget_cents - state.cart.total_cents;
     let remaining_str = format_currency(remaining);
 
     let message = if added {
-        i18n::tr("store.alerts.added", Some(&{
-            let mut vars = HashMap::new();
-            vars.insert("item", item_name.as_str());
-            vars.insert("price", price_str.as_str());
-            vars.insert("left", remaining_str.as_str());
-            vars
-        }))
+        i18n::tr(
+            "store.alerts.added",
+            Some(&{
+                let mut vars = HashMap::new();
+                vars.insert("item", item_name.as_str());
+                vars.insert("price", price_str.as_str());
+                vars.insert("left", remaining_str.as_str());
+                vars
+            }),
+        )
     } else {
-        i18n::tr("store.alerts.removed", Some(&{
-            let mut vars = HashMap::new();
-            vars.insert("item", item_name.as_str());
-            vars.insert("left", remaining_str.as_str());
-            vars
-        }))
+        i18n::tr(
+            "store.alerts.removed",
+            Some(&{
+                let mut vars = HashMap::new();
+                vars.insert("item", item_name.as_str());
+                vars.insert("left", remaining_str.as_str());
+                vars
+            }),
+        )
     };
 
     announce_to_screen_reader(&message);
@@ -426,17 +535,23 @@ fn announce_quantity_change(item: &StoreItem, qty: i32, added: bool, state: &Sto
 fn announce_cannot_add(item: &StoreItem) {
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let message = if item.unique {
-        i18n::tr("store.alerts.unique", Some(&{
-            let mut vars = HashMap::new();
-            vars.insert("item", item_name.as_str());
-            vars
-        }))
+        i18n::tr(
+            "store.alerts.unique",
+            Some(&{
+                let mut vars = HashMap::new();
+                vars.insert("item", item_name.as_str());
+                vars
+            }),
+        )
     } else {
-        i18n::tr("store.alerts.max_qty", Some(&{
-            let mut vars = HashMap::new();
-            vars.insert("item", item_name.as_str());
-            vars
-        }))
+        i18n::tr(
+            "store.alerts.max_qty",
+            Some(&{
+                let mut vars = HashMap::new();
+                vars.insert("item", item_name.as_str());
+                vars
+            }),
+        )
     };
 
     announce_to_screen_reader(&message);
@@ -493,7 +608,9 @@ fn handle_checkout(state: &StoreState, props: &OutfittingStoreProps) {
     new_game_state.apply_store_purchase(state.cart.total_cents, &total_grants, &all_tags);
 
     // Emit the continue event
-    props.on_continue.emit((new_game_state, total_grants, all_tags));
+    props
+        .on_continue
+        .emit((new_game_state, total_grants, all_tags));
 }
 
 /// Format currency using Intl API
@@ -515,16 +632,18 @@ fn format_currency(cents: i64) -> String {
                     let _ = js_sys::Reflect::set(&options, &"style".into(), &"currency".into());
                     let _ = js_sys::Reflect::set(&options, &"currency".into(), &"USD".into());
                     options
-                }.into()
-            )
+                }
+                .into(),
+            ),
         )
         && let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into())
         && let Ok(result) = js_sys::Reflect::apply(
             &format_fn.into(),
             &formatter,
-            &js_sys::Array::of1(&dollars.into())
+            &js_sys::Array::of1(&dollars.into()),
         )
-        && let Some(formatted) = result.as_string() {
+        && let Some(formatted) = result.as_string()
+    {
         formatted
     } else {
         // Fallback formatting
@@ -545,11 +664,14 @@ fn render_home_screen(
     on_keydown: &Callback<KeyboardEvent>,
 ) -> Html {
     let budget_str = format_currency(game_state.budget_cents - state.cart.total_cents);
-    let title = i18n::tr("store.menu.home", Some(&{
-        let mut vars = HashMap::new();
-        vars.insert("budget", budget_str.as_str());
-        vars
-    }));
+    let title = i18n::tr(
+        "store.menu.home",
+        Some(&{
+            let mut vars = HashMap::new();
+            vars.insert("budget", budget_str.as_str());
+            vars
+        }),
+    );
 
     let categories = [
         (1u8, i18n::t("store.categories.fuel_food")),
@@ -601,19 +723,34 @@ fn render_category_screen(
     list_ref: &NodeRef,
     on_keydown: &Callback<KeyboardEvent>,
 ) -> Html {
-    let Some(category) = state.store_data.categories.iter().find(|c| c.id == *category_id) else { return html! { <div>{ "Category not found" }</div> } };
+    let Some(category) = state
+        .store_data
+        .categories
+        .iter()
+        .find(|c| c.id == *category_id)
+    else {
+        return html! { <div>{ "Category not found" }</div> };
+    };
 
     let budget_str = format_currency(game_state.budget_cents - state.cart.total_cents);
     let category_name = i18n::t(&format!("store.categories.{category_id}"));
-    let title = format!("{category_name} — {budget_label}: {budget_str}", budget_label = i18n::t("store.budget"));
+    let title = format!(
+        "{category_name} — {budget_label}: {budget_str}",
+        budget_label = i18n::t("store.budget")
+    );
 
-    let mut items: Vec<(u8, String, String, i64)> = category.items.iter().enumerate().map(|(i, item)| {
-        let idx = u8::try_from(i + 1).unwrap_or(255);
-        let name = i18n::t(&format!("store.items.{}.name", item.id));
-        let desc = i18n::t(&format!("store.items.{}.desc", item.id));
-        let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-        (idx, name, desc, effective_price)
-    }).collect();
+    let mut items: Vec<(u8, String, String, i64)> = category
+        .items
+        .iter()
+        .enumerate()
+        .map(|(i, item)| {
+            let idx = u8::try_from(i + 1).unwrap_or(255);
+            let name = i18n::t(&format!("store.items.{}.name", item.id));
+            let desc = i18n::t(&format!("store.items.{}.desc", item.id));
+            let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
+            (idx, name, desc, effective_price)
+        })
+        .collect();
 
     // Add back option
     items.push((0u8, i18n::t("store.menu.back"), String::new(), 0));
@@ -655,6 +792,7 @@ fn render_category_screen(
 }
 
 /// Render quantity prompt screen
+#[allow(clippy::too_many_lines)]
 fn render_quantity_screen(
     item_id: &str,
     state: &UseStateHandle<StoreState>,
@@ -662,41 +800,75 @@ fn render_quantity_screen(
     list_ref: &NodeRef,
     on_keydown: &Callback<KeyboardEvent>,
 ) -> Html {
-    let Some(item) = state.store_data.find_item(item_id) else { return html! { <div>{ "Item not found" }</div> } };
+    let Some(item) = state.store_data.find_item(item_id) else {
+        return html! { <div>{ "Item not found" }</div> };
+    };
 
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
     let price_str = format_currency(effective_price);
 
-    let title = i18n::tr("store.qty_prompt.title", Some(&{
-        let mut vars = HashMap::new();
-        vars.insert("item", item_name.as_str());
-        vars.insert("price", price_str.as_str());
-        vars
-    }));
+    let title = i18n::tr(
+        "store.qty_prompt.title",
+        Some(&{
+            let mut vars = HashMap::new();
+            vars.insert("item", item_name.as_str());
+            vars.insert("price", price_str.as_str());
+            vars
+        }),
+    );
 
     let current_qty = state.cart.get_quantity(item_id);
     let mut options = Vec::new();
 
     // Add +1 option
-    let can_add_1 = can_add_item(&state.cart, item, 1, game_state.budget_cents, state.discount_pct);
+    let can_add_1 = can_add_item(
+        &state.cart,
+        item,
+        1,
+        game_state.budget_cents,
+        state.discount_pct,
+    );
     if can_add_1 {
         let budget_preview = game_state.budget_cents - state.cart.total_cents - effective_price;
-        let preview_str = format!("[{}{}]", i18n::t("store.budget"), format_currency(budget_preview));
+        let preview_str = format!(
+            "[{}{}]",
+            i18n::t("store.budget"),
+            format_currency(budget_preview)
+        );
         options.push((1u8, i18n::t("store.qty_prompt.add1"), preview_str));
     } else {
-        options.push((1u8, i18n::t("store.qty_prompt.add1"), String::from("[Max/Budget]")));
+        options.push((
+            1u8,
+            i18n::t("store.qty_prompt.add1"),
+            String::from("[Max/Budget]"),
+        ));
     }
 
     // Add +5 option (if not unique)
     if !item.unique {
-        let can_add_5 = can_add_item(&state.cart, item, 5, game_state.budget_cents, state.discount_pct);
+        let can_add_5 = can_add_item(
+            &state.cart,
+            item,
+            5,
+            game_state.budget_cents,
+            state.discount_pct,
+        );
         if can_add_5 {
-            let budget_preview = game_state.budget_cents - state.cart.total_cents - (effective_price * 5);
-            let preview_str = format!("[{}{}]", i18n::t("store.budget"), format_currency(budget_preview));
+            let budget_preview =
+                game_state.budget_cents - state.cart.total_cents - (effective_price * 5);
+            let preview_str = format!(
+                "[{}{}]",
+                i18n::t("store.budget"),
+                format_currency(budget_preview)
+            );
             options.push((2u8, i18n::t("store.qty_prompt.add5"), preview_str));
         } else {
-            options.push((2u8, i18n::t("store.qty_prompt.add5"), String::from("[Max/Budget]")));
+            options.push((
+                2u8,
+                i18n::t("store.qty_prompt.add5"),
+                String::from("[Max/Budget]"),
+            ));
         }
     }
 
@@ -764,12 +936,15 @@ fn render_cart_screen(
     let remaining = game_state.budget_cents - state.cart.total_cents;
     let remaining_str = format_currency(remaining);
 
-    let cart_total_line = i18n::tr("store.cart.total", Some(&{
-        let mut vars = HashMap::new();
-        vars.insert("sum", total_str.as_str());
-        vars.insert("left", remaining_str.as_str());
-        vars
-    }));
+    let cart_total_line = i18n::tr(
+        "store.cart.total",
+        Some(&{
+            let mut vars = HashMap::new();
+            vars.insert("sum", total_str.as_str());
+            vars.insert("left", remaining_str.as_str());
+            vars
+        }),
+    );
 
     let can_checkout = remaining >= 0;
     let mut cart_lines = Vec::new();
@@ -784,13 +959,16 @@ fn render_cart_screen(
             let line_total_str = format_currency(line_total);
 
             let qty_str = line.qty.to_string();
-            let label = i18n::tr("store.cart.line", Some(&{
-                let mut vars = HashMap::new();
-                vars.insert("item", item_name.as_str());
-                vars.insert("qty", qty_str.as_str());
-                vars.insert("line_total", line_total_str.as_str());
-                vars
-            }));
+            let label = i18n::tr(
+                "store.cart.line",
+                Some(&{
+                    let mut vars = HashMap::new();
+                    vars.insert("item", item_name.as_str());
+                    vars.insert("qty", qty_str.as_str());
+                    vars.insert("line_total", line_total_str.as_str());
+                    vars
+                }),
+            );
 
             cart_lines.push((idx, label));
         }

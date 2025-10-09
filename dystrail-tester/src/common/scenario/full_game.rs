@@ -1,5 +1,5 @@
 use anyhow::Result;
-use dystrail_web::game::{ResultConfig, select_ending};
+use dystrail_game::result::{ResultConfig, select_ending};
 use thirtyfour::prelude::*;
 
 use super::{BrowserScenario, CombinedScenario, ScenarioCtx, TestScenario};
@@ -137,7 +137,7 @@ impl CombinedScenario for FullGameConservative {
                 // Final analysis
                 let result_config = ResultConfig::default();
                 let ending = select_ending(game_state, &result_config, true);
-                let reached_victory = matches!(ending, dystrail_web::game::result::Ending::Victory);
+                let reached_victory = matches!(ending, dystrail_game::result::Ending::Victory);
 
                 println!("🏁 Game completed!");
                 println!("📊 Final metrics:");

@@ -1,5 +1,5 @@
-use crate::i18n;
 use crate::game::{GameState, PacingConfig};
+use crate::i18n;
 use std::rc::Rc;
 use yew::prelude::*;
 
@@ -16,9 +16,9 @@ pub struct Props {
 impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
         // Compare the relevant fields for re-rendering decisions
-        self.logs == other.logs &&
-        self.game_state.as_ref().map(|gs| (&gs.pace, &gs.diet)) ==
-        other.game_state.as_ref().map(|gs| (&gs.pace, &gs.diet))
+        self.logs == other.logs
+            && self.game_state.as_ref().map(|gs| (&gs.pace, &gs.diet))
+                == other.game_state.as_ref().map(|gs| (&gs.pace, &gs.diet))
     }
 }
 
@@ -58,8 +58,7 @@ pub fn travel_panel(p: &Props) -> Html {
     };
 
     // Check if travel is blocked due to vehicle breakdown
-    let travel_blocked = p.game_state.as_ref()
-        .is_some_and(|gs| gs.travel_blocked);
+    let travel_blocked = p.game_state.as_ref().is_some_and(|gs| gs.travel_blocked);
 
     // Prepare breakdown message if needed
     let breakdown_msg = if let Some(gs) = p.game_state.as_ref() {
@@ -317,7 +316,10 @@ fn format_percent(stat: &str, value: f32) -> String {
 }
 
 /// Format weather announcement for screen readers
-fn format_weather_announcement(weather: crate::game::weather::Weather, effect: Option<&crate::game::weather::WeatherEffect>) -> String {
+fn format_weather_announcement(
+    weather: crate::game::weather::Weather,
+    effect: Option<&crate::game::weather::WeatherEffect>,
+) -> String {
     let weather_name = i18n::t(weather.i18n_key());
 
     if let Some(eff) = effect {
