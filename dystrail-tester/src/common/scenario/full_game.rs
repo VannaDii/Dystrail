@@ -1,364 +1,152 @@
-use anyhow::Result;
-use dystrail_game::result::{ResultConfig, select_ending};
-use thirtyfour::prelude::*;
+use anyhow::{Context, Result};
 
-use super::{BrowserScenario, CombinedScenario, ScenarioCtx, TestScenario};
+use super::SimulationScenario;
+use crate::logic::game_tester::SimulationSummary;
+use crate::logic::{GameplayStrategy, SimulationPlan, default_policy_setup};
+use dystrail_game::GameMode;
 
-pub struct FullGameConservative;
-pub struct FullGameAggressive;
-pub struct FullGameBalanced;
+const FULL_GAME_MAX_DAYS: u32 = 40;
 
-// Conservative strategy scenario
-#[async_trait::async_trait]
-impl BrowserScenario for FullGameConservative {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        // Browser implementation not needed for logic testing focus
-        anyhow::bail!("Browser testing not implemented for full game scenarios");
-    }
+pub fn full_game_conservative_scenario() -> SimulationScenario {
+    SimulationScenario::new(
+        "Full Game - Conservative Strategy",
+        full_game_plan(GameMode::Classic, GameplayStrategy::Conservative)
+            .with_expectation(full_game_conservative_expectation),
+    )
 }
 
-impl CombinedScenario for FullGameConservative {
-    #[allow(clippy::too_many_lines)]
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Full Game - Conservative Strategy".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                println!("🎮 Starting Full Game - Conservative Strategy Test");
-                println!(
-                    "📊 Initial state: HP={}, Supplies={}, Sanity={}, Day={}",
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.day
-                );
-
-                let mut days_survived = 0;
-                let mut critical_events = Vec::new();
-                let mut resource_depletion_day = None;
-                let mut encounters_faced = 0;
-                let max_days = 100; // Safety limit
-
-                // Run game simulation with conservative strategy
-                while days_survived < max_days {
-                    let initial_stats = (
-                        game_state.stats.hp,
-                        game_state.stats.supplies,
-                        game_state.stats.sanity,
-                    );
-
-                    // Check for game end conditions
-                    if game_state.stats.pants >= 100 {
-                        critical_events.push(format!(
-                            "Day {days_survived}: Game ended - Pants reached 100%"
-                        ));
-                        break;
-                    }
-                    if game_state.stats.sanity <= 0 {
-                        critical_events
-                            .push(format!("Day {days_survived}: Game ended - Sanity depleted"));
-                        break;
-                    }
-                    if game_state.stats.hp <= 0 || game_state.stats.supplies <= 0 {
-                        critical_events.push(format!(
-                            "Day {days_survived}: Game ended - Critical resource depletion"
-                        ));
-                        break;
-                    }
-
-                    // Record resource depletion timing
-                    if resource_depletion_day.is_none() {
-                        if game_state.stats.supplies <= 1 {
-                            resource_depletion_day = Some((days_survived, "supplies".to_string()));
-                            critical_events
-                                .push(format!("Day {days_survived}: Supplies critically low"));
-                        } else if game_state.stats.hp <= 2 {
-                            resource_depletion_day = Some((days_survived, "hp".to_string()));
-                            critical_events.push(format!("Day {days_survived}: HP critically low"));
-                        } else if game_state.stats.sanity <= 2 {
-                            resource_depletion_day = Some((days_survived, "sanity".to_string()));
-                            critical_events
-                                .push(format!("Day {days_survived}: Sanity critically low"));
-                        }
-                    }
-
-                    // Conservative strategy: prioritize survival
-                    if game_state.stats.supplies > 3 {
-                        game_state.stats.supplies -= 1; // Slow resource consumption
-                    }
-
-                    // Rest when health is low and we have supplies
-                    if game_state.stats.hp < 6 && game_state.stats.supplies > 2 {
-                        game_state.stats.hp += 1;
-                        game_state.stats.supplies -= 1;
-                        critical_events
-                            .push(format!("Day {days_survived}: Conservative rest taken"));
-                    }
-
-                    // Handle encounters conservatively (simulate)
-                    if days_survived % 3 == 0 {
-                        // Every 3 days
-                        encounters_faced += 1;
-                        // Conservative choice - usually safe but less reward
-                        if game_state.stats.credibility < 15 {
-                            game_state.stats.credibility += 1;
-                        }
-                        critical_events.push(format!(
-                            "Day {days_survived}: Encounter handled conservatively"
-                        ));
-                    }
-
-                    // Advance day
-                    game_state.day += 1;
-                    days_survived += 1;
-
-                    // Clamp stats to valid ranges
-                    game_state.stats.clamp();
-
-                    // Check for significant stat changes
-                    let final_stats = (
-                        game_state.stats.hp,
-                        game_state.stats.supplies,
-                        game_state.stats.sanity,
-                    );
-                    if initial_stats != final_stats && days_survived % 10 == 0 {
-                        // Report every 10 days
-                        println!(
-                            "📅 Day {}: HP={}, Supplies={}, Sanity={}, Credibility={}",
-                            days_survived,
-                            game_state.stats.hp,
-                            game_state.stats.supplies,
-                            game_state.stats.sanity,
-                            game_state.stats.credibility
-                        );
-                    }
-                }
-
-                // Final analysis
-                let result_config = ResultConfig::default();
-                let ending = select_ending(game_state, &result_config, true);
-                let reached_victory = matches!(ending, dystrail_game::result::Ending::Victory);
-
-                println!("🏁 Game completed!");
-                println!("📊 Final metrics:");
-                println!("   Days survived: {days_survived}");
-                println!("   Ending type: {ending:?}");
-                println!("   Reached victory: {reached_victory}");
-                println!(
-                    "   Final stats: HP={}, Supplies={}, Sanity={}, Credibility={}, Pants={}",
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.stats.credibility,
-                    game_state.stats.pants
-                );
-                println!("   Encounters faced: {encounters_faced}");
-
-                if let Some((day, resource)) = resource_depletion_day {
-                    println!("   Resource depletion: {resource} on day {day}");
-                }
-
-                println!("🎯 Critical events:");
-                for event in &critical_events {
-                    println!("   {event}");
-                }
-
-                // Validate results
-                anyhow::ensure!(days_survived > 0, "Game should survive at least 1 day");
-                anyhow::ensure!(
-                    days_survived < max_days,
-                    "Game should end naturally, not hit limit"
-                );
-
-                if days_survived < 5 {
-                    anyhow::bail!(
-                        "Conservative strategy failed - game ended too quickly ({days_survived}  days)"
-                    );
-                }
-
-                println!("✅ Conservative strategy test completed successfully");
-                Ok(())
-            },
-        })
-    }
+pub fn full_game_aggressive_scenario() -> SimulationScenario {
+    SimulationScenario::new(
+        "Full Game - Aggressive Strategy",
+        full_game_plan(GameMode::Classic, GameplayStrategy::Aggressive)
+            .with_expectation(full_game_aggressive_expectation),
+    )
 }
 
-// Aggressive strategy scenario
-#[async_trait::async_trait]
-impl BrowserScenario for FullGameAggressive {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for full game scenarios");
-    }
+pub fn full_game_balanced_scenario() -> SimulationScenario {
+    SimulationScenario::new(
+        "Full Game - Balanced Strategy",
+        full_game_plan(GameMode::Classic, GameplayStrategy::Balanced)
+            .with_expectation(full_game_balanced_expectation),
+    )
 }
 
-impl CombinedScenario for FullGameAggressive {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Full Game - Aggressive Strategy".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                println!("🎮 Starting Full Game - Aggressive Strategy Test");
-                println!(
-                    "📊 Initial state: HP={}, Supplies={}, Sanity={}, Day={}",
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.day
-                );
-
-                let mut days_survived = 0;
-                let mut critical_events = Vec::new();
-                let mut encounters_faced = 0;
-                let max_days = 100;
-
-                while days_survived < max_days {
-                    // Check for game end conditions
-                    if game_state.stats.pants >= 100
-                        || game_state.stats.sanity <= 0
-                        || game_state.stats.hp <= 0
-                        || game_state.stats.supplies <= 0
-                    {
-                        break;
-                    }
-
-                    // Aggressive strategy: take risks for progress
-                    game_state.stats.supplies -= 2; // Faster resource consumption
-
-                    // Buy supplies aggressively if we have budget
-                    if game_state.budget_cents > 1000 && game_state.stats.supplies < 5 {
-                        game_state.budget_cents -= 500; // $5.00
-                        game_state.stats.supplies += 3;
-                        critical_events
-                            .push(format!("Day {days_survived}: Aggressive supply purchase"));
-                    }
-
-                    // Handle encounters aggressively
-                    if days_survived % 2 == 0 {
-                        // Every 2 days
-                        encounters_faced += 1;
-                        // Aggressive choice - higher risk/reward
-                        if game_state.stats.sanity > 2 {
-                            game_state.stats.sanity -= 1;
-                            game_state.stats.pants += 5;
-                            game_state.stats.allies += 1;
-                            critical_events
-                                .push(format!("Day {days_survived}: Risky encounter choice"));
-                        }
-                    }
-
-                    game_state.day += 1;
-                    days_survived += 1;
-                    game_state.stats.clamp();
-
-                    if days_survived % 10 == 0 {
-                        println!(
-                            "📅 Day {}: HP={}, Supplies={}, Sanity={}, Pants={}, Allies={}",
-                            days_survived,
-                            game_state.stats.hp,
-                            game_state.stats.supplies,
-                            game_state.stats.sanity,
-                            game_state.stats.pants,
-                            game_state.stats.allies
-                        );
-                    }
-                }
-
-                // Final analysis
-                let result_config = ResultConfig::default();
-                let ending = select_ending(game_state, &result_config, true);
-
-                println!("🏁 Aggressive strategy completed!");
-                println!("📊 Final metrics:");
-                println!("   Days survived: {days_survived}");
-                println!("   Ending type: {ending:?}");
-                println!(
-                    "   Final stats: HP={}, Supplies={}, Sanity={}, Pants={}, Allies={}",
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.stats.pants,
-                    game_state.stats.allies
-                );
-                println!("   Encounters faced: {encounters_faced}");
-
-                println!("🎯 Critical events:");
-                for event in &critical_events {
-                    println!("   {event}");
-                }
-
-                // Aggressive strategy might fail faster but should still be viable
-                anyhow::ensure!(days_survived > 0, "Game should survive at least 1 day");
-                println!("✅ Aggressive strategy test completed");
-                Ok(())
-            },
-        })
-    }
+pub fn full_game_plan(mode: GameMode, strategy: GameplayStrategy) -> SimulationPlan {
+    SimulationPlan::new(mode, strategy)
+        .with_max_days(FULL_GAME_MAX_DAYS)
+        .with_setup(default_policy_setup(strategy))
 }
 
-// Balanced strategy scenario
-#[async_trait::async_trait]
-impl BrowserScenario for FullGameBalanced {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for full game scenarios");
-    }
+fn ensure_basic_progress(summary: &SimulationSummary, min_days: u32) -> Result<()> {
+    let observed_turns = summary.turns.len();
+    anyhow::ensure!(observed_turns > 0, "Simulation produced no turns");
+
+    let observed_days: u32 = summary
+        .metrics
+        .days_survived
+        .try_into()
+        .context("days_survived overflowed u32")?;
+    anyhow::ensure!(
+        observed_days >= min_days,
+        "Expected at least {min_days} days of survival, observed {observed_days}"
+    );
+
+    anyhow::ensure!(
+        !summary.metrics.ending_type.is_empty(),
+        "Ending type should not be empty"
+    );
+    anyhow::ensure!(
+        !summary.metrics.ending_type.contains("Unknown"),
+        "Unexpected ending type: {}",
+        summary.metrics.ending_type
+    );
+    anyhow::ensure!(
+        summary.metrics.final_hp >= 0 && summary.metrics.final_sanity >= 0,
+        "Final stats should remain non-negative: HP={}, Sanity={}",
+        summary.metrics.final_hp,
+        summary.metrics.final_sanity
+    );
+
+    Ok(())
 }
 
-impl CombinedScenario for FullGameBalanced {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Full Game - Balanced Strategy".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                println!("🎮 Starting Full Game - Balanced Strategy Test");
+pub fn full_game_conservative_expectation(summary: &SimulationSummary) -> Result<()> {
+    ensure_basic_progress(summary, 5)?;
 
-                let mut days_survived = 0;
-                let mut vehicle_breakdowns = 0;
-                let mut weather_events = 0;
-                let max_days = 100;
+    anyhow::ensure!(
+        summary.metrics.final_pants <= 110,
+        "Conservative run should keep pants under control, observed {}",
+        summary.metrics.final_pants
+    );
+    anyhow::ensure!(
+        summary.metrics.vehicle_breakdowns <= 3,
+        "Conservative play should encounter at most three breakdowns, observed {}",
+        summary.metrics.vehicle_breakdowns
+    );
+    Ok(())
+}
 
-                while days_survived < max_days {
-                    if game_state.stats.pants >= 100
-                        || game_state.stats.sanity <= 0
-                        || game_state.stats.hp <= 0
-                        || game_state.stats.supplies <= 0
-                    {
-                        break;
-                    }
+pub fn full_game_aggressive_expectation(summary: &SimulationSummary) -> Result<()> {
+    ensure_basic_progress(summary, 2)?;
 
-                    // Balanced strategy: moderate risk/reward
-                    game_state.stats.supplies -= 1;
+    anyhow::ensure!(
+        summary.metrics.final_pants >= 5,
+        "Aggressive runs should accumulate risk, observed pants {}",
+        summary.metrics.final_pants
+    );
+    let encounters = usize::try_from(summary.metrics.encounters_faced)
+        .context("encounters_faced should be non-negative")?;
+    anyhow::ensure!(
+        encounters <= summary.turns.len(),
+        "Encounter count exceeds turn count"
+    );
+    Ok(())
+}
 
-                    // Moderate resource management
-                    if game_state.stats.hp < 6 && game_state.stats.supplies > 1 {
-                        game_state.stats.hp += 1;
-                        game_state.stats.supplies -= 1;
-                    }
+pub fn full_game_balanced_expectation(summary: &SimulationSummary) -> Result<()> {
+    ensure_basic_progress(summary, 4)?;
 
-                    // Simulate vehicle breakdowns
-                    if days_survived % 15 == 0 && game_state.inventory.spares.tire > 0 {
-                        vehicle_breakdowns += 1;
-                        game_state.inventory.spares.tire -= 1;
-                        println!("🔧 Day {days_survived}: Vehicle breakdown repaired");
-                    }
+    anyhow::ensure!(
+        summary.metrics.final_supplies >= -5,
+        "Balanced run should avoid catastrophic supply loss, observed {}",
+        summary.metrics.final_supplies
+    );
+    anyhow::ensure!(
+        summary.metrics.final_sanity >= -2,
+        "Balanced run should preserve sanity, observed {}",
+        summary.metrics.final_sanity
+    );
+    Ok(())
+}
 
-                    // Simulate weather events
-                    if days_survived % 7 == 0 {
-                        weather_events += 1;
-                        game_state.stats.supplies -= 1; // Weather costs extra supplies
-                    }
+pub fn full_game_resource_manager_expectation(summary: &SimulationSummary) -> Result<()> {
+    ensure_basic_progress(summary, 5)?;
 
-                    game_state.day += 1;
-                    days_survived += 1;
-                    game_state.stats.clamp();
-                }
+    anyhow::ensure!(
+        summary.metrics.final_supplies >= 0,
+        "Resource Manager should not end in supply debt, observed {}",
+        summary.metrics.final_supplies
+    );
+    anyhow::ensure!(
+        summary.metrics.final_budget_cents >= 12_000,
+        "Resource Manager should preserve budget, observed {}",
+        summary.metrics.final_budget_cents
+    );
+    Ok(())
+}
 
-                println!("🏁 Balanced strategy completed!");
-                println!("📊 Days survived: {days_survived}");
-                println!("📊 Vehicle breakdowns: {vehicle_breakdowns}");
-                println!("📊 Weather events: {weather_events}");
-                println!("✅ Balanced strategy test completed");
-                Ok(())
-            },
-        })
-    }
+pub fn full_game_monte_carlo_expectation(summary: &SimulationSummary) -> Result<()> {
+    ensure_basic_progress(summary, 4)?;
+
+    anyhow::ensure!(
+        summary.metrics.encounters_faced >= 3,
+        "Monte Carlo runs should engage with encounters, observed {}",
+        summary.metrics.encounters_faced
+    );
+    anyhow::ensure!(
+        summary.metrics.final_pants <= 80,
+        "Monte Carlo runs should mitigate runaway risk, observed {}",
+        summary.metrics.final_pants
+    );
+    Ok(())
 }

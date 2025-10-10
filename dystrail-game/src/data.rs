@@ -74,7 +74,10 @@ impl EncounterData {
     ///
     /// Returns an error if the JSON cannot be parsed into valid encounter data.
     pub fn from_json(json: &str) -> Result<Self, serde_json::Error> {
-        serde_json::from_str(json)
+        serde_json::from_str(json).or_else(|_| {
+            let encounters: Vec<Encounter> = serde_json::from_str(json)?;
+            Ok(Self { encounters })
+        })
     }
 
     /// Create encounter data from pre-parsed encounters
@@ -122,5 +125,30 @@ mod tests {
         assert_eq!(data.encounters[0].name, "Test Encounter");
         assert_eq!(data.encounters[0].choices[0].effects.hp, -1);
         assert_eq!(data.encounters[0].choices[0].effects.supplies, 2);
+    }
+
+    #[test]
+    fn test_encounter_data_from_array() {
+        let json = r#"[
+            {
+                "id": "array1",
+                "name": "Array Encounter",
+                "desc": "Encounter represented directly as array element",
+                "choices": [
+                    {
+                        "label": "Proceed",
+                        "effects": {
+                            "hp": 1,
+                            "supplies": -1
+                        }
+                    }
+                ]
+            }
+        ]"#;
+
+        let data = EncounterData::from_json(json).unwrap();
+        assert_eq!(data.encounters.len(), 1);
+        assert_eq!(data.encounters[0].id, "array1");
+        assert_eq!(data.encounters[0].choices[0].effects.hp, 1);
     }
 }

@@ -219,7 +219,7 @@ pub fn app_inner() -> Html {
             if let Some(mut gs) = (*state).clone() {
                 // Apply pace and diet effects before traveling
                 gs.apply_pace_and_diet(&pacing_cfg);
-                let (ended, info_key) = gs.travel_next_leg();
+                let (ended, info_key, _) = gs.travel_next_leg();
                 let mut lg = (*logs).clone();
                 lg.push(crate::i18n::t(&info_key));
                 if ended || gs.stats.pants >= 100 {

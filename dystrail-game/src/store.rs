@@ -18,6 +18,7 @@ pub struct StoreItem {
     pub grants: Grants,
     /// Tags applied to the player when purchased
     pub tags: Vec<String>,
+    #[serde(default)]
     pub category: String,
 }
 
@@ -33,6 +34,7 @@ pub struct StoreCategory {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Store {
     pub categories: Vec<StoreCategory>,
+    #[serde(default)]
     pub items: Vec<StoreItem>,
 }
 
@@ -52,6 +54,7 @@ pub struct Grants {
     pub spare_alt: i32,
     #[serde(default)]
     pub spare_pump: i32,
+    #[serde(default)]
     pub enabled: bool,
 }
 

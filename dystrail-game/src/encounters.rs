@@ -22,8 +22,13 @@ pub fn pick_encounter<R: Rng>(
         .encounters
         .iter()
         .filter(|e| {
-            let region_match = e.regions.is_empty() || e.regions.contains(&region_str.to_string());
-            let mode_match = e.modes.is_empty() || e.modes.contains(&mode_str.to_string());
+            let region_match = e.regions.is_empty()
+                || e.regions.iter().any(|r| r.eq_ignore_ascii_case(region_str));
+            let mode_match = e.modes.is_empty()
+                || e.modes.iter().any(|m| {
+                    m.eq_ignore_ascii_case(mode_str)
+                        || (mode_str == "deep" && m.eq_ignore_ascii_case("deep_end"))
+                });
             region_match && mode_match
         })
         .collect();

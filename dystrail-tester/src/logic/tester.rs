@@ -2,7 +2,8 @@ use colored::Colorize;
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, Instant};
 
-use dystrail_game::GameState;
+use crate::common::scenario::TestScenario;
+use crate::logic::game_tester::{GameTester, SimulationPlan, SimulationSummary};
 
 // LogicTestResult removed as it was unused
 
@@ -30,7 +31,7 @@ impl LogicTester {
 
     pub fn run_scenario(
         &mut self,
-        scenario: &crate::common::scenario::TestScenario,
+        scenario: &TestScenario,
         seeds: &[u64],
         iterations: usize,
     ) -> Vec<ScenarioResult> {
@@ -54,58 +55,12 @@ impl LogicTester {
 
     fn run_single_scenario(
         &mut self,
-        scenario: &crate::common::scenario::TestScenario,
+        scenario: &TestScenario,
         seed: u64,
         iterations: usize,
     ) -> ScenarioResult {
-        let mut successes = 0;
-        let mut failures = Vec::new();
-        let mut performance_data = Vec::new();
-
-        for i in 0..iterations {
-            let start_time = Instant::now();
-
-            // Create a fresh game state for each iteration
-            let mut game_state = GameState {
-                seed: seed.wrapping_add(u64::try_from(i).unwrap_or(u64::MAX)),
-                ..Default::default()
-            };
-
-            // Apply scenario setup
-            if let Some(setup) = &scenario.setup {
-                setup(&mut game_state);
-            }
-
-            // Run the test
-            match (scenario.test_fn)(&mut game_state) {
-                Ok(()) => {
-                    successes += 1;
-                    let duration = start_time.elapsed();
-                    performance_data.push(duration);
-
-                    if self.verbose {
-                        println!(
-                            "  ✅ Iteration {}/{} passed ({:?})",
-                            i + 1,
-                            iterations,
-                            duration
-                        );
-                    }
-                }
-                Err(e) => {
-                    failures.push(format!("Iteration {}: {}", i + 1, e));
-
-                    if self.verbose {
-                        println!(
-                            "  ❌ Iteration {}/{} failed: {}",
-                            i + 1,
-                            iterations,
-                            e.to_string().red()
-                        );
-                    }
-                }
-            }
-        }
+        let (successes, failures, performance_data) =
+            self.run_simulation_iterations(&scenario.plan, seed, iterations);
 
         let avg_duration = if performance_data.is_empty() {
             Duration::ZERO
@@ -124,6 +79,130 @@ impl LogicTester {
             performance_data,
         }
     }
+
+    fn run_simulation_iterations(
+        &mut self,
+        plan: &SimulationPlan,
+        seed: u64,
+        iterations: usize,
+    ) -> (usize, Vec<String>, Vec<Duration>) {
+        let tester = GameTester::try_new(self.verbose);
+
+        let mut successes = 0;
+        let mut failures = Vec::new();
+        let mut performance_data = Vec::new();
+
+        for i in 0..iterations {
+            let start_time = Instant::now();
+            let iteration_seed = seed.wrapping_add(u64::try_from(i).unwrap_or(u64::MAX));
+
+            let summary = tester.run_plan(plan, iteration_seed);
+
+            if let Some(err) = evaluate_expectations(plan, &summary) {
+                let context = summarize_decision_path(&summary);
+                let turns = summary.turns.len();
+                let final_stats = &summary.final_state.stats;
+                let status = if summary.game_ended {
+                    "ended"
+                } else {
+                    "halted"
+                };
+                failures.push(format!(
+                    "Iteration {} (mode {:?}, strategy {}, seed {}, turns {}, status {}, ending '{}'): {} | {} | final HP {} Supplies {} Sanity {} Pants {}",
+                    i + 1,
+                    summary.mode,
+                    summary.strategy.label(),
+                    summary.seed,
+                    turns,
+                    status,
+                    summary.ending_message,
+                    err,
+                    context,
+                    final_stats.hp,
+                    final_stats.supplies,
+                    final_stats.sanity,
+                    final_stats.pants
+                ));
+
+                if self.verbose {
+                    println!(
+                        "  ❌ Iteration {}/{} failed: {}",
+                        i + 1,
+                        iterations,
+                        err.to_string().red()
+                    );
+                    println!(
+                        "     ↳ Seed {} | Turns {} | Final HP {} Supplies {} Sanity {} Pants {} | Decisions: {}",
+                        summary.seed,
+                        turns,
+                        final_stats.hp,
+                        final_stats.supplies,
+                        final_stats.sanity,
+                        final_stats.pants,
+                        context
+                    );
+                }
+            } else {
+                successes += 1;
+                let duration = start_time.elapsed();
+                performance_data.push(duration);
+
+                if self.verbose {
+                    println!(
+                        "  ✅ Iteration {}/{} passed ({duration:?}) days:{} ending:{} strategy:{}",
+                        i + 1,
+                        iterations,
+                        summary.metrics.days_survived,
+                        summary.ending_message,
+                        summary.strategy.label()
+                    );
+                }
+            }
+        }
+
+        (successes, failures, performance_data)
+    }
+}
+
+fn evaluate_expectations(plan: &SimulationPlan, summary: &SimulationSummary) -> Option<String> {
+    for expectation in &plan.expectations {
+        if let Err(err) = expectation(summary) {
+            return Some(err.to_string());
+        }
+    }
+    None
+}
+
+fn summarize_decision_path(summary: &SimulationSummary) -> String {
+    if summary.metrics.decision_log.is_empty() {
+        return "no decisions recorded".to_string();
+    }
+
+    summary
+        .metrics
+        .decision_log
+        .iter()
+        .rev()
+        .take(3)
+        .map(|entry| {
+            let rationale = entry
+                .rationale
+                .as_deref()
+                .filter(|s| !s.is_empty())
+                .unwrap_or("-");
+            format!(
+                "day {} ({}): {} -> {} [{}] idx {} reason {}",
+                entry.day,
+                entry.encounter_id,
+                entry.encounter_name,
+                entry.choice_label,
+                entry.policy_name,
+                entry.choice_index,
+                rationale
+            )
+        })
+        .collect::<Vec<_>>()
+        .join(" | ")
 }
 
 mod duration_serde {

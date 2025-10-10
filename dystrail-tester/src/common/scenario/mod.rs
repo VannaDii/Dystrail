@@ -2,8 +2,13 @@ use anyhow::Result;
 use thirtyfour::prelude::*;
 
 use crate::browser::TestBridge;
-use crate::logic::game_tester::{GameTester, GameplayStrategy};
-use dystrail_game::{GameMode, GameState};
+pub mod catalog;
+
+use crate::logic::{
+    DEFAULT_POLICY_SIM_DAYS, GameplayStrategy, SimulationPlan, default_policy_setup,
+};
+use catalog::find_catalog_scenario;
+use dystrail_game::GameMode;
 
 pub mod full_game;
 pub mod playability;
@@ -18,10 +23,20 @@ pub struct ScenarioCtx<'a> {
 }
 
 // Logic test scenario
+#[derive(Debug, Clone)]
 pub struct TestScenario {
     pub name: String,
-    pub setup: Option<fn(&mut GameState)>,
-    pub test_fn: fn(&mut GameState) -> Result<()>,
+    pub plan: SimulationPlan,
+}
+
+impl TestScenario {
+    #[must_use]
+    pub fn simulation(name: impl Into<String>, plan: SimulationPlan) -> Self {
+        Self {
+            name: name.into(),
+            plan,
+        }
+    }
 }
 
 // Browser test scenario
@@ -35,358 +50,168 @@ pub trait CombinedScenario: BrowserScenario {
     fn as_logic_scenario(&self) -> Option<TestScenario>;
 }
 
-// Simple test scenario to verify real game testing works
-pub struct RealGameTest;
-pub struct ConservativeStrategyTest;
-pub struct AggressiveStrategyTest;
-pub struct ResourceManagerTest;
-
-// Modernized comprehensive test scenarios
-pub struct BasicGameCreationTest;
-pub struct ShareCodeConsistencyTest;
-pub struct DeterministicGameplayTest;
-pub struct EncounterChoicesTest;
-pub struct VehicleSystemTest;
-pub struct WeatherEffectsTest;
-pub struct ResourceManagementTest;
-pub struct StatsBoundariesTest;
-pub struct InventoryOperationsTest;
-pub struct GameModeVariationsTest;
-
-#[async_trait::async_trait]
-impl BrowserScenario for RealGameTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for real game test");
-    }
+#[derive(Clone)]
+pub struct SimulationScenario {
+    name: &'static str,
+    plan: SimulationPlan,
+    browser_message: &'static str,
 }
 
-impl CombinedScenario for RealGameTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Real Game Test".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                let tester = GameTester::new(false);
-                let seed = game_state.seed;
+impl SimulationScenario {
+    pub fn new(name: &'static str, plan: SimulationPlan) -> Self {
+        Self {
+            name,
+            plan,
+            browser_message: "Browser testing not implemented for this simulation scenario",
+        }
+    }
 
-                // Play one simple game
-                let metrics = tester.play_game(GameMode::Classic, GameplayStrategy::Balanced, seed);
-
-                // Basic validation - game should run and produce reasonable results
-                anyhow::ensure!(
-                    metrics.days_survived > 0,
-                    "Game should survive at least 1 day"
-                );
-                anyhow::ensure!(
-                    !metrics.ending_type.starts_with("Error"),
-                    "Game should not end with error"
-                );
-
-                Ok(())
-            },
-        })
+    #[must_use]
+    pub fn name(&self) -> &'static str {
+        self.name
     }
 }
 
 #[async_trait::async_trait]
-impl BrowserScenario for ConservativeStrategyTest {
+impl BrowserScenario for SimulationScenario {
     async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for conservative strategy test");
+        anyhow::bail!(self.browser_message)
     }
 }
 
-impl CombinedScenario for ConservativeStrategyTest {
+impl CombinedScenario for SimulationScenario {
     fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Conservative Strategy Test".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                let tester = GameTester::new(false);
-                let seed = game_state.seed;
-                let metrics =
-                    tester.play_game(GameMode::Classic, GameplayStrategy::Conservative, seed);
-                anyhow::ensure!(
-                    metrics.days_survived > 0,
-                    "Game should survive at least 1 day"
-                );
-                Ok(())
-            },
-        })
+        Some(TestScenario::simulation(self.name, self.plan.clone()))
     }
 }
 
-#[async_trait::async_trait]
-impl BrowserScenario for AggressiveStrategyTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for aggressive strategy test");
-    }
+fn survival_expectation(summary: &crate::logic::game_tester::SimulationSummary) -> Result<()> {
+    anyhow::ensure!(
+        summary.metrics.days_survived > 0,
+        "Game should survive at least 1 day"
+    );
+    Ok(())
 }
 
-impl CombinedScenario for AggressiveStrategyTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Aggressive Strategy Test".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                let tester = GameTester::new(false);
-                let seed = game_state.seed;
-                let metrics =
-                    tester.play_game(GameMode::Classic, GameplayStrategy::Aggressive, seed);
-                anyhow::ensure!(
-                    metrics.days_survived > 0,
-                    "Game should survive at least 1 day"
-                );
-                Ok(())
-            },
-        })
-    }
+fn real_game_expectation(summary: &crate::logic::game_tester::SimulationSummary) -> Result<()> {
+    survival_expectation(summary)?;
+    anyhow::ensure!(
+        !summary.metrics.ending_type.contains("Error"),
+        "Game should not end with error"
+    );
+    Ok(())
 }
 
-#[async_trait::async_trait]
-impl BrowserScenario for ResourceManagerTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for resource manager test");
-    }
+fn real_game_scenario() -> SimulationScenario {
+    SimulationScenario::new(
+        "Real Game Test",
+        SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
+            .with_expectation(real_game_expectation),
+    )
 }
 
-impl CombinedScenario for ResourceManagerTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Resource Manager Test".to_string(),
-            setup: None,
-            test_fn: |game_state| {
-                let tester = GameTester::new(false);
-                let seed = game_state.seed;
-                let metrics =
-                    tester.play_game(GameMode::Classic, GameplayStrategy::ResourceManager, seed);
-                anyhow::ensure!(
-                    metrics.days_survived > 0,
-                    "Game should survive at least 1 day"
-                );
-                Ok(())
-            },
-        })
-    }
-}
-
-// Implementations for modernized comprehensive test scenarios
-#[async_trait::async_trait]
-impl BrowserScenario for BasicGameCreationTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for basic game creation test");
-    }
-}
-
-impl CombinedScenario for BasicGameCreationTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Basic Game State Creation")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for ShareCodeConsistencyTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for share code consistency test");
-    }
-}
-
-impl CombinedScenario for ShareCodeConsistencyTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Share Code Generation and Parsing")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for DeterministicGameplayTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for deterministic gameplay test");
-    }
-}
-
-impl CombinedScenario for DeterministicGameplayTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Deterministic Game Behavior")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for EncounterChoicesTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for encounter choices test");
-    }
-}
-
-impl CombinedScenario for EncounterChoicesTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Encounter Choice Processing")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for VehicleSystemTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for vehicle system test");
-    }
-}
-
-impl CombinedScenario for VehicleSystemTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Vehicle System Integration")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for WeatherEffectsTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for weather effects test");
-    }
-}
-
-impl CombinedScenario for WeatherEffectsTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Weather System Effects")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for ResourceManagementTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for resource management test");
-    }
-}
-
-impl CombinedScenario for ResourceManagementTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Resource Management")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for StatsBoundariesTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for stats boundaries test");
-    }
-}
-
-impl CombinedScenario for StatsBoundariesTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Stats Boundary Conditions")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for InventoryOperationsTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for inventory operations test");
-    }
-}
-
-impl CombinedScenario for InventoryOperationsTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Inventory Operations")
-                .unwrap(),
-        )
-    }
-}
-
-#[async_trait::async_trait]
-impl BrowserScenario for GameModeVariationsTest {
-    async fn run_browser(&self, _driver: &WebDriver, _ctx: &ScenarioCtx<'_>) -> Result<()> {
-        anyhow::bail!("Browser testing not implemented for game mode variations test");
-    }
-}
-
-impl CombinedScenario for GameModeVariationsTest {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(
-            crate::common::scenarios::get_all_scenarios()
-                .into_iter()
-                .find(|s| s.name == "Game Mode Variations")
-                .unwrap(),
-        )
-    }
+fn strategy_scenario(name: &'static str, strategy: GameplayStrategy) -> SimulationScenario {
+    SimulationScenario::new(
+        name,
+        SimulationPlan::new(GameMode::Classic, strategy)
+            .with_max_days(DEFAULT_POLICY_SIM_DAYS)
+            .with_setup(default_policy_setup(strategy))
+            .with_expectation(survival_expectation),
+    )
 }
 
 pub fn get_scenario(name: &str) -> Option<Box<dyn CombinedScenario + Send + Sync>> {
     match name.to_lowercase().as_str() {
-        "smoke" => Some(Box::new(smoke::Smoke)),
-        "real-game" | "real" => Some(Box::new(RealGameTest)),
-        "conservative-strategy" => Some(Box::new(ConservativeStrategyTest)),
-        "aggressive-strategy" => Some(Box::new(AggressiveStrategyTest)),
-        "resource-manager" => Some(Box::new(ResourceManagerTest)),
+        "smoke" | "all" => Some(Box::new(smoke::SmokeScenario)),
+        "real-game" | "real" => Some(Box::new(real_game_scenario())),
+        "conservative-strategy" => Some(Box::new(strategy_scenario(
+            "Conservative Strategy Test",
+            GameplayStrategy::Conservative,
+        ))),
+        "aggressive-strategy" => Some(Box::new(strategy_scenario(
+            "Aggressive Strategy Test",
+            GameplayStrategy::Aggressive,
+        ))),
+        "resource-manager" => Some(Box::new(strategy_scenario(
+            "Resource Manager Test",
+            GameplayStrategy::ResourceManager,
+        ))),
         "full-game-conservative" | "conservative" => {
-            Some(Box::new(full_game::FullGameConservative))
+            Some(Box::new(full_game::full_game_conservative_scenario()))
         }
-        "full-game-aggressive" | "aggressive" => Some(Box::new(full_game::FullGameAggressive)),
-        "full-game-balanced" | "balanced" => Some(Box::new(full_game::FullGameBalanced)),
-        "resource-stress" | "stress" => Some(Box::new(playability::ResourceStressTest)),
+        "full-game-aggressive" | "aggressive" => {
+            Some(Box::new(full_game::full_game_aggressive_scenario()))
+        }
+        "full-game-balanced" | "balanced" => {
+            Some(Box::new(full_game::full_game_balanced_scenario()))
+        }
+        "resource-stress" | "stress" => Some(Box::new(playability::resource_stress_scenario())),
         "deterministic" | "deterministic-verification" => {
-            Some(Box::new(playability::DeterministicVerification))
+            Some(Box::new(playability::deterministic_verification_scenario()))
         }
-        "edge-case" | "edge" => Some(Box::new(playability::EdgeCaseSurvival)),
+        "edge-case" | "edge" => Some(Box::new(playability::edge_case_survival_scenario())),
 
         // Comprehensive test scenarios
-        "basic-game-creation" | "basic" => Some(Box::new(BasicGameCreationTest)),
-        "share-code-consistency" | "share-code" => Some(Box::new(ShareCodeConsistencyTest)),
-        "deterministic-gameplay" | "deterministic-game" => {
-            Some(Box::new(DeterministicGameplayTest))
+        "basic-game-creation" | "basic" => find_catalog_scenario("Basic Game State Creation")
+            .map(|scenario| Box::new(scenario) as _),
+        "share-code-consistency" | "share-code" => {
+            find_catalog_scenario("Share Code Generation and Parsing")
+                .map(|scenario| Box::new(scenario) as _)
         }
-        "encounter-choices" | "encounters" => Some(Box::new(EncounterChoicesTest)),
-        "vehicle-system" | "vehicle" => Some(Box::new(VehicleSystemTest)),
-        "weather-effects" | "weather" => Some(Box::new(WeatherEffectsTest)),
-        "resource-management" | "resources" => Some(Box::new(ResourceManagementTest)),
-        "stats-boundaries" | "stats" => Some(Box::new(StatsBoundariesTest)),
-        "inventory-operations" | "inventory" => Some(Box::new(InventoryOperationsTest)),
-        "game-mode-variations" | "game-modes" => Some(Box::new(GameModeVariationsTest)),
-
-        "all" => {
-            // For "all", we return the first scenario but the caller should handle this differently
-            // This is a limitation of the current architecture
-            Some(Box::new(smoke::Smoke))
+        "deterministic-gameplay" | "deterministic-game" => {
+            find_catalog_scenario("Deterministic Game Behavior")
+                .map(|scenario| Box::new(scenario) as _)
+        }
+        "encounter-choices" | "encounters" => find_catalog_scenario("Encounter Choice Processing")
+            .map(|scenario| Box::new(scenario) as _),
+        "vehicle-system" | "vehicle" => find_catalog_scenario("Vehicle System Integration")
+            .map(|scenario| Box::new(scenario) as _),
+        "weather-effects" | "weather" => {
+            find_catalog_scenario("Weather System Effects").map(|scenario| Box::new(scenario) as _)
+        }
+        "resource-management" | "resources" => {
+            find_catalog_scenario("Resource Management").map(|scenario| Box::new(scenario) as _)
+        }
+        "stats-boundaries" | "stats" => find_catalog_scenario("Stats Boundary Conditions")
+            .map(|scenario| Box::new(scenario) as _),
+        "inventory-operations" | "inventory" => {
+            find_catalog_scenario("Inventory Operations").map(|scenario| Box::new(scenario) as _)
+        }
+        "game-mode-variations" | "game-modes" => {
+            find_catalog_scenario("Game Mode Variations").map(|scenario| Box::new(scenario) as _)
         }
         _ => None,
     }
+}
+
+pub fn list_scenarios() -> Vec<(&'static str, &'static str)> {
+    vec![
+        ("smoke", "Smoke Test"),
+        ("real-game", "Real Game Test"),
+        ("conservative-strategy", "Conservative Strategy Test"),
+        ("aggressive-strategy", "Aggressive Strategy Test"),
+        ("resource-manager", "Resource Manager Test"),
+        (
+            "full-game-conservative",
+            "Full Game - Conservative Strategy",
+        ),
+        ("full-game-aggressive", "Full Game - Aggressive Strategy"),
+        ("full-game-balanced", "Full Game - Balanced Strategy"),
+        ("resource-stress", "Resource Management Stress Test"),
+        ("deterministic", "Deterministic Playthrough Verification"),
+        ("edge-case", "Edge Case Survival Test"),
+        ("basic-game-creation", "Basic Game State Creation"),
+        (
+            "share-code-consistency",
+            "Share Code Generation and Parsing",
+        ),
+        ("deterministic-gameplay", "Deterministic Game Behavior"),
+        ("encounter-choices", "Encounter Choice Processing"),
+        ("vehicle-system", "Vehicle System Integration"),
+        ("weather-effects", "Weather System Effects"),
+        ("resource-management", "Resource Management"),
+        ("stats-boundaries", "Stats Boundary Conditions"),
+        ("inventory-operations", "Inventory Operations"),
+        ("game-mode-variations", "Game Mode Variations"),
+    ]
 }

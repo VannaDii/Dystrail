@@ -2,13 +2,16 @@ mod browser;
 mod common;
 mod logic;
 
-use anyhow::Result;
+use anyhow::{Context, Result};
 use clap::{Parser, ValueEnum};
 use colored::Colorize;
+use std::fs::File;
+use std::io::{BufWriter, Write, stdout};
+use std::path::PathBuf;
 use std::time::Instant;
 
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
-use common::scenario::{ScenarioCtx, get_scenario};
+use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
 use logic::{LogicTester, resolve_seed_inputs, run_playability_analysis};
 
@@ -36,6 +39,10 @@ struct Args {
     #[arg(long, default_value = "smoke")]
     scenarios: String,
 
+    /// List all available scenarios and exit
+    #[arg(long)]
+    list_scenarios: bool,
+
     /// Seeds to run (comma-separated)
     #[arg(long, default_value = "1337")]
     seeds: String,
@@ -52,6 +59,10 @@ struct Args {
     /// Verbose output
     #[arg(short, long)]
     verbose: bool,
+
+    /// Optional path to write the report output instead of stdout
+    #[arg(long)]
+    output: Option<PathBuf>,
 
     // Browser-specific options
     /// Browsers to run (chrome,edge,firefox,safari) - browser mode only
@@ -80,6 +91,16 @@ struct Args {
 async fn main() -> Result<()> {
     env_logger::init();
     let args = Args::parse();
+
+    if args.list_scenarios {
+        let mut output_target = OutputTarget::new(args.output.clone())?;
+        writeln!(output_target.writer(), "Available scenarios:")?;
+        for (key, description) in list_scenarios() {
+            writeln!(output_target.writer(), "  {key:25} - {description}")?;
+        }
+        output_target.flush_inner()?;
+        return Ok(());
+    }
 
     println!("{}", "🎮 Dystrail Automated Tester".bright_cyan().bold());
     println!("{}", "================================".cyan());
@@ -181,8 +202,12 @@ async fn main() -> Result<()> {
                         };
 
                         let label = format!("{kind:?}").to_lowercase();
-                        let dir =
-                            artifacts_dir(&args.artifacts_dir, &label, scenario_name, seed_info.seed);
+                        let dir = artifacts_dir(
+                            &args.artifacts_dir,
+                            &label,
+                            scenario_name,
+                            seed_info.seed,
+                        );
 
                         let scenario_start = Instant::now();
                         match scenario.run_browser(&driver, &ctx).await {
@@ -216,39 +241,48 @@ async fn main() -> Result<()> {
             let _ = driver.quit().await;
         }
     }
+    let mut output_target = OutputTarget::new(args.output.clone())?;
 
     match args.report.as_str() {
         "json" => {
             if all_results.is_empty() {
-                println!("[]");
+                writeln!(&mut output_target, "[]")?;
             } else {
-                logic::reports::generate_json_report(&all_results)?;
+                logic::reports::generate_json_report(&mut output_target, &all_results)?;
             }
         }
         "markdown" => {
             if all_results.is_empty() {
-                println!("# Dystrail Logic Test Results\n\n_No scenarios executed._");
+                writeln!(
+                    &mut output_target,
+                    "# Dystrail Logic Test Results\n\n_No scenarios executed._"
+                )?;
             } else {
-                logic::reports::generate_markdown_report(&all_results);
+                logic::reports::generate_markdown_report(&mut output_target, &all_results)?;
             }
         }
         "csv" => {
-            let playability = run_playability_analysis(&seed_infos, args.verbose);
-            logic::reports::generate_csv_report(&playability);
+            let playability = run_playability_analysis(&seed_infos, args.verbose)?;
+            logic::reports::generate_csv_report(&mut output_target, &playability)?;
         }
         _ => {
             let duration = start_time.elapsed();
             if all_results.is_empty() {
-                println!("No logic scenarios executed.");
+                writeln!(&mut output_target, "No logic scenarios executed.")?;
             } else {
-                logic::reports::generate_console_report(&all_results, duration);
+                logic::reports::generate_console_report(
+                    &mut output_target,
+                    &all_results,
+                    duration,
+                )?;
             }
         }
     }
 
     let duration = start_time.elapsed();
-    println!();
-    println!("🏁 Total time: {duration:?}");
+    writeln!(&mut output_target, "")?;
+    writeln!(&mut output_target, "🏁 Total time: {duration:?}")?;
+    output_target.flush_inner()?;
 
     // Exit with error code if any tests failed
     let failed_tests = all_results.iter().any(|r| !r.passed);
@@ -257,4 +291,44 @@ async fn main() -> Result<()> {
     }
 
     Ok(())
+}
+enum OutputTarget {
+    Stdout(BufWriter<std::io::Stdout>),
+    File(BufWriter<File>),
+}
+
+impl OutputTarget {
+    fn new(path: Option<PathBuf>) -> Result<Self> {
+        if let Some(path) = path {
+            let file = File::create(&path)
+                .with_context(|| format!("failed to create {}", path.display()))?;
+            Ok(OutputTarget::File(BufWriter::new(file)))
+        } else {
+            Ok(OutputTarget::Stdout(BufWriter::new(stdout())))
+        }
+    }
+
+    fn writer(&mut self) -> &mut dyn Write {
+        match self {
+            OutputTarget::Stdout(w) => w,
+            OutputTarget::File(w) => w,
+        }
+    }
+
+    fn flush_inner(&mut self) -> std::io::Result<()> {
+        match self {
+            OutputTarget::Stdout(w) => w.flush(),
+            OutputTarget::File(w) => w.flush(),
+        }
+    }
+}
+
+impl Write for OutputTarget {
+    fn write(&mut self, buf: &[u8]) -> std::io::Result<usize> {
+        self.writer().write(buf)
+    }
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        self.flush_inner()
+    }
 }

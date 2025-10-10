@@ -1,28 +1,37 @@
 use anyhow::Result;
 use colored::Colorize;
 use serde_json;
+use std::io::Write;
 use std::time::Duration;
 
 use super::{PlayabilityRecord, ScenarioResult};
 
-pub fn generate_console_report(results: &[ScenarioResult], total_duration: Duration) {
-    println!();
-    println!("{}", "📊 Logic Test Results Summary".bright_cyan().bold());
-    println!("{}", "==============================".cyan());
+pub fn generate_console_report(
+    writer: &mut dyn Write,
+    results: &[ScenarioResult],
+    total_duration: Duration,
+) -> Result<()> {
+    writeln!(writer)?;
+    writeln!(
+        writer,
+        "{}",
+        "📊 Logic Test Results Summary".bright_cyan().bold()
+    )?;
+    writeln!(writer, "{}", "==============================".cyan())?;
 
     let total_tests = results.len();
     let passed_tests = results.iter().filter(|r| r.passed).count();
     let failed_tests = total_tests - passed_tests;
 
     // Overall stats
-    println!("Total scenarios: {total_tests}");
-    println!("Passed: {}", passed_tests.to_string().green());
-    println!("Failed: {}", failed_tests.to_string().red());
+    writeln!(writer, "Total scenarios: {total_tests}")?;
+    writeln!(writer, "Passed: {}", passed_tests.to_string().green())?;
+    writeln!(writer, "Failed: {}", failed_tests.to_string().red())?;
     #[allow(clippy::cast_precision_loss)]
     let success_rate = (passed_tests as f64 / total_tests as f64) * 100.0;
-    println!("Success rate: {success_rate:.1}%");
-    println!("Total time: {total_duration:?}");
-    println!();
+    writeln!(writer, "Success rate: {success_rate:.1}%")?;
+    writeln!(writer, "Total time: {total_duration:?}")?;
+    writeln!(writer)?;
 
     // Individual results
     for result in results {
@@ -32,97 +41,111 @@ pub fn generate_console_report(results: &[ScenarioResult], total_duration: Durat
             "❌ FAIL".red()
         };
 
-        println!("{} {}", status, result.scenario_name.bold());
-        println!(
+        writeln!(writer, "{} {}", status, result.scenario_name.bold())?;
+        writeln!(
+            writer,
             "   Iterations: {}/{} successful",
             result.successful_iterations, result.iterations_run
-        );
-        println!("   Average time: {:?}", result.average_duration);
+        )?;
+        writeln!(writer, "   Average time: {:?}", result.average_duration)?;
 
         if !result.failures.is_empty() {
-            println!("   Failures:");
+            writeln!(writer, "   Failures:")?;
             for failure in &result.failures {
-                println!("     • {}", failure.red());
+                writeln!(writer, "     • {}", failure.red())?;
             }
         }
-        println!();
+        writeln!(writer)?;
     }
 
     // Performance summary
     if !results.is_empty() {
-        println!("{}", "⚡ Performance Summary".bright_yellow().bold());
-        println!("{}", "=====================".yellow());
+        writeln!(
+            writer,
+            "{}",
+            "⚡ Performance Summary".bright_yellow().bold()
+        )?;
+        writeln!(writer, "{}", "=====================".yellow())?;
 
         let fastest = results.iter().min_by_key(|r| r.average_duration).unwrap();
         let slowest = results.iter().max_by_key(|r| r.average_duration).unwrap();
 
-        println!(
+        writeln!(
+            writer,
             "Fastest: {} ({:?})",
             fastest.scenario_name.green(),
             fastest.average_duration
-        );
-        println!(
+        )?;
+        writeln!(
+            writer,
             "Slowest: {} ({:?})",
             slowest.scenario_name.yellow(),
             slowest.average_duration
-        );
+        )?;
     }
-}
 
-pub fn generate_json_report(results: &[ScenarioResult]) -> Result<()> {
-    let json_output = serde_json::to_string_pretty(results)?;
-    println!("{json_output}");
     Ok(())
 }
 
-pub fn generate_markdown_report(results: &[ScenarioResult]) {
-    println!("# Dystrail Logic Test Results\n");
+pub fn generate_json_report(writer: &mut dyn Write, results: &[ScenarioResult]) -> Result<()> {
+    let json_output = serde_json::to_string_pretty(results)?;
+    writeln!(writer, "{json_output}")?;
+    Ok(())
+}
+
+pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResult]) -> Result<()> {
+    writeln!(writer, "# Dystrail Logic Test Results\n")?;
 
     let total_tests = results.len();
     let passed_tests = results.iter().filter(|r| r.passed).count();
     let failed_tests = total_tests - passed_tests;
 
-    println!("## Summary\n");
-    println!("- **Total scenarios**: {total_tests}");
-    println!("- **Passed**: {passed_tests}");
-    println!("- **Failed**: {failed_tests}");
+    writeln!(writer, "## Summary\n")?;
+    writeln!(writer, "- **Total scenarios**: {total_tests}")?;
+    writeln!(writer, "- **Passed**: {passed_tests}")?;
+    writeln!(writer, "- **Failed**: {failed_tests}")?;
     #[allow(clippy::cast_precision_loss)]
     let success_rate = (passed_tests as f64 / total_tests as f64) * 100.0;
-    println!("- **Success rate**: {success_rate:.1}%\n");
+    writeln!(writer, "- **Success rate**: {success_rate:.1}%\n")?;
 
-    println!("## Detailed Results\n");
+    writeln!(writer, "## Detailed Results\n")?;
 
     for result in results {
         let status = if result.passed { "✅" } else { "❌" };
 
-        println!("### {} {}\n", status, result.scenario_name);
-        println!(
+        writeln!(writer, "### {} {}\n", status, result.scenario_name)?;
+        writeln!(
+            writer,
             "- **Iterations**: {}/{} successful",
             result.successful_iterations, result.iterations_run
-        );
-        println!("- **Average time**: {:?}", result.average_duration);
+        )?;
+        writeln!(writer, "- **Average time**: {:?}", result.average_duration)?;
 
         if !result.failures.is_empty() {
-            println!("- **Failures**:");
+            writeln!(writer, "- **Failures**:")?;
             for failure in &result.failures {
-                println!("  - {failure}");
+                writeln!(writer, "  - {failure}")?;
             }
         }
-        println!();
+        writeln!(writer)?;
     }
+
+    Ok(())
 }
 
-pub fn generate_csv_report(records: &[PlayabilityRecord]) {
-    println!(
+pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
+    writeln!(
+        writer,
         "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents"
-    );
+    )?;
 
     for record in records {
         let metrics = &record.metrics;
         let mode = format!("{:?}", record.mode);
         let strategy = record.strategy.to_string();
 
-        println!(
+        writeln!(
+            writer,
             "{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
             quote(&record.scenario_name),
             quote(&mode),
@@ -138,8 +161,10 @@ pub fn generate_csv_report(records: &[PlayabilityRecord]) {
             metrics.final_sanity,
             metrics.final_pants,
             metrics.final_budget_cents,
-        );
+        )?;
     }
+
+    Ok(())
 }
 
 fn quote(value: &str) -> String {

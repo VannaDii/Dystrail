@@ -1,10 +1,590 @@
-use dystrail_game::data::EncounterData;
-use dystrail_game::pacing::PacingConfig;
-use dystrail_game::{GameMode, GameState};
-use rand::SeedableRng;
-use rand_chacha::ChaCha20Rng;
-use std::fmt;
+use std::fs;
+use std::path::PathBuf;
+use std::sync::Arc;
 
+use anyhow::Result;
+use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
+use dystrail_game::pacing::PacingConfig;
+use dystrail_game::personas::{Persona, PersonasList};
+use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
+use dystrail_game::{GameMode, GameState};
+use serde_json;
+
+use crate::logic::policy::GameplayStrategy;
+use crate::logic::simulation::{DecisionRecord, SimulationConfig, SimulationSession, TurnOutcome};
+
+/// Collection of immutable data required to run a simulation.
+#[derive(Debug, Clone)]
+struct TesterAssets {
+    encounter_data: EncounterData,
+    pacing_config: PacingConfig,
+    personas: PersonasList,
+    store: Store,
+}
+
+impl TesterAssets {
+    fn load_default() -> Self {
+        let encounter_data =
+            Self::load_encounters_from_assets().unwrap_or_else(Self::fallback_encounter_data);
+        let pacing_config = PacingConfig::default_config();
+        let personas = Self::load_personas_from_assets().unwrap_or_else(PersonasList::empty);
+        let store = Self::load_store_from_assets().unwrap_or_else(Self::fallback_store_data);
+
+        Self {
+            encounter_data,
+            pacing_config,
+            personas,
+            store,
+        }
+    }
+
+    fn assets_data_root() -> PathBuf {
+        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("..")
+            .join("dystrail-web")
+            .join("static")
+            .join("assets")
+            .join("data")
+    }
+
+    fn load_encounters_from_assets() -> Option<EncounterData> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("game.json")).ok()?;
+        let data = EncounterData::from_json(&json).ok()?;
+        if data.encounters.is_empty() {
+            None
+        } else {
+            Some(data)
+        }
+    }
+
+    fn load_personas_from_assets() -> Option<PersonasList> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("personas.json")).ok()?;
+        PersonasList::from_json(&json).ok()
+    }
+
+    fn load_store_from_assets() -> Option<Store> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("store.json")).ok()?;
+        match serde_json::from_str(&json) {
+            Ok(store) => Some(store),
+            Err(err) => {
+                eprintln!("⚠️ Failed to parse store.json: {err}");
+                None
+            }
+        }
+    }
+
+    fn fallback_encounter_data() -> EncounterData {
+        EncounterData::from_encounters(vec![Encounter {
+            id: "debug_campfire".to_string(),
+            name: "Campfire Debate".to_string(),
+            desc: "The crew argues about rationing supplies.".to_string(),
+            weight: 5,
+            regions: vec!["Heartland".to_string()],
+            modes: vec!["classic".to_string(), "deep_end".to_string()],
+            choices: vec![
+                Choice {
+                    label: "Share supplies".to_string(),
+                    effects: Effects {
+                        hp: 0,
+                        sanity: 1,
+                        credibility: 0,
+                        supplies: -1,
+                        morale: 1,
+                        allies: 0,
+                        pants: 0,
+                        add_receipt: None,
+                        use_receipt: false,
+                        log: Some("You keep morale up with snacks.".to_string()),
+                    },
+                },
+                Choice {
+                    label: "Hoard supplies".to_string(),
+                    effects: Effects {
+                        hp: 0,
+                        sanity: -1,
+                        credibility: 1,
+                        supplies: 0,
+                        morale: -1,
+                        allies: 0,
+                        pants: 2,
+                        add_receipt: None,
+                        use_receipt: false,
+                        log: Some("Tension rises as you hoard the jerky.".to_string()),
+                    },
+                },
+            ],
+        }])
+    }
+
+    fn fallback_store_data() -> Store {
+        Store {
+            categories: vec![],
+            items: vec![StoreItem {
+                id: "rations".to_string(),
+                name: "Rations Pack".to_string(),
+                desc: "Fallback emergency supplies.".to_string(),
+                price_cents: 500,
+                unique: false,
+                max_qty: 5,
+                grants: Grants {
+                    supplies: 2,
+                    ..Grants::default()
+                },
+                tags: vec![],
+                category: "fuel_food".to_string(),
+            }],
+        }
+    }
+}
+
+const POLICY_BASE_ENCOUNTER_CHANCE: f32 = 0.85;
+
+pub const DEFAULT_POLICY_SIM_DAYS: u32 = 35;
+
+pub fn default_policy_setup(strategy: GameplayStrategy) -> fn(&mut GameState) {
+    match strategy {
+        GameplayStrategy::Conservative => conservative_policy_setup,
+        GameplayStrategy::Aggressive => aggressive_policy_setup,
+        GameplayStrategy::ResourceManager => resource_policy_setup,
+        GameplayStrategy::Balanced | GameplayStrategy::MonteCarlo => balanced_policy_setup,
+    }
+}
+
+fn balanced_policy_setup(state: &mut GameState) {
+    base_policy_setup(state);
+}
+
+fn conservative_policy_setup(state: &mut GameState) {
+    base_policy_setup(state);
+    state.stats.sanity = state.stats.sanity.max(8);
+    state.stats.pants = 2;
+    state.inventory.spares.tire = 2;
+}
+
+fn aggressive_policy_setup(state: &mut GameState) {
+    base_policy_setup(state);
+    state.stats.sanity = state.stats.sanity.min(7);
+    state.stats.pants = 6;
+    state.stats.supplies = state.stats.supplies.saturating_sub(2);
+}
+
+fn resource_policy_setup(state: &mut GameState) {
+    base_policy_setup(state);
+    state.stats.supplies += 3;
+    state.stats.supplies = state.stats.supplies.min(15);
+    state.budget_cents = 18_000;
+}
+
+fn base_policy_setup(state: &mut GameState) {
+    state.stats.hp = state.stats.hp.max(8);
+    state.stats.sanity = state.stats.sanity.max(8);
+    state.stats.supplies = state.stats.supplies.max(12);
+    state.stats.pants = state.stats.pants.min(5);
+    state.encounter_chance_today = POLICY_BASE_ENCOUNTER_CHANCE;
+    state.inventory.spares.tire = state.inventory.spares.tire.max(1);
+    state.inventory.spares.battery = state.inventory.spares.battery.max(1);
+    state.stats.clamp();
+}
+
+/// Declarative plan for running a simulation session.
+#[derive(Debug, Clone)]
+pub struct SimulationPlan {
+    pub mode: GameMode,
+    pub strategy: GameplayStrategy,
+    pub max_days: Option<u32>,
+    pub setup: Option<fn(&mut GameState)>,
+    pub expectations: Vec<SimulationExpectation>,
+}
+
+impl SimulationPlan {
+    #[must_use]
+    pub fn new(mode: GameMode, strategy: GameplayStrategy) -> Self {
+        Self {
+            mode,
+            strategy,
+            max_days: None,
+            setup: None,
+            expectations: Vec::new(),
+        }
+    }
+
+    #[allow(dead_code)]
+    #[must_use]
+    pub fn with_max_days(mut self, max_days: u32) -> Self {
+        self.max_days = Some(max_days);
+        self
+    }
+
+    #[allow(dead_code)]
+    #[must_use]
+    pub fn with_setup(mut self, setup: fn(&mut GameState)) -> Self {
+        self.setup = Some(setup);
+        self
+    }
+
+    #[must_use]
+    pub fn with_expectation(mut self, expectation: SimulationExpectation) -> Self {
+        self.expectations.push(expectation);
+        self
+    }
+}
+
+/// Assertion hook run after a simulation completes.
+pub type SimulationExpectation = fn(&SimulationSummary) -> Result<()>;
+
+/// Complete record of a simulation run.
+#[derive(Debug, Clone)]
+pub struct SimulationSummary {
+    pub seed: u64,
+    pub mode: GameMode,
+    pub strategy: GameplayStrategy,
+    pub turns: Vec<TurnOutcome>,
+    pub metrics: PlayabilityMetrics,
+    pub final_state: GameState,
+    pub ending_message: String,
+    pub game_ended: bool,
+}
+
+/// Headless deterministic runner for the core game logic.
+#[derive(Clone)]
+pub struct GameTester {
+    verbose: bool,
+    assets: Arc<TesterAssets>,
+}
+
+impl GameTester {
+    pub fn try_new(verbose: bool) -> Self {
+        let assets = TesterAssets::load_default();
+        Self {
+            verbose,
+            assets: Arc::new(assets),
+        }
+    }
+
+    fn persona_for_strategy(&self, strategy: GameplayStrategy) -> Option<Persona> {
+        if self.assets.personas.is_empty() {
+            return None;
+        }
+        let preferred = match strategy {
+            GameplayStrategy::Balanced => "staffer",
+            GameplayStrategy::Conservative => "lobbyist",
+            GameplayStrategy::Aggressive => "whistleblower",
+            GameplayStrategy::ResourceManager => "journalist",
+            GameplayStrategy::MonteCarlo => "satirist",
+        };
+
+        self.assets
+            .personas
+            .get_by_id(preferred)
+            .cloned()
+            .or_else(|| self.assets.personas.iter().next().cloned())
+    }
+
+    fn apply_persona_choice(&self, state: &mut GameState, strategy: GameplayStrategy) {
+        if let Some(persona) = self.persona_for_strategy(strategy) {
+            if self.verbose {
+                println!("🧬 Selected persona: {}", persona.name);
+            }
+            state.apply_persona(&persona);
+        } else if self.verbose {
+            println!("⚠️ No persona data available; using default stats");
+        }
+    }
+
+    fn apply_store_loadout(&self, state: &mut GameState, strategy: GameplayStrategy, seed: u64) {
+        if state.budget_cents <= 0 {
+            return;
+        }
+
+        if self.verbose {
+            let store = &self.assets.store;
+            println!(
+                "🛍️ Entering store with ${:.2} ({} categories)",
+                state.budget_cents as f64 / 100.0,
+                store.categories.len()
+            );
+        }
+
+        for (item_id, qty) in Self::planned_purchases(strategy, seed) {
+            self.execute_purchase(state, item_id, qty);
+        }
+    }
+
+    fn assign_party(&self, state: &mut GameState, strategy: GameplayStrategy, seed: u64) {
+        let (leader, companions) = Self::party_roster(strategy, seed);
+        state.set_party(leader, companions);
+        if self.verbose {
+            let mut names = vec![state.party.leader.clone()];
+            names.extend(state.party.companions.iter().cloned());
+            println!("🧑‍🤝‍🧑 Party: {}", names.join(", "));
+        }
+    }
+
+    fn planned_purchases(strategy: GameplayStrategy, seed: u64) -> Vec<(&'static str, i32)> {
+        match strategy {
+            GameplayStrategy::Balanced => vec![("rations", 2), ("water", 1), ("spare_tire", 1)],
+            GameplayStrategy::Conservative => {
+                vec![("spare_tire", 2), ("battery", 1), ("legal_fund", 1)]
+            }
+            GameplayStrategy::Aggressive => vec![("legal_fund", 2), ("rations", 1)],
+            GameplayStrategy::ResourceManager => {
+                vec![("rations", 3), ("water", 2), ("spare_tire", 1)]
+            }
+            GameplayStrategy::MonteCarlo => match seed % 3 {
+                0 => vec![("rations", 1), ("press_pass", 1), ("masks", 1)],
+                1 => vec![("rations", 2), ("legal_fund", 1)],
+                _ => vec![("water", 2), ("ponchos", 1), ("press_pass", 1)],
+            },
+        }
+    }
+
+    fn party_roster(strategy: GameplayStrategy, seed: u64) -> (String, Vec<String>) {
+        let base = match strategy {
+            GameplayStrategy::Balanced => [
+                "Alex Morgan",
+                "Jordan Rivers",
+                "Riley Chen",
+                "Taylor Brooks",
+                "Casey Patel",
+            ],
+            GameplayStrategy::Conservative => [
+                "Evelyn Clarke",
+                "Samuel Harper",
+                "Margaret Liu",
+                "Robert Hayes",
+                "Diana Singh",
+            ],
+            GameplayStrategy::Aggressive => [
+                "Zoe Knight",
+                "Axel Stone",
+                "Blaze Carter",
+                "Rex Turner",
+                "Nova Fields",
+            ],
+            GameplayStrategy::ResourceManager => [
+                "Quinn Walker",
+                "Harper Diaz",
+                "Morgan Lee",
+                "Dakota Shah",
+                "Emerson Vale",
+            ],
+            GameplayStrategy::MonteCarlo => [
+                "Indigo Reyes",
+                "Sterling Vaughn",
+                "Phoenix Cole",
+                "Rowan Hart",
+                "Sable Frost",
+            ],
+        };
+
+        let mut names: Vec<String> = base.into_iter().map(String::from).collect();
+        if !names.is_empty() {
+            let offset = (seed as usize) % names.len();
+            names.rotate_left(offset);
+        }
+        while names.len() < 5 {
+            let idx = names.len() + 1;
+            names.push(format!("Traveler {}", idx));
+        }
+        let leader = names
+            .first()
+            .cloned()
+            .unwrap_or_else(|| "Traveler 1".to_string());
+        let companions = names[1..].to_vec();
+        (leader, companions)
+    }
+
+    fn execute_purchase(&self, state: &mut GameState, item_id: &str, requested_qty: i32) {
+        if requested_qty <= 0 {
+            return;
+        }
+        let store = &self.assets.store;
+        if store.categories.is_empty() && store.items.is_empty() {
+            return;
+        }
+
+        let Some(item) = store.find_item(item_id) else {
+            return;
+        };
+
+        let mut qty = requested_qty;
+        if item.unique {
+            qty = qty.min(1);
+        }
+        if item.max_qty > 0 {
+            qty = qty.min(item.max_qty);
+        }
+        if qty <= 0 {
+            return;
+        }
+
+        let discount = f64::from(state.mods.store_discount_pct);
+        let unit_price = calculate_effective_price(item.price_cents, discount);
+        let qty_i64 = i64::from(qty);
+        let total_cost = unit_price.saturating_mul(qty_i64);
+        if total_cost <= 0 || state.budget_cents < total_cost {
+            return;
+        }
+
+        let mut total_grants = Grants::default();
+        total_grants.supplies = item.grants.supplies * qty;
+        total_grants.credibility = item.grants.credibility * qty;
+        total_grants.spare_tire = item.grants.spare_tire * qty;
+        total_grants.spare_battery = item.grants.spare_battery * qty;
+        total_grants.spare_alt = item.grants.spare_alt * qty;
+        total_grants.spare_pump = item.grants.spare_pump * qty;
+        total_grants.enabled = item.grants.enabled;
+
+        let mut tags = Vec::new();
+        for _ in 0..qty {
+            tags.extend(item.tags.iter().cloned());
+        }
+
+        state.apply_store_purchase(total_cost, &total_grants, &tags);
+        state
+            .logs
+            .push(format!("log.store.purchase.{}x{}", item.id, qty));
+        if self.verbose {
+            let total_dollars = total_cost as f64 / 100.0;
+            println!(
+                "🛒 Purchased {}x {} for ${:.2} (remaining ${:.2})",
+                qty,
+                item.name,
+                total_dollars,
+                state.budget_cents as f64 / 100.0
+            );
+        }
+    }
+
+    pub fn run_plan(&self, plan: &SimulationPlan, seed: u64) -> SimulationSummary {
+        let max_days = plan.max_days.unwrap_or(200);
+        let mut session = SimulationSession::new(
+            SimulationConfig::new(plan.mode, seed).with_max_days(max_days),
+            self.assets.encounter_data.clone(),
+            self.assets.pacing_config.clone(),
+        );
+
+        self.assign_party(session.state_mut(), plan.strategy, seed);
+        self.apply_persona_choice(session.state_mut(), plan.strategy);
+
+        if let Some(setup) = plan.setup {
+            setup(session.state_mut());
+        }
+
+        self.apply_store_loadout(session.state_mut(), plan.strategy, seed);
+
+        if self.verbose {
+            log_initial_state(seed, plan, session.state());
+        }
+
+        let mut policy = plan.strategy.create_policy(seed);
+        let mut metrics = PlayabilityMetrics::default();
+        let mut turns = Vec::new();
+        if max_days == 0 {
+            let final_state = session.into_state();
+            metrics.finalize_without_turn(&final_state);
+            return SimulationSummary {
+                seed,
+                mode: plan.mode,
+                strategy: plan.strategy,
+                turns,
+                metrics,
+                final_state,
+                ending_message: "Simulation not executed".to_string(),
+                game_ended: false,
+            };
+        }
+
+        loop {
+            let outcome = session.advance(policy.as_mut());
+            metrics.record_turn(&outcome);
+
+            if self.verbose {
+                log_turn(&outcome, session.state());
+            }
+
+            let finished = outcome.game_ended;
+            turns.push(outcome);
+
+            if finished {
+                break;
+            }
+        }
+
+        let final_state = session.into_state();
+        let final_outcome = turns.last().cloned().expect("simulation yielded no turns");
+        metrics.finalize(&final_state, &final_outcome);
+
+        SimulationSummary {
+            seed,
+            mode: plan.mode,
+            strategy: plan.strategy,
+            turns,
+            metrics,
+            final_state,
+            ending_message: final_outcome.travel_message.clone(),
+            game_ended: final_outcome.game_ended,
+        }
+    }
+
+    #[allow(dead_code)]
+    pub fn play_game(
+        &self,
+        mode: GameMode,
+        strategy: GameplayStrategy,
+        seed: u64,
+    ) -> PlayabilityMetrics {
+        let plan = SimulationPlan::new(mode, strategy)
+            .with_max_days(DEFAULT_POLICY_SIM_DAYS)
+            .with_setup(default_policy_setup(strategy));
+        let summary = self.run_plan(&plan, seed);
+        summary.metrics
+    }
+}
+
+fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
+    println!(
+        "🎮 Starting simulation | seed:{seed} mode:{:?} policy:{}",
+        plan.mode,
+        plan.strategy.label()
+    );
+    #[allow(clippy::cast_precision_loss)]
+    {
+        println!(
+            "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${:.2}",
+            state.stats.hp,
+            state.stats.supplies,
+            state.stats.sanity,
+            state.stats.pants,
+            state.budget_cents as f64 / 100.0
+        );
+    }
+}
+
+fn log_turn(outcome: &TurnOutcome, state: &GameState) {
+    if let Some(decision) = &outcome.decision {
+        println!(
+            "🎯 Day {}: {} -> {} ({})",
+            decision.day, decision.encounter_name, decision.choice_label, decision.policy_name
+        );
+    }
+
+    if outcome.day.div_euclid(10) * 10 == outcome.day || outcome.game_ended {
+        println!(
+            "📅 Day {} stats | HP:{} Supplies:{} Sanity:{} Pants:{}",
+            state.day, state.stats.hp, state.stats.supplies, state.stats.sanity, state.stats.pants
+        );
+    }
+
+    if outcome.game_ended {
+        println!("🏁 Simulation ended: {}", outcome.travel_message);
+    }
+}
+
+/// Aggregated analytics produced by a simulation run.
 #[derive(Debug, Clone)]
 pub struct PlayabilityMetrics {
     pub days_survived: i32,
@@ -16,10 +596,11 @@ pub struct PlayabilityMetrics {
     pub final_sanity: i32,
     pub final_pants: i32,
     pub final_budget_cents: i64,
+    pub decision_log: Vec<DecisionRecord>,
 }
 
-impl PlayabilityMetrics {
-    pub fn new() -> Self {
+impl Default for PlayabilityMetrics {
+    fn default() -> Self {
         Self {
             days_survived: 0,
             ending_type: "In Progress".to_string(),
@@ -29,257 +610,93 @@ impl PlayabilityMetrics {
             final_supplies: 10,
             final_sanity: 10,
             final_pants: 0,
-            final_budget_cents: 10000,
+            final_budget_cents: 10_000,
+            decision_log: Vec::new(),
         }
     }
 }
 
-#[derive(Clone, Copy, Debug)]
-pub enum GameplayStrategy {
-    Conservative,    // Prioritize survival over speed
-    Aggressive,      // Take risks for faster progress
-    Balanced,        // Moderate approach
-    ResourceManager, // Focus on resource efficiency
-}
-
-impl fmt::Display for GameplayStrategy {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            GameplayStrategy::Conservative => f.write_str("Conservative"),
-            GameplayStrategy::Aggressive => f.write_str("Aggressive"),
-            GameplayStrategy::Balanced => f.write_str("Balanced"),
-            GameplayStrategy::ResourceManager => f.write_str("Resource Manager"),
+impl PlayabilityMetrics {
+    pub fn record_turn(&mut self, outcome: &TurnOutcome) {
+        if let Some(decision) = outcome.decision.clone() {
+            self.encounters_faced += 1;
+            self.decision_log.push(decision);
         }
+
+        if outcome.breakdown_started {
+            self.vehicle_breakdowns += 1;
+        }
+    }
+
+    pub fn finalize(&mut self, state: &GameState, outcome: &TurnOutcome) {
+        self.days_survived = i32::try_from(state.day).unwrap_or(i32::MAX);
+        self.final_hp = state.stats.hp;
+        self.final_supplies = state.stats.supplies;
+        self.final_sanity = state.stats.sanity;
+        self.final_pants = state.stats.pants;
+        self.final_budget_cents = state.budget_cents;
+        self.ending_type = describe_ending(state, outcome);
+    }
+
+    pub fn finalize_without_turn(&mut self, state: &GameState) {
+        self.days_survived = i32::try_from(state.day).unwrap_or(i32::MAX);
+        self.final_hp = state.stats.hp;
+        self.final_supplies = state.stats.supplies;
+        self.final_sanity = state.stats.sanity;
+        self.final_pants = state.stats.pants;
+        self.final_budget_cents = state.budget_cents;
+        self.ending_type = "Simulation not executed".to_string();
     }
 }
 
-pub struct GameTester {
-    verbose: bool,
+fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> String {
+    if state.stats.pants >= 100 {
+        "Pants Emergency - Game Over".to_string()
+    } else if state.stats.hp <= 0 {
+        "Health Depleted - Game Over".to_string()
+    } else if state.stats.sanity <= 0 {
+        "Sanity Depleted - Game Over".to_string()
+    } else if state.stats.supplies <= 0 {
+        "Supplies Depleted - Game Over".to_string()
+    } else if outcome.travel_message.contains("victory") || outcome.travel_message.contains("boss")
+    {
+        "Victory - Boss Defeated".to_string()
+    } else if outcome.game_ended {
+        format!("Game Ended: {}", outcome.travel_message)
+    } else {
+        "Simulation Halted".to_string()
+    }
 }
 
-impl GameTester {
-    pub fn new(verbose: bool) -> Self {
-        Self { verbose }
-    }
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-    /// Play a complete game using the given strategy and seed
-    pub fn play_game(
-        &self,
-        mode: GameMode,
-        strategy: GameplayStrategy,
-        seed: u64,
-    ) -> PlayabilityMetrics {
-        // Create game state with provided seed
-        let mut game_state = GameState {
-            mode,
-            seed,
-            ..GameState::default()
-        };
+    #[test]
+    fn balanced_setup_applies_persona_and_store_plan() {
+        let tester = GameTester::try_new(false);
+        let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
+            .with_max_days(0)
+            .with_setup(default_policy_setup(GameplayStrategy::Balanced));
 
-        // Load encounter data (use empty for testing - encounters will be minimal)
-        let encounter_data = EncounterData::empty();
-        game_state.data = Some(encounter_data);
+        let summary = tester.run_plan(&plan, 12345);
+        let state = summary.final_state;
 
-        // Initialize RNG with seed
-        let rng = ChaCha20Rng::seed_from_u64(seed);
-        game_state.rng = Some(rng);
-
-        let mut metrics = PlayabilityMetrics::new();
-        let max_days = 200; // Safety limit to prevent infinite loops
-
-        if self.verbose {
-            println!("🎮 Starting game with seed: {seed}, mode: {mode:?}");
-            #[allow(clippy::cast_precision_loss)] // Budget display: cents to dollars is acceptable
-            {
-                println!(
-                    "📊 Initial state: HP={}, Supplies={}, Sanity={}, Pants={}, Budget=${:.2}",
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.stats.pants,
-                    game_state.budget_cents as f64 / 100.0
-                );
-            }
-        }
-
-        // Main gameplay loop - simulate actual turns
-        loop {
-            // Record pre-turn state for metrics
-
-            // Apply pace and diet effects (this is normally done in UI before travel_next_leg)
-            let pacing_config = PacingConfig::default_config();
-            game_state.apply_pace_and_diet(&pacing_config);
-
-            // Handle any active encounter first
-            if let Some(encounter) = game_state.current_encounter.clone() {
-                let choice_idx = Self::choose_encounter_action(&encounter, &game_state, strategy);
-                game_state.apply_choice(choice_idx);
-                metrics.encounters_faced += 1;
-
-                if self.verbose {
-                    println!(
-                        "🎯 Day {}: Handled encounter '{}' with choice {}",
-                        game_state.day, encounter.name, choice_idx
-                    );
-                }
-            }
-
-            // Travel to next leg (this advances the day and handles game logic)
-            let (game_ended, travel_message) = game_state.travel_next_leg();
-
-            // Record turn metrics
-            // Track vehicle breakdowns
-            if game_state.travel_blocked {
-                metrics.vehicle_breakdowns += 1;
-            }
-
-            if self.verbose && game_state.day.is_multiple_of(10) {
-                println!(
-                    "📅 Day {}: HP={}, Supplies={}, Sanity={}, Pants={}",
-                    game_state.day,
-                    game_state.stats.hp,
-                    game_state.stats.supplies,
-                    game_state.stats.sanity,
-                    game_state.stats.pants
-                );
-            }
-
-            // Check for game end conditions
-            if game_ended || game_state.day >= max_days {
-                metrics.ending_type =
-                    Self::determine_ending_type(&game_state, game_ended, &travel_message);
-                break;
-            }
-        }
-
-        // Record final metrics
-        metrics.days_survived = i32::try_from(game_state.day).unwrap_or(i32::MAX);
-        metrics.final_hp = game_state.stats.hp;
-        metrics.final_supplies = game_state.stats.supplies;
-        metrics.final_sanity = game_state.stats.sanity;
-        metrics.final_pants = game_state.stats.pants;
-        metrics.final_budget_cents = game_state.budget_cents;
-        // TODO: Calculate final score when scoring system is available
-
-        if self.verbose {
-            println!(
-                "🏁 Game ended after {} days: {}",
-                metrics.days_survived, metrics.ending_type
-            );
-        }
-
-        metrics
-    }
-
-    fn choose_encounter_action(
-        encounter: &dystrail_game::data::Encounter,
-        _game_state: &GameState,
-        strategy: GameplayStrategy,
-    ) -> usize {
-        if encounter.choices.is_empty() {
-            return 0;
-        }
-
-        match strategy {
-            GameplayStrategy::Conservative => {
-                // Choose option with least negative impact on critical resources
-                encounter
-                    .choices
-                    .iter()
-                    .enumerate()
-                    .min_by_key(|(_, choice)| {
-                        let mut risk = 0;
-                        if choice.effects.hp < 0 {
-                            risk += (-choice.effects.hp) * 4;
-                        }
-                        if choice.effects.supplies < 0 {
-                            risk += (-choice.effects.supplies) * 3;
-                        }
-                        if choice.effects.sanity < 0 {
-                            risk += (-choice.effects.sanity) * 2;
-                        }
-                        if choice.effects.pants > 0 {
-                            risk += choice.effects.pants * 2;
-                        }
-                        risk
-                    })
-                    .map_or(0, |(i, _)| i)
-            }
-            GameplayStrategy::Aggressive => {
-                // Choose option with highest potential reward, accepting risk
-                encounter
-                    .choices
-                    .iter()
-                    .enumerate()
-                    .max_by_key(|(_, choice)| {
-                        let mut reward = 0;
-                        reward += choice.effects.hp.max(0) * 2;
-                        reward += choice.effects.supplies.max(0) * 2;
-                        reward += choice.effects.credibility.max(0) * 3;
-                        reward += choice.effects.allies.max(0);
-                        // Slightly penalize pants increase but don't avoid it entirely
-                        reward -= choice.effects.pants.max(0);
-                        reward
-                    })
-                    .map_or(0, |(i, _)| i)
-            }
-            GameplayStrategy::Balanced => {
-                // Balance risk vs reward
-                encounter
-                    .choices
-                    .iter()
-                    .enumerate()
-                    .max_by_key(|(_, choice)| {
-                        let reward = choice.effects.hp.max(0)
-                            + choice.effects.supplies.max(0)
-                            + choice.effects.credibility.max(0)
-                            + choice.effects.allies.max(0);
-                        let risk = (-choice.effects.hp).max(0)
-                            + (-choice.effects.supplies).max(0)
-                            + (-choice.effects.sanity).max(0)
-                            + choice.effects.pants.max(0);
-                        reward - risk
-                    })
-                    .map_or(0, |(i, _)| i)
-            }
-            GameplayStrategy::ResourceManager => {
-                // Prioritize resource preservation above all else
-                encounter
-                    .choices
-                    .iter()
-                    .enumerate()
-                    .min_by_key(|(_, choice)| {
-                        (-choice.effects.hp).max(0) * 5
-                            + (-choice.effects.supplies).max(0) * 4
-                            + (-choice.effects.sanity).max(0) * 3
-                            + choice.effects.pants.max(0) * 2
-                    })
-                    .map_or(0, |(i, _)| i)
-            }
-        }
-    }
-
-    fn determine_ending_type(
-        game_state: &GameState,
-        game_ended: bool,
-        travel_message: &str,
-    ) -> String {
-        if game_state.stats.pants >= 100 {
-            "Pants Emergency - Game Over".to_string()
-        } else if game_state.stats.hp <= 0 {
-            "Health Depleted - Game Over".to_string()
-        } else if game_state.stats.sanity <= 0 {
-            "Sanity Depleted - Game Over".to_string()
-        } else if game_state.stats.supplies <= 0 {
-            "Supplies Depleted - Game Over".to_string()
-        } else if game_state.day >= 200 {
-            "Max Days Reached".to_string()
-        } else if travel_message.contains("victory") || travel_message.contains("boss") {
-            "Victory - Boss Defeated".to_string()
-        } else if game_ended {
-            format!("Game Ended: {travel_message}")
-        } else {
-            "Unknown Ending".to_string()
-        }
+        assert_eq!(state.persona_id.as_deref(), Some("staffer"));
+        assert!(
+            state.budget_cents < 11_000,
+            "budget should reflect store spend"
+        );
+        assert_eq!(state.party.leader, "Alex Morgan");
+        assert_eq!(state.party.companions.len(), 4);
+        assert_eq!(state.party.companions[0], "Jordan Rivers");
+        assert!(
+            state.inventory.spares.tire >= 2,
+            "store loadout should add an extra spare tire"
+        );
+        assert!(
+            state.stats.supplies >= 18,
+            "persona/start loadout should boost supplies"
+        );
     }
 }

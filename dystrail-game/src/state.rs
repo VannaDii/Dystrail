@@ -7,8 +7,8 @@ use crate::camp::CampState;
 use crate::data::{Encounter, EncounterData};
 use crate::encounters::pick_encounter;
 use crate::exec_orders::ExecOrder;
-use crate::personas::PersonaMods;
-use crate::vehicle::{Breakdown, Vehicle};
+use crate::personas::{Persona, PersonaMods};
+use crate::vehicle::{Breakdown, Part, Vehicle};
 use crate::weather::{WeatherConfig, WeatherState};
 
 /// Default pace setting
@@ -16,12 +16,73 @@ fn default_pace() -> String {
     "steady".to_string()
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn breakdown_consumes_spare_and_clears_block() {
+        let mut state = GameState::default();
+        state.inventory.spares.tire = 1;
+        state.breakdown = Some(Breakdown {
+            part: Part::Tire,
+            day_started: 1,
+        });
+        state.travel_blocked = true;
+        state.rng = Some(ChaCha20Rng::seed_from_u64(1));
+        state.data = Some(EncounterData::empty());
+
+        let (_ended, _msg, _started) = state.travel_next_leg();
+
+        assert_eq!(state.inventory.spares.tire, 0);
+        assert!(!state.travel_blocked);
+        assert!(state.breakdown.is_none());
+    }
+
+    #[test]
+    fn breakdown_without_spare_resolves_after_stall() {
+        let mut state = GameState::default();
+        state.breakdown = Some(Breakdown {
+            part: Part::Battery,
+            day_started: 1,
+        });
+        state.travel_blocked = true;
+        state.rng = Some(ChaCha20Rng::seed_from_u64(2));
+        state.data = Some(EncounterData::empty());
+
+        let (_ended_first, msg_first, _started_first) = state.travel_next_leg();
+        assert_eq!(msg_first, "log.travel-blocked");
+        assert!(state.travel_blocked);
+        assert!(state.breakdown.is_some());
+
+        let (_ended_second, msg_second, _started_second) = state.travel_next_leg();
+        assert_eq!(msg_second, "log.traveled");
+        assert!(!state.travel_blocked);
+        assert!(state.breakdown.is_none());
+    }
+
+    #[test]
+    fn exec_order_drain_clamped_to_zero() {
+        let mut state = GameState::default();
+        state.stats.supplies = 0;
+        state.stats.sanity = 0;
+        state.rng = Some(ChaCha20Rng::seed_from_u64(3));
+        state.encounter_chance_today = 0.0;
+        state.data = Some(EncounterData::empty());
+
+        let (_ended, _msg, _started) = state.travel_next_leg();
+
+        assert!(state.stats.supplies >= 0, "supplies went negative");
+        assert!(state.stats.sanity >= 0, "sanity went negative");
+    }
+}
+
 /// Default diet setting
 fn default_diet() -> String {
     "mixed".to_string()
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum GameMode {
     Classic,
     Deep,
@@ -100,6 +161,15 @@ pub struct Spares {
     pub pump: i32, // fuel pump
 }
 
+/// Party configuration (leader plus four companions)
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+pub struct Party {
+    #[serde(default)]
+    pub leader: String,
+    #[serde(default)]
+    pub companions: Vec<String>,
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GamePhase {
     Boot,
@@ -131,6 +201,8 @@ pub struct GameState {
     pub score_mult: f32,
     #[serde(default)]
     pub mods: PersonaMods,
+    #[serde(default)]
+    pub party: Party,
     /// Current pace setting
     #[serde(default = "default_pace")]
     pub pace: String,
@@ -143,6 +215,9 @@ pub struct GameState {
     /// Base encounter chance for today after pace modifiers
     #[serde(default)]
     pub encounter_chance_today: f32,
+    /// Whether an encounter has already occurred on the current day
+    #[serde(default)]
+    pub encounter_occurred_today: bool,
     /// Distance multiplier for today
     #[serde(default)]
     pub distance_today: f32,
@@ -185,10 +260,12 @@ impl Default for GameState {
             persona_id: None,
             score_mult: 1.0,
             mods: PersonaMods::default(),
+            party: Party::default(),
             pace: default_pace(),
             diet: default_diet(),
             receipt_bonus_pct: 0,
             encounter_chance_today: 0.35,
+            encounter_occurred_today: false,
             distance_today: 1.0,
             logs: vec![String::from("log.booting")],
             receipts: vec![],
@@ -275,21 +352,24 @@ impl GameState {
         }
     }
 
-    pub fn travel_next_leg(&mut self) -> (bool, String) {
+    pub fn travel_next_leg(&mut self) -> (bool, String, bool) {
         // Step 1: Apply Pace & Diet deltas (handled externally via apply_pace_and_diet call)
 
         // Step 2: Apply Weather effects
         self.apply_weather_effects();
 
         // Step 3: Vehicle breakdown roll
-        self.vehicle_roll();
+        let breakdown_started = self.vehicle_roll();
+        self.resolve_breakdown();
 
         // Step 4: Encounter chance computation & roll
         let mut trigger_enc = false;
-        if let Some(rng) = self.rng.as_mut() {
-            let roll: f32 = rng.random();
-            if roll < self.encounter_chance_today {
-                trigger_enc = true;
+        if !self.encounter_occurred_today {
+            if let Some(rng) = self.rng.as_mut() {
+                let roll: f32 = rng.random();
+                if roll < self.encounter_chance_today {
+                    trigger_enc = true;
+                }
             }
         }
         if trigger_enc
@@ -297,7 +377,8 @@ impl GameState {
             && let Some(enc) = pick_encounter(data, self.mode.is_deep(), self.region, rng)
         {
             self.current_encounter = Some(enc.clone());
-            return (false, String::from("log.encounter"));
+            self.encounter_occurred_today = true;
+            return (false, String::from("log.encounter"), breakdown_started);
         }
 
         // Step 5: Executive Orders
@@ -310,22 +391,24 @@ impl GameState {
         self.stats.supplies -= supplies_cost;
         self.stats.sanity -= sanity_cost;
         self.stats.pants += 1;
+        self.stats.clamp();
 
         // Step 6: Distance/region update and day advance
         self.day += 1;
         self.region = Self::region_by_day(self.day);
+        self.encounter_occurred_today = false;
 
         // Check for failure conditions after all effects
         if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
-            return (true, String::from("log.pants-emergency"));
+            return (true, String::from("log.pants-emergency"), breakdown_started);
         }
 
         // If travel is blocked by breakdown, don't continue
         if self.travel_blocked {
-            return (false, String::from("log.travel-blocked"));
+            return (false, String::from("log.travel-blocked"), breakdown_started);
         }
 
-        (false, String::from("log.traveled"))
+        (false, String::from("log.traveled"), breakdown_started)
     }
 
     /// Apply weather effects as step 2 of daily tick
@@ -339,8 +422,8 @@ impl GameState {
     }
 
     /// Apply vehicle breakdown logic
-    fn vehicle_roll(&mut self) {
-        // Simple breakdown logic inline to avoid borrow checker issues
+    fn vehicle_roll(&mut self) -> bool {
+        let mut breakdown_started = false;
         if self.rng.is_some() && self.breakdown.is_none() {
             let breakdown_chance = 0.1; // 10% chance per day
             let roll: f32 = self.rng.as_mut().unwrap().random();
@@ -353,8 +436,10 @@ impl GameState {
                     day_started: i32::try_from(self.day).unwrap_or(0),
                 });
                 self.travel_blocked = true;
+                breakdown_started = true;
             }
         }
+        breakdown_started
     }
 
     pub fn apply_choice(&mut self, idx: usize) {
@@ -380,6 +465,51 @@ impl GameState {
             }
         }
         self.current_encounter = None;
+    }
+
+    fn resolve_breakdown(&mut self) {
+        if let Some(breakdown) = self.breakdown.clone() {
+            if self.consume_spare_for_part(breakdown.part) {
+                self.breakdown = None;
+                self.travel_blocked = false;
+                self.logs.push(String::from("log.breakdown-repaired"));
+                return;
+            }
+
+            let day_started = u32::try_from(breakdown.day_started).unwrap_or(0);
+            if self.day.saturating_sub(day_started) >= 1 {
+                self.breakdown = None;
+                self.travel_blocked = false;
+                self.logs.push(String::from("log.breakdown-jury-rigged"));
+            } else {
+                self.travel_blocked = true;
+            }
+        } else {
+            self.travel_blocked = false;
+        }
+    }
+
+    fn consume_spare_for_part(&mut self, part: Part) -> bool {
+        let spares = &mut self.inventory.spares;
+        match part {
+            Part::Tire if spares.tire > 0 => {
+                spares.tire -= 1;
+                true
+            }
+            Part::Battery if spares.battery > 0 => {
+                spares.battery -= 1;
+                true
+            }
+            Part::Alternator if spares.alt > 0 => {
+                spares.alt -= 1;
+                true
+            }
+            Part::FuelPump if spares.pump > 0 => {
+                spares.pump -= 1;
+                true
+            }
+            _ => false,
+        }
     }
 
     pub fn next_u32(&mut self) -> u32 {
@@ -417,8 +547,50 @@ impl GameState {
     }
 
     /// Apply persona effects (placeholder)
-    pub fn apply_persona(&mut self, _persona: &crate::personas::Persona) {
-        // Placeholder implementation
+    pub fn apply_persona(&mut self, persona: &Persona) {
+        self.persona_id = Some(persona.id.clone());
+        self.score_mult = persona.score_mult;
+        self.mods = persona.mods.clone();
+
+        if persona.start.supplies > 0 {
+            self.stats.supplies = persona.start.supplies;
+        }
+        if persona.start.credibility > 0 {
+            self.stats.credibility = persona.start.credibility;
+        }
+        if persona.start.sanity > 0 {
+            self.stats.sanity = persona.start.sanity;
+        }
+        if persona.start.morale > 0 {
+            self.stats.morale = persona.start.morale;
+        }
+        if persona.start.allies > 0 {
+            self.stats.allies = persona.start.allies;
+        }
+
+        if persona.start.budget > 0 {
+            self.budget = persona.start.budget;
+            self.budget_cents = i64::from(persona.start.budget) * 100;
+        }
+
+        self.stats.clamp();
+        self.logs
+            .push(format!("log.persona.selected.{}", persona.id));
+    }
+
+    pub fn set_party<I, S>(&mut self, leader: S, companions: I)
+    where
+        I: IntoIterator,
+        I::Item: Into<String>,
+        S: Into<String>,
+    {
+        self.party.leader = leader.into();
+        self.party.companions = companions.into_iter().map(Into::into).take(4).collect();
+        while self.party.companions.len() < 4 {
+            let idx = self.party.companions.len() + 2;
+            self.party.companions.push(format!("Traveler {idx}"));
+        }
+        self.logs.push(String::from("log.party.updated"));
     }
 
     /// Apply store purchase effects

@@ -21,6 +21,51 @@ Advanced QA testing suite for Dystrail with dual testing modes:
 cargo run -p dystrail-tester -- --mode logic --scenarios smoke --seeds 1337,1338 --iterations 50
 ```
 
+#### Automated Play Simulation
+
+Every logic scenario now runs through the shared `SimulationPlan` harness. Policies, setup steps, and assertions live together so both logic and browser test paths stay in sync.
+
+```bash
+# Quick smoke across default seeds
+cargo run -p dystrail-tester -- --mode logic --scenarios smoke --seeds 1337,9001 --iterations 5
+
+# Full playability sweep (Balanced, Conservative, Aggressive, Resource, MonteCarlo)
+cargo run -p dystrail-tester -- --mode logic --seeds 1337 --report csv
+
+# Exercise the long-form conservative policy with verbose logging
+cargo run -p dystrail-tester -- --mode logic --scenarios full-game-conservative --seeds 1234 --iterations 3 --verbose
+
+# Stress-test resource and edge-case survival scenarios
+cargo run -p dystrail-tester -- --mode logic --scenarios resource-stress,edge-case --seeds 42 --iterations 2
+```
+
+Key flags (see `--help` for the complete list):
+
+- `--mode logic|browser|both` — select the execution backend (logic is fastest).
+- `--scenarios <names>` — comma-separated identifiers such as `smoke`, `full-game-conservative`, `resource-stress`, or `all`.
+- `--seeds <values>` — numeric seeds; share codes are resolved automatically.
+- `--iterations <n>` — number of times to repeat each seed/scenario pair.
+- `--report console|json|markdown|csv` — switch output formats. CSV emits playability metrics with decision logs.
+- `--verbose` — print turn-by-turn decisions with policy rationales for debugging.
+
+Available automated strategies: `Balanced`, `Conservative`, `Aggressive`, `ResourceManager`, and `MonteCarlo` (stochastic search with stable RNG seeding).
+
+Failures emit rich diagnostics—including final stats snapshots and the last three encounter decisions—which helps triage regressions after tweaking JSON content.
+
+### Scenario Catalog (Logic Mode)
+
+| Scenario | Purpose | Highlights |
+| --- | --- | --- |
+| `smoke` | Basic invariants | HP/supplies/sanity ranges, day ≥ 1 |
+| `real-game` | Balanced policy regression | Survives > 0 days, no error endings |
+| `conservative-strategy`, `aggressive-strategy`, `resource-manager` | Classic heuristics | Scenario-specific survival/pants limits |
+| `full-game-conservative`, `full-game-aggressive`, `full-game-balanced` | 40-day policy runs | Checks breakdowns, encounters, and risk curves |
+| `resource-stress`, `edge-case` | Failure pressure tests | Must terminate via resource or pants collapse |
+| `deterministic` | Reproducibility guard | Second run must match turn count and stats |
+| Catalog scenarios (`basic`, `inventory`, `weather-effects`, …) | Targeted system checks | Share-code round trip, stat clamping, vehicle ops, etc. |
+
+Use `--scenarios all` to execute the entire catalog in one go.
+
 ### Browser Testing (Visual)
 
 ```bash
@@ -82,14 +127,14 @@ if (location.search.includes('test=1')) {
 ### Core Options
 
 - `--mode logic|browser|both` - Test mode (default: logic)
-- `--scenarios smoke,combat,travel` - Scenarios to run (default: smoke)
+- `--scenarios smoke,full-game-conservative,resource-stress` - Comma-separated scenario names (default: smoke)
 - `--seeds 1337,1338` - Seeds for deterministic testing (default: 1337)
 - `--verbose` - Detailed output
 
 ### Logic Mode Options
 
 - `--iterations 10` - Iterations per scenario (default: 10)
-- `--report console|json|markdown` - Output format (default: console)
+- `--report console|json|markdown|csv` - Output format (default: console)
 
 ### Browser Mode Options
 
@@ -108,7 +153,7 @@ if (location.search.includes('test=1')) {
 cargo run -p dystrail-tester -- --mode logic --verbose
 
 # Full validation before commit
-cargo run -p dystrail-tester -- --mode both --scenarios smoke,combat --browsers chrome,firefox
+cargo run -p dystrail-tester -- --mode both --scenarios smoke,full-game-conservative --browsers chrome,firefox
 
 # Performance regression testing
 cargo run -p dystrail-tester -- --mode logic --iterations 100 --seeds 1337,7331,31337
@@ -118,7 +163,7 @@ cargo run -p dystrail-tester -- --mode logic --iterations 100 --seeds 1337,7331,
 
 ```bash
 # Logic tests in CI (fast)
-cargo run -p dystrail-tester -- --mode logic --scenarios smoke,combat,travel --iterations 20
+cargo run -p dystrail-tester -- --mode logic --scenarios smoke,full-game-conservative,resource-stress --iterations 20
 
 # Browser tests in CI with Selenium Grid
 export SELENIUM_HUB=http://selenium-grid:4444
@@ -136,57 +181,37 @@ When browser tests fail, artifacts are saved to `artifacts-dir/{browser}/{scenar
 
 ## Adding New Scenarios
 
-Create new test scenarios in `src/scenario/`. Each scenario implements both browser and logic testing:
+1. **Create a simulation-backed scenario** in `src/common/scenario/`.
 
-```rust
-// src/scenario/combat.rs
-use anyhow::Result;
-use thirtyfour::prelude::*;
-use super::{BrowserScenario, CombinedScenario, ScenarioCtx, TestScenario};
-
-pub struct Combat;
-
-#[async_trait::async_trait]
-impl BrowserScenario for Combat {
-    async fn run_browser(&self, driver: &WebDriver, ctx: &ScenarioCtx<'_>) -> Result<()> {
-        // Browser-specific test logic
-        driver.goto(&ctx.base_url).await?;
-        ctx.bridge.ensure_available().await?;
-        // ... test combat scenarios via browser
-        Ok(())
+    ```rust
+    pub fn combat_scenario() -> SimulationScenario {
+        SimulationScenario::new(
+            "Combat System",
+            SimulationPlan::new(GameMode::Classic, GameplayStrategy::Aggressive)
+                .with_setup(|state| {
+                    state.stats.hp = 5;
+                    state.stats.supplies = 8;
+                })
+                .with_expectation(|summary| {
+                    anyhow::ensure!(
+                        !summary.turns.is_empty(),
+                        "Combat scenario produced no turns"
+                    );
+                    anyhow::ensure!(
+                        summary.metrics.final_hp > 0,
+                        "Player should survive the combat simulation"
+                    );
+                    Ok(())
+                }),
+        )
     }
-}
+    ```
 
-impl CombinedScenario for Combat {
-    fn as_logic_scenario(&self) -> Option<TestScenario> {
-        Some(TestScenario {
-            name: "Combat System".to_string(),
-            description: "Test combat mechanics and damage calculations".to_string(),
-            setup: Some(|game_state| {
-                // Set up combat scenario
-                game_state.stats.hp = 5;
-            }),
-            test_fn: |game_state| {
-                // Pure logic testing
-                anyhow::ensure!(game_state.stats.hp > 0, "Player should survive");
-                Ok(())
-            },
-        })
-    }
-}
-```
+2. **Wire it into the dispatcher** inside `src/common/scenario/mod.rs::get_scenario` so both logic and browser modes recognise the new identifier.
 
-Then register it in `src/scenario/mod.rs`:
+3. **(Optional) Add browser automation** by implementing `BrowserScenario` for a struct in the same module if you need DOM/bridge coverage (see `smoke.rs` for reference).
 
-```rust
-pub fn get_scenario(name: &str) -> Option<Box<dyn CombinedScenario + Send + Sync>> {
-    match name.to_lowercase().as_str() {
-        "smoke" => Some(Box::new(smoke::Smoke)),
-        "combat" => Some(Box::new(combat::Combat)),  // Add this line
-        _ => None,
-    }
-}
-```
+4. **Keep expectations meaningful**—run for a realistic duration (`with_max_days`), and assert the metrics that matter (resource trends, encounter pacing, deterministic replay, etc.).
 
 ## Browser Driver Setup
 

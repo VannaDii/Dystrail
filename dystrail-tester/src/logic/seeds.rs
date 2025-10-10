@@ -169,8 +169,8 @@ mod tests {
     #[test]
     fn expands_all_share_codes() {
         let seeds = resolve_seed_inputs(&["all".to_string()]).unwrap();
-        // 64 words * 100 suffixes * 2 modes
-        assert_eq!(seeds.len(), 64 * 100 * 2);
+        let expected = dystrail_game::seed::WORD_LIST.len() * 100 * 2;
+        assert_eq!(seeds.len(), expected);
         assert!(seeds.iter().all(|s| s.code.is_some()));
     }
 }
