@@ -11,11 +11,13 @@ use dystrail_game::exec_orders::ExecOrdersConfig;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
-use dystrail_game::{GameMode, GameState};
+use dystrail_game::{DietId, GameMode, GameState, PaceId};
 use serde_json;
 
 use crate::logic::policy::GameplayStrategy;
 use crate::logic::simulation::{DecisionRecord, SimulationConfig, SimulationSession, TurnOutcome};
+
+const LOG_MESSAGE_PREFIX: &str = "log.";
 
 /// Collection of immutable data required to run a simulation.
 #[derive(Debug, Clone)]
@@ -360,15 +362,13 @@ impl GameTester {
         state.rest_threshold = threshold;
         state.rest_requested = false;
         state.pace = match strategy {
-            GameplayStrategy::Aggressive => "heated",
-            _ => "steady",
-        }
-        .to_string();
+            GameplayStrategy::Aggressive => PaceId::Heated,
+            _ => PaceId::Steady,
+        };
         state.diet = match strategy {
-            GameplayStrategy::Conservative | GameplayStrategy::ResourceManager => "quiet",
-            _ => "mixed",
-        }
-        .to_string();
+            GameplayStrategy::Conservative | GameplayStrategy::ResourceManager => DietId::Quiet,
+            _ => DietId::Mixed,
+        };
     }
 
     fn assign_party(&self, state: &mut GameState, strategy: GameplayStrategy, seed: u64) {
@@ -773,7 +773,7 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> String {
 }
 
 fn humanize_log_message(message: &str) -> String {
-    let stripped = message.strip_prefix("log.").unwrap_or(message);
+    let stripped = message.strip_prefix(LOG_MESSAGE_PREFIX).unwrap_or(message);
     stripped
         .split(['.', '_'])
         .filter(|segment| !segment.is_empty())

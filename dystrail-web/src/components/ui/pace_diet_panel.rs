@@ -1,4 +1,4 @@
-use crate::game::{GameState, PacingConfig};
+use crate::game::{DietId, GameState, PaceId, PacingConfig};
 use crate::i18n;
 use crate::input::numeric_key_to_index;
 use std::collections::HashMap;
@@ -9,8 +9,8 @@ use yew::prelude::*;
 pub struct PaceDietPanelProps {
     pub game_state: Rc<GameState>,
     pub pacing_config: Rc<PacingConfig>,
-    pub on_pace_change: Callback<String>,
-    pub on_diet_change: Callback<String>,
+    pub on_pace_change: Callback<PaceId>,
+    pub on_diet_change: Callback<DietId>,
     pub on_back: Callback<()>,
 }
 
@@ -36,8 +36,8 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
 
         Callback::from(move |idx: u8| match idx {
             1 => {
-                let pace_id = "steady";
-                let pace_cfg = pacing_config.get_pace_safe(pace_id);
+                let pace_id = PaceId::Steady;
+                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
                 let sanity_str = format!("{:+}", pace_cfg.sanity);
                 let pants_str = format!("{:+}", pace_cfg.pants);
                 let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
@@ -48,11 +48,11 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("chance", chance_str.as_str());
                 let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
                 status_message.set(msg);
-                on_pace_change.emit(pace_id.to_string());
+                on_pace_change.emit(pace_id);
             }
             2 => {
-                let pace_id = "heated";
-                let pace_cfg = pacing_config.get_pace_safe(pace_id);
+                let pace_id = PaceId::Heated;
+                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
                 let sanity_str = format!("{:+}", pace_cfg.sanity);
                 let pants_str = format!("{:+}", pace_cfg.pants);
                 let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
@@ -63,11 +63,11 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("chance", chance_str.as_str());
                 let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
                 status_message.set(msg);
-                on_pace_change.emit(pace_id.to_string());
+                on_pace_change.emit(pace_id);
             }
             3 => {
-                let pace_id = "blitz";
-                let pace_cfg = pacing_config.get_pace_safe(pace_id);
+                let pace_id = PaceId::Blitz;
+                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
                 let sanity_str = format!("{:+}", pace_cfg.sanity);
                 let pants_str = format!("{:+}", pace_cfg.pants);
                 let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
@@ -78,11 +78,11 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("chance", chance_str.as_str());
                 let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
                 status_message.set(msg);
-                on_pace_change.emit(pace_id.to_string());
+                on_pace_change.emit(pace_id);
             }
             4 => {
-                let diet_id = "quiet";
-                let diet_cfg = pacing_config.get_diet_safe(diet_id);
+                let diet_id = DietId::Quiet;
+                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
                 let sanity_str = format!("{:+}", diet_cfg.sanity);
                 let pants_str = format!("{:+}", diet_cfg.pants);
                 let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
@@ -93,11 +93,11 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("receipt", receipt_str.as_str());
                 let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
                 status_message.set(msg);
-                on_diet_change.emit(diet_id.to_string());
+                on_diet_change.emit(diet_id);
             }
             5 => {
-                let diet_id = "mixed";
-                let diet_cfg = pacing_config.get_diet_safe(diet_id);
+                let diet_id = DietId::Mixed;
+                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
                 let sanity_str = format!("{:+}", diet_cfg.sanity);
                 let pants_str = format!("{:+}", diet_cfg.pants);
                 let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
@@ -108,11 +108,11 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("receipt", receipt_str.as_str());
                 let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
                 status_message.set(msg);
-                on_diet_change.emit(diet_id.to_string());
+                on_diet_change.emit(diet_id);
             }
             6 => {
-                let diet_id = "doom";
-                let diet_cfg = pacing_config.get_diet_safe(diet_id);
+                let diet_id = DietId::Doom;
+                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
                 let sanity_str = format!("{:+}", diet_cfg.sanity);
                 let pants_str = format!("{:+}", diet_cfg.pants);
                 let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
@@ -123,7 +123,7 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 args.insert("receipt", receipt_str.as_str());
                 let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
                 status_message.set(msg);
-                on_diet_change.emit(diet_id.to_string());
+                on_diet_change.emit(diet_id);
             }
             0 => {
                 status_message.set(String::new());
@@ -215,41 +215,41 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
     };
 
     // Get current selections for bracket display
-    let current_pace = &props.game_state.pace;
-    let current_diet = &props.game_state.diet;
+    let current_pace = props.game_state.pace;
+    let current_diet = props.game_state.diet;
 
     // Render menu lines with brackets for current selections
-    let pace_steady_text = if current_pace == "steady" {
+    let pace_steady_text = if current_pace == PaceId::Steady {
         i18n::t("pacediet.menu.pace_steady")
     } else {
         "Pace:  Steady".to_string()
     };
 
-    let pace_heated_text = if current_pace == "heated" {
+    let pace_heated_text = if current_pace == PaceId::Heated {
         "Pace: [Heated]".to_string()
     } else {
         i18n::t("pacediet.menu.pace_heated")
     };
 
-    let pace_blitz_text = if current_pace == "blitz" {
+    let pace_blitz_text = if current_pace == PaceId::Blitz {
         "Pace: [Blitz]".to_string()
     } else {
         "Pace:  Blitz".to_string()
     };
 
-    let diet_quiet_text = if current_diet == "quiet" {
+    let diet_quiet_text = if current_diet == DietId::Quiet {
         "Diet: [Quiet]".to_string()
     } else {
         i18n::t("pacediet.menu.diet_quiet")
     };
 
-    let diet_mixed_text = if current_diet == "mixed" {
+    let diet_mixed_text = if current_diet == DietId::Mixed {
         i18n::t("pacediet.menu.diet_mixed")
     } else {
         "Diet:  Mixed".to_string()
     };
 
-    let diet_doom_text = if current_diet == "doom" {
+    let diet_doom_text = if current_diet == DietId::Doom {
         "Diet: [Doomscroll]".to_string()
     } else {
         "Diet:  Doomscroll".to_string()
@@ -271,12 +271,12 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
                 aria-label={i18n::t("pacediet.title")}
                 class="pace-diet-menu"
             >
-                {render_menu_line(1, pace_steady_text, current_pace == "steady", i18n::t("pacediet.tooltips.steady"))}
-                {render_menu_line(2, pace_heated_text, current_pace == "heated", i18n::t("pacediet.tooltips.heated"))}
-                {render_menu_line(3, pace_blitz_text, current_pace == "blitz", i18n::t("pacediet.tooltips.blitz"))}
-                {render_menu_line(4, diet_quiet_text, current_diet == "quiet", i18n::t("pacediet.tooltips.quiet"))}
-                {render_menu_line(5, diet_mixed_text, current_diet == "mixed", i18n::t("pacediet.tooltips.mixed"))}
-                {render_menu_line(6, diet_doom_text, current_diet == "doom", i18n::t("pacediet.tooltips.doom"))}
+                {render_menu_line(1, pace_steady_text, current_pace == PaceId::Steady, i18n::t("pacediet.tooltips.steady"))}
+                {render_menu_line(2, pace_heated_text, current_pace == PaceId::Heated, i18n::t("pacediet.tooltips.heated"))}
+                {render_menu_line(3, pace_blitz_text, current_pace == PaceId::Blitz, i18n::t("pacediet.tooltips.blitz"))}
+                {render_menu_line(4, diet_quiet_text, current_diet == DietId::Quiet, i18n::t("pacediet.tooltips.quiet"))}
+                {render_menu_line(5, diet_mixed_text, current_diet == DietId::Mixed, i18n::t("pacediet.tooltips.mixed"))}
+                {render_menu_line(6, diet_doom_text, current_diet == DietId::Doom, i18n::t("pacediet.tooltips.doom"))}
                 {render_menu_line(0, i18n::t("pacediet.menu.back"), false, "Return to previous menu".to_string())}
             </ul>
 

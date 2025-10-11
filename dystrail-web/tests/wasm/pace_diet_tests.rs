@@ -2,7 +2,7 @@
 
 use dystrail::game::pacing::{DietCfg, PaceCfg, PacingConfig};
 use dystrail::game::personas::Persona;
-use dystrail::game::state::{GameMode, GameState, Region};
+use dystrail::game::state::{DietId, GameMode, GameState, PaceId, Region};
 use wasm_bindgen_test::*;
 
 wasm_bindgen_test_configure!(run_in_browser);
@@ -56,8 +56,8 @@ fn test_pace_diet_effects() {
     );
 
     // Set pace and diet
-    game_state.pace = "heated".to_string();
-    game_state.diet = "doom".to_string();
+    game_state.pace = PaceId::Heated;
+    game_state.diet = DietId::Doom;
 
     let initial_sanity = game_state.stats.sanity;
     let initial_pants = game_state.stats.pants;

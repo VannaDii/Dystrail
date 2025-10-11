@@ -1,4 +1,4 @@
-use crate::game::{GameState, PacingConfig};
+use crate::game::{DietId, GameState, PaceId, PacingConfig};
 use crate::i18n;
 use std::rc::Rc;
 use yew::prelude::*;
@@ -9,8 +9,8 @@ pub struct Props {
     pub logs: Vec<String>,
     pub game_state: Option<Rc<GameState>>,
     pub pacing_config: Rc<PacingConfig>,
-    pub on_pace_change: Callback<String>,
-    pub on_diet_change: Callback<String>,
+    pub on_pace_change: Callback<PaceId>,
+    pub on_diet_change: Callback<DietId>,
 }
 
 impl PartialEq for Props {
@@ -146,8 +146,8 @@ pub fn travel_panel(p: &Props) -> Html {
 
                     if let Some(gs) = p.game_state.as_ref() {
                         <div class="current-settings" role="status" aria-live="polite">
-                            <p>{"Current Pace: "}{&gs.pace}</p>
-                            <p>{"Current Info Diet: "}{&gs.diet}</p>
+                            <p>{"Current Pace: "}{gs.pace}</p>
+                            <p>{"Current Info Diet: "}{gs.diet}</p>
                         </div>
                     }
                 </>

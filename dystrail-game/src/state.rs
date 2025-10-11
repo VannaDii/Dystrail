@@ -2,6 +2,8 @@ use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
+use std::fmt;
+use std::str::FromStr;
 
 use crate::camp::CampState;
 use crate::data::{Encounter, EncounterData};
@@ -11,12 +13,109 @@ use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, Vehicle};
 use crate::weather::{WeatherConfig, WeatherState};
 
+const DEBUG_ENV_VAR: &str = "DYSTRAIL_DEBUG_LOGS";
+const LOG_PANTS_EMERGENCY: &str = "log.pants-emergency";
+const LOG_HEALTH_COLLAPSE: &str = "log.health-collapse";
+const LOG_SUPPLIES_DEPLETED: &str = "log.supplies-depleted";
+const LOG_SANITY_COLLAPSE: &str = "log.sanity-collapse";
+const LOG_TRAVEL_BLOCKED: &str = "log.travel-blocked";
+const LOG_TRAVELED: &str = "log.traveled";
+const DEFAULT_SUPPLY_COST: i32 = 1;
+const BLITZ_SUPPLY_COST: i32 = 2;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "lowercase")]
+pub enum PaceId {
+    #[default]
+    Steady,
+    Heated,
+    Blitz,
+}
+
+impl PaceId {
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Steady => "steady",
+            Self::Heated => "heated",
+            Self::Blitz => "blitz",
+        }
+    }
+}
+
+impl fmt::Display for PaceId {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str(self.as_str())
+    }
+}
+
+impl FromStr for PaceId {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "steady" => Ok(Self::Steady),
+            "heated" => Ok(Self::Heated),
+            "blitz" => Ok(Self::Blitz),
+            _ => Err(()),
+        }
+    }
+}
+
+impl From<PaceId> for String {
+    fn from(value: PaceId) -> Self {
+        value.as_str().to_string()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "lowercase")]
+pub enum DietId {
+    #[default]
+    Mixed,
+    Quiet,
+    Doom,
+}
+
+impl DietId {
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Mixed => "mixed",
+            Self::Quiet => "quiet",
+            Self::Doom => "doom",
+        }
+    }
+}
+
+impl fmt::Display for DietId {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str(self.as_str())
+    }
+}
+
+impl FromStr for DietId {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "mixed" => Ok(Self::Mixed),
+            "quiet" => Ok(Self::Quiet),
+            "doom" => Ok(Self::Doom),
+            _ => Err(()),
+        }
+    }
+}
+
+impl From<DietId> for String {
+    fn from(value: DietId) -> Self {
+        value.as_str().to_string()
+    }
+}
+
 #[cfg(debug_assertions)]
 fn debug_log_enabled() -> bool {
-    matches!(
-        std::env::var("DYSTRAIL_DEBUG_LOGS"),
-        Ok(val) if val != "0"
-    )
+    matches!(std::env::var(DEBUG_ENV_VAR), Ok(val) if val != "0")
 }
 
 #[cfg(not(debug_assertions))]
@@ -25,8 +124,8 @@ const fn debug_log_enabled() -> bool {
 }
 
 /// Default pace setting
-fn default_pace() -> String {
-    "steady".to_string()
+fn default_pace() -> PaceId {
+    PaceId::Steady
 }
 
 #[cfg(test)]
@@ -94,8 +193,8 @@ mod tests {
 }
 
 /// Default diet setting
-fn default_diet() -> String {
-    "mixed".to_string()
+fn default_diet() -> DietId {
+    DietId::Mixed
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -259,10 +358,10 @@ pub struct GameState {
     pub boss_victory: bool,
     /// Current pace setting
     #[serde(default = "default_pace")]
-    pub pace: String,
+    pub pace: PaceId,
     /// Current info diet setting
     #[serde(default = "default_diet")]
-    pub diet: String,
+    pub diet: DietId,
     /// Calculated receipt finding bonus percentage for this tick
     #[serde(default)]
     pub receipt_bonus_pct: i32,
@@ -484,10 +583,10 @@ impl GameState {
 
         // If travel is blocked by breakdown, don't continue
         if self.travel_blocked {
-            return (false, String::from("log.travel-blocked"), breakdown_started);
+            return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
         }
 
-        (false, String::from("log.traveled"), breakdown_started)
+        (false, String::from(LOG_TRAVELED), breakdown_started)
     }
 
     /// Apply weather effects as step 2 of daily tick
@@ -626,8 +725,8 @@ impl GameState {
 
     /// Apply pace and diet configuration (placeholder)
     pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
-        let pace_cfg = cfg.get_pace_safe(&self.pace);
-        let diet_cfg = cfg.get_diet_safe(&self.diet);
+        let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
+        let diet_cfg = cfg.get_diet_safe(self.diet.as_str());
         let limits = &cfg.limits;
 
         let encounter_base = if limits.encounter_base == 0.0 {
@@ -752,22 +851,22 @@ impl GameState {
 
     fn failure_log_key(&self) -> Option<&'static str> {
         if self.stats.pants >= 100 {
-            Some("log.pants-emergency")
+            Some(LOG_PANTS_EMERGENCY)
         } else if self.stats.hp <= 0 {
-            Some("log.health-collapse")
+            Some(LOG_HEALTH_COLLAPSE)
         } else if self.stats.supplies <= 0 {
-            Some("log.supplies-depleted")
+            Some(LOG_SUPPLIES_DEPLETED)
         } else if self.stats.sanity <= 0 {
-            Some("log.sanity-collapse")
+            Some(LOG_SANITY_COLLAPSE)
         } else {
             None
         }
     }
 
     pub fn consume_daily_effects(&mut self, sanity_delta: i32, supplies_delta: i32) {
-        let pace_sup_cost = match self.pace.as_str() {
-            "blitz" => 2,
-            _ => 1,
+        let pace_sup_cost = match self.pace {
+            PaceId::Blitz => BLITZ_SUPPLY_COST,
+            _ => DEFAULT_SUPPLY_COST,
         };
         if sanity_delta != 0 {
             let max_sanity = Stats::default().sanity;

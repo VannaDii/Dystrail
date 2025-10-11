@@ -3,7 +3,7 @@ use crate::game::boss::BossConfig;
 use crate::game::data::EncounterData;
 use crate::game::pacing::PacingConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
-use crate::game::state::{GameMode, GameState, Region};
+use crate::game::state::{DietId, GameMode, GameState, PaceId, Region};
 use crate::game::weather::WeatherConfig;
 use crate::game::{ResultConfig, load_result_config};
 use crate::i18n;
@@ -239,7 +239,7 @@ pub fn app_inner() -> Html {
 
     let on_pace_change = {
         let state = state.clone();
-        Callback::from(move |new_pace: String| {
+        Callback::from(move |new_pace: PaceId| {
             if let Some(mut gs) = (*state).clone() {
                 gs.pace = new_pace;
                 state.set(Some(gs));
@@ -249,7 +249,7 @@ pub fn app_inner() -> Html {
 
     let on_diet_change = {
         let state = state.clone();
-        Callback::from(move |new_diet: String| {
+        Callback::from(move |new_diet: DietId| {
             if let Some(mut gs) = (*state).clone() {
                 gs.diet = new_diet;
                 state.set(Some(gs));
