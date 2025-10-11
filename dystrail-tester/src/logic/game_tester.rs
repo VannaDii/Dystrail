@@ -439,7 +439,9 @@ impl GameTester {
         };
 
         let mut names: Vec<String> = base.into_iter().map(String::from).collect();
-        if let Ok(len_u64) = u64::try_from(names.len()) && len_u64 > 0 {
+        if let Ok(len_u64) = u64::try_from(names.len())
+            && len_u64 > 0
+        {
             let offset = usize::try_from(seed % len_u64).unwrap_or(0);
             names.rotate_left(offset);
         }
@@ -511,8 +513,7 @@ impl GameTester {
             let remaining_display = format_cents(state.budget_cents);
             println!(
                 "🛒 Purchased {}x {} for ${total_cost_display} (remaining ${remaining_display})",
-                qty,
-                item.name
+                qty, item.name
             );
         }
     }
@@ -721,17 +722,13 @@ impl PlayabilityMetrics {
         self.final_budget_cents = state.budget_cents;
         let ending = describe_ending(state, outcome);
         self.ending_type.clone_from(&ending);
-        self.boss_won = ending == "Victory - Boss Defeated";
-        self.boss_reached = matches!(
-            ending.as_str(),
-            "Victory - Boss Defeated" | "Boss Vote Failed - Game Over"
-        ) || state.boss_attempted;
-        let traveled = if state.distance_traveled_actual > 0.0 {
-            state.distance_traveled_actual.min(state.trail_distance)
+        self.boss_won = state.boss_victory;
+        self.boss_reached = state.boss_attempted;
+        self.miles_traveled = if state.distance_traveled_actual > 0.0 {
+            state.distance_traveled_actual
         } else {
             state.distance_traveled
         };
-        self.miles_traveled = traveled;
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -741,10 +738,10 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        self.boss_reached = state.boss_attempted || state.boss_victory;
+        self.boss_reached = state.boss_attempted;
         self.boss_won = state.boss_victory;
         self.miles_traveled = if state.distance_traveled_actual > 0.0 {
-            state.distance_traveled_actual.min(state.trail_distance)
+            state.distance_traveled_actual
         } else {
             state.distance_traveled
         };
@@ -766,10 +763,34 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> String {
     } else if state.boss_victory {
         "Victory - Boss Defeated".to_string()
     } else if outcome.game_ended {
-        format!("Game Ended: {}", outcome.travel_message)
+        format!(
+            "Game Ended: {}",
+            humanize_log_message(&outcome.travel_message)
+        )
     } else {
         "Simulation Halted".to_string()
     }
+}
+
+fn humanize_log_message(message: &str) -> String {
+    let stripped = message.strip_prefix("log.").unwrap_or(message);
+    stripped
+        .split(['.', '_'])
+        .filter(|segment| !segment.is_empty())
+        .map(|segment| {
+            let mut chars = segment.chars();
+            if let Some(first) = chars.next() {
+                let mut formatted = first.to_uppercase().collect::<String>();
+                formatted.push_str(chars.as_str());
+                formatted
+            } else {
+                String::new()
+            }
+        })
+        .collect::<Vec<String>>()
+        .join(" ")
+        .trim()
+        .to_string()
 }
 
 #[cfg(test)]
@@ -817,5 +838,54 @@ mod tests {
             "expected survival past day 45, got {}",
             summary.metrics.days_survived
         );
+    }
+
+    #[test]
+    fn miles_reflect_distance_traveled() {
+        let tester = GameTester::try_new(false);
+        let plan =
+            SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(5);
+        let summary = tester.run_plan(&plan, 2024);
+        let metrics = summary.metrics;
+        let actual = summary.final_state.distance_traveled_actual;
+        assert!(metrics.miles_traveled > 0.0);
+        assert!(metrics.miles_traveled < summary.final_state.trail_distance);
+        let diff = (metrics.miles_traveled - actual).abs();
+        assert!(
+            diff <= f32::EPSILON,
+            "miles_traveled {} should match actual {}",
+            metrics.miles_traveled,
+            actual
+        );
+    }
+
+    #[test]
+    fn boss_flags_only_when_attempted() {
+        use crate::logic::simulation::TurnOutcome;
+
+        let mut metrics = PlayabilityMetrics::default();
+        let state = GameState::default();
+        let outcome = TurnOutcome {
+            day: state.day,
+            travel_message: String::new(),
+            breakdown_started: false,
+            game_ended: true,
+            decision: None,
+        };
+
+        metrics.finalize(&state, &outcome);
+        assert!(!metrics.boss_reached);
+        assert!(!metrics.boss_won);
+
+        let attempted_state = GameState {
+            boss_attempted: true,
+            distance_traveled_actual: 1500.0,
+            ..GameState::default()
+        };
+        let mut attempted_metrics = PlayabilityMetrics::default();
+        attempted_metrics.finalize(&attempted_state, &outcome);
+        assert!(attempted_metrics.boss_reached);
+        assert!(!attempted_metrics.boss_won);
+        assert!(attempted_metrics.miles_traveled > 0.0);
     }
 }

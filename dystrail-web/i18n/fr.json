@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "Accueil", "settings": "Paramètres", "language": "Langue" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Accueil",
+    "settings": "Paramètres",
+    "language": "Langue"
+  },
   "ui": {
     "cta_start": "APPUYEZ SUR UNE TOUCHE POUR COMMENCER",
     "skip_to_content": "Passer au contenu",
@@ -15,8 +21,14 @@
     "code_help": "Format : CL-WORD00 ou DP-WORD00",
     "run": "Partager la partie"
   },
-  "mode": { "classic": "Classique", "deep": "Le grand bain" },
-  "travel": { "title": "Voyager", "next": "Parcourir l’étape suivante" },
+  "mode": {
+    "classic": "Classique",
+    "deep": "Le grand bain"
+  },
+  "travel": {
+    "title": "Voyager",
+    "next": "Parcourir l’étape suivante"
+  },
   "stats": {
     "day_region": "Jour {{day}} — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "Pantalon {{pct}}%",
     "pants_label": "Jauge de pantalon"
   },
-  "region": { "heartland": "Cœur du pays", "rustbelt": "Ceinture de rouille", "beltway": "Périphérique" },
+  "region": {
+    "heartland": "Cœur du pays",
+    "rustbelt": "Ceinture de rouille",
+    "beltway": "Périphérique"
+  },
   "eo": {
     "prefix": "Décret:",
     "shutdown": "Fermeture du gouvernement",
@@ -58,14 +74,19 @@
     "exhausted": "ÉPUISÉ",
     "exhausted_desc": "Vous vous effondrez sous la procédure."
   },
-  "game": { "seed_label": "Graine :" },
+  "game": {
+    "seed_label": "Graine :"
+  },
   "log": {
     "booting": "Démarrage…",
     "seed_set": "Graine définie",
     "traveled": "A voyagé",
     "encounter": "Rencontre !",
     "pants_emergency": "Urgence nationale du pantalon !",
-    "run_begins": "Départ de la partie ({{mode}})"
+    "run_begins": "Départ de la partie ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Enregistrer/Charger",
@@ -80,19 +101,39 @@
     "loaded": "Sauvegarde chargée",
     "saved": "Jeu enregistré"
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "persona": {
     "choose": "Choisissez votre Persona :",
     "selected_budget_prefix": "Budget de départ",
     "preview": "Départ : Fournitures {sup} · Créd {cred} · San {san} · Mor {mor} · Alliés {allies} · Budget ${budget}",
     "mult": "Multiplicateur ×{mult}",
     "preview_wait": "Sélectionnez une persona pour voir les détails.",
-    "journalist": { "name": "Journaliste", "desc": "Crédible et débrouillard; excelle avec les reçus." },
-    "organizer": { "name": "Organisateur", "desc": "Fait grandir le moral et les alliés." },
-    "whistleblower": { "name": "Lanceur d'alerte", "desc": "Attire les risques; trouve plus de reçus." },
-    "lobbyist": { "name": "Lobbyiste", "desc": "Les connexions réduisent les coûts." },
-    "staffer": { "name": "Assistant", "desc": "Équilibré; pas d'atout fort." },
-    "satirist": { "name": "Satiriste", "desc": "Fait face par l'humour; restaure la santé mentale." },
+    "journalist": {
+      "name": "Journaliste",
+      "desc": "Crédible et débrouillard; excelle avec les reçus."
+    },
+    "organizer": {
+      "name": "Organisateur",
+      "desc": "Fait grandir le moral et les alliés."
+    },
+    "whistleblower": {
+      "name": "Lanceur d'alerte",
+      "desc": "Attire les risques; trouve plus de reçus."
+    },
+    "lobbyist": {
+      "name": "Lobbyiste",
+      "desc": "Les connexions réduisent les coûts."
+    },
+    "staffer": {
+      "name": "Assistant",
+      "desc": "Équilibré; pas d'atout fort."
+    },
+    "satirist": {
+      "name": "Satiriste",
+      "desc": "Fait face par l'humour; restaure la santé mentale."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Preuves",
       "store_discount_pct": "-{pct}% Magasin",
@@ -129,17 +170,50 @@
       "docs": "Documents et Permis"
     },
     "items": {
-      "rations": { "name": "Pack de Rations", "desc": "Non périssable. Vous fait avancer." },
-      "water": { "name": "Bidons d'Eau", "desc": "L'hydratation compte." },
-      "spare_tire": { "name": "Pneu de Secours", "desc": "Répare les crevaisons rapidement." },
-      "battery": { "name": "Batterie", "desc": "Démarrages à froid." },
-      "alternator": { "name": "Alternateur", "desc": "Charge restaurée." },
-      "fuel_pump": { "name": "Pompe à Carburant", "desc": "Quand le groupe tombe en panne sèche." },
-      "masks": { "name": "Masques", "desc": "Protection fumée/maladie." },
-      "coats": { "name": "Manteaux Chauds", "desc": "Résistance au froid." },
-      "ponchos": { "name": "Ponchos", "desc": "Adaptés aux tempêtes." },
-      "press_pass": { "name": "Carte de Presse", "desc": "Peut agir comme un permis." },
-      "legal_fund": { "name": "Fonds Juridique", "desc": "Amortit votre crédibilité." }
+      "rations": {
+        "name": "Pack de Rations",
+        "desc": "Non périssable. Vous fait avancer."
+      },
+      "water": {
+        "name": "Bidons d'Eau",
+        "desc": "L'hydratation compte."
+      },
+      "spare_tire": {
+        "name": "Pneu de Secours",
+        "desc": "Répare les crevaisons rapidement."
+      },
+      "battery": {
+        "name": "Batterie",
+        "desc": "Démarrages à froid."
+      },
+      "alternator": {
+        "name": "Alternateur",
+        "desc": "Charge restaurée."
+      },
+      "fuel_pump": {
+        "name": "Pompe à Carburant",
+        "desc": "Quand le groupe tombe en panne sèche."
+      },
+      "masks": {
+        "name": "Masques",
+        "desc": "Protection fumée/maladie."
+      },
+      "coats": {
+        "name": "Manteaux Chauds",
+        "desc": "Résistance au froid."
+      },
+      "ponchos": {
+        "name": "Ponchos",
+        "desc": "Adaptés aux tempêtes."
+      },
+      "press_pass": {
+        "name": "Carte de Presse",
+        "desc": "Peut agir comme un permis."
+      },
+      "legal_fund": {
+        "name": "Fonds Juridique",
+        "desc": "Amortit votre crédibilité."
+      }
     },
     "menu": {
       "home": "Équipement — Budget: {budget}",

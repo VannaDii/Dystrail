@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "मुखपृष्ठ", "settings": "सेटिंग्स", "language": "भाषा" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "मुखपृष्ठ",
+    "settings": "सेटिंग्स",
+    "language": "भाषा"
+  },
   "ui": {
     "cta_start": "शुरू करने के लिए कोई भी कुंजी दबाएँ",
     "skip_to_content": "सामग्री पर जाएँ",
@@ -15,8 +21,14 @@
     "code_help": "प्रारूप: CL-WORD00 या DP-WORD00",
     "run": "रन साझा करें"
   },
-  "mode": { "classic": "क्लासिक", "deep": "डीप एंड" },
-  "travel": { "title": "यात्रा", "next": "अगला चरण यात्रा करें" },
+  "mode": {
+    "classic": "क्लासिक",
+    "deep": "डीप एंड"
+  },
+  "travel": {
+    "title": "यात्रा",
+    "next": "अगला चरण यात्रा करें"
+  },
   "stats": {
     "day_region": "दिन {{day}} — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "पैंट {{pct}}%",
     "pants_label": "पैंट मीटर"
   },
-  "region": { "heartland": "हार्टलैंड", "rustbelt": "रस्ट बेल्ट", "beltway": "बेल्टवे" },
+  "region": {
+    "heartland": "हार्टलैंड",
+    "rustbelt": "रस्ट बेल्ट",
+    "beltway": "बेल्टवे"
+  },
   "eo": {
     "prefix": "आदेश:",
     "shutdown": "सरकारी बंद",
@@ -58,14 +74,19 @@
     "exhausted": "निढाल",
     "exhausted_desc": "आप प्रक्रिया के आगे ढह गए।"
   },
-  "game": { "seed_label": "बीज:" },
+  "game": {
+    "seed_label": "बीज:"
+  },
   "log": {
     "booting": "बूट हो रहा है…",
     "seed_set": "बीज सेट",
     "traveled": "यात्रा की",
     "encounter": "सामना!",
     "pants_emergency": "राष्ट्रीय पैंट आपातकाल!",
-    "run_begins": "दौड़ शुरू ({{mode}})"
+    "run_begins": "दौड़ शुरू ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "सेव/लोड",
@@ -80,19 +101,39 @@
     "loaded": "सेव लोड हुआ",
     "saved": "गेम सेव हुआ"
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "persona": {
     "choose": "अपनी भूमिका चुनें:",
     "selected_budget_prefix": "प्रारंभिक बजट",
     "preview": "शुरुआत: सामग्री {sup} · विश्वसनीयता {cred} · मानसिकता {san} · मनोबल {mor} · साथी {allies} · बजट ${budget}",
     "mult": "गुणक ×{mult}",
     "preview_wait": "विवरण देखने के लिए भूमिका चुनें।",
-    "journalist": { "name": "पत्रकार", "desc": "विश्वसनीय और संसाधनयुक्त; प्रमाण जुटाने में माहिर।" },
-    "organizer": { "name": "आयोजक", "desc": "मनोबल और साथियों का निर्माण करता है।" },
-    "whistleblower": { "name": "व्हिसलब्लोअर", "desc": "जोखिम आकर्षित करता है; अधिक प्रमाण पाता है।" },
-    "lobbyist": { "name": "लॉबिस्ट", "desc": "संबंध लागत कम करते हैं।" },
-    "staffer": { "name": "कर्मचारी", "desc": "संतुलित; कोई बड़ी विशेषता नहीं।" },
-    "satirist": { "name": "व्यंग्यकार", "desc": "हास्य से सामना करता है; मानसिकता बहाल करता है।" },
+    "journalist": {
+      "name": "पत्रकार",
+      "desc": "विश्वसनीय और संसाधनयुक्त; प्रमाण जुटाने में माहिर।"
+    },
+    "organizer": {
+      "name": "आयोजक",
+      "desc": "मनोबल और साथियों का निर्माण करता है।"
+    },
+    "whistleblower": {
+      "name": "व्हिसलब्लोअर",
+      "desc": "जोखिम आकर्षित करता है; अधिक प्रमाण पाता है।"
+    },
+    "lobbyist": {
+      "name": "लॉबिस्ट",
+      "desc": "संबंध लागत कम करते हैं।"
+    },
+    "staffer": {
+      "name": "कर्मचारी",
+      "desc": "संतुलित; कोई बड़ी विशेषता नहीं।"
+    },
+    "satirist": {
+      "name": "व्यंग्यकार",
+      "desc": "हास्य से सामना करता है; मानसिकता बहाल करता है।"
+    },
     "mods": {
       "receipts_pct": "+{pct}% प्रमाण",
       "store_discount_pct": "-{pct}% दुकान",
@@ -129,17 +170,50 @@
       "docs": "दस्तावेज़ और परमिट"
     },
     "items": {
-      "rations": { "name": "राशन पैक", "desc": "न खराब होने वाला। आपको चलता रखता है।" },
-      "water": { "name": "पानी के जग", "desc": "हाइड्रेशन महत्वपूर्ण है।" },
-      "spare_tire": { "name": "स्पेयर टायर", "desc": "पंक्चर तुरंत ठीक करें।" },
-      "battery": { "name": "बैटरी", "desc": "ठंडी शुरुआत।" },
-      "alternator": { "name": "अल्टरनेटर", "desc": "चार्ज बहाल।" },
-      "fuel_pump": { "name": "ईंधन पंप", "desc": "जब पार्टी सूख जाए।" },
-      "masks": { "name": "मास्क", "desc": "धुआं/बीमारी सुरक्षा।" },
-      "coats": { "name": "गर्म कोट", "desc": "ठंड प्रतिरोध।" },
-      "ponchos": { "name": "पॉन्चो", "desc": "तूफान मित्र।" },
-      "press_pass": { "name": "प्रेस पास", "desc": "परमिट के रूप में काम कर सकता है।" },
-      "legal_fund": { "name": "कानूनी फंड", "desc": "आपकी विश्वसनीयता को बफर करें।" }
+      "rations": {
+        "name": "राशन पैक",
+        "desc": "न खराब होने वाला। आपको चलता रखता है।"
+      },
+      "water": {
+        "name": "पानी के जग",
+        "desc": "हाइड्रेशन महत्वपूर्ण है।"
+      },
+      "spare_tire": {
+        "name": "स्पेयर टायर",
+        "desc": "पंक्चर तुरंत ठीक करें।"
+      },
+      "battery": {
+        "name": "बैटरी",
+        "desc": "ठंडी शुरुआत।"
+      },
+      "alternator": {
+        "name": "अल्टरनेटर",
+        "desc": "चार्ज बहाल।"
+      },
+      "fuel_pump": {
+        "name": "ईंधन पंप",
+        "desc": "जब पार्टी सूख जाए।"
+      },
+      "masks": {
+        "name": "मास्क",
+        "desc": "धुआं/बीमारी सुरक्षा।"
+      },
+      "coats": {
+        "name": "गर्म कोट",
+        "desc": "ठंड प्रतिरोध।"
+      },
+      "ponchos": {
+        "name": "पॉन्चो",
+        "desc": "तूफान मित्र।"
+      },
+      "press_pass": {
+        "name": "प्रेस पास",
+        "desc": "परमिट के रूप में काम कर सकता है।"
+      },
+      "legal_fund": {
+        "name": "कानूनी फंड",
+        "desc": "आपकी विश्वसनीयता को बफर करें।"
+      }
     },
     "menu": {
       "home": "तैयारी — बजट: {budget}",

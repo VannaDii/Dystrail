@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "হোম", "settings": "সেটিংস", "language": "ভাষা" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "হোম",
+    "settings": "সেটিংস",
+    "language": "ভাষা"
+  },
   "ui": {
     "cta_start": "শুরু করতে যেকোন কী চাপুন",
     "skip_to_content": "কন্টেন্টে যান",
@@ -15,8 +21,14 @@
     "code_help": "ফরম্যাট: CL-WORD00 অথবা DP-WORD00",
     "run": "রান শেয়ার করুন"
   },
-  "mode": { "classic": "ক্লাসিক", "deep": "ডিপ এন্ড" },
-  "travel": { "title": "ভ্রমণ", "next": "পরের ধাপে যাত্রা" },
+  "mode": {
+    "classic": "ক্লাসিক",
+    "deep": "ডিপ এন্ড"
+  },
+  "travel": {
+    "title": "ভ্রমণ",
+    "next": "পরের ধাপে যাত্রা"
+  },
   "stats": {
     "day_region": "দিন {{day}} — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "প্যান্টস {{pct}}%",
     "pants_label": "প্যান্টস মিটার"
   },
-  "region": { "heartland": "হার্টল্যান্ড", "rustbelt": "রস্ট বেল্ট", "beltway": "বেল্টওয়ে" },
+  "region": {
+    "heartland": "হার্টল্যান্ড",
+    "rustbelt": "রস্ট বেল্ট",
+    "beltway": "বেল্টওয়ে"
+  },
   "eo": {
     "prefix": "আদেশ:",
     "shutdown": "সরকারি বন্ধ",
@@ -58,14 +74,19 @@
     "exhausted": "ক্লান্ত",
     "exhausted_desc": "আপনি প্রক্রিয়ায় ভেঙে পড়লেন।"
   },
-  "game": { "seed_label": "বীজ:" },
+  "game": {
+    "seed_label": "বীজ:"
+  },
   "log": {
     "booting": "বুট হচ্ছে…",
     "seed_set": "বীজ সেট",
     "traveled": "ভ্রমণ করেছে",
     "encounter": "এনকাউন্টার!",
     "pants_emergency": "জাতীয় প্যান্ট জরুরি!",
-    "run_begins": "রান শুরু ({{mode}})"
+    "run_begins": "রান শুরু ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "সংরক্ষণ/লোড",
@@ -80,19 +101,39 @@
     "loaded": "সেভ লোড হয়েছে",
     "saved": "গেম সংরক্ষণ হয়েছে"
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "persona": {
     "choose": "আপনার চরিত্র বাছুন:",
     "selected_budget_prefix": "শুরুর বাজেট",
     "preview": "শুরু: সরঞ্জাম {sup} · ক্রেড {cred} · মানসিকতা {san} · মনোবল {mor} · মিত্র {allies} · বাজেট ${budget}",
     "mult": "গুণক ×{mult}",
     "preview_wait": "বিস্তারিত দেখতে চরিত্র বাছুন।",
-    "journalist": { "name": "সাংবাদিক", "desc": "বিশ্বাসযোগ্য এবং চৌকস; প্রমাণ সংগ্রহে দক্ষ।" },
-    "organizer": { "name": "সংগঠক", "desc": "মনোবল ও মিত্র বাড়ায়।" },
-    "whistleblower": { "name": "হুইসলব্লোয়ার", "desc": "ঝুঁকি টানে; বেশি প্রমাণ পায়।" },
-    "lobbyist": { "name": "লবিস্ট", "desc": "যোগাযোগ খরচ কমায়।" },
-    "staffer": { "name": "কর্মী", "desc": "সামঞ্জস্যপূর্ণ; বড় কোনো সুবিধা নেই।" },
-    "satirist": { "name": "ব্যঙ্গকার", "desc": "রসিকতায় সামলে নেয়; মানসিকতা ফেরে।" },
+    "journalist": {
+      "name": "সাংবাদিক",
+      "desc": "বিশ্বাসযোগ্য এবং চৌকস; প্রমাণ সংগ্রহে দক্ষ।"
+    },
+    "organizer": {
+      "name": "সংগঠক",
+      "desc": "মনোবল ও মিত্র বাড়ায়।"
+    },
+    "whistleblower": {
+      "name": "হুইসলব্লোয়ার",
+      "desc": "ঝুঁকি টানে; বেশি প্রমাণ পায়।"
+    },
+    "lobbyist": {
+      "name": "লবিস্ট",
+      "desc": "যোগাযোগ খরচ কমায়।"
+    },
+    "staffer": {
+      "name": "কর্মী",
+      "desc": "সামঞ্জস্যপূর্ণ; বড় কোনো সুবিধা নেই।"
+    },
+    "satirist": {
+      "name": "ব্যঙ্গকার",
+      "desc": "রসিকতায় সামলে নেয়; মানসিকতা ফেরে।"
+    },
     "mods": {
       "receipts_pct": "+{pct}% প্রমাণ",
       "store_discount_pct": "-{pct}% দোকান",
@@ -129,17 +170,50 @@
       "docs": "নথি ও অনুমতিপত্র"
     },
     "items": {
-      "rations": { "name": "রেশন প্যাক", "desc": "নষ্ট হয় না। আপনাকে চালিয়ে রাখে।" },
-      "water": { "name": "পানির পাত্র", "desc": "হাইড্রেশন গুরুত্বপূর্ণ।" },
-      "spare_tire": { "name": "অতিরিক্ত টায়ার", "desc": "দ্রুত পাংচার ঠিক করুন।" },
-      "battery": { "name": "ব্যাটারি", "desc": "ঠান্ডা স্টার্ট।" },
-      "alternator": { "name": "অল্টারনেটর", "desc": "চার্জ পুনরুদ্ধার।" },
-      "fuel_pump": { "name": "জ্বালানি পাম্প", "desc": "যখন দল শুকিয়ে যায়।" },
-      "masks": { "name": "মুখোশ", "desc": "ধোঁয়া/অসুস্থতা সুরক্ষা।" },
-      "coats": { "name": "গরম কোট", "desc": "ঠান্ডা প্রতিরোধ।" },
-      "ponchos": { "name": "পনচো", "desc": "ঝড় বান্ধব।" },
-      "press_pass": { "name": "প্রেস পাস", "desc": "অনুমতিপত্র হিসেবে কাজ করতে পারে।" },
-      "legal_fund": { "name": "আইনি তহবিল", "desc": "আপনার বিশ্বাসযোগ্যতা বাফার করুন।" }
+      "rations": {
+        "name": "রেশন প্যাক",
+        "desc": "নষ্ট হয় না। আপনাকে চালিয়ে রাখে।"
+      },
+      "water": {
+        "name": "পানির পাত্র",
+        "desc": "হাইড্রেশন গুরুত্বপূর্ণ।"
+      },
+      "spare_tire": {
+        "name": "অতিরিক্ত টায়ার",
+        "desc": "দ্রুত পাংচার ঠিক করুন।"
+      },
+      "battery": {
+        "name": "ব্যাটারি",
+        "desc": "ঠান্ডা স্টার্ট।"
+      },
+      "alternator": {
+        "name": "অল্টারনেটর",
+        "desc": "চার্জ পুনরুদ্ধার।"
+      },
+      "fuel_pump": {
+        "name": "জ্বালানি পাম্প",
+        "desc": "যখন দল শুকিয়ে যায়।"
+      },
+      "masks": {
+        "name": "মুখোশ",
+        "desc": "ধোঁয়া/অসুস্থতা সুরক্ষা।"
+      },
+      "coats": {
+        "name": "গরম কোট",
+        "desc": "ঠান্ডা প্রতিরোধ।"
+      },
+      "ponchos": {
+        "name": "পনচো",
+        "desc": "ঝড় বান্ধব।"
+      },
+      "press_pass": {
+        "name": "প্রেস পাস",
+        "desc": "অনুমতিপত্র হিসেবে কাজ করতে পারে।"
+      },
+      "legal_fund": {
+        "name": "আইনি তহবিল",
+        "desc": "আপনার বিশ্বাসযোগ্যতা বাফার করুন।"
+      }
     },
     "menu": {
       "home": "সাজসজ্জা — বাজেট: {budget}",

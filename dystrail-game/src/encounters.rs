@@ -3,6 +3,16 @@ use crate::data::{Encounter, EncounterData};
 use crate::state::Region;
 use rand::Rng;
 
+#[cfg(debug_assertions)]
+fn debug_log_enabled() -> bool {
+    matches!(std::env::var("DYSTRAIL_DEBUG_LOGS"), Ok(val) if val != "0")
+}
+
+#[cfg(not(debug_assertions))]
+const fn debug_log_enabled() -> bool {
+    false
+}
+
 pub fn pick_encounter<R: Rng>(
     data: &EncounterData,
     is_deep: bool,
@@ -37,6 +47,15 @@ pub fn pick_encounter<R: Rng>(
             region_match && mode_match
         })
         .collect();
+
+    if debug_log_enabled() {
+        println!(
+            "Encounter selection | mode:{} region:{} candidates:{}",
+            if is_deep { "Deep" } else { "Classic" },
+            region_str,
+            candidates.len()
+        );
+    }
 
     if candidates.is_empty() {
         return None;

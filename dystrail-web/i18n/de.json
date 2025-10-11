@@ -120,7 +120,10 @@
     "traveled": "Gereist",
     "encounter": "Begegnung!",
     "pants_emergency": "Nationaler Hosen-Notstand!",
-    "run_begins": "Lauf beginnt ({{mode}})"
+    "run_begins": "Lauf beginnt ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Speichern/Laden",
@@ -144,12 +147,30 @@
     "preview": "Start: Vorräte {sup} · Glaub {cred} · Ver {san} · Mor {mor} · Verbündete {allies} · Budget ${budget}",
     "mult": "Multiplikator ×{mult}",
     "preview_wait": "Wählen Sie eine Persona, um Details zu sehen.",
-    "journalist": { "name": "Journalist", "desc": "Glaubwürdig und einfallsreich; gedeiht bei Belegen." },
-    "organizer": { "name": "Organisator", "desc": "Baut Moral und Verbündete auf." },
-    "whistleblower": { "name": "Whistleblower", "desc": "Zieht Aufmerksamkeit; findet mehr Belege." },
-    "lobbyist": { "name": "Lobbyist", "desc": "Verbindungen reduzieren Kosten." },
-    "staffer": { "name": "Mitarbeiter", "desc": "Ausgewogen; keine starken Vorteile." },
-    "satirist": { "name": "Satiriker", "desc": "Bewältigt mit Humor; stellt Vernunft wieder her." },
+    "journalist": {
+      "name": "Journalist",
+      "desc": "Glaubwürdig und einfallsreich; gedeiht bei Belegen."
+    },
+    "organizer": {
+      "name": "Organisator",
+      "desc": "Baut Moral und Verbündete auf."
+    },
+    "whistleblower": {
+      "name": "Whistleblower",
+      "desc": "Zieht Aufmerksamkeit; findet mehr Belege."
+    },
+    "lobbyist": {
+      "name": "Lobbyist",
+      "desc": "Verbindungen reduzieren Kosten."
+    },
+    "staffer": {
+      "name": "Mitarbeiter",
+      "desc": "Ausgewogen; keine starken Vorteile."
+    },
+    "satirist": {
+      "name": "Satiriker",
+      "desc": "Bewältigt mit Humor; stellt Vernunft wieder her."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Belege",
       "store_discount_pct": "-{pct}% Laden",
@@ -186,17 +207,50 @@
       "docs": "Dokumente & Genehmigungen"
     },
     "items": {
-      "rations": { "name": "Rationenpack", "desc": "Haltbar. Hält Sie am Laufen." },
-      "water": { "name": "Wasserkanister", "desc": "Hydration ist wichtig." },
-      "spare_tire": { "name": "Ersatzreifen", "desc": "Repariert Reifenpannen schnell." },
-      "battery": { "name": "Batterie", "desc": "Kaltstart." },
-      "alternator": { "name": "Lichtmaschine", "desc": "Ladung wiederhergestellt." },
-      "fuel_pump": { "name": "Kraftstoffpumpe", "desc": "Wenn die Party trocken läuft." },
-      "masks": { "name": "Masken", "desc": "Rauch-/Krankheitsschutz." },
-      "coats": { "name": "Warme Mäntel", "desc": "Kältewellen-Resistenz." },
-      "ponchos": { "name": "Ponchos", "desc": "Sturmfreundlich." },
-      "press_pass": { "name": "Presseausweis", "desc": "Kann als Genehmigung fungieren." },
-      "legal_fund": { "name": "Rechtsfonds", "desc": "Puffert Ihre Glaubwürdigkeit." }
+      "rations": {
+        "name": "Rationenpack",
+        "desc": "Haltbar. Hält Sie am Laufen."
+      },
+      "water": {
+        "name": "Wasserkanister",
+        "desc": "Hydration ist wichtig."
+      },
+      "spare_tire": {
+        "name": "Ersatzreifen",
+        "desc": "Repariert Reifenpannen schnell."
+      },
+      "battery": {
+        "name": "Batterie",
+        "desc": "Kaltstart."
+      },
+      "alternator": {
+        "name": "Lichtmaschine",
+        "desc": "Ladung wiederhergestellt."
+      },
+      "fuel_pump": {
+        "name": "Kraftstoffpumpe",
+        "desc": "Wenn die Party trocken läuft."
+      },
+      "masks": {
+        "name": "Masken",
+        "desc": "Rauch-/Krankheitsschutz."
+      },
+      "coats": {
+        "name": "Warme Mäntel",
+        "desc": "Kältewellen-Resistenz."
+      },
+      "ponchos": {
+        "name": "Ponchos",
+        "desc": "Sturmfreundlich."
+      },
+      "press_pass": {
+        "name": "Presseausweis",
+        "desc": "Kann als Genehmigung fungieren."
+      },
+      "legal_fund": {
+        "name": "Rechtsfonds",
+        "desc": "Puffert Ihre Glaubwürdigkeit."
+      }
     },
     "menu": {
       "home": "Ausrüstung — Budget: {budget}",

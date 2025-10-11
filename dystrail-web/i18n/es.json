@@ -120,7 +120,10 @@
     "traveled": "Viajaste",
     "encounter": "¡Encuentro!",
     "pants_emergency": "¡Emergencia nacional de pantalones!",
-    "run_begins": "Comienza la partida ({{mode}})"
+    "run_begins": "Comienza la partida ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Guardar/Cargar",
@@ -144,12 +147,30 @@
     "preview": "Inicio: Suministros {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Presupuesto ${budget}",
     "mult": "Multiplicador ×{mult}",
     "preview_wait": "Selecciona una persona para ver detalles.",
-    "journalist": { "name": "Periodista", "desc": "Creíble y hábil; prospera con recibos." },
-    "organizer": { "name": "Organizador", "desc": "Construye moral y aliados." },
-    "whistleblower": { "name": "Denunciante", "desc": "Atrae calor; encuentra más recibos." },
-    "lobbyist": { "name": "Cabildero", "desc": "Conexiones reducen costos." },
-    "staffer": { "name": "Funcionario", "desc": "Equilibrado; sin ventajas fuertes." },
-    "satirist": { "name": "Satírico", "desc": "Afronta con humor; restaura cordura." },
+    "journalist": {
+      "name": "Periodista",
+      "desc": "Creíble y hábil; prospera con recibos."
+    },
+    "organizer": {
+      "name": "Organizador",
+      "desc": "Construye moral y aliados."
+    },
+    "whistleblower": {
+      "name": "Denunciante",
+      "desc": "Atrae calor; encuentra más recibos."
+    },
+    "lobbyist": {
+      "name": "Cabildero",
+      "desc": "Conexiones reducen costos."
+    },
+    "staffer": {
+      "name": "Funcionario",
+      "desc": "Equilibrado; sin ventajas fuertes."
+    },
+    "satirist": {
+      "name": "Satírico",
+      "desc": "Afronta con humor; restaura cordura."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Recibos",
       "store_discount_pct": "-{pct}% Tienda",
@@ -186,17 +207,50 @@
       "docs": "Documentos y Permisos"
     },
     "items": {
-      "rations": { "name": "Paquete de Raciones", "desc": "No perecedero. Te mantiene en marcha." },
-      "water": { "name": "Garrafas de Agua", "desc": "La hidratación importa." },
-      "spare_tire": { "name": "Neumático de Repuesto", "desc": "Repara pinchazos rápido." },
-      "battery": { "name": "Batería", "desc": "Arranques en frío." },
-      "alternator": { "name": "Alternador", "desc": "Carga restaurada." },
-      "fuel_pump": { "name": "Bomba de Combustible", "desc": "Cuando el grupo se queda seco." },
-      "masks": { "name": "Mascarillas", "desc": "Protección contra humo/enfermedad." },
-      "coats": { "name": "Abrigos Cálidos", "desc": "Resistencia al frío extremo." },
-      "ponchos": { "name": "Ponchos", "desc": "Amigables con las tormentas." },
-      "press_pass": { "name": "Pase de Prensa", "desc": "Puede actuar como permiso." },
-      "legal_fund": { "name": "Fondo Legal", "desc": "Amortigua tu credibilidad." }
+      "rations": {
+        "name": "Paquete de Raciones",
+        "desc": "No perecedero. Te mantiene en marcha."
+      },
+      "water": {
+        "name": "Garrafas de Agua",
+        "desc": "La hidratación importa."
+      },
+      "spare_tire": {
+        "name": "Neumático de Repuesto",
+        "desc": "Repara pinchazos rápido."
+      },
+      "battery": {
+        "name": "Batería",
+        "desc": "Arranques en frío."
+      },
+      "alternator": {
+        "name": "Alternador",
+        "desc": "Carga restaurada."
+      },
+      "fuel_pump": {
+        "name": "Bomba de Combustible",
+        "desc": "Cuando el grupo se queda seco."
+      },
+      "masks": {
+        "name": "Mascarillas",
+        "desc": "Protección contra humo/enfermedad."
+      },
+      "coats": {
+        "name": "Abrigos Cálidos",
+        "desc": "Resistencia al frío extremo."
+      },
+      "ponchos": {
+        "name": "Ponchos",
+        "desc": "Amigables con las tormentas."
+      },
+      "press_pass": {
+        "name": "Pase de Prensa",
+        "desc": "Puede actuar como permiso."
+      },
+      "legal_fund": {
+        "name": "Fondo Legal",
+        "desc": "Amortigua tu credibilidad."
+      }
     },
     "menu": {
       "home": "Equipamiento — Presupuesto: {budget}",

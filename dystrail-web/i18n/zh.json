@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "首页", "settings": "设置", "language": "语言" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "首页",
+    "settings": "设置",
+    "language": "语言"
+  },
   "ui": {
     "cta_start": "按任意键开始",
     "skip_to_content": "跳到内容",
@@ -15,8 +21,14 @@
     "code_help": "格式：CL-WORD00 或 DP-WORD00",
     "run": "分享旅程"
   },
-  "mode": { "classic": "经典", "deep": "深水区" },
-  "travel": { "title": "旅行", "next": "前往下一段" },
+  "mode": {
+    "classic": "经典",
+    "deep": "深水区"
+  },
+  "travel": {
+    "title": "旅行",
+    "next": "前往下一段"
+  },
   "stats": {
     "day_region": "第{{day}}天 — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "裤子 {{pct}}%",
     "pants_label": "裤子计量表"
   },
-  "region": { "heartland": "腹地", "rustbelt": "锈带", "beltway": "首都环城" },
+  "region": {
+    "heartland": "腹地",
+    "rustbelt": "锈带",
+    "beltway": "首都环城"
+  },
   "eo": {
     "prefix": "行政令:",
     "shutdown": "政府关门",
@@ -58,14 +74,19 @@
     "exhausted": "精疲力竭",
     "exhausted_desc": "你在程序面前倒下了。"
   },
-  "game": { "seed_label": "种子:" },
+  "game": {
+    "seed_label": "种子:"
+  },
   "log": {
     "booting": "正在启动…",
     "seed_set": "已设置种子",
     "traveled": "已旅行",
     "encounter": "遭遇！",
     "pants_emergency": "全国裤子紧急！",
-    "run_begins": "运行开始（{{mode}}）"
+    "run_begins": "运行开始（{{mode}}）",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "保存/加载",
@@ -86,12 +107,30 @@
     "preview": "起始：补给 {sup} · 信誉 {cred} · 理智 {san} · 士气 {mor} · 盟友 {allies} · 预算 ${budget}",
     "mult": "分数乘数 ×{mult}",
     "preview_wait": "选择身份以查看详情。",
-    "journalist": { "name": "记者", "desc": "可信且机敏；擅长收集证据。" },
-    "organizer": { "name": "组织者", "desc": "建立士气与盟友。" },
-    "whistleblower": { "name": "揭发者", "desc": "吸引火力；找到更多证据。" },
-    "lobbyist": { "name": "说客", "desc": "人脉降低成本。" },
-    "staffer": { "name": "助理", "desc": "均衡；无显著加成。" },
-    "satirist": { "name": "讽刺家", "desc": "以幽默应对；恢复理智。" },
+    "journalist": {
+      "name": "记者",
+      "desc": "可信且机敏；擅长收集证据。"
+    },
+    "organizer": {
+      "name": "组织者",
+      "desc": "建立士气与盟友。"
+    },
+    "whistleblower": {
+      "name": "揭发者",
+      "desc": "吸引火力；找到更多证据。"
+    },
+    "lobbyist": {
+      "name": "说客",
+      "desc": "人脉降低成本。"
+    },
+    "staffer": {
+      "name": "助理",
+      "desc": "均衡；无显著加成。"
+    },
+    "satirist": {
+      "name": "讽刺家",
+      "desc": "以幽默应对；恢复理智。"
+    },
     "mods": {
       "receipts_pct": "+{pct}% 证据",
       "store_discount_pct": "-{pct}% 商店",
@@ -100,7 +139,9 @@
       "satire_sustain": "幽默维持理智"
     }
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "menu": {
     "title": "主菜单",
     "help": "按 1–8/0 或点击项目。种子：{{seed}}",
@@ -129,17 +170,50 @@
       "docs": "文件和许可证"
     },
     "items": {
-      "rations": { "name": "口粮包", "desc": "不易腐坏。让你继续前进。" },
-      "water": { "name": "水壶", "desc": "水分很重要。" },
-      "spare_tire": { "name": "备用轮胎", "desc": "快速修复爆胎。" },
-      "battery": { "name": "电池", "desc": "冷启动。" },
-      "alternator": { "name": "发电机", "desc": "充电恢复。" },
-      "fuel_pump": { "name": "燃油泵", "desc": "当团队燃料耗尽时。" },
-      "masks": { "name": "口罩", "desc": "烟雾/疾病防护。" },
-      "coats": { "name": "保暖外套", "desc": "抗寒能力。" },
-      "ponchos": { "name": "雨衣", "desc": "适应风暴。" },
-      "press_pass": { "name": "记者证", "desc": "可作为许可证。" },
-      "legal_fund": { "name": "法律基金", "desc": "缓冲你的信誉。" }
+      "rations": {
+        "name": "口粮包",
+        "desc": "不易腐坏。让你继续前进。"
+      },
+      "water": {
+        "name": "水壶",
+        "desc": "水分很重要。"
+      },
+      "spare_tire": {
+        "name": "备用轮胎",
+        "desc": "快速修复爆胎。"
+      },
+      "battery": {
+        "name": "电池",
+        "desc": "冷启动。"
+      },
+      "alternator": {
+        "name": "发电机",
+        "desc": "充电恢复。"
+      },
+      "fuel_pump": {
+        "name": "燃油泵",
+        "desc": "当团队燃料耗尽时。"
+      },
+      "masks": {
+        "name": "口罩",
+        "desc": "烟雾/疾病防护。"
+      },
+      "coats": {
+        "name": "保暖外套",
+        "desc": "抗寒能力。"
+      },
+      "ponchos": {
+        "name": "雨衣",
+        "desc": "适应风暴。"
+      },
+      "press_pass": {
+        "name": "记者证",
+        "desc": "可作为许可证。"
+      },
+      "legal_fund": {
+        "name": "法律基金",
+        "desc": "缓冲你的信誉。"
+      }
     },
     "menu": {
       "home": "装备 — 预算: {budget}",

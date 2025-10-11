@@ -120,7 +120,10 @@
     "traveled": "Wis mlaku",
     "encounter": "Pertemuan!",
     "pants_emergency": "Darurat Celono Nasional!",
-    "run_begins": "Game dimulai ({{mode}})"
+    "run_begins": "Game dimulai ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Simpen/Muat",
@@ -144,12 +147,30 @@
     "preview": "Wiwitan: Pasokan {sup} · Kapercayan {cred} · Waras {san} · Morale {mor} · Kanca {allies} · Anggaran ${budget}",
     "mult": "Pengali ×{mult}",
     "preview_wait": "Pilih persona kanggo ndeleng rincian.",
-    "journalist": { "name": "Wartawan", "desc": "Terpercaya lan duwe sumber; tumbuh karo bukti." },
-    "organizer": { "name": "Organizer", "desc": "Mbangun morale lan kanca." },
-    "whistleblower": { "name": "Whistleblower", "desc": "Narik kawigaten; golek luwih akeh bukti." },
-    "lobbyist": { "name": "Lobbyist", "desc": "Koneksi ngurangi biaya." },
-    "staffer": { "name": "Staf", "desc": "Seimbang; ora ana keuntungan kuat." },
-    "satirist": { "name": "Satiris", "desc": "Ngatasi karo humor; mulihno waras." },
+    "journalist": {
+      "name": "Wartawan",
+      "desc": "Terpercaya lan duwe sumber; tumbuh karo bukti."
+    },
+    "organizer": {
+      "name": "Organizer",
+      "desc": "Mbangun morale lan kanca."
+    },
+    "whistleblower": {
+      "name": "Whistleblower",
+      "desc": "Narik kawigaten; golek luwih akeh bukti."
+    },
+    "lobbyist": {
+      "name": "Lobbyist",
+      "desc": "Koneksi ngurangi biaya."
+    },
+    "staffer": {
+      "name": "Staf",
+      "desc": "Seimbang; ora ana keuntungan kuat."
+    },
+    "satirist": {
+      "name": "Satiris",
+      "desc": "Ngatasi karo humor; mulihno waras."
+    },
     "mods": {
       "receipts_pct": "+{pct}% bukti",
       "store_discount_pct": "-{pct}% toko",
@@ -186,17 +207,50 @@
       "docs": "Dokumen lan Ijin"
     },
     "items": {
-      "rations": { "name": "Paket Jatah", "desc": "Ora busuk. Njaga sampeyan mlaku." },
-      "water": { "name": "Jeriken Banyu", "desc": "Banyu iku perlu." },
-      "spare_tire": { "name": "Ban Serep", "desc": "Ndandani bocor kanthi cepet." },
-      "battery": { "name": "Baterei", "desc": "Mulai dingin." },
-      "alternator": { "name": "Alternator", "desc": "Mulihno daya." },
-      "fuel_pump": { "name": "Pompa Bahan Bakar", "desc": "Nalika pesta rampung." },
-      "masks": { "name": "Masker", "desc": "Proteksi asap/penyakit." },
-      "coats": { "name": "Jas Anget", "desc": "Tahan gelombang dingin." },
-      "ponchos": { "name": "Ponco", "desc": "Adaptasi badai." },
-      "press_pass": { "name": "Kartu Pers", "desc": "Bisa dadi ijin." },
-      "legal_fund": { "name": "Dana Hukum", "desc": "Buffer kapercayan sampeyan." }
+      "rations": {
+        "name": "Paket Jatah",
+        "desc": "Ora busuk. Njaga sampeyan mlaku."
+      },
+      "water": {
+        "name": "Jeriken Banyu",
+        "desc": "Banyu iku perlu."
+      },
+      "spare_tire": {
+        "name": "Ban Serep",
+        "desc": "Ndandani bocor kanthi cepet."
+      },
+      "battery": {
+        "name": "Baterei",
+        "desc": "Mulai dingin."
+      },
+      "alternator": {
+        "name": "Alternator",
+        "desc": "Mulihno daya."
+      },
+      "fuel_pump": {
+        "name": "Pompa Bahan Bakar",
+        "desc": "Nalika pesta rampung."
+      },
+      "masks": {
+        "name": "Masker",
+        "desc": "Proteksi asap/penyakit."
+      },
+      "coats": {
+        "name": "Jas Anget",
+        "desc": "Tahan gelombang dingin."
+      },
+      "ponchos": {
+        "name": "Ponco",
+        "desc": "Adaptasi badai."
+      },
+      "press_pass": {
+        "name": "Kartu Pers",
+        "desc": "Bisa dadi ijin."
+      },
+      "legal_fund": {
+        "name": "Dana Hukum",
+        "desc": "Buffer kapercayan sampeyan."
+      }
     },
     "menu": {
       "home": "Outfitting — Anggaran: {budget}",

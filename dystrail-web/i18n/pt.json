@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "Início", "settings": "Configurações", "language": "Idioma" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "Início",
+    "settings": "Configurações",
+    "language": "Idioma"
+  },
   "ui": {
     "cta_start": "PRESSIONE QUALQUER TECLA PARA COMEÇAR",
     "skip_to_content": "Ir para o conteúdo",
@@ -15,8 +21,14 @@
     "code_help": "Formato: CL-WORD00 ou DP-WORD00",
     "run": "Compartilhar partida"
   },
-  "mode": { "classic": "Clássico", "deep": "Modo Profundo" },
-  "travel": { "title": "Viajar", "next": "Viajar próximo trecho" },
+  "mode": {
+    "classic": "Clássico",
+    "deep": "Modo Profundo"
+  },
+  "travel": {
+    "title": "Viajar",
+    "next": "Viajar próximo trecho"
+  },
   "stats": {
     "day_region": "Dia {{day}} — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "Calças {{pct}}%",
     "pants_label": "Medidor de Calças"
   },
-  "region": { "heartland": "Interior", "rustbelt": "Cinturão da Ferrugem", "beltway": "Periferia" },
+  "region": {
+    "heartland": "Interior",
+    "rustbelt": "Cinturão da Ferrugem",
+    "beltway": "Periferia"
+  },
   "eo": {
     "prefix": "DE:",
     "shutdown": "Fechamento do Governo",
@@ -58,14 +74,19 @@
     "exhausted": "ESGOTADO",
     "exhausted_desc": "Você desaba diante do procedimento."
   },
-  "game": { "seed_label": "Semente:" },
+  "game": {
+    "seed_label": "Semente:"
+  },
   "log": {
     "booting": "Inicializando…",
     "seed_set": "Semente definida",
     "traveled": "Viajou",
     "encounter": "Encontro!",
     "pants_emergency": "Emergência nacional das calças!",
-    "run_begins": "Partida começa ({{mode}})"
+    "run_begins": "Partida começa ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Salvar/Carregar",
@@ -80,19 +101,39 @@
     "loaded": "Save carregado",
     "saved": "Jogo salvo"
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "persona": {
     "choose": "Escolha sua Persona:",
     "selected_budget_prefix": "Orçamento inicial",
     "preview": "Início: Suprimentos {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Orçamento ${budget}",
     "mult": "Multiplicador ×{mult}",
     "preview_wait": "Selecione uma persona para ver detalhes.",
-    "journalist": { "name": "Jornalista", "desc": "Crível e engenhoso; vive de recibos." },
-    "organizer": { "name": "Organizador", "desc": "Constrói moral e aliados." },
-    "whistleblower": { "name": "Denunciante", "desc": "Atrai risco; encontra mais recibos." },
-    "lobbyist": { "name": "Lobista", "desc": "Conexões reduzem custos." },
-    "staffer": { "name": "Assessor", "desc": "Equilibrado; sem grandes vantagens." },
-    "satirist": { "name": "Satirista", "desc": "Aguenta com humor; restaura sanidade." },
+    "journalist": {
+      "name": "Jornalista",
+      "desc": "Crível e engenhoso; vive de recibos."
+    },
+    "organizer": {
+      "name": "Organizador",
+      "desc": "Constrói moral e aliados."
+    },
+    "whistleblower": {
+      "name": "Denunciante",
+      "desc": "Atrai risco; encontra mais recibos."
+    },
+    "lobbyist": {
+      "name": "Lobista",
+      "desc": "Conexões reduzem custos."
+    },
+    "staffer": {
+      "name": "Assessor",
+      "desc": "Equilibrado; sem grandes vantagens."
+    },
+    "satirist": {
+      "name": "Satirista",
+      "desc": "Aguenta com humor; restaura sanidade."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Recibos",
       "store_discount_pct": "-{pct}% Loja",
@@ -129,17 +170,50 @@
       "docs": "Documentos e Licenças"
     },
     "items": {
-      "rations": { "name": "Pacote de Rações", "desc": "Não perecível. Te mantém em movimento." },
-      "water": { "name": "Galões de Água", "desc": "Hidratação é importante." },
-      "spare_tire": { "name": "Pneu Sobressalente", "desc": "Conserta furos rapidamente." },
-      "battery": { "name": "Bateria", "desc": "Partidas a frio." },
-      "alternator": { "name": "Alternador", "desc": "Carga restaurada." },
-      "fuel_pump": { "name": "Bomba de Combustível", "desc": "Quando o grupo fica sem combustível." },
-      "masks": { "name": "Máscaras", "desc": "Proteção contra fumaça/doença." },
-      "coats": { "name": "Casacos Quentes", "desc": "Resistência ao frio." },
-      "ponchos": { "name": "Ponchos", "desc": "Amigos da tempestade." },
-      "press_pass": { "name": "Carteira de Imprensa", "desc": "Pode agir como licença." },
-      "legal_fund": { "name": "Fundo Legal", "desc": "Protege sua credibilidade." }
+      "rations": {
+        "name": "Pacote de Rações",
+        "desc": "Não perecível. Te mantém em movimento."
+      },
+      "water": {
+        "name": "Galões de Água",
+        "desc": "Hidratação é importante."
+      },
+      "spare_tire": {
+        "name": "Pneu Sobressalente",
+        "desc": "Conserta furos rapidamente."
+      },
+      "battery": {
+        "name": "Bateria",
+        "desc": "Partidas a frio."
+      },
+      "alternator": {
+        "name": "Alternador",
+        "desc": "Carga restaurada."
+      },
+      "fuel_pump": {
+        "name": "Bomba de Combustível",
+        "desc": "Quando o grupo fica sem combustível."
+      },
+      "masks": {
+        "name": "Máscaras",
+        "desc": "Proteção contra fumaça/doença."
+      },
+      "coats": {
+        "name": "Casacos Quentes",
+        "desc": "Resistência ao frio."
+      },
+      "ponchos": {
+        "name": "Ponchos",
+        "desc": "Amigos da tempestade."
+      },
+      "press_pass": {
+        "name": "Carteira de Imprensa",
+        "desc": "Pode agir como licença."
+      },
+      "legal_fund": {
+        "name": "Fundo Legal",
+        "desc": "Protege sua credibilidade."
+      }
     },
     "menu": {
       "home": "Equipamentos — Orçamento: {budget}",

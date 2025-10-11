@@ -75,10 +75,7 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         chance += f64::from(state.stats.supplies) * f64::from(cfg.supplies_weight);
         chance += f64::from(state.stats.allies) * f64::from(cfg.allies_weight);
         chance -= f64::from(state.stats.pants) * f64::from(cfg.pants_penalty_weight);
-        chance = chance.clamp(
-            f64::from(cfg.min_chance),
-            f64::from(cfg.max_chance),
-        );
+        chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
 
         let roll = f64::from(state.next_pct()) / 100.0;
         if roll < chance {

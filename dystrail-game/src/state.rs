@@ -11,6 +11,19 @@ use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, Vehicle};
 use crate::weather::{WeatherConfig, WeatherState};
 
+#[cfg(debug_assertions)]
+fn debug_log_enabled() -> bool {
+    matches!(
+        std::env::var("DYSTRAIL_DEBUG_LOGS"),
+        Ok(val) if val != "0"
+    )
+}
+
+#[cfg(not(debug_assertions))]
+const fn debug_log_enabled() -> bool {
+    false
+}
+
 /// Default pace setting
 fn default_pace() -> String {
     "steady".to_string()
@@ -435,6 +448,10 @@ impl GameState {
             return (false, String::from("log.encounter"), breakdown_started);
         }
 
+        if let Some(log_key) = self.failure_log_key() {
+            return (true, String::from(log_key), breakdown_started);
+        }
+
         // Step 5: Distance/region update and day advance
         self.day += 1;
         self.region = Self::region_by_day(self.day);
@@ -443,13 +460,26 @@ impl GameState {
         self.distance_traveled_actual += travel_distance;
         self.distance_traveled =
             (self.distance_traveled + travel_distance).min(self.trail_distance);
-        if self.distance_traveled >= self.trail_distance {
+        if self.distance_traveled_actual >= self.trail_distance {
             self.boss_ready = true;
         }
 
+        if debug_log_enabled() {
+            println!(
+                "Day {}: distance {:.1}/{:.1} (actual {:.1}), boss_ready {}, HP {}, Sanity {}",
+                self.day,
+                self.distance_traveled,
+                self.trail_distance,
+                self.distance_traveled_actual,
+                self.boss_ready,
+                self.stats.hp,
+                self.stats.sanity
+            );
+        }
+
         // Check for failure conditions after all effects
-        if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
-            return (true, String::from("log.pants-emergency"), breakdown_started);
+        if let Some(log_key) = self.failure_log_key() {
+            return (true, String::from(log_key), breakdown_started);
         }
 
         // If travel is blocked by breakdown, don't continue
@@ -486,6 +516,9 @@ impl GameState {
                 });
                 self.travel_blocked = true;
                 breakdown_started = true;
+                if debug_log_enabled() {
+                    println!("🚗 Breakdown started: {:?}", parts[part_idx]);
+                }
             }
         }
         breakdown_started
@@ -495,6 +528,9 @@ impl GameState {
         if let Some(enc) = self.current_encounter.clone()
             && let Some(choice) = enc.choices.get(idx)
         {
+            #[cfg(debug_assertions)]
+            let (hp_before, sanity_before) = (self.stats.hp, self.stats.sanity);
+
             let eff = &choice.effects;
             self.stats.hp += eff.hp;
             self.stats.sanity += eff.sanity;
@@ -512,6 +548,16 @@ impl GameState {
             if let Some(log) = &eff.log {
                 self.logs.push(log.clone());
             }
+
+            #[cfg(debug_assertions)]
+            if debug_log_enabled() && (eff.hp != 0 || eff.sanity != 0) {
+                println!(
+                    "Encounter '{}' applied HP {} -> {}, Sanity {} -> {}",
+                    enc.name, hp_before, self.stats.hp, sanity_before, self.stats.sanity
+                );
+            }
+
+            self.stats.clamp();
         }
         self.current_encounter = None;
     }
@@ -704,13 +750,37 @@ impl GameState {
         self.rest_requested = true;
     }
 
+    fn failure_log_key(&self) -> Option<&'static str> {
+        if self.stats.pants >= 100 {
+            Some("log.pants-emergency")
+        } else if self.stats.hp <= 0 {
+            Some("log.health-collapse")
+        } else if self.stats.supplies <= 0 {
+            Some("log.supplies-depleted")
+        } else if self.stats.sanity <= 0 {
+            Some("log.sanity-collapse")
+        } else {
+            None
+        }
+    }
+
     pub fn consume_daily_effects(&mut self, sanity_delta: i32, supplies_delta: i32) {
+        let pace_sup_cost = match self.pace.as_str() {
+            "blitz" => 2,
+            _ => 1,
+        };
         if sanity_delta != 0 {
             let max_sanity = Stats::default().sanity;
             self.stats.sanity = (self.stats.sanity + sanity_delta).clamp(0, max_sanity);
         }
-        if supplies_delta != 0 {
-            self.stats.supplies = (self.stats.supplies + supplies_delta).max(0);
+        let net_supplies = supplies_delta - pace_sup_cost;
+        let old_supplies = self.stats.supplies;
+        self.stats.supplies = (old_supplies + net_supplies).max(0);
+        if debug_log_enabled() && net_supplies != 0 {
+            println!(
+                "Daily supplies effect: {} -> {} (delta {})",
+                old_supplies, self.stats.supplies, net_supplies
+            );
         }
         self.stats.clamp();
     }
@@ -754,8 +824,17 @@ impl GameState {
         grants: &crate::store::Grants,
         tags: &[String],
     ) {
+        let budget_before = self.budget_cents;
+
         // Subtract cost from budget
         self.budget_cents = (self.budget_cents - cost_cents).max(0);
+
+        if debug_log_enabled() {
+            println!(
+                "Budget change: {} -> {} (cost {})",
+                budget_before, self.budget_cents, cost_cents
+            );
+        }
 
         // Apply grants
         self.stats.supplies += grants.supplies;

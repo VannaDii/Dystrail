@@ -127,7 +127,10 @@
     "traveled": "Traveled",
     "encounter": "Encounter!",
     "pants_emergency": "National Pants Emergency!",
-    "run_begins": "Run begins ({{mode}})"
+    "run_begins": "Run begins ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Save/Load",
@@ -151,12 +154,30 @@
     "preview": "Starting: Supplies {sup} · Cred {cred} · San {san} · Mor {mor} · Allies {allies} · Budget ${budget}",
     "mult": "Multiplier ×{mult}",
     "preview_wait": "Select a persona to see details.",
-    "journalist": { "name": "Journalist", "desc": "Credible and resourceful; thrives on receipts." },
-    "organizer": { "name": "Organizer", "desc": "Builds morale and allies." },
-    "whistleblower": { "name": "Whistleblower", "desc": "Draws heat; finds more receipts." },
-    "lobbyist": { "name": "Lobbyist", "desc": "Connections reduce costs." },
-    "staffer": { "name": "Staffer", "desc": "Balanced; no strong perks." },
-    "satirist": { "name": "Satirist", "desc": "Copes with humor; restores sanity." },
+    "journalist": {
+      "name": "Journalist",
+      "desc": "Credible and resourceful; thrives on receipts."
+    },
+    "organizer": {
+      "name": "Organizer",
+      "desc": "Builds morale and allies."
+    },
+    "whistleblower": {
+      "name": "Whistleblower",
+      "desc": "Draws heat; finds more receipts."
+    },
+    "lobbyist": {
+      "name": "Lobbyist",
+      "desc": "Connections reduce costs."
+    },
+    "staffer": {
+      "name": "Staffer",
+      "desc": "Balanced; no strong perks."
+    },
+    "satirist": {
+      "name": "Satirist",
+      "desc": "Copes with humor; restores sanity."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Receipts",
       "store_discount_pct": "-{pct}% Store",
@@ -193,17 +214,50 @@
       "docs": "Documents & Permits"
     },
     "items": {
-      "rations": { "name": "Rations Pack", "desc": "Non-perishable. Keeps you going." },
-      "water": { "name": "Water Jugs", "desc": "Hydration matters." },
-      "spare_tire": { "name": "Spare Tire", "desc": "Fix blowouts fast." },
-      "battery": { "name": "Battery", "desc": "Cold starts." },
-      "alternator": { "name": "Alternator", "desc": "Charge restored." },
-      "fuel_pump": { "name": "Fuel Pump", "desc": "When the party runs dry." },
-      "masks": { "name": "Masks", "desc": "Smoke/illness protection." },
-      "coats": { "name": "Warm Coats", "desc": "Cold snap resilience." },
-      "ponchos": { "name": "Ponchos", "desc": "Storm friendly." },
-      "press_pass": { "name": "Press Pass", "desc": "Can act as a permit." },
-      "legal_fund": { "name": "Legal Fund", "desc": "Buffer your credibility." }
+      "rations": {
+        "name": "Rations Pack",
+        "desc": "Non-perishable. Keeps you going."
+      },
+      "water": {
+        "name": "Water Jugs",
+        "desc": "Hydration matters."
+      },
+      "spare_tire": {
+        "name": "Spare Tire",
+        "desc": "Fix blowouts fast."
+      },
+      "battery": {
+        "name": "Battery",
+        "desc": "Cold starts."
+      },
+      "alternator": {
+        "name": "Alternator",
+        "desc": "Charge restored."
+      },
+      "fuel_pump": {
+        "name": "Fuel Pump",
+        "desc": "When the party runs dry."
+      },
+      "masks": {
+        "name": "Masks",
+        "desc": "Smoke/illness protection."
+      },
+      "coats": {
+        "name": "Warm Coats",
+        "desc": "Cold snap resilience."
+      },
+      "ponchos": {
+        "name": "Ponchos",
+        "desc": "Storm friendly."
+      },
+      "press_pass": {
+        "name": "Press Pass",
+        "desc": "Can act as a permit."
+      },
+      "legal_fund": {
+        "name": "Legal Fund",
+        "desc": "Buffer your credibility."
+      }
     },
     "menu": {
       "home": "Outfitting — Budget: {budget}",

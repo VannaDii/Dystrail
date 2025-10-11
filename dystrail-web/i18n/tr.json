@@ -120,7 +120,10 @@
     "traveled": "Seyahat edildi",
     "encounter": "Karşılaşma!",
     "pants_emergency": "Ulusal Pantolon Acil Durumu!",
-    "run_begins": "Oyun başlıyor ({{mode}})"
+    "run_begins": "Oyun başlıyor ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Kaydet/Yükle",
@@ -144,12 +147,30 @@
     "preview": "Başlangıç: Malzeme {sup} · Güven {cred} · Akıl {san} · Moral {mor} · Müttefik {allies} · Bütçe ${budget}",
     "mult": "Çarpan ×{mult}",
     "preview_wait": "Detayları görmek için bir persona seçin.",
-    "journalist": { "name": "Gazeteci", "desc": "Güvenilir ve becerikli; kanıtlarla gelişir." },
-    "organizer": { "name": "Organizatör", "desc": "Moral ve müttefik oluşturur." },
-    "whistleblower": { "name": "İhbarcı", "desc": "Dikkat çeker; daha fazla kanıt bulur." },
-    "lobbyist": { "name": "Lobici", "desc": "Bağlantılar maliyeti düşürür." },
-    "staffer": { "name": "Personel", "desc": "Dengeli; güçlü avantaj yok." },
-    "satirist": { "name": "Hicivci", "desc": "Mizahla başa çıkar; aklı restore eder." },
+    "journalist": {
+      "name": "Gazeteci",
+      "desc": "Güvenilir ve becerikli; kanıtlarla gelişir."
+    },
+    "organizer": {
+      "name": "Organizatör",
+      "desc": "Moral ve müttefik oluşturur."
+    },
+    "whistleblower": {
+      "name": "İhbarcı",
+      "desc": "Dikkat çeker; daha fazla kanıt bulur."
+    },
+    "lobbyist": {
+      "name": "Lobici",
+      "desc": "Bağlantılar maliyeti düşürür."
+    },
+    "staffer": {
+      "name": "Personel",
+      "desc": "Dengeli; güçlü avantaj yok."
+    },
+    "satirist": {
+      "name": "Hicivci",
+      "desc": "Mizahla başa çıkar; aklı restore eder."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Kanıt",
       "store_discount_pct": "-{pct}% Mağaza",
@@ -186,17 +207,50 @@
       "docs": "Belgeler & İzinler"
     },
     "items": {
-      "rations": { "name": "Erzak Paketi", "desc": "Bozulmuyor. Sizi ayakta tutar." },
-      "water": { "name": "Su Bidonları", "desc": "Hidratasyon önemli." },
-      "spare_tire": { "name": "Yedek Lastik", "desc": "Patlamaları hızla tamir et." },
-      "battery": { "name": "Akü", "desc": "Soğuk çalıştırma." },
-      "alternator": { "name": "Alternatör", "desc": "Şarj restore edildi." },
-      "fuel_pump": { "name": "Yakıt Pompası", "desc": "Parti bittiğinde." },
-      "masks": { "name": "Maskeler", "desc": "Duman/hastalık koruması." },
-      "coats": { "name": "Sıcak Montlar", "desc": "Soğuk dalgası direnci." },
-      "ponchos": { "name": "Ponçolar", "desc": "Fırtına dostu." },
-      "press_pass": { "name": "Basın Kartı", "desc": "İzin olarak davranabilir." },
-      "legal_fund": { "name": "Hukuki Fon", "desc": "Güvenilirliğinizi tamponlar." }
+      "rations": {
+        "name": "Erzak Paketi",
+        "desc": "Bozulmuyor. Sizi ayakta tutar."
+      },
+      "water": {
+        "name": "Su Bidonları",
+        "desc": "Hidratasyon önemli."
+      },
+      "spare_tire": {
+        "name": "Yedek Lastik",
+        "desc": "Patlamaları hızla tamir et."
+      },
+      "battery": {
+        "name": "Akü",
+        "desc": "Soğuk çalıştırma."
+      },
+      "alternator": {
+        "name": "Alternatör",
+        "desc": "Şarj restore edildi."
+      },
+      "fuel_pump": {
+        "name": "Yakıt Pompası",
+        "desc": "Parti bittiğinde."
+      },
+      "masks": {
+        "name": "Maskeler",
+        "desc": "Duman/hastalık koruması."
+      },
+      "coats": {
+        "name": "Sıcak Montlar",
+        "desc": "Soğuk dalgası direnci."
+      },
+      "ponchos": {
+        "name": "Ponçolar",
+        "desc": "Fırtına dostu."
+      },
+      "press_pass": {
+        "name": "Basın Kartı",
+        "desc": "İzin olarak davranabilir."
+      },
+      "legal_fund": {
+        "name": "Hukuki Fon",
+        "desc": "Güvenilirliğinizi tamponlar."
+      }
     },
     "menu": {
       "home": "Donanım — Bütçe: {budget}",

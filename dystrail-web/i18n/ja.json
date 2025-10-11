@@ -1,6 +1,12 @@
 {
-  "app": { "title": "Dystrail" },
-  "nav": { "home": "ホーム", "settings": "設定", "language": "言語" },
+  "app": {
+    "title": "Dystrail"
+  },
+  "nav": {
+    "home": "ホーム",
+    "settings": "設定",
+    "language": "言語"
+  },
   "ui": {
     "cta_start": "何かキーを押して開始",
     "skip_to_content": "コンテンツへスキップ",
@@ -15,8 +21,14 @@
     "code_help": "形式: CL-WORD00 または DP-WORD00",
     "run": "ランを共有"
   },
-  "mode": { "classic": "クラシック", "deep": "ディープエンド" },
-  "travel": { "title": "旅", "next": "次の区間へ進む" },
+  "mode": {
+    "classic": "クラシック",
+    "deep": "ディープエンド"
+  },
+  "travel": {
+    "title": "旅",
+    "next": "次の区間へ進む"
+  },
   "stats": {
     "day_region": "日 {{day}} — {{region}}",
     "hp_short": "HP",
@@ -28,7 +40,11 @@
     "pants": "パンツ {{pct}}%",
     "pants_label": "パンツメーター"
   },
-  "region": { "heartland": "ハートランド", "rustbelt": "ラストベルト", "beltway": "ベルトウェイ" },
+  "region": {
+    "heartland": "ハートランド",
+    "rustbelt": "ラストベルト",
+    "beltway": "ベルトウェイ"
+  },
   "eo": {
     "prefix": "大統領令:",
     "shutdown": "政府閉鎖",
@@ -58,14 +74,19 @@
     "exhausted": "疲弊",
     "exhausted_desc": "手続きに押し潰された。"
   },
-  "game": { "seed_label": "シード:" },
+  "game": {
+    "seed_label": "シード:"
+  },
   "log": {
     "booting": "起動中…",
     "seed_set": "シード設定",
     "traveled": "旅した",
     "encounter": "遭遇！",
     "pants_emergency": "全国パンツ緊急！",
-    "run_begins": "ラン開始（{{mode}}）"
+    "run_begins": "ラン開始（{{mode}}）",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "保存/読込",
@@ -80,19 +101,39 @@
     "loaded": "セーブを読み込みました",
     "saved": "ゲームを保存しました"
   },
-  "footer": { "copyright": "© Dystrail" },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
   "persona": {
     "choose": "役割を選択してください:",
     "selected_budget_prefix": "初期予算",
     "preview": "開始: 物資 {sup} · 信用 {cred} · 正気 {san} · 士気 {mor} · 仲間 {allies} · 予算 ${budget}",
     "mult": "倍率 ×{mult}",
     "preview_wait": "役割を選ぶと詳細が表示されます。",
-    "journalist": { "name": "ジャーナリスト", "desc": "信用でき機転が利く；証拠集めが得意。" },
-    "organizer": { "name": "オーガナイザー", "desc": "士気と仲間を増やす。" },
-    "whistleblower": { "name": "内部告発者", "desc": "注目を集める；より多くの証拠を見つける。" },
-    "lobbyist": { "name": "ロビイスト", "desc": "コネでコスト削減。" },
-    "staffer": { "name": "スタッフ", "desc": "バランス型；特筆すべき強みなし。" },
-    "satirist": { "name": "風刺家", "desc": "ユーモアで耐える；正気を回復。" },
+    "journalist": {
+      "name": "ジャーナリスト",
+      "desc": "信用でき機転が利く；証拠集めが得意。"
+    },
+    "organizer": {
+      "name": "オーガナイザー",
+      "desc": "士気と仲間を増やす。"
+    },
+    "whistleblower": {
+      "name": "内部告発者",
+      "desc": "注目を集める；より多くの証拠を見つける。"
+    },
+    "lobbyist": {
+      "name": "ロビイスト",
+      "desc": "コネでコスト削減。"
+    },
+    "staffer": {
+      "name": "スタッフ",
+      "desc": "バランス型；特筆すべき強みなし。"
+    },
+    "satirist": {
+      "name": "風刺家",
+      "desc": "ユーモアで耐える；正気を回復。"
+    },
     "mods": {
       "receipts_pct": "+{pct}% 証拠",
       "store_discount_pct": "-{pct}% 店",
@@ -129,17 +170,50 @@
       "docs": "書類・許可証"
     },
     "items": {
-      "rations": { "name": "レーション", "desc": "保存が利く。継続を支える。" },
-      "water": { "name": "水タンク", "desc": "水分補給は重要。" },
-      "spare_tire": { "name": "スペアタイヤ", "desc": "パンクを素早く修理。" },
-      "battery": { "name": "バッテリー", "desc": "寒冷始動。" },
-      "alternator": { "name": "オルタネーター", "desc": "充電復旧。" },
-      "fuel_pump": { "name": "燃料ポンプ", "desc": "パーティが枯渇した時。" },
-      "masks": { "name": "マスク", "desc": "煙・病気から保護。" },
-      "coats": { "name": "防寒コート", "desc": "寒波への耐性。" },
-      "ponchos": { "name": "ポンチョ", "desc": "嵐に優しい。" },
-      "press_pass": { "name": "記者証", "desc": "許可証として機能可能。" },
-      "legal_fund": { "name": "法的資金", "desc": "信用力をバッファー。" }
+      "rations": {
+        "name": "レーション",
+        "desc": "保存が利く。継続を支える。"
+      },
+      "water": {
+        "name": "水タンク",
+        "desc": "水分補給は重要。"
+      },
+      "spare_tire": {
+        "name": "スペアタイヤ",
+        "desc": "パンクを素早く修理。"
+      },
+      "battery": {
+        "name": "バッテリー",
+        "desc": "寒冷始動。"
+      },
+      "alternator": {
+        "name": "オルタネーター",
+        "desc": "充電復旧。"
+      },
+      "fuel_pump": {
+        "name": "燃料ポンプ",
+        "desc": "パーティが枯渇した時。"
+      },
+      "masks": {
+        "name": "マスク",
+        "desc": "煙・病気から保護。"
+      },
+      "coats": {
+        "name": "防寒コート",
+        "desc": "寒波への耐性。"
+      },
+      "ponchos": {
+        "name": "ポンチョ",
+        "desc": "嵐に優しい。"
+      },
+      "press_pass": {
+        "name": "記者証",
+        "desc": "許可証として機能可能。"
+      },
+      "legal_fund": {
+        "name": "法的資金",
+        "desc": "信用力をバッファー。"
+      }
     },
     "menu": {
       "home": "装備調達 — 予算: {budget}",

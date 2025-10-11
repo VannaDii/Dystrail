@@ -1,9 +1,9 @@
 use anyhow::Result;
 use colored::Colorize;
 use serde_json;
+use std::convert::TryFrom;
 use std::io::Write;
 use std::time::Duration;
-use std::convert::TryFrom;
 
 use super::{PlayabilityAggregate, PlayabilityRecord, ScenarioResult};
 
@@ -125,8 +125,8 @@ pub fn generate_console_report(
 }
 
 pub fn generate_json_report(writer: &mut dyn Write, results: &[ScenarioResult]) -> Result<()> {
-    let json_output = serde_json::to_string_pretty(results)?;
-    writeln!(writer, "{json_output}")?;
+    serde_json::to_writer_pretty(&mut *writer, results)?;
+    writeln!(writer)?;
     Ok(())
 }
 
@@ -183,14 +183,13 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 
     for record in records {
         let metrics = &record.metrics;
-        let mode = format!("{:?}", record.mode);
         let strategy = record.strategy.to_string();
 
         writeln!(
             writer,
             "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1}",
             quote(&record.scenario_name),
-            quote(&mode),
+            quote(mode_label(record.mode)),
             quote(&strategy),
             quote(&record.seed_code),
             record.seed_value,
@@ -215,4 +214,11 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 fn quote(value: &str) -> String {
     let escaped = value.replace('"', "\"\"");
     format!("\"{escaped}\"")
+}
+
+fn mode_label(mode: dystrail_game::GameMode) -> &'static str {
+    match mode {
+        dystrail_game::GameMode::Classic => "Classic",
+        dystrail_game::GameMode::Deep => "Deep",
+    }
 }

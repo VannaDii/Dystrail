@@ -15,7 +15,7 @@
       "dist_mult": 1.15,
       "distance": 21.0,
       "sanity": -1,
-      "pants": 2,
+      "pants": 3,
       "encounter_chance_delta": 0.05
     },
     {
@@ -24,7 +24,7 @@
       "dist_mult": 1.25,
       "distance": 25.0,
       "sanity": -2,
-      "pants": 4,
+      "pants": 6,
       "encounter_chance_delta": 0.1
     }
   ],
@@ -34,14 +34,14 @@
       "name": "Quiet",
       "receipt_find_pct_delta": -5,
       "sanity": 2,
-      "pants": -3
+      "pants": 0
     },
     {
       "id": "mixed",
       "name": "Mixed",
       "receipt_find_pct_delta": 0,
       "sanity": 1,
-      "pants": -1
+      "pants": 0
     },
     {
       "id": "doom",

@@ -4,11 +4,168 @@
     "name": "Raw Milk Stand",
     "desc": "A dubious raw milk stand tempts the party.",
     "weight": 5,
-    "regions": ["Heartland"],
-    "modes": ["classic","deep_end"],
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep_end"
+    ],
     "choices": [
-      { "label": "Drink the milk", "effects": { "hp": -1, "sanity": -1, "pants": 5, "log": "The milk was a choice." } },
-      { "label": "Politely decline", "effects": { "credibility": 1, "morale": 1, "log": "You keep it together." } }
+      {
+        "label": "Drink the milk",
+        "effects": {
+          "hp": -1,
+          "sanity": -1,
+          "pants": 5,
+          "log": "The milk was a choice."
+        }
+      },
+      {
+        "label": "Politely decline",
+        "effects": {
+          "credibility": 1,
+          "morale": 1,
+          "log": "You keep it together."
+        }
+      }
+    ]
+  },
+  {
+    "id": "town_hall_drift",
+    "name": "Town Hall Drift",
+    "desc": "A classic-mode town hall needs calming words.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Guide the conversation",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "log": "You keep the meeting focused.",
+          "hp": -1
+        }
+      },
+      {
+        "label": "Let them vent",
+        "effects": {
+          "sanity": -2,
+          "morale": 2,
+          "pants": 4,
+          "log": "The room spirals for a bit.",
+          "hp": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "beltway_briefing",
+    "name": "Beltway Briefing",
+    "desc": "Deep-mode briefers bury you in amendments.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Read every line",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "pants": 3,
+          "log": "You catch three poison pills.",
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Skim the highlights",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "pants": 6,
+          "log": "Lobbyists love your optimism."
+        }
+      }
+    ]
+  },
+  {
+    "id": "fundraiser_detour",
+    "name": "Fundraiser Detour",
+    "desc": "You are asked to crash a friendly fundraiser.",
+    "weight": 5,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Attend and shake hands",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "pants": 2,
+          "log": "You take home some leftovers."
+        }
+      },
+      {
+        "label": "Skip and stay on route",
+        "effects": {
+          "hp": 0,
+          "sanity": 1,
+          "log": "You buy yourself a quiet evening.",
+          "supplies": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": "deep_state_dirge",
+    "name": "Deep State Dirge",
+    "desc": "A shadowy hearing drags on for hours.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Hold the line",
+        "effects": {
+          "sanity": -3,
+          "credibility": 3,
+          "pants": 4,
+          "log": "You grind through the docket.",
+          "supplies": -2
+        }
+      },
+      {
+        "label": "Cut and run",
+        "effects": {
+          "sanity": 2,
+          "credibility": -2,
+          "pants": 5,
+          "log": "You duck the cameras.",
+          "hp": -2
+        }
+      }
     ]
   },
   {
@@ -16,12 +173,33 @@
     "name": "Tariff Whiplash",
     "desc": "A surprise tariff now applies to... your stuff.",
     "weight": 5,
-    "regions": ["RustBelt","Beltway"],
-    "modes": ["classic","deep_end"],
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep_end"
+    ],
     "choices": [
-      { "label": "Pay the tariff", "effects": { "supplies": -2, "credibility": 1, "pants": 5, "log": "You pay the tariff. It stings." } },
-      { "label": "Smuggle it", "effects": { "supplies": 1, "credibility": -1, "pants": 7, "log": "Border Beagle sniffs judgement." } }
+      {
+        "label": "Pay the tariff",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "pants": 5,
+          "log": "You pay the tariff. It stings."
+        }
+      },
+      {
+        "label": "Smuggle it",
+        "effects": {
+          "supplies": 1,
+          "credibility": -1,
+          "pants": 7,
+          "log": "Border Beagle sniffs judgement."
+        }
+      }
     ]
   }
 ]
-

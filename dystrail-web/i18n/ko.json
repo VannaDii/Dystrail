@@ -120,7 +120,10 @@
     "traveled": "여행함",
     "encounter": "이벤트!",
     "pants_emergency": "국가 바지 비상사태!",
-    "run_begins": "플레이 시작 ({{mode}})"
+    "run_begins": "플레이 시작 ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "저장/로드",
@@ -144,12 +147,30 @@
     "preview": "시작: 보급품 {sup} · 신뢰 {cred} · 정신 {san} · 사기 {mor} · 동맹 {allies} · 예산 ${budget}",
     "mult": "배수 ×{mult}",
     "preview_wait": "세부사항을 보려면 페르소나를 선택하세요.",
-    "journalist": { "name": "기자", "desc": "신뢰할 수 있고 수완이 좋음; 증거로 번영." },
-    "organizer": { "name": "조직가", "desc": "사기와 동맹을 구축." },
-    "whistleblower": { "name": "내부고발자", "desc": "주목을 끔; 더 많은 증거를 찾음." },
-    "lobbyist": { "name": "로비스트", "desc": "연결고리가 비용을 줄임." },
-    "staffer": { "name": "스태프", "desc": "균형잡힌; 강한 특전 없음." },
-    "satirist": { "name": "풍자가", "desc": "유머로 대처; 정신력 회복." },
+    "journalist": {
+      "name": "기자",
+      "desc": "신뢰할 수 있고 수완이 좋음; 증거로 번영."
+    },
+    "organizer": {
+      "name": "조직가",
+      "desc": "사기와 동맹을 구축."
+    },
+    "whistleblower": {
+      "name": "내부고발자",
+      "desc": "주목을 끔; 더 많은 증거를 찾음."
+    },
+    "lobbyist": {
+      "name": "로비스트",
+      "desc": "연결고리가 비용을 줄임."
+    },
+    "staffer": {
+      "name": "스태프",
+      "desc": "균형잡힌; 강한 특전 없음."
+    },
+    "satirist": {
+      "name": "풍자가",
+      "desc": "유머로 대처; 정신력 회복."
+    },
     "mods": {
       "receipts_pct": "+{pct}% 증거",
       "store_discount_pct": "-{pct}% 상점",
@@ -186,17 +207,50 @@
       "docs": "문서 & 허가증"
     },
     "items": {
-      "rations": { "name": "식량 팩", "desc": "보존식. 계속 나아가게 해줌." },
-      "water": { "name": "물통", "desc": "수분 공급이 중요." },
-      "spare_tire": { "name": "스페어 타이어", "desc": "펑크를 빨리 수리." },
-      "battery": { "name": "배터리", "desc": "콜드 스타트." },
-      "alternator": { "name": "오르터네이터", "desc": "충전 복원." },
-      "fuel_pump": { "name": "연료 펌프", "desc": "파티가 끝날 때." },
-      "masks": { "name": "마스크", "desc": "연기/질병 보호." },
-      "coats": { "name": "따뜻한 코트", "desc": "추위 저항력." },
-      "ponchos": { "name": "판초", "desc": "폭풍 친화적." },
-      "press_pass": { "name": "기자증", "desc": "허가증 역할 가능." },
-      "legal_fund": { "name": "법적 기금", "desc": "신뢰도 버퍼." }
+      "rations": {
+        "name": "식량 팩",
+        "desc": "보존식. 계속 나아가게 해줌."
+      },
+      "water": {
+        "name": "물통",
+        "desc": "수분 공급이 중요."
+      },
+      "spare_tire": {
+        "name": "스페어 타이어",
+        "desc": "펑크를 빨리 수리."
+      },
+      "battery": {
+        "name": "배터리",
+        "desc": "콜드 스타트."
+      },
+      "alternator": {
+        "name": "오르터네이터",
+        "desc": "충전 복원."
+      },
+      "fuel_pump": {
+        "name": "연료 펌프",
+        "desc": "파티가 끝날 때."
+      },
+      "masks": {
+        "name": "마스크",
+        "desc": "연기/질병 보호."
+      },
+      "coats": {
+        "name": "따뜻한 코트",
+        "desc": "추위 저항력."
+      },
+      "ponchos": {
+        "name": "판초",
+        "desc": "폭풍 친화적."
+      },
+      "press_pass": {
+        "name": "기자증",
+        "desc": "허가증 역할 가능."
+      },
+      "legal_fund": {
+        "name": "법적 기금",
+        "desc": "신뢰도 버퍼."
+      }
     },
     "menu": {
       "home": "장비 — 예산: {budget}",

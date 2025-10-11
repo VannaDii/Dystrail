@@ -590,10 +590,7 @@ pub fn app_inner() -> Html {
                 chance += f64::from(gs.stats.supplies) * f64::from(cfg.supplies_weight);
                 chance += f64::from(gs.stats.allies) * f64::from(cfg.allies_weight);
                 chance -= f64::from(gs.stats.pants) * f64::from(cfg.pants_penalty_weight);
-                chance = chance.clamp(
-                    f64::from(cfg.min_chance),
-                    f64::from(cfg.max_chance),
-                );
+                chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
                 let chance_pct = format!("{:.1}", chance * 100.0);
 
                 let mut rounds_map: std::collections::HashMap<&str, &str> =

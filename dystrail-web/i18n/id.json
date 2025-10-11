@@ -120,7 +120,10 @@
     "traveled": "Bepergian",
     "encounter": "Pertemuan!",
     "pants_emergency": "Darurat Celana Nasional!",
-    "run_begins": "Permainan dimulai ({{mode}})"
+    "run_begins": "Permainan dimulai ({{mode}})",
+    "health_collapse": "Health depleted!",
+    "supplies_depleted": "Supplies exhausted!",
+    "sanity_collapse": "Sanity fractured!"
   },
   "save": {
     "header": "Simpan/Muat",
@@ -144,12 +147,30 @@
     "preview": "Mulai: Persediaan {sup} · Kredib {cred} · Waras {san} · Mor {mor} · Sekutu {allies} · Budget ${budget}",
     "mult": "Pengali ×{mult}",
     "preview_wait": "Pilih persona untuk melihat detail.",
-    "journalist": { "name": "Jurnalis", "desc": "Kredibel dan banyak akal; berkembang dengan bukti." },
-    "organizer": { "name": "Organisator", "desc": "Membangun moral dan sekutu." },
-    "whistleblower": { "name": "Whistleblower", "desc": "Menarik perhatian; menemukan lebih banyak bukti." },
-    "lobbyist": { "name": "Pelobi", "desc": "Koneksi mengurangi biaya." },
-    "staffer": { "name": "Staf", "desc": "Seimbang; tidak ada keuntungan kuat." },
-    "satirist": { "name": "Satiris", "desc": "Menghadapi dengan humor; memulihkan kewarasan." },
+    "journalist": {
+      "name": "Jurnalis",
+      "desc": "Kredibel dan banyak akal; berkembang dengan bukti."
+    },
+    "organizer": {
+      "name": "Organisator",
+      "desc": "Membangun moral dan sekutu."
+    },
+    "whistleblower": {
+      "name": "Whistleblower",
+      "desc": "Menarik perhatian; menemukan lebih banyak bukti."
+    },
+    "lobbyist": {
+      "name": "Pelobi",
+      "desc": "Koneksi mengurangi biaya."
+    },
+    "staffer": {
+      "name": "Staf",
+      "desc": "Seimbang; tidak ada keuntungan kuat."
+    },
+    "satirist": {
+      "name": "Satiris",
+      "desc": "Menghadapi dengan humor; memulihkan kewarasan."
+    },
     "mods": {
       "receipts_pct": "+{pct}% Bukti",
       "store_discount_pct": "-{pct}% Toko",
@@ -186,17 +207,50 @@
       "docs": "Dokumen & Izin"
     },
     "items": {
-      "rations": { "name": "Paket Jatah", "desc": "Tahan lama. Membuat Anda terus berjalan." },
-      "water": { "name": "Jerigen Air", "desc": "Hidrasi penting." },
-      "spare_tire": { "name": "Ban Serep", "desc": "Perbaiki ban bocor dengan cepat." },
-      "battery": { "name": "Baterai", "desc": "Start dingin." },
-      "alternator": { "name": "Alternator", "desc": "Muatan dipulihkan." },
-      "fuel_pump": { "name": "Pompa Bahan Bakar", "desc": "Ketika pesta kehabisan." },
-      "masks": { "name": "Masker", "desc": "Perlindungan asap/penyakit." },
-      "coats": { "name": "Mantel Hangat", "desc": "Ketahanan cuaca dingin." },
-      "ponchos": { "name": "Ponco", "desc": "Ramah badai." },
-      "press_pass": { "name": "Kartu Pers", "desc": "Bisa bertindak sebagai izin." },
-      "legal_fund": { "name": "Dana Hukum", "desc": "Penyangga kredibilitas Anda." }
+      "rations": {
+        "name": "Paket Jatah",
+        "desc": "Tahan lama. Membuat Anda terus berjalan."
+      },
+      "water": {
+        "name": "Jerigen Air",
+        "desc": "Hidrasi penting."
+      },
+      "spare_tire": {
+        "name": "Ban Serep",
+        "desc": "Perbaiki ban bocor dengan cepat."
+      },
+      "battery": {
+        "name": "Baterai",
+        "desc": "Start dingin."
+      },
+      "alternator": {
+        "name": "Alternator",
+        "desc": "Muatan dipulihkan."
+      },
+      "fuel_pump": {
+        "name": "Pompa Bahan Bakar",
+        "desc": "Ketika pesta kehabisan."
+      },
+      "masks": {
+        "name": "Masker",
+        "desc": "Perlindungan asap/penyakit."
+      },
+      "coats": {
+        "name": "Mantel Hangat",
+        "desc": "Ketahanan cuaca dingin."
+      },
+      "ponchos": {
+        "name": "Ponco",
+        "desc": "Ramah badai."
+      },
+      "press_pass": {
+        "name": "Kartu Pers",
+        "desc": "Bisa bertindak sebagai izin."
+      },
+      "legal_fund": {
+        "name": "Dana Hukum",
+        "desc": "Penyangga kredibilitas Anda."
+      }
     },
     "menu": {
       "home": "Perlengkapan — Budget: {budget}",
