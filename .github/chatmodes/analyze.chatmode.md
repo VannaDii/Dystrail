@@ -1,33 +1,7 @@
 ---
 description: 'Comprehensive repository analysis mode for deep code review, architecture understanding, and project insights.'
-tools:
-  - 'file_search'
-  - 'str_replace_editor'
-  - 'bash'
-  - 'grep'
-  - 'find'
-  - 'cat'
-  - 'head'
-  - 'tail'
-  - 'wc'
-  - 'ls'
-  - 'tree'
-  - 'git_log'
-  - 'git_show'
-  - 'git_diff'
-  - 'git_blame'
-  - 'git_status'
-  - 'cargo'
-  - 'rustc'
-  - 'trunk'
-  - 'jq'
-  - 'file'
-  - 'stat'
-  - 'du'
-  - 'sort'
-  - 'uniq'
-  - 'awk'
-  - 'sed'
+model: 'gpt-5'
+tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'GitKraken/git_blame', 'GitKraken/git_status', 'sequential-thinking/*', 'server-memory/*', 'github/*', 'filesystem/*', 'everything/*', 'memory/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests']
 ---
 
 # Repository Analysis Chat Mode
