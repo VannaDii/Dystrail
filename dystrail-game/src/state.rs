@@ -22,6 +22,7 @@ mod tests {
 
     #[test]
     fn breakdown_consumes_spare_and_clears_block() {
+        #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
         state.inventory.spares.tire = 1;
         state.breakdown = Some(Breakdown {
@@ -41,6 +42,7 @@ mod tests {
 
     #[test]
     fn breakdown_without_spare_resolves_after_stall() {
+        #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
         state.breakdown = Some(Breakdown {
             part: Part::Battery,
@@ -63,6 +65,7 @@ mod tests {
 
     #[test]
     fn exec_order_drain_clamped_to_zero() {
+        #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
         state.stats.supplies = 0;
         state.stats.sanity = 0;
@@ -100,6 +103,17 @@ pub enum Region {
     Heartland,
     RustBelt,
     Beltway,
+}
+
+impl Region {
+    #[must_use]
+    pub fn asset_key(self) -> &'static str {
+        match self {
+            Region::Heartland => "Heartland",
+            Region::RustBelt => "RustBelt",
+            Region::Beltway => "Beltway",
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -170,6 +184,14 @@ pub struct Party {
     pub companions: Vec<String>,
 }
 
+fn default_rest_threshold() -> i32 {
+    4
+}
+
+fn default_trail_distance() -> f32 {
+    2_100.0
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum GamePhase {
     Boot,
@@ -181,6 +203,7 @@ pub enum GamePhase {
     Result,
 }
 
+#[allow(clippy::struct_excessive_bools)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GameState {
     pub mode: GameMode,
@@ -203,6 +226,24 @@ pub struct GameState {
     pub mods: PersonaMods,
     #[serde(default)]
     pub party: Party,
+    #[serde(default)]
+    pub auto_camp_rest: bool,
+    #[serde(default = "default_rest_threshold")]
+    pub rest_threshold: i32,
+    #[serde(default)]
+    pub rest_requested: bool,
+    #[serde(default = "default_trail_distance")]
+    pub trail_distance: f32,
+    #[serde(default)]
+    pub distance_traveled: f32,
+    #[serde(default)]
+    pub distance_traveled_actual: f32,
+    #[serde(default)]
+    pub boss_ready: bool,
+    #[serde(default)]
+    pub boss_attempted: bool,
+    #[serde(default)]
+    pub boss_victory: bool,
     /// Current pace setting
     #[serde(default = "default_pace")]
     pub pace: String,
@@ -261,6 +302,15 @@ impl Default for GameState {
             score_mult: 1.0,
             mods: PersonaMods::default(),
             party: Party::default(),
+            auto_camp_rest: false,
+            rest_threshold: default_rest_threshold(),
+            rest_requested: false,
+            trail_distance: default_trail_distance(),
+            distance_traveled: 0.0,
+            distance_traveled_actual: 0.0,
+            boss_ready: false,
+            boss_attempted: false,
+            boss_victory: false,
             pace: default_pace(),
             diet: default_diet(),
             receipt_bonus_pct: 0,
@@ -353,6 +403,10 @@ impl GameState {
     }
 
     pub fn travel_next_leg(&mut self) -> (bool, String, bool) {
+        if self.boss_ready && !self.boss_attempted {
+            return (false, String::from("log.boss.await"), false);
+        }
+
         // Step 1: Apply Pace & Diet deltas (handled externally via apply_pace_and_diet call)
 
         // Step 2: Apply Weather effects
@@ -364,12 +418,12 @@ impl GameState {
 
         // Step 4: Encounter chance computation & roll
         let mut trigger_enc = false;
-        if !self.encounter_occurred_today {
-            if let Some(rng) = self.rng.as_mut() {
-                let roll: f32 = rng.random();
-                if roll < self.encounter_chance_today {
-                    trigger_enc = true;
-                }
+        if !self.encounter_occurred_today
+            && let Some(rng) = self.rng.as_mut()
+        {
+            let roll: f32 = rng.random();
+            if roll < self.encounter_chance_today {
+                trigger_enc = true;
             }
         }
         if trigger_enc
@@ -381,22 +435,17 @@ impl GameState {
             return (false, String::from("log.encounter"), breakdown_started);
         }
 
-        // Step 5: Executive Orders
-        let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
-        self.current_order = ExecOrder::ALL[idx];
-        let mut supplies_cost = 1;
-        let mut sanity_cost = 1;
-        self.current_order
-            .apply_daily(self.day, &mut supplies_cost, &mut sanity_cost);
-        self.stats.supplies -= supplies_cost;
-        self.stats.sanity -= sanity_cost;
-        self.stats.pants += 1;
-        self.stats.clamp();
-
-        // Step 6: Distance/region update and day advance
+        // Step 5: Distance/region update and day advance
         self.day += 1;
         self.region = Self::region_by_day(self.day);
         self.encounter_occurred_today = false;
+        let travel_distance = self.distance_today;
+        self.distance_traveled_actual += travel_distance;
+        self.distance_traveled =
+            (self.distance_traveled + travel_distance).min(self.trail_distance);
+        if self.distance_traveled >= self.trail_distance {
+            self.boss_ready = true;
+        }
 
         // Check for failure conditions after all effects
         if self.stats.pants >= 100 || self.stats.hp <= 0 || self.stats.sanity <= 0 {
@@ -530,8 +579,66 @@ impl GameState {
     }
 
     /// Apply pace and diet configuration (placeholder)
-    pub fn apply_pace_and_diet(&mut self, _cfg: &crate::pacing::PacingConfig) {
-        // Placeholder implementation
+    pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
+        let pace_cfg = cfg.get_pace_safe(&self.pace);
+        let diet_cfg = cfg.get_diet_safe(&self.diet);
+        let limits = &cfg.limits;
+
+        let encounter_base = if limits.encounter_base == 0.0 {
+            0.35
+        } else {
+            limits.encounter_base
+        };
+        let encounter_floor = limits.encounter_floor;
+        let encounter_ceiling = if limits.encounter_ceiling == 0.0 {
+            1.0
+        } else {
+            limits.encounter_ceiling
+        };
+        let encounter = (encounter_base + pace_cfg.encounter_chance_delta)
+            .clamp(encounter_floor, encounter_ceiling);
+        self.encounter_chance_today = encounter;
+
+        let distance_base = if limits.distance_base == 0.0 {
+            15.0
+        } else {
+            limits.distance_base
+        };
+        let distance = if pace_cfg.distance > 0.0 {
+            pace_cfg.distance
+        } else {
+            distance_base * pace_cfg.dist_mult.max(0.1)
+        };
+        self.distance_today = distance;
+
+        let pants_floor = limits.pants_floor;
+        let pants_ceiling = limits.pants_ceiling;
+        let mut pants_value = self.stats.pants;
+
+        if limits.passive_relief != 0 && pants_value >= limits.passive_relief_threshold {
+            pants_value = (pants_value + limits.passive_relief).clamp(pants_floor, pants_ceiling);
+        }
+
+        if self.mods.pants_relief != 0 && pants_value >= self.mods.pants_relief_threshold {
+            pants_value = (pants_value + self.mods.pants_relief).clamp(pants_floor, pants_ceiling);
+        }
+
+        let boss_stage = self.boss_ready || self.distance_traveled >= self.trail_distance;
+        if boss_stage && limits.boss_passive_relief != 0 {
+            pants_value =
+                (pants_value + limits.boss_passive_relief).clamp(pants_floor, pants_ceiling);
+        }
+
+        let mut pants_delta = pace_cfg.pants + diet_cfg.pants;
+        if boss_stage && limits.boss_pants_cap > 0 && pants_delta > limits.boss_pants_cap {
+            pants_delta = limits.boss_pants_cap;
+        }
+
+        pants_value = (pants_value + pants_delta).clamp(pants_floor, pants_ceiling);
+        self.stats.pants = pants_value;
+
+        self.receipt_bonus_pct += diet_cfg.receipt_find_pct_delta;
+        self.receipt_bonus_pct = self.receipt_bonus_pct.clamp(-100, 100);
     }
 
     /// Save game state (placeholder - platform specific)
@@ -591,6 +698,53 @@ impl GameState {
             self.party.companions.push(format!("Traveler {idx}"));
         }
         self.logs.push(String::from("log.party.updated"));
+    }
+
+    pub fn request_rest(&mut self) {
+        self.rest_requested = true;
+    }
+
+    pub fn consume_daily_effects(&mut self, sanity_delta: i32, supplies_delta: i32) {
+        if sanity_delta != 0 {
+            let max_sanity = Stats::default().sanity;
+            self.stats.sanity = (self.stats.sanity + sanity_delta).clamp(0, max_sanity);
+        }
+        if supplies_delta != 0 {
+            self.stats.supplies = (self.stats.supplies + supplies_delta).max(0);
+        }
+        self.stats.clamp();
+    }
+
+    pub fn advance_days(&mut self, days: u32) {
+        if days == 0 {
+            return;
+        }
+        self.day = self.day.saturating_add(days);
+        self.region = Self::region_by_day(self.day);
+    }
+
+    pub fn tick_camp_cooldowns(&mut self) {
+        if self.camp.rest_cooldown > 0 {
+            self.camp.rest_cooldown -= 1;
+        }
+        if self.camp.forage_cooldown > 0 {
+            self.camp.forage_cooldown -= 1;
+        }
+        if self.camp.repair_cooldown > 0 {
+            self.camp.repair_cooldown -= 1;
+        }
+    }
+
+    #[must_use]
+    pub fn should_auto_rest(&self) -> bool {
+        self.auto_camp_rest
+            && self.stats.sanity <= self.rest_threshold
+            && self.camp.rest_cooldown == 0
+    }
+
+    pub fn refresh_exec_order(&mut self) {
+        let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
+        self.current_order = ExecOrder::ALL[idx];
     }
 
     /// Apply store purchase effects

@@ -59,7 +59,14 @@
   "boss": {
     "title": "Filibuster Boss",
     "phases_hint": "Face the phases: Cloture, Points of Order, Amendment Flood.",
-    "begin": "Begin Boss"
+    "begin": "Begin Boss",
+    "stats": {
+      "rounds": "{rounds} rounds; need {passes} wins",
+      "chance": "Per-round success chance: {chance}%",
+      "sanity": "Sanity per miss: {sanity}",
+      "pants": "Pants per miss: {pants}"
+    },
+    "reminder": "Rest triggers automatically before the vote."
   },
   "result": {
     "title": "Result",
@@ -90,7 +97,7 @@
     },
     "epilogue": {
       "victory": "Historians will cite your receipts. Lobbyists curse your name.",
-      "boss_loss": "They ran out the clock. You left with more stories than votes.",
+      "boss_loss": "You made it to Congress but the cloture vote failed.",
       "pants": "The chyron did the rest. The GIF is forever.",
       "sanity": "The absurdity broke you before the Senate did.",
       "collapse": "You reached the steps but not the finish. Next run."

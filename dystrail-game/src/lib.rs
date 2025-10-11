@@ -19,9 +19,10 @@ pub mod vehicle;
 pub mod weather;
 
 // Re-export commonly used types
+pub use boss::{BossConfig, BossOutcome, run_boss_minigame};
 pub use camp::{
-    CampConfig, CampState, camp_forage, camp_repair_hack, camp_repair_spare, camp_rest,
-    camp_therapy, can_repair, can_therapy,
+    CampConfig, CampOutcome, CampState, camp_forage, camp_repair_hack, camp_repair_spare,
+    camp_rest, camp_therapy, can_repair, can_therapy,
 };
 pub use crossings::{
     CrossingConfig, CrossingKind, apply_bribe, apply_detour, apply_permit, calculate_bribe_cost,

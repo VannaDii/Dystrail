@@ -9,7 +9,9 @@ pub mod tester;
 pub use game_tester::{
     DEFAULT_POLICY_SIM_DAYS, GameTester, PlayabilityMetrics, SimulationPlan, default_policy_setup,
 };
-pub use playability::{PlayabilityRecord, run_playability_analysis};
+pub use playability::{
+    PlayabilityAggregate, PlayabilityRecord, aggregate_playability, run_playability_analysis,
+};
 pub use policy::GameplayStrategy;
 pub use seeds::resolve_seed_inputs;
 pub use tester::*;

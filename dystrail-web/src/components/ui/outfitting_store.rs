@@ -614,8 +614,8 @@ fn handle_checkout(state: &StoreState, props: &OutfittingStoreProps) {
 }
 
 /// Format currency using Intl API
-#[allow(clippy::cast_precision_loss)]
 fn format_currency(cents: i64) -> String {
+    #[allow(clippy::cast_precision_loss)]
     let dollars = cents as f64 / 100.0;
 
     // Use the browser's Intl API for currency formatting

@@ -3,12 +3,14 @@ use colored::Colorize;
 use serde_json;
 use std::io::Write;
 use std::time::Duration;
+use std::convert::TryFrom;
 
-use super::{PlayabilityRecord, ScenarioResult};
+use super::{PlayabilityAggregate, PlayabilityRecord, ScenarioResult};
 
 pub fn generate_console_report(
     writer: &mut dyn Write,
     results: &[ScenarioResult],
+    aggregates: &[PlayabilityAggregate],
     total_duration: Duration,
 ) -> Result<()> {
     writeln!(writer)?;
@@ -27,8 +29,13 @@ pub fn generate_console_report(
     writeln!(writer, "Total scenarios: {total_tests}")?;
     writeln!(writer, "Passed: {}", passed_tests.to_string().green())?;
     writeln!(writer, "Failed: {}", failed_tests.to_string().red())?;
-    #[allow(clippy::cast_precision_loss)]
-    let success_rate = (passed_tests as f64 / total_tests as f64) * 100.0;
+    let success_rate = if total_tests == 0 {
+        0.0
+    } else {
+        let passed = f64::from(u32::try_from(passed_tests).unwrap_or(0));
+        let total = f64::from(u32::try_from(total_tests).unwrap_or(1));
+        (passed / total) * 100.0
+    };
     writeln!(writer, "Success rate: {success_rate:.1}%")?;
     writeln!(writer, "Total time: {total_duration:?}")?;
     writeln!(writer)?;
@@ -84,6 +91,36 @@ pub fn generate_console_report(
         )?;
     }
 
+    if !aggregates.is_empty() {
+        writeln!(writer)?;
+        writeln!(
+            writer,
+            "{}",
+            "📈 Playability Summary".bright_magenta().bold()
+        )?;
+        writeln!(writer, "{}", "======================".magenta())?;
+
+        for agg in aggregates {
+            let reach_pct = agg.boss_reach_pct * 100.0;
+            let win_pct = agg.boss_win_pct * 100.0;
+            let pants_pct = agg.pants_failure_pct * 100.0;
+            let label = format!("{} ({:?}/{:?})", agg.scenario_name, agg.mode, agg.strategy);
+            writeln!(
+                writer,
+                "• {} | n={} | days {:.1}±{:.1} | miles {:.1}±{:.1} | boss reach {:.1}% | boss win {:.1}% | pants fails {:.1}%",
+                label.bold(),
+                agg.iterations,
+                agg.mean_days,
+                agg.std_days,
+                agg.mean_miles,
+                agg.std_miles,
+                reach_pct,
+                win_pct,
+                pants_pct
+            )?;
+        }
+    }
+
     Ok(())
 }
 
@@ -104,8 +141,13 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
     writeln!(writer, "- **Total scenarios**: {total_tests}")?;
     writeln!(writer, "- **Passed**: {passed_tests}")?;
     writeln!(writer, "- **Failed**: {failed_tests}")?;
-    #[allow(clippy::cast_precision_loss)]
-    let success_rate = (passed_tests as f64 / total_tests as f64) * 100.0;
+    let success_rate = if total_tests == 0 {
+        0.0
+    } else {
+        let passed = f64::from(u32::try_from(passed_tests).unwrap_or(0));
+        let total = f64::from(u32::try_from(total_tests).unwrap_or(1));
+        (passed / total) * 100.0
+    };
     writeln!(writer, "- **Success rate**: {success_rate:.1}%\n")?;
 
     writeln!(writer, "## Detailed Results\n")?;
@@ -136,7 +178,7 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled"
     )?;
 
     for record in records {
@@ -146,7 +188,7 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 
         writeln!(
             writer,
-            "{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
+            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1}",
             quote(&record.scenario_name),
             quote(&mode),
             quote(&strategy),
@@ -161,6 +203,9 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
             metrics.final_sanity,
             metrics.final_pants,
             metrics.final_budget_cents,
+            metrics.boss_reached,
+            metrics.boss_won,
+            metrics.miles_traveled,
         )?;
     }
 

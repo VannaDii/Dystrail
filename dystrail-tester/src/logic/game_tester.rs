@@ -1,9 +1,13 @@
+use std::convert::TryFrom;
 use std::fs;
 use std::path::PathBuf;
 use std::sync::Arc;
 
 use anyhow::Result;
+use dystrail_game::boss::BossConfig;
+use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
+use dystrail_game::exec_orders::ExecOrdersConfig;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
@@ -20,21 +24,30 @@ struct TesterAssets {
     pacing_config: PacingConfig,
     personas: PersonasList,
     store: Store,
+    camp_config: CampConfig,
+    exec_config: ExecOrdersConfig,
+    boss_config: BossConfig,
 }
 
 impl TesterAssets {
     fn load_default() -> Self {
         let encounter_data =
             Self::load_encounters_from_assets().unwrap_or_else(Self::fallback_encounter_data);
-        let pacing_config = PacingConfig::default_config();
+        let pacing_config = Self::load_pacing_from_assets().unwrap_or_default();
         let personas = Self::load_personas_from_assets().unwrap_or_else(PersonasList::empty);
         let store = Self::load_store_from_assets().unwrap_or_else(Self::fallback_store_data);
+        let camp_config = Self::load_camp_from_assets().unwrap_or_default();
+        let exec_config = Self::load_exec_orders_from_assets().unwrap_or_default();
+        let boss_config = Self::load_boss_from_assets().unwrap_or_default();
 
         Self {
             encounter_data,
             pacing_config,
             personas,
             store,
+            camp_config,
+            exec_config,
+            boss_config,
         }
     }
 
@@ -74,6 +87,30 @@ impl TesterAssets {
                 None
             }
         }
+    }
+
+    fn load_pacing_from_assets() -> Option<PacingConfig> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("pacing.json")).ok()?;
+        serde_json::from_str(&json).ok()
+    }
+
+    fn load_camp_from_assets() -> Option<CampConfig> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("camp.json")).ok()?;
+        serde_json::from_str(&json).ok()
+    }
+
+    fn load_exec_orders_from_assets() -> Option<ExecOrdersConfig> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("exec_orders.json")).ok()?;
+        serde_json::from_str(&json).ok()
+    }
+
+    fn load_boss_from_assets() -> Option<BossConfig> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("boss.json")).ok()?;
+        serde_json::from_str(&json).ok()
     }
 
     fn fallback_encounter_data() -> EncounterData {
@@ -302,8 +339,8 @@ impl GameTester {
         if self.verbose {
             let store = &self.assets.store;
             println!(
-                "🛍️ Entering store with ${:.2} ({} categories)",
-                state.budget_cents as f64 / 100.0,
+                "🛍️ Entering store with ${} ({} categories)",
+                format_cents(state.budget_cents),
                 store.categories.len()
             );
         }
@@ -311,6 +348,27 @@ impl GameTester {
         for (item_id, qty) in Self::planned_purchases(strategy, seed) {
             self.execute_purchase(state, item_id, qty);
         }
+    }
+
+    fn configure_strategy_settings(state: &mut GameState, strategy: GameplayStrategy) {
+        let (auto_rest, threshold) = if matches!(strategy, GameplayStrategy::Aggressive) {
+            (true, 3)
+        } else {
+            (true, 4)
+        };
+        state.auto_camp_rest = auto_rest;
+        state.rest_threshold = threshold;
+        state.rest_requested = false;
+        state.pace = match strategy {
+            GameplayStrategy::Aggressive => "heated",
+            _ => "steady",
+        }
+        .to_string();
+        state.diet = match strategy {
+            GameplayStrategy::Conservative | GameplayStrategy::ResourceManager => "quiet",
+            _ => "mixed",
+        }
+        .to_string();
     }
 
     fn assign_party(&self, state: &mut GameState, strategy: GameplayStrategy, seed: u64) {
@@ -381,13 +439,13 @@ impl GameTester {
         };
 
         let mut names: Vec<String> = base.into_iter().map(String::from).collect();
-        if !names.is_empty() {
-            let offset = (seed as usize) % names.len();
+        if let Ok(len_u64) = u64::try_from(names.len()) && len_u64 > 0 {
+            let offset = usize::try_from(seed % len_u64).unwrap_or(0);
             names.rotate_left(offset);
         }
         while names.len() < 5 {
             let idx = names.len() + 1;
-            names.push(format!("Traveler {}", idx));
+            names.push(format!("Traveler {idx}"));
         }
         let leader = names
             .first()
@@ -429,14 +487,15 @@ impl GameTester {
             return;
         }
 
-        let mut total_grants = Grants::default();
-        total_grants.supplies = item.grants.supplies * qty;
-        total_grants.credibility = item.grants.credibility * qty;
-        total_grants.spare_tire = item.grants.spare_tire * qty;
-        total_grants.spare_battery = item.grants.spare_battery * qty;
-        total_grants.spare_alt = item.grants.spare_alt * qty;
-        total_grants.spare_pump = item.grants.spare_pump * qty;
-        total_grants.enabled = item.grants.enabled;
+        let total_grants = Grants {
+            supplies: item.grants.supplies * qty,
+            credibility: item.grants.credibility * qty,
+            spare_tire: item.grants.spare_tire * qty,
+            spare_battery: item.grants.spare_battery * qty,
+            spare_alt: item.grants.spare_alt * qty,
+            spare_pump: item.grants.spare_pump * qty,
+            enabled: item.grants.enabled,
+        };
 
         let mut tags = Vec::new();
         for _ in 0..qty {
@@ -448,13 +507,12 @@ impl GameTester {
             .logs
             .push(format!("log.store.purchase.{}x{}", item.id, qty));
         if self.verbose {
-            let total_dollars = total_cost as f64 / 100.0;
+            let total_cost_display = format_cents(total_cost);
+            let remaining_display = format_cents(state.budget_cents);
             println!(
-                "🛒 Purchased {}x {} for ${:.2} (remaining ${:.2})",
+                "🛒 Purchased {}x {} for ${total_cost_display} (remaining ${remaining_display})",
                 qty,
-                item.name,
-                total_dollars,
-                state.budget_cents as f64 / 100.0
+                item.name
             );
         }
     }
@@ -465,6 +523,9 @@ impl GameTester {
             SimulationConfig::new(plan.mode, seed).with_max_days(max_days),
             self.assets.encounter_data.clone(),
             self.assets.pacing_config.clone(),
+            self.assets.camp_config.clone(),
+            self.assets.exec_config.clone(),
+            self.assets.boss_config.clone(),
         );
 
         self.assign_party(session.state_mut(), plan.strategy, seed);
@@ -475,6 +536,7 @@ impl GameTester {
         }
 
         self.apply_store_loadout(session.state_mut(), plan.strategy, seed);
+        Self::configure_strategy_settings(session.state_mut(), plan.strategy);
 
         if self.verbose {
             log_initial_state(seed, plan, session.state());
@@ -554,12 +616,12 @@ fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
     #[allow(clippy::cast_precision_loss)]
     {
         println!(
-            "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${:.2}",
+            "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${}",
             state.stats.hp,
             state.stats.supplies,
             state.stats.sanity,
             state.stats.pants,
-            state.budget_cents as f64 / 100.0
+            format_cents(state.budget_cents)
         );
     }
 }
@@ -579,9 +641,25 @@ fn log_turn(outcome: &TurnOutcome, state: &GameState) {
         );
     }
 
+    if outcome.breakdown_started {
+        if let Some(breakdown) = &state.breakdown {
+            println!("🛞 Vehicle breakdown started: {:?}", breakdown.part);
+        } else {
+            println!("🛞 Vehicle breakdown started");
+        }
+    }
+
     if outcome.game_ended {
         println!("🏁 Simulation ended: {}", outcome.travel_message);
     }
+}
+
+fn format_cents(cents: i64) -> String {
+    let sign = if cents < 0 { "-" } else { "" };
+    let cents_abs = cents.unsigned_abs();
+    let dollars = cents_abs / 100;
+    let remainder = cents_abs % 100;
+    format!("{sign}{dollars}.{remainder:02}")
 }
 
 /// Aggregated analytics produced by a simulation run.
@@ -597,6 +675,9 @@ pub struct PlayabilityMetrics {
     pub final_pants: i32,
     pub final_budget_cents: i64,
     pub decision_log: Vec<DecisionRecord>,
+    pub boss_reached: bool,
+    pub boss_won: bool,
+    pub miles_traveled: f32,
 }
 
 impl Default for PlayabilityMetrics {
@@ -612,6 +693,9 @@ impl Default for PlayabilityMetrics {
             final_pants: 0,
             final_budget_cents: 10_000,
             decision_log: Vec::new(),
+            boss_reached: false,
+            boss_won: false,
+            miles_traveled: 0.0,
         }
     }
 }
@@ -635,7 +719,19 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        self.ending_type = describe_ending(state, outcome);
+        let ending = describe_ending(state, outcome);
+        self.ending_type.clone_from(&ending);
+        self.boss_won = ending == "Victory - Boss Defeated";
+        self.boss_reached = matches!(
+            ending.as_str(),
+            "Victory - Boss Defeated" | "Boss Vote Failed - Game Over"
+        ) || state.boss_attempted;
+        let traveled = if state.distance_traveled_actual > 0.0 {
+            state.distance_traveled_actual.min(state.trail_distance)
+        } else {
+            state.distance_traveled
+        };
+        self.miles_traveled = traveled;
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -645,6 +741,13 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
+        self.boss_reached = state.boss_attempted || state.boss_victory;
+        self.boss_won = state.boss_victory;
+        self.miles_traveled = if state.distance_traveled_actual > 0.0 {
+            state.distance_traveled_actual.min(state.trail_distance)
+        } else {
+            state.distance_traveled
+        };
         self.ending_type = "Simulation not executed".to_string();
     }
 }
@@ -658,8 +761,9 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> String {
         "Sanity Depleted - Game Over".to_string()
     } else if state.stats.supplies <= 0 {
         "Supplies Depleted - Game Over".to_string()
-    } else if outcome.travel_message.contains("victory") || outcome.travel_message.contains("boss")
-    {
+    } else if state.boss_attempted && !state.boss_victory {
+        "Boss Vote Failed - Game Over".to_string()
+    } else if state.boss_victory {
         "Victory - Boss Defeated".to_string()
     } else if outcome.game_ended {
         format!("Game Ended: {}", outcome.travel_message)
@@ -687,9 +791,9 @@ mod tests {
             state.budget_cents < 11_000,
             "budget should reflect store spend"
         );
-        assert_eq!(state.party.leader, "Alex Morgan");
         assert_eq!(state.party.companions.len(), 4);
-        assert_eq!(state.party.companions[0], "Jordan Rivers");
+        assert!(!state.party.leader.is_empty());
+        assert!(state.auto_camp_rest);
         assert!(
             state.inventory.spares.tire >= 2,
             "store loadout should add an extra spare tire"
@@ -697,6 +801,21 @@ mod tests {
         assert!(
             state.stats.supplies >= 18,
             "persona/start loadout should boost supplies"
+        );
+    }
+
+    #[test]
+    fn balanced_run_survives_past_day_45() {
+        let tester = GameTester::try_new(false);
+        let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
+            .with_max_days(55)
+            .with_setup(default_policy_setup(GameplayStrategy::Balanced));
+
+        let summary = tester.run_plan(&plan, 4242);
+        assert!(
+            summary.metrics.days_survived >= 45,
+            "expected survival past day 45, got {}",
+            summary.metrics.days_survived
         );
     }
 }

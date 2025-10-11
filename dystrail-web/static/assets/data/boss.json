@@ -1,0 +1,15 @@
+{
+  "distance_required": 2100.0,
+  "rounds": 3,
+  "passes_required": 2,
+  "sanity_loss_per_round": 2,
+  "pants_gain_per_round": 4,
+  "base_victory_chance": 0.11,
+  "credibility_weight": 0.012,
+  "sanity_weight": 0.01,
+  "supplies_weight": 0.004,
+  "allies_weight": 0.015,
+  "pants_penalty_weight": 0.005,
+  "min_chance": 0.08,
+  "max_chance": 0.65
+}

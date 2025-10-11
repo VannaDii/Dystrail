@@ -151,8 +151,7 @@ fn build_crossing_viewmodel(
     // Calculate bribe cost with persona discount
     let bribe_cost_cents =
         calculate_bribe_cost(type_cfg.bribe.base_cost_cents, gs.mods.bribe_discount_pct);
-    #[allow(clippy::cast_precision_loss)]
-    let bribe_cost_display = format!("${:.2}", bribe_cost_cents as f64 / 100.0);
+    let bribe_cost_display = format_currency(bribe_cost_cents);
     let mut bribe_args = std::collections::HashMap::new();
     bribe_args.insert("cost", bribe_cost_display.as_str());
     let bribe_label = i18n::tr("cross.options.bribe", Some(&bribe_args));
@@ -201,6 +200,14 @@ fn build_crossing_viewmodel(
         bribe_available,
         shutdown_notice,
     })
+}
+
+fn format_currency(cents: i64) -> String {
+    let sign = if cents < 0 { "-" } else { "" };
+    let cents_abs = cents.unsigned_abs();
+    let dollars = cents_abs / 100;
+    let remainder = cents_abs % 100;
+    format!("{sign}${dollars}.{remainder:02}")
 }
 
 #[function_component(CrossingCard)]

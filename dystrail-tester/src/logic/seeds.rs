@@ -20,6 +20,16 @@ impl SeedInfo {
         }
     }
 
+    #[cfg(test)]
+    #[must_use]
+    pub fn for_mode(seed: u64, mode: GameMode) -> Self {
+        Self {
+            seed,
+            code: None,
+            source_mode: Some(mode),
+        }
+    }
+
     #[must_use]
     pub fn from_share_code(seed: u64, mode: GameMode, code: String) -> Self {
         Self {
@@ -37,6 +47,7 @@ impl SeedInfo {
         }
     }
 
+    #[allow(dead_code)]
     #[must_use]
     pub fn share_code_for_mode(&self, mode: GameMode) -> String {
         if let (Some(code), Some(source_mode)) = (&self.code, self.source_mode)

@@ -13,7 +13,7 @@ use std::time::Instant;
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
-use logic::{LogicTester, resolve_seed_inputs, run_playability_analysis};
+use logic::{LogicTester, aggregate_playability, resolve_seed_inputs, run_playability_analysis};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 pub enum TestMode {
@@ -57,7 +57,7 @@ struct Args {
     report: String,
 
     /// Verbose output
-    #[arg(short, long)]
+    #[arg(short, long, alias = "versbose")]
     verbose: bool,
 
     /// Optional path to write the report output instead of stdout
@@ -262,7 +262,7 @@ async fn main() -> Result<()> {
             }
         }
         "csv" => {
-            let playability = run_playability_analysis(&seed_infos, args.verbose)?;
+            let playability = run_playability_analysis(&seed_infos, args.iterations, args.verbose)?;
             logic::reports::generate_csv_report(&mut output_target, &playability)?;
         }
         _ => {
@@ -270,9 +270,13 @@ async fn main() -> Result<()> {
             if all_results.is_empty() {
                 writeln!(&mut output_target, "No logic scenarios executed.")?;
             } else {
+                let playability =
+                    run_playability_analysis(&seed_infos, args.iterations, args.verbose)?;
+                let aggregates = aggregate_playability(&playability);
                 logic::reports::generate_console_report(
                     &mut output_target,
                     &all_results,
+                    &aggregates,
                     duration,
                 )?;
             }
@@ -280,7 +284,7 @@ async fn main() -> Result<()> {
     }
 
     let duration = start_time.elapsed();
-    writeln!(&mut output_target, "")?;
+    writeln!(&mut output_target)?;
     writeln!(&mut output_target, "🏁 Total time: {duration:?}")?;
     output_target.flush_inner()?;
 

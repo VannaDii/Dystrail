@@ -67,7 +67,8 @@ impl Component for ResultScreen {
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        let summary = match Self::get_summary(ctx) {
+        let props = ctx.props();
+        let mut summary = match Self::get_summary(ctx) {
             Ok(s) => s,
             Err(e) => {
                 log::error!("Failed to generate result summary: {e}");
@@ -79,6 +80,14 @@ impl Component for ResultScreen {
                 };
             }
         };
+
+        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
+            summary.headline = i18n::t("result.headline.boss_loss");
+            summary.epilogue = i18n::t("result.epilogue.boss_loss");
+        } else if props.boss_won {
+            summary.headline = i18n::t("result.headline.victory");
+            summary.epilogue = i18n::t("result.epilogue.victory");
+        }
 
         let on_keydown = ctx.link().callback(Msg::KeyDown);
         let on_menu_action = ctx.link().callback(Msg::MenuAction);

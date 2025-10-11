@@ -1,7 +1,7 @@
 use crate::a11y::set_status;
 use crate::game::{
-    CampConfig, GameState, camp_forage, camp_repair_hack, camp_repair_spare, camp_rest,
-    camp_therapy, can_repair, can_therapy,
+    CampConfig, CampOutcome, GameState, camp_forage, camp_repair_hack, camp_repair_spare,
+    camp_rest, camp_therapy, can_repair, can_therapy,
 };
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
@@ -66,7 +66,7 @@ pub fn camp_panel(p: &Props) -> Html {
 
         Callback::from(move |action: u8| {
             let mut new_state = (*game_state).clone();
-            let msg = match (&view_current, action) {
+            let outcome = match (&view_current, action) {
                 (CampView::Main, 1) => {
                     // Rest
                     camp_rest(&mut new_state, &camp_config)
@@ -77,7 +77,11 @@ pub fn camp_panel(p: &Props) -> Html {
                         view_setter.set(CampView::Repair);
                         return;
                     }
-                    i18n::t("camp.announce.no_breakdown")
+                    CampOutcome {
+                        message: i18n::t("camp.announce.no_breakdown"),
+                        rested: false,
+                        supplies_delta: 0,
+                    }
                 }
                 (CampView::Main, 3) => {
                     // Forage
@@ -100,7 +104,11 @@ pub fn camp_panel(p: &Props) -> Html {
                         view_setter.set(CampView::Main);
                         result
                     } else {
-                        i18n::t("camp.announce.no_breakdown")
+                        CampOutcome {
+                            message: i18n::t("camp.announce.no_breakdown"),
+                            rested: false,
+                            supplies_delta: 0,
+                        }
                     }
                 }
                 (CampView::Repair, 2) => {
@@ -117,12 +125,14 @@ pub fn camp_panel(p: &Props) -> Html {
                 _ => return,
             };
 
-            status_setter.set(msg.clone());
-            set_status(&msg);
+            status_setter.set(outcome.message.clone());
+            set_status(&outcome.message);
             on_state_change.emit(new_state);
 
             // Close modal if action advanced the day
-            if matches!(action, 1 | 3 | 4) && matches!(&view_current, CampView::Main) {
+            if matches!(&view_current, CampView::Repair)
+                || (matches!(action, 1 | 3 | 4) && matches!(&view_current, CampView::Main))
+            {
                 on_close.emit(());
             }
         })

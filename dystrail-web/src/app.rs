@@ -1,4 +1,5 @@
 use crate::game::CampConfig;
+use crate::game::boss::BossConfig;
 use crate::game::data::EncounterData;
 use crate::game::pacing::PacingConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
@@ -47,6 +48,7 @@ pub fn app_inner() -> Html {
     let pacing_config = use_state(PacingConfig::default_config);
     let weather_config = use_state(WeatherConfig::default_config);
     let camp_config = use_state(CampConfig::default_config);
+    let boss_config = use_state(BossConfig::load_from_static);
     let result_config = use_state(ResultConfig::default);
     let state = use_state(|| None::<GameState>);
     let logs = use_state(Vec::<String>::new);
@@ -275,9 +277,11 @@ pub fn app_inner() -> Html {
         let state = state.clone();
         let phase = phase.clone();
         let result = result.clone();
+        let boss_config = boss_config.clone();
         Callback::from(move |_| {
             if let Some(mut gs) = (*state).clone() {
-                let out = crate::game::boss::run_boss_minigame(&mut gs);
+                let cfg = (*boss_config).clone();
+                let out = crate::game::boss::run_boss_minigame(&mut gs, &cfg);
                 let (title_key, summary_key) = match out {
                     crate::game::boss::BossOutcome::PassedCloture => {
                         ("result.passed_cloture", "result.passed_cloture_desc")
@@ -577,21 +581,84 @@ pub fn app_inner() -> Html {
                 Html::default()
             }
         }
-        Phase::Boss => html! {
-            <section class="panel">
-                <h2>{ i18n::t("boss.title") }</h2>
-                <div class="encounter-desc">
-                    <p>{ i18n::t("boss.phases_hint") }</p>
-                </div>
-                <div class="controls">
-                    <button class="retro-btn-primary" onclick={boss_act}>{ i18n::t("boss.begin") }</button>
-                </div>
-            </section>
-        },
+        Phase::Boss => {
+            if let Some(gs) = (*state).clone() {
+                let cfg = (*boss_config).clone();
+                let mut chance = f64::from(cfg.base_victory_chance);
+                chance += f64::from(gs.stats.credibility) * f64::from(cfg.credibility_weight);
+                chance += f64::from(gs.stats.sanity) * f64::from(cfg.sanity_weight);
+                chance += f64::from(gs.stats.supplies) * f64::from(cfg.supplies_weight);
+                chance += f64::from(gs.stats.allies) * f64::from(cfg.allies_weight);
+                chance -= f64::from(gs.stats.pants) * f64::from(cfg.pants_penalty_weight);
+                chance = chance.clamp(
+                    f64::from(cfg.min_chance),
+                    f64::from(cfg.max_chance),
+                );
+                let chance_pct = format!("{:.1}", chance * 100.0);
+
+                let mut rounds_map: std::collections::HashMap<&str, &str> =
+                    std::collections::HashMap::new();
+                let rounds_value = cfg.rounds.to_string();
+                let passes_value = cfg.passes_required.to_string();
+                rounds_map.insert("rounds", rounds_value.as_str());
+                rounds_map.insert("passes", passes_value.as_str());
+                let rounds_text = i18n::tr("boss.stats.rounds", Some(&rounds_map));
+
+                let mut chance_map: std::collections::HashMap<&str, &str> =
+                    std::collections::HashMap::new();
+                chance_map.insert("chance", chance_pct.as_str());
+                let chance_text = i18n::tr("boss.stats.chance", Some(&chance_map));
+
+                let sanity_text = if cfg.sanity_loss_per_round > 0 {
+                    let mut map: std::collections::HashMap<&str, &str> =
+                        std::collections::HashMap::new();
+                    let delta = format!("{:+}", -cfg.sanity_loss_per_round);
+                    map.insert("sanity", delta.as_str());
+                    Some(i18n::tr("boss.stats.sanity", Some(&map)))
+                } else {
+                    None
+                };
+
+                let pants_text = if cfg.pants_gain_per_round > 0 {
+                    let mut map: std::collections::HashMap<&str, &str> =
+                        std::collections::HashMap::new();
+                    let delta = format!("{:+}", cfg.pants_gain_per_round);
+                    map.insert("pants", delta.as_str());
+                    Some(i18n::tr("boss.stats.pants", Some(&map)))
+                } else {
+                    None
+                };
+
+                html! {
+                    <section class="panel boss-phase">
+                        <h2>{ i18n::t("boss.title") }</h2>
+                        <div class="encounter-desc">
+                            <p>{ i18n::t("boss.phases_hint") }</p>
+                            <ul class="boss-stats">
+                                <li>{ rounds_text }</li>
+                                { if let Some(text) = sanity_text {
+                                    html! { <li>{ text }</li> }
+                                } else { Html::default() } }
+                                { if let Some(text) = pants_text {
+                                    html! { <li>{ text }</li> }
+                                } else { Html::default() } }
+                                <li>{ chance_text }</li>
+                            </ul>
+                            <p class="muted">{ i18n::t("boss.reminder") }</p>
+                        </div>
+                        <div class="controls">
+                            <button class="retro-btn-primary" onclick={boss_act}>{ i18n::t("boss.begin") }</button>
+                        </div>
+                    </section>
+                }
+            } else {
+                Html::default()
+            }
+        }
         Phase::Result => {
             if let Some(gs) = (*state).clone() {
                 let result_config_data = (*result_config).clone();
-                let boss_won = false; // Determine if boss was defeated based on game state
+                let boss_won = gs.boss_victory;
 
                 let on_replay_seed = {
                     let seed = *run_seed;

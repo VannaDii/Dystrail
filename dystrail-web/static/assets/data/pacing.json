@@ -4,6 +4,7 @@
       "id": "steady",
       "name": "Steady",
       "dist_mult": 1.0,
+      "distance": 18.0,
       "sanity": 0,
       "pants": 0,
       "encounter_chance_delta": 0.0
@@ -11,17 +12,19 @@
     {
       "id": "heated",
       "name": "Heated",
-      "dist_mult": 1.2,
+      "dist_mult": 1.15,
+      "distance": 21.0,
       "sanity": -1,
-      "pants": 3,
+      "pants": 2,
       "encounter_chance_delta": 0.05
     },
     {
       "id": "blitz",
       "name": "Blitz",
-      "dist_mult": 1.4,
+      "dist_mult": 1.25,
+      "distance": 25.0,
       "sanity": -2,
-      "pants": 6,
+      "pants": 4,
       "encounter_chance_delta": 0.1
     }
   ],
@@ -30,15 +33,15 @@
       "id": "quiet",
       "name": "Quiet",
       "receipt_find_pct_delta": -5,
-      "sanity": 1,
-      "pants": -2
+      "sanity": 2,
+      "pants": -3
     },
     {
       "id": "mixed",
       "name": "Mixed",
       "receipt_find_pct_delta": 0,
-      "sanity": 0,
-      "pants": 0
+      "sanity": 1,
+      "pants": -1
     },
     {
       "id": "doom",
@@ -52,6 +55,10 @@
     "pants_floor": 0,
     "pants_ceiling": 100,
     "encounter_base": 0.35,
-    "distance_base": 1.0
+    "distance_base": 18.0,
+    "passive_relief": -1,
+    "passive_relief_threshold": 35,
+    "boss_pants_cap": 2,
+    "boss_passive_relief": -4
   }
 }

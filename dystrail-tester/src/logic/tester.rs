@@ -39,9 +39,11 @@ impl LogicTester {
 
         for &seed in seeds {
             if self.verbose {
+                let mode_label = format!("{:?}", scenario.plan.mode);
                 println!(
-                    "🧪 Testing scenario: {} (seed: {})",
+                    "🧪 Testing scenario: {} (mode: {} seed: {})",
                     scenario.name.bright_white(),
+                    mode_label,
                     seed
                 );
             }

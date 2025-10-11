@@ -15,7 +15,11 @@ pub fn pick_encounter<R: Rng>(
         Region::Beltway => "beltway",
     };
 
-    let mode_str = if is_deep { "deep" } else { "classic" };
+    let mode_aliases: &[&str] = if is_deep {
+        &["deep", "deep_end"]
+    } else {
+        &["classic"]
+    };
 
     // Filter encounters by region and mode
     let candidates: Vec<&Encounter> = data
@@ -26,8 +30,9 @@ pub fn pick_encounter<R: Rng>(
                 || e.regions.iter().any(|r| r.eq_ignore_ascii_case(region_str));
             let mode_match = e.modes.is_empty()
                 || e.modes.iter().any(|m| {
-                    m.eq_ignore_ascii_case(mode_str)
-                        || (mode_str == "deep" && m.eq_ignore_ascii_case("deep_end"))
+                    mode_aliases
+                        .iter()
+                        .any(|alias| m.eq_ignore_ascii_case(alias))
                 });
             region_match && mode_match
         })
