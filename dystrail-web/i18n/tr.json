@@ -2,434 +2,474 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "Ana Sayfa",
-    "settings": "Ayarlar",
-    "language": "Dil"
+  "boss": {
+    "begin": "Patronu Başlat",
+    "phases_hint": "Aşamalarla yüzleş: Cloture, Usul Noktaları, Değişiklik Seli.",
+    "title": "Filibuster Patron"
   },
-  "ui": {
-    "cta_start": "BAŞLAMAK İÇİN HERHANGİ BİR TUŞA BASIN",
-    "skip_to_content": "İçeriğe atla",
-    "select_mode": "Mod Seç",
-    "loading": "Yükleniyor… {{pct}}%",
-    "loading_encounters": "Karşılaşmalar yükleniyor…",
-    "continue": "Devam Et"
+  "camp": {
+    "announce": {
+      "cooldown": "Terapi {days} gün daha bekleme süresinde.",
+      "forage_none": "Avcılık-toplayıcılık yapıldı ama hiçbir şey bulunamadı.",
+      "forage_receipt": "Faydalı ipucu bulundu: Kanıt +1.",
+      "forage_sup": "Başarıyla avcılık-toplayıcılık: Malzeme +1.",
+      "no_breakdown": "Aktif arıza yok.",
+      "no_receipt": "Yakılacak kanıt yok.",
+      "repair_hack": "Acil tamir uygulandı. Malzeme -{sup}, Güvenilirlik -{cred}. Gün +{day}.",
+      "repair_spare": "Yedek {part} kullanıldı. Malzeme -{sup}. Araç tamir edildi.",
+      "rest": "Dinlenildi. Akıl +2, Can +1, Malzeme -1. Gün +1.",
+      "therapy": "Günlük yazdınız ve düşündünüz. Akıl +2, 1 Kanıt yakıldı. Gün +1."
+    },
+    "desc": "Bir eylem seçin.",
+    "help": "Seçenek seçmek için 1-4 veya 0 tuşuna basın",
+    "menu": {
+      "back": "Geri",
+      "close": "Kapat",
+      "forage": "Avcılık Toplayıcılık (50% Malzeme +1 / 30% Hiç / 20% Kanıt +1)",
+      "hack_fix": "Acil Tamir (Malzeme -{sup}, Güvenilirlik -{cred}, Gün +{day})",
+      "repair": "Aracı Tamir Et (bozuksa)",
+      "rest": "Dinlen (+2 Akıl, +1 Can, Malzeme -1, Gün +1)",
+      "therapy": "Terapi/Günlük (+2 Akıl, 1 Kanıt yak, Gün +1) [bekleme: {days} gün]",
+      "use_spare": "Yedek Kullan"
+    },
+    "parts": {
+      "alt": "Alternatör",
+      "battery": "Akü",
+      "pump": "Yakıt Pompası",
+      "tire": "Lastik"
+    },
+    "repair": {
+      "title": "Araç Tamiri"
+    },
+    "repair_vehicle": "Aracı Tamir Et",
+    "title": "Kamp"
   },
-  "share": {
-    "code": "Paylaşım Kodu",
-    "start_with_code": "Kod ile Başla",
-    "code_help": "Format: CL-WORD00 veya DP-WORD00",
-    "run": "Oyunu Paylaş"
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "Rüşvet {cost} ödendi ama başarısız. Gün {days}, Pantolon {pants}.",
+      "bribe_paid_passed": "Rüşvet {cost} ödendi. Geçiş verildi.",
+      "detour_applied": "Dolaşma alındı. Gün {days}, Malzeme {supplies}, Pantolon {pants}.",
+      "insufficient_funds": "Yetersiz fon.",
+      "no_receipt_or_tag": "Kanıt ve izin etiketi yok.",
+      "permit_used_receipt": "Kanıt ile izin kabul edildi. Güven +1.",
+      "permit_used_tag": "Etiket ile izin kabul edildi. Güven +1."
+    },
+    "desc": {
+      "bribe": "Persona indirimi geçerli; Kapanma sırasında başarısız olabilir.",
+      "detour": "Garantili; zaman ekler ve malzeme maliyeti; küçük stres.",
+      "permit": "1 Kanıt tüketir veya varsa izin etiketini kullanır."
+    },
+    "options": {
+      "back": "Geri",
+      "bribe": "Rüşvet — Maliyet {cost} (politikaya bakın)",
+      "detour": "Dolaşmak — Gün {days}, Malzeme {supplies}, Pantolon {pants} (Güvenli)",
+      "permit": "İzin — 1 Kanıt harca veya Basın Kartı kullan (Güven +1)"
+    },
+    "policy": {
+      "shutdown": "Kapanma yürürlükte: rüşvet başarısı {chance}%."
+    },
+    "prompt": "Önde kontrol noktası. Seçin:",
+    "title": "Kontrol Noktası",
+    "types": {
+      "bridge_out": "Köprü Kapalı",
+      "checkpoint": "Kontrol Noktası"
+    }
   },
-  "mode": {
-    "classic": "Klasik",
-    "deep": "Derin Son"
-  },
-  "travel": {
-    "title": "Seyahat",
-    "next": "Sonraki Etabı Seyahat Et"
-  },
-  "stats": {
-    "day_region": "Gün {{day}} — {{region}}",
-    "hp_short": "Can",
-    "sanity_short": "Akıl",
-    "cred_short": "Güven",
-    "sup_short": "Malz",
-    "mor_short": "Mor",
-    "allies_short": "Müttefik",
-    "pants": "Pantolon {{pct}}%",
-    "pants_label": "Pantolon Ölçer"
-  },
-  "region": {
-    "heartland": "Ana Toprak",
-    "rustbelt": "Pas Kuşağı",
-    "beltway": "Çevre Yolu"
+  "dialogs": {
+    "close": "Kapat",
+    "confirm": "Emin misiniz?"
   },
   "eo": {
-    "prefix": "YK:",
-    "shutdown": "Hükümet Kapanması",
-    "travel_ban_lite": "Seyahat Yasağı Lite",
-    "gas_stove_police": "Gaz Ocağı Polisi",
     "book_panic": "Kitap Paniği",
     "deportation_sweep": "Sınır Dışı Operasyonu",
-    "tariff_tsunami": "Tarife Tsunamisi",
     "doe_eliminated": "Eğitim Bakanlığı İptal",
+    "gas_stove_police": "Gaz Ocağı Polisi",
+    "prefix": "YK:",
+    "shutdown": "Hükümet Kapanması",
+    "tariff_tsunami": "Tarife Tsunamisi",
+    "travel_ban_lite": "Seyahat Yasağı Lite",
     "war_dept_reorg": "Savaş Bakanlığı Yeniden Yapılanma"
   },
-  "boss": {
-    "title": "Filibuster Patron",
-    "phases_hint": "Aşamalarla yüzleş: Cloture, Usul Noktaları, Değişiklik Seli.",
-    "begin": "Patronu Başlat"
-  },
-  "result": {
-    "title": "Sonuç",
-    "title_aria": "Sonuç",
-    "headline": {
-      "victory": "CLOTURE'U GEÇTİNİZ!",
-      "boss_loss": "FILIBUSTER SİZİ EZDİ",
-      "pants": "ULUSAL PANTOLON ACİL DURUMU",
-      "sanity": "AKIL KIRILMASI",
-      "collapse": "MERDİVENLERDE ÇÖKME"
-    },
-    "badges": {
-      "mode_deep": "+5% (sadece görünüm)"
-    },
-    "labels": {
-      "seed": "Tohum",
-      "persona": "Persona",
-      "mode": "Mod",
-      "score": "Puan",
-      "stats": "İstatistik",
-      "days": "Gün",
-      "encounters": "Karşılaşma",
-      "receipts": "Kanıt",
-      "allies": "Müttefik",
-      "supplies": "Malzeme",
-      "credibility": "Güvenilirlik",
-      "pants_pct": "Pantolon"
-    },
-    "epilogue": {
-      "victory": "Tarihçiler kanıtlarınızı alıntılayacak. Lobiciler adınıza lanet okuyacak.",
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
-      "pants": "Altyazı gerisini halletti. GIF sonsuza dek kalacak.",
-      "sanity": "Senato yapmadan önce saçmalık sizi kırdı.",
-      "collapse": "Merdivenlere ulaştınız ama bitiş çizgisine değil. Sonraki deneme."
-    },
-    "menu": {
-      "copy_share": "Paylaşım Metnini Kopyala",
-      "copy_seed": "Tohumu Kopyala",
-      "replay_seed": "Bu Tohumu Tekrarla",
-      "new_run": "Yeni Oyun (Rastgele Tohum)",
-      "export": "Kayıtı Dışa Aktar",
-      "title": "Başlık"
-    },
-    "share": {
-      "template": "Dystrail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}"
-    },
-    "announce": {
-      "copied": "Panoya kopyalandı.",
-      "copy_failed": "Kopyalama başarısız. Lütfen manuel kopyalayın."
-    }
+  "footer": {
+    "copyright": "© Dystrail"
   },
   "game": {
     "seed_label": "Tohum:"
   },
   "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
     "booting": "Başlatılıyor…",
-    "seed_set": "Tohum ayarlandı",
-    "traveled": "Seyahat edildi",
     "encounter": "Karşılaşma!",
+    "health_collapse": "Health depleted!",
     "pants_emergency": "Ulusal Pantolon Acil Durumu!",
     "run_begins": "Oyun başlıyor ({{mode}})",
-    "health_collapse": "Health depleted!",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "Tohum ayarlandı",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
     "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
-  },
-  "save": {
-    "header": "Kaydet/Yükle",
-    "title": "Kaydet / Yükle",
-    "save": "Şimdi Kaydet",
-    "load": "Yükle",
-    "export": "Dışa Aktarma JSON'unu Kopyala",
-    "import_label": "Kayıt JSON'unu yapıştır",
-    "import_button": "İçe Aktar",
-    "close": "Kapat",
-    "error": "Geçersiz kayıt JSON'u",
-    "loaded": "Kayıt yüklendi",
-    "saved": "Oyun kaydedildi"
-  },
-  "footer": {
-    "copyright": "© Dystrail"
-  },
-  "persona": {
-    "choose": "Personanızı Seçin:",
-    "selected_budget_prefix": "Başlangıç bütçesi",
-    "preview": "Başlangıç: Malzeme {sup} · Güven {cred} · Akıl {san} · Moral {mor} · Müttefik {allies} · Bütçe ${budget}",
-    "mult": "Çarpan ×{mult}",
-    "preview_wait": "Detayları görmek için bir persona seçin.",
-    "journalist": {
-      "name": "Gazeteci",
-      "desc": "Güvenilir ve becerikli; kanıtlarla gelişir."
+    "traveled": "Seyahat edildi",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
     },
-    "organizer": {
-      "name": "Organizatör",
-      "desc": "Moral ve müttefik oluşturur."
-    },
-    "whistleblower": {
-      "name": "İhbarcı",
-      "desc": "Dikkat çeker; daha fazla kanıt bulur."
-    },
-    "lobbyist": {
-      "name": "Lobici",
-      "desc": "Bağlantılar maliyeti düşürür."
-    },
-    "staffer": {
-      "name": "Personel",
-      "desc": "Dengeli; güçlü avantaj yok."
-    },
-    "satirist": {
-      "name": "Hicivci",
-      "desc": "Mizahla başa çıkar; aklı restore eder."
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% Kanıt",
-      "store_discount_pct": "-{pct}% Mağaza",
-      "bribe_discount_pct": "-{pct}% Rüşvet",
-      "eo_heat_pct": "+{pct}% YK Sıcaklığı",
-      "satire_sustain": "Mizah aklı korur"
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
     }
   },
   "menu": {
-    "title": "Ana Menü",
-    "help": "1–8/0 tuşuna basın veya öğeye tıklayın. Tohum: {{seed}}",
-    "selected": "Seçili",
-    "travel": "Seyahat",
     "camp": "Kamp",
-    "status": "Durum",
-    "pace": "Hızı Değiştir",
     "diet": "Bilgi Diyeti",
+    "help": "1–8/0 tuşuna basın veya öğeye tıklayın. Tohum: {{seed}}",
     "inventory": "Envanter Kullan",
-    "share": "Tohumu Kaydet/Paylaş",
+    "pace": "Hızı Değiştir",
+    "quit": "Çık",
+    "selected": "Seçili",
     "settings": "Ayarlar",
-    "quit": "Çık"
+    "share": "Tohumu Kaydet/Paylaş",
+    "status": "Durum",
+    "title": "Ana Menü",
+    "travel": "Seyahat"
   },
-  "dialogs": {
-    "confirm": "Emin misiniz?",
-    "close": "Kapat"
+  "mode": {
+    "classic": "Klasik",
+    "deep": "Derin Son"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "language": "Dil",
+    "settings": "Ayarlar"
+  },
+  "pacediet": {
+    "announce": {
+      "diet_set": "Diyet {diet} olarak ayarlandı ({sanity} Akıl, {pants} Pantolon, {receipt} kanıt şansı).",
+      "pace_set": "Hız {pace} olarak ayarlandı ({sanity} Akıl, {pants} Pantolon, {chance} karşılaşma şansı)."
+    },
+    "menu": {
+      "back": "Geri",
+      "diet_doom": "Diyet:  Kıyamet Kaydırma",
+      "diet_mixed": "Diyet: [Karışık]",
+      "diet_quiet": "Diyet:  Sessiz",
+      "pace_blitz": "Hız:  Yıldırım",
+      "pace_heated": "Hız:  Hızlı",
+      "pace_steady": "Hız: [Sabit]"
+    },
+    "title": "Hız & Bilgi-Diyeti — Bugün",
+    "tooltips": {
+      "blitz": "Mesafe x1.4; Akıl -2; Pantolon +6; Karşılaşma +10%",
+      "doom": "Kanıt +8%; Akıl -2; Pantolon +4",
+      "heated": "Mesafe x1.2; Akıl -1; Pantolon +3; Karşılaşma +5%",
+      "mixed": "Kanıt 0%; Akıl 0; Pantolon 0",
+      "quiet": "Kanıt -5%; Akıl +1; Pantolon -2",
+      "steady": "Mesafe x1.0; Akıl 0; Pantolon 0; Karşılaşma +0%"
+    }
+  },
+  "persona": {
+    "choose": "Personanızı Seçin:",
+    "journalist": {
+      "desc": "Güvenilir ve becerikli; kanıtlarla gelişir.",
+      "name": "Gazeteci"
+    },
+    "lobbyist": {
+      "desc": "Bağlantılar maliyeti düşürür.",
+      "name": "Lobici"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% Rüşvet",
+      "eo_heat_pct": "+{pct}% YK Sıcaklığı",
+      "receipts_pct": "+{pct}% Kanıt",
+      "satire_sustain": "Mizah aklı korur",
+      "store_discount_pct": "-{pct}% Mağaza"
+    },
+    "mult": "Çarpan ×{mult}",
+    "organizer": {
+      "desc": "Moral ve müttefik oluşturur.",
+      "name": "Organizatör"
+    },
+    "preview": "Başlangıç: Malzeme {sup} · Güven {cred} · Akıl {san} · Moral {mor} · Müttefik {allies} · Bütçe ${budget}",
+    "preview_wait": "Detayları görmek için bir persona seçin.",
+    "satirist": {
+      "desc": "Mizahla başa çıkar; aklı restore eder.",
+      "name": "Hicivci"
+    },
+    "selected_budget_prefix": "Başlangıç bütçesi",
+    "staffer": {
+      "desc": "Dengeli; güçlü avantaj yok.",
+      "name": "Personel"
+    },
+    "whistleblower": {
+      "desc": "Dikkat çeker; daha fazla kanıt bulur.",
+      "name": "İhbarcı"
+    }
+  },
+  "region": {
+    "beltway": "Çevre Yolu",
+    "heartland": "Ana Toprak",
+    "rustbelt": "Pas Kuşağı"
+  },
+  "result": {
+    "announce": {
+      "copied": "Panoya kopyalandı.",
+      "copy_failed": "Kopyalama başarısız. Lütfen manuel kopyalayın."
+    },
+    "badges": {
+      "fail": "Fail",
+      "mode_deep": "+5% (sadece görünüm)",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "collapse": "Merdivenlere ulaştınız ama bitiş çizgisine değil. Sonraki deneme.",
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "pants": "Altyazı gerisini halletti. GIF sonsuza dek kalacak.",
+      "sanity": "Senato yapmadan önce saçmalık sizi kırdı.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "victory": "Tarihçiler kanıtlarınızı alıntılayacak. Lobiciler adınıza lanet okuyacak."
+    },
+    "headline": {
+      "boss_loss": "FILIBUSTER SİZİ EZDİ",
+      "collapse": "MERDİVENLERDE ÇÖKME",
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "pants": "ULUSAL PANTOLON ACİL DURUMU",
+      "sanity": "AKIL KIRILMASI",
+      "vehicle_failure": "VEHICLE DESTROYED",
+      "victory": "CLOTURE'U GEÇTİNİZ!"
+    },
+    "labels": {
+      "allies": "Müttefik",
+      "breakdowns": "Breakdowns",
+      "credibility": "Güvenilirlik",
+      "days": "Gün",
+      "encounters": "Karşılaşma",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "mode": "Mod",
+      "pants_pct": "Pantolon",
+      "passed_threshold": "Boss Vote Ready",
+      "persona": "Persona",
+      "receipts": "Kanıt",
+      "score": "Puan",
+      "score_threshold": "Score Threshold",
+      "seed": "Tohum",
+      "stats": "İstatistik",
+      "supplies": "Malzeme"
+    },
+    "menu": {
+      "copy_seed": "Tohumu Kopyala",
+      "copy_share": "Paylaşım Metnini Kopyala",
+      "export": "Kayıtı Dışa Aktar",
+      "new_run": "Yeni Oyun (Rastgele Tohum)",
+      "replay_seed": "Bu Tohumu Tekrarla",
+      "title": "Başlık"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}"
+    },
+    "title": "Sonuç",
+    "title_aria": "Sonuç"
+  },
+  "save": {
+    "close": "Kapat",
+    "error": "Geçersiz kayıt JSON'u",
+    "export": "Dışa Aktarma JSON'unu Kopyala",
+    "header": "Kaydet/Yükle",
+    "import_button": "İçe Aktar",
+    "import_label": "Kayıt JSON'unu yapıştır",
+    "load": "Yükle",
+    "loaded": "Kayıt yüklendi",
+    "save": "Şimdi Kaydet",
+    "saved": "Oyun kaydedildi",
+    "title": "Kaydet / Yükle"
+  },
+  "share": {
+    "code": "Paylaşım Kodu",
+    "code_help": "Format: CL-WORD00 veya DP-WORD00",
+    "run": "Oyunu Paylaş",
+    "start_with_code": "Kod ile Başla"
+  },
+  "stats": {
+    "allies_short": "Müttefik",
+    "cred_short": "Güven",
+    "day_region": "Gün {{day}} — {{region}}",
+    "hp_short": "Can",
+    "mor_short": "Mor",
+    "pants": "Pantolon {{pct}}%",
+    "pants_label": "Pantolon Ölçer",
+    "sanity_short": "Akıl",
+    "sup_short": "Malz"
   },
   "store": {
-    "title": "Donanım",
+    "alerts": {
+      "added": "{item} ({price}) eklendi. Kalan bütçe {left}.",
+      "max_qty": "{item} için maksimum miktara ulaşıldı.",
+      "over_budget": "Bütçe aşıldı; sepetinizi ayarlayın.",
+      "removed": "{item} çıkarıldı. Kalan bütçe {left}.",
+      "unique": "{item} benzersiz; zaten bir tane var."
+    },
     "budget": "Bütçe: {amount}",
+    "cart": {
+      "checkout": "Ödeme",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "Sepet",
+      "total": "Toplam: {sum}   Kalan bütçe: {left}"
+    },
     "categories": {
+      "docs": "Belgeler & İzinler",
       "fuel_food": "Yakıt / Yemek",
-      "vehicle": "Araç Yedek Parça",
       "ppe": "KKD & Giyim",
-      "docs": "Belgeler & İzinler"
+      "vehicle": "Araç Yedek Parça"
     },
     "items": {
-      "rations": {
-        "name": "Erzak Paketi",
-        "desc": "Bozulmuyor. Sizi ayakta tutar."
-      },
-      "water": {
-        "name": "Su Bidonları",
-        "desc": "Hidratasyon önemli."
-      },
-      "spare_tire": {
-        "name": "Yedek Lastik",
-        "desc": "Patlamaları hızla tamir et."
+      "alternator": {
+        "desc": "Şarj restore edildi.",
+        "name": "Alternatör"
       },
       "battery": {
-        "name": "Akü",
-        "desc": "Soğuk çalıştırma."
-      },
-      "alternator": {
-        "name": "Alternatör",
-        "desc": "Şarj restore edildi."
-      },
-      "fuel_pump": {
-        "name": "Yakıt Pompası",
-        "desc": "Parti bittiğinde."
-      },
-      "masks": {
-        "name": "Maskeler",
-        "desc": "Duman/hastalık koruması."
+        "desc": "Soğuk çalıştırma.",
+        "name": "Akü"
       },
       "coats": {
-        "name": "Sıcak Montlar",
-        "desc": "Soğuk dalgası direnci."
+        "desc": "Soğuk dalgası direnci.",
+        "name": "Sıcak Montlar"
       },
-      "ponchos": {
-        "name": "Ponçolar",
-        "desc": "Fırtına dostu."
-      },
-      "press_pass": {
-        "name": "Basın Kartı",
-        "desc": "İzin olarak davranabilir."
+      "fuel_pump": {
+        "desc": "Parti bittiğinde.",
+        "name": "Yakıt Pompası"
       },
       "legal_fund": {
-        "name": "Hukuki Fon",
-        "desc": "Güvenilirliğinizi tamponlar."
+        "desc": "Güvenilirliğinizi tamponlar.",
+        "name": "Hukuki Fon"
+      },
+      "masks": {
+        "desc": "Duman/hastalık koruması.",
+        "name": "Maskeler"
+      },
+      "ponchos": {
+        "desc": "Fırtına dostu.",
+        "name": "Ponçolar"
+      },
+      "press_pass": {
+        "desc": "İzin olarak davranabilir.",
+        "name": "Basın Kartı"
+      },
+      "rations": {
+        "desc": "Bozulmuyor. Sizi ayakta tutar.",
+        "name": "Erzak Paketi"
+      },
+      "spare_tire": {
+        "desc": "Patlamaları hızla tamir et.",
+        "name": "Yedek Lastik"
+      },
+      "water": {
+        "desc": "Hidratasyon önemli.",
+        "name": "Su Bidonları"
       }
     },
     "menu": {
-      "home": "Donanım — Bütçe: {budget}",
-      "view_cart": "Sepeti Görüntüle / Ödeme",
+      "back": "Geri",
       "continue": "Devam Et",
-      "back": "Geri"
+      "home": "Donanım — Bütçe: {budget}",
+      "view_cart": "Sepeti Görüntüle / Ödeme"
     },
     "qty_prompt": {
-      "title": "{item} — Her biri {price}",
       "add1": "+1 Ekle",
       "add5": "+5 Ekle",
       "rem1": "-1 Çıkar",
-      "rem_all": "Tümünü Çıkar"
+      "rem_all": "Tümünü Çıkar",
+      "title": "{item} — Her biri {price}"
     },
-    "cart": {
-      "title": "Sepet",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "Toplam: {sum}   Kalan bütçe: {left}",
-      "checkout": "Ödeme"
-    },
-    "alerts": {
-      "added": "{item} ({price}) eklendi. Kalan bütçe {left}.",
-      "removed": "{item} çıkarıldı. Kalan bütçe {left}.",
-      "max_qty": "{item} için maksimum miktara ulaşıldı.",
-      "unique": "{item} benzersiz; zaten bir tane var.",
-      "over_budget": "Bütçe aşıldı; sepetinizi ayarlayın."
-    }
+    "title": "Donanım"
   },
-  "pacediet": {
-    "title": "Hız & Bilgi-Diyeti — Bugün",
-    "menu": {
-      "pace_steady": "Hız: [Sabit]",
-      "pace_heated": "Hız:  Hızlı",
-      "pace_blitz": "Hız:  Yıldırım",
-      "diet_quiet": "Diyet:  Sessiz",
-      "diet_mixed": "Diyet: [Karışık]",
-      "diet_doom": "Diyet:  Kıyamet Kaydırma",
-      "back": "Geri"
-    },
-    "announce": {
-      "pace_set": "Hız {pace} olarak ayarlandı ({sanity} Akıl, {pants} Pantolon, {chance} karşılaşma şansı).",
-      "diet_set": "Diyet {diet} olarak ayarlandı ({sanity} Akıl, {pants} Pantolon, {receipt} kanıt şansı)."
-    },
-    "tooltips": {
-      "steady": "Mesafe x1.0; Akıl 0; Pantolon 0; Karşılaşma +0%",
-      "heated": "Mesafe x1.2; Akıl -1; Pantolon +3; Karşılaşma +5%",
-      "blitz": "Mesafe x1.4; Akıl -2; Pantolon +6; Karşılaşma +10%",
-      "quiet": "Kanıt -5%; Akıl +1; Pantolon -2",
-      "mixed": "Kanıt 0%; Akıl 0; Pantolon 0",
-      "doom": "Kanıt +8%; Akıl -2; Pantolon +4"
-    }
+  "travel": {
+    "next": "Sonraki Etabı Seyahat Et",
+    "title": "Seyahat"
   },
-  "camp": {
-    "title": "Kamp",
-    "desc": "Bir eylem seçin.",
-    "repair_vehicle": "Aracı Tamir Et",
-    "help": "Seçenek seçmek için 1-4 veya 0 tuşuna basın",
-    "menu": {
-      "rest": "Dinlen (+2 Akıl, +1 Can, Malzeme -1, Gün +1)",
-      "repair": "Aracı Tamir Et (bozuksa)",
-      "forage": "Avcılık Toplayıcılık (50% Malzeme +1 / 30% Hiç / 20% Kanıt +1)",
-      "therapy": "Terapi/Günlük (+2 Akıl, 1 Kanıt yak, Gün +1) [bekleme: {days} gün]",
-      "close": "Kapat",
-      "back": "Geri",
-      "use_spare": "Yedek Kullan",
-      "hack_fix": "Acil Tamir (Malzeme -{sup}, Güvenilirlik -{cred}, Gün +{day})"
-    },
-    "announce": {
-      "rest": "Dinlenildi. Akıl +2, Can +1, Malzeme -1. Gün +1.",
-      "repair_spare": "Yedek {part} kullanıldı. Malzeme -{sup}. Araç tamir edildi.",
-      "repair_hack": "Acil tamir uygulandı. Malzeme -{sup}, Güvenilirlik -{cred}. Gün +{day}.",
-      "forage_sup": "Başarıyla avcılık-toplayıcılık: Malzeme +1.",
-      "forage_receipt": "Faydalı ipucu bulundu: Kanıt +1.",
-      "forage_none": "Avcılık-toplayıcılık yapıldı ama hiçbir şey bulunamadı.",
-      "therapy": "Günlük yazdınız ve düşündünüz. Akıl +2, 1 Kanıt yakıldı. Gün +1.",
-      "cooldown": "Terapi {days} gün daha bekleme süresinde.",
-      "no_receipt": "Yakılacak kanıt yok.",
-      "no_breakdown": "Aktif arıza yok."
-    },
-    "repair": {
-      "title": "Araç Tamiri"
-    },
-    "parts": {
-      "tire": "Lastik",
-      "battery": "Akü",
-      "alt": "Alternatör",
-      "pump": "Yakıt Pompası"
-    }
+  "ui": {
+    "continue": "Devam Et",
+    "cta_start": "BAŞLAMAK İÇİN HERHANGİ BİR TUŞA BASIN",
+    "loading": "Yükleniyor… {{pct}}%",
+    "loading_encounters": "Karşılaşmalar yükleniyor…",
+    "select_mode": "Mod Seç",
+    "skip_to_content": "İçeriğe atla"
   },
   "vehicle": {
-    "title": "Araç Durumu",
-    "no_active": "Aktif arıza yok.",
-    "breakdown": "Arıza — {part} hatası. Seyahat engellendi.",
-    "spares": {
-      "tire": "Yedek Lastik Kullan",
-      "battery": "Yedek Akü Kullan",
-      "alt": "Yedek Alternatör Kullan",
-      "pump": "Yedek Yakıt Pompası Kullan"
-    },
-    "hack_fix": "Acil Tamir (Malzeme -3, Güvenilirlik -1, Gün +1)",
-    "wait_mechanic": "Tamirci Bekle (Gün +1)",
-    "back": "Geri",
-    "help": "Geri için 1-5 sayı tuşlarını veya 0'ı kullanın",
     "announce": {
-      "used_spare": "Yedek {part} kullanıldı. Malzeme -{sup}.",
-      "hack_applied": "Acil tamir uygulandı. Malzeme -{sup}, Güvenilirlik -{cred}, Gün +{day}.",
-      "cleared": "Araç tamir edildi.",
       "blocked": "Tamir edilene kadar seyahat engellendi.",
-      "no_spare": "{part} için yedek yok."
+      "cleared": "Araç tamir edildi.",
+      "hack_applied": "Acil tamir uygulandı. Malzeme -{sup}, Güvenilirlik -{cred}, Gün +{day}.",
+      "no_spare": "{part} için yedek yok.",
+      "used_spare": "Yedek {part} kullanıldı. Malzeme -{sup}."
     },
+    "back": "Geri",
+    "breakdown": "Arıza — {part} hatası. Seyahat engellendi.",
+    "hack_fix": "Acil Tamir (Malzeme -3, Güvenilirlik -1, Gün +1)",
+    "help": "Geri için 1-5 sayı tuşlarını veya 0'ı kullanın",
+    "no_active": "Aktif arıza yok.",
     "parts": {
-      "tire": "Lastik",
-      "battery": "Akü",
       "alt": "Alternatör",
-      "pump": "Yakıt Pompası"
-    }
+      "battery": "Akü",
+      "pump": "Yakıt Pompası",
+      "tire": "Lastik"
+    },
+    "spares": {
+      "alt": "Yedek Alternatör Kullan",
+      "battery": "Yedek Akü Kullan",
+      "pump": "Yedek Yakıt Pompası Kullan",
+      "tire": "Yedek Lastik Kullan"
+    },
+    "title": "Araç Durumu",
+    "wait_mechanic": "Tamirci Bekle (Gün +1)"
   },
   "weather": {
-    "title": "Hava Durumu",
     "announce": "Hava durumu: {state}. Malzeme {sup}, Akıl {san}, Pantolon {pants}, Karşılaşma {enc}.",
-    "states": {
-      "Clear": "Açık",
-      "Storm": "Fırtına",
-      "HeatWave": "Sıcak Dalgası",
-      "ColdSnap": "Soğuk Dalgası",
-      "Smoke": "Duman"
-    },
-    "effects": {
-      "sup": "{val} Malzeme",
-      "san": "{val} Akıl",
-      "pants": "{val} Pantolon",
-      "enc": "{val}% Karşılaşma"
-    },
     "details": {
-      "header": "Hava Durumu Detayları:",
-      "state": "• Durum: {state}",
+      "back": "0) Geri",
       "effects": "• Bugünkü etkiler: {effects}",
       "gear": "• Ekipman azaltması: {text}",
+      "header": "Hava Durumu Detayları:",
       "notes": "• Notlar: {note}",
-      "back": "0) Geri"
+      "state": "• Durum: {state}"
+    },
+    "effects": {
+      "enc": "{val}% Karşılaşma",
+      "pants": "{val} Pantolon",
+      "san": "{val} Akıl",
+      "sup": "{val} Malzeme"
     },
     "gear": {
-      "storm": "Ponçolar Fırtına cezalarını azaltır (rain_resist).",
+      "cold": "Sıcak montlar Soğuk cezalarını azaltır (cold_resist).",
       "smoke": "Maskeler Duman cezalarını azaltır (plague_resist).",
-      "cold": "Sıcak montlar Soğuk cezalarını azaltır (cold_resist)."
+      "storm": "Ponçolar Fırtına cezalarını azaltır (rain_resist)."
     },
     "notes": {
       "storm_crossings": "Fırtına sırasında geçişler daha riskli."
-    }
-  },
-  "cross": {
-    "title": "Kontrol Noktası",
-    "prompt": "Önde kontrol noktası. Seçin:",
-    "options": {
-      "detour": "Dolaşmak — Gün {days}, Malzeme {supplies}, Pantolon {pants} (Güvenli)",
-      "bribe": "Rüşvet — Maliyet {cost} (politikaya bakın)",
-      "permit": "İzin — 1 Kanıt harca veya Basın Kartı kullan (Güven +1)",
-      "back": "Geri"
     },
-    "desc": {
-      "detour": "Garantili; zaman ekler ve malzeme maliyeti; küçük stres.",
-      "bribe": "Persona indirimi geçerli; Kapanma sırasında başarısız olabilir.",
-      "permit": "1 Kanıt tüketir veya varsa izin etiketini kullanır."
+    "states": {
+      "Clear": "Açık",
+      "ColdSnap": "Soğuk Dalgası",
+      "HeatWave": "Sıcak Dalgası",
+      "Smoke": "Duman",
+      "Storm": "Fırtına"
     },
-    "announce": {
-      "detour_applied": "Dolaşma alındı. Gün {days}, Malzeme {supplies}, Pantolon {pants}.",
-      "bribe_paid_passed": "Rüşvet {cost} ödendi. Geçiş verildi.",
-      "bribe_paid_failed": "Rüşvet {cost} ödendi ama başarısız. Gün {days}, Pantolon {pants}.",
-      "permit_used_receipt": "Kanıt ile izin kabul edildi. Güven +1.",
-      "permit_used_tag": "Etiket ile izin kabul edildi. Güven +1.",
-      "no_receipt_or_tag": "Kanıt ve izin etiketi yok.",
-      "insufficient_funds": "Yetersiz fon."
-    },
-    "policy": {
-      "shutdown": "Kapanma yürürlükte: rüşvet başarısı {chance}%."
-    },
-    "types": {
-      "checkpoint": "Kontrol Noktası",
-      "bridge_out": "Köprü Kapalı"
-    }
+    "title": "Hava Durumu"
   }
 }

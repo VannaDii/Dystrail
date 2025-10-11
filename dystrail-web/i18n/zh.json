@@ -2,397 +2,445 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "首页",
+  "boss": {
+    "begin": "开始挑战",
+    "phases_hint": "面对阶段：闭幕投票、秩序问题、修正案洪流。",
+    "title": "冗长辩论头目"
+  },
+  "camp": {
+    "announce": {
+      "cooldown": "治疗冷却中，还需{days}天。",
+      "forage_none": "觅食但什么都没找到。",
+      "forage_receipt": "发现有用线索：收据+1。",
+      "forage_sup": "觅食成功：物资+1。",
+      "no_breakdown": "没有活跃故障。",
+      "no_receipt": "没有可消耗的收据。",
+      "repair_hack": "应用了临时修理。物资-{sup}，信誉-{cred}。天数+{day}。",
+      "repair_spare": "使用了备件{part}。物资-{sup}。车辆已修理。",
+      "rest": "已休息。理智+2，生命+1，物资-1。天数+1。",
+      "therapy": "你反思并写了日记。理智+2，消耗1收据。天数+1。"
+    },
+    "desc": "选择一个行动。",
+    "help": "按1-4或0选择选项",
+    "menu": {
+      "back": "返回",
+      "close": "关闭",
+      "forage": "觅食（50%物资+1 / 30%无 / 20%收据+1）",
+      "hack_fix": "临时修理（物资-{sup}，信誉-{cred}，天数+{day}）",
+      "repair": "修理车辆（如果故障）",
+      "rest": "休息（+2理智，+1生命，物资-1，天数+1）",
+      "therapy": "治疗/记日记（+2理智，消耗1收据，天数+1）[冷却：{days}天]",
+      "use_spare": "使用备件"
+    },
+    "parts": {
+      "alt": "发电机",
+      "battery": "电池",
+      "pump": "燃油泵",
+      "tire": "轮胎"
+    },
+    "repair": {
+      "title": "车辆修理"
+    },
+    "repair_vehicle": "修理车辆",
+    "title": "营地"
+  },
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "已付贿赂 {cost} 但失败。天数 {days}，裤子 {pants}。",
+      "bribe_paid_passed": "已付贿赂 {cost}。通行许可。",
+      "detour_applied": "已绕道。天数 {days}，物资 {supplies}，裤子 {pants}。",
+      "insufficient_funds": "资金不足。",
+      "no_receipt_or_tag": "没有收据和许可证标签。",
+      "permit_used_receipt": "通过收据接受许可证。信誉+1。",
+      "permit_used_tag": "通过标签接受许可证。信誉+1。"
+    },
+    "desc": {
+      "bribe": "人物折扣适用；在关闭状态下可能失败。",
+      "detour": "保证安全；增加时间和消耗物资；轻微压力。",
+      "permit": "消耗1个收据或使用许可证标签（如果有）。"
+    },
+    "options": {
+      "back": "返回",
+      "bribe": "贿赂 — 费用 {cost} (见政策)",
+      "detour": "绕道 — 天数 {days}，物资 {supplies}，裤子 {pants} (安全)",
+      "permit": "许可证 — 花费1个收据或使用记者证 (信誉+1)"
+    },
+    "policy": {
+      "shutdown": "关闭生效：贿赂成功率为 {chance}%。"
+    },
+    "prompt": "前方检查站。选择：",
+    "title": "检查站",
+    "types": {
+      "bridge_out": "桥梁中断",
+      "checkpoint": "检查站"
+    }
+  },
+  "dialogs": {
+    "close": "关闭",
+    "confirm": "你确定吗？"
+  },
+  "eo": {
+    "book_panic": "图书恐慌",
+    "deportation_sweep": "驱逐扫荡",
+    "doe_eliminated": "教育部撤销",
+    "gas_stove_police": "燃气灶警察",
+    "prefix": "行政令:",
+    "shutdown": "政府关门",
+    "tariff_tsunami": "关税海啸",
+    "travel_ban_lite": "旅行禁令（轻度）",
+    "war_dept_reorg": "战争部重组"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
+  "game": {
+    "seed_label": "种子:"
+  },
+  "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
+    "booting": "正在启动…",
+    "encounter": "遭遇！",
+    "health_collapse": "Health depleted!",
+    "pants_emergency": "全国裤子紧急！",
+    "run_begins": "运行开始（{{mode}}）",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "已设置种子",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
+    "supplies_depleted": "Supplies exhausted!",
+    "traveled": "已旅行",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
+    },
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
+    }
+  },
+  "menu": {
+    "camp": "露营",
+    "diet": "饮食信息",
+    "help": "按 1–8/0 或点击项目。种子：{{seed}}",
+    "inventory": "使用物品",
+    "pace": "改变速度",
+    "quit": "退出",
+    "selected": "已选择",
     "settings": "设置",
-    "language": "语言"
-  },
-  "ui": {
-    "cta_start": "按任意键开始",
-    "skip_to_content": "跳到内容",
-    "select_mode": "选择模式",
-    "loading": "正在加载… {{pct}}%",
-    "loading_encounters": "正在加载事件…",
-    "continue": "继续"
-  },
-  "share": {
-    "code": "分享代码",
-    "start_with_code": "使用代码开始",
-    "code_help": "格式：CL-WORD00 或 DP-WORD00",
-    "run": "分享旅程"
+    "share": "保存/分享种子",
+    "status": "状态",
+    "title": "主菜单",
+    "travel": "旅行"
   },
   "mode": {
     "classic": "经典",
     "deep": "深水区"
   },
-  "travel": {
-    "title": "旅行",
-    "next": "前往下一段"
+  "nav": {
+    "home": "首页",
+    "language": "语言",
+    "settings": "设置"
   },
-  "stats": {
-    "day_region": "第{{day}}天 — {{region}}",
-    "hp_short": "HP",
-    "sanity_short": "理智",
-    "cred_short": "信誉",
-    "sup_short": "物资",
-    "mor_short": "士气",
-    "allies_short": "盟友",
-    "pants": "裤子 {{pct}}%",
-    "pants_label": "裤子计量表"
+  "pacediet": {
+    "announce": {
+      "diet_set": "信息饮食设置为 {diet} ({sanity} 理智，{pants} 裤子，{receipt} 收据几率)。",
+      "pace_set": "节奏设置为 {pace} ({sanity} 理智，{pants} 裤子，{chance} 遭遇几率)。"
+    },
+    "menu": {
+      "back": "返回",
+      "diet_doom": "信息:  末日滚动",
+      "diet_mixed": "信息: [混合]",
+      "diet_quiet": "信息:  安静",
+      "pace_blitz": "节奏:  闪电",
+      "pace_heated": "节奏:  激烈",
+      "pace_steady": "节奏: [稳定]"
+    },
+    "title": "节奏与信息饮食 — 今日",
+    "tooltips": {
+      "blitz": "距离 ×1.4；理智 -2；裤子 +6；遭遇 +10%",
+      "doom": "收据 +8%；理智 -2；裤子 +4",
+      "heated": "距离 ×1.2；理智 -1；裤子 +3；遭遇 +5%",
+      "mixed": "收据 0%；理智 0；裤子 0",
+      "quiet": "收据 -5%；理智 +1；裤子 -2",
+      "steady": "距离 ×1.0；理智 0；裤子 0；遭遇 +0%"
+    }
+  },
+  "persona": {
+    "choose": "选择你的身份:",
+    "journalist": {
+      "desc": "可信且机敏；擅长收集证据。",
+      "name": "记者"
+    },
+    "lobbyist": {
+      "desc": "人脉降低成本。",
+      "name": "说客"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% 贿赂",
+      "eo_heat_pct": "+{pct}% 行政令热度",
+      "receipts_pct": "+{pct}% 证据",
+      "satire_sustain": "幽默维持理智",
+      "store_discount_pct": "-{pct}% 商店"
+    },
+    "mult": "分数乘数 ×{mult}",
+    "organizer": {
+      "desc": "建立士气与盟友。",
+      "name": "组织者"
+    },
+    "preview": "起始：补给 {sup} · 信誉 {cred} · 理智 {san} · 士气 {mor} · 盟友 {allies} · 预算 ${budget}",
+    "preview_wait": "选择身份以查看详情。",
+    "satirist": {
+      "desc": "以幽默应对；恢复理智。",
+      "name": "讽刺家"
+    },
+    "selected_budget_prefix": "起始预算",
+    "staffer": {
+      "desc": "均衡；无显著加成。",
+      "name": "助理"
+    },
+    "whistleblower": {
+      "desc": "吸引火力；找到更多证据。",
+      "name": "揭发者"
+    }
   },
   "region": {
+    "beltway": "首都环城",
     "heartland": "腹地",
-    "rustbelt": "锈带",
-    "beltway": "首都环城"
-  },
-  "eo": {
-    "prefix": "行政令:",
-    "shutdown": "政府关门",
-    "travel_ban_lite": "旅行禁令（轻度）",
-    "gas_stove_police": "燃气灶警察",
-    "book_panic": "图书恐慌",
-    "deportation_sweep": "驱逐扫荡",
-    "tariff_tsunami": "关税海啸",
-    "doe_eliminated": "教育部撤销",
-    "war_dept_reorg": "战争部重组"
-  },
-  "boss": {
-    "title": "冗长辩论头目",
-    "phases_hint": "面对阶段：闭幕投票、秩序问题、修正案洪流。",
-    "begin": "开始挑战"
+    "rustbelt": "锈带"
   },
   "result": {
-    "title": "结果",
-    "title_aria": "结果",
-    "thanks": "感谢游玩",
+    "badges": {
+      "fail": "Fail",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam."
+    },
+    "exhausted": "精疲力竭",
+    "exhausted_desc": "你在程序面前倒下了。",
+    "headline": {
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "vehicle_failure": "VEHICLE DESTROYED"
+    },
+    "labels": {
+      "breakdowns": "Breakdowns",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "passed_threshold": "Boss Vote Ready",
+      "score_threshold": "Score Threshold"
+    },
     "pants_emergency": "全国裤子紧急状态",
     "pants_emergency_desc": "裤子计量表达到100%——你壮烈失败了。",
     "passed_cloture": "你通过了闭幕投票！",
     "passed_cloture_desc": "你的信誉扭转了局面。",
     "survived_filibuster": "你挺过了冗长辩论",
     "survived_filibuster_desc": "历尽艰辛但胜利地向华盛顿前进。",
-    "exhausted": "精疲力竭",
-    "exhausted_desc": "你在程序面前倒下了。"
-  },
-  "game": {
-    "seed_label": "种子:"
-  },
-  "log": {
-    "booting": "正在启动…",
-    "seed_set": "已设置种子",
-    "traveled": "已旅行",
-    "encounter": "遭遇！",
-    "pants_emergency": "全国裤子紧急！",
-    "run_begins": "运行开始（{{mode}}）",
-    "health_collapse": "Health depleted!",
-    "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
+    "thanks": "感谢游玩",
+    "title": "结果",
+    "title_aria": "结果"
   },
   "save": {
-    "header": "保存/加载",
-    "title": "保存 / 加载",
-    "save": "立即保存",
-    "load": "加载",
-    "export": "复制导出 JSON",
-    "import_label": "粘贴存档 JSON",
-    "import_button": "导入",
     "close": "关闭",
     "error": "无效的存档 JSON",
+    "export": "复制导出 JSON",
+    "header": "保存/加载",
+    "import_button": "导入",
+    "import_label": "粘贴存档 JSON",
+    "load": "加载",
     "loaded": "已加载存档",
-    "saved": "已保存游戏"
+    "save": "立即保存",
+    "saved": "已保存游戏",
+    "title": "保存 / 加载"
   },
-  "persona": {
-    "choose": "选择你的身份:",
-    "selected_budget_prefix": "起始预算",
-    "preview": "起始：补给 {sup} · 信誉 {cred} · 理智 {san} · 士气 {mor} · 盟友 {allies} · 预算 ${budget}",
-    "mult": "分数乘数 ×{mult}",
-    "preview_wait": "选择身份以查看详情。",
-    "journalist": {
-      "name": "记者",
-      "desc": "可信且机敏；擅长收集证据。"
-    },
-    "organizer": {
-      "name": "组织者",
-      "desc": "建立士气与盟友。"
-    },
-    "whistleblower": {
-      "name": "揭发者",
-      "desc": "吸引火力；找到更多证据。"
-    },
-    "lobbyist": {
-      "name": "说客",
-      "desc": "人脉降低成本。"
-    },
-    "staffer": {
-      "name": "助理",
-      "desc": "均衡；无显著加成。"
-    },
-    "satirist": {
-      "name": "讽刺家",
-      "desc": "以幽默应对；恢复理智。"
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% 证据",
-      "store_discount_pct": "-{pct}% 商店",
-      "bribe_discount_pct": "-{pct}% 贿赂",
-      "eo_heat_pct": "+{pct}% 行政令热度",
-      "satire_sustain": "幽默维持理智"
-    }
+  "share": {
+    "code": "分享代码",
+    "code_help": "格式：CL-WORD00 或 DP-WORD00",
+    "run": "分享旅程",
+    "start_with_code": "使用代码开始"
   },
-  "footer": {
-    "copyright": "© Dystrail"
-  },
-  "menu": {
-    "title": "主菜单",
-    "help": "按 1–8/0 或点击项目。种子：{{seed}}",
-    "selected": "已选择",
-    "travel": "旅行",
-    "camp": "露营",
-    "status": "状态",
-    "pace": "改变速度",
-    "diet": "饮食信息",
-    "inventory": "使用物品",
-    "share": "保存/分享种子",
-    "settings": "设置",
-    "quit": "退出"
-  },
-  "dialogs": {
-    "confirm": "你确定吗？",
-    "close": "关闭"
+  "stats": {
+    "allies_short": "盟友",
+    "cred_short": "信誉",
+    "day_region": "第{{day}}天 — {{region}}",
+    "hp_short": "HP",
+    "mor_short": "士气",
+    "pants": "裤子 {{pct}}%",
+    "pants_label": "裤子计量表",
+    "sanity_short": "理智",
+    "sup_short": "物资"
   },
   "store": {
-    "title": "装备",
+    "alerts": {
+      "added": "已添加 {item} ({price})。剩余预算 {left}。",
+      "max_qty": "{item} 已达到最大数量。",
+      "over_budget": "超出预算；调整你的购物车。",
+      "removed": "已移除 {item}。剩余预算 {left}。",
+      "unique": "{item} 是唯一的；你已经有一个了。"
+    },
     "budget": "预算: {amount}",
+    "cart": {
+      "checkout": "结账",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "购物车",
+      "total": "总计: {sum}   剩余预算: {left}"
+    },
     "categories": {
+      "docs": "文件和许可证",
       "fuel_food": "燃料 / 食物",
-      "vehicle": "车辆备件",
       "ppe": "防护装备和服装",
-      "docs": "文件和许可证"
+      "vehicle": "车辆备件"
     },
     "items": {
-      "rations": {
-        "name": "口粮包",
-        "desc": "不易腐坏。让你继续前进。"
-      },
-      "water": {
-        "name": "水壶",
-        "desc": "水分很重要。"
-      },
-      "spare_tire": {
-        "name": "备用轮胎",
-        "desc": "快速修复爆胎。"
+      "alternator": {
+        "desc": "充电恢复。",
+        "name": "发电机"
       },
       "battery": {
-        "name": "电池",
-        "desc": "冷启动。"
-      },
-      "alternator": {
-        "name": "发电机",
-        "desc": "充电恢复。"
-      },
-      "fuel_pump": {
-        "name": "燃油泵",
-        "desc": "当团队燃料耗尽时。"
-      },
-      "masks": {
-        "name": "口罩",
-        "desc": "烟雾/疾病防护。"
+        "desc": "冷启动。",
+        "name": "电池"
       },
       "coats": {
-        "name": "保暖外套",
-        "desc": "抗寒能力。"
+        "desc": "抗寒能力。",
+        "name": "保暖外套"
       },
-      "ponchos": {
-        "name": "雨衣",
-        "desc": "适应风暴。"
-      },
-      "press_pass": {
-        "name": "记者证",
-        "desc": "可作为许可证。"
+      "fuel_pump": {
+        "desc": "当团队燃料耗尽时。",
+        "name": "燃油泵"
       },
       "legal_fund": {
-        "name": "法律基金",
-        "desc": "缓冲你的信誉。"
+        "desc": "缓冲你的信誉。",
+        "name": "法律基金"
+      },
+      "masks": {
+        "desc": "烟雾/疾病防护。",
+        "name": "口罩"
+      },
+      "ponchos": {
+        "desc": "适应风暴。",
+        "name": "雨衣"
+      },
+      "press_pass": {
+        "desc": "可作为许可证。",
+        "name": "记者证"
+      },
+      "rations": {
+        "desc": "不易腐坏。让你继续前进。",
+        "name": "口粮包"
+      },
+      "spare_tire": {
+        "desc": "快速修复爆胎。",
+        "name": "备用轮胎"
+      },
+      "water": {
+        "desc": "水分很重要。",
+        "name": "水壶"
       }
     },
     "menu": {
-      "home": "装备 — 预算: {budget}",
-      "view_cart": "查看购物车 / 结账",
+      "back": "返回",
       "continue": "继续",
-      "back": "返回"
+      "home": "装备 — 预算: {budget}",
+      "view_cart": "查看购物车 / 结账"
     },
     "qty_prompt": {
-      "title": "{item} — 每个 {price}",
       "add1": "添加 +1",
       "add5": "添加 +5",
       "rem1": "移除 -1",
-      "rem_all": "移除全部"
+      "rem_all": "移除全部",
+      "title": "{item} — 每个 {price}"
     },
-    "cart": {
-      "title": "购物车",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "总计: {sum}   剩余预算: {left}",
-      "checkout": "结账"
-    },
-    "alerts": {
-      "added": "已添加 {item} ({price})。剩余预算 {left}。",
-      "removed": "已移除 {item}。剩余预算 {left}。",
-      "max_qty": "{item} 已达到最大数量。",
-      "unique": "{item} 是唯一的；你已经有一个了。",
-      "over_budget": "超出预算；调整你的购物车。"
-    }
+    "title": "装备"
   },
-  "pacediet": {
-    "title": "节奏与信息饮食 — 今日",
-    "menu": {
-      "pace_steady": "节奏: [稳定]",
-      "pace_heated": "节奏:  激烈",
-      "pace_blitz": "节奏:  闪电",
-      "diet_quiet": "信息:  安静",
-      "diet_mixed": "信息: [混合]",
-      "diet_doom": "信息:  末日滚动",
-      "back": "返回"
-    },
-    "announce": {
-      "pace_set": "节奏设置为 {pace} ({sanity} 理智，{pants} 裤子，{chance} 遭遇几率)。",
-      "diet_set": "信息饮食设置为 {diet} ({sanity} 理智，{pants} 裤子，{receipt} 收据几率)。"
-    },
-    "tooltips": {
-      "steady": "距离 ×1.0；理智 0；裤子 0；遭遇 +0%",
-      "heated": "距离 ×1.2；理智 -1；裤子 +3；遭遇 +5%",
-      "blitz": "距离 ×1.4；理智 -2；裤子 +6；遭遇 +10%",
-      "quiet": "收据 -5%；理智 +1；裤子 -2",
-      "mixed": "收据 0%；理智 0；裤子 0",
-      "doom": "收据 +8%；理智 -2；裤子 +4"
-    }
+  "travel": {
+    "next": "前往下一段",
+    "title": "旅行"
+  },
+  "ui": {
+    "continue": "继续",
+    "cta_start": "按任意键开始",
+    "loading": "正在加载… {{pct}}%",
+    "loading_encounters": "正在加载事件…",
+    "select_mode": "选择模式",
+    "skip_to_content": "跳到内容"
   },
   "vehicle": {
-    "title": "车辆状态",
-    "no_active": "没有故障。",
-    "breakdown": "故障 — {part}失效。行程受阻。",
-    "spares": {
-      "tire": "使用备胎",
-      "battery": "使用备用电池",
-      "alt": "使用备用发电机",
-      "pump": "使用备用燃油泵"
-    },
-    "hack_fix": "临时修理（补给品 -3，信誉 -1，天数 +1）",
-    "wait_mechanic": "等待修理工（天数 +1）",
-    "back": "返回",
-    "help": "使用数字键1-5或0返回",
     "announce": {
-      "used_spare": "已使用备用{part}。补给品 -{sup}。",
-      "hack_applied": "已应用临时修理。补给品 -{sup}，信誉 -{cred}，天数 +{day}。",
-      "cleared": "车辆已修理。",
       "blocked": "行程受阻直到修理。",
-      "no_spare": "没有可用的{part}备件。"
+      "cleared": "车辆已修理。",
+      "hack_applied": "已应用临时修理。补给品 -{sup}，信誉 -{cred}，天数 +{day}。",
+      "no_spare": "没有可用的{part}备件。",
+      "used_spare": "已使用备用{part}。补给品 -{sup}。"
     },
+    "back": "返回",
+    "breakdown": "故障 — {part}失效。行程受阻。",
+    "hack_fix": "临时修理（补给品 -3，信誉 -1，天数 +1）",
+    "help": "使用数字键1-5或0返回",
+    "no_active": "没有故障。",
     "parts": {
-      "tire": "轮胎",
-      "battery": "电池",
       "alt": "发电机",
-      "pump": "燃油泵"
-    }
+      "battery": "电池",
+      "pump": "燃油泵",
+      "tire": "轮胎"
+    },
+    "spares": {
+      "alt": "使用备用发电机",
+      "battery": "使用备用电池",
+      "pump": "使用备用燃油泵",
+      "tire": "使用备胎"
+    },
+    "title": "车辆状态",
+    "wait_mechanic": "等待修理工（天数 +1）"
   },
   "weather": {
-    "title": "天气",
     "announce": "天气：{state}。补给{sup}，理智{san}，焦虑{pants}，遭遇{enc}。",
-    "states": {
-      "Clear": "晴朗",
-      "Storm": "风暴",
-      "HeatWave": "热浪",
-      "ColdSnap": "寒潮",
-      "Smoke": "烟雾"
-    },
-    "effects": {
-      "sup": "{val}补给",
-      "san": "{val}理智",
-      "pants": "{val}焦虑",
-      "enc": "{val}%遭遇"
-    },
     "details": {
-      "header": "天气详情：",
-      "state": "• 状态：{state}",
+      "back": "0) 返回",
       "effects": "• 今日效果：{effects}",
       "gear": "• 装备减免：{text}",
+      "header": "天气详情：",
       "notes": "• 备注：{note}",
-      "back": "0) 返回"
+      "state": "• 状态：{state}"
+    },
+    "effects": {
+      "enc": "{val}%遭遇",
+      "pants": "{val}焦虑",
+      "san": "{val}理智",
+      "sup": "{val}补给"
     },
     "gear": {
-      "storm": "雨衣可减少风暴惩罚（rain_resist）。",
+      "cold": "保暖外套可减少寒冷惩罚（cold_resist）。",
       "smoke": "口罩可减少烟雾惩罚（plague_resist）。",
-      "cold": "保暖外套可减少寒冷惩罚（cold_resist）。"
+      "storm": "雨衣可减少风暴惩罚（rain_resist）。"
     },
     "notes": {
       "storm_crossings": "风暴期间过境更加危险。"
-    }
-  },
-  "camp": {
-    "title": "营地",
-    "desc": "选择一个行动。",
-    "repair_vehicle": "修理车辆",
-    "help": "按1-4或0选择选项",
-    "menu": {
-      "rest": "休息（+2理智，+1生命，物资-1，天数+1）",
-      "repair": "修理车辆（如果故障）",
-      "forage": "觅食（50%物资+1 / 30%无 / 20%收据+1）",
-      "therapy": "治疗/记日记（+2理智，消耗1收据，天数+1）[冷却：{days}天]",
-      "close": "关闭",
-      "back": "返回",
-      "use_spare": "使用备件",
-      "hack_fix": "临时修理（物资-{sup}，信誉-{cred}，天数+{day}）"
     },
-    "announce": {
-      "rest": "已休息。理智+2，生命+1，物资-1。天数+1。",
-      "repair_spare": "使用了备件{part}。物资-{sup}。车辆已修理。",
-      "repair_hack": "应用了临时修理。物资-{sup}，信誉-{cred}。天数+{day}。",
-      "forage_sup": "觅食成功：物资+1。",
-      "forage_receipt": "发现有用线索：收据+1。",
-      "forage_none": "觅食但什么都没找到。",
-      "therapy": "你反思并写了日记。理智+2，消耗1收据。天数+1。",
-      "cooldown": "治疗冷却中，还需{days}天。",
-      "no_receipt": "没有可消耗的收据。",
-      "no_breakdown": "没有活跃故障。"
+    "states": {
+      "Clear": "晴朗",
+      "ColdSnap": "寒潮",
+      "HeatWave": "热浪",
+      "Smoke": "烟雾",
+      "Storm": "风暴"
     },
-    "repair": {
-      "title": "车辆修理"
-    },
-    "parts": {
-      "tire": "轮胎",
-      "battery": "电池",
-      "alt": "发电机",
-      "pump": "燃油泵"
-    }
-  },
-  "cross": {
-    "title": "检查站",
-    "prompt": "前方检查站。选择：",
-    "options": {
-      "detour": "绕道 — 天数 {days}，物资 {supplies}，裤子 {pants} (安全)",
-      "bribe": "贿赂 — 费用 {cost} (见政策)",
-      "permit": "许可证 — 花费1个收据或使用记者证 (信誉+1)",
-      "back": "返回"
-    },
-    "desc": {
-      "detour": "保证安全；增加时间和消耗物资；轻微压力。",
-      "bribe": "人物折扣适用；在关闭状态下可能失败。",
-      "permit": "消耗1个收据或使用许可证标签（如果有）。"
-    },
-    "announce": {
-      "detour_applied": "已绕道。天数 {days}，物资 {supplies}，裤子 {pants}。",
-      "bribe_paid_passed": "已付贿赂 {cost}。通行许可。",
-      "bribe_paid_failed": "已付贿赂 {cost} 但失败。天数 {days}，裤子 {pants}。",
-      "permit_used_receipt": "通过收据接受许可证。信誉+1。",
-      "permit_used_tag": "通过标签接受许可证。信誉+1。",
-      "no_receipt_or_tag": "没有收据和许可证标签。",
-      "insufficient_funds": "资金不足。"
-    },
-    "policy": {
-      "shutdown": "关闭生效：贿赂成功率为 {chance}%。"
-    },
-    "types": {
-      "checkpoint": "检查站",
-      "bridge_out": "桥梁中断"
-    }
+    "title": "天气"
   }
 }

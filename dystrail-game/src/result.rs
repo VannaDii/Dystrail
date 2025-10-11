@@ -1,4 +1,6 @@
 //! End game result calculation
+use crate::seed::encode_friendly;
+use crate::state::{CollapseCause, Ending, GameMode, GameState};
 use serde::{Deserialize, Serialize};
 
 /// Configuration for the result screen and scoring system
@@ -21,7 +23,7 @@ pub struct ScoreCfg {
 }
 
 /// Rounding behavior for score calculations
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Rounding {
     /// Round to the nearest integer
@@ -56,46 +58,20 @@ pub struct ResultLimits {
     pub share_persona_maxlen: usize,
 }
 
-/// Possible game ending types
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "lowercase")]
-pub enum Ending {
-    /// Game ended due to pants meter reaching 100%
-    Pants,
-    /// Game ended due to sanity reaching 0 or below
-    Sanity,
-    /// Game ended due to supplies or HP reaching 0 or below
-    Collapse,
-    /// Game ended due to failing the filibuster boss fight
-    BossLoss,
-    /// Game completed successfully
-    Victory,
-}
-
-impl std::fmt::Display for Ending {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Ending::Pants => write!(f, "pants"),
-            Ending::Sanity => write!(f, "sanity"),
-            Ending::Collapse => write!(f, "collapse"),
-            Ending::BossLoss => write!(f, "boss_loss"),
-            Ending::Victory => write!(f, "victory"),
-        }
-    }
-}
-
 /// Complete summary of a game run for display on the result screen
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResultSummary {
     pub ending: Ending,
-    pub headline: String,
-    pub epilogue: String,
+    pub headline_key: String,
+    pub epilogue_key: String,
     pub seed: String,
     pub persona_name: String,
     pub mult_str: String,
     pub mode: String,
     pub dp_badge: bool,
     pub score: i32,
+    pub score_threshold: i32,
+    pub passed_threshold: bool,
     pub days: i32,
     pub encounters: i32,
     pub receipts: i32,
@@ -103,6 +79,9 @@ pub struct ResultSummary {
     pub supplies: i32,
     pub credibility: i32,
     pub pants_pct: i32,
+    pub vehicle_breakdowns: i32,
+    pub miles_traveled: f32,
+    pub malnutrition_days: u32,
 }
 
 impl Default for ResultConfig {
@@ -155,45 +134,221 @@ pub fn load_result_config() -> Result<ResultConfig, Box<dyn std::error::Error>> 
 /// # Errors
 ///
 /// Returns an error if the result summary cannot be generated (currently never fails).
-pub fn result_summary(
-    _gs: &crate::GameState,
-    _cfg: &ResultConfig,
-) -> Result<ResultSummary, String> {
-    // Placeholder implementation
+pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummary, String> {
+    let score = compute_score(gs, &cfg.score, &cfg.multipliers);
+    let threshold = success_threshold(gs.mode);
+    let passed_threshold = score >= threshold;
+
+    let final_ending = determine_final_ending(gs, passed_threshold);
+    let headline_key = headline_key_for(final_ending, &cfg.endings);
+    let epilogue_key = epilogue_key_for(&headline_key);
+
+    let seed = encode_friendly(gs.mode.is_deep(), gs.seed);
+    let persona_name = resolve_persona_name(gs);
+    let mult_val = total_multiplier(gs, &cfg.multipliers);
+    let mult_str = format!("{mult_val:.2}×");
+    let mode_label = mode_display(gs.mode);
+
+    let days = i32::try_from(gs.day.saturating_sub(1)).unwrap_or(0);
+    let encounters = i32::try_from(gs.encounters_resolved).unwrap_or(0);
+    let receipts = i32::try_from(gs.receipts.len()).unwrap_or(0);
+
     Ok(ResultSummary {
-        ending: Ending::Victory,
-        headline: "Game Complete".to_string(),
-        epilogue: "You completed the journey.".to_string(),
-        seed: "CL-PLACEHOLDER00".to_string(),
-        persona_name: "Player".to_string(),
-        mult_str: "1.0x".to_string(),
-        mode: "Classic".to_string(),
-        dp_badge: false,
-        score: 1000,
-        days: 30,
-        encounters: 10,
-        receipts: 5,
-        allies: 3,
-        supplies: 10,
-        credibility: 50,
-        pants_pct: 25,
+        ending: final_ending,
+        headline_key,
+        epilogue_key,
+        seed,
+        persona_name,
+        mult_str,
+        mode: mode_label,
+        dp_badge: gs.mode.is_deep(),
+        score,
+        score_threshold: threshold,
+        passed_threshold,
+        days,
+        encounters,
+        receipts,
+        allies: gs.stats.allies,
+        supplies: gs.stats.supplies,
+        credibility: gs.stats.credibility,
+        pants_pct: gs.stats.pants,
+        vehicle_breakdowns: gs.vehicle_breakdowns,
+        miles_traveled: gs.distance_traveled_actual,
+        malnutrition_days: gs.starvation_days,
     })
 }
 
-/// Select the ending based on strict priority order
 #[must_use]
-pub fn select_ending(gs: &crate::GameState, _cfg: &ResultConfig, boss_won: bool) -> Ending {
-    if gs.stats.pants >= 100 {
-        return Ending::Pants;
+pub fn select_ending(gs: &GameState, cfg: &ResultConfig, boss_won: bool) -> Ending {
+    if let Some(existing) = gs.ending {
+        return existing;
     }
-    if gs.stats.sanity <= 0 {
-        return Ending::Sanity;
+    let score = compute_score(gs, &cfg.score, &cfg.multipliers);
+    determine_final_ending(gs, boss_won || score >= success_threshold(gs.mode))
+}
+
+fn compute_score(gs: &GameState, cfg: &ScoreCfg, mult_cfg: &MultipliersCfg) -> i32 {
+    let stats = &gs.stats;
+    let supplies = stats.supplies.max(0);
+    let hp = stats.hp.max(0);
+    let morale = stats.morale.max(0);
+    let credibility = stats.credibility.max(0);
+    let allies = stats.allies.max(0);
+    let pants = stats.pants.max(0);
+    let days = i32::try_from(gs.day.saturating_sub(1)).unwrap_or(0);
+    let encounters = i32::try_from(gs.encounters_resolved).unwrap_or(0);
+    let receipts = i32::try_from(gs.receipts.len()).unwrap_or(0);
+    let breakdown_penalty = (gs.vehicle_breakdowns * 12).min(600);
+
+    let mut base = supplies * 10
+        + hp * 50
+        + morale * 25
+        + credibility * 15
+        + allies * 5
+        + days * 4
+        + encounters * 6
+        + receipts * 8
+        - breakdown_penalty;
+
+    if pants > cfg.pants_threshold {
+        base -= (pants - cfg.pants_threshold) * cfg.pants_penalty_per_point;
     }
-    if gs.stats.hp <= 0 || gs.stats.supplies <= 0 {
-        return Ending::Collapse;
+
+    base = base.clamp(cfg.final_min, cfg.final_max);
+    let multiplier = total_multiplier(gs, mult_cfg);
+    let scaled = apply_rounding(f64::from(base) * multiplier, cfg.persona_rounding);
+    scaled.clamp(cfg.final_min, cfg.final_max)
+}
+
+fn apply_rounding(value: f64, rounding: Rounding) -> i32 {
+    match rounding {
+        Rounding::Nearest => to_i32(value.round()),
+        Rounding::Down => to_i32(value.floor()),
+        Rounding::Up => to_i32(value.ceil()),
     }
-    if !boss_won {
-        return Ending::BossLoss;
+}
+
+fn to_i32(value: f64) -> i32 {
+    let clamped = value.clamp(f64::from(i32::MIN), f64::from(i32::MAX));
+    #[allow(clippy::cast_possible_truncation, clippy::cast_precision_loss)]
+    {
+        clamped as i32
     }
-    Ending::Victory
+}
+
+fn total_multiplier(gs: &GameState, mult_cfg: &MultipliersCfg) -> f64 {
+    let deep_bonus = if gs.mode.is_deep() {
+        mult_cfg.display_bonus_deep
+    } else {
+        0.0
+    };
+    f64::from((gs.score_mult + deep_bonus).max(0.1))
+}
+
+fn determine_final_ending(gs: &GameState, passed_threshold: bool) -> Ending {
+    if let Some(existing) = gs.ending {
+        return existing;
+    }
+    if passed_threshold {
+        Ending::BossVictory
+    } else {
+        Ending::BossVoteFailed
+    }
+}
+
+fn headline_key_for(ending: Ending, cfg: &EndingCfg) -> String {
+    match ending {
+        Ending::BossVictory => cfg.victory_key.clone(),
+        Ending::BossVoteFailed => cfg.boss_loss_key.clone(),
+        Ending::SanityLoss => cfg.sanity_key.clone(),
+        Ending::VehicleFailure => "result.headline.vehicle_failure".to_string(),
+        Ending::Exposure => "result.headline.exposure".to_string(),
+        Ending::Collapse { cause } => collapse_headline_key(cfg, cause),
+    }
+}
+
+fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
+    match cause {
+        CollapseCause::Panic => cfg.pants_key.clone(),
+        CollapseCause::Hunger => format!("{}_{}", cfg.collapse_key, "hunger"),
+        CollapseCause::Vehicle => format!("{}_{}", cfg.collapse_key, "vehicle"),
+        CollapseCause::Weather => format!("{}_{}", cfg.collapse_key, "weather"),
+        CollapseCause::Breakdown => format!("{}_{}", cfg.collapse_key, "breakdown"),
+    }
+}
+
+fn epilogue_key_for(headline_key: &str) -> String {
+    if let Some(stripped) = headline_key.strip_prefix("result.headline") {
+        format!("result.epilogue{stripped}")
+    } else {
+        "result.epilogue.generic".to_string()
+    }
+}
+
+fn resolve_persona_name(gs: &GameState) -> String {
+    gs.persona_id
+        .clone()
+        .filter(|id| !id.is_empty())
+        .or_else(|| {
+            if gs.party.leader.is_empty() {
+                None
+            } else {
+                Some(gs.party.leader.clone())
+            }
+        })
+        .unwrap_or_else(|| "Traveler".to_string())
+}
+
+fn mode_display(mode: GameMode) -> String {
+    match mode {
+        GameMode::Classic => "Classic".to_string(),
+        GameMode::Deep => "The Deep End".to_string(),
+    }
+}
+
+const SUCCESS_THRESHOLD_CLASSIC: i32 = 1_000;
+const SUCCESS_THRESHOLD_DEEP: i32 = 1_100;
+
+fn success_threshold(mode: GameMode) -> i32 {
+    if mode.is_deep() {
+        SUCCESS_THRESHOLD_DEEP
+    } else {
+        SUCCESS_THRESHOLD_CLASSIC
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn high_score_triggers_victory() {
+        let cfg = ResultConfig::default();
+        let mut state = GameState::default();
+        state.stats.supplies = 20;
+        state.stats.hp = 10;
+        state.stats.morale = 10;
+        state.stats.credibility = 20;
+        state.stats.allies = 5;
+        state.day = 45;
+        state.encounters_resolved = 8;
+
+        let summary = result_summary(&state, &cfg).unwrap();
+        assert!(summary.passed_threshold);
+        assert!(matches!(summary.ending, Ending::BossVictory));
+    }
+
+    #[test]
+    fn hunger_collapse_maps_to_hunger_keys() {
+        #![allow(clippy::field_reassign_with_default)]
+        let cfg = ResultConfig::default();
+        let mut state = GameState::default();
+        state.ending = Some(Ending::Collapse {
+            cause: CollapseCause::Hunger,
+        });
+
+        let summary = result_summary(&state, &cfg).unwrap();
+        assert_eq!(summary.headline_key, "result.headline.collapse_hunger");
+        assert_eq!(summary.epilogue_key, "result.epilogue.collapse_hunger");
+    }
 }

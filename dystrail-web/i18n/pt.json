@@ -2,397 +2,445 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "Início",
+  "boss": {
+    "begin": "Iniciar Chefe",
+    "phases_hint": "Enfrente as fases: Cloture, Pontos de Ordem, Enxurrada de Emendas.",
+    "title": "Chefe do Filibuster"
+  },
+  "camp": {
+    "announce": {
+      "cooldown": "Terapia em cooldown por mais {days} dias.",
+      "forage_none": "Procurou mas não encontrou nada.",
+      "forage_receipt": "Encontrou uma pista útil: Recibos +1.",
+      "forage_sup": "Busca bem-sucedida: Suprimentos +1.",
+      "no_breakdown": "Nenhuma avaria ativa.",
+      "no_receipt": "Nenhum recibo disponível para queimar.",
+      "repair_hack": "Reparo improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}. Dia +{day}.",
+      "repair_spare": "Peça de reposição {part} usada. Suprimentos -{sup}. Veículo reparado.",
+      "rest": "Descansado. Sanidade +2, HP +1, Suprimentos -1. Dia +1.",
+      "therapy": "Você refletiu e escreveu no diário. Sanidade +2, queimou 1 Recibo. Dia +1."
+    },
+    "desc": "Escolha uma ação.",
+    "help": "Pressione 1-4 ou 0 para selecionar uma opção",
+    "menu": {
+      "back": "Voltar",
+      "close": "Fechar",
+      "forage": "Procurar Suprimentos (50% Suprimentos +1 / 30% Nada / 20% Recibos +1)",
+      "hack_fix": "Reparo Improvisado (Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day})",
+      "repair": "Reparar Veículo (se quebrado)",
+      "rest": "Descansar (+2 Sanidade, +1 HP, Suprimentos -1, Dia +1)",
+      "therapy": "Terapia/Diário (+2 Sanidade, queimar 1 Recibo, Dia +1) [cooldown: {days} dias]",
+      "use_spare": "Usar Peça de Reposição"
+    },
+    "parts": {
+      "alt": "Alternador",
+      "battery": "Bateria",
+      "pump": "Bomba de Combustível",
+      "tire": "Pneu"
+    },
+    "repair": {
+      "title": "Reparo do Veículo"
+    },
+    "repair_vehicle": "Reparar Veículo",
+    "title": "Acampamento"
+  },
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "Suborno pago {cost} mas falhou. Dias {days}, Calças {pants}.",
+      "bribe_paid_passed": "Suborno pago {cost}. Passagem concedida.",
+      "detour_applied": "Desvio tomado. Dias {days}, Suprimentos {supplies}, Calças {pants}.",
+      "insufficient_funds": "Fundos insuficientes.",
+      "no_receipt_or_tag": "Sem recibos e sem etiqueta de permissão.",
+      "permit_used_receipt": "Permissão aceita via Recibo. Cred +1.",
+      "permit_used_tag": "Permissão aceita via etiqueta. Cred +1."
+    },
+    "desc": {
+      "bribe": "Desconto de persona se aplica; pode falhar sob Shutdown.",
+      "detour": "Garantido; adiciona tempo e custa suprimentos; pouco estresse.",
+      "permit": "Consome 1 Recibo ou usa etiqueta de permissão se presente."
+    },
+    "options": {
+      "back": "Voltar",
+      "bribe": "Suborno — Custo {cost} (ver política)",
+      "detour": "Desvio — Dias {days}, Suprimentos {supplies}, Calças {pants} (Seguro)",
+      "permit": "Permissão — Gaste 1 Recibo ou use Passe de Imprensa (Cred +1)"
+    },
+    "policy": {
+      "shutdown": "Shutdown em efeito: sucesso de suborno é {chance}%."
+    },
+    "prompt": "Posto de controle à frente. Escolha:",
+    "title": "Posto de Controle",
+    "types": {
+      "bridge_out": "Ponte Cortada",
+      "checkpoint": "Posto de Controle"
+    }
+  },
+  "dialogs": {
+    "close": "Fechar",
+    "confirm": "Tem certeza?"
+  },
+  "eo": {
+    "book_panic": "Pânico dos Livros",
+    "deportation_sweep": "Varredura de Deportação",
+    "doe_eliminated": "Ministério da Educação Eliminado",
+    "gas_stove_police": "Polícia do Fogão a Gás",
+    "prefix": "DE:",
+    "shutdown": "Fechamento do Governo",
+    "tariff_tsunami": "Tsunami Tarifário",
+    "travel_ban_lite": "Proibição de Viagem (leve)",
+    "war_dept_reorg": "Reorganização do Departamento de Guerra"
+  },
+  "footer": {
+    "copyright": "© Dystrail"
+  },
+  "game": {
+    "seed_label": "Semente:"
+  },
+  "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
+    "booting": "Inicializando…",
+    "encounter": "Encontro!",
+    "health_collapse": "Health depleted!",
+    "pants_emergency": "Emergência nacional das calças!",
+    "run_begins": "Partida começa ({{mode}})",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "Semente definida",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
+    "supplies_depleted": "Supplies exhausted!",
+    "traveled": "Viajou",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
+    },
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
+    }
+  },
+  "menu": {
+    "camp": "Acampar",
+    "diet": "Info da Dieta",
+    "help": "Pressione 1–8/0 ou clique em um item. Semente: {{seed}}",
+    "inventory": "Usar Inventário",
+    "pace": "Mudar Ritmo",
+    "quit": "Sair",
+    "selected": "Selecionado",
     "settings": "Configurações",
-    "language": "Idioma"
-  },
-  "ui": {
-    "cta_start": "PRESSIONE QUALQUER TECLA PARA COMEÇAR",
-    "skip_to_content": "Ir para o conteúdo",
-    "select_mode": "Selecionar modo",
-    "loading": "Carregando… {{pct}}%",
-    "loading_encounters": "Carregando encontros…",
-    "continue": "Continuar"
-  },
-  "share": {
-    "code": "Código de compartilhamento",
-    "start_with_code": "Iniciar com código",
-    "code_help": "Formato: CL-WORD00 ou DP-WORD00",
-    "run": "Compartilhar partida"
+    "share": "Salvar/Compartilhar Semente",
+    "status": "Status",
+    "title": "Menu principal",
+    "travel": "Viajar"
   },
   "mode": {
     "classic": "Clássico",
     "deep": "Modo Profundo"
   },
-  "travel": {
-    "title": "Viajar",
-    "next": "Viajar próximo trecho"
+  "nav": {
+    "home": "Início",
+    "language": "Idioma",
+    "settings": "Configurações"
   },
-  "stats": {
-    "day_region": "Dia {{day}} — {{region}}",
-    "hp_short": "HP",
-    "sanity_short": "San",
-    "cred_short": "Cred",
-    "sup_short": "Supr",
-    "mor_short": "Mor",
-    "allies_short": "Aliados",
-    "pants": "Calças {{pct}}%",
-    "pants_label": "Medidor de Calças"
+  "pacediet": {
+    "announce": {
+      "diet_set": "Dieta de info definida para {diet} ({sanity} Sanidade, {pants} Calças, {receipt} chance de recibo).",
+      "pace_set": "Ritmo definido para {pace} ({sanity} Sanidade, {pants} Calças, {chance} chance de encontro)."
+    },
+    "menu": {
+      "back": "Voltar",
+      "diet_doom": "Info:  Rolagem excessiva",
+      "diet_mixed": "Info: [Mista]",
+      "diet_quiet": "Info:  Calma",
+      "pace_blitz": "Ritmo:  Blitz",
+      "pace_heated": "Ritmo:  Intenso",
+      "pace_steady": "Ritmo: [Constante]"
+    },
+    "title": "Ritmo e Dieta de Info — Hoje",
+    "tooltips": {
+      "blitz": "Distância ×1.4; San -2; Calças +6; Encontro +10%",
+      "doom": "Recibos +8%; San -2; Calças +4",
+      "heated": "Distância ×1.2; San -1; Calças +3; Encontro +5%",
+      "mixed": "Recibos 0%; San 0; Calças 0",
+      "quiet": "Recibos -5%; San +1; Calças -2",
+      "steady": "Distância ×1.0; San 0; Calças 0; Encontro +0%"
+    }
+  },
+  "persona": {
+    "choose": "Escolha sua Persona:",
+    "journalist": {
+      "desc": "Crível e engenhoso; vive de recibos.",
+      "name": "Jornalista"
+    },
+    "lobbyist": {
+      "desc": "Conexões reduzem custos.",
+      "name": "Lobista"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% Subornos",
+      "eo_heat_pct": "+{pct}% Calor EO",
+      "receipts_pct": "+{pct}% Recibos",
+      "satire_sustain": "O humor sustenta a sanidade",
+      "store_discount_pct": "-{pct}% Loja"
+    },
+    "mult": "Multiplicador ×{mult}",
+    "organizer": {
+      "desc": "Constrói moral e aliados.",
+      "name": "Organizador"
+    },
+    "preview": "Início: Suprimentos {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Orçamento ${budget}",
+    "preview_wait": "Selecione uma persona para ver detalhes.",
+    "satirist": {
+      "desc": "Aguenta com humor; restaura sanidade.",
+      "name": "Satirista"
+    },
+    "selected_budget_prefix": "Orçamento inicial",
+    "staffer": {
+      "desc": "Equilibrado; sem grandes vantagens.",
+      "name": "Assessor"
+    },
+    "whistleblower": {
+      "desc": "Atrai risco; encontra mais recibos.",
+      "name": "Denunciante"
+    }
   },
   "region": {
+    "beltway": "Periferia",
     "heartland": "Interior",
-    "rustbelt": "Cinturão da Ferrugem",
-    "beltway": "Periferia"
-  },
-  "eo": {
-    "prefix": "DE:",
-    "shutdown": "Fechamento do Governo",
-    "travel_ban_lite": "Proibição de Viagem (leve)",
-    "gas_stove_police": "Polícia do Fogão a Gás",
-    "book_panic": "Pânico dos Livros",
-    "deportation_sweep": "Varredura de Deportação",
-    "tariff_tsunami": "Tsunami Tarifário",
-    "doe_eliminated": "Ministério da Educação Eliminado",
-    "war_dept_reorg": "Reorganização do Departamento de Guerra"
-  },
-  "boss": {
-    "title": "Chefe do Filibuster",
-    "phases_hint": "Enfrente as fases: Cloture, Pontos de Ordem, Enxurrada de Emendas.",
-    "begin": "Iniciar Chefe"
+    "rustbelt": "Cinturão da Ferrugem"
   },
   "result": {
-    "title": "Resultado",
-    "title_aria": "Resultado",
-    "thanks": "Obrigado por jogar",
+    "badges": {
+      "fail": "Fail",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam."
+    },
+    "exhausted": "ESGOTADO",
+    "exhausted_desc": "Você desaba diante do procedimento.",
+    "headline": {
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "vehicle_failure": "VEHICLE DESTROYED"
+    },
+    "labels": {
+      "breakdowns": "Breakdowns",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "passed_threshold": "Boss Vote Ready",
+      "score_threshold": "Score Threshold"
+    },
     "pants_emergency": "EMERGÊNCIA NACIONAL DAS CALÇAS",
     "pants_emergency_desc": "Medidor de Calças chegou a 100% — você falhou gloriosamente.",
     "passed_cloture": "VOCÊ PASSOU O CLOTURE!",
     "passed_cloture_desc": "Sua credibilidade decidiu o dia.",
     "survived_filibuster": "VOCÊ SOBREVIVEU AO FILIBUSTER",
     "survived_filibuster_desc": "Uma marcha surrada mas vitoriosa rumo a DC.",
-    "exhausted": "ESGOTADO",
-    "exhausted_desc": "Você desaba diante do procedimento."
-  },
-  "game": {
-    "seed_label": "Semente:"
-  },
-  "log": {
-    "booting": "Inicializando…",
-    "seed_set": "Semente definida",
-    "traveled": "Viajou",
-    "encounter": "Encontro!",
-    "pants_emergency": "Emergência nacional das calças!",
-    "run_begins": "Partida começa ({{mode}})",
-    "health_collapse": "Health depleted!",
-    "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
+    "thanks": "Obrigado por jogar",
+    "title": "Resultado",
+    "title_aria": "Resultado"
   },
   "save": {
-    "header": "Salvar/Carregar",
-    "title": "Salvar / Carregar",
-    "save": "Salvar agora",
-    "load": "Carregar",
-    "export": "Copiar JSON de exportação",
-    "import_label": "Colar JSON do save",
-    "import_button": "Importar",
     "close": "Fechar",
     "error": "JSON de save inválido",
+    "export": "Copiar JSON de exportação",
+    "header": "Salvar/Carregar",
+    "import_button": "Importar",
+    "import_label": "Colar JSON do save",
+    "load": "Carregar",
     "loaded": "Save carregado",
-    "saved": "Jogo salvo"
+    "save": "Salvar agora",
+    "saved": "Jogo salvo",
+    "title": "Salvar / Carregar"
   },
-  "footer": {
-    "copyright": "© Dystrail"
+  "share": {
+    "code": "Código de compartilhamento",
+    "code_help": "Formato: CL-WORD00 ou DP-WORD00",
+    "run": "Compartilhar partida",
+    "start_with_code": "Iniciar com código"
   },
-  "persona": {
-    "choose": "Escolha sua Persona:",
-    "selected_budget_prefix": "Orçamento inicial",
-    "preview": "Início: Suprimentos {sup} · Cred {cred} · San {san} · Mor {mor} · Aliados {allies} · Orçamento ${budget}",
-    "mult": "Multiplicador ×{mult}",
-    "preview_wait": "Selecione uma persona para ver detalhes.",
-    "journalist": {
-      "name": "Jornalista",
-      "desc": "Crível e engenhoso; vive de recibos."
-    },
-    "organizer": {
-      "name": "Organizador",
-      "desc": "Constrói moral e aliados."
-    },
-    "whistleblower": {
-      "name": "Denunciante",
-      "desc": "Atrai risco; encontra mais recibos."
-    },
-    "lobbyist": {
-      "name": "Lobista",
-      "desc": "Conexões reduzem custos."
-    },
-    "staffer": {
-      "name": "Assessor",
-      "desc": "Equilibrado; sem grandes vantagens."
-    },
-    "satirist": {
-      "name": "Satirista",
-      "desc": "Aguenta com humor; restaura sanidade."
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% Recibos",
-      "store_discount_pct": "-{pct}% Loja",
-      "bribe_discount_pct": "-{pct}% Subornos",
-      "eo_heat_pct": "+{pct}% Calor EO",
-      "satire_sustain": "O humor sustenta a sanidade"
-    }
-  },
-  "menu": {
-    "title": "Menu principal",
-    "help": "Pressione 1–8/0 ou clique em um item. Semente: {{seed}}",
-    "selected": "Selecionado",
-    "travel": "Viajar",
-    "camp": "Acampar",
-    "status": "Status",
-    "pace": "Mudar Ritmo",
-    "diet": "Info da Dieta",
-    "inventory": "Usar Inventário",
-    "share": "Salvar/Compartilhar Semente",
-    "settings": "Configurações",
-    "quit": "Sair"
-  },
-  "dialogs": {
-    "confirm": "Tem certeza?",
-    "close": "Fechar"
+  "stats": {
+    "allies_short": "Aliados",
+    "cred_short": "Cred",
+    "day_region": "Dia {{day}} — {{region}}",
+    "hp_short": "HP",
+    "mor_short": "Mor",
+    "pants": "Calças {{pct}}%",
+    "pants_label": "Medidor de Calças",
+    "sanity_short": "San",
+    "sup_short": "Supr"
   },
   "store": {
-    "title": "Equipamentos",
+    "alerts": {
+      "added": "Adicionado {item} ({price}). Orçamento restante {left}.",
+      "max_qty": "Quantidade máxima atingida para {item}.",
+      "over_budget": "Acima do orçamento; ajuste seu carrinho.",
+      "removed": "Removido {item}. Orçamento restante {left}.",
+      "unique": "{item} é único; você já tem um."
+    },
     "budget": "Orçamento: {amount}",
+    "cart": {
+      "checkout": "Pagar",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "Carrinho",
+      "total": "Total: {sum}   Orçamento restante: {left}"
+    },
     "categories": {
+      "docs": "Documentos e Licenças",
       "fuel_food": "Combustível / Comida",
-      "vehicle": "Peças do Veículo",
       "ppe": "EPI e Roupas",
-      "docs": "Documentos e Licenças"
+      "vehicle": "Peças do Veículo"
     },
     "items": {
-      "rations": {
-        "name": "Pacote de Rações",
-        "desc": "Não perecível. Te mantém em movimento."
-      },
-      "water": {
-        "name": "Galões de Água",
-        "desc": "Hidratação é importante."
-      },
-      "spare_tire": {
-        "name": "Pneu Sobressalente",
-        "desc": "Conserta furos rapidamente."
+      "alternator": {
+        "desc": "Carga restaurada.",
+        "name": "Alternador"
       },
       "battery": {
-        "name": "Bateria",
-        "desc": "Partidas a frio."
-      },
-      "alternator": {
-        "name": "Alternador",
-        "desc": "Carga restaurada."
-      },
-      "fuel_pump": {
-        "name": "Bomba de Combustível",
-        "desc": "Quando o grupo fica sem combustível."
-      },
-      "masks": {
-        "name": "Máscaras",
-        "desc": "Proteção contra fumaça/doença."
+        "desc": "Partidas a frio.",
+        "name": "Bateria"
       },
       "coats": {
-        "name": "Casacos Quentes",
-        "desc": "Resistência ao frio."
+        "desc": "Resistência ao frio.",
+        "name": "Casacos Quentes"
       },
-      "ponchos": {
-        "name": "Ponchos",
-        "desc": "Amigos da tempestade."
-      },
-      "press_pass": {
-        "name": "Carteira de Imprensa",
-        "desc": "Pode agir como licença."
+      "fuel_pump": {
+        "desc": "Quando o grupo fica sem combustível.",
+        "name": "Bomba de Combustível"
       },
       "legal_fund": {
-        "name": "Fundo Legal",
-        "desc": "Protege sua credibilidade."
+        "desc": "Protege sua credibilidade.",
+        "name": "Fundo Legal"
+      },
+      "masks": {
+        "desc": "Proteção contra fumaça/doença.",
+        "name": "Máscaras"
+      },
+      "ponchos": {
+        "desc": "Amigos da tempestade.",
+        "name": "Ponchos"
+      },
+      "press_pass": {
+        "desc": "Pode agir como licença.",
+        "name": "Carteira de Imprensa"
+      },
+      "rations": {
+        "desc": "Não perecível. Te mantém em movimento.",
+        "name": "Pacote de Rações"
+      },
+      "spare_tire": {
+        "desc": "Conserta furos rapidamente.",
+        "name": "Pneu Sobressalente"
+      },
+      "water": {
+        "desc": "Hidratação é importante.",
+        "name": "Galões de Água"
       }
     },
     "menu": {
-      "home": "Equipamentos — Orçamento: {budget}",
-      "view_cart": "Ver Carrinho / Pagar",
+      "back": "Voltar",
       "continue": "Continuar",
-      "back": "Voltar"
+      "home": "Equipamentos — Orçamento: {budget}",
+      "view_cart": "Ver Carrinho / Pagar"
     },
     "qty_prompt": {
-      "title": "{item} — {price} cada",
       "add1": "Adicionar +1",
       "add5": "Adicionar +5",
       "rem1": "Remover -1",
-      "rem_all": "Remover Tudo"
+      "rem_all": "Remover Tudo",
+      "title": "{item} — {price} cada"
     },
-    "cart": {
-      "title": "Carrinho",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "Total: {sum}   Orçamento restante: {left}",
-      "checkout": "Pagar"
-    },
-    "alerts": {
-      "added": "Adicionado {item} ({price}). Orçamento restante {left}.",
-      "removed": "Removido {item}. Orçamento restante {left}.",
-      "max_qty": "Quantidade máxima atingida para {item}.",
-      "unique": "{item} é único; você já tem um.",
-      "over_budget": "Acima do orçamento; ajuste seu carrinho."
-    }
+    "title": "Equipamentos"
   },
-  "pacediet": {
-    "title": "Ritmo e Dieta de Info — Hoje",
-    "menu": {
-      "pace_steady": "Ritmo: [Constante]",
-      "pace_heated": "Ritmo:  Intenso",
-      "pace_blitz": "Ritmo:  Blitz",
-      "diet_quiet": "Info:  Calma",
-      "diet_mixed": "Info: [Mista]",
-      "diet_doom": "Info:  Rolagem excessiva",
-      "back": "Voltar"
-    },
-    "announce": {
-      "pace_set": "Ritmo definido para {pace} ({sanity} Sanidade, {pants} Calças, {chance} chance de encontro).",
-      "diet_set": "Dieta de info definida para {diet} ({sanity} Sanidade, {pants} Calças, {receipt} chance de recibo)."
-    },
-    "tooltips": {
-      "steady": "Distância ×1.0; San 0; Calças 0; Encontro +0%",
-      "heated": "Distância ×1.2; San -1; Calças +3; Encontro +5%",
-      "blitz": "Distância ×1.4; San -2; Calças +6; Encontro +10%",
-      "quiet": "Recibos -5%; San +1; Calças -2",
-      "mixed": "Recibos 0%; San 0; Calças 0",
-      "doom": "Recibos +8%; San -2; Calças +4"
-    }
+  "travel": {
+    "next": "Viajar próximo trecho",
+    "title": "Viajar"
+  },
+  "ui": {
+    "continue": "Continuar",
+    "cta_start": "PRESSIONE QUALQUER TECLA PARA COMEÇAR",
+    "loading": "Carregando… {{pct}}%",
+    "loading_encounters": "Carregando encontros…",
+    "select_mode": "Selecionar modo",
+    "skip_to_content": "Ir para o conteúdo"
   },
   "vehicle": {
-    "title": "Status do Veículo",
-    "no_active": "Nenhuma avaria ativa.",
-    "breakdown": "Avaria — falha de {part}. Viagem bloqueada.",
-    "spares": {
-      "tire": "Usar Pneu Sobressalente",
-      "battery": "Usar Bateria Sobressalente",
-      "alt": "Usar Alternador Sobressalente",
-      "pump": "Usar Bomba de Combustível Sobressalente"
-    },
-    "hack_fix": "Conserto Improvisado (Suprimentos -3, Credibilidade -1, Dia +1)",
-    "wait_mechanic": "Aguardar Mecânico (Dia +1)",
-    "back": "Voltar",
-    "help": "Use as teclas numéricas 1-5 ou 0 para voltar",
     "announce": {
-      "used_spare": "Peça sobressalente {part} usada. Suprimentos -{sup}.",
-      "hack_applied": "Conserto improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day}.",
-      "cleared": "Veículo reparado.",
       "blocked": "Viagem bloqueada até reparação.",
-      "no_spare": "Nenhuma peça sobressalente disponível para {part}."
+      "cleared": "Veículo reparado.",
+      "hack_applied": "Conserto improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day}.",
+      "no_spare": "Nenhuma peça sobressalente disponível para {part}.",
+      "used_spare": "Peça sobressalente {part} usada. Suprimentos -{sup}."
     },
+    "back": "Voltar",
+    "breakdown": "Avaria — falha de {part}. Viagem bloqueada.",
+    "hack_fix": "Conserto Improvisado (Suprimentos -3, Credibilidade -1, Dia +1)",
+    "help": "Use as teclas numéricas 1-5 ou 0 para voltar",
+    "no_active": "Nenhuma avaria ativa.",
     "parts": {
-      "tire": "Pneu",
-      "battery": "Bateria",
       "alt": "Alternador",
-      "pump": "Bomba de Combustível"
-    }
+      "battery": "Bateria",
+      "pump": "Bomba de Combustível",
+      "tire": "Pneu"
+    },
+    "spares": {
+      "alt": "Usar Alternador Sobressalente",
+      "battery": "Usar Bateria Sobressalente",
+      "pump": "Usar Bomba de Combustível Sobressalente",
+      "tire": "Usar Pneu Sobressalente"
+    },
+    "title": "Status do Veículo",
+    "wait_mechanic": "Aguardar Mecânico (Dia +1)"
   },
   "weather": {
-    "title": "Clima",
     "announce": "Clima: {state}. Suprimentos {sup}, Sanidade {san}, Ansiedade {pants}, Encontros {enc}.",
-    "states": {
-      "Clear": "Limpo",
-      "Storm": "Tempestade",
-      "HeatWave": "Onda de Calor",
-      "ColdSnap": "Onda de Frio",
-      "Smoke": "Fumaça"
-    },
-    "effects": {
-      "sup": "{val} Suprimentos",
-      "san": "{val} Sanidade",
-      "pants": "{val} Ansiedade",
-      "enc": "{val}% Encontros"
-    },
     "details": {
-      "header": "Detalhes do Clima:",
-      "state": "• Estado: {state}",
+      "back": "0) Voltar",
       "effects": "• Efeitos hoje: {effects}",
       "gear": "• Mitigação equipamento: {text}",
+      "header": "Detalhes do Clima:",
       "notes": "• Notas: {note}",
-      "back": "0) Voltar"
+      "state": "• Estado: {state}"
+    },
+    "effects": {
+      "enc": "{val}% Encontros",
+      "pants": "{val} Ansiedade",
+      "san": "{val} Sanidade",
+      "sup": "{val} Suprimentos"
     },
     "gear": {
-      "storm": "Capas de chuva reduzem penalidades de tempestade (rain_resist).",
+      "cold": "Casacos quentes reduzem penalidades de frio (cold_resist).",
       "smoke": "Máscaras reduzem penalidades de fumaça (plague_resist).",
-      "cold": "Casacos quentes reduzem penalidades de frio (cold_resist)."
+      "storm": "Capas de chuva reduzem penalidades de tempestade (rain_resist)."
     },
     "notes": {
       "storm_crossings": "Travessias são mais arriscadas durante tempestades."
-    }
-  },
-  "camp": {
-    "title": "Acampamento",
-    "desc": "Escolha uma ação.",
-    "repair_vehicle": "Reparar Veículo",
-    "help": "Pressione 1-4 ou 0 para selecionar uma opção",
-    "menu": {
-      "rest": "Descansar (+2 Sanidade, +1 HP, Suprimentos -1, Dia +1)",
-      "repair": "Reparar Veículo (se quebrado)",
-      "forage": "Procurar Suprimentos (50% Suprimentos +1 / 30% Nada / 20% Recibos +1)",
-      "therapy": "Terapia/Diário (+2 Sanidade, queimar 1 Recibo, Dia +1) [cooldown: {days} dias]",
-      "close": "Fechar",
-      "back": "Voltar",
-      "use_spare": "Usar Peça de Reposição",
-      "hack_fix": "Reparo Improvisado (Suprimentos -{sup}, Credibilidade -{cred}, Dia +{day})"
     },
-    "announce": {
-      "rest": "Descansado. Sanidade +2, HP +1, Suprimentos -1. Dia +1.",
-      "repair_spare": "Peça de reposição {part} usada. Suprimentos -{sup}. Veículo reparado.",
-      "repair_hack": "Reparo improvisado aplicado. Suprimentos -{sup}, Credibilidade -{cred}. Dia +{day}.",
-      "forage_sup": "Busca bem-sucedida: Suprimentos +1.",
-      "forage_receipt": "Encontrou uma pista útil: Recibos +1.",
-      "forage_none": "Procurou mas não encontrou nada.",
-      "therapy": "Você refletiu e escreveu no diário. Sanidade +2, queimou 1 Recibo. Dia +1.",
-      "cooldown": "Terapia em cooldown por mais {days} dias.",
-      "no_receipt": "Nenhum recibo disponível para queimar.",
-      "no_breakdown": "Nenhuma avaria ativa."
+    "states": {
+      "Clear": "Limpo",
+      "ColdSnap": "Onda de Frio",
+      "HeatWave": "Onda de Calor",
+      "Smoke": "Fumaça",
+      "Storm": "Tempestade"
     },
-    "repair": {
-      "title": "Reparo do Veículo"
-    },
-    "parts": {
-      "tire": "Pneu",
-      "battery": "Bateria",
-      "alt": "Alternador",
-      "pump": "Bomba de Combustível"
-    }
-  },
-  "cross": {
-    "title": "Posto de Controle",
-    "prompt": "Posto de controle à frente. Escolha:",
-    "options": {
-      "detour": "Desvio — Dias {days}, Suprimentos {supplies}, Calças {pants} (Seguro)",
-      "bribe": "Suborno — Custo {cost} (ver política)",
-      "permit": "Permissão — Gaste 1 Recibo ou use Passe de Imprensa (Cred +1)",
-      "back": "Voltar"
-    },
-    "desc": {
-      "detour": "Garantido; adiciona tempo e custa suprimentos; pouco estresse.",
-      "bribe": "Desconto de persona se aplica; pode falhar sob Shutdown.",
-      "permit": "Consome 1 Recibo ou usa etiqueta de permissão se presente."
-    },
-    "announce": {
-      "detour_applied": "Desvio tomado. Dias {days}, Suprimentos {supplies}, Calças {pants}.",
-      "bribe_paid_passed": "Suborno pago {cost}. Passagem concedida.",
-      "bribe_paid_failed": "Suborno pago {cost} mas falhou. Dias {days}, Calças {pants}.",
-      "permit_used_receipt": "Permissão aceita via Recibo. Cred +1.",
-      "permit_used_tag": "Permissão aceita via etiqueta. Cred +1.",
-      "no_receipt_or_tag": "Sem recibos e sem etiqueta de permissão.",
-      "insufficient_funds": "Fundos insuficientes."
-    },
-    "policy": {
-      "shutdown": "Shutdown em efeito: sucesso de suborno é {chance}%."
-    },
-    "types": {
-      "checkpoint": "Posto de Controle",
-      "bridge_out": "Ponte Cortada"
-    }
+    "title": "Clima"
   }
 }

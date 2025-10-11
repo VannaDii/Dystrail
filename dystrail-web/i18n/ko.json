@@ -2,434 +2,474 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "홈",
-    "settings": "설정",
-    "language": "언어"
+  "boss": {
+    "begin": "보스 시작",
+    "phases_hint": "단계를 맞서라: 클로처, 의사진행발언, 수정안 홍수.",
+    "title": "필리버스터 보스"
   },
-  "ui": {
-    "cta_start": "시작하려면 아무 키나 누르세요",
-    "skip_to_content": "콘텐츠로 건너뛰기",
-    "select_mode": "모드 선택",
-    "loading": "로딩 중… {{pct}}%",
-    "loading_encounters": "이벤트 로딩 중…",
-    "continue": "계속"
+  "camp": {
+    "announce": {
+      "cooldown": "치료는 {days}일 더 쿨다운 중.",
+      "forage_none": "수색했지만 아무것도 찾지 못함.",
+      "forage_receipt": "유용한 단서 발견: 증거 +1.",
+      "forage_sup": "수색 성공: 보급품 +1.",
+      "no_breakdown": "활성 고장이 없음.",
+      "no_receipt": "소모할 증거가 없음.",
+      "repair_hack": "임시 수리 적용. 보급품 -{sup}, 신뢰도 -{cred}. 일수 +{day}.",
+      "repair_spare": "예비 {part} 사용. 보급품 -{sup}. 차량 수리됨.",
+      "rest": "휴식함. 정신력 +2, 체력 +1, 보급품 -1. 일수 +1.",
+      "therapy": "일기를 쓰고 성찰했습니다. 정신력 +2, 증거 1 소모. 일수 +1."
+    },
+    "desc": "행동을 선택하세요.",
+    "help": "1-4 또는 0을 눌러 옵션을 선택하세요",
+    "menu": {
+      "back": "뒤로",
+      "close": "닫기",
+      "forage": "수색 (50% 보급품 +1 / 30% 없음 / 20% 증거 +1)",
+      "hack_fix": "임시 수리 (보급품 -{sup}, 신뢰도 -{cred}, 일수 +{day})",
+      "repair": "차량 수리 (고장시)",
+      "rest": "휴식 (+2 정신력, +1 체력, 보급품 -1, 일수 +1)",
+      "therapy": "치료/일기 (+2 정신력, 증거 1 소모, 일수 +1) [쿨다운: {days}일]",
+      "use_spare": "예비 부품 사용"
+    },
+    "parts": {
+      "alt": "오르터네이터",
+      "battery": "배터리",
+      "pump": "연료 펌프",
+      "tire": "타이어"
+    },
+    "repair": {
+      "title": "차량 수리"
+    },
+    "repair_vehicle": "차량 수리",
+    "title": "캠프"
   },
-  "share": {
-    "code": "공유 코드",
-    "start_with_code": "코드로 시작",
-    "code_help": "형식: CL-WORD00 또는 DP-WORD00",
-    "run": "플레이 공유"
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "뇌물 {cost} 지불했지만 실패. 일수 {days}, 바지 {pants}.",
+      "bribe_paid_passed": "뇌물 {cost} 지불. 통과 허가됨.",
+      "detour_applied": "우회 선택. 일수 {days}, 보급품 {supplies}, 바지 {pants}.",
+      "insufficient_funds": "자금 부족.",
+      "no_receipt_or_tag": "증거도 허가 태그도 없음.",
+      "permit_used_receipt": "증거로 허가 승인. 신뢰 +1.",
+      "permit_used_tag": "태그로 허가 승인. 신뢰 +1."
+    },
+    "desc": {
+      "bribe": "페르소나 할인 적용; 셧다운시 실패 가능.",
+      "detour": "보장됨; 시간 추가 및 보급품 소모; 작은 스트레스.",
+      "permit": "증거 1을 소모하거나 허가 태그가 있으면 사용."
+    },
+    "options": {
+      "back": "뒤로",
+      "bribe": "뇌물 — 비용 {cost} (정책 참조)",
+      "detour": "우회 — 일수 {days}, 보급품 {supplies}, 바지 {pants} (안전)",
+      "permit": "허가증 — 증거 1 소모 또는 기자증 사용 (신뢰 +1)"
+    },
+    "policy": {
+      "shutdown": "셧다운 시행 중: 뇌물 성공률 {chance}%."
+    },
+    "prompt": "앞에 검문소. 선택하세요:",
+    "title": "검문소",
+    "types": {
+      "bridge_out": "다리 차단",
+      "checkpoint": "검문소"
+    }
   },
-  "mode": {
-    "classic": "클래식",
-    "deep": "디프 엔드"
-  },
-  "travel": {
-    "title": "여행",
-    "next": "다음 구간 여행"
-  },
-  "stats": {
-    "day_region": "{{day}}일차 — {{region}}",
-    "hp_short": "체력",
-    "sanity_short": "정신",
-    "cred_short": "신뢰",
-    "sup_short": "보급",
-    "mor_short": "사기",
-    "allies_short": "동맹",
-    "pants": "바지 {{pct}}%",
-    "pants_label": "바지 미터"
-  },
-  "region": {
-    "heartland": "중부지방",
-    "rustbelt": "러스트벨트",
-    "beltway": "벨트웨이"
+  "dialogs": {
+    "close": "닫기",
+    "confirm": "확실한가요?"
   },
   "eo": {
-    "prefix": "EO:",
-    "shutdown": "정부 셧다운",
-    "travel_ban_lite": "여행금지 라이트",
-    "gas_stove_police": "가스레인지 경찰",
     "book_panic": "책 공포",
     "deportation_sweep": "추방 소탕",
-    "tariff_tsunami": "관세 쓰나미",
     "doe_eliminated": "교육부 폐지",
+    "gas_stove_police": "가스레인지 경찰",
+    "prefix": "EO:",
+    "shutdown": "정부 셧다운",
+    "tariff_tsunami": "관세 쓰나미",
+    "travel_ban_lite": "여행금지 라이트",
     "war_dept_reorg": "국방부 개편"
   },
-  "boss": {
-    "title": "필리버스터 보스",
-    "phases_hint": "단계를 맞서라: 클로처, 의사진행발언, 수정안 홍수.",
-    "begin": "보스 시작"
-  },
-  "result": {
-    "title": "결과",
-    "title_aria": "결과",
-    "headline": {
-      "victory": "클로처를 통과했습니다!",
-      "boss_loss": "필리버스터에게 패배했습니다",
-      "pants": "국가 바지 비상사태",
-      "sanity": "정신력 파괴",
-      "collapse": "계단에서 쓰러짐"
-    },
-    "badges": {
-      "mode_deep": "+5% (표시만)"
-    },
-    "labels": {
-      "seed": "시드",
-      "persona": "페르소나",
-      "mode": "모드",
-      "score": "점수",
-      "stats": "통계",
-      "days": "일수",
-      "encounters": "이벤트",
-      "receipts": "증거",
-      "allies": "동맹",
-      "supplies": "보급품",
-      "credibility": "신뢰도",
-      "pants_pct": "바지"
-    },
-    "epilogue": {
-      "victory": "역사가들이 당신의 증거를 인용할 것입니다. 로비스트들이 당신의 이름을 저주합니다.",
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
-      "pants": "자막이 나머지를 해냈습니다. GIF는 영원합니다.",
-      "sanity": "상원이 하기 전에 부조리가 당신을 무너뜨렸습니다.",
-      "collapse": "계단에 도달했지만 피니시라인에는 도달하지 못했습니다. 다음 시도."
-    },
-    "menu": {
-      "copy_share": "공유 텍스트 복사",
-      "copy_seed": "시드 복사",
-      "replay_seed": "이 시드 다시 플레이",
-      "new_run": "새 플레이 (랜덤 시드)",
-      "export": "세이브 내보내기",
-      "title": "제목"
-    },
-    "share": {
-      "template": "Dystrail — {headline} · 점수 {score} · 시드 {seed} · 페르소나 {persona} ({mult}) · 모드 {mode}"
-    },
-    "announce": {
-      "copied": "클립보드에 복사됨.",
-      "copy_failed": "복사 실패. 수동으로 복사해주세요."
-    }
+  "footer": {
+    "copyright": "© Dystrail"
   },
   "game": {
     "seed_label": "시드:"
   },
   "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
     "booting": "부팅 중…",
-    "seed_set": "시드 설정됨",
-    "traveled": "여행함",
     "encounter": "이벤트!",
+    "health_collapse": "Health depleted!",
     "pants_emergency": "국가 바지 비상사태!",
     "run_begins": "플레이 시작 ({{mode}})",
-    "health_collapse": "Health depleted!",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "시드 설정됨",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
     "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
-  },
-  "save": {
-    "header": "저장/로드",
-    "title": "저장 / 로드",
-    "save": "지금 저장",
-    "load": "로드",
-    "export": "내보내기 JSON 복사",
-    "import_label": "세이브 JSON 붙여넣기",
-    "import_button": "가져오기",
-    "close": "닫기",
-    "error": "유효하지 않은 세이브 JSON",
-    "loaded": "세이브 로드됨",
-    "saved": "게임 저장됨"
-  },
-  "footer": {
-    "copyright": "© Dystrail"
-  },
-  "persona": {
-    "choose": "페르소나를 선택하세요:",
-    "selected_budget_prefix": "시작 예산",
-    "preview": "시작: 보급품 {sup} · 신뢰 {cred} · 정신 {san} · 사기 {mor} · 동맹 {allies} · 예산 ${budget}",
-    "mult": "배수 ×{mult}",
-    "preview_wait": "세부사항을 보려면 페르소나를 선택하세요.",
-    "journalist": {
-      "name": "기자",
-      "desc": "신뢰할 수 있고 수완이 좋음; 증거로 번영."
+    "traveled": "여행함",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
     },
-    "organizer": {
-      "name": "조직가",
-      "desc": "사기와 동맹을 구축."
-    },
-    "whistleblower": {
-      "name": "내부고발자",
-      "desc": "주목을 끔; 더 많은 증거를 찾음."
-    },
-    "lobbyist": {
-      "name": "로비스트",
-      "desc": "연결고리가 비용을 줄임."
-    },
-    "staffer": {
-      "name": "스태프",
-      "desc": "균형잡힌; 강한 특전 없음."
-    },
-    "satirist": {
-      "name": "풍자가",
-      "desc": "유머로 대처; 정신력 회복."
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% 증거",
-      "store_discount_pct": "-{pct}% 상점",
-      "bribe_discount_pct": "-{pct}% 뇌물",
-      "eo_heat_pct": "+{pct}% EO 열기",
-      "satire_sustain": "유머가 정신력을 유지"
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
     }
   },
   "menu": {
-    "title": "메인 메뉴",
-    "help": "1–8/0을 누르거나 항목을 클릭하세요. 시드: {{seed}}",
-    "selected": "선택됨",
-    "travel": "여행",
     "camp": "캠프",
-    "status": "상태",
-    "pace": "속도 변경",
     "diet": "정보 다이어트",
+    "help": "1–8/0을 누르거나 항목을 클릭하세요. 시드: {{seed}}",
     "inventory": "인벤토리 사용",
-    "share": "시드 저장/공유",
+    "pace": "속도 변경",
+    "quit": "종료",
+    "selected": "선택됨",
     "settings": "설정",
-    "quit": "종료"
+    "share": "시드 저장/공유",
+    "status": "상태",
+    "title": "메인 메뉴",
+    "travel": "여행"
   },
-  "dialogs": {
-    "confirm": "확실한가요?",
-    "close": "닫기"
+  "mode": {
+    "classic": "클래식",
+    "deep": "디프 엔드"
+  },
+  "nav": {
+    "home": "홈",
+    "language": "언어",
+    "settings": "설정"
+  },
+  "pacediet": {
+    "announce": {
+      "diet_set": "다이어트를 {diet}로 설정 ({sanity} 정신력, {pants} 바지, {receipt} 증거 확률).",
+      "pace_set": "속도를 {pace}로 설정 ({sanity} 정신력, {pants} 바지, {chance} 이벤트 확률)."
+    },
+    "menu": {
+      "back": "뒤로",
+      "diet_doom": "다이어트:  파멸스크롤",
+      "diet_mixed": "다이어트: [혼합]",
+      "diet_quiet": "다이어트:  조용",
+      "pace_blitz": "속도:  번개",
+      "pace_heated": "속도:  가열",
+      "pace_steady": "속도: [안정]"
+    },
+    "title": "속도 & 정보다이어트 — 오늘",
+    "tooltips": {
+      "blitz": "거리 x1.4; 정신 -2; 바지 +6; 이벤트 +10%",
+      "doom": "증거 +8%; 정신 -2; 바지 +4",
+      "heated": "거리 x1.2; 정신 -1; 바지 +3; 이벤트 +5%",
+      "mixed": "증거 0%; 정신 0; 바지 0",
+      "quiet": "증거 -5%; 정신 +1; 바지 -2",
+      "steady": "거리 x1.0; 정신 0; 바지 0; 이벤트 +0%"
+    }
+  },
+  "persona": {
+    "choose": "페르소나를 선택하세요:",
+    "journalist": {
+      "desc": "신뢰할 수 있고 수완이 좋음; 증거로 번영.",
+      "name": "기자"
+    },
+    "lobbyist": {
+      "desc": "연결고리가 비용을 줄임.",
+      "name": "로비스트"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% 뇌물",
+      "eo_heat_pct": "+{pct}% EO 열기",
+      "receipts_pct": "+{pct}% 증거",
+      "satire_sustain": "유머가 정신력을 유지",
+      "store_discount_pct": "-{pct}% 상점"
+    },
+    "mult": "배수 ×{mult}",
+    "organizer": {
+      "desc": "사기와 동맹을 구축.",
+      "name": "조직가"
+    },
+    "preview": "시작: 보급품 {sup} · 신뢰 {cred} · 정신 {san} · 사기 {mor} · 동맹 {allies} · 예산 ${budget}",
+    "preview_wait": "세부사항을 보려면 페르소나를 선택하세요.",
+    "satirist": {
+      "desc": "유머로 대처; 정신력 회복.",
+      "name": "풍자가"
+    },
+    "selected_budget_prefix": "시작 예산",
+    "staffer": {
+      "desc": "균형잡힌; 강한 특전 없음.",
+      "name": "스태프"
+    },
+    "whistleblower": {
+      "desc": "주목을 끔; 더 많은 증거를 찾음.",
+      "name": "내부고발자"
+    }
+  },
+  "region": {
+    "beltway": "벨트웨이",
+    "heartland": "중부지방",
+    "rustbelt": "러스트벨트"
+  },
+  "result": {
+    "announce": {
+      "copied": "클립보드에 복사됨.",
+      "copy_failed": "복사 실패. 수동으로 복사해주세요."
+    },
+    "badges": {
+      "fail": "Fail",
+      "mode_deep": "+5% (표시만)",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "collapse": "계단에 도달했지만 피니시라인에는 도달하지 못했습니다. 다음 시도.",
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "pants": "자막이 나머지를 해냈습니다. GIF는 영원합니다.",
+      "sanity": "상원이 하기 전에 부조리가 당신을 무너뜨렸습니다.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "victory": "역사가들이 당신의 증거를 인용할 것입니다. 로비스트들이 당신의 이름을 저주합니다."
+    },
+    "headline": {
+      "boss_loss": "필리버스터에게 패배했습니다",
+      "collapse": "계단에서 쓰러짐",
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "pants": "국가 바지 비상사태",
+      "sanity": "정신력 파괴",
+      "vehicle_failure": "VEHICLE DESTROYED",
+      "victory": "클로처를 통과했습니다!"
+    },
+    "labels": {
+      "allies": "동맹",
+      "breakdowns": "Breakdowns",
+      "credibility": "신뢰도",
+      "days": "일수",
+      "encounters": "이벤트",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "mode": "모드",
+      "pants_pct": "바지",
+      "passed_threshold": "Boss Vote Ready",
+      "persona": "페르소나",
+      "receipts": "증거",
+      "score": "점수",
+      "score_threshold": "Score Threshold",
+      "seed": "시드",
+      "stats": "통계",
+      "supplies": "보급품"
+    },
+    "menu": {
+      "copy_seed": "시드 복사",
+      "copy_share": "공유 텍스트 복사",
+      "export": "세이브 내보내기",
+      "new_run": "새 플레이 (랜덤 시드)",
+      "replay_seed": "이 시드 다시 플레이",
+      "title": "제목"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · 점수 {score} · 시드 {seed} · 페르소나 {persona} ({mult}) · 모드 {mode}"
+    },
+    "title": "결과",
+    "title_aria": "결과"
+  },
+  "save": {
+    "close": "닫기",
+    "error": "유효하지 않은 세이브 JSON",
+    "export": "내보내기 JSON 복사",
+    "header": "저장/로드",
+    "import_button": "가져오기",
+    "import_label": "세이브 JSON 붙여넣기",
+    "load": "로드",
+    "loaded": "세이브 로드됨",
+    "save": "지금 저장",
+    "saved": "게임 저장됨",
+    "title": "저장 / 로드"
+  },
+  "share": {
+    "code": "공유 코드",
+    "code_help": "형식: CL-WORD00 또는 DP-WORD00",
+    "run": "플레이 공유",
+    "start_with_code": "코드로 시작"
+  },
+  "stats": {
+    "allies_short": "동맹",
+    "cred_short": "신뢰",
+    "day_region": "{{day}}일차 — {{region}}",
+    "hp_short": "체력",
+    "mor_short": "사기",
+    "pants": "바지 {{pct}}%",
+    "pants_label": "바지 미터",
+    "sanity_short": "정신",
+    "sup_short": "보급"
   },
   "store": {
-    "title": "장비",
+    "alerts": {
+      "added": "{item} ({price}) 추가됨. 남은 예산 {left}.",
+      "max_qty": "{item}의 최대 수량에 도달.",
+      "over_budget": "예산 초과; 장바구니를 조정하세요.",
+      "removed": "{item} 제거됨. 남은 예산 {left}.",
+      "unique": "{item}은 고유함; 이미 하나 보유 중."
+    },
     "budget": "예산: {amount}",
+    "cart": {
+      "checkout": "결제",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "장바구니",
+      "total": "총합: {sum}   남은 예산: {left}"
+    },
     "categories": {
+      "docs": "문서 & 허가증",
       "fuel_food": "연료 / 음식",
-      "vehicle": "차량 부품",
       "ppe": "보호장비 & 의류",
-      "docs": "문서 & 허가증"
+      "vehicle": "차량 부품"
     },
     "items": {
-      "rations": {
-        "name": "식량 팩",
-        "desc": "보존식. 계속 나아가게 해줌."
-      },
-      "water": {
-        "name": "물통",
-        "desc": "수분 공급이 중요."
-      },
-      "spare_tire": {
-        "name": "스페어 타이어",
-        "desc": "펑크를 빨리 수리."
+      "alternator": {
+        "desc": "충전 복원.",
+        "name": "오르터네이터"
       },
       "battery": {
-        "name": "배터리",
-        "desc": "콜드 스타트."
-      },
-      "alternator": {
-        "name": "오르터네이터",
-        "desc": "충전 복원."
-      },
-      "fuel_pump": {
-        "name": "연료 펌프",
-        "desc": "파티가 끝날 때."
-      },
-      "masks": {
-        "name": "마스크",
-        "desc": "연기/질병 보호."
+        "desc": "콜드 스타트.",
+        "name": "배터리"
       },
       "coats": {
-        "name": "따뜻한 코트",
-        "desc": "추위 저항력."
+        "desc": "추위 저항력.",
+        "name": "따뜻한 코트"
       },
-      "ponchos": {
-        "name": "판초",
-        "desc": "폭풍 친화적."
-      },
-      "press_pass": {
-        "name": "기자증",
-        "desc": "허가증 역할 가능."
+      "fuel_pump": {
+        "desc": "파티가 끝날 때.",
+        "name": "연료 펌프"
       },
       "legal_fund": {
-        "name": "법적 기금",
-        "desc": "신뢰도 버퍼."
+        "desc": "신뢰도 버퍼.",
+        "name": "법적 기금"
+      },
+      "masks": {
+        "desc": "연기/질병 보호.",
+        "name": "마스크"
+      },
+      "ponchos": {
+        "desc": "폭풍 친화적.",
+        "name": "판초"
+      },
+      "press_pass": {
+        "desc": "허가증 역할 가능.",
+        "name": "기자증"
+      },
+      "rations": {
+        "desc": "보존식. 계속 나아가게 해줌.",
+        "name": "식량 팩"
+      },
+      "spare_tire": {
+        "desc": "펑크를 빨리 수리.",
+        "name": "스페어 타이어"
+      },
+      "water": {
+        "desc": "수분 공급이 중요.",
+        "name": "물통"
       }
     },
     "menu": {
-      "home": "장비 — 예산: {budget}",
-      "view_cart": "장바구니 보기 / 결제",
+      "back": "뒤로",
       "continue": "계속",
-      "back": "뒤로"
+      "home": "장비 — 예산: {budget}",
+      "view_cart": "장바구니 보기 / 결제"
     },
     "qty_prompt": {
-      "title": "{item} — 개당 {price}",
       "add1": "+1 추가",
       "add5": "+5 추가",
       "rem1": "-1 제거",
-      "rem_all": "모두 제거"
+      "rem_all": "모두 제거",
+      "title": "{item} — 개당 {price}"
     },
-    "cart": {
-      "title": "장바구니",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "총합: {sum}   남은 예산: {left}",
-      "checkout": "결제"
-    },
-    "alerts": {
-      "added": "{item} ({price}) 추가됨. 남은 예산 {left}.",
-      "removed": "{item} 제거됨. 남은 예산 {left}.",
-      "max_qty": "{item}의 최대 수량에 도달.",
-      "unique": "{item}은 고유함; 이미 하나 보유 중.",
-      "over_budget": "예산 초과; 장바구니를 조정하세요."
-    }
+    "title": "장비"
   },
-  "pacediet": {
-    "title": "속도 & 정보다이어트 — 오늘",
-    "menu": {
-      "pace_steady": "속도: [안정]",
-      "pace_heated": "속도:  가열",
-      "pace_blitz": "속도:  번개",
-      "diet_quiet": "다이어트:  조용",
-      "diet_mixed": "다이어트: [혼합]",
-      "diet_doom": "다이어트:  파멸스크롤",
-      "back": "뒤로"
-    },
-    "announce": {
-      "pace_set": "속도를 {pace}로 설정 ({sanity} 정신력, {pants} 바지, {chance} 이벤트 확률).",
-      "diet_set": "다이어트를 {diet}로 설정 ({sanity} 정신력, {pants} 바지, {receipt} 증거 확률)."
-    },
-    "tooltips": {
-      "steady": "거리 x1.0; 정신 0; 바지 0; 이벤트 +0%",
-      "heated": "거리 x1.2; 정신 -1; 바지 +3; 이벤트 +5%",
-      "blitz": "거리 x1.4; 정신 -2; 바지 +6; 이벤트 +10%",
-      "quiet": "증거 -5%; 정신 +1; 바지 -2",
-      "mixed": "증거 0%; 정신 0; 바지 0",
-      "doom": "증거 +8%; 정신 -2; 바지 +4"
-    }
+  "travel": {
+    "next": "다음 구간 여행",
+    "title": "여행"
   },
-  "camp": {
-    "title": "캠프",
-    "desc": "행동을 선택하세요.",
-    "repair_vehicle": "차량 수리",
-    "help": "1-4 또는 0을 눌러 옵션을 선택하세요",
-    "menu": {
-      "rest": "휴식 (+2 정신력, +1 체력, 보급품 -1, 일수 +1)",
-      "repair": "차량 수리 (고장시)",
-      "forage": "수색 (50% 보급품 +1 / 30% 없음 / 20% 증거 +1)",
-      "therapy": "치료/일기 (+2 정신력, 증거 1 소모, 일수 +1) [쿨다운: {days}일]",
-      "close": "닫기",
-      "back": "뒤로",
-      "use_spare": "예비 부품 사용",
-      "hack_fix": "임시 수리 (보급품 -{sup}, 신뢰도 -{cred}, 일수 +{day})"
-    },
-    "announce": {
-      "rest": "휴식함. 정신력 +2, 체력 +1, 보급품 -1. 일수 +1.",
-      "repair_spare": "예비 {part} 사용. 보급품 -{sup}. 차량 수리됨.",
-      "repair_hack": "임시 수리 적용. 보급품 -{sup}, 신뢰도 -{cred}. 일수 +{day}.",
-      "forage_sup": "수색 성공: 보급품 +1.",
-      "forage_receipt": "유용한 단서 발견: 증거 +1.",
-      "forage_none": "수색했지만 아무것도 찾지 못함.",
-      "therapy": "일기를 쓰고 성찰했습니다. 정신력 +2, 증거 1 소모. 일수 +1.",
-      "cooldown": "치료는 {days}일 더 쿨다운 중.",
-      "no_receipt": "소모할 증거가 없음.",
-      "no_breakdown": "활성 고장이 없음."
-    },
-    "repair": {
-      "title": "차량 수리"
-    },
-    "parts": {
-      "tire": "타이어",
-      "battery": "배터리",
-      "alt": "오르터네이터",
-      "pump": "연료 펌프"
-    }
+  "ui": {
+    "continue": "계속",
+    "cta_start": "시작하려면 아무 키나 누르세요",
+    "loading": "로딩 중… {{pct}}%",
+    "loading_encounters": "이벤트 로딩 중…",
+    "select_mode": "모드 선택",
+    "skip_to_content": "콘텐츠로 건너뛰기"
   },
   "vehicle": {
-    "title": "차량 상태",
-    "no_active": "활성 고장이 없음.",
-    "breakdown": "고장 — {part} 실패. 여행이 차단됨.",
-    "spares": {
-      "tire": "예비 타이어 사용",
-      "battery": "예비 배터리 사용",
-      "alt": "예비 오르터네이터 사용",
-      "pump": "예비 연료 펌프 사용"
-    },
-    "hack_fix": "임시 수리 (보급품 -3, 신뢰도 -1, 일수 +1)",
-    "wait_mechanic": "정비공 대기 (일수 +1)",
-    "back": "뒤로",
-    "help": "숫자키 1-5 또는 0으로 뒤로",
     "announce": {
-      "used_spare": "예비 {part} 사용. 보급품 -{sup}.",
-      "hack_applied": "임시 수리 적용. 보급품 -{sup}, 신뢰도 -{cred}, 일수 +{day}.",
-      "cleared": "차량 수리됨.",
       "blocked": "수리할 때까지 여행 차단.",
-      "no_spare": "{part}용 예비 부품이 없음."
+      "cleared": "차량 수리됨.",
+      "hack_applied": "임시 수리 적용. 보급품 -{sup}, 신뢰도 -{cred}, 일수 +{day}.",
+      "no_spare": "{part}용 예비 부품이 없음.",
+      "used_spare": "예비 {part} 사용. 보급품 -{sup}."
     },
+    "back": "뒤로",
+    "breakdown": "고장 — {part} 실패. 여행이 차단됨.",
+    "hack_fix": "임시 수리 (보급품 -3, 신뢰도 -1, 일수 +1)",
+    "help": "숫자키 1-5 또는 0으로 뒤로",
+    "no_active": "활성 고장이 없음.",
     "parts": {
-      "tire": "타이어",
-      "battery": "배터리",
       "alt": "오르터네이터",
-      "pump": "연료 펌프"
-    }
+      "battery": "배터리",
+      "pump": "연료 펌프",
+      "tire": "타이어"
+    },
+    "spares": {
+      "alt": "예비 오르터네이터 사용",
+      "battery": "예비 배터리 사용",
+      "pump": "예비 연료 펌프 사용",
+      "tire": "예비 타이어 사용"
+    },
+    "title": "차량 상태",
+    "wait_mechanic": "정비공 대기 (일수 +1)"
   },
   "weather": {
-    "title": "날씨",
     "announce": "날씨: {state}. 보급품 {sup}, 정신력 {san}, 바지 {pants}, 이벤트 {enc}.",
-    "states": {
-      "Clear": "맑음",
-      "Storm": "폭풍",
-      "HeatWave": "폭염",
-      "ColdSnap": "한파",
-      "Smoke": "연기"
-    },
-    "effects": {
-      "sup": "{val} 보급품",
-      "san": "{val} 정신력",
-      "pants": "{val} 바지",
-      "enc": "{val}% 이벤트"
-    },
     "details": {
-      "header": "날씨 세부사항:",
-      "state": "• 상태: {state}",
+      "back": "0) 뒤로",
       "effects": "• 오늘의 효과: {effects}",
       "gear": "• 장비 완화: {text}",
+      "header": "날씨 세부사항:",
       "notes": "• 참고: {note}",
-      "back": "0) 뒤로"
+      "state": "• 상태: {state}"
+    },
+    "effects": {
+      "enc": "{val}% 이벤트",
+      "pants": "{val} 바지",
+      "san": "{val} 정신력",
+      "sup": "{val} 보급품"
     },
     "gear": {
-      "storm": "판초가 폭풍 페널티를 줄임 (rain_resist).",
+      "cold": "따뜻한 코트가 추위 페널티를 줄임 (cold_resist).",
       "smoke": "마스크가 연기 페널티를 줄임 (plague_resist).",
-      "cold": "따뜻한 코트가 추위 페널티를 줄임 (cold_resist)."
+      "storm": "판초가 폭풍 페널티를 줄임 (rain_resist)."
     },
     "notes": {
       "storm_crossings": "폭풍 중에는 횡단이 더 위험함."
-    }
-  },
-  "cross": {
-    "title": "검문소",
-    "prompt": "앞에 검문소. 선택하세요:",
-    "options": {
-      "detour": "우회 — 일수 {days}, 보급품 {supplies}, 바지 {pants} (안전)",
-      "bribe": "뇌물 — 비용 {cost} (정책 참조)",
-      "permit": "허가증 — 증거 1 소모 또는 기자증 사용 (신뢰 +1)",
-      "back": "뒤로"
     },
-    "desc": {
-      "detour": "보장됨; 시간 추가 및 보급품 소모; 작은 스트레스.",
-      "bribe": "페르소나 할인 적용; 셧다운시 실패 가능.",
-      "permit": "증거 1을 소모하거나 허가 태그가 있으면 사용."
+    "states": {
+      "Clear": "맑음",
+      "ColdSnap": "한파",
+      "HeatWave": "폭염",
+      "Smoke": "연기",
+      "Storm": "폭풍"
     },
-    "announce": {
-      "detour_applied": "우회 선택. 일수 {days}, 보급품 {supplies}, 바지 {pants}.",
-      "bribe_paid_passed": "뇌물 {cost} 지불. 통과 허가됨.",
-      "bribe_paid_failed": "뇌물 {cost} 지불했지만 실패. 일수 {days}, 바지 {pants}.",
-      "permit_used_receipt": "증거로 허가 승인. 신뢰 +1.",
-      "permit_used_tag": "태그로 허가 승인. 신뢰 +1.",
-      "no_receipt_or_tag": "증거도 허가 태그도 없음.",
-      "insufficient_funds": "자금 부족."
-    },
-    "policy": {
-      "shutdown": "셧다운 시행 중: 뇌물 성공률 {chance}%."
-    },
-    "types": {
-      "checkpoint": "검문소",
-      "bridge_out": "다리 차단"
-    }
+    "title": "날씨"
   }
 }

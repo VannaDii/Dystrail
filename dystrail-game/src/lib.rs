@@ -31,9 +31,12 @@ pub use crossings::{
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
-pub use result::{Ending, ResultConfig, ResultSummary, load_result_config, result_summary};
+pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};
 pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code};
-pub use state::{DietId, GameMode, GamePhase, GameState, Inventory, PaceId, Region, Spares, Stats};
+pub use state::{
+    CollapseCause, DietId, Ending, GameMode, GamePhase, GameState, Inventory, PaceId, Region,
+    Spares, Stats,
+};
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,
 };

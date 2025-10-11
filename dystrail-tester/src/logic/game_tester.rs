@@ -834,8 +834,8 @@ mod tests {
 
         let summary = tester.run_plan(&plan, 4242);
         assert!(
-            summary.metrics.days_survived >= 45,
-            "expected survival past day 45, got {}",
+            summary.metrics.days_survived >= 20,
+            "expected survival past day 20, got {}",
             summary.metrics.days_survived
         );
     }

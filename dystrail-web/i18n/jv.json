@@ -2,434 +2,474 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "Omah",
-    "settings": "Setelan",
-    "language": "Basa"
+  "boss": {
+    "begin": "Mulai boss",
+    "phases_hint": "Hadapi tahap: Cloture, titik proses, banjir amandemen.",
+    "title": "Boss Filibuster"
   },
-  "ui": {
-    "cta_start": "Pencet tombol sembarang kanggo miwiti",
-    "skip_to_content": "Lompat menyang konten",
-    "select_mode": "Pilih mode",
-    "loading": "Ngamot… {{pct}}%",
-    "loading_encounters": "Ngamot pertemuan…",
-    "continue": "Terusno"
+  "camp": {
+    "announce": {
+      "cooldown": "Terapi isih cooldown {days} dina.",
+      "forage_none": "Golek pangan nanging ora nemokno apa-apa.",
+      "forage_receipt": "Nemokno kontak sing migunani: bukti +1.",
+      "forage_sup": "Kasil golek pangan: pasokan +1.",
+      "no_breakdown": "Ora ana rusak aktif.",
+      "no_receipt": "Ora ana bukti kanggo dibakar.",
+      "repair_hack": "Nerapno hack fix. Pasokan -{sup}, kapercayan -{cred}. Dina +{day}.",
+      "repair_spare": "Nggunakno cadangan {part}. Pasokan -{sup}. Kendaraan didandani.",
+      "rest": "Ngaso. Waras +2, HP +1, pasokan -1. Dina +1.",
+      "therapy": "Sampeyan nulis jurnal lan mikir. Waras +2, 1 bukti dibakar. Dina +1."
+    },
+    "desc": "Pilih tumindak.",
+    "help": "Pencet 1-4 utawa 0 kanggo milih opsi",
+    "menu": {
+      "back": "Balik",
+      "close": "Tutup",
+      "forage": "Golek pangan (50% pasokan +1 / 30% ora ana / 20% bukti +1)",
+      "hack_fix": "Hack fix (pasokan -{sup}, kapercayan -{cred}, dina +{day})",
+      "repair": "Ndandani kendaraan (yen rusak)",
+      "rest": "Ngaso (+2 waras, +1 HP, pasokan -1, dina +1)",
+      "therapy": "Terapi/jurnal (+2 waras, bakar 1 bukti, dina +1) [cooldown: {days} dina]",
+      "use_spare": "Gunakno cadangan"
+    },
+    "parts": {
+      "alt": "Alternator",
+      "battery": "Baterei",
+      "pump": "Pompa Bahan Bakar",
+      "tire": "Ban"
+    },
+    "repair": {
+      "title": "Ndandani Kendaraan"
+    },
+    "repair_vehicle": "Ndandani kendaraan",
+    "title": "Kemah"
   },
-  "share": {
-    "code": "Kode enggo",
-    "start_with_code": "Miwiti karo kode",
-    "code_help": "Format: CL-WORD00 utawa DP-WORD00",
-    "run": "Enggo game"
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "Suap {cost} dibayar nanging gagal. Dina {days}, celono {pants}.",
+      "bribe_paid_passed": "Suap {cost} dibayar. Jalur disetujui.",
+      "detour_applied": "Njupuk detour. Dina {days}, pasokan {supplies}, celono {pants}.",
+      "insufficient_funds": "Dana ora cukup.",
+      "no_receipt_or_tag": "Ora ana bukti lan tag permit.",
+      "permit_used_receipt": "Ijin disetujui liwat bukti. Kapercayan +1.",
+      "permit_used_tag": "Ijin disetujui liwat tag. Kapercayan +1."
+    },
+    "desc": {
+      "bribe": "Diskon persona diterapno; bisa gagal yen shutdown.",
+      "detour": "Dijamin; nambah wektu lan biaya pasokan; stress cilik.",
+      "permit": "Gunakno 1 bukti utawa yen ana, gunakno tag permit."
+    },
+    "options": {
+      "back": "Balik",
+      "bribe": "Suap — biaya {cost} (deleng kebijakan)",
+      "detour": "Detour — dina {days}, pasokan {supplies}, celono {pants} (aman)",
+      "permit": "Ijin — gunakno 1 bukti utawa gunakno kartu pers (kapercayan +1)"
+    },
+    "policy": {
+      "shutdown": "Shutdown aktif: sukses suap {chance}%."
+    },
+    "prompt": "Ana checkpoint ngarep. Pilih:",
+    "title": "Checkpoint",
+    "types": {
+      "bridge_out": "Kreteg Tutup",
+      "checkpoint": "Checkpoint"
+    }
   },
-  "mode": {
-    "classic": "Klasik",
-    "deep": "Ujung Jero"
-  },
-  "travel": {
-    "title": "Mlaku",
-    "next": "Mlaku menyang tahap sabanjure"
-  },
-  "stats": {
-    "day_region": "Dina {{day}} — {{region}}",
-    "hp_short": "HP",
-    "sanity_short": "Waras",
-    "cred_short": "Kapercayan",
-    "sup_short": "Pasokan",
-    "mor_short": "Morale",
-    "allies_short": "Kanca",
-    "pants": "Celono {{pct}}%",
-    "pants_label": "Meter Celono"
-  },
-  "region": {
-    "heartland": "Heartland",
-    "rustbelt": "Rust Belt",
-    "beltway": "Beltway"
+  "dialogs": {
+    "close": "Tutup",
+    "confirm": "Apa sampeyan yakin?"
   },
   "eo": {
-    "prefix": "EO:",
-    "shutdown": "Penutupan Pamrentahan",
-    "travel_ban_lite": "Larangan Perjalanan Lite",
-    "gas_stove_police": "Polisi Kompor Gas",
     "book_panic": "Panik Buku",
     "deportation_sweep": "Sweeping Deportasi",
-    "tariff_tsunami": "Tsunami Tarif",
     "doe_eliminated": "Departemen Pendidikan Diilangi",
+    "gas_stove_police": "Polisi Kompor Gas",
+    "prefix": "EO:",
+    "shutdown": "Penutupan Pamrentahan",
+    "tariff_tsunami": "Tsunami Tarif",
+    "travel_ban_lite": "Larangan Perjalanan Lite",
     "war_dept_reorg": "Reorganisasi Departemen Perang"
   },
-  "boss": {
-    "title": "Boss Filibuster",
-    "phases_hint": "Hadapi tahap: Cloture, titik proses, banjir amandemen.",
-    "begin": "Mulai boss"
-  },
-  "result": {
-    "title": "Asil",
-    "title_aria": "Asil",
-    "headline": {
-      "victory": "Sampeyan ngeluyuske cloture!",
-      "boss_loss": "Filibuster ngalahke sampeyan",
-      "pants": "Darurat Celono Nasional",
-      "sanity": "Waras pecah",
-      "collapse": "Ambruk ing undhak-undhakan"
-    },
-    "badges": {
-      "mode_deep": "+5% (tampilan bae)"
-    },
-    "labels": {
-      "seed": "Wiji",
-      "persona": "Persona",
-      "mode": "Mode",
-      "score": "Skor",
-      "stats": "Stat",
-      "days": "Dina",
-      "encounters": "Pertemuan",
-      "receipts": "Bukti",
-      "allies": "Kanca",
-      "supplies": "Pasokan",
-      "credibility": "Kapercayan",
-      "pants_pct": "Celono"
-    },
-    "epilogue": {
-      "victory": "Sejarawan bakal ngutip bukti sampeyan. Lobbyist bakal ngipat-ipat jeneng sampeyan.",
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
-      "pants": "Chiron nindakaké sisane. GIF iku langgeng.",
-      "sanity": "Waras kabotan durung tekan Senate.",
-      "collapse": "Sampeyan tekan undhak-undhakan nanging ora tekan garis finish. Wektu sabanjure."
-    },
-    "menu": {
-      "copy_share": "Salin teks enggo",
-      "copy_seed": "Salin wiji",
-      "replay_seed": "Main wiji iki maneh",
-      "new_run": "Game anyar (wiji acak)",
-      "export": "Ekspor simpenan",
-      "title": "Judul"
-    },
-    "share": {
-      "template": "Dystrail — {headline} · Skor {score} · Wiji {seed} · Persona {persona} ({mult}) · Mode {mode}"
-    },
-    "announce": {
-      "copied": "Disalin menyang clipboard.",
-      "copy_failed": "Gagal nyalin. Mangga salin manual."
-    }
+  "footer": {
+    "copyright": "© Dystrail"
   },
   "game": {
     "seed_label": "Wiji:"
   },
   "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
     "booting": "Lagi boot…",
-    "seed_set": "Wiji disetel",
-    "traveled": "Wis mlaku",
     "encounter": "Pertemuan!",
+    "health_collapse": "Health depleted!",
     "pants_emergency": "Darurat Celono Nasional!",
     "run_begins": "Game dimulai ({{mode}})",
-    "health_collapse": "Health depleted!",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "Wiji disetel",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
     "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
-  },
-  "save": {
-    "header": "Simpen/Muat",
-    "title": "Simpen / Muat",
-    "save": "Simpen saiki",
-    "load": "Muat",
-    "export": "Salin ekspor JSON",
-    "import_label": "Tempel simpenan JSON",
-    "import_button": "Impor",
-    "close": "Tutup",
-    "error": "JSON simpenan ora bener",
-    "loaded": "Simpenan dimuat",
-    "saved": "Game disimpen"
-  },
-  "footer": {
-    "copyright": "© Dystrail"
-  },
-  "persona": {
-    "choose": "Pilih persona sampeyan:",
-    "selected_budget_prefix": "Anggaran wiwitan",
-    "preview": "Wiwitan: Pasokan {sup} · Kapercayan {cred} · Waras {san} · Morale {mor} · Kanca {allies} · Anggaran ${budget}",
-    "mult": "Pengali ×{mult}",
-    "preview_wait": "Pilih persona kanggo ndeleng rincian.",
-    "journalist": {
-      "name": "Wartawan",
-      "desc": "Terpercaya lan duwe sumber; tumbuh karo bukti."
+    "traveled": "Wis mlaku",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
     },
-    "organizer": {
-      "name": "Organizer",
-      "desc": "Mbangun morale lan kanca."
-    },
-    "whistleblower": {
-      "name": "Whistleblower",
-      "desc": "Narik kawigaten; golek luwih akeh bukti."
-    },
-    "lobbyist": {
-      "name": "Lobbyist",
-      "desc": "Koneksi ngurangi biaya."
-    },
-    "staffer": {
-      "name": "Staf",
-      "desc": "Seimbang; ora ana keuntungan kuat."
-    },
-    "satirist": {
-      "name": "Satiris",
-      "desc": "Ngatasi karo humor; mulihno waras."
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% bukti",
-      "store_discount_pct": "-{pct}% toko",
-      "bribe_discount_pct": "-{pct}% suap",
-      "eo_heat_pct": "+{pct}% panas EO",
-      "satire_sustain": "Guyon njaga waras"
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
     }
   },
   "menu": {
-    "title": "Menu Utama",
-    "help": "Pencet 1–8/0 utawa klik item. Wiji: {{seed}}",
-    "selected": "Dipilih",
-    "travel": "Mlaku",
     "camp": "Kemah",
-    "status": "Status",
-    "pace": "Ganti jangkah",
     "diet": "Diet informasi",
+    "help": "Pencet 1–8/0 utawa klik item. Wiji: {{seed}}",
     "inventory": "Gunakno inventaris",
-    "share": "Simpen/enggo wiji",
+    "pace": "Ganti jangkah",
+    "quit": "Metu",
+    "selected": "Dipilih",
     "settings": "Setelan",
-    "quit": "Metu"
+    "share": "Simpen/enggo wiji",
+    "status": "Status",
+    "title": "Menu Utama",
+    "travel": "Mlaku"
   },
-  "dialogs": {
-    "confirm": "Apa sampeyan yakin?",
-    "close": "Tutup"
+  "mode": {
+    "classic": "Klasik",
+    "deep": "Ujung Jero"
+  },
+  "nav": {
+    "home": "Omah",
+    "language": "Basa",
+    "settings": "Setelan"
+  },
+  "pacediet": {
+    "announce": {
+      "diet_set": "Diet disetel menyang {diet} ({sanity} waras, {pants} celono, {receipt} kesempatan bukti).",
+      "pace_set": "Jangkah disetel menyang {pace} ({sanity} waras, {pants} celono, {chance} kesempatan pertemuan)."
+    },
+    "menu": {
+      "back": "Balik",
+      "diet_doom": "Diet:  Doomscroll",
+      "diet_mixed": "Diet: [Campuran]",
+      "diet_quiet": "Diet:  Sepi",
+      "pace_blitz": "Jangkah:  Blitz",
+      "pace_heated": "Jangkah:  Panas",
+      "pace_steady": "Jangkah: [Mantep]"
+    },
+    "title": "Jangkah lan Diet Informasi — Dina Iki",
+    "tooltips": {
+      "blitz": "Jarak x1.4; Waras -2; Celono +6; Pertemuan +10%",
+      "doom": "Bukti +8%; Waras -2; Celono +4",
+      "heated": "Jarak x1.2; Waras -1; Celono +3; Pertemuan +5%",
+      "mixed": "Bukti 0%; Waras 0; Celono 0",
+      "quiet": "Bukti -5%; Waras +1; Celono -2",
+      "steady": "Jarak x1.0; Waras 0; Celono 0; Pertemuan +0%"
+    }
+  },
+  "persona": {
+    "choose": "Pilih persona sampeyan:",
+    "journalist": {
+      "desc": "Terpercaya lan duwe sumber; tumbuh karo bukti.",
+      "name": "Wartawan"
+    },
+    "lobbyist": {
+      "desc": "Koneksi ngurangi biaya.",
+      "name": "Lobbyist"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% suap",
+      "eo_heat_pct": "+{pct}% panas EO",
+      "receipts_pct": "+{pct}% bukti",
+      "satire_sustain": "Guyon njaga waras",
+      "store_discount_pct": "-{pct}% toko"
+    },
+    "mult": "Pengali ×{mult}",
+    "organizer": {
+      "desc": "Mbangun morale lan kanca.",
+      "name": "Organizer"
+    },
+    "preview": "Wiwitan: Pasokan {sup} · Kapercayan {cred} · Waras {san} · Morale {mor} · Kanca {allies} · Anggaran ${budget}",
+    "preview_wait": "Pilih persona kanggo ndeleng rincian.",
+    "satirist": {
+      "desc": "Ngatasi karo humor; mulihno waras.",
+      "name": "Satiris"
+    },
+    "selected_budget_prefix": "Anggaran wiwitan",
+    "staffer": {
+      "desc": "Seimbang; ora ana keuntungan kuat.",
+      "name": "Staf"
+    },
+    "whistleblower": {
+      "desc": "Narik kawigaten; golek luwih akeh bukti.",
+      "name": "Whistleblower"
+    }
+  },
+  "region": {
+    "beltway": "Beltway",
+    "heartland": "Heartland",
+    "rustbelt": "Rust Belt"
+  },
+  "result": {
+    "announce": {
+      "copied": "Disalin menyang clipboard.",
+      "copy_failed": "Gagal nyalin. Mangga salin manual."
+    },
+    "badges": {
+      "fail": "Fail",
+      "mode_deep": "+5% (tampilan bae)",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "collapse": "Sampeyan tekan undhak-undhakan nanging ora tekan garis finish. Wektu sabanjure.",
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "pants": "Chiron nindakaké sisane. GIF iku langgeng.",
+      "sanity": "Waras kabotan durung tekan Senate.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "victory": "Sejarawan bakal ngutip bukti sampeyan. Lobbyist bakal ngipat-ipat jeneng sampeyan."
+    },
+    "headline": {
+      "boss_loss": "Filibuster ngalahke sampeyan",
+      "collapse": "Ambruk ing undhak-undhakan",
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "pants": "Darurat Celono Nasional",
+      "sanity": "Waras pecah",
+      "vehicle_failure": "VEHICLE DESTROYED",
+      "victory": "Sampeyan ngeluyuske cloture!"
+    },
+    "labels": {
+      "allies": "Kanca",
+      "breakdowns": "Breakdowns",
+      "credibility": "Kapercayan",
+      "days": "Dina",
+      "encounters": "Pertemuan",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "mode": "Mode",
+      "pants_pct": "Celono",
+      "passed_threshold": "Boss Vote Ready",
+      "persona": "Persona",
+      "receipts": "Bukti",
+      "score": "Skor",
+      "score_threshold": "Score Threshold",
+      "seed": "Wiji",
+      "stats": "Stat",
+      "supplies": "Pasokan"
+    },
+    "menu": {
+      "copy_seed": "Salin wiji",
+      "copy_share": "Salin teks enggo",
+      "export": "Ekspor simpenan",
+      "new_run": "Game anyar (wiji acak)",
+      "replay_seed": "Main wiji iki maneh",
+      "title": "Judul"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Skor {score} · Wiji {seed} · Persona {persona} ({mult}) · Mode {mode}"
+    },
+    "title": "Asil",
+    "title_aria": "Asil"
+  },
+  "save": {
+    "close": "Tutup",
+    "error": "JSON simpenan ora bener",
+    "export": "Salin ekspor JSON",
+    "header": "Simpen/Muat",
+    "import_button": "Impor",
+    "import_label": "Tempel simpenan JSON",
+    "load": "Muat",
+    "loaded": "Simpenan dimuat",
+    "save": "Simpen saiki",
+    "saved": "Game disimpen",
+    "title": "Simpen / Muat"
+  },
+  "share": {
+    "code": "Kode enggo",
+    "code_help": "Format: CL-WORD00 utawa DP-WORD00",
+    "run": "Enggo game",
+    "start_with_code": "Miwiti karo kode"
+  },
+  "stats": {
+    "allies_short": "Kanca",
+    "cred_short": "Kapercayan",
+    "day_region": "Dina {{day}} — {{region}}",
+    "hp_short": "HP",
+    "mor_short": "Morale",
+    "pants": "Celono {{pct}}%",
+    "pants_label": "Meter Celono",
+    "sanity_short": "Waras",
+    "sup_short": "Pasokan"
   },
   "store": {
-    "title": "Outfitting",
+    "alerts": {
+      "added": "{item} ({price}) ditambahno. Anggaran sisa {left}.",
+      "max_qty": "Tekan jumlah maksimal kanggo {item}.",
+      "over_budget": "Ngluwihi anggaran; atur keranjang sampeyan.",
+      "removed": "{item} dibusak. Anggaran sisa {left}.",
+      "unique": "{item} unik; sampeyan wis duwe siji."
+    },
     "budget": "Anggaran: {amount}",
+    "cart": {
+      "checkout": "Checkout",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "Keranjang",
+      "total": "Total: {sum}   Anggaran sisa: {left}"
+    },
     "categories": {
+      "docs": "Dokumen lan Ijin",
       "fuel_food": "Bahan Bakar / Pangan",
-      "vehicle": "Suku Cadang Kendaraan",
       "ppe": "PPE lan Sandhangan",
-      "docs": "Dokumen lan Ijin"
+      "vehicle": "Suku Cadang Kendaraan"
     },
     "items": {
-      "rations": {
-        "name": "Paket Jatah",
-        "desc": "Ora busuk. Njaga sampeyan mlaku."
-      },
-      "water": {
-        "name": "Jeriken Banyu",
-        "desc": "Banyu iku perlu."
-      },
-      "spare_tire": {
-        "name": "Ban Serep",
-        "desc": "Ndandani bocor kanthi cepet."
+      "alternator": {
+        "desc": "Mulihno daya.",
+        "name": "Alternator"
       },
       "battery": {
-        "name": "Baterei",
-        "desc": "Mulai dingin."
-      },
-      "alternator": {
-        "name": "Alternator",
-        "desc": "Mulihno daya."
-      },
-      "fuel_pump": {
-        "name": "Pompa Bahan Bakar",
-        "desc": "Nalika pesta rampung."
-      },
-      "masks": {
-        "name": "Masker",
-        "desc": "Proteksi asap/penyakit."
+        "desc": "Mulai dingin.",
+        "name": "Baterei"
       },
       "coats": {
-        "name": "Jas Anget",
-        "desc": "Tahan gelombang dingin."
+        "desc": "Tahan gelombang dingin.",
+        "name": "Jas Anget"
       },
-      "ponchos": {
-        "name": "Ponco",
-        "desc": "Adaptasi badai."
-      },
-      "press_pass": {
-        "name": "Kartu Pers",
-        "desc": "Bisa dadi ijin."
+      "fuel_pump": {
+        "desc": "Nalika pesta rampung.",
+        "name": "Pompa Bahan Bakar"
       },
       "legal_fund": {
-        "name": "Dana Hukum",
-        "desc": "Buffer kapercayan sampeyan."
+        "desc": "Buffer kapercayan sampeyan.",
+        "name": "Dana Hukum"
+      },
+      "masks": {
+        "desc": "Proteksi asap/penyakit.",
+        "name": "Masker"
+      },
+      "ponchos": {
+        "desc": "Adaptasi badai.",
+        "name": "Ponco"
+      },
+      "press_pass": {
+        "desc": "Bisa dadi ijin.",
+        "name": "Kartu Pers"
+      },
+      "rations": {
+        "desc": "Ora busuk. Njaga sampeyan mlaku.",
+        "name": "Paket Jatah"
+      },
+      "spare_tire": {
+        "desc": "Ndandani bocor kanthi cepet.",
+        "name": "Ban Serep"
+      },
+      "water": {
+        "desc": "Banyu iku perlu.",
+        "name": "Jeriken Banyu"
       }
     },
     "menu": {
-      "home": "Outfitting — Anggaran: {budget}",
-      "view_cart": "Deleng keranjang / checkout",
+      "back": "Balik",
       "continue": "Terusno",
-      "back": "Balik"
+      "home": "Outfitting — Anggaran: {budget}",
+      "view_cart": "Deleng keranjang / checkout"
     },
     "qty_prompt": {
-      "title": "{item} — saben {price}",
       "add1": "Tambah +1",
       "add5": "Tambah +5",
       "rem1": "Kurangi -1",
-      "rem_all": "Busak kabeh"
+      "rem_all": "Busak kabeh",
+      "title": "{item} — saben {price}"
     },
-    "cart": {
-      "title": "Keranjang",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "Total: {sum}   Anggaran sisa: {left}",
-      "checkout": "Checkout"
-    },
-    "alerts": {
-      "added": "{item} ({price}) ditambahno. Anggaran sisa {left}.",
-      "removed": "{item} dibusak. Anggaran sisa {left}.",
-      "max_qty": "Tekan jumlah maksimal kanggo {item}.",
-      "unique": "{item} unik; sampeyan wis duwe siji.",
-      "over_budget": "Ngluwihi anggaran; atur keranjang sampeyan."
-    }
+    "title": "Outfitting"
   },
-  "pacediet": {
-    "title": "Jangkah lan Diet Informasi — Dina Iki",
-    "menu": {
-      "pace_steady": "Jangkah: [Mantep]",
-      "pace_heated": "Jangkah:  Panas",
-      "pace_blitz": "Jangkah:  Blitz",
-      "diet_quiet": "Diet:  Sepi",
-      "diet_mixed": "Diet: [Campuran]",
-      "diet_doom": "Diet:  Doomscroll",
-      "back": "Balik"
-    },
-    "announce": {
-      "pace_set": "Jangkah disetel menyang {pace} ({sanity} waras, {pants} celono, {chance} kesempatan pertemuan).",
-      "diet_set": "Diet disetel menyang {diet} ({sanity} waras, {pants} celono, {receipt} kesempatan bukti)."
-    },
-    "tooltips": {
-      "steady": "Jarak x1.0; Waras 0; Celono 0; Pertemuan +0%",
-      "heated": "Jarak x1.2; Waras -1; Celono +3; Pertemuan +5%",
-      "blitz": "Jarak x1.4; Waras -2; Celono +6; Pertemuan +10%",
-      "quiet": "Bukti -5%; Waras +1; Celono -2",
-      "mixed": "Bukti 0%; Waras 0; Celono 0",
-      "doom": "Bukti +8%; Waras -2; Celono +4"
-    }
+  "travel": {
+    "next": "Mlaku menyang tahap sabanjure",
+    "title": "Mlaku"
   },
-  "camp": {
-    "title": "Kemah",
-    "desc": "Pilih tumindak.",
-    "repair_vehicle": "Ndandani kendaraan",
-    "help": "Pencet 1-4 utawa 0 kanggo milih opsi",
-    "menu": {
-      "rest": "Ngaso (+2 waras, +1 HP, pasokan -1, dina +1)",
-      "repair": "Ndandani kendaraan (yen rusak)",
-      "forage": "Golek pangan (50% pasokan +1 / 30% ora ana / 20% bukti +1)",
-      "therapy": "Terapi/jurnal (+2 waras, bakar 1 bukti, dina +1) [cooldown: {days} dina]",
-      "close": "Tutup",
-      "back": "Balik",
-      "use_spare": "Gunakno cadangan",
-      "hack_fix": "Hack fix (pasokan -{sup}, kapercayan -{cred}, dina +{day})"
-    },
-    "announce": {
-      "rest": "Ngaso. Waras +2, HP +1, pasokan -1. Dina +1.",
-      "repair_spare": "Nggunakno cadangan {part}. Pasokan -{sup}. Kendaraan didandani.",
-      "repair_hack": "Nerapno hack fix. Pasokan -{sup}, kapercayan -{cred}. Dina +{day}.",
-      "forage_sup": "Kasil golek pangan: pasokan +1.",
-      "forage_receipt": "Nemokno kontak sing migunani: bukti +1.",
-      "forage_none": "Golek pangan nanging ora nemokno apa-apa.",
-      "therapy": "Sampeyan nulis jurnal lan mikir. Waras +2, 1 bukti dibakar. Dina +1.",
-      "cooldown": "Terapi isih cooldown {days} dina.",
-      "no_receipt": "Ora ana bukti kanggo dibakar.",
-      "no_breakdown": "Ora ana rusak aktif."
-    },
-    "repair": {
-      "title": "Ndandani Kendaraan"
-    },
-    "parts": {
-      "tire": "Ban",
-      "battery": "Baterei",
-      "alt": "Alternator",
-      "pump": "Pompa Bahan Bakar"
-    }
+  "ui": {
+    "continue": "Terusno",
+    "cta_start": "Pencet tombol sembarang kanggo miwiti",
+    "loading": "Ngamot… {{pct}}%",
+    "loading_encounters": "Ngamot pertemuan…",
+    "select_mode": "Pilih mode",
+    "skip_to_content": "Lompat menyang konten"
   },
   "vehicle": {
-    "title": "Status Kendaraan",
-    "no_active": "Ora ana rusak aktif.",
-    "breakdown": "Rusak — {part} gagal. Perjalanan dihentikan.",
-    "spares": {
-      "tire": "Gunakno ban serep",
-      "battery": "Gunakno baterei serep",
-      "alt": "Gunakno alternator serep",
-      "pump": "Gunakno pompa bahan bakar serep"
-    },
-    "hack_fix": "Hack fix (pasokan -3, kapercayan -1, dina +1)",
-    "wait_mechanic": "Ngenteni montir (dina +1)",
-    "back": "Balik",
-    "help": "Gunakno tombol nomer 1-5 utawa 0 kanggo balik",
     "announce": {
-      "used_spare": "Nggunakno cadangan {part}. Pasokan -{sup}.",
-      "hack_applied": "Nerapno hack fix. Pasokan -{sup}, kapercayan -{cred}, dina +{day}.",
-      "cleared": "Kendaraan didandani.",
       "blocked": "Perjalanan diblokir nganti didandani.",
-      "no_spare": "Ora ana cadangan kanggo {part}."
+      "cleared": "Kendaraan didandani.",
+      "hack_applied": "Nerapno hack fix. Pasokan -{sup}, kapercayan -{cred}, dina +{day}.",
+      "no_spare": "Ora ana cadangan kanggo {part}.",
+      "used_spare": "Nggunakno cadangan {part}. Pasokan -{sup}."
     },
+    "back": "Balik",
+    "breakdown": "Rusak — {part} gagal. Perjalanan dihentikan.",
+    "hack_fix": "Hack fix (pasokan -3, kapercayan -1, dina +1)",
+    "help": "Gunakno tombol nomer 1-5 utawa 0 kanggo balik",
+    "no_active": "Ora ana rusak aktif.",
     "parts": {
-      "tire": "Ban",
-      "battery": "Baterei",
       "alt": "Alternator",
-      "pump": "Pompa Bahan Bakar"
-    }
+      "battery": "Baterei",
+      "pump": "Pompa Bahan Bakar",
+      "tire": "Ban"
+    },
+    "spares": {
+      "alt": "Gunakno alternator serep",
+      "battery": "Gunakno baterei serep",
+      "pump": "Gunakno pompa bahan bakar serep",
+      "tire": "Gunakno ban serep"
+    },
+    "title": "Status Kendaraan",
+    "wait_mechanic": "Ngenteni montir (dina +1)"
   },
   "weather": {
-    "title": "Cuaca",
     "announce": "Cuaca: {state}. Pasokan {sup}, waras {san}, celono {pants}, pertemuan {enc}.",
-    "states": {
-      "Clear": "Cerah",
-      "Storm": "Badai",
-      "HeatWave": "Gelombang Panas",
-      "ColdSnap": "Gelombang Dingin",
-      "Smoke": "Asap"
-    },
-    "effects": {
-      "sup": "{val} pasokan",
-      "san": "{val} waras",
-      "pants": "{val} celono",
-      "enc": "{val}% pertemuan"
-    },
     "details": {
-      "header": "Rincian Cuaca:",
-      "state": "• Kahanan: {state}",
+      "back": "0) Balik",
       "effects": "• Efek dina iki: {effects}",
       "gear": "• Pengurangan gear: {text}",
+      "header": "Rincian Cuaca:",
       "notes": "• Catetan: {note}",
-      "back": "0) Balik"
+      "state": "• Kahanan: {state}"
+    },
+    "effects": {
+      "enc": "{val}% pertemuan",
+      "pants": "{val} celono",
+      "san": "{val} waras",
+      "sup": "{val} pasokan"
     },
     "gear": {
-      "storm": "Ponco ngurangi denda badai (rain_resist).",
+      "cold": "Jas anget ngurangi denda dingin (cold_resist).",
       "smoke": "Masker ngurangi denda asap (plague_resist).",
-      "cold": "Jas anget ngurangi denda dingin (cold_resist)."
+      "storm": "Ponco ngurangi denda badai (rain_resist)."
     },
     "notes": {
       "storm_crossings": "Nyabrang nalika badai luwih mbebayani."
-    }
-  },
-  "cross": {
-    "title": "Checkpoint",
-    "prompt": "Ana checkpoint ngarep. Pilih:",
-    "options": {
-      "detour": "Detour — dina {days}, pasokan {supplies}, celono {pants} (aman)",
-      "bribe": "Suap — biaya {cost} (deleng kebijakan)",
-      "permit": "Ijin — gunakno 1 bukti utawa gunakno kartu pers (kapercayan +1)",
-      "back": "Balik"
     },
-    "desc": {
-      "detour": "Dijamin; nambah wektu lan biaya pasokan; stress cilik.",
-      "bribe": "Diskon persona diterapno; bisa gagal yen shutdown.",
-      "permit": "Gunakno 1 bukti utawa yen ana, gunakno tag permit."
+    "states": {
+      "Clear": "Cerah",
+      "ColdSnap": "Gelombang Dingin",
+      "HeatWave": "Gelombang Panas",
+      "Smoke": "Asap",
+      "Storm": "Badai"
     },
-    "announce": {
-      "detour_applied": "Njupuk detour. Dina {days}, pasokan {supplies}, celono {pants}.",
-      "bribe_paid_passed": "Suap {cost} dibayar. Jalur disetujui.",
-      "bribe_paid_failed": "Suap {cost} dibayar nanging gagal. Dina {days}, celono {pants}.",
-      "permit_used_receipt": "Ijin disetujui liwat bukti. Kapercayan +1.",
-      "permit_used_tag": "Ijin disetujui liwat tag. Kapercayan +1.",
-      "no_receipt_or_tag": "Ora ana bukti lan tag permit.",
-      "insufficient_funds": "Dana ora cukup."
-    },
-    "policy": {
-      "shutdown": "Shutdown aktif: sukses suap {chance}%."
-    },
-    "types": {
-      "checkpoint": "Checkpoint",
-      "bridge_out": "Kreteg Tutup"
-    }
+    "title": "Cuaca"
   }
 }

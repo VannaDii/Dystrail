@@ -68,7 +68,7 @@ impl Component for ResultScreen {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let props = ctx.props();
-        let mut summary = match Self::get_summary(ctx) {
+        let summary = match Self::get_summary(ctx) {
             Ok(s) => s,
             Err(e) => {
                 log::error!("Failed to generate result summary: {e}");
@@ -81,20 +81,17 @@ impl Component for ResultScreen {
             }
         };
 
-        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
-            summary.headline = i18n::t("result.headline.boss_loss");
-            summary.epilogue = i18n::t("result.epilogue.boss_loss");
-        } else if props.boss_won {
-            summary.headline = i18n::t("result.headline.victory");
-            summary.epilogue = i18n::t("result.epilogue.victory");
-        }
+        let headline_key = Self::resolved_headline_key(&summary, props);
+        let epilogue_key = Self::resolved_epilogue_key(&summary, props);
+        let headline_text = i18n::t(&headline_key);
+        let epilogue_text = i18n::t(&epilogue_key);
 
         let on_keydown = ctx.link().callback(Msg::KeyDown);
         let on_menu_action = ctx.link().callback(Msg::MenuAction);
 
         html! {
             <main role="main" aria-labelledby="result-title" onkeydown={on_keydown} tabindex="0" class="result-screen">
-                <h1 id="result-title" class="result-headline">{ &summary.headline }</h1>
+                <h1 id="result-title" class="result-headline">{ &headline_text }</h1>
 
                 <section class="result-info" aria-labelledby="result-info-heading">
                     <h2 id="result-info-heading" class="sr-only">{ i18n::t("result.labels.stats") }</h2>
@@ -141,11 +138,21 @@ impl Component for ResultScreen {
                         <dd>{ summary.credibility }</dd>
                         <dt>{ i18n::t("result.labels.pants_pct") }</dt>
                         <dd>{ format!("{pants_pct}%", pants_pct = summary.pants_pct) }</dd>
+                        <dt>{ i18n::t("result.labels.breakdowns") }</dt>
+                        <dd>{ summary.vehicle_breakdowns }</dd>
+                        <dt>{ i18n::t("result.labels.miles") }</dt>
+                        <dd>{ format!("{:.0}", summary.miles_traveled) }</dd>
+                        <dt>{ i18n::t("result.labels.score_threshold") }</dt>
+                        <dd>{ Self::format_number(summary.score_threshold) }</dd>
+                        <dt>{ i18n::t("result.labels.passed_threshold") }</dt>
+                        <dd>{ if summary.passed_threshold { i18n::t("result.badges.success") } else { i18n::t("result.badges.fail") } }</dd>
+                        <dt>{ i18n::t("result.labels.malnutrition") }</dt>
+                        <dd>{ summary.malnutrition_days }</dd>
                     </dl>
                 </section>
 
                 <section class="epilogue-section">
-                    <p class="epilogue">{ &summary.epilogue }</p>
+                    <p class="epilogue">{ &epilogue_text }</p>
                 </section>
 
                 <nav class="result-menu" role="menu" aria-label={ i18n::t("result.title") }>
@@ -171,6 +178,26 @@ impl ResultScreen {
     fn get_summary(ctx: &Context<Self>) -> Result<ResultSummary, String> {
         let props = ctx.props();
         result_summary(&props.game_state, &props.result_config)
+    }
+
+    fn resolved_headline_key(summary: &ResultSummary, props: &Props) -> String {
+        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
+            "result.headline.boss_loss".to_string()
+        } else if props.boss_won {
+            "result.headline.victory".to_string()
+        } else {
+            summary.headline_key.clone()
+        }
+    }
+
+    fn resolved_epilogue_key(summary: &ResultSummary, props: &Props) -> String {
+        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
+            "result.epilogue.boss_loss".to_string()
+        } else if props.boss_won {
+            "result.epilogue.victory".to_string()
+        } else {
+            summary.epilogue_key.clone()
+        }
     }
 
     fn render_menu_item(&self, index: u8, label: &str, on_action: &Callback<u8>) -> Html {
@@ -282,7 +309,9 @@ impl ResultScreen {
 
     fn copy_share_text(ctx: &Context<Self>, summary: &ResultSummary) {
         let template = i18n::t("result.share.template");
-        let share_text = Self::interpolate_template(&template, summary);
+        let headline_key = Self::resolved_headline_key(summary, ctx.props());
+        let headline_text = i18n::t(&headline_key);
+        let share_text = Self::interpolate_template(&template, summary, &headline_text);
         Self::copy_to_clipboard(ctx, &share_text);
     }
 
@@ -330,9 +359,13 @@ impl ResultScreen {
         }
     }
 
-    fn interpolate_template(template: &str, summary: &ResultSummary) -> String {
+    fn interpolate_template(
+        template: &str,
+        summary: &ResultSummary,
+        headline_text: &str,
+    ) -> String {
         template
-            .replace("{headline}", &summary.headline)
+            .replace("{headline}", headline_text)
             .replace("{score}", &Self::format_number(summary.score))
             .replace("{seed}", &summary.seed)
             .replace("{persona}", &summary.persona_name)

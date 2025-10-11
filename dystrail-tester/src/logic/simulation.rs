@@ -223,12 +223,8 @@ fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encounter) 
 
 impl SimulationSession {
     fn daily_effect(&mut self) -> DailyEffect {
-        let pace = self
-            .pacing_config
-            .get_pace_safe(self.state.pace.as_str());
-        let diet = self
-            .pacing_config
-            .get_diet_safe(self.state.diet.as_str());
+        let pace = self.pacing_config.get_pace_safe(self.state.pace.as_str());
+        let diet = self.pacing_config.get_diet_safe(self.state.diet.as_str());
         let exec = self
             .state
             .current_order

@@ -11,17 +11,31 @@ use crate::encounters::pick_encounter;
 use crate::exec_orders::ExecOrder;
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, Vehicle};
-use crate::weather::{WeatherConfig, WeatherState};
+use crate::weather::{Weather, WeatherConfig, WeatherState};
 
 const DEBUG_ENV_VAR: &str = "DYSTRAIL_DEBUG_LOGS";
 const LOG_PANTS_EMERGENCY: &str = "log.pants-emergency";
 const LOG_HEALTH_COLLAPSE: &str = "log.health-collapse";
-const LOG_SUPPLIES_DEPLETED: &str = "log.supplies-depleted";
 const LOG_SANITY_COLLAPSE: &str = "log.sanity-collapse";
 const LOG_TRAVEL_BLOCKED: &str = "log.travel-blocked";
 const LOG_TRAVELED: &str = "log.traveled";
 const DEFAULT_SUPPLY_COST: i32 = 1;
 const BLITZ_SUPPLY_COST: i32 = 2;
+const VEHICLE_BREAKDOWN_DAMAGE: i32 = 12;
+const VEHICLE_REPAIR_HEAL: i32 = 8;
+const VEHICLE_CRITICAL_THRESHOLD: i32 = 20;
+const STARVATION_BASE_HP_LOSS: i32 = 1;
+const STARVATION_SANITY_LOSS: i32 = 1;
+const STARVATION_PANTS_GAIN: i32 = 1;
+const STARVATION_MAX_STACK: u32 = 5;
+const ALLY_ATTRITION_CHANCE: f32 = 0.02;
+const EMERGENCY_REPAIR_COST: i64 = 1_000;
+const LOG_STARVATION_TICK: &str = "log.starvation.tick";
+const LOG_STARVATION_RELIEF: &str = "log.starvation.relief";
+const LOG_ALLY_LOST: &str = "log.ally.lost";
+const LOG_ALLIES_GONE: &str = "log.allies.gone";
+const LOG_VEHICLE_FAILURE: &str = "log.vehicle.failure";
+const LOG_VEHICLE_REPAIR_EMERGENCY: &str = "log.vehicle.repair.emergency";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 #[serde(rename_all = "lowercase")]
@@ -165,14 +179,15 @@ mod tests {
         state.data = Some(EncounterData::empty());
 
         let (_ended_first, msg_first, _started_first) = state.travel_next_leg();
-        assert_eq!(msg_first, "log.travel-blocked");
-        assert!(state.travel_blocked);
-        assert!(state.breakdown.is_some());
-
-        let (_ended_second, msg_second, _started_second) = state.travel_next_leg();
-        assert_eq!(msg_second, "log.traveled");
+        assert_eq!(msg_first, "log.traveled");
         assert!(!state.travel_blocked);
         assert!(state.breakdown.is_none());
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|entry| entry == LOG_VEHICLE_REPAIR_EMERGENCY)
+        );
     }
 
     #[test]
@@ -189,6 +204,31 @@ mod tests {
 
         assert!(state.stats.supplies >= 0, "supplies went negative");
         assert!(state.stats.sanity >= 0, "sanity went negative");
+    }
+
+    #[test]
+    fn starvation_stacks_damage() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.stats.supplies = 0;
+
+        state.apply_starvation_tick();
+        assert_eq!(state.stats.hp, 8);
+        assert_eq!(state.malnutrition_level, 1);
+
+        state.apply_starvation_tick();
+        assert_eq!(state.stats.hp, 5);
+        assert_eq!(state.malnutrition_level, 2);
+        assert!(state.logs.iter().any(|entry| entry == LOG_STARVATION_TICK));
+    }
+
+    #[test]
+    fn vehicle_terminal_sets_ending() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.vehicle_breakdowns = 4;
+        assert!(state.check_vehicle_terminal_state());
+        assert!(matches!(state.ending, Some(Ending::VehicleFailure)));
     }
 }
 
@@ -226,6 +266,61 @@ impl Region {
             Region::Beltway => "Beltway",
         }
     }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "lowercase")]
+pub enum Season {
+    #[default]
+    Spring,
+    Summer,
+    Fall,
+    Winter,
+}
+
+impl Season {
+    #[must_use]
+    pub fn from_day(day: u32) -> Self {
+        let season_len = 45;
+        let idx = day.saturating_sub(1) / season_len;
+        match idx % 4 {
+            0 => Season::Spring,
+            1 => Season::Summer,
+            2 => Season::Fall,
+            _ => Season::Winter,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum CollapseCause {
+    Hunger,
+    Vehicle,
+    Weather,
+    Breakdown,
+    Panic,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(tag = "type", rename_all = "snake_case")]
+pub enum Ending {
+    Collapse { cause: CollapseCause },
+    SanityLoss,
+    VehicleFailure,
+    Exposure,
+    BossVoteFailed,
+    BossVictory,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DamageCause {
+    Starvation,
+    ExposureCold,
+    ExposureHeat,
+    Vehicle,
+    Breakdown,
+    Unknown,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -272,6 +367,18 @@ pub struct Inventory {
     pub spares: Spares,
     #[serde(default)]
     pub tags: HashSet<String>,
+}
+
+impl Inventory {
+    #[must_use]
+    pub fn total_spares(&self) -> i32 {
+        self.spares.tire + self.spares.battery + self.spares.alt + self.spares.pump
+    }
+
+    #[must_use]
+    pub fn has_tag(&self, tag: &str) -> bool {
+        self.tags.contains(tag)
+    }
 }
 
 /// Vehicle and equipment spares
@@ -322,6 +429,8 @@ pub struct GameState {
     pub seed: u64,
     pub day: u32,
     pub region: Region,
+    #[serde(default)]
+    pub season: Season,
     pub stats: Stats,
     #[serde(default)]
     pub budget: i32,
@@ -351,11 +460,19 @@ pub struct GameState {
     #[serde(default)]
     pub distance_traveled_actual: f32,
     #[serde(default)]
+    pub vehicle_breakdowns: i32,
+    #[serde(default)]
+    pub starvation_days: u32,
+    #[serde(default)]
+    pub malnutrition_level: u32,
+    #[serde(default)]
     pub boss_ready: bool,
     #[serde(default)]
     pub boss_attempted: bool,
     #[serde(default)]
     pub boss_victory: bool,
+    #[serde(default)]
+    pub ending: Option<Ending>,
     /// Current pace setting
     #[serde(default = "default_pace")]
     pub pace: PaceId,
@@ -376,6 +493,8 @@ pub struct GameState {
     pub distance_today: f32,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
+    #[serde(default)]
+    pub encounters_resolved: u32,
     pub current_encounter: Option<Encounter>,
     pub current_order: ExecOrder,
     /// Vehicle state and spares
@@ -397,6 +516,8 @@ pub struct GameState {
     pub rng: Option<ChaCha20Rng>,
     #[serde(skip)]
     pub data: Option<EncounterData>,
+    #[serde(skip)]
+    pub last_damage: Option<DamageCause>,
 }
 
 impl Default for GameState {
@@ -406,6 +527,7 @@ impl Default for GameState {
             seed: 0,
             day: 1,
             region: Region::Heartland,
+            season: Season::default(),
             stats: Stats::default(),
             budget: 100,
             budget_cents: 10_000, // $100.00 in cents
@@ -420,9 +542,13 @@ impl Default for GameState {
             trail_distance: default_trail_distance(),
             distance_traveled: 0.0,
             distance_traveled_actual: 0.0,
+            vehicle_breakdowns: 0,
+            starvation_days: 0,
+            malnutrition_level: 0,
             boss_ready: false,
             boss_attempted: false,
             boss_victory: false,
+            ending: None,
             pace: default_pace(),
             diet: default_diet(),
             receipt_bonus_pct: 0,
@@ -431,6 +557,7 @@ impl Default for GameState {
             distance_today: 1.0,
             logs: vec![String::from("log.booting")],
             receipts: vec![],
+            encounters_resolved: 0,
             current_encounter: None,
             current_order: ExecOrder::Shutdown,
             vehicle: Vehicle::default(),
@@ -440,6 +567,7 @@ impl Default for GameState {
             camp: CampState::default(),
             rng: None,
             data: None,
+            last_damage: None,
         }
     }
 }
@@ -486,6 +614,96 @@ impl GameState {
         ]
     }
 
+    fn set_ending(&mut self, ending: Ending) {
+        if self.ending.is_none() {
+            self.ending = Some(ending);
+        }
+    }
+
+    pub(crate) fn mark_damage(&mut self, cause: DamageCause) {
+        self.last_damage = Some(cause);
+    }
+
+    #[must_use]
+    pub fn vehicle_health(&self) -> i32 {
+        self.vehicle.health
+    }
+
+    #[must_use]
+    fn total_spares(&self) -> i32 {
+        self.inventory.total_spares()
+    }
+
+    fn apply_starvation_tick(&mut self) {
+        if self.stats.supplies > 0 {
+            if self.starvation_days > 0 {
+                self.logs.push(String::from(LOG_STARVATION_RELIEF));
+            }
+            self.starvation_days = 0;
+            self.malnutrition_level = 0;
+            return;
+        }
+
+        self.starvation_days = self.starvation_days.saturating_add(1);
+        self.malnutrition_level = (self.malnutrition_level + 1).min(STARVATION_MAX_STACK);
+
+        let malnutrition_penalty = i32::try_from(self.malnutrition_level).unwrap_or(0);
+        let hp_loss = STARVATION_BASE_HP_LOSS + malnutrition_penalty.min(3);
+
+        self.stats.hp -= hp_loss;
+        self.stats.sanity -= STARVATION_SANITY_LOSS + malnutrition_penalty.min(2);
+        self.stats.pants = (self.stats.pants + STARVATION_PANTS_GAIN).clamp(0, 100);
+        self.mark_damage(DamageCause::Starvation);
+        self.logs.push(String::from(LOG_STARVATION_TICK));
+    }
+
+    fn tick_ally_attrition(&mut self) {
+        if self.stats.allies <= 0 {
+            return;
+        }
+        let Some(rng) = self.rng.as_mut() else {
+            return;
+        };
+        if rng.random::<f32>() <= ALLY_ATTRITION_CHANCE {
+            self.stats.allies -= 1;
+            self.stats.morale -= 1;
+            self.logs.push(String::from(LOG_ALLY_LOST));
+            if self.stats.allies == 0 {
+                self.stats.sanity -= 2;
+                self.logs.push(String::from(LOG_ALLIES_GONE));
+            }
+        }
+    }
+
+    #[must_use]
+    fn current_weather_speed_penalty(&self) -> f32 {
+        match self.weather_state.today {
+            Weather::Storm => 0.6,
+            Weather::Smoke => 0.8,
+            Weather::ColdSnap => 0.7,
+            Weather::HeatWave => 0.85,
+            Weather::Clear => 1.0,
+        }
+    }
+
+    fn check_vehicle_terminal_state(&mut self) -> bool {
+        if self.vehicle.health <= 0 {
+            self.mark_damage(DamageCause::Vehicle);
+            self.set_ending(Ending::VehicleFailure);
+            self.logs.push(String::from(LOG_VEHICLE_FAILURE));
+            return true;
+        }
+        let spare_guard = self.total_spares();
+        if self.vehicle_breakdowns > spare_guard * 3 {
+            self.vehicle.health = 0;
+            self.mark_damage(DamageCause::Vehicle);
+            self.set_ending(Ending::VehicleFailure);
+            self.logs.push(String::from(LOG_VEHICLE_FAILURE));
+            return true;
+        }
+        false
+    }
+
     #[must_use]
     pub fn with_seed(mut self, seed: u64, mode: GameMode, data: EncounterData) -> Self {
         let bytes = Self::seed_bytes(seed);
@@ -519,41 +737,61 @@ impl GameState {
             return (false, String::from("log.boss.await"), false);
         }
 
-        // Step 1: Apply Pace & Diet deltas (handled externally via apply_pace_and_diet call)
+        // Step 1: starvation tick before external modifiers
+        self.apply_starvation_tick();
+        self.stats.clamp();
+        if let Some(log_key) = self.failure_log_key() {
+            return (true, String::from(log_key), false);
+        }
 
-        // Step 2: Apply Weather effects
-        self.apply_weather_effects();
+        // Step 2: weather progression and effects
+        let weather_cfg = WeatherConfig::default_config();
+        crate::weather::process_daily_weather(self, &weather_cfg);
+        self.stats.clamp();
+        if let Some(log_key) = self.failure_log_key() {
+            return (true, String::from(log_key), false);
+        }
 
         // Step 3: Vehicle breakdown roll
         let breakdown_started = self.vehicle_roll();
         self.resolve_breakdown();
+        if self.check_vehicle_terminal_state() {
+            return (true, String::from(LOG_VEHICLE_FAILURE), breakdown_started);
+        }
 
-        // Step 4: Encounter chance computation & roll
-        let mut trigger_enc = false;
-        if !self.encounter_occurred_today
-            && let Some(rng) = self.rng.as_mut()
-        {
-            let roll: f32 = rng.random();
-            if roll < self.encounter_chance_today {
-                trigger_enc = true;
-            }
-        }
-        if trigger_enc
-            && let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref())
-            && let Some(enc) = pick_encounter(data, self.mode.is_deep(), self.region, rng)
-        {
-            self.current_encounter = Some(enc.clone());
-            self.encounter_occurred_today = true;
-            return (false, String::from("log.encounter"), breakdown_started);
-        }
+        // Step 4: Ally attrition and clamps
+        self.tick_ally_attrition();
+        self.stats.clamp();
 
         if let Some(log_key) = self.failure_log_key() {
             return (true, String::from(log_key), breakdown_started);
         }
 
-        // Step 5: Distance/region update and day advance
+        // Step 5: Encounter chance computation & roll
+        if !self.encounter_occurred_today
+            && let Some(data) = self.data.as_ref()
+        {
+            let region = self.region;
+            let is_deep = self.mode.is_deep();
+            let malnutrition = self.malnutrition_level;
+            let starving = self.stats.supplies <= 0;
+            let encounter = {
+                let rng_opt = self.rng.as_mut();
+                rng_opt.and_then(|rng| {
+                    pick_encounter(region, is_deep, malnutrition, starving, data, rng)
+                })
+            };
+            if let Some(enc) = encounter {
+                self.current_encounter = Some(enc);
+                self.encounter_occurred_today = true;
+                return (false, String::from("log.encounter"), breakdown_started);
+            }
+        }
+
+        // Step 6: Distance/region update and day advance
         self.day += 1;
         self.region = Self::region_by_day(self.day);
+        self.season = Season::from_day(self.day);
         self.encounter_occurred_today = false;
         let travel_distance = self.distance_today;
         self.distance_traveled_actual += travel_distance;
@@ -589,34 +827,43 @@ impl GameState {
         (false, String::from(LOG_TRAVELED), breakdown_started)
     }
 
-    /// Apply weather effects as step 2 of daily tick
-    fn apply_weather_effects(&mut self) {
-        if let Some(weather_config) = self.data.as_ref().and_then(|d| {
-            serde_json::from_str::<WeatherConfig>(&serde_json::to_string(d).unwrap_or_default())
-                .ok()
-        }) {
-            crate::weather::apply_weather_effects(self, &weather_config);
-        }
-    }
-
     /// Apply vehicle breakdown logic
     fn vehicle_roll(&mut self) -> bool {
         let mut breakdown_started = false;
-        if self.rng.is_some() && self.breakdown.is_none() {
-            let breakdown_chance = 0.1; // 10% chance per day
-            let roll: f32 = self.rng.as_mut().unwrap().random();
+        if let Some(rng) = self.rng.as_mut()
+            && self.breakdown.is_none()
+        {
+            let mut breakdown_chance = 0.08;
+            breakdown_chance += match self.pace {
+                PaceId::Steady => 0.0,
+                PaceId::Heated => 0.03,
+                PaceId::Blitz => 0.06,
+            };
+            if self.weather_state.today.is_extreme() {
+                breakdown_chance += 0.04;
+            }
+            if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
+                breakdown_chance += 0.05;
+            }
+            let roll: f32 = rng.random();
             if roll < breakdown_chance {
                 use crate::vehicle::Part;
                 let parts = [Part::Tire, Part::Battery, Part::Alternator, Part::FuelPump];
-                let part_idx: usize = self.rng.as_mut().unwrap().random_range(0..parts.len());
+                let part_idx: usize = rng.random_range(0..parts.len());
                 self.breakdown = Some(crate::vehicle::Breakdown {
                     part: parts[part_idx],
                     day_started: i32::try_from(self.day).unwrap_or(0),
                 });
                 self.travel_blocked = true;
+                self.vehicle_breakdowns += 1;
+                self.vehicle.apply_damage(VEHICLE_BREAKDOWN_DAMAGE);
+                self.mark_damage(DamageCause::Vehicle);
                 breakdown_started = true;
                 if debug_log_enabled() {
-                    println!("🚗 Breakdown started: {:?}", parts[part_idx]);
+                    println!(
+                        "🚗 Breakdown started: {:?} | health {} | roll {:.3} chance {:.3}",
+                        parts[part_idx], self.vehicle.health, roll, breakdown_chance
+                    );
                 }
             }
         }
@@ -638,6 +885,9 @@ impl GameState {
             self.stats.morale += eff.morale;
             self.stats.allies += eff.allies;
             self.stats.pants += eff.pants;
+            if eff.hp < 0 {
+                self.mark_damage(DamageCause::Breakdown);
+            }
             if let Some(r) = &eff.add_receipt {
                 self.receipts.push(r.clone());
             }
@@ -659,19 +909,33 @@ impl GameState {
             self.stats.clamp();
         }
         self.current_encounter = None;
+        self.encounters_resolved = self.encounters_resolved.saturating_add(1);
     }
 
     fn resolve_breakdown(&mut self) {
         if let Some(breakdown) = self.breakdown.clone() {
             if self.consume_spare_for_part(breakdown.part) {
+                self.vehicle.repair(VEHICLE_REPAIR_HEAL);
                 self.breakdown = None;
                 self.travel_blocked = false;
                 self.logs.push(String::from("log.breakdown-repaired"));
                 return;
             }
 
+            if self.total_spares() == 0 && self.budget_cents >= EMERGENCY_REPAIR_COST {
+                self.budget_cents -= EMERGENCY_REPAIR_COST;
+                self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+                self.vehicle.repair(VEHICLE_REPAIR_HEAL + 4);
+                self.breakdown = None;
+                self.travel_blocked = false;
+                self.logs.push(String::from(LOG_VEHICLE_REPAIR_EMERGENCY));
+                return;
+            }
+
             let day_started = u32::try_from(breakdown.day_started).unwrap_or(0);
             if self.day.saturating_sub(day_started) >= 1 {
+                self.vehicle.apply_damage(VEHICLE_BREAKDOWN_DAMAGE / 2);
+                self.mark_damage(DamageCause::Vehicle);
                 self.breakdown = None;
                 self.travel_blocked = false;
                 self.logs.push(String::from("log.breakdown-jury-rigged"));
@@ -740,21 +1004,42 @@ impl GameState {
         } else {
             limits.encounter_ceiling
         };
-        let encounter = (encounter_base + pace_cfg.encounter_chance_delta)
+        let mut encounter = (encounter_base + pace_cfg.encounter_chance_delta)
             .clamp(encounter_floor, encounter_ceiling);
-        self.encounter_chance_today = encounter;
 
         let distance_base = if limits.distance_base == 0.0 {
             15.0
         } else {
             limits.distance_base
         };
-        let distance = if pace_cfg.distance > 0.0 {
+        let base_distance = if pace_cfg.distance > 0.0 {
             pace_cfg.distance
         } else {
-            distance_base * pace_cfg.dist_mult.max(0.1)
+            distance_base
         };
-        self.distance_today = distance;
+        let pace_scalar = match self.pace {
+            PaceId::Steady => 1.0,
+            PaceId::Heated => 1.2,
+            PaceId::Blitz => 1.4,
+        } * pace_cfg.dist_mult.max(0.1);
+        let weather_penalty = self.current_weather_speed_penalty();
+
+        let mut distance = base_distance * weather_penalty * pace_scalar;
+
+        if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
+            distance *= 0.5;
+            encounter = (encounter + 0.12).clamp(encounter_floor, encounter_ceiling);
+        }
+
+        if self.malnutrition_level > 0 {
+            #[allow(clippy::cast_precision_loss)]
+            let malnutrition = self.malnutrition_level as f32;
+            let starvation_penalty = 1.0 - (malnutrition * 0.05);
+            distance *= starvation_penalty.max(0.3);
+        }
+
+        self.encounter_chance_today = encounter;
+        self.distance_today = distance.max(1.0);
 
         let pants_floor = limits.pants_floor;
         let pants_ceiling = limits.pants_ceiling;
@@ -849,18 +1134,47 @@ impl GameState {
         self.rest_requested = true;
     }
 
-    fn failure_log_key(&self) -> Option<&'static str> {
-        if self.stats.pants >= 100 {
-            Some(LOG_PANTS_EMERGENCY)
-        } else if self.stats.hp <= 0 {
-            Some(LOG_HEALTH_COLLAPSE)
-        } else if self.stats.supplies <= 0 {
-            Some(LOG_SUPPLIES_DEPLETED)
-        } else if self.stats.sanity <= 0 {
-            Some(LOG_SANITY_COLLAPSE)
-        } else {
-            None
+    fn failure_log_key(&mut self) -> Option<&'static str> {
+        if self.vehicle.health <= 0 {
+            self.set_ending(Ending::VehicleFailure);
+            return Some(LOG_VEHICLE_FAILURE);
         }
+        if self.stats.pants >= 100 {
+            self.set_ending(Ending::Collapse {
+                cause: CollapseCause::Panic,
+            });
+            return Some(LOG_PANTS_EMERGENCY);
+        }
+        if self.stats.hp <= 0 {
+            if self.ending.is_none() {
+                match self.last_damage.unwrap_or(DamageCause::Unknown) {
+                    DamageCause::ExposureCold | DamageCause::ExposureHeat => {
+                        self.set_ending(Ending::Exposure);
+                    }
+                    DamageCause::Starvation => {
+                        self.set_ending(Ending::Collapse {
+                            cause: CollapseCause::Hunger,
+                        });
+                    }
+                    DamageCause::Vehicle => {
+                        self.set_ending(Ending::Collapse {
+                            cause: CollapseCause::Vehicle,
+                        });
+                    }
+                    DamageCause::Breakdown | DamageCause::Unknown => {
+                        self.set_ending(Ending::Collapse {
+                            cause: CollapseCause::Breakdown,
+                        });
+                    }
+                }
+            }
+            return Some(LOG_HEALTH_COLLAPSE);
+        }
+        if self.stats.sanity <= 0 {
+            self.set_ending(Ending::SanityLoss);
+            return Some(LOG_SANITY_COLLAPSE);
+        }
+        None
     }
 
     pub fn consume_daily_effects(&mut self, sanity_delta: i32, supplies_delta: i32) {

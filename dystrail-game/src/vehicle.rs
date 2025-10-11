@@ -28,11 +28,44 @@ pub struct Vehicle {
     /// Future: wear level that increases base breakdown chance
     #[serde(default)]
     pub wear: f32,
+    /// Remaining vehicle health (percentage 0-100)
+    #[serde(default = "Vehicle::default_health")]
+    pub health: i32,
 }
 
 impl Default for Vehicle {
     fn default() -> Self {
-        Self { wear: 0.0 }
+        Self {
+            wear: 0.0,
+            health: Self::default_health(),
+        }
+    }
+}
+
+impl Vehicle {
+    const fn default_health() -> i32 {
+        100
+    }
+
+    /// Apply durability damage, clamping at zero.
+    pub fn apply_damage(&mut self, amount: i32) {
+        if amount <= 0 {
+            return;
+        }
+        self.health = (self.health - amount).max(0);
+    }
+
+    /// Restore partial durability, clamping to max.
+    pub fn repair(&mut self, amount: i32) {
+        if amount <= 0 {
+            return;
+        }
+        self.health = (self.health + amount).min(Self::default_health());
+    }
+
+    #[must_use]
+    pub fn is_critical(&self) -> bool {
+        self.health <= 20
     }
 }
 

@@ -14,9 +14,11 @@ const fn debug_log_enabled() -> bool {
 }
 
 pub fn pick_encounter<R: Rng>(
-    data: &EncounterData,
-    is_deep: bool,
     region: Region,
+    is_deep: bool,
+    malnutrition_level: u32,
+    starving: bool,
+    data: &EncounterData,
     rng: &mut R,
 ) -> Option<Encounter> {
     let region_str = match region {
@@ -24,7 +26,6 @@ pub fn pick_encounter<R: Rng>(
         Region::RustBelt => "rustbelt",
         Region::Beltway => "beltway",
     };
-
     let mode_aliases: &[&str] = if is_deep {
         &["deep", "deep_end"]
     } else {
@@ -61,8 +62,26 @@ pub fn pick_encounter<R: Rng>(
         return None;
     }
 
-    // Calculate total weight
-    let total_weight: u32 = candidates.iter().map(|e| e.weight).sum();
+    // Calculate total weight with starvation adjustments
+    let starvation_bonus = if starving || malnutrition_level > 0 {
+        10 + (malnutrition_level * 5)
+    } else {
+        0
+    };
+
+    let weighted: Vec<(usize, u32)> = candidates
+        .iter()
+        .enumerate()
+        .map(|(idx, enc)| {
+            let mut weight = enc.weight;
+            if starvation_bonus > 0 && is_forage(enc) {
+                weight = weight.saturating_add(starvation_bonus);
+            }
+            (idx, weight.max(1))
+        })
+        .collect();
+
+    let total_weight: u32 = weighted.iter().map(|(_, weight)| *weight).sum();
     if total_weight == 0 {
         return None;
     }
@@ -71,13 +90,22 @@ pub fn pick_encounter<R: Rng>(
     let roll = rng.random_range(0..total_weight);
     let mut current_weight = 0;
 
-    for encounter in &candidates {
-        current_weight += encounter.weight;
+    for (idx, weight) in &weighted {
+        current_weight += *weight;
         if roll < current_weight {
-            return Some((*encounter).clone());
+            return Some(candidates[*idx].clone());
         }
     }
 
     // Fallback to first candidate
     candidates.first().map(|e| (*e).clone())
+}
+
+fn is_forage(encounter: &Encounter) -> bool {
+    let id_lower = encounter.id.to_lowercase();
+    let name_lower = encounter.name.to_lowercase();
+    id_lower.contains("forage")
+        || name_lower.contains("forage")
+        || name_lower.contains("scavenge")
+        || name_lower.contains("gather")
 }

@@ -2,434 +2,474 @@
   "app": {
     "title": "Dystrail"
   },
-  "nav": {
-    "home": "Startseite",
-    "settings": "Einstellungen",
-    "language": "Sprache"
+  "boss": {
+    "begin": "Boss beginnen",
+    "phases_hint": "Stelle dich den Phasen: Cloture, Geschäftsordnungsanträge, Änderungsflut.",
+    "title": "Filibuster-Boss"
   },
-  "ui": {
-    "cta_start": "DRÜCKE EINE BELIEBIGE TASTE ZUM STARTEN",
-    "skip_to_content": "Zum Inhalt springen",
-    "select_mode": "Modus auswählen",
-    "loading": "Lädt… {{pct}}%",
-    "loading_encounters": "Lade Begegnungen…",
-    "continue": "Weiter"
+  "camp": {
+    "announce": {
+      "cooldown": "Therapie ist noch {days} Tage in Abklingzeit.",
+      "forage_none": "Gesammelt, aber nichts gefunden.",
+      "forage_receipt": "Nützlichen Hinweis gefunden: Belege +1.",
+      "forage_sup": "Erfolgreich gesammelt: Vorräte +1.",
+      "no_breakdown": "Keine aktive Panne.",
+      "no_receipt": "Keine Belege zum Verbrennen verfügbar.",
+      "repair_hack": "Hack-Reparatur angewandt. Vorräte -{sup}, Glaubwürdigkeit -{cred}. Tag +{day}.",
+      "repair_spare": "Ersatz-{part} verwendet. Vorräte -{sup}. Fahrzeug repariert.",
+      "rest": "Gerastet. Vernunft +2, LP +1, Vorräte -1. Tag +1.",
+      "therapy": "Sie haben Tagebuch geführt und reflektiert. Vernunft +2, 1 Beleg verbrannt. Tag +1."
+    },
+    "desc": "Wählen Sie eine Aktion.",
+    "help": "Drücken Sie 1-4 oder 0, um eine Option auszuwählen",
+    "menu": {
+      "back": "Zurück",
+      "close": "Schließen",
+      "forage": "Sammeln (50% Vorräte +1 / 30% Nichts / 20% Belege +1)",
+      "hack_fix": "Hack-Reparatur (Vorräte -{sup}, Glaubwürdigkeit -{cred}, Tag +{day})",
+      "repair": "Fahrzeug reparieren (falls kaputt)",
+      "rest": "Rasten (+2 Vernunft, +1 LP, Vorräte -1, Tag +1)",
+      "therapy": "Therapie/Tagebuch (+2 Vernunft, 1 Beleg verbrennen, Tag +1) [Abklingzeit: {days} Tage]",
+      "use_spare": "Ersatzteil verwenden"
+    },
+    "parts": {
+      "alt": "Lichtmaschine",
+      "battery": "Batterie",
+      "pump": "Kraftstoffpumpe",
+      "tire": "Reifen"
+    },
+    "repair": {
+      "title": "Fahrzeugreparatur"
+    },
+    "repair_vehicle": "Fahrzeug reparieren",
+    "title": "Lager"
   },
-  "share": {
-    "code": "Code teilen",
-    "start_with_code": "Mit Code starten",
-    "code_help": "Format: CL-WORD00 oder DP-WORD00",
-    "run": "Lauf teilen"
+  "cross": {
+    "announce": {
+      "bribe_paid_failed": "Bestechung {cost} bezahlt, aber fehlgeschlagen. Tage {days}, Hosen {pants}.",
+      "bribe_paid_passed": "Bestechung {cost} bezahlt. Durchgang gewährt.",
+      "detour_applied": "Umweg genommen. Tage {days}, Vorräte {supplies}, Hosen {pants}.",
+      "insufficient_funds": "Unzureichende Mittel.",
+      "no_receipt_or_tag": "Keine Belege und kein Genehmigungstag.",
+      "permit_used_receipt": "Genehmigung über Beleg akzeptiert. Glaub +1.",
+      "permit_used_tag": "Genehmigung über Tag akzeptiert. Glaub +1."
+    },
+    "desc": {
+      "bribe": "Persona-Rabatt gilt; kann bei Shutdown fehlschlagen.",
+      "detour": "Garantiert; fügt Zeit hinzu und kostet Vorräte; kleiner Stress.",
+      "permit": "Verbraucht 1 Beleg oder verwendet Genehmigungstag falls vorhanden."
+    },
+    "options": {
+      "back": "Zurück",
+      "bribe": "Bestechung — Kosten {cost} (siehe Richtlinie)",
+      "detour": "Umweg — Tage {days}, Vorräte {supplies}, Hosen {pants} (Sicher)",
+      "permit": "Genehmigung — 1 Beleg ausgeben oder Presseausweis verwenden (Glaub +1)"
+    },
+    "policy": {
+      "shutdown": "Shutdown in Kraft: Bestechungserfolg ist {chance}%."
+    },
+    "prompt": "Kontrollpunkt voraus. Wählen Sie:",
+    "title": "Kontrollpunkt",
+    "types": {
+      "bridge_out": "Brücke gesperrt",
+      "checkpoint": "Kontrollpunkt"
+    }
   },
-  "mode": {
-    "classic": "Klassisch",
-    "deep": "Das tiefe Ende"
-  },
-  "travel": {
-    "title": "Reisen",
-    "next": "Nächste Etappe reisen"
-  },
-  "stats": {
-    "day_region": "Tag {{day}} — {{region}}",
-    "hp_short": "LP",
-    "sanity_short": "Ver",
-    "cred_short": "Glaub",
-    "sup_short": "Vor",
-    "mor_short": "Mor",
-    "allies_short": "Verbündete",
-    "pants": "Hosen {{pct}}%",
-    "pants_label": "Hosen-Meter"
-  },
-  "region": {
-    "heartland": "Kernland",
-    "rustbelt": "Rostgürtel",
-    "beltway": "Beltway"
+  "dialogs": {
+    "close": "Schließen",
+    "confirm": "Sind Sie sicher?"
   },
   "eo": {
-    "prefix": "EO:",
-    "shutdown": "Regierungsschließung",
-    "travel_ban_lite": "Reiseverbot Light",
-    "gas_stove_police": "Gasherd-Polizei",
     "book_panic": "Buchpanik",
     "deportation_sweep": "Abschiebungswelle",
-    "tariff_tsunami": "Zoll-Tsunami",
     "doe_eliminated": "Bildungsministerium abgeschafft",
+    "gas_stove_police": "Gasherd-Polizei",
+    "prefix": "EO:",
+    "shutdown": "Regierungsschließung",
+    "tariff_tsunami": "Zoll-Tsunami",
+    "travel_ban_lite": "Reiseverbot Light",
     "war_dept_reorg": "Kriegsministerium-Umstrukturierung"
   },
-  "boss": {
-    "title": "Filibuster-Boss",
-    "phases_hint": "Stelle dich den Phasen: Cloture, Geschäftsordnungsanträge, Änderungsflut.",
-    "begin": "Boss beginnen"
-  },
-  "result": {
-    "title": "Ergebnis",
-    "title_aria": "Ergebnis",
-    "headline": {
-      "victory": "SIE HABEN CLOTURE BESTANDEN!",
-      "boss_loss": "FILIBUSTER HAT SIE ZERQUETSCHT",
-      "pants": "NATIONALER HOSEN-NOTSTAND",
-      "sanity": "VERNUNFT-BRUCH",
-      "collapse": "ZUSAMMENBRUCH AUF DEN STUFEN"
-    },
-    "badges": {
-      "mode_deep": "+5% (nur Anzeige)"
-    },
-    "labels": {
-      "seed": "Seed",
-      "persona": "Persona",
-      "mode": "Modus",
-      "score": "Punkte",
-      "stats": "Stats",
-      "days": "Tage",
-      "encounters": "Begegnungen",
-      "receipts": "Belege",
-      "allies": "Verbündete",
-      "supplies": "Vorräte",
-      "credibility": "Glaubwürdigkeit",
-      "pants_pct": "Hosen"
-    },
-    "epilogue": {
-      "victory": "Historiker werden Ihre Belege zitieren. Lobbyisten verfluchen Ihren Namen.",
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
-      "pants": "Die Schlagzeile tat den Rest. Das GIF ist für immer.",
-      "sanity": "Die Absurdität brach Sie, bevor der Senat es tat.",
-      "collapse": "Sie erreichten die Stufen, aber nicht das Ziel. Nächster Versuch."
-    },
-    "menu": {
-      "copy_share": "Share-Text kopieren",
-      "copy_seed": "Seed kopieren",
-      "replay_seed": "Diesen Seed wiederholen",
-      "new_run": "Neuer Lauf (zufälliger Seed)",
-      "export": "Spielstand exportieren",
-      "title": "Titel"
-    },
-    "share": {
-      "template": "Dystrail — {headline} · Punkte {score} · Seed {seed} · Persona {persona} ({mult}) · Modus {mode}"
-    },
-    "announce": {
-      "copied": "In Zwischenablage kopiert.",
-      "copy_failed": "Kopieren fehlgeschlagen. Bitte manuell kopieren."
-    }
+  "footer": {
+    "copyright": "© Dystrail"
   },
   "game": {
     "seed_label": "Seed:"
   },
   "log": {
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
     "booting": "Startet…",
-    "seed_set": "Seed gesetzt",
-    "traveled": "Gereist",
     "encounter": "Begegnung!",
+    "health_collapse": "Health depleted!",
     "pants_emergency": "Nationaler Hosen-Notstand!",
     "run_begins": "Lauf beginnt ({{mode}})",
-    "health_collapse": "Health depleted!",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "Seed gesetzt",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll."
+    },
     "supplies_depleted": "Supplies exhausted!",
-    "sanity_collapse": "Sanity fractured!"
-  },
-  "save": {
-    "header": "Speichern/Laden",
-    "title": "Speichern / Laden",
-    "save": "Jetzt speichern",
-    "load": "Laden",
-    "export": "Export-JSON kopieren",
-    "import_label": "Spielstand-JSON einfügen",
-    "import_button": "Importieren",
-    "close": "Schließen",
-    "error": "Ungültiges Spielstand-JSON",
-    "loaded": "Spielstand geladen",
-    "saved": "Spiel gespeichert"
-  },
-  "footer": {
-    "copyright": "© Dystrail"
-  },
-  "persona": {
-    "choose": "Wählen Sie Ihre Persona:",
-    "selected_budget_prefix": "Startbudget",
-    "preview": "Start: Vorräte {sup} · Glaub {cred} · Ver {san} · Mor {mor} · Verbündete {allies} · Budget ${budget}",
-    "mult": "Multiplikator ×{mult}",
-    "preview_wait": "Wählen Sie eine Persona, um Details zu sehen.",
-    "journalist": {
-      "name": "Journalist",
-      "desc": "Glaubwürdig und einfallsreich; gedeiht bei Belegen."
+    "traveled": "Gereist",
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
+      "repair": {
+        "emergency": "💸 Emergency roadside repair: -$10.00"
+      }
     },
-    "organizer": {
-      "name": "Organisator",
-      "desc": "Baut Moral und Verbündete auf."
-    },
-    "whistleblower": {
-      "name": "Whistleblower",
-      "desc": "Zieht Aufmerksamkeit; findet mehr Belege."
-    },
-    "lobbyist": {
-      "name": "Lobbyist",
-      "desc": "Verbindungen reduzieren Kosten."
-    },
-    "staffer": {
-      "name": "Mitarbeiter",
-      "desc": "Ausgewogen; keine starken Vorteile."
-    },
-    "satirist": {
-      "name": "Satiriker",
-      "desc": "Bewältigt mit Humor; stellt Vernunft wieder her."
-    },
-    "mods": {
-      "receipts_pct": "+{pct}% Belege",
-      "store_discount_pct": "-{pct}% Laden",
-      "bribe_discount_pct": "-{pct}% Bestechung",
-      "eo_heat_pct": "+{pct}% EO-Hitze",
-      "satire_sustain": "Humor erhält Vernunft"
+    "weather": {
+      "exposure": "Cold bites hard without proper gear.",
+      "heatstroke": "Blistering heat cooked your run."
     }
   },
   "menu": {
-    "title": "Hauptmenü",
-    "help": "Drücken Sie 1–8/0 oder klicken Sie auf einen Eintrag. Seed: {{seed}}",
-    "selected": "Ausgewählt",
-    "travel": "Reisen",
     "camp": "Lager",
-    "status": "Status",
-    "pace": "Tempo ändern",
     "diet": "Info-Diät",
+    "help": "Drücken Sie 1–8/0 oder klicken Sie auf einen Eintrag. Seed: {{seed}}",
     "inventory": "Inventar verwenden",
-    "share": "Seed speichern/teilen",
+    "pace": "Tempo ändern",
+    "quit": "Beenden",
+    "selected": "Ausgewählt",
     "settings": "Einstellungen",
-    "quit": "Beenden"
+    "share": "Seed speichern/teilen",
+    "status": "Status",
+    "title": "Hauptmenü",
+    "travel": "Reisen"
   },
-  "dialogs": {
-    "confirm": "Sind Sie sicher?",
-    "close": "Schließen"
+  "mode": {
+    "classic": "Klassisch",
+    "deep": "Das tiefe Ende"
+  },
+  "nav": {
+    "home": "Startseite",
+    "language": "Sprache",
+    "settings": "Einstellungen"
+  },
+  "pacediet": {
+    "announce": {
+      "diet_set": "Diät auf {diet} gesetzt ({sanity} Vernunft, {pants} Hosen, {receipt} Beleg-Chance).",
+      "pace_set": "Tempo auf {pace} gesetzt ({sanity} Vernunft, {pants} Hosen, {chance} Begegnungschance)."
+    },
+    "menu": {
+      "back": "Zurück",
+      "diet_doom": "Diät:  Doomscroll",
+      "diet_mixed": "Diät: [Gemischt]",
+      "diet_quiet": "Diät:  Ruhig",
+      "pace_blitz": "Tempo:  Blitz",
+      "pace_heated": "Tempo:  Erhitzt",
+      "pace_steady": "Tempo: [Stetig]"
+    },
+    "title": "Tempo & Info-Diät — Heute",
+    "tooltips": {
+      "blitz": "Entfernung x1.4; Ver -2; Hosen +6; Begegnung +10%",
+      "doom": "Belege +8%; Ver -2; Hosen +4",
+      "heated": "Entfernung x1.2; Ver -1; Hosen +3; Begegnung +5%",
+      "mixed": "Belege 0%; Ver 0; Hosen 0",
+      "quiet": "Belege -5%; Ver +1; Hosen -2",
+      "steady": "Entfernung x1.0; Ver 0; Hosen 0; Begegnung +0%"
+    }
+  },
+  "persona": {
+    "choose": "Wählen Sie Ihre Persona:",
+    "journalist": {
+      "desc": "Glaubwürdig und einfallsreich; gedeiht bei Belegen.",
+      "name": "Journalist"
+    },
+    "lobbyist": {
+      "desc": "Verbindungen reduzieren Kosten.",
+      "name": "Lobbyist"
+    },
+    "mods": {
+      "bribe_discount_pct": "-{pct}% Bestechung",
+      "eo_heat_pct": "+{pct}% EO-Hitze",
+      "receipts_pct": "+{pct}% Belege",
+      "satire_sustain": "Humor erhält Vernunft",
+      "store_discount_pct": "-{pct}% Laden"
+    },
+    "mult": "Multiplikator ×{mult}",
+    "organizer": {
+      "desc": "Baut Moral und Verbündete auf.",
+      "name": "Organisator"
+    },
+    "preview": "Start: Vorräte {sup} · Glaub {cred} · Ver {san} · Mor {mor} · Verbündete {allies} · Budget ${budget}",
+    "preview_wait": "Wählen Sie eine Persona, um Details zu sehen.",
+    "satirist": {
+      "desc": "Bewältigt mit Humor; stellt Vernunft wieder her.",
+      "name": "Satiriker"
+    },
+    "selected_budget_prefix": "Startbudget",
+    "staffer": {
+      "desc": "Ausgewogen; keine starken Vorteile.",
+      "name": "Mitarbeiter"
+    },
+    "whistleblower": {
+      "desc": "Zieht Aufmerksamkeit; findet mehr Belege.",
+      "name": "Whistleblower"
+    }
+  },
+  "region": {
+    "beltway": "Beltway",
+    "heartland": "Kernland",
+    "rustbelt": "Rostgürtel"
+  },
+  "result": {
+    "announce": {
+      "copied": "In Zwischenablage kopiert.",
+      "copy_failed": "Kopieren fehlgeschlagen. Bitte manuell kopieren."
+    },
+    "badges": {
+      "fail": "Fail",
+      "mode_deep": "+5% (nur Anzeige)",
+      "success": "Pass"
+    },
+    "epilogue": {
+      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "collapse": "Sie erreichten die Stufen, aber nicht das Ziel. Nächster Versuch.",
+      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
+      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
+      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
+      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
+      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
+      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "pants": "Die Schlagzeile tat den Rest. Das GIF ist für immer.",
+      "sanity": "Die Absurdität brach Sie, bevor der Senat es tat.",
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "victory": "Historiker werden Ihre Belege zitieren. Lobbyisten verfluchen Ihren Namen."
+    },
+    "headline": {
+      "boss_loss": "FILIBUSTER HAT SIE ZERQUETSCHT",
+      "collapse": "ZUSAMMENBRUCH AUF DEN STUFEN",
+      "collapse_breakdown": "BURNOUT COLLAPSE",
+      "collapse_hunger": "STARVATION COLLAPSE",
+      "collapse_vehicle": "MECHANICAL COLLAPSE",
+      "collapse_weather": "WEATHER COLLAPSE",
+      "exposure": "EXPOSED TO THE ELEMENTS",
+      "pants": "NATIONALER HOSEN-NOTSTAND",
+      "sanity": "VERNUNFT-BRUCH",
+      "vehicle_failure": "VEHICLE DESTROYED",
+      "victory": "SIE HABEN CLOTURE BESTANDEN!"
+    },
+    "labels": {
+      "allies": "Verbündete",
+      "breakdowns": "Breakdowns",
+      "credibility": "Glaubwürdigkeit",
+      "days": "Tage",
+      "encounters": "Begegnungen",
+      "malnutrition": "Starvation Days",
+      "miles": "Miles Traveled",
+      "mode": "Modus",
+      "pants_pct": "Hosen",
+      "passed_threshold": "Boss Vote Ready",
+      "persona": "Persona",
+      "receipts": "Belege",
+      "score": "Punkte",
+      "score_threshold": "Score Threshold",
+      "seed": "Seed",
+      "stats": "Stats",
+      "supplies": "Vorräte"
+    },
+    "menu": {
+      "copy_seed": "Seed kopieren",
+      "copy_share": "Share-Text kopieren",
+      "export": "Spielstand exportieren",
+      "new_run": "Neuer Lauf (zufälliger Seed)",
+      "replay_seed": "Diesen Seed wiederholen",
+      "title": "Titel"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Punkte {score} · Seed {seed} · Persona {persona} ({mult}) · Modus {mode}"
+    },
+    "title": "Ergebnis",
+    "title_aria": "Ergebnis"
+  },
+  "save": {
+    "close": "Schließen",
+    "error": "Ungültiges Spielstand-JSON",
+    "export": "Export-JSON kopieren",
+    "header": "Speichern/Laden",
+    "import_button": "Importieren",
+    "import_label": "Spielstand-JSON einfügen",
+    "load": "Laden",
+    "loaded": "Spielstand geladen",
+    "save": "Jetzt speichern",
+    "saved": "Spiel gespeichert",
+    "title": "Speichern / Laden"
+  },
+  "share": {
+    "code": "Code teilen",
+    "code_help": "Format: CL-WORD00 oder DP-WORD00",
+    "run": "Lauf teilen",
+    "start_with_code": "Mit Code starten"
+  },
+  "stats": {
+    "allies_short": "Verbündete",
+    "cred_short": "Glaub",
+    "day_region": "Tag {{day}} — {{region}}",
+    "hp_short": "LP",
+    "mor_short": "Mor",
+    "pants": "Hosen {{pct}}%",
+    "pants_label": "Hosen-Meter",
+    "sanity_short": "Ver",
+    "sup_short": "Vor"
   },
   "store": {
-    "title": "Ausrüstung",
+    "alerts": {
+      "added": "{item} ({price}) hinzugefügt. Budget übrig {left}.",
+      "max_qty": "Maximale Menge für {item} erreicht.",
+      "over_budget": "Über Budget; passen Sie Ihren Warenkorb an.",
+      "removed": "{item} entfernt. Budget übrig {left}.",
+      "unique": "{item} ist einzigartig; Sie haben bereits eins."
+    },
     "budget": "Budget: {amount}",
+    "cart": {
+      "checkout": "Zur Kasse",
+      "line": "{item}  x{qty}  = {line_total}",
+      "title": "Warenkorb",
+      "total": "Gesamt: {sum}   Budget übrig: {left}"
+    },
     "categories": {
+      "docs": "Dokumente & Genehmigungen",
       "fuel_food": "Treibstoff / Nahrung",
-      "vehicle": "Fahrzeugersatzteile",
       "ppe": "PSA & Kleidung",
-      "docs": "Dokumente & Genehmigungen"
+      "vehicle": "Fahrzeugersatzteile"
     },
     "items": {
-      "rations": {
-        "name": "Rationenpack",
-        "desc": "Haltbar. Hält Sie am Laufen."
-      },
-      "water": {
-        "name": "Wasserkanister",
-        "desc": "Hydration ist wichtig."
-      },
-      "spare_tire": {
-        "name": "Ersatzreifen",
-        "desc": "Repariert Reifenpannen schnell."
+      "alternator": {
+        "desc": "Ladung wiederhergestellt.",
+        "name": "Lichtmaschine"
       },
       "battery": {
-        "name": "Batterie",
-        "desc": "Kaltstart."
-      },
-      "alternator": {
-        "name": "Lichtmaschine",
-        "desc": "Ladung wiederhergestellt."
-      },
-      "fuel_pump": {
-        "name": "Kraftstoffpumpe",
-        "desc": "Wenn die Party trocken läuft."
-      },
-      "masks": {
-        "name": "Masken",
-        "desc": "Rauch-/Krankheitsschutz."
+        "desc": "Kaltstart.",
+        "name": "Batterie"
       },
       "coats": {
-        "name": "Warme Mäntel",
-        "desc": "Kältewellen-Resistenz."
+        "desc": "Kältewellen-Resistenz.",
+        "name": "Warme Mäntel"
       },
-      "ponchos": {
-        "name": "Ponchos",
-        "desc": "Sturmfreundlich."
-      },
-      "press_pass": {
-        "name": "Presseausweis",
-        "desc": "Kann als Genehmigung fungieren."
+      "fuel_pump": {
+        "desc": "Wenn die Party trocken läuft.",
+        "name": "Kraftstoffpumpe"
       },
       "legal_fund": {
-        "name": "Rechtsfonds",
-        "desc": "Puffert Ihre Glaubwürdigkeit."
+        "desc": "Puffert Ihre Glaubwürdigkeit.",
+        "name": "Rechtsfonds"
+      },
+      "masks": {
+        "desc": "Rauch-/Krankheitsschutz.",
+        "name": "Masken"
+      },
+      "ponchos": {
+        "desc": "Sturmfreundlich.",
+        "name": "Ponchos"
+      },
+      "press_pass": {
+        "desc": "Kann als Genehmigung fungieren.",
+        "name": "Presseausweis"
+      },
+      "rations": {
+        "desc": "Haltbar. Hält Sie am Laufen.",
+        "name": "Rationenpack"
+      },
+      "spare_tire": {
+        "desc": "Repariert Reifenpannen schnell.",
+        "name": "Ersatzreifen"
+      },
+      "water": {
+        "desc": "Hydration ist wichtig.",
+        "name": "Wasserkanister"
       }
     },
     "menu": {
-      "home": "Ausrüstung — Budget: {budget}",
-      "view_cart": "Warenkorb ansehen / Zur Kasse",
+      "back": "Zurück",
       "continue": "Weiter",
-      "back": "Zurück"
+      "home": "Ausrüstung — Budget: {budget}",
+      "view_cart": "Warenkorb ansehen / Zur Kasse"
     },
     "qty_prompt": {
-      "title": "{item} — {price} pro Stück",
       "add1": "+1 hinzufügen",
       "add5": "+5 hinzufügen",
       "rem1": "-1 entfernen",
-      "rem_all": "Alle entfernen"
+      "rem_all": "Alle entfernen",
+      "title": "{item} — {price} pro Stück"
     },
-    "cart": {
-      "title": "Warenkorb",
-      "line": "{item}  x{qty}  = {line_total}",
-      "total": "Gesamt: {sum}   Budget übrig: {left}",
-      "checkout": "Zur Kasse"
-    },
-    "alerts": {
-      "added": "{item} ({price}) hinzugefügt. Budget übrig {left}.",
-      "removed": "{item} entfernt. Budget übrig {left}.",
-      "max_qty": "Maximale Menge für {item} erreicht.",
-      "unique": "{item} ist einzigartig; Sie haben bereits eins.",
-      "over_budget": "Über Budget; passen Sie Ihren Warenkorb an."
-    }
+    "title": "Ausrüstung"
   },
-  "pacediet": {
-    "title": "Tempo & Info-Diät — Heute",
-    "menu": {
-      "pace_steady": "Tempo: [Stetig]",
-      "pace_heated": "Tempo:  Erhitzt",
-      "pace_blitz": "Tempo:  Blitz",
-      "diet_quiet": "Diät:  Ruhig",
-      "diet_mixed": "Diät: [Gemischt]",
-      "diet_doom": "Diät:  Doomscroll",
-      "back": "Zurück"
-    },
-    "announce": {
-      "pace_set": "Tempo auf {pace} gesetzt ({sanity} Vernunft, {pants} Hosen, {chance} Begegnungschance).",
-      "diet_set": "Diät auf {diet} gesetzt ({sanity} Vernunft, {pants} Hosen, {receipt} Beleg-Chance)."
-    },
-    "tooltips": {
-      "steady": "Entfernung x1.0; Ver 0; Hosen 0; Begegnung +0%",
-      "heated": "Entfernung x1.2; Ver -1; Hosen +3; Begegnung +5%",
-      "blitz": "Entfernung x1.4; Ver -2; Hosen +6; Begegnung +10%",
-      "quiet": "Belege -5%; Ver +1; Hosen -2",
-      "mixed": "Belege 0%; Ver 0; Hosen 0",
-      "doom": "Belege +8%; Ver -2; Hosen +4"
-    }
+  "travel": {
+    "next": "Nächste Etappe reisen",
+    "title": "Reisen"
   },
-  "camp": {
-    "title": "Lager",
-    "desc": "Wählen Sie eine Aktion.",
-    "repair_vehicle": "Fahrzeug reparieren",
-    "help": "Drücken Sie 1-4 oder 0, um eine Option auszuwählen",
-    "menu": {
-      "rest": "Rasten (+2 Vernunft, +1 LP, Vorräte -1, Tag +1)",
-      "repair": "Fahrzeug reparieren (falls kaputt)",
-      "forage": "Sammeln (50% Vorräte +1 / 30% Nichts / 20% Belege +1)",
-      "therapy": "Therapie/Tagebuch (+2 Vernunft, 1 Beleg verbrennen, Tag +1) [Abklingzeit: {days} Tage]",
-      "close": "Schließen",
-      "back": "Zurück",
-      "use_spare": "Ersatzteil verwenden",
-      "hack_fix": "Hack-Reparatur (Vorräte -{sup}, Glaubwürdigkeit -{cred}, Tag +{day})"
-    },
-    "announce": {
-      "rest": "Gerastet. Vernunft +2, LP +1, Vorräte -1. Tag +1.",
-      "repair_spare": "Ersatz-{part} verwendet. Vorräte -{sup}. Fahrzeug repariert.",
-      "repair_hack": "Hack-Reparatur angewandt. Vorräte -{sup}, Glaubwürdigkeit -{cred}. Tag +{day}.",
-      "forage_sup": "Erfolgreich gesammelt: Vorräte +1.",
-      "forage_receipt": "Nützlichen Hinweis gefunden: Belege +1.",
-      "forage_none": "Gesammelt, aber nichts gefunden.",
-      "therapy": "Sie haben Tagebuch geführt und reflektiert. Vernunft +2, 1 Beleg verbrannt. Tag +1.",
-      "cooldown": "Therapie ist noch {days} Tage in Abklingzeit.",
-      "no_receipt": "Keine Belege zum Verbrennen verfügbar.",
-      "no_breakdown": "Keine aktive Panne."
-    },
-    "repair": {
-      "title": "Fahrzeugreparatur"
-    },
-    "parts": {
-      "tire": "Reifen",
-      "battery": "Batterie",
-      "alt": "Lichtmaschine",
-      "pump": "Kraftstoffpumpe"
-    }
+  "ui": {
+    "continue": "Weiter",
+    "cta_start": "DRÜCKE EINE BELIEBIGE TASTE ZUM STARTEN",
+    "loading": "Lädt… {{pct}}%",
+    "loading_encounters": "Lade Begegnungen…",
+    "select_mode": "Modus auswählen",
+    "skip_to_content": "Zum Inhalt springen"
   },
   "vehicle": {
-    "title": "Fahrzeugstatus",
-    "no_active": "Keine aktive Panne.",
-    "breakdown": "Panne — {part}-Ausfall. Reisen ist blockiert.",
-    "spares": {
-      "tire": "Ersatzreifen verwenden",
-      "battery": "Ersatzbatterie verwenden",
-      "alt": "Ersatz-Lichtmaschine verwenden",
-      "pump": "Ersatz-Kraftstoffpumpe verwenden"
-    },
-    "hack_fix": "Hack-Reparatur (Vorräte -3, Glaubwürdigkeit -1, Tag +1)",
-    "wait_mechanic": "Auf Mechaniker warten (Tag +1)",
-    "back": "Zurück",
-    "help": "Verwenden Sie Zahlentasten 1-5 oder 0 für zurück",
     "announce": {
-      "used_spare": "Ersatz-{part} verwendet. Vorräte -{sup}.",
-      "hack_applied": "Hack-Reparatur angewandt. Vorräte -{sup}, Glaubwürdigkeit -{cred}, Tag +{day}.",
-      "cleared": "Fahrzeug repariert.",
       "blocked": "Reisen blockiert bis repariert.",
-      "no_spare": "Kein Ersatzteil für {part} verfügbar."
+      "cleared": "Fahrzeug repariert.",
+      "hack_applied": "Hack-Reparatur angewandt. Vorräte -{sup}, Glaubwürdigkeit -{cred}, Tag +{day}.",
+      "no_spare": "Kein Ersatzteil für {part} verfügbar.",
+      "used_spare": "Ersatz-{part} verwendet. Vorräte -{sup}."
     },
+    "back": "Zurück",
+    "breakdown": "Panne — {part}-Ausfall. Reisen ist blockiert.",
+    "hack_fix": "Hack-Reparatur (Vorräte -3, Glaubwürdigkeit -1, Tag +1)",
+    "help": "Verwenden Sie Zahlentasten 1-5 oder 0 für zurück",
+    "no_active": "Keine aktive Panne.",
     "parts": {
-      "tire": "Reifen",
-      "battery": "Batterie",
       "alt": "Lichtmaschine",
-      "pump": "Kraftstoffpumpe"
-    }
+      "battery": "Batterie",
+      "pump": "Kraftstoffpumpe",
+      "tire": "Reifen"
+    },
+    "spares": {
+      "alt": "Ersatz-Lichtmaschine verwenden",
+      "battery": "Ersatzbatterie verwenden",
+      "pump": "Ersatz-Kraftstoffpumpe verwenden",
+      "tire": "Ersatzreifen verwenden"
+    },
+    "title": "Fahrzeugstatus",
+    "wait_mechanic": "Auf Mechaniker warten (Tag +1)"
   },
   "weather": {
-    "title": "Wetter",
     "announce": "Wetter: {state}. Vorräte {sup}, Vernunft {san}, Hosen {pants}, Begegnung {enc}.",
-    "states": {
-      "Clear": "Klar",
-      "Storm": "Sturm",
-      "HeatWave": "Hitzewelle",
-      "ColdSnap": "Kältewelle",
-      "Smoke": "Rauch"
-    },
-    "effects": {
-      "sup": "{val} Vorräte",
-      "san": "{val} Vernunft",
-      "pants": "{val} Hosen",
-      "enc": "{val}% Begegnung"
-    },
     "details": {
-      "header": "Wetterdetails:",
-      "state": "• Zustand: {state}",
+      "back": "0) Zurück",
       "effects": "• Auswirkungen heute: {effects}",
       "gear": "• Ausrüstungs-Milderung: {text}",
+      "header": "Wetterdetails:",
       "notes": "• Hinweise: {note}",
-      "back": "0) Zurück"
+      "state": "• Zustand: {state}"
+    },
+    "effects": {
+      "enc": "{val}% Begegnung",
+      "pants": "{val} Hosen",
+      "san": "{val} Vernunft",
+      "sup": "{val} Vorräte"
     },
     "gear": {
-      "storm": "Ponchos reduzieren Sturm-Strafen (rain_resist).",
+      "cold": "Warme Mäntel reduzieren Kälte-Strafen (cold_resist).",
       "smoke": "Masken reduzieren Rauch-Strafen (plague_resist).",
-      "cold": "Warme Mäntel reduzieren Kälte-Strafen (cold_resist)."
+      "storm": "Ponchos reduzieren Sturm-Strafen (rain_resist)."
     },
     "notes": {
       "storm_crossings": "Überquerungen sind bei Stürmen riskanter."
-    }
-  },
-  "cross": {
-    "title": "Kontrollpunkt",
-    "prompt": "Kontrollpunkt voraus. Wählen Sie:",
-    "options": {
-      "detour": "Umweg — Tage {days}, Vorräte {supplies}, Hosen {pants} (Sicher)",
-      "bribe": "Bestechung — Kosten {cost} (siehe Richtlinie)",
-      "permit": "Genehmigung — 1 Beleg ausgeben oder Presseausweis verwenden (Glaub +1)",
-      "back": "Zurück"
     },
-    "desc": {
-      "detour": "Garantiert; fügt Zeit hinzu und kostet Vorräte; kleiner Stress.",
-      "bribe": "Persona-Rabatt gilt; kann bei Shutdown fehlschlagen.",
-      "permit": "Verbraucht 1 Beleg oder verwendet Genehmigungstag falls vorhanden."
+    "states": {
+      "Clear": "Klar",
+      "ColdSnap": "Kältewelle",
+      "HeatWave": "Hitzewelle",
+      "Smoke": "Rauch",
+      "Storm": "Sturm"
     },
-    "announce": {
-      "detour_applied": "Umweg genommen. Tage {days}, Vorräte {supplies}, Hosen {pants}.",
-      "bribe_paid_passed": "Bestechung {cost} bezahlt. Durchgang gewährt.",
-      "bribe_paid_failed": "Bestechung {cost} bezahlt, aber fehlgeschlagen. Tage {days}, Hosen {pants}.",
-      "permit_used_receipt": "Genehmigung über Beleg akzeptiert. Glaub +1.",
-      "permit_used_tag": "Genehmigung über Tag akzeptiert. Glaub +1.",
-      "no_receipt_or_tag": "Keine Belege und kein Genehmigungstag.",
-      "insufficient_funds": "Unzureichende Mittel."
-    },
-    "policy": {
-      "shutdown": "Shutdown in Kraft: Bestechungserfolg ist {chance}%."
-    },
-    "types": {
-      "checkpoint": "Kontrollpunkt",
-      "bridge_out": "Brücke gesperrt"
-    }
+    "title": "Wetter"
   }
 }

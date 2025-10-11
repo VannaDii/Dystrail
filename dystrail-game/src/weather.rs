@@ -3,7 +3,10 @@ use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::{GameState, Region};
+use crate::state::{DamageCause, GameState, Region, Season};
+
+const LOG_WEATHER_EXPOSURE: &str = "log.weather.exposure";
+const LOG_WEATHER_HEATSTROKE: &str = "log.weather.heatstroke";
 
 /// Weather conditions that affect daily gameplay
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
@@ -346,7 +349,48 @@ pub fn select_weather_for_today(
         }
     }
 
-    Ok(candidate)
+    let seasonal_candidate = seasonal_override(gs.season, candidate, rng);
+    let mut final_weather = seasonal_candidate;
+    if seasonal_candidate.is_extreme()
+        && gs.weather_state.extreme_streak >= cfg.limits.max_extreme_streak
+    {
+        final_weather = Weather::Clear;
+    }
+
+    Ok(final_weather)
+}
+
+fn seasonal_override<R: Rng>(season: Season, current: Weather, rng: &mut R) -> Weather {
+    match season {
+        Season::Winter => {
+            if rng.random::<f32>() < 0.20 {
+                Weather::ColdSnap
+            } else {
+                current
+            }
+        }
+        Season::Summer => {
+            if rng.random::<f32>() < 0.20 {
+                Weather::HeatWave
+            } else {
+                current
+            }
+        }
+        Season::Fall => {
+            if rng.random::<f32>() < 0.15 {
+                Weather::Storm
+            } else {
+                current
+            }
+        }
+        Season::Spring => {
+            if rng.random::<f32>() < 0.12 {
+                Weather::Smoke
+            } else {
+                current
+            }
+        }
+    }
 }
 
 /// Apply weather effects to game state
@@ -394,6 +438,29 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     gs.stats.sanity += delta_san;
     gs.stats.pants =
         (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
+
+    let mut hp_damage = 0;
+    match today {
+        Weather::ColdSnap => {
+            if !gs.inventory.has_tag("warm_coat") {
+                hp_damage += 1;
+                gs.mark_damage(DamageCause::ExposureCold);
+                gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+            }
+        }
+        Weather::HeatWave => {
+            if !gs.inventory.has_tag("water_jugs") {
+                hp_damage += 1;
+                gs.stats.sanity -= 1;
+                gs.mark_damage(DamageCause::ExposureHeat);
+                gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+            }
+        }
+        _ => {}
+    }
+    if hp_damage > 0 {
+        gs.stats.hp -= hp_damage;
+    }
 
     // Add weather encounter chance delta
     gs.encounter_chance_today =
