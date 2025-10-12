@@ -188,27 +188,8 @@ pub fn select_ending(gs: &GameState, cfg: &ResultConfig, boss_won: bool) -> Endi
 }
 
 fn compute_score(gs: &GameState, cfg: &ScoreCfg, mult_cfg: &MultipliersCfg) -> i32 {
-    let stats = &gs.stats;
-    let supplies = stats.supplies.max(0);
-    let hp = stats.hp.max(0);
-    let morale = stats.morale.max(0);
-    let credibility = stats.credibility.max(0);
-    let allies = stats.allies.max(0);
-    let pants = stats.pants.max(0);
-    let days = i32::try_from(gs.day.saturating_sub(1)).unwrap_or(0);
-    let encounters = i32::try_from(gs.encounters_resolved).unwrap_or(0);
-    let receipts = i32::try_from(gs.receipts.len()).unwrap_or(0);
-    let breakdown_penalty = (gs.vehicle_breakdowns * 12).min(600);
-
-    let mut base = supplies * 10
-        + hp * 50
-        + morale * 25
-        + credibility * 15
-        + allies * 5
-        + days * 4
-        + encounters * 6
-        + receipts * 8
-        - breakdown_penalty;
+    let mut base = gs.journey_score();
+    let pants = gs.stats.pants.max(0);
 
     if pants > cfg.pants_threshold {
         base -= (pants - cfg.pants_threshold) * cfg.pants_penalty_per_point;
@@ -261,8 +242,8 @@ fn headline_key_for(ending: Ending, cfg: &EndingCfg) -> String {
         Ending::BossVictory => cfg.victory_key.clone(),
         Ending::BossVoteFailed => cfg.boss_loss_key.clone(),
         Ending::SanityLoss => cfg.sanity_key.clone(),
-        Ending::VehicleFailure => "result.headline.vehicle_failure".to_string(),
-        Ending::Exposure => "result.headline.exposure".to_string(),
+        Ending::VehicleFailure { .. } => "result.headline.vehicle_failure".to_string(),
+        Ending::Exposure { kind } => format!("result.headline.exposure_{}", kind.key()),
         Ending::Collapse { cause } => collapse_headline_key(cfg, cause),
     }
 }
@@ -270,10 +251,12 @@ fn headline_key_for(ending: Ending, cfg: &EndingCfg) -> String {
 fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
     match cause {
         CollapseCause::Panic => cfg.pants_key.clone(),
-        CollapseCause::Hunger => format!("{}_{}", cfg.collapse_key, "hunger"),
-        CollapseCause::Vehicle => format!("{}_{}", cfg.collapse_key, "vehicle"),
-        CollapseCause::Weather => format!("{}_{}", cfg.collapse_key, "weather"),
-        CollapseCause::Breakdown => format!("{}_{}", cfg.collapse_key, "breakdown"),
+        CollapseCause::Hunger => format!("{}_{}", cfg.collapse_key, CollapseCause::Hunger.key()),
+        CollapseCause::Vehicle => format!("{}_{}", cfg.collapse_key, CollapseCause::Vehicle.key()),
+        CollapseCause::Weather => format!("{}_{}", cfg.collapse_key, CollapseCause::Weather.key()),
+        CollapseCause::Breakdown => {
+            format!("{}_{}", cfg.collapse_key, CollapseCause::Breakdown.key())
+        }
     }
 }
 
@@ -306,15 +289,8 @@ fn mode_display(mode: GameMode) -> String {
     }
 }
 
-const SUCCESS_THRESHOLD_CLASSIC: i32 = 1_000;
-const SUCCESS_THRESHOLD_DEEP: i32 = 1_100;
-
 fn success_threshold(mode: GameMode) -> i32 {
-    if mode.is_deep() {
-        SUCCESS_THRESHOLD_DEEP
-    } else {
-        SUCCESS_THRESHOLD_CLASSIC
-    }
+    mode.boss_threshold()
 }
 
 #[cfg(test)]

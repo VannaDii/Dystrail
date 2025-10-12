@@ -229,7 +229,9 @@
       "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
       "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
       "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam."
+      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "exhausted": "निढाल",
     "exhausted_desc": "आप प्रक्रिया के आगे ढह गए।",
@@ -239,7 +241,9 @@
       "collapse_vehicle": "MECHANICAL COLLAPSE",
       "collapse_weather": "WEATHER COLLAPSE",
       "exposure": "EXPOSED TO THE ELEMENTS",
-      "vehicle_failure": "VEHICLE DESTROYED"
+      "vehicle_failure": "VEHICLE DESTROYED",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "breakdowns": "Breakdowns",

@@ -3,7 +3,7 @@ use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::state::{DamageCause, GameState, Region, Season};
+use crate::state::{DamageCause, Ending, ExposureKind, GameState, Region, Season};
 
 const LOG_WEATHER_EXPOSURE: &str = "log.weather.exposure";
 const LOG_WEATHER_HEATSTROKE: &str = "log.weather.heatstroke";
@@ -440,12 +440,14 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
         (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
 
     let mut hp_damage = 0;
+    let mut exposure_kind: Option<ExposureKind> = None;
     match today {
         Weather::ColdSnap => {
             if !gs.inventory.has_tag("warm_coat") {
                 hp_damage += 1;
                 gs.mark_damage(DamageCause::ExposureCold);
                 gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+                exposure_kind = Some(ExposureKind::Cold);
             }
         }
         Weather::HeatWave => {
@@ -454,12 +456,19 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
                 gs.stats.sanity -= 1;
                 gs.mark_damage(DamageCause::ExposureHeat);
                 gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+                exposure_kind = Some(ExposureKind::Heat);
             }
         }
         _ => {}
     }
     if hp_damage > 0 {
         gs.stats.hp -= hp_damage;
+        if gs.stats.hp <= 0
+            && let Some(kind) = exposure_kind
+            && gs.ending.is_none()
+        {
+            gs.ending = Some(Ending::Exposure { kind });
+        }
     }
 
     // Add weather encounter chance delta

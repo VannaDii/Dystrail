@@ -239,7 +239,9 @@
       "pants": "சைரான் மீதியைச் செய்தது. GIF என்றென்றும் உள்ளது.",
       "sanity": "செனட் செய்வதற்கு முன்பே அபத்தம் உங்களை உடைத்தது.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "வரலாற்றாசிரியர்கள் உங்கள் ஆதாரங்களை மேற்கோள் காட்டுவார்கள். லாபிஸ்டுகள் உங்கள் பெயரை சபிக்கிறார்கள்."
+      "victory": "வரலாற்றாசிரியர்கள் உங்கள் ஆதாரங்களை மேற்கோள் காட்டுவார்கள். லாபிஸ்டுகள் உங்கள் பெயரை சபிக்கிறார்கள்.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "ஃபிலிபஸ்டர் உங்களை நசுக்கியது",
@@ -252,7 +254,9 @@
       "pants": "தேசிய பேன்ட் அவசரநிலை",
       "sanity": "புத்தி உடைவு",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "நீங்கள் கிளோச்சரைக் கடந்தீர்கள்!"
+      "victory": "நீங்கள் கிளோச்சரைக் கடந்தீர்கள்!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "கூட்டாளிகள்",

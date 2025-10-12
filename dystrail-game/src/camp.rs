@@ -71,6 +71,7 @@ impl CampConfig {
 }
 
 pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
+    gs.start_of_day();
     let rest_cfg = &cfg.rest;
     if rest_cfg.day == 0 {
         return CampOutcome {
@@ -123,6 +124,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
 }
 
 pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
+    gs.start_of_day();
     let forage_cfg = &cfg.forage;
     if forage_cfg.day == 0 || forage_cfg.supplies == 0 {
         return CampOutcome {

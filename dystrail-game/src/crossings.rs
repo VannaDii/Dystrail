@@ -169,6 +169,7 @@ pub fn apply_bribe(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Crossi
 
     if gs.budget_cents >= bribe_cost {
         gs.budget_cents -= bribe_cost;
+        gs.bribes_spent_cents += bribe_cost;
         // Apply the failure effects on the stats regardless - crossing is stressful
         gs.stats.pants += type_cfg.bribe.on_fail.pants;
         "crossing.result.bribe.success".to_string()

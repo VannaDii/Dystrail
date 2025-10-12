@@ -178,7 +178,7 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents"
     )?;
 
     for record in records {
@@ -187,7 +187,7 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 
         writeln!(
             writer,
-            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1}",
+            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1},{},{},{:.2},{},{},{},{}",
             quote(&record.scenario_name),
             quote(mode_label(record.mode)),
             quote(&strategy),
@@ -195,6 +195,7 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
             record.seed_value,
             metrics.days_survived,
             quote(&metrics.ending_type),
+            quote(&metrics.ending_cause),
             metrics.encounters_faced,
             metrics.vehicle_breakdowns,
             metrics.final_hp,
@@ -205,6 +206,12 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
             metrics.boss_reached,
             metrics.boss_won,
             metrics.miles_traveled,
+            metrics.travel_days,
+            metrics.non_travel_days,
+            metrics.avg_miles_per_day,
+            metrics.unique_encounters,
+            metrics.repairs_spent_cents,
+            metrics.bribes_spent_cents,
         )?;
     }
 

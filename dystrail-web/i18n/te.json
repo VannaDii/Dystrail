@@ -239,7 +239,9 @@
       "pants": "చైరాన్ మిగిలినది చేసింది. GIF ఎల్లప్పుడూ ఉంటుంది.",
       "sanity": "సెనేట్ చేయకముందే అసంబద్ధత మిమ్మల్ని విచ్చుకుంది.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "చరిత్రకారులు మీ రుజువులను ఉల్లేఖిస్తారు. లాబీయిస్టులు మీ పేరును శపిస్తారు."
+      "victory": "చరిత్రకారులు మీ రుజువులను ఉల్లేఖిస్తారు. లాబీయిస్టులు మీ పేరును శపిస్తారు.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "ఫిలిబస్టర్ మిమ్మల్ని చూర్ణం చేసింది",
@@ -252,7 +254,9 @@
       "pants": "జాతీయ ప్యాంట్స్ అత్యవసర పరిస్థితి",
       "sanity": "మానసిక విచ్ఛేదనం",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "మీరు క్లోచర్ పాస్ చేశారు!"
+      "victory": "మీరు క్లోచర్ పాస్ చేశారు!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "మిత్రులు",

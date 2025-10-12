@@ -239,7 +239,9 @@
       "pants": "ਚਾਇਰੋਨ ਨੇ ਬਾਕੀ ਕੰਮ ਕੀਤਾ। GIF ਹਮੇਸ਼ਾ ਲਈ ਹੈ।",
       "sanity": "ਸੀਨੇਟ ਦੇ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਬੇਤੁਕੇਪਨ ਨੇ ਤੁਹਾਨੂੰ ਤੋੜ ਦਿੱਤਾ।",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "ਇਤਿਹਾਸਕਾਰ ਤੁਹਾਡੇ ਸਬੂਤਾਂ ਦਾ ਹਵਾਲਾ ਦੇਣਗੇ। ਲਾਬੀਸਟ ਤੁਹਾਡੇ ਨਾਮ ਨੂੰ ਸਰਾਪ ਦੇਣਗੇ।"
+      "victory": "ਇਤਿਹਾਸਕਾਰ ਤੁਹਾਡੇ ਸਬੂਤਾਂ ਦਾ ਹਵਾਲਾ ਦੇਣਗੇ। ਲਾਬੀਸਟ ਤੁਹਾਡੇ ਨਾਮ ਨੂੰ ਸਰਾਪ ਦੇਣਗੇ।",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "ਫਿਲਿਬਸਟਰ ਨੇ ਤੁਹਾਨੂੰ ਕੁਚਲ ਦਿੱਤਾ",
@@ -252,7 +254,9 @@
       "pants": "ਰਾਸ਼ਟਰੀ ਪੈਂਟ ਐਮਰਜੈਂਸੀ",
       "sanity": "ਅਕਲ ਦਾ ਟੁੱਟਣਾ",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "ਤੁਸੀਂ ਕਲੋਚਰ ਪਾਸ ਕੀਤਾ!"
+      "victory": "ਤੁਸੀਂ ਕਲੋਚਰ ਪਾਸ ਕੀਤਾ!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "ਸਾਥੀ",

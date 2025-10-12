@@ -239,7 +239,9 @@
       "pants": "El cintillo hizo el resto. El GIF es para siempre.",
       "sanity": "Lo absurdo te rompió antes que el Senado.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "Los historiadores citarán tus recibos. Los cabilderos maldicen tu nombre."
+      "victory": "Los historiadores citarán tus recibos. Los cabilderos maldicen tu nombre.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "EL FILIBUSTERISMO TE APLASTÓ",
@@ -252,7 +254,9 @@
       "pants": "¡EMERGENCIA NACIONAL DE PANTALONES!",
       "sanity": "FRACTURA DE CORDURA",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "¡APROBASTE LA CLOTURA!"
+      "victory": "¡APROBASTE LA CLOTURA!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "Aliados",

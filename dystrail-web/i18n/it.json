@@ -239,7 +239,9 @@
       "pants": "Il ticker ha fatto il resto. La GIF è per sempre.",
       "sanity": "L'assurdità ti ha spezzato prima del Senato.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "Gli storici citeranno le tue ricevute. I lobbisti maledicono il tuo nome."
+      "victory": "Gli storici citeranno le tue ricevute. I lobbisti maledicono il tuo nome.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "IL FILIBUSTER TI HA SCHIACCIATO",
@@ -252,7 +254,9 @@
       "pants": "EMERGENZA NAZIONALE DEI PANTALONI",
       "sanity": "FRATTURA MENTALE",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "HAI SUPERATO LA CLOTURE!"
+      "victory": "HAI SUPERATO LA CLOTURE!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "Alleati",

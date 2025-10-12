@@ -11,7 +11,9 @@
           "price_cents": 500,
           "unique": false,
           "max_qty": 99,
-          "grants": { "supplies": 3 },
+          "grants": {
+            "supplies": 3
+          },
           "tags": []
         },
         {
@@ -21,7 +23,9 @@
           "price_cents": 400,
           "unique": false,
           "max_qty": 99,
-          "grants": { "supplies": 2 },
+          "grants": {
+            "supplies": 2
+          },
           "tags": []
         }
       ]
@@ -34,40 +38,48 @@
           "id": "spare_tire",
           "name": "Spare Tire",
           "desc": "Fix blowouts fast.",
-          "price_cents": 2000,
+          "price_cents": 1200,
           "unique": false,
           "max_qty": 3,
-          "grants": { "spare_tire": 1 },
+          "grants": {
+            "spare_tire": 1
+          },
           "tags": []
         },
         {
           "id": "battery",
           "name": "Battery",
           "desc": "Cold starts.",
-          "price_cents": 2500,
+          "price_cents": 1500,
           "unique": false,
           "max_qty": 2,
-          "grants": { "spare_battery": 1 },
+          "grants": {
+            "spare_battery": 1
+          },
           "tags": []
         },
         {
           "id": "alternator",
           "name": "Alternator",
           "desc": "Charge restored.",
-          "price_cents": 2500,
+          "price_cents": 1500,
           "unique": false,
           "max_qty": 1,
-          "grants": { "spare_alt": 1 },
+          "grants": {
+            "spare_alt": 1
+          },
           "tags": []
         },
         {
           "id": "fuel_pump",
           "name": "Fuel Pump",
           "desc": "When the party runs dry.",
-          "price_cents": 2500,
+          "price_cents": 1200,
           "unique": false,
           "max_qty": 1,
-          "grants": { "spare_pump": 1 },
+          "grants": {
+            "spare_pump": 1
+          },
           "tags": []
         }
       ]
@@ -84,7 +96,9 @@
           "unique": false,
           "max_qty": 3,
           "grants": {},
-          "tags": ["plague_resist"]
+          "tags": [
+            "plague_resist"
+          ]
         },
         {
           "id": "coats",
@@ -94,7 +108,9 @@
           "unique": false,
           "max_qty": 2,
           "grants": {},
-          "tags": ["cold_resist"]
+          "tags": [
+            "cold_resist"
+          ]
         },
         {
           "id": "ponchos",
@@ -104,7 +120,9 @@
           "unique": false,
           "max_qty": 2,
           "grants": {},
-          "tags": ["rain_resist"]
+          "tags": [
+            "rain_resist"
+          ]
         }
       ]
     },
@@ -120,7 +138,9 @@
           "unique": true,
           "max_qty": 1,
           "grants": {},
-          "tags": ["permit"]
+          "tags": [
+            "permit"
+          ]
         },
         {
           "id": "legal_fund",
@@ -129,7 +149,9 @@
           "price_cents": 1500,
           "unique": false,
           "max_qty": 3,
-          "grants": { "credibility": 1 },
+          "grants": {
+            "credibility": 1
+          },
           "tags": []
         }
       ]

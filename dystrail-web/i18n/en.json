@@ -246,7 +246,9 @@
       "pants": "The chyron did the rest. The GIF is forever.",
       "sanity": "The absurdity broke you before the Senate did.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "Historians will cite your receipts. Lobbyists curse your name."
+      "victory": "Historians will cite your receipts. Lobbyists curse your name.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "FILIBUSTER CRUSHED YOU",
@@ -259,7 +261,9 @@
       "pants": "NATIONAL PANTS EMERGENCY",
       "sanity": "SANITY FRACTURE",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "YOU PASSED CLOTURE!"
+      "victory": "YOU PASSED CLOTURE!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "Allies",

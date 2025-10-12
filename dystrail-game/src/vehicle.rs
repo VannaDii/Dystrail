@@ -30,7 +30,7 @@ pub struct Vehicle {
     pub wear: f32,
     /// Remaining vehicle health (percentage 0-100)
     #[serde(default = "Vehicle::default_health")]
-    pub health: i32,
+    pub health: f32,
 }
 
 impl Default for Vehicle {
@@ -43,21 +43,21 @@ impl Default for Vehicle {
 }
 
 impl Vehicle {
-    const fn default_health() -> i32 {
-        100
+    const fn default_health() -> f32 {
+        100.0
     }
 
     /// Apply durability damage, clamping at zero.
-    pub fn apply_damage(&mut self, amount: i32) {
-        if amount <= 0 {
+    pub fn apply_damage(&mut self, amount: f32) {
+        if amount <= 0.0 {
             return;
         }
-        self.health = (self.health - amount).max(0);
+        self.health = (self.health - amount).max(0.0);
     }
 
     /// Restore partial durability, clamping to max.
-    pub fn repair(&mut self, amount: i32) {
-        if amount <= 0 {
+    pub fn repair(&mut self, amount: f32) {
+        if amount <= 0.0 {
             return;
         }
         self.health = (self.health + amount).min(Self::default_health());
@@ -65,7 +65,7 @@ impl Vehicle {
 
     #[must_use]
     pub fn is_critical(&self) -> bool {
-        self.health <= 20
+        self.health <= 20.0
     }
 }
 

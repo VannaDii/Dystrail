@@ -65,23 +65,7 @@ impl BossConfig {
 pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome {
     state.boss_attempted = true;
 
-    let mut successes: u32 = 0;
-    let required_successes = cfg.passes_required.max(1);
-
     for _ in 0..cfg.rounds {
-        let mut chance = f64::from(cfg.base_victory_chance);
-        chance += f64::from(state.stats.credibility) * f64::from(cfg.credibility_weight);
-        chance += f64::from(state.stats.sanity) * f64::from(cfg.sanity_weight);
-        chance += f64::from(state.stats.supplies) * f64::from(cfg.supplies_weight);
-        chance += f64::from(state.stats.allies) * f64::from(cfg.allies_weight);
-        chance -= f64::from(state.stats.pants) * f64::from(cfg.pants_penalty_weight);
-        chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
-
-        let roll = f64::from(state.next_pct()) / 100.0;
-        if roll < chance {
-            successes += 1;
-        }
-
         if cfg.pants_gain_per_round > 0 {
             state.stats.pants += cfg.pants_gain_per_round;
         }
@@ -97,7 +81,16 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         }
     }
 
-    if successes >= required_successes {
+    let threshold = state.mode.boss_threshold();
+    let score = state.journey_score().max(0);
+    let win_ratio = (f64::from(score) / f64::from(threshold)).min(1.25);
+    let mut win_prob = (win_ratio - 0.5).clamp(0.0, 1.0);
+    if win_prob <= 0.0 {
+        win_prob = 0.05;
+    }
+
+    let roll = f64::from(state.next_pct()) / 100.0;
+    if roll < win_prob {
         state.boss_victory = true;
         state.logs.push(String::from("log.boss.victory"));
         BossOutcome::PassedCloture

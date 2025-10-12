@@ -239,7 +239,9 @@
       "pants": "चायरॉनने बाकीचे केले. GIF कायमचे आहे.",
       "sanity": "सिनेटने करण्यापूर्वीच मूर्खपणाने तुम्हाला मोडले.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "इतिहासकार तुमच्या पुराव्यांचा संदर्भ देतील. लॉबिस्ट तुमच्या नावाला शाप देतील."
+      "victory": "इतिहासकार तुमच्या पुराव्यांचा संदर्भ देतील. लॉबिस्ट तुमच्या नावाला शाप देतील.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "फिलिबस्टरने तुम्हाला चिरडले",
@@ -252,7 +254,9 @@
       "pants": "राष्ट्रीय पँट्स आणीबाणी",
       "sanity": "बुद्धी फुटणे",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "तुम्ही क्लोचर पास केले!"
+      "victory": "तुम्ही क्लोचर पास केले!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "मित्र",

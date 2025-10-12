@@ -1,3 +1,4 @@
+use std::collections::HashSet;
 use std::convert::TryFrom;
 use std::fs;
 use std::path::PathBuf;
@@ -10,6 +11,7 @@ use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::exec_orders::ExecOrdersConfig;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
+use dystrail_game::state::Ending;
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
 use dystrail_game::{DietId, GameMode, GameState, PaceId};
 use serde_json;
@@ -668,6 +670,7 @@ fn format_cents(cents: i64) -> String {
 pub struct PlayabilityMetrics {
     pub days_survived: i32,
     pub ending_type: String,
+    pub ending_cause: String,
     pub encounters_faced: i32,
     pub vehicle_breakdowns: i32,
     pub final_hp: i32,
@@ -679,6 +682,13 @@ pub struct PlayabilityMetrics {
     pub boss_reached: bool,
     pub boss_won: bool,
     pub miles_traveled: f32,
+    pub travel_days: u32,
+    pub non_travel_days: u32,
+    pub avg_miles_per_day: f64,
+    pub unique_encounters: u32,
+    pub repairs_spent_cents: i64,
+    pub bribes_spent_cents: i64,
+    encounter_ids: HashSet<String>,
 }
 
 impl Default for PlayabilityMetrics {
@@ -686,6 +696,7 @@ impl Default for PlayabilityMetrics {
         Self {
             days_survived: 0,
             ending_type: "In Progress".to_string(),
+            ending_cause: String::new(),
             encounters_faced: 0,
             vehicle_breakdowns: 0,
             final_hp: 10,
@@ -697,6 +708,13 @@ impl Default for PlayabilityMetrics {
             boss_reached: false,
             boss_won: false,
             miles_traveled: 0.0,
+            travel_days: 0,
+            non_travel_days: 0,
+            avg_miles_per_day: 0.0,
+            unique_encounters: 0,
+            repairs_spent_cents: 0,
+            bribes_spent_cents: 0,
+            encounter_ids: HashSet::new(),
         }
     }
 }
@@ -705,6 +723,7 @@ impl PlayabilityMetrics {
     pub fn record_turn(&mut self, outcome: &TurnOutcome) {
         if let Some(decision) = outcome.decision.clone() {
             self.encounters_faced += 1;
+            self.encounter_ids.insert(decision.encounter_id.clone());
             self.decision_log.push(decision);
         }
 
@@ -720,8 +739,9 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        let ending = describe_ending(state, outcome);
-        self.ending_type.clone_from(&ending);
+        let (ending, cause) = describe_ending(state, outcome);
+        self.ending_type = ending;
+        self.ending_cause = cause;
         self.boss_won = state.boss_victory;
         self.boss_reached = state.boss_attempted;
         self.miles_traveled = if state.distance_traveled_actual > 0.0 {
@@ -729,6 +749,17 @@ impl PlayabilityMetrics {
         } else {
             state.distance_traveled
         };
+        self.travel_days = state.travel_days;
+        self.non_travel_days = state.non_travel_days;
+        self.avg_miles_per_day = if state.travel_days > 0 {
+            let days = state.travel_days.max(1);
+            f64::from(state.distance_traveled_actual) / f64::from(days)
+        } else {
+            0.0
+        };
+        self.unique_encounters = u32::try_from(self.encounter_ids.len()).unwrap_or(u32::MAX);
+        self.repairs_spent_cents = state.repairs_spent_cents;
+        self.bribes_spent_cents = state.bribes_spent_cents;
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -745,30 +776,100 @@ impl PlayabilityMetrics {
         } else {
             state.distance_traveled
         };
-        self.ending_type = "Simulation not executed".to_string();
+        self.travel_days = state.travel_days;
+        self.non_travel_days = state.non_travel_days;
+        self.avg_miles_per_day = if state.travel_days > 0 {
+            let days = state.travel_days.max(1);
+            f64::from(state.distance_traveled_actual) / f64::from(days)
+        } else {
+            0.0
+        };
+        self.unique_encounters = u32::try_from(self.encounter_ids.len()).unwrap_or(u32::MAX);
+        self.repairs_spent_cents = state.repairs_spent_cents;
+        self.bribes_spent_cents = state.bribes_spent_cents;
+        let (ending, cause) = describe_ending(
+            state,
+            &TurnOutcome {
+                day: state.day,
+                travel_message: String::new(),
+                breakdown_started: false,
+                game_ended: false,
+                decision: None,
+            },
+        );
+        self.ending_type = ending;
+        self.ending_cause = cause;
     }
 }
 
-fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> String {
-    if state.stats.pants >= 100 {
-        "Pants Emergency - Game Over".to_string()
+fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String) {
+    if let Some(ending) = state.ending {
+        match ending {
+            Ending::BossVictory => (
+                "Victory - Boss Defeated".to_string(),
+                "boss_victory".to_string(),
+            ),
+            Ending::BossVoteFailed => (
+                "Boss Vote Failed - Game Over".to_string(),
+                "boss_vote_failed".to_string(),
+            ),
+            Ending::SanityLoss => (
+                "Sanity Depleted - Game Over".to_string(),
+                "sanity".to_string(),
+            ),
+            Ending::VehicleFailure { cause } => (
+                "Vehicle Failure - Game Over".to_string(),
+                cause.key().to_string(),
+            ),
+            Ending::Exposure { kind } => (
+                format!("Exposure ({}) - Game Over", kind.key()),
+                format!("exposure_{}", kind.key()),
+            ),
+            Ending::Collapse { cause } => (
+                format!("Collapse ({}) - Game Over", cause.key()),
+                cause.key().to_string(),
+            ),
+        }
+    } else if state.stats.pants >= 100 {
+        (
+            "Pants Emergency - Game Over".to_string(),
+            "pants".to_string(),
+        )
     } else if state.stats.hp <= 0 {
-        "Health Depleted - Game Over".to_string()
+        (
+            "Health Depleted - Game Over".to_string(),
+            "health".to_string(),
+        )
     } else if state.stats.sanity <= 0 {
-        "Sanity Depleted - Game Over".to_string()
+        (
+            "Sanity Depleted - Game Over".to_string(),
+            "sanity".to_string(),
+        )
     } else if state.stats.supplies <= 0 {
-        "Supplies Depleted - Game Over".to_string()
+        (
+            "Supplies Depleted - Game Over".to_string(),
+            "supplies".to_string(),
+        )
     } else if state.boss_attempted && !state.boss_victory {
-        "Boss Vote Failed - Game Over".to_string()
+        (
+            "Boss Vote Failed - Game Over".to_string(),
+            "boss_vote_failed".to_string(),
+        )
     } else if state.boss_victory {
-        "Victory - Boss Defeated".to_string()
+        (
+            "Victory - Boss Defeated".to_string(),
+            "boss_victory".to_string(),
+        )
     } else if outcome.game_ended {
-        format!(
-            "Game Ended: {}",
-            humanize_log_message(&outcome.travel_message)
+        (
+            format!(
+                "Game Ended: {}",
+                humanize_log_message(&outcome.travel_message)
+            ),
+            "unknown".to_string(),
         )
     } else {
-        "Simulation Halted".to_string()
+        ("Simulation Halted".to_string(), "in_progress".to_string())
     }
 }
 

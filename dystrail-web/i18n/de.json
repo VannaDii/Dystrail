@@ -239,7 +239,9 @@
       "pants": "Die Schlagzeile tat den Rest. Das GIF ist für immer.",
       "sanity": "Die Absurdität brach Sie, bevor der Senat es tat.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "victory": "Historiker werden Ihre Belege zitieren. Lobbyisten verfluchen Ihren Namen."
+      "victory": "Historiker werden Ihre Belege zitieren. Lobbyisten verfluchen Ihren Namen.",
+      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
+      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
     "headline": {
       "boss_loss": "FILIBUSTER HAT SIE ZERQUETSCHT",
@@ -252,7 +254,9 @@
       "pants": "NATIONALER HOSEN-NOTSTAND",
       "sanity": "VERNUNFT-BRUCH",
       "vehicle_failure": "VEHICLE DESTROYED",
-      "victory": "SIE HABEN CLOTURE BESTANDEN!"
+      "victory": "SIE HABEN CLOTURE BESTANDEN!",
+      "exposure_cold": "EXPOSED TO THE ELEMENTS",
+      "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
     "labels": {
       "allies": "Verbündete",
