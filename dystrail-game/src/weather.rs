@@ -474,13 +474,6 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     // Add weather encounter chance delta
     gs.encounter_chance_today =
         (gs.encounter_chance_today + delta_enc).clamp(0.0, cfg.limits.encounter_cap);
-
-    // Apply executive order modifiers if applicable
-    let exec_order_key = format!("{:?}", gs.current_order);
-    if let Some(exec_mod) = cfg.exec_mods.get(&exec_order_key) {
-        gs.encounter_chance_today =
-            (gs.encounter_chance_today + exec_mod.enc_delta).clamp(0.0, cfg.limits.encounter_cap);
-    }
 }
 
 /// Process daily weather step in game tick

@@ -40,6 +40,13 @@ const ENCOUNTER_COOLDOWN_DAYS: u8 = 1;
 const ENCOUNTER_SOFT_CAP_THRESHOLD: u32 = 5;
 const ENCOUNTER_HISTORY_WINDOW: usize = 10;
 const MAX_ENCOUNTERS_PER_DAY: u8 = 2;
+const EXEC_ORDER_DAILY_CHANCE: f32 = 0.08;
+const EXEC_ORDER_MIN_DURATION: u8 = 3;
+const EXEC_ORDER_MAX_DURATION: u8 = 6;
+const EXEC_ORDER_MIN_COOLDOWN: u8 = 5;
+const EXEC_ORDER_MAX_COOLDOWN: u8 = 10;
+const LOG_EXEC_START_PREFIX: &str = "exec.start.";
+const LOG_EXEC_END_PREFIX: &str = "exec.end.";
 const LOG_STARVATION_TICK: &str = "log.starvation.tick";
 const LOG_STARVATION_RELIEF: &str = "log.starvation.relief";
 const LOG_ALLY_LOST: &str = "log.ally.lost";
@@ -200,6 +207,9 @@ mod tests {
                 .iter()
                 .any(|entry| entry == LOG_VEHICLE_REPAIR_EMERGENCY)
         );
+        assert_eq!(state.budget_cents, 9_000);
+        assert_eq!(state.budget, 90);
+        assert_eq!(state.repairs_spent_cents, EMERGENCY_REPAIR_COST);
     }
 
     #[test]
@@ -216,6 +226,27 @@ mod tests {
 
         assert!(state.stats.supplies >= 0, "supplies went negative");
         assert!(state.stats.sanity >= 0, "sanity went negative");
+    }
+
+    #[test]
+    fn exec_order_expires_and_sets_cooldown() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.current_order = Some(ExecOrder::Shutdown);
+        state.exec_order_days_remaining = 1;
+        state.exec_order_cooldown = 0;
+        state.rng = None;
+        let supplies_before = state.stats.supplies;
+        let morale_before = state.stats.morale;
+
+        state.start_of_day();
+
+        assert!(state.current_order.is_none());
+        assert_eq!(state.exec_order_cooldown, EXEC_ORDER_MIN_COOLDOWN);
+        let end_log = format!("{}{}", LOG_EXEC_END_PREFIX, ExecOrder::Shutdown.key());
+        assert!(state.logs.iter().any(|entry| entry == &end_log));
+        assert!(state.stats.supplies < supplies_before);
+        assert!(state.stats.morale < morale_before);
     }
 
     #[test]
@@ -379,6 +410,52 @@ mod tests {
         assert!(!ended);
         assert_eq!(message, LOG_TRAVELED);
         assert!(state.current_encounter.is_none());
+    }
+
+    #[test]
+    fn allows_two_encounters_before_cooldown() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.rng = Some(ChaCha20Rng::seed_from_u64(99));
+        let encounter = Encounter {
+            id: "test".to_string(),
+            name: "Test".to_string(),
+            desc: "desc".to_string(),
+            weight: 1,
+            regions: Vec::new(),
+            modes: Vec::new(),
+            choices: vec![Choice {
+                label: "Do it".to_string(),
+                effects: Effects::default(),
+            }],
+        };
+        state.data = Some(EncounterData::from_encounters(vec![encounter]));
+        let cfg = crate::pacing::PacingConfig::default_config();
+
+        state.apply_pace_and_diet(&cfg);
+        state.encounter_chance_today = 1.0;
+        let (_ended_first, msg_first, _) = state.travel_next_leg();
+        assert_eq!(msg_first, "log.encounter");
+        assert_eq!(state.encounters_today, 1);
+        state.apply_choice(0);
+        assert!(!state.encounter_occurred_today);
+
+        state.apply_pace_and_diet(&cfg);
+        state.encounter_chance_today = 1.0;
+        let (_ended_second, msg_second, _) = state.travel_next_leg();
+        assert_eq!(msg_second, "log.encounter");
+        assert_eq!(state.encounters_today, 2);
+        state.apply_choice(0);
+        assert!(state.encounter_occurred_today);
+
+        state.apply_pace_and_diet(&cfg);
+        state.encounter_chance_today = 1.0;
+        let (_ended_third, msg_third, _) = state.travel_next_leg();
+        assert_eq!(msg_third, LOG_TRAVELED);
+        assert_eq!(
+            state.encounter_history.back(),
+            Some(&MAX_ENCOUNTERS_PER_DAY)
+        );
     }
 }
 
@@ -718,8 +795,18 @@ pub struct GameState {
     pub repairs_spent_cents: i64,
     #[serde(default)]
     pub bribes_spent_cents: i64,
+    #[serde(default)]
+    pub current_order: Option<ExecOrder>,
+    #[serde(default)]
+    pub exec_order_days_remaining: u8,
+    #[serde(default)]
+    pub exec_order_cooldown: u8,
+    #[serde(default)]
+    pub exec_travel_multiplier: f32,
+    #[serde(default)]
+    pub exec_breakdown_bonus: f32,
+    #[serde(default)]
     pub current_encounter: Option<Encounter>,
-    pub current_order: ExecOrder,
     /// Vehicle state and spares
     #[serde(default)]
     pub vehicle: Vehicle,
@@ -775,7 +862,7 @@ impl Default for GameState {
             pace: default_pace(),
             diet: default_diet(),
             receipt_bonus_pct: 0,
-            encounter_chance_today: 0.35,
+            encounter_chance_today: ENCOUNTER_BASE_DEFAULT,
             encounter_occurred_today: false,
             distance_today: 1.0,
             logs: vec![String::from("log.booting")],
@@ -793,7 +880,11 @@ impl Default for GameState {
             repairs_spent_cents: 0,
             bribes_spent_cents: 0,
             current_encounter: None,
-            current_order: ExecOrder::Shutdown,
+            current_order: None,
+            exec_order_days_remaining: 0,
+            exec_order_cooldown: 0,
+            exec_travel_multiplier: 1.0,
+            exec_breakdown_bonus: 0.0,
             vehicle: Vehicle::default(),
             breakdown: None,
             travel_blocked: false,
@@ -817,6 +908,8 @@ impl GameState {
         self.encounters_today = 0;
         self.encounter_occurred_today = false;
         self.prev_distance_traveled = self.distance_traveled_actual;
+        self.exec_travel_multiplier = 1.0;
+        self.exec_breakdown_bonus = 0.0;
 
         if self.encounter_history.len() >= ENCOUNTER_HISTORY_WINDOW {
             self.encounter_history.pop_front();
@@ -827,6 +920,8 @@ impl GameState {
             self.encounter_cooldown -= 1;
         }
 
+        self.tick_exec_order_state();
+
         self.apply_starvation_tick();
         let weather_cfg = WeatherConfig::default_config();
         crate::weather::process_daily_weather(self, &weather_cfg);
@@ -834,6 +929,84 @@ impl GameState {
 
         self.vehicle.wear = (self.vehicle.wear + VEHICLE_DAILY_WEAR).min(VEHICLE_HEALTH_MAX);
         self.vehicle.apply_damage(VEHICLE_DAILY_WEAR);
+    }
+
+    fn tick_exec_order_state(&mut self) {
+        if let Some(order) = self.current_order {
+            self.apply_exec_order_effects(order);
+            if self.exec_order_days_remaining > 0 {
+                self.exec_order_days_remaining -= 1;
+            }
+            if self.exec_order_days_remaining == 0 {
+                self.logs
+                    .push(format!("{}{}", LOG_EXEC_END_PREFIX, order.key()));
+                self.current_order = None;
+                if let Some(rng) = self.rng.as_mut() {
+                    self.exec_order_cooldown =
+                        rng.random_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN);
+                } else {
+                    self.exec_order_cooldown = EXEC_ORDER_MIN_COOLDOWN;
+                }
+            }
+            return;
+        }
+
+        if self.exec_order_cooldown > 0 {
+            self.exec_order_cooldown -= 1;
+            return;
+        }
+
+        if let Some(rng) = self.rng.as_mut()
+            && rng.random::<f32>() < EXEC_ORDER_DAILY_CHANCE
+        {
+            let idx = rng.random_range(0..ExecOrder::ALL.len());
+            let order = ExecOrder::ALL[idx];
+            self.current_order = Some(order);
+            self.exec_order_days_remaining =
+                rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
+            self.logs
+                .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
+            self.apply_exec_order_effects(order);
+            if self.exec_order_days_remaining > 0 {
+                self.exec_order_days_remaining -= 1;
+            }
+        }
+    }
+
+    fn apply_exec_order_effects(&mut self, order: ExecOrder) {
+        match order {
+            ExecOrder::Shutdown => {
+                self.stats.morale -= 1;
+                self.stats.supplies -= 1;
+            }
+            ExecOrder::TravelBanLite => {
+                self.stats.sanity -= 1;
+                self.exec_travel_multiplier *= 0.8;
+            }
+            ExecOrder::BookPanic => {
+                let mut penalty = 2;
+                if self.stats.morale >= 7 {
+                    penalty = 1;
+                }
+                self.stats.sanity -= penalty;
+            }
+            ExecOrder::TariffTsunami => {
+                let penalty = if self.inventory.has_tag("legal_fund") {
+                    -1
+                } else {
+                    -2
+                };
+                self.stats.supplies += penalty;
+            }
+            ExecOrder::DoEEliminated => {
+                self.stats.morale -= 1;
+                self.stats.sanity -= 1;
+            }
+            ExecOrder::WarDeptReorg => {
+                self.exec_breakdown_bonus += 0.15;
+            }
+        }
+        self.stats.clamp();
     }
 
     pub(crate) fn end_of_day(&mut self) {
@@ -1040,7 +1213,7 @@ impl GameState {
             distance *= starvation_penalty.max(0.3);
         }
 
-        distance.max(1.0)
+        (distance * self.exec_travel_multiplier).max(1.0)
     }
 
     fn check_vehicle_terminal_state(&mut self) -> bool {
@@ -1185,7 +1358,7 @@ impl GameState {
         if let Some(rng) = self.rng.as_mut()
             && self.breakdown.is_none()
         {
-            let mut breakdown_chance = 0.08;
+            let mut breakdown_chance = 0.08 + self.exec_breakdown_bonus;
             breakdown_chance += (self.vehicle.wear / VEHICLE_HEALTH_MAX) * 0.2;
             breakdown_chance += match self.pace {
                 PaceId::Steady => 0.0,
@@ -1265,6 +1438,9 @@ impl GameState {
         }
         self.current_encounter = None;
         self.encounters_resolved = self.encounters_resolved.saturating_add(1);
+        if self.encounters_today < MAX_ENCOUNTERS_PER_DAY {
+            self.encounter_occurred_today = false;
+        }
     }
 
     fn resolve_breakdown(&mut self) {
@@ -1377,7 +1553,9 @@ impl GameState {
             encounter *= 0.5;
         }
 
-        if self.encounter_cooldown > 0 || self.encounters_today >= MAX_ENCOUNTERS_PER_DAY {
+        if self.encounters_today >= MAX_ENCOUNTERS_PER_DAY
+            || (self.encounter_cooldown > 0 && self.encounters_today == 0)
+        {
             encounter = 0.0;
         }
 
@@ -1578,8 +1756,7 @@ impl GameState {
     }
 
     pub fn refresh_exec_order(&mut self) {
-        let idx = ((self.day.saturating_sub(1)) / 4) as usize % ExecOrder::ALL.len();
-        self.current_order = ExecOrder::ALL[idx];
+        self.start_of_day();
     }
 
     /// Apply store purchase effects

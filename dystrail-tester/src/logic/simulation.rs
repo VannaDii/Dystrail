@@ -1,7 +1,6 @@
 use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
-use dystrail_game::exec_orders::{DailyEffect, ExecOrdersConfig};
 use dystrail_game::{GameMode, GameState};
 
 use crate::logic::policy::{PlayerPolicy, PolicyDecision};
@@ -60,9 +59,14 @@ pub struct SimulationSession {
     state: GameState,
     pacing_config: PacingConfig,
     camp_config: CampConfig,
-    exec_config: ExecOrdersConfig,
     boss_config: BossConfig,
     max_days: u32,
+}
+
+#[derive(Debug, Clone, Copy)]
+struct DailyEffect {
+    sanity: i32,
+    supplies: i32,
 }
 
 impl SimulationSession {
@@ -71,7 +75,6 @@ impl SimulationSession {
         encounters: EncounterData,
         pacing_config: PacingConfig,
         camp_config: CampConfig,
-        exec_config: ExecOrdersConfig,
         boss_config: BossConfig,
     ) -> Self {
         let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
@@ -80,7 +83,6 @@ impl SimulationSession {
             state,
             pacing_config,
             camp_config,
-            exec_config,
             boss_config,
             max_days: config.max_days,
         }
@@ -225,14 +227,10 @@ impl SimulationSession {
     fn daily_effect(&mut self) -> DailyEffect {
         let pace = self.pacing_config.get_pace_safe(self.state.pace.as_str());
         let diet = self.pacing_config.get_diet_safe(self.state.diet.as_str());
-        let exec = self
-            .state
-            .current_order
-            .effect(&self.exec_config, self.state.day);
 
         DailyEffect {
-            sanity: pace.sanity + diet.sanity + exec.sanity,
-            supplies: exec.supplies,
+            sanity: pace.sanity + diet.sanity,
+            supplies: 0,
         }
     }
 }

@@ -38,7 +38,7 @@
           "id": "spare_tire",
           "name": "Spare Tire",
           "desc": "Fix blowouts fast.",
-          "price_cents": 1200,
+          "price_cents": 1500,
           "unique": false,
           "max_qty": 3,
           "grants": {
@@ -50,7 +50,7 @@
           "id": "battery",
           "name": "Battery",
           "desc": "Cold starts.",
-          "price_cents": 1500,
+          "price_cents": 2200,
           "unique": false,
           "max_qty": 2,
           "grants": {
@@ -62,7 +62,7 @@
           "id": "alternator",
           "name": "Alternator",
           "desc": "Charge restored.",
-          "price_cents": 1500,
+          "price_cents": 2100,
           "unique": false,
           "max_qty": 1,
           "grants": {
@@ -74,7 +74,7 @@
           "id": "fuel_pump",
           "name": "Fuel Pump",
           "desc": "When the party runs dry.",
-          "price_cents": 1200,
+          "price_cents": 1700,
           "unique": false,
           "max_qty": 1,
           "grants": {

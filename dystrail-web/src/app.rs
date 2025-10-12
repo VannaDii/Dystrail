@@ -526,7 +526,7 @@ pub fn app_inner() -> Html {
                 let pacing_config_rc = Rc::new((*pacing_config).clone());
                 html! {
                     <>
-                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={Some(gs.current_order)} />
+                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={gs.current_order} />
                         <crate::components::ui::travel_panel::TravelPanel
                             on_travel={do_travel}
                             logs={(*logs).clone()}
@@ -547,7 +547,7 @@ pub fn app_inner() -> Html {
                 let camp_config_rc = Rc::new((*camp_config).clone());
                 html! {
                     <>
-                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={Some(gs.current_order)} />
+                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={gs.current_order} />
                         <crate::components::ui::camp_panel::CampPanel
                             game_state={Rc::new(gs.clone())}
                             camp_config={camp_config_rc}

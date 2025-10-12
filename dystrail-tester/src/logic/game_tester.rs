@@ -8,7 +8,6 @@ use anyhow::Result;
 use dystrail_game::boss::BossConfig;
 use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
-use dystrail_game::exec_orders::ExecOrdersConfig;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::Ending;
@@ -29,7 +28,6 @@ struct TesterAssets {
     personas: PersonasList,
     store: Store,
     camp_config: CampConfig,
-    exec_config: ExecOrdersConfig,
     boss_config: BossConfig,
 }
 
@@ -41,7 +39,6 @@ impl TesterAssets {
         let personas = Self::load_personas_from_assets().unwrap_or_else(PersonasList::empty);
         let store = Self::load_store_from_assets().unwrap_or_else(Self::fallback_store_data);
         let camp_config = Self::load_camp_from_assets().unwrap_or_default();
-        let exec_config = Self::load_exec_orders_from_assets().unwrap_or_default();
         let boss_config = Self::load_boss_from_assets().unwrap_or_default();
 
         Self {
@@ -50,7 +47,6 @@ impl TesterAssets {
             personas,
             store,
             camp_config,
-            exec_config,
             boss_config,
         }
     }
@@ -102,12 +98,6 @@ impl TesterAssets {
     fn load_camp_from_assets() -> Option<CampConfig> {
         let base = Self::assets_data_root();
         let json = fs::read_to_string(base.join("camp.json")).ok()?;
-        serde_json::from_str(&json).ok()
-    }
-
-    fn load_exec_orders_from_assets() -> Option<ExecOrdersConfig> {
-        let base = Self::assets_data_root();
-        let json = fs::read_to_string(base.join("exec_orders.json")).ok()?;
         serde_json::from_str(&json).ok()
     }
 
@@ -527,7 +517,6 @@ impl GameTester {
             self.assets.encounter_data.clone(),
             self.assets.pacing_config.clone(),
             self.assets.camp_config.clone(),
-            self.assets.exec_config.clone(),
             self.assets.boss_config.clone(),
         );
 
