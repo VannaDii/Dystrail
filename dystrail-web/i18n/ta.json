@@ -281,9 +281,9 @@
       "travel_days": "பயண நாட்கள்",
       "non_travel_days": "பயணம் அல்லாத நாட்கள்",
       "avg_mpd": "சராசரி மைல்/நாள்",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "தனிப்பட்ட சந்திப்புகள்",
+      "repairs_spent_cents": "பழுது செலவு (¢)",
+      "bribes_spent_cents": "லஞ்ச செலவு (¢)"
     },
     "menu": {
       "copy_seed": "விதையை நகலெடுக்கவும்",

@@ -256,9 +256,9 @@
       "travel_days": "যাত্রার দিন",
       "non_travel_days": "শিবির/স্থবির দিন",
       "avg_mpd": "গড় মাইল/দিন",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "অনন্য মুখোমুখি",
+      "repairs_spent_cents": "মেরামত ব্যয় (¢)",
+      "bribes_spent_cents": "ঘুষ ব্যয় (¢)"
     },
     "pants_emergency": "জাতীয় প্যান্ট জরুরি",
     "pants_emergency_desc": "প্যান্ট মিটার ১০০%—আপনি গৌরবে ব্যর্থ।",

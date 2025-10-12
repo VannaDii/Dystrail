@@ -281,9 +281,9 @@
       "travel_days": "Giorni di viaggio",
       "non_travel_days": "Giorni fermi",
       "avg_mpd": "Media miglia/giorno",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Incontri unici",
+      "repairs_spent_cents": "Spesa riparazioni (¢)",
+      "bribes_spent_cents": "Spesa tangenti (¢)"
     },
     "menu": {
       "copy_seed": "Copia Seed",

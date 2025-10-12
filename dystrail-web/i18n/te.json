@@ -281,9 +281,9 @@
       "travel_days": "ప్రయాణ దినాలు",
       "non_travel_days": "క్యాంపు/ఆటంక దినాలు",
       "avg_mpd": "సగటు మైళ్లు/రోజు",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "అద్వితీయ సంఘటనలు",
+      "repairs_spent_cents": "బాగుచేయు ఖర్చు (¢)",
+      "bribes_spent_cents": "లంచం ఖర్చు (¢)"
     },
     "menu": {
       "copy_seed": "సీడ్ కాపీ చేయండి",

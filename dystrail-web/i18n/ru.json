@@ -256,9 +256,9 @@
       "travel_days": "Дни в пути",
       "non_travel_days": "Дни стоянки",
       "avg_mpd": "Сред. миль/день",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Уникальные встречи",
+      "repairs_spent_cents": "Расходы на ремонт (¢)",
+      "bribes_spent_cents": "Расходы на взятки (¢)"
     },
     "pants_emergency": "НАЦИОНАЛЬНАЯ ШТАННАЯ ТРЕВОГА",
     "pants_emergency_desc": "Индикатор штанов достиг 100% — вы славно провалились.",

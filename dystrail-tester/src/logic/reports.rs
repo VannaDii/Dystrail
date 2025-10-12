@@ -178,7 +178,7 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown"
     )?;
 
     for record in records {
@@ -187,7 +187,7 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 
         writeln!(
             writer,
-            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1},{},{},{:.2},{},{},{},{}",
+            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1},{},{},{:.2},{},{},{},{},{},{},{}",
             quote(&record.scenario_name),
             quote(mode_label(record.mode)),
             quote(&strategy),
@@ -212,6 +212,9 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
             metrics.unique_encounters,
             metrics.repairs_spent_cents,
             metrics.bribes_spent_cents,
+            quote(&metrics.exec_order_active),
+            metrics.exec_order_days_remaining,
+            metrics.exec_order_cooldown,
         )?;
     }
 

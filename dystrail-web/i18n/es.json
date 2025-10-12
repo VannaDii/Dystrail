@@ -281,9 +281,9 @@
       "travel_days": "Días de viaje",
       "non_travel_days": "Días sin avance",
       "avg_mpd": "Prom. millas/día",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Encuentros únicos",
+      "repairs_spent_cents": "Gasto en reparaciones (¢)",
+      "bribes_spent_cents": "Gasto en sobornos (¢)"
     },
     "menu": {
       "copy_seed": "Copiar Semilla",

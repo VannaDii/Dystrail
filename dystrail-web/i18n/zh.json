@@ -256,9 +256,9 @@
       "travel_days": "行程天数",
       "non_travel_days": "停歇天数",
       "avg_mpd": "平均英里/日",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "独特事件",
+      "repairs_spent_cents": "维修花费(¢)",
+      "bribes_spent_cents": "贿赂花费(¢)"
     },
     "pants_emergency": "全国裤子紧急状态",
     "pants_emergency_desc": "裤子计量表达到100%——你壮烈失败了。",

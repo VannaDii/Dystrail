@@ -281,9 +281,9 @@
       "travel_days": "أيام السفر",
       "non_travel_days": "أيام التخييم/التوقف",
       "avg_mpd": "متوسط الأميال/يوم",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "مواجهات فريدة",
+      "repairs_spent_cents": "إنفاق الإصلاح (¢)",
+      "bribes_spent_cents": "إنفاق الرشاوى (¢)"
     },
     "menu": {
       "copy_seed": "نسخ البذرة",

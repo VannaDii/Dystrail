@@ -677,6 +677,9 @@ pub struct PlayabilityMetrics {
     pub unique_encounters: u32,
     pub repairs_spent_cents: i64,
     pub bribes_spent_cents: i64,
+    pub exec_order_active: String,
+    pub exec_order_days_remaining: u32,
+    pub exec_order_cooldown: u32,
     encounter_ids: HashSet<String>,
 }
 
@@ -703,6 +706,9 @@ impl Default for PlayabilityMetrics {
             unique_encounters: 0,
             repairs_spent_cents: 0,
             bribes_spent_cents: 0,
+            exec_order_active: String::new(),
+            exec_order_days_remaining: 0,
+            exec_order_cooldown: 0,
             encounter_ids: HashSet::new(),
         }
     }
@@ -749,6 +755,12 @@ impl PlayabilityMetrics {
         self.unique_encounters = u32::try_from(self.encounter_ids.len()).unwrap_or(u32::MAX);
         self.repairs_spent_cents = state.repairs_spent_cents;
         self.bribes_spent_cents = state.bribes_spent_cents;
+        self.exec_order_active = state
+            .current_order
+            .map(|order| order.key().to_string())
+            .unwrap_or_default();
+        self.exec_order_days_remaining = u32::from(state.exec_order_days_remaining);
+        self.exec_order_cooldown = u32::from(state.exec_order_cooldown);
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -776,6 +788,12 @@ impl PlayabilityMetrics {
         self.unique_encounters = u32::try_from(self.encounter_ids.len()).unwrap_or(u32::MAX);
         self.repairs_spent_cents = state.repairs_spent_cents;
         self.bribes_spent_cents = state.bribes_spent_cents;
+        self.exec_order_active = state
+            .current_order
+            .map(|order| order.key().to_string())
+            .unwrap_or_default();
+        self.exec_order_days_remaining = u32::from(state.exec_order_days_remaining);
+        self.exec_order_cooldown = u32::from(state.exec_order_cooldown);
         let (ending, cause) = describe_ending(
             state,
             &TurnOutcome {

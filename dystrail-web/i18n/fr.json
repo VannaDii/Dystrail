@@ -256,9 +256,9 @@
       "travel_days": "Jours de voyage",
       "non_travel_days": "Jours bloqués/camp",
       "avg_mpd": "Moy. miles/jour",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Rencontres uniques",
+      "repairs_spent_cents": "Dépenses réparations (¢)",
+      "bribes_spent_cents": "Dépenses pots-de-vin (¢)"
     },
     "pants_emergency": "URGENCE NATIONALE DU PANTALON",
     "pants_emergency_desc": "La jauge de pantalon a atteint 100 % — échec glorieux.",

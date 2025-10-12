@@ -281,9 +281,9 @@
       "travel_days": "이동한 날",
       "non_travel_days": "정체/캠핑일",
       "avg_mpd": "평균 거리/일",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "고유 사건",
+      "repairs_spent_cents": "수리 지출(¢)",
+      "bribes_spent_cents": "뇌물 지출(¢)"
     },
     "menu": {
       "copy_seed": "시드 복사",

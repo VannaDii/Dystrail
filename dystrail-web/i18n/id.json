@@ -281,9 +281,9 @@
       "travel_days": "Hari perjalanan",
       "non_travel_days": "Hari berhenti",
       "avg_mpd": "Rata mil/hari",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Pertemuan unik",
+      "repairs_spent_cents": "Biaya perbaikan (¢)",
+      "bribes_spent_cents": "Biaya suap (¢)"
     },
     "menu": {
       "copy_seed": "Salin Seed",

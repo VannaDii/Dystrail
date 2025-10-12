@@ -256,9 +256,9 @@
       "travel_days": "Dias de viagem",
       "non_travel_days": "Dias parado",
       "avg_mpd": "Média milhas/dia",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Encontros únicos",
+      "repairs_spent_cents": "Gasto em reparos (¢)",
+      "bribes_spent_cents": "Gasto em propinas (¢)"
     },
     "pants_emergency": "EMERGÊNCIA NACIONAL DAS CALÇAS",
     "pants_emergency_desc": "Medidor de Calças chegou a 100% — você falhou gloriosamente.",

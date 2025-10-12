@@ -281,9 +281,9 @@
       "travel_days": "Yolculuk günleri",
       "non_travel_days": "Kamp/Engel günleri",
       "avg_mpd": "Ort. mil/gün",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Benzersiz karşılaşmalar",
+      "repairs_spent_cents": "Tamir harcaması (¢)",
+      "bribes_spent_cents": "Rüşvet harcaması (¢)"
     },
     "menu": {
       "copy_seed": "Tohumu Kopyala",

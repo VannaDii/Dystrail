@@ -256,9 +256,9 @@
       "travel_days": "移動日数",
       "non_travel_days": "停滞日数",
       "avg_mpd": "平均マイル/日",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "ユニークな遭遇",
+      "repairs_spent_cents": "修理費(¢)",
+      "bribes_spent_cents": "賄賂費(¢)"
     },
     "pants_emergency": "全国パンツ緊急事態",
     "pants_emergency_desc": "パンツメーターが100%—見事に失敗した。",

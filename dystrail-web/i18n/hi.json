@@ -256,9 +256,9 @@
       "travel_days": "यात्रा के दिन",
       "non_travel_days": "शिविर/रुके दिन",
       "avg_mpd": "औसत मील/दिन",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "विशिष्ट मुठभेड़",
+      "repairs_spent_cents": "मरम्मत खर्च (¢)",
+      "bribes_spent_cents": "घूस खर्च (¢)"
     },
     "pants_emergency": "राष्ट्रीय पैंट आपातकाल",
     "pants_emergency_desc": "पैंट मीटर 100%—आप शानदार ढंग से असफल हुए।",

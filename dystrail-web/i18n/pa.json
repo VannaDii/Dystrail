@@ -281,9 +281,9 @@
       "travel_days": "ਸਫ਼ਰ ਦੇ ਦਿਨ",
       "non_travel_days": "ਕੈਂਪ/ਸਥਗਿਤ ਦਿਨ",
       "avg_mpd": "ਔਸਤ ਮੀਲ/ਦਿਨ",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "ਖਾਸ ਮੁਲਾਕਾਤਾਂ",
+      "repairs_spent_cents": "ਮੁਰੰਮਤ ਖਰਚ (¢)",
+      "bribes_spent_cents": "ਰਿਸ਼ਵਤ ਖਰਚ (¢)"
     },
     "menu": {
       "copy_seed": "ਸੀਡ ਕਾਪੀ ਕਰੋ",

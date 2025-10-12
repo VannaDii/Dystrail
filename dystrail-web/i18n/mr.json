@@ -281,9 +281,9 @@
       "travel_days": "प्रवासाचे दिवस",
       "non_travel_days": "छावणी/अडथळ्याचे दिवस",
       "avg_mpd": "सरासरी मैल/दिवस",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "अद्वितीय भेटी",
+      "repairs_spent_cents": "दुरुस्ती खर्च (¢)",
+      "bribes_spent_cents": "लाच खर्च (¢)"
     },
     "menu": {
       "copy_seed": "सीड कॉपी करा",

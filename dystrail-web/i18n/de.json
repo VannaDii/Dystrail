@@ -281,9 +281,9 @@
       "travel_days": "Reisetage",
       "non_travel_days": "Camp-/Blocktage",
       "avg_mpd": "Ø Meilen/Reisetag",
-      "unique_encounters": "Unique Encounters",
-      "repairs_spent_cents": "Repairs Spend (¢)",
-      "bribes_spent_cents": "Bribes Spend (¢)"
+      "unique_encounters": "Einzigartige Begegnungen",
+      "repairs_spent_cents": "Reparaturkosten (¢)",
+      "bribes_spent_cents": "Bestechungsausgaben (¢)"
     },
     "menu": {
       "copy_seed": "Seed kopieren",
