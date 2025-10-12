@@ -239,6 +239,7 @@
       "pants": "자막이 나머지를 해냈습니다. GIF는 영원합니다.",
       "sanity": "상원이 하기 전에 부조리가 당신을 무너뜨렸습니다.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
       "victory": "역사가들이 당신의 증거를 인용할 것입니다. 로비스트들이 당신의 이름을 저주합니다.",
       "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
       "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
@@ -254,6 +255,7 @@
       "pants": "국가 바지 비상사태",
       "sanity": "정신력 파괴",
       "vehicle_failure": "VEHICLE DESTROYED",
+      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
       "victory": "클로처를 통과했습니다!",
       "exposure_cold": "EXPOSED TO THE ELEMENTS",
       "exposure_heat": "EXPOSED TO THE ELEMENTS"
@@ -275,7 +277,13 @@
       "score_threshold": "Score Threshold",
       "seed": "시드",
       "stats": "통계",
-      "supplies": "보급품"
+      "supplies": "보급품",
+      "travel_days": "이동한 날",
+      "non_travel_days": "정체/캠핑일",
+      "avg_mpd": "평균 거리/일",
+      "unique_encounters": "Unique Encounters",
+      "repairs_spent_cents": "Repairs Spend (¢)",
+      "bribes_spent_cents": "Bribes Spend (¢)"
     },
     "menu": {
       "copy_seed": "시드 복사",

@@ -230,6 +230,7 @@
       "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
       "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
       "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
       "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
     },
@@ -242,6 +243,7 @@
       "collapse_weather": "WEATHER COLLAPSE",
       "exposure": "EXPOSED TO THE ELEMENTS",
       "vehicle_failure": "VEHICLE DESTROYED",
+      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
       "exposure_cold": "EXPOSED TO THE ELEMENTS",
       "exposure_heat": "EXPOSED TO THE ELEMENTS"
     },
@@ -250,7 +252,13 @@
       "malnutrition": "Starvation Days",
       "miles": "Miles Traveled",
       "passed_threshold": "Boss Vote Ready",
-      "score_threshold": "Score Threshold"
+      "score_threshold": "Score Threshold",
+      "travel_days": "যাত্রার দিন",
+      "non_travel_days": "শিবির/স্থবির দিন",
+      "avg_mpd": "গড় মাইল/দিন",
+      "unique_encounters": "Unique Encounters",
+      "repairs_spent_cents": "Repairs Spend (¢)",
+      "bribes_spent_cents": "Bribes Spend (¢)"
     },
     "pants_emergency": "জাতীয় প্যান্ট জরুরি",
     "pants_emergency_desc": "প্যান্ট মিটার ১০০%—আপনি গৌরবে ব্যর্থ।",

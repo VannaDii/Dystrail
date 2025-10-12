@@ -808,7 +808,7 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String)
             ),
             Ending::VehicleFailure { cause } => (
                 "Vehicle Failure - Game Over".to_string(),
-                cause.key().to_string(),
+                format!("vehicle_failure_{}", cause.key()),
             ),
             Ending::Exposure { kind } => (
                 format!("Exposure ({}) - Game Over", kind.key()),
@@ -816,7 +816,7 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String)
             ),
             Ending::Collapse { cause } => (
                 format!("Collapse ({}) - Game Over", cause.key()),
-                cause.key().to_string(),
+                format!("collapse_{}", cause.key()),
             ),
         }
     } else if state.stats.pants >= 100 {

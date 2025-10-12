@@ -239,6 +239,7 @@
       "pants": "ਚਾਇਰੋਨ ਨੇ ਬਾਕੀ ਕੰਮ ਕੀਤਾ। GIF ਹਮੇਸ਼ਾ ਲਈ ਹੈ।",
       "sanity": "ਸੀਨੇਟ ਦੇ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਬੇਤੁਕੇਪਨ ਨੇ ਤੁਹਾਨੂੰ ਤੋੜ ਦਿੱਤਾ।",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
       "victory": "ਇਤਿਹਾਸਕਾਰ ਤੁਹਾਡੇ ਸਬੂਤਾਂ ਦਾ ਹਵਾਲਾ ਦੇਣਗੇ। ਲਾਬੀਸਟ ਤੁਹਾਡੇ ਨਾਮ ਨੂੰ ਸਰਾਪ ਦੇਣਗੇ।",
       "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
       "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
@@ -254,6 +255,7 @@
       "pants": "ਰਾਸ਼ਟਰੀ ਪੈਂਟ ਐਮਰਜੈਂਸੀ",
       "sanity": "ਅਕਲ ਦਾ ਟੁੱਟਣਾ",
       "vehicle_failure": "VEHICLE DESTROYED",
+      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
       "victory": "ਤੁਸੀਂ ਕਲੋਚਰ ਪਾਸ ਕੀਤਾ!",
       "exposure_cold": "EXPOSED TO THE ELEMENTS",
       "exposure_heat": "EXPOSED TO THE ELEMENTS"
@@ -275,7 +277,13 @@
       "score_threshold": "Score Threshold",
       "seed": "ਸੀਡ",
       "stats": "ਅੰਕੜੇ",
-      "supplies": "ਸਪਲਾਈ"
+      "supplies": "ਸਪਲਾਈ",
+      "travel_days": "ਸਫ਼ਰ ਦੇ ਦਿਨ",
+      "non_travel_days": "ਕੈਂਪ/ਸਥਗਿਤ ਦਿਨ",
+      "avg_mpd": "ਔਸਤ ਮੀਲ/ਦਿਨ",
+      "unique_encounters": "Unique Encounters",
+      "repairs_spent_cents": "Repairs Spend (¢)",
+      "bribes_spent_cents": "Bribes Spend (¢)"
     },
     "menu": {
       "copy_seed": "ਸੀਡ ਕਾਪੀ ਕਰੋ",

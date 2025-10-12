@@ -239,6 +239,7 @@
       "pants": "చైరాన్ మిగిలినది చేసింది. GIF ఎల్లప్పుడూ ఉంటుంది.",
       "sanity": "సెనేట్ చేయకముందే అసంబద్ధత మిమ్మల్ని విచ్చుకుంది.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
       "victory": "చరిత్రకారులు మీ రుజువులను ఉల్లేఖిస్తారు. లాబీయిస్టులు మీ పేరును శపిస్తారు.",
       "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
       "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
@@ -254,6 +255,7 @@
       "pants": "జాతీయ ప్యాంట్స్ అత్యవసర పరిస్థితి",
       "sanity": "మానసిక విచ్ఛేదనం",
       "vehicle_failure": "VEHICLE DESTROYED",
+      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
       "victory": "మీరు క్లోచర్ పాస్ చేశారు!",
       "exposure_cold": "EXPOSED TO THE ELEMENTS",
       "exposure_heat": "EXPOSED TO THE ELEMENTS"
@@ -275,7 +277,13 @@
       "score_threshold": "Score Threshold",
       "seed": "సీడ్",
       "stats": "గణాంకాలు",
-      "supplies": "సరఫరాలు"
+      "supplies": "సరఫరాలు",
+      "travel_days": "ప్రయాణ దినాలు",
+      "non_travel_days": "క్యాంపు/ఆటంక దినాలు",
+      "avg_mpd": "సగటు మైళ్లు/రోజు",
+      "unique_encounters": "Unique Encounters",
+      "repairs_spent_cents": "Repairs Spend (¢)",
+      "bribes_spent_cents": "Bribes Spend (¢)"
     },
     "menu": {
       "copy_seed": "సీడ్ కాపీ చేయండి",

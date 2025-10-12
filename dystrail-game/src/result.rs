@@ -64,6 +64,7 @@ pub struct ResultSummary {
     pub ending: Ending,
     pub headline_key: String,
     pub epilogue_key: String,
+    pub ending_cause: Option<String>,
     pub seed: String,
     pub persona_name: String,
     pub mult_str: String,
@@ -140,7 +141,8 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
     let passed_threshold = score >= threshold;
 
     let final_ending = determine_final_ending(gs, passed_threshold);
-    let headline_key = headline_key_for(final_ending, &cfg.endings);
+    let ending_cause_token = ending_cause_token(final_ending);
+    let headline_key = headline_key_for(final_ending, &cfg.endings, ending_cause_token.as_deref());
     let epilogue_key = epilogue_key_for(&headline_key);
 
     let seed = encode_friendly(gs.mode.is_deep(), gs.seed);
@@ -175,6 +177,7 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
         vehicle_breakdowns: gs.vehicle_breakdowns,
         miles_traveled: gs.distance_traveled_actual,
         malnutrition_days: gs.starvation_days,
+        ending_cause: ending_cause_token,
     })
 }
 
@@ -237,7 +240,11 @@ fn determine_final_ending(gs: &GameState, passed_threshold: bool) -> Ending {
     }
 }
 
-fn headline_key_for(ending: Ending, cfg: &EndingCfg) -> String {
+fn headline_key_for(ending: Ending, cfg: &EndingCfg, cause_token: Option<&str>) -> String {
+    if let Some(token) = cause_token {
+        return format!("result.headline.{token}");
+    }
+
     match ending {
         Ending::BossVictory => cfg.victory_key.clone(),
         Ending::BossVoteFailed => cfg.boss_loss_key.clone(),
@@ -257,6 +264,15 @@ fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
         CollapseCause::Breakdown => {
             format!("{}_{}", cfg.collapse_key, CollapseCause::Breakdown.key())
         }
+    }
+}
+
+fn ending_cause_token(ending: Ending) -> Option<String> {
+    match ending {
+        Ending::Collapse { cause } => Some(format!("collapse_{}", cause.key())),
+        Ending::Exposure { kind } => Some(format!("exposure_{}", kind.key())),
+        Ending::VehicleFailure { cause } => Some(format!("vehicle_failure_{}", cause.key())),
+        _ => None,
     }
 }
 
@@ -296,6 +312,7 @@ fn success_threshold(mode: GameMode) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::state::VehicleFailureCause;
 
     #[test]
     fn high_score_triggers_victory() {
@@ -312,6 +329,7 @@ mod tests {
         let summary = result_summary(&state, &cfg).unwrap();
         assert!(summary.passed_threshold);
         assert!(matches!(summary.ending, Ending::BossVictory));
+        assert!(summary.ending_cause.is_none());
     }
 
     #[test]
@@ -326,5 +344,30 @@ mod tests {
         let summary = result_summary(&state, &cfg).unwrap();
         assert_eq!(summary.headline_key, "result.headline.collapse_hunger");
         assert_eq!(summary.epilogue_key, "result.epilogue.collapse_hunger");
+        assert_eq!(summary.ending_cause.as_deref(), Some("collapse_hunger"));
+    }
+
+    #[test]
+    fn vehicle_failure_uses_detailed_keys() {
+        #![allow(clippy::field_reassign_with_default)]
+        let cfg = ResultConfig::default();
+        let mut state = GameState::default();
+        state.ending = Some(Ending::VehicleFailure {
+            cause: VehicleFailureCause::Destroyed,
+        });
+
+        let summary = result_summary(&state, &cfg).unwrap();
+        assert_eq!(
+            summary.headline_key,
+            "result.headline.vehicle_failure_vehicle_destroyed"
+        );
+        assert_eq!(
+            summary.epilogue_key,
+            "result.epilogue.vehicle_failure_vehicle_destroyed"
+        );
+        assert_eq!(
+            summary.ending_cause.as_deref(),
+            Some("vehicle_failure_vehicle_destroyed")
+        );
     }
 }

@@ -239,6 +239,7 @@
       "pants": "Chyron melakukan sisanya. GIF itu selamanya.",
       "sanity": "Absurditas menghancurkan Anda sebelum Senat melakukannya.",
       "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
       "victory": "Sejarawan akan mengutip bukti Anda. Pelobi mengutuk nama Anda.",
       "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
       "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
@@ -254,6 +255,7 @@
       "pants": "DARURAT CELANA NASIONAL",
       "sanity": "KERETAKAN KEWARASAN",
       "vehicle_failure": "VEHICLE DESTROYED",
+      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
       "victory": "ANDA LOLOS CLOTURE!",
       "exposure_cold": "EXPOSED TO THE ELEMENTS",
       "exposure_heat": "EXPOSED TO THE ELEMENTS"
@@ -275,7 +277,13 @@
       "score_threshold": "Score Threshold",
       "seed": "Seed",
       "stats": "Statistik",
-      "supplies": "Persediaan"
+      "supplies": "Persediaan",
+      "travel_days": "Hari perjalanan",
+      "non_travel_days": "Hari berhenti",
+      "avg_mpd": "Rata mil/hari",
+      "unique_encounters": "Unique Encounters",
+      "repairs_spent_cents": "Repairs Spend (¢)",
+      "bribes_spent_cents": "Bribes Spend (¢)"
     },
     "menu": {
       "copy_seed": "Salin Seed",
