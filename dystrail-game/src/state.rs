@@ -697,6 +697,8 @@ pub struct GameState {
     #[serde(default)]
     pub encounters_resolved: u32,
     #[serde(default)]
+    pub prev_distance_traveled: f32,
+    #[serde(default)]
     pub travel_days: u32,
     #[serde(default)]
     pub non_travel_days: u32,
@@ -779,6 +781,7 @@ impl Default for GameState {
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             encounters_resolved: 0,
+            prev_distance_traveled: 0.0,
             travel_days: 0,
             non_travel_days: 0,
             traveled_today: false,
@@ -813,6 +816,7 @@ impl GameState {
         self.traveled_today = false;
         self.encounters_today = 0;
         self.encounter_occurred_today = false;
+        self.prev_distance_traveled = self.distance_traveled_actual;
 
         if self.encounter_history.len() >= ENCOUNTER_HISTORY_WINDOW {
             self.encounter_history.pop_front();
@@ -1003,6 +1007,42 @@ impl GameState {
         }
     }
 
+    #[must_use]
+    fn compute_miles_for_today(
+        &self,
+        pace_cfg: &crate::pacing::PaceCfg,
+        limits: &crate::pacing::PacingLimits,
+    ) -> f32 {
+        let base_distance = if pace_cfg.distance > 0.0 {
+            pace_cfg.distance
+        } else if limits.distance_base > 0.0 {
+            limits.distance_base
+        } else {
+            12.0
+        };
+        let config_scalar = pace_cfg.dist_mult.max(0.1);
+        let pace_scalar = match self.pace {
+            PaceId::Steady => 1.0,
+            PaceId::Heated => 1.15,
+            PaceId::Blitz => 1.30,
+        } * config_scalar;
+        let weather_scalar = self.current_weather_speed_penalty();
+        let mut distance = base_distance * (weather_scalar * pace_scalar).max(0.6);
+
+        if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
+            distance *= 0.5;
+        }
+
+        if self.malnutrition_level > 0 {
+            #[allow(clippy::cast_precision_loss)]
+            let malnutrition = self.malnutrition_level as f32;
+            let starvation_penalty = 1.0 - (malnutrition * 0.05);
+            distance *= starvation_penalty.max(0.3);
+        }
+
+        distance.max(1.0)
+    }
+
     fn check_vehicle_terminal_state(&mut self) -> bool {
         let spare_guard = self.total_spares();
         let tolerance = VEHICLE_BREAKDOWN_TOLERANCE_FLOOR.max(spare_guard * 3);
@@ -1107,11 +1147,12 @@ impl GameState {
             }
         }
 
-        self.traveled_today = true;
         let travel_distance = self.distance_today;
+        let before = self.distance_traveled_actual;
         self.distance_traveled_actual += travel_distance;
         self.distance_traveled =
             (self.distance_traveled + travel_distance).min(self.trail_distance);
+        self.traveled_today = self.distance_traveled_actual > before;
         if self.distance_traveled_actual >= self.trail_distance {
             self.boss_ready = true;
         }
@@ -1324,31 +1365,10 @@ impl GameState {
         };
         let mut encounter = encounter_base + pace_cfg.encounter_chance_delta;
 
-        let config_scalar = pace_cfg.dist_mult.max(0.1);
-        let pace_scalar = match self.pace {
-            PaceId::Steady => 1.0,
-            PaceId::Heated => 1.15,
-            PaceId::Blitz => 1.30,
-        } * config_scalar;
-        let weather_scalar = self.current_weather_speed_penalty();
-        let total_scalar = (weather_scalar * pace_scalar).max(0.6);
-
-        let mut distance = if pace_cfg.distance > 0.0 {
-            pace_cfg.distance
-        } else {
-            12.0 * total_scalar
-        };
+        let distance = self.compute_miles_for_today(&pace_cfg, limits);
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
-            distance *= 0.5;
             encounter = (encounter + 0.12).clamp(encounter_floor, encounter_ceiling);
-        }
-
-        if self.malnutrition_level > 0 {
-            #[allow(clippy::cast_precision_loss)]
-            let malnutrition = self.malnutrition_level as f32;
-            let starvation_penalty = 1.0 - (malnutrition * 0.05);
-            distance *= starvation_penalty.max(0.3);
         }
 
         let encounters_last_window: u32 =
