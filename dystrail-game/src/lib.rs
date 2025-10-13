@@ -34,8 +34,8 @@ pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
 pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};
 pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code};
 pub use state::{
-    CollapseCause, DietId, Ending, GameMode, GamePhase, GameState, Inventory, PaceId, Region,
-    Spares, Stats,
+    CollapseCause, DietId, Ending, FeatureFlags, GameMode, GamePhase, GameState, Inventory, PaceId,
+    Region, Spares, Stats,
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,

@@ -113,7 +113,9 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         gs.stats.pants = (gs.stats.pants + rest_cfg.pants).clamp(0, 100);
     }
 
-    gs.advance_days(rest_cfg.day.max(1));
+    let rest_days = rest_cfg.day.max(1);
+    gs.days_with_camp = gs.days_with_camp.saturating_add(rest_days);
+    gs.advance_days(rest_days);
     gs.camp.rest_cooldown = rest_cfg.cooldown_days;
     gs.logs.push(String::from("log.camp.rest"));
     CampOutcome {
@@ -158,7 +160,9 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
 
     gs.stats.supplies += supplies_delta;
     gs.stats.clamp();
-    gs.advance_days(forage_cfg.day.max(1));
+    let forage_days = forage_cfg.day.max(1);
+    gs.days_with_camp = gs.days_with_camp.saturating_add(forage_days);
+    gs.advance_days(forage_days);
     gs.camp.forage_cooldown = forage_cfg.cooldown_days;
     gs.logs.push(String::from("log.camp.forage"));
 

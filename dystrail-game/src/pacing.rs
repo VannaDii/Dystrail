@@ -49,6 +49,8 @@ pub struct PacingLimits {
     pub encounter_base: f32,
     #[serde(default = "default_zero_f32")]
     pub distance_base: f32,
+    #[serde(default = "default_distance_penalty_floor")]
+    pub distance_penalty_floor: f32,
     #[serde(default = "default_zero_f32")]
     pub encounter_floor: f32,
     #[serde(default = "default_one_f32")]
@@ -109,6 +111,10 @@ fn default_zero_f32() -> f32 {
 
 fn default_zero_i32() -> i32 {
     0
+}
+
+fn default_distance_penalty_floor() -> f32 {
+    0.6
 }
 
 fn default_pants_ceiling() -> i32 {

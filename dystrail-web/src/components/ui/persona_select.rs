@@ -63,16 +63,14 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     {
         let list_ref = list_ref.clone();
         use_effect_with(*selected, move |sel| {
-            if let Some(i) = *sel
-                && let Some(list) = list_ref.cast::<web_sys::Element>()
-            {
-                let sel = format!("[role='radio'][data-key='{}']", i + 1);
-                if let Ok(Some(el)) = list.query_selector(&sel) {
-                    let _ = el
-                        .dyn_into::<web_sys::HtmlElement>()
-                        .ok()
-                        .map(|e| e.focus());
-                }
+            if let Some(first) = sel.as_ref().and_then(|i| {
+                let selector = format!("[role='radio'][data-key='{}']", i + 1);
+                list_ref
+                    .cast::<web_sys::Element>()
+                    .and_then(|list| list.query_selector(&selector).ok().flatten())
+                    .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok())
+            }) {
+                let _ = first.focus();
             }
         });
     }
@@ -86,9 +84,11 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
             if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
             {
                 if n == 0 {
-                    if selected.is_some()
-                        && let Some(cb) = on_continue.clone()
-                    {
+                    if selected.is_none() {
+                        e.prevent_default();
+                        return;
+                    }
+                    if let Some(cb) = on_continue.clone() {
                         cb.emit(());
                     }
                 } else {

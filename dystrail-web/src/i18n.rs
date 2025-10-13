@@ -57,14 +57,10 @@ fn fallback_bundle() -> I18nBundle {
 fn saved_lang() -> String {
     #[cfg(not(test))]
     {
-        let win = web_sys::window();
-        if let Some(win) = win
-            && let Ok(Some(storage)) = win.local_storage()
-            && let Ok(Some(lang)) = storage.get_item("dystrail.locale")
-        {
-            return lang;
-        }
-        "en".to_string()
+        web_sys::window()
+            .and_then(|win| win.local_storage().ok().flatten())
+            .and_then(|storage| storage.get_item("dystrail.locale").ok().flatten())
+            .unwrap_or_else(|| "en".to_string())
     }
     #[cfg(test)]
     {
@@ -97,8 +93,8 @@ pub fn set_lang(lang: &str) {
                     });
                 });
             }
-            if let Some(win) = web_sys::window()
-                && let Ok(Some(storage)) = win.local_storage()
+            if let Some(storage) =
+                web_sys::window().and_then(|win| win.local_storage().ok().flatten())
             {
                 let _ = storage.set_item("dystrail.locale", lang);
             }

@@ -11,7 +11,9 @@ use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::Ending;
+use dystrail_game::state::Season;
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
+use dystrail_game::weather::{Weather, WeatherConfig};
 use dystrail_game::{DietId, GameMode, GameState, PaceId};
 use serde_json;
 
@@ -19,6 +21,8 @@ use crate::logic::policy::GameplayStrategy;
 use crate::logic::simulation::{DecisionRecord, SimulationConfig, SimulationSession, TurnOutcome};
 
 const LOG_MESSAGE_PREFIX: &str = "log.";
+const HEATWAVE_RISK_THRESHOLD: f64 = 0.18;
+const HEATWAVE_MIN_WATER: i32 = 2;
 
 /// Collection of immutable data required to run a simulation.
 #[derive(Debug, Clone)]
@@ -29,6 +33,7 @@ struct TesterAssets {
     store: Store,
     camp_config: CampConfig,
     boss_config: BossConfig,
+    weather_config: WeatherConfig,
 }
 
 impl TesterAssets {
@@ -40,6 +45,8 @@ impl TesterAssets {
         let store = Self::load_store_from_assets().unwrap_or_else(Self::fallback_store_data);
         let camp_config = Self::load_camp_from_assets().unwrap_or_default();
         let boss_config = Self::load_boss_from_assets().unwrap_or_default();
+        let weather_config =
+            Self::load_weather_from_assets().unwrap_or_else(WeatherConfig::default_config);
 
         Self {
             encounter_data,
@@ -48,6 +55,7 @@ impl TesterAssets {
             store,
             camp_config,
             boss_config,
+            weather_config,
         }
     }
 
@@ -104,6 +112,12 @@ impl TesterAssets {
     fn load_boss_from_assets() -> Option<BossConfig> {
         let base = Self::assets_data_root();
         let json = fs::read_to_string(base.join("boss.json")).ok()?;
+        serde_json::from_str(&json).ok()
+    }
+
+    fn load_weather_from_assets() -> Option<WeatherConfig> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("weather.json")).ok()?;
         serde_json::from_str(&json).ok()
     }
 
@@ -339,7 +353,8 @@ impl GameTester {
             );
         }
 
-        for (item_id, qty) in Self::planned_purchases(strategy, seed) {
+        let plan = self.planned_purchases(state, strategy, seed);
+        for (item_id, qty) in plan {
             self.execute_purchase(state, item_id, qty);
         }
     }
@@ -373,12 +388,20 @@ impl GameTester {
         }
     }
 
-    fn planned_purchases(strategy: GameplayStrategy, seed: u64) -> Vec<(&'static str, i32)> {
-        match strategy {
+    fn planned_purchases(
+        &self,
+        state: &GameState,
+        strategy: GameplayStrategy,
+        seed: u64,
+    ) -> Vec<(&'static str, i32)> {
+        let mut plan: Vec<(&'static str, i32)> = match strategy {
             GameplayStrategy::Balanced => vec![("rations", 2), ("water", 1), ("spare_tire", 1)],
-            GameplayStrategy::Conservative => {
-                vec![("spare_tire", 2), ("battery", 1), ("legal_fund", 1)]
-            }
+            GameplayStrategy::Conservative => vec![
+                ("spare_tire", 1),
+                ("battery", 1),
+                ("legal_fund", 1),
+                ("spare_tire", 1),
+            ],
             GameplayStrategy::Aggressive => vec![("legal_fund", 2), ("rations", 1)],
             GameplayStrategy::ResourceManager => {
                 vec![("rations", 3), ("water", 2), ("spare_tire", 1)]
@@ -388,6 +411,77 @@ impl GameTester {
                 1 => vec![("rations", 2), ("legal_fund", 1)],
                 _ => vec![("water", 2), ("ponchos", 1), ("press_pass", 1)],
             },
+        };
+
+        if matches!(
+            strategy,
+            GameplayStrategy::Balanced | GameplayStrategy::Conservative
+        ) && state.mode == GameMode::Classic
+            && matches!(state.season, Season::Fall | Season::Winter)
+        {
+            Self::prioritize_coat(&mut plan, strategy);
+        }
+
+        if matches!(
+            strategy,
+            GameplayStrategy::Balanced | GameplayStrategy::Conservative
+        ) && self.heatwave_risk() >= HEATWAVE_RISK_THRESHOLD
+        {
+            Self::ensure_min_quantity(&mut plan, "water", HEATWAVE_MIN_WATER, Some(1));
+        }
+
+        plan
+    }
+
+    fn heatwave_risk(&self) -> f64 {
+        self.assets
+            .weather_config
+            .weights
+            .values()
+            .filter_map(|weights| {
+                let total: u32 = weights.values().copied().sum();
+                let heat = weights.get(&Weather::HeatWave)?;
+                if total == 0 {
+                    return None;
+                }
+                Some(f64::from(*heat) / f64::from(total))
+            })
+            .fold(0.0_f64, f64::max)
+    }
+
+    fn ensure_min_quantity(
+        plan: &mut Vec<(&'static str, i32)>,
+        item_id: &'static str,
+        min_qty: i32,
+        preferred_index: Option<usize>,
+    ) {
+        if let Some((_, qty)) = plan.iter_mut().find(|(id, _)| *id == item_id) {
+            if *qty < min_qty {
+                *qty = min_qty;
+            }
+        } else if min_qty > 0 {
+            let index = preferred_index.map_or(plan.len(), |idx| idx.min(plan.len()));
+            plan.insert(index, (item_id, min_qty));
+        }
+    }
+
+    fn prioritize_coat(plan: &mut Vec<(&'static str, i32)>, strategy: GameplayStrategy) {
+        if plan.iter().any(|(id, _)| *id == "coats") {
+            return;
+        }
+        let spare_positions: Vec<usize> = plan
+            .iter()
+            .enumerate()
+            .filter(|(_, (id, _))| *id == "spare_tire")
+            .map(|(idx, _)| idx)
+            .collect();
+        if strategy == GameplayStrategy::Conservative && spare_positions.len() >= 2 {
+            plan.insert(spare_positions[1], ("coats", 1));
+        } else if let Some(&idx) = spare_positions.first() {
+            plan.insert(idx, ("coats", 1));
+        } else {
+            let insert_at = plan.len().min(1);
+            plan.insert(insert_at, ("coats", 1));
         }
     }
 
@@ -431,11 +525,12 @@ impl GameTester {
         };
 
         let mut names: Vec<String> = base.into_iter().map(String::from).collect();
-        if let Ok(len_u64) = u64::try_from(names.len())
-            && len_u64 > 0
-        {
-            let offset = usize::try_from(seed % len_u64).unwrap_or(0);
-            names.rotate_left(offset);
+        match u64::try_from(names.len()) {
+            Ok(len_u64) if len_u64 > 0 => {
+                let offset = usize::try_from(seed % len_u64).unwrap_or(0);
+                names.rotate_left(offset);
+            }
+            _ => {}
         }
         while names.len() < 5 {
             let idx = names.len() + 1;
@@ -680,6 +775,10 @@ pub struct PlayabilityMetrics {
     pub exec_order_active: String,
     pub exec_order_days_remaining: u32,
     pub exec_order_cooldown: u32,
+    pub exposure_streak_heat: u32,
+    pub exposure_streak_cold: u32,
+    pub days_with_camp: u32,
+    pub days_with_repair: u32,
     encounter_ids: HashSet<String>,
 }
 
@@ -709,6 +808,10 @@ impl Default for PlayabilityMetrics {
             exec_order_active: String::new(),
             exec_order_days_remaining: 0,
             exec_order_cooldown: 0,
+            exposure_streak_heat: 0,
+            exposure_streak_cold: 0,
+            days_with_camp: 0,
+            days_with_repair: 0,
             encounter_ids: HashSet::new(),
         }
     }
@@ -761,6 +864,10 @@ impl PlayabilityMetrics {
             .unwrap_or_default();
         self.exec_order_days_remaining = u32::from(state.exec_order_days_remaining);
         self.exec_order_cooldown = u32::from(state.exec_order_cooldown);
+        self.exposure_streak_heat = u32::try_from(state.weather_state.heatwave_streak).unwrap_or(0);
+        self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
+        self.days_with_camp = state.days_with_camp;
+        self.days_with_repair = state.days_with_repair;
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -794,6 +901,10 @@ impl PlayabilityMetrics {
             .unwrap_or_default();
         self.exec_order_days_remaining = u32::from(state.exec_order_days_remaining);
         self.exec_order_cooldown = u32::from(state.exec_order_cooldown);
+        self.exposure_streak_heat = u32::try_from(state.weather_state.heatwave_streak).unwrap_or(0);
+        self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
+        self.days_with_camp = state.days_with_camp;
+        self.days_with_repair = state.days_with_repair;
         let (ending, cause) = describe_ending(
             state,
             &TurnOutcome {

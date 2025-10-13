@@ -375,24 +375,36 @@ impl ResultScreen {
 
     fn format_number(n: i32) -> String {
         // Use browser's Intl.NumberFormat for proper localization
-        if let Some(window) = window()
-            && let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into())
-            && let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into())
-            && let Ok(formatter) =
-                js_sys::Reflect::construct(&number_format.into(), &js_sys::Array::new())
-            && let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into())
-            && let Ok(result) = js_sys::Reflect::apply(
-                &format_fn.into(),
-                &formatter,
-                &js_sys::Array::of1(&(n.into())),
-            )
-            && let Some(formatted) = result.as_string()
-        {
-            formatted
-        } else {
-            // Fallback to simple formatting
-            n.to_string()
+        let Some(window) = window() else {
+            return n.to_string();
+        };
+        let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) else {
+            return n.to_string();
+        };
+        let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) else {
+            return n.to_string();
+        };
+        let Ok(formatter) =
+            js_sys::Reflect::construct(&number_format.into(), &js_sys::Array::new())
+        else {
+            return n.to_string();
+        };
+        let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into()) else {
+            return n.to_string();
+        };
+        let Ok(result) = js_sys::Reflect::apply(
+            &format_fn.into(),
+            &formatter,
+            &js_sys::Array::of1(&(n.into())),
+        ) else {
+            return n.to_string();
+        };
+        if let Some(formatted) = result.as_string() {
+            return formatted;
         }
+
+        // Fallback to simple formatting
+        n.to_string()
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {

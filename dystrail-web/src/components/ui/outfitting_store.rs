@@ -283,23 +283,20 @@ fn handle_menu_selection(
             if index == 0 {
                 // Back to home
                 handle_back_navigation(state, store_state);
-            } else {
-                // Select item for quantity prompt
-                if let Some(category) = state
-                    .store_data
-                    .categories
-                    .iter()
-                    .find(|c| c.id == *category_id)
-                    && let Some(item) = category.items.get((index - 1) as usize)
-                {
-                    let mut new_state = state.clone();
-                    new_state.current_screen = StoreScreen::QuantityPrompt(item.id.clone());
-                    new_state.focus_idx = 1;
-                    store_state.set(new_state);
+            } else if let Some(item) = state
+                .store_data
+                .categories
+                .iter()
+                .find(|c| c.id == *category_id)
+                .and_then(|category| category.items.get((index - 1) as usize))
+            {
+                let mut new_state = state.clone();
+                new_state.current_screen = StoreScreen::QuantityPrompt(item.id.clone());
+                new_state.focus_idx = 1;
+                store_state.set(new_state);
 
-                    let item_name = i18n::t(&format!("store.items.{}.name", item.id));
-                    announce_to_screen_reader(&item_name);
-                }
+                let item_name = i18n::t(&format!("store.items.{}.name", item.id));
+                announce_to_screen_reader(&item_name);
             }
         }
         StoreScreen::QuantityPrompt(item_id) => {
@@ -619,36 +616,44 @@ fn format_currency(cents: i64) -> String {
     let dollars = cents as f64 / 100.0;
 
     // Use the browser's Intl API for currency formatting
-    if let Some(window) = window()
-        && let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into())
-        && let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into())
-        && let Ok(formatter) = js_sys::Reflect::construct(
-            &number_format.into(),
-            &js_sys::Array::of2(
-                &"en-US".into(),
-                &{
-                    let options = js_sys::Object::new();
-                    // Set currency formatting options, ignore errors for fallback behavior
-                    let _ = js_sys::Reflect::set(&options, &"style".into(), &"currency".into());
-                    let _ = js_sys::Reflect::set(&options, &"currency".into(), &"USD".into());
-                    options
-                }
-                .into(),
-            ),
-        )
-        && let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into())
-        && let Ok(result) = js_sys::Reflect::apply(
-            &format_fn.into(),
-            &formatter,
-            &js_sys::Array::of1(&dollars.into()),
-        )
-        && let Some(formatted) = result.as_string()
-    {
-        formatted
-    } else {
-        // Fallback formatting
-        format!("${dollars:.2}")
+    let Some(window) = window() else {
+        return format!("${dollars:.2}");
+    };
+    let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) else {
+        return format!("${dollars:.2}");
+    };
+    let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) else {
+        return format!("${dollars:.2}");
+    };
+
+    let locale = "en-US".into();
+    let options = {
+        let options = js_sys::Object::new();
+        // Set currency formatting options, ignore errors for fallback behavior
+        let _ = js_sys::Reflect::set(&options, &"style".into(), &"currency".into());
+        let _ = js_sys::Reflect::set(&options, &"currency".into(), &"USD".into());
+        options
+    };
+    let args = js_sys::Array::of2(&locale, &options.into());
+    let Ok(formatter) = js_sys::Reflect::construct(&number_format.into(), &args) else {
+        return format!("${dollars:.2}");
+    };
+    let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into()) else {
+        return format!("${dollars:.2}");
+    };
+    let Ok(result) = js_sys::Reflect::apply(
+        &format_fn.into(),
+        &formatter,
+        &js_sys::Array::of1(&dollars.into()),
+    ) else {
+        return format!("${dollars:.2}");
+    };
+    if let Some(formatted) = result.as_string() {
+        return formatted;
     }
+
+    // Fallback formatting
+    format!("${dollars:.2}")
 }
 
 /// Announce message to screen readers

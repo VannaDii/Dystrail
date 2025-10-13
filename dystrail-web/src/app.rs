@@ -345,14 +345,18 @@ pub fn app_inner() -> Html {
     let on_export_cb = {
         let state = state.clone();
         Callback::from(move |()| {
-            if let Some(gs) = (*state).clone()
-                && let Ok(text) = serde_json::to_string(&gs)
-                && let Some(win) = web_sys::window()
-            {
-                let nav = win.navigator();
-                let cb = nav.clipboard();
-                let _ = cb.write_text(&text);
-            }
+            let Some(gs) = (*state).clone() else {
+                return;
+            };
+            let Ok(text) = serde_json::to_string(&gs) else {
+                return;
+            };
+            let Some(win) = web_sys::window() else {
+                return;
+            };
+            let nav = win.navigator();
+            let cb = nav.clipboard();
+            let _ = cb.write_text(&text);
         })
     };
     let on_import_cb = {

@@ -21,23 +21,34 @@ pub fn settings_dialog(p: &Props) -> Html {
         let node = ref_node.clone();
         let open = p.open;
         use_effect_with((open, node), move |(open, node)| {
-            let mut prev_focus: Option<web_sys::HtmlElement> = None;
-            if *open {
-                if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-                    prev_focus = doc
-                        .active_element()
-                        .and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok());
-                }
-                if let Some(el) = node.cast::<web_sys::Element>()
-                    && let Ok(list) = el.query_selector_all(
+            let prev_focus = if *open {
+                web_sys::window()
+                    .and_then(|w| w.document())
+                    .and_then(|doc| {
+                        doc.active_element()
+                            .and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok())
+                    })
+            } else {
+                None
+            };
+
+            let focus_target = if *open {
+                node.cast::<web_sys::Element>().and_then(|el| {
+                    el.query_selector_all(
                         "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
                     )
-                    && let Some(first) = list
-                        .get(0)
-                        .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
-                {
-                    let _ = first.focus();
-                }
+                    .ok()
+                    .and_then(|list| {
+                        list.get(0)
+                            .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
+                    })
+                })
+            } else {
+                None
+            };
+
+            if let Some(first) = focus_target {
+                let _ = first.focus();
             }
             move || {
                 if let Some(el) = prev_focus {

@@ -14,9 +14,9 @@ pub fn visible_focus_css() -> &'static str {
 /// Updates the text content of the #menu-helper element if present.
 /// This provides announcements to assistive technology users.
 pub fn set_status(msg: &str) {
-    if let Some(win) = web_sys::window()
-        && let Some(doc) = win.document()
-        && let Some(node) = doc.get_element_by_id("menu-helper")
+    if let Some(node) = web_sys::window()
+        .and_then(|win| win.document())
+        .and_then(|doc| doc.get_element_by_id("menu-helper"))
     {
         node.set_text_content(Some(msg));
     }
@@ -27,19 +27,20 @@ pub fn set_status(msg: &str) {
 /// Adds or removes the 'hc' class from the HTML element and persists the choice.
 /// This enables high-contrast styling for users with visual impairments.
 pub fn set_high_contrast(enabled: bool) {
-    if let Some(win) = web_sys::window() {
-        if let Some(doc) = win.document()
-            && let Some(html) = doc.document_element()
-        {
-            let _ = if enabled {
-                html.class_list().add_1("hc")
-            } else {
-                html.class_list().remove_1("hc")
-            };
-        }
-        if let Ok(Some(storage)) = win.local_storage() {
-            let _ = storage.set_item("dystrail.hc", if enabled { "1" } else { "0" });
-        }
+    let Some(win) = web_sys::window() else {
+        return;
+    };
+
+    if let Some(html) = win.document().and_then(|doc| doc.document_element()) {
+        let _ = if enabled {
+            html.class_list().add_1("hc")
+        } else {
+            html.class_list().remove_1("hc")
+        };
+    }
+
+    if let Some(storage) = win.local_storage().ok().flatten() {
+        let _ = storage.set_item("dystrail.hc", if enabled { "1" } else { "0" });
     }
 }
 
@@ -49,12 +50,8 @@ pub fn set_high_contrast(enabled: bool) {
 /// styling should be active. Returns false if no preference is stored.
 #[must_use]
 pub fn high_contrast_enabled() -> bool {
-    if let Some(win) = web_sys::window()
-        && let Ok(Some(storage)) = win.local_storage()
-        && let Ok(Some(v)) = storage.get_item("dystrail.hc")
-    {
-        v == "1"
-    } else {
-        false
-    }
+    web_sys::window()
+        .and_then(|win| win.local_storage().ok().flatten())
+        .and_then(|storage| storage.get_item("dystrail.hc").ok().flatten())
+        .is_some_and(|v| v == "1")
 }

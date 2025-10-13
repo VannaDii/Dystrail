@@ -10,31 +10,36 @@
       "supplies": 0,
       "sanity": 0,
       "pants": 0,
-      "enc_delta": 0.0
+      "enc_delta": 0.0,
+      "travel_mult": 1.0
     },
     "Storm": {
       "supplies": 1,
       "sanity": -1,
       "pants": 2,
-      "enc_delta": 0.05
+      "enc_delta": 0.05,
+      "travel_mult": 0.8
     },
     "HeatWave": {
       "supplies": 1,
       "sanity": -1,
       "pants": 1,
-      "enc_delta": 0.03
+      "enc_delta": 0.03,
+      "travel_mult": 0.9
     },
     "ColdSnap": {
       "supplies": 0,
       "sanity": -1,
       "pants": 0,
-      "enc_delta": 0.0
+      "enc_delta": 0.0,
+      "travel_mult": 0.85
     },
     "Smoke": {
       "supplies": 1,
       "sanity": -1,
       "pants": 1,
-      "enc_delta": 0.03
+      "enc_delta": 0.03,
+      "travel_mult": 0.92
     }
   },
   "mitigation": {

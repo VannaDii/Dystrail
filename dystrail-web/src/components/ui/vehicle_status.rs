@@ -117,17 +117,17 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
             match idx {
                 1 => {
                     // Use Spare Tire
-                    if breakdown_part == Some(Part::Tire)
-                        && let Some((tire_count, _, _, _)) = spare_counts
-                        && tire_count > 0
-                    {
-                        on_repair.emit(VehicleAction::UseSpare(Part::Tire));
-                        let part_name = i18n::t(Part::Tire.key());
-                        let mut vars = std::collections::HashMap::new();
-                        vars.insert("part", part_name.as_str());
-                        vars.insert("sup", "1");
-                        set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                        return;
+                    match (breakdown_part, spare_counts) {
+                        (Some(Part::Tire), Some((tire_count, _, _, _))) if tire_count > 0 => {
+                            on_repair.emit(VehicleAction::UseSpare(Part::Tire));
+                            let part_name = i18n::t(Part::Tire.key());
+                            let mut vars = std::collections::HashMap::new();
+                            vars.insert("part", part_name.as_str());
+                            vars.insert("sup", "1");
+                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
+                            return;
+                        }
+                        _ => {}
                     }
                     let part_name = i18n::t(Part::Tire.key());
                     let mut vars = std::collections::HashMap::new();
@@ -136,17 +136,19 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 }
                 2 => {
                     // Use Spare Battery
-                    if breakdown_part == Some(Part::Battery)
-                        && let Some((_, battery_count, _, _)) = spare_counts
-                        && battery_count > 0
-                    {
-                        on_repair.emit(VehicleAction::UseSpare(Part::Battery));
-                        let part_name = i18n::t(Part::Battery.key());
-                        let mut vars = std::collections::HashMap::new();
-                        vars.insert("part", part_name.as_str());
-                        vars.insert("sup", "1");
-                        set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                        return;
+                    match (breakdown_part, spare_counts) {
+                        (Some(Part::Battery), Some((_, battery_count, _, _)))
+                            if battery_count > 0 =>
+                        {
+                            on_repair.emit(VehicleAction::UseSpare(Part::Battery));
+                            let part_name = i18n::t(Part::Battery.key());
+                            let mut vars = std::collections::HashMap::new();
+                            vars.insert("part", part_name.as_str());
+                            vars.insert("sup", "1");
+                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
+                            return;
+                        }
+                        _ => {}
                     }
                     let part_name = i18n::t(Part::Battery.key());
                     let mut vars = std::collections::HashMap::new();
@@ -155,17 +157,17 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 }
                 3 => {
                     // Use Spare Alternator
-                    if breakdown_part == Some(Part::Alternator)
-                        && let Some((_, _, alt_count, _)) = spare_counts
-                        && alt_count > 0
-                    {
-                        on_repair.emit(VehicleAction::UseSpare(Part::Alternator));
-                        let part_name = i18n::t(Part::Alternator.key());
-                        let mut vars = std::collections::HashMap::new();
-                        vars.insert("part", part_name.as_str());
-                        vars.insert("sup", "1");
-                        set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                        return;
+                    match (breakdown_part, spare_counts) {
+                        (Some(Part::Alternator), Some((_, _, alt_count, _))) if alt_count > 0 => {
+                            on_repair.emit(VehicleAction::UseSpare(Part::Alternator));
+                            let part_name = i18n::t(Part::Alternator.key());
+                            let mut vars = std::collections::HashMap::new();
+                            vars.insert("part", part_name.as_str());
+                            vars.insert("sup", "1");
+                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
+                            return;
+                        }
+                        _ => {}
                     }
                     let part_name = i18n::t(Part::Alternator.key());
                     let mut vars = std::collections::HashMap::new();
@@ -174,17 +176,17 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 }
                 4 => {
                     // Use Spare Fuel Pump
-                    if breakdown_part == Some(Part::FuelPump)
-                        && let Some((_, _, _, pump_count)) = spare_counts
-                        && pump_count > 0
-                    {
-                        on_repair.emit(VehicleAction::UseSpare(Part::FuelPump));
-                        let part_name = i18n::t(Part::FuelPump.key());
-                        let mut vars = std::collections::HashMap::new();
-                        vars.insert("part", part_name.as_str());
-                        vars.insert("sup", "1");
-                        set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                        return;
+                    match (breakdown_part, spare_counts) {
+                        (Some(Part::FuelPump), Some((_, _, _, pump_count))) if pump_count > 0 => {
+                            on_repair.emit(VehicleAction::UseSpare(Part::FuelPump));
+                            let part_name = i18n::t(Part::FuelPump.key());
+                            let mut vars = std::collections::HashMap::new();
+                            vars.insert("part", part_name.as_str());
+                            vars.insert("sup", "1");
+                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
+                            return;
+                        }
+                        _ => {}
                     }
                     let part_name = i18n::t(Part::FuelPump.key());
                     let mut vars = std::collections::HashMap::new();

@@ -57,29 +57,37 @@ pub fn save_drawer(p: &Props) -> Html {
         use_effect_with(
             (open, ret, container_ref),
             move |(open, ret, container_ref)| {
-                if *open
-                    && let Some(el) = container_ref.cast::<web_sys::Element>()
-                    && let Ok(list) = el.query_selector_all(
-                        "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
-                    )
-                    && let Some(first) = list
-                        .get(0)
-                        .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
-                {
+                let focus_target = if *open {
+                    container_ref
+                        .cast::<web_sys::Element>()
+                        .and_then(|el| {
+                            el.query_selector_all(
+                                "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
+                            )
+                            .ok()
+                            .and_then(|list| {
+                                list.get(0)
+                                    .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
+                            })
+                        })
+                } else {
+                    None
+                };
+                if let Some(first) = focus_target {
                     let _ = first.focus();
                 }
                 let ret_id = ret.clone();
                 move || {
-                    if let Some(id) = ret_id.clone()
-                        && let Some(doc) = web_sys::window().and_then(|w| w.document())
+                    if let Some(el) = ret_id
+                        .clone()
+                        .and_then(|id| {
+                            web_sys::window()
+                                .and_then(|w| w.document())
+                                .and_then(|doc| doc.get_element_by_id(id.as_ref()))
+                        })
+                        .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok())
                     {
-                        let id_str = id.to_string();
-                        if let Some(el) = doc.get_element_by_id(&id_str) {
-                            let _ = el
-                                .dyn_into::<web_sys::HtmlElement>()
-                                .ok()
-                                .map(|e| e.focus());
-                        }
+                        let _ = el.focus();
                     }
                 }
             },

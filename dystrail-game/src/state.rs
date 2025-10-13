@@ -26,9 +26,9 @@ const VEHICLE_DAILY_WEAR: f32 = 0.2;
 const VEHICLE_CRITICAL_THRESHOLD: f32 = 20.0;
 const VEHICLE_HEALTH_MAX: f32 = 100.0;
 const VEHICLE_BREAKDOWN_WEAR: f32 = 8.0;
+const VEHICLE_BREAKDOWN_WEAR_CLASSIC: f32 = 6.0;
 const VEHICLE_EMERGENCY_HEAL: f32 = 6.0;
 const VEHICLE_JURY_RIG_HEAL: f32 = 4.0;
-const VEHICLE_BREAKDOWN_TOLERANCE_FLOOR: i32 = 5;
 const STARVATION_BASE_HP_LOSS: i32 = 1;
 const STARVATION_SANITY_LOSS: i32 = 1;
 const STARVATION_PANTS_GAIN: i32 = 1;
@@ -40,6 +40,9 @@ const ENCOUNTER_COOLDOWN_DAYS: u8 = 1;
 const ENCOUNTER_SOFT_CAP_THRESHOLD: u32 = 5;
 const ENCOUNTER_HISTORY_WINDOW: usize = 10;
 const MAX_ENCOUNTERS_PER_DAY: u8 = 2;
+const ENCOUNTER_RECENT_MEMORY: usize = 8;
+const ENCOUNTER_REPEAT_WINDOW_DAYS: u32 = 5;
+const ENCOUNTER_REROLL_PENALTY: f32 = 0.8;
 const EXEC_ORDER_DAILY_CHANCE: f32 = 0.08;
 const EXEC_ORDER_MIN_DURATION: u8 = 3;
 const EXEC_ORDER_MAX_DURATION: u8 = 6;
@@ -304,6 +307,7 @@ mod tests {
         let mut state = GameState::default();
         state.stats.supplies = 10;
         state.stats.hp = 1;
+        state.exposure_streak_cold = 1;
         state.weather_state.today = Weather::ColdSnap;
         state.weather_state.yesterday = Weather::Clear;
         state.start_of_day();
@@ -681,6 +685,36 @@ pub struct Party {
     pub companions: Vec<String>,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct FeatureFlags {
+    pub travel_v2: bool,
+    pub encounter_diversity: bool,
+    pub exposure_streaks: bool,
+}
+
+impl Default for FeatureFlags {
+    fn default() -> Self {
+        Self {
+            travel_v2: true,
+            encounter_diversity: true,
+            exposure_streaks: true,
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct RecentEncounter {
+    pub id: String,
+    pub day: u32,
+}
+
+impl RecentEncounter {
+    #[must_use]
+    pub fn new(id: String, day: u32) -> Self {
+        Self { id, day }
+    }
+}
+
 fn default_rest_threshold() -> i32 {
     4
 }
@@ -724,6 +758,8 @@ pub struct GameState {
     #[serde(default)]
     pub mods: PersonaMods,
     #[serde(default)]
+    pub features: FeatureFlags,
+    #[serde(default)]
     pub party: Party,
     #[serde(default)]
     pub auto_camp_rest: bool,
@@ -743,6 +779,12 @@ pub struct GameState {
     pub starvation_days: u32,
     #[serde(default)]
     pub malnutrition_level: u32,
+    #[serde(default)]
+    pub exposure_streak_heat: u32,
+    #[serde(default)]
+    pub exposure_streak_cold: u32,
+    #[serde(default)]
+    pub exposure_damage_lockout: bool,
     #[serde(default)]
     pub boss_ready: bool,
     #[serde(default)]
@@ -780,6 +822,10 @@ pub struct GameState {
     #[serde(default)]
     pub non_travel_days: u32,
     #[serde(default)]
+    pub days_with_camp: u32,
+    #[serde(default)]
+    pub days_with_repair: u32,
+    #[serde(default)]
     pub traveled_today: bool,
     #[serde(default)]
     pub day_initialized: bool,
@@ -789,6 +835,8 @@ pub struct GameState {
     pub encounters_today: u8,
     #[serde(default)]
     pub encounter_history: VecDeque<u8>,
+    #[serde(default)]
+    pub recent_encounters: VecDeque<RecentEncounter>,
     #[serde(default)]
     pub encounter_cooldown: u8,
     #[serde(default)]
@@ -805,6 +853,8 @@ pub struct GameState {
     pub exec_travel_multiplier: f32,
     #[serde(default)]
     pub exec_breakdown_bonus: f32,
+    #[serde(default)]
+    pub weather_travel_multiplier: f32,
     #[serde(default)]
     pub current_encounter: Option<Encounter>,
     /// Vehicle state and spares
@@ -845,6 +895,7 @@ impl Default for GameState {
             persona_id: None,
             score_mult: 1.0,
             mods: PersonaMods::default(),
+            features: FeatureFlags::default(),
             party: Party::default(),
             auto_camp_rest: false,
             rest_threshold: default_rest_threshold(),
@@ -855,6 +906,9 @@ impl Default for GameState {
             vehicle_breakdowns: 0,
             starvation_days: 0,
             malnutrition_level: 0,
+            exposure_streak_heat: 0,
+            exposure_streak_cold: 0,
+            exposure_damage_lockout: false,
             boss_ready: false,
             boss_attempted: false,
             boss_victory: false,
@@ -871,11 +925,14 @@ impl Default for GameState {
             prev_distance_traveled: 0.0,
             travel_days: 0,
             non_travel_days: 0,
+            days_with_camp: 0,
+            days_with_repair: 0,
             traveled_today: false,
             day_initialized: false,
             did_end_of_day: false,
             encounters_today: 0,
             encounter_history: VecDeque::with_capacity(ENCOUNTER_HISTORY_WINDOW + 2),
+            recent_encounters: VecDeque::with_capacity(ENCOUNTER_RECENT_MEMORY),
             encounter_cooldown: 0,
             repairs_spent_cents: 0,
             bribes_spent_cents: 0,
@@ -885,6 +942,7 @@ impl Default for GameState {
             exec_order_cooldown: 0,
             exec_travel_multiplier: 1.0,
             exec_breakdown_bonus: 0.0,
+            weather_travel_multiplier: 1.0,
             vehicle: Vehicle::default(),
             breakdown: None,
             travel_blocked: false,
@@ -910,6 +968,7 @@ impl GameState {
         self.prev_distance_traveled = self.distance_traveled_actual;
         self.exec_travel_multiplier = 1.0;
         self.exec_breakdown_bonus = 0.0;
+        self.weather_travel_multiplier = 1.0;
 
         if self.encounter_history.len() >= ENCOUNTER_HISTORY_WINDOW {
             self.encounter_history.pop_front();
@@ -927,8 +986,10 @@ impl GameState {
         crate::weather::process_daily_weather(self, &weather_cfg);
         self.stats.clamp();
 
-        self.vehicle.wear = (self.vehicle.wear + VEHICLE_DAILY_WEAR).min(VEHICLE_HEALTH_MAX);
-        self.vehicle.apply_damage(VEHICLE_DAILY_WEAR);
+        if !self.features.travel_v2 {
+            self.vehicle.wear = (self.vehicle.wear + VEHICLE_DAILY_WEAR).min(VEHICLE_HEALTH_MAX);
+            self.vehicle.apply_damage(VEHICLE_DAILY_WEAR);
+        }
     }
 
     fn tick_exec_order_state(&mut self) {
@@ -956,19 +1017,20 @@ impl GameState {
             return;
         }
 
-        if let Some(rng) = self.rng.as_mut()
-            && rng.random::<f32>() < EXEC_ORDER_DAILY_CHANCE
-        {
-            let idx = rng.random_range(0..ExecOrder::ALL.len());
-            let order = ExecOrder::ALL[idx];
-            self.current_order = Some(order);
-            self.exec_order_days_remaining =
-                rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
-            self.logs
-                .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
-            self.apply_exec_order_effects(order);
-            if self.exec_order_days_remaining > 0 {
-                self.exec_order_days_remaining -= 1;
+        if let Some(rng) = self.rng.as_mut() {
+            let should_issue_order = rng.random::<f32>() < EXEC_ORDER_DAILY_CHANCE;
+            if should_issue_order {
+                let idx = rng.random_range(0..ExecOrder::ALL.len());
+                let order = ExecOrder::ALL[idx];
+                self.current_order = Some(order);
+                self.exec_order_days_remaining =
+                    rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
+                self.logs
+                    .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
+                self.apply_exec_order_effects(order);
+                if self.exec_order_days_remaining > 0 {
+                    self.exec_order_days_remaining -= 1;
+                }
             }
         }
     }
@@ -984,26 +1046,20 @@ impl GameState {
                 self.exec_travel_multiplier *= 0.8;
             }
             ExecOrder::BookPanic => {
-                let mut penalty = 2;
-                if self.stats.morale >= 7 {
-                    penalty = 1;
+                if self.stats.morale < 7 {
+                    self.stats.sanity -= 1;
                 }
-                self.stats.sanity -= penalty;
             }
             ExecOrder::TariffTsunami => {
-                let penalty = if self.inventory.has_tag("legal_fund") {
-                    -1
-                } else {
-                    -2
-                };
-                self.stats.supplies += penalty;
+                if !self.inventory.has_tag("legal_fund") {
+                    self.stats.supplies -= 1;
+                }
             }
             ExecOrder::DoEEliminated => {
                 self.stats.morale -= 1;
-                self.stats.sanity -= 1;
             }
             ExecOrder::WarDeptReorg => {
-                self.exec_breakdown_bonus += 0.15;
+                self.exec_breakdown_bonus += 0.10;
             }
         }
         self.stats.clamp();
@@ -1015,6 +1071,13 @@ impl GameState {
         }
         if let Some(back) = self.encounter_history.back_mut() {
             *back = self.encounters_today;
+        }
+        if !self.traveled_today {
+            let delta = (self.distance_traveled_actual - self.prev_distance_traveled).abs();
+            assert!(
+                delta <= 0.01,
+                "distance advanced on non-travel day (delta {delta:.2})"
+            );
         }
         if self.traveled_today {
             self.travel_days = self.travel_days.saturating_add(1);
@@ -1031,12 +1094,51 @@ impl GameState {
         self.traveled_today = false;
     }
 
-    fn record_encounter(&mut self) {
+    fn record_encounter(&mut self, encounter_id: &str) {
         self.encounters_today = self.encounters_today.saturating_add(1);
+        debug_assert!(
+            self.encounters_today <= MAX_ENCOUNTERS_PER_DAY,
+            "Encounter limit exceeded"
+        );
         if let Some(back) = self.encounter_history.back_mut() {
             *back = self.encounters_today;
         }
         self.encounter_cooldown = ENCOUNTER_COOLDOWN_DAYS.saturating_add(1);
+        let day = self.day;
+        while self.recent_encounters.len() >= ENCOUNTER_RECENT_MEMORY {
+            self.recent_encounters.pop_front();
+        }
+        self.recent_encounters
+            .retain(|entry| day.saturating_sub(entry.day) <= ENCOUNTER_REPEAT_WINDOW_DAYS * 2);
+        self.recent_encounters
+            .push_back(RecentEncounter::new(encounter_id.to_string(), day));
+    }
+
+    fn finalize_encounter(&mut self) {
+        self.current_encounter = None;
+        self.encounters_resolved = self.encounters_resolved.saturating_add(1);
+        if self.encounters_today < MAX_ENCOUNTERS_PER_DAY {
+            self.encounter_occurred_today = false;
+        }
+    }
+
+    fn apply_travel_wear(&mut self) {
+        self.vehicle.wear = (self.vehicle.wear + VEHICLE_DAILY_WEAR).min(VEHICLE_HEALTH_MAX);
+        self.vehicle.apply_damage(VEHICLE_DAILY_WEAR);
+    }
+
+    fn should_discourage_encounter(&self, encounter_id: &str) -> bool {
+        if !self.features.encounter_diversity {
+            return false;
+        }
+        let current_day = self.day;
+        self.recent_encounters
+            .iter()
+            .rev()
+            .find(|entry| entry.id == encounter_id)
+            .is_some_and(|entry| {
+                current_day.saturating_sub(entry.day) < ENCOUNTER_REPEAT_WINDOW_DAYS
+            })
     }
 
     fn seed_bytes(s: u64) -> [u8; 32] {
@@ -1173,9 +1275,10 @@ impl GameState {
     #[must_use]
     fn current_weather_speed_penalty(&self) -> f32 {
         match self.weather_state.today {
-            Weather::Storm => 0.75,
-            Weather::ColdSnap => 0.80,
-            Weather::Smoke | Weather::HeatWave => 0.90,
+            Weather::Storm => 0.80,
+            Weather::ColdSnap => 0.85,
+            Weather::Smoke => 0.92,
+            Weather::HeatWave => 0.90,
             Weather::Clear => 1.0,
         }
     }
@@ -1186,21 +1289,57 @@ impl GameState {
         pace_cfg: &crate::pacing::PaceCfg,
         limits: &crate::pacing::PacingLimits,
     ) -> f32 {
-        let base_distance = if pace_cfg.distance > 0.0 {
+        let travel_v2 = self.features.travel_v2;
+        let mut base_distance = if pace_cfg.distance > 0.0 {
             pace_cfg.distance
         } else if limits.distance_base > 0.0 {
             limits.distance_base
+        } else if travel_v2 {
+            13.0
         } else {
             12.0
         };
-        let config_scalar = pace_cfg.dist_mult.max(0.1);
-        let pace_scalar = match self.pace {
-            PaceId::Steady => 1.0,
-            PaceId::Heated => 1.15,
-            PaceId::Blitz => 1.30,
-        } * config_scalar;
-        let weather_scalar = self.current_weather_speed_penalty();
-        let mut distance = base_distance * (weather_scalar * pace_scalar).max(0.6);
+        if base_distance <= 0.0 {
+            base_distance = if travel_v2 { 13.0 } else { 12.0 };
+        }
+
+        let pace_scalar = if travel_v2 {
+            let cfg_mult = if pace_cfg.dist_mult > 0.0 {
+                pace_cfg.dist_mult
+            } else {
+                match self.pace {
+                    PaceId::Steady => 1.0,
+                    PaceId::Heated => 1.15,
+                    PaceId::Blitz => 1.30,
+                }
+            };
+            cfg_mult.max(0.1)
+        } else {
+            let config_scalar = pace_cfg.dist_mult.max(0.1);
+            (match self.pace {
+                PaceId::Steady => 1.0,
+                PaceId::Heated => 1.15,
+                PaceId::Blitz => 1.30,
+            }) * config_scalar
+        };
+
+        let weather_scalar = if travel_v2 {
+            self.weather_travel_multiplier.max(0.1)
+        } else {
+            self.current_weather_speed_penalty()
+        };
+
+        let penalty_floor = if travel_v2 {
+            if limits.distance_penalty_floor > 0.0 {
+                limits.distance_penalty_floor
+            } else {
+                0.7
+            }
+        } else {
+            0.6
+        };
+
+        let mut distance = base_distance * (weather_scalar * pace_scalar).max(penalty_floor);
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             distance *= 0.5;
@@ -1218,7 +1357,8 @@ impl GameState {
 
     fn check_vehicle_terminal_state(&mut self) -> bool {
         let spare_guard = self.total_spares();
-        let tolerance = VEHICLE_BREAKDOWN_TOLERANCE_FLOOR.max(spare_guard * 3);
+        let base_tolerance = if self.mode.is_deep() { 4 } else { 5 };
+        let tolerance = base_tolerance.max(spare_guard * 3);
         let health_depleted = self.vehicle.health <= 0.0;
         let out_of_options = spare_guard == 0 && self.budget_cents < EMERGENCY_REPAIR_COST;
         if health_depleted && self.vehicle_breakdowns >= tolerance && out_of_options {
@@ -1261,6 +1401,7 @@ impl GameState {
         }
     }
 
+    #[allow(clippy::too_many_lines)]
     pub fn travel_next_leg(&mut self) -> (bool, String, bool) {
         self.start_of_day();
 
@@ -1283,14 +1424,15 @@ impl GameState {
         }
 
         if self.travel_blocked {
+            self.days_with_repair = self.days_with_repair.saturating_add(1);
             self.end_of_day();
             return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
         }
 
         let mut trigger_encounter = false;
-        if !self.encounter_occurred_today
-            && let Some(rng) = self.rng.as_mut()
-        {
+        if self.encounter_occurred_today {
+            // Already had an encounter; keep trigger false.
+        } else if let Some(rng) = self.rng.as_mut() {
             let roll: f32 = rng.random();
             if roll < self.encounter_chance_today {
                 trigger_encounter = true;
@@ -1301,23 +1443,52 @@ impl GameState {
             trigger_encounter = false;
         }
 
-        if trigger_encounter
-            && let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref())
-        {
-            let encounter = pick_encounter(
-                self.region,
-                self.mode.is_deep(),
-                self.malnutrition_level,
-                self.stats.supplies <= 0,
-                data,
-                rng,
-            );
+        if trigger_encounter {
+            let mut encounter =
+                if let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref()) {
+                    pick_encounter(
+                        self.region,
+                        self.mode.is_deep(),
+                        self.malnutrition_level,
+                        self.stats.supplies <= 0,
+                        data,
+                        rng,
+                    )
+                } else {
+                    None
+                };
+
+            let should_reroll = encounter.as_ref().is_some_and(|enc| {
+                self.features.encounter_diversity && self.should_discourage_encounter(&enc.id)
+            });
+
+            if !should_reroll {
+                // Keep the original encounter selection.
+            } else if let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref()) {
+                let reroll_trigger = rng.random::<f32>() < ENCOUNTER_REROLL_PENALTY;
+                if reroll_trigger {
+                    encounter = pick_encounter(
+                        self.region,
+                        self.mode.is_deep(),
+                        self.malnutrition_level,
+                        self.stats.supplies <= 0,
+                        data,
+                        rng,
+                    );
+                }
+            }
+
             if let Some(enc) = encounter {
+                let encounter_id = enc.id.clone();
                 self.current_encounter = Some(enc);
                 self.encounter_occurred_today = true;
-                self.record_encounter();
+                self.record_encounter(&encounter_id);
                 return (false, String::from("log.encounter"), breakdown_started);
             }
+        }
+
+        if self.features.travel_v2 {
+            self.apply_travel_wear();
         }
 
         let travel_distance = self.distance_today;
@@ -1354,54 +1525,65 @@ impl GameState {
 
     /// Apply vehicle breakdown logic
     fn vehicle_roll(&mut self) -> bool {
-        let mut breakdown_started = false;
-        if let Some(rng) = self.rng.as_mut()
-            && self.breakdown.is_none()
-        {
-            let mut breakdown_chance = 0.08 + self.exec_breakdown_bonus;
-            breakdown_chance += (self.vehicle.wear / VEHICLE_HEALTH_MAX) * 0.2;
-            breakdown_chance += match self.pace {
-                PaceId::Steady => 0.0,
-                PaceId::Heated => 0.03,
-                PaceId::Blitz => 0.06,
-            };
-            if self.weather_state.today.is_extreme() {
-                breakdown_chance += 0.04;
-            }
-            if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
-                breakdown_chance += 0.05;
-            }
-            let roll: f32 = rng.random();
-            if roll < breakdown_chance {
-                use crate::vehicle::Part;
-                let parts = [Part::Tire, Part::Battery, Part::Alternator, Part::FuelPump];
-                let part_idx: usize = rng.random_range(0..parts.len());
-                self.breakdown = Some(crate::vehicle::Breakdown {
-                    part: parts[part_idx],
-                    day_started: i32::try_from(self.day).unwrap_or(0),
-                });
-                self.travel_blocked = true;
-                self.vehicle_breakdowns += 1;
-                self.vehicle.apply_damage(VEHICLE_BREAKDOWN_DAMAGE);
-                self.vehicle.wear =
-                    (self.vehicle.wear + VEHICLE_BREAKDOWN_WEAR).min(VEHICLE_HEALTH_MAX);
-                self.mark_damage(DamageCause::Vehicle);
-                breakdown_started = true;
-                if debug_log_enabled() {
-                    println!(
-                        "🚗 Breakdown started: {:?} | health {} | roll {:.3} chance {:.3}",
-                        parts[part_idx], self.vehicle.health, roll, breakdown_chance
-                    );
-                }
-            }
+        if self.breakdown.is_some() {
+            return false;
         }
-        breakdown_started
+
+        let Some(rng) = self.rng.as_mut() else {
+            return false;
+        };
+
+        let mut breakdown_chance = 0.08 + self.exec_breakdown_bonus;
+        breakdown_chance += (self.vehicle.wear / VEHICLE_HEALTH_MAX) * 0.2;
+        breakdown_chance += match self.pace {
+            PaceId::Steady => 0.0,
+            PaceId::Heated => 0.03,
+            PaceId::Blitz => 0.06,
+        };
+        if self.weather_state.today.is_extreme() {
+            breakdown_chance += 0.04;
+        }
+        if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
+            breakdown_chance += 0.05;
+        }
+
+        let roll: f32 = rng.random();
+        if roll >= breakdown_chance {
+            return false;
+        }
+
+        let parts = [Part::Tire, Part::Battery, Part::Alternator, Part::FuelPump];
+        let part_idx: usize = rng.random_range(0..parts.len());
+        self.breakdown = Some(crate::vehicle::Breakdown {
+            part: parts[part_idx],
+            day_started: i32::try_from(self.day).unwrap_or(0),
+        });
+        self.travel_blocked = true;
+        self.vehicle_breakdowns += 1;
+        self.vehicle.apply_damage(VEHICLE_BREAKDOWN_DAMAGE);
+        let breakdown_wear = if self.mode.is_deep() {
+            VEHICLE_BREAKDOWN_WEAR
+        } else {
+            VEHICLE_BREAKDOWN_WEAR_CLASSIC
+        };
+        self.vehicle.wear = (self.vehicle.wear + breakdown_wear).min(VEHICLE_HEALTH_MAX);
+        self.mark_damage(DamageCause::Vehicle);
+        if debug_log_enabled() {
+            println!(
+                "🚗 Breakdown started: {:?} | health {} | roll {:.3} chance {:.3}",
+                parts[part_idx], self.vehicle.health, roll, breakdown_chance
+            );
+        }
+        true
     }
 
     pub fn apply_choice(&mut self, idx: usize) {
-        if let Some(enc) = self.current_encounter.clone()
-            && let Some(choice) = enc.choices.get(idx)
-        {
+        let Some(enc) = self.current_encounter.clone() else {
+            self.finalize_encounter();
+            return;
+        };
+
+        if let Some(choice) = enc.choices.get(idx) {
             #[cfg(debug_assertions)]
             let (hp_before, sanity_before) = (self.stats.hp, self.stats.sanity);
 
@@ -1436,11 +1618,8 @@ impl GameState {
 
             self.stats.clamp();
         }
-        self.current_encounter = None;
-        self.encounters_resolved = self.encounters_resolved.saturating_add(1);
-        if self.encounters_today < MAX_ENCOUNTERS_PER_DAY {
-            self.encounter_occurred_today = false;
-        }
+
+        self.finalize_encounter();
     }
 
     fn resolve_breakdown(&mut self) {
