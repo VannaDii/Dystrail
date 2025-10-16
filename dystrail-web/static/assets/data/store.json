@@ -26,7 +26,9 @@
           "grants": {
             "supplies": 2
           },
-          "tags": []
+          "tags": [
+            "water_jugs"
+          ]
         }
       ]
     },
@@ -109,7 +111,8 @@
           "max_qty": 2,
           "grants": {},
           "tags": [
-            "cold_resist"
+            "cold_resist",
+            "warm_coat"
           ]
         },
         {

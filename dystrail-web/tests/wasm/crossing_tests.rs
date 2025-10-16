@@ -29,17 +29,18 @@ fn calculate_bribe_cost_with_discount() {
 #[wasm_bindgen_test]
 fn can_use_permit_logic() {
     let mut gs = create_test_game_state();
+    let kind = CrossingKind::Checkpoint;
 
     // Should be able to use permit with receipt
-    assert!(can_use_permit(&gs));
+    assert!(can_use_permit(&gs, &kind));
 
     // Remove receipt but keep tag
     gs.receipts.clear();
-    assert!(can_use_permit(&gs));
+    assert!(can_use_permit(&gs, &kind));
 
     // Remove both - should fail
     gs.inventory.tags.clear();
-    assert!(!can_use_permit(&gs));
+    assert!(!can_use_permit(&gs, &kind));
 }
 
 #[wasm_bindgen_test]

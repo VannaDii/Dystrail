@@ -166,7 +166,7 @@ fn build_crossing_viewmodel(
 
     // Availability checks
     let permit_available = can_use_permit(gs, &kind);
-    let bribe_available = can_afford_bribe(gs, &kind);
+    let bribe_available = can_afford_bribe(gs, cfg, kind);
 
     // Shutdown notice for bribe if active
     let shutdown_notice = if let Some(exec_mod) = cfg.global_mods.exec_orders.get("Shutdown") {

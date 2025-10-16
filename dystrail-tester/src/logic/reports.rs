@@ -7,6 +7,7 @@ use std::time::Duration;
 
 use super::{PlayabilityAggregate, PlayabilityRecord, ScenarioResult};
 
+#[allow(clippy::too_many_lines)]
 pub fn generate_console_report(
     writer: &mut dyn Write,
     results: &[ScenarioResult],
@@ -104,20 +105,109 @@ pub fn generate_console_report(
             let reach_pct = agg.boss_reach_pct * 100.0;
             let win_pct = agg.boss_win_pct * 100.0;
             let pants_pct = agg.pants_failure_pct * 100.0;
+            let travel_pct = agg.mean_travel_ratio * 100.0;
+            let min_travel_pct = agg.min_travel_ratio * 100.0;
+            let milestone_pct = agg.pct_reached_2k_by_150 * 100.0;
+            let permit_pct = agg.crossing_permit_rate * 100.0;
+            let bribe_succ_pct = agg.crossing_bribe_success_rate * 100.0;
+            let failure_pct = agg.crossing_failure_rate * 100.0;
             let label = format!("{} ({:?}/{:?})", agg.scenario_name, agg.mode, agg.strategy);
             writeln!(
                 writer,
-                "• {} | n={} | days {:.1}±{:.1} | miles {:.1}±{:.1} | boss reach {:.1}% | boss win {:.1}% | pants fails {:.1}%",
+                "• {} | n={} | days {:.1}±{:.1} | miles {:.1}±{:.1} | travel {:.1}% (min {:.1}%) | unique/20 {:.2} (min {:.2}) | ≥2k@150 {:.1}% | rotations {:.1} | boss reach {:.1}% | boss win {:.1}% | pants fails {:.1}%",
                 label.bold(),
                 agg.iterations,
                 agg.mean_days,
                 agg.std_days,
                 agg.mean_miles,
                 agg.std_miles,
+                travel_pct,
+                min_travel_pct,
+                agg.mean_unique_per_20,
+                agg.min_unique_per_20,
+                milestone_pct,
+                agg.mean_rotation_events,
                 reach_pct,
                 win_pct,
                 pants_pct
             )?;
+            writeln!(
+                writer,
+                "   crossings: events {:.1} | permit {:.1}% | bribes {:.2} (succ {:.1}%) | detours {:.2} | fail {:.1}%",
+                agg.mean_crossing_events,
+                permit_pct,
+                agg.mean_crossing_bribes,
+                bribe_succ_pct,
+                agg.mean_crossing_detours,
+                failure_pct
+            )?;
+            if failure_pct > 12.0 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ crossing failure rate {failure_pct:.1}% exceeds 12% ceiling")
+                        .yellow()
+                )?;
+            }
+            if agg.mean_crossing_bribes > 0.0 && bribe_succ_pct < 45.0 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ bribe success {bribe_succ_pct:.1}% below 45% target").yellow()
+                )?;
+            }
+            if agg.mean_travel_ratio < 0.80 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ travel ratio {travel_pct:.1}% below 80% target").yellow()
+                )?;
+            }
+            if agg.min_travel_ratio < 0.80 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ min travel ratio {min_travel_pct:.1}% below 80% requirement")
+                        .yellow()
+                )?;
+            }
+            if agg.mean_unique_per_20 < 1.5 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!(
+                        "⚠ unique encounters per 20d {:.2} below 1.5 target",
+                        agg.mean_unique_per_20
+                    )
+                    .yellow()
+                )?;
+            }
+            if agg.min_unique_per_20 < 1.5 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!(
+                        "⚠ min unique encounters per 20d {:.2} below 1.5 requirement",
+                        agg.min_unique_per_20
+                    )
+                    .yellow()
+                )?;
+            }
+            if agg.mean_miles < 2000.0 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ average mileage {:.0} below 2000 mi goal", agg.mean_miles).yellow()
+                )?;
+            }
+            if milestone_pct < 25.0 {
+                writeln!(
+                    writer,
+                    "   {}",
+                    format!("⚠ only {milestone_pct:.1}% of runs reached 2,000mi by day 150")
+                        .yellow()
+                )?;
+            }
         }
     }
 
@@ -178,48 +268,57 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures"
     )?;
 
     for record in records {
         let metrics = &record.metrics;
         let strategy = record.strategy.to_string();
 
-        writeln!(
-            writer,
-            "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{:.1},{},{},{:.2},{},{},{},{},{},{},{},{},{},{},{}",
-            quote(&record.scenario_name),
-            quote(mode_label(record.mode)),
-            quote(&strategy),
-            quote(&record.seed_code),
-            record.seed_value,
-            metrics.days_survived,
-            quote(&metrics.ending_type),
-            quote(&metrics.ending_cause),
-            metrics.encounters_faced,
-            metrics.vehicle_breakdowns,
-            metrics.final_hp,
-            metrics.final_supplies,
-            metrics.final_sanity,
-            metrics.final_pants,
-            metrics.final_budget_cents,
-            metrics.boss_reached,
-            metrics.boss_won,
-            metrics.miles_traveled,
-            metrics.travel_days,
-            metrics.non_travel_days,
-            metrics.avg_miles_per_day,
-            metrics.unique_encounters,
-            metrics.repairs_spent_cents,
-            metrics.bribes_spent_cents,
-            quote(&metrics.exec_order_active),
-            metrics.exec_order_days_remaining,
-            metrics.exec_order_cooldown,
-            metrics.exposure_streak_heat,
-            metrics.exposure_streak_cold,
-            metrics.days_with_camp,
-            metrics.days_with_repair,
-        )?;
+        let mut row = Vec::with_capacity(42);
+        row.push(quote(&record.scenario_name));
+        row.push(quote(mode_label(record.mode)));
+        row.push(quote(&strategy));
+        row.push(quote(&record.seed_code));
+        row.push(record.seed_value.to_string());
+        row.push(metrics.days_survived.to_string());
+        row.push(quote(&metrics.ending_type));
+        row.push(quote(&metrics.ending_cause));
+        row.push(metrics.encounters_faced.to_string());
+        row.push(metrics.vehicle_breakdowns.to_string());
+        row.push(metrics.final_hp.to_string());
+        row.push(metrics.final_supplies.to_string());
+        row.push(metrics.final_sanity.to_string());
+        row.push(metrics.final_pants.to_string());
+        row.push(metrics.final_budget_cents.to_string());
+        row.push(metrics.boss_reached.to_string());
+        row.push(metrics.boss_won.to_string());
+        row.push(format!("{:.1}", metrics.miles_traveled));
+        row.push(metrics.travel_days.to_string());
+        row.push(metrics.partial_travel_days.to_string());
+        row.push(metrics.non_travel_days.to_string());
+        row.push(format!("{:.2}", metrics.avg_miles_per_day));
+        row.push(metrics.unique_encounters.to_string());
+        row.push(metrics.repairs_spent_cents.to_string());
+        row.push(metrics.bribes_spent_cents.to_string());
+        row.push(quote(&metrics.exec_order_active));
+        row.push(metrics.exec_order_days_remaining.to_string());
+        row.push(metrics.exec_order_cooldown.to_string());
+        row.push(metrics.exposure_streak_heat.to_string());
+        row.push(metrics.exposure_streak_cold.to_string());
+        row.push(metrics.days_with_camp.to_string());
+        row.push(metrics.days_with_repair.to_string());
+        row.push(format!("{:.3}", metrics.travel_ratio));
+        row.push(format!("{:.2}", metrics.unique_per_20_days));
+        row.push(metrics.rotation_events.to_string());
+        row.push(metrics.reached_2000_by_day150.to_string());
+        row.push(metrics.crossing_events.len().to_string());
+        row.push(metrics.crossing_permit_uses.to_string());
+        row.push(metrics.crossing_bribe_attempts.to_string());
+        row.push(metrics.crossing_bribe_successes.to_string());
+        row.push(metrics.crossing_detours_taken.to_string());
+        row.push(metrics.crossing_failures.to_string());
+        writeln!(writer, "{}", row.join(","))?;
     }
 
     Ok(())

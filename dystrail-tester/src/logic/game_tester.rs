@@ -10,11 +10,10 @@ use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
-use dystrail_game::state::Ending;
-use dystrail_game::state::Season;
+use dystrail_game::state::{CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season};
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
 use dystrail_game::weather::{Weather, WeatherConfig};
-use dystrail_game::{DietId, GameMode, GameState, PaceId};
+use dystrail_game::{DietId, GameMode, GameState, PaceId, PolicyKind, Region};
 use serde_json;
 
 use crate::logic::policy::GameplayStrategy;
@@ -23,6 +22,11 @@ use crate::logic::simulation::{DecisionRecord, SimulationConfig, SimulationSessi
 const LOG_MESSAGE_PREFIX: &str = "log.";
 const HEATWAVE_RISK_THRESHOLD: f64 = 0.18;
 const HEATWAVE_MIN_WATER: i32 = 2;
+const COLDSNAP_RISK_THRESHOLD: f64 = 0.16;
+const COLDSNAP_MIN_COATS: i32 = 1;
+const PRICE_BASIS_DENOM: i128 = 100;
+const MILESTONE_MILES: f32 = 2000.0;
+const MILESTONE_DAY_LIMIT: u32 = 150;
 
 /// Collection of immutable data required to run a simulation.
 #[derive(Debug, Clone)]
@@ -140,9 +144,11 @@ impl TesterAssets {
                         morale: 1,
                         allies: 0,
                         pants: 0,
+                        travel_bonus_ratio: 0.0,
                         add_receipt: None,
                         use_receipt: false,
                         log: Some("You keep morale up with snacks.".to_string()),
+                        rest: false,
                     },
                 },
                 Choice {
@@ -155,12 +161,17 @@ impl TesterAssets {
                         morale: -1,
                         allies: 0,
                         pants: 2,
+                        travel_bonus_ratio: 0.0,
                         add_receipt: None,
                         use_receipt: false,
                         log: Some("Tension rises as you hoard the jerky.".to_string()),
+                        rest: false,
                     },
                 },
             ],
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
         }])
     }
 
@@ -360,14 +371,22 @@ impl GameTester {
     }
 
     fn configure_strategy_settings(state: &mut GameState, strategy: GameplayStrategy) {
-        let (auto_rest, threshold) = if matches!(strategy, GameplayStrategy::Aggressive) {
-            (true, 3)
-        } else {
-            (true, 4)
+        let (auto_rest, threshold) = match strategy {
+            GameplayStrategy::Aggressive => (true, 3),
+            GameplayStrategy::Balanced => (false, 3),
+            GameplayStrategy::ResourceManager => (true, 5),
+            GameplayStrategy::Conservative | GameplayStrategy::MonteCarlo => (true, 4),
         };
         state.auto_camp_rest = auto_rest;
         state.rest_threshold = threshold;
         state.rest_requested = false;
+        state.policy = Some(match strategy {
+            GameplayStrategy::Balanced => PolicyKind::Balanced,
+            GameplayStrategy::Conservative => PolicyKind::Conservative,
+            GameplayStrategy::Aggressive => PolicyKind::Aggressive,
+            GameplayStrategy::ResourceManager => PolicyKind::ResourceManager,
+            GameplayStrategy::MonteCarlo => PolicyKind::MonteCarlo,
+        });
         state.pace = match strategy {
             GameplayStrategy::Aggressive => PaceId::Heated,
             _ => PaceId::Steady,
@@ -413,6 +432,13 @@ impl GameTester {
             },
         };
 
+        let heat_risk = self.heatwave_risk();
+        let cold_risk = self.coldsnap_risk();
+        let need_conservative_water = matches!(strategy, GameplayStrategy::Conservative)
+            && heat_risk >= HEATWAVE_RISK_THRESHOLD;
+        let need_conservative_coat = matches!(strategy, GameplayStrategy::Conservative)
+            && cold_risk >= COLDSNAP_RISK_THRESHOLD;
+
         if matches!(
             strategy,
             GameplayStrategy::Balanced | GameplayStrategy::Conservative
@@ -422,12 +448,23 @@ impl GameTester {
             Self::prioritize_coat(&mut plan, strategy);
         }
 
-        if matches!(
-            strategy,
-            GameplayStrategy::Balanced | GameplayStrategy::Conservative
-        ) && self.heatwave_risk() >= HEATWAVE_RISK_THRESHOLD
-        {
+        if matches!(strategy, GameplayStrategy::Balanced) && heat_risk >= HEATWAVE_RISK_THRESHOLD {
             Self::ensure_min_quantity(&mut plan, "water", HEATWAVE_MIN_WATER, Some(1));
+        } else if need_conservative_water {
+            Self::ensure_min_quantity(&mut plan, "water", 1, Some(0));
+        }
+
+        if matches!(strategy, GameplayStrategy::Balanced) && cold_risk >= COLDSNAP_RISK_THRESHOLD {
+            Self::ensure_min_quantity(&mut plan, "coats", COLDSNAP_MIN_COATS, Some(0));
+        } else if need_conservative_coat {
+            Self::ensure_min_quantity(&mut plan, "coats", 1, Some(0));
+        }
+
+        if matches!(strategy, GameplayStrategy::Conservative)
+            && need_conservative_coat
+            && need_conservative_water
+        {
+            Self::trim_noncritical_spare(&mut plan);
         }
 
         plan
@@ -449,6 +486,58 @@ impl GameTester {
             .fold(0.0_f64, f64::max)
     }
 
+    fn coldsnap_risk(&self) -> f64 {
+        self.assets
+            .weather_config
+            .weights
+            .values()
+            .filter_map(|weights| {
+                let total: u32 = weights.values().copied().sum();
+                let cold = weights.get(&Weather::ColdSnap)?;
+                if total == 0 {
+                    return None;
+                }
+                Some(f64::from(*cold) / f64::from(total))
+            })
+            .fold(0.0_f64, f64::max)
+    }
+
+    fn dynamic_price_multiplier(state: &GameState, item: &StoreItem) -> i32 {
+        let mut basis_points = 100_i32;
+        let has_tag = |tag: &str| item.tags.iter().any(|t| t == tag);
+        let id = item.id.as_str();
+
+        if has_tag("warm_coat") || has_tag("cold_resist") || id == "coats" {
+            if matches!(state.season, Season::Fall | Season::Winter) {
+                basis_points += 25;
+            } else if matches!(state.season, Season::Spring) {
+                basis_points += 10;
+            }
+            if matches!(state.region, Region::Beltway) {
+                basis_points += 5;
+            }
+        }
+
+        if has_tag("water_jugs") || id == "water" {
+            if matches!(state.season, Season::Summer) {
+                basis_points += 20;
+            }
+            if matches!(state.region, Region::Heartland) {
+                basis_points += 5;
+            }
+        }
+
+        if id.starts_with("spare_") {
+            if state.vehicle_breakdowns >= 4 {
+                basis_points += 20;
+            } else if state.vehicle_breakdowns >= 2 {
+                basis_points += 10;
+            }
+        }
+
+        basis_points.max(100)
+    }
+
     fn ensure_min_quantity(
         plan: &mut Vec<(&'static str, i32)>,
         item_id: &'static str,
@@ -462,6 +551,19 @@ impl GameTester {
         } else if min_qty > 0 {
             let index = preferred_index.map_or(plan.len(), |idx| idx.min(plan.len()));
             plan.insert(index, (item_id, min_qty));
+        }
+    }
+
+    fn trim_noncritical_spare(plan: &mut Vec<(&'static str, i32)>) {
+        let spare_tire_count = plan.iter().filter(|(id, _)| *id == "spare_tire").count();
+        if spare_tire_count > 1
+            && let Some(pos) = plan.iter().rposition(|(id, _)| *id == "spare_tire")
+        {
+            plan.remove(pos);
+            return;
+        }
+        if let Some(pos) = plan.iter().rposition(|(id, _)| *id == "battery") {
+            plan.remove(pos);
         }
     }
 
@@ -569,9 +671,22 @@ impl GameTester {
         }
 
         let discount = f64::from(state.mods.store_discount_pct);
-        let unit_price = calculate_effective_price(item.price_cents, discount);
+        let base_unit_price = calculate_effective_price(item.price_cents, discount);
+        let price_basis = i128::from(Self::dynamic_price_multiplier(state, item));
+        let unit_price = i128::from(base_unit_price);
+        let Some(product) = unit_price.checked_mul(price_basis) else {
+            return;
+        };
+        let adjusted_unit = if product >= 0 {
+            (product + (PRICE_BASIS_DENOM - 1)) / PRICE_BASIS_DENOM
+        } else {
+            product / PRICE_BASIS_DENOM
+        };
+        let Ok(adjusted_unit) = i64::try_from(adjusted_unit) else {
+            return;
+        };
         let qty_i64 = i64::from(qty);
-        let total_cost = unit_price.saturating_mul(qty_i64);
+        let total_cost = adjusted_unit.saturating_mul(qty_i64);
         if total_cost <= 0 || state.budget_cents < total_cost {
             return;
         }
@@ -608,7 +723,7 @@ impl GameTester {
     pub fn run_plan(&self, plan: &SimulationPlan, seed: u64) -> SimulationSummary {
         let max_days = plan.max_days.unwrap_or(200);
         let mut session = SimulationSession::new(
-            SimulationConfig::new(plan.mode, seed).with_max_days(max_days),
+            SimulationConfig::new(plan.mode, plan.strategy, seed).with_max_days(max_days),
             self.assets.encounter_data.clone(),
             self.assets.pacing_config.clone(),
             self.assets.camp_config.clone(),
@@ -767,6 +882,7 @@ pub struct PlayabilityMetrics {
     pub boss_won: bool,
     pub miles_traveled: f32,
     pub travel_days: u32,
+    pub partial_travel_days: u32,
     pub non_travel_days: u32,
     pub avg_miles_per_day: f64,
     pub unique_encounters: u32,
@@ -779,6 +895,16 @@ pub struct PlayabilityMetrics {
     pub exposure_streak_cold: u32,
     pub days_with_camp: u32,
     pub days_with_repair: u32,
+    pub rotation_events: u32,
+    pub travel_ratio: f64,
+    pub unique_per_20_days: f64,
+    pub reached_2000_by_day150: bool,
+    pub crossing_events: Vec<CrossingTelemetry>,
+    pub crossing_permit_uses: u32,
+    pub crossing_bribe_attempts: u32,
+    pub crossing_bribe_successes: u32,
+    pub crossing_detours_taken: u32,
+    pub crossing_failures: u32,
     encounter_ids: HashSet<String>,
 }
 
@@ -800,6 +926,7 @@ impl Default for PlayabilityMetrics {
             boss_won: false,
             miles_traveled: 0.0,
             travel_days: 0,
+            partial_travel_days: 0,
             non_travel_days: 0,
             avg_miles_per_day: 0.0,
             unique_encounters: 0,
@@ -812,6 +939,16 @@ impl Default for PlayabilityMetrics {
             exposure_streak_cold: 0,
             days_with_camp: 0,
             days_with_repair: 0,
+            rotation_events: 0,
+            travel_ratio: 0.0,
+            unique_per_20_days: 0.0,
+            reached_2000_by_day150: false,
+            crossing_events: Vec::new(),
+            crossing_permit_uses: 0,
+            crossing_bribe_attempts: 0,
+            crossing_bribe_successes: 0,
+            crossing_detours_taken: 0,
+            crossing_failures: 0,
             encounter_ids: HashSet::new(),
         }
     }
@@ -825,9 +962,47 @@ impl PlayabilityMetrics {
             self.decision_log.push(decision);
         }
 
+        if !self.reached_2000_by_day150
+            && outcome.distance_traveled_actual >= MILESTONE_MILES
+            && outcome.day <= MILESTONE_DAY_LIMIT
+        {
+            self.reached_2000_by_day150 = true;
+        }
+
         if outcome.breakdown_started {
             self.vehicle_breakdowns += 1;
         }
+    }
+
+    fn capture_crossing_telemetry(&mut self, state: &GameState) {
+        self.crossing_events.clone_from(&state.crossing_events);
+        let mut permit_uses = 0;
+        let mut bribe_attempts = 0;
+        let mut bribe_successes = 0;
+        let mut detours_taken = 0;
+        let mut failures = 0;
+        for event in &self.crossing_events {
+            if event.permit_used {
+                permit_uses += 1;
+            }
+            if event.bribe_attempted {
+                bribe_attempts += 1;
+                if event.bribe_success == Some(true) {
+                    bribe_successes += 1;
+                }
+            }
+            if event.detour_taken {
+                detours_taken += 1;
+            }
+            if matches!(event.outcome, CrossingOutcomeTelemetry::Failed) {
+                failures += 1;
+            }
+        }
+        self.crossing_permit_uses = permit_uses;
+        self.crossing_bribe_attempts = bribe_attempts;
+        self.crossing_bribe_successes = bribe_successes;
+        self.crossing_detours_taken = detours_taken;
+        self.crossing_failures = failures;
     }
 
     pub fn finalize(&mut self, state: &GameState, outcome: &TurnOutcome) {
@@ -841,13 +1016,14 @@ impl PlayabilityMetrics {
         self.ending_type = ending;
         self.ending_cause = cause;
         self.boss_won = state.boss_victory;
-        self.boss_reached = state.boss_attempted;
+        self.boss_reached = state.boss_reached;
         self.miles_traveled = if state.distance_traveled_actual > 0.0 {
             state.distance_traveled_actual
         } else {
             state.distance_traveled
         };
         self.travel_days = state.travel_days;
+        self.partial_travel_days = state.partial_travel_days;
         self.non_travel_days = state.non_travel_days;
         self.avg_miles_per_day = if state.travel_days > 0 {
             let days = state.travel_days.max(1);
@@ -868,6 +1044,28 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
+        let total_days = self
+            .travel_days
+            .saturating_add(self.partial_travel_days)
+            .saturating_add(self.non_travel_days);
+        if total_days > 0 {
+            self.travel_ratio =
+                f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
+            let windows = (f64::from(total_days) / 20.0).max(1.0);
+            self.unique_per_20_days = f64::from(self.unique_encounters).max(0.0) / windows;
+        } else {
+            self.travel_ratio = 0.0;
+            self.unique_per_20_days = 0.0;
+        }
+        self.rotation_events = u32::try_from(
+            state
+                .logs
+                .iter()
+                .filter(|entry| entry.as_str() == "log.encounter.rotation")
+                .count(),
+        )
+        .unwrap_or(u32::MAX);
+        self.capture_crossing_telemetry(state);
     }
 
     pub fn finalize_without_turn(&mut self, state: &GameState) {
@@ -877,7 +1075,7 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        self.boss_reached = state.boss_attempted;
+        self.boss_reached = state.boss_reached;
         self.boss_won = state.boss_victory;
         self.miles_traveled = if state.distance_traveled_actual > 0.0 {
             state.distance_traveled_actual
@@ -885,6 +1083,7 @@ impl PlayabilityMetrics {
             state.distance_traveled
         };
         self.travel_days = state.travel_days;
+        self.partial_travel_days = state.partial_travel_days;
         self.non_travel_days = state.non_travel_days;
         self.avg_miles_per_day = if state.travel_days > 0 {
             let days = state.travel_days.max(1);
@@ -905,6 +1104,34 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
+        let total_days = self
+            .travel_days
+            .saturating_add(self.partial_travel_days)
+            .saturating_add(self.non_travel_days);
+        if total_days > 0 {
+            self.travel_ratio =
+                f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
+            let windows = (f64::from(total_days) / 20.0).max(1.0);
+            self.unique_per_20_days = f64::from(self.unique_encounters).max(0.0) / windows;
+        } else {
+            self.travel_ratio = 0.0;
+            self.unique_per_20_days = 0.0;
+        }
+        self.rotation_events = u32::try_from(
+            state
+                .logs
+                .iter()
+                .filter(|entry| entry.as_str() == "log.encounter.rotation")
+                .count(),
+        )
+        .unwrap_or(u32::MAX);
+        self.capture_crossing_telemetry(state);
+        if !self.reached_2000_by_day150
+            && state.distance_traveled_actual >= MILESTONE_MILES
+            && state.day <= MILESTONE_DAY_LIMIT
+        {
+            self.reached_2000_by_day150 = true;
+        }
         let (ending, cause) = describe_ending(
             state,
             &TurnOutcome {
@@ -913,6 +1140,7 @@ impl PlayabilityMetrics {
                 breakdown_started: false,
                 game_ended: false,
                 decision: None,
+                distance_traveled_actual: state.distance_traveled_actual,
             },
         );
         self.ending_type = ending;
@@ -1033,7 +1261,10 @@ mod tests {
         );
         assert_eq!(state.party.companions.len(), 4);
         assert!(!state.party.leader.is_empty());
-        assert!(state.auto_camp_rest);
+        assert!(
+            !state.auto_camp_rest,
+            "balanced strategy should manage rest manually"
+        );
         assert!(
             state.inventory.spares.tire >= 2,
             "store loadout should add an extra spare tire"
@@ -1090,6 +1321,7 @@ mod tests {
             breakdown_started: false,
             game_ended: true,
             decision: None,
+            distance_traveled_actual: state.distance_traveled_actual,
         };
 
         metrics.finalize(&state, &outcome);
@@ -1098,6 +1330,7 @@ mod tests {
 
         let attempted_state = GameState {
             boss_attempted: true,
+            boss_reached: true,
             distance_traveled_actual: 1500.0,
             ..GameState::default()
         };

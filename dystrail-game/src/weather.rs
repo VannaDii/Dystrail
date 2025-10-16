@@ -537,8 +537,10 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 
     let mut hp_damage = 0;
     let mut exposure_kind: Option<ExposureKind> = None;
-    let heat_conditions = today == Weather::HeatWave && !gs.inventory.has_tag("water_jugs");
-    let cold_conditions = today == Weather::ColdSnap && !gs.inventory.has_tag("warm_coat");
+    let has_heat_gear = gs.inventory.has_tag("water_jugs") || gs.inventory.has_tag("water");
+    let has_cold_gear = gs.inventory.has_tag("warm_coat") || gs.inventory.has_tag("cold_resist");
+    let heat_conditions = today == Weather::HeatWave && !has_heat_gear;
+    let cold_conditions = today == Weather::ColdSnap && !has_cold_gear;
 
     if gs.features.exposure_streaks {
         if heat_conditions {
@@ -554,7 +556,7 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 
         let mut next_lockout = false;
 
-        if cold_conditions && gs.exposure_streak_cold >= 2 && !gs.exposure_damage_lockout {
+        if cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout {
             hp_damage = 1;
             gs.mark_damage(DamageCause::ExposureCold);
             gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
@@ -564,7 +566,7 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 
         if heat_conditions {
             gs.stats.sanity -= 1;
-            if gs.exposure_streak_heat >= 2 && !gs.exposure_damage_lockout {
+            if gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout {
                 hp_damage = 1;
                 gs.mark_damage(DamageCause::ExposureHeat);
                 gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
@@ -581,20 +583,24 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     } else {
         if cold_conditions {
             gs.exposure_streak_cold = gs.exposure_streak_cold.saturating_add(1);
-            hp_damage += 1;
-            gs.mark_damage(DamageCause::ExposureCold);
-            gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
-            exposure_kind = Some(ExposureKind::Cold);
+            if gs.exposure_streak_cold >= 3 {
+                hp_damage += 1;
+                gs.mark_damage(DamageCause::ExposureCold);
+                gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+                exposure_kind = Some(ExposureKind::Cold);
+            }
         } else {
             gs.exposure_streak_cold = 0;
         }
         if heat_conditions {
             gs.exposure_streak_heat = gs.exposure_streak_heat.saturating_add(1);
-            hp_damage += 1;
             gs.stats.sanity -= 1;
-            gs.mark_damage(DamageCause::ExposureHeat);
-            gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
-            exposure_kind = Some(ExposureKind::Heat);
+            if gs.exposure_streak_heat >= 3 {
+                hp_damage += 1;
+                gs.mark_damage(DamageCause::ExposureHeat);
+                gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+                exposure_kind = Some(ExposureKind::Heat);
+            }
         } else {
             gs.exposure_streak_heat = 0;
         }

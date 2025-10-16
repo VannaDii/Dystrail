@@ -264,6 +264,9 @@ fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
         CollapseCause::Breakdown => {
             format!("{}_{}", cfg.collapse_key, CollapseCause::Breakdown.key())
         }
+        CollapseCause::Disease | CollapseCause::Crossing => {
+            format!("{}_{}", cfg.collapse_key, cause.key())
+        }
     }
 }
 

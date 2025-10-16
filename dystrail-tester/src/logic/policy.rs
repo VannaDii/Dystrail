@@ -242,10 +242,20 @@ fn balanced_score(choice: &Choice) -> i32 {
 
 fn resource_penalty(choice: &Choice) -> i32 {
     let eff = &choice.effects;
-    (-eff.hp).max(0) * 5
+    let mut penalty = (-eff.hp).max(0) * 6
         + (-eff.supplies).max(0) * 4
         + (-eff.sanity).max(0) * 3
-        + eff.pants.max(0) * 2
+        + eff.pants.max(0) * 5;
+    if eff.pants < 0 {
+        penalty -= (-eff.pants) * 3;
+    }
+    if eff.supplies > 0 {
+        penalty -= eff.supplies * 2;
+    }
+    if eff.hp > 0 {
+        penalty -= eff.hp * 2;
+    }
+    penalty
 }
 
 fn simulate_choice_outcome(

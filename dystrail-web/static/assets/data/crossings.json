@@ -33,5 +33,25 @@
   "money": {
     "currency": "USD",
     "allow_negative_budget": true
+  },
+  "thresholds": {
+    "Heartland": {
+      "spring": { "cost_multiplier": 103, "success_adjust": 0.0, "failure_adjust": 0.005 },
+      "summer": { "cost_multiplier": 113, "success_adjust": -0.035, "failure_adjust": 0.04 },
+      "fall": { "cost_multiplier": 115, "success_adjust": -0.04, "failure_adjust": 0.045 },
+      "winter": { "cost_multiplier": 128, "success_adjust": -0.07, "failure_adjust": 0.07 }
+    },
+    "RustBelt": {
+      "spring": { "cost_multiplier": 114, "success_adjust": -0.04, "failure_adjust": 0.045 },
+      "summer": { "cost_multiplier": 116, "success_adjust": -0.045, "failure_adjust": 0.05 },
+      "fall": { "cost_multiplier": 130, "success_adjust": -0.08, "failure_adjust": 0.075 },
+      "winter": { "cost_multiplier": 133, "success_adjust": -0.08, "failure_adjust": 0.08 }
+    },
+    "Beltway": {
+      "spring": { "cost_multiplier": 118, "success_adjust": -0.045, "failure_adjust": 0.05 },
+      "summer": { "cost_multiplier": 133, "success_adjust": -0.08, "failure_adjust": 0.08 },
+      "fall": { "cost_multiplier": 136, "success_adjust": -0.08, "failure_adjust": 0.08 },
+      "winter": { "cost_multiplier": 138, "success_adjust": -0.08, "failure_adjust": 0.08 }
+    }
   }
 }

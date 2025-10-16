@@ -54,9 +54,9 @@
   "limits": {
     "pants_floor": 0,
     "pants_ceiling": 100,
-    "encounter_base": 0.22,
-    "distance_base": 13.0,
-    "distance_penalty_floor": 0.7,
+    "encounter_base": 0.27,
+    "distance_base": 23.5,
+    "distance_penalty_floor": 0.94,
     "passive_relief": -1,
     "passive_relief_threshold": 35,
     "boss_pants_cap": 2,

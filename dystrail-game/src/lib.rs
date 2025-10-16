@@ -25,8 +25,8 @@ pub use camp::{
     camp_rest, camp_therapy, can_repair, can_therapy,
 };
 pub use crossings::{
-    CrossingConfig, CrossingKind, apply_bribe, apply_detour, apply_permit, calculate_bribe_cost,
-    can_afford_bribe, can_use_permit,
+    CrossingConfig, CrossingKind, ThresholdEntry, ThresholdTable, apply_bribe, apply_detour,
+    apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
@@ -34,8 +34,8 @@ pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
 pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};
 pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code};
 pub use state::{
-    CollapseCause, DietId, Ending, FeatureFlags, GameMode, GamePhase, GameState, Inventory, PaceId,
-    Region, Spares, Stats,
+    CollapseCause, CrossingOutcomeTelemetry, CrossingTelemetry, DietId, Ending, FeatureFlags,
+    GameMode, GamePhase, GameState, Inventory, PaceId, PolicyKind, Region, Spares, Stats,
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,

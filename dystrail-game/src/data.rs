@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 /// Effects applied when a choice is selected
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct Effects {
     #[serde(default)]
     pub hp: i32,
@@ -18,15 +18,19 @@ pub struct Effects {
     #[serde(default)]
     pub pants: i32,
     #[serde(default)]
+    pub travel_bonus_ratio: f32,
+    #[serde(default)]
     pub add_receipt: Option<String>,
     #[serde(default)]
     pub use_receipt: bool,
     #[serde(default)]
     pub log: Option<String>,
+    #[serde(default)]
+    pub rest: bool,
 }
 
 /// A choice within an encounter
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Choice {
     pub label: String,
     #[serde(default)]
@@ -34,7 +38,7 @@ pub struct Choice {
 }
 
 /// An encounter in the game
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Encounter {
     pub id: String,
     pub name: String,
@@ -47,6 +51,12 @@ pub struct Encounter {
     pub modes: Vec<String>,
     #[serde(default)]
     pub choices: Vec<Choice>,
+    #[serde(default)]
+    pub hard_stop: bool,
+    #[serde(default)]
+    pub major_repair: bool,
+    #[serde(default)]
+    pub chainable: bool,
 }
 
 fn default_weight() -> u32 {
@@ -54,7 +64,7 @@ fn default_weight() -> u32 {
 }
 
 /// Container for all encounter data
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct EncounterData {
     pub encounters: Vec<Encounter>,
 }

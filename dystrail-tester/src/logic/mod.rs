@@ -11,6 +11,7 @@ pub use game_tester::{
 };
 pub use playability::{
     PlayabilityAggregate, PlayabilityRecord, aggregate_playability, run_playability_analysis,
+    validate_playability_targets,
 };
 pub use policy::GameplayStrategy;
 pub use seeds::resolve_seed_inputs;

@@ -1,4 +1,4 @@
-use anyhow::{Context, Result};
+use anyhow::{Context, Result, ensure};
 use std::collections::BTreeMap;
 use std::convert::TryFrom;
 
@@ -34,6 +34,18 @@ pub struct PlayabilityAggregate {
     pub boss_reach_pct: f64,
     pub boss_win_pct: f64,
     pub pants_failure_pct: f64,
+    pub mean_travel_ratio: f64,
+    pub mean_unique_per_20: f64,
+    pub mean_rotation_events: f64,
+    pub pct_reached_2k_by_150: f64,
+    pub min_unique_per_20: f64,
+    pub min_travel_ratio: f64,
+    pub mean_crossing_events: f64,
+    pub crossing_permit_rate: f64,
+    pub mean_crossing_bribes: f64,
+    pub crossing_bribe_success_rate: f64,
+    pub mean_crossing_detours: f64,
+    pub crossing_failure_rate: f64,
 }
 
 const PLAYABILITY_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
@@ -95,18 +107,204 @@ pub fn run_playability_analysis(
 
 pub fn aggregate_playability(records: &[PlayabilityRecord]) -> Vec<PlayabilityAggregate> {
     let mut aggregates: BTreeMap<String, AggregateBuilder> = BTreeMap::new();
+    let mut warn_counts: BTreeMap<String, usize> = BTreeMap::new();
 
     for record in records {
         let entry = aggregates
             .entry(record.scenario_name.clone())
             .or_insert_with(|| AggregateBuilder::new(record));
         entry.ingest(&record.metrics);
+
+        if record.scenario_name == "Classic - Balanced" {
+            if record.metrics.travel_ratio < 0.85 {
+                let counter = warn_counts
+                    .entry(format!("{}::travel_ratio", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 3 {
+                    println!(
+                        "WARN: Classic Balanced seed {} travel ratio {:.1}%",
+                        record.seed_code,
+                        record.metrics.travel_ratio * 100.0
+                    );
+                }
+                *counter += 1;
+            }
+            if record.metrics.unique_per_20_days < 1.45 {
+                let counter = warn_counts
+                    .entry(format!("{}::unique_per_20", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 3 {
+                    println!(
+                        "WARN: Classic Balanced seed {} unique encounters per 20d {:.2} < 1.5",
+                        record.seed_code, record.metrics.unique_per_20_days
+                    );
+                }
+                *counter += 1;
+            }
+        }
+        if record.scenario_name == "Deep - Conservative" {
+            if !record.metrics.reached_2000_by_day150 {
+                let counter = warn_counts
+                    .entry(format!("{}::deep_conservative_2k", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 5 {
+                    println!(
+                        "WARN: Deep Conservative seed {} failed ≥2k@150",
+                        record.seed_code
+                    );
+                }
+                *counter += 1;
+            }
+            if record.metrics.final_pants >= 100 {
+                let counter = warn_counts
+                    .entry(format!("{}::deep_conservative_pants", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 3 {
+                    println!(
+                        "WARN: Deep Conservative seed {} ended via pants emergency",
+                        record.seed_code
+                    );
+                }
+                *counter += 1;
+            }
+        }
+        if record.scenario_name == "Deep - Aggressive" {
+            if !record.metrics.boss_reached {
+                let counter = warn_counts
+                    .entry(format!("{}::deep_aggressive_reach", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 5 {
+                    println!(
+                        "WARN: Deep Aggressive seed {} failed to reach the boss",
+                        record.seed_code
+                    );
+                }
+                *counter += 1;
+            } else if !record.metrics.boss_won {
+                let counter = warn_counts
+                    .entry(format!("{}::deep_aggressive_win", record.scenario_name))
+                    .or_insert(0);
+                if *counter < 5 {
+                    println!(
+                        "WARN: Deep Aggressive seed {} reached boss but did not win",
+                        record.seed_code
+                    );
+                }
+                *counter += 1;
+            }
+        }
     }
 
     aggregates
         .into_values()
         .map(AggregateBuilder::finish)
         .collect()
+}
+
+pub fn validate_playability_targets(aggregates: &[PlayabilityAggregate]) -> Result<()> {
+    let find = |name: &str| -> Result<&PlayabilityAggregate> {
+        aggregates
+            .iter()
+            .find(|agg| agg.scenario_name == name)
+            .with_context(|| format!("missing playability summary for {name}"))
+    };
+
+    let classic_balanced = find("Classic - Balanced")?;
+    ensure!(
+        classic_balanced.min_unique_per_20 >= 1.5,
+        "Classic Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
+        classic_balanced.min_unique_per_20
+    );
+    ensure!(
+        classic_balanced.mean_unique_per_20 >= 1.5,
+        "Classic Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
+        classic_balanced.mean_unique_per_20
+    );
+    ensure!(
+        classic_balanced.pct_reached_2k_by_150 >= 0.25,
+        "Classic Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
+        classic_balanced.pct_reached_2k_by_150 * 100.0
+    );
+
+    let classic_resource = find("Classic - Resource Manager")?;
+    ensure!(
+        classic_resource.pct_reached_2k_by_150 >= 0.70,
+        "Classic Resource Manager reached 2,000 miles by day 150 {:.1}% < 70% threshold",
+        classic_resource.pct_reached_2k_by_150 * 100.0
+    );
+    ensure!(
+        classic_resource.pants_failure_pct <= 0.35,
+        "Classic Resource Manager pants failure rate {:.1}% exceeds 35% cap",
+        classic_resource.pants_failure_pct * 100.0
+    );
+
+    let deep_balanced = find("Deep - Balanced")?;
+    ensure!(
+        deep_balanced.mean_unique_per_20 >= 1.5,
+        "Deep Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
+        deep_balanced.mean_unique_per_20
+    );
+    ensure!(
+        deep_balanced.min_unique_per_20 >= 1.5,
+        "Deep Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
+        deep_balanced.min_unique_per_20
+    );
+    ensure!(
+        deep_balanced.mean_travel_ratio >= 0.92,
+        "Deep Balanced travel ratio {:.1}% below 92% target",
+        deep_balanced.mean_travel_ratio * 100.0
+    );
+    ensure!(
+        deep_balanced.mean_miles >= 2000.0,
+        "Deep Balanced average mileage {:.0} below 2000 mi goal",
+        deep_balanced.mean_miles
+    );
+    ensure!(
+        deep_balanced.pct_reached_2k_by_150 >= 0.25,
+        "Deep Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
+        deep_balanced.pct_reached_2k_by_150 * 100.0
+    );
+
+    let deep_conservative = find("Deep - Conservative")?;
+    ensure!(
+        deep_conservative.pct_reached_2k_by_150 >= 0.35,
+        "Deep Conservative ≥2k@150 {:.1}% < 35% threshold",
+        deep_conservative.pct_reached_2k_by_150 * 100.0
+    );
+    ensure!(
+        deep_conservative.pants_failure_pct <= 0.30,
+        "Deep Conservative pants failure rate {:.1}% exceeds 30% cap",
+        deep_conservative.pants_failure_pct * 100.0
+    );
+    ensure!(
+        deep_conservative.mean_travel_ratio >= 0.90,
+        "Deep Conservative travel ratio {:.1}% below 90% target",
+        deep_conservative.mean_travel_ratio * 100.0
+    );
+
+    let deep_aggressive = find("Deep - Aggressive")?;
+    ensure!(
+        deep_aggressive.boss_reach_pct >= 0.65,
+        "Deep Aggressive boss reach {:.1}% below 65% target",
+        deep_aggressive.boss_reach_pct * 100.0
+    );
+    ensure!(
+        deep_aggressive.boss_win_pct >= 0.02,
+        "Deep Aggressive boss win {:.1}% below 2% target",
+        deep_aggressive.boss_win_pct * 100.0
+    );
+    ensure!(
+        deep_aggressive.mean_miles >= 1980.0,
+        "Deep Aggressive average mileage {:.0} below 1980 mi goal",
+        deep_aggressive.mean_miles
+    );
+    ensure!(
+        deep_aggressive.pct_reached_2k_by_150 >= 0.70,
+        "Deep Aggressive ≥2k@150 {:.1}% < 70% threshold",
+        deep_aggressive.pct_reached_2k_by_150 * 100.0
+    );
+
+    Ok(())
 }
 
 fn mode_label(mode: GameMode) -> &'static str {
@@ -136,6 +334,9 @@ mod tests {
     use super::*;
     use crate::logic::seeds::SeedInfo;
     use dystrail_game::GameMode;
+    use dystrail_game::data::EncounterData;
+    use std::collections::HashSet;
+    use std::path::PathBuf;
 
     #[test]
     fn generates_records_for_each_scenario() {
@@ -247,6 +448,27 @@ mod tests {
         assert!((agg.boss_reach_pct - reach_ratio).abs() < epsilon);
         assert!((agg.boss_win_pct - win_ratio).abs() < epsilon);
     }
+
+    #[test]
+    fn encounter_catalog_contains_rotation_additions() {
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("..")
+            .join("dystrail-web")
+            .join("static")
+            .join("assets")
+            .join("data")
+            .join("game.json");
+        let json = std::fs::read_to_string(&path)
+            .unwrap_or_else(|err| panic!("failed to read {}: {err}", path.display()));
+        let data = EncounterData::from_json(&json).expect("parse game.json");
+        let ids: HashSet<_> = data.encounters.iter().map(|enc| enc.id.as_str()).collect();
+        for expected in ["classic_civic_potluck", "deep_watchdog_sync"] {
+            assert!(
+                ids.contains(expected),
+                "expected encounter id {expected} to be present in game.json"
+            );
+        }
+    }
 }
 
 #[derive(Debug, Clone)]
@@ -260,6 +482,18 @@ struct AggregateBuilder {
     boss_reached: u32,
     boss_won: u32,
     pants_failures: u32,
+    travel_ratio_sum: f64,
+    unique_per_20_sum: f64,
+    rotation_event_sum: u32,
+    milestone_hits: u32,
+    min_unique_per_20: f64,
+    min_travel_ratio: f64,
+    crossing_events_sum: u32,
+    crossing_permit_sum: u32,
+    crossing_bribe_attempt_sum: u32,
+    crossing_bribe_success_sum: u32,
+    crossing_detour_sum: u32,
+    crossing_failure_sum: u32,
 }
 
 impl AggregateBuilder {
@@ -274,6 +508,18 @@ impl AggregateBuilder {
             boss_reached: 0,
             boss_won: 0,
             pants_failures: 0,
+            travel_ratio_sum: 0.0,
+            unique_per_20_sum: 0.0,
+            rotation_event_sum: 0,
+            milestone_hits: 0,
+            min_unique_per_20: f64::INFINITY,
+            min_travel_ratio: f64::INFINITY,
+            crossing_events_sum: 0,
+            crossing_permit_sum: 0,
+            crossing_bribe_attempt_sum: 0,
+            crossing_bribe_success_sum: 0,
+            crossing_detour_sum: 0,
+            crossing_failure_sum: 0,
         }
     }
 
@@ -290,6 +536,34 @@ impl AggregateBuilder {
         if metrics.final_pants >= 100 || metrics.ending_type.contains("Pants") {
             self.pants_failures += 1;
         }
+        if metrics.reached_2000_by_day150 {
+            self.milestone_hits += 1;
+        }
+        self.travel_ratio_sum += metrics.travel_ratio;
+        self.unique_per_20_sum += metrics.unique_per_20_days;
+        self.rotation_event_sum = self
+            .rotation_event_sum
+            .saturating_add(metrics.rotation_events);
+        self.min_unique_per_20 = self.min_unique_per_20.min(metrics.unique_per_20_days);
+        self.min_travel_ratio = self.min_travel_ratio.min(metrics.travel_ratio);
+        self.crossing_events_sum = self
+            .crossing_events_sum
+            .saturating_add(u32::try_from(metrics.crossing_events.len()).unwrap_or(0));
+        self.crossing_permit_sum = self
+            .crossing_permit_sum
+            .saturating_add(metrics.crossing_permit_uses);
+        self.crossing_bribe_attempt_sum = self
+            .crossing_bribe_attempt_sum
+            .saturating_add(metrics.crossing_bribe_attempts);
+        self.crossing_bribe_success_sum = self
+            .crossing_bribe_success_sum
+            .saturating_add(metrics.crossing_bribe_successes);
+        self.crossing_detour_sum = self
+            .crossing_detour_sum
+            .saturating_add(metrics.crossing_detours_taken);
+        self.crossing_failure_sum = self
+            .crossing_failure_sum
+            .saturating_add(metrics.crossing_failures);
     }
 
     fn finish(self) -> PlayabilityAggregate {
@@ -308,6 +582,39 @@ impl AggregateBuilder {
             boss_reach_pct: f64::from(self.boss_reached) / denom,
             boss_win_pct: f64::from(self.boss_won) / denom,
             pants_failure_pct: f64::from(self.pants_failures) / denom,
+            mean_travel_ratio: self.travel_ratio_sum / denom,
+            mean_unique_per_20: self.unique_per_20_sum / denom,
+            mean_rotation_events: f64::from(self.rotation_event_sum) / denom,
+            pct_reached_2k_by_150: f64::from(self.milestone_hits) / denom,
+            min_unique_per_20: if self.min_unique_per_20.is_finite() {
+                self.min_unique_per_20
+            } else {
+                0.0
+            },
+            min_travel_ratio: if self.min_travel_ratio.is_finite() {
+                self.min_travel_ratio
+            } else {
+                0.0
+            },
+            mean_crossing_events: f64::from(self.crossing_events_sum) / denom,
+            crossing_permit_rate: if self.crossing_events_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_permit_sum) / f64::from(self.crossing_events_sum)
+            },
+            mean_crossing_bribes: f64::from(self.crossing_bribe_attempt_sum) / denom,
+            crossing_bribe_success_rate: if self.crossing_bribe_attempt_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_bribe_success_sum)
+                    / f64::from(self.crossing_bribe_attempt_sum)
+            },
+            mean_crossing_detours: f64::from(self.crossing_detour_sum) / denom,
+            crossing_failure_rate: if self.crossing_events_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_failure_sum) / f64::from(self.crossing_events_sum)
+            },
         }
     }
 }

@@ -128,8 +128,14 @@ fn get_nested_value(obj: &Value, key: &str) -> Option<String> {
             None => return None,
         }
     }
-
-    current.as_str().map(std::string::ToString::to_string)
+    match current {
+        Value::String(s) => Some(s.to_string()),
+        Value::Object(map) => map
+            .get("_")
+            .and_then(Value::as_str)
+            .map(std::string::ToString::to_string),
+        _ => None,
+    }
 }
 
 /// Translate a key to the current language

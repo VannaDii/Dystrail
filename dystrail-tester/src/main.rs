@@ -13,7 +13,10 @@ use std::time::Instant;
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
-use logic::{LogicTester, aggregate_playability, resolve_seed_inputs, run_playability_analysis};
+use logic::{
+    LogicTester, PlayabilityAggregate, PlayabilityRecord, aggregate_playability,
+    resolve_seed_inputs, run_playability_analysis, validate_playability_targets,
+};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 pub enum TestMode {
@@ -23,6 +26,20 @@ pub enum TestMode {
     Browser,
     /// Run both logic and browser tests
     Both,
+}
+
+#[derive(Debug, Clone, Copy, ValueEnum)]
+pub enum HeadlessMode {
+    /// Run browsers in headless mode
+    Headless,
+    /// Run browsers with visible windows
+    Windowed,
+}
+
+impl HeadlessMode {
+    const fn is_headless(self) -> bool {
+        matches!(self, Self::Headless)
+    }
 }
 
 #[derive(Debug, Parser)]
@@ -50,6 +67,10 @@ struct Args {
     /// Number of iterations per scenario (logic mode only)
     #[arg(long, default_value_t = 10)]
     iterations: usize,
+
+    /// Run extended acceptance sweeps (forces ≥100 iterations for playability analysis)
+    #[arg(long)]
+    acceptance: bool,
 
     /// Output report format
     #[arg(long, default_value = "console")]
@@ -82,8 +103,8 @@ struct Args {
     hub: Option<String>,
 
     /// Run headless where supported
-    #[arg(long, default_value_t = true)]
-    headless: bool,
+    #[arg(long, value_enum, default_value_t = HeadlessMode::Headless)]
+    headless: HeadlessMode,
 }
 
 #[allow(clippy::too_many_lines)]
@@ -104,6 +125,23 @@ async fn main() -> Result<()> {
 
     println!("{}", "🎮 Dystrail Automated Tester".bright_cyan().bold());
     println!("{}", "================================".cyan());
+
+    let playability_iterations = if args.acceptance {
+        if args.iterations < 100 {
+            println!(
+                "🔁 Acceptance mode enabled: increasing playability iterations from {} to 100",
+                args.iterations
+            );
+        } else {
+            println!(
+                "🔁 Acceptance mode enabled: using {} playability iterations",
+                args.iterations
+            );
+        }
+        args.iterations.max(100)
+    } else {
+        args.iterations
+    };
 
     let start_time = Instant::now();
     let mut scenarios = split_csv(&args.scenarios);
@@ -177,7 +215,7 @@ async fn main() -> Result<()> {
             };
 
             let cfg = BrowserConfig {
-                headless: args.headless,
+                headless: args.headless.is_headless(),
                 implicit_wait_secs: 3,
                 remote_hub: args.hub.clone(),
             };
@@ -241,6 +279,19 @@ async fn main() -> Result<()> {
             let _ = driver.quit().await;
         }
     }
+
+    let mut playability_records: Option<Vec<PlayabilityRecord>> = None;
+    let mut playability_aggregates: Option<Vec<PlayabilityAggregate>> = None;
+    let require_playability = matches!(args.report.as_str(), "console" | "csv")
+        || matches!(args.mode, TestMode::Logic | TestMode::Both);
+
+    if require_playability {
+        let playability =
+            run_playability_analysis(&seed_infos, playability_iterations, args.verbose)?;
+        playability_aggregates = Some(aggregate_playability(&playability));
+        playability_records = Some(playability);
+    }
+
     let mut output_target = OutputTarget::new(args.output.clone())?;
 
     match args.report.as_str() {
@@ -262,25 +313,31 @@ async fn main() -> Result<()> {
             }
         }
         "csv" => {
-            let playability = run_playability_analysis(&seed_infos, args.iterations, args.verbose)?;
-            logic::reports::generate_csv_report(&mut output_target, &playability)?;
+            if let Some(records) = playability_records.as_ref() {
+                logic::reports::generate_csv_report(&mut output_target, records)?;
+            } else {
+                writeln!(&mut output_target, "[]")?;
+            }
         }
         _ => {
             let duration = start_time.elapsed();
             if all_results.is_empty() {
                 writeln!(&mut output_target, "No logic scenarios executed.")?;
-            } else {
-                let playability =
-                    run_playability_analysis(&seed_infos, args.iterations, args.verbose)?;
-                let aggregates = aggregate_playability(&playability);
+            } else if let Some(aggregates) = playability_aggregates.as_ref() {
                 logic::reports::generate_console_report(
                     &mut output_target,
                     &all_results,
-                    &aggregates,
+                    aggregates,
                     duration,
                 )?;
+            } else {
+                writeln!(&mut output_target, "Playability data unavailable.")?;
             }
         }
+    }
+
+    if let Some(aggregates) = playability_aggregates.as_ref() {
+        validate_playability_targets(aggregates)?;
     }
 
     let duration = start_time.elapsed();

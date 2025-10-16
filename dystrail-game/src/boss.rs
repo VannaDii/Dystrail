@@ -4,6 +4,9 @@ use serde::{Deserialize, Serialize};
 
 const DEFAULT_BOSS_DATA: &str = include_str!("../../dystrail-web/static/assets/data/boss.json");
 
+/// Canonical trail length in miles, sourced from `boss.json`.
+pub const ROUTE_LEN_MILES: f32 = 2_100.0;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum BossOutcome {
     PassedCloture,
@@ -38,7 +41,7 @@ pub struct BossConfig {
 impl Default for BossConfig {
     fn default() -> Self {
         serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or(BossConfig {
-            distance_required: 2_100.0,
+            distance_required: ROUTE_LEN_MILES,
             rounds: 3,
             passes_required: 2,
             sanity_loss_per_round: 2,
@@ -81,9 +84,11 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         }
     }
 
-    let threshold = state.mode.boss_threshold();
+    let distance_required =
+        f64::from(cfg.distance_required).max(f64::from(state.mode.boss_threshold()));
+    let threshold = distance_required.max(1.0);
     let score = state.journey_score().max(0);
-    let win_ratio = (f64::from(score) / f64::from(threshold)).min(1.25);
+    let win_ratio = (f64::from(score) / threshold).min(1.25);
     let mut win_prob = (win_ratio - 0.5).clamp(0.0, 1.0);
     if win_prob <= 0.0 {
         win_prob = 0.05;
