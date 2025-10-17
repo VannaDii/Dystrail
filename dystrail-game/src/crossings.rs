@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::convert::TryFrom;
 
+use crate::constants::PERMIT_REQUIRED_TAGS;
 use crate::state::{Region, Season};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -342,10 +343,14 @@ pub fn can_afford_bribe(gs: &crate::GameState, cfg: &CrossingConfig, kind: Cross
 /// Check if player can use permit
 #[must_use]
 pub fn can_use_permit(gs: &crate::GameState, _kind: &CrossingKind) -> bool {
-    gs.inventory.has_tag("permit")
-        || gs.inventory.has_tag("press_pass")
-        || gs
-            .receipts
-            .iter()
-            .any(|receipt| receipt.contains("permit") || receipt.contains("pass"))
+    if PERMIT_REQUIRED_TAGS
+        .iter()
+        .any(|tag| gs.inventory.has_tag(tag))
+    {
+        return true;
+    }
+
+    gs.receipts
+        .iter()
+        .any(|receipt| PERMIT_REQUIRED_TAGS.iter().any(|tag| receipt.contains(tag)))
 }

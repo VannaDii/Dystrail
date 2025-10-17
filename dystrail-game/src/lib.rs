@@ -5,6 +5,7 @@
 
 pub mod boss;
 pub mod camp;
+pub mod constants;
 pub mod crossings;
 pub mod data;
 pub mod encounters;

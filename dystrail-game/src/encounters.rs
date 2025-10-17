@@ -1,14 +1,13 @@
 //! Encounter selection logic
+use crate::constants::{DEBUG_ENV_VAR, ENCOUNTER_REPEAT_WINDOW_DAYS, ROTATION_LOOKBACK_DAYS};
 use crate::data::{Encounter, EncounterData};
-use crate::state::{
-    ENCOUNTER_REPEAT_WINDOW_DAYS, PolicyKind, ROTATION_LOOKBACK_DAYS, RecentEncounter, Region,
-};
+use crate::state::{PolicyKind, RecentEncounter, Region};
 use rand::Rng;
 use std::collections::{HashMap, VecDeque};
 
 #[cfg(debug_assertions)]
 fn debug_log_enabled() -> bool {
-    matches!(std::env::var("DYSTRAIL_DEBUG_LOGS"), Ok(val) if val != "0")
+    matches!(std::env::var(DEBUG_ENV_VAR), Ok(val) if val != "0")
 }
 
 #[cfg(not(debug_assertions))]
