@@ -125,6 +125,13 @@
     "weather": {
       "exposure": "Cold bites hard without proper gear.",
       "heatstroke": "Blistering heat cooked your run."
+    },
+    "boss": {
+      "compose": {
+        "_": "You regroup before the showdown.",
+        "supplies": "Crew burns supplies to steady nerves before the vote.",
+        "funds": "Emergency funds rally staff for the final push."
+      }
     }
   },
   "menu": {

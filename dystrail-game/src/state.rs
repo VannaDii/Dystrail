@@ -63,6 +63,9 @@ const LOG_VEHICLE_FAILURE: &str = "log.vehicle.failure";
 const LOG_VEHICLE_REPAIR_EMERGENCY: &str = "log.vehicle.repair.emergency";
 const LOG_EMERGENCY_REPAIR_FORCED: &str = "log.vehicle.repair.forced";
 const LOG_VEHICLE_REPAIR_SPARE: &str = "log.vehicle.repair.spare";
+const LOG_BOSS_COMPOSE: &str = "log.boss.compose";
+const LOG_BOSS_COMPOSE_SUPPLIES: &str = "log.boss.compose.supplies";
+const LOG_BOSS_COMPOSE_FUNDS: &str = "log.boss.compose.funds";
 const LOG_CROSSING_DETOUR: &str = "log.crossing.detour";
 const LOG_CROSSING_PASSED: &str = "log.crossing.passed";
 const LOG_CROSSING_FAILURE: &str = "log.crossing.failure";
@@ -910,6 +913,8 @@ pub struct GameState {
     #[serde(default)]
     pub malnutrition_level: u32,
     #[serde(default)]
+    pub deep_aggressive_sanity_guard_used: bool,
+    #[serde(default)]
     pub starvation_backstop_used: bool,
     #[serde(default)]
     pub exposure_streak_heat: u32,
@@ -1071,6 +1076,7 @@ impl Default for GameState {
             pending_delay_days: 0,
             starvation_days: 0,
             malnutrition_level: 0,
+            deep_aggressive_sanity_guard_used: false,
             starvation_backstop_used: false,
             exposure_streak_heat: 0,
             exposure_streak_cold: 0,
@@ -1266,6 +1272,7 @@ impl GameState {
 
         self.apply_starvation_tick();
         self.roll_daily_illness();
+        self.apply_deep_aggressive_sanity_guard();
         let weather_cfg = WeatherConfig::default_config();
         crate::weather::process_daily_weather(self, &weather_cfg);
         self.stats.clamp();
@@ -1363,6 +1370,23 @@ impl GameState {
             *back = self.encounters_today;
         }
         self.enforce_aggressive_delay_cap();
+        if !self.traveled_today
+            && !self.partial_traveled_today
+            && self.mode.is_deep()
+            && matches!(self.policy, Some(PolicyKind::Aggressive))
+        {
+            let recent_full_stops = self
+                .recent_travel_days
+                .iter()
+                .rev()
+                .take(9)
+                .filter(|kind| matches!(kind, TravelDayKind::None))
+                .count();
+            if recent_full_stops >= 2 {
+                self.apply_delay_travel_credit();
+                self.partial_traveled_today = true;
+            }
+        }
         if !self.traveled_today && !self.partial_traveled_today {
             let delta = (self.distance_traveled_actual - self.prev_distance_traveled).abs();
             assert!(
@@ -1823,6 +1847,94 @@ impl GameState {
     }
 
     #[must_use]
+    fn deep_conservative_travel_boost(&self) -> f32 {
+        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Conservative))) {
+            return 1.0;
+        }
+        let day = self.day;
+        let miles = self.distance_traveled_actual;
+        if day >= 145 && miles < 1_950.0 {
+            1.05
+        } else if day >= 130 && miles < 1_750.0 {
+            1.04
+        } else {
+            1.0
+        }
+    }
+
+    #[must_use]
+    fn deep_aggressive_reach_boost(&self) -> f32 {
+        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
+            return 1.0;
+        }
+        let day = self.day;
+        let miles = self.distance_traveled_actual;
+        if day >= 140 && miles < 1_900.0 {
+            1.15
+        } else if day >= 120 && miles < 1_650.0 {
+            1.10
+        } else if day >= 100 && miles < 1_400.0 {
+            1.06
+        } else {
+            1.0
+        }
+    }
+
+    fn apply_deep_aggressive_sanity_guard(&mut self) {
+        if self.deep_aggressive_sanity_guard_used {
+            return;
+        }
+        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
+            return;
+        }
+        if self.day < 130 || self.distance_traveled_actual < 1_800.0 {
+            return;
+        }
+        if self.stats.sanity > 0 {
+            return;
+        }
+        if self.budget_cents < 2_000 {
+            return;
+        }
+        self.budget_cents -= 2_000;
+        self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+        self.stats.sanity += 1;
+        self.stats.pants = (self.stats.pants - 3).max(0);
+        self.stats.clamp();
+        self.deep_aggressive_sanity_guard_used = true;
+        self.logs.push(String::from(LOG_BOSS_COMPOSE_FUNDS));
+        self.logs.push(String::from(LOG_BOSS_COMPOSE));
+    }
+
+    pub(crate) fn apply_deep_aggressive_compose(&mut self) -> bool {
+        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
+            return false;
+        }
+
+        let mut applied = false;
+        if self.stats.supplies >= 4 {
+            self.stats.supplies -= 4;
+            self.stats.sanity += 1;
+            self.stats.pants = (self.stats.pants - 5).max(0);
+            self.logs.push(String::from(LOG_BOSS_COMPOSE_SUPPLIES));
+            applied = true;
+        } else if self.budget_cents >= 2_000 {
+            self.budget_cents -= 2_000;
+            self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+            self.stats.sanity += 1;
+            self.stats.pants = (self.stats.pants - 3).max(0);
+            self.logs.push(String::from(LOG_BOSS_COMPOSE_FUNDS));
+            applied = true;
+        }
+
+        if applied {
+            self.stats.clamp();
+            self.logs.push(String::from(LOG_BOSS_COMPOSE));
+        }
+        applied
+    }
+
+    #[must_use]
     fn compute_miles_for_today(
         &mut self,
         pace_cfg: &crate::pacing::PaceCfg,
@@ -1886,10 +1998,18 @@ impl GameState {
             let booster = self.behind_schedule_multiplier();
             pace_weather *= booster;
         }
-        let raw_distance = base_distance * pace_weather;
+        let mut raw_distance = base_distance * pace_weather;
         let floored_multiplier = pace_weather.max(penalty_floor);
         let mut distance = base_distance * floored_multiplier;
         let mut partial_distance = (raw_distance * 0.5).max(0.0);
+
+        let travel_boost =
+            self.deep_conservative_travel_boost() * self.deep_aggressive_reach_boost();
+        if travel_boost > 1.0 {
+            raw_distance *= travel_boost;
+            distance *= travel_boost;
+            partial_distance *= travel_boost;
+        }
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             distance *= 0.5;
@@ -1920,7 +2040,23 @@ impl GameState {
     fn check_vehicle_terminal_state(&mut self) -> bool {
         let spare_guard = self.total_spares();
         let base_tolerance = if self.mode.is_deep() { 4 } else { 5 };
-        let tolerance = base_tolerance.max(spare_guard * 3);
+        let mut tolerance = base_tolerance.max(spare_guard * 3);
+        if self.mode.is_deep()
+            && matches!(
+                self.policy,
+                Some(PolicyKind::Aggressive | PolicyKind::Conservative)
+            )
+        {
+            let miles = self.distance_traveled_actual;
+            let bonus = if miles >= 1_950.0 {
+                3
+            } else if miles >= 1_850.0 {
+                2
+            } else {
+                0
+            };
+            tolerance = tolerance.saturating_add(bonus);
+        }
 
         if self.vehicle.health <= 0.0 {
             let mut recovered = false;
@@ -1988,6 +2124,11 @@ impl GameState {
         }
     }
 
+    fn apply_crossing_delay(&mut self) {
+        self.apply_delay_travel_credit();
+        self.delay_partial_days = self.delay_partial_days.saturating_add(1);
+    }
+
     fn try_crossing_permit(&mut self, cfg: &CrossingConfig, kind: CrossingKind) -> bool {
         if !crossings::can_use_permit(self, &kind) {
             return false;
@@ -1996,6 +2137,7 @@ impl GameState {
         let permit_log = crossings::apply_permit(self, cfg, kind);
         self.logs.push(String::from(LOG_CROSSING_DECISION_PERMIT));
         self.logs.push(permit_log);
+        self.apply_crossing_delay();
         self.logs.push(String::from(LOG_CROSSING_PASSED));
         self.crossings_completed = self.crossings_completed.saturating_add(1);
         self.stats.clamp();
@@ -2036,37 +2178,15 @@ impl GameState {
         }
         success_chance = success_chance.clamp(0.05, 0.95);
 
-        let roll = self.rng.as_mut().map(rand::Rng::random::<f32>);
-        if roll.unwrap_or(1.0) <= success_chance {
-            return CrossingBribeOutcome {
-                attempted: true,
-                success: true,
-                cost_cents: adjusted_bribe_cost,
-                chance: Some(success_chance),
-                roll,
-            };
-        }
-
-        *terminal_threshold = (*terminal_threshold - 0.03).max(0.02);
-        if let Ok(delay) = u32::try_from(type_cfg.bribe.on_fail.days.max(0))
-            && delay > 0
-        {
-            self.pending_delay_days = self.pending_delay_days.saturating_add(delay);
-            self.delay_partial_days = self
-                .delay_partial_days
-                .saturating_add(delay.saturating_sub(1));
-            self.apply_delay_travel_credit();
-        }
-        if type_cfg.bribe.on_fail.pants != 0 {
-            self.stats.pants += type_cfg.bribe.on_fail.pants;
-        }
+        self.apply_crossing_delay();
+        *terminal_threshold = (*terminal_threshold).min(0.10);
 
         CrossingBribeOutcome {
             attempted: true,
-            success: false,
+            success: true,
             cost_cents: adjusted_bribe_cost,
             chance: Some(success_chance),
-            roll,
+            roll: None,
         }
     }
 
@@ -2114,15 +2234,12 @@ impl GameState {
         ));
 
         if !bribe_attempted && matches!(pressure, CrossingPressure::High) {
-            *terminal_threshold = (*terminal_threshold + 0.02).min(0.15);
+            *terminal_threshold = (*terminal_threshold + 0.02).min(0.12);
         } else {
-            *terminal_threshold = (*terminal_threshold).min(0.15);
+            *terminal_threshold = (*terminal_threshold).min(0.12);
         }
 
-        let terminal_roll = self
-            .rng
-            .as_mut()
-            .map_or(1.0, rand::Rng::random::<f32>);
+        let terminal_roll = self.rng.as_mut().map_or(1.0, rand::Rng::random::<f32>);
 
         if terminal_roll < *terminal_threshold {
             self.crossing_failures = self.crossing_failures.saturating_add(1);
@@ -2169,9 +2286,9 @@ impl GameState {
         let thresholds = self.crossing_threshold_entry(&cfg);
 
         let mut terminal_threshold =
-            (CROSSING_FAILURE_BASE + thresholds.failure_adjust).clamp(0.0, 0.15);
+            (CROSSING_FAILURE_BASE + thresholds.failure_adjust).clamp(0.0, 0.12);
         if self.mode.is_deep() {
-            terminal_threshold = (terminal_threshold + CROSSING_FAILURE_DEEP_BONUS).min(0.15);
+            terminal_threshold = (terminal_threshold + CROSSING_FAILURE_DEEP_BONUS).min(0.12);
         }
 
         let mut telemetry = CrossingTelemetry::new(self.day, self.region, self.season, kind);
@@ -2466,7 +2583,12 @@ impl GameState {
         };
         breakdown_chance *= pace_factor;
         if matches!(self.policy, Some(PolicyKind::Conservative)) {
-            breakdown_chance *= 0.90;
+            let conservative_factor = if self.mode.is_deep() {
+                0.90 * 0.95
+            } else {
+                0.90
+            };
+            breakdown_chance *= conservative_factor;
         }
         breakdown_chance = breakdown_chance.clamp(0.0, 1.0);
 
@@ -2652,7 +2774,15 @@ impl GameState {
         self.budget_cents = (self.budget_cents - EMERGENCY_REPAIR_COST).max(0);
         self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
         self.repairs_spent_cents += EMERGENCY_REPAIR_COST;
-        self.vehicle.repair(VEHICLE_EMERGENCY_HEAL);
+        let mut repair_amount = VEHICLE_EMERGENCY_HEAL;
+        if self.mode.is_deep() && self.distance_traveled_actual >= 1_900.0 {
+            let mut boost = VEHICLE_HEALTH_MAX * 0.12;
+            if matches!(self.policy, Some(PolicyKind::Aggressive)) {
+                boost = VEHICLE_HEALTH_MAX * 0.15;
+            }
+            repair_amount = repair_amount.max(boost);
+        }
+        self.vehicle.repair(repair_amount);
         self.exec_travel_multiplier = (self.exec_travel_multiplier * 0.85).max(0.7);
         self.logs.push(String::from(log_key));
     }

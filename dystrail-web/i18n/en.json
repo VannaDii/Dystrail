@@ -104,36 +104,43 @@
     "seed_label": "Seed:"
   },
   "log": {
-  "allies": {
-    "gone": "You continue alone now."
-  },
-  "ally": {
-    "lost": "💀 An ally has left or perished."
-  },
-  "booting": "Booting…",
-  "disease": {
-    "hit": "Illness strikes the crew.",
-    "tick": "Lingering illness saps your strength.",
-    "recover": "Illness clears after hard-earned rest."
-  },
-  "encounter": {
-    "_": "Encounter!",
-    "rest-requested": "Crew insists on a recovery spell."
-  },
-  "health_collapse": "Health depleted!",
-  "pants_emergency": "National Pants Emergency!",
-  "run_begins": "Run begins ({{mode}})",
-  "sanity_collapse": "Sanity fractured!",
-  "seed_set": "Seed set",
-  "starvation": {
-    "relief": "Resupply secured. Morale flickers back.",
-    "tick": "Starvation is taking its toll.",
-    "backstop": "You stagger on with one last hit point."
-  },
-  "supplies_depleted": "Supplies exhausted!",
-  "traveled": "Traveled",
-  "vehicle": {
-    "failure": "The vehicle is beyond repair.",
+    "allies": {
+      "gone": "You continue alone now."
+    },
+    "ally": {
+      "lost": "💀 An ally has left or perished."
+    },
+    "booting": "Booting…",
+    "disease": {
+      "hit": "Illness strikes the crew.",
+      "tick": "Lingering illness saps your strength.",
+      "recover": "Illness clears after hard-earned rest."
+    },
+    "encounter": {
+      "_": "Encounter!",
+      "rest-requested": "Crew insists on a recovery spell."
+    },
+    "health_collapse": "Health depleted!",
+    "pants_emergency": "National Pants Emergency!",
+    "run_begins": "Run begins ({{mode}})",
+    "sanity_collapse": "Sanity fractured!",
+    "seed_set": "Seed set",
+    "starvation": {
+      "relief": "Resupply secured. Morale flickers back.",
+      "tick": "Starvation is taking its toll.",
+      "backstop": "You stagger on with one last hit point."
+    },
+    "supplies_depleted": "Supplies exhausted!",
+    "traveled": "Traveled",
+    "boss": {
+      "compose": {
+        "_": "You regroup before the showdown.",
+        "supplies": "Crew burns supplies to steady nerves before the vote.",
+        "funds": "Emergency funds rally staff for the final push."
+      }
+    },
+    "vehicle": {
+      "failure": "The vehicle is beyond repair.",
       "repair": {
         "emergency": "💸 Emergency roadside repair: -$10.00"
       }

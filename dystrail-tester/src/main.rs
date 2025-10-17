@@ -337,7 +337,8 @@ async fn main() -> Result<()> {
     }
 
     if let Some(aggregates) = playability_aggregates.as_ref() {
-        validate_playability_targets(aggregates)?;
+        let record_slice = playability_records.as_deref().unwrap_or(&[]);
+        validate_playability_targets(aggregates, record_slice)?;
     }
 
     let duration = start_time.elapsed();

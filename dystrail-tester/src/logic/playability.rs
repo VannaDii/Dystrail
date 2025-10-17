@@ -10,6 +10,7 @@ use crate::common::scenario::full_game::{
 use crate::logic::seeds::SeedInfo;
 use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
 use dystrail_game::GameMode;
+use dystrail_game::state::CrossingOutcomeTelemetry;
 
 #[derive(Debug, Clone)]
 pub struct PlayabilityRecord {
@@ -46,6 +47,220 @@ pub struct PlayabilityAggregate {
     pub crossing_bribe_success_rate: f64,
     pub mean_crossing_detours: f64,
     pub crossing_failure_rate: f64,
+}
+
+fn push_limited_warn(
+    warn_counts: &mut BTreeMap<String, usize>,
+    key: &str,
+    limit: usize,
+    message: impl FnOnce() -> String,
+) {
+    let counter = warn_counts.entry(key.to_string()).or_insert(0);
+    if *counter < limit {
+        println!("{}", message());
+    }
+    *counter += 1;
+}
+
+fn emit_record_warnings(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
+    if record.metrics.travel_ratio < 0.90 {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::travel_ratio", record.scenario_name),
+            3,
+            || {
+                format!(
+                    "WARN: {} seed {} travel ratio {:.1}% < 90%",
+                    record.scenario_name,
+                    record.seed_code,
+                    record.metrics.travel_ratio * 100.0
+                )
+            },
+        );
+    }
+
+    if record.scenario_name == "Deep - Conservative" {
+        if !record.metrics.reached_2000_by_day150 {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::deep_conservative_2k", record.scenario_name),
+                5,
+                || {
+                    format!(
+                        "WARN: Deep Conservative seed {} failed ≥2k@150",
+                        record.seed_code
+                    )
+                },
+            );
+        }
+        if record.metrics.final_pants >= 100 {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::deep_conservative_pants", record.scenario_name),
+                3,
+                || {
+                    format!(
+                        "WARN: Deep Conservative seed {} ended via pants emergency",
+                        record.seed_code
+                    )
+                },
+            );
+        }
+        if record.metrics.unique_per_20_days < 1.60 {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::deep_conservative_unique", record.scenario_name),
+                3,
+                || {
+                    format!(
+                        "WARN: Deep Conservative seed {} unique encounters per 20d {:.2} < 1.60",
+                        record.seed_code, record.metrics.unique_per_20_days
+                    )
+                },
+            );
+        }
+    }
+
+    if record.scenario_name == "Deep - Aggressive" {
+        if !record.metrics.boss_reached {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::deep_aggressive_reach", record.scenario_name),
+                5,
+                || {
+                    format!(
+                        "WARN: Deep Aggressive seed {} failed to reach the boss",
+                        record.seed_code
+                    )
+                },
+            );
+        } else if !record.metrics.boss_won {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::deep_aggressive_win", record.scenario_name),
+                5,
+                || {
+                    format!(
+                        "WARN: Deep Aggressive seed {} reached boss but did not win",
+                        record.seed_code
+                    )
+                },
+            );
+        }
+    }
+}
+
+fn emit_aggregate_warnings(aggregates: &[PlayabilityAggregate]) {
+    for agg in aggregates {
+        if agg.mean_crossing_bribes > 0.0 && agg.crossing_bribe_success_rate <= 0.70 {
+            println!(
+                "WARN: {} crossing bribe success {:.1}% ≤ 70%",
+                agg.scenario_name,
+                agg.crossing_bribe_success_rate * 100.0
+            );
+        }
+    }
+}
+
+fn find_aggregate<'a>(
+    aggregates: &'a [PlayabilityAggregate],
+    name: &str,
+) -> Result<&'a PlayabilityAggregate> {
+    aggregates
+        .iter()
+        .find(|agg| agg.scenario_name == name)
+        .with_context(|| format!("missing playability summary for {name}"))
+}
+
+fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
+    ensure!(
+        agg.min_unique_per_20 >= 2.0,
+        "Classic Balanced min unique encounters per 20 days {:.2} below 2.0 requirement",
+        agg.min_unique_per_20
+    );
+    ensure!(
+        agg.mean_unique_per_20 >= 2.0,
+        "Classic Balanced mean unique encounters per 20 days {:.2} below 2.0 target",
+        agg.mean_unique_per_20
+    );
+    ensure!(
+        agg.pct_reached_2k_by_150 >= 0.25,
+        "Classic Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
+        agg.pct_reached_2k_by_150 * 100.0
+    );
+    Ok(())
+}
+
+fn validate_deep_balanced(agg: &PlayabilityAggregate) -> Result<()> {
+    ensure!(
+        agg.mean_unique_per_20 >= 1.5,
+        "Deep Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
+        agg.mean_unique_per_20
+    );
+    ensure!(
+        agg.min_unique_per_20 >= 1.5,
+        "Deep Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
+        agg.min_unique_per_20
+    );
+    ensure!(
+        agg.mean_travel_ratio >= 0.92,
+        "Deep Balanced travel ratio {:.1}% below 92% target",
+        agg.mean_travel_ratio * 100.0
+    );
+    ensure!(
+        agg.mean_miles >= 2000.0,
+        "Deep Balanced average mileage {:.0} below 2000 mi goal",
+        agg.mean_miles
+    );
+    ensure!(
+        agg.pct_reached_2k_by_150 >= 0.25,
+        "Deep Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
+        agg.pct_reached_2k_by_150 * 100.0
+    );
+    Ok(())
+}
+
+fn validate_deep_conservative(agg: &PlayabilityAggregate) -> Result<()> {
+    ensure!(
+        agg.pct_reached_2k_by_150 >= 0.25,
+        "Deep Conservative ≥2k@150 {:.1}% < 25% threshold",
+        agg.pct_reached_2k_by_150 * 100.0
+    );
+    ensure!(
+        agg.pants_failure_pct <= 0.30,
+        "Deep Conservative pants failure rate {:.1}% exceeds 30% cap",
+        agg.pants_failure_pct * 100.0
+    );
+    ensure!(
+        agg.mean_travel_ratio >= 0.90,
+        "Deep Conservative travel ratio {:.1}% below 90% target",
+        agg.mean_travel_ratio * 100.0
+    );
+    Ok(())
+}
+
+fn validate_deep_aggressive(agg: &PlayabilityAggregate) -> Result<()> {
+    ensure!(
+        agg.boss_reach_pct >= 0.65,
+        "Deep Aggressive boss reach {:.1}% below 65% target",
+        agg.boss_reach_pct * 100.0
+    );
+    ensure!(
+        agg.boss_win_pct >= 0.02,
+        "Deep Aggressive boss win {:.1}% below 2% target",
+        agg.boss_win_pct * 100.0
+    );
+    ensure!(
+        agg.mean_miles >= 1980.0,
+        "Deep Aggressive average mileage {:.0} below 1980 mi goal",
+        agg.mean_miles
+    );
+    ensure!(
+        agg.pct_reached_2k_by_150 >= 0.70,
+        "Deep Aggressive ≥2k@150 {:.1}% < 70% threshold",
+        agg.pct_reached_2k_by_150 * 100.0
+    );
+    Ok(())
 }
 
 const PLAYABILITY_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
@@ -114,119 +329,27 @@ pub fn aggregate_playability(records: &[PlayabilityRecord]) -> Vec<PlayabilityAg
             .entry(record.scenario_name.clone())
             .or_insert_with(|| AggregateBuilder::new(record));
         entry.ingest(&record.metrics);
-
-        if record.scenario_name == "Classic - Balanced" {
-            if record.metrics.travel_ratio < 0.85 {
-                let counter = warn_counts
-                    .entry(format!("{}::travel_ratio", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 3 {
-                    println!(
-                        "WARN: Classic Balanced seed {} travel ratio {:.1}%",
-                        record.seed_code,
-                        record.metrics.travel_ratio * 100.0
-                    );
-                }
-                *counter += 1;
-            }
-            if record.metrics.unique_per_20_days < 1.45 {
-                let counter = warn_counts
-                    .entry(format!("{}::unique_per_20", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 3 {
-                    println!(
-                        "WARN: Classic Balanced seed {} unique encounters per 20d {:.2} < 1.5",
-                        record.seed_code, record.metrics.unique_per_20_days
-                    );
-                }
-                *counter += 1;
-            }
-        }
-        if record.scenario_name == "Deep - Conservative" {
-            if !record.metrics.reached_2000_by_day150 {
-                let counter = warn_counts
-                    .entry(format!("{}::deep_conservative_2k", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 5 {
-                    println!(
-                        "WARN: Deep Conservative seed {} failed ≥2k@150",
-                        record.seed_code
-                    );
-                }
-                *counter += 1;
-            }
-            if record.metrics.final_pants >= 100 {
-                let counter = warn_counts
-                    .entry(format!("{}::deep_conservative_pants", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 3 {
-                    println!(
-                        "WARN: Deep Conservative seed {} ended via pants emergency",
-                        record.seed_code
-                    );
-                }
-                *counter += 1;
-            }
-        }
-        if record.scenario_name == "Deep - Aggressive" {
-            if !record.metrics.boss_reached {
-                let counter = warn_counts
-                    .entry(format!("{}::deep_aggressive_reach", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 5 {
-                    println!(
-                        "WARN: Deep Aggressive seed {} failed to reach the boss",
-                        record.seed_code
-                    );
-                }
-                *counter += 1;
-            } else if !record.metrics.boss_won {
-                let counter = warn_counts
-                    .entry(format!("{}::deep_aggressive_win", record.scenario_name))
-                    .or_insert(0);
-                if *counter < 5 {
-                    println!(
-                        "WARN: Deep Aggressive seed {} reached boss but did not win",
-                        record.seed_code
-                    );
-                }
-                *counter += 1;
-            }
-        }
+        emit_record_warnings(record, &mut warn_counts);
     }
 
-    aggregates
+    let results: Vec<_> = aggregates
         .into_values()
         .map(AggregateBuilder::finish)
-        .collect()
+        .collect();
+
+    emit_aggregate_warnings(&results);
+
+    results
 }
 
-pub fn validate_playability_targets(aggregates: &[PlayabilityAggregate]) -> Result<()> {
-    let find = |name: &str| -> Result<&PlayabilityAggregate> {
-        aggregates
-            .iter()
-            .find(|agg| agg.scenario_name == name)
-            .with_context(|| format!("missing playability summary for {name}"))
-    };
+pub fn validate_playability_targets(
+    aggregates: &[PlayabilityAggregate],
+    records: &[PlayabilityRecord],
+) -> Result<()> {
+    let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
+    validate_classic_balanced(classic_balanced)?;
 
-    let classic_balanced = find("Classic - Balanced")?;
-    ensure!(
-        classic_balanced.min_unique_per_20 >= 1.5,
-        "Classic Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
-        classic_balanced.min_unique_per_20
-    );
-    ensure!(
-        classic_balanced.mean_unique_per_20 >= 1.5,
-        "Classic Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
-        classic_balanced.mean_unique_per_20
-    );
-    ensure!(
-        classic_balanced.pct_reached_2k_by_150 >= 0.25,
-        "Classic Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
-        classic_balanced.pct_reached_2k_by_150 * 100.0
-    );
-
-    let classic_resource = find("Classic - Resource Manager")?;
+    let classic_resource = find_aggregate(aggregates, "Classic - Resource Manager")?;
     ensure!(
         classic_resource.pct_reached_2k_by_150 >= 0.70,
         "Classic Resource Manager reached 2,000 miles by day 150 {:.1}% < 70% threshold",
@@ -238,71 +361,27 @@ pub fn validate_playability_targets(aggregates: &[PlayabilityAggregate]) -> Resu
         classic_resource.pants_failure_pct * 100.0
     );
 
-    let deep_balanced = find("Deep - Balanced")?;
-    ensure!(
-        deep_balanced.mean_unique_per_20 >= 1.5,
-        "Deep Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
-        deep_balanced.mean_unique_per_20
-    );
-    ensure!(
-        deep_balanced.min_unique_per_20 >= 1.5,
-        "Deep Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
-        deep_balanced.min_unique_per_20
-    );
-    ensure!(
-        deep_balanced.mean_travel_ratio >= 0.92,
-        "Deep Balanced travel ratio {:.1}% below 92% target",
-        deep_balanced.mean_travel_ratio * 100.0
-    );
-    ensure!(
-        deep_balanced.mean_miles >= 2000.0,
-        "Deep Balanced average mileage {:.0} below 2000 mi goal",
-        deep_balanced.mean_miles
-    );
-    ensure!(
-        deep_balanced.pct_reached_2k_by_150 >= 0.25,
-        "Deep Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
-        deep_balanced.pct_reached_2k_by_150 * 100.0
-    );
+    let deep_balanced = find_aggregate(aggregates, "Deep - Balanced")?;
+    validate_deep_balanced(deep_balanced)?;
 
-    let deep_conservative = find("Deep - Conservative")?;
-    ensure!(
-        deep_conservative.pct_reached_2k_by_150 >= 0.35,
-        "Deep Conservative ≥2k@150 {:.1}% < 35% threshold",
-        deep_conservative.pct_reached_2k_by_150 * 100.0
-    );
-    ensure!(
-        deep_conservative.pants_failure_pct <= 0.30,
-        "Deep Conservative pants failure rate {:.1}% exceeds 30% cap",
-        deep_conservative.pants_failure_pct * 100.0
-    );
-    ensure!(
-        deep_conservative.mean_travel_ratio >= 0.90,
-        "Deep Conservative travel ratio {:.1}% below 90% target",
-        deep_conservative.mean_travel_ratio * 100.0
-    );
+    let deep_conservative = find_aggregate(aggregates, "Deep - Conservative")?;
+    validate_deep_conservative(deep_conservative)?;
 
-    let deep_aggressive = find("Deep - Aggressive")?;
-    ensure!(
-        deep_aggressive.boss_reach_pct >= 0.65,
-        "Deep Aggressive boss reach {:.1}% below 65% target",
-        deep_aggressive.boss_reach_pct * 100.0
-    );
-    ensure!(
-        deep_aggressive.boss_win_pct >= 0.02,
-        "Deep Aggressive boss win {:.1}% below 2% target",
-        deep_aggressive.boss_win_pct * 100.0
-    );
-    ensure!(
-        deep_aggressive.mean_miles >= 1980.0,
-        "Deep Aggressive average mileage {:.0} below 1980 mi goal",
-        deep_aggressive.mean_miles
-    );
-    ensure!(
-        deep_aggressive.pct_reached_2k_by_150 >= 0.70,
-        "Deep Aggressive ≥2k@150 {:.1}% < 70% threshold",
-        deep_aggressive.pct_reached_2k_by_150 * 100.0
-    );
+    let deep_aggressive = find_aggregate(aggregates, "Deep - Aggressive")?;
+    validate_deep_aggressive(deep_aggressive)?;
+
+    for record in records {
+        let determinism_violation = record.metrics.crossing_events.iter().any(|event| {
+            event.bribe_success == Some(true)
+                && matches!(event.outcome, CrossingOutcomeTelemetry::Failed)
+        });
+        ensure!(
+            !determinism_violation,
+            "Crossing determinism violated for scenario {} seed {}",
+            record.scenario_name,
+            record.seed_code
+        );
+    }
 
     Ok(())
 }

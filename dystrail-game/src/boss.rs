@@ -1,5 +1,5 @@
 //! Boss fight system
-use crate::state::GameState;
+use crate::state::{GameState, PolicyKind};
 use serde::{Deserialize, Serialize};
 
 const DEFAULT_BOSS_DATA: &str = include_str!("../../dystrail-web/static/assets/data/boss.json");
@@ -68,6 +68,10 @@ impl BossConfig {
 pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome {
     state.boss_attempted = true;
 
+    if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
+        let _ = state.apply_deep_aggressive_compose();
+    }
+
     for _ in 0..cfg.rounds {
         if cfg.pants_gain_per_round > 0 {
             state.stats.pants += cfg.pants_gain_per_round;
@@ -92,6 +96,11 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     let mut win_prob = (win_ratio - 0.5).clamp(0.0, 1.0);
     if win_prob <= 0.0 {
         win_prob = 0.05;
+    }
+    if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
+        let boosted = win_prob + 0.02;
+        let cap = f64::from(cfg.max_chance).max(win_prob);
+        win_prob = boosted.min(cap);
     }
 
     let roll = f64::from(state.next_pct()) / 100.0;

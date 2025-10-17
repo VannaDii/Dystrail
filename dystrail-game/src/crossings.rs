@@ -139,7 +139,11 @@ pub struct ThresholdTable {
 impl ThresholdTable {
     #[must_use]
     pub fn with_defaults() -> Self {
-        const fn entry(cost_multiplier: u32, success_adjust: f32, failure_adjust: f32) -> ThresholdEntry {
+        const fn entry(
+            cost_multiplier: u32,
+            success_adjust: f32,
+            failure_adjust: f32,
+        ) -> ThresholdEntry {
             ThresholdEntry {
                 cost_multiplier,
                 success_adjust,
@@ -162,7 +166,9 @@ impl ThresholdTable {
             (Region::Beltway, Season::Winter, entry(138, -0.08, 0.08)),
         ];
 
-        let mut table = Self { regions: HashMap::new() };
+        let mut table = Self {
+            regions: HashMap::new(),
+        };
 
         for &(region, season, entry) in DEFAULTS {
             table

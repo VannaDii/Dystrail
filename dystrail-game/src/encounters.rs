@@ -110,15 +110,13 @@ pub fn pick_encounter<R: Rng>(
         return (None, rotation_satisfied);
     }
 
-    let region_counts = if request.is_deep && matches!(request.policy, Some(PolicyKind::Conservative))
-    {
-        Some(build_recent_region_counts(request.recent))
-    } else {
-        None
-    };
-    let region_min = region_counts
-        .as_ref()
-        .map_or(0, global_min_region_count);
+    let region_counts =
+        if request.is_deep && matches!(request.policy, Some(PolicyKind::Conservative)) {
+            Some(build_recent_region_counts(request.recent))
+        } else {
+            None
+        };
+    let region_min = region_counts.as_ref().map_or(0, global_min_region_count);
 
     let weighted = build_weights(
         selection,
@@ -286,10 +284,7 @@ fn build_weights(
                     .min()
                     .unwrap_or(0);
                 if encounter_min <= region_min {
-                    let boosted = weight
-                        .saturating_mul(110)
-                        .saturating_add(99)
-                        / 100;
+                    let boosted = weight.saturating_mul(110).saturating_add(99) / 100;
                     weight = boosted.max(weight.saturating_add(1));
                 }
             }
