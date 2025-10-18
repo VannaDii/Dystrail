@@ -2,7 +2,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::Stats;
+use crate::{Stats, state::TravelDayKind};
 
 const DEFAULT_CAMP_DATA: &str = include_str!("../../dystrail-web/static/assets/data/camp.json");
 
@@ -116,12 +116,13 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     }
 
     let rest_days = rest_cfg.day.max(1);
-    gs.days_with_camp = gs.days_with_camp.saturating_add(rest_days);
     for day_idx in 0..rest_days {
         if day_idx > 0 {
             gs.start_of_day();
         }
-        if !rest_cfg.recovery_day {
+        if rest_cfg.recovery_day {
+            gs.record_travel_day(TravelDayKind::None, 0.0, "camp");
+        } else {
             gs.apply_rest_travel_credit();
         }
         gs.end_of_day();
@@ -173,8 +174,7 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     gs.stats.supplies += supplies_delta;
     gs.stats.clamp();
     let forage_days = forage_cfg.day.max(1);
-    gs.days_with_camp = gs.days_with_camp.saturating_add(forage_days);
-    gs.advance_days(forage_days);
+    gs.advance_days_with_reason(forage_days, "camp");
     gs.camp.forage_cooldown = forage_cfg.cooldown_days;
     gs.logs.push(String::from("log.camp.forage"));
 

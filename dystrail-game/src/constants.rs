@@ -30,13 +30,14 @@ pub(crate) const LOG_CROSSING_PASSED: &str = "log.crossing.passed";
 pub(crate) const LOG_CROSSING_FAILURE: &str = "log.crossing.failure";
 pub(crate) const LOG_CROSSING_DECISION_BRIBE: &str = "log.crossing.decision.bribe";
 pub(crate) const LOG_CROSSING_DECISION_PERMIT: &str = "log.crossing.decision.permit";
-pub(crate) const LOG_CROSSING_DECISION_DETOUR: &str = "log.crossing.decision.detour";
 pub(crate) const LOG_TRAVEL_PARTIAL: &str = "log.travel.partial";
 pub(crate) const LOG_TRAVEL_REST_CREDIT: &str = "log.travel.rest-credit";
 pub(crate) const LOG_TRAVEL_DELAY_CREDIT: &str = "log.travel.delay-credit";
-pub(crate) const LOG_TRAVEL_CROSSING_CREDIT: &str = "log.travel.crossing-credit";
 pub(crate) const LOG_ENCOUNTER_ROTATION: &str = "log.encounter.rotation";
 pub(crate) const LOG_TRAVEL_BONUS: &str = "log.travel.bonus";
+pub(crate) const LOG_ENDGAME_ACTIVATE: &str = "log.endgame.activate";
+pub(crate) const LOG_ENDGAME_FIELD_REPAIR: &str = "log.endgame.field-repair";
+pub(crate) const LOG_ENDGAME_FAILURE_GUARD: &str = "log.endgame.guard";
 pub(crate) const LOG_DISEASE_HIT: &str = "log.disease.hit";
 pub(crate) const LOG_DISEASE_TICK: &str = "log.disease.tick";
 pub(crate) const LOG_DISEASE_RECOVER: &str = "log.disease.recover";
@@ -51,7 +52,6 @@ pub(crate) const VEHICLE_HEALTH_MAX: f32 = 100.0;
 pub(crate) const VEHICLE_BREAKDOWN_WEAR: f32 = 6.0;
 pub(crate) const VEHICLE_BREAKDOWN_WEAR_CLASSIC: f32 = 5.0;
 pub(crate) const VEHICLE_EMERGENCY_HEAL: f32 = 10.0;
-pub(crate) const VEHICLE_EMERGENCY_DELAY_DAYS: u32 = 1;
 pub(crate) const VEHICLE_JURY_RIG_HEAL: f32 = 4.0;
 pub(crate) const VEHICLE_CRITICAL_SPEED_FACTOR: f32 = 0.5;
 pub(crate) const VEHICLE_MALNUTRITION_PENALTY_PER_STACK: f32 = 0.05;
@@ -98,22 +98,8 @@ pub(crate) const EXEC_BREAKDOWN_BONUS_CLAMP_MAX: f32 = 0.2;
 
 // Travel parameters --------------------------------------------------------
 pub(crate) const CROSSING_MILESTONES: [f32; 3] = [650.0, 1_250.0, 1_900.0];
-pub(crate) const CROSSING_FAILURE_BASE: f32 = 0.09;
-pub(crate) const CROSSING_FAILURE_DEEP_BONUS: f32 = 0.03;
-pub(crate) const CROSSING_TERMINAL_CLAMP: f32 = 0.12;
-pub(crate) const CROSSING_TERMINAL_RECORD_CLAMP: f32 = 0.15;
-pub(crate) const CROSSING_TERMINAL_NO_BRIBE_PENALTY: f32 = 0.02;
-pub(crate) const CROSSING_BRIBE_MIN_SUCCESS: f32 = 0.05;
-pub(crate) const CROSSING_BRIBE_MAX_SUCCESS: f32 = 0.95;
-pub(crate) const CROSSING_BRIBE_HIGH_CRED_BONUS: f32 = 0.05;
-pub(crate) const CROSSING_BRIBE_HIGH_PANTS_PENALTY: f32 = 0.05;
-pub(crate) const CROSSING_FORCED_BRIDGE_ROLL: f32 = 0.55;
-pub(crate) const CROSSING_TERMINAL_MIN_CLAMP: f32 = 0.10;
-pub(crate) const DETOUR_DAY_RANGE: (u32, u32) = (2, 4);
-pub(crate) const DETOUR_SUPPLY_LOSS_RANGE: (i32, i32) = (2, 4);
 pub(crate) const REST_TRAVEL_CREDIT_MILES: f32 = 12.0;
 pub(crate) const DELAY_TRAVEL_CREDIT_MILES: f32 = 9.0;
-pub(crate) const CROSSING_SUCCESS_CREDIT_MILES: f32 = 16.0;
 pub(crate) const TRAVEL_HISTORY_WINDOW: usize = 10;
 pub(crate) const TRAVEL_PARTIAL_MIN_DISTANCE: f32 = 1.0;
 pub(crate) const TRAVEL_V2_BASE_DISTANCE: f32 = 13.5;
@@ -145,6 +131,7 @@ pub(crate) const DEEP_AGGRESSIVE_BOOSTS: &[(u32, f32, f32)] = &[
     (120, 1_650.0, 1.10),
     (100, 1_400.0, 1.06),
 ];
+pub(crate) const DEEP_AGGRESSIVE_BOSS_BIAS_MILES: f32 = 2_050.0;
 
 pub(crate) const DEEP_BALANCED_TOLERANCE_THRESHOLDS: &[(f32, i32)] = &[(1_950.0, 2), (1_900.0, 1)];
 pub(crate) const DEEP_BALANCED_FAILSAFE_DISTANCE: f32 = 1_950.0;
@@ -157,7 +144,6 @@ pub(crate) const WEATHER_COLD_SNAP_SPEED: f32 = 0.98;
 pub(crate) const WEATHER_STORM_SMOKE_SPEED: f32 = 0.99;
 pub(crate) const WEATHER_HEAT_WAVE_SPEED: f32 = 0.97;
 pub(crate) const WEATHER_DEFAULT_SPEED: f32 = 1.0;
-pub(crate) const RNG_FALLBACK_ROLL: f32 = 1.0;
 pub(crate) const PROBABILITY_FLOOR: f32 = 0.0;
 pub(crate) const PROBABILITY_MAX: f32 = 1.0;
 
@@ -192,7 +178,6 @@ pub(crate) const FLOAT_EPSILON: f64 = 1e-6;
 
 pub(crate) const AGGRESSIVE_STOP_WINDOW_DAYS: usize = 10;
 pub(crate) const AGGRESSIVE_STOP_CAP: usize = 2;
-pub(crate) const AGGRESSIVE_STOP_LOOKBACK: usize = AGGRESSIVE_STOP_WINDOW_DAYS - 1;
 
 pub(crate) const DEEP_AGGRESSIVE_SANITY_DAY: u32 = 130;
 pub(crate) const DEEP_AGGRESSIVE_SANITY_MILES: f32 = 1_800.0;
@@ -216,5 +201,3 @@ pub(crate) const PACE_BREAKDOWN_HEATED: f32 = 1.0;
 pub(crate) const PACE_BREAKDOWN_BLITZ: f32 = 1.10;
 
 pub(crate) const PERMIT_REQUIRED_TAGS: &[&str] = &["permit", "press_pass"];
-pub(crate) const CREDIBILITY_HIGH_THRESHOLD: i32 = 7;
-pub(crate) const PANTS_HIGH_THRESHOLD: i32 = 60;

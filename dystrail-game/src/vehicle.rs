@@ -31,6 +31,12 @@ pub struct Vehicle {
     /// Remaining vehicle health (percentage 0-100)
     #[serde(default = "Vehicle::default_health")]
     pub health: f32,
+    /// Days remaining before natural breakdown rolls resume
+    #[serde(default)]
+    pub breakdown_cooldown: u32,
+    /// Modifier applied to daily wear accumulation
+    #[serde(default = "Vehicle::default_wear_multiplier")]
+    pub wear_multiplier: f32,
 }
 
 impl Default for Vehicle {
@@ -38,6 +44,8 @@ impl Default for Vehicle {
         Self {
             wear: 0.0,
             health: Self::default_health(),
+            breakdown_cooldown: 0,
+            wear_multiplier: Self::default_wear_multiplier(),
         }
     }
 }
@@ -45,6 +53,10 @@ impl Default for Vehicle {
 impl Vehicle {
     const fn default_health() -> f32 {
         100.0
+    }
+
+    const fn default_wear_multiplier() -> f32 {
+        1.0
     }
 
     /// Apply durability damage, clamping at zero.
@@ -66,6 +78,75 @@ impl Vehicle {
     #[must_use]
     pub fn is_critical(&self) -> bool {
         self.health <= 20.0
+    }
+
+    /// Ensure the vehicle retains at least the provided health floor.
+    pub fn ensure_health_floor(&mut self, floor: f32) {
+        if floor <= 0.0 {
+            return;
+        }
+        let capped = floor.min(Self::default_health());
+        if self.health < capped {
+            self.health = capped;
+        }
+    }
+
+    /// Reset vehicle wear to zero.
+    pub fn reset_wear(&mut self) {
+        self.wear = 0.0;
+    }
+
+    /// Set vehicle wear to a specific value, clamped within valid bounds.
+    pub fn set_wear(&mut self, wear: f32) {
+        let clamped = wear.clamp(0.0, Self::default_health());
+        self.wear = clamped;
+    }
+
+    /// Apply wear scaled by the current wear multiplier and return the applied amount.
+    pub fn apply_scaled_wear(&mut self, base: f32) -> f32 {
+        if base <= 0.0 {
+            return 0.0;
+        }
+        let multiplier = self.wear_multiplier.max(0.0);
+        let applied = (base * multiplier).max(0.0);
+        if applied <= 0.0 {
+            return 0.0;
+        }
+        self.wear = (self.wear + applied).min(Self::default_health());
+        self.apply_damage(applied);
+        applied
+    }
+
+    /// Configure a cooldown to suppress breakdown rolls for the provided number of days.
+    pub fn set_breakdown_cooldown(&mut self, days: u32) {
+        self.breakdown_cooldown = days;
+    }
+
+    /// Advance the breakdown cooldown by one day.
+    pub fn tick_breakdown_cooldown(&mut self) {
+        if self.breakdown_cooldown > 0 {
+            self.breakdown_cooldown -= 1;
+        }
+    }
+
+    /// Returns true when breakdown rolls should be suppressed.
+    #[must_use]
+    pub fn breakdown_suppressed(&self) -> bool {
+        self.breakdown_cooldown > 0
+    }
+
+    /// Set the wear multiplier latch. Values below zero are clamped to zero.
+    pub fn set_wear_multiplier(&mut self, multiplier: f32) {
+        if multiplier <= 0.0 {
+            self.wear_multiplier = 0.0;
+        } else {
+            self.wear_multiplier = multiplier;
+        }
+    }
+
+    /// Clear any custom wear multiplier and restore the default setting.
+    pub fn clear_wear_multiplier(&mut self) {
+        self.wear_multiplier = Self::default_wear_multiplier();
     }
 }
 

@@ -1,6 +1,7 @@
 use crate::game::CampConfig;
 use crate::game::boss::BossConfig;
 use crate::game::data::EncounterData;
+use crate::game::endgame::EndgameTravelCfg;
 use crate::game::pacing::PacingConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{DietId, GameMode, GameState, PaceId, Region};
@@ -46,6 +47,7 @@ pub fn app_inner() -> Html {
     let code_valid = use_state(|| true);
     let data = use_state(EncounterData::empty);
     let pacing_config = use_state(PacingConfig::default_config);
+    let endgame_config = use_state(EndgameTravelCfg::default_config);
     let weather_config = use_state(WeatherConfig::default_config);
     let camp_config = use_state(CampConfig::default_config);
     let boss_config = use_state(BossConfig::load_from_static);
@@ -95,6 +97,7 @@ pub fn app_inner() -> Html {
         let phase = phase.clone();
         let data = data.clone();
         let pacing_config = pacing_config.clone();
+        let endgame_config = endgame_config.clone();
         let weather_config = weather_config.clone();
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
@@ -102,11 +105,13 @@ pub fn app_inner() -> Html {
             wasm_bindgen_futures::spawn_local(async move {
                 let loaded_data = EncounterData::load_from_static();
                 let loaded_pacing = PacingConfig::load_from_static();
+                let loaded_endgame = EndgameTravelCfg::default_config();
                 let loaded_weather = WeatherConfig::load_from_static();
                 let loaded_camp = CampConfig::load_from_static();
                 let loaded_result = load_result_config().unwrap_or_default();
                 data.set(loaded_data);
                 pacing_config.set(loaded_pacing);
+                endgame_config.set(loaded_endgame);
                 weather_config.set(loaded_weather);
                 camp_config.set(loaded_camp);
                 result_config.set(loaded_result);
@@ -217,11 +222,12 @@ pub fn app_inner() -> Html {
         let logs = logs.clone();
         let phase = phase.clone();
         let pacing_cfg = (*pacing_config).clone();
+        let endgame_cfg = (*endgame_config).clone();
         Callback::from(move |()| {
             if let Some(mut gs) = (*state).clone() {
                 // Apply pace and diet effects before traveling
                 gs.apply_pace_and_diet(&pacing_cfg);
-                let (ended, info_key, _) = gs.travel_next_leg();
+                let (ended, info_key, _) = gs.travel_next_leg(&endgame_cfg);
                 let mut lg = (*logs).clone();
                 lg.push(crate::i18n::t(&info_key));
                 if ended || gs.stats.pants >= 100 {

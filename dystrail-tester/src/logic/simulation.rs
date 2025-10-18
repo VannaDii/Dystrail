@@ -1,6 +1,7 @@
 use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
+use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::{GameMode, GameState, PaceId};
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
@@ -54,7 +55,7 @@ pub struct TurnOutcome {
     pub breakdown_started: bool,
     pub game_ended: bool,
     pub decision: Option<DecisionRecord>,
-    pub distance_traveled_actual: f32,
+    pub miles_traveled_actual: f32,
 }
 
 /// Core deterministic simulation harness used by the tester.
@@ -62,6 +63,7 @@ pub struct SimulationSession {
     state: GameState,
     pacing_config: PacingConfig,
     camp_config: CampConfig,
+    endgame_config: EndgameTravelCfg,
     boss_config: BossConfig,
     max_days: u32,
     strategy: GameplayStrategy,
@@ -81,6 +83,7 @@ impl SimulationSession {
         encounters: EncounterData,
         pacing_config: PacingConfig,
         camp_config: CampConfig,
+        endgame_config: EndgameTravelCfg,
         boss_config: BossConfig,
     ) -> Self {
         let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
@@ -89,6 +92,7 @@ impl SimulationSession {
             state,
             pacing_config,
             camp_config,
+            endgame_config,
             boss_config,
             max_days: config.max_days,
             strategy: config.strategy,
@@ -139,7 +143,7 @@ impl SimulationSession {
                 breakdown_started: false,
                 game_ended,
                 decision: None,
-                distance_traveled_actual: self.state.distance_traveled_actual,
+                miles_traveled_actual: self.state.miles_traveled_actual,
             };
         }
 
@@ -158,7 +162,7 @@ impl SimulationSession {
                     breakdown_started: false,
                     game_ended,
                     decision: None,
-                    distance_traveled_actual: self.state.distance_traveled_actual,
+                    miles_traveled_actual: self.state.miles_traveled_actual,
                 };
             }
         }
@@ -196,7 +200,8 @@ impl SimulationSession {
             self.state.apply_choice(safe_index);
         }
 
-        let (mut game_ended, mut travel_message, breakdown_started) = self.state.travel_next_leg();
+        let (mut game_ended, mut travel_message, breakdown_started) =
+            self.state.travel_next_leg(&self.endgame_config);
         if !game_ended && self.state.day >= self.max_days {
             game_ended = true;
             travel_message = String::from("Max days reached");
@@ -221,7 +226,7 @@ impl SimulationSession {
             breakdown_started,
             game_ended,
             decision,
-            distance_traveled_actual: self.state.distance_traveled_actual,
+            miles_traveled_actual: self.state.miles_traveled_actual,
         }
     }
 
@@ -233,9 +238,8 @@ impl SimulationSession {
             | GameplayStrategy::MonteCarlo => {
                 let healthy = state.stats.hp >= 8 && state.stats.sanity >= 7;
                 let supplies_ok = state.stats.supplies >= 6;
-                let no_delays = state.pending_delay_days == 0 && state.delay_partial_days == 0;
                 let illness_active = state.illness_travel_penalty < 0.99;
-                if healthy && supplies_ok && no_delays && !illness_active {
+                if healthy && supplies_ok && !illness_active {
                     if matches!(state.pace, PaceId::Steady) {
                         state.pace = PaceId::Heated;
                     }
@@ -277,7 +281,7 @@ impl SimulationSession {
                         let travel_ratio = f64::from(state.travel_ratio_recent(10));
                         let days_survived = state.day.saturating_sub(1).max(1);
                         let avg_mpd =
-                            f64::from(state.distance_traveled_actual) / f64::from(days_survived);
+                            f64::from(state.miles_traveled_actual) / f64::from(days_survived);
                         if travel_ratio < 0.90_f64 || avg_mpd < 11.5_f64 {
                             let severe = travel_ratio < 0.85_f64 || avg_mpd < 10.8_f64;
                             self.conservative_heat_days = if severe { 5 } else { 3 };

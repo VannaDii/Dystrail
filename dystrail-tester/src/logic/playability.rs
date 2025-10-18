@@ -1,5 +1,5 @@
 use anyhow::{Context, Result, ensure};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::convert::TryFrom;
 
 use crate::common::scenario::full_game::{
@@ -47,6 +47,10 @@ pub struct PlayabilityAggregate {
     pub crossing_bribe_success_rate: f64,
     pub mean_crossing_detours: f64,
     pub crossing_failure_rate: f64,
+    pub mean_stop_cap_conversions: f64,
+    pub endgame_activation_rate: f64,
+    pub endgame_field_repair_rate: f64,
+    pub mean_endgame_cooldown: f64,
 }
 
 fn push_limited_warn(
@@ -79,70 +83,153 @@ fn emit_record_warnings(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<S
         );
     }
 
-    if record.scenario_name == "Deep - Conservative" {
-        if !record.metrics.reached_2000_by_day150 {
-            push_limited_warn(
-                warn_counts,
-                &format!("{}::deep_conservative_2k", record.scenario_name),
-                5,
-                || {
-                    format!(
-                        "WARN: Deep Conservative seed {} failed ≥2k@150",
-                        record.seed_code
-                    )
-                },
-            );
-        }
-        if record.metrics.final_pants >= 100 {
-            push_limited_warn(
-                warn_counts,
-                &format!("{}::deep_conservative_pants", record.scenario_name),
-                3,
-                || {
-                    format!(
-                        "WARN: Deep Conservative seed {} ended via pants emergency",
-                        record.seed_code
-                    )
-                },
-            );
-        }
-        if record.metrics.unique_per_20_days < 1.60 {
-            push_limited_warn(
-                warn_counts,
-                &format!("{}::deep_conservative_unique", record.scenario_name),
-                3,
-                || {
-                    format!(
-                        "WARN: Deep Conservative seed {} unique encounters per 20d {:.2} < 1.60",
-                        record.seed_code, record.metrics.unique_per_20_days
-                    )
-                },
-            );
-        }
+    warn_deep_conservative(record, warn_counts);
+    warn_deep_aggressive(record, warn_counts);
+    warn_crossing_anomalies(record, warn_counts);
+}
+
+fn warn_deep_conservative(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
+    if record.scenario_name != "Deep - Conservative" {
+        return;
     }
 
-    if record.scenario_name == "Deep - Aggressive" {
-        if !record.metrics.boss_reached {
+    if !record.metrics.reached_2000_by_day150 {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::deep_conservative_2k", record.scenario_name),
+            5,
+            || {
+                format!(
+                    "WARN: Deep Conservative seed {} failed ≥2k@150",
+                    record.seed_code
+                )
+            },
+        );
+    }
+    if record.metrics.final_pants >= 100 {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::deep_conservative_pants", record.scenario_name),
+            3,
+            || {
+                format!(
+                    "WARN: Deep Conservative seed {} ended via pants emergency",
+                    record.seed_code
+                )
+            },
+        );
+    }
+    if record.metrics.unique_per_20_days < 1.60 {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::deep_conservative_unique", record.scenario_name),
+            3,
+            || {
+                format!(
+                    "WARN: Deep Conservative seed {} unique encounters per 20d {:.2} < 1.60",
+                    record.seed_code, record.metrics.unique_per_20_days
+                )
+            },
+        );
+    }
+}
+
+fn warn_deep_aggressive(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
+    if record.scenario_name != "Deep - Aggressive" {
+        return;
+    }
+
+    if !record.metrics.boss_reached {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::deep_aggressive_reach", record.scenario_name),
+            5,
+            || {
+                format!(
+                    "WARN: Deep Aggressive seed {} failed to reach the boss",
+                    record.seed_code
+                )
+            },
+        );
+    } else if !record.metrics.boss_won {
+        push_limited_warn(
+            warn_counts,
+            &format!("{}::deep_aggressive_win", record.scenario_name),
+            5,
+            || {
+                format!(
+                    "WARN: Deep Aggressive seed {} reached boss but did not win",
+                    record.seed_code
+                )
+            },
+        );
+    }
+}
+
+fn warn_crossing_anomalies(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
+    for (idx, event) in record.metrics.crossing_events.iter().enumerate() {
+        if event.bribe_attempted && event.bribe_success.is_none() {
             push_limited_warn(
                 warn_counts,
-                &format!("{}::deep_aggressive_reach", record.scenario_name),
-                5,
+                &format!("{}::crossing{}_bribe_missing", record.scenario_name, idx),
+                2,
                 || {
                     format!(
-                        "WARN: Deep Aggressive seed {} failed to reach the boss",
-                        record.seed_code
+                        "WARN: {} seed {} crossing {} missing bribe outcome despite attempt",
+                        record.scenario_name, record.seed_code, idx
                     )
                 },
             );
-        } else if !record.metrics.boss_won {
+        }
+        if !event.bribe_attempted && event.bribe_success.is_some() {
             push_limited_warn(
                 warn_counts,
-                &format!("{}::deep_aggressive_win", record.scenario_name),
-                5,
+                &format!("{}::crossing{}_bribe_spurious", record.scenario_name, idx),
+                2,
                 || {
                     format!(
-                        "WARN: Deep Aggressive seed {} reached boss but did not win",
-                        record.seed_code
+                        "WARN: {} seed {} crossing {} reported bribe success without attempt",
+                        record.scenario_name, record.seed_code, idx
+                    )
+                },
+            );
+        }
+        let is_detoured = matches!(event.outcome, CrossingOutcomeTelemetry::Detoured);
+        if event.detour_taken && !is_detoured {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::crossing{}_detour_mismatch", record.scenario_name, idx),
+                2,
+                || {
+                    format!(
+                        "WARN: {} seed {} crossing {} flagged detour but outcome {:?}",
+                        record.scenario_name, record.seed_code, idx, event.outcome
+                    )
+                },
+            );
+        }
+        if is_detoured && !event.detour_taken {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::crossing{}_detour_missing", record.scenario_name, idx),
+                2,
+                || {
+                    format!(
+                        "WARN: {} seed {} crossing {} outcome detoured without detour flag",
+                        record.scenario_name, record.seed_code, idx
+                    )
+                },
+            );
+        }
+        if matches!(event.outcome, CrossingOutcomeTelemetry::Failed) && event.detour_taken {
+            push_limited_warn(
+                warn_counts,
+                &format!("{}::crossing{}_failure_detour", record.scenario_name, idx),
+                2,
+                || {
+                    format!(
+                        "WARN: {} seed {} crossing {} recorded failure with detour flag",
+                        record.scenario_name, record.seed_code, idx
                     )
                 },
             );
@@ -157,6 +244,40 @@ fn emit_aggregate_warnings(aggregates: &[PlayabilityAggregate]) {
                 "WARN: {} crossing bribe success {:.1}% ≤ 70%",
                 agg.scenario_name,
                 agg.crossing_bribe_success_rate * 100.0
+            );
+        }
+        if agg.mean_stop_cap_conversions > 1.2 {
+            println!(
+                "WARN: {} average stop-cap conversions {:.2} > 1.2",
+                agg.scenario_name, agg.mean_stop_cap_conversions
+            );
+        }
+        if agg.mode == GameMode::Deep
+            && matches!(agg.strategy, GameplayStrategy::Aggressive)
+            && agg.endgame_field_repair_rate < 1.0
+        {
+            println!(
+                "WARN: {} field repair only triggered {:.1}% of runs",
+                agg.scenario_name,
+                agg.endgame_field_repair_rate * 100.0
+            );
+        }
+        if agg.endgame_activation_rate == 0.0
+            && agg.mode == GameMode::Deep
+            && matches!(
+                agg.strategy,
+                GameplayStrategy::Balanced | GameplayStrategy::Aggressive
+            )
+        {
+            println!(
+                "WARN: {} endgame controller never activated",
+                agg.scenario_name
+            );
+        }
+        if agg.mean_endgame_cooldown > 0.0 {
+            println!(
+                "WARN: {} average endgame cooldown {:.2} days remaining",
+                agg.scenario_name, agg.mean_endgame_cooldown
             );
         }
     }
@@ -182,6 +303,16 @@ fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
         agg.mean_unique_per_20 >= 2.0,
         "Classic Balanced mean unique encounters per 20 days {:.2} below 2.0 target",
         agg.mean_unique_per_20
+    );
+    ensure!(
+        agg.mean_miles >= 1_950.0,
+        "Classic Balanced average mileage {:.0} below 1950 mi goal",
+        agg.mean_miles
+    );
+    ensure!(
+        agg.mean_travel_ratio >= 0.88,
+        "Classic Balanced travel ratio {:.1}% below 88% target",
+        agg.mean_travel_ratio * 100.0
     );
     ensure!(
         agg.pct_reached_2k_by_150 >= 0.25,
@@ -346,6 +477,19 @@ pub fn validate_playability_targets(
     aggregates: &[PlayabilityAggregate],
     records: &[PlayabilityRecord],
 ) -> Result<()> {
+    for record in records {
+        ensure!(
+            !record
+                .metrics
+                .ending_type
+                .to_lowercase()
+                .contains("vehicle"),
+            "Vehicle failure observed for scenario {} seed {}",
+            record.scenario_name,
+            record.seed_code
+        );
+    }
+
     let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
     validate_classic_balanced(classic_balanced)?;
 
@@ -381,6 +525,31 @@ pub fn validate_playability_targets(
             record.scenario_name,
             record.seed_code
         );
+    }
+
+    ensure_crossing_consistency(records)?;
+
+    Ok(())
+}
+
+fn ensure_crossing_consistency(records: &[PlayabilityRecord]) -> Result<()> {
+    let mut scenario_outcomes: BTreeMap<&str, HashMap<usize, HashSet<CrossingOutcomeTelemetry>>> =
+        BTreeMap::new();
+
+    for record in records {
+        let entry = scenario_outcomes.entry(&record.scenario_name).or_default();
+        for (idx, event) in record.metrics.crossing_events.iter().enumerate() {
+            entry.entry(idx).or_default().insert(event.outcome);
+        }
+    }
+
+    for (scenario, outcome_map) in scenario_outcomes {
+        for (idx, outcomes) in outcome_map {
+            ensure!(
+                outcomes.len() <= 1,
+                "Crossing index {idx} in scenario {scenario} produced mixed outcomes {outcomes:?}",
+            );
+        }
     }
 
     Ok(())
@@ -573,6 +742,10 @@ struct AggregateBuilder {
     crossing_bribe_success_sum: u32,
     crossing_detour_sum: u32,
     crossing_failure_sum: u32,
+    stop_cap_sum: u32,
+    endgame_active_runs: u32,
+    endgame_field_repair_runs: u32,
+    endgame_cooldown_sum: u32,
 }
 
 impl AggregateBuilder {
@@ -599,6 +772,10 @@ impl AggregateBuilder {
             crossing_bribe_success_sum: 0,
             crossing_detour_sum: 0,
             crossing_failure_sum: 0,
+            stop_cap_sum: 0,
+            endgame_active_runs: 0,
+            endgame_field_repair_runs: 0,
+            endgame_cooldown_sum: 0,
         }
     }
 
@@ -643,6 +820,18 @@ impl AggregateBuilder {
         self.crossing_failure_sum = self
             .crossing_failure_sum
             .saturating_add(metrics.crossing_failures);
+        self.stop_cap_sum = self
+            .stop_cap_sum
+            .saturating_add(metrics.stop_cap_conversions);
+        if metrics.endgame_active {
+            self.endgame_active_runs = self.endgame_active_runs.saturating_add(1);
+        }
+        if metrics.endgame_field_repair_used {
+            self.endgame_field_repair_runs = self.endgame_field_repair_runs.saturating_add(1);
+        }
+        self.endgame_cooldown_sum = self
+            .endgame_cooldown_sum
+            .saturating_add(metrics.endgame_cooldown_days);
     }
 
     fn finish(self) -> PlayabilityAggregate {
@@ -694,6 +883,10 @@ impl AggregateBuilder {
             } else {
                 f64::from(self.crossing_failure_sum) / f64::from(self.crossing_events_sum)
             },
+            mean_stop_cap_conversions: f64::from(self.stop_cap_sum) / denom,
+            endgame_activation_rate: f64::from(self.endgame_active_runs) / denom,
+            endgame_field_repair_rate: f64::from(self.endgame_field_repair_runs) / denom,
+            mean_endgame_cooldown: f64::from(self.endgame_cooldown_sum) / denom,
         }
     }
 }

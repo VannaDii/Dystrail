@@ -8,6 +8,7 @@ use anyhow::Result;
 use dystrail_game::boss::BossConfig;
 use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
+use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::{CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season};
@@ -38,6 +39,7 @@ struct TesterAssets {
     camp_config: CampConfig,
     boss_config: BossConfig,
     weather_config: WeatherConfig,
+    endgame_config: EndgameTravelCfg,
 }
 
 impl TesterAssets {
@@ -51,6 +53,8 @@ impl TesterAssets {
         let boss_config = Self::load_boss_from_assets().unwrap_or_default();
         let weather_config =
             Self::load_weather_from_assets().unwrap_or_else(WeatherConfig::default_config);
+        let endgame_config =
+            Self::load_endgame_from_assets().unwrap_or_else(EndgameTravelCfg::default_config);
 
         Self {
             encounter_data,
@@ -60,6 +64,7 @@ impl TesterAssets {
             camp_config,
             boss_config,
             weather_config,
+            endgame_config,
         }
     }
 
@@ -122,6 +127,12 @@ impl TesterAssets {
     fn load_weather_from_assets() -> Option<WeatherConfig> {
         let base = Self::assets_data_root();
         let json = fs::read_to_string(base.join("weather.json")).ok()?;
+        serde_json::from_str(&json).ok()
+    }
+
+    fn load_endgame_from_assets() -> Option<EndgameTravelCfg> {
+        let base = Self::assets_data_root();
+        let json = fs::read_to_string(base.join("endgame.json")).ok()?;
         serde_json::from_str(&json).ok()
     }
 
@@ -727,6 +738,7 @@ impl GameTester {
             self.assets.encounter_data.clone(),
             self.assets.pacing_config.clone(),
             self.assets.camp_config.clone(),
+            self.assets.endgame_config.clone(),
             self.assets.boss_config.clone(),
         );
 
@@ -865,6 +877,7 @@ fn format_cents(cents: i64) -> String {
 }
 
 /// Aggregated analytics produced by a simulation run.
+#[allow(clippy::struct_excessive_bools)]
 #[derive(Debug, Clone)]
 pub struct PlayabilityMetrics {
     pub days_survived: i32,
@@ -905,6 +918,11 @@ pub struct PlayabilityMetrics {
     pub crossing_bribe_successes: u32,
     pub crossing_detours_taken: u32,
     pub crossing_failures: u32,
+    pub day_reason_history: Vec<String>,
+    pub endgame_active: bool,
+    pub endgame_field_repair_used: bool,
+    pub endgame_cooldown_days: u32,
+    pub stop_cap_conversions: u32,
     encounter_ids: HashSet<String>,
 }
 
@@ -949,6 +967,11 @@ impl Default for PlayabilityMetrics {
             crossing_bribe_successes: 0,
             crossing_detours_taken: 0,
             crossing_failures: 0,
+            day_reason_history: Vec::new(),
+            endgame_active: false,
+            endgame_field_repair_used: false,
+            endgame_cooldown_days: 0,
+            stop_cap_conversions: 0,
             encounter_ids: HashSet::new(),
         }
     }
@@ -963,7 +986,7 @@ impl PlayabilityMetrics {
         }
 
         if !self.reached_2000_by_day150
-            && outcome.distance_traveled_actual >= MILESTONE_MILES
+            && outcome.miles_traveled_actual >= MILESTONE_MILES
             && outcome.day <= MILESTONE_DAY_LIMIT
         {
             self.reached_2000_by_day150 = true;
@@ -1017,17 +1040,17 @@ impl PlayabilityMetrics {
         self.ending_cause = cause;
         self.boss_won = state.boss_victory;
         self.boss_reached = state.boss_reached;
-        self.miles_traveled = if state.distance_traveled_actual > 0.0 {
-            state.distance_traveled_actual
+        self.miles_traveled = if state.miles_traveled_actual > 0.0 {
+            state.miles_traveled_actual
         } else {
-            state.distance_traveled
+            state.miles_traveled
         };
         self.travel_days = state.travel_days;
         self.partial_travel_days = state.partial_travel_days;
         self.non_travel_days = state.non_travel_days;
         self.avg_miles_per_day = if state.travel_days > 0 {
             let days = state.travel_days.max(1);
-            f64::from(state.distance_traveled_actual) / f64::from(days)
+            f64::from(state.miles_traveled_actual) / f64::from(days)
         } else {
             0.0
         };
@@ -1044,10 +1067,23 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
-        let total_days = self
-            .travel_days
-            .saturating_add(self.partial_travel_days)
-            .saturating_add(self.non_travel_days);
+        self.day_reason_history
+            .clone_from(&state.day_reason_history);
+        self.stop_cap_conversions = u32::try_from(
+            self.day_reason_history
+                .iter()
+                .filter(|reason| reason.split(';').any(|tag| tag == "stop_cap"))
+                .count(),
+        )
+        .unwrap_or(0);
+        self.endgame_active = state.endgame.active;
+        self.endgame_field_repair_used = state.endgame.field_repair_used;
+        self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
+        let total_days = u32::try_from(self.day_reason_history.len()).unwrap_or_else(|_| {
+            self.travel_days
+                .saturating_add(self.partial_travel_days)
+                .saturating_add(self.non_travel_days)
+        });
         if total_days > 0 {
             self.travel_ratio =
                 f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
@@ -1077,17 +1113,17 @@ impl PlayabilityMetrics {
         self.final_budget_cents = state.budget_cents;
         self.boss_reached = state.boss_reached;
         self.boss_won = state.boss_victory;
-        self.miles_traveled = if state.distance_traveled_actual > 0.0 {
-            state.distance_traveled_actual
+        self.miles_traveled = if state.miles_traveled_actual > 0.0 {
+            state.miles_traveled_actual
         } else {
-            state.distance_traveled
+            state.miles_traveled
         };
         self.travel_days = state.travel_days;
         self.partial_travel_days = state.partial_travel_days;
         self.non_travel_days = state.non_travel_days;
         self.avg_miles_per_day = if state.travel_days > 0 {
             let days = state.travel_days.max(1);
-            f64::from(state.distance_traveled_actual) / f64::from(days)
+            f64::from(state.miles_traveled_actual) / f64::from(days)
         } else {
             0.0
         };
@@ -1104,10 +1140,23 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
-        let total_days = self
-            .travel_days
-            .saturating_add(self.partial_travel_days)
-            .saturating_add(self.non_travel_days);
+        self.day_reason_history
+            .clone_from(&state.day_reason_history);
+        self.stop_cap_conversions = u32::try_from(
+            self.day_reason_history
+                .iter()
+                .filter(|reason| reason.split(';').any(|tag| tag == "stop_cap"))
+                .count(),
+        )
+        .unwrap_or(0);
+        self.endgame_active = state.endgame.active;
+        self.endgame_field_repair_used = state.endgame.field_repair_used;
+        self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
+        let total_days = u32::try_from(self.day_reason_history.len()).unwrap_or_else(|_| {
+            self.travel_days
+                .saturating_add(self.partial_travel_days)
+                .saturating_add(self.non_travel_days)
+        });
         if total_days > 0 {
             self.travel_ratio =
                 f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
@@ -1127,7 +1176,7 @@ impl PlayabilityMetrics {
         .unwrap_or(u32::MAX);
         self.capture_crossing_telemetry(state);
         if !self.reached_2000_by_day150
-            && state.distance_traveled_actual >= MILESTONE_MILES
+            && state.miles_traveled_actual >= MILESTONE_MILES
             && state.day <= MILESTONE_DAY_LIMIT
         {
             self.reached_2000_by_day150 = true;
@@ -1140,7 +1189,7 @@ impl PlayabilityMetrics {
                 breakdown_started: false,
                 game_ended: false,
                 decision: None,
-                distance_traveled_actual: state.distance_traveled_actual,
+                miles_traveled_actual: state.miles_traveled_actual,
             },
         );
         self.ending_type = ending;
@@ -1291,13 +1340,13 @@ mod tests {
     }
 
     #[test]
-    fn miles_reflect_distance_traveled() {
+    fn miles_reflect_miles_traveled() {
         let tester = GameTester::try_new(false);
         let plan =
             SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(5);
         let summary = tester.run_plan(&plan, 2024);
         let metrics = summary.metrics;
-        let actual = summary.final_state.distance_traveled_actual;
+        let actual = summary.final_state.miles_traveled_actual;
         assert!(metrics.miles_traveled > 0.0);
         assert!(metrics.miles_traveled < summary.final_state.trail_distance);
         let diff = (metrics.miles_traveled - actual).abs();
@@ -1321,7 +1370,7 @@ mod tests {
             breakdown_started: false,
             game_ended: true,
             decision: None,
-            distance_traveled_actual: state.distance_traveled_actual,
+            miles_traveled_actual: state.miles_traveled_actual,
         };
 
         metrics.finalize(&state, &outcome);
@@ -1331,7 +1380,7 @@ mod tests {
         let attempted_state = GameState {
             boss_attempted: true,
             boss_reached: true,
-            distance_traveled_actual: 1500.0,
+            miles_traveled_actual: 1500.0,
             ..GameState::default()
         };
         let mut attempted_metrics = PlayabilityMetrics::default();

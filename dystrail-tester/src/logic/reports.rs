@@ -268,14 +268,14 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures,day_reason_history,endgame_active,endgame_field_repair_used,endgame_cooldown_days,stop_cap_conversions"
     )?;
 
     for record in records {
         let metrics = &record.metrics;
         let strategy = record.strategy.to_string();
 
-        let mut row = Vec::with_capacity(42);
+        let mut row = Vec::with_capacity(47);
         row.push(quote(&record.scenario_name));
         row.push(quote(mode_label(record.mode)));
         row.push(quote(&strategy));
@@ -318,6 +318,11 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
         row.push(metrics.crossing_bribe_successes.to_string());
         row.push(metrics.crossing_detours_taken.to_string());
         row.push(metrics.crossing_failures.to_string());
+        row.push(quote(&metrics.day_reason_history.join("|")));
+        row.push(metrics.endgame_active.to_string());
+        row.push(metrics.endgame_field_repair_used.to_string());
+        row.push(metrics.endgame_cooldown_days.to_string());
+        row.push(metrics.stop_cap_conversions.to_string());
         writeln!(writer, "{}", row.join(","))?;
     }
 

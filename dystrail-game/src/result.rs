@@ -175,7 +175,7 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
         credibility: gs.stats.credibility,
         pants_pct: gs.stats.pants,
         vehicle_breakdowns: gs.vehicle_breakdowns,
-        miles_traveled: gs.distance_traveled_actual,
+        miles_traveled: gs.miles_traveled_actual,
         malnutrition_days: gs.starvation_days,
         ending_cause: ending_cause_token,
     })

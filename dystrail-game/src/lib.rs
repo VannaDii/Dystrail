@@ -9,6 +9,7 @@ pub mod constants;
 pub mod crossings;
 pub mod data;
 pub mod encounters;
+pub mod endgame;
 pub mod exec_orders;
 pub mod pacing;
 pub mod personas;
@@ -30,6 +31,7 @@ pub use crossings::{
     apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
+pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
 pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};
