@@ -79,10 +79,7 @@ impl GameStorage for WebGameStorage {
 
     fn load_game(&self, save_name: &str) -> Result<Option<dystrail_game::GameState>, Self::Error> {
         let key = format!("dystrail.save.{save_name}");
-        match LocalStorage::get(&key) {
-            Ok(game_state) => Ok(Some(game_state)),
-            Err(_) => Ok(None), // No save found
-        }
+        LocalStorage::get(&key).map_or_else(|_| Ok(None), |game_state| Ok(Some(game_state)))
     }
 
     fn delete_save(&self, save_name: &str) -> Result<(), Self::Error> {
@@ -94,6 +91,6 @@ impl GameStorage for WebGameStorage {
 
 /// Create a web-compatible game engine with `WebDataLoader` and `WebGameStorage`
 #[must_use]
-pub fn create_web_game_engine() -> dystrail_game::GameEngine<WebDataLoader, WebGameStorage> {
+pub const fn create_web_game_engine() -> dystrail_game::GameEngine<WebDataLoader, WebGameStorage> {
     dystrail_game::GameEngine::new(WebDataLoader, WebGameStorage)
 }

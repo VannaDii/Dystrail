@@ -26,28 +26,29 @@ pub enum Weather {
 impl Weather {
     /// Check if weather is considered extreme (streak-limited)
     #[must_use]
-    pub fn is_extreme(self) -> bool {
-        matches!(self, Weather::Storm | Weather::HeatWave | Weather::Smoke)
+    pub const fn is_extreme(self) -> bool {
+        matches!(self, Self::Storm | Self::HeatWave | Self::Smoke)
     }
 
     /// Get i18n key for weather state name
     #[must_use]
-    pub fn i18n_key(self) -> &'static str {
+    pub const fn i18n_key(self) -> &'static str {
         match self {
-            Weather::Clear => "weather.states.Clear",
-            Weather::Storm => "weather.states.Storm",
-            Weather::HeatWave => "weather.states.HeatWave",
-            Weather::ColdSnap => "weather.states.ColdSnap",
-            Weather::Smoke => "weather.states.Smoke",
+            Self::Clear => "weather.states.Clear",
+            Self::Storm => "weather.states.Storm",
+            Self::HeatWave => "weather.states.HeatWave",
+            Self::ColdSnap => "weather.states.ColdSnap",
+            Self::Smoke => "weather.states.Smoke",
         }
     }
 }
 
-fn default_travel_mult() -> f32 {
+const fn default_travel_mult() -> f32 {
     1.0
 }
 
 /// Daily effects from weather conditions
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherEffect {
     pub supplies: i32,
@@ -59,6 +60,7 @@ pub struct WeatherEffect {
 }
 
 /// Gear-based mitigation for weather effects
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherMitigation {
     pub tag: String,
@@ -69,12 +71,14 @@ pub struct WeatherMitigation {
 }
 
 /// Executive order modifiers for weather encounters
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ExecWeatherMod {
     pub enc_delta: f32,
 }
 
 /// Configuration limits for weather system
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherLimits {
     pub max_extreme_streak: i32,
@@ -84,6 +88,7 @@ pub struct WeatherLimits {
 }
 
 /// Complete weather system configuration
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherConfig {
     pub limits: WeatherLimits,
@@ -124,7 +129,7 @@ impl WeatherConfig {
     ///
     /// Returns an error if the JSON string cannot be parsed or if validation fails.
     pub fn from_json(json_str: &str) -> Result<Self, String> {
-        let config: WeatherConfig =
+        let config: Self =
             serde_json::from_str(json_str).map_err(|e| format!("JSON parse error: {e}"))?;
         config.validate()?;
         Ok(config)
@@ -447,17 +452,17 @@ fn pick_neutral_weather<R: Rng>(
     let total: u32 = neutral_options.iter().map(|(_, weight)| *weight).sum();
 
     if total == 0 {
-        Weather::Clear
-    } else {
-        let mut roll = rng.random_range(0..total);
-        for (weather, weight) in neutral_options {
-            if roll < weight {
-                return weather;
-            }
-            roll -= weight;
-        }
-        Weather::Clear
+        return Weather::Clear;
     }
+
+    let mut roll = rng.random_range(0..total);
+    for (weather, weight) in neutral_options {
+        if roll < weight {
+            return weather;
+        }
+        roll -= weight;
+    }
+    Weather::Clear
 }
 
 fn apply_neutral_buffer<R: Rng>(
@@ -554,31 +559,32 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
             gs.exposure_streak_cold = 0;
         }
 
-        let mut next_lockout = false;
-
-        if cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout {
+        let cold_trigger =
+            cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout;
+        if cold_trigger {
             hp_damage = 1;
             gs.mark_damage(DamageCause::ExposureCold);
             gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
             exposure_kind = Some(ExposureKind::Cold);
-            next_lockout = true;
         }
 
-        if heat_conditions {
+        let heat_trigger = if heat_conditions {
             gs.stats.sanity -= 1;
-            if gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout {
-                hp_damage = 1;
-                gs.mark_damage(DamageCause::ExposureHeat);
-                gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
-                exposure_kind = Some(ExposureKind::Heat);
-                next_lockout = true;
-            }
+            gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout
+        } else {
+            false
+        };
+        if heat_trigger {
+            hp_damage = 1;
+            gs.mark_damage(DamageCause::ExposureHeat);
+            gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+            exposure_kind = Some(ExposureKind::Heat);
         }
 
         if gs.exposure_damage_lockout && hp_damage == 0 {
             gs.exposure_damage_lockout = false;
         } else {
-            gs.exposure_damage_lockout = next_lockout;
+            gs.exposure_damage_lockout = cold_trigger || heat_trigger;
         }
     } else {
         if cold_conditions {

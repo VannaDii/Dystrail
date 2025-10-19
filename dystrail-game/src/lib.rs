@@ -8,6 +8,7 @@ pub mod camp;
 pub mod constants;
 pub mod crossings;
 pub mod data;
+pub mod day_accounting;
 pub mod encounters;
 pub mod endgame;
 pub mod exec_orders;
@@ -31,6 +32,7 @@ pub use crossings::{
     apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
+pub use day_accounting::TravelDayKind;
 pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
@@ -111,7 +113,7 @@ where
     S: GameStorage,
 {
     /// Create a new game engine with the provided data loader and storage
-    pub fn new(data_loader: L, storage: S) -> Self {
+    pub const fn new(data_loader: L, storage: S) -> Self {
         Self {
             data_loader,
             storage,

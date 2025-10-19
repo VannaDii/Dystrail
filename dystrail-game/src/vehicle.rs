@@ -13,12 +13,12 @@ pub enum Part {
 impl Part {
     /// Get the translation key for this part
     #[must_use]
-    pub fn key(self) -> &'static str {
+    pub const fn key(self) -> &'static str {
         match self {
-            Part::Tire => "vehicle.parts.tire",
-            Part::Battery => "vehicle.parts.battery",
-            Part::Alternator => "vehicle.parts.alt",
-            Part::FuelPump => "vehicle.parts.pump",
+            Self::Tire => "vehicle.parts.tire",
+            Self::Battery => "vehicle.parts.battery",
+            Self::Alternator => "vehicle.parts.alt",
+            Self::FuelPump => "vehicle.parts.pump",
         }
     }
 }
@@ -92,12 +92,12 @@ impl Vehicle {
     }
 
     /// Reset vehicle wear to zero.
-    pub fn reset_wear(&mut self) {
+    pub const fn reset_wear(&mut self) {
         self.wear = 0.0;
     }
 
     /// Set vehicle wear to a specific value, clamped within valid bounds.
-    pub fn set_wear(&mut self, wear: f32) {
+    pub const fn set_wear(&mut self, wear: f32) {
         let clamped = wear.clamp(0.0, Self::default_health());
         self.wear = clamped;
     }
@@ -118,12 +118,12 @@ impl Vehicle {
     }
 
     /// Configure a cooldown to suppress breakdown rolls for the provided number of days.
-    pub fn set_breakdown_cooldown(&mut self, days: u32) {
+    pub const fn set_breakdown_cooldown(&mut self, days: u32) {
         self.breakdown_cooldown = days;
     }
 
     /// Advance the breakdown cooldown by one day.
-    pub fn tick_breakdown_cooldown(&mut self) {
+    pub const fn tick_breakdown_cooldown(&mut self) {
         if self.breakdown_cooldown > 0 {
             self.breakdown_cooldown -= 1;
         }
@@ -131,7 +131,7 @@ impl Vehicle {
 
     /// Returns true when breakdown rolls should be suppressed.
     #[must_use]
-    pub fn breakdown_suppressed(&self) -> bool {
+    pub const fn breakdown_suppressed(&self) -> bool {
         self.breakdown_cooldown > 0
     }
 
@@ -145,7 +145,7 @@ impl Vehicle {
     }
 
     /// Clear any custom wear multiplier and restore the default setting.
-    pub fn clear_wear_multiplier(&mut self) {
+    pub const fn clear_wear_multiplier(&mut self) {
         self.wear_multiplier = Self::default_wear_multiplier();
     }
 }

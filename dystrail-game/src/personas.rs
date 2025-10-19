@@ -74,7 +74,7 @@ pub struct PersonasList(pub Vec<Persona>);
 
 impl PersonasList {
     #[must_use]
-    pub fn empty() -> Self {
+    pub const fn empty() -> Self {
         Self(vec![])
     }
 
@@ -99,7 +99,7 @@ impl PersonasList {
                 v.push(Persona::with_id(id.to_string(), p.clone()));
             }
         }
-        Ok(PersonasList(v))
+        Ok(Self(v))
     }
 
     #[must_use]
@@ -110,7 +110,7 @@ impl PersonasList {
     /// Load personas from static assets (function for web compatibility)
     /// This is a placeholder that returns empty data - web implementation should override this
     #[must_use]
-    pub fn load() -> Self {
+    pub const fn load() -> Self {
         Self::empty()
     }
 
@@ -119,12 +119,12 @@ impl PersonasList {
     }
 
     #[must_use]
-    pub fn len(&self) -> usize {
+    pub const fn len(&self) -> usize {
         self.0.len()
     }
 
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
 }

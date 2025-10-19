@@ -210,7 +210,7 @@ fn weather_effects_expectation(_summary: &SimulationSummary) -> Result<()> {
     let initial_distance = state.distance_today;
     state.distance_today *= 0.8;
     anyhow::ensure!(
-        (state.distance_today - initial_distance * 0.8).abs() < 0.001,
+        initial_distance.mul_add(-0.8, state.distance_today).abs() < 0.001,
         "Weather should be able to affect travel distance"
     );
 

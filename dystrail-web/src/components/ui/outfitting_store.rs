@@ -18,7 +18,7 @@ use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
 
 /// The different screens within the store
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StoreScreen {
     /// Main store menu showing categories
     Home,
@@ -213,6 +213,7 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
 }
 
 /// Load store data from JSON file
+#[allow(clippy::future_not_send)]
 async fn load_store_data() -> Result<Store, Box<dyn std::error::Error>> {
     let response = Request::get("/static/assets/data/store.json")
         .send()
@@ -335,18 +336,14 @@ fn handle_back_navigation(state: &StoreState, store_state: &UseStateHandle<Store
 fn get_max_menu_index(state: &StoreState) -> u8 {
     match &state.current_screen {
         StoreScreen::Home => 5, // Categories 1-4, cart 5, continue 0
-        StoreScreen::Category(category_id) => {
-            if let Some(category) = state
-                .store_data
-                .categories
-                .iter()
-                .find(|c| c.id == *category_id)
-            {
-                u8::try_from(category.items.len()).unwrap_or(255) // Items 1-N, back 0
-            } else {
-                1
-            }
-        }
+        StoreScreen::Category(category_id) => state
+            .store_data
+            .categories
+            .iter()
+            .find(|c| c.id == *category_id)
+            .map_or(1, |category| {
+                u8::try_from(category.items.len()).unwrap_or(255)
+            }),
         StoreScreen::QuantityPrompt(_) => 4, // Add +1, +5, Remove -1, Remove All (1-4), back 0
         StoreScreen::Cart => {
             if state.cart.lines.is_empty() {

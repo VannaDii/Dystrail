@@ -3,6 +3,7 @@ use std::rc::Rc;
 use yew::prelude::*;
 
 use crate::a11y::set_status;
+use crate::game::exec_orders::ExecOrder;
 use crate::game::{
     CrossingConfig, CrossingKind, GameState, apply_bribe, apply_detour, apply_permit,
     calculate_bribe_cost, can_afford_bribe, can_use_permit,
@@ -14,7 +15,7 @@ use wasm_bindgen::JsCast;
 use wasm_bindgen_futures::spawn_local;
 use web_sys::KeyboardEvent;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CrossingViewModel {
     pub title: String,
     pub prompt: String,
@@ -30,7 +31,7 @@ pub struct CrossingViewModel {
     pub shutdown_notice: Option<String>,
 }
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(Properties, Clone, PartialEq)]
 pub struct CrossingOptionProps {
     pub index: u8, // 1, 2, 3, or 0
     pub label: AttrValue,
@@ -169,22 +170,22 @@ fn build_crossing_viewmodel(
     let bribe_available = can_afford_bribe(gs, cfg, kind);
 
     // Shutdown notice for bribe if active
-    let shutdown_notice = if let Some(exec_mod) = cfg.global_mods.exec_orders.get("Shutdown") {
-        // Check if current exec order is Shutdown
-        let order_name = format!("{:?}", gs.current_order);
-        if order_name == "Shutdown" {
-            #[allow(clippy::cast_possible_truncation)]
-            let chance_pct = (exec_mod.bribe_success_chance * 100.0) as i32;
-            let mut args = std::collections::HashMap::new();
-            let chance_str = chance_pct.to_string();
-            args.insert("chance", chance_str.as_str());
-            Some(i18n::tr("cross.policy.shutdown", Some(&args)))
-        } else {
-            None
-        }
-    } else {
-        None
-    };
+    let shutdown_notice = cfg
+        .global_mods
+        .exec_orders
+        .get("Shutdown")
+        .and_then(|exec_mod| {
+            if matches!(gs.current_order, Some(ExecOrder::Shutdown)) {
+                #[allow(clippy::cast_possible_truncation)]
+                let chance_pct = (exec_mod.bribe_success_chance * 100.0) as i32;
+                let mut args = std::collections::HashMap::new();
+                let chance_str = chance_pct.to_string();
+                args.insert("chance", chance_str.as_str());
+                Some(i18n::tr("cross.policy.shutdown", Some(&args)))
+            } else {
+                None
+            }
+        });
 
     Ok(CrossingViewModel {
         title,
@@ -359,11 +360,10 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
             <h3 id="cross-title">{ vm.title.clone() }</h3>
             <p class="muted">{ vm.prompt.clone() }</p>
 
-            { if let Some(notice) = vm.shutdown_notice.clone() {
-                html! { <p class="warning" aria-live="polite">{ notice }</p> }
-            } else {
-                html! {}
-            }}
+            { vm.shutdown_notice.clone().map_or_else(
+                || html! {},
+                |notice| html! { <p class="warning" aria-live="polite">{ notice }</p> },
+            ) }
 
             <ul role="menu" aria-label={vm.title.clone()} ref={list_ref}>
                 <CrossingOption

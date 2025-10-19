@@ -270,20 +270,30 @@ impl ResultScreen {
         }
     }
 
-    fn navigate_up(&mut self) {
-        self.current_focus = match self.current_focus {
+    const fn navigate_up_index(idx: u8) -> u8 {
+        match idx {
             1 => 0,
             0 => 5,
             n => n - 1,
-        };
+        }
     }
 
-    fn navigate_down(&mut self) {
-        self.current_focus = match self.current_focus {
+    const fn navigate_down_index(idx: u8) -> u8 {
+        match idx {
             0 => 1,
             5 => 0,
             n => n + 1,
-        };
+        }
+    }
+
+    #[allow(clippy::missing_const_for_fn)]
+    fn navigate_up(&mut self) {
+        self.current_focus = Self::navigate_up_index(self.current_focus);
+    }
+
+    #[allow(clippy::missing_const_for_fn)]
+    fn navigate_down(&mut self) {
+        self.current_focus = Self::navigate_down_index(self.current_focus);
     }
 
     fn handle_menu_action(ctx: &Context<Self>, action: u8) {

@@ -5,9 +5,12 @@ use std::iter;
 
 use crate::constants::{
     EMERGENCY_REPAIR_COST, LOG_ENDGAME_ACTIVATE, LOG_ENDGAME_FAILURE_GUARD,
-    LOG_ENDGAME_FIELD_REPAIR, TRAVEL_PARTIAL_MIN_DISTANCE,
+    LOG_ENDGAME_FIELD_REPAIR, TRAVEL_PARTIAL_MIN_DISTANCE, TRAVEL_PARTIAL_RATIO,
 };
-use crate::state::{GameState, PolicyKind, TravelDayKind};
+use crate::{
+    TravelDayKind,
+    state::{GameState, PolicyKind},
+};
 
 const DEFAULT_ENDGAME_DATA: &str =
     include_str!("../../dystrail-web/static/assets/data/endgame.json");
@@ -89,7 +92,7 @@ impl EndgamePolicyCfg {
     }
 
     const fn default_partial_ratio() -> f32 {
-        0.5
+        TRAVEL_PARTIAL_RATIO
     }
 
     const fn default_wear_multiplier() -> f32 {
@@ -112,6 +115,8 @@ pub struct EndgameState {
     pub active: bool,
     #[serde(default)]
     pub field_repair_used: bool,
+    #[serde(default)]
+    pub last_limp_mile: f32,
     #[serde(default = "EndgameState::default_failure_guard_miles")]
     pub failure_guard_miles: f32,
     #[serde(default)]
@@ -133,6 +138,7 @@ impl Default for EndgameState {
         Self {
             active: false,
             field_repair_used: false,
+            last_limp_mile: 0.0,
             failure_guard_miles: Self::default_failure_guard_miles(),
             health_floor: 0.0,
             wear_reset: 0.0,
@@ -160,6 +166,7 @@ impl EndgameState {
     pub fn configure(&mut self, key: &str, policy: &EndgamePolicyCfg) {
         self.active = true;
         self.field_repair_used = false;
+        self.last_limp_mile = 0.0;
         self.failure_guard_miles = policy.failure_guard_miles;
         self.health_floor = policy.health_floor;
         self.wear_reset = policy.wear_reset;
@@ -324,7 +331,7 @@ fn apply_vehicle_stabilizers(state: &mut GameState, health_floor: f32, wear_rese
 
 /// Helper mapping policy kinds to config keys.
 #[must_use]
-pub fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static str> {
+pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static str> {
     match policy {
         Some(PolicyKind::Balanced) => Some("deep_balanced"),
         Some(PolicyKind::Aggressive) => Some("deep_aggressive"),

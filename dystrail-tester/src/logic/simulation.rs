@@ -19,7 +19,7 @@ pub struct SimulationConfig {
 
 impl SimulationConfig {
     #[must_use]
-    pub fn new(mode: GameMode, strategy: GameplayStrategy, seed: u64) -> Self {
+    pub const fn new(mode: GameMode, strategy: GameplayStrategy, seed: u64) -> Self {
         Self {
             seed,
             mode,
@@ -29,7 +29,7 @@ impl SimulationConfig {
     }
 
     #[must_use]
-    pub fn with_max_days(mut self, max_days: u32) -> Self {
+    pub const fn with_max_days(mut self, max_days: u32) -> Self {
         self.max_days = max_days;
         self
     }
@@ -102,12 +102,12 @@ impl SimulationSession {
     }
 
     #[must_use]
-    pub fn state(&self) -> &GameState {
+    pub const fn state(&self) -> &GameState {
         &self.state
     }
 
     #[must_use]
-    pub fn state_mut(&mut self) -> &mut GameState {
+    pub const fn state_mut(&mut self) -> &mut GameState {
         &mut self.state
     }
 
@@ -258,11 +258,9 @@ impl SimulationSession {
                             self.aggressive_heat_days = 3;
                         }
                     }
+                    state.pace = PaceId::Heated;
                     if self.aggressive_heat_days > 0 {
-                        state.pace = PaceId::Heated;
                         self.aggressive_heat_days = self.aggressive_heat_days.saturating_sub(1);
-                    } else {
-                        state.pace = PaceId::Heated;
                     }
                 }
             }
@@ -300,7 +298,7 @@ impl SimulationSession {
     }
 }
 
-fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encounter) -> usize {
+const fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encounter) -> usize {
     if encounter.choices.is_empty() {
         0
     } else if index >= encounter.choices.len() {
@@ -311,7 +309,7 @@ fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encounter) 
 }
 
 impl SimulationSession {
-    fn daily_effect(&mut self) -> DailyEffect {
+    fn daily_effect(&self) -> DailyEffect {
         let pace = self.pacing_config.get_pace_safe(self.state.pace.as_str());
         let diet = self.pacing_config.get_diet_safe(self.state.diet.as_str());
 

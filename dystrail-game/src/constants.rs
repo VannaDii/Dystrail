@@ -19,6 +19,9 @@ pub(crate) const LOG_STARVATION_RELIEF: &str = "log.starvation.relief";
 pub(crate) const LOG_ALLY_LOST: &str = "log.ally.lost";
 pub(crate) const LOG_ALLIES_GONE: &str = "log.allies.gone";
 pub(crate) const LOG_VEHICLE_FAILURE: &str = "log.vehicle.failure";
+pub(crate) const LOG_VEHICLE_FIELD_REPAIR_GUARD: &str = "log.vehicle.field-repair-guard";
+pub(crate) const LOG_VEHICLE_EMERGENCY_LIMP: &str = "log.vehicle.emergency-limp";
+pub(crate) const LOG_DEEP_AGGRESSIVE_FIELD_REPAIR: &str = "log.vehicle.da-field-repair";
 pub(crate) const LOG_VEHICLE_REPAIR_EMERGENCY: &str = "log.vehicle.repair.emergency";
 pub(crate) const LOG_EMERGENCY_REPAIR_FORCED: &str = "log.vehicle.repair.forced";
 pub(crate) const LOG_VEHICLE_REPAIR_SPARE: &str = "log.vehicle.repair.spare";
@@ -69,6 +72,12 @@ pub(crate) const VEHICLE_SPARE_GUARD_SCALE: i32 = 3;
 pub(crate) const VEHICLE_DEEP_EMERGENCY_HEAL_BALANCED: f32 = VEHICLE_HEALTH_MAX * 0.12;
 pub(crate) const VEHICLE_DEEP_EMERGENCY_HEAL_AGGRESSIVE: f32 = VEHICLE_HEALTH_MAX * 0.15;
 pub(crate) const DEEP_EMERGENCY_REPAIR_THRESHOLD: f32 = 1_900.0;
+pub(crate) const CLASSIC_BALANCED_FAILURE_GUARD_MILES: f32 = 1_950.0;
+pub(crate) const CLASSIC_FIELD_REPAIR_COST_CENTS: i64 = 2_500;
+pub(crate) const EMERGENCY_LIMP_REPAIR_COST_CENTS: i64 = 1_500;
+pub(crate) const CLASSIC_FIELD_REPAIR_WEAR_REDUCTION: f32 = 0.35;
+pub(crate) const EMERGENCY_LIMP_WEAR_REDUCTION: f32 = 0.20;
+pub(crate) const EMERGENCY_LIMP_MILE_WINDOW: f32 = 200.0;
 
 // Encounter tuning ---------------------------------------------------------
 pub(crate) const DEFAULT_SUPPLY_COST: i32 = 1;
@@ -83,7 +92,7 @@ pub(crate) const ENCOUNTER_REPEAT_WINDOW_DAYS: u32 = 6;
 pub(crate) const ENCOUNTER_EXTENDED_MEMORY_DAYS: u32 = ENCOUNTER_REPEAT_WINDOW_DAYS * 2;
 pub(crate) const ENCOUNTER_REROLL_PENALTY: f32 = 0.8;
 pub(crate) const ENCOUNTER_CRITICAL_VEHICLE_BONUS: f32 = 0.12;
-pub(crate) const ENCOUNTER_SOFT_CAP_FACTOR: f32 = 0.5;
+pub(crate) const ENCOUNTER_SOFT_CAP_FACTOR: f32 = TRAVEL_PARTIAL_RATIO;
 
 // Executive order tuning ---------------------------------------------------
 pub(crate) const EXEC_ORDER_DAILY_CHANCE: f32 = 0.06;
@@ -107,21 +116,17 @@ pub(crate) const TRAVEL_CLASSIC_BASE_DISTANCE: f32 = 12.0;
 pub(crate) const TRAVEL_CONFIG_MIN_MULTIPLIER: f32 = 0.1;
 pub(crate) const TRAVEL_V2_PENALTY_FLOOR: f32 = 0.7;
 pub(crate) const TRAVEL_CLASSIC_PENALTY_FLOOR: f32 = 0.6;
-pub(crate) const TRAVEL_PARTIAL_RATIO: f32 = 0.5;
+pub(crate) const TRAVEL_PARTIAL_RATIO: f32 = 0.45;
 pub(crate) const TRAVEL_PARTIAL_CLAMP_LOW: f32 = 0.55;
 pub(crate) const TRAVEL_PARTIAL_CLAMP_HIGH: f32 = 0.99;
 pub(crate) const TRAVEL_PARTIAL_RECOVERY_RATIO: f32 = 0.92;
 pub(crate) const TRAVEL_PARTIAL_DEFAULT_WEAR: f32 = 0.85;
 pub(crate) const TRAVEL_RATIO_DEFAULT: f32 = 0.9;
+pub(crate) const WEATHER_PACE_MULTIPLIER_FLOOR: f32 = 0.90;
+pub(crate) const BEHIND_SCHEDULE_MILES_PER_DAY: f32 = 26.5;
 
 pub(crate) const ROTATION_FORCE_INTERVAL: u32 = 5;
 pub(crate) const ROTATION_LOOKBACK_DAYS: u32 = 5;
-
-pub(crate) const BEHIND_SCHEDULE_THRESHOLDS: &[(u32, f32, f32)] = &[
-    (140, 1_850.0, 1.10),
-    (120, 1_600.0, 1.075),
-    (90, 1_200.0, 1.05),
-];
 
 pub(crate) const DEEP_CONSERVATIVE_BOOSTS: &[(u32, f32, f32)] =
     &[(145, 1_950.0, 1.05), (130, 1_750.0, 1.04)];

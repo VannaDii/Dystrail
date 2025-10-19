@@ -17,7 +17,7 @@ pub struct TestBridge<'a> {
 }
 
 impl<'a> TestBridge<'a> {
-    pub fn new(driver: &'a WebDriver) -> Self {
+    pub const fn new(driver: &'a WebDriver) -> Self {
         Self { driver }
     }
 

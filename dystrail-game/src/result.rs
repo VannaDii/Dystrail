@@ -13,7 +13,7 @@ pub struct ResultConfig {
 }
 
 /// Scoring algorithm configuration
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ScoreCfg {
     pub pants_threshold: i32,
     pub pants_penalty_per_point: i32,
@@ -23,7 +23,7 @@ pub struct ScoreCfg {
 }
 
 /// Rounding behavior for score calculations
-#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Rounding {
     /// Round to the nearest integer
@@ -41,7 +41,7 @@ pub struct MultipliersCfg {
 }
 
 /// Configuration for determining game endings
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct EndingCfg {
     pub priority: Vec<String>,
     pub victory_key: String,
@@ -52,7 +52,7 @@ pub struct EndingCfg {
 }
 
 /// Limits for text generation in results
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ResultLimits {
     pub share_seed_maxlen: usize,
     pub share_persona_maxlen: usize,
@@ -229,7 +229,7 @@ fn total_multiplier(gs: &GameState, mult_cfg: &MultipliersCfg) -> f64 {
     f64::from((gs.score_mult + deep_bonus).max(0.1))
 }
 
-fn determine_final_ending(gs: &GameState, passed_threshold: bool) -> Ending {
+const fn determine_final_ending(gs: &GameState, passed_threshold: bool) -> Ending {
     if let Some(existing) = gs.ending {
         return existing;
     }
@@ -280,11 +280,10 @@ fn ending_cause_token(ending: Ending) -> Option<String> {
 }
 
 fn epilogue_key_for(headline_key: &str) -> String {
-    if let Some(stripped) = headline_key.strip_prefix("result.headline") {
-        format!("result.epilogue{stripped}")
-    } else {
-        "result.epilogue.generic".to_string()
-    }
+    headline_key.strip_prefix("result.headline").map_or_else(
+        || "result.epilogue.generic".to_string(),
+        |stripped| format!("result.epilogue{stripped}"),
+    )
 }
 
 fn resolve_persona_name(gs: &GameState) -> String {
@@ -308,7 +307,7 @@ fn mode_display(mode: GameMode) -> String {
     }
 }
 
-fn success_threshold(mode: GameMode) -> i32 {
+const fn success_threshold(mode: GameMode) -> i32 {
     mode.boss_threshold()
 }
 

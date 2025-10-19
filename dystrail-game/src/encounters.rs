@@ -370,7 +370,7 @@ fn global_min_region_count(counts: &HashMap<Region, u32>) -> u32 {
         .unwrap_or(0)
 }
 
-fn parse_region(label: &str) -> Option<Region> {
+const fn parse_region(label: &str) -> Option<Region> {
     if label.eq_ignore_ascii_case("heartland") {
         Some(Region::Heartland)
     } else if label.eq_ignore_ascii_case("rustbelt") {

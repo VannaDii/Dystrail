@@ -6,80 +6,9 @@ use std::convert::TryFrom;
 use crate::constants::PERMIT_REQUIRED_TAGS;
 use crate::state::{Region, Season};
 
-pub mod resolver {
-    use rand::{Rng, SeedableRng};
-    use rand_chacha::ChaCha20Rng;
+mod resolver;
 
-    use crate::state::{PolicyKind, Region, Season};
-
-    #[derive(Debug, Clone, Copy, PartialEq)]
-    pub enum CrossingOutcome {
-        PassPartial { miles_factor: f32 },
-        Detour { days: u8, miles_factor_per_day: f32 },
-        TerminalFail { cause: &'static str },
-    }
-
-    #[must_use]
-    #[allow(clippy::too_many_arguments)]
-    pub fn resolve_crossing(
-        campaign_seed: u64,
-        day_index: u16,
-        crossing_index: u16,
-        policy: Option<PolicyKind>,
-        has_permit: bool,
-        bribe_offered: bool,
-        region: Region,
-        season: Season,
-    ) -> CrossingOutcome {
-        let mut seed = campaign_seed
-            .wrapping_mul(0x9E37_79B9_7F4A_7C15)
-            .rotate_left(13);
-        seed ^= u64::from(day_index).wrapping_mul(0xD134_2543_DE82_17E9);
-        seed = seed.rotate_left(11) ^ u64::from(crossing_index);
-        seed ^= u64::from(day_index).wrapping_mul(0x94D0_49BB_1331_11EB);
-        let mut rng = ChaCha20Rng::seed_from_u64(seed);
-
-        let _ = policy; // Reserved for policy-specific overrides in later stages.
-
-        if has_permit {
-            return CrossingOutcome::PassPartial { miles_factor: 0.5 };
-        }
-
-        let roll: f32 = rng.random();
-        if bribe_offered && roll < bribe_threshold(region, season) {
-            return CrossingOutcome::PassPartial { miles_factor: 0.5 };
-        }
-
-        if roll < 0.85 {
-            let detour_days = rng.random_range(2..=4);
-            return CrossingOutcome::Detour {
-                days: detour_days,
-                miles_factor_per_day: 0.5,
-            };
-        }
-
-        CrossingOutcome::TerminalFail {
-            cause: "collapse_crossing",
-        }
-    }
-
-    fn bribe_threshold(region: Region, season: Season) -> f32 {
-        match (region, season) {
-            (Region::Heartland, Season::Spring) => 0.72,
-            (Region::Heartland, Season::Summer) => 0.70,
-            (Region::Heartland, Season::Fall) | (Region::RustBelt, Season::Spring) => 0.69,
-            (Region::Heartland, Season::Winter)
-            | (Region::RustBelt, Season::Summer)
-            | (Region::Beltway, Season::Spring) => 0.68,
-            (Region::RustBelt, Season::Fall) => 0.67,
-            (Region::RustBelt, Season::Winter) | (Region::Beltway, Season::Summer) => 0.66,
-            (Region::Beltway, Season::Fall) => 0.65,
-            (Region::Beltway, Season::Winter) => 0.64,
-        }
-    }
-}
-
-pub use resolver::{CrossingOutcome, resolve_crossing};
+pub use resolver::{CrossingOutcome, CrossingResult, resolve_crossing};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum CrossingKind {
@@ -89,7 +18,7 @@ pub enum CrossingKind {
     BridgeOut,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DetourCfg {
     pub days: i32,
     pub supplies: i32,
@@ -103,12 +32,12 @@ pub struct BribeCfg {
     pub on_fail: FailCfg,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PermitCfg {
     pub cred_gain: i32,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct FailCfg {
     pub days: i32,
     pub pants: i32,
@@ -121,7 +50,7 @@ pub struct CrossingTypeCfg {
     pub permit: PermitCfg,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PartialDetour {
     #[serde(default)]
     pub days: Option<i32>,
@@ -129,7 +58,7 @@ pub struct PartialDetour {
     pub pants: Option<i32>,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct WeatherDetourMod {
     pub detour: PartialDetour,
 }
@@ -148,7 +77,7 @@ pub struct GlobalMods {
     pub exec_orders: HashMap<String, ExecBribeMod>,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct MoneyCfg {
     pub currency: String,
     pub allow_negative_budget: bool,
@@ -187,7 +116,7 @@ pub struct SeasonalThresholds {
 }
 
 impl SeasonalThresholds {
-    fn get(&self, season: Season) -> ThresholdEntry {
+    const fn get(&self, season: Season) -> ThresholdEntry {
         match season {
             Season::Spring => self.spring,
             Season::Summer => self.summer,
@@ -196,7 +125,7 @@ impl SeasonalThresholds {
         }
     }
 
-    fn set(&mut self, season: Season, entry: ThresholdEntry) {
+    const fn set(&mut self, season: Season, entry: ThresholdEntry) {
         match season {
             Season::Spring => self.spring = entry,
             Season::Summer => self.summer = entry,

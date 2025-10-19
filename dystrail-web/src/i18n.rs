@@ -161,8 +161,9 @@ pub fn tr(key: &str, args: Option<&HashMap<&str, &str>>) -> String {
         let result =
             get_nested_value(&b.translations, key).or_else(|| get_nested_value(&b.fallback, key));
 
-        match result {
-            Some(mut text) => {
+        result.map_or_else(
+            || key.to_string(),
+            |mut text| {
                 // Handle template variables like {{var}} and {var}
                 if let Some(args_map) = args {
                     for (k, v) in args_map {
@@ -173,9 +174,8 @@ pub fn tr(key: &str, args: Option<&HashMap<&str, &str>>) -> String {
                     }
                 }
                 text
-            }
-            None => key.to_string(),
-        }
+            },
+        )
     })
 }
 

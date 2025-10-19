@@ -175,7 +175,7 @@ async fn main() -> Result<()> {
         println!("{}", "🧠 Running Logic Tests".bright_yellow().bold());
         println!("{}", "-".repeat(30).yellow());
 
-        let mut logic_tester = LogicTester::new(args.verbose);
+        let logic_tester = LogicTester::new(args.verbose);
 
         for scenario_name in &scenarios {
             if let Some(combined_scenario) = get_scenario(scenario_name) {
@@ -364,23 +364,23 @@ impl OutputTarget {
         if let Some(path) = path {
             let file = File::create(&path)
                 .with_context(|| format!("failed to create {}", path.display()))?;
-            Ok(OutputTarget::File(BufWriter::new(file)))
+            Ok(Self::File(BufWriter::new(file)))
         } else {
-            Ok(OutputTarget::Stdout(BufWriter::new(stdout())))
+            Ok(Self::Stdout(BufWriter::new(stdout())))
         }
     }
 
     fn writer(&mut self) -> &mut dyn Write {
         match self {
-            OutputTarget::Stdout(w) => w,
-            OutputTarget::File(w) => w,
+            Self::Stdout(w) => w,
+            Self::File(w) => w,
         }
     }
 
     fn flush_inner(&mut self) -> std::io::Result<()> {
         match self {
-            OutputTarget::Stdout(w) => w.flush(),
-            OutputTarget::File(w) => w.flush(),
+            Self::Stdout(w) => w.flush(),
+            Self::File(w) => w.flush(),
         }
     }
 }

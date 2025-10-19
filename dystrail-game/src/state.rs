@@ -11,6 +11,7 @@ use crate::camp::CampState;
 use crate::constants::*;
 use crate::crossings::{self, CrossingConfig, CrossingKind};
 use crate::data::{Encounter, EncounterData};
+use crate::day_accounting::{self, TravelDayKind};
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
@@ -170,7 +171,7 @@ const fn debug_log_enabled() -> bool {
 }
 
 /// Default pace setting
-fn default_pace() -> PaceId {
+const fn default_pace() -> PaceId {
     PaceId::Steady
 }
 
@@ -401,7 +402,9 @@ mod tests {
         capped_state.apply_pace_and_diet(&cfg);
         let capped = capped_state.encounter_chance_today;
         assert!(
-            (f64::from(capped) - f64::from(base) * f64::from(TRAVEL_PARTIAL_RATIO)).abs()
+            f64::from(base)
+                .mul_add(-f64::from(TRAVEL_PARTIAL_RATIO), f64::from(capped))
+                .abs()
                 < FLOAT_EPSILON,
             "expected soft cap to halve encounter chance (base {base}, capped {capped})"
         );
@@ -504,7 +507,7 @@ mod tests {
         state.policy = Some(PolicyKind::Aggressive);
         state.features.travel_v2 = true;
         state.recent_travel_days =
-            VecDeque::from(vec![TravelDayKind::None; AGGRESSIVE_STOP_WINDOW_DAYS]);
+            VecDeque::from(vec![TravelDayKind::Stop; AGGRESSIVE_STOP_WINDOW_DAYS]);
         state.distance_today = 20.0;
         state.distance_today_raw = 20.0;
         state.vehicle.wear = 5.0;
@@ -553,7 +556,7 @@ mod tests {
 }
 
 /// Default diet setting
-fn default_diet() -> DietId {
+const fn default_diet() -> DietId {
     DietId::Mixed
 }
 
@@ -565,15 +568,15 @@ pub enum GameMode {
 
 impl GameMode {
     #[must_use]
-    pub fn is_deep(self) -> bool {
-        matches!(self, GameMode::Deep)
+    pub const fn is_deep(self) -> bool {
+        matches!(self, Self::Deep)
     }
 
     #[must_use]
     pub const fn boss_threshold(self) -> i32 {
         match self {
-            GameMode::Classic => 1_000,
-            GameMode::Deep => 1_200,
+            Self::Classic => 1_000,
+            Self::Deep => 1_200,
         }
     }
 }
@@ -587,11 +590,11 @@ pub enum Region {
 
 impl Region {
     #[must_use]
-    pub fn asset_key(self) -> &'static str {
+    pub const fn asset_key(self) -> &'static str {
         match self {
-            Region::Heartland => "Heartland",
-            Region::RustBelt => "RustBelt",
-            Region::Beltway => "Beltway",
+            Self::Heartland => "Heartland",
+            Self::RustBelt => "RustBelt",
+            Self::Beltway => "Beltway",
         }
     }
 }
@@ -608,14 +611,14 @@ pub enum Season {
 
 impl Season {
     #[must_use]
-    pub fn from_day(day: u32) -> Self {
+    pub const fn from_day(day: u32) -> Self {
         let season_len = 45;
         let idx = day.saturating_sub(1) / season_len;
         match idx % 4 {
-            0 => Season::Spring,
-            1 => Season::Summer,
-            2 => Season::Fall,
-            _ => Season::Winter,
+            0 => Self::Spring,
+            1 => Self::Summer,
+            2 => Self::Fall,
+            _ => Self::Winter,
         }
     }
 }
@@ -636,13 +639,13 @@ impl CollapseCause {
     #[must_use]
     pub const fn key(self) -> &'static str {
         match self {
-            CollapseCause::Hunger => "hunger",
-            CollapseCause::Vehicle => "vehicle",
-            CollapseCause::Weather => "weather",
-            CollapseCause::Breakdown => "breakdown",
-            CollapseCause::Disease => "disease",
-            CollapseCause::Crossing => "crossing",
-            CollapseCause::Panic => "panic",
+            Self::Hunger => "hunger",
+            Self::Vehicle => "vehicle",
+            Self::Weather => "weather",
+            Self::Breakdown => "breakdown",
+            Self::Disease => "disease",
+            Self::Crossing => "crossing",
+            Self::Panic => "panic",
         }
     }
 }
@@ -658,8 +661,8 @@ impl ExposureKind {
     #[must_use]
     pub const fn key(self) -> &'static str {
         match self {
-            ExposureKind::Cold => "cold",
-            ExposureKind::Heat => "heat",
+            Self::Cold => "cold",
+            Self::Heat => "heat",
         }
     }
 }
@@ -747,7 +750,7 @@ pub struct Inventory {
 
 impl Inventory {
     #[must_use]
-    pub fn total_spares(&self) -> i32 {
+    pub const fn total_spares(&self) -> i32 {
         self.spares.tire + self.spares.battery + self.spares.alt + self.spares.pump
     }
 
@@ -806,7 +809,7 @@ pub struct RecentEncounter {
 
 impl RecentEncounter {
     #[must_use]
-    pub fn new(id: String, day: u32, region: Region) -> Self {
+    pub const fn new(id: String, day: u32, region: Region) -> Self {
         Self {
             id,
             day,
@@ -815,11 +818,11 @@ impl RecentEncounter {
     }
 }
 
-fn default_rest_threshold() -> i32 {
+const fn default_rest_threshold() -> i32 {
     4
 }
 
-fn default_trail_distance() -> f32 {
+const fn default_trail_distance() -> f32 {
     crate::boss::ROUTE_LEN_MILES
 }
 
@@ -937,6 +940,8 @@ pub struct GameState {
     pub distance_today_raw: f32,
     #[serde(default)]
     pub partial_distance_today: f32,
+    #[serde(default)]
+    pub distance_cap_today: f32,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     #[serde(default)]
@@ -1033,6 +1038,8 @@ pub struct GameState {
     #[serde(skip)]
     pub current_day_miles: f32,
     #[serde(skip)]
+    pub suppress_stop_ratio: bool,
+    #[serde(skip)]
     pub last_breakdown_part: Option<Part>,
 }
 
@@ -1088,6 +1095,7 @@ impl Default for GameState {
             distance_today: 0.0,
             distance_today_raw: 0.0,
             partial_distance_today: 0.0,
+            distance_cap_today: 0.0,
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             encounters_resolved: 0,
@@ -1134,23 +1142,16 @@ impl Default for GameState {
             current_day_kind: None,
             current_day_reason_tags: Vec::new(),
             current_day_miles: 0.0,
+            suppress_stop_ratio: false,
             last_breakdown_part: None,
         }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum TravelProgressKind {
+pub(crate) enum TravelProgressKind {
     Full,
     Partial,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum TravelDayKind {
-    Full,
-    Partial,
-    None,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -1184,7 +1185,7 @@ pub struct CrossingTelemetry {
 }
 
 impl CrossingTelemetry {
-    fn new(day: u32, region: Region, season: Season, kind: CrossingKind) -> Self {
+    const fn new(day: u32, region: Region, season: Season, kind: CrossingKind) -> Self {
         Self {
             day,
             region,
@@ -1229,6 +1230,7 @@ impl GameState {
         self.distance_today = 0.0;
         self.distance_today_raw = 0.0;
         self.partial_distance_today = 0.0;
+        self.distance_cap_today = 0.0;
         if self.illness_days_remaining == 0 {
             self.illness_travel_penalty = 1.0;
         }
@@ -1336,7 +1338,7 @@ impl GameState {
         self.stats.clamp();
     }
 
-    fn cap_exec_order_effects(&mut self) {
+    const fn cap_exec_order_effects(&mut self) {
         self.exec_travel_multiplier = self
             .exec_travel_multiplier
             .clamp(EXEC_TRAVEL_MULTIPLIER_CLAMP_MIN, WEATHER_DEFAULT_SPEED);
@@ -1345,6 +1347,7 @@ impl GameState {
             .clamp(PROBABILITY_FLOOR, EXEC_BREAKDOWN_BONUS_CLAMP_MAX);
     }
 
+    #[allow(clippy::cognitive_complexity, clippy::too_many_lines)]
     pub(crate) fn end_of_day(&mut self) {
         if self.did_end_of_day {
             return;
@@ -1355,7 +1358,7 @@ impl GameState {
         let computed_miles_today = self.distance_today.max(self.distance_today_raw);
         self.enforce_aggressive_delay_cap(computed_miles_today);
         let miles_delta = (self.miles_traveled_actual - self.prev_miles_traveled).max(0.0);
-        if matches!(self.current_day_kind, None | Some(TravelDayKind::None)) {
+        if matches!(self.current_day_kind, None | Some(TravelDayKind::Stop)) {
             if miles_delta > 0.0 {
                 self.partial_traveled_today = true;
             }
@@ -1364,7 +1367,7 @@ impl GameState {
             } else if self.partial_traveled_today {
                 TravelDayKind::Partial
             } else {
-                TravelDayKind::None
+                TravelDayKind::Stop
             };
             self.record_travel_day(fallback_kind, 0.0, "");
             if matches!(fallback_kind, TravelDayKind::Full | TravelDayKind::Partial) {
@@ -1385,13 +1388,72 @@ impl GameState {
                 "partial travel day without distance gain"
             );
         }
-        let day_kind = self.current_day_kind.unwrap_or(if self.traveled_today {
+
+        if self.mode.is_deep()
+            && matches!(self.policy, Some(PolicyKind::Conservative))
+            && self.current_day_miles > 0.0
+        {
+            let had_repair = self
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag.contains("repair"));
+            let had_crossing = self
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag.starts_with("crossing") || tag == "detour");
+            if !had_repair && !had_crossing {
+                let bonus = self.current_day_miles * 0.03;
+                if bonus > 0.0 {
+                    let cap = if self.distance_cap_today > 0.0 {
+                        self.distance_cap_today
+                    } else {
+                        self.distance_today.max(self.distance_today_raw)
+                    };
+                    let available = if cap > self.current_day_miles {
+                        cap - self.current_day_miles
+                    } else {
+                        0.0
+                    };
+                    let applied = bonus.min(available);
+                    if applied > 0.0 {
+                        self.apply_travel_progress(applied, TravelProgressKind::Full);
+                        self.current_day_miles += applied;
+                        self.distance_today = self.distance_today.max(self.current_day_miles);
+                        self.distance_today_raw =
+                            self.distance_today_raw.max(self.current_day_miles);
+                        self.partial_distance_today = self
+                            .partial_distance_today
+                            .max(applied)
+                            .min(self.distance_today);
+                    }
+                }
+            }
+        }
+
+        let mut day_kind = self.current_day_kind.unwrap_or(if self.traveled_today {
             TravelDayKind::Full
         } else if self.partial_traveled_today {
             TravelDayKind::Partial
         } else {
-            TravelDayKind::None
+            TravelDayKind::Stop
         });
+        if matches!(day_kind, TravelDayKind::Stop) && !self.suppress_stop_ratio {
+            let total_days = self.travel_days + self.partial_travel_days + self.non_travel_days;
+            if total_days > 0 {
+                let travel_days = self.travel_days + self.partial_travel_days;
+                let ratio = f64::from(travel_days) / f64::from(total_days);
+                if ratio < 0.90_f64 {
+                    self.revert_current_day_record();
+                    let baseline = self.distance_today.max(self.distance_today_raw);
+                    let partial = day_accounting::partial_day_miles(self, baseline);
+                    self.record_travel_day(TravelDayKind::Partial, partial, "stop_cap");
+                    self.distance_today = self.distance_today.max(partial);
+                    self.distance_today_raw = self.distance_today_raw.max(partial);
+                    self.partial_distance_today = self.partial_distance_today.max(partial);
+                    day_kind = TravelDayKind::Partial;
+                }
+            }
+        }
         if self.rotation_travel_days >= self.rotation_force_interval() {
             self.force_rotation_pending = true;
             self.rotation_travel_days = 0;
@@ -1409,6 +1471,7 @@ impl GameState {
         self.current_day_reason_tags.clear();
         self.current_day_miles = 0.0;
         self.current_day_kind = None;
+        self.suppress_stop_ratio = false;
         self.did_end_of_day = true;
         if self.mode.is_deep()
             && matches!(self.policy, Some(PolicyKind::Aggressive))
@@ -1480,7 +1543,7 @@ impl GameState {
                     self.partial_travel_days = self.partial_travel_days.saturating_sub(1);
                     self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
                 }
-                TravelDayKind::None => {
+                TravelDayKind::Stop => {
                     self.non_travel_days = self.non_travel_days.saturating_sub(1);
                 }
             }
@@ -1499,7 +1562,7 @@ impl GameState {
         self.current_day_miles = 0.0;
     }
 
-    fn apply_travel_progress(&mut self, distance: f32, kind: TravelProgressKind) {
+    pub(crate) fn apply_travel_progress(&mut self, distance: f32, kind: TravelProgressKind) {
         if distance <= 0.0 {
             return;
         }
@@ -1557,7 +1620,7 @@ impl GameState {
             .iter()
             .rev()
             .take(AGGRESSIVE_STOP_WINDOW_DAYS)
-            .filter(|kind| matches!(kind, TravelDayKind::None))
+            .filter(|kind| matches!(kind, TravelDayKind::Stop))
             .count();
         if full_stops < AGGRESSIVE_STOP_CAP {
             return;
@@ -1570,7 +1633,7 @@ impl GameState {
         } else {
             TRAVEL_CLASSIC_BASE_DISTANCE
         };
-        let partial = (baseline * 0.5).max(TRAVEL_PARTIAL_MIN_DISTANCE);
+        let partial = (baseline * TRAVEL_PARTIAL_RATIO).max(TRAVEL_PARTIAL_MIN_DISTANCE);
         self.reset_today_progress();
         self.record_travel_day(TravelDayKind::Partial, partial, "stop_cap");
         self.distance_today = partial;
@@ -1640,6 +1703,101 @@ impl GameState {
         );
     }
 
+    fn apply_classic_field_repair_guard(&mut self) {
+        let partial = day_accounting::partial_day_miles(self, 0.0);
+        if partial > 0.0 {
+            self.apply_partial_travel_credit(
+                partial,
+                LOG_VEHICLE_FIELD_REPAIR_GUARD,
+                "field_repair_guard",
+            );
+        } else {
+            self.record_travel_day(TravelDayKind::Partial, 0.0, "field_repair_guard");
+            self.logs.push(String::from(LOG_VEHICLE_FIELD_REPAIR_GUARD));
+        }
+        self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
+        self.vehicle.wear = (self.vehicle.wear - CLASSIC_FIELD_REPAIR_WEAR_REDUCTION).max(0.0);
+        let field_repair_cost = CLASSIC_FIELD_REPAIR_COST_CENTS;
+        let paid = field_repair_cost.min(self.budget_cents.max(0));
+        self.budget_cents -= paid;
+        self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+        self.repairs_spent_cents += paid;
+        self.breakdown = None;
+        self.travel_blocked = false;
+        self.last_breakdown_part = None;
+    }
+
+    fn try_emergency_limp_guard(&mut self) -> bool {
+        if self.mode == GameMode::Classic && matches!(self.policy, Some(PolicyKind::Balanced)) {
+            return false;
+        }
+        if self.miles_traveled_actual < 1_850.0 {
+            return false;
+        }
+        if (self.miles_traveled_actual - self.endgame.last_limp_mile) < EMERGENCY_LIMP_MILE_WINDOW {
+            return false;
+        }
+
+        let partial = day_accounting::partial_day_miles(self, 0.0);
+        if partial > 0.0 {
+            self.apply_partial_travel_credit(partial, LOG_VEHICLE_EMERGENCY_LIMP, "emergency_limp");
+        } else {
+            self.record_travel_day(TravelDayKind::Partial, 0.0, "emergency_limp");
+            self.logs.push(String::from(LOG_VEHICLE_EMERGENCY_LIMP));
+        }
+        self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
+        self.vehicle.wear = (self.vehicle.wear - EMERGENCY_LIMP_WEAR_REDUCTION).max(0.0);
+        let limp_cost = EMERGENCY_LIMP_REPAIR_COST_CENTS;
+        let paid = limp_cost.min(self.budget_cents.max(0));
+        self.budget_cents -= paid;
+        self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+        self.repairs_spent_cents += paid;
+        self.endgame.last_limp_mile = self.miles_traveled_actual;
+        self.breakdown = None;
+        self.travel_blocked = false;
+        self.last_breakdown_part = None;
+        true
+    }
+
+    fn try_deep_aggressive_field_repair(&mut self) -> bool {
+        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
+            return false;
+        }
+        if self.miles_traveled_actual < 1_600.0 {
+            return false;
+        }
+        let Some(rng) = self.rng.as_mut() else {
+            return false;
+        };
+        if rng.random::<f32>() >= 0.15 {
+            return false;
+        }
+
+        let partial = day_accounting::partial_day_miles(self, 0.0);
+        if partial > 0.0 {
+            self.apply_partial_travel_credit(
+                partial,
+                LOG_DEEP_AGGRESSIVE_FIELD_REPAIR,
+                "field_repair",
+            );
+        } else {
+            self.record_travel_day(TravelDayKind::Partial, 0.0, "field_repair");
+            self.logs
+                .push(String::from(LOG_DEEP_AGGRESSIVE_FIELD_REPAIR));
+        }
+        self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
+        self.vehicle.wear = (self.vehicle.wear - EMERGENCY_LIMP_WEAR_REDUCTION).max(0.0);
+        let limp_cost = EMERGENCY_LIMP_REPAIR_COST_CENTS;
+        let paid = limp_cost.min(self.budget_cents.max(0));
+        self.budget_cents -= paid;
+        self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+        self.repairs_spent_cents += paid;
+        self.breakdown = None;
+        self.travel_blocked = false;
+        self.last_breakdown_part = None;
+        true
+    }
+
     pub(crate) fn add_day_reason_tag(&mut self, tag: &str) {
         let trimmed = tag.trim();
         if trimmed.is_empty()
@@ -1663,92 +1821,12 @@ impl GameState {
         kind: TravelDayKind,
         miles_earned: f32,
         reason_tag: &str,
-    ) {
-        self.start_of_day();
-        let miles = if miles_earned.is_finite() {
-            miles_earned.max(0.0)
-        } else {
-            0.0
-        };
-
-        match self.current_day_kind {
-            None => {
-                match kind {
-                    TravelDayKind::Full => {
-                        self.travel_days = self.travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_add(1);
-                    }
-                    TravelDayKind::Partial => {
-                        self.partial_travel_days = self.partial_travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_add(1);
-                    }
-                    TravelDayKind::None => {
-                        self.non_travel_days = self.non_travel_days.saturating_add(1);
-                    }
-                }
-                self.current_day_kind = Some(kind);
-            }
-            Some(existing) if existing != kind => {
-                match (existing, kind) {
-                    (TravelDayKind::Partial, TravelDayKind::Full) => {
-                        self.partial_travel_days = self.partial_travel_days.saturating_sub(1);
-                        self.travel_days = self.travel_days.saturating_add(1);
-                    }
-                    (TravelDayKind::None, TravelDayKind::Partial) => {
-                        self.non_travel_days = self.non_travel_days.saturating_sub(1);
-                        self.partial_travel_days = self.partial_travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_add(1);
-                    }
-                    (TravelDayKind::None, TravelDayKind::Full) => {
-                        self.non_travel_days = self.non_travel_days.saturating_sub(1);
-                        self.travel_days = self.travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_add(1);
-                    }
-                    (TravelDayKind::Partial, TravelDayKind::None) => {
-                        self.partial_travel_days = self.partial_travel_days.saturating_sub(1);
-                        self.non_travel_days = self.non_travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
-                    }
-                    (TravelDayKind::Full, TravelDayKind::Partial) => {
-                        self.travel_days = self.travel_days.saturating_sub(1);
-                        self.partial_travel_days = self.partial_travel_days.saturating_add(1);
-                    }
-                    (TravelDayKind::Full, TravelDayKind::None) => {
-                        self.travel_days = self.travel_days.saturating_sub(1);
-                        self.non_travel_days = self.non_travel_days.saturating_add(1);
-                        self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
-                    }
-                    _ => {}
-                }
-                self.current_day_kind = Some(kind);
-            }
-            _ => {}
+    ) -> TravelDayKind {
+        let recorded_kind = day_accounting::record_travel_day(self, kind, miles_earned);
+        if !reason_tag.is_empty() {
+            self.add_day_reason_tag(reason_tag);
         }
-
-        if miles > 0.0 {
-            let progress_kind = match kind {
-                TravelDayKind::Full => TravelProgressKind::Full,
-                TravelDayKind::Partial | TravelDayKind::None => TravelProgressKind::Partial,
-            };
-            self.apply_travel_progress(miles, progress_kind);
-            self.current_day_miles += miles;
-        }
-
-        match kind {
-            TravelDayKind::Full => {
-                self.traveled_today = true;
-            }
-            TravelDayKind::Partial => {
-                self.traveled_today = false;
-                self.partial_traveled_today = true;
-            }
-            TravelDayKind::None => {
-                self.traveled_today = false;
-                self.partial_traveled_today = false;
-            }
-        }
-
-        self.add_day_reason_tag(reason_tag);
+        recorded_kind
     }
 
     fn should_discourage_encounter(&self, encounter_id: &str) -> bool {
@@ -1766,7 +1844,7 @@ impl GameState {
     }
 
     #[must_use]
-    fn encounter_reroll_penalty(&self) -> f32 {
+    const fn encounter_reroll_penalty(&self) -> f32 {
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Conservative)) {
             TRAVEL_RATIO_DEFAULT.min(WEATHER_DEFAULT_SPEED)
         } else {
@@ -1774,9 +1852,9 @@ impl GameState {
         }
     }
 
-    fn seed_bytes(s: u64) -> [u8; 32] {
+    const fn seed_bytes(s: u64) -> [u8; 32] {
         #[inline]
-        fn b(x: u64, shift: u8, xorv: u8) -> u8 {
+        const fn b(x: u64, shift: u8, xorv: u8) -> u8 {
             (((x >> shift) & 0xFF) as u8) ^ xorv
         }
         [
@@ -1815,18 +1893,18 @@ impl GameState {
         ]
     }
 
-    fn set_ending(&mut self, ending: Ending) {
+    const fn set_ending(&mut self, ending: Ending) {
         if self.ending.is_none() {
             self.ending = Some(ending);
         }
     }
 
-    pub(crate) fn mark_damage(&mut self, cause: DamageCause) {
+    pub(crate) const fn mark_damage(&mut self, cause: DamageCause) {
         self.last_damage = Some(cause);
     }
 
     #[must_use]
-    pub fn vehicle_health(&self) -> f32 {
+    pub const fn vehicle_health(&self) -> f32 {
         self.vehicle.health
     }
 
@@ -1855,7 +1933,7 @@ impl GameState {
     }
 
     #[must_use]
-    fn total_spares(&self) -> i32 {
+    const fn total_spares(&self) -> i32 {
         self.inventory.total_spares()
     }
 
@@ -1977,7 +2055,7 @@ impl GameState {
     }
 
     #[must_use]
-    fn current_weather_speed_penalty(&self) -> f32 {
+    const fn current_weather_speed_penalty(&self) -> f32 {
         match self.weather_state.today {
             Weather::ColdSnap => WEATHER_COLD_SNAP_SPEED,
             Weather::Storm | Weather::Smoke => WEATHER_STORM_SMOKE_SPEED,
@@ -1988,9 +2066,10 @@ impl GameState {
 
     #[must_use]
     fn behind_schedule_multiplier(&self) -> f32 {
-        for &(day_threshold, mile_threshold, boost) in BEHIND_SCHEDULE_THRESHOLDS {
-            if self.day >= day_threshold && self.miles_traveled_actual < mile_threshold {
-                return boost;
+        if self.day >= 70 {
+            let target = f64::from(self.day) * f64::from(BEHIND_SCHEDULE_MILES_PER_DAY);
+            if f64::from(self.miles_traveled_actual) < target {
+                return 1.05;
             }
         }
         1.0
@@ -2084,6 +2163,7 @@ impl GameState {
     }
 
     #[must_use]
+    #[allow(clippy::too_many_lines)]
     fn compute_miles_for_today(
         &mut self,
         pace_cfg: &crate::pacing::PaceCfg,
@@ -2107,6 +2187,13 @@ impl GameState {
             };
         }
 
+        if self.mode == GameMode::Classic {
+            base_distance *= 1.06;
+        } else {
+            base_distance *= 1.08;
+        }
+        self.distance_cap_today = base_distance * 1.20;
+
         let pace_scalar = if travel_v2 {
             let cfg_mult = if pace_cfg.dist_mult > 0.0 {
                 pace_cfg.dist_mult
@@ -2127,12 +2214,13 @@ impl GameState {
             }) * config_scalar
         };
 
-        let weather_scalar = if travel_v2 {
+        let mut weather_scalar = if travel_v2 {
             self.weather_travel_multiplier
                 .max(TRAVEL_CONFIG_MIN_MULTIPLIER)
         } else {
             self.current_weather_speed_penalty()
         };
+        weather_scalar = weather_scalar.max(WEATHER_PACE_MULTIPLIER_FLOOR);
 
         let penalty_floor = if travel_v2 {
             if limits.distance_penalty_floor > 0.0 {
@@ -2148,12 +2236,9 @@ impl GameState {
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Balanced)) {
             pace_weather *= DEEP_BALANCED_TRAVEL_NUDGE;
         }
-        if matches!(
-            self.policy,
-            Some(PolicyKind::Conservative | PolicyKind::Aggressive)
-        ) {
-            let booster = self.behind_schedule_multiplier();
-            pace_weather *= booster;
+        let behind_boost = self.behind_schedule_multiplier();
+        if behind_boost > 1.0 {
+            pace_weather *= behind_boost;
         }
         let mut raw_distance = base_distance * pace_weather;
         let floored_multiplier = pace_weather.max(penalty_floor);
@@ -2176,8 +2261,8 @@ impl GameState {
         if self.malnutrition_level > 0 {
             #[allow(clippy::cast_precision_loss)]
             let malnutrition = self.malnutrition_level as f32;
-            let starvation_penalty = (1.0
-                - (malnutrition * VEHICLE_MALNUTRITION_PENALTY_PER_STACK))
+            let starvation_penalty = malnutrition
+                .mul_add(-VEHICLE_MALNUTRITION_PENALTY_PER_STACK, 1.0)
                 .max(VEHICLE_MALNUTRITION_MIN_FACTOR);
             distance *= starvation_penalty;
             partial_distance *= starvation_penalty;
@@ -2188,6 +2273,21 @@ impl GameState {
 
         distance *= self.illness_travel_penalty.max(0.0);
         partial_distance *= self.illness_travel_penalty.max(0.0);
+
+        let max_distance = if self.distance_cap_today > 0.0 {
+            self.distance_cap_today
+        } else {
+            base_distance * 1.20
+        };
+        if distance > max_distance {
+            distance = max_distance;
+        }
+        if raw_distance > max_distance {
+            raw_distance = max_distance;
+        }
+        if partial_distance > distance {
+            partial_distance = distance;
+        }
 
         self.distance_today_raw = raw_distance.max(0.0);
         self.distance_today = distance.max(TRAVEL_PARTIAL_MIN_DISTANCE);
@@ -2231,10 +2331,11 @@ impl GameState {
         }
 
         if self.vehicle.health <= 0.0 {
-            let mut recovered = false;
-            if spare_guard > 0 {
-                recovered = self.consume_any_spare_for_emergency();
-            }
+            let mut recovered = if spare_guard > 0 {
+                self.consume_any_spare_for_emergency()
+            } else {
+                false
+            };
             if !recovered && self.budget_cents >= EMERGENCY_REPAIR_COST {
                 self.spend_emergency_repair(LOG_EMERGENCY_REPAIR_FORCED);
                 recovered = true;
@@ -2256,6 +2357,19 @@ impl GameState {
             return false;
         }
         if health_depleted && self.vehicle_breakdowns >= tolerance && out_of_options {
+            if self.mode == GameMode::Classic
+                && matches!(self.policy, Some(PolicyKind::Balanced))
+                && self.miles_traveled_actual < CLASSIC_BALANCED_FAILURE_GUARD_MILES
+            {
+                self.apply_classic_field_repair_guard();
+                return false;
+            }
+            if self.try_deep_aggressive_field_repair() {
+                return false;
+            }
+            if self.try_emergency_limp_guard() {
+                return false;
+            }
             if self.mode.is_deep()
                 && matches!(self.policy, Some(PolicyKind::Balanced))
                 && self.miles_traveled_actual < DEEP_BALANCED_FAILSAFE_DISTANCE
@@ -2275,7 +2389,7 @@ impl GameState {
         false
     }
 
-    fn crossing_kind_for_index(&self, next_idx: usize) -> CrossingKind {
+    const fn crossing_kind_for_index(&self, next_idx: usize) -> CrossingKind {
         if next_idx + 1 >= CROSSING_MILESTONES.len() || (self.mode.is_deep() && next_idx % 2 == 1) {
             CrossingKind::BridgeOut
         } else {
@@ -2293,6 +2407,7 @@ impl GameState {
         self.record_travel_day(kind, delta, reason_tag);
     }
 
+    #[allow(clippy::too_many_lines)]
     fn handle_crossing_event(&mut self, computed_miles_today: f32) -> Option<(bool, String)> {
         let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
         let &milestone = CROSSING_MILESTONES.get(next_idx)?;
@@ -2305,63 +2420,69 @@ impl GameState {
         let has_permit = crossings::can_use_permit(self, &kind);
         let bribe_offered = !has_permit && crossings::can_afford_bribe(self, &cfg, kind);
 
-        let outcome = crossings::resolve_crossing(
-            self.seed,
-            u16::try_from(self.day).unwrap_or(u16::MAX),
-            u16::try_from(next_idx).unwrap_or(u16::MAX),
-            self.policy,
+        let resolved = crossings::resolve_crossing(
+            self.policy.unwrap_or_default(),
+            self.mode,
             has_permit,
             bribe_offered,
-            self.region,
-            self.season,
+            u32::try_from(next_idx).unwrap_or(u32::MAX),
+            self.day,
+            self.seed,
         );
 
         let mut telemetry = CrossingTelemetry::new(self.day, self.region, self.season, kind);
-        telemetry.permit_used = has_permit;
-        telemetry.bribe_attempted = bribe_offered;
+        telemetry.permit_used = resolved.used_permit;
+        telemetry.bribe_attempted = resolved.bribe_attempted;
+        if resolved.bribe_attempted {
+            telemetry.bribe_success = Some(resolved.bribe_succeeded);
+        }
 
-        if has_permit {
+        if resolved.used_permit {
             self.logs.push(String::from(LOG_CROSSING_DECISION_PERMIT));
             let permit_log = crossings::apply_permit(self, &cfg, kind);
             self.logs.push(permit_log);
             self.crossing_permit_uses = self.crossing_permit_uses.saturating_add(1);
         }
 
-        if bribe_offered {
+        if resolved.bribe_attempted {
             self.logs.push(String::from(LOG_CROSSING_DECISION_BRIBE));
-            let bribe_log = crossings::apply_bribe(self, &cfg, kind);
-            self.logs.push(bribe_log);
+            let _ = crossings::apply_bribe(self, &cfg, kind);
             self.crossing_bribe_attempts = self.crossing_bribe_attempts.saturating_add(1);
+            if resolved.bribe_succeeded {
+                self.crossing_bribe_successes = self.crossing_bribe_successes.saturating_add(1);
+            }
+            let log_key = if resolved.bribe_succeeded {
+                "crossing.result.bribe.success"
+            } else {
+                "crossing.result.bribe.fail"
+            };
+            self.logs.push(log_key.to_string());
         }
 
-        match outcome {
-            crossings::CrossingOutcome::PassPartial { miles_factor } => {
-                if bribe_offered {
-                    telemetry.bribe_success = Some(true);
-                    self.crossing_bribe_successes = self.crossing_bribe_successes.saturating_add(1);
+        match resolved.result {
+            crossings::CrossingResult::Pass => {
+                if resolved.bribe_attempted {
+                    telemetry.bribe_success = Some(resolved.bribe_succeeded);
                 }
                 telemetry.outcome = CrossingOutcomeTelemetry::Passed;
                 self.logs.push(String::from(LOG_CROSSING_PASSED));
                 self.crossings_completed = self.crossings_completed.saturating_add(1);
-                let target_miles = (computed_miles_today * miles_factor).max(0.0);
+                let target_miles = day_accounting::partial_day_miles(self, computed_miles_today);
                 self.apply_target_travel(TravelDayKind::Partial, target_miles, "crossing_pass");
                 self.stats.clamp();
                 self.crossing_events.push(telemetry);
                 self.end_of_day();
                 Some((false, String::from(LOG_CROSSING_PASSED)))
             }
-            crossings::CrossingOutcome::Detour {
-                days,
-                miles_factor_per_day,
-            } => {
-                if bribe_offered {
+            crossings::CrossingResult::Detour(days) => {
+                if resolved.bribe_attempted {
                     telemetry.bribe_success = Some(false);
                 }
                 telemetry.detour_taken = true;
                 telemetry.detour_days = Some(u32::from(days));
                 telemetry.outcome = CrossingOutcomeTelemetry::Detoured;
                 self.crossing_detours_taken = self.crossing_detours_taken.saturating_add(1);
-                let per_day_miles = (computed_miles_today * miles_factor_per_day).max(0.0);
+                let per_day_miles = day_accounting::partial_day_miles(self, computed_miles_today);
                 self.logs.push(String::from(LOG_CROSSING_DETOUR));
                 self.apply_target_travel(TravelDayKind::Partial, per_day_miles, "detour");
                 self.stats.clamp();
@@ -2378,15 +2499,15 @@ impl GameState {
                 }
                 Some((false, String::from(LOG_CROSSING_DETOUR)))
             }
-            crossings::CrossingOutcome::TerminalFail { .. } => {
-                if bribe_offered {
+            crossings::CrossingResult::TerminalFail => {
+                if resolved.bribe_attempted {
                     telemetry.bribe_success = Some(false);
                 }
                 telemetry.outcome = CrossingOutcomeTelemetry::Failed;
                 self.crossing_failures = self.crossing_failures.saturating_add(1);
                 self.logs.push(String::from(LOG_CROSSING_FAILURE));
                 self.reset_today_progress();
-                self.record_travel_day(TravelDayKind::None, 0.0, "crossing_fail");
+                self.record_travel_day(TravelDayKind::Stop, 0.0, "crossing_fail");
                 self.stats.clamp();
                 self.set_ending(Ending::Collapse {
                     cause: CollapseCause::Crossing,
@@ -2418,7 +2539,7 @@ impl GameState {
     }
 
     #[must_use]
-    pub fn region_by_day(day: u32) -> Region {
+    pub const fn region_by_day(day: u32) -> Region {
         match day {
             0..=4 => Region::Heartland,
             5..=9 => Region::RustBelt,
@@ -2554,7 +2675,7 @@ impl GameState {
                     self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
                 }
                 if is_major_repair {
-                    self.record_travel_day(TravelDayKind::None, 0.0, "repair");
+                    self.record_travel_day(TravelDayKind::Stop, 0.0, "repair");
                 }
                 let encounter_id = enc.id.clone();
                 self.current_encounter = Some(enc);
@@ -2773,7 +2894,7 @@ impl GameState {
         }
     }
 
-    pub(crate) fn consume_spare_for_part(&mut self, part: Part) -> bool {
+    pub(crate) const fn consume_spare_for_part(&mut self, part: Part) -> bool {
         let spares = &mut self.inventory.spares;
         match part {
             Part::Tire if spares.tire > 0 => {
@@ -2829,10 +2950,11 @@ impl GameState {
         self.repairs_spent_cents += EMERGENCY_REPAIR_COST;
         let mut repair_amount = VEHICLE_EMERGENCY_HEAL;
         if self.mode.is_deep() && self.miles_traveled_actual >= DEEP_EMERGENCY_REPAIR_THRESHOLD {
-            let mut boost = VEHICLE_DEEP_EMERGENCY_HEAL_BALANCED;
-            if matches!(self.policy, Some(PolicyKind::Aggressive)) {
-                boost = VEHICLE_DEEP_EMERGENCY_HEAL_AGGRESSIVE;
-            }
+            let boost = if matches!(self.policy, Some(PolicyKind::Aggressive)) {
+                VEHICLE_DEEP_EMERGENCY_HEAL_AGGRESSIVE
+            } else {
+                VEHICLE_DEEP_EMERGENCY_HEAL_BALANCED
+            };
             repair_amount = repair_amount.max(boost);
         }
         self.vehicle.repair(repair_amount);
@@ -2842,11 +2964,7 @@ impl GameState {
     }
 
     pub fn next_u32(&mut self) -> u32 {
-        if let Some(rng) = self.rng.as_mut() {
-            rng.random()
-        } else {
-            0
-        }
+        self.rng.as_mut().map_or(0, rand::Rng::random)
     }
 
     pub fn next_pct(&mut self) -> u8 {
@@ -2942,13 +3060,13 @@ impl GameState {
     }
 
     /// Save game state (placeholder - platform specific)
-    pub fn save(&self) {
+    pub const fn save(&self) {
         // Placeholder - web implementation will handle this
     }
 
     /// Load game state (placeholder - platform specific)
     #[must_use]
-    pub fn load() -> Option<Self> {
+    pub const fn load() -> Option<Self> {
         // Placeholder - web implementation will handle this
         None
     }
@@ -3000,12 +3118,25 @@ impl GameState {
         self.logs.push(String::from("log.party.updated"));
     }
 
-    pub fn request_rest(&mut self) {
+    pub const fn request_rest(&mut self) {
         self.rest_requested = true;
     }
 
     fn failure_log_key(&mut self) -> Option<&'static str> {
         if self.vehicle.health <= 0.0 {
+            if self.mode == GameMode::Classic
+                && matches!(self.policy, Some(PolicyKind::Balanced))
+                && self.miles_traveled_actual < CLASSIC_BALANCED_FAILURE_GUARD_MILES
+            {
+                self.apply_classic_field_repair_guard();
+                return None;
+            }
+            if self.try_deep_aggressive_field_repair() {
+                return None;
+            }
+            if self.try_emergency_limp_guard() {
+                return None;
+            }
             self.set_ending(Ending::VehicleFailure {
                 cause: VehicleFailureCause::Destroyed,
             });
@@ -3085,7 +3216,7 @@ impl GameState {
     }
 
     pub fn advance_days_with_reason(&mut self, days: u32, reason_tag: &str) {
-        self.advance_days_with_credit(days, TravelDayKind::None, 0.0, reason_tag);
+        self.advance_days_with_credit(days, TravelDayKind::Stop, 0.0, reason_tag);
     }
 
     pub fn advance_days_with_credit(
@@ -3099,13 +3230,17 @@ impl GameState {
             return;
         }
         for _ in 0..days {
+            if matches!(kind, TravelDayKind::Stop) && miles <= 0.0 {
+                self.suppress_stop_ratio = true;
+            }
             self.start_of_day();
             self.record_travel_day(kind, miles, reason_tag);
             self.end_of_day();
+            self.suppress_stop_ratio = false;
         }
     }
 
-    pub fn tick_camp_cooldowns(&mut self) {
+    pub const fn tick_camp_cooldowns(&mut self) {
         if self.camp.rest_cooldown > 0 {
             self.camp.rest_cooldown -= 1;
         }
@@ -3118,7 +3253,7 @@ impl GameState {
     }
 
     #[must_use]
-    pub fn should_auto_rest(&self) -> bool {
+    pub const fn should_auto_rest(&self) -> bool {
         self.auto_camp_rest
             && self.stats.sanity <= self.rest_threshold
             && self.camp.rest_cooldown == 0

@@ -3,7 +3,7 @@ use crate::game::state::{Region, Stats};
 use crate::i18n;
 use yew::prelude::*;
 
-#[derive(Properties, PartialEq, Clone)]
+#[derive(Properties, Clone, PartialEq, Eq)]
 pub struct Props {
     pub stats: Stats,
     pub day: u32,
@@ -60,7 +60,13 @@ pub fn stats_bar(p: &Props) -> Html {
                     <div class="bar-fill" style={format!("width: {pants}%", pants = p.stats.pants)}></div>
                 </div>
             </div>
-            { if let Some(order) = eo { html!{<div class="order" aria-live="polite">{ format!("{prefix} {order_name}", prefix = i18n::t("eo.prefix"), order_name = i18n::t(order.name_key())) }</div>} } else { html!{} } }
+            { eo.map_or_else(|| html! {}, |order| {
+                html! {
+                    <div class="order" aria-live="polite">
+                        { format!("{prefix} {order_name}", prefix = i18n::t("eo.prefix"), order_name = i18n::t(order.name_key())) }
+                    </div>
+                }
+            }) }
         </section>
     }
 }

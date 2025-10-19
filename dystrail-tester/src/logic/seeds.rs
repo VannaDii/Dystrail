@@ -12,7 +12,7 @@ pub struct SeedInfo {
 
 impl SeedInfo {
     #[must_use]
-    pub fn from_numeric(seed: u64) -> Self {
+    pub const fn from_numeric(seed: u64) -> Self {
         Self {
             seed,
             code: None,
@@ -22,7 +22,7 @@ impl SeedInfo {
 
     #[cfg(test)]
     #[must_use]
-    pub fn for_mode(seed: u64, mode: GameMode) -> Self {
+    pub const fn for_mode(seed: u64, mode: GameMode) -> Self {
         Self {
             seed,
             code: None,
@@ -31,7 +31,7 @@ impl SeedInfo {
     }
 
     #[must_use]
-    pub fn from_share_code(seed: u64, mode: GameMode, code: String) -> Self {
+    pub const fn from_share_code(seed: u64, mode: GameMode, code: String) -> Self {
         Self {
             seed,
             code: Some(code),
@@ -41,10 +41,8 @@ impl SeedInfo {
 
     #[must_use]
     pub fn matches_mode(&self, mode: GameMode) -> bool {
-        match self.source_mode {
-            Some(source_mode) => source_mode == mode,
-            None => true,
-        }
+        self.source_mode
+            .is_none_or(|source_mode| source_mode == mode)
     }
 
     #[allow(dead_code)]
@@ -149,7 +147,7 @@ fn parse_share_code_checked(code: &str) -> Result<(GameMode, u64)> {
     parse_share_code(code).with_context(|| format!("failed to parse share code: {code}"))
 }
 
-fn mode_tag(mode: Option<GameMode>) -> u8 {
+const fn mode_tag(mode: Option<GameMode>) -> u8 {
     match mode {
         Some(GameMode::Classic) => 1,
         Some(GameMode::Deep) => 2,

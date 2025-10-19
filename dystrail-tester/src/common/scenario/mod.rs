@@ -58,7 +58,7 @@ pub struct SimulationScenario {
 }
 
 impl SimulationScenario {
-    pub fn new(name: &'static str, plan: SimulationPlan) -> Self {
+    pub const fn new(name: &'static str, plan: SimulationPlan) -> Self {
         Self {
             name,
             plan,
@@ -67,7 +67,7 @@ impl SimulationScenario {
     }
 
     #[must_use]
-    pub fn name(&self) -> &'static str {
+    pub const fn name(&self) -> &'static str {
         self.name
     }
 }

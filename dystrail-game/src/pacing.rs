@@ -31,7 +31,7 @@ pub struct PaceCfg {
     pub encounter_chance_delta: f32,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct DietCfg {
     pub id: String,
     pub name: String,
@@ -101,26 +101,26 @@ impl PacingConfig {
     }
 }
 
-fn default_one_f32() -> f32 {
+const fn default_one_f32() -> f32 {
     1.0
 }
 
-fn default_zero_f32() -> f32 {
+const fn default_zero_f32() -> f32 {
     0.0
 }
 
-fn default_zero_i32() -> i32 {
+const fn default_zero_i32() -> i32 {
     0
 }
 
-fn default_distance_penalty_floor() -> f32 {
+const fn default_distance_penalty_floor() -> f32 {
     0.6
 }
 
-fn default_pants_ceiling() -> i32 {
+const fn default_pants_ceiling() -> i32 {
     100
 }
 
-fn default_passive_threshold() -> i32 {
+const fn default_passive_threshold() -> i32 {
     0
 }

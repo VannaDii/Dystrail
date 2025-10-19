@@ -104,7 +104,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     let preview = selected.and_then(|i| personas.get(i)).cloned();
 
     // Build i18n preview line and multiplier
-    let preview_line = if let Some(per) = preview.as_ref() {
+    let preview_line = preview.as_ref().map_or_else(String::new, |per| {
         let sup = per.start.supplies.to_string();
         let cred = per.start.credibility.to_string();
         let san = per.start.sanity.to_string();
@@ -119,18 +119,14 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         m.insert("allies", allies.as_str());
         m.insert("budget", budget.as_str());
         crate::i18n::tr("persona.preview", Some(&m))
-    } else {
-        String::new()
-    };
-    let mult_line = if let Some(per) = preview.as_ref() {
+    });
+    let mult_line = preview.as_ref().map_or_else(String::new, |per| {
         let mult = format!("{:.1}", per.score_mult);
         let mut m = std::collections::HashMap::new();
         m.insert("mult", mult.as_str());
         crate::i18n::tr("persona.mult", Some(&m))
-    } else {
-        String::new()
-    };
-    let mods_text = if let Some(per) = preview.as_ref() {
+    });
+    let mods_text = preview.as_ref().map_or_else(String::new, |per| {
         let mut lines: Vec<String> = vec![];
         if per.mods.receipt_find_pct != 0 {
             let pct = per.mods.receipt_find_pct.to_string();
@@ -160,9 +156,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
             lines.push(crate::i18n::t("persona.mods.satire_sustain"));
         }
         lines.join(" · ")
-    } else {
-        String::new()
-    };
+    });
 
     html! {
       <section class="panel retro-menu" aria-labelledby="persona-title" onkeydown={on_keydown}>

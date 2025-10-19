@@ -40,7 +40,7 @@ pub struct BossConfig {
 
 impl Default for BossConfig {
     fn default() -> Self {
-        serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or(BossConfig {
+        serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or(Self {
             distance_required: ROUTE_LEN_MILES,
             rounds: 3,
             passes_required: 2,
@@ -61,7 +61,7 @@ impl Default for BossConfig {
 impl BossConfig {
     #[must_use]
     pub fn load_from_static() -> Self {
-        BossConfig::default()
+        Self::default()
     }
 }
 

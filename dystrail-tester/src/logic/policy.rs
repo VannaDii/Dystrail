@@ -14,7 +14,7 @@ pub struct PolicyDecision {
 
 impl PolicyDecision {
     #[must_use]
-    pub fn new(choice_index: usize, rationale: Option<String>) -> Self {
+    pub const fn new(choice_index: usize, rationale: Option<String>) -> Self {
         Self {
             choice_index,
             rationale,
@@ -43,24 +43,24 @@ pub enum GameplayStrategy {
 
 impl GameplayStrategy {
     #[must_use]
-    pub fn label(self) -> &'static str {
+    pub const fn label(self) -> &'static str {
         match self {
-            GameplayStrategy::Conservative => "Conservative",
-            GameplayStrategy::Aggressive => "Aggressive",
-            GameplayStrategy::Balanced => "Balanced",
-            GameplayStrategy::ResourceManager => "Resource Manager",
-            GameplayStrategy::MonteCarlo => "Monte Carlo",
+            Self::Conservative => "Conservative",
+            Self::Aggressive => "Aggressive",
+            Self::Balanced => "Balanced",
+            Self::ResourceManager => "Resource Manager",
+            Self::MonteCarlo => "Monte Carlo",
         }
     }
 
     #[must_use]
     pub fn create_policy(self, seed: u64) -> Box<dyn PlayerPolicy + Send> {
         match self {
-            GameplayStrategy::Conservative => Box::new(ConservativePolicy),
-            GameplayStrategy::Aggressive => Box::new(AggressivePolicy),
-            GameplayStrategy::Balanced => Box::new(BalancedPolicy),
-            GameplayStrategy::ResourceManager => Box::new(ResourceManagerPolicy),
-            GameplayStrategy::MonteCarlo => Box::new(MonteCarloPolicy::new(seed)),
+            Self::Conservative => Box::new(ConservativePolicy),
+            Self::Aggressive => Box::new(AggressivePolicy),
+            Self::Balanced => Box::new(BalancedPolicy),
+            Self::ResourceManager => Box::new(ResourceManagerPolicy),
+            Self::MonteCarlo => Box::new(MonteCarloPolicy::new(seed)),
         }
     }
 }
@@ -207,7 +207,7 @@ impl PlayerPolicy for MonteCarloPolicy {
     }
 }
 
-fn conservative_risk(choice: &Choice) -> i32 {
+const fn conservative_risk(choice: &Choice) -> i32 {
     let eff = &choice.effects;
     let mut risk = 0;
     if eff.hp < 0 {

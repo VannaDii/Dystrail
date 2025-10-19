@@ -92,7 +92,7 @@ impl PartialEq for VehicleStatusProps {
     }
 }
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum VehicleAction {
     UseSpare(Part),
     HackFix,
@@ -338,14 +338,15 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
     let setsize = u8::try_from(items.len()).unwrap_or(255);
 
     // Status message
-    let status_msg = if let Some(breakdown) = breakdown {
-        let part_name = i18n::t(breakdown.part.key());
-        let mut vars = std::collections::HashMap::new();
-        vars.insert("part", part_name.as_str());
-        i18n::tr("vehicle.breakdown", Some(&vars))
-    } else {
-        i18n::t("vehicle.no_active")
-    };
+    let status_msg = breakdown.map_or_else(
+        || i18n::t("vehicle.no_active"),
+        |breakdown| {
+            let part_name = i18n::t(breakdown.part.key());
+            let mut vars = std::collections::HashMap::new();
+            vars.insert("part", part_name.as_str());
+            i18n::tr("vehicle.breakdown", Some(&vars))
+        },
+    );
 
     html! {
       <section role="region" aria-labelledby="vehicle-title" onkeydown={on_keydown} class="ot-menu">

@@ -40,7 +40,7 @@ fn deterministic_plan(expectation: fn(&SimulationSummary) -> Result<()>) -> Simu
         .with_expectation(expectation)
 }
 
-fn resource_stress_setup(game_state: &mut dystrail_game::GameState) {
+const fn resource_stress_setup(game_state: &mut dystrail_game::GameState) {
     game_state.stats.supplies = 2;
     game_state.stats.hp = 3;
     game_state.stats.sanity = 4;
@@ -90,11 +90,11 @@ fn deterministic_verification_expectation(summary: &SimulationSummary) -> Result
 }
 
 #[allow(clippy::unnecessary_wraps)]
-fn noop_expectation(_: &SimulationSummary) -> Result<()> {
+const fn noop_expectation(_: &SimulationSummary) -> Result<()> {
     Ok(())
 }
 
-fn edge_case_survival_setup(game_state: &mut dystrail_game::GameState) {
+const fn edge_case_survival_setup(game_state: &mut dystrail_game::GameState) {
     game_state.stats.pants = 95;
     game_state.stats.sanity = 1;
     game_state.stats.supplies = 1;

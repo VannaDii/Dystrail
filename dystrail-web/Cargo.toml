@@ -4,6 +4,10 @@ version = "0.10.0"
 edition = "2024"
 license = "MIT"
 description = "Dystrail - A satirical SNES-inspired survival game"
+repository = "https://github.com/vanna/dystrail"
+readme = "../README.md"
+keywords = ["dystrail", "game", "wasm", "web"]
+categories = ["games"]
 
 [lib]
 name = "dystrail_web"

@@ -280,7 +280,7 @@ impl SimulationPlan {
 
     #[allow(dead_code)]
     #[must_use]
-    pub fn with_max_days(mut self, max_days: u32) -> Self {
+    pub const fn with_max_days(mut self, max_days: u32) -> Self {
         self.max_days = Some(max_days);
         self
     }
@@ -381,7 +381,7 @@ impl GameTester {
         }
     }
 
-    fn configure_strategy_settings(state: &mut GameState, strategy: GameplayStrategy) {
+    const fn configure_strategy_settings(state: &mut GameState, strategy: GameplayStrategy) {
         let (auto_rest, threshold) = match strategy {
             GameplayStrategy::Aggressive => (true, 3),
             GameplayStrategy::Balanced => (false, 3),
@@ -1198,73 +1198,63 @@ impl PlayabilityMetrics {
 }
 
 fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String) {
-    if let Some(ending) = state.ending {
-        match ending {
-            Ending::BossVictory => (
-                "Victory - Boss Defeated".to_string(),
-                "boss_victory".to_string(),
-            ),
-            Ending::BossVoteFailed => (
-                "Boss Vote Failed - Game Over".to_string(),
-                "boss_vote_failed".to_string(),
-            ),
-            Ending::SanityLoss => (
-                "Sanity Depleted - Game Over".to_string(),
-                "sanity".to_string(),
-            ),
-            Ending::VehicleFailure { cause } => (
-                "Vehicle Failure - Game Over".to_string(),
-                format!("vehicle_failure_{}", cause.key()),
-            ),
-            Ending::Exposure { kind } => (
-                format!("Exposure ({}) - Game Over", kind.key()),
-                format!("exposure_{}", kind.key()),
-            ),
-            Ending::Collapse { cause } => (
-                format!("Collapse ({}) - Game Over", cause.key()),
-                format!("collapse_{}", cause.key()),
-            ),
-        }
-    } else if state.stats.pants >= 100 {
-        (
-            "Pants Emergency - Game Over".to_string(),
-            "pants".to_string(),
-        )
-    } else if state.stats.hp <= 0 {
-        (
-            "Health Depleted - Game Over".to_string(),
-            "health".to_string(),
-        )
-    } else if state.stats.sanity <= 0 {
-        (
-            "Sanity Depleted - Game Over".to_string(),
-            "sanity".to_string(),
-        )
-    } else if state.stats.supplies <= 0 {
-        (
-            "Supplies Depleted - Game Over".to_string(),
-            "supplies".to_string(),
-        )
-    } else if state.boss_attempted && !state.boss_victory {
-        (
-            "Boss Vote Failed - Game Over".to_string(),
-            "boss_vote_failed".to_string(),
-        )
-    } else if state.boss_victory {
-        (
+    match state.ending {
+        Some(Ending::BossVictory) => (
             "Victory - Boss Defeated".to_string(),
             "boss_victory".to_string(),
-        )
-    } else if outcome.game_ended {
-        (
+        ),
+        Some(Ending::BossVoteFailed) => (
+            "Boss Vote Failed - Game Over".to_string(),
+            "boss_vote_failed".to_string(),
+        ),
+        Some(Ending::SanityLoss) => (
+            "Sanity Depleted - Game Over".to_string(),
+            "sanity".to_string(),
+        ),
+        Some(Ending::VehicleFailure { cause }) => (
+            "Vehicle Failure - Game Over".to_string(),
+            format!("vehicle_failure_{}", cause.key()),
+        ),
+        Some(Ending::Exposure { kind }) => (
+            format!("Exposure ({}) - Game Over", kind.key()),
+            format!("exposure_{}", kind.key()),
+        ),
+        Some(Ending::Collapse { cause }) => (
+            format!("Collapse ({}) - Game Over", cause.key()),
+            format!("collapse_{}", cause.key()),
+        ),
+        None if state.stats.pants >= 100 => (
+            "Pants Emergency - Game Over".to_string(),
+            "pants".to_string(),
+        ),
+        None if state.stats.hp <= 0 => (
+            "Health Depleted - Game Over".to_string(),
+            "health".to_string(),
+        ),
+        None if state.stats.sanity <= 0 => (
+            "Sanity Depleted - Game Over".to_string(),
+            "sanity".to_string(),
+        ),
+        None if state.stats.supplies <= 0 => (
+            "Supplies Depleted - Game Over".to_string(),
+            "supplies".to_string(),
+        ),
+        None if state.boss_attempted && !state.boss_victory => (
+            "Boss Vote Failed - Game Over".to_string(),
+            "boss_vote_failed".to_string(),
+        ),
+        None if state.boss_victory => (
+            "Victory - Boss Defeated".to_string(),
+            "boss_victory".to_string(),
+        ),
+        None if outcome.game_ended => (
             format!(
                 "Game Ended: {}",
                 humanize_log_message(&outcome.travel_message)
             ),
             "unknown".to_string(),
-        )
-    } else {
-        ("Simulation Halted".to_string(), "in_progress".to_string())
+        ),
+        None => ("Simulation Halted".to_string(), "in_progress".to_string()),
     }
 }
 
@@ -1275,13 +1265,11 @@ fn humanize_log_message(message: &str) -> String {
         .filter(|segment| !segment.is_empty())
         .map(|segment| {
             let mut chars = segment.chars();
-            if let Some(first) = chars.next() {
+            chars.next().map_or_else(String::new, |first| {
                 let mut formatted = first.to_uppercase().collect::<String>();
                 formatted.push_str(chars.as_str());
                 formatted
-            } else {
-                String::new()
-            }
+            })
         })
         .collect::<Vec<String>>()
         .join(" ")

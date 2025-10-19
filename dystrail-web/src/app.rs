@@ -67,23 +67,26 @@ pub fn app_inner() -> Html {
 
     // Sync route with phase (only when phase changes programmatically)
     {
-        let nav_opt = navigator.clone();
-        let route = route.clone();
-        use_effect_with(phase.clone(), move |phase| {
-            if let Some(nav) = nav_opt.as_ref() {
-                let new_route = Route::from_phase(phase);
-                // Only update route if it's different to prevent circular updates
-                if new_route != route {
-                    nav.push(&new_route);
+        let navigator_for_phase = navigator;
+        let current_route = route.clone();
+        use_effect_with(
+            (phase.clone(), current_route),
+            move |(phase, current_route)| {
+                if let Some(nav) = navigator_for_phase.as_ref() {
+                    let new_route = Route::from_phase(phase);
+                    // Only update route if it's different to prevent circular updates
+                    if &new_route != current_route {
+                        nav.push(&new_route);
+                    }
                 }
-            }
-        });
+            },
+        );
     }
 
     // Sync phase with route (only when route changes from URL navigation)
     {
         let phase = phase.clone();
-        use_effect_with(route.clone(), move |route| {
+        use_effect_with(route, move |route| {
             if let Some(new_phase) = route.to_phase() {
                 // Only update phase if it's different to prevent circular updates
                 if new_phase != *phase {
@@ -98,7 +101,7 @@ pub fn app_inner() -> Html {
         let data = data.clone();
         let pacing_config = pacing_config.clone();
         let endgame_config = endgame_config.clone();
-        let weather_config = weather_config.clone();
+        let weather_config = weather_config;
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
@@ -123,97 +126,15 @@ pub fn app_inner() -> Html {
 
     #[allow(unused_variables)]
     let on_code_change = {
-        let code = code.clone();
-        let code_valid = code_valid.clone();
+        let code_handle = code.clone();
+        let code_valid_handle = code_valid;
         Callback::from(move |v: String| {
             let v_up = v.trim().to_ascii_uppercase();
             let valid = regex::Regex::new(r"^(CL|DP)-[A-Z0-9]+\d{2}$")
                 .map(|re| re.is_match(&v_up))
                 .unwrap_or(false);
-            code.set(v_up.into());
-            code_valid.set(valid);
-        })
-    };
-
-    let start_with_code = {
-        let code = code.clone();
-        let state = state.clone();
-        let phase = phase.clone();
-        let logs = logs.clone();
-        let data = data.clone();
-        let run_seed = run_seed.clone();
-        Callback::from(move |()| {
-            // Try to decode the share code first
-            if let Some((is_deep, seed)) = decode_to_seed(&code) {
-                let mode = if is_deep {
-                    GameMode::Deep
-                } else {
-                    GameMode::Classic
-                };
-                let base = (*state).clone().unwrap_or_default();
-                let gs = base.with_seed(seed, mode, (*data).clone());
-                let mode_label = if is_deep {
-                    crate::i18n::t("mode.deep")
-                } else {
-                    crate::i18n::t("mode.classic")
-                };
-                let mut m = std::collections::HashMap::new();
-                m.insert("mode", mode_label.as_str());
-                logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                state.set(Some(gs));
-                run_seed.set(seed);
-                phase.set(Phase::Travel);
-            } else {
-                // Fallback to classic mode if code decode fails
-                let entropy = js_sys::Date::now().to_bits();
-                let new_code = generate_code_from_entropy(false, entropy);
-                code.set(new_code.clone().into());
-                if let Some((_, seed)) = decode_to_seed(&new_code) {
-                    let base = (*state).clone().unwrap_or_default();
-                    let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
-                    let mode_label = crate::i18n::t("mode.classic");
-                    let mut m = std::collections::HashMap::new();
-                    m.insert("mode", mode_label.as_str());
-                    logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                    state.set(Some(gs));
-                    run_seed.set(seed);
-                    phase.set(Phase::Travel);
-                }
-            }
-        })
-    };
-
-    let start_mode = {
-        let code = code.clone();
-        let state = state.clone();
-        let phase = phase.clone();
-        let logs = logs.clone();
-        let data = data.clone();
-        let run_seed = run_seed.clone();
-        Callback::from(move |is_deep: bool| {
-            let entropy = js_sys::Date::now().to_bits();
-            let new_code = generate_code_from_entropy(is_deep, entropy);
-            code.set(new_code.clone().into());
-            if let Some((deep, seed)) = decode_to_seed(&new_code) {
-                let mode = if deep {
-                    GameMode::Deep
-                } else {
-                    GameMode::Classic
-                };
-                let base = (*state).clone().unwrap_or_default();
-                let gs = base.with_seed(seed, mode, (*data).clone());
-                let mode_label = if deep {
-                    crate::i18n::t("mode.deep")
-                } else {
-                    crate::i18n::t("mode.classic")
-                };
-                let mut m = std::collections::HashMap::new();
-                m.insert("mode", mode_label.as_str());
-                logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                state.set(Some(gs));
-                run_seed.set(seed);
-                phase.set(Phase::Travel);
-            }
+            code_handle.set(v_up.into());
+            code_valid_handle.set(valid);
         })
     };
 
@@ -244,49 +165,49 @@ pub fn app_inner() -> Html {
     };
 
     let on_pace_change = {
-        let state = state.clone();
+        let state_handle = state.clone();
         Callback::from(move |new_pace: PaceId| {
-            if let Some(mut gs) = (*state).clone() {
+            if let Some(mut gs) = (*state_handle).clone() {
                 gs.pace = new_pace;
-                state.set(Some(gs));
+                state_handle.set(Some(gs));
             }
         })
     };
 
     let on_diet_change = {
-        let state = state.clone();
+        let state_handle = state.clone();
         Callback::from(move |new_diet: DietId| {
-            if let Some(mut gs) = (*state).clone() {
+            if let Some(mut gs) = (*state_handle).clone() {
                 gs.diet = new_diet;
-                state.set(Some(gs));
+                state_handle.set(Some(gs));
             }
         })
     };
 
     let on_choice = {
-        let state = state.clone();
-        let phase = phase.clone();
-        let logs = logs.clone();
+        let state_handle = state.clone();
+        let phase_handle = phase.clone();
+        let logs_handle = logs.clone();
         Callback::from(move |idx: usize| {
-            if let Some(mut gs) = (*state).clone() {
-                let mut lg = (*logs).clone();
+            if let Some(mut gs) = (*state_handle).clone() {
+                let mut lg = (*logs_handle).clone();
                 gs.apply_choice(idx);
                 lg.push(format!("Chose option {}", idx + 1));
-                phase.set(Phase::Travel);
-                logs.set(lg);
-                state.set(Some(gs));
+                phase_handle.set(Phase::Travel);
+                logs_handle.set(lg);
+                state_handle.set(Some(gs));
             }
         })
     };
 
     let boss_act = {
-        let state = state.clone();
-        let phase = phase.clone();
-        let result = result.clone();
-        let boss_config = boss_config.clone();
+        let state_handle = state.clone();
+        let phase_handle = phase.clone();
+        let result_handle = result;
+        let boss_config_handle = boss_config.clone();
         Callback::from(move |_| {
-            if let Some(mut gs) = (*state).clone() {
-                let cfg = (*boss_config).clone();
+            if let Some(mut gs) = (*state_handle).clone() {
+                let cfg = (*boss_config_handle).clone();
                 let out = crate::game::boss::run_boss_minigame(&mut gs, &cfg);
                 let (title_key, summary_key) = match out {
                     crate::game::boss::BossOutcome::PassedCloture => {
@@ -305,9 +226,9 @@ pub fn app_inner() -> Html {
                 };
                 let title = crate::i18n::t(title_key);
                 let summary = crate::i18n::t(summary_key);
-                result.set(Some((title, summary)));
-                phase.set(Phase::Result);
-                state.set(Some(gs));
+                result_handle.set(Some((title, summary)));
+                phase_handle.set(Phase::Result);
+                state_handle.set(Some(gs));
             }
         })
     };
@@ -319,39 +240,39 @@ pub fn app_inner() -> Html {
         Callback::from(move |()| s.set(false))
     };
     let on_save_cb = {
-        let state = state.clone();
-        let logs = logs.clone();
+        let state_handle = state.clone();
+        let logs_handle = logs.clone();
         Callback::from(move |()| {
-            if let Some(gs) = (*state).clone() {
+            if let Some(gs) = (*state_handle).clone() {
                 gs.save();
-                let mut l = (*logs).clone();
+                let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.saved"));
-                logs.set(l);
+                logs_handle.set(l);
             }
         })
     };
     let on_load_cb = {
-        let state = state.clone();
-        let data = data.clone();
-        let logs = logs.clone();
-        let phase = phase.clone();
-        let run_seed = run_seed.clone();
+        let state_handle = state.clone();
+        let data_handle = data.clone();
+        let logs_handle = logs.clone();
+        let phase_handle = phase.clone();
+        let run_seed_handle = run_seed.clone();
         Callback::from(move |()| {
             if let Some(mut gs) = GameState::load() {
-                gs = gs.rehydrate((*data).clone());
-                run_seed.set(gs.seed);
-                state.set(Some(gs));
-                let mut l = (*logs).clone();
+                gs = gs.rehydrate((*data_handle).clone());
+                run_seed_handle.set(gs.seed);
+                state_handle.set(Some(gs));
+                let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.loaded"));
-                logs.set(l);
-                phase.set(Phase::Travel);
+                logs_handle.set(l);
+                phase_handle.set(Phase::Travel);
             }
         })
     };
     let on_export_cb = {
-        let state = state.clone();
+        let state_handle = state.clone();
         Callback::from(move |()| {
-            let Some(gs) = (*state).clone() else {
+            let Some(gs) = (*state_handle).clone() else {
                 return;
             };
             let Ok(text) = serde_json::to_string(&gs) else {
@@ -366,24 +287,24 @@ pub fn app_inner() -> Html {
         })
     };
     let on_import_cb = {
-        let state = state.clone();
-        let data = data.clone();
-        let logs = logs.clone();
-        let run_seed = run_seed.clone();
-        let phase = phase.clone();
+        let state_handle = state.clone();
+        let data_handle = data.clone();
+        let logs_handle = logs.clone();
+        let run_seed_handle = run_seed.clone();
+        let phase_handle = phase.clone();
         Callback::from(move |txt: String| {
             if let Ok(mut gs) = serde_json::from_str::<GameState>(&txt) {
-                gs = gs.rehydrate((*data).clone());
-                run_seed.set(gs.seed);
-                state.set(Some(gs));
-                let mut l = (*logs).clone();
+                gs = gs.rehydrate((*data_handle).clone());
+                run_seed_handle.set(gs.seed);
+                state_handle.set(Some(gs));
+                let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.loaded"));
-                logs.set(l);
-                phase.set(Phase::Travel);
+                logs_handle.set(l);
+                phase_handle.set(Phase::Travel);
             } else {
-                let mut l = (*logs).clone();
+                let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.error"));
-                logs.set(l);
+                logs_handle.set(l);
             }
         })
     };
@@ -412,6 +333,7 @@ pub fn app_inner() -> Html {
         },
         Phase::Persona => {
             // On-persona selected callback
+            #[allow(clippy::redundant_clone)]
             let on_selected = {
                 let state = state.clone();
                 Callback::from(move |per: crate::game::personas::Persona| {
@@ -420,6 +342,8 @@ pub fn app_inner() -> Html {
                     state.set(Some(gs));
                 })
             };
+            #[allow(clippy::redundant_clone)]
+            #[allow(clippy::redundant_clone)]
             let on_continue = {
                 let phase = phase.clone();
                 Callback::from(move |()| phase.set(Phase::Outfitting))
@@ -434,7 +358,9 @@ pub fn app_inner() -> Html {
             // Outfitting Store
             let current_state = (*state).clone().unwrap_or_default();
             let on_continue = {
+                #[allow(clippy::redundant_clone)]
                 let state = state.clone();
+                #[allow(clippy::redundant_clone)]
                 let phase = phase.clone();
                 Callback::from(
                     move |(new_state, _grants, _tags): (
@@ -457,33 +383,64 @@ pub fn app_inner() -> Html {
         }
         Phase::Menu => {
             // Main menu actions wiring
-            let on_select = {
-                let start_with_code = start_with_code.clone();
-                let _start_mode = start_mode.clone();
-                let show_save = show_save.clone();
-                let show_settings = show_settings.clone();
+            #[allow(clippy::redundant_clone)]
+            let start_with_code_action = {
+                let code = code.clone();
+                let state = state.clone();
                 let phase = phase.clone();
-                Callback::from(move |idx: u8| {
-                    match idx {
-                        1 => {
-                            // Travel: always try start with code first, fall back to classic mode
-                            start_with_code.emit(());
+                let logs = logs.clone();
+                let data = data.clone();
+                let run_seed = run_seed.clone();
+                move || {
+                    if let Some((is_deep, seed)) = decode_to_seed(&code) {
+                        let mode = if is_deep {
+                            GameMode::Deep
+                        } else {
+                            GameMode::Classic
+                        };
+                        let base = (*state).clone().unwrap_or_default();
+                        let gs = base.with_seed(seed, mode, (*data).clone());
+                        let mode_label = if is_deep {
+                            crate::i18n::t("mode.deep")
+                        } else {
+                            crate::i18n::t("mode.classic")
+                        };
+                        let mut m = std::collections::HashMap::new();
+                        m.insert("mode", mode_label.as_str());
+                        logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                        state.set(Some(gs));
+                        run_seed.set(seed);
+                        phase.set(Phase::Travel);
+                    } else {
+                        let entropy = js_sys::Date::now().to_bits();
+                        let new_code = generate_code_from_entropy(false, entropy);
+                        code.set(new_code.clone().into());
+                        if let Some((_, seed)) = decode_to_seed(&new_code) {
+                            let base = (*state).clone().unwrap_or_default();
+                            let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
+                            let mode_label = crate::i18n::t("mode.classic");
+                            let mut m = std::collections::HashMap::new();
+                            m.insert("mode", mode_label.as_str());
+                            logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                            state.set(Some(gs));
+                            run_seed.set(seed);
+                            phase.set(Phase::Travel);
                         }
-                        2 => {
-                            // Camp
-                            phase.set(Phase::Camp);
-                        }
-                        7 => {
-                            show_save.set(true);
-                        }
-                        8 => {
-                            show_settings.set(true);
-                        }
-                        0 => {
-                            phase.set(Phase::Boot);
-                        }
-                        3..=6 | 9..=u8::MAX => {}
                     }
+                }
+            };
+
+            let on_select = {
+                let show_save_handle = show_save.clone();
+                let show_settings_handle = show_settings.clone();
+                let phase_handle = phase.clone();
+                Callback::from(move |idx: u8| match idx {
+                    1 => start_with_code_action(),
+                    2 => phase_handle.set(Phase::Camp),
+                    7 => show_save_handle.set(true),
+                    8 => show_settings_handle.set(true),
+                    0 => phase_handle.set(Phase::Boot),
+                    3..=6 | 9..=u8::MAX => {}
                 })
             };
             html! {
@@ -555,21 +512,26 @@ pub fn app_inner() -> Html {
         Phase::Camp => {
             if let Some(gs) = (*state).clone() {
                 let camp_config_rc = Rc::new((*camp_config).clone());
+                let stats = gs.stats.clone();
+                let day = gs.day;
+                let region = gs.region;
+                let exec_order = gs.current_order;
+                let camp_state = Rc::new(gs);
                 html! {
                     <>
-                        <crate::components::ui::stats_bar::StatsBar stats={gs.stats.clone()} day={gs.day} region={gs.region} exec_order={gs.current_order} />
+                        <crate::components::ui::stats_bar::StatsBar stats={stats} day={day} region={region} exec_order={exec_order} />
                         <crate::components::ui::camp_panel::CampPanel
-                            game_state={Rc::new(gs.clone())}
+                            game_state={camp_state}
                             camp_config={camp_config_rc}
                             on_state_change={{
-                                let state = state.clone();
+                                let state_handle = state.clone();
                                 Callback::from(move |new_state| {
-                                    state.set(Some(new_state));
+                                    state_handle.set(Some(new_state));
                                 })
                             }}
                             on_close={{
-                                let phase = phase.clone();
-                                Callback::from(move |()| phase.set(Phase::Menu))
+                                let phase_handle = phase.clone();
+                                Callback::from(move |()| phase_handle.set(Phase::Menu))
                             }}
                         />
                     </>
@@ -580,13 +542,23 @@ pub fn app_inner() -> Html {
         }
         Phase::Encounter => {
             if let Some(gs) = (*state).clone() {
-                if let Some(enc) = gs.current_encounter.clone() {
-                    html! { <crate::components::ui::encounter_card::EncounterCard encounter={enc} on_choice={on_choice} /> }
-                } else if data_ready {
-                    Html::default()
-                } else {
-                    html! { <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> }
-                }
+                gs.current_encounter.as_ref().map_or_else(
+                    || {
+                        if data_ready {
+                            Html::default()
+                        } else {
+                            html! { <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> }
+                        }
+                    },
+                    |enc| {
+                        html! {
+                            <crate::components::ui::encounter_card::EncounterCard
+                                encounter={enc.clone()}
+                                on_choice={on_choice.clone()}
+                            />
+                        }
+                    },
+                )
             } else {
                 Html::default()
             }
@@ -643,12 +615,14 @@ pub fn app_inner() -> Html {
                             <p>{ i18n::t("boss.phases_hint") }</p>
                             <ul class="boss-stats">
                                 <li>{ rounds_text }</li>
-                                { if let Some(text) = sanity_text {
-                                    html! { <li>{ text }</li> }
-                                } else { Html::default() } }
-                                { if let Some(text) = pants_text {
-                                    html! { <li>{ text }</li> }
-                                } else { Html::default() } }
+                                { sanity_text.map_or_else(
+                                    Html::default,
+                                    |text| html! { <li>{ text }</li> },
+                                ) }
+                                { pants_text.map_or_else(
+                                    Html::default,
+                                    |text| html! { <li>{ text }</li> },
+                                ) }
                                 <li>{ chance_text }</li>
                             </ul>
                             <p class="muted">{ i18n::t("boss.reminder") }</p>
@@ -696,9 +670,9 @@ pub fn app_inner() -> Html {
 
                 let on_export = {
                     let seed = *run_seed;
-                    let game_state = gs.clone();
+                    let is_deep = gs.mode.is_deep();
                     Callback::from(move |()| {
-                        let code_str = encode_friendly(game_state.mode.is_deep(), seed);
+                        let code_str = encode_friendly(is_deep, seed);
                         if let Some(win) = web_sys::window() {
                             let nav = win.navigator();
                             let cb = nav.clipboard();
@@ -707,8 +681,9 @@ pub fn app_inner() -> Html {
                     })
                 };
 
+                let result_state = gs;
                 html! { <crate::components::ui::result_screen::ResultScreen
-                    game_state={gs}
+                    game_state={result_state}
                     result_config={result_config_data}
                     boss_won={boss_won}
                     on_replay_seed={on_replay_seed}

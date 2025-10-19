@@ -2,7 +2,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::{Stats, state::TravelDayKind};
+use crate::{Stats, TravelDayKind};
 
 const DEFAULT_CAMP_DATA: &str = include_str!("../../dystrail-web/static/assets/data/camp.json");
 
@@ -121,7 +121,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
             gs.start_of_day();
         }
         if rest_cfg.recovery_day {
-            gs.record_travel_day(TravelDayKind::None, 0.0, "camp");
+            gs.record_travel_day(TravelDayKind::Stop, 0.0, "camp");
         } else {
             gs.apply_rest_travel_credit();
         }
@@ -214,13 +214,13 @@ pub fn camp_repair_hack(_gs: &mut crate::GameState, _cfg: &CampConfig) -> CampOu
 }
 
 #[must_use]
-pub fn can_repair(gs: &crate::GameState, _cfg: &CampConfig) -> bool {
+pub const fn can_repair(gs: &crate::GameState, _cfg: &CampConfig) -> bool {
     // Check if there's a breakdown to repair
     gs.breakdown.is_some()
 }
 
 #[must_use]
-pub fn can_therapy(_gs: &crate::GameState, _cfg: &CampConfig) -> bool {
+pub const fn can_therapy(_gs: &crate::GameState, _cfg: &CampConfig) -> bool {
     // Placeholder - could check sanity levels, etc.
     true
 }

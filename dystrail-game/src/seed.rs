@@ -58,7 +58,7 @@ fn pack(word_index: u16, nn: u8) -> u16 {
 }
 
 #[inline]
-fn unpack(packed: u16) -> (u16, u8) {
+const fn unpack(packed: u16) -> (u16, u8) {
     (packed & 0x01FF, ((packed >> 9) & 0x7F) as u8)
 }
 

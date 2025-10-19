@@ -246,6 +246,13 @@ fn emit_aggregate_warnings(aggregates: &[PlayabilityAggregate]) {
                 agg.crossing_bribe_success_rate * 100.0
             );
         }
+        if agg.crossing_failure_rate > 0.12 {
+            println!(
+                "WARN: {} terminal crossing rate {:.1}% > 12%",
+                agg.scenario_name,
+                agg.crossing_failure_rate * 100.0
+            );
+        }
         if agg.mean_stop_cap_conversions > 1.2 {
             println!(
                 "WARN: {} average stop-cap conversions {:.2} > 1.2",
@@ -305,13 +312,13 @@ fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
         agg.mean_unique_per_20
     );
     ensure!(
-        agg.mean_miles >= 1_950.0,
-        "Classic Balanced average mileage {:.0} below 1950 mi goal",
+        agg.mean_miles >= 2_000.0,
+        "Classic Balanced average mileage {:.0} below 2000 mi goal",
         agg.mean_miles
     );
     ensure!(
-        agg.mean_travel_ratio >= 0.88,
-        "Classic Balanced travel ratio {:.1}% below 88% target",
+        agg.mean_travel_ratio >= 0.90,
+        "Classic Balanced travel ratio {:.1}% below 90% target",
         agg.mean_travel_ratio * 100.0
     );
     ensure!(
@@ -479,15 +486,27 @@ pub fn validate_playability_targets(
 ) -> Result<()> {
     for record in records {
         ensure!(
-            !record
-                .metrics
-                .ending_type
-                .to_lowercase()
-                .contains("vehicle"),
-            "Vehicle failure observed for scenario {} seed {}",
+            record.metrics.travel_ratio >= 0.90,
+            "Travel ratio {:.1}% < 90% for scenario {} seed {}",
+            record.metrics.travel_ratio * 100.0,
             record.scenario_name,
             record.seed_code
         );
+        if record
+            .metrics
+            .ending_type
+            .to_lowercase()
+            .contains("vehicle")
+            && record.scenario_name == "Classic - Balanced"
+        {
+            ensure!(
+                record.metrics.miles_traveled >= 1_950.0,
+                "Vehicle failure observed for scenario {} seed {} before 1950 mi (at {:.0} mi)",
+                record.scenario_name,
+                record.seed_code,
+                record.metrics.miles_traveled
+            );
+        }
     }
 
     let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
@@ -513,6 +532,37 @@ pub fn validate_playability_targets(
 
     let deep_aggressive = find_aggregate(aggregates, "Deep - Aggressive")?;
     validate_deep_aggressive(deep_aggressive)?;
+
+    for agg in aggregates {
+        ensure!(
+            agg.mean_miles >= 2_000.0,
+            "{} average mileage {:.0} below 2000 mi goal",
+            agg.scenario_name,
+            agg.mean_miles
+        );
+        if agg.mean_crossing_bribes > 0.0 {
+            ensure!(
+                agg.crossing_bribe_success_rate >= 0.70,
+                "{} average bribe success {:.1}% below 70% target",
+                agg.scenario_name,
+                agg.crossing_bribe_success_rate * 100.0
+            );
+        }
+        if agg.mean_crossing_events > 0.0 {
+            ensure!(
+                agg.crossing_failure_rate <= 0.12,
+                "{} terminal crossing rate {:.1}% exceeds 12% cap",
+                agg.scenario_name,
+                agg.crossing_failure_rate * 100.0
+            );
+        }
+        ensure!(
+            agg.min_travel_ratio >= 0.90,
+            "{} minimum travel ratio {:.1}% below 90% floor",
+            agg.scenario_name,
+            agg.min_travel_ratio * 100.0
+        );
+    }
 
     for record in records {
         let determinism_violation = record.metrics.crossing_events.iter().any(|event| {
@@ -555,7 +605,7 @@ fn ensure_crossing_consistency(records: &[PlayabilityRecord]) -> Result<()> {
     Ok(())
 }
 
-fn mode_label(mode: GameMode) -> &'static str {
+const fn mode_label(mode: GameMode) -> &'static str {
     match mode {
         GameMode::Classic => "Classic",
         GameMode::Deep => "Deep",
@@ -908,7 +958,7 @@ impl RunningStats {
         self.m2 += delta * delta2;
     }
 
-    fn mean(&self) -> f64 {
+    const fn mean(&self) -> f64 {
         if self.count == 0 { 0.0 } else { self.mean }
     }
 

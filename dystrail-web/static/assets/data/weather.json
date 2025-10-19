@@ -18,7 +18,7 @@
       "sanity": -1,
       "pants": 2,
       "enc_delta": 0.05,
-      "travel_mult": 0.8
+      "travel_mult": 0.9
     },
     "HeatWave": {
       "supplies": 1,
@@ -32,7 +32,7 @@
       "sanity": -1,
       "pants": 0,
       "enc_delta": 0.0,
-      "travel_mult": 0.85
+      "travel_mult": 0.9
     },
     "Smoke": {
       "supplies": 1,

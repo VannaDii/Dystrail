@@ -24,30 +24,30 @@ pub enum Route {
 
 impl Route {
     #[must_use]
-    pub fn from_phase(phase: &crate::app::Phase) -> Self {
+    pub const fn from_phase(phase: &crate::app::Phase) -> Self {
         match phase {
-            crate::app::Phase::Persona => Route::Persona,
-            crate::app::Phase::Outfitting => Route::Outfitting,
-            crate::app::Phase::Menu | crate::app::Phase::Boot => Route::Home,
-            crate::app::Phase::Travel => Route::Travel,
-            crate::app::Phase::Camp => Route::Camp,
-            crate::app::Phase::Encounter => Route::Encounter,
-            crate::app::Phase::Boss => Route::Boss,
-            crate::app::Phase::Result => Route::Result,
+            crate::app::Phase::Persona => Self::Persona,
+            crate::app::Phase::Outfitting => Self::Outfitting,
+            crate::app::Phase::Menu | crate::app::Phase::Boot => Self::Home,
+            crate::app::Phase::Travel => Self::Travel,
+            crate::app::Phase::Camp => Self::Camp,
+            crate::app::Phase::Encounter => Self::Encounter,
+            crate::app::Phase::Boss => Self::Boss,
+            crate::app::Phase::Result => Self::Result,
         }
     }
 
     #[must_use]
-    pub fn to_phase(&self) -> Option<crate::app::Phase> {
+    pub const fn to_phase(&self) -> Option<crate::app::Phase> {
         match self {
-            Route::Persona => Some(crate::app::Phase::Persona),
-            Route::Outfitting => Some(crate::app::Phase::Outfitting),
-            Route::Home | Route::Game => Some(crate::app::Phase::Menu),
-            Route::Travel => Some(crate::app::Phase::Travel),
-            Route::Camp => Some(crate::app::Phase::Camp),
-            Route::Encounter => Some(crate::app::Phase::Encounter),
-            Route::Boss => Some(crate::app::Phase::Boss),
-            Route::Result => Some(crate::app::Phase::Result),
+            Self::Persona => Some(crate::app::Phase::Persona),
+            Self::Outfitting => Some(crate::app::Phase::Outfitting),
+            Self::Home | Self::Game => Some(crate::app::Phase::Menu),
+            Self::Travel => Some(crate::app::Phase::Travel),
+            Self::Camp => Some(crate::app::Phase::Camp),
+            Self::Encounter => Some(crate::app::Phase::Encounter),
+            Self::Boss => Some(crate::app::Phase::Boss),
+            Self::Result => Some(crate::app::Phase::Result),
         }
     }
 }

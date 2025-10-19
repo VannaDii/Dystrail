@@ -61,24 +61,57 @@ pub fn travel_panel(p: &Props) -> Html {
     let travel_blocked = p.game_state.as_ref().is_some_and(|gs| gs.travel_blocked);
 
     // Prepare breakdown message if needed
-    let breakdown_msg = if let Some(gs) = p.game_state.as_ref() {
-        if let Some(breakdown) = &gs.breakdown {
+    let breakdown_msg = p.game_state.as_ref().and_then(|gs| {
+        gs.breakdown.as_ref().map(|breakdown| {
             let part_name = i18n::t(breakdown.part.key());
             let mut vars = std::collections::HashMap::new();
             vars.insert("part", part_name.as_str());
-            Some(i18n::tr("vehicle.breakdown", Some(&vars)))
-        } else {
-            None
-        }
-    } else {
-        None
-    };
+            i18n::tr("vehicle.breakdown", Some(&vars))
+        })
+    });
 
     // Weather information display
-    let weather_info = if let Some(gs) = p.game_state.as_ref() {
-        render_weather_info(gs)
+    let weather_info = p
+        .game_state
+        .as_ref()
+        .map_or_else(|| html! {}, |gs| render_weather_info(gs.as_ref()));
+
+    let weather_details = if *show_weather_details {
+        p.game_state.as_ref().map_or_else(
+            Html::default,
+            |game_state| {
+                html! {
+                    <div class="weather-details-card" role="dialog" aria-labelledby="weather-details-header">
+                        <h3 id="weather-details-header">{ i18n::t("weather.details.header") }</h3>
+                        { render_weather_details(game_state.as_ref()) }
+                        <button onclick={on_toggle_weather_details.clone()} class="retro-btn-secondary weather-back-btn">
+                            { i18n::t("weather.details.back") }
+                        </button>
+                    </div>
+                }
+            },
+        )
     } else {
-        html! {}
+        Html::default()
+    };
+
+    let pace_diet_panel = if *show_pace_diet {
+        p.game_state.as_ref().map_or_else(
+            || html! { <div class="error">{"Game state unavailable"}</div> },
+            |game_state| {
+                html! {
+                    <crate::components::ui::pace_diet_panel::PaceDietPanel
+                        game_state={game_state.clone()}
+                        pacing_config={p.pacing_config.clone()}
+                        on_pace_change={p.on_pace_change.clone()}
+                        on_diet_change={p.on_diet_change.clone()}
+                        on_back={on_hide_pace_diet.clone()}
+                    />
+                }
+            },
+        )
+    } else {
+        Html::default()
     };
 
     html! {
@@ -99,28 +132,10 @@ pub fn travel_panel(p: &Props) -> Html {
             }
 
             // Weather details card if shown
-            if *show_weather_details && p.game_state.is_some() {
-                if let Some(game_state) = p.game_state.as_ref() {
-                    <div class="weather-details-card" role="dialog" aria-labelledby="weather-details-header">
-                        <h3 id="weather-details-header">{ i18n::t("weather.details.header") }</h3>
-                        { render_weather_details(game_state) }
-                        <button onclick={on_toggle_weather_details} class="retro-btn-secondary weather-back-btn">
-                            { i18n::t("weather.details.back") }
-                        </button>
-                    </div>
-                }
-            } else if *show_pace_diet && p.game_state.is_some() {
-                if let Some(game_state) = p.game_state.as_ref() {
-                    <crate::components::ui::pace_diet_panel::PaceDietPanel
-                        game_state={game_state.clone()}
-                        pacing_config={p.pacing_config.clone()}
-                        on_pace_change={p.on_pace_change.clone()}
-                        on_diet_change={p.on_diet_change.clone()}
-                        on_back={on_hide_pace_diet}
-                    />
-                } else {
-                    <div class="error">{"Game state unavailable"}</div>
-                }
+            if *show_weather_details {
+                { weather_details }
+            } else if *show_pace_diet {
+                { pace_diet_panel }
             } else {
                 <>
                     <div class="controls">
@@ -173,7 +188,7 @@ fn render_weather_info(game_state: &GameState) -> Html {
     let effect = weather_cfg.effects.get(&today);
 
     // Format effects for display
-    let effects_text = if let Some(eff) = effect {
+    let effects_text = effect.map_or_else(String::new, |eff| {
         let mut parts = Vec::new();
 
         if eff.supplies != 0 {
@@ -194,9 +209,7 @@ fn render_weather_info(game_state: &GameState) -> Html {
         } else {
             format!(" ({parts})", parts = parts.join(", "))
         }
-    } else {
-        String::new()
-    };
+    });
 
     let weather_state_name = i18n::t(today.i18n_key());
     let region_name = i18n::t(match game_state.region {
@@ -240,42 +253,45 @@ fn render_weather_details(game_state: &GameState) -> Html {
 
     // Get effects and format them
     let effect = weather_cfg.effects.get(&today);
-    let effects_list = if let Some(eff) = effect {
-        let mut parts = Vec::new();
+    let effects_list = effect.map_or_else(
+        || "None".to_string(),
+        |eff| {
+            let mut parts = Vec::new();
 
-        if eff.supplies != 0 {
-            parts.push(format_delta("Supplies", eff.supplies));
-        }
-        if eff.sanity != 0 {
-            parts.push(format_delta("Sanity", eff.sanity));
-        }
-        if eff.pants != 0 {
-            parts.push(format_delta("Pants", eff.pants));
-        }
-        if eff.enc_delta != 0.0 {
-            parts.push(format_percent("Encounter", eff.enc_delta));
-        }
+            if eff.supplies != 0 {
+                parts.push(format_delta("Supplies", eff.supplies));
+            }
+            if eff.sanity != 0 {
+                parts.push(format_delta("Sanity", eff.sanity));
+            }
+            if eff.pants != 0 {
+                parts.push(format_delta("Pants", eff.pants));
+            }
+            if eff.enc_delta != 0.0 {
+                parts.push(format_percent("Encounter", eff.enc_delta));
+            }
 
-        parts.join(", ")
-    } else {
-        "None".to_string()
-    };
+            parts.join(", ")
+        },
+    );
 
     // Get mitigation text if applicable
-    let mitigation_text = if let Some(mitigation) = weather_cfg.mitigation.get(&today) {
-        if game_state.inventory.tags.contains(&mitigation.tag) {
-            match today {
-                crate::game::weather::Weather::Storm => i18n::t("weather.gear.storm"),
-                crate::game::weather::Weather::Smoke => i18n::t("weather.gear.smoke"),
-                crate::game::weather::Weather::ColdSnap => i18n::t("weather.gear.cold"),
-                _ => String::new(),
-            }
-        } else {
-            String::new()
-        }
-    } else {
-        String::new()
-    };
+    let mitigation_text =
+        weather_cfg
+            .mitigation
+            .get(&today)
+            .map_or_else(String::new, |mitigation| {
+                if game_state.inventory.tags.contains(&mitigation.tag) {
+                    match today {
+                        crate::game::weather::Weather::Storm => i18n::t("weather.gear.storm"),
+                        crate::game::weather::Weather::Smoke => i18n::t("weather.gear.smoke"),
+                        crate::game::weather::Weather::ColdSnap => i18n::t("weather.gear.cold"),
+                        _ => String::new(),
+                    }
+                } else {
+                    String::new()
+                }
+            });
 
     // Get special notes
     let notes_text = match today {
@@ -322,30 +338,31 @@ fn format_weather_announcement(
 ) -> String {
     let weather_name = i18n::t(weather.i18n_key());
 
-    if let Some(eff) = effect {
-        let mut parts = Vec::new();
+    effect.map_or_else(
+        || format!("Weather: {weather_name}"),
+        |eff| {
+            let mut parts = Vec::new();
 
-        if eff.supplies != 0 {
-            parts.push(format_delta("Supplies", eff.supplies));
-        }
-        if eff.sanity != 0 {
-            parts.push(format_delta("Sanity", eff.sanity));
-        }
-        if eff.pants != 0 {
-            parts.push(format_delta("Pants", eff.pants));
-        }
-        if eff.enc_delta != 0.0 {
-            parts.push(format_percent("Encounter", eff.enc_delta));
-        }
+            if eff.supplies != 0 {
+                parts.push(format_delta("Supplies", eff.supplies));
+            }
+            if eff.sanity != 0 {
+                parts.push(format_delta("Sanity", eff.sanity));
+            }
+            if eff.pants != 0 {
+                parts.push(format_delta("Pants", eff.pants));
+            }
+            if eff.enc_delta != 0.0 {
+                parts.push(format_percent("Encounter", eff.enc_delta));
+            }
 
-        let effects_text = if parts.is_empty() {
-            "No effects".to_string()
-        } else {
-            parts.join(", ")
-        };
+            let effects_text = if parts.is_empty() {
+                "No effects".to_string()
+            } else {
+                parts.join(", ")
+            };
 
-        format!("Weather: {weather_name}. {effects_text}")
-    } else {
-        format!("Weather: {weather_name}")
-    }
+            format!("Weather: {weather_name}. {effects_text}")
+        },
+    )
 }

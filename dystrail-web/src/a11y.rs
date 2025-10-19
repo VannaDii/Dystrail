@@ -5,7 +5,7 @@
 /// Returns critical accessibility CSS that should be injected early in the page load.
 /// Includes focus ring styles and screen reader helper classes.
 #[must_use]
-pub fn visible_focus_css() -> &'static str {
+pub const fn visible_focus_css() -> &'static str {
     ":focus{outline:3px solid #00D9C0;outline-offset:2px} .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}"
 }
 

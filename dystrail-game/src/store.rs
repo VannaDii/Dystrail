@@ -147,7 +147,7 @@ impl Cart {
 
     /// Check if the cart is empty.
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.lines.is_empty()
     }
 }

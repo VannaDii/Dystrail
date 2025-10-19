@@ -59,7 +59,7 @@ pub struct Encounter {
     pub chainable: bool,
 }
 
-fn default_weight() -> u32 {
+const fn default_weight() -> u32 {
     5
 }
 
@@ -72,7 +72,7 @@ pub struct EncounterData {
 impl EncounterData {
     /// Create empty encounter data (useful for tests)
     #[must_use]
-    pub fn empty() -> Self {
+    pub const fn empty() -> Self {
         Self {
             encounters: Vec::new(),
         }
@@ -92,14 +92,14 @@ impl EncounterData {
 
     /// Create encounter data from pre-parsed encounters
     #[must_use]
-    pub fn from_encounters(encounters: Vec<Encounter>) -> Self {
+    pub const fn from_encounters(encounters: Vec<Encounter>) -> Self {
         Self { encounters }
     }
 
     /// Load encounter data from static assets (function for web compatibility)
     /// This is a placeholder that returns default data - web implementation should override this
     #[must_use]
-    pub fn load_from_static() -> Self {
+    pub const fn load_from_static() -> Self {
         // Return default/empty data - web layer should provide actual implementation
         Self::empty()
     }

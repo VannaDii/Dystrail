@@ -25,12 +25,12 @@ pub struct LogicTester {
 }
 
 impl LogicTester {
-    pub fn new(verbose: bool) -> Self {
+    pub const fn new(verbose: bool) -> Self {
         Self { verbose }
     }
 
     pub fn run_scenario(
-        &mut self,
+        &self,
         scenario: &TestScenario,
         seeds: &[u64],
         iterations: usize,
@@ -56,7 +56,7 @@ impl LogicTester {
     }
 
     fn run_single_scenario(
-        &mut self,
+        &self,
         scenario: &TestScenario,
         seed: u64,
         iterations: usize,
@@ -83,7 +83,7 @@ impl LogicTester {
     }
 
     fn run_simulation_iterations(
-        &mut self,
+        &self,
         plan: &SimulationPlan,
         seed: u64,
         iterations: usize,
