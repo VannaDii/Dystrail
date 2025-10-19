@@ -27,6 +27,12 @@ pub enum Phase {
     Result,
 }
 
+fn is_seed_code_valid(code: &str) -> bool {
+    regex::Regex::new(r"^(CL|DP)-[A-Z0-9]+\d{2}$")
+        .map(|re| re.is_match(code))
+        .unwrap_or(false)
+}
+
 /// Main application component providing browser routing
 ///
 /// Sets up the router context for the entire application and renders the main `AppInner` component.
@@ -105,7 +111,26 @@ pub fn app_inner() -> Html {
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
-            wasm_bindgen_futures::spawn_local(async move {
+            #[cfg(not(test))]
+            {
+                wasm_bindgen_futures::spawn_local(async move {
+                    let loaded_data = EncounterData::load_from_static();
+                    let loaded_pacing = PacingConfig::load_from_static();
+                    let loaded_endgame = EndgameTravelCfg::default_config();
+                    let loaded_weather = WeatherConfig::load_from_static();
+                    let loaded_camp = CampConfig::load_from_static();
+                    let loaded_result = load_result_config().unwrap_or_default();
+                    data.set(loaded_data);
+                    pacing_config.set(loaded_pacing);
+                    endgame_config.set(loaded_endgame);
+                    weather_config.set(loaded_weather);
+                    camp_config.set(loaded_camp);
+                    result_config.set(loaded_result);
+                    phase.set(Phase::Persona);
+                });
+            }
+            #[cfg(test)]
+            {
                 let loaded_data = EncounterData::load_from_static();
                 let loaded_pacing = PacingConfig::load_from_static();
                 let loaded_endgame = EndgameTravelCfg::default_config();
@@ -119,7 +144,7 @@ pub fn app_inner() -> Html {
                 camp_config.set(loaded_camp);
                 result_config.set(loaded_result);
                 phase.set(Phase::Persona);
-            });
+            }
             || {}
         });
     }
@@ -130,9 +155,7 @@ pub fn app_inner() -> Html {
         let code_valid_handle = code_valid;
         Callback::from(move |v: String| {
             let v_up = v.trim().to_ascii_uppercase();
-            let valid = regex::Regex::new(r"^(CL|DP)-[A-Z0-9]+\d{2}$")
-                .map(|re| re.is_match(&v_up))
-                .unwrap_or(false);
+            let valid = is_seed_code_valid(&v_up);
             code_handle.set(v_up.into());
             code_valid_handle.set(valid);
         })
@@ -705,5 +728,48 @@ pub fn app_inner() -> Html {
             { main_view }
             <crate::components::footer::Footer />
         </main>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn seed_code_validation_handles_expected_formats() {
+        assert!(is_seed_code_valid("CL-ORANGE42"));
+        assert!(is_seed_code_valid("DP-SIGNAL99"));
+        assert!(!is_seed_code_valid("CL-ORANGE4"));
+        assert!(!is_seed_code_valid("INVALID"));
+        assert!(!is_seed_code_valid("XY-TOOLATE00"));
+    }
+
+    #[test]
+    fn route_phase_mappings_cover_all_states() {
+        use crate::routes::Route;
+
+        let phases = [
+            Phase::Boot,
+            Phase::Persona,
+            Phase::Outfitting,
+            Phase::Menu,
+            Phase::Travel,
+            Phase::Camp,
+            Phase::Encounter,
+            Phase::Boss,
+            Phase::Result,
+        ];
+
+        for phase in phases {
+            let route = Route::from_phase(&phase);
+            let round_trip = route.to_phase();
+            match (phase, round_trip) {
+                (Phase::Boot | Phase::Menu, Some(mapped)) => {
+                    assert!(mapped == Phase::Menu);
+                }
+                (_, Some(mapped)) => assert!(mapped == phase),
+                (_, None) => panic!("Route should map to a phase"),
+            }
+        }
     }
 }

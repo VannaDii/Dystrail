@@ -14,6 +14,10 @@ pub const fn visible_focus_css() -> &'static str {
 /// Updates the text content of the #menu-helper element if present.
 /// This provides announcements to assistive technology users.
 pub fn set_status(msg: &str) {
+    if !cfg!(target_arch = "wasm32") {
+        let _ = msg;
+        return;
+    }
     if let Some(node) = web_sys::window()
         .and_then(|win| win.document())
         .and_then(|doc| doc.get_element_by_id("menu-helper"))
@@ -27,6 +31,10 @@ pub fn set_status(msg: &str) {
 /// Adds or removes the 'hc' class from the HTML element and persists the choice.
 /// This enables high-contrast styling for users with visual impairments.
 pub fn set_high_contrast(enabled: bool) {
+    if !cfg!(target_arch = "wasm32") {
+        let _ = enabled;
+        return;
+    }
     let Some(win) = web_sys::window() else {
         return;
     };
@@ -50,8 +58,32 @@ pub fn set_high_contrast(enabled: bool) {
 /// styling should be active. Returns false if no preference is stored.
 #[must_use]
 pub fn high_contrast_enabled() -> bool {
+    if !cfg!(target_arch = "wasm32") {
+        return false;
+    }
     web_sys::window()
         .and_then(|win| win.local_storage().ok().flatten())
         .and_then(|storage| storage.get_item("dystrail.hc").ok().flatten())
         .is_some_and(|v| v == "1")
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn focus_css_includes_sr_only_helpers() {
+        let css = visible_focus_css();
+        assert!(css.contains(":focus"));
+        assert!(css.contains(".sr-only"));
+    }
+
+    #[test]
+    fn status_helpers_are_noops_without_dom() {
+        // Should not panic when no browser window exists.
+        set_status("Testing status update");
+        set_high_contrast(true);
+        set_high_contrast(false);
+        assert!(!high_contrast_enabled());
+    }
 }

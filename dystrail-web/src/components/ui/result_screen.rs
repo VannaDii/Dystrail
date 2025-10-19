@@ -384,42 +384,161 @@ impl ResultScreen {
     }
 
     fn format_number(n: i32) -> String {
+        if !cfg!(target_arch = "wasm32") {
+            return Self::simple_number_format(n);
+        }
         // Use browser's Intl.NumberFormat for proper localization
         let Some(window) = window() else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         let Ok(formatter) =
             js_sys::Reflect::construct(&number_format.into(), &js_sys::Array::new())
         else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into()) else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         let Ok(result) = js_sys::Reflect::apply(
             &format_fn.into(),
             &formatter,
             &js_sys::Array::of1(&(n.into())),
         ) else {
-            return n.to_string();
+            return Self::simple_number_format(n);
         };
         if let Some(formatted) = result.as_string() {
             return formatted;
         }
 
         // Fallback to simple formatting
-        n.to_string()
+        Self::simple_number_format(n)
+    }
+
+    fn simple_number_format(n: i32) -> String {
+        let mut digits = n.abs().to_string();
+        let mut out = String::new();
+        while digits.len() > 3 {
+            let chunk = digits.split_off(digits.len() - 3);
+            if out.is_empty() {
+                out = chunk;
+            } else {
+                out = format!("{chunk},{out}");
+            }
+        }
+        if out.is_empty() {
+            out = digits;
+        } else if !digits.is_empty() {
+            out = format!("{digits},{out}");
+        }
+        if n < 0 { format!("-{out}") } else { out }
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {
         ctx.link()
             .send_message(Msg::AnnouncementChange(message.to_string()));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dystrail_game::{Ending, GameState, ResultConfig, ResultSummary};
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    fn baseline_summary() -> ResultSummary {
+        ResultSummary {
+            ending: Ending::BossVictory,
+            headline_key: "result.headline.victory".into(),
+            epilogue_key: "result.epilogue.victory".into(),
+            ending_cause: None,
+            seed: "CL-TEST90".into(),
+            persona_name: "Organizer".into(),
+            mult_str: "1.00×".into(),
+            mode: "Classic".into(),
+            dp_badge: false,
+            score: 12_345,
+            score_threshold: 10_000,
+            passed_threshold: true,
+            days: 42,
+            encounters: 12,
+            receipts: 3,
+            allies: 5,
+            supplies: 8,
+            credibility: 7,
+            pants_pct: 55,
+            vehicle_breakdowns: 1,
+            miles_traveled: 1945.0,
+            malnutrition_days: 0,
+        }
+    }
+
+    fn baseline_props() -> Props {
+        Props {
+            game_state: GameState::default(),
+            result_config: ResultConfig::default(),
+            boss_won: false,
+            on_replay_seed: Callback::noop(),
+            on_new_run: Callback::noop(),
+            on_title: Callback::noop(),
+            on_export: Callback::noop(),
+        }
+    }
+
+    #[test]
+    fn headline_resolution_prefers_boss_flags() {
+        let summary = baseline_summary();
+        let mut props = baseline_props();
+        props.game_state.boss_attempted = true;
+        props.boss_won = false;
+        let key = ResultScreen::resolved_headline_key(&summary, &props);
+        assert_eq!(key, "result.headline.boss_loss");
+
+        props.boss_won = true;
+        let key = ResultScreen::resolved_headline_key(&summary, &props);
+        assert_eq!(key, "result.headline.victory");
+    }
+
+    #[test]
+    fn epilogue_resolution_tracks_victory_state() {
+        let summary = baseline_summary();
+        let mut props = baseline_props();
+        props.game_state.boss_ready = true;
+        props.boss_won = false;
+        let key = ResultScreen::resolved_epilogue_key(&summary, &props);
+        assert_eq!(key, "result.epilogue.boss_loss");
+
+        props.boss_won = true;
+        let key = ResultScreen::resolved_epilogue_key(&summary, &props);
+        assert_eq!(key, "result.epilogue.victory");
+    }
+
+    #[test]
+    fn parse_numeric_key_identifies_digits() {
+        assert_eq!(ResultScreen::parse_numeric_key("3"), Some(3));
+        assert_eq!(ResultScreen::parse_numeric_key("0"), Some(0));
+        assert_eq!(ResultScreen::parse_numeric_key("A"), None);
+    }
+
+    #[test]
+    fn format_number_inserts_separators() {
+        assert_eq!(ResultScreen::format_number(1_234_567), "1,234,567");
+        assert_eq!(ResultScreen::format_number(-9_000), "-9,000");
+    }
+
+    #[test]
+    fn result_screen_renders_summary() {
+        crate::i18n::set_lang("en");
+        let props = baseline_props();
+        let html = block_on(LocalServerRenderer::<ResultScreen>::with_props(props).render());
+        assert!(html.contains("result-screen"));
+        assert!(html.contains("Result"));
     }
 }
 

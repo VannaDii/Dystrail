@@ -45,3 +45,49 @@ pub fn share_code_bar(p: &Props) -> Html {
         </div>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn share_code_bar_marks_invalid_codes() {
+        crate::i18n::set_lang("en");
+        let props = Props {
+            value: AttrValue::from("bad-code"),
+            valid: false,
+            onchange: Callback::from(|_v: String| {}),
+            onstart: Callback::noop(),
+        };
+
+        let html = block_on(LocalServerRenderer::<ShareCodeBar>::with_props(props).render());
+        assert!(
+            html.contains("aria-invalid=\"true\""),
+            "input should be marked invalid: {html}"
+        );
+        assert!(
+            html.contains("disabled"),
+            "start button should be disabled when code invalid: {html}"
+        );
+    }
+
+    #[test]
+    fn share_code_bar_enables_start_for_valid_codes() {
+        crate::i18n::set_lang("en");
+        let props = Props {
+            value: AttrValue::from("CL-ORANGE42"),
+            valid: true,
+            onchange: Callback::from(|_v: String| {}),
+            onstart: Callback::noop(),
+        };
+
+        let html = block_on(LocalServerRenderer::<ShareCodeBar>::with_props(props).render());
+        assert!(html.contains("CL-ORANGE42"));
+        assert!(
+            !html.contains("disabled"),
+            "start button should not be disabled when code is valid: {html}"
+        );
+    }
+}

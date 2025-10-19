@@ -25,6 +25,55 @@ impl PartialEq for Props {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::vehicle::{Breakdown, Part};
+    use futures::executor::block_on;
+    use std::rc::Rc;
+    use yew::LocalServerRenderer;
+
+    fn base_props(state: GameState) -> Props {
+        Props {
+            game_state: Rc::new(state),
+            camp_config: Rc::new(CampConfig::default_config()),
+            on_state_change: Callback::from(|_: GameState| {}),
+            on_close: Callback::noop(),
+        }
+    }
+
+    #[test]
+    fn camp_panel_main_view_renders_actions() {
+        crate::i18n::set_lang("en");
+        let props = base_props(GameState::default());
+
+        let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
+        assert!(
+            html.contains("Rest") && html.contains("Forage"),
+            "main view should list key camp actions: {html}"
+        );
+    }
+
+    #[test]
+    fn camp_panel_with_breakdown_starts_in_repair_view() {
+        crate::i18n::set_lang("en");
+        let props = base_props(GameState {
+            travel_blocked: true,
+            breakdown: Some(Breakdown {
+                part: Part::Battery,
+                day_started: 3,
+            }),
+            ..GameState::default()
+        });
+
+        let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
+        assert!(
+            html.contains("Repair Vehicle") || html.contains("Use Spare"),
+            "repair menu should surface when breakdown present: {html}"
+        );
+    }
+}
+
 #[derive(Clone, PartialEq)]
 enum CampView {
     Main,
@@ -33,7 +82,12 @@ enum CampView {
 
 #[function_component(CampPanel)]
 pub fn camp_panel(p: &Props) -> Html {
-    let current_view = use_state(|| CampView::Main);
+    let start_view = if p.game_state.breakdown.is_some() && p.game_state.travel_blocked {
+        CampView::Repair
+    } else {
+        CampView::Main
+    };
+    let current_view = use_state(move || start_view);
     let focus_idx = use_state(|| 1_u8);
     let list_ref = use_node_ref();
     let status_msg = use_state(String::new);

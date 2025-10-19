@@ -5,6 +5,91 @@ use std::collections::HashMap;
 use std::rc::Rc;
 use yew::prelude::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+enum SelectionOutcome {
+    Pace(PaceId, String),
+    Diet(DietId, String),
+}
+
+fn pace_message(pacing_config: &PacingConfig, pace_id: PaceId) -> SelectionOutcome {
+    let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
+    let sanity_str = format!("{:+}", pace_cfg.sanity);
+    let pants_str = format!("{:+}", pace_cfg.pants);
+    let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
+    let mut args = HashMap::new();
+    args.insert("pace", pace_cfg.name.as_str());
+    args.insert("sanity", sanity_str.as_str());
+    args.insert("pants", pants_str.as_str());
+    args.insert("chance", chance_str.as_str());
+    let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
+    SelectionOutcome::Pace(pace_id, msg)
+}
+
+fn diet_message(pacing_config: &PacingConfig, diet_id: DietId) -> SelectionOutcome {
+    let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
+    let sanity_str = format!("{:+}", diet_cfg.sanity);
+    let pants_str = format!("{:+}", diet_cfg.pants);
+    let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
+    let mut args = HashMap::new();
+    args.insert("diet", diet_cfg.name.as_str());
+    args.insert("sanity", sanity_str.as_str());
+    args.insert("pants", pants_str.as_str());
+    args.insert("receipt", receipt_str.as_str());
+    let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
+    SelectionOutcome::Diet(diet_id, msg)
+}
+
+fn selection_outcome(pacing_config: &PacingConfig, idx: u8) -> Option<SelectionOutcome> {
+    match idx {
+        1 => Some(pace_message(pacing_config, PaceId::Steady)),
+        2 => Some(pace_message(pacing_config, PaceId::Heated)),
+        3 => Some(pace_message(pacing_config, PaceId::Blitz)),
+        4 => Some(diet_message(pacing_config, DietId::Quiet)),
+        5 => Some(diet_message(pacing_config, DietId::Mixed)),
+        6 => Some(diet_message(pacing_config, DietId::Doom)),
+        _ => None,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn selection_outcome_covers_all_menu_entries() {
+        crate::i18n::set_lang("en");
+        let pacing = PacingConfig::default_config();
+
+        let steady = selection_outcome(&pacing, 1);
+        assert!(matches!(
+            steady,
+            Some(SelectionOutcome::Pace(PaceId::Steady, _))
+        ));
+
+        let heated = selection_outcome(&pacing, 2).unwrap();
+        if let SelectionOutcome::Pace(id, msg) = heated {
+            assert_eq!(id, PaceId::Heated);
+            assert!(msg.contains('%'), "message should contain encounter delta");
+        } else {
+            panic!("expected heated pace outcome");
+        }
+
+        let doom = selection_outcome(&pacing, 6).unwrap();
+        if let SelectionOutcome::Diet(id, msg) = doom {
+            assert_eq!(id, DietId::Doom);
+            assert!(
+                msg.contains("Doom"),
+                "diet announcement should reference the Doom diet: {msg}"
+            );
+        } else {
+            panic!("expected doom diet outcome");
+        }
+
+        assert!(selection_outcome(&pacing, 0).is_none());
+        assert!(selection_outcome(&pacing, 42).is_none());
+    }
+}
+
 #[derive(Properties)]
 pub struct PaceDietPanelProps {
     pub game_state: Rc<GameState>,
@@ -34,102 +119,25 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
         let on_back = props.on_back.clone();
         let status_message = status_message.clone();
 
-        Callback::from(move |idx: u8| match idx {
-            1 => {
-                let pace_id = PaceId::Steady;
-                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
-                let sanity_str = format!("{:+}", pace_cfg.sanity);
-                let pants_str = format!("{:+}", pace_cfg.pants);
-                let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
-                let mut args = HashMap::new();
-                args.insert("pace", pace_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("chance", chance_str.as_str());
-                let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
-                status_message.set(msg);
-                on_pace_change.emit(pace_id);
-            }
-            2 => {
-                let pace_id = PaceId::Heated;
-                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
-                let sanity_str = format!("{:+}", pace_cfg.sanity);
-                let pants_str = format!("{:+}", pace_cfg.pants);
-                let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
-                let mut args = HashMap::new();
-                args.insert("pace", pace_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("chance", chance_str.as_str());
-                let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
-                status_message.set(msg);
-                on_pace_change.emit(pace_id);
-            }
-            3 => {
-                let pace_id = PaceId::Blitz;
-                let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
-                let sanity_str = format!("{:+}", pace_cfg.sanity);
-                let pants_str = format!("{:+}", pace_cfg.pants);
-                let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
-                let mut args = HashMap::new();
-                args.insert("pace", pace_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("chance", chance_str.as_str());
-                let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
-                status_message.set(msg);
-                on_pace_change.emit(pace_id);
-            }
-            4 => {
-                let diet_id = DietId::Quiet;
-                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
-                let sanity_str = format!("{:+}", diet_cfg.sanity);
-                let pants_str = format!("{:+}", diet_cfg.pants);
-                let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
-                let mut args = HashMap::new();
-                args.insert("diet", diet_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("receipt", receipt_str.as_str());
-                let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
-                status_message.set(msg);
-                on_diet_change.emit(diet_id);
-            }
-            5 => {
-                let diet_id = DietId::Mixed;
-                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
-                let sanity_str = format!("{:+}", diet_cfg.sanity);
-                let pants_str = format!("{:+}", diet_cfg.pants);
-                let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
-                let mut args = HashMap::new();
-                args.insert("diet", diet_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("receipt", receipt_str.as_str());
-                let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
-                status_message.set(msg);
-                on_diet_change.emit(diet_id);
-            }
-            6 => {
-                let diet_id = DietId::Doom;
-                let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
-                let sanity_str = format!("{:+}", diet_cfg.sanity);
-                let pants_str = format!("{:+}", diet_cfg.pants);
-                let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
-                let mut args = HashMap::new();
-                args.insert("diet", diet_cfg.name.as_str());
-                args.insert("sanity", sanity_str.as_str());
-                args.insert("pants", pants_str.as_str());
-                args.insert("receipt", receipt_str.as_str());
-                let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
-                status_message.set(msg);
-                on_diet_change.emit(diet_id);
-            }
-            0 => {
+        Callback::from(move |idx: u8| {
+            if idx == 0 {
                 status_message.set(String::new());
                 on_back.emit(());
+                return;
             }
-            _ => {}
+
+            if let Some(outcome) = selection_outcome(&pacing_config, idx) {
+                match outcome {
+                    SelectionOutcome::Pace(pace, announcement) => {
+                        status_message.set(announcement);
+                        on_pace_change.emit(pace);
+                    }
+                    SelectionOutcome::Diet(diet, announcement) => {
+                        status_message.set(announcement);
+                        on_diet_change.emit(diet);
+                    }
+                }
+            }
         })
     };
 

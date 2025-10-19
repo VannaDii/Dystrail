@@ -21,18 +21,15 @@ pub fn settings_dialog(p: &Props) -> Html {
         let node = ref_node.clone();
         let open = p.open;
         use_effect_with((open, node), move |(open, node)| {
-            let prev_focus = if *open {
-                web_sys::window()
+            let mut prev_focus: Option<web_sys::HtmlElement> = None;
+            let focus_target = if cfg!(target_arch = "wasm32") && *open {
+                prev_focus = web_sys::window()
                     .and_then(|w| w.document())
                     .and_then(|doc| {
                         doc.active_element()
                             .and_then(|e| e.dyn_into::<web_sys::HtmlElement>().ok())
-                    })
-            } else {
-                None
-            };
+                    });
 
-            let focus_target = if *open {
                 node.cast::<web_sys::Element>().and_then(|el| {
                     el.query_selector_all(
                         "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
@@ -66,6 +63,10 @@ pub fn settings_dialog(p: &Props) -> Html {
         let node = ref_node.clone();
         let on_close = p.on_close.clone();
         Callback::from(move |e: KeyboardEvent| {
+            if !cfg!(target_arch = "wasm32") {
+                let _ = e;
+                return;
+            }
             if e.key() == "Escape" {
                 on_close.emit(());
                 return;
@@ -138,5 +139,34 @@ pub fn settings_dialog(p: &Props) -> Html {
           </div>
         </div>
       </div>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn settings_dialog_returns_empty_when_closed() {
+        crate::i18n::set_lang("en");
+        let props = Props {
+            open: false,
+            on_close: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<SettingsDialog>::with_props(props).render());
+        assert!(!html.contains("drawer-body"));
+    }
+
+    #[test]
+    fn settings_dialog_renders_controls_when_open() {
+        crate::i18n::set_lang("en");
+        let props = Props {
+            open: true,
+            on_close: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<SettingsDialog>::with_props(props).render());
+        assert!(html.contains("High Contrast"));
     }
 }

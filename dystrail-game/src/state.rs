@@ -411,6 +411,49 @@ mod tests {
     }
 
     #[test]
+    fn misc_state_path_exercise() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.features.travel_v2 = true;
+        state.stats.supplies = 5;
+        state.stats.pants = 20;
+        state.distance_today = 5.0;
+        state.distance_today_raw = 5.0;
+        state.partial_distance_today = 2.0;
+        state
+            .current_day_reason_tags
+            .extend(["camp".into(), "repair".into()]);
+        state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop; TRAVEL_HISTORY_WINDOW]);
+        state.enforce_aggressive_delay_cap(0.0);
+        state.apply_partial_travel_credit(3.0, LOG_TRAVEL_PARTIAL, "misc");
+        state.apply_delay_travel_credit("delay_test");
+        state.reset_today_progress();
+
+        state.current_order = Some(ExecOrder::TravelBanLite);
+        state.exec_order_days_remaining = 1;
+        state.start_of_day();
+        assert!(state.exec_order_days_remaining <= EXEC_ORDER_MAX_DURATION);
+
+        state.vehicle.set_breakdown_cooldown(2);
+        state.vehicle.tick_breakdown_cooldown();
+        assert!(state.vehicle.breakdown_suppressed());
+        state.vehicle.tick_breakdown_cooldown();
+        assert!(!state.vehicle.breakdown_suppressed());
+
+        state.endgame.active = true;
+        state.endgame.failure_guard_miles = 1_900.0;
+        state.endgame.health_floor = 30.0;
+        state.endgame.wear_reset = 5.0;
+        state.endgame.cooldown_days = 2;
+        state.miles_traveled_actual = 1_850.0;
+        state.vehicle.health = 0.0;
+        state.vehicle.wear = 80.0;
+        assert!(crate::endgame::enforce_failure_guard(&mut state));
+    }
+
+    #[test]
     fn max_two_encounters_per_day() {
         #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();

@@ -395,8 +395,12 @@ fn encounter_regions(encounter: &Encounter, fallback: Region) -> Vec<Region> {
 }
 #[cfg(test)]
 mod tests {
+    #![allow(clippy::field_reassign_with_default)]
     use super::*;
     use crate::state::{RecentEncounter, Region};
+    use rand::SeedableRng;
+    use rand_chacha::ChaCha20Rng;
+    use std::collections::VecDeque;
 
     fn make_enc(id: &str, regions: &[&str]) -> Encounter {
         Encounter {
@@ -410,6 +414,28 @@ mod tests {
             hard_stop: false,
             major_repair: false,
             chainable: false,
+        }
+    }
+
+    fn sample_encounters() -> EncounterData {
+        EncounterData::from_encounters(vec![
+            make_enc("alpha", &["Heartland"]),
+            make_enc("beta", &["Heartland", "RustBelt"]),
+            make_enc("gamma", &[]),
+        ])
+    }
+
+    fn mk_request(data: &EncounterData) -> EncounterRequest<'_> {
+        EncounterRequest {
+            region: Region::Heartland,
+            is_deep: true,
+            malnutrition_level: 2,
+            starving: false,
+            data,
+            recent: &[],
+            current_day: 12,
+            policy: Some(PolicyKind::Conservative),
+            force_rotation: false,
         }
     }
 
@@ -446,5 +472,33 @@ mod tests {
         let mut ids: Vec<_> = backlog.into_iter().collect();
         ids.sort();
         assert_eq!(ids, vec!["enc_a", "enc_b", "enc_c", "enc_d", "enc_e"]);
+    }
+
+    #[test]
+    fn pick_encounter_respects_rotation_queue() {
+        let data = sample_encounters();
+        let mut queue = VecDeque::new();
+        let mut request = mk_request(&data);
+        request.force_rotation = true;
+        let mut rng = ChaCha20Rng::from_seed([0u8; 32]);
+        let _ = pick_encounter(&request, &mut queue, &mut rng);
+    }
+
+    #[test]
+    fn determine_selection_falls_back() {
+        let (primary, satisfied) = determine_selection(vec![], vec![1, 2, 3], false, 4);
+        assert_eq!(primary, vec![1, 2, 3]);
+        assert!(!satisfied);
+        let (primary_force, satisfied) = determine_selection(vec![], vec![], true, 2);
+        assert_eq!(primary_force, vec![0, 1]);
+        assert!(!satisfied);
+    }
+
+    #[test]
+    fn weighted_choice_prefers_higher_weight() {
+        let mut rng = ChaCha20Rng::from_seed([1u8; 32]);
+        let weights = vec![(0, 1), (1, 50)];
+        let pick = choose_weighted(&weights, &mut rng);
+        assert_eq!(pick, Some(1));
     }
 }

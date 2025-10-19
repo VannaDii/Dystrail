@@ -39,3 +39,4 @@ default = ["console_error_panic_hook"]
 
 [dev-dependencies]
 wasm-bindgen-test = { workspace = true }
+futures = { version = "0.3", features = ["executor"] }

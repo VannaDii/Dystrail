@@ -342,11 +342,53 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::Breakdown;
+    use crate::vehicle::Part;
 
     #[test]
     fn config_defaults_load() {
         let cfg = EndgameTravelCfg::default_config();
         assert!(cfg.policies.contains_key("deep_balanced"));
         assert!(cfg.policies.contains_key("deep_aggressive"));
+    }
+
+    #[test]
+    fn field_repair_consumes_resources() {
+        #![allow(clippy::field_reassign_with_default)]
+        let cfg = EndgamePolicyCfg {
+            health_floor: 60.0,
+            wear_reset: 5.0,
+            cooldown_days: 2,
+            partial_ratio: 0.5,
+            wear_multiplier: 0.9,
+            resource_priority: vec![ResourceKind::MatchingSpare, ResourceKind::Emergency],
+            ..EndgamePolicyCfg::default()
+        };
+        let mut state = GameState::default();
+        state.breakdown = Some(Breakdown {
+            part: Part::Tire,
+            day_started: 1,
+        });
+        state.last_breakdown_part = Some(Part::Tire);
+        state.inventory.spares.tire = 1;
+        state.budget_cents = 10_000;
+        state.endgame.partial_ratio = 0.5;
+        run_field_repair(&mut state, &cfg, 12.0);
+        assert!(state.breakdown.is_none());
+        assert!(state.endgame.field_repair_used);
+        assert!(state.logs.iter().any(|log| log == LOG_ENDGAME_FIELD_REPAIR));
+    }
+
+    #[test]
+    fn policy_key_resolves() {
+        assert_eq!(
+            policy_key_for_mode(Some(PolicyKind::Balanced)),
+            Some("deep_balanced")
+        );
+        assert_eq!(
+            policy_key_for_mode(Some(PolicyKind::Aggressive)),
+            Some("deep_aggressive")
+        );
+        assert!(policy_key_for_mode(None).is_none());
     }
 }

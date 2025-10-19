@@ -212,3 +212,68 @@ pub fn calculate_cart_total(cart: &Cart, store: &Store, discount_pct: f64) -> i6
 
     total
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn mock_store() -> Store {
+        Store {
+            categories: vec![StoreCategory {
+                id: "gear".into(),
+                name: "Gear".into(),
+                items: vec![StoreItem {
+                    id: "rope".into(),
+                    name: "Rope".into(),
+                    desc: "Sturdy".into(),
+                    price_cents: 1_000,
+                    unique: false,
+                    max_qty: 5,
+                    grants: Grants::default(),
+                    tags: vec!["utility".into()],
+                    category: String::new(),
+                }],
+            }],
+            items: vec![StoreItem {
+                id: "map".into(),
+                name: "Map".into(),
+                desc: "Shows the way".into(),
+                price_cents: 500,
+                unique: true,
+                max_qty: 1,
+                grants: Grants::default(),
+                tags: vec![],
+                category: "misc".into(),
+            }],
+        }
+    }
+
+    #[test]
+    fn cart_manipulation_and_totals() {
+        let store = mock_store();
+        let mut cart = Cart::new();
+        cart.add_item("rope", 2);
+        cart.add_item("map", 1);
+        assert_eq!(cart.get_quantity("rope"), 2);
+
+        let total = calculate_cart_total(&cart, &store, 10.0);
+        assert_eq!(total, 2 * 900 + 450);
+
+        cart.remove_item("rope", 1);
+        assert_eq!(cart.get_quantity("rope"), 1);
+        cart.remove_all_item("map");
+        assert_eq!(cart.get_quantity("map"), 0);
+        cart.clear();
+        assert!(cart.is_empty());
+    }
+
+    #[test]
+    fn store_lookup_variants() {
+        let store = mock_store();
+        assert!(store.find_item("rope").is_some());
+        assert!(store.find_item("map").is_some());
+        let all = store.items_by_id();
+        assert_eq!(all.len(), 2);
+        assert!(all.contains_key("rope"));
+    }
+}

@@ -57,36 +57,43 @@ pub fn save_drawer(p: &Props) -> Html {
         use_effect_with(
             (open, ret, container_ref),
             move |(open, ret, container_ref)| {
-                let focus_target = if *open {
+                let focus_target = if cfg!(target_arch = "wasm32") && *open {
                     container_ref
-                        .cast::<web_sys::Element>()
-                        .and_then(|el| {
-                            el.query_selector_all(
-                                "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
-                            )
-                            .ok()
-                            .and_then(|list| {
-                                list.get(0)
-                                    .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
-                            })
+                    .cast::<web_sys::Element>()
+                    .and_then(|el| {
+                        el.query_selector_all(
+                            "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])",
+                        )
+                        .ok()
+                        .and_then(|list| {
+                            list.get(0)
+                                .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
                         })
+                    })
                 } else {
                     None
                 };
+
                 if let Some(first) = focus_target {
                     let _ = first.focus();
                 }
+
                 let ret_id = ret.clone();
                 move || {
-                    if let Some(el) = ret_id
-                        .clone()
-                        .and_then(|id| {
-                            web_sys::window()
-                                .and_then(|w| w.document())
-                                .and_then(|doc| doc.get_element_by_id(id.as_ref()))
-                        })
-                        .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok())
-                    {
+                    let maybe_focus = if cfg!(target_arch = "wasm32") {
+                        ret_id
+                            .clone()
+                            .and_then(|id| {
+                                web_sys::window()
+                                    .and_then(|w| w.document())
+                                    .and_then(|doc| doc.get_element_by_id(id.as_ref()))
+                            })
+                            .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok())
+                    } else {
+                        None
+                    };
+
+                    if let Some(el) = maybe_focus {
                         let _ = el.focus();
                     }
                 }
@@ -102,6 +109,10 @@ pub fn save_drawer(p: &Props) -> Html {
         let container_ref = container_ref.clone();
         let on_close = p.on_close.clone();
         Callback::from(move |e: KeyboardEvent| {
+            if !cfg!(target_arch = "wasm32") {
+                let _ = e;
+                return;
+            }
             if e.key() == "Escape" {
                 on_close.emit(());
                 return;
@@ -175,5 +186,44 @@ pub fn save_drawer(p: &Props) -> Html {
                 </div>
             </div>
         </div>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    fn base_props(open: bool) -> Props {
+        Props {
+            open,
+            on_close: Callback::noop(),
+            on_save: Callback::noop(),
+            on_load: Callback::noop(),
+            on_export: Callback::noop(),
+            on_import: Callback::from(|_s: String| {}),
+            return_focus_id: None,
+        }
+    }
+
+    #[test]
+    fn save_drawer_hidden_when_closed() {
+        crate::i18n::set_lang("en");
+        let html =
+            block_on(LocalServerRenderer::<SaveDrawer>::with_props(base_props(false)).render());
+        assert!(!html.contains("drawer-body"));
+    }
+
+    #[test]
+    fn save_drawer_renders_action_buttons_when_open() {
+        crate::i18n::set_lang("en");
+        let html =
+            block_on(LocalServerRenderer::<SaveDrawer>::with_props(base_props(true)).render());
+        assert!(html.contains("drawer-body"));
+        assert!(
+            html.contains("textarea"),
+            "import textarea should be present: {html}"
+        );
     }
 }

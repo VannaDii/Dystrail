@@ -313,6 +313,7 @@ const fn success_threshold(mode: GameMode) -> i32 {
 
 #[cfg(test)]
 mod tests {
+    #![allow(clippy::field_reassign_with_default)]
     use super::*;
     use crate::state::VehicleFailureCause;
 
@@ -371,5 +372,32 @@ mod tests {
             summary.ending_cause.as_deref(),
             Some("vehicle_failure_vehicle_destroyed")
         );
+    }
+
+    #[test]
+    fn persona_resolution_and_headlines() {
+        let cfg = ResultConfig::default();
+        let mut state = GameState::default();
+        state.persona_id = Some("persona".into());
+        assert_eq!(resolve_persona_name(&state), "persona");
+        state.persona_id = None;
+        state.party.leader = "Leader".into();
+        assert_eq!(resolve_persona_name(&state), "Leader");
+
+        let token = ending_cause_token(Ending::Exposure {
+            kind: crate::state::ExposureKind::Heat,
+        })
+        .unwrap();
+        assert_eq!(token, "exposure_heat");
+
+        let headline = headline_key_for(Ending::BossVictory, &cfg.endings, Some("custom_headline"));
+        assert_eq!(headline, "result.headline.custom_headline");
+
+        let auto_headline = headline_key_for(Ending::BossVictory, &cfg.endings, None);
+        assert_eq!(auto_headline, cfg.endings.victory_key);
+        assert!(epilogue_key_for(&auto_headline).starts_with("result.epilogue"));
+
+        assert_eq!(mode_display(GameMode::Classic), "Classic");
+        assert_eq!(mode_display(GameMode::Deep), "The Deep End");
     }
 }

@@ -52,6 +52,47 @@ pub fn vehicle_menu_item(p: &VehicleMenuItemProps) -> Html {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn evaluate_selection_uses_spare_when_available() {
+        crate::i18n::set_lang("en");
+        let outcome = evaluate_selection(1, Some(Part::Tire), Some((1, 0, 0, 0)));
+        assert!(matches!(
+            outcome,
+            SelectionResolution::Action(VehicleAction::UseSpare(Part::Tire), _)
+        ));
+    }
+
+    #[test]
+    fn evaluate_selection_reports_missing_spare() {
+        crate::i18n::set_lang("en");
+        let outcome = evaluate_selection(2, Some(Part::Battery), Some((0, 0, 0, 0)));
+        assert!(matches!(outcome, SelectionResolution::Message(_)));
+    }
+
+    #[test]
+    fn evaluate_selection_handles_hack_fix() {
+        crate::i18n::set_lang("en");
+        let with_breakdown = evaluate_selection(5, Some(Part::FuelPump), None);
+        assert!(matches!(
+            with_breakdown,
+            SelectionResolution::Action(VehicleAction::HackFix, _)
+        ));
+
+        let without = evaluate_selection(5, None, None);
+        assert!(matches!(without, SelectionResolution::Message(_)));
+    }
+
+    #[test]
+    fn evaluate_selection_back_option() {
+        crate::i18n::set_lang("en");
+        assert_eq!(evaluate_selection(0, None, None), SelectionResolution::Back);
+    }
+}
+
 #[derive(Properties, Clone)]
 pub struct VehicleStatusProps {
     pub game_state: Option<Rc<GameState>>,
@@ -92,10 +133,91 @@ impl PartialEq for VehicleStatusProps {
     }
 }
 
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VehicleAction {
     UseSpare(Part),
     HackFix,
+}
+
+#[derive(Debug, PartialEq)]
+enum SelectionResolution {
+    Action(VehicleAction, String),
+    Message(String),
+    Back,
+    None,
+}
+
+fn evaluate_selection(
+    idx: u8,
+    breakdown_part: Option<Part>,
+    spare_counts: Option<(i32, i32, i32, i32)>,
+) -> SelectionResolution {
+    let used_spare_message = |part: Part| {
+        let part_name = i18n::t(part.key());
+        let mut vars = std::collections::HashMap::new();
+        vars.insert("part", part_name.as_str());
+        vars.insert("sup", "1");
+        i18n::tr("vehicle.announce.used_spare", Some(&vars))
+    };
+    let missing_spare_message = |part: Part| {
+        let part_name = i18n::t(part.key());
+        let mut vars = std::collections::HashMap::new();
+        vars.insert("part", part_name.as_str());
+        i18n::tr("vehicle.announce.no_spare", Some(&vars))
+    };
+
+    match idx {
+        1 => match (breakdown_part, spare_counts) {
+            (Some(Part::Tire), Some((tire, _, _, _))) if tire > 0 => SelectionResolution::Action(
+                VehicleAction::UseSpare(Part::Tire),
+                used_spare_message(Part::Tire),
+            ),
+            _ => SelectionResolution::Message(missing_spare_message(Part::Tire)),
+        },
+        2 => match (breakdown_part, spare_counts) {
+            (Some(Part::Battery), Some((_, battery, _, _))) if battery > 0 => {
+                SelectionResolution::Action(
+                    VehicleAction::UseSpare(Part::Battery),
+                    used_spare_message(Part::Battery),
+                )
+            }
+            _ => SelectionResolution::Message(missing_spare_message(Part::Battery)),
+        },
+        3 => match (breakdown_part, spare_counts) {
+            (Some(Part::Alternator), Some((_, _, alt, _))) if alt > 0 => {
+                SelectionResolution::Action(
+                    VehicleAction::UseSpare(Part::Alternator),
+                    used_spare_message(Part::Alternator),
+                )
+            }
+            _ => SelectionResolution::Message(missing_spare_message(Part::Alternator)),
+        },
+        4 => match (breakdown_part, spare_counts) {
+            (Some(Part::FuelPump), Some((_, _, _, pump))) if pump > 0 => {
+                SelectionResolution::Action(
+                    VehicleAction::UseSpare(Part::FuelPump),
+                    used_spare_message(Part::FuelPump),
+                )
+            }
+            _ => SelectionResolution::Message(missing_spare_message(Part::FuelPump)),
+        },
+        5 => {
+            if breakdown_part.is_some() {
+                let mut vars = std::collections::HashMap::new();
+                vars.insert("sup", "3");
+                vars.insert("cred", "1");
+                vars.insert("day", "1");
+                SelectionResolution::Action(
+                    VehicleAction::HackFix,
+                    i18n::tr("vehicle.announce.hack_applied", Some(&vars)),
+                )
+            } else {
+                SelectionResolution::Message(i18n::t("vehicle.no_active"))
+            }
+        }
+        0 => SelectionResolution::Back,
+        _ => SelectionResolution::None,
+    }
 }
 
 #[function_component(VehicleStatus)]
@@ -113,107 +235,20 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         let breakdown_part = breakdown.map(|b| b.part);
         let spare_counts = spares.map(|s| (s.tire, s.battery, s.alt, s.pump));
 
-        Callback::from(move |idx: u8| {
-            match idx {
-                1 => {
-                    // Use Spare Tire
-                    match (breakdown_part, spare_counts) {
-                        (Some(Part::Tire), Some((tire_count, _, _, _))) if tire_count > 0 => {
-                            on_repair.emit(VehicleAction::UseSpare(Part::Tire));
-                            let part_name = i18n::t(Part::Tire.key());
-                            let mut vars = std::collections::HashMap::new();
-                            vars.insert("part", part_name.as_str());
-                            vars.insert("sup", "1");
-                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                            return;
-                        }
-                        _ => {}
-                    }
-                    let part_name = i18n::t(Part::Tire.key());
-                    let mut vars = std::collections::HashMap::new();
-                    vars.insert("part", part_name.as_str());
-                    set_status(&i18n::tr("vehicle.announce.no_spare", Some(&vars)));
+        Callback::from(
+            move |idx: u8| match evaluate_selection(idx, breakdown_part, spare_counts) {
+                SelectionResolution::Action(action, message) => {
+                    on_repair.emit(action);
+                    set_status(&message);
                 }
-                2 => {
-                    // Use Spare Battery
-                    match (breakdown_part, spare_counts) {
-                        (Some(Part::Battery), Some((_, battery_count, _, _)))
-                            if battery_count > 0 =>
-                        {
-                            on_repair.emit(VehicleAction::UseSpare(Part::Battery));
-                            let part_name = i18n::t(Part::Battery.key());
-                            let mut vars = std::collections::HashMap::new();
-                            vars.insert("part", part_name.as_str());
-                            vars.insert("sup", "1");
-                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                            return;
-                        }
-                        _ => {}
-                    }
-                    let part_name = i18n::t(Part::Battery.key());
-                    let mut vars = std::collections::HashMap::new();
-                    vars.insert("part", part_name.as_str());
-                    set_status(&i18n::tr("vehicle.announce.no_spare", Some(&vars)));
-                }
-                3 => {
-                    // Use Spare Alternator
-                    match (breakdown_part, spare_counts) {
-                        (Some(Part::Alternator), Some((_, _, alt_count, _))) if alt_count > 0 => {
-                            on_repair.emit(VehicleAction::UseSpare(Part::Alternator));
-                            let part_name = i18n::t(Part::Alternator.key());
-                            let mut vars = std::collections::HashMap::new();
-                            vars.insert("part", part_name.as_str());
-                            vars.insert("sup", "1");
-                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                            return;
-                        }
-                        _ => {}
-                    }
-                    let part_name = i18n::t(Part::Alternator.key());
-                    let mut vars = std::collections::HashMap::new();
-                    vars.insert("part", part_name.as_str());
-                    set_status(&i18n::tr("vehicle.announce.no_spare", Some(&vars)));
-                }
-                4 => {
-                    // Use Spare Fuel Pump
-                    match (breakdown_part, spare_counts) {
-                        (Some(Part::FuelPump), Some((_, _, _, pump_count))) if pump_count > 0 => {
-                            on_repair.emit(VehicleAction::UseSpare(Part::FuelPump));
-                            let part_name = i18n::t(Part::FuelPump.key());
-                            let mut vars = std::collections::HashMap::new();
-                            vars.insert("part", part_name.as_str());
-                            vars.insert("sup", "1");
-                            set_status(&i18n::tr("vehicle.announce.used_spare", Some(&vars)));
-                            return;
-                        }
-                        _ => {}
-                    }
-                    let part_name = i18n::t(Part::FuelPump.key());
-                    let mut vars = std::collections::HashMap::new();
-                    vars.insert("part", part_name.as_str());
-                    set_status(&i18n::tr("vehicle.announce.no_spare", Some(&vars)));
-                }
-                5 => {
-                    // Hack Fix
-                    if breakdown_part.is_some() {
-                        on_repair.emit(VehicleAction::HackFix);
-                        let mut vars = std::collections::HashMap::new();
-                        vars.insert("sup", "3");
-                        vars.insert("cred", "1");
-                        vars.insert("day", "1");
-                        set_status(&i18n::tr("vehicle.announce.hack_applied", Some(&vars)));
-                    } else {
-                        set_status(&i18n::t("vehicle.no_active"));
-                    }
-                }
-                0 => {
-                    // Back
+                SelectionResolution::Message(message) => set_status(&message),
+                SelectionResolution::Back => {
                     on_back.emit(());
                     set_status(&i18n::t("menu.back"));
                 }
-                _ => {}
-            }
-        })
+                SelectionResolution::None => {}
+            },
+        )
     };
 
     // When focus index changes, move DOM focus to the corresponding item

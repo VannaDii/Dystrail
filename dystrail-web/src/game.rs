@@ -94,3 +94,61 @@ impl GameStorage for WebGameStorage {
 pub const fn create_web_game_engine() -> dystrail_game::GameEngine<WebDataLoader, WebGameStorage> {
     dystrail_game::GameEngine::new(WebDataLoader, WebGameStorage)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dystrail_game::pacing::PacingConfig;
+    use dystrail_game::weather::WeatherConfig;
+
+    #[test]
+    fn web_data_loader_parses_static_assets() {
+        let loader = WebDataLoader;
+        let encounters = loader
+            .load_encounter_data()
+            .expect("static encounter data should parse");
+        assert!(
+            !encounters.encounters.is_empty(),
+            "encounter dataset should not be empty"
+        );
+
+        // Check that config parsing hits multiple JSON structures.
+        let pacing: PacingConfig = loader
+            .load_config("pacing")
+            .expect("pacing config should deserialize");
+        assert!(
+            !pacing.pace.is_empty(),
+            "pacing config should include pace definitions"
+        );
+
+        let weather: WeatherConfig = loader
+            .load_config("weather")
+            .expect("weather config should deserialize");
+        assert!(
+            !weather.effects.is_empty(),
+            "weather config should describe effects"
+        );
+    }
+
+    #[test]
+    fn web_data_loader_reports_unknown_config() {
+        let loader = WebDataLoader;
+        let err = loader.load_config::<serde_json::Value>("unknown-key");
+        match err {
+            Err(WebDataError::Network(msg)) => {
+                assert!(msg.contains("Unknown config"));
+            }
+            other => panic!("Expected network error, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn engine_factory_wires_default_components() {
+        let engine = create_web_game_engine();
+        let game = engine
+            .create_game(42, dystrail_game::GameMode::Classic)
+            .expect("engine should build a default game");
+        assert_eq!(game.seed, 42);
+        assert_eq!(game.mode, dystrail_game::GameMode::Classic);
+    }
+}

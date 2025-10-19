@@ -181,3 +181,66 @@ const fn adjust_counters_for_transition(
         _ => {}
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::state::GameMode;
+    use std::collections::VecDeque;
+
+    fn fresh_state() -> GameState {
+        let mut state = GameState::default();
+        state.features.travel_v2 = true;
+        state
+    }
+
+    #[test]
+    fn record_travel_day_applies_transitions() {
+        let mut state = fresh_state();
+        let result = record_travel_day(&mut state, TravelDayKind::Stop, 0.0);
+        assert_eq!(result, TravelDayKind::Stop);
+        assert_eq!(state.non_travel_days, 1);
+
+        let result = record_travel_day(&mut state, TravelDayKind::Partial, 3.0);
+        assert_eq!(result, TravelDayKind::Partial);
+        assert_eq!(state.partial_travel_days, 1);
+        assert_eq!(state.non_travel_days, 0);
+
+        let result = record_travel_day(&mut state, TravelDayKind::Full, 10.0);
+        assert_eq!(result, TravelDayKind::Full);
+        assert_eq!(state.travel_days, 1);
+        assert_eq!(state.partial_travel_days, 0);
+        assert!(state.traveled_today);
+        assert!(!state.partial_traveled_today);
+    }
+
+    #[test]
+    fn partial_day_miles_falls_back_to_deltas() {
+        let mut state = fresh_state();
+        state.partial_distance_today = 4.0;
+        let miles = partial_day_miles(&state, 0.0);
+        assert!((miles - 4.0).abs() <= f32::EPSILON);
+
+        state.partial_distance_today = 0.0;
+        state.distance_today = 6.0;
+        let computed = partial_day_miles(&state, 0.0);
+        assert!(computed >= TRAVEL_PARTIAL_MIN_DISTANCE);
+
+        state.distance_today = 0.0;
+        state.features.travel_v2 = false;
+        let computed = partial_day_miles(&state, 0.0);
+        assert!(computed >= TRAVEL_PARTIAL_MIN_DISTANCE);
+    }
+
+    #[test]
+    fn enforce_ratio_floor_checks_recent_history() {
+        let mut state = fresh_state();
+        state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop; TRAVEL_HISTORY_WINDOW]);
+        assert!(enforce_ratio_floor(&state));
+
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Conservative);
+        state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop; TRAVEL_HISTORY_WINDOW]);
+        assert!(enforce_ratio_floor(&state));
+    }
+}
