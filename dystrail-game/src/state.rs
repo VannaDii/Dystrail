@@ -177,9 +177,29 @@ const fn default_pace() -> PaceId {
 
 #[cfg(test)]
 mod tests {
+    #![allow(
+        clippy::field_reassign_with_default,
+        clippy::float_cmp,
+        clippy::cognitive_complexity,
+        clippy::too_many_lines
+    )]
     use super::*;
     use crate::data::{Choice, Effects, Encounter};
     use crate::weather::Weather;
+    use rand::Rng;
+    use rand::SeedableRng;
+    use rand_chacha::ChaCha20Rng;
+    use std::collections::VecDeque;
+
+    fn rng_with_roll_below(threshold: f32) -> ChaCha20Rng {
+        for seed in 0..10_000 {
+            let mut rng = ChaCha20Rng::seed_from_u64(seed);
+            if rng.random::<f32>() < threshold {
+                return ChaCha20Rng::seed_from_u64(seed);
+            }
+        }
+        panic!("unable to find deterministic seed below {threshold}");
+    }
 
     fn endgame_cfg() -> EndgameTravelCfg {
         EndgameTravelCfg::default()
@@ -595,6 +615,464 @@ mod tests {
                 .iter()
                 .any(|tag| tag == "da_sanity_guard")
         );
+    }
+
+    #[test]
+    #[allow(clippy::float_cmp, clippy::too_many_lines)]
+    fn roll_and_exec_paths_cover_branches() {
+        let mut state = GameState::default();
+        state.data = Some(EncounterData::empty());
+
+        // Existing illness countdown branch.
+        state.illness_days_remaining = 2;
+        state.stats.hp = 10;
+        state.stats.sanity = 10;
+        state.stats.supplies = 6;
+        state.disease_cooldown = 0;
+        state.rng = Some(rng_with_roll_below(0.5));
+        state.roll_daily_illness();
+        assert_eq!(state.illness_days_remaining, 1);
+        assert!(state.rest_requested);
+
+        // Cooldown prevents new illness.
+        state.disease_cooldown = 2;
+        state.illness_days_remaining = 0;
+        state.roll_daily_illness();
+        assert_eq!(state.disease_cooldown, 1);
+
+        // Fresh illness triggered by RNG when cooldown expired.
+        state.disease_cooldown = 0;
+        state.starvation_days = 2;
+        state.stats.hp = 3;
+        state.stats.supplies = 0;
+        state.rng = Some(rng_with_roll_below(0.1));
+        state.roll_daily_illness();
+        assert!(state.illness_days_remaining > 0);
+        assert!(state.logs.iter().any(|log| log == LOG_DISEASE_HIT));
+
+        // Ally attrition path exercises positive case.
+        state.stats.allies = 2;
+        state.rng = Some(rng_with_roll_below(ALLY_ATTRITION_CHANCE + 0.05));
+        state.tick_ally_attrition();
+        assert!(state.stats.allies <= 1);
+
+        // Exec order branch when current order is active and resolves.
+        state.current_order = Some(ExecOrder::Shutdown);
+        state.exec_order_days_remaining = 1;
+        state.exec_order_cooldown = 0;
+        state.rng = Some(rng_with_roll_below(EXEC_ORDER_DAILY_CHANCE + 0.05));
+        state.tick_exec_order_state();
+        assert!(state.exec_order_cooldown > 0 || state.current_order.is_none());
+
+        // No current order: force issuing a new one via deterministic RNG.
+        state.current_order = None;
+        state.exec_order_cooldown = 0;
+        state.rng = Some(rng_with_roll_below(EXEC_ORDER_DAILY_CHANCE + 0.05));
+        state.tick_exec_order_state();
+        assert!(state.current_order.is_some() || !state.logs.is_empty());
+
+        // Exercise every exec order effect explicitly to ensure match branches run.
+        for &order in ExecOrder::ALL {
+            state.exec_travel_multiplier = 10.0;
+            state.exec_breakdown_bonus = 10.0;
+            state.inventory.tags.clear();
+            state.apply_exec_order_effects(order);
+        }
+
+        // travel_ratio_recent edge cases
+        assert_eq!(state.travel_ratio_recent(0), 1.0);
+        state.recent_travel_days.clear();
+        assert_eq!(state.travel_ratio_recent(5), WEATHER_DEFAULT_SPEED);
+        state.recent_travel_days.push_back(TravelDayKind::Full);
+        for _ in 0..6 {
+            state.recent_travel_days.push_back(TravelDayKind::Stop);
+        }
+        assert!(state.travel_ratio_recent(5) < 1.0);
+    }
+
+    #[test]
+    #[allow(clippy::float_cmp, clippy::too_many_lines)]
+    fn field_repair_and_travel_credit_paths() {
+        let mut state = GameState::default();
+        state.data = Some(EncounterData::empty());
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.vehicle.health = 10.0;
+        state.vehicle.wear = 40.0;
+        state.miles_traveled_actual = 1_960.0;
+        state.features.travel_v2 = false;
+        state.distance_today = 4.0;
+        state.partial_distance_today = 2.0;
+        state.budget_cents = 20_000;
+        state.budget = 200;
+        state.rng = Some(rng_with_roll_below(0.2));
+
+        // Partial credit resets when already traveled.
+        state.traveled_today = true;
+        state.partial_traveled_today = false;
+        state.apply_partial_travel_credit(5.0, "log.partial", "reason");
+        assert!(state.logs.iter().any(|log| log == "log.partial"));
+
+        // Rest travel credit path helper.
+        state.logs.clear();
+        state.features.travel_v2 = true;
+        state.apply_rest_travel_credit();
+        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_REST_CREDIT));
+
+        // Classic field repair guard exercises both credit and zero-distance branch.
+        state.features.travel_v2 = false;
+        state.distance_today = 0.0;
+        state.partial_distance_today = 0.0;
+        state.apply_classic_field_repair_guard();
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|log| log == LOG_VEHICLE_FIELD_REPAIR_GUARD)
+        );
+
+        // Emergency limp guard triggers once conditions are satisfied.
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.miles_traveled_actual = 1_951.0;
+        state.distance_today = 5.0;
+        let limp_triggered = state.try_emergency_limp_guard();
+        assert!(limp_triggered);
+
+        // Deep aggressive field repair path (multiple calls ensure RNG and cooldown).
+        state.miles_traveled_actual = 1_700.0;
+        state.rng = Some(rng_with_roll_below(0.2));
+        let deep_repair = state.try_deep_aggressive_field_repair();
+        assert!(deep_repair);
+
+        // Reset progress and ensure revert functions execute.
+        state.prev_miles_traveled = state.miles_traveled_actual - 10.0;
+        state.reset_today_progress();
+        state.recent_travel_days.clear();
+        for _ in 0..6 {
+            state.recent_travel_days.push_back(TravelDayKind::Stop);
+        }
+        state.enforce_aggressive_delay_cap(0.0);
+        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_PARTIAL));
+
+        // Delay travel credit branch.
+        state.logs.clear();
+        state.apply_delay_travel_credit("delay_test");
+        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_DELAY_CREDIT));
+    }
+
+    #[test]
+    #[allow(clippy::float_cmp)]
+    fn deep_aggressive_safeguards_and_compose() {
+        let mut state = GameState::default();
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.miles_traveled_actual = 1_950.0;
+        state.day = 220;
+        state.stats.sanity = 0;
+        state.stats.pants = 30;
+        state.budget_cents = 10_000;
+        state.budget = 100;
+        state.current_day_kind = None;
+
+        state.apply_deep_aggressive_sanity_guard();
+        assert!(state.deep_aggressive_sanity_guard_used);
+        assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE));
+
+        // Compose with supplies available.
+        state.stats.supplies = BOSS_COMPOSE_SUPPLY_COST + 1;
+        let composed_supplies = state.apply_deep_aggressive_compose();
+        assert!(composed_supplies);
+
+        // Compose fallback using funds.
+        state.stats.supplies = 0;
+        state.budget_cents = BOSS_COMPOSE_FUNDS_COST + 100;
+        let composed_funds = state.apply_deep_aggressive_compose();
+        assert!(composed_funds);
+    }
+
+    #[test]
+    fn compute_miles_variations_cover_paths() {
+        let mut state = GameState::default();
+        state.data = Some(EncounterData::empty());
+        state.mode = GameMode::Classic;
+        state.pace = PaceId::Blitz;
+        state.features.travel_v2 = false;
+        state.weather_travel_multiplier = 0.5;
+        let mut limits = crate::pacing::PacingLimits::default();
+        limits.distance_base = 30.0;
+        let mut pace = crate::pacing::PaceCfg::default();
+        pace.distance = 0.0;
+        pace.dist_mult = 0.0;
+        let classic = state.compute_miles_for_today(&pace, &limits);
+        assert!(classic > 0.0);
+
+        // Travel v2 branch with fallback defaults.
+        state.features.travel_v2 = true;
+        state.mode = GameMode::Deep;
+        pace.distance = 0.0;
+        pace.dist_mult = 0.0;
+        limits.distance_base = 0.0;
+        let v2 = state.compute_miles_for_today(&pace, &limits);
+        assert!(v2 > 0.0);
+        assert_ne!(classic, v2);
+    }
+
+    #[test]
+    fn enumeration_roundtrips_cover_branches() {
+        use std::str::FromStr;
+
+        assert_eq!(PaceId::Steady.as_str(), "steady");
+        assert_eq!(PaceId::from_str("heated").unwrap(), PaceId::Heated);
+        assert!(PaceId::from_str("invalid").is_err());
+        assert_eq!(String::from(PaceId::Blitz), "blitz");
+        assert_eq!(format!("{}", PaceId::Heated), "heated");
+
+        assert_eq!(DietId::Doom.as_str(), "doom");
+        assert_eq!(DietId::from_str("mixed").unwrap(), DietId::Mixed);
+        assert!(DietId::from_str("bad").is_err());
+        assert_eq!(String::from(DietId::Quiet), "quiet");
+        assert_eq!(format!("{}", DietId::Mixed), "mixed");
+
+        assert_eq!(PolicyKind::Aggressive.as_str(), "aggressive");
+        assert_eq!(
+            PolicyKind::from_str("balanced").unwrap(),
+            PolicyKind::Balanced
+        );
+        assert!(PolicyKind::from_str("oops").is_err());
+        assert_eq!(
+            String::from(PolicyKind::ResourceManager),
+            "resource_manager"
+        );
+        assert_eq!(format!("{}", PolicyKind::MonteCarlo), "monte_carlo");
+
+        assert!(!GameMode::Classic.is_deep());
+        assert!(GameMode::Deep.is_deep());
+        assert_eq!(GameMode::Classic.boss_threshold(), 1_000);
+        assert_eq!(GameMode::Deep.boss_threshold(), 1_200);
+
+        assert_eq!(Region::Heartland.asset_key(), "Heartland");
+        assert_eq!(Region::RustBelt.asset_key(), "RustBelt");
+        assert_eq!(Region::Beltway.asset_key(), "Beltway");
+
+        assert_eq!(Season::from_day(1), Season::Spring);
+        assert_eq!(Season::from_day(46), Season::Summer);
+        assert_eq!(Season::from_day(91), Season::Fall);
+        assert_eq!(Season::from_day(150), Season::Winter);
+
+        let causes = [
+            CollapseCause::Hunger,
+            CollapseCause::Vehicle,
+            CollapseCause::Weather,
+            CollapseCause::Breakdown,
+            CollapseCause::Disease,
+            CollapseCause::Crossing,
+            CollapseCause::Panic,
+        ];
+        for cause in causes {
+            assert!(!cause.key().is_empty());
+        }
+
+        assert_eq!(ExposureKind::Cold.key(), "cold");
+        assert_eq!(ExposureKind::Heat.key(), "heat");
+    }
+
+    #[test]
+    fn end_of_day_variants_cover_remaining_paths() {
+        #![allow(clippy::field_reassign_with_default)]
+        // Early return when already finalized.
+        let mut early = GameState::default();
+        early.encounter_history = VecDeque::from(vec![0]);
+        early.did_end_of_day = true;
+        early.end_of_day();
+        assert!(early.did_end_of_day);
+
+        // No travel paths ensure assertion branch executes without panic.
+        let mut stagnant = GameState::default();
+        stagnant.encounter_history = VecDeque::from(vec![0]);
+        stagnant.prev_miles_traveled = 10.0;
+        stagnant.miles_traveled_actual = 10.0;
+        stagnant.traveled_today = false;
+        stagnant.partial_traveled_today = false;
+        stagnant.current_day_kind = Some(TravelDayKind::Stop);
+        stagnant.end_of_day();
+        assert!(stagnant.did_end_of_day);
+        assert_eq!(stagnant.recent_travel_days.len(), 1);
+
+        // Deep conservative branch applies travel bonus and rotation enforcement.
+        let mut conservative = GameState::default();
+        conservative.encounter_history = VecDeque::from(vec![0]);
+        conservative.mode = GameMode::Deep;
+        conservative.policy = Some(PolicyKind::Conservative);
+        conservative.start_of_day();
+        conservative.encounters_today = 1;
+        conservative.prev_miles_traveled = 100.0;
+        conservative.miles_traveled_actual = 105.0;
+        conservative.current_day_kind = Some(TravelDayKind::Full);
+        conservative.current_day_miles = 3.0;
+        conservative.distance_today = 2.0;
+        conservative.distance_today_raw = 2.5;
+        conservative.partial_distance_today = 1.5;
+        conservative.traveled_today = true;
+        conservative.distance_cap_today = 6.0;
+        conservative.current_day_reason_tags = vec!["progress".into()];
+        conservative.rotation_travel_days = conservative.rotation_force_interval();
+        conservative.recent_travel_days =
+            VecDeque::from(vec![TravelDayKind::Partial; TRAVEL_HISTORY_WINDOW]);
+        conservative.end_of_day();
+        assert!(conservative.force_rotation_pending);
+        assert!(
+            conservative
+                .day_reason_history
+                .last()
+                .is_some_and(|entry| entry.contains("progress"))
+        );
+
+        // Deep aggressive branch unlocks boss readiness.
+        let mut aggressive = GameState::default();
+        aggressive.encounter_history = VecDeque::from(vec![0]);
+        aggressive.mode = GameMode::Deep;
+        aggressive.policy = Some(PolicyKind::Aggressive);
+        aggressive.prev_miles_traveled = DEEP_AGGRESSIVE_BOSS_BIAS_MILES - 10.0;
+        aggressive.miles_traveled_actual = DEEP_AGGRESSIVE_BOSS_BIAS_MILES + 5.0;
+        aggressive.traveled_today = true;
+        aggressive.distance_today = 5.0;
+        aggressive.distance_today_raw = 5.0;
+        aggressive.current_day_miles = 5.0;
+        aggressive.current_day_reason_tags = vec!["march".into()];
+        aggressive.end_of_day();
+        assert!(aggressive.boss_ready);
+        assert!(aggressive.boss_reached);
+    }
+
+    #[test]
+    fn state_helper_methods_cover_remaining_paths() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.encounter_history = VecDeque::from(vec![0]);
+        state.record_encounter("alpha");
+        assert_eq!(state.encounters_today, 1);
+        assert!(
+            state
+                .recent_encounters
+                .iter()
+                .any(|entry| entry.id == "alpha")
+        );
+
+        state.current_day_kind = Some(TravelDayKind::Full);
+        state.current_day_reason_tags = vec!["camp".into(), "repair".into()];
+        state.travel_days = 1;
+        state.partial_travel_days = 1;
+        state.non_travel_days = 1;
+        state.days_with_camp = 1;
+        state.days_with_repair = 1;
+        state.rotation_travel_days = 2;
+        state.revert_current_day_record();
+        assert!(state.current_day_reason_tags.is_empty());
+
+        state.apply_travel_progress(5.0, TravelProgressKind::Partial);
+        assert!(state.partial_traveled_today);
+
+        assert!(state.rotation_force_interval() >= 3);
+        state.recent_travel_days = VecDeque::from(vec![
+            TravelDayKind::Full,
+            TravelDayKind::Partial,
+            TravelDayKind::Stop,
+        ]);
+        assert!(state.travel_ratio_recent(3) < 1.0);
+
+        state.traveled_today = true;
+        state.partial_traveled_today = false;
+        state.apply_partial_travel_credit(1.0, "log.partial.credit", "delay");
+        assert!(state.logs.iter().any(|entry| entry == "log.partial.credit"));
+
+        state.mode = GameMode::Classic;
+        state.budget_cents = 5_000;
+        state.budget = 50;
+        state.vehicle.wear = 40.0;
+        state.breakdown = Some(Breakdown {
+            part: Part::Battery,
+            day_started: 1,
+        });
+        state.travel_blocked = true;
+        state.apply_classic_field_repair_guard();
+        assert!(!state.travel_blocked);
+
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.miles_traveled_actual = 1_920.0;
+        state.endgame.last_limp_mile = 0.0;
+        state.budget_cents = 8_000;
+        state.budget = 80;
+        let limp = state.try_emergency_limp_guard();
+        assert!(limp);
+
+        state.miles_traveled_actual = 1_700.0;
+        state.rng = Some(rng_with_roll_below(0.1));
+        let field = state.try_deep_aggressive_field_repair();
+        assert!(field);
+
+        state.add_day_reason_tag("camp");
+        state.add_day_reason_tag("repair");
+        state.add_day_reason_tag("camp");
+        state.add_day_reason_tag(" ");
+        assert!(state.days_with_camp > 0);
+        assert!(state.days_with_repair > 0);
+
+        state.features.encounter_diversity = true;
+        state.day = 50;
+        state.recent_encounters.push_back(RecentEncounter::new(
+            "alpha".into(),
+            49,
+            Region::Heartland,
+        ));
+        assert!(state.should_discourage_encounter("alpha"));
+        assert!(!state.should_discourage_encounter("beta"));
+
+        state.policy = Some(PolicyKind::Conservative);
+        assert!(state.encounter_reroll_penalty() < 1.0);
+        state.policy = Some(PolicyKind::Balanced);
+        assert!(state.encounter_reroll_penalty() > 0.0);
+
+        assert_eq!(state.vehicle_health(), state.vehicle.health);
+
+        state.stats.supplies = 10;
+        state.starvation_days = 2;
+        state.apply_starvation_tick();
+        assert_eq!(state.starvation_days, 0);
+
+        state.stats.allies = 2;
+        state.logs.clear();
+        state.rng = Some(rng_with_roll_below(ALLY_ATTRITION_CHANCE * 2.0));
+        state.tick_ally_attrition();
+        assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
+
+        state.weather_state.today = Weather::Smoke;
+        assert!(state.current_weather_speed_penalty() < WEATHER_DEFAULT_SPEED);
+
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Conservative);
+        state.day = 150;
+        state.miles_traveled_actual = 1_900.0;
+        assert!(state.deep_conservative_travel_boost() > 1.0);
+        state.policy = Some(PolicyKind::Aggressive);
+        assert!(state.deep_aggressive_reach_boost() >= 1.0);
+
+        state.day = DEEP_AGGRESSIVE_SANITY_DAY;
+        state.miles_traveled_actual = DEEP_AGGRESSIVE_SANITY_MILES;
+        state.stats.sanity = 0;
+        state.stats.pants = 30;
+        state.budget_cents = DEEP_AGGRESSIVE_SANITY_COST + 1_000;
+        state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
+        state.deep_aggressive_sanity_guard_used = false;
+        state.apply_deep_aggressive_sanity_guard();
+        assert!(state.deep_aggressive_sanity_guard_used);
+
+        state.stats.supplies = BOSS_COMPOSE_SUPPLY_COST + 1;
+        assert!(state.apply_deep_aggressive_compose());
+        state.stats.supplies = 0;
+        state.budget_cents = BOSS_COMPOSE_FUNDS_COST + 500;
+        assert!(state.apply_deep_aggressive_compose());
     }
 }
 

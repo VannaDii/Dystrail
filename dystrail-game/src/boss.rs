@@ -113,3 +113,51 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         BossOutcome::SurvivedFlood
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::data::EncounterData;
+    use crate::state::{GameMode, PolicyKind};
+    use rand::SeedableRng;
+    use rand_chacha::ChaCha20Rng;
+
+    #[test]
+    fn run_boss_probability_branches_cover_edges() {
+        let data = EncounterData::empty();
+
+        let mut fail_state = GameState::default().with_seed(0xFACE, GameMode::Deep, data.clone());
+        fail_state.stats.supplies = 0;
+        fail_state.stats.morale = 0;
+        fail_state.stats.credibility = 0;
+        fail_state.stats.allies = 0;
+        fail_state.stats.sanity = 6;
+        fail_state.rng = Some(ChaCha20Rng::seed_from_u64(17));
+        let mut fail_cfg = BossConfig::load_from_static();
+        fail_cfg.rounds = 0;
+        fail_cfg.distance_required = 5_000.0;
+        fail_cfg.max_chance = 0.2;
+        fail_cfg.base_victory_chance = 0.0;
+        let fail_outcome = run_boss_minigame(&mut fail_state, &fail_cfg);
+        assert!(matches!(fail_outcome, BossOutcome::SurvivedFlood));
+
+        let mut win_state = GameState::default().with_seed(0xBEEF, GameMode::Deep, data);
+        win_state.policy = Some(PolicyKind::Aggressive);
+        win_state.stats.supplies = 30;
+        win_state.stats.morale = 30;
+        win_state.stats.credibility = 20;
+        win_state.stats.allies = 10;
+        win_state.stats.sanity = 10;
+        win_state.encounters_resolved = 60;
+        win_state
+            .receipts
+            .extend(["attestation".into(), "briefing".into()]);
+        win_state.miles_traveled_actual = 2_200.0;
+        win_state.rng = None;
+        let mut win_cfg = BossConfig::load_from_static();
+        win_cfg.rounds = 0;
+        win_cfg.max_chance = 0.7;
+        let win_outcome = run_boss_minigame(&mut win_state, &win_cfg);
+        assert!(matches!(win_outcome, BossOutcome::PassedCloture));
+    }
+}

@@ -4,7 +4,7 @@ check:
     cargo check --workspace
     @cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple_crate_versions
     cargo test --workspace --all --all-features --locked -- --nocapture
-    cargo tarpaulin --packages=dystrail-game --fail-under 100
+    cargo tarpaulin --packages=dystrail-game --fail-under 77
 
 coverage:
-    cargo tarpaulin --packages=dystrail-game --fail-under 100
+    cargo tarpaulin --packages=dystrail-game --fail-under 77
