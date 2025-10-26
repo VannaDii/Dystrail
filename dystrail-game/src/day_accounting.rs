@@ -1,31 +1,22 @@
-use serde::{Deserialize, Serialize};
-
 use crate::constants::{
     TRAVEL_CLASSIC_BASE_DISTANCE, TRAVEL_HISTORY_WINDOW, TRAVEL_PARTIAL_MIN_DISTANCE,
-    TRAVEL_PARTIAL_RATIO, TRAVEL_V2_BASE_DISTANCE,
+    TRAVEL_V2_BASE_DISTANCE,
 };
+use crate::journey::TravelDayKind;
 use crate::state::{GameState, PolicyKind, TravelProgressKind};
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum TravelDayKind {
-    Full,
-    Partial,
-    Stop,
-}
 
 /// Record travel day details and update counters consistently.
 pub fn record_travel_day(
     state: &mut GameState,
     kind: TravelDayKind,
     miles_earned: f32,
-) -> TravelDayKind {
+) -> (TravelDayKind, f32) {
     state.start_of_day();
     let mut effective_kind = kind;
     let mut miles = sanitize_miles(miles_earned);
     let suppress_stop_ratio = state.suppress_stop_ratio;
 
-    if matches!(effective_kind, TravelDayKind::Stop)
+    if matches!(effective_kind, TravelDayKind::NonTravel)
         && !suppress_stop_ratio
         && enforce_ratio_floor(state)
     {
@@ -48,15 +39,15 @@ pub fn record_travel_day(
 
     if miles > 0.0 {
         let progress_kind = match effective_kind {
-            TravelDayKind::Full => TravelProgressKind::Full,
-            TravelDayKind::Partial | TravelDayKind::Stop => TravelProgressKind::Partial,
+            TravelDayKind::Travel => TravelProgressKind::Full,
+            TravelDayKind::Partial | TravelDayKind::NonTravel => TravelProgressKind::Partial,
         };
         state.apply_travel_progress(miles, progress_kind);
         state.current_day_miles += miles;
     }
 
     match effective_kind {
-        TravelDayKind::Full => {
+        TravelDayKind::Travel => {
             state.traveled_today = true;
             state.partial_traveled_today = false;
         }
@@ -64,13 +55,13 @@ pub fn record_travel_day(
             state.traveled_today = false;
             state.partial_traveled_today = true;
         }
-        TravelDayKind::Stop => {
+        TravelDayKind::NonTravel => {
             state.traveled_today = false;
             state.partial_traveled_today = false;
         }
     }
 
-    effective_kind
+    (effective_kind, miles)
 }
 
 const fn sanitize_miles(miles: f32) -> f32 {
@@ -93,7 +84,7 @@ fn enforce_ratio_floor(state: &GameState) -> bool {
         .iter()
         .rev()
         .take(window)
-        .filter(|kind| matches!(kind, TravelDayKind::Stop))
+        .filter(|kind| matches!(kind, TravelDayKind::NonTravel))
         .count();
     recent_stops >= stop_cap
 }
@@ -111,13 +102,15 @@ pub(crate) fn partial_day_miles(state: &GameState, miles: f32) -> f32 {
         return miles;
     }
 
+    let ratio = state.journey_partial_ratio.clamp(0.2, 0.95);
+
     let partial_today = state.partial_distance_today;
     if partial_today > 0.0 {
         return partial_today.max(TRAVEL_PARTIAL_MIN_DISTANCE);
     }
     let distance_today = state.distance_today;
     if distance_today > 0.0 {
-        return (distance_today * TRAVEL_PARTIAL_RATIO).max(TRAVEL_PARTIAL_MIN_DISTANCE);
+        return (distance_today * ratio).max(TRAVEL_PARTIAL_MIN_DISTANCE);
     }
 
     let base = if state.features.travel_v2 {
@@ -125,12 +118,12 @@ pub(crate) fn partial_day_miles(state: &GameState, miles: f32) -> f32 {
     } else {
         TRAVEL_CLASSIC_BASE_DISTANCE
     };
-    (base * TRAVEL_PARTIAL_RATIO).max(TRAVEL_PARTIAL_MIN_DISTANCE)
+    (base * ratio).max(TRAVEL_PARTIAL_MIN_DISTANCE)
 }
 
 const fn apply_initial_counters(state: &mut GameState, kind: TravelDayKind) {
     match kind {
-        TravelDayKind::Full => {
+        TravelDayKind::Travel => {
             state.travel_days = state.travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
         }
@@ -138,7 +131,7 @@ const fn apply_initial_counters(state: &mut GameState, kind: TravelDayKind) {
             state.partial_travel_days = state.partial_travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
         }
-        TravelDayKind::Stop => {
+        TravelDayKind::NonTravel => {
             state.non_travel_days = state.non_travel_days.saturating_add(1);
         }
     }
@@ -150,30 +143,30 @@ const fn adjust_counters_for_transition(
     next: TravelDayKind,
 ) {
     match (existing, next) {
-        (TravelDayKind::Partial, TravelDayKind::Full) => {
+        (TravelDayKind::Partial, TravelDayKind::Travel) => {
             state.partial_travel_days = state.partial_travel_days.saturating_sub(1);
             state.travel_days = state.travel_days.saturating_add(1);
         }
-        (TravelDayKind::Stop, TravelDayKind::Partial) => {
+        (TravelDayKind::NonTravel, TravelDayKind::Partial) => {
             state.non_travel_days = state.non_travel_days.saturating_sub(1);
             state.partial_travel_days = state.partial_travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
         }
-        (TravelDayKind::Stop, TravelDayKind::Full) => {
+        (TravelDayKind::NonTravel, TravelDayKind::Travel) => {
             state.non_travel_days = state.non_travel_days.saturating_sub(1);
             state.travel_days = state.travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
         }
-        (TravelDayKind::Partial, TravelDayKind::Stop) => {
+        (TravelDayKind::Partial, TravelDayKind::NonTravel) => {
             state.partial_travel_days = state.partial_travel_days.saturating_sub(1);
             state.non_travel_days = state.non_travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_sub(1);
         }
-        (TravelDayKind::Full, TravelDayKind::Partial) => {
+        (TravelDayKind::Travel, TravelDayKind::Partial) => {
             state.travel_days = state.travel_days.saturating_sub(1);
             state.partial_travel_days = state.partial_travel_days.saturating_add(1);
         }
-        (TravelDayKind::Full, TravelDayKind::Stop) => {
+        (TravelDayKind::Travel, TravelDayKind::NonTravel) => {
             state.travel_days = state.travel_days.saturating_sub(1);
             state.non_travel_days = state.non_travel_days.saturating_add(1);
             state.rotation_travel_days = state.rotation_travel_days.saturating_sub(1);
@@ -197,21 +190,30 @@ mod tests {
     #[test]
     fn record_travel_day_applies_transitions() {
         let mut state = fresh_state();
-        let result = record_travel_day(&mut state, TravelDayKind::Stop, 0.0);
-        assert_eq!(result, TravelDayKind::Stop);
+        let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+        assert_eq!(kind, TravelDayKind::NonTravel);
         assert_eq!(state.non_travel_days, 1);
 
-        let result = record_travel_day(&mut state, TravelDayKind::Partial, 3.0);
-        assert_eq!(result, TravelDayKind::Partial);
+        let (kind, _) = record_travel_day(&mut state, TravelDayKind::Partial, 3.0);
+        assert_eq!(kind, TravelDayKind::Partial);
         assert_eq!(state.partial_travel_days, 1);
         assert_eq!(state.non_travel_days, 0);
 
-        let result = record_travel_day(&mut state, TravelDayKind::Full, 10.0);
-        assert_eq!(result, TravelDayKind::Full);
+        let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 10.0);
+        assert_eq!(kind, TravelDayKind::Travel);
         assert_eq!(state.travel_days, 1);
         assert_eq!(state.partial_travel_days, 0);
         assert!(state.traveled_today);
         assert!(!state.partial_traveled_today);
+    }
+
+    #[test]
+    fn partial_day_miles_uses_policy_ratio() {
+        let mut state = fresh_state();
+        state.distance_today = 10.0;
+        state.journey_partial_ratio = 0.75;
+        let miles = partial_day_miles(&state, 0.0);
+        assert!((miles - 7.5).abs() <= f32::EPSILON);
     }
 
     #[test]
@@ -235,12 +237,14 @@ mod tests {
     #[test]
     fn enforce_ratio_floor_checks_recent_history() {
         let mut state = fresh_state();
-        state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop; TRAVEL_HISTORY_WINDOW]);
+        state.recent_travel_days =
+            VecDeque::from(vec![TravelDayKind::NonTravel; TRAVEL_HISTORY_WINDOW]);
         assert!(enforce_ratio_floor(&state));
 
         state.mode = GameMode::Deep;
         state.policy = Some(PolicyKind::Conservative);
-        state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop; TRAVEL_HISTORY_WINDOW]);
+        state.recent_travel_days =
+            VecDeque::from(vec![TravelDayKind::NonTravel; TRAVEL_HISTORY_WINDOW]);
         assert!(enforce_ratio_floor(&state));
     }
 }

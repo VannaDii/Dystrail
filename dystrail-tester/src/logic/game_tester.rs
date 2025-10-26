@@ -977,7 +977,85 @@ impl Default for PlayabilityMetrics {
     }
 }
 
+#[derive(Default, Debug)]
+struct LedgerSummary {
+    miles: f64,
+    travel_days: u32,
+    partial_days: u32,
+    non_travel_days: u32,
+    stop_cap_conversions: u32,
+    total_days: u32,
+    reason_history: Vec<String>,
+}
+
+#[allow(clippy::cast_possible_truncation)]
+fn clamp_f64_to_f32(value: f64) -> f32 {
+    value.clamp(f64::from(f32::MIN), f64::from(f32::MAX)) as f32
+}
+
 impl PlayabilityMetrics {
+    fn summarize_day_records(state: &GameState) -> LedgerSummary {
+        if state.day_records.is_empty() {
+            let reason_history = state.day_reason_history.clone();
+            let stop_caps = u32::try_from(
+                reason_history
+                    .iter()
+                    .filter(|reason| reason.split(';').any(|tag| tag == "stop_cap"))
+                    .count(),
+            )
+            .unwrap_or(u32::MAX);
+            let total_days = if reason_history.is_empty() {
+                state
+                    .travel_days
+                    .saturating_add(state.partial_travel_days)
+                    .saturating_add(state.non_travel_days)
+            } else {
+                u32::try_from(reason_history.len()).unwrap_or(u32::MAX)
+            };
+            return LedgerSummary {
+                miles: f64::from(state.miles_traveled_actual),
+                travel_days: state.travel_days,
+                partial_days: state.partial_travel_days,
+                non_travel_days: state.non_travel_days,
+                stop_cap_conversions: stop_caps,
+                total_days,
+                reason_history,
+            };
+        }
+
+        let mut summary = LedgerSummary::default();
+        for record in &state.day_records {
+            summary.total_days = summary.total_days.saturating_add(1);
+            summary.miles += f64::from(record.miles);
+            match record.kind {
+                dystrail_game::TravelDayKind::Travel => {
+                    summary.travel_days = summary.travel_days.saturating_add(1);
+                }
+                dystrail_game::TravelDayKind::Partial => {
+                    summary.partial_days = summary.partial_days.saturating_add(1);
+                }
+                dystrail_game::TravelDayKind::NonTravel => {
+                    summary.non_travel_days = summary.non_travel_days.saturating_add(1);
+                }
+            }
+            if record.tags.iter().any(|tag| tag.0.as_str() == "stop_cap") {
+                summary.stop_cap_conversions = summary.stop_cap_conversions.saturating_add(1);
+            }
+            if record.tags.is_empty() {
+                summary.reason_history.push(String::new());
+            } else {
+                let entry = record
+                    .tags
+                    .iter()
+                    .map(|tag| tag.0.as_str())
+                    .collect::<Vec<_>>()
+                    .join(";");
+                summary.reason_history.push(entry);
+            }
+        }
+        summary
+    }
+
     pub fn record_turn(&mut self, outcome: &TurnOutcome) {
         if let Some(decision) = outcome.decision.clone() {
             self.encounters_faced += 1;
@@ -1040,17 +1118,19 @@ impl PlayabilityMetrics {
         self.ending_cause = cause;
         self.boss_won = state.boss_victory;
         self.boss_reached = state.boss_reached;
-        self.miles_traveled = if state.miles_traveled_actual > 0.0 {
+        let ledger = Self::summarize_day_records(state);
+        self.miles_traveled = if ledger.miles > 0.0 {
+            clamp_f64_to_f32(ledger.miles)
+        } else if state.miles_traveled_actual > 0.0 {
             state.miles_traveled_actual
         } else {
             state.miles_traveled
         };
-        self.travel_days = state.travel_days;
-        self.partial_travel_days = state.partial_travel_days;
-        self.non_travel_days = state.non_travel_days;
-        self.avg_miles_per_day = if state.travel_days > 0 {
-            let days = state.travel_days.max(1);
-            f64::from(state.miles_traveled_actual) / f64::from(days)
+        self.travel_days = ledger.travel_days;
+        self.partial_travel_days = ledger.partial_days;
+        self.non_travel_days = ledger.non_travel_days;
+        self.avg_miles_per_day = if ledger.travel_days > 0 {
+            ledger.miles / f64::from(ledger.travel_days)
         } else {
             0.0
         };
@@ -1067,23 +1147,12 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
-        self.day_reason_history
-            .clone_from(&state.day_reason_history);
-        self.stop_cap_conversions = u32::try_from(
-            self.day_reason_history
-                .iter()
-                .filter(|reason| reason.split(';').any(|tag| tag == "stop_cap"))
-                .count(),
-        )
-        .unwrap_or(0);
+        self.day_reason_history.clone_from(&ledger.reason_history);
+        self.stop_cap_conversions = ledger.stop_cap_conversions;
         self.endgame_active = state.endgame.active;
         self.endgame_field_repair_used = state.endgame.field_repair_used;
         self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
-        let total_days = u32::try_from(self.day_reason_history.len()).unwrap_or_else(|_| {
-            self.travel_days
-                .saturating_add(self.partial_travel_days)
-                .saturating_add(self.non_travel_days)
-        });
+        let total_days = ledger.total_days;
         if total_days > 0 {
             self.travel_ratio =
                 f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
@@ -1113,17 +1182,19 @@ impl PlayabilityMetrics {
         self.final_budget_cents = state.budget_cents;
         self.boss_reached = state.boss_reached;
         self.boss_won = state.boss_victory;
-        self.miles_traveled = if state.miles_traveled_actual > 0.0 {
+        let ledger = Self::summarize_day_records(state);
+        self.miles_traveled = if ledger.miles > 0.0 {
+            clamp_f64_to_f32(ledger.miles)
+        } else if state.miles_traveled_actual > 0.0 {
             state.miles_traveled_actual
         } else {
             state.miles_traveled
         };
-        self.travel_days = state.travel_days;
-        self.partial_travel_days = state.partial_travel_days;
-        self.non_travel_days = state.non_travel_days;
-        self.avg_miles_per_day = if state.travel_days > 0 {
-            let days = state.travel_days.max(1);
-            f64::from(state.miles_traveled_actual) / f64::from(days)
+        self.travel_days = ledger.travel_days;
+        self.partial_travel_days = ledger.partial_days;
+        self.non_travel_days = ledger.non_travel_days;
+        self.avg_miles_per_day = if ledger.travel_days > 0 {
+            ledger.miles / f64::from(ledger.travel_days)
         } else {
             0.0
         };
@@ -1140,23 +1211,12 @@ impl PlayabilityMetrics {
         self.exposure_streak_cold = u32::try_from(state.weather_state.coldsnap_streak).unwrap_or(0);
         self.days_with_camp = state.days_with_camp;
         self.days_with_repair = state.days_with_repair;
-        self.day_reason_history
-            .clone_from(&state.day_reason_history);
-        self.stop_cap_conversions = u32::try_from(
-            self.day_reason_history
-                .iter()
-                .filter(|reason| reason.split(';').any(|tag| tag == "stop_cap"))
-                .count(),
-        )
-        .unwrap_or(0);
+        self.day_reason_history.clone_from(&ledger.reason_history);
+        self.stop_cap_conversions = ledger.stop_cap_conversions;
         self.endgame_active = state.endgame.active;
         self.endgame_field_repair_used = state.endgame.field_repair_used;
         self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
-        let total_days = u32::try_from(self.day_reason_history.len()).unwrap_or_else(|_| {
-            self.travel_days
-                .saturating_add(self.partial_travel_days)
-                .saturating_add(self.non_travel_days)
-        });
+        let total_days = ledger.total_days;
         if total_days > 0 {
             self.travel_ratio =
                 f64::from(self.travel_days + self.partial_travel_days) / f64::from(total_days);
@@ -1339,7 +1399,7 @@ mod tests {
         assert!(metrics.miles_traveled < summary.final_state.trail_distance);
         let diff = (metrics.miles_traveled - actual).abs();
         assert!(
-            diff <= f32::EPSILON,
+            diff <= 1e-3,
             "miles_traveled {} should match actual {}",
             metrics.miles_traveled,
             actual

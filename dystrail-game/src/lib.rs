@@ -13,6 +13,7 @@ pub mod day_accounting;
 pub mod encounters;
 pub mod endgame;
 pub mod exec_orders;
+pub mod journey;
 pub mod pacing;
 pub mod personas;
 pub mod result;
@@ -33,8 +34,11 @@ pub use crossings::{
     apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
-pub use day_accounting::TravelDayKind;
 pub use endgame::{EndgameState, EndgameTravelCfg};
+pub use journey::{
+    DayOutcome, DayRecord, DayTag, DayTagSet, JourneyCfg, JourneyController, PolicyId, RngBundle,
+    StrategyId, TravelDayKind,
+};
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
 pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};

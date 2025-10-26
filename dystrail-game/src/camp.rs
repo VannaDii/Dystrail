@@ -121,7 +121,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
             gs.start_of_day();
         }
         if rest_cfg.recovery_day {
-            gs.record_travel_day(TravelDayKind::Stop, 0.0, "camp");
+            gs.record_travel_day(TravelDayKind::NonTravel, 0.0, "camp");
         } else {
             gs.apply_rest_travel_credit();
         }

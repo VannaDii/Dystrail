@@ -1,4 +1,5 @@
 use dystrail_game::GameEngine;
+use dystrail_game::TravelDayKind;
 use dystrail_game::boss::{BossConfig, BossOutcome, run_boss_minigame};
 use dystrail_game::camp::{self, CampConfig, CampState, RestConfig};
 use dystrail_game::crossings::{
@@ -6,7 +7,7 @@ use dystrail_game::crossings::{
     apply_permit, resolve_crossing,
 };
 use dystrail_game::data::EncounterData;
-use dystrail_game::day_accounting::{TravelDayKind, record_travel_day};
+use dystrail_game::day_accounting::record_travel_day;
 use dystrail_game::endgame::{
     self, EndgamePolicyCfg, EndgameState, EndgameTravelCfg, ResourceKind,
 };
@@ -24,6 +25,7 @@ use dystrail_game::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pic
 use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
+use dystrail_game::{JourneyCfg, JourneyController, PolicyId, StrategyId};
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use std::cell::RefCell;
@@ -348,6 +350,34 @@ fn camp_multi_day_sequences_cover_loops() {
     neg_cfg.forage.supplies = -2;
     let negative = camp::camp_forage(&mut state, &neg_cfg);
     assert!(negative.supplies_delta <= 0);
+}
+
+#[test]
+fn journey_controller_tick_yields_day_record() {
+    let mut state = empty_state();
+    let mut controller =
+        JourneyController::new(PolicyId::Classic, StrategyId::Balanced, 0xD15E_u64);
+    let outcome = controller.tick_day(&mut state);
+
+    assert!(!state.day_records.is_empty());
+    let record = outcome.record.expect("recorded day");
+    assert_eq!(record.day_index, 0);
+    assert_eq!(record.kind, TravelDayKind::Travel);
+    assert_eq!(state.travel_days, 1);
+    assert!(
+        (state.journey_partial_ratio - JourneyCfg::default_partial_ratio()).abs() < f32::EPSILON
+    );
+}
+
+#[test]
+fn journey_controller_applies_partial_ratio() {
+    let mut state = empty_state();
+    let cfg = JourneyCfg { partial_ratio: 0.8 };
+    let endgame = EndgameTravelCfg::default_config();
+    let mut controller =
+        JourneyController::with_config(PolicyId::Classic, StrategyId::Balanced, cfg, 123, endgame);
+    let _ = controller.tick_day(&mut state);
+    assert!((state.journey_partial_ratio - 0.8).abs() < 1e-6);
 }
 
 #[test]
@@ -768,8 +798,9 @@ fn day_accounting_ratio_and_sanitize() {
     let mut state = empty_state();
     state.mode = GameMode::Deep;
     state.policy = Some(PolicyKind::Conservative);
-    state.recent_travel_days = VecDeque::from(vec![TravelDayKind::Stop, TravelDayKind::Stop]);
-    let kind = record_travel_day(&mut state, TravelDayKind::Stop, f32::NAN);
+    state.recent_travel_days =
+        VecDeque::from(vec![TravelDayKind::NonTravel, TravelDayKind::NonTravel]);
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::NAN);
     assert_eq!(kind, TravelDayKind::Partial);
     assert!(
         state
@@ -779,8 +810,8 @@ fn day_accounting_ratio_and_sanitize() {
     );
 
     state.suppress_stop_ratio = true;
-    let result = record_travel_day(&mut state, TravelDayKind::Stop, f32::INFINITY);
-    assert_eq!(result, TravelDayKind::Stop);
+    let (result, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::INFINITY);
+    assert_eq!(result, TravelDayKind::NonTravel);
 }
 
 #[test]
@@ -979,49 +1010,35 @@ fn crossing_config_thresholds_cover_branches() {
 #[test]
 fn day_accounting_transition_matrix_covers_edges() {
     let mut state = empty_state();
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Stop, 0.0),
-        TravelDayKind::Stop
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+    assert_eq!(kind, TravelDayKind::NonTravel);
     assert_eq!(state.non_travel_days, 1);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Partial, 1.0),
-        TravelDayKind::Partial
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Partial, 1.0);
+    assert_eq!(kind, TravelDayKind::Partial);
     assert_eq!(state.partial_travel_days, 1);
     assert_eq!(state.non_travel_days, 0);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Full, 5.0),
-        TravelDayKind::Full
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 5.0);
+    assert_eq!(kind, TravelDayKind::Travel);
     assert_eq!(state.travel_days, 1);
     assert_eq!(state.partial_travel_days, 0);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Stop, 0.0),
-        TravelDayKind::Stop
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+    assert_eq!(kind, TravelDayKind::NonTravel);
     assert_eq!(state.travel_days, 0);
     assert_eq!(state.non_travel_days, 1);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Full, 4.0),
-        TravelDayKind::Full
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 4.0);
+    assert_eq!(kind, TravelDayKind::Travel);
     assert_eq!(state.travel_days, 1);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Partial, 1.5),
-        TravelDayKind::Partial
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Partial, 1.5);
+    assert_eq!(kind, TravelDayKind::Partial);
     assert_eq!(state.partial_travel_days, 1);
 
-    assert_eq!(
-        record_travel_day(&mut state, TravelDayKind::Stop, 0.0),
-        TravelDayKind::Stop
-    );
+    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+    assert_eq!(kind, TravelDayKind::NonTravel);
     assert_eq!(state.partial_travel_days, 0);
     assert_eq!(state.non_travel_days, 1);
 }
