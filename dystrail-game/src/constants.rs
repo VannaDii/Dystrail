@@ -61,8 +61,6 @@ pub(crate) const VEHICLE_MALNUTRITION_PENALTY_PER_STACK: f32 = 0.05;
 pub(crate) const VEHICLE_MALNUTRITION_MIN_FACTOR: f32 = 0.3;
 pub(crate) const VEHICLE_BREAKDOWN_BASE_CHANCE: f32 = 0.04;
 pub(crate) const VEHICLE_BREAKDOWN_WEAR_COEFFICIENT: f32 = 0.2;
-pub(crate) const VEHICLE_BREAKDOWN_EXTREME_WEATHER_BONUS: f32 = 0.04;
-pub(crate) const VEHICLE_BREAKDOWN_CRITICAL_BONUS: f32 = 0.05;
 pub(crate) const VEHICLE_EXEC_MULTIPLIER_DECAY: f32 = 0.85;
 pub(crate) const VEHICLE_EXEC_MULTIPLIER_FLOOR: f32 = 0.7;
 pub(crate) const VEHICLE_BREAKDOWN_PARTIAL_FACTOR: f32 = 0.5;
@@ -194,9 +192,6 @@ pub(crate) const BOSS_COMPOSE_PANTS_SUPPLY: i32 = 5;
 pub(crate) const BOSS_COMPOSE_FUNDS_PANTS: i32 = 3;
 pub(crate) const BOSS_COMPOSE_FUNDS_COST: i64 = 2_000;
 pub(crate) const SANITY_POINT_REWARD: i32 = 1;
-
-pub(crate) const CONSERVATIVE_BREAKDOWN_FACTOR: f32 = 0.90;
-pub(crate) const CONSERVATIVE_DEEP_MULTIPLIER: f32 = 0.95;
 
 pub(crate) const PACE_STEADY_BASE: f32 = 1.0;
 pub(crate) const PACE_HEATED_BASE: f32 = 1.15;

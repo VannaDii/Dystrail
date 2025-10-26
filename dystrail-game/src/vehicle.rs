@@ -162,7 +162,7 @@ pub struct VehicleConfig {
 }
 
 /// Part weights for weighted random selection
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PartWeights {
     pub tire: u32,
     pub battery: u32,

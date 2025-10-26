@@ -379,10 +379,17 @@ fn journey_controller_tick_yields_day_record() {
 #[test]
 fn journey_controller_applies_partial_ratio() {
     let mut state = empty_state();
-    let cfg = JourneyCfg { partial_ratio: 0.8 };
     let endgame = EndgameTravelCfg::default_config();
-    let mut controller =
-        JourneyController::with_config(PolicyId::Classic, StrategyId::Balanced, cfg, 123, endgame);
+    let mut controller = JourneyController::with_config(
+        PolicyId::Classic,
+        StrategyId::Balanced,
+        JourneyCfg {
+            partial_ratio: 0.8,
+            ..JourneyCfg::default()
+        },
+        123,
+        endgame,
+    );
     let _ = controller.tick_day(&mut state);
     assert!((state.journey_partial_ratio - 0.8).abs() < 1e-6);
 }

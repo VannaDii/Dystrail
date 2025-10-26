@@ -17,12 +17,15 @@ use crate::day_accounting;
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
-use crate::journey::{CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelDayKind};
+use crate::journey::{
+    BreakdownConfig, CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelDayKind,
+    WearConfig,
+};
 use crate::personas::{Persona, PersonaMods};
-use crate::vehicle::{Breakdown, Part, Vehicle};
+use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 #[serde(rename_all = "lowercase")]
 pub enum PaceId {
     #[default]
@@ -192,7 +195,7 @@ mod tests {
     use crate::weather::Weather;
     use rand::Rng;
     use std::cell::RefMut;
-    use std::collections::VecDeque;
+    use std::collections::{HashMap, VecDeque};
     use std::rc::Rc;
 
     fn bundle_with_roll_below(
@@ -262,6 +265,53 @@ mod tests {
         assert_eq!(restored.travel_days, state.travel_days);
         assert_eq!(restored.partial_travel_days, state.partial_travel_days);
         assert_eq!(restored.non_travel_days, state.non_travel_days);
+    }
+
+    #[test]
+    fn travel_wear_scales_with_pace_weather_and_fatigue() {
+        let mut state = GameState::default();
+        state.journey_wear.base = 1.0;
+        state.journey_wear.fatigue_k = 0.5;
+        state.journey_wear.comfort_miles = 0.0;
+        state.journey_breakdown.pace_factor =
+            HashMap::from([(PaceId::Steady, 1.0), (PaceId::Blitz, 2.0)]);
+        state.journey_breakdown.weather_factor =
+            HashMap::from([(Weather::Clear, 1.0), (Weather::Storm, 1.5)]);
+
+        state.vehicle.wear = 0.0;
+        state.vehicle.health = Vehicle::default().health;
+        state.pace = PaceId::Steady;
+        state.weather_state.today = Weather::Clear;
+        state.miles_traveled_actual = 0.0;
+        state.apply_travel_wear();
+        let steady_clear = state.vehicle.wear;
+
+        state.vehicle.wear = 0.0;
+        state.vehicle.health = Vehicle::default().health;
+        state.pace = PaceId::Blitz;
+        state.weather_state.today = Weather::Storm;
+        state.miles_traveled_actual = 800.0;
+        state.apply_travel_wear();
+        let blitz_storm = state.vehicle.wear;
+
+        assert!(blitz_storm > steady_clear);
+    }
+
+    #[test]
+    fn breakdown_uses_part_weights() {
+        let mut state = GameState::default();
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(7)));
+        state.journey_breakdown.base = 1.0;
+        state.journey_breakdown.beta = 0.0;
+        state.journey_part_weights = PartWeights {
+            tire: 0,
+            battery: 100,
+            alt: 0,
+            pump: 0,
+        };
+        let triggered = state.vehicle_roll();
+        assert!(triggered);
+        assert_eq!(state.last_breakdown_part, Some(Part::Battery));
     }
 
     fn endgame_cfg() -> EndgameTravelCfg {
@@ -1542,6 +1592,12 @@ pub struct GameState {
     pub day_records: Vec<DayRecord>,
     #[serde(default = "JourneyCfg::default_partial_ratio")]
     pub journey_partial_ratio: f32,
+    #[serde(default)]
+    pub journey_wear: WearConfig,
+    #[serde(default)]
+    pub journey_breakdown: BreakdownConfig,
+    #[serde(default)]
+    pub journey_part_weights: PartWeights,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     #[serde(default)]
@@ -1702,6 +1758,9 @@ impl Default for GameState {
             distance_cap_today: 0.0,
             day_records: Vec::new(),
             journey_partial_ratio: JourneyCfg::default_partial_ratio(),
+            journey_wear: WearConfig::default(),
+            journey_breakdown: BreakdownConfig::default(),
+            journey_part_weights: PartWeights::default(),
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             encounters_resolved: 0,
@@ -1843,6 +1902,30 @@ impl GameState {
         self.rng_bundle.as_ref().map(|bundle| bundle.crossing())
     }
 
+    fn journey_pace_factor(&self) -> f32 {
+        self.journey_breakdown
+            .pace_factor
+            .get(&self.pace)
+            .copied()
+            .unwrap_or(1.0)
+    }
+
+    fn journey_weather_factor(&self) -> f32 {
+        self.journey_breakdown
+            .weather_factor
+            .get(&self.weather_state.today)
+            .copied()
+            .unwrap_or(1.0)
+    }
+
+    fn journey_fatigue_multiplier(&self) -> f32 {
+        if self.journey_wear.fatigue_k <= 0.0 {
+            return 1.0;
+        }
+        let excess = (self.miles_traveled_actual - self.journey_wear.comfort_miles).max(0.0);
+        self.journey_wear.fatigue_k.mul_add(excess / 400.0, 1.0)
+    }
+
     const fn current_version() -> u16 {
         2
     }
@@ -1895,7 +1978,7 @@ impl GameState {
         self.stats.clamp();
 
         if !self.features.travel_v2 {
-            self.vehicle.apply_scaled_wear(VEHICLE_DAILY_WEAR);
+            self.apply_travel_wear_scaled(1.0);
         }
     }
 
@@ -2181,8 +2264,22 @@ impl GameState {
     }
 
     fn apply_travel_wear_scaled(&mut self, scale: f32) {
-        let wear = (VEHICLE_DAILY_WEAR * scale).max(0.0);
-        self.vehicle.apply_scaled_wear(wear);
+        if scale <= 0.0 {
+            return;
+        }
+        let base = self.journey_wear.base;
+        if base <= 0.0 {
+            return;
+        }
+        let wear_delta = base
+            * self.journey_pace_factor()
+            * self.journey_weather_factor()
+            * self.journey_fatigue_multiplier()
+            * scale;
+        if wear_delta <= 0.0 {
+            return;
+        }
+        self.vehicle.apply_scaled_wear(wear_delta);
     }
 
     fn apply_travel_wear(&mut self) {
@@ -2320,7 +2417,7 @@ impl GameState {
         self.current_day_miles = partial;
         self.partial_traveled_today = true;
         self.traveled_today = false;
-        let new_wear = (self.vehicle.wear - VEHICLE_DAILY_WEAR).max(0.0);
+        let new_wear = (self.vehicle.wear - self.journey_wear.base).max(0.0);
         self.vehicle.set_wear(new_wear);
         self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
     }
@@ -3188,6 +3285,9 @@ impl GameState {
         self.recompute_day_counters();
         self.current_day_record = None;
         self.journey_partial_ratio = JourneyCfg::default_partial_ratio();
+        self.journey_wear = WearConfig::default();
+        self.journey_breakdown = BreakdownConfig::default();
+        self.journey_part_weights = PartWeights::default();
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -3439,31 +3539,13 @@ impl GameState {
             return false;
         }
 
-        let mut breakdown_chance = VEHICLE_BREAKDOWN_BASE_CHANCE + self.exec_breakdown_bonus;
-        breakdown_chance +=
-            (self.vehicle.wear / VEHICLE_HEALTH_MAX) * VEHICLE_BREAKDOWN_WEAR_COEFFICIENT;
-        if self.weather_state.today.is_extreme() {
-            breakdown_chance += VEHICLE_BREAKDOWN_EXTREME_WEATHER_BONUS;
-        }
-        if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
-            breakdown_chance += VEHICLE_BREAKDOWN_CRITICAL_BONUS;
-        }
-
-        let pace_factor = match self.pace {
-            PaceId::Steady => PACE_BREAKDOWN_STEADY,
-            PaceId::Heated => PACE_BREAKDOWN_HEATED,
-            PaceId::Blitz => PACE_BREAKDOWN_BLITZ,
-        };
-        breakdown_chance *= pace_factor;
-        if matches!(self.policy, Some(PolicyKind::Conservative)) {
-            let conservative_factor = if self.mode.is_deep() {
-                CONSERVATIVE_BREAKDOWN_FACTOR * CONSERVATIVE_DEEP_MULTIPLIER
-            } else {
-                CONSERVATIVE_BREAKDOWN_FACTOR
-            };
-            breakdown_chance *= conservative_factor;
-        }
-        breakdown_chance = breakdown_chance.clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
+        let wear_level = self.vehicle.wear.max(0.0);
+        let mut breakdown_chance = self.journey_breakdown.base
+            * self.journey_breakdown.beta.mul_add(wear_level, 1.0)
+            * self.journey_pace_factor()
+            * self.journey_weather_factor();
+        breakdown_chance = (breakdown_chance + self.exec_breakdown_bonus)
+            .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
 
         let roll = self
             .breakdown_rng()
@@ -3472,13 +3554,22 @@ impl GameState {
             return false;
         }
 
-        let parts = [Part::Tire, Part::Battery, Part::Alternator, Part::FuelPump];
-        let part_idx = self
-            .breakdown_rng()
-            .map_or(0, |mut rng| rng.random_range(0..parts.len()));
-        self.last_breakdown_part = Some(parts[part_idx]);
+        let choices = [
+            (Part::Tire, self.journey_part_weights.tire),
+            (Part::Battery, self.journey_part_weights.battery),
+            (Part::Alternator, self.journey_part_weights.alt),
+            (Part::FuelPump, self.journey_part_weights.pump),
+        ];
+        let part = if let Some(mut rng) = self.breakdown_rng()
+            && let Some(selected) = weighted_pick(&choices, &mut *rng)
+        {
+            selected
+        } else {
+            Part::Tire
+        };
+        self.last_breakdown_part = Some(part);
         self.breakdown = Some(crate::vehicle::Breakdown {
-            part: parts[part_idx],
+            part,
             day_started: i32::try_from(self.day).unwrap_or(0),
         });
         self.travel_blocked = true;
@@ -3494,7 +3585,7 @@ impl GameState {
         if debug_log_enabled() {
             println!(
                 "🚗 Breakdown started: {:?} | health {} | roll {:.3} chance {:.3}",
-                parts[part_idx], self.vehicle.health, roll, breakdown_chance
+                part, self.vehicle.health, roll, breakdown_chance
             );
         }
         true

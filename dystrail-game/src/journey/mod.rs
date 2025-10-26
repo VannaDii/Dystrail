@@ -4,12 +4,14 @@ use rand::rngs::SmallRng;
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 use std::cell::{RefCell, RefMut};
+use std::collections::HashMap;
 use std::hash::Hasher;
 use std::rc::Rc;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
-use crate::state::PolicyKind;
+use crate::state::{PaceId, PolicyKind};
+use crate::weather::Weather;
 
 /// Maximum tag capacity stored inline without additional allocations.
 pub type DayTagSet = SmallVec<[DayTag; 4]>;
@@ -128,10 +130,16 @@ pub enum StrategyId {
 }
 
 /// Minimal journey configuration scaffold.
-#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct JourneyCfg {
     #[serde(default = "JourneyCfg::default_partial_ratio")]
     pub partial_ratio: f32,
+    #[serde(default)]
+    pub wear: WearConfig,
+    #[serde(default)]
+    pub breakdown: BreakdownConfig,
+    #[serde(default)]
+    pub part_weights: crate::vehicle::PartWeights,
 }
 
 impl JourneyCfg {
@@ -145,6 +153,96 @@ impl Default for JourneyCfg {
     fn default() -> Self {
         Self {
             partial_ratio: Self::default_partial_ratio(),
+            wear: WearConfig::default(),
+            breakdown: BreakdownConfig::default(),
+            part_weights: crate::vehicle::PartWeights::default(),
+        }
+    }
+}
+
+/// Wear configuration resolved from policy and overlays.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WearConfig {
+    #[serde(default = "WearConfig::default_base")]
+    pub base: f32,
+    #[serde(default = "WearConfig::default_fatigue_k")]
+    pub fatigue_k: f32,
+    #[serde(default = "WearConfig::default_comfort_miles")]
+    pub comfort_miles: f32,
+}
+
+impl WearConfig {
+    const fn default_base() -> f32 {
+        crate::constants::VEHICLE_DAILY_WEAR
+    }
+
+    const fn default_fatigue_k() -> f32 {
+        0.0
+    }
+
+    const fn default_comfort_miles() -> f32 {
+        1_200.0
+    }
+}
+
+impl Default for WearConfig {
+    fn default() -> Self {
+        Self {
+            base: Self::default_base(),
+            fatigue_k: Self::default_fatigue_k(),
+            comfort_miles: Self::default_comfort_miles(),
+        }
+    }
+}
+
+/// Breakdown probability configuration bundle.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct BreakdownConfig {
+    #[serde(default = "BreakdownConfig::default_base")]
+    pub base: f32,
+    #[serde(default = "BreakdownConfig::default_beta")]
+    pub beta: f32,
+    #[serde(default = "BreakdownConfig::default_pace_factor")]
+    pub pace_factor: HashMap<PaceId, f32>,
+    #[serde(default = "BreakdownConfig::default_weather_factor")]
+    pub weather_factor: HashMap<Weather, f32>,
+}
+
+impl BreakdownConfig {
+    const fn default_base() -> f32 {
+        crate::constants::VEHICLE_BREAKDOWN_BASE_CHANCE
+    }
+
+    const fn default_beta() -> f32 {
+        crate::constants::VEHICLE_BREAKDOWN_WEAR_COEFFICIENT
+    }
+
+    fn default_pace_factor() -> HashMap<PaceId, f32> {
+        HashMap::from([
+            (PaceId::Steady, crate::constants::PACE_BREAKDOWN_STEADY),
+            (PaceId::Heated, crate::constants::PACE_BREAKDOWN_HEATED),
+            (PaceId::Blitz, crate::constants::PACE_BREAKDOWN_BLITZ),
+        ])
+    }
+
+    fn default_weather_factor() -> HashMap<Weather, f32> {
+        HashMap::from([
+            (Weather::Clear, 1.0),
+            (Weather::Storm, 1.3),
+            (Weather::HeatWave, 1.4),
+            (Weather::ColdSnap, 1.1),
+            (Weather::Smoke, 1.1),
+        ])
+    }
+}
+
+impl Default for BreakdownConfig {
+    fn default() -> Self {
+        Self {
+            base: Self::default_base(),
+            beta: Self::default_beta(),
+            pace_factor: Self::default_pace_factor(),
+            weather_factor: Self::default_weather_factor(),
         }
     }
 }
@@ -296,6 +394,56 @@ impl JourneyController {
     ) -> Self {
         let mut resolved_cfg = cfg;
         resolved_cfg.partial_ratio = resolved_cfg.partial_ratio.clamp(0.2, 0.95);
+        resolved_cfg.wear.base = resolved_cfg.wear.base.max(0.0);
+        resolved_cfg.wear.fatigue_k = resolved_cfg.wear.fatigue_k.max(0.0);
+        resolved_cfg.wear.comfort_miles = resolved_cfg.wear.comfort_miles.max(0.0);
+        resolved_cfg.breakdown.base = resolved_cfg.breakdown.base.clamp(0.0, 1.0);
+        resolved_cfg.breakdown.beta = resolved_cfg.breakdown.beta.max(0.0);
+        resolved_cfg.breakdown.pace_factor.insert(
+            PaceId::Steady,
+            resolved_cfg
+                .breakdown
+                .pace_factor
+                .get(&PaceId::Steady)
+                .copied()
+                .unwrap_or(crate::constants::PACE_BREAKDOWN_STEADY),
+        );
+        resolved_cfg.breakdown.pace_factor.insert(
+            PaceId::Heated,
+            resolved_cfg
+                .breakdown
+                .pace_factor
+                .get(&PaceId::Heated)
+                .copied()
+                .unwrap_or(crate::constants::PACE_BREAKDOWN_HEATED),
+        );
+        resolved_cfg.breakdown.pace_factor.insert(
+            PaceId::Blitz,
+            resolved_cfg
+                .breakdown
+                .pace_factor
+                .get(&PaceId::Blitz)
+                .copied()
+                .unwrap_or(crate::constants::PACE_BREAKDOWN_BLITZ),
+        );
+        for weather in [
+            Weather::Clear,
+            Weather::Storm,
+            Weather::HeatWave,
+            Weather::ColdSnap,
+            Weather::Smoke,
+        ] {
+            let default = BreakdownConfig::default_weather_factor()
+                .get(&weather)
+                .copied()
+                .unwrap_or(1.0);
+            let entry = resolved_cfg
+                .breakdown
+                .weather_factor
+                .entry(weather)
+                .or_insert(default);
+            *entry = entry.max(0.0);
+        }
         Self {
             policy,
             strategy,
@@ -316,8 +464,8 @@ impl JourneyController {
     }
 
     #[must_use]
-    pub const fn config(&self) -> JourneyCfg {
-        self.cfg
+    pub const fn config(&self) -> &JourneyCfg {
+        &self.cfg
     }
 
     /// Deterministically reseed controller-owned RNGs.
@@ -331,6 +479,9 @@ impl JourneyController {
         state.attach_rng_bundle(self.rng.clone());
         state.policy = Some(self.policy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
+        state.journey_wear = self.cfg.wear.clone();
+        state.journey_breakdown = self.cfg.breakdown.clone();
+        state.journey_part_weights = self.cfg.part_weights.clone();
         {
             let travel_rng = self.rng.travel();
             let _ = travel_rng.draws();
@@ -370,11 +521,13 @@ mod tests {
 
     #[test]
     fn journey_config_partial_ratio_clamped() {
-        let cfg = JourneyCfg { partial_ratio: 1.2 };
         let mut controller = JourneyController::with_config(
             PolicyId::Classic,
             StrategyId::Balanced,
-            cfg,
+            JourneyCfg {
+                partial_ratio: 1.2,
+                ..JourneyCfg::default()
+            },
             42,
             EndgameTravelCfg::default_config(),
         );
