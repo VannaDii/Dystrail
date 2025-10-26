@@ -3,6 +3,7 @@
 #![allow(clippy::float_cmp)]
 #![allow(clippy::redundant_clone)]
 
+use dystrail_game::journey::RngBundle;
 use dystrail_game::state::Season;
 use dystrail_game::store::StoreCategory;
 use dystrail_game::vehicle::{PartWeights, process_daily_breakdown, weighted_pick};
@@ -15,9 +16,21 @@ use dystrail_game::{
     calculate_effective_price, camp_forage, camp_repair_hack, camp_repair_spare, camp_rest,
     camp_therapy, can_repair, can_therapy, run_boss_minigame,
 };
+use rand::Rng;
 use rand::rngs::mock::StepRng;
-use rand::{Rng, SeedableRng};
-use rand_chacha::ChaCha20Rng;
+use std::rc::Rc;
+
+fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
+    for seed in 0..50_000u64 {
+        let probe = RngBundle::from_user_seed(seed);
+        let mut rng = probe.encounter();
+        let value = (rng.random::<u32>() % 100) as u8;
+        if predicate(value) {
+            return seed;
+        }
+    }
+    panic!("unable to locate encounter seed satisfying predicate");
+}
 
 #[test]
 fn boss_minigame_exercises_outcomes() {
@@ -73,10 +86,14 @@ fn boss_minigame_exercises_outcomes() {
 
     let mut lose_state = GameState::default();
     lose_state.logs.clear();
-    let rng = ChaCha20Rng::seed_from_u64(12345);
-    let preview = rng.clone().random::<u32>() % 100;
+    let seed = encounter_seed_where(|value| value > 20);
+    let preview = {
+        let probe = RngBundle::from_user_seed(seed);
+        let mut rng = probe.encounter();
+        (rng.random::<u32>() % 100) as u8
+    };
     assert!(preview > 20);
-    lose_state.rng = Some(rng);
+    lose_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
 
     let outcome = run_boss_minigame(&mut lose_state, &lose_cfg);
     assert_eq!(outcome, BossOutcome::SurvivedFlood);
@@ -333,7 +350,7 @@ fn weather_effects_and_selection() {
     let mut state = GameState::default();
     state.region = Region::Heartland;
     state.season = Season::Summer;
-    state.rng = Some(ChaCha20Rng::seed_from_u64(2));
+    state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(2)));
     state.inventory.tags.clear();
     state.stats.sanity = 4;
     state.stats.hp = 3;
@@ -361,11 +378,17 @@ fn weather_effects_and_selection() {
         "cold streak without mitigation should log exposure"
     );
 
-    let selected = select_weather_for_today(&mut state, &cfg).expect("weather selection works");
+    let weather_rng = state
+        .rng_bundle
+        .as_ref()
+        .map(Rc::clone)
+        .expect("rng attached");
+    let selected = select_weather_for_today(&mut state, &cfg, weather_rng.as_ref())
+        .expect("weather selection works");
     assert!(cfg.effects.contains_key(&selected));
 
     let prior_today = state.weather_state.today;
-    process_daily_weather(&mut state, &cfg);
+    process_daily_weather(&mut state, &cfg, Some(weather_rng.as_ref()));
     assert_eq!(state.weather_state.yesterday, prior_today);
 }
 

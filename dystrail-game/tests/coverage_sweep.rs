@@ -11,6 +11,7 @@ use dystrail_game::day_accounting::record_travel_day;
 use dystrail_game::endgame::{
     self, EndgamePolicyCfg, EndgameState, EndgameTravelCfg, ResourceKind,
 };
+use dystrail_game::journey::RngBundle;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::PersonasList;
 use dystrail_game::result::{ResultConfig, ResultSummary, result_summary, select_ending};
@@ -26,10 +27,12 @@ use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
 use dystrail_game::{JourneyCfg, JourneyController, PolicyId, StrategyId};
+use rand::rngs::SmallRng;
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use std::cell::RefCell;
 use std::collections::{HashMap, VecDeque};
+use std::rc::Rc;
 
 fn empty_state() -> GameState {
     let data = EncounterData::empty();
@@ -66,7 +69,8 @@ fn load_personas() -> PersonasList {
 
 fn rng_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
     for seed in 0..10_000u64 {
-        let mut rng = ChaCha20Rng::seed_from_u64(seed);
+        let bundle = RngBundle::from_user_seed(seed);
+        let mut rng = bundle.encounter();
         if predicate(rng.random::<u8>()) {
             return seed;
         }
@@ -85,6 +89,7 @@ where
     F: Fn(CrossingOutcome) -> bool,
 {
     for seed in 0..50_000u64 {
+        let mut rng = SmallRng::seed_from_u64(seed);
         let outcome = resolve_crossing(
             PolicyKind::Balanced,
             GameMode::Deep,
@@ -92,7 +97,7 @@ where
             bribe,
             crossing_ix,
             day_ix,
-            seed,
+            &mut rng,
         );
         if predicate(outcome) {
             return seed;
@@ -107,7 +112,7 @@ fn boss_outcomes_cover_all_paths() {
     let mut pants_state = empty_state();
     pants_state.stats.pants = 96;
     pants_state.policy = Some(PolicyKind::Balanced);
-    pants_state.rng = None;
+    pants_state.detach_rng_bundle();
     let mut pants_cfg = BossConfig::load_from_static();
     pants_cfg.rounds = 1;
     pants_cfg.pants_gain_per_round = 10;
@@ -120,7 +125,7 @@ fn boss_outcomes_cover_all_paths() {
     // Exhausted branch.
     let mut exhausted_state = empty_state();
     exhausted_state.stats.sanity = 3;
-    exhausted_state.rng = None;
+    exhausted_state.detach_rng_bundle();
     let mut exhausted_cfg = BossConfig::load_from_static();
     exhausted_cfg.rounds = 2;
     exhausted_cfg.sanity_loss_per_round = 4;
@@ -145,7 +150,7 @@ fn boss_outcomes_cover_all_paths() {
     victory_state.miles_traveled_actual = 2_400.0;
     victory_state.mode = GameMode::Deep;
     victory_state.policy = Some(PolicyKind::Aggressive);
-    victory_state.rng = None;
+    victory_state.detach_rng_bundle();
     let mut victory_cfg = BossConfig::load_from_static();
     victory_cfg.rounds = 1;
     victory_cfg.pants_gain_per_round = 0;
@@ -161,7 +166,7 @@ fn boss_outcomes_cover_all_paths() {
     fail_state.stats.supplies = 0;
     fail_state.stats.morale = 0;
     let high_roll_seed = rng_seed_where(|roll| roll > 90);
-    fail_state.rng = Some(ChaCha20Rng::seed_from_u64(high_roll_seed));
+    fail_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(high_roll_seed)));
     let mut fail_cfg = BossConfig::load_from_static();
     fail_cfg.rounds = 1;
     fail_cfg.pants_gain_per_round = 0;
@@ -186,7 +191,8 @@ fn boss_probability_edges_cover_low_and_high() {
     fail_state.miles_traveled_actual = 50.0;
     fail_state.encounters_resolved = 0;
     fail_state.receipts.clear();
-    fail_state.rng = Some(ChaCha20Rng::seed_from_u64(7));
+    let fail_seed = rng_seed_where(|roll| roll > 90);
+    fail_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(fail_seed)));
     let mut fail_cfg = BossConfig::load_from_static();
     fail_cfg.rounds = 0;
     fail_cfg.distance_required = 5_000.0;
@@ -213,7 +219,8 @@ fn boss_probability_edges_cover_low_and_high() {
         .extend((0..5).map(|idx| format!("receipt-{idx}")));
     win_state.vehicle_breakdowns = 1;
     win_state.miles_traveled_actual = 2_400.0;
-    win_state.rng = Some(ChaCha20Rng::seed_from_u64(2));
+    let win_seed = rng_seed_where(|roll| roll == 0);
+    win_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(win_seed)));
     let mut win_cfg = BossConfig::load_from_static();
     win_cfg.rounds = 0;
     win_cfg.distance_required = 800.0;
@@ -396,11 +403,16 @@ fn full_content_walkthrough() {
         let mut state =
             GameState::default().with_seed(0xABC0 + idx as u64, GameMode::Deep, encounters.clone());
         state.apply_persona(persona);
-        state.rng = Some(ChaCha20Rng::seed_from_u64(0xF00D + idx as u64));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(0xF00D + idx as u64)));
 
         for day in 0..80 {
-            let _ = select_weather_for_today(&mut state, &weather_cfg);
-            process_daily_weather(&mut state, &weather_cfg);
+            let rng_shared = state
+                .rng_bundle
+                .as_ref()
+                .map(Rc::clone)
+                .expect("rng attached in walkthrough");
+            let _ = select_weather_for_today(&mut state, &weather_cfg, rng_shared.as_ref());
+            process_daily_weather(&mut state, &weather_cfg, Some(rng_shared.as_ref()));
             state.apply_pace_and_diet(&pacing);
             let (_ended, _, _) = state.travel_next_leg(&endgame_cfg);
 
@@ -582,7 +594,7 @@ fn vehicle_and_weather_paths() {
     assert_eq!(Part::Battery.key(), "vehicle.parts.battery");
     assert_eq!(Part::Alternator.key(), "vehicle.parts.alt");
     assert_eq!(Part::FuelPump.key(), "vehicle.parts.pump");
-    let mut rng = ChaCha20Rng::seed_from_u64(0);
+    let mut rng = SmallRng::seed_from_u64(0);
     assert!(weighted_pick(&options, &mut rng).is_some());
     for (_, weight) in &mut options {
         *weight = 0;
@@ -599,11 +611,17 @@ fn vehicle_and_weather_paths() {
     state.stats.sanity = 5;
     state.stats.hp = 6;
     state.features.travel_v2 = true;
+    state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(0xDEAD)));
 
     let cfg = WeatherConfig::load_from_static();
-    let _today = select_weather_for_today(&mut state, &cfg);
+    let rng_shared = state
+        .rng_bundle
+        .as_ref()
+        .map(Rc::clone)
+        .expect("rng attached for weather");
+    let _today = select_weather_for_today(&mut state, &cfg, rng_shared.as_ref());
     apply_weather_effects(&mut state, &cfg);
-    process_daily_weather(&mut state, &cfg);
+    process_daily_weather(&mut state, &cfg, Some(rng_shared.as_ref()));
 }
 
 #[test]
@@ -712,6 +730,7 @@ fn state_apply_choice_handles_missing_encounter() {
 fn crossing_resolution_covers_branches() {
     let cfg = load_crossing_config();
 
+    let mut rng = ChaCha20Rng::seed_from_u64(0);
     let permit = resolve_crossing(
         PolicyKind::Balanced,
         GameMode::Classic,
@@ -719,7 +738,7 @@ fn crossing_resolution_covers_branches() {
         false,
         0,
         0,
-        0,
+        &mut rng,
     );
     assert!(permit.used_permit);
     assert!(matches!(permit.result, CrossingResult::Pass));
@@ -727,6 +746,7 @@ fn crossing_resolution_covers_branches() {
     let detour_seed = crossing_seed_for(false, false, 1, 7, |outcome| {
         matches!(outcome.result, CrossingResult::Detour(_))
     });
+    let mut rng = SmallRng::seed_from_u64(detour_seed);
     let detour = resolve_crossing(
         PolicyKind::Balanced,
         GameMode::Deep,
@@ -734,13 +754,14 @@ fn crossing_resolution_covers_branches() {
         false,
         1,
         7,
-        detour_seed,
+        &mut rng,
     );
     assert!(matches!(detour.result, CrossingResult::Detour(_)));
 
     let bribe_seed = crossing_seed_for(false, true, 2, 9, |outcome| {
         outcome.bribe_succeeded && matches!(outcome.result, CrossingResult::Pass)
     });
+    let mut rng = SmallRng::seed_from_u64(bribe_seed);
     let bribe_outcome = resolve_crossing(
         PolicyKind::Aggressive,
         GameMode::Deep,
@@ -748,7 +769,7 @@ fn crossing_resolution_covers_branches() {
         true,
         2,
         9,
-        bribe_seed,
+        &mut rng,
     );
     assert!(bribe_outcome.bribe_attempted);
     assert!(bribe_outcome.bribe_succeeded);
@@ -758,6 +779,7 @@ fn crossing_resolution_covers_branches() {
             && !outcome.bribe_succeeded
             && matches!(outcome.result, CrossingResult::TerminalFail)
     });
+    let mut rng = SmallRng::seed_from_u64(fail_seed);
     let fail_outcome = resolve_crossing(
         PolicyKind::Balanced,
         GameMode::Deep,
@@ -765,7 +787,7 @@ fn crossing_resolution_covers_branches() {
         true,
         3,
         11,
-        fail_seed,
+        &mut rng,
     );
     assert!(fail_outcome.bribe_attempted);
     assert!(!fail_outcome.bribe_succeeded);
@@ -995,6 +1017,7 @@ fn crossing_config_thresholds_cover_branches() {
         88,
         |outcome| matches!(outcome.result, CrossingResult::Detour(days) if days == 4),
     );
+    let mut rng = SmallRng::seed_from_u64(detour_four_seed);
     let detour_outcome = resolve_crossing(
         PolicyKind::Balanced,
         GameMode::Deep,
@@ -1002,7 +1025,7 @@ fn crossing_config_thresholds_cover_branches() {
         false,
         4,
         88,
-        detour_four_seed,
+        &mut rng,
     );
     assert!(matches!(detour_outcome.result, CrossingResult::Detour(4)));
 }

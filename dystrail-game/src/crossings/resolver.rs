@@ -1,5 +1,4 @@
-use rand::{Rng, SeedableRng};
-use rand_chacha::ChaCha20Rng;
+use rand::Rng;
 
 use crate::state::{GameMode, PolicyKind};
 
@@ -32,17 +31,15 @@ impl CrossingOutcome {
 
 #[must_use]
 #[allow(clippy::too_many_arguments)]
-pub fn resolve_crossing(
+pub fn resolve_crossing<R: Rng + ?Sized>(
     policy: PolicyKind,
     mode: GameMode,
     has_permit: bool,
     bribe_intent: bool,
-    crossing_ix: u32,
-    day_ix: u32,
-    seed: u64,
+    _crossing_ix: u32,
+    _day_ix: u32,
+    rng: &mut R,
 ) -> CrossingOutcome {
-    let mut rng = seeded_rng(seed, crossing_ix, day_ix);
-
     if has_permit {
         let mut outcome = CrossingOutcome::new(CrossingResult::Pass);
         outcome.used_permit = true;
@@ -52,7 +49,7 @@ pub fn resolve_crossing(
     let mut outcome = CrossingOutcome::new(CrossingResult::TerminalFail);
 
     if !bribe_intent {
-        outcome.result = resolve_detour_or_terminal(&mut rng, 0.88);
+        outcome.result = resolve_detour_or_terminal(rng, 0.88);
         return outcome;
     }
 
@@ -72,16 +69,8 @@ pub fn resolve_crossing(
         return outcome;
     }
 
-    outcome.result = resolve_detour_or_terminal(&mut rng, 0.85);
+    outcome.result = resolve_detour_or_terminal(rng, 0.85);
     outcome
-}
-
-fn seeded_rng(seed: u64, crossing_ix: u32, day_ix: u32) -> ChaCha20Rng {
-    let mix = seed
-        ^ (u64::from(crossing_ix)).wrapping_mul(1_146_707)
-        ^ (u64::from(day_ix)).wrapping_mul(97);
-    let hashed = fnv64(mix);
-    ChaCha20Rng::seed_from_u64(hashed)
 }
 
 fn resolve_detour_or_terminal<R: Rng + ?Sized>(rng: &mut R, detour_weight: f32) -> CrossingResult {
@@ -97,16 +86,4 @@ fn resolve_detour_or_terminal<R: Rng + ?Sized>(rng: &mut R, detour_weight: f32) 
     } else {
         CrossingResult::TerminalFail
     }
-}
-
-fn fnv64(value: u64) -> u64 {
-    const OFFSET_BASIS: u64 = 0xcbf2_9ce4_8422_2325;
-    const PRIME: u64 = 0x0000_0001_0000_01b3;
-
-    let mut hash = OFFSET_BASIS;
-    for byte in value.to_le_bytes() {
-        hash ^= u64::from(byte);
-        hash = hash.wrapping_mul(PRIME);
-    }
-    hash
 }

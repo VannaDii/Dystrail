@@ -3,6 +3,7 @@ use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+use crate::journey::RngBundle;
 use crate::state::{DamageCause, Ending, ExposureKind, GameState, Region, Season};
 
 const LOG_WEATHER_EXPOSURE: &str = "log.weather.exposure";
@@ -326,10 +327,9 @@ impl WeatherConfig {
 pub fn select_weather_for_today(
     gs: &mut GameState,
     cfg: &WeatherConfig,
+    rngs: &RngBundle,
 ) -> Result<Weather, String> {
-    let Some(rng) = gs.rng.as_mut() else {
-        return Err("RNG must be initialized".to_string());
-    };
+    let mut rng = rngs.travel();
 
     let Some(region_weights) = cfg.weights.get(&gs.region) else {
         return Err(format!(
@@ -375,10 +375,10 @@ pub fn select_weather_for_today(
         }
     }
 
-    let mut final_weather = seasonal_override(gs.season, candidate, rng);
+    let mut final_weather = seasonal_override(gs.season, candidate, &mut rng);
 
     if gs.weather_state.neutral_buffer > 0 {
-        final_weather = pick_neutral_weather(region_weights, rng);
+        final_weather = pick_neutral_weather(region_weights, &mut rng);
         gs.weather_state.neutral_buffer = gs.weather_state.neutral_buffer.saturating_sub(1);
     } else {
         let needs_buffer = match final_weather {
@@ -387,8 +387,11 @@ pub fn select_weather_for_today(
             _ => false,
         };
         if needs_buffer {
-            final_weather =
-                apply_neutral_buffer(&mut gs.weather_state.neutral_buffer, region_weights, rng);
+            final_weather = apply_neutral_buffer(
+                &mut gs.weather_state.neutral_buffer,
+                region_weights,
+                &mut rng,
+            );
         }
     }
 
@@ -625,12 +628,14 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 }
 
 /// Process daily weather step in game tick
-pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig) {
+pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig, rngs: Option<&RngBundle>) {
     // Move today to yesterday
     gs.weather_state.yesterday = gs.weather_state.today;
 
     // Select new weather for today
-    if let Ok(weather) = select_weather_for_today(gs, cfg) {
+    if let Some(rngs) = rngs
+        && let Ok(weather) = select_weather_for_today(gs, cfg, rngs)
+    {
         gs.weather_state.today = weather;
     }
     // If weather selection fails, keep previous weather

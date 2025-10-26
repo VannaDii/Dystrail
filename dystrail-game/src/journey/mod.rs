@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 use std::cell::{RefCell, RefMut};
 use std::hash::Hasher;
+use std::rc::Rc;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
@@ -267,7 +268,7 @@ pub struct JourneyController {
     policy: PolicyId,
     strategy: StrategyId,
     cfg: JourneyCfg,
-    rng: RngBundle,
+    rng: Rc<RngBundle>,
     endgame_cfg: EndgameTravelCfg,
 }
 
@@ -299,7 +300,7 @@ impl JourneyController {
             policy,
             strategy,
             cfg: resolved_cfg,
-            rng: RngBundle::from_user_seed(seed),
+            rng: Rc::new(RngBundle::from_user_seed(seed)),
             endgame_cfg,
         }
     }
@@ -321,12 +322,13 @@ impl JourneyController {
 
     /// Deterministically reseed controller-owned RNGs.
     pub fn reseed(&mut self, seed: u64) {
-        self.rng = RngBundle::from_user_seed(seed);
+        self.rng = Rc::new(RngBundle::from_user_seed(seed));
     }
 
     /// Perform a single day tick using the current game state.
     #[must_use]
     pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
+        state.attach_rng_bundle(self.rng.clone());
         state.policy = Some(self.policy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
         {

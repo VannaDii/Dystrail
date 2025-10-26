@@ -1,8 +1,9 @@
 #![allow(clippy::float_cmp)]
 
+use dystrail_game::journey::RngBundle;
 use dystrail_game::{
     CampConfig, Cart, CartLine, CrossingConfig, CrossingKind, EncounterData, EndgameTravelCfg,
-    GameMode, GameState, PacingConfig, PersonasList, PolicyKind, ResultConfig, Store,
+    GameMode, GameState, PacingConfig, PersonasList, PolicyKind, ResultConfig, Store, Weather,
     WeatherConfig, apply_bribe, apply_detour, apply_permit, calculate_bribe_cost,
     calculate_effective_price, camp_forage, camp_rest, camp_therapy, can_afford_bribe,
     can_use_permit,
@@ -12,9 +13,8 @@ use dystrail_game::{
     seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code},
     weather::process_daily_weather,
 };
-use rand::SeedableRng;
-use rand_chacha::ChaCha20Rng;
 use std::collections::HashSet;
+use std::rc::Rc;
 
 fn load_store() -> Store {
     serde_json::from_str(include_str!(
@@ -64,15 +64,28 @@ fn configure_state(seed: u64) -> GameState {
 
 #[test]
 fn full_campaign_exercises_core_systems() {
+    let (mut state, boss_cfg, result_cfg, endgame_cfg, weather_seen) =
+        run_campaign_setup_and_loop();
+    validate_end_state(&mut state, &boss_cfg, &result_cfg, &weather_seen);
+    exercise_post_loop_systems(endgame_cfg);
+}
+
+fn run_campaign_setup_and_loop() -> (
+    GameState,
+    dystrail_game::BossConfig,
+    ResultConfig,
+    EndgameTravelCfg,
+    HashSet<Weather>,
+) {
     let pacing = PacingConfig::load_from_static();
     let weather_cfg = WeatherConfig::load_from_static();
     let camp_cfg = CampConfig::load_from_static();
     let boss_cfg = dystrail_game::BossConfig::load_from_static();
     let result_cfg = load_result_config().unwrap_or_else(|_| ResultConfig::default());
-    let crossing_cfg = load_crossings();
     let mut state = configure_state(0xDEAD_BEEF);
     let endgame_cfg = EndgameTravelCfg::default_config();
-    state.rng = Some(ChaCha20Rng::seed_from_u64(0xCAFE_F00D));
+    let rng_bundle = Rc::new(RngBundle::from_user_seed(0xCAFE_F00D));
+    state.attach_rng_bundle(rng_bundle.clone());
     let mut weather_seen = HashSet::new();
     let store = load_store();
     let by_id = store.items_by_id();
@@ -96,7 +109,7 @@ fn full_campaign_exercises_core_systems() {
 
     // Simulate 60 days of play hitting diverse systems.
     for day in 0..120 {
-        process_daily_weather(&mut state, &weather_cfg);
+        process_daily_weather(&mut state, &weather_cfg, Some(rng_bundle.as_ref()));
         weather_seen.insert(state.weather_state.today);
         state.apply_pace_and_diet(&pacing);
         let (ended, _, _) = state.travel_next_leg(&endgame_cfg);
@@ -123,6 +136,35 @@ fn full_campaign_exercises_core_systems() {
         if ended {
             break;
         }
+    }
+
+    (state, boss_cfg, result_cfg, endgame_cfg, weather_seen)
+}
+
+fn validate_end_state(
+    state: &mut GameState,
+    boss_cfg: &dystrail_game::BossConfig,
+    result_cfg: &ResultConfig,
+    weather_seen: &HashSet<Weather>,
+) {
+    let crossing_cfg = load_crossings();
+    let store = load_store();
+    let by_id = store.items_by_id();
+    assert!(!by_id.is_empty());
+
+    for category in &store.categories {
+        for item in &category.items {
+            let price = calculate_effective_price(
+                item.price_cents,
+                f64::from(state.mods.store_discount_pct),
+            );
+            state.apply_store_purchase(price, &item.grants, &item.tags);
+        }
+    }
+
+    for order in ExecOrder::ALL {
+        assert!(!order.key().is_empty());
+        assert!(!order.name_key().is_empty());
     }
 
     // Trigger crossing helpers explicitly.
@@ -162,14 +204,18 @@ fn full_campaign_exercises_core_systems() {
     let _ = parse_share_code(&share).unwrap_or((GameMode::Classic, 0));
 
     // Boss and result flow.
-    let _outcome = run_boss_minigame(&mut state, &boss_cfg);
-    let summary = result_summary(&state, &result_cfg).unwrap();
+    let _outcome = run_boss_minigame(state, boss_cfg);
+    let summary = result_summary(state, result_cfg).unwrap();
     assert!(summary.score >= 0);
 
     assert!(!weather_seen.is_empty());
 
+    state.detach_rng_bundle();
+}
+
+fn exercise_post_loop_systems(mut end_cfg: EndgameTravelCfg) {
     // Endgame routines
-    let mut end_cfg = EndgameTravelCfg::load_from_static();
+    let mut state = configure_state(0xBAD_CAFE);
     end_cfg.enabled = true;
     state.mode = GameMode::Deep;
     state.policy = Some(PolicyKind::Aggressive);

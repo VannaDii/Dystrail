@@ -1,9 +1,11 @@
-use rand::{Rng, SeedableRng};
-use rand_chacha::ChaCha20Rng;
+use rand::rngs::SmallRng;
+use rand::{Rng, RngCore, SeedableRng};
 use serde::{Deserialize, Serialize};
+use std::cell::RefMut;
 use std::collections::{HashSet, VecDeque};
 use std::convert::TryFrom;
 use std::fmt;
+use std::rc::Rc;
 use std::str::FromStr;
 
 use crate::camp::CampState;
@@ -15,7 +17,7 @@ use crate::day_accounting;
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
-use crate::journey::{DayRecord, DayTag, JourneyCfg, TravelDayKind};
+use crate::journey::{CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelDayKind};
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, Vehicle};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
@@ -186,20 +188,39 @@ mod tests {
     )]
     use super::*;
     use crate::data::{Choice, Effects, Encounter};
+    use crate::journey::{CountingRng, RngBundle};
     use crate::weather::Weather;
     use rand::Rng;
-    use rand::SeedableRng;
-    use rand_chacha::ChaCha20Rng;
+    use std::cell::RefMut;
     use std::collections::VecDeque;
+    use std::rc::Rc;
 
-    fn rng_with_roll_below(threshold: f32) -> ChaCha20Rng {
+    fn bundle_with_roll_below(
+        threshold: f32,
+        domain: fn(&RngBundle) -> RefMut<'_, CountingRng<SmallRng>>,
+    ) -> Rc<RngBundle> {
         for seed in 0..10_000 {
-            let mut rng = ChaCha20Rng::seed_from_u64(seed);
-            if rng.random::<f32>() < threshold {
-                return ChaCha20Rng::seed_from_u64(seed);
+            let probe = RngBundle::from_user_seed(seed);
+            {
+                let mut rng = domain(&probe);
+                if rng.random::<f32>() < threshold {
+                    return Rc::new(RngBundle::from_user_seed(seed));
+                }
             }
         }
         panic!("unable to find deterministic seed below {threshold}");
+    }
+
+    fn encounter_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
+        bundle_with_roll_below(threshold, RngBundle::encounter)
+    }
+
+    fn travel_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
+        bundle_with_roll_below(threshold, RngBundle::travel)
+    }
+
+    fn breakdown_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
+        bundle_with_roll_below(threshold, RngBundle::breakdown)
     }
 
     #[test]
@@ -257,7 +278,7 @@ mod tests {
             day_started: 1,
         });
         state.travel_blocked = true;
-        state.rng = Some(ChaCha20Rng::seed_from_u64(1));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(1)));
         state.data = Some(EncounterData::empty());
 
         let cfg = endgame_cfg();
@@ -277,7 +298,7 @@ mod tests {
             day_started: 1,
         });
         state.travel_blocked = true;
-        state.rng = Some(ChaCha20Rng::seed_from_u64(2));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(2)));
         state.data = Some(EncounterData::empty());
 
         let cfg = endgame_cfg();
@@ -302,7 +323,7 @@ mod tests {
         let mut state = GameState::default();
         state.stats.supplies = 0;
         state.stats.sanity = 0;
-        state.rng = Some(ChaCha20Rng::seed_from_u64(3));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(3)));
         state.encounter_chance_today = 0.0;
         state.data = Some(EncounterData::empty());
 
@@ -320,7 +341,7 @@ mod tests {
         state.current_order = Some(ExecOrder::Shutdown);
         state.exec_order_days_remaining = 1;
         state.exec_order_cooldown = 0;
-        state.rng = None;
+        state.detach_rng_bundle();
         let supplies_before = state.stats.supplies;
         let morale_before = state.stats.morale;
 
@@ -405,7 +426,7 @@ mod tests {
     fn steady_clear_progress_is_sane() {
         #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
-        state.rng = None;
+        state.detach_rng_bundle();
         state.pace = PaceId::Steady;
         let pacing = crate::pacing::PacingConfig::default_config();
         let cfg = endgame_cfg();
@@ -438,7 +459,7 @@ mod tests {
     fn no_miles_on_camp() {
         #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
-        state.rng = None;
+        state.detach_rng_bundle();
         for _ in 0..5 {
             state.advance_days(1);
         }
@@ -453,13 +474,13 @@ mod tests {
         let cfg = crate::pacing::PacingConfig::default_config();
 
         let mut base_state = GameState::default();
-        base_state.rng = None;
+        base_state.detach_rng_bundle();
         base_state.apply_pace_and_diet(&cfg);
         let base = base_state.encounter_chance_today;
         assert!((f64::from(base) - f64::from(ENCOUNTER_BASE_DEFAULT)).abs() < FLOAT_EPSILON);
 
         let mut capped_state = GameState::default();
-        capped_state.rng = None;
+        capped_state.detach_rng_bundle();
         capped_state.encounter_history = VecDeque::from(vec![2, 1, 1, 1, 0, 0, 0, 0, 0]);
         capped_state.apply_pace_and_diet(&cfg);
         let capped = capped_state.encounter_chance_today;
@@ -520,7 +541,7 @@ mod tests {
     fn max_two_encounters_per_day() {
         #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
-        state.rng = Some(ChaCha20Rng::seed_from_u64(42));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(42)));
         let encounter = Encounter {
             id: "test".to_string(),
             name: "Test".to_string(),
@@ -559,7 +580,7 @@ mod tests {
     fn allows_two_encounters_before_cooldown() {
         #![allow(clippy::field_reassign_with_default)]
         let mut state = GameState::default();
-        state.rng = Some(ChaCha20Rng::seed_from_u64(99));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(99)));
         let encounter = Encounter {
             id: "test".to_string(),
             name: "Test".to_string(),
@@ -672,7 +693,7 @@ mod tests {
         state.stats.sanity = 10;
         state.stats.supplies = 6;
         state.disease_cooldown = 0;
-        state.rng = Some(rng_with_roll_below(0.5));
+        state.attach_rng_bundle(travel_bundle_with_roll_below(0.5));
         state.roll_daily_illness();
         assert_eq!(state.illness_days_remaining, 1);
         assert!(state.rest_requested);
@@ -688,14 +709,16 @@ mod tests {
         state.starvation_days = 2;
         state.stats.hp = 3;
         state.stats.supplies = 0;
-        state.rng = Some(rng_with_roll_below(0.1));
+        state.attach_rng_bundle(travel_bundle_with_roll_below(0.05));
         state.roll_daily_illness();
         assert!(state.illness_days_remaining > 0);
         assert!(state.logs.iter().any(|log| log == LOG_DISEASE_HIT));
 
         // Ally attrition path exercises positive case.
         state.stats.allies = 2;
-        state.rng = Some(rng_with_roll_below(ALLY_ATTRITION_CHANCE + 0.05));
+        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+            ALLY_ATTRITION_CHANCE + 0.05,
+        ));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
 
@@ -703,14 +726,18 @@ mod tests {
         state.current_order = Some(ExecOrder::Shutdown);
         state.exec_order_days_remaining = 1;
         state.exec_order_cooldown = 0;
-        state.rng = Some(rng_with_roll_below(EXEC_ORDER_DAILY_CHANCE + 0.05));
+        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+            EXEC_ORDER_DAILY_CHANCE + 0.05,
+        ));
         state.tick_exec_order_state();
         assert!(state.exec_order_cooldown > 0 || state.current_order.is_none());
 
         // No current order: force issuing a new one via deterministic RNG.
         state.current_order = None;
         state.exec_order_cooldown = 0;
-        state.rng = Some(rng_with_roll_below(EXEC_ORDER_DAILY_CHANCE + 0.05));
+        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+            EXEC_ORDER_DAILY_CHANCE + 0.05,
+        ));
         state.tick_exec_order_state();
         assert!(state.current_order.is_some() || !state.logs.is_empty());
 
@@ -748,7 +775,7 @@ mod tests {
         state.partial_distance_today = 2.0;
         state.budget_cents = 20_000;
         state.budget = 200;
-        state.rng = Some(rng_with_roll_below(0.2));
+        state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.1));
 
         // Partial credit resets when already traveled.
         state.traveled_today = true;
@@ -784,7 +811,7 @@ mod tests {
 
         // Deep aggressive field repair path (multiple calls ensure RNG and cooldown).
         state.miles_traveled_actual = 1_700.0;
-        state.rng = Some(rng_with_roll_below(0.2));
+        state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.1));
         let deep_repair = state.try_deep_aggressive_field_repair();
         assert!(deep_repair);
 
@@ -1051,7 +1078,7 @@ mod tests {
         assert!(limp);
 
         state.miles_traveled_actual = 1_700.0;
-        state.rng = Some(rng_with_roll_below(0.1));
+        state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.1));
         let field = state.try_deep_aggressive_field_repair();
         assert!(field);
 
@@ -1086,7 +1113,9 @@ mod tests {
 
         state.stats.allies = 2;
         state.logs.clear();
-        state.rng = Some(rng_with_roll_below(ALLY_ATTRITION_CHANCE * 2.0));
+        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+            ALLY_ATTRITION_CHANCE * 2.0,
+        ));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
 
@@ -1597,7 +1626,7 @@ pub struct GameState {
     #[serde(skip)]
     pub rotation_backlog: VecDeque<String>,
     #[serde(skip)]
-    pub rng: Option<ChaCha20Rng>,
+    pub rng_bundle: Option<Rc<RngBundle>>,
     #[serde(skip)]
     pub data: Option<EncounterData>,
     #[serde(skip)]
@@ -1713,7 +1742,7 @@ impl Default for GameState {
             recent_travel_days: VecDeque::with_capacity(TRAVEL_HISTORY_WINDOW),
             day_reason_history: Vec::new(),
             rotation_backlog: VecDeque::new(),
-            rng: None,
+            rng_bundle: None,
             data: None,
             last_damage: None,
             current_day_record: None,
@@ -1788,6 +1817,32 @@ impl CrossingTelemetry {
 }
 
 impl GameState {
+    /// Attach a shared RNG bundle for deterministic domain draws.
+    pub fn attach_rng_bundle(&mut self, bundle: Rc<RngBundle>) {
+        self.rng_bundle = Some(bundle);
+    }
+
+    /// Detach any currently attached RNG bundle.
+    pub fn detach_rng_bundle(&mut self) {
+        self.rng_bundle = None;
+    }
+
+    fn travel_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.travel())
+    }
+
+    fn breakdown_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.breakdown())
+    }
+
+    fn encounter_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.encounter())
+    }
+
+    fn crossing_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.crossing())
+    }
+
     const fn current_version() -> u16 {
         2
     }
@@ -1835,7 +1890,8 @@ impl GameState {
         self.roll_daily_illness();
         self.apply_deep_aggressive_sanity_guard();
         let weather_cfg = WeatherConfig::default_config();
-        crate::weather::process_daily_weather(self, &weather_cfg);
+        let weather_rng = self.rng_bundle.as_ref().map(Rc::clone);
+        crate::weather::process_daily_weather(self, &weather_cfg, weather_rng.as_deref());
         self.stats.clamp();
 
         if !self.features.travel_v2 {
@@ -1853,12 +1909,12 @@ impl GameState {
                 self.logs
                     .push(format!("{}{}", LOG_EXEC_END_PREFIX, order.key()));
                 self.current_order = None;
-                if let Some(rng) = self.rng.as_mut() {
-                    self.exec_order_cooldown =
-                        rng.random_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN);
-                } else {
-                    self.exec_order_cooldown = EXEC_ORDER_MIN_COOLDOWN;
-                }
+                let cooldown = self
+                    .encounter_rng()
+                    .map_or(EXEC_ORDER_MIN_COOLDOWN, |mut rng| {
+                        rng.random_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN)
+                    });
+                self.exec_order_cooldown = cooldown;
             }
             return;
         }
@@ -1869,24 +1925,30 @@ impl GameState {
         }
 
         let behind_active = self.behind_schedule_multiplier() > 1.0;
-        if let Some(rng) = self.rng.as_mut() {
-            let mut exec_chance = EXEC_ORDER_DAILY_CHANCE;
-            if behind_active {
-                exec_chance *= 0.5;
-            }
-            let should_issue_order = rng.random::<f32>() < exec_chance;
-            if should_issue_order {
-                let idx = rng.random_range(0..ExecOrder::ALL.len());
-                let order = ExecOrder::ALL[idx];
-                self.current_order = Some(order);
-                self.exec_order_days_remaining =
-                    rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
-                self.logs
-                    .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
-                self.apply_exec_order_effects(order);
-                if self.exec_order_days_remaining > 0 {
-                    self.exec_order_days_remaining -= 1;
-                }
+        let mut exec_chance = EXEC_ORDER_DAILY_CHANCE;
+        if behind_active {
+            exec_chance *= 0.5;
+        }
+
+        let next_order = if let Some(mut rng) = self.encounter_rng()
+            && rng.random::<f32>() < exec_chance
+        {
+            let idx = rng.random_range(0..ExecOrder::ALL.len());
+            let order = ExecOrder::ALL[idx];
+            let duration = rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
+            Some((order, duration))
+        } else {
+            None
+        };
+
+        if let Some((order, duration)) = next_order {
+            self.current_order = Some(order);
+            self.exec_order_days_remaining = duration;
+            self.logs
+                .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
+            self.apply_exec_order_effects(order);
+            if self.exec_order_days_remaining > 0 {
+                self.exec_order_days_remaining -= 1;
             }
         }
     }
@@ -2382,10 +2444,10 @@ impl GameState {
         if self.miles_traveled_actual < 1_600.0 {
             return false;
         }
-        let Some(rng) = self.rng.as_mut() else {
-            return false;
-        };
-        if rng.random::<f32>() >= 0.15 {
+        let roll = self
+            .breakdown_rng()
+            .map_or(1.0, |mut rng| rng.random::<f32>());
+        if roll >= 0.15 {
             return false;
         }
 
@@ -2473,47 +2535,6 @@ impl GameState {
         } else {
             ENCOUNTER_REROLL_PENALTY
         }
-    }
-
-    const fn seed_bytes(s: u64) -> [u8; 32] {
-        #[inline]
-        const fn b(x: u64, shift: u8, xorv: u8) -> u8 {
-            (((x >> shift) & 0xFF) as u8) ^ xorv
-        }
-        [
-            b(s, 56, 0x00),
-            b(s, 48, 0x00),
-            b(s, 40, 0x00),
-            b(s, 32, 0x00),
-            b(s, 24, 0x00),
-            b(s, 16, 0x00),
-            b(s, 8, 0x00),
-            b(s, 0, 0x00),
-            b(s, 56, 0xAA),
-            b(s, 48, 0x55),
-            b(s, 40, 0xAA),
-            b(s, 32, 0x55),
-            b(s, 24, 0xAA),
-            b(s, 16, 0x55),
-            b(s, 8, 0xAA),
-            b(s, 0, 0x55),
-            b(s, 56, 0x11),
-            b(s, 48, 0x22),
-            b(s, 40, 0x33),
-            b(s, 32, 0x44),
-            b(s, 24, 0x55),
-            b(s, 16, 0x66),
-            b(s, 8, 0x77),
-            b(s, 0, 0x88),
-            b(s, 56, 0x99),
-            b(s, 48, 0xAA),
-            b(s, 40, 0xBB),
-            b(s, 32, 0xCC),
-            b(s, 24, 0xDD),
-            b(s, 16, 0xEE),
-            b(s, 8, 0xFF),
-            b(s, 0, 0x10),
-        ]
     }
 
     const fn set_ending(&mut self, ending: Ending) {
@@ -2621,10 +2642,6 @@ impl GameState {
         }
 
         let behind_active = self.behind_schedule_multiplier() > 1.0;
-        let Some(rng) = self.rng.as_mut() else {
-            return;
-        };
-
         if self.disease_cooldown > 0 {
             return;
         }
@@ -2643,11 +2660,16 @@ impl GameState {
             chance *= 0.5;
         }
 
-        if rng.random::<f32>() >= chance {
+        let roll = self.travel_rng().map_or(1.0, |mut rng| rng.random::<f32>());
+        if roll >= chance {
             return;
         }
 
-        let duration = rng.random_range(DISEASE_DURATION_RANGE.0..=DISEASE_DURATION_RANGE.1);
+        let duration = self
+            .travel_rng()
+            .map_or(DISEASE_DURATION_RANGE.0, |mut rng| {
+                rng.random_range(DISEASE_DURATION_RANGE.0..=DISEASE_DURATION_RANGE.1)
+            });
         self.illness_days_remaining = duration;
         self.stats.hp -= DISEASE_HP_PENALTY;
         self.stats.sanity -= DISEASE_SANITY_PENALTY;
@@ -2663,10 +2685,10 @@ impl GameState {
         if self.stats.allies <= 0 {
             return;
         }
-        let Some(rng) = self.rng.as_mut() else {
-            return;
-        };
-        if rng.random::<f32>() <= ALLY_ATTRITION_CHANCE {
+        let trigger = self
+            .encounter_rng()
+            .is_some_and(|mut rng| rng.random::<f32>() <= ALLY_ATTRITION_CHANCE);
+        if trigger {
             self.stats.allies -= 1;
             self.stats.morale -= 1;
             self.logs.push(String::from(LOG_ALLY_LOST));
@@ -3043,15 +3065,30 @@ impl GameState {
         let has_permit = crossings::can_use_permit(self, &kind);
         let bribe_offered = !has_permit && crossings::can_afford_bribe(self, &cfg, kind);
 
-        let resolved = crossings::resolve_crossing(
-            self.policy.unwrap_or_default(),
-            self.mode,
-            has_permit,
-            bribe_offered,
-            u32::try_from(next_idx).unwrap_or(u32::MAX),
-            self.day,
-            self.seed,
-        );
+        let resolved = if let Some(mut rng) = self.crossing_rng() {
+            crossings::resolve_crossing(
+                self.policy.unwrap_or_default(),
+                self.mode,
+                has_permit,
+                bribe_offered,
+                u32::try_from(next_idx).unwrap_or(u32::MAX),
+                self.day,
+                &mut *rng,
+            )
+        } else {
+            let seed_mix =
+                self.seed ^ (u64::try_from(next_idx).unwrap_or(0) << 32) ^ u64::from(self.day);
+            let mut fallback = SmallRng::seed_from_u64(seed_mix);
+            crossings::resolve_crossing(
+                self.policy.unwrap_or_default(),
+                self.mode,
+                has_permit,
+                bribe_offered,
+                u32::try_from(next_idx).unwrap_or(u32::MAX),
+                self.day,
+                &mut fallback,
+            )
+        };
 
         let mut telemetry = CrossingTelemetry::new(self.day, self.region, self.season, kind);
         telemetry.permit_used = resolved.used_permit;
@@ -3144,7 +3181,6 @@ impl GameState {
 
     #[must_use]
     pub fn with_seed(mut self, seed: u64, mode: GameMode, data: EncounterData) -> Self {
-        let bytes = Self::seed_bytes(seed);
         self.mode = mode;
         self.seed = seed;
         self.state_version = Self::current_version();
@@ -3152,16 +3188,14 @@ impl GameState {
         self.recompute_day_counters();
         self.current_day_record = None;
         self.journey_partial_ratio = JourneyCfg::default_partial_ratio();
-        self.rng = Some(ChaCha20Rng::from_seed(bytes));
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
+        self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
         self
     }
 
     #[must_use]
     pub fn rehydrate(mut self, data: EncounterData) -> Self {
-        let bytes = Self::seed_bytes(self.seed);
-        self.rng = Some(ChaCha20Rng::from_seed(bytes));
         self.data = Some(data);
         if self.state_version < Self::current_version() {
             self.state_version = Self::current_version();
@@ -3186,6 +3220,9 @@ impl GameState {
         }
         self.journey_partial_ratio = self.journey_partial_ratio.clamp(0.2, 0.95);
         self.recompute_day_counters();
+        if self.rng_bundle.is_none() {
+            self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
+        }
         self
     }
 
@@ -3201,6 +3238,8 @@ impl GameState {
     #[allow(clippy::too_many_lines)]
     pub fn travel_next_leg(&mut self, endgame_cfg: &EndgameTravelCfg) -> (bool, String, bool) {
         self.start_of_day();
+
+        let rng_bundle = self.rng_bundle.as_ref().map(Rc::clone);
 
         if self.boss_ready && !self.boss_attempted {
             return (false, String::from("log.boss.await"), false);
@@ -3231,8 +3270,11 @@ impl GameState {
         let mut trigger_encounter = false;
         if self.encounter_occurred_today {
             // Already had an encounter; keep trigger false.
-        } else if let Some(rng) = self.rng.as_mut() {
-            let roll: f32 = rng.random();
+        } else if let Some(bundle) = rng_bundle.as_ref() {
+            let roll = {
+                let mut rng = bundle.encounter();
+                rng.random::<f32>()
+            };
             if roll < self.encounter_chance_today {
                 trigger_encounter = true;
             }
@@ -3245,10 +3287,12 @@ impl GameState {
         if trigger_encounter {
             let recent_snapshot: Vec<RecentEncounter> =
                 self.recent_encounters.iter().cloned().collect();
-            let mut encounter = if let (Some(rng), Some(data)) =
-                (self.rng.as_mut(), self.data.as_ref())
-            {
-                let forced = self.force_rotation_pending;
+            let mut rotation_backlog = std::mem::take(&mut self.rotation_backlog);
+            let mut encounter = None;
+            let mut force_rotation_pending = self.force_rotation_pending;
+            let mut rotation_logged = false;
+            if let (Some(bundle), Some(data)) = (rng_bundle.as_ref(), self.data.as_ref()) {
+                let forced = force_rotation_pending;
                 let request = EncounterRequest {
                     region: self.region,
                     is_deep: self.mode.is_deep(),
@@ -3260,17 +3304,19 @@ impl GameState {
                     policy: self.policy,
                     force_rotation: forced,
                 };
-                let (pick, satisfied) = pick_encounter(&request, &mut self.rotation_backlog, rng);
-                if forced {
-                    if satisfied {
-                        self.logs.push(String::from(LOG_ENCOUNTER_ROTATION));
+                {
+                    let mut rng = bundle.encounter();
+                    let (pick, satisfied) =
+                        pick_encounter(&request, &mut rotation_backlog, &mut *rng);
+                    if forced {
+                        if satisfied {
+                            rotation_logged = true;
+                        }
+                        force_rotation_pending = !rotation_backlog.is_empty();
                     }
-                    self.force_rotation_pending = !self.rotation_backlog.is_empty();
+                    encounter = pick;
                 }
-                pick
-            } else {
-                None
-            };
+            }
 
             let should_reroll = encounter.as_ref().is_some_and(|enc| {
                 self.features.encounter_diversity && self.should_discourage_encounter(&enc.id)
@@ -3278,29 +3324,41 @@ impl GameState {
 
             if should_reroll {
                 let reroll_penalty = self.encounter_reroll_penalty();
-                if let (Some(rng), Some(data)) = (self.rng.as_mut(), self.data.as_ref()) {
-                    let reroll_trigger = rng.random::<f32>() < reroll_penalty;
-                    if reroll_trigger {
-                        let request = EncounterRequest {
-                            region: self.region,
-                            is_deep: self.mode.is_deep(),
-                            malnutrition_level: self.malnutrition_level,
-                            starving: self.stats.supplies <= 0,
-                            data,
-                            recent: &recent_snapshot,
-                            current_day: self.day,
-                            policy: self.policy,
-                            force_rotation: false,
-                        };
+                let reroll_trigger = rng_bundle.as_ref().is_some_and(|bundle| {
+                    let mut rng = bundle.encounter();
+                    rng.random::<f32>() < reroll_penalty
+                });
+                if reroll_trigger
+                    && let (Some(bundle), Some(data)) = (rng_bundle.as_ref(), self.data.as_ref())
+                {
+                    let request = EncounterRequest {
+                        region: self.region,
+                        is_deep: self.mode.is_deep(),
+                        malnutrition_level: self.malnutrition_level,
+                        starving: self.stats.supplies <= 0,
+                        data,
+                        recent: &recent_snapshot,
+                        current_day: self.day,
+                        policy: self.policy,
+                        force_rotation: false,
+                    };
+                    {
+                        let mut rng = bundle.encounter();
                         let (replacement, satisfied) =
-                            pick_encounter(&request, &mut self.rotation_backlog, rng);
+                            pick_encounter(&request, &mut rotation_backlog, &mut *rng);
                         if satisfied {
-                            self.force_rotation_pending = false;
+                            force_rotation_pending = false;
                         }
                         encounter = replacement;
                     }
                 }
             }
+
+            if rotation_logged {
+                self.logs.push(String::from(LOG_ENCOUNTER_ROTATION));
+            }
+            self.force_rotation_pending = force_rotation_pending;
+            self.rotation_backlog = rotation_backlog;
 
             if let Some(enc) = encounter {
                 let is_hard_stop = enc.hard_stop;
@@ -3377,10 +3435,6 @@ impl GameState {
             return false;
         }
 
-        let Some(rng) = self.rng.as_mut() else {
-            return false;
-        };
-
         if self.vehicle.breakdown_suppressed() {
             return false;
         }
@@ -3411,13 +3465,17 @@ impl GameState {
         }
         breakdown_chance = breakdown_chance.clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
 
-        let roll: f32 = rng.random();
+        let roll = self
+            .breakdown_rng()
+            .map_or(1.0, |mut rng| rng.random::<f32>());
         if roll >= breakdown_chance {
             return false;
         }
 
         let parts = [Part::Tire, Part::Battery, Part::Alternator, Part::FuelPump];
-        let part_idx: usize = rng.random_range(0..parts.len());
+        let part_idx = self
+            .breakdown_rng()
+            .map_or(0, |mut rng| rng.random_range(0..parts.len()));
         self.last_breakdown_part = Some(parts[part_idx]);
         self.breakdown = Some(crate::vehicle::Breakdown {
             part: parts[part_idx],
@@ -3615,7 +3673,7 @@ impl GameState {
     }
 
     pub fn next_u32(&mut self) -> u32 {
-        self.rng.as_mut().map_or(0, rand::Rng::random)
+        self.encounter_rng().map_or(0, |mut rng| rng.next_u32())
     }
 
     pub fn next_pct(&mut self) -> u8 {

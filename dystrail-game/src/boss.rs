@@ -118,9 +118,9 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
 mod tests {
     use super::*;
     use crate::data::EncounterData;
+    use crate::journey::RngBundle;
     use crate::state::{GameMode, PolicyKind};
-    use rand::SeedableRng;
-    use rand_chacha::ChaCha20Rng;
+    use std::rc::Rc;
 
     #[test]
     fn run_boss_probability_branches_cover_edges() {
@@ -132,7 +132,7 @@ mod tests {
         fail_state.stats.credibility = 0;
         fail_state.stats.allies = 0;
         fail_state.stats.sanity = 6;
-        fail_state.rng = Some(ChaCha20Rng::seed_from_u64(17));
+        fail_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(17)));
         let mut fail_cfg = BossConfig::load_from_static();
         fail_cfg.rounds = 0;
         fail_cfg.distance_required = 5_000.0;
@@ -153,7 +153,7 @@ mod tests {
             .receipts
             .extend(["attestation".into(), "briefing".into()]);
         win_state.miles_traveled_actual = 2_200.0;
-        win_state.rng = None;
+        win_state.detach_rng_bundle();
         let mut win_cfg = BossConfig::load_from_static();
         win_cfg.rounds = 0;
         win_cfg.max_chance = 0.7;
