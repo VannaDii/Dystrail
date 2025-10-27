@@ -1,11 +1,11 @@
 {
   "travel": {
-    "mpd_base": 13.2,
-    "mpd_min": 9.5,
-    "mpd_max": 20.5,
+    "mpd_base": 13.9,
+    "mpd_min": 10.0,
+    "mpd_max": 21.5,
     "pace_factor": {
-      "heated": 1.08,
-      "blitz": 1.2
+      "heated": 1.1,
+      "blitz": 1.22
     }
   },
   "partial_ratio": 0.6,

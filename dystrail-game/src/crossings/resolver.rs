@@ -49,41 +49,100 @@ pub fn resolve_crossing<R: Rng + ?Sized>(
     let mut outcome = CrossingOutcome::new(CrossingResult::TerminalFail);
 
     if !bribe_intent {
-        outcome.result = resolve_detour_or_terminal(rng, 0.88);
+        outcome.result = resolve_detour_or_terminal(
+            policy,
+            mode,
+            rng,
+            baseline_detour_probability(policy, mode),
+        );
         return outcome;
     }
 
     outcome.bribe_attempted = true;
-
-    let mut p_bribe = 0.74_f32;
-    if mode.is_deep() {
-        p_bribe -= 0.02;
-    }
-    let _ = policy;
-
-    let bribe_success_chance = p_bribe.clamp(0.70, 0.85);
-    let roll: f32 = rng.random();
-    if roll < bribe_success_chance {
+    if rng.random::<f32>() < bribe_success_probability(policy, mode) {
         outcome.bribe_succeeded = true;
         outcome.result = CrossingResult::Pass;
         return outcome;
     }
 
-    outcome.result = resolve_detour_or_terminal(rng, 0.85);
+    let detour_weight = detour_probability_after_bribe_failure(policy, mode);
+    outcome.result = resolve_detour_or_terminal(policy, mode, rng, detour_weight);
     outcome
 }
 
-fn resolve_detour_or_terminal<R: Rng + ?Sized>(rng: &mut R, detour_weight: f32) -> CrossingResult {
-    let roll: f32 = rng.random();
-    if roll < detour_weight {
-        let detour_roll: f32 = rng.random();
-        let days = match detour_roll {
-            r if r < 0.40 => 2,
-            r if r < 0.80 => 3,
-            _ => 4,
-        };
-        CrossingResult::Detour(days)
+#[allow(clippy::missing_const_for_fn)]
+fn baseline_detour_probability(policy: PolicyKind, mode: GameMode) -> f32 {
+    if mode.is_deep() {
+        match policy {
+            PolicyKind::Aggressive => 0.80,
+            PolicyKind::ResourceManager | PolicyKind::MonteCarlo => 0.86,
+            PolicyKind::Conservative => 0.88,
+            PolicyKind::Balanced => 0.84,
+        }
+    } else {
+        match policy {
+            PolicyKind::Conservative => 0.92,
+            PolicyKind::Aggressive => 0.86,
+            PolicyKind::ResourceManager | PolicyKind::MonteCarlo => 0.91,
+            PolicyKind::Balanced => 0.90,
+        }
+    }
+}
+
+fn detour_probability_after_bribe_failure(policy: PolicyKind, mode: GameMode) -> f32 {
+    let penalty = if mode.is_deep() { 0.03 } else { 0.02 };
+    (baseline_detour_probability(policy, mode) - penalty).clamp(0.6, 0.98)
+}
+
+#[allow(clippy::missing_const_for_fn)]
+fn bribe_success_probability(policy: PolicyKind, mode: GameMode) -> f32 {
+    if mode.is_deep() {
+        match policy {
+            PolicyKind::Aggressive => 0.78,
+            PolicyKind::ResourceManager | PolicyKind::MonteCarlo => 0.82,
+            PolicyKind::Conservative | PolicyKind::Balanced => 0.80,
+        }
+    } else {
+        match policy {
+            PolicyKind::Conservative => 0.86,
+            PolicyKind::Aggressive => 0.76,
+            PolicyKind::ResourceManager | PolicyKind::MonteCarlo => 0.84,
+            PolicyKind::Balanced => 0.82,
+        }
+    }
+}
+
+fn resolve_detour_or_terminal<R: Rng + ?Sized>(
+    policy: PolicyKind,
+    mode: GameMode,
+    rng: &mut R,
+    detour_weight: f32,
+) -> CrossingResult {
+    if rng.random::<f32>() < detour_weight {
+        CrossingResult::Detour(sample_detour_days(policy, mode, rng))
     } else {
         CrossingResult::TerminalFail
+    }
+}
+
+fn sample_detour_days<R: Rng + ?Sized>(policy: PolicyKind, mode: GameMode, rng: &mut R) -> u8 {
+    let mut detour_roll: f32 = rng.random();
+    if matches!(policy, PolicyKind::ResourceManager) && !mode.is_deep() {
+        detour_roll *= 0.9;
+    }
+    match detour_roll {
+        r if r < 0.35 => 2,
+        r if r < 0.75 => 3,
+        _ => {
+            if mode.is_deep() {
+                if matches!(policy, PolicyKind::Aggressive) || detour_roll > 0.9 {
+                    4
+                } else {
+                    3
+                }
+            } else {
+                3
+            }
+        }
     }
 }

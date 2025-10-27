@@ -1,9 +1,9 @@
 {
   "travel": {
     "weather_factor": {
-      "Storm": 0.9,
-      "HeatWave": 0.88,
-      "Smoke": 0.92
+      "Storm": 0.92,
+      "HeatWave": 0.9,
+      "Smoke": 0.94
     }
   },
   "partial_ratio": 0.55,

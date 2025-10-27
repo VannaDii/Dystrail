@@ -1,23 +1,23 @@
 {
   "travel": {
-    "mpd_base": 14.6,
-    "mpd_max": 24.5,
+    "mpd_base": 14.8,
+    "mpd_max": 24.2,
     "pace_factor": {
-      "heated": 1.28,
-      "blitz": 1.52
+      "heated": 1.24,
+      "blitz": 1.46
     }
   },
   "partial_ratio": 0.45,
   "wear": {
-    "base": 0.26,
-    "fatigue_k": 0.3
+    "base": 0.22,
+    "fatigue_k": 0.26
   },
   "breakdown": {
-    "base": 0.05,
+    "base": 0.042,
     "pace_factor": {
       "steady": 0.98,
-      "heated": 1.2,
-      "blitz": 1.48
+      "heated": 1.16,
+      "blitz": 1.38
     }
   }
 }

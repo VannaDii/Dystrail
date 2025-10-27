@@ -1,19 +1,19 @@
 {
   "travel": {
-    "mpd_base": 13.5,
-    "mpd_min": 7.5,
-    "mpd_max": 23.5,
+    "mpd_base": 14.4,
+    "mpd_min": 8.8,
+    "mpd_max": 24.0,
     "pace_factor": {
-      "steady": 1.0,
-      "heated": 1.18,
-      "blitz": 1.4
+      "steady": 1.02,
+      "heated": 1.2,
+      "blitz": 1.42
     },
     "weather_factor": {
       "Clear": 1.0,
-      "Storm": 0.78,
-      "HeatWave": 0.74,
-      "ColdSnap": 0.88,
-      "Smoke": 0.84
+      "Storm": 0.8,
+      "HeatWave": 0.76,
+      "ColdSnap": 0.9,
+      "Smoke": 0.86
     }
   },
   "partial_ratio": 0.47,
