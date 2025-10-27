@@ -1,0 +1,29 @@
+{
+  "travel": {
+    "mpd_base": 13.8,
+    "pace_factor": {
+      "steady": 1.02,
+      "heated": 1.18,
+      "blitz": 1.38
+    },
+    "weather_factor": {
+      "Storm": 0.85,
+      "HeatWave": 0.82,
+      "Smoke": 0.88
+    }
+  },
+  "partial_ratio": 0.5,
+  "wear": {
+    "base": 0.21,
+    "fatigue_k": 0.22
+  },
+  "breakdown": {
+    "base": 0.04,
+    "weather_factor": {
+      "Storm": 1.28,
+      "HeatWave": 1.32,
+      "ColdSnap": 1.08,
+      "Smoke": 1.12
+    }
+  }
+}

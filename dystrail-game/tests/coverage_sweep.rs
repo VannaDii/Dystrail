@@ -371,9 +371,8 @@ fn journey_controller_tick_yields_day_record() {
     assert_eq!(record.day_index, 0);
     assert_eq!(record.kind, TravelDayKind::Travel);
     assert_eq!(state.travel_days, 1);
-    assert!(
-        (state.journey_partial_ratio - JourneyCfg::default_partial_ratio()).abs() < f32::EPSILON
-    );
+    let expected_ratio = controller.config().partial_ratio;
+    assert!((state.journey_partial_ratio - expected_ratio).abs() < f32::EPSILON);
 }
 
 #[test]

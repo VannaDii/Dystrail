@@ -193,9 +193,6 @@ pub(crate) const BOSS_COMPOSE_FUNDS_PANTS: i32 = 3;
 pub(crate) const BOSS_COMPOSE_FUNDS_COST: i64 = 2_000;
 pub(crate) const SANITY_POINT_REWARD: i32 = 1;
 
-pub(crate) const PACE_STEADY_BASE: f32 = 1.0;
-pub(crate) const PACE_HEATED_BASE: f32 = 1.15;
-pub(crate) const PACE_BLITZ_BASE: f32 = 1.30;
 pub(crate) const PACE_BREAKDOWN_STEADY: f32 = 0.95;
 pub(crate) const PACE_BREAKDOWN_HEATED: f32 = 1.0;
 pub(crate) const PACE_BREAKDOWN_BLITZ: f32 = 1.10;

@@ -1,0 +1,47 @@
+{
+  "travel": {
+    "mpd_base": 13.5,
+    "mpd_min": 7.5,
+    "mpd_max": 23.5,
+    "pace_factor": {
+      "steady": 1.0,
+      "heated": 1.18,
+      "blitz": 1.4
+    },
+    "weather_factor": {
+      "Clear": 1.0,
+      "Storm": 0.78,
+      "HeatWave": 0.74,
+      "ColdSnap": 0.88,
+      "Smoke": 0.84
+    }
+  },
+  "partial_ratio": 0.47,
+  "wear": {
+    "base": 0.22,
+    "fatigue_k": 0.24,
+    "comfort_miles": 1150.0
+  },
+  "breakdown": {
+    "base": 0.042,
+    "beta": 0.24,
+    "pace_factor": {
+      "steady": 0.97,
+      "heated": 1.16,
+      "blitz": 1.38
+    },
+    "weather_factor": {
+      "Clear": 1.0,
+      "Storm": 1.32,
+      "HeatWave": 1.45,
+      "ColdSnap": 1.12,
+      "Smoke": 1.18
+    }
+  },
+  "part_weights": {
+    "tire": 40,
+    "battery": 24,
+    "alt": 20,
+    "pump": 16
+  }
+}

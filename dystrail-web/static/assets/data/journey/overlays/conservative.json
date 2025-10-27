@@ -1,0 +1,25 @@
+{
+  "travel": {
+    "mpd_base": 13.2,
+    "mpd_min": 9.5,
+    "mpd_max": 20.5,
+    "pace_factor": {
+      "heated": 1.08,
+      "blitz": 1.2
+    }
+  },
+  "partial_ratio": 0.6,
+  "wear": {
+    "base": 0.18,
+    "fatigue_k": 0.16,
+    "comfort_miles": 1250.0
+  },
+  "breakdown": {
+    "base": 0.034,
+    "pace_factor": {
+      "steady": 0.9,
+      "heated": 1.02,
+      "blitz": 1.18
+    }
+  }
+}

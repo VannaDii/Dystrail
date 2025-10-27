@@ -7,10 +7,12 @@ use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
 use std::hash::Hasher;
 use std::rc::Rc;
+use std::sync::OnceLock;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
 use crate::state::{PaceId, PolicyKind};
+use crate::vehicle::PartWeights;
 use crate::weather::Weather;
 
 /// Maximum tag capacity stored inline without additional allocations.
@@ -132,6 +134,8 @@ pub enum StrategyId {
 /// Minimal journey configuration scaffold.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct JourneyCfg {
+    #[serde(default)]
+    pub travel: TravelConfig,
     #[serde(default = "JourneyCfg::default_partial_ratio")]
     pub partial_ratio: f32,
     #[serde(default)]
@@ -139,7 +143,7 @@ pub struct JourneyCfg {
     #[serde(default)]
     pub breakdown: BreakdownConfig,
     #[serde(default)]
-    pub part_weights: crate::vehicle::PartWeights,
+    pub part_weights: PartWeights,
 }
 
 impl JourneyCfg {
@@ -152,10 +156,221 @@ impl JourneyCfg {
 impl Default for JourneyCfg {
     fn default() -> Self {
         Self {
+            travel: TravelConfig::default(),
             partial_ratio: Self::default_partial_ratio(),
             wear: WearConfig::default(),
             breakdown: BreakdownConfig::default(),
-            part_weights: crate::vehicle::PartWeights::default(),
+            part_weights: PartWeights::default(),
+        }
+    }
+}
+
+/// Policy-driven travel pacing configuration.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct TravelConfig {
+    #[serde(default = "TravelConfig::default_mpd_base")]
+    pub mpd_base: f32,
+    #[serde(default = "TravelConfig::default_mpd_min")]
+    pub mpd_min: f32,
+    #[serde(default = "TravelConfig::default_mpd_max")]
+    pub mpd_max: f32,
+    #[serde(default = "TravelConfig::default_pace_factor")]
+    pub pace_factor: HashMap<PaceId, f32>,
+    #[serde(default = "TravelConfig::default_weather_factor")]
+    pub weather_factor: HashMap<Weather, f32>,
+}
+
+impl TravelConfig {
+    const fn default_mpd_base() -> f32 {
+        crate::constants::TRAVEL_V2_BASE_DISTANCE
+    }
+
+    const fn default_mpd_min() -> f32 {
+        6.0
+    }
+
+    const fn default_mpd_max() -> f32 {
+        24.0
+    }
+
+    fn default_pace_factor() -> HashMap<PaceId, f32> {
+        HashMap::from([
+            (PaceId::Steady, 1.0),
+            (PaceId::Heated, 1.2),
+            (PaceId::Blitz, 1.35),
+        ])
+    }
+
+    fn default_weather_factor() -> HashMap<Weather, f32> {
+        HashMap::from([
+            (Weather::Clear, 1.0),
+            (Weather::Storm, 0.85),
+            (Weather::HeatWave, 0.8),
+            (Weather::ColdSnap, 0.9),
+            (Weather::Smoke, 0.88),
+        ])
+    }
+}
+
+impl Default for TravelConfig {
+    fn default() -> Self {
+        Self {
+            mpd_base: Self::default_mpd_base(),
+            mpd_min: Self::default_mpd_min(),
+            mpd_max: Self::default_mpd_max(),
+            pace_factor: Self::default_pace_factor(),
+            weather_factor: Self::default_weather_factor(),
+        }
+    }
+}
+
+/// Partial overlay of wear parameters applied atop a resolved policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct WearConfigOverlay {
+    pub base: Option<f32>,
+    pub fatigue_k: Option<f32>,
+    pub comfort_miles: Option<f32>,
+}
+
+/// Partial overlay of breakdown parameters applied atop a resolved policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct BreakdownConfigOverlay {
+    pub base: Option<f32>,
+    pub beta: Option<f32>,
+    #[serde(default)]
+    pub pace_factor: Option<HashMap<PaceId, f32>>,
+    #[serde(default)]
+    pub weather_factor: Option<HashMap<Weather, f32>>,
+}
+
+/// Overlay for part weights used in breakdown selection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct PartWeightsOverlay {
+    pub tire: Option<u32>,
+    pub battery: Option<u32>,
+    pub alt: Option<u32>,
+    pub pump: Option<u32>,
+}
+
+/// Strategy overlay containing policy adjustments.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct JourneyOverlay {
+    #[serde(default)]
+    pub travel: Option<TravelConfigOverlay>,
+    pub partial_ratio: Option<f32>,
+    #[serde(default)]
+    pub wear: Option<WearConfigOverlay>,
+    #[serde(default)]
+    pub breakdown: Option<BreakdownConfigOverlay>,
+    #[serde(default)]
+    pub part_weights: Option<PartWeightsOverlay>,
+}
+
+impl JourneyCfg {
+    /// Apply a strategy overlay to this configuration, producing a merged set of parameters.
+    #[must_use]
+    pub fn merge_overlay(&self, overlay: &JourneyOverlay) -> Self {
+        let mut merged = self.clone();
+        if let Some(travel_overlay) = overlay.travel.as_ref() {
+            merged.travel = merged.travel.with_overlay(travel_overlay);
+        }
+        if let Some(ratio) = overlay.partial_ratio {
+            merged.partial_ratio = ratio;
+        }
+        if let Some(wear_overlay) = overlay.wear.as_ref() {
+            merged.wear = merged.wear.with_overlay(wear_overlay);
+        }
+        if let Some(breakdown_overlay) = overlay.breakdown.as_ref() {
+            merged.breakdown = merged.breakdown.with_overlay(breakdown_overlay);
+        }
+        if let Some(part_overlay) = overlay.part_weights.as_ref() {
+            merged.part_weights = merged.part_weights.with_overlay(part_overlay);
+        }
+        merged
+    }
+}
+
+/// Overlay of travel pacing parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct TravelConfigOverlay {
+    pub mpd_base: Option<f32>,
+    pub mpd_min: Option<f32>,
+    pub mpd_max: Option<f32>,
+    #[serde(default)]
+    pub pace_factor: Option<HashMap<PaceId, f32>>,
+    #[serde(default)]
+    pub weather_factor: Option<HashMap<Weather, f32>>,
+}
+
+impl TravelConfig {
+    #[must_use]
+    fn with_overlay(&self, overlay: &TravelConfigOverlay) -> Self {
+        let mut merged = self.clone();
+        if let Some(base) = overlay.mpd_base {
+            merged.mpd_base = base;
+        }
+        if let Some(min) = overlay.mpd_min {
+            merged.mpd_min = min;
+        }
+        if let Some(max) = overlay.mpd_max {
+            merged.mpd_max = max;
+        }
+        if let Some(pace_map) = overlay.pace_factor.as_ref() {
+            for (&pace, &value) in pace_map {
+                merged.pace_factor.insert(pace, value);
+            }
+        }
+        if let Some(weather_map) = overlay.weather_factor.as_ref() {
+            for (&weather, &value) in weather_map {
+                merged.weather_factor.insert(weather, value);
+            }
+        }
+        merged
+    }
+
+    pub(crate) fn sanitize(&mut self) {
+        self.mpd_min = self
+            .mpd_min
+            .max(crate::constants::TRAVEL_PARTIAL_MIN_DISTANCE);
+        self.mpd_max = self.mpd_max.max(self.mpd_min);
+        if self.mpd_base.is_nan() || self.mpd_base <= 0.0 {
+            self.mpd_base = Self::default_mpd_base();
+        }
+        self.mpd_base = self.mpd_base.clamp(self.mpd_min, self.mpd_max);
+
+        for pace in [PaceId::Steady, PaceId::Heated, PaceId::Blitz] {
+            let default = Self::default_pace_factor()
+                .get(&pace)
+                .copied()
+                .unwrap_or(1.0);
+            let entry = self.pace_factor.entry(pace).or_insert(default);
+            *entry = entry.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
+        }
+        for value in self.pace_factor.values_mut() {
+            *value = value.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
+        }
+
+        for weather in [
+            Weather::Clear,
+            Weather::Storm,
+            Weather::HeatWave,
+            Weather::ColdSnap,
+            Weather::Smoke,
+        ] {
+            let default = Self::default_weather_factor()
+                .get(&weather)
+                .copied()
+                .unwrap_or(1.0);
+            let entry = self.weather_factor.entry(weather).or_insert(default);
+            *entry = entry.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
+        }
+        for value in self.weather_factor.values_mut() {
+            *value = value.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
         }
     }
 }
@@ -191,6 +406,17 @@ impl Default for WearConfig {
             base: Self::default_base(),
             fatigue_k: Self::default_fatigue_k(),
             comfort_miles: Self::default_comfort_miles(),
+        }
+    }
+}
+
+impl WearConfig {
+    #[must_use]
+    fn with_overlay(&self, overlay: &WearConfigOverlay) -> Self {
+        Self {
+            base: overlay.base.unwrap_or(self.base),
+            fatigue_k: overlay.fatigue_k.unwrap_or(self.fatigue_k),
+            comfort_miles: overlay.comfort_miles.unwrap_or(self.comfort_miles),
         }
     }
 }
@@ -245,6 +471,149 @@ impl Default for BreakdownConfig {
             weather_factor: Self::default_weather_factor(),
         }
     }
+}
+
+impl BreakdownConfig {
+    #[must_use]
+    fn with_overlay(&self, overlay: &BreakdownConfigOverlay) -> Self {
+        let mut merged = self.clone();
+        if let Some(base) = overlay.base {
+            merged.base = base;
+        }
+        if let Some(beta) = overlay.beta {
+            merged.beta = beta;
+        }
+        if let Some(pace_map) = overlay.pace_factor.as_ref() {
+            for (&pace, &value) in pace_map {
+                merged.pace_factor.insert(pace, value);
+            }
+        }
+        if let Some(weather_map) = overlay.weather_factor.as_ref() {
+            for (&weather, &value) in weather_map {
+                merged.weather_factor.insert(weather, value);
+            }
+        }
+        merged
+    }
+}
+
+impl PartWeights {
+    #[must_use]
+    fn with_overlay(&self, overlay: &PartWeightsOverlay) -> Self {
+        Self {
+            tire: overlay.tire.unwrap_or(self.tire),
+            battery: overlay.battery.unwrap_or(self.battery),
+            alt: overlay.alt.unwrap_or(self.alt),
+            pump: overlay.pump.unwrap_or(self.pump),
+        }
+    }
+}
+
+/// Aggregates journey policies and strategy overlays.
+#[derive(Debug, Clone, Default)]
+pub struct PolicyCatalog {
+    families: HashMap<PolicyId, JourneyCfg>,
+    overlays: HashMap<StrategyId, JourneyOverlay>,
+}
+
+impl PolicyCatalog {
+    #[must_use]
+    #[allow(clippy::missing_const_for_fn)]
+    pub fn new(
+        families: HashMap<PolicyId, JourneyCfg>,
+        overlays: HashMap<StrategyId, JourneyOverlay>,
+    ) -> Self {
+        Self { families, overlays }
+    }
+
+    #[must_use]
+    pub fn resolve(&self, policy: PolicyId, strategy: StrategyId) -> JourneyCfg {
+        let base = self
+            .families
+            .get(&policy)
+            .cloned()
+            .unwrap_or_else(JourneyCfg::default);
+        let overlay = self
+            .overlays
+            .get(&strategy)
+            .or_else(|| self.overlays.get(&StrategyId::Balanced));
+        let mut resolved = if let Some(overlay) = overlay {
+            base.merge_overlay(overlay)
+        } else {
+            base
+        };
+        resolved.travel.sanitize();
+        resolved
+    }
+
+    #[must_use]
+    #[allow(clippy::missing_const_for_fn)]
+    pub fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
+        &self.families
+    }
+
+    #[must_use]
+    #[allow(clippy::missing_const_for_fn)]
+    pub fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
+        &self.overlays
+    }
+}
+
+fn policy_catalog() -> &'static PolicyCatalog {
+    static CATALOG: OnceLock<PolicyCatalog> = OnceLock::new();
+    CATALOG.get_or_init(|| {
+        let classic_cfg: JourneyCfg = serde_json::from_str(include_str!(
+            "../../../dystrail-web/static/assets/data/journey/classic.json"
+        ))
+        .expect("valid classic journey config");
+        let deep_cfg: JourneyCfg = serde_json::from_str(include_str!(
+            "../../../dystrail-web/static/assets/data/journey/deep.json"
+        ))
+        .expect("valid deep journey config");
+
+        let mut families = HashMap::new();
+        families.insert(PolicyId::Classic, classic_cfg);
+        families.insert(PolicyId::Deep, deep_cfg);
+
+        let mut overlays = HashMap::new();
+        overlays.insert(
+            StrategyId::Balanced,
+            serde_json::from_str(include_str!(
+                "../../../dystrail-web/static/assets/data/journey/overlays/balanced.json"
+            ))
+            .expect("valid balanced overlay"),
+        );
+        overlays.insert(
+            StrategyId::Aggressive,
+            serde_json::from_str(include_str!(
+                "../../../dystrail-web/static/assets/data/journey/overlays/aggressive.json"
+            ))
+            .expect("valid aggressive overlay"),
+        );
+        overlays.insert(
+            StrategyId::Conservative,
+            serde_json::from_str(include_str!(
+                "../../../dystrail-web/static/assets/data/journey/overlays/conservative.json"
+            ))
+            .expect("valid conservative overlay"),
+        );
+        overlays.insert(
+            StrategyId::ResourceManager,
+            serde_json::from_str(include_str!(
+                "../../../dystrail-web/static/assets/data/journey/overlays/resource_manager.json"
+            ))
+            .expect("valid resource manager overlay"),
+        );
+        overlays.insert(
+            StrategyId::MonteCarlo,
+            serde_json::from_str(include_str!(
+                "../../../dystrail-web/static/assets/data/journey/overlays/monte_carlo.json"
+            ))
+            .expect("valid monte carlo overlay"),
+        );
+
+        PolicyCatalog::new(families, overlays)
+    })
 }
 
 /// Result returned by a journey tick.
@@ -374,10 +743,11 @@ impl JourneyController {
     /// Create a new controller with default configuration.
     #[must_use]
     pub fn new(policy: PolicyId, strategy: StrategyId, seed: u64) -> Self {
+        let cfg = policy_catalog().resolve(policy, strategy);
         Self::with_config(
             policy,
             strategy,
-            JourneyCfg::default(),
+            cfg,
             seed,
             EndgameTravelCfg::default_config(),
         )
@@ -394,6 +764,7 @@ impl JourneyController {
     ) -> Self {
         let mut resolved_cfg = cfg;
         resolved_cfg.partial_ratio = resolved_cfg.partial_ratio.clamp(0.2, 0.95);
+        resolved_cfg.travel.sanitize();
         resolved_cfg.wear.base = resolved_cfg.wear.base.max(0.0);
         resolved_cfg.wear.fatigue_k = resolved_cfg.wear.fatigue_k.max(0.0);
         resolved_cfg.wear.comfort_miles = resolved_cfg.wear.comfort_miles.max(0.0);
@@ -479,6 +850,7 @@ impl JourneyController {
         state.attach_rng_bundle(self.rng.clone());
         state.policy = Some(self.policy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
+        state.journey_travel = self.cfg.travel.clone();
         state.journey_wear = self.cfg.wear.clone();
         state.journey_breakdown = self.cfg.breakdown.clone();
         state.journey_part_weights = self.cfg.part_weights.clone();
@@ -501,6 +873,70 @@ impl JourneyController {
 mod tests {
     use super::*;
     use crate::state::GameState;
+    use crate::weather::Weather;
+
+    #[test]
+    fn policy_catalog_resolves_family_and_overlay() {
+        let catalog = policy_catalog();
+        let classic_balanced = catalog.resolve(PolicyId::Classic, StrategyId::Balanced);
+        let classic_aggressive = catalog.resolve(PolicyId::Classic, StrategyId::Aggressive);
+        assert!(
+            classic_aggressive.partial_ratio < classic_balanced.partial_ratio,
+            "aggressive overlay should reduce partial ratio"
+        );
+        assert!(
+            classic_aggressive.wear.base > classic_balanced.wear.base,
+            "aggressive overlay should increase base wear"
+        );
+        assert!(
+            classic_aggressive.travel.mpd_base > classic_balanced.travel.mpd_base,
+            "aggressive overlay should increase base mpd"
+        );
+        assert!(
+            classic_aggressive
+                .travel
+                .pace_factor
+                .get(&PaceId::Blitz)
+                .unwrap()
+                > classic_balanced
+                    .travel
+                    .pace_factor
+                    .get(&PaceId::Blitz)
+                    .unwrap(),
+            "aggressive overlay should bias blitz pace"
+        );
+
+        let deep_balanced = catalog.resolve(PolicyId::Deep, StrategyId::Balanced);
+        let deep_conservative = catalog.resolve(PolicyId::Deep, StrategyId::Conservative);
+        assert!(
+            deep_conservative.breakdown.base < deep_balanced.breakdown.base,
+            "conservative overlay should ease breakdown chance"
+        );
+        assert!(
+            deep_conservative.travel.mpd_max < deep_balanced.travel.mpd_max,
+            "conservative overlay should lower max mpd"
+        );
+    }
+
+    #[test]
+    fn resource_manager_overlay_adjusts_part_weights() {
+        let catalog = policy_catalog();
+        let baseline = catalog.resolve(PolicyId::Deep, StrategyId::Balanced);
+        let resource = catalog.resolve(PolicyId::Deep, StrategyId::ResourceManager);
+        assert!(
+            resource.part_weights.pump > baseline.part_weights.pump,
+            "resource manager should favor pump repairs"
+        );
+        assert!(
+            resource.part_weights.tire < baseline.part_weights.tire,
+            "resource manager should reduce tire breakdown weight"
+        );
+        assert!(
+            resource.travel.weather_factor.get(&Weather::Storm).unwrap()
+                > baseline.travel.weather_factor.get(&Weather::Storm).unwrap(),
+            "resource manager should soften storm travel penalty"
+        );
+    }
 
     #[test]
     fn travel_day_kind_ratio_flag() {

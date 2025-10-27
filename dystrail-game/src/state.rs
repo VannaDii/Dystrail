@@ -18,8 +18,8 @@ use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
-    BreakdownConfig, CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelDayKind,
-    WearConfig,
+    BreakdownConfig, CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelConfig,
+    TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -1593,6 +1593,8 @@ pub struct GameState {
     #[serde(default = "JourneyCfg::default_partial_ratio")]
     pub journey_partial_ratio: f32,
     #[serde(default)]
+    pub journey_travel: TravelConfig,
+    #[serde(default)]
     pub journey_wear: WearConfig,
     #[serde(default)]
     pub journey_breakdown: BreakdownConfig,
@@ -1758,6 +1760,7 @@ impl Default for GameState {
             distance_cap_today: 0.0,
             day_records: Vec::new(),
             journey_partial_ratio: JourneyCfg::default_partial_ratio(),
+            journey_travel: TravelConfig::default(),
             journey_wear: WearConfig::default(),
             journey_breakdown: BreakdownConfig::default(),
             journey_part_weights: PartWeights::default(),
@@ -2912,57 +2915,35 @@ impl GameState {
         limits: &crate::pacing::PacingLimits,
     ) -> f32 {
         let travel_v2 = self.features.travel_v2;
-        let mut base_distance = if pace_cfg.distance > 0.0 {
-            pace_cfg.distance
-        } else if limits.distance_base > 0.0 {
-            limits.distance_base
-        } else if travel_v2 {
-            TRAVEL_V2_BASE_DISTANCE
+        let travel_cfg = &self.journey_travel;
+
+        let pace_policy = travel_cfg
+            .pace_factor
+            .get(&self.pace)
+            .copied()
+            .unwrap_or(1.0)
+            .max(TRAVEL_CONFIG_MIN_MULTIPLIER);
+        let pace_cfg_scalar = if pace_cfg.dist_mult > 0.0 {
+            pace_cfg.dist_mult
         } else {
-            TRAVEL_CLASSIC_BASE_DISTANCE
+            1.0
         };
-        if base_distance <= 0.0 {
-            base_distance = if travel_v2 {
-                TRAVEL_V2_BASE_DISTANCE
-            } else {
-                TRAVEL_CLASSIC_BASE_DISTANCE
-            };
-        }
+        let pace_scalar = (pace_policy * pace_cfg_scalar).max(TRAVEL_CONFIG_MIN_MULTIPLIER);
 
-        if self.mode == GameMode::Classic {
-            base_distance *= 1.06;
-        } else {
-            base_distance *= 1.08;
-        }
-        self.distance_cap_today = base_distance * 1.20;
-
-        let pace_scalar = if travel_v2 {
-            let cfg_mult = if pace_cfg.dist_mult > 0.0 {
-                pace_cfg.dist_mult
-            } else {
-                match self.pace {
-                    PaceId::Steady => PACE_STEADY_BASE,
-                    PaceId::Heated => PACE_HEATED_BASE,
-                    PaceId::Blitz => PACE_BLITZ_BASE,
-                }
-            };
-            cfg_mult.max(TRAVEL_CONFIG_MIN_MULTIPLIER)
-        } else {
-            let config_scalar = pace_cfg.dist_mult.max(TRAVEL_CONFIG_MIN_MULTIPLIER);
-            (match self.pace {
-                PaceId::Steady => PACE_STEADY_BASE,
-                PaceId::Heated => PACE_HEATED_BASE,
-                PaceId::Blitz => PACE_BLITZ_BASE,
-            }) * config_scalar
-        };
-
-        let mut weather_scalar = if travel_v2 {
+        let policy_weather = travel_cfg
+            .weather_factor
+            .get(&self.weather_state.today)
+            .copied()
+            .unwrap_or(1.0)
+            .max(TRAVEL_CONFIG_MIN_MULTIPLIER);
+        let runtime_weather = if travel_v2 {
             self.weather_travel_multiplier
                 .max(TRAVEL_CONFIG_MIN_MULTIPLIER)
         } else {
             self.current_weather_speed_penalty()
-        };
-        weather_scalar = weather_scalar.max(WEATHER_PACE_MULTIPLIER_FLOOR);
+        }
+        .max(WEATHER_PACE_MULTIPLIER_FLOOR);
+        let mut weather_scalar = policy_weather * runtime_weather;
 
         let penalty_floor = if travel_v2 {
             if limits.distance_penalty_floor > 0.0 {
@@ -2974,18 +2955,21 @@ impl GameState {
             TRAVEL_CLASSIC_PENALTY_FLOOR
         };
 
-        let mut pace_weather = weather_scalar * pace_scalar;
+        weather_scalar = weather_scalar.max(TRAVEL_CONFIG_MIN_MULTIPLIER);
+
+        let mut multiplier = (pace_scalar * weather_scalar).max(penalty_floor);
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Balanced)) {
-            pace_weather *= DEEP_BALANCED_TRAVEL_NUDGE;
+            multiplier *= DEEP_BALANCED_TRAVEL_NUDGE;
         }
         let behind_boost = self.behind_schedule_multiplier();
         if behind_boost > 1.0 {
-            pace_weather *= behind_boost;
+            multiplier *= behind_boost;
         }
-        let mut raw_distance = base_distance * pace_weather;
-        let floored_multiplier = pace_weather.max(penalty_floor);
-        let mut distance = base_distance * floored_multiplier;
-        let mut partial_distance = (raw_distance * TRAVEL_PARTIAL_RATIO).max(0.0);
+
+        let mut raw_distance = travel_cfg.mpd_base * multiplier;
+        let mut distance = raw_distance;
+        let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
+        let mut partial_distance = raw_distance * ratio;
 
         let travel_boost =
             self.deep_conservative_travel_boost() * self.deep_aggressive_reach_boost();
@@ -3012,28 +2996,33 @@ impl GameState {
 
         distance *= self.exec_travel_multiplier;
         partial_distance *= self.exec_travel_multiplier;
-
         distance *= self.illness_travel_penalty.max(0.0);
         partial_distance *= self.illness_travel_penalty.max(0.0);
 
+        self.distance_cap_today = travel_cfg.mpd_max.max(travel_cfg.mpd_base);
         let max_distance = if self.distance_cap_today > 0.0 {
             self.distance_cap_today
         } else {
-            base_distance * 1.20
+            travel_cfg.mpd_max
         };
-        if distance > max_distance {
-            distance = max_distance;
+
+        let mut clamped_distance = distance.clamp(travel_cfg.mpd_min, max_distance);
+        if clamped_distance.is_nan() || clamped_distance <= 0.0 {
+            clamped_distance = travel_cfg.mpd_min.max(TRAVEL_PARTIAL_MIN_DISTANCE);
         }
-        if raw_distance > max_distance {
-            raw_distance = max_distance;
-        }
-        if partial_distance > distance {
-            partial_distance = distance;
+        clamped_distance = clamped_distance.max(TRAVEL_PARTIAL_MIN_DISTANCE);
+
+        raw_distance = raw_distance.clamp(0.0, max_distance);
+
+        partial_distance = partial_distance.clamp(0.0, clamped_distance);
+        if partial_distance > 0.0 {
+            partial_distance =
+                partial_distance.max(TRAVEL_PARTIAL_MIN_DISTANCE.min(clamped_distance));
         }
 
-        self.distance_today_raw = raw_distance.max(0.0);
-        self.distance_today = distance.max(TRAVEL_PARTIAL_MIN_DISTANCE);
-        self.partial_distance_today = partial_distance.max(0.0).min(self.distance_today);
+        self.distance_today_raw = raw_distance;
+        self.distance_today = clamped_distance;
+        self.partial_distance_today = partial_distance;
         self.distance_today
     }
 
@@ -3285,6 +3274,7 @@ impl GameState {
         self.recompute_day_counters();
         self.current_day_record = None;
         self.journey_partial_ratio = JourneyCfg::default_partial_ratio();
+        self.journey_travel = TravelConfig::default();
         self.journey_wear = WearConfig::default();
         self.journey_breakdown = BreakdownConfig::default();
         self.journey_part_weights = PartWeights::default();
@@ -3319,6 +3309,7 @@ impl GameState {
             }
         }
         self.journey_partial_ratio = self.journey_partial_ratio.clamp(0.2, 0.95);
+        self.journey_travel.sanitize();
         self.recompute_day_counters();
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));

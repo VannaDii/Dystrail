@@ -1,0 +1,23 @@
+{
+  "travel": {
+    "weather_factor": {
+      "Storm": 0.9,
+      "HeatWave": 0.88,
+      "Smoke": 0.92
+    }
+  },
+  "partial_ratio": 0.55,
+  "wear": {
+    "base": 0.2,
+    "fatigue_k": 0.2
+  },
+  "breakdown": {
+    "base": 0.038
+  },
+  "part_weights": {
+    "tire": 38,
+    "battery": 24,
+    "alt": 18,
+    "pump": 20
+  }
+}
