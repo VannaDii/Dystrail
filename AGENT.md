@@ -1,6 +1,6 @@
 # AGENT.md — Codex Operating Instructions (Rust + Yew, A11y + i18n Required)
 
-IMPORTANT: NEVER TAKE SHORT CUTS! ONLY USE TERMINAL COMMANDS AS A LAST RESORT.
+IMPORTANT: NEVER TAKE SHORT CUTS! Document and run the required CLI workflows for every change.
 
 - **Stable Rust** (latest stable channel pinned).
 - **Yew** (component framework).
@@ -20,7 +20,7 @@ IMPORTANT: NEVER TAKE SHORT CUTS! ONLY USE TERMINAL COMMANDS AS A LAST RESORT.
 
 You are an implementation agent working in a Rust + Yew web app repository. Your output MUST be production-ready, accessible (WCAG 2.2 AA), localized (multiple languages incl. RTL), and conform to Rust best practices.
 
-If any requirement conflicts, **fail the pipeline** and open a TODO with remediation steps.
+If any requirement conflicts, **fail the pipeline**, pause implementation, and document the blocking issue for the user—do not add TODO/FIXME comments.
 
 ---
 
@@ -28,12 +28,14 @@ If any requirement conflicts, **fail the pipeline** and open a TODO with remedia
 
 - ✅ **Accessibility:** WCAG 2.2 AA across pages, keyboard-only usable, visible focus, trap-free modals, correct ARIA, color-contrast ≥ 4.5:1.
 - 🌍 **Internationalization:** At least `en`, `it`, `es`, and one RTL (e.g., `ar`). Runtime language switcher; persist locale; pluralization & interpolation; RTL flipping; number/date formatting.
-- 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX).
+- 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX). No lint suppressions (`#[allow(...)]` or `#![allow(...)]`) are permitted—refactor code to satisfy clippy instead.
 - 🔒 **Security/Supply:** No yanked crates; `Cargo.lock` checked in; audit clean or documented (with temporary allow + issue).
 - 🧪 **Tests:** Unit (wasm-bindgen-test), i18n snapshot checks for each locale.
 - 🛠️ **Reproducible Build:** `rust-toolchain.toml` pins versions; Trunk build; wasm-opt `-Oz`. CI must build release artifacts.
-- 🏃🏻‍♀️ **Running Commands:** Never used the terminal, unless it's for **Rust Quality** commands (`cargo`, `rustfmt`, etc.), always run commands using your MCP accessible tools.
+- 🏃🏻‍♀️ **Running Commands:** Use the CLI workflows defined in this AGENT, the `Justfile`, and the README; record every validation command you execute.
 - 💇🏽‍♀️ **Styling Rules:** Never use `!important` or other workarounds.
+- 🧱 **Read-Only Handling:** Detect sandbox/write permissions before editing (e.g., `test -w .` via trusted shell). If you are in read-only mode, immediately inform the user, request write access, and restrict yourself to inspection commands until access is granted.
+- 📋 **TODO Policy:** Never introduce TODO/FIXME notes. When you encounter existing TODOs, remove them by implementing the fix or escalating the conflict—code must not contain unresolved TODO markers.
 
 ---
 
@@ -101,15 +103,16 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 
 ## 3 - Commands (scripts)
 
-| Task | Command |
-| --- | --- |
-| Dev server | `trunk serve --open` |
-| Release build | `trunk build --release` |
-| Format | `cargo fmt --all` |
-| Lint | `cargo clippy --all-targets -- -D warnings -W clippy::pedantic` |
-| Unit tests (wasm) | `wasm-pack test --headless --chrome` **or** `cargo test -p <crate>` if using wasm-bindgen-test harness |
-| Security audit | `cargo audit` |
-| License/dep policy | `cargo deny check` |
+| Task            | Command              |
+| --------------- | -------------------- |
+| Format          | `just fmt`           |
+| Lint            | `just lint`          |
+| Workspace tests | `just tests`         |
+| Security audit  | `just security`      |
+| Release build   | `just build-release` |
+| QA sweeps       | `just qa`            |
+| Full validation | `just validate`      |
+| Dev server      | `trunk serve --open` |
 
 > CI must run all above; any failure blocks merge.
 
@@ -148,6 +151,17 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - Errors: typed errors (`thiserror`), surfaced to the UI with non-blocking toasts/alerts; never panic in user flows.
 - Side effects isolated; add unit tests for pure functions.
 - No `.unwrap()` or `.expect()` in UI path; use `ok_or_else` + user-safe fallback.
+
+### 4.4 - Lint Enforcement
+
+- Remove every lint suppression attribute (`#[allow(...)]`, `#![allow(...)]`, `#[expect(...)]`, etc.) encountered in the codebase; treat their presence as a blocker.
+- Do not introduce new suppressions. If clippy fails, refactor the code or split functions/components until it passes without ignores.
+- Record any legacy suppression you eliminate in the changelog/PR notes for traceability.
+
+### 4.5 - TODO & Debt Policy
+
+- Eliminate existing `TODO`, `FIXME`, and similar debt markers when you touch a file; convert them into completed code or linked issue references provided by the user.
+- Reject changes that would add new debt markers; instead, communicate blockers directly to the user and halt work until resolved.
 
 ---
 
