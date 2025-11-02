@@ -131,7 +131,7 @@ impl LogicTester {
                         "  ❌ Iteration {}/{} failed: {}",
                         i + 1,
                         iterations,
-                        err.to_string().red()
+                        err.clone().red()
                     );
                     println!(
                         "     ↳ Seed {} | Turns {} | Final HP {} Supplies {} Sanity {} Pants {} | Decisions: {}",

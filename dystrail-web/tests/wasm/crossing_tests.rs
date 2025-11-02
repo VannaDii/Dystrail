@@ -1,5 +1,6 @@
 use wasm_bindgen_test::*;
 use yew::prelude::*;
+use dystrail_web::dom;
 use std::rc::Rc;
 use std::cell::RefCell;
 
@@ -72,7 +73,7 @@ fn digit1_activates_detour() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
@@ -81,7 +82,7 @@ fn digit1_activates_detour() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_day = gs.borrow().day;
@@ -101,7 +102,7 @@ fn digit2_activates_bribe() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
@@ -110,7 +111,7 @@ fn digit2_activates_bribe() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_budget = gs.borrow().budget_cents;
@@ -128,7 +129,7 @@ fn digit3_activates_permit() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
@@ -137,7 +138,7 @@ fn digit3_activates_permit() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_cred = gs.borrow().stats.credibility;
@@ -161,7 +162,7 @@ fn disabled_menuitem_has_aria_disabled() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs,
             config: cfg,
@@ -170,7 +171,7 @@ fn disabled_menuitem_has_aria_disabled() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let permit_item = doc.query_selector("li[data-key='3']").unwrap().expect("permit menuitem exists");
 
     // Should be disabled when no receipts or permit tags
@@ -184,7 +185,7 @@ fn arrow_keys_change_focus() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs,
             config: cfg,
@@ -193,7 +194,7 @@ fn arrow_keys_change_focus() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     // Initial focus should be on item 1
@@ -221,7 +222,7 @@ fn rtl_locale_works() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
         yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
             game_state: gs,
             config: cfg,
@@ -230,7 +231,7 @@ fn rtl_locale_works() {
         })
     ).render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Component should still render properly with RTL locale
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");

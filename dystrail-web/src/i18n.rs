@@ -129,7 +129,7 @@ fn get_nested_value(obj: &Value, key: &str) -> Option<String> {
         }
     }
     match current {
-        Value::String(s) => Some(s.to_string()),
+        Value::String(s) => Some(s.clone()),
         Value::Object(map) => map
             .get("_")
             .and_then(Value::as_str)

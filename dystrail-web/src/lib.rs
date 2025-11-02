@@ -4,6 +4,7 @@ use wasm_bindgen::prelude::*;
 pub mod a11y;
 mod app;
 pub mod components;
+pub mod dom;
 pub mod game;
 pub mod i18n;
 #[cfg(test)]

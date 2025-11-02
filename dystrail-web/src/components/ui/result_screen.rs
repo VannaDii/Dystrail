@@ -1,6 +1,6 @@
+use crate::dom;
 use crate::game::{GameState, ResultConfig, ResultSummary, result_summary};
 use crate::i18n;
-use gloo::utils::document;
 use wasm_bindgen::JsCast;
 use web_sys::{HtmlTextAreaElement, window};
 use yew::prelude::*;
@@ -338,7 +338,7 @@ impl ResultScreen {
     }
 
     fn fallback_copy(text: &str) -> Result<(), String> {
-        let document = document();
+        let document = dom::document();
         let textarea = document
             .create_element("textarea")
             .map_err(|_| "Failed to create textarea".to_string())?

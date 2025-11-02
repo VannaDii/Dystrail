@@ -3,6 +3,7 @@ use std::rc::Rc;
 use yew::prelude::*;
 
 use crate::a11y::set_status;
+use crate::dom;
 use crate::game::exec_orders::ExecOrder;
 use crate::game::{
     CrossingConfig, CrossingKind, GameState, apply_bribe, apply_detour, apply_permit,
@@ -10,7 +11,6 @@ use crate::game::{
 };
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
-use gloo::timers::future::TimeoutFuture;
 use wasm_bindgen::JsCast;
 use wasm_bindgen_futures::spawn_local;
 use web_sys::KeyboardEvent;
@@ -276,7 +276,12 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
             // Call resolution callback after a brief delay
             let on_resolved = on_resolved.clone();
             spawn_local(async move {
-                TimeoutFuture::new(1000).await;
+                if let Err(err) = dom::sleep_ms(1000).await {
+                    dom::console_error(&format!(
+                        "Failed to delay crossing transition: {}",
+                        dom::js_error_message(&err)
+                    ));
+                }
                 on_resolved.emit(());
             });
         })

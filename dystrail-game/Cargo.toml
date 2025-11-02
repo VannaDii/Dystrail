@@ -8,6 +8,7 @@ repository = "https://github.com/vanna/dystrail"
 readme = "../README.md"
 keywords = ["dystrail", "game", "simulation", "survival"]
 categories = ["games"]
+rust-version.workspace = true
 
 [dependencies]
 # Core dependencies for game logic
@@ -15,13 +16,13 @@ serde = { workspace = true }
 serde_json = { workspace = true }
 rand = { workspace = true }
 rand_chacha = { workspace = true }
-anyhow = "1.0"
-thiserror = "1.0"
+anyhow = { workspace = true }
+thiserror = { workspace = true }
 smallvec = { workspace = true }
 twox-hash = { workspace = true }
 
 # Optional dependencies for specific features
-tokio = { version = "1.0", optional = true, features = ["macros", "rt"] }
+tokio = { workspace = true, optional = true, features = ["macros", "rt"] }
 
 [features]
 default = []

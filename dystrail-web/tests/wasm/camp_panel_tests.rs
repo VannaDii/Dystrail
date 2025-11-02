@@ -1,6 +1,7 @@
 use wasm_bindgen_test::*;
 use web_sys::{KeyboardEvent, EventTarget};
 use yew::prelude::*;
+use dystrail_web::dom;
 use dystrail::components::ui::camp_panel::CampPanel;
 use dystrail::game::state::GameState;
 use dystrail::game::camp::CampConfig;
@@ -27,11 +28,11 @@ fn camp_panel_accessibility() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check for proper ARIA roles
     let dialog = doc.query_selector("[role='dialog']").unwrap().unwrap();
@@ -69,11 +70,11 @@ fn camp_panel_keyboard_navigation() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let dialog = doc.query_selector("[role='dialog']").unwrap().unwrap();
 
     // Test numbered key navigation (1-4)
@@ -94,11 +95,11 @@ fn camp_panel_focus_management() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check that focus is trapped within the dialog
     let dialog = doc.query_selector("[role='dialog']").unwrap().unwrap();
@@ -116,11 +117,11 @@ fn camp_panel_action_menu() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check for all expected camp actions
     let rest_button = doc.query_selector("[data-camp-action='rest']");
@@ -152,11 +153,11 @@ fn camp_panel_repair_submenu() {
 
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Try to trigger repair action to show submenu
     let repair_button = doc.query_selector("[data-camp-action='repair']").unwrap();
@@ -178,11 +179,11 @@ fn camp_panel_aria_live_announcements() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check for aria-live region for announcements
     let live_region = doc.query_selector("[aria-live]").unwrap();
@@ -199,11 +200,11 @@ fn camp_panel_screen_reader_support() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check for proper labeling
     let dialog = doc.query_selector("[role='dialog']").unwrap().unwrap();
@@ -233,11 +234,11 @@ fn camp_panel_keyboard_shortcuts() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let dialog = doc.query_selector("[role='dialog']").unwrap().unwrap();
 
     // Test all numbered shortcuts (1-4 for actions, 0 for close)
@@ -264,7 +265,7 @@ fn camp_panel_conditional_rendering() {
     let props_no_breakdown = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props_no_breakdown,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
@@ -277,7 +278,7 @@ fn camp_panel_conditional_rendering() {
 
     yew::Renderer::<CampPanel>::with_props_and_root(
         props_with_breakdown,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
@@ -288,7 +289,7 @@ fn camp_panel_conditional_rendering() {
 
     yew::Renderer::<CampPanel>::with_props_and_root(
         props_therapy_cooldown,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
@@ -298,7 +299,7 @@ fn camp_panel_conditional_rendering() {
 
     yew::Renderer::<CampPanel>::with_props_and_root(
         props_no_receipts,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 }
@@ -308,11 +309,11 @@ fn camp_panel_wcag_compliance() {
     let props = create_test_props();
     yew::Renderer::<CampPanel>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check color contrast requirements are handled by CSS (can't test actual colors in unit test)
     // But we can check for proper semantic structure

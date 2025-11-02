@@ -375,10 +375,10 @@ pub fn select_weather_for_today(
         }
     }
 
-    let mut final_weather = seasonal_override(gs.season, candidate, &mut rng);
+    let mut final_weather = seasonal_override(gs.season, candidate, &mut *rng);
 
     if gs.weather_state.neutral_buffer > 0 {
-        final_weather = pick_neutral_weather(region_weights, &mut rng);
+        final_weather = pick_neutral_weather(region_weights, &mut *rng);
         gs.weather_state.neutral_buffer = gs.weather_state.neutral_buffer.saturating_sub(1);
     } else {
         let needs_buffer = match final_weather {
@@ -390,7 +390,7 @@ pub fn select_weather_for_today(
             final_weather = apply_neutral_buffer(
                 &mut gs.weather_state.neutral_buffer,
                 region_weights,
-                &mut rng,
+                &mut *rng,
             );
         }
     }

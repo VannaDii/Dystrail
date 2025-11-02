@@ -3,19 +3,21 @@
 //! This component handles the store interface where players can purchase supplies,
 //! vehicle spares, PPE, and documents before starting their journey.
 
-use gloo::net::http::Request;
 use std::collections::HashMap;
 use wasm_bindgen::JsCast;
+use wasm_bindgen_futures::JsFuture;
 use web_sys::{KeyboardEvent, window};
 use yew::prelude::*;
 
 use crate::a11y::set_status;
+use crate::dom;
 use crate::game::{
     GameState,
     store::{Cart, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price},
 };
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
+use thiserror::Error;
 
 /// The different screens within the store
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -97,7 +99,7 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
                         store_state.set(state);
                     }
                     Err(e) => {
-                        gloo::console::error!("Failed to load store data:", e.to_string());
+                        dom::console_error(&format!("Failed to load store data: {e}"));
                     }
                 }
             });
@@ -212,24 +214,42 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
     }
 }
 
+#[derive(Debug, Error)]
+enum StoreLoadError {
+    #[error("Request failed: {0}")]
+    Request(String),
+    #[error("Response was not valid UTF-8")]
+    Utf8,
+    #[error("JSON parsing error: {0}")]
+    Parse(#[from] serde_json::Error),
+}
+
 /// Load store data from JSON file
 #[allow(clippy::future_not_send)]
-async fn load_store_data() -> Result<Store, Box<dyn std::error::Error>> {
-    let response = Request::get("/static/assets/data/store.json")
-        .send()
-        .await?;
+async fn load_store_data() -> Result<Store, StoreLoadError> {
+    let response = dom::fetch_response("/static/assets/data/store.json")
+        .await
+        .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?;
 
     if !response.ok() {
-        return Err(format!(
+        return Err(StoreLoadError::Request(format!(
             "HTTP {status}: {status_text}",
             status = response.status(),
             status_text = response.status_text()
-        )
-        .into());
+        )));
     }
 
-    let json_text = response.text().await?;
-    let store: Store = serde_json::from_str(&json_text)?;
+    let text_js = JsFuture::from(
+        response
+            .text()
+            .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?,
+    )
+    .await
+    .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?;
+
+    let text = text_js.as_string().ok_or(StoreLoadError::Utf8)?;
+
+    let store: Store = serde_json::from_str(&text)?;
     Ok(store)
 }
 

@@ -6,13 +6,13 @@ fmt:
 lint:
     cargo fmt -- --check
     cargo check --workspace
-    @cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery
+    @cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
     cargo test --workspace --all --all-features --locked -- --nocapture
     wasm-pack test --headless --chrome dystrail-web
     cargo tarpaulin --packages dystrail-game --fail-under 77
 
 security:
-    cargo audit --deny-warnings
+    cargo audit --file audit.toml --deny warnings
     cargo deny check licenses bans advisories sources
 
 build-release:

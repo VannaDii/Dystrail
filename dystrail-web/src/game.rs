@@ -3,7 +3,7 @@
 //! This module provides web-specific implementations of the dystrail-game traits
 //! and re-exports the core game logic types.
 
-use gloo::storage::{LocalStorage, Storage};
+use crate::dom;
 use serde::de::DeserializeOwned;
 
 // Re-export all types from dystrail-game
@@ -74,17 +74,38 @@ impl GameStorage for WebGameStorage {
         game_state: &dystrail_game::GameState,
     ) -> Result<(), Self::Error> {
         let key = format!("dystrail.save.{save_name}");
-        LocalStorage::set(&key, game_state).map_err(|e| WebStorageError::Storage(format!("{e:?}")))
+        let storage = dom::local_storage()
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+        let serialized = serde_json::to_string(game_state)?;
+        storage
+            .set_item(&key, &serialized)
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+        Ok(())
     }
 
     fn load_game(&self, save_name: &str) -> Result<Option<dystrail_game::GameState>, Self::Error> {
         let key = format!("dystrail.save.{save_name}");
-        LocalStorage::get(&key).map_or_else(|_| Ok(None), |game_state| Ok(Some(game_state)))
+        let storage = dom::local_storage()
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+        let value = storage
+            .get_item(&key)
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+        match value {
+            Some(json) => {
+                let state = serde_json::from_str(&json)?;
+                Ok(Some(state))
+            }
+            None => Ok(None),
+        }
     }
 
     fn delete_save(&self, save_name: &str) -> Result<(), Self::Error> {
         let key = format!("dystrail.save.{save_name}");
-        LocalStorage::delete(&key);
+        let storage = dom::local_storage()
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+        storage
+            .remove_item(&key)
+            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
         Ok(())
     }
 }

@@ -29,6 +29,7 @@ If any requirement conflicts, **fail the pipeline**, pause implementation, and d
 - ✅ **Accessibility:** WCAG 2.2 AA across pages, keyboard-only usable, visible focus, trap-free modals, correct ARIA, color-contrast ≥ 4.5:1.
 - 🌍 **Internationalization:** At least `en`, `it`, `es`, and one RTL (e.g., `ar`). Runtime language switcher; persist locale; pluralization & interpolation; RTL flipping; number/date formatting.
 - 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX). No lint suppressions (`#[allow(...)]` or `#![allow(...)]`) are permitted—refactor code to satisfy clippy instead.
+- 🚫 **No Suppression Flags:** Do not use any CLI or tooling flags that suppress diagnostics (e.g., `--ignore-filename-regex '(dystrail-(game|web|tester))'`, `--allow-dirty`, `--allow-staged`). Tool outputs must remain fully visible.
 - 🔒 **Security/Supply:** No yanked crates; `Cargo.lock` checked in; audit clean or documented (with temporary allow + issue).
 - 🧪 **Tests:** Unit (wasm-bindgen-test), i18n snapshot checks for each locale.
 - 🛠️ **Reproducible Build:** `rust-toolchain.toml` pins versions; Trunk build; wasm-opt `-Oz`. CI must build release artifacts.
@@ -36,6 +37,7 @@ If any requirement conflicts, **fail the pipeline**, pause implementation, and d
 - 💇🏽‍♀️ **Styling Rules:** Never use `!important` or other workarounds.
 - 🧱 **Read-Only Handling:** Detect sandbox/write permissions before editing (e.g., `test -w .` via trusted shell). If you are in read-only mode, immediately inform the user, request write access, and restrict yourself to inspection commands until access is granted.
 - 📋 **TODO Policy:** Never introduce TODO/FIXME notes. When you encounter existing TODOs, remove them by implementing the fix or escalating the conflict—code must not contain unresolved TODO markers.
+- 🚫 **No Vendoring:** Do not vendor upstream crates or copy external sources into this repository. Dependency tweaks must be handled through proper version bumps or patches approved by the user.
 
 ---
 

@@ -1,6 +1,7 @@
 use wasm_bindgen_test::*;
 use web_sys::{KeyboardEvent, EventTarget};
 use yew::prelude::*;
+use dystrail_web::dom;
 
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
 
@@ -30,8 +31,8 @@ fn test_host() -> Html {
 
 #[wasm_bindgen_test]
 fn persona_roles_and_live_region() {
-    yew::Renderer::<TestHost>::with_root(gloo::utils::document().get_element_by_id("app").unwrap()).render();
-    let doc = gloo::utils::document();
+    yew::Renderer::<TestHost>::with_root(dom::document().get_element_by_id("app").unwrap()).render();
+    let doc = dom::document();
     let radios = doc.query_selector("[role='radiogroup']").unwrap();
     assert!(radios.is_some());
     let live = doc.get_element_by_id("persona-helper").expect("live region present");
@@ -40,8 +41,8 @@ fn persona_roles_and_live_region() {
 
 #[wasm_bindgen_test]
 fn key3_selects_and_updates_live() {
-    yew::Renderer::<TestHost>::with_root(gloo::utils::document().get_element_by_id("app").unwrap()).render();
-    let doc = gloo::utils::document();
+    yew::Renderer::<TestHost>::with_root(dom::document().get_element_by_id("app").unwrap()).render();
+    let doc = dom::document();
     let panel = doc.query_selector("section.panel").unwrap().unwrap();
     dispatch_key(&panel, "3", "Digit3");
     let live = doc.get_element_by_id("persona-helper").unwrap();
@@ -60,8 +61,8 @@ fn key3_selects_and_updates_live() {
 
 #[wasm_bindgen_test]
 fn continue_disabled_until_selection() {
-    yew::Renderer::<TestHost>::with_root(gloo::utils::document().get_element_by_id("app").unwrap()).render();
-    let doc = gloo::utils::document();
+    yew::Renderer::<TestHost>::with_root(dom::document().get_element_by_id("app").unwrap()).render();
+    let doc = dom::document();
     let btn = doc.get_element_by_id("persona-continue").unwrap();
     assert!(btn.get_attribute("disabled").is_some());
     // Select 1
@@ -73,8 +74,8 @@ fn continue_disabled_until_selection() {
 
 #[wasm_bindgen_test]
 fn selection_persists_to_save() {
-    yew::Renderer::<TestHost>::with_root(gloo::utils::document().get_element_by_id("app").unwrap()).render();
-    let doc = gloo::utils::document();
+    yew::Renderer::<TestHost>::with_root(dom::document().get_element_by_id("app").unwrap()).render();
+    let doc = dom::document();
     // Select 2 to ensure a deterministic, different pick
     let panel = doc.query_selector("section.panel").unwrap().unwrap();
     dispatch_key(&panel, "2", "Digit2");

@@ -1,6 +1,7 @@
 use wasm_bindgen_test::*;
 use web_sys::{KeyboardEvent, EventTarget};
 use yew::prelude::*;
+use dystrail_web::dom;
 use dystrail::components::ui::vehicle_status::VehicleStatus;
 use dystrail::game::state::GameState;
 use dystrail::game::vehicle::{Part, Breakdown};
@@ -21,11 +22,11 @@ fn vehicle_status_menu_accessibility() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check for proper ARIA roles
     let menu = doc.query_selector("[role='menu']").unwrap().unwrap();
@@ -57,11 +58,11 @@ fn vehicle_status_keyboard_navigation() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let menu = doc.query_selector("[role='menu']").unwrap().unwrap();
 
     // Test number key navigation (1-5, 0)
@@ -89,11 +90,11 @@ fn breakdown_state_disables_travel() {
 
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Should show breakdown status
     let breakdown_text = doc.query_selector("[data-testid='breakdown-status']");
@@ -116,11 +117,11 @@ fn spare_usage_options_enabled() {
 
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Tire spare option should be enabled since we have a tire breakdown and spare tires
     let tire_option = doc.query_selector("[data-action='spare-tire']").unwrap();
@@ -146,7 +147,7 @@ fn rtl_layout_for_arabic() {
     let i18n = I18n::new("ar");
 
     // Change to Arabic locale
-    let doc = gloo::utils::document();
+    let doc = dom::document();
     let html = doc.document_element().unwrap();
     html.set_attribute("lang", "ar").unwrap();
     html.set_attribute("dir", "rtl").unwrap();
@@ -154,7 +155,7 @@ fn rtl_layout_for_arabic() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
@@ -171,11 +172,11 @@ fn status_announcements_via_aria_live() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check that the live region exists for status announcements
     let live_region = doc.get_element_by_id("menu-helper").expect("aria-live region should exist");
@@ -187,11 +188,11 @@ fn focus_management_and_visible_rings() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        gloo::utils::document().get_element_by_id("app").unwrap(),
+        dom::document().get_element_by_id("app").unwrap(),
     )
     .render();
 
-    let doc = gloo::utils::document();
+    let doc = dom::document();
 
     // Check that focusable elements have visible focus rings
     let menu_items = doc.query_selector_all("[role='menuitem']").unwrap();
