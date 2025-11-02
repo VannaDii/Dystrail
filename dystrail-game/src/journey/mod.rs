@@ -352,7 +352,7 @@ impl Default for CrossingPolicy {
 }
 
 /// Detour duration policy.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DetourPolicy {
     #[serde(default = "DetourPolicy::default_min")]
     pub min: u8,
@@ -369,6 +369,7 @@ impl DetourPolicy {
         3
     }
 
+    #[allow(clippy::missing_const_for_fn)]
     fn sanitize(&mut self) {
         if self.min == 0 {
             self.min = 1;
@@ -389,6 +390,7 @@ impl Default for DetourPolicy {
 }
 
 /// Bribe probability adjustments.
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BribePolicy {
     #[serde(default)]
@@ -406,6 +408,7 @@ impl BribePolicy {
         0.5
     }
 
+    #[allow(clippy::missing_const_for_fn)]
     fn sanitize(&mut self) {
         self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
         self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
@@ -426,7 +429,7 @@ impl Default for BribePolicy {
 }
 
 /// Permit adjustments controlling terminal outcomes.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct PermitPolicy {
     #[serde(default)]
     pub disable_terminal: bool,
@@ -442,6 +445,7 @@ impl PermitPolicy {
 }
 
 /// Overlay for crossing policy tweaks.
+#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct CrossingPolicyOverlay {
     pub pass: Option<f32>,

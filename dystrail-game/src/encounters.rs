@@ -1,5 +1,7 @@
 //! Encounter selection logic
-use crate::constants::{DEBUG_ENV_VAR, ENCOUNTER_REPEAT_WINDOW_DAYS, ROTATION_LOOKBACK_DAYS};
+#[cfg(debug_assertions)]
+use crate::constants::DEBUG_ENV_VAR;
+use crate::constants::{ENCOUNTER_REPEAT_WINDOW_DAYS, ROTATION_LOOKBACK_DAYS};
 use crate::data::{Encounter, EncounterData};
 use crate::state::{PolicyKind, RecentEncounter, Region};
 use rand::Rng;

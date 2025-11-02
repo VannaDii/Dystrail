@@ -13,7 +13,7 @@ use crate::camp::CampState;
 use crate::constants::*;
 use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
-use crate::day_accounting;
+use crate::day_accounting::{self, DayLedgerMetrics};
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
@@ -2293,21 +2293,13 @@ impl GameState {
     }
 
     fn revert_current_day_record(&mut self) {
-        if let Some(kind) = self.current_day_kind.take() {
-            match kind {
-                TravelDayKind::Travel => {
-                    self.travel_days = self.travel_days.saturating_sub(1);
-                    self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
-                }
-                TravelDayKind::Partial => {
-                    self.partial_travel_days = self.partial_travel_days.saturating_sub(1);
-                    self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
-                }
-                TravelDayKind::NonTravel => {
-                    self.non_travel_days = self.non_travel_days.saturating_sub(1);
-                }
-            }
+        if matches!(
+            self.current_day_kind,
+            Some(TravelDayKind::Travel | TravelDayKind::Partial)
+        ) {
+            self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
         }
+        self.current_day_kind = None;
         if self.current_day_reason_tags.iter().any(|tag| tag == "camp") {
             self.days_with_camp = self.days_with_camp.saturating_sub(1);
         }
@@ -2348,19 +2340,15 @@ impl GameState {
     }
 
     fn recompute_day_counters(&mut self) {
-        let mut travel = 0_u32;
-        let mut partial = 0_u32;
-        let mut non = 0_u32;
-        for record in &self.day_records {
-            match record.kind {
-                TravelDayKind::Travel => travel = travel.saturating_add(1),
-                TravelDayKind::Partial => partial = partial.saturating_add(1),
-                TravelDayKind::NonTravel => non = non.saturating_add(1),
-            }
-        }
-        self.travel_days = travel;
-        self.partial_travel_days = partial;
-        self.non_travel_days = non;
+        let metrics = day_accounting::compute_day_ledger_metrics(&self.day_records);
+        self.travel_days = metrics.travel_days;
+        self.partial_travel_days = metrics.partial_days;
+        self.non_travel_days = metrics.non_travel_days;
+    }
+
+    #[must_use]
+    pub fn ledger_metrics(&self) -> DayLedgerMetrics {
+        day_accounting::compute_day_ledger_metrics(&self.day_records)
     }
 
     pub(crate) fn reset_today_progress(&mut self) {

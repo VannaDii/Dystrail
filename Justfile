@@ -6,7 +6,7 @@ fmt:
 lint:
     cargo fmt -- --check
     cargo check --workspace
-    @cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
+    cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
     cargo test --workspace --all --all-features --locked -- --nocapture
     wasm-pack test --headless --chrome dystrail-web
     cargo tarpaulin --packages dystrail-game --fail-under 77
@@ -21,6 +21,9 @@ build-release:
 
 qa:
     cargo run -p dystrail-tester -- --mode both --scenarios all --iterations 100 --report console
+
+tests:
+    cargo test --workspace --all --all-features --locked -- --nocapture
 
 validate:
     just lint

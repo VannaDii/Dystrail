@@ -1,4 +1,5 @@
 use rand::RngCore;
+use std::convert::TryFrom;
 
 use super::CrossingKind;
 use crate::journey::{BribePolicy, CrossingPolicy};
@@ -44,7 +45,8 @@ pub struct CrossingContext<'a> {
 #[must_use]
 pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> CrossingOutcome {
     let sample = rng.next_u32();
-    let draw = ((sample as f64 + 0.5) / ((u32::MAX as f64) + 1.0)) as f32;
+    #[allow(clippy::cast_possible_truncation)]
+    let draw = ((f64::from(sample) + 0.5) / (f64::from(u32::MAX) + 1.0)) as f32;
 
     let (pass_weight, detour_weight, _terminal_weight, permit_used) = effective_weights(&ctx);
     let detour_threshold = pass_weight + detour_weight;
@@ -79,13 +81,15 @@ fn effective_weights(ctx: &CrossingContext<'_>) -> (f32, f32, f32, bool) {
     if ctx.bribe_intent {
         let factor = bribe_multiplier(&policy.bribe, ctx.prior_bribe_attempts);
         if policy.bribe.pass_bonus != 0.0 {
-            pass = (pass + policy.bribe.pass_bonus * factor).max(0.0);
+            pass = policy.bribe.pass_bonus.mul_add(factor, pass).max(0.0);
         }
         if policy.bribe.detour_bonus != 0.0 {
-            detour = (detour + policy.bribe.detour_bonus * factor).max(0.0);
+            detour = policy.bribe.detour_bonus.mul_add(factor, detour).max(0.0);
         }
         if policy.bribe.terminal_penalty != 0.0 {
-            terminal = (terminal - policy.bribe.terminal_penalty * factor).max(0.0);
+            terminal = (-policy.bribe.terminal_penalty)
+                .mul_add(factor, terminal)
+                .max(0.0);
         }
     }
 
@@ -111,15 +115,20 @@ fn detour_days_for_sample(policy: &CrossingPolicy, sample: u32) -> u8 {
     }
     let span = u32::from(max.saturating_sub(min)) + 1;
     let offset = sample % span;
-    min.saturating_add(offset as u8)
+    min.saturating_add(u8::try_from(offset).unwrap_or(u8::MAX))
 }
 
 fn bribe_multiplier(policy: &BribePolicy, attempt_index: u32) -> f32 {
     if policy.diminishing_returns <= f32::EPSILON {
         return 1.0;
     }
-    let denom = 1.0 + (attempt_index as f32) * policy.diminishing_returns.max(0.0);
-    denom.recip()
+    let returns = f64::from(policy.diminishing_returns.max(0.0));
+    let attempts = f64::from(attempt_index);
+    let denom = returns.mul_add(attempts, 1.0);
+    #[allow(clippy::cast_precision_loss, clippy::cast_possible_truncation)]
+    {
+        (1.0 / denom) as f32
+    }
 }
 
 fn permit_allows(policy: &CrossingPolicy, kind: CrossingKind) -> bool {
@@ -140,6 +149,7 @@ fn permit_allows(policy: &CrossingPolicy, kind: CrossingKind) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::{DetourPolicy, PermitPolicy};
     use rand::RngCore;
 
     struct StubRng {
@@ -160,7 +170,7 @@ mod tests {
         }
 
         fn next_u64(&mut self) -> u64 {
-            self.next_u32() as u64
+            u64::from(self.next_u32())
         }
 
         fn fill_bytes(&mut self, dest: &mut [u8]) {
@@ -173,12 +183,11 @@ mod tests {
 
     #[test]
     fn crossing_consumes_single_draw() {
-        let policy = {
-            let mut p = CrossingPolicy::default();
-            p.pass = 0.6;
-            p.detour = 0.25;
-            p.terminal = 0.15;
-            p
+        let policy = CrossingPolicy {
+            pass: 0.6,
+            detour: 0.25,
+            terminal: 0.15,
+            ..CrossingPolicy::default()
         };
         let mut rng = StubRng::new(0);
         let ctx = CrossingContext {
@@ -194,12 +203,16 @@ mod tests {
 
     #[test]
     fn permit_disables_terminal() {
-        let mut policy = CrossingPolicy::default();
-        policy.pass = 0.6;
-        policy.detour = 0.25;
-        policy.terminal = 0.15;
-        policy.permit.disable_terminal = true;
-        policy.permit.eligible = vec!["checkpoint".to_string()];
+        let policy = CrossingPolicy {
+            pass: 0.6,
+            detour: 0.25,
+            terminal: 0.15,
+            permit: PermitPolicy {
+                disable_terminal: true,
+                eligible: vec!["checkpoint".to_string()],
+            },
+            ..CrossingPolicy::default()
+        };
 
         let ctx = CrossingContext {
             policy: &policy,
@@ -223,13 +236,18 @@ mod tests {
 
     #[test]
     fn diminishing_returns_apply_to_bribes() {
-        let mut policy = CrossingPolicy::default();
-        policy.pass = 0.6;
-        policy.detour = 0.25;
-        policy.terminal = 0.15;
-        policy.bribe.pass_bonus = 0.3;
-        policy.bribe.terminal_penalty = 0.3;
-        policy.bribe.diminishing_returns = 0.5;
+        let policy = CrossingPolicy {
+            pass: 0.6,
+            detour: 0.25,
+            terminal: 0.15,
+            bribe: BribePolicy {
+                pass_bonus: 0.3,
+                detour_bonus: 0.0,
+                terminal_penalty: 0.3,
+                diminishing_returns: 0.5,
+            },
+            ..CrossingPolicy::default()
+        };
 
         let ctx_first = CrossingContext {
             policy: &policy,
@@ -260,12 +278,13 @@ mod tests {
 
     #[test]
     fn detour_days_cover_span_using_single_sample() {
-        let mut policy = CrossingPolicy::default();
-        policy.pass = 0.0;
-        policy.detour = 1.0;
-        policy.terminal = 0.0;
-        policy.detour_days.min = 2;
-        policy.detour_days.max = 5;
+        let policy = CrossingPolicy {
+            pass: 0.0,
+            detour: 1.0,
+            terminal: 0.0,
+            detour_days: DetourPolicy { min: 2, max: 5 },
+            ..CrossingPolicy::default()
+        };
 
         let ctx = CrossingContext {
             policy: &policy,

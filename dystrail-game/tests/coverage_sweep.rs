@@ -26,7 +26,9 @@ use dystrail_game::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pic
 use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
-use dystrail_game::{JourneyCfg, JourneyController, PolicyId, StrategyId};
+use dystrail_game::{
+    DayRecord, JourneyCfg, JourneyController, PolicyId, StrategyId, compute_day_ledger_metrics,
+};
 use rand::rngs::SmallRng;
 use rand::{Rng, RngCore, SeedableRng};
 use rand_chacha::ChaCha20Rng;
@@ -1032,46 +1034,39 @@ fn crossing_config_thresholds_cover_branches() {
 
 #[test]
 fn day_accounting_transition_matrix_covers_edges() {
-    let mut state = empty_state();
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
-    assert_eq!(kind, TravelDayKind::NonTravel);
-    assert_eq!(state.non_travel_days, 1);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Partial, 1.0);
-    assert_eq!(kind, TravelDayKind::Partial);
-    assert_eq!(state.partial_travel_days, 1);
-    assert_eq!(state.non_travel_days, 0);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 5.0);
-    assert_eq!(kind, TravelDayKind::Travel);
-    assert_eq!(state.travel_days, 1);
-    assert_eq!(state.partial_travel_days, 0);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
-    assert_eq!(kind, TravelDayKind::NonTravel);
-    assert_eq!(state.travel_days, 0);
-    assert_eq!(state.non_travel_days, 1);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 4.0);
-    assert_eq!(kind, TravelDayKind::Travel);
-    assert_eq!(state.travel_days, 1);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::Partial, 1.5);
-    assert_eq!(kind, TravelDayKind::Partial);
-    assert_eq!(state.partial_travel_days, 1);
-
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
-    assert_eq!(kind, TravelDayKind::NonTravel);
-    assert_eq!(state.partial_travel_days, 0);
-    assert_eq!(state.non_travel_days, 1);
+    let records = vec![
+        DayRecord::new(0, TravelDayKind::NonTravel, 0.0),
+        DayRecord::new(1, TravelDayKind::Partial, 1.0),
+        DayRecord::new(2, TravelDayKind::Travel, 5.0),
+        DayRecord::new(3, TravelDayKind::NonTravel, 0.0),
+        DayRecord::new(4, TravelDayKind::Travel, 4.0),
+        DayRecord::new(5, TravelDayKind::Partial, 1.5),
+        DayRecord::new(6, TravelDayKind::NonTravel, 0.0),
+    ];
+    let metrics = compute_day_ledger_metrics(&records);
+    assert_eq!(metrics.non_travel_days, 3);
+    assert_eq!(metrics.partial_days, 2);
+    assert_eq!(metrics.travel_days, 2);
 }
+#[allow(
+    clippy::cast_lossless,
+    clippy::cast_possible_truncation,
+    clippy::cast_sign_loss,
+    clippy::suboptimal_flops
+)]
 fn sample_for(draw: f32) -> u32 {
     let clamped = draw.clamp(0.0, 1.0 - f32::EPSILON);
-    let denom = (u32::MAX as f64) + 1.0;
-    let value = clamped as f64 * denom - 0.5;
-    value.max(0.0) as u32
+    let denom = f64::from(u32::MAX) + 1.0;
+    let value = f64::from(clamped).mul_add(denom, -0.5).max(0.0);
+    value as u32
 }
 
+#[allow(
+    clippy::cast_lossless,
+    clippy::cast_possible_truncation,
+    clippy::cast_sign_loss,
+    clippy::suboptimal_flops
+)]
 fn sample_with_remainder(draw: f32, span: u32, remainder: u32) -> u32 {
     if span == 0 {
         return sample_for(draw);
@@ -1081,13 +1076,13 @@ fn sample_with_remainder(draw: f32, span: u32, remainder: u32) -> u32 {
     let bucket = base / span_u64;
     let rem = u64::from(remainder % span);
     let mut candidate = bucket.saturating_mul(span_u64).saturating_add(rem);
-    if candidate > u32::MAX as u64 && bucket > 0 {
+    if candidate > u64::from(u32::MAX) && bucket > 0 {
         candidate = (bucket - 1)
             .saturating_mul(span_u64)
             .saturating_add(rem)
-            .min(u32::MAX as u64);
+            .min(u64::from(u32::MAX));
     }
-    candidate.min(u32::MAX as u64) as u32
+    u32::try_from(candidate.min(u64::from(u32::MAX))).unwrap_or(u32::MAX)
 }
 
 #[derive(Clone)]
@@ -1102,6 +1097,7 @@ impl FixedRng {
         }
     }
 
+    #[allow(clippy::missing_const_for_fn)]
     fn with_value(value: u32) -> Self {
         Self { value }
     }

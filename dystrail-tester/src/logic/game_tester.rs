@@ -14,7 +14,9 @@ use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::{CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season};
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
 use dystrail_game::weather::{Weather, WeatherConfig};
-use dystrail_game::{DietId, GameMode, GameState, PaceId, PolicyKind, Region};
+use dystrail_game::{
+    DietId, GameMode, GameState, PaceId, PolicyKind, Region, compute_day_ledger_metrics,
+};
 use serde_json;
 
 use crate::logic::policy::GameplayStrategy;
@@ -1023,21 +1025,17 @@ impl PlayabilityMetrics {
             };
         }
 
-        let mut summary = LedgerSummary::default();
+        let metrics = compute_day_ledger_metrics(&state.day_records);
+        let mut summary = LedgerSummary {
+            miles: f64::from(metrics.total_miles),
+            travel_days: metrics.travel_days,
+            partial_days: metrics.partial_days,
+            non_travel_days: metrics.non_travel_days,
+            stop_cap_conversions: 0,
+            total_days: metrics.total_days,
+            reason_history: Vec::with_capacity(metrics.total_days as usize),
+        };
         for record in &state.day_records {
-            summary.total_days = summary.total_days.saturating_add(1);
-            summary.miles += f64::from(record.miles);
-            match record.kind {
-                dystrail_game::TravelDayKind::Travel => {
-                    summary.travel_days = summary.travel_days.saturating_add(1);
-                }
-                dystrail_game::TravelDayKind::Partial => {
-                    summary.partial_days = summary.partial_days.saturating_add(1);
-                }
-                dystrail_game::TravelDayKind::NonTravel => {
-                    summary.non_travel_days = summary.non_travel_days.saturating_add(1);
-                }
-            }
             if record.tags.iter().any(|tag| tag.0.as_str() == "stop_cap") {
                 summary.stop_cap_conversions = summary.stop_cap_conversions.saturating_add(1);
             }
