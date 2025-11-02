@@ -144,6 +144,8 @@ pub struct JourneyCfg {
     pub breakdown: BreakdownConfig,
     #[serde(default)]
     pub part_weights: PartWeights,
+    #[serde(default)]
+    pub crossing: CrossingPolicy,
 }
 
 impl JourneyCfg {
@@ -161,6 +163,7 @@ impl Default for JourneyCfg {
             wear: WearConfig::default(),
             breakdown: BreakdownConfig::default(),
             part_weights: PartWeights::default(),
+            crossing: CrossingPolicy::default(),
         }
     }
 }
@@ -255,6 +258,203 @@ pub struct PartWeightsOverlay {
     pub pump: Option<u32>,
 }
 
+/// Probability and behavior policy for river crossings.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct CrossingPolicy {
+    #[serde(default = "CrossingPolicy::default_pass")]
+    pub pass: f32,
+    #[serde(default = "CrossingPolicy::default_detour")]
+    pub detour: f32,
+    #[serde(default = "CrossingPolicy::default_terminal")]
+    pub terminal: f32,
+    #[serde(default)]
+    pub detour_days: DetourPolicy,
+    #[serde(default)]
+    pub bribe: BribePolicy,
+    #[serde(default)]
+    pub permit: PermitPolicy,
+}
+
+impl CrossingPolicy {
+    const fn default_pass() -> f32 {
+        0.7
+    }
+
+    const fn default_detour() -> f32 {
+        0.2
+    }
+
+    const fn default_terminal() -> f32 {
+        0.1
+    }
+
+    #[must_use]
+    pub fn with_overlay(&self, overlay: &CrossingPolicyOverlay) -> Self {
+        let mut merged = self.clone();
+        if let Some(pass) = overlay.pass {
+            merged.pass = pass;
+        }
+        if let Some(detour) = overlay.detour {
+            merged.detour = detour;
+        }
+        if let Some(terminal) = overlay.terminal {
+            merged.terminal = terminal;
+        }
+        if let Some(detour_days) = overlay.detour_days.as_ref() {
+            merged.detour_days = detour_days.clone();
+        }
+        if let Some(bribe) = overlay.bribe.as_ref() {
+            merged.bribe = bribe.clone();
+        }
+        if let Some(permit) = overlay.permit.as_ref() {
+            merged.permit = permit.clone();
+        }
+        merged
+    }
+
+    pub fn sanitize(&mut self) {
+        let mut pass = self.pass.max(0.0);
+        let mut detour = self.detour.max(0.0);
+        let mut terminal = self.terminal.max(0.0);
+        let total = pass + detour + terminal;
+        if total <= f32::EPSILON {
+            pass = Self::default_pass();
+            detour = Self::default_detour();
+            terminal = Self::default_terminal();
+        }
+        let normalized_total = pass + detour + terminal;
+        self.pass = (pass / normalized_total).clamp(0.0, 1.0);
+        self.detour = (detour / normalized_total).clamp(0.0, 1.0);
+        self.terminal = (terminal / normalized_total).clamp(0.0, 1.0);
+        let renormalized = self.pass + self.detour + self.terminal;
+        if (renormalized - 1.0).abs() > 1e-6 {
+            self.pass /= renormalized;
+            self.detour /= renormalized;
+            self.terminal /= renormalized;
+        }
+        self.detour_days.sanitize();
+        self.bribe.sanitize();
+        self.permit.sanitize();
+    }
+}
+
+impl Default for CrossingPolicy {
+    fn default() -> Self {
+        Self {
+            pass: Self::default_pass(),
+            detour: Self::default_detour(),
+            terminal: Self::default_terminal(),
+            detour_days: DetourPolicy::default(),
+            bribe: BribePolicy::default(),
+            permit: PermitPolicy::default(),
+        }
+    }
+}
+
+/// Detour duration policy.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct DetourPolicy {
+    #[serde(default = "DetourPolicy::default_min")]
+    pub min: u8,
+    #[serde(default = "DetourPolicy::default_max")]
+    pub max: u8,
+}
+
+impl DetourPolicy {
+    const fn default_min() -> u8 {
+        1
+    }
+
+    const fn default_max() -> u8 {
+        3
+    }
+
+    fn sanitize(&mut self) {
+        if self.min == 0 {
+            self.min = 1;
+        }
+        if self.max < self.min {
+            self.max = self.min;
+        }
+    }
+}
+
+impl Default for DetourPolicy {
+    fn default() -> Self {
+        Self {
+            min: Self::default_min(),
+            max: Self::default_max(),
+        }
+    }
+}
+
+/// Bribe probability adjustments.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct BribePolicy {
+    #[serde(default)]
+    pub pass_bonus: f32,
+    #[serde(default)]
+    pub detour_bonus: f32,
+    #[serde(default)]
+    pub terminal_penalty: f32,
+    #[serde(default = "BribePolicy::default_diminishing")]
+    pub diminishing_returns: f32,
+}
+
+impl BribePolicy {
+    const fn default_diminishing() -> f32 {
+        0.5
+    }
+
+    fn sanitize(&mut self) {
+        self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
+        self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
+        self.terminal_penalty = self.terminal_penalty.clamp(-0.9, 0.9);
+        self.diminishing_returns = self.diminishing_returns.clamp(0.0, 1.0);
+    }
+}
+
+impl Default for BribePolicy {
+    fn default() -> Self {
+        Self {
+            pass_bonus: 0.0,
+            detour_bonus: 0.0,
+            terminal_penalty: 0.0,
+            diminishing_returns: Self::default_diminishing(),
+        }
+    }
+}
+
+/// Permit adjustments controlling terminal outcomes.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct PermitPolicy {
+    #[serde(default)]
+    pub disable_terminal: bool,
+    #[serde(default)]
+    pub eligible: Vec<String>,
+}
+
+impl PermitPolicy {
+    fn sanitize(&mut self) {
+        self.eligible.sort();
+        self.eligible.dedup();
+    }
+}
+
+/// Overlay for crossing policy tweaks.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct CrossingPolicyOverlay {
+    pub pass: Option<f32>,
+    pub detour: Option<f32>,
+    pub terminal: Option<f32>,
+    #[serde(default)]
+    pub detour_days: Option<DetourPolicy>,
+    #[serde(default)]
+    pub bribe: Option<BribePolicy>,
+    #[serde(default)]
+    pub permit: Option<PermitPolicy>,
+}
+
 /// Strategy overlay containing policy adjustments.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
@@ -268,6 +468,8 @@ pub struct JourneyOverlay {
     pub breakdown: Option<BreakdownConfigOverlay>,
     #[serde(default)]
     pub part_weights: Option<PartWeightsOverlay>,
+    #[serde(default)]
+    pub crossing: Option<CrossingPolicyOverlay>,
 }
 
 impl JourneyCfg {
@@ -289,6 +491,9 @@ impl JourneyCfg {
         }
         if let Some(part_overlay) = overlay.part_weights.as_ref() {
             merged.part_weights = merged.part_weights.with_overlay(part_overlay);
+        }
+        if let Some(crossing_overlay) = overlay.crossing.as_ref() {
+            merged.crossing = merged.crossing.with_overlay(crossing_overlay);
         }
         merged
     }
@@ -543,6 +748,7 @@ impl PolicyCatalog {
             base
         };
         resolved.travel.sanitize();
+        resolved.crossing.sanitize();
         resolved
     }
 
@@ -815,6 +1021,7 @@ impl JourneyController {
                 .or_insert(default);
             *entry = entry.max(0.0);
         }
+        resolved_cfg.crossing.sanitize();
         Self {
             policy,
             strategy,
@@ -854,6 +1061,7 @@ impl JourneyController {
         state.journey_wear = self.cfg.wear.clone();
         state.journey_breakdown = self.cfg.breakdown.clone();
         state.journey_part_weights = self.cfg.part_weights.clone();
+        state.journey_crossing = self.cfg.crossing.clone();
         {
             let travel_rng = self.rng.travel();
             let _ = travel_rng.draws();

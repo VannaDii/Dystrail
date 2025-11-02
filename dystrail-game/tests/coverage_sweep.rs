@@ -3,7 +3,7 @@ use dystrail_game::TravelDayKind;
 use dystrail_game::boss::{BossConfig, BossOutcome, run_boss_minigame};
 use dystrail_game::camp::{self, CampConfig, CampState, RestConfig};
 use dystrail_game::crossings::{
-    CrossingConfig, CrossingKind, CrossingOutcome, CrossingResult, apply_bribe, apply_detour,
+    CrossingConfig, CrossingContext, CrossingKind, CrossingResult, apply_bribe, apply_detour,
     apply_permit, resolve_crossing,
 };
 use dystrail_game::data::EncounterData;
@@ -28,7 +28,7 @@ use dystrail_game::weather::{
 };
 use dystrail_game::{JourneyCfg, JourneyController, PolicyId, StrategyId};
 use rand::rngs::SmallRng;
-use rand::{Rng, SeedableRng};
+use rand::{Rng, RngCore, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use std::cell::RefCell;
 use std::collections::{HashMap, VecDeque};
@@ -78,32 +78,22 @@ fn rng_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
     panic!("unable to locate deterministic rng seed");
 }
 
-fn crossing_seed_for<F>(
-    has_permit: bool,
-    bribe: bool,
-    crossing_ix: u32,
-    day_ix: u32,
-    predicate: F,
-) -> u64
-where
-    F: Fn(CrossingOutcome) -> bool,
-{
-    for seed in 0..50_000u64 {
-        let mut rng = SmallRng::seed_from_u64(seed);
-        let outcome = resolve_crossing(
-            PolicyKind::Balanced,
-            GameMode::Deep,
-            has_permit,
-            bribe,
-            crossing_ix,
-            day_ix,
-            &mut rng,
-        );
-        if predicate(outcome) {
-            return seed;
-        }
-    }
-    panic!("unable to find deterministic crossing seed");
+fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
+    let policy_id = if mode.is_deep() {
+        PolicyId::Deep
+    } else {
+        PolicyId::Classic
+    };
+    let strategy = match policy {
+        PolicyKind::Balanced => StrategyId::Balanced,
+        PolicyKind::Aggressive => StrategyId::Aggressive,
+        PolicyKind::Conservative => StrategyId::Conservative,
+        PolicyKind::ResourceManager => StrategyId::ResourceManager,
+        PolicyKind::MonteCarlo => StrategyId::MonteCarlo,
+    };
+    JourneyController::new(policy_id, strategy, 0)
+        .config()
+        .clone()
 }
 
 #[test]
@@ -736,65 +726,53 @@ fn state_apply_choice_handles_missing_encounter() {
 fn crossing_resolution_covers_branches() {
     let cfg = load_crossing_config();
 
-    let mut rng = ChaCha20Rng::seed_from_u64(0);
-    let permit = resolve_crossing(
-        PolicyKind::Balanced,
-        GameMode::Classic,
-        true,
-        false,
-        0,
-        0,
-        &mut rng,
-    );
+    let classic_crossing = journey_cfg_for(PolicyKind::Balanced, GameMode::Classic).crossing;
+    let mut permit_rng = FixedRng::with_draw(0.1);
+    let permit_ctx = CrossingContext {
+        policy: &classic_crossing,
+        kind: CrossingKind::Checkpoint,
+        has_permit: true,
+        bribe_intent: false,
+        prior_bribe_attempts: 0,
+    };
+    let permit = resolve_crossing(permit_ctx, &mut permit_rng);
     assert!(permit.used_permit);
     assert!(matches!(permit.result, CrossingResult::Pass));
 
-    let detour_seed = crossing_seed_for(false, false, 1, 7, |outcome| {
-        matches!(outcome.result, CrossingResult::Detour(_))
-    });
-    let mut rng = SmallRng::seed_from_u64(detour_seed);
-    let detour = resolve_crossing(
-        PolicyKind::Balanced,
-        GameMode::Deep,
-        false,
-        false,
-        1,
-        7,
-        &mut rng,
-    );
+    let deep_balanced = journey_cfg_for(PolicyKind::Balanced, GameMode::Deep).crossing;
+    let mut detour_rng = FixedRng::with_draw(0.78);
+    let detour_ctx = CrossingContext {
+        policy: &deep_balanced,
+        kind: CrossingKind::BridgeOut,
+        has_permit: false,
+        bribe_intent: false,
+        prior_bribe_attempts: 0,
+    };
+    let detour = resolve_crossing(detour_ctx, &mut detour_rng);
     assert!(matches!(detour.result, CrossingResult::Detour(_)));
 
-    let bribe_seed = crossing_seed_for(false, true, 2, 9, |outcome| {
-        outcome.bribe_succeeded && matches!(outcome.result, CrossingResult::Pass)
-    });
-    let mut rng = SmallRng::seed_from_u64(bribe_seed);
-    let bribe_outcome = resolve_crossing(
-        PolicyKind::Aggressive,
-        GameMode::Deep,
-        false,
-        true,
-        2,
-        9,
-        &mut rng,
-    );
+    let deep_aggressive = journey_cfg_for(PolicyKind::Aggressive, GameMode::Deep).crossing;
+    let mut bribe_rng = FixedRng::with_draw(0.05);
+    let bribe_ctx = CrossingContext {
+        policy: &deep_aggressive,
+        kind: CrossingKind::BridgeOut,
+        has_permit: false,
+        bribe_intent: true,
+        prior_bribe_attempts: 0,
+    };
+    let bribe_outcome = resolve_crossing(bribe_ctx, &mut bribe_rng);
     assert!(bribe_outcome.bribe_attempted);
     assert!(bribe_outcome.bribe_succeeded);
 
-    let fail_seed = crossing_seed_for(false, true, 3, 11, |outcome| {
-        outcome.bribe_attempted
-            && !outcome.bribe_succeeded
-            && matches!(outcome.result, CrossingResult::TerminalFail)
-    });
-    let mut rng = SmallRng::seed_from_u64(fail_seed);
-    let fail_outcome = resolve_crossing(
-        PolicyKind::Balanced,
-        GameMode::Deep,
-        false,
-        true,
-        3,
-        11,
-        &mut rng,
-    );
+    let mut fail_rng = FixedRng::with_draw(0.99);
+    let fail_ctx = CrossingContext {
+        policy: &deep_balanced,
+        kind: CrossingKind::BridgeOut,
+        has_permit: false,
+        bribe_intent: true,
+        prior_bribe_attempts: 0,
+    };
+    let fail_outcome = resolve_crossing(fail_ctx, &mut fail_rng);
     assert!(fail_outcome.bribe_attempted);
     assert!(!fail_outcome.bribe_succeeded);
 
@@ -1016,24 +994,40 @@ fn crossing_config_thresholds_cover_branches() {
     ));
     assert!(dystrail_game::crossings::calculate_bribe_cost(1_000, 25) < 1_000);
 
-    let detour_four_seed = crossing_seed_for(
-        false,
-        false,
-        4,
-        88,
-        |outcome| matches!(outcome.result, CrossingResult::Detour(days) if days == 4),
+    let cfg = journey_cfg_for(PolicyKind::Balanced, GameMode::Deep);
+    let span = u32::from(
+        cfg.crossing
+            .detour_days
+            .max
+            .saturating_sub(cfg.crossing.detour_days.min),
+    ) + 1;
+    let remainder = span.saturating_sub(1);
+    let mut detour_policy = cfg.crossing.clone();
+    detour_policy.pass = 0.0;
+    detour_policy.detour = 1.0;
+    detour_policy.terminal = 0.0;
+    detour_policy.sanitize();
+    let sample = if span > 0 {
+        sample_with_remainder(0.9, span, remainder)
+    } else {
+        sample_for(0.9)
+    };
+    let mut rng = FixedRng::with_value(sample);
+    let detour_ctx = CrossingContext {
+        policy: &detour_policy,
+        kind: CrossingKind::BridgeOut,
+        has_permit: false,
+        bribe_intent: false,
+        prior_bribe_attempts: 0,
+    };
+    let detour_outcome = resolve_crossing(detour_ctx, &mut rng);
+    assert!(
+        matches!(
+            detour_outcome.result,
+            CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max
+        ),
+        "expected detour days to reach configured maximum"
     );
-    let mut rng = SmallRng::seed_from_u64(detour_four_seed);
-    let detour_outcome = resolve_crossing(
-        PolicyKind::Balanced,
-        GameMode::Deep,
-        false,
-        false,
-        4,
-        88,
-        &mut rng,
-    );
-    assert!(matches!(detour_outcome.result, CrossingResult::Detour(4)));
 }
 
 #[test]
@@ -1070,4 +1064,62 @@ fn day_accounting_transition_matrix_covers_edges() {
     assert_eq!(kind, TravelDayKind::NonTravel);
     assert_eq!(state.partial_travel_days, 0);
     assert_eq!(state.non_travel_days, 1);
+}
+fn sample_for(draw: f32) -> u32 {
+    let clamped = draw.clamp(0.0, 1.0 - f32::EPSILON);
+    let denom = (u32::MAX as f64) + 1.0;
+    let value = clamped as f64 * denom - 0.5;
+    value.max(0.0) as u32
+}
+
+fn sample_with_remainder(draw: f32, span: u32, remainder: u32) -> u32 {
+    if span == 0 {
+        return sample_for(draw);
+    }
+    let span_u64 = u64::from(span);
+    let base = u64::from(sample_for(draw));
+    let bucket = base / span_u64;
+    let rem = u64::from(remainder % span);
+    let mut candidate = bucket.saturating_mul(span_u64).saturating_add(rem);
+    if candidate > u32::MAX as u64 && bucket > 0 {
+        candidate = (bucket - 1)
+            .saturating_mul(span_u64)
+            .saturating_add(rem)
+            .min(u32::MAX as u64);
+    }
+    candidate.min(u32::MAX as u64) as u32
+}
+
+#[derive(Clone)]
+struct FixedRng {
+    value: u32,
+}
+
+impl FixedRng {
+    fn with_draw(draw: f32) -> Self {
+        Self {
+            value: sample_for(draw),
+        }
+    }
+
+    fn with_value(value: u32) -> Self {
+        Self { value }
+    }
+}
+
+impl RngCore for FixedRng {
+    fn next_u32(&mut self) -> u32 {
+        self.value
+    }
+
+    fn next_u64(&mut self) -> u64 {
+        u64::from(self.value)
+    }
+
+    fn fill_bytes(&mut self, dest: &mut [u8]) {
+        let bytes = self.value.to_le_bytes();
+        for (idx, slot) in dest.iter_mut().enumerate() {
+            *slot = bytes[idx % bytes.len()];
+        }
+    }
 }

@@ -43,5 +43,26 @@
     "battery": 24,
     "alt": 20,
     "pump": 16
+  },
+  "crossing": {
+    "pass": 0.68,
+    "detour": 0.16,
+    "terminal": 0.16,
+    "detour_days": {
+      "min": 1,
+      "max": 4
+    },
+    "bribe": {
+      "pass_bonus": 0.14,
+      "detour_bonus": 0.02,
+      "terminal_penalty": 0.16,
+      "diminishing_returns": 0.45
+    },
+    "permit": {
+      "disable_terminal": true,
+      "eligible": [
+        "checkpoint"
+      ]
+    }
   }
 }

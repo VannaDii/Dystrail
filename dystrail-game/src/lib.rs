@@ -36,8 +36,9 @@ pub use crossings::{
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use journey::{
-    DayOutcome, DayRecord, DayTag, DayTagSet, JourneyCfg, JourneyController, PolicyId, RngBundle,
-    StrategyId, TravelDayKind,
+    BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DayOutcome, DayRecord, DayTag, DayTagSet,
+    DetourPolicy, JourneyCfg, JourneyController, PermitPolicy, PolicyId, RngBundle, StrategyId,
+    TravelDayKind,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};

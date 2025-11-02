@@ -11,15 +11,15 @@ use std::str::FromStr;
 use crate::camp::CampState;
 #[allow(clippy::wildcard_imports)]
 use crate::constants::*;
-use crate::crossings::{self, CrossingConfig, CrossingKind};
+use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting;
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
-    BreakdownConfig, CountingRng, DayRecord, DayTag, JourneyCfg, RngBundle, TravelConfig,
-    TravelDayKind, WearConfig,
+    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, JourneyCfg, RngBundle,
+    TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -1600,6 +1600,8 @@ pub struct GameState {
     pub journey_breakdown: BreakdownConfig,
     #[serde(default)]
     pub journey_part_weights: PartWeights,
+    #[serde(default)]
+    pub journey_crossing: CrossingPolicy,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     #[serde(default)]
@@ -1764,6 +1766,7 @@ impl Default for GameState {
             journey_wear: WearConfig::default(),
             journey_breakdown: BreakdownConfig::default(),
             journey_part_weights: PartWeights::default(),
+            journey_crossing: CrossingPolicy::default(),
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             encounters_resolved: 0,
@@ -1930,7 +1933,7 @@ impl GameState {
     }
 
     const fn current_version() -> u16 {
-        2
+        3
     }
 
     pub(crate) fn start_of_day(&mut self) {
@@ -3151,29 +3154,20 @@ impl GameState {
         let has_permit = crossings::can_use_permit(self, &kind);
         let bribe_offered = !has_permit && crossings::can_afford_bribe(self, &cfg, kind);
 
+        let ctx = CrossingContext {
+            policy: &self.journey_crossing,
+            kind,
+            has_permit,
+            bribe_intent: bribe_offered,
+            prior_bribe_attempts: self.crossing_bribe_attempts,
+        };
         let resolved = if let Some(mut rng) = self.crossing_rng() {
-            crossings::resolve_crossing(
-                self.policy.unwrap_or_default(),
-                self.mode,
-                has_permit,
-                bribe_offered,
-                u32::try_from(next_idx).unwrap_or(u32::MAX),
-                self.day,
-                &mut *rng,
-            )
+            crossings::resolve_crossing(ctx, &mut *rng)
         } else {
             let seed_mix =
                 self.seed ^ (u64::try_from(next_idx).unwrap_or(0) << 32) ^ u64::from(self.day);
             let mut fallback = SmallRng::seed_from_u64(seed_mix);
-            crossings::resolve_crossing(
-                self.policy.unwrap_or_default(),
-                self.mode,
-                has_permit,
-                bribe_offered,
-                u32::try_from(next_idx).unwrap_or(u32::MAX),
-                self.day,
-                &mut fallback,
-            )
+            crossings::resolve_crossing(ctx, &mut fallback)
         };
 
         let mut telemetry = CrossingTelemetry::new(self.day, self.region, self.season, kind);
@@ -3278,6 +3272,7 @@ impl GameState {
         self.journey_wear = WearConfig::default();
         self.journey_breakdown = BreakdownConfig::default();
         self.journey_part_weights = PartWeights::default();
+        self.journey_crossing = CrossingPolicy::default();
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -3310,6 +3305,7 @@ impl GameState {
         }
         self.journey_partial_ratio = self.journey_partial_ratio.clamp(0.2, 0.95);
         self.journey_travel.sanitize();
+        self.journey_crossing.sanitize();
         self.recompute_day_counters();
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
