@@ -11,7 +11,7 @@ use std::sync::OnceLock;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
-use crate::state::{PaceId, PolicyKind};
+use crate::state::{GameMode, PaceId, PolicyKind};
 use crate::vehicle::PartWeights;
 use crate::weather::Weather;
 
@@ -120,6 +120,15 @@ impl From<PolicyKind> for PolicyId {
     }
 }
 
+impl From<GameMode> for PolicyId {
+    fn from(mode: GameMode) -> Self {
+        match mode {
+            GameMode::Classic => Self::Classic,
+            GameMode::Deep => Self::Deep,
+        }
+    }
+}
+
 /// Strategy overlay placeholder.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -129,6 +138,30 @@ pub enum StrategyId {
     Conservative,
     ResourceManager,
     MonteCarlo,
+}
+
+impl From<StrategyId> for PolicyKind {
+    fn from(value: StrategyId) -> Self {
+        match value {
+            StrategyId::Balanced => Self::Balanced,
+            StrategyId::Aggressive => Self::Aggressive,
+            StrategyId::Conservative => Self::Conservative,
+            StrategyId::ResourceManager => Self::ResourceManager,
+            StrategyId::MonteCarlo => Self::MonteCarlo,
+        }
+    }
+}
+
+impl From<PolicyKind> for StrategyId {
+    fn from(value: PolicyKind) -> Self {
+        match value {
+            PolicyKind::Balanced => Self::Balanced,
+            PolicyKind::Aggressive => Self::Aggressive,
+            PolicyKind::Conservative => Self::Conservative,
+            PolicyKind::ResourceManager => Self::ResourceManager,
+            PolicyKind::MonteCarlo => Self::MonteCarlo,
+        }
+    }
 }
 
 /// Minimal journey configuration scaffold.
@@ -1048,6 +1081,17 @@ impl JourneyController {
     #[must_use]
     pub const fn config(&self) -> &JourneyCfg {
         &self.cfg
+    }
+
+    /// Expose the shared RNG bundle for session initialization.
+    #[must_use]
+    pub fn rng_bundle(&self) -> Rc<RngBundle> {
+        self.rng.clone()
+    }
+
+    /// Override the controller's endgame travel configuration.
+    pub fn set_endgame_config(&mut self, cfg: EndgameTravelCfg) {
+        self.endgame_cfg = cfg;
     }
 
     /// Deterministically reseed controller-owned RNGs.

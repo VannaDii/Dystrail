@@ -6,7 +6,7 @@ use crate::game::pacing::PacingConfig;
 use crate::game::seed::{decode_to_seed, encode_friendly, generate_code_from_entropy};
 use crate::game::state::{DietId, GameMode, GameState, PaceId, Region};
 use crate::game::weather::WeatherConfig;
-use crate::game::{ResultConfig, load_result_config};
+use crate::game::{JourneyController, PolicyId, ResultConfig, StrategyId, load_result_config};
 use crate::i18n;
 use crate::routes::Route;
 use std::rc::Rc;
@@ -31,6 +31,29 @@ fn is_seed_code_valid(code: &str) -> bool {
     regex::Regex::new(r"^(CL|DP)-[A-Z0-9]+\d{2}$")
         .map(|re| re.is_match(code))
         .unwrap_or(false)
+}
+
+const fn default_strategy_for(mode: GameMode) -> StrategyId {
+    match mode {
+        GameMode::Classic | GameMode::Deep => StrategyId::Balanced,
+    }
+}
+
+fn strategy_for_state(state: &GameState) -> StrategyId {
+    state
+        .policy
+        .map_or_else(|| default_strategy_for(state.mode), StrategyId::from)
+}
+
+fn instantiate_controller_for_state(
+    state: &mut GameState,
+    strategy: StrategyId,
+) -> JourneyController {
+    let policy = PolicyId::from(state.mode);
+    let controller = JourneyController::new(policy, strategy, state.seed);
+    state.policy = Some(strategy.into());
+    state.attach_rng_bundle(controller.rng_bundle());
+    controller
 }
 
 /// Main application component providing browser routing
@@ -59,6 +82,7 @@ pub fn app_inner() -> Html {
     let boss_config = use_state(BossConfig::load_from_static);
     let result_config = use_state(ResultConfig::default);
     let state = use_state(|| None::<GameState>);
+    let controller = use_state(|| None::<JourneyController>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
     let run_seed = use_state(|| 0_u64);
@@ -106,7 +130,7 @@ pub fn app_inner() -> Html {
         let phase = phase.clone();
         let data = data.clone();
         let pacing_config = pacing_config.clone();
-        let endgame_config = endgame_config.clone();
+        let endgame_config = endgame_config;
         let weather_config = weather_config;
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
@@ -166,24 +190,32 @@ pub fn app_inner() -> Html {
         let logs = logs.clone();
         let phase = phase.clone();
         let pacing_cfg = (*pacing_config).clone();
-        let endgame_cfg = (*endgame_config).clone();
+        let controller_handle = controller.clone();
         Callback::from(move |()| {
-            if let Some(mut gs) = (*state).clone() {
-                // Apply pace and diet effects before traveling
-                gs.apply_pace_and_diet(&pacing_cfg);
-                let (ended, info_key, _) = gs.travel_next_leg(&endgame_cfg);
-                let mut lg = (*logs).clone();
-                lg.push(crate::i18n::t(&info_key));
-                if ended || gs.stats.pants >= 100 {
-                    phase.set(Phase::Result);
-                } else if gs.current_encounter.is_some() {
-                    phase.set(Phase::Encounter);
-                } else if matches!(gs.region, Region::Beltway) && gs.day > 12 {
-                    phase.set(Phase::Boss);
-                }
-                logs.set(lg);
-                state.set(Some(gs));
+            let Some(mut gs) = (*state).clone() else {
+                return;
+            };
+            let mut ctrl = (*controller_handle).clone().unwrap_or_else(|| {
+                let strategy = strategy_for_state(&gs);
+                instantiate_controller_for_state(&mut gs, strategy)
+            });
+
+            gs.apply_pace_and_diet(&pacing_cfg);
+            let outcome = ctrl.tick_day(&mut gs);
+
+            let mut lg = (*logs).clone();
+            lg.push(crate::i18n::t(&outcome.log_key));
+            if outcome.ended || gs.stats.pants >= 100 {
+                phase.set(Phase::Result);
+            } else if gs.current_encounter.is_some() {
+                phase.set(Phase::Encounter);
+            } else if matches!(gs.region, Region::Beltway) && gs.day > 12 {
+                phase.set(Phase::Boss);
             }
+
+            logs.set(lg);
+            controller_handle.set(Some(ctrl));
+            state.set(Some(gs));
         })
     };
 
@@ -280,10 +312,14 @@ pub fn app_inner() -> Html {
         let logs_handle = logs.clone();
         let phase_handle = phase.clone();
         let run_seed_handle = run_seed.clone();
+        let controller_handle = controller.clone();
         Callback::from(move |()| {
             if let Some(mut gs) = GameState::load() {
                 gs = gs.rehydrate((*data_handle).clone());
+                let strategy = strategy_for_state(&gs);
+                let ctrl = instantiate_controller_for_state(&mut gs, strategy);
                 run_seed_handle.set(gs.seed);
+                controller_handle.set(Some(ctrl));
                 state_handle.set(Some(gs));
                 let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.loaded"));
@@ -315,10 +351,14 @@ pub fn app_inner() -> Html {
         let logs_handle = logs.clone();
         let run_seed_handle = run_seed.clone();
         let phase_handle = phase.clone();
+        let controller_handle = controller.clone();
         Callback::from(move |txt: String| {
             if let Ok(mut gs) = serde_json::from_str::<GameState>(&txt) {
                 gs = gs.rehydrate((*data_handle).clone());
+                let strategy = strategy_for_state(&gs);
+                let ctrl = instantiate_controller_for_state(&mut gs, strategy);
                 run_seed_handle.set(gs.seed);
+                controller_handle.set(Some(ctrl));
                 state_handle.set(Some(gs));
                 let mut l = (*logs_handle).clone();
                 l.push(i18n::t("save.loaded"));
@@ -414,6 +454,7 @@ pub fn app_inner() -> Html {
                 let logs = logs.clone();
                 let data = data.clone();
                 let run_seed = run_seed.clone();
+                let controller_handle = controller.clone();
                 move || {
                     if let Some((is_deep, seed)) = decode_to_seed(&code) {
                         let mode = if is_deep {
@@ -422,7 +463,9 @@ pub fn app_inner() -> Html {
                             GameMode::Classic
                         };
                         let base = (*state).clone().unwrap_or_default();
-                        let gs = base.with_seed(seed, mode, (*data).clone());
+                        let mut gs = base.with_seed(seed, mode, (*data).clone());
+                        let strategy = default_strategy_for(mode);
+                        let ctrl = instantiate_controller_for_state(&mut gs, strategy);
                         let mode_label = if is_deep {
                             crate::i18n::t("mode.deep")
                         } else {
@@ -431,6 +474,7 @@ pub fn app_inner() -> Html {
                         let mut m = std::collections::HashMap::new();
                         m.insert("mode", mode_label.as_str());
                         logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                        controller_handle.set(Some(ctrl));
                         state.set(Some(gs));
                         run_seed.set(seed);
                         phase.set(Phase::Travel);
@@ -440,11 +484,14 @@ pub fn app_inner() -> Html {
                         code.set(new_code.clone().into());
                         if let Some((_, seed)) = decode_to_seed(&new_code) {
                             let base = (*state).clone().unwrap_or_default();
-                            let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
+                            let mut gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
+                            let strategy = default_strategy_for(GameMode::Classic);
+                            let ctrl = instantiate_controller_for_state(&mut gs, strategy);
                             let mode_label = crate::i18n::t("mode.classic");
                             let mut m = std::collections::HashMap::new();
                             m.insert("mode", mode_label.as_str());
                             logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                            controller_handle.set(Some(ctrl));
                             state.set(Some(gs));
                             run_seed.set(seed);
                             phase.set(Phase::Travel);
@@ -664,6 +711,7 @@ pub fn app_inner() -> Html {
                 let result_config_data = (*result_config).clone();
                 let boss_won = gs.boss_victory;
 
+                let controller_for_replay = controller.clone();
                 let on_replay_seed = {
                     let seed = *run_seed;
                     let state = state.clone();
@@ -673,20 +721,25 @@ pub fn app_inner() -> Html {
                             seed,
                             ..GameState::default()
                         };
+                        controller_for_replay.set(None);
                         state.set(Some(new_game));
                     })
                 };
 
+                let controller_for_new_run = controller.clone();
                 let on_new_run = {
                     let state = state.clone();
                     Callback::from(move |()| {
+                        controller_for_new_run.set(None);
                         state.set(Some(GameState::default()));
                     })
                 };
 
+                let controller_for_title = controller;
                 let on_title = {
                     let phase = phase.clone();
                     Callback::from(move |()| {
+                        controller_for_title.set(None);
                         phase.set(Phase::Boot);
                     })
                 };

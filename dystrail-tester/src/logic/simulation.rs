@@ -2,7 +2,7 @@ use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
-use dystrail_game::{GameMode, GameState, PaceId};
+use dystrail_game::{GameMode, GameState, JourneyController, PaceId, PolicyId, StrategyId};
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
 
@@ -58,17 +58,27 @@ pub struct TurnOutcome {
     pub miles_traveled_actual: f32,
 }
 
+const fn strategy_id_for(strategy: GameplayStrategy) -> StrategyId {
+    match strategy {
+        GameplayStrategy::Balanced => StrategyId::Balanced,
+        GameplayStrategy::Aggressive => StrategyId::Aggressive,
+        GameplayStrategy::Conservative => StrategyId::Conservative,
+        GameplayStrategy::ResourceManager => StrategyId::ResourceManager,
+        GameplayStrategy::MonteCarlo => StrategyId::MonteCarlo,
+    }
+}
+
 /// Core deterministic simulation harness used by the tester.
 pub struct SimulationSession {
     state: GameState,
     pacing_config: PacingConfig,
     camp_config: CampConfig,
-    endgame_config: EndgameTravelCfg,
     boss_config: BossConfig,
     max_days: u32,
     strategy: GameplayStrategy,
     conservative_heat_days: u32,
     aggressive_heat_days: u32,
+    controller: JourneyController,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -88,16 +98,22 @@ impl SimulationSession {
     ) -> Self {
         let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
         state.trail_distance = boss_config.distance_required;
+        let strategy_id = strategy_id_for(config.strategy);
+        let mut controller =
+            JourneyController::new(PolicyId::from(config.mode), strategy_id, config.seed);
+        controller.set_endgame_config(endgame_config);
+        state.policy = Some(strategy_id.into());
+        state.attach_rng_bundle(controller.rng_bundle());
         Self {
             state,
             pacing_config,
             camp_config,
-            endgame_config,
             boss_config,
             max_days: config.max_days,
             strategy: config.strategy,
             conservative_heat_days: 0,
             aggressive_heat_days: 0,
+            controller,
         }
     }
 
@@ -200,8 +216,10 @@ impl SimulationSession {
             self.state.apply_choice(safe_index);
         }
 
-        let (mut game_ended, mut travel_message, breakdown_started) =
-            self.state.travel_next_leg(&self.endgame_config);
+        let outcome = self.controller.tick_day(&mut self.state);
+        let mut game_ended = outcome.ended;
+        let mut travel_message = outcome.log_key.clone();
+        let breakdown_started = outcome.breakdown_started;
         if !game_ended && self.state.day >= self.max_days {
             game_ended = true;
             travel_message = String::from("Max days reached");
