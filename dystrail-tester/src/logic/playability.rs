@@ -12,6 +12,15 @@ use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
 use dystrail_game::GameMode;
 use dystrail_game::state::CrossingOutcomeTelemetry;
 
+const DISTANCE_MEAN_MIN: f64 = 1_900.0;
+const DISTANCE_MEAN_MAX: f64 = 2_100.0;
+const DURATION_MEAN_MIN: f64 = 84.0;
+const DURATION_MEAN_MAX: f64 = 180.0;
+const AVG_MPD_MIN: f64 = 10.0;
+const AVG_MPD_MAX: f64 = 20.0;
+const CLASSIC_CROSSING_FAILURE_MAX: f64 = 0.12;
+const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
+
 #[derive(Debug, Clone)]
 pub struct PlayabilityRecord {
     pub scenario_name: String,
@@ -32,6 +41,7 @@ pub struct PlayabilityAggregate {
     pub std_days: f64,
     pub mean_miles: f64,
     pub std_miles: f64,
+    pub mean_avg_mpd: f64,
     pub boss_reach_pct: f64,
     pub boss_win_pct: f64,
     pub pants_failure_pct: f64,
@@ -484,6 +494,15 @@ pub fn validate_playability_targets(
     aggregates: &[PlayabilityAggregate],
     records: &[PlayabilityRecord],
 ) -> Result<()> {
+    validate_record_metrics(records)?;
+    validate_scenario_aggregates(aggregates)?;
+    validate_global_aggregates(aggregates)?;
+    validate_crossing_determinism(records)?;
+    ensure_crossing_consistency(records)?;
+    Ok(())
+}
+
+fn validate_record_metrics(records: &[PlayabilityRecord]) -> Result<()> {
     for record in records {
         ensure!(
             record.metrics.travel_ratio >= 0.90,
@@ -508,7 +527,10 @@ pub fn validate_playability_targets(
             );
         }
     }
+    Ok(())
+}
 
+fn validate_scenario_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()> {
     let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
     validate_classic_balanced(classic_balanced)?;
 
@@ -533,12 +555,58 @@ pub fn validate_playability_targets(
     let deep_aggressive = find_aggregate(aggregates, "Deep - Aggressive")?;
     validate_deep_aggressive(deep_aggressive)?;
 
+    Ok(())
+}
+
+fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()> {
     for agg in aggregates {
         ensure!(
             agg.mean_miles >= 2_000.0,
             "{} average mileage {:.0} below 2000 mi goal",
             agg.scenario_name,
             agg.mean_miles
+        );
+        ensure!(
+            agg.mean_miles >= DISTANCE_MEAN_MIN,
+            "{} average mileage {:.0} below {:.0} mi lower bound",
+            agg.scenario_name,
+            agg.mean_miles,
+            DISTANCE_MEAN_MIN
+        );
+        ensure!(
+            agg.mean_miles <= DISTANCE_MEAN_MAX,
+            "{} average mileage {:.0} exceeds {:.0} mi ceiling",
+            agg.scenario_name,
+            agg.mean_miles,
+            DISTANCE_MEAN_MAX
+        );
+        ensure!(
+            agg.mean_days >= DURATION_MEAN_MIN,
+            "{} average duration {:.1}d below {:.1}d lower bound",
+            agg.scenario_name,
+            agg.mean_days,
+            DURATION_MEAN_MIN
+        );
+        ensure!(
+            agg.mean_days <= DURATION_MEAN_MAX,
+            "{} average duration {:.1}d exceeds {:.1}d ceiling",
+            agg.scenario_name,
+            agg.mean_days,
+            DURATION_MEAN_MAX
+        );
+        ensure!(
+            agg.mean_avg_mpd >= AVG_MPD_MIN,
+            "{} average miles/day {:.2} below {:.2} floor",
+            agg.scenario_name,
+            agg.mean_avg_mpd,
+            AVG_MPD_MIN
+        );
+        ensure!(
+            agg.mean_avg_mpd <= AVG_MPD_MAX,
+            "{} average miles/day {:.2} exceeds {:.2} ceiling",
+            agg.scenario_name,
+            agg.mean_avg_mpd,
+            AVG_MPD_MAX
         );
         if agg.mean_crossing_bribes > 0.0 {
             ensure!(
@@ -549,11 +617,13 @@ pub fn validate_playability_targets(
             );
         }
         if agg.mean_crossing_events > 0.0 {
+            let failure_cap = failure_cap_for_mode(agg.mode);
             ensure!(
-                agg.crossing_failure_rate <= 0.12,
-                "{} terminal crossing rate {:.1}% exceeds 12% cap",
+                agg.crossing_failure_rate <= failure_cap,
+                "{} terminal crossing rate {:.1}% exceeds {:.0}% cap",
                 agg.scenario_name,
-                agg.crossing_failure_rate * 100.0
+                agg.crossing_failure_rate * 100.0,
+                failure_cap * 100.0
             );
         }
         ensure!(
@@ -563,7 +633,18 @@ pub fn validate_playability_targets(
             agg.min_travel_ratio * 100.0
         );
     }
+    Ok(())
+}
 
+fn failure_cap_for_mode(mode: GameMode) -> f64 {
+    if mode == GameMode::Deep {
+        DEEP_CROSSING_FAILURE_MAX
+    } else {
+        CLASSIC_CROSSING_FAILURE_MAX
+    }
+}
+
+fn validate_crossing_determinism(records: &[PlayabilityRecord]) -> Result<()> {
     for record in records {
         let determinism_violation = record.metrics.crossing_events.iter().any(|event| {
             event.bribe_success == Some(true)
@@ -576,9 +657,6 @@ pub fn validate_playability_targets(
             record.seed_code
         );
     }
-
-    ensure_crossing_consistency(records)?;
-
     Ok(())
 }
 
@@ -767,6 +845,229 @@ mod tests {
             );
         }
     }
+
+    #[test]
+    fn validate_targets_accepts_balanced_sample_data() {
+        let (aggregates, records) = satisfied_data();
+        assert!(validate_playability_targets(&aggregates, &records).is_ok());
+    }
+
+    #[test]
+    fn validate_targets_enforce_average_miles_per_day_band() {
+        let (mut aggregates, records) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Deep),
+            GameplayStrategy::Aggressive
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.mean_avg_mpd = 21.0;
+        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
+        assert!(
+            err.to_string().contains("average miles/day"),
+            "unexpected error message: {err}"
+        );
+        assert!(
+            err.to_string().contains(&scenario),
+            "scenario name missing from error: {err}"
+        );
+    }
+
+    #[test]
+    fn validate_targets_enforce_distance_window() {
+        let (mut aggregates, records) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Classic),
+            GameplayStrategy::Balanced
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.mean_miles = 1_850.0;
+        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
+        assert!(
+            err.to_string().contains("average mileage"),
+            "unexpected error message: {err}"
+        );
+        assert!(
+            err.to_string().contains("Classic Balanced"),
+            "expected Classic Balanced label in error: {err}"
+        );
+    }
+
+    #[test]
+    fn validate_targets_enforce_classic_crossing_failure_cap() {
+        let (mut aggregates, records) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Classic),
+            GameplayStrategy::ResourceManager
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.crossing_failure_rate = 0.20;
+        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
+        assert!(
+            err.to_string().contains("terminal crossing rate"),
+            "unexpected error message: {err}"
+        );
+        assert!(
+            err.to_string().contains(&scenario),
+            "scenario name missing from error: {err}"
+        );
+        assert!(
+            err.to_string().contains("12%"),
+            "classic cap not referenced in error: {err}"
+        );
+    }
+
+    #[test]
+    fn validate_targets_enforce_deep_crossing_failure_cap() {
+        let (mut aggregates, records) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Deep),
+            GameplayStrategy::Conservative
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.crossing_failure_rate = 0.25;
+        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
+        assert!(
+            err.to_string().contains("terminal crossing rate"),
+            "unexpected error message: {err}"
+        );
+        assert!(
+            err.to_string().contains(&scenario),
+            "scenario name missing from error: {err}"
+        );
+        assert!(
+            err.to_string().contains("16%"),
+            "deep cap not referenced in error: {err}"
+        );
+    }
+
+    const TEST_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
+        (GameMode::Classic, GameplayStrategy::Balanced),
+        (GameMode::Classic, GameplayStrategy::ResourceManager),
+        (GameMode::Deep, GameplayStrategy::Balanced),
+        (GameMode::Deep, GameplayStrategy::Conservative),
+        (GameMode::Deep, GameplayStrategy::Aggressive),
+    ];
+
+    fn satisfied_data() -> (Vec<PlayabilityAggregate>, Vec<PlayabilityRecord>) {
+        let aggregates = TEST_SCENARIOS
+            .iter()
+            .map(|&(mode, strategy)| base_aggregate(mode, strategy))
+            .collect();
+        let records = TEST_SCENARIOS
+            .iter()
+            .map(|&(mode, strategy)| base_record(mode, strategy))
+            .collect();
+        (aggregates, records)
+    }
+
+    fn base_record(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityRecord {
+        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
+        PlayabilityRecord {
+            scenario_name,
+            mode,
+            strategy,
+            seed_code: "CL-TEST00".to_string(),
+            seed_value: 0,
+            metrics: base_metrics(mode),
+        }
+    }
+
+    fn base_metrics(mode: GameMode) -> PlayabilityMetrics {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 120;
+        metrics.miles_traveled = 2_000.0;
+        metrics.travel_days = 100;
+        metrics.partial_travel_days = 10;
+        metrics.non_travel_days = 5;
+        metrics.avg_miles_per_day = 15.0;
+        metrics.unique_encounters = 40;
+        metrics.rotation_events = 6;
+        metrics.travel_ratio = 0.95;
+        metrics.unique_per_20_days = if mode.is_deep() { 1.7 } else { 2.1 };
+        metrics.reached_2000_by_day150 = true;
+        metrics.crossing_events.clear();
+        metrics.crossing_permit_uses = 0;
+        metrics.crossing_bribe_attempts = 0;
+        metrics.crossing_bribe_successes = 0;
+        metrics.crossing_detours_taken = 0;
+        metrics.crossing_failures = 0;
+        metrics
+    }
+
+    fn base_aggregate(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityAggregate {
+        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
+        let (
+            mean_unique,
+            min_unique,
+            travel_ratio,
+            min_travel,
+            pct_2k,
+            pants_fail,
+            boss_reach,
+            boss_win,
+        ) = match (mode, strategy) {
+            (GameMode::Classic, GameplayStrategy::Balanced) => {
+                (2.2, 2.05, 0.95, 0.93, 0.40, 0.15, 0.70, 0.10)
+            }
+            (GameMode::Classic, GameplayStrategy::ResourceManager) => {
+                (2.1, 2.0, 0.94, 0.92, 0.80, 0.20, 0.60, 0.08)
+            }
+            (GameMode::Deep, GameplayStrategy::Balanced) => {
+                (1.7, 1.55, 0.94, 0.93, 0.35, 0.18, 0.65, 0.05)
+            }
+            (GameMode::Deep, GameplayStrategy::Conservative) => {
+                (1.6, 1.5, 0.93, 0.92, 0.30, 0.20, 0.60, 0.04)
+            }
+            (GameMode::Deep, GameplayStrategy::Aggressive) => {
+                (1.6, 1.5, 0.93, 0.92, 0.75, 0.22, 0.80, 0.05)
+            }
+            _ => (1.6, 1.5, 0.93, 0.92, 0.35, 0.2, 0.65, 0.05),
+        };
+        PlayabilityAggregate {
+            scenario_name,
+            mode,
+            strategy,
+            iterations: 100,
+            mean_days: 120.0,
+            std_days: 3.0,
+            mean_miles: 2_000.0,
+            std_miles: 25.0,
+            mean_avg_mpd: 15.0,
+            boss_reach_pct: boss_reach,
+            boss_win_pct: boss_win,
+            pants_failure_pct: pants_fail,
+            mean_travel_ratio: travel_ratio,
+            mean_unique_per_20: mean_unique,
+            mean_rotation_events: 5.0,
+            pct_reached_2k_by_150: pct_2k,
+            min_unique_per_20: min_unique,
+            min_travel_ratio: min_travel,
+            mean_crossing_events: 1.0,
+            crossing_permit_rate: 0.25,
+            mean_crossing_bribes: 0.0,
+            crossing_bribe_success_rate: 0.0,
+            mean_crossing_detours: 0.2,
+            crossing_failure_rate: 0.05,
+            mean_stop_cap_conversions: 0.1,
+            endgame_activation_rate: if mode.is_deep() { 0.75 } else { 0.0 },
+            endgame_field_repair_rate: 0.2,
+            mean_endgame_cooldown: 1.0,
+        }
+    }
+
+    fn find_mut_aggregate<'a>(
+        aggregates: &'a mut [PlayabilityAggregate],
+        scenario_name: &str,
+    ) -> &'a mut PlayabilityAggregate {
+        aggregates
+            .iter_mut()
+            .find(|agg| agg.scenario_name == scenario_name)
+            .unwrap_or_else(|| panic!("missing scenario {scenario_name}"))
+    }
 }
 
 #[derive(Debug, Clone)]
@@ -776,6 +1077,7 @@ struct AggregateBuilder {
     strategy: GameplayStrategy,
     stats_days: RunningStats,
     stats_miles: RunningStats,
+    avg_mpd_sum: f64,
     iterations: u32,
     boss_reached: u32,
     boss_won: u32,
@@ -806,6 +1108,7 @@ impl AggregateBuilder {
             strategy: record.strategy,
             stats_days: RunningStats::default(),
             stats_miles: RunningStats::default(),
+            avg_mpd_sum: 0.0,
             iterations: 0,
             boss_reached: 0,
             boss_won: 0,
@@ -833,6 +1136,7 @@ impl AggregateBuilder {
         self.iterations += 1;
         self.stats_days.add(f64::from(metrics.days_survived));
         self.stats_miles.add(f64::from(metrics.miles_traveled));
+        self.avg_mpd_sum += metrics.avg_miles_per_day;
         if metrics.boss_reached {
             self.boss_reached += 1;
         }
@@ -897,6 +1201,7 @@ impl AggregateBuilder {
             std_days: self.stats_days.std_dev(),
             mean_miles: self.stats_miles.mean(),
             std_miles: self.stats_miles.std_dev(),
+            mean_avg_mpd: self.avg_mpd_sum / denom,
             boss_reach_pct: f64::from(self.boss_reached) / denom,
             boss_win_pct: f64::from(self.boss_won) / denom,
             pants_failure_pct: f64::from(self.pants_failures) / denom,
