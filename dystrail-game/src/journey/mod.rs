@@ -11,9 +11,14 @@ use std::sync::OnceLock;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
-use crate::state::{GameMode, PaceId, PolicyKind};
+use crate::state::{DietId, GameMode, PaceId, PolicyKind};
 use crate::vehicle::PartWeights;
 use crate::weather::Weather;
+
+pub mod daily;
+pub mod session;
+pub use daily::{DailyTickOutcome, apply_daily_effect};
+pub use session::JourneySession;
 
 /// Maximum tag capacity stored inline without additional allocations.
 pub type DayTagSet = SmallVec<[DayTag; 4]>;
@@ -179,6 +184,8 @@ pub struct JourneyCfg {
     pub part_weights: PartWeights,
     #[serde(default)]
     pub crossing: CrossingPolicy,
+    #[serde(default)]
+    pub daily: DailyTickConfig,
 }
 
 impl JourneyCfg {
@@ -197,6 +204,7 @@ impl Default for JourneyCfg {
             breakdown: BreakdownConfig::default(),
             part_weights: PartWeights::default(),
             crossing: CrossingPolicy::default(),
+            daily: DailyTickConfig::default(),
         }
     }
 }
@@ -368,6 +376,151 @@ impl CrossingPolicy {
         self.detour_days.sanitize();
         self.bribe.sanitize();
         self.permit.sanitize();
+    }
+}
+
+/// Per-day stat adjustments driven by policy configuration.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct DailyTickConfig {
+    #[serde(default)]
+    pub supplies: DailyChannelConfig,
+    #[serde(default)]
+    pub sanity: DailyChannelConfig,
+    #[serde(default)]
+    pub health: HealthTickConfig,
+}
+
+impl Default for DailyTickConfig {
+    fn default() -> Self {
+        Self {
+            supplies: DailyChannelConfig::new(0.0),
+            sanity: DailyChannelConfig::new(0.0),
+            health: HealthTickConfig::default(),
+        }
+    }
+}
+
+impl DailyTickConfig {
+    pub fn sanitize(&mut self) {
+        self.supplies.sanitize();
+        self.sanity.sanitize();
+        self.health.sanitize();
+    }
+}
+
+/// Channel multiplier set for supplies/sanity adjustments.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct DailyChannelConfig {
+    #[serde(default = "DailyChannelConfig::default_base")]
+    pub base: f32,
+    #[serde(default)]
+    pub pace: HashMap<PaceId, f32>,
+    #[serde(default)]
+    pub diet: HashMap<DietId, f32>,
+    #[serde(default)]
+    pub weather: HashMap<Weather, f32>,
+    #[serde(default)]
+    pub exec: HashMap<String, f32>,
+}
+
+impl DailyChannelConfig {
+    const fn default_base() -> f32 {
+        0.0
+    }
+
+    fn new(base: f32) -> Self {
+        Self {
+            base,
+            pace: HashMap::new(),
+            diet: HashMap::new(),
+            weather: HashMap::new(),
+            exec: HashMap::new(),
+        }
+    }
+
+    fn sanitize(&mut self) {
+        if !self.base.is_finite() || self.base < 0.0 {
+            self.base = 0.0;
+        }
+        for value in self.pace.values_mut() {
+            if !value.is_finite() || *value <= 0.0 {
+                *value = 1.0;
+            }
+        }
+        for value in self.diet.values_mut() {
+            if !value.is_finite() || *value <= 0.0 {
+                *value = 1.0;
+            }
+        }
+        for value in self.weather.values_mut() {
+            if !value.is_finite() || *value <= 0.0 {
+                *value = 1.0;
+            }
+        }
+        for value in self.exec.values_mut() {
+            if !value.is_finite() || *value <= 0.0 {
+                *value = 1.0;
+            }
+        }
+    }
+}
+
+impl Default for DailyChannelConfig {
+    fn default() -> Self {
+        Self::new(0.0)
+    }
+}
+
+/// Health-specific daily tuning.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct HealthTickConfig {
+    #[serde(default = "HealthTickConfig::default_decay")]
+    pub decay: f32,
+    #[serde(default = "HealthTickConfig::default_rest_heal")]
+    pub rest_heal: f32,
+    #[serde(default)]
+    pub weather: HashMap<Weather, f32>,
+    #[serde(default)]
+    pub exec: HashMap<String, f32>,
+}
+
+impl Default for HealthTickConfig {
+    fn default() -> Self {
+        Self {
+            decay: Self::default_decay(),
+            rest_heal: Self::default_rest_heal(),
+            weather: HashMap::new(),
+            exec: HashMap::new(),
+        }
+    }
+}
+
+impl HealthTickConfig {
+    const fn default_decay() -> f32 {
+        0.0
+    }
+
+    const fn default_rest_heal() -> f32 {
+        2.0
+    }
+
+    fn sanitize(&mut self) {
+        if !self.decay.is_finite() || self.decay < 0.0 {
+            self.decay = 0.0;
+        }
+        if !self.rest_heal.is_finite() || self.rest_heal < 0.0 {
+            self.rest_heal = 0.0;
+        }
+        for value in self.weather.values_mut() {
+            if !value.is_finite() || *value < 0.0 {
+                *value = 0.0;
+            }
+        }
+        for value in self.exec.values_mut() {
+            if !value.is_finite() {
+                *value = 0.0;
+            }
+        }
     }
 }
 
@@ -1059,6 +1212,7 @@ impl JourneyController {
             *entry = entry.max(0.0);
         }
         resolved_cfg.crossing.sanitize();
+        resolved_cfg.daily.sanitize();
         Self {
             policy,
             strategy,

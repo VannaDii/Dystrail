@@ -37,9 +37,9 @@ pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
 pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use journey::{
-    BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DayOutcome, DayRecord, DayTag, DayTagSet,
-    DetourPolicy, JourneyCfg, JourneyController, PermitPolicy, PolicyId, RngBundle, StrategyId,
-    TravelDayKind,
+    BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome, DayOutcome, DayRecord,
+    DayTag, DayTagSet, DetourPolicy, JourneyCfg, JourneyController, JourneySession, PermitPolicy,
+    PolicyId, RngBundle, StrategyId, TravelDayKind, apply_daily_effect,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
@@ -133,9 +133,30 @@ where
     ///
     /// Returns an error if the encounter data cannot be loaded.
     pub fn create_game(&self, seed: u64, mode: GameMode) -> Result<GameState, L::Error> {
+        self.create_session(seed, mode, StrategyId::Balanced)
+            .map(JourneySession::into_state)
+    }
+
+    /// Construct a new journey session encompassing controller and state.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if encounter data cannot be loaded.
+    pub fn create_session(
+        &self,
+        seed: u64,
+        mode: GameMode,
+        strategy: StrategyId,
+    ) -> Result<JourneySession, L::Error> {
         let data = self.data_loader.load_encounter_data()?;
-        let game_state = GameState::default().with_seed(seed, mode, data);
-        Ok(game_state)
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        Ok(JourneySession::new(
+            mode,
+            strategy,
+            seed,
+            data,
+            &endgame_cfg,
+        ))
     }
 
     /// Save a game state

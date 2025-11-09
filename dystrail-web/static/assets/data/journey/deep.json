@@ -64,5 +64,17 @@
         "checkpoint"
       ]
     }
+  },
+  "daily": {
+    "supplies": {
+      "base": 0.0
+    },
+    "sanity": {
+      "base": 0.0
+    },
+    "health": {
+      "decay": 0.0,
+      "rest_heal": 0.0
+    }
   }
 }

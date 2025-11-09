@@ -2,7 +2,9 @@ use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
-use dystrail_game::{GameMode, GameState, JourneyController, PaceId, PolicyId, StrategyId};
+use dystrail_game::{
+    GameMode, GameState, JourneyController, PaceId, PolicyId, StrategyId, apply_daily_effect,
+};
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
 
@@ -79,12 +81,6 @@ pub struct SimulationSession {
     conservative_heat_days: u32,
     aggressive_heat_days: u32,
     controller: JourneyController,
-}
-
-#[derive(Debug, Clone, Copy)]
-struct DailyEffect {
-    sanity: i32,
-    supplies: i32,
 }
 
 impl SimulationSession {
@@ -185,9 +181,8 @@ impl SimulationSession {
 
         self.adjust_daily_pace();
         self.state.apply_pace_and_diet(&self.pacing_config);
-        let daily_effect = self.daily_effect();
-        self.state
-            .consume_daily_effects(daily_effect.sanity, daily_effect.supplies);
+        let cfg = self.controller.config();
+        let _ = apply_daily_effect(&cfg.daily, &mut self.state);
 
         let mut decision: Option<DecisionRecord> = None;
 
@@ -326,14 +321,4 @@ const fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encou
     }
 }
 
-impl SimulationSession {
-    fn daily_effect(&self) -> DailyEffect {
-        let pace = self.pacing_config.get_pace_safe(self.state.pace.as_str());
-        let diet = self.pacing_config.get_diet_safe(self.state.diet.as_str());
-
-        DailyEffect {
-            sanity: pace.sanity + diet.sanity,
-            supplies: 0,
-        }
-    }
-}
+impl SimulationSession {}

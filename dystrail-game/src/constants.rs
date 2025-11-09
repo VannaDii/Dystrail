@@ -79,8 +79,6 @@ pub(crate) const EMERGENCY_LIMP_WEAR_REDUCTION: f32 = 0.20;
 pub(crate) const EMERGENCY_LIMP_MILE_WINDOW: f32 = 200.0;
 
 // Encounter tuning ---------------------------------------------------------
-pub(crate) const DEFAULT_SUPPLY_COST: i32 = 1;
-pub(crate) const BLITZ_SUPPLY_COST: i32 = 2;
 pub(crate) const ENCOUNTER_BASE_DEFAULT: f32 = 0.27;
 pub(crate) const ENCOUNTER_COOLDOWN_DAYS: u8 = 1;
 pub(crate) const ENCOUNTER_SOFT_CAP_THRESHOLD: u32 = 5;

@@ -70,7 +70,7 @@ impl From<PaceId> for String {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default, Hash)]
 #[serde(rename_all = "lowercase")]
 pub enum DietId {
     #[default]
@@ -3966,22 +3966,15 @@ impl GameState {
     }
 
     pub fn consume_daily_effects(&mut self, sanity_delta: i32, supplies_delta: i32) {
-        let pace_sup_cost = match self.pace {
-            PaceId::Blitz => BLITZ_SUPPLY_COST,
-            _ => DEFAULT_SUPPLY_COST,
-        };
         if sanity_delta != 0 {
             let max_sanity = Stats::default().sanity;
             self.stats.sanity = (self.stats.sanity + sanity_delta).clamp(0, max_sanity);
         }
-        let net_supplies = supplies_delta - pace_sup_cost;
-        let old_supplies = self.stats.supplies;
-        self.stats.supplies = (old_supplies + net_supplies).max(0);
-        if debug_log_enabled() && net_supplies != 0 {
-            println!(
-                "Daily supplies effect: {} -> {} (delta {})",
-                old_supplies, self.stats.supplies, net_supplies
-            );
+        if supplies_delta != 0 {
+            self.stats.supplies = (self.stats.supplies + supplies_delta).max(0);
+        }
+        if debug_log_enabled() && (sanity_delta != 0 || supplies_delta != 0) {
+            println!("Daily effects applied | sanity {sanity_delta} | supplies {supplies_delta}");
         }
         self.stats.clamp();
     }
