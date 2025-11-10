@@ -25,5 +25,9 @@
     "Русский",
     "العربية",
     "हिन्दी"
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "VannaDi",
+    "projectKey": "VannaDii_Dystrail"
+  }
 }
