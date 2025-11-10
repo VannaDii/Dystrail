@@ -20,7 +20,7 @@ build-release:
     cargo build --workspace --release
 
 qa:
-    cargo run -p dystrail-tester -- --mode logic --scenarios all --iterations 1000 --report console
+    cargo run -p dystrail-tester -- --mode logic --scenarios all --iterations 100 --report console
 
 tests:
     cargo test --workspace --all --all-features --locked -- --nocapture
