@@ -6,6 +6,8 @@ use std::io::Write;
 use std::time::Duration;
 
 use super::{PlayabilityAggregate, PlayabilityRecord, ScenarioResult};
+use crate::logic::policy::GameplayStrategy;
+use dystrail_game::GameMode;
 
 #[allow(clippy::too_many_lines)]
 pub fn generate_console_report(
@@ -266,12 +268,22 @@ pub fn generate_markdown_report(writer: &mut dyn Write, results: &[ScenarioResul
 }
 
 pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]) -> Result<()> {
+    let mut sorted = records.to_vec();
+    sorted.sort_by(|lhs, rhs| {
+        lhs.scenario_name
+            .cmp(&rhs.scenario_name)
+            .then_with(|| mode_rank(lhs.mode).cmp(&mode_rank(rhs.mode)))
+            .then_with(|| strategy_rank(lhs.strategy).cmp(&strategy_rank(rhs.strategy)))
+            .then_with(|| lhs.seed_value.cmp(&rhs.seed_value))
+            .then_with(|| lhs.seed_code.cmp(&rhs.seed_code))
+    });
+
     writeln!(
         writer,
         "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss_reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures,crossing_failure_rate,crossing_bribe_success_rate,day_reason_history,endgame_active,endgame_field_repair_used,endgame_cooldown_days,stop_cap_conversions"
     )?;
 
-    for record in records {
+    for record in &sorted {
         let metrics = &record.metrics;
         let strategy = record.strategy.to_string();
 
@@ -351,5 +363,22 @@ const fn mode_label(mode: dystrail_game::GameMode) -> &'static str {
     match mode {
         dystrail_game::GameMode::Classic => "Classic",
         dystrail_game::GameMode::Deep => "Deep",
+    }
+}
+
+const fn mode_rank(mode: GameMode) -> u8 {
+    match mode {
+        GameMode::Classic => 0,
+        GameMode::Deep => 1,
+    }
+}
+
+const fn strategy_rank(strategy: GameplayStrategy) -> u8 {
+    match strategy {
+        GameplayStrategy::Conservative => 0,
+        GameplayStrategy::Aggressive => 1,
+        GameplayStrategy::Balanced => 2,
+        GameplayStrategy::ResourceManager => 3,
+        GameplayStrategy::MonteCarlo => 4,
     }
 }

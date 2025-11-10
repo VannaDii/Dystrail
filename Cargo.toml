@@ -35,6 +35,7 @@ anyhow = "1.0"
 once_cell = "1.21"
 smallvec = { version = "1.15", features = ["serde"] }
 twox-hash = { version = "2.1", default-features = false, features = ["xxhash64"]}
+sha2 = "0.10"
 
 # Testing dependencies
 wasm-bindgen-test = "0.3"

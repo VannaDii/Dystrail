@@ -44,6 +44,18 @@ impl Weather {
     }
 }
 
+const WEATHER_ORDER: [Weather; 5] = [
+    Weather::Clear,
+    Weather::Storm,
+    Weather::HeatWave,
+    Weather::ColdSnap,
+    Weather::Smoke,
+];
+
+fn weather_weight(weights: &HashMap<Weather, u32>, weather: Weather) -> u32 {
+    *weights.get(&weather).unwrap_or(&0)
+}
+
 const fn default_travel_mult() -> f32 {
     1.0
 }
@@ -339,38 +351,49 @@ pub fn select_weather_for_today(
     };
 
     // Calculate total weight and make initial selection
-    let total: u32 = region_weights.values().sum();
+    let total: u32 = WEATHER_ORDER
+        .iter()
+        .map(|weather| weather_weight(region_weights, *weather))
+        .sum();
     let mut roll = rng.random_range(0..total);
     let mut candidate = Weather::Clear;
 
-    for (weather, weight) in region_weights {
-        if roll < *weight {
-            candidate = *weather;
+    for weather in WEATHER_ORDER {
+        let weight = weather_weight(region_weights, weather);
+        if weight == 0 {
+            continue;
+        }
+        if roll < weight {
+            candidate = weather;
             break;
         }
-        roll -= *weight;
+        roll -= weight;
     }
 
     // Enforce extreme streak limit
     if candidate.is_extreme() && gs.weather_state.extreme_streak >= cfg.limits.max_extreme_streak {
         // Reselect from non-extremes deterministically
-        let non_extreme_total: u32 = region_weights
+        let non_extreme_total: u32 = WEATHER_ORDER
             .iter()
-            .filter(|(w, _)| !w.is_extreme())
-            .map(|(_, wt)| *wt)
+            .filter(|weather| !weather.is_extreme())
+            .map(|weather| weather_weight(region_weights, *weather))
             .sum();
 
         if non_extreme_total > 0 {
             let mut r2 = rng.random_range(0..non_extreme_total);
-            for (weather, weight) in region_weights {
+            for weather in WEATHER_ORDER {
                 if weather.is_extreme() {
                     continue;
                 }
-                if r2 < *weight {
-                    candidate = *weather;
+                let weight = weather_weight(region_weights, weather);
+                if weight == 0 {
+                    continue;
+                }
+                if r2 < weight {
+                    candidate = weather;
                     break;
                 }
-                r2 -= *weight;
+                r2 -= weight;
             }
         }
     }
@@ -441,25 +464,22 @@ fn pick_neutral_weather<R: Rng>(
     weights: &std::collections::HashMap<Weather, u32>,
     rng: &mut R,
 ) -> Weather {
-    let neutral_options: Vec<(Weather, u32)> = weights
+    let neutral_order = [Weather::Clear, Weather::Smoke];
+    let total: u32 = neutral_order
         .iter()
-        .filter_map(|(weather, weight)| {
-            if matches!(weather, Weather::Clear | Weather::Smoke) && *weight > 0 {
-                Some((*weather, *weight))
-            } else {
-                None
-            }
-        })
-        .collect();
-
-    let total: u32 = neutral_options.iter().map(|(_, weight)| *weight).sum();
+        .map(|weather| weather_weight(weights, *weather))
+        .sum();
 
     if total == 0 {
         return Weather::Clear;
     }
 
     let mut roll = rng.random_range(0..total);
-    for (weather, weight) in neutral_options {
+    for weather in neutral_order {
+        let weight = weather_weight(weights, weather);
+        if weight == 0 {
+            continue;
+        }
         if roll < weight {
             return weather;
         }

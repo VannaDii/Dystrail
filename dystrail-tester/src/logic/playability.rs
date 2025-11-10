@@ -708,9 +708,12 @@ fn add_expectations(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::logic::reports::generate_csv_report;
+    use crate::logic::run_playability_analysis;
     use crate::logic::seeds::SeedInfo;
     use dystrail_game::GameMode;
     use dystrail_game::data::EncounterData;
+    use sha2::{Digest, Sha256};
     use std::collections::HashSet;
     use std::path::PathBuf;
 
@@ -919,6 +922,26 @@ mod tests {
         );
     }
 
+    const JOURNEY_LEDGER_DIGEST: [u8; 32] = [
+        76, 128, 132, 175, 217, 220, 98, 153, 88, 182, 183, 30, 38, 62, 4, 65, 179, 22, 247, 6, 33,
+        28, 202, 87, 199, 123, 217, 202, 74, 162, 102, 103,
+    ];
+    const CSV_DIGEST_BASELINE: [u8; 32] = [
+        120, 238, 100, 140, 87, 194, 227, 222, 13, 42, 192, 124, 255, 147, 82, 112, 94, 166, 245,
+        195, 188, 13, 206, 181, 241, 13, 190, 178, 231, 214, 73, 108,
+    ];
+
+    #[test]
+    fn deterministic_csv_digest_for_fixed_seed() {
+        let seeds = vec![SeedInfo::from_numeric(4242)];
+        let records = run_playability_analysis(&seeds, 1, false).unwrap();
+        let digest = csv_digest(&records);
+        assert_eq!(
+            digest, CSV_DIGEST_BASELINE,
+            "canonical CSV digest drifted; update baseline if intentional"
+        );
+    }
+
     #[test]
     fn validate_targets_enforce_deep_crossing_failure_cap() {
         let (mut aggregates, records) = satisfied_data();
@@ -1067,6 +1090,64 @@ mod tests {
             .iter_mut()
             .find(|agg| agg.scenario_name == scenario_name)
             .unwrap_or_else(|| panic!("missing scenario {scenario_name}"))
+    }
+
+    #[test]
+    fn deterministic_journey_digest_baseline() {
+        let digest = journey_digest(0xDEAD_BEEF);
+        assert_eq!(
+            digest, JOURNEY_LEDGER_DIGEST,
+            "journey ledger digest drifted; update baseline if intentional"
+        );
+    }
+
+    fn csv_digest(records: &[PlayabilityRecord]) -> [u8; 32] {
+        let mut buffer = Vec::new();
+        generate_csv_report(&mut buffer, records).expect("csv serialization");
+        let mut hasher = Sha256::new();
+        hasher.update(buffer);
+        let digest = hasher.finalize();
+        let mut bytes = [0_u8; 32];
+        bytes.copy_from_slice(&digest);
+        bytes
+    }
+
+    fn journey_digest(seed: u64) -> [u8; 32] {
+        use dystrail_game::data::EncounterData;
+        use dystrail_game::journey::JourneySession;
+        use dystrail_game::{EndgameTravelCfg, GameMode, StrategyId, TravelDayKind};
+        let encounters = EncounterData::empty();
+        let mut session = JourneySession::new(
+            GameMode::Classic,
+            StrategyId::Balanced,
+            seed,
+            encounters,
+            &EndgameTravelCfg::default_config(),
+        );
+        for _ in 0..120 {
+            let outcome = session.tick_day();
+            if outcome.ended {
+                break;
+            }
+        }
+        let state = session.into_state();
+        let mut buffer = String::new();
+        for record in &state.day_records {
+            use std::fmt::Write as _;
+            let kind = match record.kind {
+                TravelDayKind::Travel => "travel",
+                TravelDayKind::Partial => "partial",
+                TravelDayKind::NonTravel => "non_travel",
+            };
+            writeln!(buffer, "{},{:.3},{}", record.day_index, record.miles, kind)
+                .expect("write day record");
+        }
+        let mut hasher = Sha256::new();
+        hasher.update(buffer.as_bytes());
+        let digest = hasher.finalize();
+        let mut bytes = [0_u8; 32];
+        bytes.copy_from_slice(&digest);
+        bytes
     }
 }
 

@@ -8,6 +8,7 @@ use std::collections::HashMap;
 use std::hash::Hasher;
 use std::rc::Rc;
 use std::sync::OnceLock;
+use thiserror::Error;
 use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
@@ -193,6 +194,35 @@ impl JourneyCfg {
     pub const fn default_partial_ratio() -> f32 {
         0.5
     }
+
+    /// Validate configuration invariants before sanitization.
+    ///
+    /// # Errors
+    ///
+    /// Returns `JourneyConfigError` when any field violates the documented bounds.
+    pub fn validate(&self) -> Result<(), JourneyConfigError> {
+        self.travel.validate()?;
+        self.validate_partial_ratio()?;
+        self.wear.validate()?;
+        self.breakdown.validate()?;
+        self.crossing.validate()?;
+        self.daily.validate()?;
+        Ok(())
+    }
+
+    fn validate_partial_ratio(&self) -> Result<(), JourneyConfigError> {
+        const MIN_RATIO: f32 = 0.2;
+        const MAX_RATIO: f32 = 0.95;
+        if !(MIN_RATIO..=MAX_RATIO).contains(&self.partial_ratio) {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "partial_ratio",
+                min: MIN_RATIO,
+                max: MAX_RATIO,
+                value: self.partial_ratio,
+            });
+        }
+        Ok(())
+    }
 }
 
 impl Default for JourneyCfg {
@@ -207,6 +237,36 @@ impl Default for JourneyCfg {
             daily: DailyTickConfig::default(),
         }
     }
+}
+
+/// Errors raised when journey configuration invariants are violated.
+#[derive(Debug, Error, PartialEq)]
+pub enum JourneyConfigError {
+    #[error("travel minimum {min:.2} exceeds maximum {max:.2}")]
+    TravelMinExceedsMax { min: f32, max: f32 },
+    #[error("{field} must be at least {min:.2} (got {value:.2})")]
+    MinViolation {
+        field: &'static str,
+        min: f32,
+        value: f32,
+    },
+    #[error("{field} must be between {min:.2} and {max:.2} (got {value:.2})")]
+    RangeViolation {
+        field: &'static str,
+        min: f32,
+        max: f32,
+        value: f32,
+    },
+    #[error("crossing detour bounds invalid (min {min} > max {max})")]
+    CrossingDetourBounds { min: u8, max: u8 },
+    #[error(
+        "crossing probabilities invalid: pass {pass:.2}, detour {detour:.2}, terminal {terminal:.2}"
+    )]
+    CrossingProbabilities {
+        pass: f32,
+        detour: f32,
+        terminal: f32,
+    },
 }
 
 /// Policy-driven travel pacing configuration.
@@ -253,6 +313,53 @@ impl TravelConfig {
             (Weather::ColdSnap, 0.9),
             (Weather::Smoke, 0.88),
         ])
+    }
+}
+
+impl TravelConfig {
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        let min_floor = crate::constants::TRAVEL_PARTIAL_MIN_DISTANCE;
+        if self.mpd_min < min_floor {
+            return Err(JourneyConfigError::MinViolation {
+                field: "travel.mpd_min",
+                min: min_floor,
+                value: self.mpd_min,
+            });
+        }
+        if self.mpd_min > self.mpd_max {
+            return Err(JourneyConfigError::TravelMinExceedsMax {
+                min: self.mpd_min,
+                max: self.mpd_max,
+            });
+        }
+        if self.mpd_base < self.mpd_min || self.mpd_base > self.mpd_max {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "travel.mpd_base",
+                min: self.mpd_min,
+                max: self.mpd_max,
+                value: self.mpd_base,
+            });
+        }
+        let multiplier_floor = crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER;
+        for &value in self.pace_factor.values() {
+            if value < multiplier_floor {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "travel.pace_factor",
+                    min: multiplier_floor,
+                    value,
+                });
+            }
+        }
+        for &value in self.weather_factor.values() {
+            if value < multiplier_floor {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "travel.weather_factor",
+                    min: multiplier_floor,
+                    value,
+                });
+            }
+        }
+        Ok(())
     }
 }
 
@@ -377,6 +484,31 @@ impl CrossingPolicy {
         self.bribe.sanitize();
         self.permit.sanitize();
     }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        if self.detour_days.min > self.detour_days.max {
+            return Err(JourneyConfigError::CrossingDetourBounds {
+                min: self.detour_days.min,
+                max: self.detour_days.max,
+            });
+        }
+        if self.pass < 0.0 || self.detour < 0.0 || self.terminal < 0.0 {
+            return Err(JourneyConfigError::CrossingProbabilities {
+                pass: self.pass,
+                detour: self.detour,
+                terminal: self.terminal,
+            });
+        }
+        let sum = self.pass + self.detour + self.terminal;
+        if sum <= f32::EPSILON {
+            return Err(JourneyConfigError::CrossingProbabilities {
+                pass: self.pass,
+                detour: self.detour,
+                terminal: self.terminal,
+            });
+        }
+        Ok(())
+    }
 }
 
 /// Per-day stat adjustments driven by policy configuration.
@@ -405,6 +537,13 @@ impl DailyTickConfig {
         self.supplies.sanitize();
         self.sanity.sanitize();
         self.health.sanitize();
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        self.supplies.validate("daily.supplies")?;
+        self.sanity.validate("daily.sanity")?;
+        self.health.validate()?;
+        Ok(())
     }
 }
 
@@ -462,6 +601,17 @@ impl DailyChannelConfig {
                 *value = 1.0;
             }
         }
+    }
+
+    fn validate(&self, field: &'static str) -> Result<(), JourneyConfigError> {
+        if self.base < 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field,
+                min: 0.0,
+                value: self.base,
+            });
+        }
+        Ok(())
     }
 }
 
@@ -521,6 +671,24 @@ impl HealthTickConfig {
                 *value = 0.0;
             }
         }
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        if self.decay < 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "daily.health.decay",
+                min: 0.0,
+                value: self.decay,
+            });
+        }
+        if self.rest_heal < 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "daily.health.rest_heal",
+                min: 0.0,
+                value: self.rest_heal,
+            });
+        }
+        Ok(())
     }
 }
 
@@ -814,6 +982,23 @@ impl WearConfig {
             comfort_miles: overlay.comfort_miles.unwrap_or(self.comfort_miles),
         }
     }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        for (field, value) in [
+            ("wear.base", self.base),
+            ("wear.fatigue_k", self.fatigue_k),
+            ("wear.comfort_miles", self.comfort_miles),
+        ] {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field,
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        Ok(())
+    }
 }
 
 /// Breakdown probability configuration bundle.
@@ -890,6 +1075,43 @@ impl BreakdownConfig {
         }
         merged
     }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        if !(0.0..=1.0).contains(&self.base) {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "breakdown.base",
+                min: 0.0,
+                max: 1.0,
+                value: self.base,
+            });
+        }
+        if self.beta < 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "breakdown.beta",
+                min: 0.0,
+                value: self.beta,
+            });
+        }
+        for &value in self.pace_factor.values() {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "breakdown.pace_factor",
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        for &value in self.weather_factor.values() {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "breakdown.weather_factor",
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        Ok(())
+    }
 }
 
 impl PartWeights {
@@ -922,6 +1144,10 @@ impl PolicyCatalog {
     }
 
     #[must_use]
+    ///
+    /// # Panics
+    ///
+    /// Panics when the resolved configuration violates invariant checks.
     pub fn resolve(&self, policy: PolicyId, strategy: StrategyId) -> JourneyCfg {
         let base = self
             .families
@@ -937,6 +1163,9 @@ impl PolicyCatalog {
         } else {
             base
         };
+        resolved.validate().unwrap_or_else(|err| {
+            panic!("invalid journey config for {policy:?}/{strategy:?}: {err}");
+        });
         resolved.travel.sanitize();
         resolved.crossing.sanitize();
         resolved
@@ -1150,6 +1379,10 @@ impl JourneyController {
     }
 
     /// Create a new controller with explicit configuration and endgame settings.
+    ///
+    /// # Panics
+    ///
+    /// Panics when the supplied configuration violates validation rules.
     #[must_use]
     pub fn with_config(
         policy: PolicyId,
@@ -1158,6 +1391,7 @@ impl JourneyController {
         seed: u64,
         endgame_cfg: EndgameTravelCfg,
     ) -> Self {
+        cfg.validate().expect("valid journey config");
         let mut resolved_cfg = cfg;
         resolved_cfg.partial_ratio = resolved_cfg.partial_ratio.clamp(0.2, 0.95);
         resolved_cfg.travel.sanitize();
@@ -1371,7 +1605,7 @@ mod tests {
             PolicyId::Classic,
             StrategyId::Balanced,
             JourneyCfg {
-                partial_ratio: 1.2,
+                partial_ratio: 0.8,
                 ..JourneyCfg::default()
             },
             42,
@@ -1379,7 +1613,7 @@ mod tests {
         );
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
-        assert!((state.journey_partial_ratio - 0.95).abs() < f32::EPSILON);
+        assert!((state.journey_partial_ratio - 0.8).abs() < f32::EPSILON);
     }
 
     #[test]
@@ -1388,5 +1622,40 @@ mod tests {
         controller.reseed(2);
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
+    }
+
+    #[test]
+    fn journey_config_rejects_invalid_ratio() {
+        let cfg = JourneyCfg {
+            partial_ratio: 1.2,
+            ..JourneyCfg::default()
+        };
+        assert!(matches!(
+            cfg.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "partial_ratio"
+        ));
+    }
+
+    #[test]
+    fn travel_bounds_validation_catches_min_above_max() {
+        let cfg = JourneyCfg {
+            travel: TravelConfig {
+                mpd_min: 30.0,
+                mpd_max: 10.0,
+                ..TravelConfig::default()
+            },
+            ..JourneyCfg::default()
+        };
+        assert!(matches!(
+            cfg.travel.validate(),
+            Err(JourneyConfigError::TravelMinExceedsMax { .. })
+        ));
+    }
+
+    #[test]
+    fn journey_cfg_missing_fields_use_defaults() {
+        let cfg: JourneyCfg = serde_json::from_str("{}").expect("deserialize");
+        assert_eq!(cfg, JourneyCfg::default());
+        cfg.validate().expect("defaults are valid");
     }
 }
