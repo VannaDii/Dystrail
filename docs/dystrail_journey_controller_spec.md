@@ -86,7 +86,35 @@
 
 ## Experience Targets (“Oregon‑Trail Feel”)
 
-Let total distance target D\* = 2,000 miles; target day window T in [84, 180] days; average miles/day m_bar in [10, 20]. Controllers and policies must produce aggregates across 1,000+ runs that fall in these bands with ≤5% drift.
+Let total distance target **D\*** = 2,000 miles; target day window **T** in `[84, 180]` days; average miles/day **m̄** in `[10, 20]`.
+
+Controllers and policies MUST produce aggregates across 1,000+ runs that satisfy:
+
+- **Core distance / duration (all families & strategies)**
+
+  - Mean distance: `1900 ≤ mean_miles ≤ 2100`
+  - Mean duration: `84 ≤ mean_days ≤ 180`
+  - Mean miles per day: `10 ≤ mean_mpd ≤ 20`
+  - Travel ratio: `travel_ratio ≥ 0.90` for all non-experimental policies
+
+- **Classic / Balanced — canonical Oregon Trail parity**
+
+  - Boss reach rate (runs that reach boss): `0.30 ≤ boss_reach ≤ 0.50`
+  - Boss win rate (runs that defeat boss): `0.20 ≤ boss_win ≤ 0.35`
+  - Run survival (non–early-wipe endings of any type): `0.60 ≤ survival ≤ 0.80`
+  - Failure mix: no single failure family (vehicle, sanity, exposure, crossings) exceeds `0.50` of all failures over large samples
+
+- **Other Classic strategies (Aggressive, Conservative, ResourceManager, MonteCarlo)**
+
+  - Share the same **distance/duration/mpd bands** as Classic/Balanced.
+  - Aggressive: biased to **lower survival** and **more terminal crossings** than Balanced, but still with a meaningful path to victory (boss win often below Balanced band).
+  - Conservative / ResourceManager: tilt toward **higher survival** and **slightly higher boss reach**, but boss win must not exceed ~`0.40` so that the game remains failure-prone.
+  - MonteCarlo: same bands, but with higher per-run variance in distance, crossings, and failure causes.
+
+- **Deep family (all strategies) — same bands, higher variance / weirdness**
+  - Distance/duration/mpd bands are **the same** as Classic: the mean behavior must still orbit OT-style journeys.
+  - Per-run variance is allowed to be **higher** (more “weird” runs), and tails may be heavier, but long-run means must still satisfy the bands above.
+  - Deep may allow **slightly harsher crossings** or **stranger failure mixes**, but must not drift into a fundamentally different pacing model (e.g., short arcade-like runs or ultra-long slogs).
 
 ---
 
@@ -466,13 +494,38 @@ Multipliers pulled from config; defaults for `weather_factor` exist.
 
 ### H.2 Acceptance Gates
 
-- **Distance**: mean within 1,900–2,100 over 1k runs.
-- **Duration**: mean within 84–180 days; tails acceptable by strategy.
-- **Avg MPD**: 10–20.
-- **Travel Ratio**: ≥ 0.90 except where strategy explicitly loosens.
-- **Crossing Failure**: Classic ≤ 12%; Deep ≤ 16% (adjustable).
-- **Bribe Success**: scenario targets (e.g., ≥ 70% where applicable).
-- **Determinism**: identical seed ⇒ identical CSV trace.
+The tester must enforce the following gates over large samples (default: 1,000 runs per scenario) using only aggregated metrics derived from `DayRecord`.
+
+- **Global distance / duration (all policies)**
+
+  - ERROR if `mean_miles < 1900` or `mean_miles > 2100`.
+  - ERROR if `mean_days < 84` or `mean_days > 180`.
+  - ERROR if `mean_mpd < 10` or `mean_mpd > 20`.
+  - ERROR if `travel_ratio < 0.90` for any non-experimental policy.
+
+- **Classic / Balanced (canonical OT profile)**
+
+  - ERROR if `boss_reach_rate < 0.30` or `boss_reach_rate > 0.50`.
+  - ERROR if `boss_win_rate < 0.20` or `boss_win_rate > 0.35`.
+  - ERROR if `survival_rate < 0.60` or `survival_rate > 0.80`.
+  - WARN if any single failure family (vehicle, sanity, exposure, crossings) exceeds `0.50` of all failures.
+
+- **Other Classic strategies**
+
+  - Must satisfy the global distance/duration/mpd and travel-ratio gates.
+  - Aggressive: WARN if survival is **higher** than Classic/Balanced upper bound (the mode should be harsher, not easier).
+  - Conservative / ResourceManager: WARN if boss win rate exceeds `0.40` (indicates mode has drifted into “too cozy” territory).
+  - MonteCarlo: WARN if variance of miles or days is **lower** than Balanced (indicates under-exploration), while still obeying the global means.
+
+- **Deep family (all strategies)**
+
+  - Must satisfy the **same distance/duration/mpd and travel-ratio error bands** as Classic.
+  - WARN if mean_miles or mean_days drift outside `[1900, 2100]` or `[84, 180]` even if still within loose legacy limits.
+  - WARN if crossing terminal rate for Deep strategies falls below `0.08` or above `0.18` (signals crossings are either too trivial or too punishing).
+  - WARN if boss reach or win rates fall outside ±50% of the Classic/Balanced targets (Deep should feel weirder, not like a completely different genre).
+
+- **Determinism**
+  - ERROR if two runs with the same seed and policy/strategy produce different CSV traces (byte-for-byte).
 
 ### H.3 Unit & Integration Tests (Phase H)
 
