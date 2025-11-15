@@ -25,6 +25,8 @@ use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
 
+const ENCOUNTER_UNIQUE_WINDOW: u32 = 20;
+const ENCOUNTER_UNIQUE_RATIO_FLOOR: f32 = 0.075;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 #[serde(rename_all = "lowercase")]
 pub enum PaceId {
@@ -493,9 +495,9 @@ mod tests {
             state.travel_days + state.partial_travel_days >= 30,
             "expected at least 30 days with travel credit"
         );
-        let travel_days = state.travel_days.max(1);
-        let avg_mpd = if state.travel_days > 0 {
-            f64::from(state.miles_traveled_actual) / f64::from(travel_days)
+        let moving_days = state.travel_days.saturating_add(state.partial_travel_days);
+        let avg_mpd = if moving_days > 0 {
+            f64::from(state.miles_traveled_actual) / f64::from(moving_days)
         } else {
             0.0
         };
@@ -1090,7 +1092,7 @@ mod tests {
         state.revert_current_day_record();
         assert!(state.current_day_reason_tags.is_empty());
 
-        state.apply_travel_progress(5.0, TravelProgressKind::Partial);
+        let _ = state.apply_travel_progress(5.0, TravelProgressKind::Partial);
         assert!(state.partial_traveled_today);
 
         assert!(state.rotation_force_interval() >= 3);
@@ -2154,15 +2156,18 @@ impl GameState {
                     };
                     let applied = bonus.min(available);
                     if applied > 0.0 {
-                        self.apply_travel_progress(applied, TravelProgressKind::Full);
-                        self.current_day_miles += applied;
-                        self.distance_today = self.distance_today.max(self.current_day_miles);
-                        self.distance_today_raw =
-                            self.distance_today_raw.max(self.current_day_miles);
-                        self.partial_distance_today = self
-                            .partial_distance_today
-                            .max(applied)
-                            .min(self.distance_today);
+                        let credited =
+                            self.apply_travel_progress(applied, TravelProgressKind::Full);
+                        if credited > 0.0 {
+                            self.current_day_miles += credited;
+                            self.distance_today = self.distance_today.max(self.current_day_miles);
+                            self.distance_today_raw =
+                                self.distance_today_raw.max(self.current_day_miles);
+                            self.partial_distance_today = self
+                                .partial_distance_today
+                                .max(credited)
+                                .min(self.distance_today);
+                        }
                     }
                 }
             }
@@ -2229,7 +2234,7 @@ impl GameState {
             self.boss_reached = true;
         }
         self.day = self.day.saturating_add(1);
-        self.region = Self::region_by_day(self.day);
+        self.region = Self::region_by_miles(self.miles_traveled_actual);
         self.season = Season::from_day(self.day);
         self.day_initialized = false;
         self.encounters_today = 0;
@@ -2319,13 +2324,18 @@ impl GameState {
         self.current_day_miles = 0.0;
     }
 
-    pub(crate) fn apply_travel_progress(&mut self, distance: f32, kind: TravelProgressKind) {
+    pub(crate) fn apply_travel_progress(&mut self, distance: f32, kind: TravelProgressKind) -> f32 {
         if distance <= 0.0 {
-            return;
+            return 0.0;
         }
+        let remaining = (self.trail_distance - self.miles_traveled_actual).max(0.0);
+        if remaining <= 0.0 {
+            return 0.0;
+        }
+        let applied = distance.min(remaining);
         let before = self.miles_traveled_actual;
-        self.miles_traveled_actual += distance;
-        self.miles_traveled = (self.miles_traveled + distance).min(self.trail_distance);
+        self.miles_traveled_actual += applied;
+        self.miles_traveled = (self.miles_traveled + applied).min(self.trail_distance);
         let advanced = self.miles_traveled_actual > before;
         if advanced {
             match kind {
@@ -2337,6 +2347,7 @@ impl GameState {
                 self.boss_reached = true;
             }
         }
+        applied
     }
 
     fn recompute_day_counters(&mut self) {
@@ -2465,11 +2476,8 @@ impl GameState {
     }
 
     fn apply_delay_travel_credit(&mut self, reason_tag: &str) {
-        self.apply_partial_travel_credit(
-            DELAY_TRAVEL_CREDIT_MILES,
-            LOG_TRAVEL_DELAY_CREDIT,
-            reason_tag,
-        );
+        let miles = day_accounting::partial_day_miles(self, 0.0).max(DELAY_TRAVEL_CREDIT_MILES);
+        self.apply_partial_travel_credit(miles, LOG_TRAVEL_DELAY_CREDIT, reason_tag);
     }
 
     fn apply_classic_field_repair_guard(&mut self) {
@@ -2532,13 +2540,13 @@ impl GameState {
         if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
             return false;
         }
-        if self.miles_traveled_actual < 1_600.0 {
+        if self.miles_traveled_actual < 1_500.0 {
             return false;
         }
         let roll = self
             .breakdown_rng()
             .map_or(1.0, |mut rng| rng.random::<f32>());
-        if roll >= 0.15 {
+        if roll >= 0.65 {
             return false;
         }
 
@@ -2625,6 +2633,29 @@ impl GameState {
             TRAVEL_RATIO_DEFAULT.min(WEATHER_DEFAULT_SPEED)
         } else {
             ENCOUNTER_REROLL_PENALTY
+        }
+    }
+
+    fn encounter_unique_ratio(&self, window_days: u32) -> f32 {
+        if window_days == 0 {
+            return 1.0;
+        }
+        let cutoff = self.day.saturating_sub(window_days);
+        let mut unique: HashSet<&str> = HashSet::new();
+        let mut total = 0_u32;
+        for entry in self.recent_encounters.iter().rev() {
+            if entry.day <= cutoff {
+                break;
+            }
+            total = total.saturating_add(1);
+            unique.insert(entry.id.as_str());
+        }
+        if total == 0 {
+            1.0
+        } else {
+            let unique_count = u16::try_from(unique.len()).unwrap_or(u16::MAX);
+            let total_days = u16::try_from(total).unwrap_or(u16::MAX);
+            f32::from(unique_count) / f32::from(total_days)
         }
     }
 
@@ -2952,6 +2983,9 @@ impl GameState {
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Balanced)) {
             multiplier *= DEEP_BALANCED_TRAVEL_NUDGE;
         }
+        if self.endgame.active && self.endgame.travel_bias > 0.0 {
+            multiplier *= self.endgame.travel_bias.max(1.0);
+        }
         let behind_boost = self.behind_schedule_multiplier();
         if behind_boost > 1.0 {
             multiplier *= behind_boost;
@@ -2968,6 +3002,11 @@ impl GameState {
             raw_distance *= travel_boost;
             distance *= travel_boost;
             partial_distance *= travel_boost;
+        }
+        if !self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::MonteCarlo)) {
+            raw_distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
+            distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
+            partial_distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
         }
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
@@ -2991,11 +3030,14 @@ impl GameState {
         partial_distance *= self.illness_travel_penalty.max(0.0);
 
         self.distance_cap_today = travel_cfg.mpd_max.max(travel_cfg.mpd_base);
-        let max_distance = if self.distance_cap_today > 0.0 {
+        let mut max_distance = if self.distance_cap_today > 0.0 {
             self.distance_cap_today
         } else {
             travel_cfg.mpd_max
         };
+        if !self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::MonteCarlo)) {
+            max_distance = max_distance.min(CLASSIC_MONTE_CARLO_DISTANCE_CAP);
+        }
 
         let mut clamped_distance = distance.clamp(travel_cfg.mpd_min, max_distance);
         if clamped_distance.is_nan() || clamped_distance <= 0.0 {
@@ -3302,11 +3344,13 @@ impl GameState {
     }
 
     #[must_use]
-    pub const fn region_by_day(day: u32) -> Region {
-        match day {
-            0..=4 => Region::Heartland,
-            5..=9 => Region::RustBelt,
-            _ => Region::Beltway,
+    pub const fn region_by_miles(miles: f32) -> Region {
+        if miles < 700.0 {
+            Region::Heartland
+        } else if miles < 1_400.0 {
+            Region::RustBelt
+        } else {
+            Region::Beltway
         }
     }
 
@@ -3393,8 +3437,18 @@ impl GameState {
                 }
             }
 
+            let unique_ratio = self.encounter_unique_ratio(ENCOUNTER_UNIQUE_WINDOW);
+            let enforce_unique = unique_ratio < ENCOUNTER_UNIQUE_RATIO_FLOOR;
             let should_reroll = encounter.as_ref().is_some_and(|enc| {
-                self.features.encounter_diversity && self.should_discourage_encounter(&enc.id)
+                let diversity_reroll =
+                    self.features.encounter_diversity && self.should_discourage_encounter(&enc.id);
+                let recent_repeat = self
+                    .recent_encounters
+                    .iter()
+                    .rev()
+                    .take(usize::try_from(ENCOUNTER_UNIQUE_WINDOW).unwrap_or(20))
+                    .any(|entry| entry.id == enc.id);
+                diversity_reroll || (enforce_unique && recent_repeat)
             });
 
             if should_reroll {
@@ -3474,13 +3528,13 @@ impl GameState {
         }
 
         let computed_miles_today = self.distance_today.max(self.distance_today_raw);
+        endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
         if let Some((ended, log)) = self.handle_crossing_event(computed_miles_today) {
             return (ended, log, breakdown_started);
         }
 
         let additional_miles = (self.distance_today - self.current_day_miles).max(0.0);
         self.record_travel_day(TravelDayKind::Travel, additional_miles, "");
-        endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
 
         if debug_log_enabled() {
             println!(
@@ -3521,6 +3575,17 @@ impl GameState {
             * self.journey_weather_factor();
         breakdown_chance = (breakdown_chance + self.exec_breakdown_bonus)
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
+
+        if self.endgame.active && self.endgame.breakdown_scale > 0.0 {
+            breakdown_chance *= self.endgame.breakdown_scale;
+        }
+        if matches!(self.policy, Some(PolicyKind::Aggressive)) {
+            breakdown_chance = breakdown_chance.max(0.01);
+        }
+        if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive)) {
+            breakdown_chance *= 0.7;
+        }
+        breakdown_chance = breakdown_chance.min(0.35);
 
         let roll = self
             .breakdown_rng()

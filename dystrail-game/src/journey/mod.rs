@@ -187,6 +187,8 @@ pub struct JourneyCfg {
     pub crossing: CrossingPolicy,
     #[serde(default)]
     pub daily: DailyTickConfig,
+    #[serde(default)]
+    pub guards: AcceptanceGuards,
 }
 
 impl JourneyCfg {
@@ -207,6 +209,7 @@ impl JourneyCfg {
         self.breakdown.validate()?;
         self.crossing.validate()?;
         self.daily.validate()?;
+        self.guards.validate()?;
         Ok(())
     }
 
@@ -235,6 +238,98 @@ impl Default for JourneyCfg {
             part_weights: PartWeights::default(),
             crossing: CrossingPolicy::default(),
             daily: DailyTickConfig::default(),
+            guards: AcceptanceGuards::default(),
+        }
+    }
+}
+
+/// Acceptance guardrails communicated to the tester for aggregate validation.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct AcceptanceGuards {
+    #[serde(default = "AcceptanceGuards::default_min_travel_ratio")]
+    pub min_travel_ratio: f32,
+    #[serde(default = "AcceptanceGuards::default_target_distance")]
+    pub target_distance: f32,
+    #[serde(default = "AcceptanceGuards::default_target_days_min")]
+    pub target_days_min: u16,
+    #[serde(default = "AcceptanceGuards::default_target_days_max")]
+    pub target_days_max: u16,
+}
+
+impl AcceptanceGuards {
+    const fn default_min_travel_ratio() -> f32 {
+        0.9
+    }
+
+    const fn default_target_distance() -> f32 {
+        2_000.0
+    }
+
+    const fn default_target_days_min() -> u16 {
+        84
+    }
+
+    const fn default_target_days_max() -> u16 {
+        180
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        if !(0.5..=1.0).contains(&self.min_travel_ratio) {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "guards.min_travel_ratio",
+                min: 0.5,
+                max: 1.0,
+                value: self.min_travel_ratio,
+            });
+        }
+        if self.target_distance <= 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "guards.target_distance",
+                min: 1.0,
+                value: self.target_distance,
+            });
+        }
+        if self.target_days_min == 0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "guards.target_days_min",
+                min: 1.0,
+                value: 0.0,
+            });
+        }
+        if self.target_days_min > self.target_days_max {
+            return Err(JourneyConfigError::GuardDaysRange {
+                min: self.target_days_min,
+                max: self.target_days_max,
+            });
+        }
+        Ok(())
+    }
+
+    fn with_overlay(&self, overlay: &AcceptanceGuardsOverlay) -> Self {
+        Self {
+            min_travel_ratio: overlay
+                .min_travel_ratio
+                .unwrap_or(self.min_travel_ratio),
+            target_distance: overlay
+                .target_distance
+                .unwrap_or(self.target_distance),
+            target_days_min: overlay
+                .target_days_min
+                .unwrap_or(self.target_days_min),
+            target_days_max: overlay
+                .target_days_max
+                .unwrap_or(self.target_days_max),
+        }
+    }
+}
+
+impl Default for AcceptanceGuards {
+    fn default() -> Self {
+        Self {
+            min_travel_ratio: Self::default_min_travel_ratio(),
+            target_distance: Self::default_target_distance(),
+            target_days_min: Self::default_target_days_min(),
+            target_days_max: Self::default_target_days_max(),
         }
     }
 }
@@ -257,6 +352,8 @@ pub enum JourneyConfigError {
         max: f32,
         value: f32,
     },
+    #[error("target day window invalid (min {min} > max {max})")]
+    GuardDaysRange { min: u16, max: u16 },
     #[error("crossing detour bounds invalid (min {min} > max {max})")]
     CrossingDetourBounds { min: u8, max: u8 },
     #[error(
@@ -828,6 +925,8 @@ pub struct JourneyOverlay {
     pub part_weights: Option<PartWeightsOverlay>,
     #[serde(default)]
     pub crossing: Option<CrossingPolicyOverlay>,
+    #[serde(default)]
+    pub guards: Option<AcceptanceGuardsOverlay>,
 }
 
 impl JourneyCfg {
@@ -853,8 +952,21 @@ impl JourneyCfg {
         if let Some(crossing_overlay) = overlay.crossing.as_ref() {
             merged.crossing = merged.crossing.with_overlay(crossing_overlay);
         }
+        if let Some(guards_overlay) = overlay.guards.as_ref() {
+            merged.guards = merged.guards.with_overlay(guards_overlay);
+        }
         merged
     }
+}
+
+/// Overlay for acceptance guard adjustments.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct AcceptanceGuardsOverlay {
+    pub min_travel_ratio: Option<f32>,
+    pub target_distance: Option<f32>,
+    pub target_days_min: Option<u16>,
+    pub target_days_max: Option<u16>,
 }
 
 /// Overlay of travel pacing parameters.

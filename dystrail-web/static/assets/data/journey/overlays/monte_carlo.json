@@ -1,10 +1,11 @@
 {
   "travel": {
-    "mpd_base": 14.2,
+    "mpd_base": 16.7,
+    "mpd_max": 25.0,
     "pace_factor": {
-      "steady": 1.04,
-      "heated": 1.2,
-      "blitz": 1.4
+      "steady": 1.08,
+      "heated": 1.28,
+      "blitz": 1.42
     },
     "weather_factor": {
       "Storm": 0.87,
@@ -12,18 +13,18 @@
       "Smoke": 0.9
     }
   },
-  "partial_ratio": 0.5,
+  "partial_ratio": 0.68,
   "wear": {
-    "base": 0.21,
-    "fatigue_k": 0.22
+    "base": 0.06,
+    "fatigue_k": 0.09
   },
   "breakdown": {
-    "base": 0.04,
+    "base": 0.022,
     "weather_factor": {
-      "Storm": 1.28,
-      "HeatWave": 1.32,
-      "ColdSnap": 1.08,
-      "Smoke": 1.12
+      "Storm": 1.08,
+      "HeatWave": 1.12,
+      "ColdSnap": 1.00,
+      "Smoke": 1.03
     }
   }
 }

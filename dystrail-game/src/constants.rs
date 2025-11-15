@@ -121,6 +121,8 @@ pub(crate) const TRAVEL_PARTIAL_DEFAULT_WEAR: f32 = 0.85;
 pub(crate) const TRAVEL_RATIO_DEFAULT: f32 = 0.9;
 pub(crate) const WEATHER_PACE_MULTIPLIER_FLOOR: f32 = 0.90;
 pub(crate) const BEHIND_SCHEDULE_MILES_PER_DAY: f32 = 26.5;
+pub(crate) const CLASSIC_MONTE_CARLO_TRAVEL_SCALE: f32 = 0.85;
+pub(crate) const CLASSIC_MONTE_CARLO_DISTANCE_CAP: f32 = 20.0;
 
 pub(crate) const ROTATION_FORCE_INTERVAL: u32 = 5;
 pub(crate) const ROTATION_LOOKBACK_DAYS: u32 = 5;
@@ -129,9 +131,9 @@ pub(crate) const DEEP_CONSERVATIVE_BOOSTS: &[(u32, f32, f32)] =
     &[(145, 1_950.0, 1.05), (130, 1_750.0, 1.04)];
 
 pub(crate) const DEEP_AGGRESSIVE_BOOSTS: &[(u32, f32, f32)] = &[
-    (140, 1_900.0, 1.15),
-    (120, 1_650.0, 1.10),
-    (100, 1_400.0, 1.06),
+    (90, 1_650.0, 1.24),
+    (75, 1_350.0, 1.14),
+    (55, 1_100.0, 1.06),
 ];
 pub(crate) const DEEP_AGGRESSIVE_BOSS_BIAS_MILES: f32 = 2_050.0;
 

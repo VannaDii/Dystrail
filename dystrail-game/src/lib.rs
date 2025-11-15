@@ -37,9 +37,10 @@ pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
 pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use journey::{
-    BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome, DayOutcome, DayRecord,
-    DayTag, DayTagSet, DetourPolicy, JourneyCfg, JourneyController, JourneySession, PermitPolicy,
-    PolicyId, RngBundle, StrategyId, TravelDayKind, apply_daily_effect,
+    AcceptanceGuards, BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome,
+    DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, JourneyCfg, JourneyController,
+    JourneySession, PermitPolicy, PolicyId, RngBundle, StrategyId, TravelDayKind,
+    apply_daily_effect,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};

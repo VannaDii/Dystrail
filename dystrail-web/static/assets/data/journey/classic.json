@@ -1,7 +1,7 @@
 {
   "travel": {
-    "mpd_base": 14.0,
-    "mpd_min": 8.0,
+    "mpd_base": 14.6,
+    "mpd_min": 10.0,
     "mpd_max": 22.0,
     "pace_factor": {
       "steady": 1.0,
@@ -16,15 +16,15 @@
       "Smoke": 0.86
     }
   },
-  "partial_ratio": 0.52,
+  "partial_ratio": 0.5,
   "wear": {
-    "base": 0.19,
-    "fatigue_k": 0.18,
-    "comfort_miles": 1200.0
+    "base": 0.07,
+    "fatigue_k": 0.08,
+    "comfort_miles": 1250.0
   },
   "breakdown": {
-    "base": 0.035,
-    "beta": 0.22,
+    "base": 0.01,
+    "beta": 0.1,
     "pace_factor": {
       "steady": 0.94,
       "heated": 1.08,
@@ -53,9 +53,9 @@
       "max": 3
     },
     "bribe": {
-      "pass_bonus": 0.18,
+      "pass_bonus": 0.2,
       "detour_bonus": 0.0,
-      "terminal_penalty": 0.18,
+      "terminal_penalty": 0.2,
       "diminishing_returns": 0.4
     },
     "permit": {
@@ -64,6 +64,12 @@
         "checkpoint"
       ]
     }
+  },
+  "guards": {
+    "min_travel_ratio": 0.9,
+    "target_distance": 2000.0,
+    "target_days_min": 84,
+    "target_days_max": 180
   },
   "daily": {
     "supplies": {

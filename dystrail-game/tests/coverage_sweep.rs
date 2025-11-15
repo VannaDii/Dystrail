@@ -651,6 +651,11 @@ fn endgame_controller_and_failure_guard() {
             partial_ratio: 0.42,
             wear_multiplier: 1.1,
             resource_priority: vec![ResourceKind::MatchingSpare, ResourceKind::Emergency],
+            travel_bias: 1.05,
+            stop_cap_window: 10,
+            stop_cap_max_full: 2,
+            breakdown_scale: 0.5,
+            wear_shave_ratio: 0.7,
         },
     );
     state.vehicle.set_breakdown_cooldown(2);
@@ -669,6 +674,11 @@ fn endgame_controller_and_failure_guard() {
             partial_ratio: 0.5,
             wear_multiplier: 1.0,
             resource_priority: vec![ResourceKind::Emergency],
+            travel_bias: 1.04,
+            stop_cap_window: 10,
+            stop_cap_max_full: 2,
+            breakdown_scale: 0.5,
+            wear_shave_ratio: 0.7,
         },
     );
     state.policy = Some(PolicyKind::Balanced);
@@ -742,7 +752,7 @@ fn crossing_resolution_covers_branches() {
     assert!(matches!(permit.result, CrossingResult::Pass));
 
     let deep_balanced = journey_cfg_for(PolicyKind::Balanced, GameMode::Deep).crossing;
-    let mut detour_rng = FixedRng::with_draw(0.78);
+    let mut detour_rng = FixedRng::with_draw(0.86);
     let detour_ctx = CrossingContext {
         policy: &deep_balanced,
         kind: CrossingKind::BridgeOut,

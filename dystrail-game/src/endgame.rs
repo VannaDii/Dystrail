@@ -69,6 +69,16 @@ pub struct EndgamePolicyCfg {
     pub wear_multiplier: f32,
     #[serde(default = "EndgamePolicyCfg::default_resource_priority")]
     pub resource_priority: Vec<ResourceKind>,
+    #[serde(default = "EndgamePolicyCfg::default_travel_bias")]
+    pub travel_bias: f32,
+    #[serde(default = "EndgamePolicyCfg::default_stop_cap_window")]
+    pub stop_cap_window: u8,
+    #[serde(default = "EndgamePolicyCfg::default_stop_cap_max_full")]
+    pub stop_cap_max_full: u8,
+    #[serde(default = "EndgamePolicyCfg::default_breakdown_scale")]
+    pub breakdown_scale: f32,
+    #[serde(default = "EndgamePolicyCfg::default_wear_shave_ratio")]
+    pub wear_shave_ratio: f32,
 }
 
 impl Default for EndgamePolicyCfg {
@@ -82,6 +92,11 @@ impl Default for EndgamePolicyCfg {
             partial_ratio: Self::default_partial_ratio(),
             wear_multiplier: Self::default_wear_multiplier(),
             resource_priority: Self::default_resource_priority(),
+            travel_bias: Self::default_travel_bias(),
+            stop_cap_window: Self::default_stop_cap_window(),
+            stop_cap_max_full: Self::default_stop_cap_max_full(),
+            breakdown_scale: Self::default_breakdown_scale(),
+            wear_shave_ratio: Self::default_wear_shave_ratio(),
         }
     }
 }
@@ -97,6 +112,26 @@ impl EndgamePolicyCfg {
 
     const fn default_wear_multiplier() -> f32 {
         1.0
+    }
+
+    const fn default_travel_bias() -> f32 {
+        1.06
+    }
+
+    const fn default_stop_cap_window() -> u8 {
+        10
+    }
+
+    const fn default_stop_cap_max_full() -> u8 {
+        2
+    }
+
+    const fn default_breakdown_scale() -> f32 {
+        1.0
+    }
+
+    const fn default_wear_shave_ratio() -> f32 {
+        0.7
     }
 
     fn default_resource_priority() -> Vec<ResourceKind> {
@@ -131,6 +166,18 @@ pub struct EndgameState {
     pub wear_multiplier: f32,
     #[serde(default)]
     pub policy_key: String,
+    #[serde(default)]
+    pub resource_priority: Vec<ResourceKind>,
+    #[serde(default = "EndgameState::default_travel_bias")]
+    pub travel_bias: f32,
+    #[serde(default = "EndgameState::default_stop_cap_window")]
+    pub stop_cap_window: u8,
+    #[serde(default = "EndgameState::default_stop_cap_max_full")]
+    pub stop_cap_max_full: u8,
+    #[serde(default = "EndgameState::default_breakdown_scale")]
+    pub breakdown_scale: f32,
+    #[serde(default = "EndgameState::default_wear_shave_ratio")]
+    pub wear_shave_ratio: f32,
 }
 
 impl Default for EndgameState {
@@ -146,6 +193,12 @@ impl Default for EndgameState {
             partial_ratio: Self::default_partial_ratio(),
             wear_multiplier: Self::default_wear_multiplier(),
             policy_key: String::new(),
+            resource_priority: Vec::new(),
+            travel_bias: Self::default_travel_bias(),
+            stop_cap_window: EndgamePolicyCfg::default_stop_cap_window(),
+            stop_cap_max_full: EndgamePolicyCfg::default_stop_cap_max_full(),
+            breakdown_scale: Self::default_breakdown_scale(),
+            wear_shave_ratio: Self::default_wear_shave_ratio(),
         }
     }
 }
@@ -163,6 +216,26 @@ impl EndgameState {
         1.0
     }
 
+    const fn default_travel_bias() -> f32 {
+        1.0
+    }
+
+    const fn default_stop_cap_window() -> u8 {
+        10
+    }
+
+    const fn default_stop_cap_max_full() -> u8 {
+        2
+    }
+
+    const fn default_breakdown_scale() -> f32 {
+        1.0
+    }
+
+    const fn default_wear_shave_ratio() -> f32 {
+        1.0
+    }
+
     pub fn configure(&mut self, key: &str, policy: &EndgamePolicyCfg) {
         self.active = true;
         self.field_repair_used = false;
@@ -174,6 +247,12 @@ impl EndgameState {
         self.partial_ratio = policy.partial_ratio;
         self.wear_multiplier = policy.wear_multiplier;
         self.policy_key = key.to_string();
+        self.resource_priority.clone_from(&policy.resource_priority);
+        self.travel_bias = policy.travel_bias.max(1.0);
+        self.stop_cap_window = policy.stop_cap_window.max(1);
+        self.stop_cap_max_full = policy.stop_cap_max_full;
+        self.breakdown_scale = policy.breakdown_scale.clamp(0.0, 1.0);
+        self.wear_shave_ratio = policy.wear_shave_ratio.clamp(0.0, 1.0);
     }
 }
 

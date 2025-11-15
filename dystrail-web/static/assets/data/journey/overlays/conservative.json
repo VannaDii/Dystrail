@@ -8,14 +8,14 @@
       "blitz": 1.22
     }
   },
-  "partial_ratio": 0.6,
+  "partial_ratio": 0.5,
   "wear": {
-    "base": 0.18,
-    "fatigue_k": 0.16,
+    "base": 0.1,
+    "fatigue_k": 0.09,
     "comfort_miles": 1250.0
   },
   "breakdown": {
-    "base": 0.034,
+    "base": 0.014,
     "pace_factor": {
       "steady": 0.9,
       "heated": 1.02,

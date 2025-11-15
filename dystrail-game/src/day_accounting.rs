@@ -95,6 +95,12 @@ pub fn record_travel_day(
         state.add_day_reason_tag("stop_cap");
     }
 
+    if matches!(effective_kind, TravelDayKind::NonTravel) && enforce_endgame_stop_cap(state) {
+        effective_kind = TravelDayKind::Partial;
+        miles = partial_day_miles(state, miles);
+        state.add_day_reason_tag("auto_cap");
+    }
+
     match state.current_day_kind {
         None => {
             apply_initial_counters(state, effective_kind);
@@ -112,8 +118,13 @@ pub fn record_travel_day(
             TravelDayKind::Travel => TravelProgressKind::Full,
             TravelDayKind::Partial | TravelDayKind::NonTravel => TravelProgressKind::Partial,
         };
-        state.apply_travel_progress(miles, progress_kind);
-        state.current_day_miles += miles;
+        let credited = state.apply_travel_progress(miles, progress_kind);
+        if credited > 0.0 {
+            state.current_day_miles += credited;
+            miles = credited;
+        } else {
+            miles = 0.0;
+        }
     }
 
     match effective_kind {
@@ -131,7 +142,41 @@ pub fn record_travel_day(
         }
     }
 
+    if state.endgame.active && matches!(effective_kind, TravelDayKind::Partial) {
+        apply_endgame_wear_shave(state);
+    }
+
     (effective_kind, miles)
+}
+
+fn enforce_endgame_stop_cap(state: &GameState) -> bool {
+    if !state.endgame.active {
+        return false;
+    }
+    let window = usize::from(state.endgame.stop_cap_window.max(1));
+    let max_full = usize::from(state.endgame.stop_cap_max_full);
+    if max_full == 0 {
+        return true;
+    }
+    let full_stops = state
+        .recent_travel_days
+        .iter()
+        .rev()
+        .take(window)
+        .filter(|kind| matches!(kind, TravelDayKind::NonTravel))
+        .count();
+    full_stops >= max_full
+}
+
+fn apply_endgame_wear_shave(state: &mut GameState) {
+    let shave = state.endgame.wear_shave_ratio;
+    if !(0.0..1.0).contains(&shave) {
+        return;
+    }
+    state.vehicle.wear *= shave;
+    if state.vehicle.wear < 0.0 {
+        state.vehicle.wear = 0.0;
+    }
 }
 
 const fn sanitize_miles(miles: f32) -> f32 {

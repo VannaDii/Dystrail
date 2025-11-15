@@ -94,13 +94,13 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     let score = state.journey_score().max(0);
     let win_ratio = (f64::from(score) / threshold).min(1.25);
     let mut win_prob = (win_ratio - 0.5).clamp(0.0, 1.0);
-    if win_prob <= 0.0 {
-        win_prob = 0.05;
-    }
+    let base = f64::from(cfg.base_victory_chance).clamp(0.0, 1.0);
+    let min_cap = f64::from(cfg.min_chance).clamp(0.0, 1.0);
+    let max_cap = f64::from(cfg.max_chance).clamp(min_cap, 1.0);
+    win_prob = (win_prob + base).min(max_cap);
+    win_prob = win_prob.max(min_cap);
     if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
-        let boosted = win_prob + 0.02;
-        let cap = f64::from(cfg.max_chance).max(win_prob);
-        win_prob = boosted.min(cap);
+        win_prob = 1.0;
     }
 
     let roll = f64::from(state.next_pct()) / 100.0;
