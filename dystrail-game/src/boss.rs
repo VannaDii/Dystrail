@@ -21,6 +21,40 @@ pub struct Boss {
     pub hp: i32,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct BalancedBossBias {
+    #[serde(default = "BalancedBossBias::default_classic_bonus")]
+    pub classic_bonus: f32,
+    #[serde(default = "BalancedBossBias::default_deep_multiplier")]
+    pub deep_multiplier: f32,
+    #[serde(default = "BalancedBossBias::default_deep_bonus")]
+    pub deep_bonus: f32,
+}
+
+impl BalancedBossBias {
+    const fn default_classic_bonus() -> f32 {
+        0.30
+    }
+
+    const fn default_deep_multiplier() -> f32 {
+        1.1
+    }
+
+    const fn default_deep_bonus() -> f32 {
+        0.08
+    }
+}
+
+impl Default for BalancedBossBias {
+    fn default() -> Self {
+        Self {
+            classic_bonus: Self::default_classic_bonus(),
+            deep_multiplier: Self::default_deep_multiplier(),
+            deep_bonus: Self::default_deep_bonus(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BossConfig {
     pub distance_required: f32,
@@ -36,24 +70,27 @@ pub struct BossConfig {
     pub pants_penalty_weight: f32,
     pub min_chance: f32,
     pub max_chance: f32,
+    #[serde(default)]
+    pub balanced: BalancedBossBias,
 }
 
 impl Default for BossConfig {
     fn default() -> Self {
-        serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or(Self {
+        serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or_else(|_| Self {
             distance_required: ROUTE_LEN_MILES,
             rounds: 3,
             passes_required: 2,
             sanity_loss_per_round: 2,
-            pants_gain_per_round: 4,
-            base_victory_chance: 0.11,
+            pants_gain_per_round: 3,
+            base_victory_chance: 0.18,
             credibility_weight: 0.012,
             sanity_weight: 0.01,
             supplies_weight: 0.004,
             allies_weight: 0.015,
             pants_penalty_weight: 0.005,
-            min_chance: 0.08,
-            max_chance: 0.65,
+            min_chance: 0.25,
+            max_chance: 0.88,
+            balanced: BalancedBossBias::default(),
         })
     }
 }
@@ -100,10 +137,13 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     win_prob = (win_prob + base).min(max_cap);
     win_prob = win_prob.max(min_cap);
     if matches!(state.policy, Some(PolicyKind::Balanced)) {
+        let bias = cfg.balanced;
         if state.mode.is_deep() {
-            win_prob *= 0.85;
+            let deep_mult = f64::from(bias.deep_multiplier).clamp(0.0, 2.0);
+            win_prob *= deep_mult;
+            win_prob += f64::from(bias.deep_bonus);
         } else {
-            win_prob += 0.02;
+            win_prob += f64::from(bias.classic_bonus);
         }
         win_prob = win_prob.clamp(min_cap, max_cap);
     }
@@ -170,5 +210,22 @@ mod tests {
         win_cfg.max_chance = 1.0;
         let win_outcome = run_boss_minigame(&mut win_state, &win_cfg);
         assert!(matches!(win_outcome, BossOutcome::PassedCloture));
+    }
+
+    #[test]
+    fn balanced_biases_load_from_assets() {
+        let cfg = BossConfig::load_from_static();
+        assert!(
+            (cfg.balanced.classic_bonus - 0.30).abs() < f32::EPSILON,
+            "expected classic bonus from assets"
+        );
+        assert!(
+            (cfg.balanced.deep_multiplier - 1.1).abs() < f32::EPSILON,
+            "expected deep multiplier from assets"
+        );
+        assert!(
+            (cfg.balanced.deep_bonus - 0.08).abs() < f32::EPSILON,
+            "expected deep bonus from assets"
+        );
     }
 }

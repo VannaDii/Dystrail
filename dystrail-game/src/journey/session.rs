@@ -107,3 +107,50 @@ impl JourneySession {
         self.state
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::state::PolicyKind;
+
+    #[test]
+    fn session_construction_sets_policy_and_state() {
+        let data = EncounterData::empty();
+        let endgame = EndgameTravelCfg::default_config();
+        let seed = 4242;
+        let mut session = JourneySession::new(
+            GameMode::Classic,
+            StrategyId::Balanced,
+            seed,
+            data,
+            &endgame,
+        );
+
+        assert_eq!(session.strategy(), StrategyId::Balanced);
+        assert_eq!(session.policy(), PolicyId::Classic);
+        assert_eq!(session.state().seed, seed);
+        assert_eq!(session.state().policy, Some(PolicyKind::Balanced));
+
+        session.with_state_mut(|state| state.rest_requested = true);
+        assert!(session.state().rest_requested);
+
+        session.reseed(99);
+        assert_eq!(session.state().seed, 99);
+        assert_eq!(session.policy(), PolicyId::Classic);
+    }
+
+    #[test]
+    fn session_from_state_resets_policy_and_ticks() {
+        let data = EncounterData::empty();
+        let endgame = EndgameTravelCfg::default_config();
+        let state = GameState::default().with_seed(7, GameMode::Deep, data);
+
+        let mut session = JourneySession::from_state(state, StrategyId::Aggressive, &endgame);
+        assert_eq!(session.policy(), PolicyId::Deep);
+        assert_eq!(session.strategy(), StrategyId::Aggressive);
+        assert_eq!(session.state().policy, Some(PolicyKind::Aggressive));
+
+        // Ensure tick_day exercises daily application without panicking.
+        let _ = session.tick_day();
+    }
+}

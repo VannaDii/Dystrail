@@ -139,7 +139,8 @@ pub(crate) const DEEP_AGGRESSIVE_BOSS_BIAS_MILES: f32 = 2_050.0;
 
 pub(crate) const DEEP_BALANCED_TOLERANCE_THRESHOLDS: &[(f32, i32)] = &[(1_950.0, 2), (1_900.0, 1)];
 pub(crate) const DEEP_BALANCED_FAILSAFE_DISTANCE: f32 = 1_950.0;
-pub(crate) const DEEP_BALANCED_TRAVEL_NUDGE: f32 = 1.003;
+pub(crate) const CLASSIC_BALANCED_TRAVEL_NUDGE: f32 = 1.03;
+pub(crate) const DEEP_BALANCED_TRAVEL_NUDGE: f32 = 0.79;
 pub(crate) const DEEP_AGGRESSIVE_TOLERANCE_THRESHOLDS: &[(f32, i32)] =
     &[(1_950.0, 3), (1_850.0, 2)];
 

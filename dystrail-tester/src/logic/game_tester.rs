@@ -1347,6 +1347,23 @@ mod tests {
     use super::*;
 
     #[test]
+    fn boss_config_loads_balanced_biases() {
+        let assets = TesterAssets::load_default();
+        assert!(
+            (assets.boss_config.balanced.classic_bonus - 0.30).abs() < f32::EPSILON,
+            "expected classic bonus from assets"
+        );
+        assert!(
+            (assets.boss_config.balanced.deep_multiplier - 1.1).abs() < f32::EPSILON,
+            "expected deep multiplier from assets"
+        );
+        assert!(
+            (assets.boss_config.balanced.deep_bonus - 0.08).abs() < f32::EPSILON,
+            "expected deep bonus from assets"
+        );
+    }
+
+    #[test]
     fn balanced_setup_applies_persona_and_store_plan() {
         let tester = GameTester::try_new(false);
         let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)

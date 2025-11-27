@@ -1,19 +1,27 @@
 {
-  "victory_miles": 2185.0,
-  "partial_ratio": 0.52,
+  "travel": {
+    "mpd_base": 15.6
+  },
+  "victory_miles": 2400.0,
+  "partial_ratio": 0.51,
   "wear": {
-    "base": 0.0715,
+    "base": 0.073,
     "fatigue_k": 0.245,
-    "comfort_miles": 1875.0
+    "comfort_miles": 1750.0
   },
   "breakdown": {
-    "base": 0.0136,
+    "base": 0.015,
     "beta": 0.185
   },
+  "daily": {
+    "health": {
+      "decay": 0.12
+    }
+  },
   "crossing": {
-    "pass": 0.633,
-    "detour": 0.22,
-    "terminal": 0.147,
+    "pass": 0.66,
+    "detour": 0.24,
+    "terminal": 0.10,
     "bribe": {
       "pass_bonus": 0.192,
       "detour_bonus": 0.0,

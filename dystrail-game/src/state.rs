@@ -192,8 +192,10 @@ mod tests {
         clippy::too_many_lines
     )]
     use super::*;
+    use crate::constants::{CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE};
     use crate::data::{Choice, Effects, Encounter};
     use crate::journey::{CountingRng, RngBundle};
+    use crate::pacing::{PaceCfg, PacingLimits};
     use crate::weather::Weather;
     use rand::Rng;
     use std::cell::RefMut;
@@ -226,6 +228,14 @@ mod tests {
 
     fn breakdown_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
         bundle_with_roll_below(threshold, RngBundle::breakdown)
+    }
+
+    fn approx_eq(a: f32, b: f32) {
+        let epsilon = 1e-5_f32;
+        assert!(
+            (a - b).abs() <= epsilon,
+            "values differ: {a} vs {b} (ε={epsilon})"
+        );
     }
 
     #[test]
@@ -297,6 +307,82 @@ mod tests {
         let blitz_storm = state.vehicle.wear;
 
         assert!(blitz_storm > steady_clear);
+    }
+
+    #[test]
+    fn balanced_strategy_applies_travel_nudge_by_mode() {
+        let mut classic = GameState::default();
+        classic.policy = Some(PolicyKind::Balanced);
+        classic.journey_travel.mpd_base = 10.0;
+        classic.journey_travel.mpd_min = 1.0;
+        classic.journey_travel.mpd_max = 20.0;
+        classic.journey_travel.pace_factor = HashMap::from([
+            (PaceId::Steady, 1.0),
+            (PaceId::Heated, 1.0),
+            (PaceId::Blitz, 1.0),
+        ]);
+        classic.journey_travel.weather_factor =
+            HashMap::from([(Weather::Clear, 1.0), (Weather::Storm, 1.0)]);
+
+        let pace_cfg = PaceCfg {
+            dist_mult: 1.0,
+            ..PaceCfg::default()
+        };
+        let limits = PacingLimits::default();
+
+        let mut control = classic.clone();
+        control.policy = Some(PolicyKind::Aggressive);
+        let base = control.compute_miles_for_today(&pace_cfg, &limits);
+        let nudged = classic.compute_miles_for_today(&pace_cfg, &limits);
+        approx_eq(nudged, base * CLASSIC_BALANCED_TRAVEL_NUDGE);
+
+        let mut deep = classic.clone();
+        deep.mode = GameMode::Deep;
+        deep.policy = Some(PolicyKind::Balanced);
+        let mut deep_control = deep.clone();
+        deep_control.policy = Some(PolicyKind::ResourceManager);
+        let deep_base = deep_control.compute_miles_for_today(&pace_cfg, &limits);
+        let deep_nudged = deep.compute_miles_for_today(&pace_cfg, &limits);
+        approx_eq(deep_nudged, deep_base * DEEP_BALANCED_TRAVEL_NUDGE);
+    }
+
+    #[test]
+    fn deep_aggressive_compose_uses_supplies_then_funds() {
+        let mut state = GameState::default();
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.stats.supplies = BOSS_COMPOSE_SUPPLY_COST;
+        state.stats.sanity = 0;
+        state.stats.pants = 5;
+        state.budget_cents = BOSS_COMPOSE_FUNDS_COST * 2;
+
+        let applied_supplies = state.apply_deep_aggressive_compose();
+        assert!(applied_supplies, "expected supply-based compose");
+        assert_eq!(state.stats.supplies, 0);
+        assert_eq!(state.stats.sanity, 1);
+        assert!(state.stats.pants < 5);
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|log| log == LOG_BOSS_COMPOSE_SUPPLIES)
+        );
+        assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE));
+
+        state.logs.clear();
+        state.stats.supplies = 0;
+        state.stats.sanity = 0;
+        state.stats.pants = 5;
+        let baseline_budget = state.budget_cents;
+        state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
+
+        let applied_funds = state.apply_deep_aggressive_compose();
+        assert!(applied_funds, "expected funds-based compose");
+        assert!(state.budget_cents < baseline_budget);
+        assert_eq!(state.stats.sanity, 1);
+        assert!(state.stats.pants < 5);
+        assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE_FUNDS));
+        assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE));
     }
 
     #[test]
@@ -2982,8 +3068,12 @@ impl GameState {
         weather_scalar = weather_scalar.max(TRAVEL_CONFIG_MIN_MULTIPLIER);
 
         let mut multiplier = (pace_scalar * weather_scalar).max(penalty_floor);
-        if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Balanced)) {
-            multiplier *= DEEP_BALANCED_TRAVEL_NUDGE;
+        if matches!(self.policy, Some(PolicyKind::Balanced)) {
+            multiplier *= if self.mode.is_deep() {
+                DEEP_BALANCED_TRAVEL_NUDGE
+            } else {
+                CLASSIC_BALANCED_TRAVEL_NUDGE
+            };
         }
         if self.endgame.active && self.endgame.travel_bias > 0.0 {
             multiplier *= self.endgame.travel_bias.max(1.0);

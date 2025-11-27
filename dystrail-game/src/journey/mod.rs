@@ -1616,7 +1616,7 @@ impl JourneyController {
     #[must_use]
     pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
         state.attach_rng_bundle(self.rng.clone());
-        state.policy = Some(self.policy.into());
+        state.policy = Some(self.strategy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
         state.trail_distance = self.cfg.victory_miles.max(1.0);
         state.journey_travel = self.cfg.travel.clone();

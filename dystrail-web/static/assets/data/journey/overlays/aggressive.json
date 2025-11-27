@@ -1,6 +1,6 @@
 {
   "travel": {
-    "mpd_base": 14.8,
+    "mpd_base": 16.0,
     "mpd_max": 22.8,
     "pace_factor": {
       "heated": 1.18,

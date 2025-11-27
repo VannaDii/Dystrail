@@ -11,5 +11,10 @@
   "allies_weight": 0.015,
   "pants_penalty_weight": 0.005,
   "min_chance": 0.25,
-  "max_chance": 0.88
+  "max_chance": 0.88,
+  "balanced": {
+    "classic_bonus": 0.30,
+    "deep_multiplier": 1.1,
+    "deep_bonus": 0.08
+  }
 }
