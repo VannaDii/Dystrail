@@ -177,6 +177,8 @@ pub struct JourneyCfg {
     pub travel: TravelConfig,
     #[serde(default = "JourneyCfg::default_partial_ratio")]
     pub partial_ratio: f32,
+    #[serde(default = "JourneyCfg::default_victory_miles")]
+    pub victory_miles: f32,
     #[serde(default)]
     pub wear: WearConfig,
     #[serde(default)]
@@ -197,6 +199,11 @@ impl JourneyCfg {
         0.5
     }
 
+    #[must_use]
+    pub const fn default_victory_miles() -> f32 {
+        crate::boss::ROUTE_LEN_MILES
+    }
+
     /// Validate configuration invariants before sanitization.
     ///
     /// # Errors
@@ -205,11 +212,24 @@ impl JourneyCfg {
     pub fn validate(&self) -> Result<(), JourneyConfigError> {
         self.travel.validate()?;
         self.validate_partial_ratio()?;
+        self.validate_victory_miles()?;
         self.wear.validate()?;
         self.breakdown.validate()?;
         self.crossing.validate()?;
         self.daily.validate()?;
         self.guards.validate()?;
+        Ok(())
+    }
+
+    fn validate_victory_miles(&self) -> Result<(), JourneyConfigError> {
+        if !(500.0..=10_000.0).contains(&self.victory_miles) {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "victory_miles",
+                min: 500.0,
+                max: 10_000.0,
+                value: self.victory_miles,
+            });
+        }
         Ok(())
     }
 
@@ -233,6 +253,7 @@ impl Default for JourneyCfg {
         Self {
             travel: TravelConfig::default(),
             partial_ratio: Self::default_partial_ratio(),
+            victory_miles: Self::default_victory_miles(),
             wear: WearConfig::default(),
             breakdown: BreakdownConfig::default(),
             part_weights: PartWeights::default(),
@@ -307,18 +328,10 @@ impl AcceptanceGuards {
 
     fn with_overlay(&self, overlay: &AcceptanceGuardsOverlay) -> Self {
         Self {
-            min_travel_ratio: overlay
-                .min_travel_ratio
-                .unwrap_or(self.min_travel_ratio),
-            target_distance: overlay
-                .target_distance
-                .unwrap_or(self.target_distance),
-            target_days_min: overlay
-                .target_days_min
-                .unwrap_or(self.target_days_min),
-            target_days_max: overlay
-                .target_days_max
-                .unwrap_or(self.target_days_max),
+            min_travel_ratio: overlay.min_travel_ratio.unwrap_or(self.min_travel_ratio),
+            target_distance: overlay.target_distance.unwrap_or(self.target_distance),
+            target_days_min: overlay.target_days_min.unwrap_or(self.target_days_min),
+            target_days_max: overlay.target_days_max.unwrap_or(self.target_days_max),
         }
     }
 }
@@ -917,6 +930,7 @@ pub struct JourneyOverlay {
     #[serde(default)]
     pub travel: Option<TravelConfigOverlay>,
     pub partial_ratio: Option<f32>,
+    pub victory_miles: Option<f32>,
     #[serde(default)]
     pub wear: Option<WearConfigOverlay>,
     #[serde(default)]
@@ -939,6 +953,9 @@ impl JourneyCfg {
         }
         if let Some(ratio) = overlay.partial_ratio {
             merged.partial_ratio = ratio;
+        }
+        if let Some(distance) = overlay.victory_miles {
+            merged.victory_miles = distance;
         }
         if let Some(wear_overlay) = overlay.wear.as_ref() {
             merged.wear = merged.wear.with_overlay(wear_overlay);
@@ -1605,6 +1622,7 @@ impl JourneyController {
         state.attach_rng_bundle(self.rng.clone());
         state.policy = Some(self.policy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
+        state.trail_distance = self.cfg.victory_miles.max(1.0);
         state.journey_travel = self.cfg.travel.clone();
         state.journey_wear = self.cfg.wear.clone();
         state.journey_breakdown = self.cfg.breakdown.clone();

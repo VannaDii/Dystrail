@@ -189,3 +189,85 @@ where
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use serde::de::DeserializeOwned;
+    use std::cell::RefCell;
+    use std::collections::HashMap;
+    use std::convert::Infallible;
+    use std::rc::Rc;
+
+    #[derive(Clone, Copy, Default)]
+    struct FixtureLoader;
+
+    impl DataLoader for FixtureLoader {
+        type Error = Infallible;
+
+        fn load_encounter_data(&self) -> Result<EncounterData, Self::Error> {
+            Ok(EncounterData::empty())
+        }
+
+        fn load_config<T>(&self, _config_name: &str) -> Result<T, Self::Error>
+        where
+            T: DeserializeOwned,
+        {
+            let parsed = serde_json::from_str("{}")
+                .or_else(|_| serde_json::from_str("null"))
+                .unwrap();
+            Ok(parsed)
+        }
+    }
+
+    #[derive(Clone, Default)]
+    struct MemoryStorage {
+        saves: Rc<RefCell<HashMap<String, GameState>>>,
+    }
+
+    impl GameStorage for MemoryStorage {
+        type Error = Infallible;
+
+        fn save_game(&self, save_name: &str, game_state: &GameState) -> Result<(), Self::Error> {
+            self.saves
+                .borrow_mut()
+                .insert(save_name.to_string(), game_state.clone());
+            Ok(())
+        }
+
+        fn load_game(&self, save_name: &str) -> Result<Option<GameState>, Self::Error> {
+            Ok(self.saves.borrow().get(save_name).cloned())
+        }
+
+        fn delete_save(&self, save_name: &str) -> Result<(), Self::Error> {
+            self.saves.borrow_mut().remove(save_name);
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn engine_creates_and_roundtrips_state() {
+        let engine = GameEngine::new(FixtureLoader, MemoryStorage::default());
+        let mut session = engine
+            .create_session(0xABCD, GameMode::Deep, StrategyId::Aggressive)
+            .unwrap();
+        session.with_state_mut(|state| {
+            state.budget = 250;
+            state.day = 3;
+        });
+        let snapshot = session.into_state();
+        engine.save_game("slot-one", &snapshot).unwrap();
+
+        let loaded = engine.load_game("slot-one").unwrap().expect("save exists");
+        assert_eq!(loaded.budget, 250);
+        assert_eq!(loaded.mode, GameMode::Deep);
+        assert!(engine.load_game("missing-slot").unwrap().is_none());
+    }
+
+    #[test]
+    fn create_game_defaults_to_balanced_strategy() {
+        let engine = GameEngine::new(FixtureLoader, MemoryStorage::default());
+        let state = engine.create_game(7, GameMode::Classic).unwrap();
+        assert_eq!(state.policy, Some(PolicyKind::Balanced));
+    }
+}

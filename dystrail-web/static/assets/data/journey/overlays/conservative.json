@@ -15,7 +15,7 @@
     "comfort_miles": 1250.0
   },
   "breakdown": {
-    "base": 0.014,
+    "base": 0.013,
     "pace_factor": {
       "steady": 0.9,
       "heated": 1.02,

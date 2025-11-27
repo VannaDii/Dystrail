@@ -752,7 +752,8 @@ fn crossing_resolution_covers_branches() {
     assert!(matches!(permit.result, CrossingResult::Pass));
 
     let deep_balanced = journey_cfg_for(PolicyKind::Balanced, GameMode::Deep).crossing;
-    let mut detour_rng = FixedRng::with_draw(0.86);
+    let detour_draw = deep_balanced.detour.mul_add(0.5, deep_balanced.pass);
+    let mut detour_rng = FixedRng::with_draw(detour_draw);
     let detour_ctx = CrossingContext {
         policy: &deep_balanced,
         kind: CrossingKind::BridgeOut,

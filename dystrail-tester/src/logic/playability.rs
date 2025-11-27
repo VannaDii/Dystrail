@@ -1,17 +1,18 @@
 use anyhow::{Context, Result, ensure};
-use std::sync::OnceLock;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::convert::TryFrom;
+use std::sync::OnceLock;
 
 use crate::common::scenario::full_game::{
     full_game_aggressive_expectation, full_game_balanced_expectation,
     full_game_conservative_expectation, full_game_monte_carlo_expectation, full_game_plan,
     full_game_resource_manager_expectation,
 };
+use crate::logic::game_tester::FailureFamily;
 use crate::logic::seeds::SeedInfo;
 use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
-use dystrail_game::journey::{AcceptanceGuards, JourneyController, PolicyId, StrategyId};
 use dystrail_game::GameMode;
+use dystrail_game::journey::{AcceptanceGuards, JourneyController, PolicyId, StrategyId};
 use dystrail_game::state::CrossingOutcomeTelemetry;
 
 const AVG_MPD_MIN: f64 = 10.0;
@@ -19,6 +20,21 @@ const AVG_MPD_MAX: f64 = 20.0;
 const CLASSIC_CROSSING_FAILURE_MAX: f64 = 0.12;
 const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
 const DISTANCE_DRIFT_PCT: f64 = 0.05;
+const CLASSIC_BALANCED_BOSS_REACH_MIN: f64 = 0.30;
+const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.50;
+const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.20;
+const CLASSIC_BALANCED_BOSS_WIN_MAX: f64 = 0.35;
+const CLASSIC_BALANCED_SURVIVAL_MIN: f64 = 0.60;
+const CLASSIC_BALANCED_SURVIVAL_MAX: f64 = 0.80;
+const FAILURE_FAMILY_MAX_SHARE: f64 = 0.50;
+const CONSERVATIVE_BOSS_WIN_WARN: f64 = 0.40;
+const DEEP_CROSSING_WARN_MIN: f64 = 0.08;
+const DEEP_CROSSING_WARN_MAX: f64 = 0.18;
+const DEEP_BOSS_REACH_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_REACH_MIN * 0.5;
+const DEEP_BOSS_REACH_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_REACH_MAX * 1.5;
+const DEEP_BOSS_WIN_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_WIN_MIN * 0.5;
+const DEEP_BOSS_WIN_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_WIN_MAX * 1.5;
+const MONTE_CARLO_VARIANCE_EPS: f64 = 1e-6;
 
 #[derive(Debug, Clone)]
 pub struct PlayabilityRecord {
@@ -60,6 +76,11 @@ pub struct PlayabilityAggregate {
     pub endgame_activation_rate: f64,
     pub endgame_field_repair_rate: f64,
     pub mean_endgame_cooldown: f64,
+    pub survival_rate: f64,
+    pub failure_vehicle_pct: f64,
+    pub failure_sanity_pct: f64,
+    pub failure_exposure_pct: f64,
+    pub failure_crossing_pct: f64,
 }
 
 type GuardKey = (PolicyId, StrategyId);
@@ -109,10 +130,7 @@ fn guard_distance_window(guard: &AcceptanceGuards) -> (f64, f64) {
     (target - spread, target + spread)
 }
 
-fn enforce_acceptance_guards(
-    agg: &PlayabilityAggregate,
-    guard: &AcceptanceGuards,
-) -> Result<()> {
+fn enforce_acceptance_guards(agg: &PlayabilityAggregate, guard: &AcceptanceGuards) -> Result<()> {
     let ratio_floor = f64::from(guard.min_travel_ratio);
     ensure!(
         agg.mean_travel_ratio >= ratio_floor,
@@ -405,6 +423,13 @@ fn find_aggregate<'a>(
         .with_context(|| format!("missing playability summary for {name}"))
 }
 
+fn get_aggregate<'a>(
+    aggregates: &'a [PlayabilityAggregate],
+    name: &str,
+) -> Option<&'a PlayabilityAggregate> {
+    aggregates.iter().find(|agg| agg.scenario_name == name)
+}
+
 fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
     ensure!(
         agg.min_unique_per_20 >= 2.0,
@@ -420,6 +445,53 @@ fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
         agg.pct_reached_2k_by_150 >= 0.25,
         "Classic Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
         agg.pct_reached_2k_by_150 * 100.0
+    );
+    ensure!(
+        agg.boss_reach_pct >= CLASSIC_BALANCED_BOSS_REACH_MIN,
+        "Classic Balanced boss reach {:.1}% below {:.0}% floor",
+        agg.boss_reach_pct * 100.0,
+        CLASSIC_BALANCED_BOSS_REACH_MIN * 100.0
+    );
+    ensure!(
+        agg.boss_reach_pct <= CLASSIC_BALANCED_BOSS_REACH_MAX,
+        "Classic Balanced boss reach {:.1}% exceeds {:.0}% ceiling",
+        agg.boss_reach_pct * 100.0,
+        CLASSIC_BALANCED_BOSS_REACH_MAX * 100.0
+    );
+    ensure!(
+        agg.boss_win_pct >= CLASSIC_BALANCED_BOSS_WIN_MIN,
+        "Classic Balanced boss win {:.1}% below {:.0}% floor",
+        agg.boss_win_pct * 100.0,
+        CLASSIC_BALANCED_BOSS_WIN_MIN * 100.0
+    );
+    ensure!(
+        agg.boss_win_pct <= CLASSIC_BALANCED_BOSS_WIN_MAX,
+        "Classic Balanced boss win {:.1}% exceeds {:.0}% ceiling",
+        agg.boss_win_pct * 100.0,
+        CLASSIC_BALANCED_BOSS_WIN_MAX * 100.0
+    );
+    ensure!(
+        agg.survival_rate >= CLASSIC_BALANCED_SURVIVAL_MIN,
+        "Classic Balanced survival {:.1}% below {:.0}% floor",
+        agg.survival_rate * 100.0,
+        CLASSIC_BALANCED_SURVIVAL_MIN * 100.0
+    );
+    ensure!(
+        agg.survival_rate <= CLASSIC_BALANCED_SURVIVAL_MAX,
+        "Classic Balanced survival {:.1}% exceeds {:.0}% ceiling",
+        agg.survival_rate * 100.0,
+        CLASSIC_BALANCED_SURVIVAL_MAX * 100.0
+    );
+    let dominant_failure = agg
+        .failure_vehicle_pct
+        .max(agg.failure_sanity_pct)
+        .max(agg.failure_exposure_pct)
+        .max(agg.failure_crossing_pct);
+    ensure!(
+        dominant_failure <= FAILURE_FAMILY_MAX_SHARE,
+        "Classic Balanced failure mix skewed: {:.1}% > {:.0}% cap",
+        dominant_failure * 100.0,
+        FAILURE_FAMILY_MAX_SHARE * 100.0
     );
     Ok(())
 }
@@ -440,6 +512,7 @@ fn validate_deep_balanced(agg: &PlayabilityAggregate) -> Result<()> {
         "Deep Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
         agg.pct_reached_2k_by_150 * 100.0
     );
+    warn_deep_boss_rates(agg);
     Ok(())
 }
 
@@ -459,6 +532,7 @@ fn validate_deep_conservative(agg: &PlayabilityAggregate) -> Result<()> {
         "Deep Conservative travel ratio {:.1}% below 90% target",
         agg.mean_travel_ratio * 100.0
     );
+    warn_deep_boss_rates(agg);
     Ok(())
 }
 
@@ -483,7 +557,82 @@ fn validate_deep_aggressive(agg: &PlayabilityAggregate) -> Result<()> {
         "Deep Aggressive ≥2k@150 {:.1}% < 70% threshold",
         agg.pct_reached_2k_by_150 * 100.0
     );
+    warn_deep_boss_rates(agg);
     Ok(())
+}
+
+fn emit_classic_strategy_warnings(
+    aggregates: &[PlayabilityAggregate],
+    classic_balanced: &PlayabilityAggregate,
+) {
+    if let Some(aggressive) = get_aggregate(aggregates, "Classic - Aggressive") {
+        if aggressive.survival_rate > CLASSIC_BALANCED_SURVIVAL_MAX {
+            println!(
+                "WARN: Classic Aggressive survival {:.1}% exceeds Balanced upper band",
+                aggressive.survival_rate * 100.0
+            );
+        }
+        if aggressive.boss_win_pct > CLASSIC_BALANCED_BOSS_WIN_MAX {
+            println!(
+                "WARN: Classic Aggressive boss win {:.1}% exceeds Balanced ceiling",
+                aggressive.boss_win_pct * 100.0
+            );
+        }
+    }
+    for scenario in ["Classic - Conservative", "Classic - Resource Manager"] {
+        if let Some(agg) = get_aggregate(aggregates, scenario)
+            && agg.boss_win_pct > CONSERVATIVE_BOSS_WIN_WARN
+        {
+            println!(
+                "WARN: {} boss win {:.1}% exceeds {:.0}% cozy cap",
+                scenario,
+                agg.boss_win_pct * 100.0,
+                CONSERVATIVE_BOSS_WIN_WARN * 100.0
+            );
+        }
+    }
+    if let Some(monte_carlo) = get_aggregate(aggregates, "Classic - Monte Carlo")
+        && (monte_carlo.std_miles <= classic_balanced.std_miles + MONTE_CARLO_VARIANCE_EPS
+            || monte_carlo.std_days <= classic_balanced.std_days + MONTE_CARLO_VARIANCE_EPS)
+    {
+        println!(
+            "WARN: Classic Monte Carlo variance too low (days std {:.2}, miles std {:.2})",
+            monte_carlo.std_days, monte_carlo.std_miles
+        );
+    }
+}
+
+fn warn_deep_boss_rates(agg: &PlayabilityAggregate) {
+    if agg.boss_reach_pct < DEEP_BOSS_REACH_WARN_MIN {
+        println!(
+            "WARN: {} boss reach {:.1}% below {:.0}% deep lower bound",
+            agg.scenario_name,
+            agg.boss_reach_pct * 100.0,
+            DEEP_BOSS_REACH_WARN_MIN * 100.0
+        );
+    } else if agg.boss_reach_pct > DEEP_BOSS_REACH_WARN_MAX {
+        println!(
+            "WARN: {} boss reach {:.1}% exceeds {:.0}% deep upper bound",
+            agg.scenario_name,
+            agg.boss_reach_pct * 100.0,
+            DEEP_BOSS_REACH_WARN_MAX * 100.0
+        );
+    }
+    if agg.boss_win_pct < DEEP_BOSS_WIN_WARN_MIN {
+        println!(
+            "WARN: {} boss win {:.1}% below {:.0}% deep lower bound",
+            agg.scenario_name,
+            agg.boss_win_pct * 100.0,
+            DEEP_BOSS_WIN_WARN_MIN * 100.0
+        );
+    } else if agg.boss_win_pct > DEEP_BOSS_WIN_WARN_MAX {
+        println!(
+            "WARN: {} boss win {:.1}% exceeds {:.0}% deep upper bound",
+            agg.scenario_name,
+            agg.boss_win_pct * 100.0,
+            DEEP_BOSS_WIN_WARN_MAX * 100.0
+        );
+    }
 }
 
 const PLAYABILITY_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
@@ -608,6 +757,7 @@ fn validate_record_metrics(records: &[PlayabilityRecord]) -> Result<()> {
 fn validate_scenario_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()> {
     let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
     validate_classic_balanced(classic_balanced)?;
+    emit_classic_strategy_warnings(aggregates, classic_balanced);
 
     let classic_resource = find_aggregate(aggregates, "Classic - Resource Manager")?;
     ensure!(
@@ -673,6 +823,23 @@ fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()>
                 agg.crossing_failure_rate * 100.0,
                 failure_cap * 100.0
             );
+            if agg.mode == GameMode::Deep {
+                if agg.crossing_failure_rate < DEEP_CROSSING_WARN_MIN {
+                    println!(
+                        "WARN: {} terminal crossing rate {:.1}% below {:.0}% deep lower band",
+                        agg.scenario_name,
+                        agg.crossing_failure_rate * 100.0,
+                        DEEP_CROSSING_WARN_MIN * 100.0
+                    );
+                } else if agg.crossing_failure_rate > DEEP_CROSSING_WARN_MAX {
+                    println!(
+                        "WARN: {} terminal crossing rate {:.1}% exceeds {:.0}% deep warning band",
+                        agg.scenario_name,
+                        agg.crossing_failure_rate * 100.0,
+                        DEEP_CROSSING_WARN_MAX * 100.0
+                    );
+                }
+            }
         }
         ensure!(
             agg.min_travel_ratio >= 0.90,
@@ -979,8 +1146,8 @@ mod tests {
         144, 133, 185, 119, 52, 224, 254, 231, 134, 38, 100, 90,
     ];
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        211, 155, 95, 69, 122, 213, 163, 198, 70, 158, 8, 45, 243, 235, 107, 220, 115, 54, 114,
-        224, 87, 220, 6, 131, 123, 29, 191, 20, 208, 88, 193, 207,
+        103, 233, 190, 122, 174, 124, 5, 202, 2, 212, 41, 243, 31, 52, 84, 246, 29, 60, 79, 64, 66,
+        243, 16, 238, 182, 5, 152, 186, 133, 199, 53, 67,
     ];
 
     #[test]
@@ -1070,6 +1237,8 @@ mod tests {
         metrics.crossing_bribe_successes = 0;
         metrics.crossing_detours_taken = 0;
         metrics.crossing_failures = 0;
+        metrics.survived_run = true;
+        metrics.failure_family = Some(FailureFamily::Vehicle);
         metrics
     }
 
@@ -1086,19 +1255,19 @@ mod tests {
             boss_win,
         ) = match (mode, strategy) {
             (GameMode::Classic, GameplayStrategy::Balanced) => {
-                (2.2, 2.05, 0.95, 0.93, 0.40, 0.15, 0.70, 0.10)
+                (2.2, 2.05, 0.95, 0.93, 0.40, 0.15, 0.40, 0.25)
             }
             (GameMode::Classic, GameplayStrategy::ResourceManager) => {
-                (2.1, 2.0, 0.94, 0.92, 0.80, 0.20, 0.60, 0.08)
+                (2.1, 2.0, 0.94, 0.92, 0.80, 0.20, 0.60, 0.32)
             }
             (GameMode::Deep, GameplayStrategy::Balanced) => {
-                (1.7, 1.55, 0.94, 0.93, 0.35, 0.18, 0.65, 0.05)
+                (1.7, 1.55, 0.94, 0.93, 0.35, 0.18, 0.55, 0.18)
             }
             (GameMode::Deep, GameplayStrategy::Conservative) => {
-                (1.6, 1.5, 0.93, 0.92, 0.30, 0.20, 0.60, 0.04)
+                (1.6, 1.5, 0.93, 0.92, 0.30, 0.20, 0.55, 0.12)
             }
             (GameMode::Deep, GameplayStrategy::Aggressive) => {
-                (1.6, 1.5, 0.93, 0.92, 0.75, 0.22, 0.80, 0.05)
+                (1.6, 1.5, 0.93, 0.92, 0.75, 0.22, 0.70, 0.12)
             }
             _ => (1.6, 1.5, 0.93, 0.92, 0.35, 0.2, 0.65, 0.05),
         };
@@ -1131,6 +1300,11 @@ mod tests {
             endgame_activation_rate: if mode.is_deep() { 0.75 } else { 0.0 },
             endgame_field_repair_rate: 0.2,
             mean_endgame_cooldown: 1.0,
+            survival_rate: 0.70,
+            failure_vehicle_pct: 0.25,
+            failure_sanity_pct: 0.25,
+            failure_exposure_pct: 0.25,
+            failure_crossing_pct: 0.25,
         }
     }
 
@@ -1231,6 +1405,11 @@ struct AggregateBuilder {
     endgame_active_runs: u32,
     endgame_field_repair_runs: u32,
     endgame_cooldown_sum: u32,
+    survival_sum: u32,
+    failure_vehicle: u32,
+    failure_sanity: u32,
+    failure_exposure: u32,
+    failure_crossing: u32,
 }
 
 impl AggregateBuilder {
@@ -1262,6 +1441,11 @@ impl AggregateBuilder {
             endgame_active_runs: 0,
             endgame_field_repair_runs: 0,
             endgame_cooldown_sum: 0,
+            survival_sum: 0,
+            failure_vehicle: 0,
+            failure_sanity: 0,
+            failure_exposure: 0,
+            failure_crossing: 0,
         }
     }
 
@@ -1319,12 +1503,43 @@ impl AggregateBuilder {
         self.endgame_cooldown_sum = self
             .endgame_cooldown_sum
             .saturating_add(metrics.endgame_cooldown_days);
+        if metrics.survived_run {
+            self.survival_sum = self.survival_sum.saturating_add(1);
+        }
+        match metrics.failure_family {
+            Some(FailureFamily::Vehicle) => {
+                self.failure_vehicle = self.failure_vehicle.saturating_add(1);
+            }
+            Some(FailureFamily::Sanity) => {
+                self.failure_sanity = self.failure_sanity.saturating_add(1);
+            }
+            Some(FailureFamily::Exposure) => {
+                self.failure_exposure = self.failure_exposure.saturating_add(1);
+            }
+            Some(FailureFamily::Crossing) => {
+                self.failure_crossing = self.failure_crossing.saturating_add(1);
+            }
+            _ => {}
+        }
     }
 
     fn finish(self) -> PlayabilityAggregate {
         let iterations_u32 = self.iterations.max(1);
         let iterations = usize::try_from(self.iterations).unwrap_or(usize::MAX);
         let denom = f64::from(iterations_u32);
+        let failure_total = f64::from(
+            self.failure_vehicle
+                + self.failure_sanity
+                + self.failure_exposure
+                + self.failure_crossing,
+        );
+        let failure_pct = |count: u32| -> f64 {
+            if failure_total <= f64::EPSILON {
+                0.0
+            } else {
+                f64::from(count) / failure_total
+            }
+        };
         PlayabilityAggregate {
             scenario_name: self.scenario_name,
             mode: self.mode,
@@ -1375,6 +1590,11 @@ impl AggregateBuilder {
             endgame_activation_rate: f64::from(self.endgame_active_runs) / denom,
             endgame_field_repair_rate: f64::from(self.endgame_field_repair_runs) / denom,
             mean_endgame_cooldown: f64::from(self.endgame_cooldown_sum) / denom,
+            survival_rate: f64::from(self.survival_sum) / denom,
+            failure_vehicle_pct: failure_pct(self.failure_vehicle),
+            failure_sanity_pct: failure_pct(self.failure_sanity),
+            failure_exposure_pct: failure_pct(self.failure_exposure),
+            failure_crossing_pct: failure_pct(self.failure_crossing),
         }
     }
 }

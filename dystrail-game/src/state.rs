@@ -2123,8 +2123,10 @@ impl GameState {
             );
         }
         if self.partial_traveled_today {
+            let advanced = (self.miles_traveled_actual - self.prev_miles_traveled) > 0.0;
+            let at_goal = (self.trail_distance - self.miles_traveled_actual).abs() <= f32::EPSILON;
             debug_assert!(
-                (self.miles_traveled_actual - self.prev_miles_traveled) > 0.0,
+                advanced || at_goal,
                 "partial travel day without distance gain"
             );
         }

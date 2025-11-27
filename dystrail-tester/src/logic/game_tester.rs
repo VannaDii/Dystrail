@@ -11,7 +11,9 @@ use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
-use dystrail_game::state::{CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season};
+use dystrail_game::state::{
+    CollapseCause, CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season,
+};
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
 use dystrail_game::weather::{Weather, WeatherConfig};
 use dystrail_game::{
@@ -924,7 +926,18 @@ pub struct PlayabilityMetrics {
     pub endgame_field_repair_used: bool,
     pub endgame_cooldown_days: u32,
     pub stop_cap_conversions: u32,
+    pub survived_run: bool,
+    pub failure_family: Option<FailureFamily>,
     encounter_ids: HashSet<String>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum FailureFamily {
+    Vehicle,
+    Sanity,
+    Exposure,
+    Crossing,
+    Other,
 }
 
 impl Default for PlayabilityMetrics {
@@ -973,6 +986,8 @@ impl Default for PlayabilityMetrics {
             endgame_field_repair_used: false,
             endgame_cooldown_days: 0,
             stop_cap_conversions: 0,
+            survived_run: false,
+            failure_family: None,
             encounter_ids: HashSet::new(),
         }
     }
@@ -1120,6 +1135,8 @@ impl PlayabilityMetrics {
         self.endgame_active = state.endgame.active;
         self.endgame_field_repair_used = state.endgame.field_repair_used;
         self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
+        self.survived_run = survived_or_long_run(state);
+        self.failure_family = classify_failure_family(state);
         let total_days = ledger.total_days;
         if total_days > 0 {
             self.travel_ratio =
@@ -1217,6 +1234,31 @@ impl PlayabilityMetrics {
         );
         self.ending_type = ending;
         self.ending_cause = cause;
+        self.survived_run = survived_or_long_run(state);
+        self.failure_family = classify_failure_family(state);
+    }
+}
+
+const SURVIVAL_DAY_THRESHOLD: u32 = 84;
+
+const fn survived_or_long_run(state: &GameState) -> bool {
+    state.boss_reached || state.day >= SURVIVAL_DAY_THRESHOLD
+}
+
+const fn classify_failure_family(state: &GameState) -> Option<FailureFamily> {
+    match state.ending {
+        Some(Ending::VehicleFailure { .. }) => Some(FailureFamily::Vehicle),
+        Some(Ending::SanityLoss) => Some(FailureFamily::Sanity),
+        Some(Ending::Exposure { .. }) => Some(FailureFamily::Exposure),
+        Some(Ending::Collapse { cause }) => match cause {
+            CollapseCause::Crossing => Some(FailureFamily::Crossing),
+            CollapseCause::Vehicle | CollapseCause::Breakdown => Some(FailureFamily::Vehicle),
+            CollapseCause::Weather => Some(FailureFamily::Exposure),
+            CollapseCause::Panic | CollapseCause::Hunger | CollapseCause::Disease => {
+                Some(FailureFamily::Other)
+            }
+        },
+        _ => None,
     }
 }
 

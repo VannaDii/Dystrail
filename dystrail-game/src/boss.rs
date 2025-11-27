@@ -99,6 +99,15 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     let max_cap = f64::from(cfg.max_chance).clamp(min_cap, 1.0);
     win_prob = (win_prob + base).min(max_cap);
     win_prob = win_prob.max(min_cap);
+    if matches!(state.policy, Some(PolicyKind::Balanced)) {
+        if state.mode.is_deep() {
+            win_prob *= 0.85;
+        } else {
+            win_prob += 0.02;
+        }
+        win_prob = win_prob.clamp(min_cap, max_cap);
+    }
+
     if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
         win_prob = 1.0;
     }

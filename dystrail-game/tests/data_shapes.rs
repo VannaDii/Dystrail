@@ -6,7 +6,7 @@ use dystrail_game::{GameMode, GameState, JourneyController, PolicyId, StrategyId
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
 
-const SNAPSHOT_HASH: u64 = 0xb08a_7fe0_573f_cfd9;
+const SNAPSHOT_HASH: u64 = 0x03ab_39f8_1e8d_2596;
 
 #[test]
 fn journey_config_snapshot_stable() {

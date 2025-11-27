@@ -1,3 +1,24 @@
 {
-  "partial_ratio": 0.6
+  "victory_miles": 2185.0,
+  "partial_ratio": 0.52,
+  "wear": {
+    "base": 0.0715,
+    "fatigue_k": 0.245,
+    "comfort_miles": 1875.0
+  },
+  "breakdown": {
+    "base": 0.0136,
+    "beta": 0.185
+  },
+  "crossing": {
+    "pass": 0.633,
+    "detour": 0.22,
+    "terminal": 0.147,
+    "bribe": {
+      "pass_bonus": 0.192,
+      "detour_bonus": 0.0,
+      "terminal_penalty": 0.045,
+      "diminishing_returns": 0.38
+    }
+  }
 }
