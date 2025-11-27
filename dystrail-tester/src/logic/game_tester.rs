@@ -220,7 +220,7 @@ pub fn default_policy_setup(strategy: GameplayStrategy) -> fn(&mut GameState) {
         GameplayStrategy::Conservative => conservative_policy_setup,
         GameplayStrategy::Aggressive => aggressive_policy_setup,
         GameplayStrategy::ResourceManager => resource_policy_setup,
-        GameplayStrategy::Balanced | GameplayStrategy::MonteCarlo => balanced_policy_setup,
+        GameplayStrategy::Balanced => balanced_policy_setup,
     }
 }
 
@@ -344,7 +344,6 @@ impl GameTester {
             GameplayStrategy::Conservative => "lobbyist",
             GameplayStrategy::Aggressive => "whistleblower",
             GameplayStrategy::ResourceManager => "journalist",
-            GameplayStrategy::MonteCarlo => "satirist",
         };
 
         self.assets
@@ -389,7 +388,7 @@ impl GameTester {
         let (auto_rest, threshold) = match strategy {
             GameplayStrategy::Aggressive => (true, 3),
             GameplayStrategy::Balanced | GameplayStrategy::ResourceManager => (true, 5),
-            GameplayStrategy::Conservative | GameplayStrategy::MonteCarlo => (true, 4),
+            GameplayStrategy::Conservative => (true, 4),
         };
         state.auto_camp_rest = auto_rest;
         state.rest_threshold = threshold;
@@ -399,7 +398,6 @@ impl GameTester {
             GameplayStrategy::Conservative => PolicyKind::Conservative,
             GameplayStrategy::Aggressive => PolicyKind::Aggressive,
             GameplayStrategy::ResourceManager => PolicyKind::ResourceManager,
-            GameplayStrategy::MonteCarlo => PolicyKind::MonteCarlo,
         });
         state.pace = match strategy {
             GameplayStrategy::Aggressive => PaceId::Heated,
@@ -425,7 +423,7 @@ impl GameTester {
         &self,
         state: &GameState,
         strategy: GameplayStrategy,
-        seed: u64,
+        _seed: u64,
     ) -> Vec<(&'static str, i32)> {
         let mut plan: Vec<(&'static str, i32)> = match strategy {
             GameplayStrategy::Balanced => vec![("rations", 2), ("water", 1), ("spare_tire", 1)],
@@ -439,11 +437,6 @@ impl GameTester {
             GameplayStrategy::ResourceManager => {
                 vec![("rations", 3), ("water", 2), ("spare_tire", 1)]
             }
-            GameplayStrategy::MonteCarlo => match seed % 3 {
-                0 => vec![("rations", 1), ("press_pass", 1), ("masks", 1)],
-                1 => vec![("rations", 2), ("legal_fund", 1)],
-                _ => vec![("water", 2), ("ponchos", 1), ("press_pass", 1)],
-            },
         };
 
         let heat_risk = self.heatwave_risk();
@@ -630,13 +623,6 @@ impl GameTester {
                 "Morgan Lee",
                 "Dakota Shah",
                 "Emerson Vale",
-            ],
-            GameplayStrategy::MonteCarlo => [
-                "Indigo Reyes",
-                "Sterling Vaughn",
-                "Phoenix Cole",
-                "Rowan Hart",
-                "Sable Frost",
             ],
         };
 

@@ -125,7 +125,6 @@ pub enum PolicyKind {
     Conservative,
     Aggressive,
     ResourceManager,
-    MonteCarlo,
 }
 
 impl PolicyKind {
@@ -136,7 +135,6 @@ impl PolicyKind {
             Self::Conservative => "conservative",
             Self::Aggressive => "aggressive",
             Self::ResourceManager => "resource_manager",
-            Self::MonteCarlo => "monte_carlo",
         }
     }
 }
@@ -156,7 +154,6 @@ impl FromStr for PolicyKind {
             "conservative" => Ok(Self::Conservative),
             "aggressive" => Ok(Self::Aggressive),
             "resource_manager" => Ok(Self::ResourceManager),
-            "monte_carlo" => Ok(Self::MonteCarlo),
             _ => Err(()),
         }
     }
@@ -1052,7 +1049,6 @@ mod tests {
             String::from(PolicyKind::ResourceManager),
             "resource_manager"
         );
-        assert_eq!(format!("{}", PolicyKind::MonteCarlo), "monte_carlo");
 
         assert!(!GameMode::Classic.is_deep());
         assert!(GameMode::Deep.is_deep());
@@ -3095,11 +3091,6 @@ impl GameState {
             distance *= travel_boost;
             partial_distance *= travel_boost;
         }
-        if !self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::MonteCarlo)) {
-            raw_distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
-            distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
-            partial_distance *= CLASSIC_MONTE_CARLO_TRAVEL_SCALE;
-        }
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             distance *= VEHICLE_CRITICAL_SPEED_FACTOR;
@@ -3122,14 +3113,11 @@ impl GameState {
         partial_distance *= self.illness_travel_penalty.max(0.0);
 
         self.distance_cap_today = travel_cfg.mpd_max.max(travel_cfg.mpd_base);
-        let mut max_distance = if self.distance_cap_today > 0.0 {
+        let max_distance = if self.distance_cap_today > 0.0 {
             self.distance_cap_today
         } else {
             travel_cfg.mpd_max
         };
-        if !self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::MonteCarlo)) {
-            max_distance = max_distance.min(CLASSIC_MONTE_CARLO_DISTANCE_CAP);
-        }
 
         let mut clamped_distance = distance.clamp(travel_cfg.mpd_min, max_distance);
         if clamped_distance.is_nan() || clamped_distance <= 0.0 {

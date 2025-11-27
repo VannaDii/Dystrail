@@ -68,7 +68,7 @@
 ## Scope & Goals
 
 - **Single journey controller** governs daily loop: pace → miles → wear → breakdowns → crossings → encounters → consumption → logging.
-- **Policy‑driven behavior**: _Classic_ and _Deep_ families with strategy overlays (Balanced, Aggressive, Conservative, ResourceManager, MonteCarlo).
+- **Policy‑driven behavior**: _Classic_ and _Deep_ families with strategy overlays (Balanced, Aggressive, Conservative, ResourceManager).
 - **Determinism**: identical seed ⇒ identical full trace; atomic crossings; stable RNG consumption.
 - **No ad‑hoc branches**: knobs live in policy config; code path is uniform.
 - **Tunability**: JSON/YAML config for all multipliers and thresholds.
@@ -104,12 +104,12 @@ Controllers and policies MUST produce aggregates across 1,000+ runs that satisfy
   - Run survival (non–early-wipe endings of any type): `0.60 ≤ survival ≤ 0.80`
   - Failure mix: no single failure family (vehicle, sanity, exposure, crossings) exceeds `0.50` of all failures over large samples
 
-- **Other Classic strategies (Aggressive, Conservative, ResourceManager, MonteCarlo)**
+- **Other Classic strategies (Aggressive, Conservative, ResourceManager)**
 
   - Share the same **distance/duration/mpd bands** as Classic/Balanced.
   - Aggressive: biased to **lower survival** and **more terminal crossings** than Balanced, but still with a meaningful path to victory (boss win often below Balanced band).
   - Conservative / ResourceManager: tilt toward **higher survival** and **slightly higher boss reach**, but boss win must not exceed ~`0.40` so that the game remains failure-prone.
-  - MonteCarlo: same bands, but with higher per-run variance in distance, crossings, and failure causes.
+  - ResourceManager: same bands with a resource-hoarding bias.
 
 - **Deep family (all strategies) — same bands, higher variance / weirdness**
   - Distance/duration/mpd bands are **the same** as Classic: the mean behavior must still orbit OT-style journeys.
@@ -127,7 +127,7 @@ New module **`journey`** with public type:
 ```rust
 pub struct JourneyController {
   policy: PolicyId,            // Classic | Deep
-  strategy: StrategyId,        // Balanced | Aggressive | Conservative | ResourceManager | MonteCarlo
+  strategy: StrategyId,        // Balanced | Aggressive | Conservative | ResourceManager
   cfg: JourneyCfg,             // resolved config (merged family + strategy overlay)
   rng: RngBundle,              // independent RNG streams
 }
@@ -440,7 +440,7 @@ pub struct FamilyCfg {
 - **Aggressive**: `pace_factor` bias to heated/blitz; higher wear; stricter stop cap.
 - **Conservative**: slower pace; lower wear; higher permit/avoidance weighting.
 - **ResourceManager**: cheaper repairs; higher chance to choose mechanic path.
-- **MonteCarlo**: exploration‑friendly priors and more stable crossings.
+  *(Monte Carlo strategy removed; exploration is covered by other variants.)*
 
 ### F.5 Unit Tests (Phase F)
 
@@ -515,7 +515,6 @@ The tester must enforce the following gates over large samples (default: 1,000 r
   - Must satisfy the global distance/duration/mpd and travel-ratio gates.
   - Aggressive: WARN if survival is **higher** than Classic/Balanced upper bound (the mode should be harsher, not easier).
   - Conservative / ResourceManager: WARN if boss win rate exceeds `0.40` (indicates mode has drifted into “too cozy” territory).
-  - MonteCarlo: WARN if variance of miles or days is **lower** than Balanced (indicates under-exploration), while still obeying the global means.
 
 - **Deep family (all strategies)**
 

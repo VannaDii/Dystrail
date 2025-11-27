@@ -29,7 +29,7 @@ Every logic scenario now runs through the shared `SimulationPlan` harness. Polic
 # Quick smoke across default seeds
 cargo run -p dystrail-tester -- --mode logic --scenarios smoke --seeds 1337,9001 --iterations 5
 
-# Full playability sweep (Balanced, Conservative, Aggressive, Resource, MonteCarlo)
+# Full playability sweep (Balanced, Conservative, Aggressive, Resource)
 cargo run -p dystrail-tester -- --mode logic --seeds 1337 --report csv
 
 # Exercise the long-form conservative policy with verbose logging
@@ -48,7 +48,7 @@ Key flags (see `--help` for the complete list):
 - `--report console|json|markdown|csv` — switch output formats. CSV emits playability metrics with decision logs.
 - `--verbose` — print turn-by-turn decisions with policy rationales for debugging.
 
-Available automated strategies: `Balanced`, `Conservative`, `Aggressive`, `ResourceManager`, and `MonteCarlo` (stochastic search with stable RNG seeding).
+Available automated strategies: `Balanced`, `Conservative`, `Aggressive`, and `ResourceManager`.
 
 Failures emit rich diagnostics—including final stats snapshots and the last three encounter decisions—which helps triage regressions after tweaking JSON content.
 
@@ -183,29 +183,29 @@ When browser tests fail, artifacts are saved to `artifacts-dir/{browser}/{scenar
 
 1. **Create a simulation-backed scenario** in `src/common/scenario/`.
 
-    ```rust
-    pub fn combat_scenario() -> SimulationScenario {
-        SimulationScenario::new(
-            "Combat System",
-            SimulationPlan::new(GameMode::Classic, GameplayStrategy::Aggressive)
-                .with_setup(|state| {
-                    state.stats.hp = 5;
-                    state.stats.supplies = 8;
-                })
-                .with_expectation(|summary| {
-                    anyhow::ensure!(
-                        !summary.turns.is_empty(),
-                        "Combat scenario produced no turns"
-                    );
-                    anyhow::ensure!(
-                        summary.metrics.final_hp > 0,
-                        "Player should survive the combat simulation"
-                    );
-                    Ok(())
-                }),
-        )
-    }
-    ```
+   ```rust
+   pub fn combat_scenario() -> SimulationScenario {
+       SimulationScenario::new(
+           "Combat System",
+           SimulationPlan::new(GameMode::Classic, GameplayStrategy::Aggressive)
+               .with_setup(|state| {
+                   state.stats.hp = 5;
+                   state.stats.supplies = 8;
+               })
+               .with_expectation(|summary| {
+                   anyhow::ensure!(
+                       !summary.turns.is_empty(),
+                       "Combat scenario produced no turns"
+                   );
+                   anyhow::ensure!(
+                       summary.metrics.final_hp > 0,
+                       "Player should survive the combat simulation"
+                   );
+                   Ok(())
+               }),
+       )
+   }
+   ```
 
 2. **Wire it into the dispatcher** inside `src/common/scenario/mod.rs::get_scenario` so both logic and browser modes recognise the new identifier.
 

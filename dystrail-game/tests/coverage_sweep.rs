@@ -80,7 +80,6 @@ fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
         PolicyKind::Aggressive => StrategyId::Aggressive,
         PolicyKind::Conservative => StrategyId::Conservative,
         PolicyKind::ResourceManager => StrategyId::ResourceManager,
-        PolicyKind::MonteCarlo => StrategyId::MonteCarlo,
     };
     JourneyController::new(policy_id, strategy, 0)
         .config()

@@ -134,14 +134,3 @@ pub fn full_game_resource_manager_expectation(summary: &SimulationSummary) -> Re
     );
     Ok(())
 }
-
-pub fn full_game_monte_carlo_expectation(summary: &SimulationSummary) -> Result<()> {
-    ensure_basic_progress(summary, 1)?;
-
-    anyhow::ensure!(
-        summary.metrics.final_pants >= 0,
-        "Monte Carlo pants should be non-negative, observed {}",
-        summary.metrics.final_pants
-    );
-    Ok(())
-}

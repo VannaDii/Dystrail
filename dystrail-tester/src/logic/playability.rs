@@ -5,8 +5,7 @@ use std::sync::OnceLock;
 
 use crate::common::scenario::full_game::{
     full_game_aggressive_expectation, full_game_balanced_expectation,
-    full_game_conservative_expectation, full_game_monte_carlo_expectation, full_game_plan,
-    full_game_resource_manager_expectation,
+    full_game_conservative_expectation, full_game_plan, full_game_resource_manager_expectation,
 };
 use crate::logic::game_tester::FailureFamily;
 use crate::logic::seeds::SeedInfo;
@@ -35,7 +34,6 @@ const DEEP_BOSS_REACH_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_REACH_MIN * 0.5;
 const DEEP_BOSS_REACH_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_REACH_MAX * 1.5;
 const DEEP_BOSS_WIN_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_WIN_MIN * 0.5;
 const DEEP_BOSS_WIN_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_WIN_MAX * 1.5;
-const MONTE_CARLO_VARIANCE_EPS: f64 = 1e-6;
 
 #[derive(Debug, Clone)]
 pub struct PlayabilityRecord {
@@ -96,7 +94,6 @@ fn guard_registry() -> &'static HashMap<GuardKey, AcceptanceGuards> {
                 StrategyId::Aggressive,
                 StrategyId::Conservative,
                 StrategyId::ResourceManager,
-                StrategyId::MonteCarlo,
             ] {
                 let controller = JourneyController::new(policy, strategy, 0);
                 map.insert((policy, strategy), controller.config().guards.clone());
@@ -121,7 +118,6 @@ const fn to_strategy_id(strategy: GameplayStrategy) -> StrategyId {
         GameplayStrategy::Aggressive => StrategyId::Aggressive,
         GameplayStrategy::Conservative => StrategyId::Conservative,
         GameplayStrategy::ResourceManager => StrategyId::ResourceManager,
-        GameplayStrategy::MonteCarlo => StrategyId::MonteCarlo,
     }
 }
 
@@ -565,7 +561,7 @@ fn validate_deep_aggressive(agg: &PlayabilityAggregate) -> Result<()> {
 
 fn emit_classic_strategy_warnings(
     aggregates: &[PlayabilityAggregate],
-    classic_balanced: &PlayabilityAggregate,
+    _classic_balanced: &PlayabilityAggregate,
 ) {
     if let Some(aggressive) = get_aggregate(aggregates, "Classic - Aggressive") {
         if aggressive.survival_rate > CLASSIC_BALANCED_SURVIVAL_MAX {
@@ -592,15 +588,6 @@ fn emit_classic_strategy_warnings(
                 CONSERVATIVE_BOSS_WIN_WARN * 100.0
             );
         }
-    }
-    if let Some(monte_carlo) = get_aggregate(aggregates, "Classic - Monte Carlo")
-        && (monte_carlo.std_miles <= classic_balanced.std_miles + MONTE_CARLO_VARIANCE_EPS
-            || monte_carlo.std_days <= classic_balanced.std_days + MONTE_CARLO_VARIANCE_EPS)
-    {
-        println!(
-            "WARN: Classic Monte Carlo variance too low (days std {:.2}, miles std {:.2})",
-            monte_carlo.std_days, monte_carlo.std_miles
-        );
     }
 }
 
@@ -642,12 +629,10 @@ const PLAYABILITY_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
     (GameMode::Classic, GameplayStrategy::Conservative),
     (GameMode::Classic, GameplayStrategy::Aggressive),
     (GameMode::Classic, GameplayStrategy::ResourceManager),
-    (GameMode::Classic, GameplayStrategy::MonteCarlo),
     (GameMode::Deep, GameplayStrategy::Balanced),
     (GameMode::Deep, GameplayStrategy::Conservative),
     (GameMode::Deep, GameplayStrategy::Aggressive),
     (GameMode::Deep, GameplayStrategy::ResourceManager),
-    (GameMode::Deep, GameplayStrategy::MonteCarlo),
 ];
 
 pub fn run_playability_analysis(
@@ -796,17 +781,12 @@ fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()>
             agg.mean_avg_mpd,
             AVG_MPD_MIN
         );
-        let avg_mpd_cap = if agg.scenario_name.ends_with("Monte Carlo") {
-            AVG_MPD_MAX + 0.6
-        } else {
-            AVG_MPD_MAX
-        };
         ensure!(
-            agg.mean_avg_mpd <= avg_mpd_cap,
+            agg.mean_avg_mpd <= AVG_MPD_MAX,
             "{} average miles/day {:.2} exceeds {:.2} ceiling",
             agg.scenario_name,
             agg.mean_avg_mpd,
-            avg_mpd_cap
+            AVG_MPD_MAX
         );
         if agg.mean_crossing_bribes > 0.0 {
             ensure!(
@@ -922,7 +902,6 @@ fn add_expectations(
         GameplayStrategy::ResourceManager => {
             plan.with_expectation(full_game_resource_manager_expectation)
         }
-        GameplayStrategy::MonteCarlo => plan.with_expectation(full_game_monte_carlo_expectation),
     }
 }
 
@@ -1148,8 +1127,8 @@ mod tests {
         158, 158, 117, 227, 18, 245, 56, 127, 124, 23, 129, 147,
     ];
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        37, 92, 121, 77, 4, 36, 53, 2, 117, 182, 148, 123, 161, 36, 45, 49, 120, 166, 118, 118, 23,
-        221, 233, 68, 11, 105, 93, 52, 224, 177, 83, 62,
+        41, 15, 168, 111, 87, 188, 171, 15, 37, 124, 149, 30, 52, 233, 153, 163, 148, 241, 250, 12,
+        104, 233, 220, 229, 74, 12, 35, 186, 23, 204, 210, 182,
     ];
 
     #[test]

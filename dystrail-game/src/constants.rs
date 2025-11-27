@@ -121,8 +121,6 @@ pub(crate) const TRAVEL_PARTIAL_DEFAULT_WEAR: f32 = 0.85;
 pub(crate) const TRAVEL_RATIO_DEFAULT: f32 = 0.9;
 pub(crate) const WEATHER_PACE_MULTIPLIER_FLOOR: f32 = 0.90;
 pub(crate) const BEHIND_SCHEDULE_MILES_PER_DAY: f32 = 26.5;
-pub(crate) const CLASSIC_MONTE_CARLO_TRAVEL_SCALE: f32 = 0.85;
-pub(crate) const CLASSIC_MONTE_CARLO_DISTANCE_CAP: f32 = 20.0;
 
 pub(crate) const ROTATION_FORCE_INTERVAL: u32 = 5;
 pub(crate) const ROTATION_LOOKBACK_DAYS: u32 = 5;

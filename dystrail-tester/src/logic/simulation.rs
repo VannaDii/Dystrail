@@ -66,7 +66,6 @@ const fn strategy_id_for(strategy: GameplayStrategy) -> StrategyId {
         GameplayStrategy::Aggressive => StrategyId::Aggressive,
         GameplayStrategy::Conservative => StrategyId::Conservative,
         GameplayStrategy::ResourceManager => StrategyId::ResourceManager,
-        GameplayStrategy::MonteCarlo => StrategyId::MonteCarlo,
     }
 }
 
@@ -246,9 +245,7 @@ impl SimulationSession {
     fn adjust_daily_pace(&mut self) {
         let state = &mut self.state;
         match self.strategy {
-            GameplayStrategy::Balanced
-            | GameplayStrategy::ResourceManager
-            | GameplayStrategy::MonteCarlo => {
+            GameplayStrategy::Balanced | GameplayStrategy::ResourceManager => {
                 let healthy = state.stats.hp >= 8 && state.stats.sanity >= 7;
                 let supplies_ok = state.stats.supplies >= 6;
                 let illness_active = state.illness_travel_penalty < 0.99;

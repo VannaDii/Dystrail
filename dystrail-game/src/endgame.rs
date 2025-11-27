@@ -428,7 +428,6 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
         Some(PolicyKind::Aggressive) => Some("deep_aggressive"),
         Some(PolicyKind::Conservative) => Some("deep_conservative"),
         Some(PolicyKind::ResourceManager) => Some("deep_resource_manager"),
-        Some(PolicyKind::MonteCarlo) => Some("deep_monte_carlo"),
         _ => None,
     }
 }

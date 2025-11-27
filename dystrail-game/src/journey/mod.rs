@@ -119,9 +119,7 @@ impl From<PolicyKind> for PolicyId {
     fn from(value: PolicyKind) -> Self {
         match value {
             PolicyKind::Balanced | PolicyKind::Conservative => Self::Classic,
-            PolicyKind::Aggressive | PolicyKind::ResourceManager | PolicyKind::MonteCarlo => {
-                Self::Deep
-            }
+            PolicyKind::Aggressive | PolicyKind::ResourceManager => Self::Deep,
         }
     }
 }
@@ -143,7 +141,6 @@ pub enum StrategyId {
     Aggressive,
     Conservative,
     ResourceManager,
-    MonteCarlo,
 }
 
 impl From<StrategyId> for PolicyKind {
@@ -153,7 +150,6 @@ impl From<StrategyId> for PolicyKind {
             StrategyId::Aggressive => Self::Aggressive,
             StrategyId::Conservative => Self::Conservative,
             StrategyId::ResourceManager => Self::ResourceManager,
-            StrategyId::MonteCarlo => Self::MonteCarlo,
         }
     }
 }
@@ -165,7 +161,6 @@ impl From<PolicyKind> for StrategyId {
             PolicyKind::Aggressive => Self::Aggressive,
             PolicyKind::Conservative => Self::Conservative,
             PolicyKind::ResourceManager => Self::ResourceManager,
-            PolicyKind::MonteCarlo => Self::MonteCarlo,
         }
     }
 }
@@ -1357,13 +1352,6 @@ fn policy_catalog() -> &'static PolicyCatalog {
                 "../../../dystrail-web/static/assets/data/journey/overlays/resource_manager.json"
             ))
             .expect("valid resource manager overlay"),
-        );
-        overlays.insert(
-            StrategyId::MonteCarlo,
-            serde_json::from_str(include_str!(
-                "../../../dystrail-web/static/assets/data/journey/overlays/monte_carlo.json"
-            ))
-            .expect("valid monte carlo overlay"),
         );
 
         PolicyCatalog::new(families, overlays)

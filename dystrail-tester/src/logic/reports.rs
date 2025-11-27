@@ -379,6 +379,5 @@ const fn strategy_rank(strategy: GameplayStrategy) -> u8 {
         GameplayStrategy::Aggressive => 1,
         GameplayStrategy::Balanced => 2,
         GameplayStrategy::ResourceManager => 3,
-        GameplayStrategy::MonteCarlo => 4,
     }
 }

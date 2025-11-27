@@ -6,7 +6,7 @@ use dystrail_game::{GameMode, GameState, JourneyController, PolicyId, StrategyId
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
 
-const SNAPSHOT_HASH: u64 = 0xe74e_6d00_5edc_d9bb;
+const SNAPSHOT_HASH: u64 = 0x8157_2109_903e_58a2;
 
 #[test]
 fn journey_config_snapshot_stable() {
@@ -15,12 +15,10 @@ fn journey_config_snapshot_stable() {
         (PolicyId::Classic, StrategyId::Aggressive),
         (PolicyId::Classic, StrategyId::Conservative),
         (PolicyId::Classic, StrategyId::ResourceManager),
-        (PolicyId::Classic, StrategyId::MonteCarlo),
         (PolicyId::Deep, StrategyId::Balanced),
         (PolicyId::Deep, StrategyId::Aggressive),
         (PolicyId::Deep, StrategyId::Conservative),
         (PolicyId::Deep, StrategyId::ResourceManager),
-        (PolicyId::Deep, StrategyId::MonteCarlo),
     ];
 
     let mut snapshot = BTreeMap::new();
@@ -113,7 +111,6 @@ const fn strategy_label(strategy: StrategyId) -> &'static str {
         StrategyId::Aggressive => "aggressive",
         StrategyId::Conservative => "conservative",
         StrategyId::ResourceManager => "resource_manager",
-        StrategyId::MonteCarlo => "monte_carlo",
     }
 }
 
