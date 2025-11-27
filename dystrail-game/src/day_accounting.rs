@@ -142,7 +142,10 @@ pub fn record_travel_day(
         }
     }
 
-    if state.endgame.active && matches!(effective_kind, TravelDayKind::Partial) {
+    if state.endgame.active
+        && matches!(effective_kind, TravelDayKind::Partial)
+        && state.endgame.wear_shave_ratio < 1.0
+    {
         apply_endgame_wear_shave(state);
     }
 

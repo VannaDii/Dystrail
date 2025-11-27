@@ -83,6 +83,65 @@ fn crossing_distribution_matches_policy_weights() {
 }
 
 #[test]
+fn bribe_increases_pass_and_reduces_terminal() {
+    let mut policy = CrossingPolicy {
+        pass: 0.5,
+        detour: 0.3,
+        terminal: 0.2,
+        bribe: dystrail_game::journey::BribePolicy {
+            pass_bonus: 0.2,
+            detour_bonus: 0.0,
+            terminal_penalty: 0.2,
+            diminishing_returns: 0.0,
+        },
+        ..CrossingPolicy::default()
+    };
+    policy.sanitize();
+    let base_ctx = CrossingContext {
+        policy: &policy,
+        kind: dystrail_game::crossings::CrossingKind::Checkpoint,
+        has_permit: false,
+        bribe_intent: false,
+        prior_bribe_attempts: 0,
+    };
+    let bribe_ctx = CrossingContext {
+        bribe_intent: true,
+        ..base_ctx
+    };
+    let mut rng = SmallRng::seed_from_u64(0xACED_F00D);
+
+    let mut base_pass = 0u32;
+    let mut base_terminal = 0u32;
+    for _ in 0..SAMPLE_SIZE {
+        match dystrail_game::crossings::resolve_crossing(base_ctx, &mut rng).result {
+            CrossingResult::Pass => base_pass += 1,
+            CrossingResult::TerminalFail => base_terminal += 1,
+            CrossingResult::Detour(_) => {}
+        }
+    }
+
+    let mut bribe_pass = 0u32;
+    let mut bribe_terminal = 0u32;
+    let mut rng_bribe = SmallRng::seed_from_u64(0xACED_F00D);
+    for _ in 0..SAMPLE_SIZE {
+        match dystrail_game::crossings::resolve_crossing(bribe_ctx, &mut rng_bribe).result {
+            CrossingResult::Pass => bribe_pass += 1,
+            CrossingResult::TerminalFail => bribe_terminal += 1,
+            CrossingResult::Detour(_) => {}
+        }
+    }
+
+    assert!(
+        bribe_pass > base_pass,
+        "bribe should improve pass count (base {base_pass}, bribe {bribe_pass})"
+    );
+    assert!(
+        bribe_terminal < base_terminal,
+        "bribe should reduce terminal count (base {base_terminal}, bribe {bribe_terminal})"
+    );
+}
+
+#[test]
 fn endgame_breakdown_scale_reduces_breaks() {
     let mut cfg = JourneyCfg::default();
     cfg.breakdown.base = 0.2;

@@ -271,17 +271,15 @@ pub fn run_endgame_controller(
         return;
     }
 
-    let policy_key = match state.policy {
-        Some(PolicyKind::Balanced) => "deep_balanced",
-        Some(PolicyKind::Aggressive) => "deep_aggressive",
-        _ => return,
-    };
-    let Some(policy_cfg) = cfg.policy(policy_key) else {
+    let policy_key = policy_key_for_mode(state.policy);
+    let Some(policy_cfg) = policy_key.and_then(|key| cfg.policy(key)) else {
         return;
     };
 
     if !state.endgame.active && state.miles_traveled_actual >= policy_cfg.mi_start {
-        state.endgame.configure(policy_key, policy_cfg);
+        state
+            .endgame
+            .configure(policy_key.unwrap_or_default(), policy_cfg);
         state.add_day_reason_tag("endgame_activate");
         state.logs.push(String::from(LOG_ENDGAME_ACTIVATE));
     }
@@ -302,7 +300,7 @@ pub fn run_endgame_controller(
 
     if breakdown_started
         && !state.endgame.wear_reset_used
-        && policy_cfg.wear_reset >= 0.0
+        && policy_cfg.wear_reset > 0.0
         && state.endgame.active
     {
         apply_vehicle_stabilizers(state, 0.0, policy_cfg.wear_reset);
@@ -428,6 +426,9 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
     match policy {
         Some(PolicyKind::Balanced) => Some("deep_balanced"),
         Some(PolicyKind::Aggressive) => Some("deep_aggressive"),
+        Some(PolicyKind::Conservative) => Some("deep_conservative"),
+        Some(PolicyKind::ResourceManager) => Some("deep_resource_manager"),
+        Some(PolicyKind::MonteCarlo) => Some("deep_monte_carlo"),
         _ => None,
     }
 }
@@ -487,6 +488,8 @@ mod tests {
             .get_mut("deep_balanced")
             .expect("policy exists");
         entry.wear_reset = 1.5;
+        entry.breakdown_scale = 1.0;
+        entry.wear_shave_ratio = 1.0;
 
         // Activate endgame
         run_endgame_controller(&mut state, 0.0, false, &cfg);

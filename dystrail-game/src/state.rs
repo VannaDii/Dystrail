@@ -3578,7 +3578,7 @@ impl GameState {
         breakdown_chance = (breakdown_chance + self.exec_breakdown_bonus)
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
 
-        if self.endgame.active && self.endgame.breakdown_scale > 0.0 {
+        if self.endgame.active && (0.0..1.0).contains(&self.endgame.breakdown_scale) {
             breakdown_chance *= self.endgame.breakdown_scale;
         }
         if matches!(self.policy, Some(PolicyKind::Aggressive)) {
