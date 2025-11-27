@@ -354,6 +354,11 @@ img {
   color: var(--text-bright);
 }
 
+.store-card-icon,
+.persona-portrait {
+  image-rendering: pixelated;
+}
+
 /* Modal/Drawer styling */
 .drawer {
   position: fixed;

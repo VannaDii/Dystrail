@@ -51,6 +51,18 @@ fn session_from_state(state: GameState, endgame_cfg: &EndgameTravelCfg) -> Journ
     JourneySession::from_state(state, strategy, endgame_cfg)
 }
 
+fn build_weather_badge(state: &GameState, cfg: &WeatherConfig) -> WeatherBadge {
+    let weather_today = state.weather_state.today;
+    let mitigated = cfg
+        .mitigation
+        .get(&weather_today)
+        .is_some_and(|mit| state.inventory.tags.contains(&mit.tag));
+    WeatherBadge {
+        weather: weather_today,
+        mitigated,
+    }
+}
+
 /// Main application component providing browser routing
 ///
 /// Sets up the router context for the entire application and renders the main `AppInner` component.
@@ -77,6 +89,7 @@ pub fn app_inner() -> Html {
     let boss_config = use_state(BossConfig::load_from_static);
     let result_config = use_state(ResultConfig::default);
     let preload_progress = use_state(|| 0_u8);
+    let boot_ready = use_state(|| false);
     let pending_state = use_state(|| None::<GameState>);
     let session = use_state(|| None::<JourneySession>);
     let logs = use_state(Vec::<String>::new);
@@ -123,12 +136,12 @@ pub fn app_inner() -> Html {
     }
 
     {
-        let phase = phase.clone();
         let data = data.clone();
         let pacing_config = pacing_config.clone();
         let endgame_config = endgame_config.clone();
         let weather_config = weather_config.clone();
         let preload_progress = preload_progress.clone();
+        let boot_ready = boot_ready.clone();
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
@@ -180,7 +193,7 @@ pub fn app_inner() -> Html {
                     camp_config.set(loaded_camp);
                     result_config.set(loaded_result);
                     preload_progress.set(100);
-                    phase.set(Phase::Persona);
+                    boot_ready.set(true);
                 });
             }
             #[cfg(test)]
@@ -198,7 +211,7 @@ pub fn app_inner() -> Html {
                 camp_config.set(loaded_camp);
                 result_config.set(loaded_result);
                 preload_progress.set(100);
-                phase.set(Phase::Persona);
+                boot_ready.set(true);
             }
             || {}
         });
@@ -413,15 +426,38 @@ pub fn app_inner() -> Html {
     };
 
     let main_view = match *phase {
-        Phase::Boot => html! {
-            <section class="panel boot-screen" aria-busy="true" aria-live="polite">
-                <img src="/static/img/logo.png" alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
-                <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={(*preload_progress).to_string()}>
-                    <div class="bar-fill" style={format!("width:{}%", *preload_progress)}/>
-                </div>
-                <p class="muted cta-pulse">{ i18n::t("ui.cta_start") }</p>
-            </section>
-        },
+        Phase::Boot => {
+            let on_begin_click = {
+                let phase = phase.clone();
+                let ready = boot_ready.clone();
+                Callback::from(move |_| {
+                    if *ready {
+                        phase.set(Phase::Persona);
+                    }
+                })
+            };
+            let on_begin_key = {
+                let phase = phase.clone();
+                let ready = boot_ready.clone();
+                Callback::from(move |e: web_sys::KeyboardEvent| {
+                    if *ready {
+                        e.prevent_default();
+                        phase.set(Phase::Persona);
+                    }
+                })
+            };
+            html! {
+                <section class="panel boot-screen" aria-busy={(!*boot_ready).to_string()} aria-live="polite" onclick={on_begin_click} onkeydown={on_begin_key} tabindex="0">
+                    <img src="/static/img/logo.png" alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
+                    <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={(*preload_progress).to_string()}>
+                        <div class="bar-fill" style={format!("width:{}%", *preload_progress)}/>
+                    </div>
+                    <p class={classes!("muted", if *boot_ready { Some("cta-pulse") } else { None })}>
+                        { if *boot_ready { i18n::t("ui.cta_start") } else { i18n::t("ui.loading") } }
+                    </p>
+                </section>
+            }
+        }
         Phase::Persona => {
             // On-persona selected callback
             #[allow(clippy::redundant_clone)]
@@ -592,16 +628,7 @@ pub fn app_inner() -> Html {
             let region = snapshot.region;
             let exec_order = snapshot.current_order;
             let persona_id = snapshot.persona_id.clone();
-            let weather_cfg = (*weather_config).clone();
-            let weather_today = snapshot.weather_state.today;
-            let weather_mitigated = weather_cfg
-                .mitigation
-                .get(&weather_today)
-                .is_some_and(|mit| snapshot.inventory.tags.contains(&mit.tag));
-            let weather_badge = WeatherBadge {
-                weather: weather_today,
-                mitigated: weather_mitigated,
-            };
+            let weather_badge = build_weather_badge(&snapshot, &weather_config);
             let state_rc = Rc::new(snapshot);
             let pacing_config_rc = Rc::new((*pacing_config).clone());
             html! {
@@ -687,11 +714,24 @@ pub fn app_inner() -> Html {
                     }
                 },
                 |enc| {
+                    let snapshot = sess.state().clone();
+                    let persona_id = snapshot.persona_id.clone();
+                    let weather_badge = build_weather_badge(&snapshot, &weather_config);
                     html! {
-                        <crate::components::ui::encounter_card::EncounterCard
-                            encounter={enc.clone()}
-                            on_choice={on_choice.clone()}
-                        />
+                        <>
+                            <crate::components::ui::stats_bar::StatsBar
+                                stats={snapshot.stats.clone()}
+                                day={snapshot.day}
+                                region={snapshot.region}
+                                exec_order={snapshot.current_order}
+                                persona_id={persona_id}
+                                weather={Some(weather_badge)}
+                            />
+                            <crate::components::ui::encounter_card::EncounterCard
+                                encounter={enc.clone()}
+                                on_choice={on_choice.clone()}
+                            />
+                        </>
                     }
                 },
             )
@@ -699,6 +739,7 @@ pub fn app_inner() -> Html {
         Phase::Boss => (*session).clone().map_or_else(Html::default, |sess| {
             let gs = sess.state().clone();
             let cfg = (*boss_config).clone();
+            let persona_id = gs.persona_id.clone();
                 let mut chance = f64::from(cfg.base_victory_chance);
                 chance += f64::from(gs.stats.credibility) * f64::from(cfg.credibility_weight);
                 chance += f64::from(gs.stats.sanity) * f64::from(cfg.sanity_weight);
@@ -741,29 +782,40 @@ pub fn app_inner() -> Html {
                     None
                 };
 
+                let weather_badge = build_weather_badge(&gs, &weather_config);
             html! {
-                <section class="panel boss-phase">
-                    <h2>{ i18n::t("boss.title") }</h2>
-                    <div class="encounter-desc">
-                        <p>{ i18n::t("boss.phases_hint") }</p>
-                        <ul class="boss-stats">
-                            <li>{ rounds_text }</li>
-                            { sanity_text.map_or_else(
-                                Html::default,
-                                |text| html! { <li>{ text }</li> },
-                            ) }
-                            { pants_text.map_or_else(
-                                Html::default,
-                                |text| html! { <li>{ text }</li> },
-                            ) }
-                            <li>{ chance_text }</li>
-                        </ul>
-                        <p class="muted">{ i18n::t("boss.reminder") }</p>
-                    </div>
-                    <div class="controls">
-                        <button class="retro-btn-primary" onclick={boss_act}>{ i18n::t("boss.begin") }</button>
-                    </div>
-                </section>
+                <>
+                    <crate::components::ui::stats_bar::StatsBar
+                        stats={gs.stats.clone()}
+                        day={gs.day}
+                        region={gs.region}
+                        exec_order={gs.current_order}
+                        persona_id={persona_id}
+                        weather={Some(weather_badge)}
+                    />
+                    <section class="panel boss-phase">
+                        <h2>{ i18n::t("boss.title") }</h2>
+                        <div class="encounter-desc">
+                            <p>{ i18n::t("boss.phases_hint") }</p>
+                            <ul class="boss-stats">
+                                <li>{ rounds_text }</li>
+                                { sanity_text.map_or_else(
+                                    Html::default,
+                                    |text| html! { <li>{ text }</li> },
+                                ) }
+                                { pants_text.map_or_else(
+                                    Html::default,
+                                    |text| html! { <li>{ text }</li> },
+                                ) }
+                                <li>{ chance_text }</li>
+                            </ul>
+                            <p class="muted">{ i18n::t("boss.reminder") }</p>
+                        </div>
+                        <div class="controls">
+                            <button class="retro-btn-primary" onclick={boss_act}>{ i18n::t("boss.begin") }</button>
+                        </div>
+                    </section>
+                </>
             }
         }),
         Phase::Result => (*session).clone().map_or_else(Html::default, |sess| {
