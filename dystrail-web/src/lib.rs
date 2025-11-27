@@ -10,6 +10,7 @@ pub mod i18n;
 #[cfg(test)]
 mod i18n_tests;
 pub mod input;
+pub mod paths;
 pub mod routes;
 
 #[wasm_bindgen(start)]

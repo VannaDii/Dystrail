@@ -101,6 +101,7 @@ pub fn app_inner() -> Html {
     let current_language = use_state(crate::i18n::current_lang);
     let data_ready = !data.encounters.is_empty();
     let seed_footer_seed = run_seed.clone();
+    let logo_src: AttrValue = crate::paths::asset_path("static/img/logo.png").into();
 
     // Add routing hooks - handle potential failures gracefully
     let navigator = use_navigator();
@@ -466,7 +467,7 @@ pub fn app_inner() -> Html {
             };
             html! {
                 <section class="panel boot-screen" aria-busy={(!*boot_ready).to_string()} aria-live="polite" onclick={on_begin_click} onkeydown={on_begin_key} tabindex="0">
-                    <img src="/static/img/logo.png" alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
+                    <img src={logo_src.clone()} alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
                     <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={(*preload_progress).to_string()}>
                         <div class="bar-fill" style={format!("width:{}%", *preload_progress)}/>
                     </div>
@@ -611,7 +612,7 @@ pub fn app_inner() -> Html {
                                     </div>
                                             <p class="muted" aria-live="polite">{ format!("{seed_label} {code}", seed_label = i18n::t("game.seed_label"), code = (*code).clone()) }</p>
                             </header>
-                                <img src="/static/img/logo.png" alt="Dystrail" loading="lazy" style="width:min(520px,80vw)"/>
+                                <img src={logo_src.clone()} alt="Dystrail" loading="lazy" style="width:min(520px,80vw)"/>
                                 <crate::components::ui::main_menu::MainMenu seed_text={Some((*code).to_string())} on_select={Some(on_select)} />
                             </section>
                         }

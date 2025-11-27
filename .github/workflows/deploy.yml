@@ -52,14 +52,14 @@ jobs:
           BASE="${BASE_PATH%/}"
           PUB_URL="${BASE:+$BASE}/play/"
           [ -z "$PUB_URL" ] && PUB_URL="/play/"
-          trunk build --release --public-url "$PUB_URL" --dist ../build/play
+          PUBLIC_URL="$PUB_URL" trunk build --release --public-url "$PUB_URL" --dist ../build/play
 
       - name: Build docs
         env:
           BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: |
           BASE="${BASE_URL%/}"
-          MDBOOK_OUTPUT__HTML__SITE_URL="${BASE}/docs/" mdbook build docs -d ../build/docs
+          MDBOOK_OUTPUT__HTML__SITE_URL="${BASE}/docs/" mdbook build docs -d build/docs
 
       - name: Add splash page and domain
         run: |

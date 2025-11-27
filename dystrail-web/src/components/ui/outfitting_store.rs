@@ -238,7 +238,8 @@ enum StoreLoadError {
 /// Load store data from JSON file
 #[allow(clippy::future_not_send)]
 async fn load_store_data() -> Result<Store, StoreLoadError> {
-    let response = dom::fetch_response("/static/assets/data/store.json")
+    let data_url = crate::paths::asset_path("static/assets/data/store.json");
+    let response = dom::fetch_response(&data_url)
         .await
         .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?;
 
