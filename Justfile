@@ -19,6 +19,10 @@ build-release:
     cd dystrail-web && trunk build --release
     cargo build --workspace --release
 
+serve-web:
+    # Run the web UI with live reload/watch
+    cd dystrail-web && trunk serve --open --watch
+
 qa:
     cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
 
