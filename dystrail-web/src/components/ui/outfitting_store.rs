@@ -75,6 +75,13 @@ impl PartialEq for OutfittingStoreProps {
     }
 }
 
+fn set_screen(state: &UseStateHandle<StoreState>, screen: StoreScreen) {
+    let mut new_state = (**state).clone();
+    new_state.current_screen = screen;
+    new_state.focus_idx = 1;
+    state.set(new_state);
+}
+
 #[function_component(OutfittingStore)]
 pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
     let store_state = use_state(StoreState::default);
@@ -706,12 +713,49 @@ fn render_home_screen(
 
     let remaining_budget = game_state.budget_cents - state.cart.total_cents;
     let can_continue = remaining_budget >= 0;
+    let budget_class = if remaining_budget < 0 {
+        "budget over"
+    } else {
+        "budget ok"
+    };
+
+    let on_tab = |category_id: &str| {
+        let state = state.clone();
+        let cat_id = category_id.to_string();
+        Callback::from(move |_| set_screen(&state, StoreScreen::Category(cat_id.clone())))
+    };
 
     html! {
         <main class="outfitting-store">
-            <section role="region" aria-labelledby="store-title" onkeydown={on_keydown}>
-                <h1 id="store-title">{ title }</h1>
-                <ul role="menu" aria-label={i18n::t("store.title")} ref={list_ref}>
+            <section role="region" aria-labelledby="store-title" onkeydown={on_keydown} class="store-shell">
+                <header class="store-header">
+                    <div>
+                        <h1 id="store-title">{ title.clone() }</h1>
+                    </div>
+                    <div class={classes!("store-budget", budget_class)}>
+                        <span class="label">{ i18n::t("store.budget") }</span>
+                        <span class="value">{ budget_str.clone() }</span>
+                    </div>
+                </header>
+                <nav class="store-tabs" aria-label={i18n::t("store.title")}>
+                    {
+                        state.store_data.categories.iter().enumerate().map(|(i, cat)| {
+                            let idx = u8::try_from(i + 1).unwrap_or(0);
+                            let focused = state.focus_idx == idx;
+                            html! {
+                                <button
+                                    class="store-tab"
+                                    data-key={idx.to_string()}
+                                    aria-pressed="false"
+                                    tabindex={if focused { "0" } else { "-1" }}
+                                    onclick={on_tab(&cat.id)}>
+                                    { i18n::t(&format!("store.categories.{}", cat.id)) }
+                                </button>
+                            }
+                        }).collect::<Html>()
+                    }
+                </nav>
+                <ul role="menu" aria-label={i18n::t("store.title")} ref={list_ref} class="store-menu">
                     { for categories.iter().enumerate().map(|(i, (idx, label))| {
                         let focused = state.focus_idx == *idx;
                         let disabled = *idx == 0 && !can_continue;
@@ -761,55 +805,136 @@ fn render_category_screen(
         budget_label = i18n::t("store.budget")
     );
 
-    let mut items: Vec<(u8, String, String, i64)> = category
-        .items
-        .iter()
-        .enumerate()
-        .map(|(i, item)| {
-            let idx = u8::try_from(i + 1).unwrap_or(255);
-            let name = i18n::t(&format!("store.items.{}.name", item.id));
-            let desc = i18n::t(&format!("store.items.{}.desc", item.id));
-            let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-            (idx, name, desc, effective_price)
-        })
-        .collect();
-
-    // Add back option
-    items.push((0u8, i18n::t("store.menu.back"), String::new(), 0));
+    let items = category.items.clone();
+    let on_nav = {
+        let state = state.clone();
+        Callback::from(move |_| set_screen(&state, StoreScreen::Home))
+    };
 
     html! {
         <main class="outfitting-store">
-            <section role="region" aria-labelledby="category-title" onkeydown={on_keydown}>
-                <h1 id="category-title">{ title }</h1>
-                <ul role="menu" aria-label={category_name} ref={list_ref}>
-                    { for items.iter().enumerate().map(|(i, (idx, name, desc, price))| {
-                        let focused = state.focus_idx == *idx;
-                        let posinset = u8::try_from(i).unwrap_or(0) + 1;
-                        let price_str = if *idx == 0 { String::new() } else { format!(" — {formatted_price}", formatted_price = format_currency(*price)) };
-
-                        html!{
-                            <li role="menuitem"
-                                tabindex={if focused { "0" } else { "-1" }}
-                                data-key={idx.to_string()}
-                                aria-posinset={posinset.to_string()}
-                                aria-setsize={items.len().to_string()}
-                                class="ot-menuitem">
-                                <span class="num">{ format!("{})", idx) }</span>
-                                <span class="label">
-                                    { name.clone() }{ price_str }
-                                    { if desc.is_empty() {
-                                        html! {}
-                                    } else {
-                                        html! { <span class="desc">{ format!(" ({})", desc) }</span> }
-                                    }}
-                                </span>
-                            </li>
-                        }
-                    }) }
-                </ul>
+            <section role="region" aria-labelledby="category-title" onkeydown={on_keydown} class="store-shell">
+                <header class="store-header">
+                    <div>
+                        <h1 id="category-title">{ title }</h1>
+                    </div>
+                    <div class="store-budget">
+                        <span class="label">{ i18n::t("store.budget") }</span>
+                        <span class="value">{ budget_str }</span>
+                    </div>
+                </header>
+                <div class="store-item-grid" ref={list_ref}>
+                    { for items.iter().enumerate().map(|(i, item)| render_store_item_card(
+                        u8::try_from(i + 1).unwrap_or(0),
+                        item,
+                        state,
+                        game_state
+                    )) }
+                </div>
+                <div class="store-footer-row">
+                    <button class="retro-btn-secondary" onclick={on_nav}>{ i18n::t("store.menu.back") }</button>
+                    <button class="retro-btn-primary" onclick={Callback::from({
+                        let state = state.clone();
+                        move |_| set_screen(&state, StoreScreen::Cart)
+                    })}>{ i18n::t("store.menu.view_cart") }</button>
+                </div>
                 <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
             </section>
         </main>
+    }
+}
+
+fn render_store_item_card(
+    idx: u8,
+    item: &StoreItem,
+    state: &UseStateHandle<StoreState>,
+    game_state: &GameState,
+) -> Html {
+    let name = i18n::t(&format!("store.items.{}.name", item.id));
+    let desc = i18n::t(&format!("store.items.{}.desc", item.id));
+    let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
+    let price_str = format_currency(effective_price);
+    let qty_in_cart = state.cart.get_quantity(&item.id);
+    let can_add = can_add_item(
+        &state.cart,
+        item,
+        1,
+        game_state.budget_cents,
+        state.discount_pct,
+    );
+    let initials = name
+        .chars()
+        .next()
+        .map_or_else(|| "?".to_string(), |c| c.to_uppercase().collect::<String>());
+
+    let on_add = {
+        let state = state.clone();
+        let item_clone = item.clone();
+        let budget = game_state.budget_cents;
+        Callback::from(move |_| {
+            let mut new_state = (*state).clone();
+            if can_add_item(
+                &new_state.cart,
+                &item_clone,
+                1,
+                budget,
+                new_state.discount_pct,
+            ) {
+                new_state.cart.add_item(&item_clone.id, 1);
+                announce_quantity_change(&item_clone, 1, true, &new_state, budget);
+                new_state.cart.total_cents = calculate_cart_total(
+                    &new_state.cart,
+                    &new_state.store_data,
+                    new_state.discount_pct,
+                );
+                new_state.focus_idx = idx;
+                state.set(new_state);
+            }
+        })
+    };
+
+    let on_remove = {
+        let state = state.clone();
+        let item_clone = item.clone();
+        let budget = game_state.budget_cents;
+        Callback::from(move |_| {
+            let mut new_state = (*state).clone();
+            if new_state.cart.get_quantity(&item_clone.id) > 0 {
+                new_state.cart.remove_item(&item_clone.id, 1);
+                announce_quantity_change(&item_clone, 1, false, &new_state, budget);
+                new_state.cart.total_cents = calculate_cart_total(
+                    &new_state.cart,
+                    &new_state.store_data,
+                    new_state.discount_pct,
+                );
+                new_state.focus_idx = idx;
+                state.set(new_state);
+            }
+        })
+    };
+
+    html! {
+        <article
+            role="group"
+            aria-labelledby={format!("store-item-{idx}")}
+            class="store-card"
+            data-key={idx.to_string()}>
+            <div class="store-card-icon" aria-hidden="true">
+                <span>{ initials }</span>
+            </div>
+            <div class="store-card-body">
+                <div class="store-card-head">
+                    <h2 id={format!("store-item-{idx}")}>{ name }</h2>
+                    <span class="store-price">{ price_str }</span>
+                </div>
+                <p class="muted">{ desc }</p>
+                <div class="store-qty-row">
+                    <button class="store-qty-btn" onclick={on_remove} aria-label={i18n::t("store.qty_prompt.rem1")} disabled={qty_in_cart == 0}>{"–"}</button>
+                    <span class="store-qty" aria-live="polite">{ qty_in_cart }</span>
+                    <button class="store-qty-btn" onclick={on_add} aria-label={i18n::t("store.qty_prompt.add1")} disabled={!can_add}>{"+"}</button>
+                </div>
+            </div>
+        </article>
     }
 }
 

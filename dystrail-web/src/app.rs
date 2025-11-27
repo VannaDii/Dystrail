@@ -76,6 +76,7 @@ pub fn app_inner() -> Html {
     let camp_config = use_state(CampConfig::default_config);
     let boss_config = use_state(BossConfig::load_from_static);
     let result_config = use_state(ResultConfig::default);
+    let preload_progress = use_state(|| 0_u8);
     let pending_state = use_state(|| None::<GameState>);
     let session = use_state(|| None::<JourneySession>);
     let logs = use_state(Vec::<String>::new);
@@ -127,24 +128,58 @@ pub fn app_inner() -> Html {
         let pacing_config = pacing_config.clone();
         let endgame_config = endgame_config.clone();
         let weather_config = weather_config.clone();
+        let preload_progress = preload_progress.clone();
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
             #[cfg(not(test))]
             {
                 wasm_bindgen_futures::spawn_local(async move {
+                    let mut progress = 0_u8;
+                    let mut bump = |p: &UseStateHandle<u8>| {
+                        progress = progress.saturating_add(9);
+                        p.set(progress.min(99));
+                    };
                     let loaded_data = EncounterData::load_from_static();
+                    bump(&preload_progress);
                     let loaded_pacing = PacingConfig::load_from_static();
+                    bump(&preload_progress);
                     let loaded_endgame = EndgameTravelCfg::default_config();
+                    bump(&preload_progress);
                     let loaded_weather = WeatherConfig::load_from_static();
+                    bump(&preload_progress);
                     let loaded_camp = CampConfig::load_from_static();
+                    bump(&preload_progress);
                     let loaded_result = load_result_config().unwrap_or_default();
+                    bump(&preload_progress);
+                    // Preload remaining JSON assets to honor boot spec
+                    let _ = serde_json::from_str::<crate::game::store::Store>(include_str!(
+                        "../static/assets/data/store.json"
+                    ));
+                    bump(&preload_progress);
+                    let _ = crate::game::personas::PersonasList::from_json(include_str!(
+                        "../static/assets/data/personas.json"
+                    ));
+                    bump(&preload_progress);
+                    let _ = serde_json::from_str::<crate::game::crossings::CrossingConfig>(
+                        include_str!("../static/assets/data/crossings.json"),
+                    );
+                    bump(&preload_progress);
+                    let _ = serde_json::from_str::<crate::game::vehicle::VehicleConfig>(
+                        include_str!("../static/assets/data/vehicle.json"),
+                    );
+                    bump(&preload_progress);
+                    let _ = serde_json::from_str::<crate::game::boss::BossConfig>(include_str!(
+                        "../static/assets/data/boss.json"
+                    ));
+                    bump(&preload_progress);
                     data.set(loaded_data);
                     pacing_config.set(loaded_pacing);
                     endgame_config.set(loaded_endgame);
                     weather_config.set(loaded_weather);
                     camp_config.set(loaded_camp);
                     result_config.set(loaded_result);
+                    preload_progress.set(100);
                     phase.set(Phase::Persona);
                 });
             }
@@ -162,6 +197,7 @@ pub fn app_inner() -> Html {
                 weather_config.set(loaded_weather);
                 camp_config.set(loaded_camp);
                 result_config.set(loaded_result);
+                preload_progress.set(100);
                 phase.set(Phase::Persona);
             }
             || {}
@@ -380,8 +416,10 @@ pub fn app_inner() -> Html {
         Phase::Boot => html! {
             <section class="panel boot-screen" aria-busy="true" aria-live="polite">
                 <img src="/static/img/logo.png" alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
-                <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div class="bar-fill" style="width:100%"/></div>
-                <p class="muted">{ i18n::t("ui.cta_start") }</p>
+                <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={(*preload_progress).to_string()}>
+                    <div class="bar-fill" style={format!("width:{}%", *preload_progress)}/>
+                </div>
+                <p class="muted cta-pulse">{ i18n::t("ui.cta_start") }</p>
             </section>
         },
         Phase::Persona => {
