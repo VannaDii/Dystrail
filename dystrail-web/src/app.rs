@@ -1,3 +1,4 @@
+use crate::components::ui::stats_bar::WeatherBadge;
 use crate::game::CampConfig;
 use crate::game::boss::BossConfig;
 use crate::game::data::EncounterData;
@@ -125,7 +126,7 @@ pub fn app_inner() -> Html {
         let data = data.clone();
         let pacing_config = pacing_config.clone();
         let endgame_config = endgame_config.clone();
-        let weather_config = weather_config;
+        let weather_config = weather_config.clone();
         let camp_config = camp_config.clone();
         let result_config = result_config.clone();
         use_effect_with((), move |()| {
@@ -552,11 +553,29 @@ pub fn app_inner() -> Html {
             let day = snapshot.day;
             let region = snapshot.region;
             let exec_order = snapshot.current_order;
+            let persona_id = snapshot.persona_id.clone();
+            let weather_cfg = (*weather_config).clone();
+            let weather_today = snapshot.weather_state.today;
+            let weather_mitigated = weather_cfg
+                .mitigation
+                .get(&weather_today)
+                .is_some_and(|mit| snapshot.inventory.tags.contains(&mit.tag));
+            let weather_badge = WeatherBadge {
+                weather: weather_today,
+                mitigated: weather_mitigated,
+            };
             let state_rc = Rc::new(snapshot);
             let pacing_config_rc = Rc::new((*pacing_config).clone());
             html! {
                 <>
-                    <crate::components::ui::stats_bar::StatsBar stats={stats} day={day} region={region} exec_order={exec_order} />
+                    <crate::components::ui::stats_bar::StatsBar
+                        stats={stats}
+                        day={day}
+                        region={region}
+                        exec_order={exec_order}
+                        persona_id={persona_id}
+                        weather={Some(weather_badge)}
+                    />
                     <crate::components::ui::travel_panel::TravelPanel
                         on_travel={do_travel}
                         logs={(*logs).clone()}
@@ -575,11 +594,29 @@ pub fn app_inner() -> Html {
             let day = snapshot.day;
             let region = snapshot.region;
             let exec_order = snapshot.current_order;
+            let persona_id = snapshot.persona_id.clone();
+            let weather_cfg = (*weather_config).clone();
+            let weather_today = snapshot.weather_state.today;
+            let weather_mitigated = weather_cfg
+                .mitigation
+                .get(&weather_today)
+                .is_some_and(|mit| snapshot.inventory.tags.contains(&mit.tag));
+            let weather_badge = WeatherBadge {
+                weather: weather_today,
+                mitigated: weather_mitigated,
+            };
             let camp_state = Rc::new(snapshot);
             let camp_config_rc = Rc::new((*camp_config).clone());
             html! {
                 <>
-                    <crate::components::ui::stats_bar::StatsBar stats={stats} day={day} region={region} exec_order={exec_order} />
+                    <crate::components::ui::stats_bar::StatsBar
+                        stats={stats}
+                        day={day}
+                        region={region}
+                        exec_order={exec_order}
+                        persona_id={persona_id}
+                        weather={Some(weather_badge)}
+                    />
                     <crate::components::ui::camp_panel::CampPanel
                         game_state={camp_state}
                         camp_config={camp_config_rc}

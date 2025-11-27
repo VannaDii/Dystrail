@@ -1,29 +1,34 @@
 /* Oregon Trail Inspired Retro Styling */
 :root {
-  /* Authentic Oregon Trail brown/tan color palette */
-  --bg: #000000;
-  --panel: #2D1B00;
-  --panel-border: #D4A574;
-  --text: #D4A574;
-  --text-dim: #B8956A;
-  --text-bright: #F4E4C1;
-  --accent: #F4E4C1;
-  --accent-2: #D4A574;
-  --button-bg: #4A3728;
-  --button-border: #D4A574;
-  --shadow: #1A1000;
+  /* Warm sepia palette from UX spec */
+  --bg: #0A0907;
+  --panel: #3A2918;
+  --panel-border: #E4C07A;
+  --text: #F2D7A0;
+  --text-dim: #BFA782;
+  --text-bright: #FFF2C9;
+  --accent: #F7E39B;
+  --accent-2: #D29A43;
+  --button-bg: #54381F;
+  --button-border: #E4C07A;
+  --shadow: #140E07;
+  --prairie: #6F8B45;
+  --dust: #8A7E6A;
 }
 
 /* High Contrast theme toggled via .hc on <html> */
 html.hc {
-  --bg: #0b0e12;
-  --panel: #141922;
-  --panel-border: #e9ecef;
-  --text: #e9ecef;
-  --text-dim: #d0d6dd;
-  --text-bright: #ffffff;
-  --accent: #00D9C0;
+  --bg: #0A0F14;
+  --panel: #162128;
+  --panel-border: #F2F2F2;
+  --text: #F2F2F2;
+  --text-dim: #D0D6DD;
+  --text-bright: #FFFFFF;
+  --accent: #00E0CE;
   --accent-2: #00A896;
+  --button-bg: #162128;
+  --button-border: #F2F2F2;
+  --shadow: #0A0F14;
 }
 
 /* Import retro pixel font */
@@ -38,7 +43,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #000000;
+  background: var(--bg);
 }
 
 body {
@@ -48,7 +53,7 @@ body {
   font-family: 'Press Start 2P', 'Courier Prime', 'Courier New', monospace;
   font-size: 12px;
   line-height: 1.6;
-  background: #000000;
+  background: var(--bg);
   color: var(--text);
   image-rendering: pixelated;
   cursor: default;
@@ -123,53 +128,15 @@ footer {
 /* Oregon Trail style panels */
 .panel {
   background: var(--panel);
-  border: 3px solid var(--panel-border);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
   padding: 24px;
   margin: 20px auto;
-  max-width: 600px;
-  /* Classic retro shadow effect */
-  box-shadow: 6px 6px 0 var(--shadow);
+  max-width: 680px;
+  box-shadow:
+    inset 0 0 0 1px var(--shadow),
+    6px 6px 0 var(--shadow);
   position: relative;
-  /* Add decorative border pattern */
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      var(--panel-border) 0px,
-      var(--panel-border) 2px,
-      transparent 2px,
-      transparent 8px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      var(--panel-border) 0px,
-      var(--panel-border) 2px,
-      transparent 2px,
-      transparent 8px
-    );
-  background-size: 100% 10px, 10px 100%;
-  background-position: 0 0, 0 0;
-  background-repeat: repeat-x, repeat-y;
-}
-
-/* Add Oregon Trail-style decorative corners */
-.panel::before,
-.panel::after {
-  content: "◊";
-  position: absolute;
-  font-size: 16px;
-  color: var(--accent);
-  font-family: 'Press Start 2P', monospace;
-  line-height: 1;
-}
-
-.panel::before {
-  top: 8px;
-  inset-inline-start: 8px;
-}
-
-.panel::after {
-  bottom: 8px;
-  inset-inline-end: 8px;
 }
 
 /* Panel titles */
@@ -195,7 +162,7 @@ button {
   appearance: none;
   background: var(--button-bg);
   color: var(--text-bright);
-  border: 3px solid var(--button-border);
+  border: 1px solid var(--button-border);
   padding: 12px 20px;
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
@@ -203,32 +170,40 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: 4px 4px 0 var(--shadow);
-  transition: none;
+  box-shadow:
+    4px 4px 0 var(--shadow),
+    inset 0 0 0 1px rgba(20, 14, 7, 0.45);
+  transition: background-color 140ms ease, color 140ms ease, transform 100ms ease, box-shadow 140ms ease;
   position: relative;
   min-width: 120px;
+  border-radius: 4px;
 }
 
 button:hover {
-  background: var(--panel);
+  background: #5b3f23;
   color: var(--text-bright);
-  box-shadow: 3px 3px 0 var(--shadow);
+  box-shadow:
+    3px 3px 0 var(--shadow),
+    inset 0 0 0 1px rgba(20, 14, 7, 0.45);
 }
 
 button:active {
-  box-shadow: 1px 1px 0 var(--shadow);
+  box-shadow:
+    inset 0 0 0 1px #1A1000,
+    inset 0 2px 6px rgba(20, 14, 7, 0.6);
   transform: translate(1px, 1px);
+  background: #3f2a18;
 }
 
-button:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+button:focus-visible {
+  outline: 2px solid var(--text-bright);
+  outline-offset: 3px;
 }
 
 button:disabled {
-  background: var(--shadow);
-  color: var(--text-dim);
-  border-color: var(--text-dim);
+  background: #2D1B00;
+  color: #B8956A;
+  border-color: #B8956A;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -247,20 +222,26 @@ button:disabled::before {
 
 /* Form inputs */
 input, textarea, select {
-  background: var(--bg);
+  background: #000000;
   color: var(--text-bright);
-  border: 3px solid var(--panel-border);
+  border: 1px solid #D4A574;
   padding: 12px;
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
-  box-shadow: inset 3px 3px 0 var(--shadow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px var(--shadow);
   line-height: 1.4;
+  border-radius: 4px;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-color: var(--accent);
+  box-shadow:
+    0 0 0 2px rgba(247, 227, 155, 0.35),
+    inset 0 0 0 2px var(--accent);
 }
 
 /* Field layout */
@@ -331,25 +312,33 @@ img {
 
 /* Progress bars - Oregon Trail style */
 .bar-wrap {
-  height: 20px;
-  background: var(--bg);
-  border: 2px solid var(--panel-border);
+  height: 18px;
+  background: #2D1B00;
+  border: 1px solid var(--panel-border);
   margin: 16px 0;
   overflow: hidden;
-  box-shadow: inset 2px 2px 0 var(--shadow);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--shadow);
 }
 
 .bar-fill {
   height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--accent) 0px,
-    var(--accent) 4px,
-    var(--accent-2) 4px,
-    var(--accent-2) 8px
-  );
-  /* Retro pixelated bar animation */
-  background-size: 8px 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+}
+
+.bar-wrap.slim {
+  height: 12px;
+  margin: 8px 0 4px;
+}
+
+.bar-fill-glow {
+  animation: meterGlow 2s ease-in-out infinite;
+}
+
+.bar-fill-pulse {
+  animation: meterPulse 1.6s ease-in-out infinite;
 }
 
 /* Modal/Drawer styling */
@@ -444,14 +433,53 @@ img {
 
 /* Retro animations */
 @media (prefers-reduced-motion: no-preference) {
-  .bar-fill {
-    animation: retroPulse 2s infinite;
+  .bar-fill-glow {
+    animation: meterGlow 2s ease-in-out infinite;
+  }
+
+  .bar-fill-pulse {
+    animation: meterPulse 1.6s ease-in-out infinite;
+  }
+
+  .portrait-pulse {
+    animation: portraitPulse 2.4s ease-in-out infinite;
+  }
+
+  .persona-tile.selected {
+    animation: borderPulse 2.2s ease-in-out infinite;
   }
 }
 
-@keyframes retroPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+@keyframes meterGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(247, 227, 155, 0.35); }
+  50% { box-shadow: 0 0 10px 0 rgba(247, 227, 155, 0.4); }
+}
+
+@keyframes meterPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(210, 154, 67, 0.45); }
+  50% { box-shadow: 0 0 12px 2px rgba(210, 154, 67, 0.55); }
+}
+
+@keyframes portraitPulse {
+  0%, 100% { box-shadow:
+    inset -2px -2px 0 rgba(20, 14, 7, 0.6),
+    inset 2px 2px 0 rgba(247, 227, 155, 0.16);
+  }
+  50% { box-shadow:
+    inset -1px -1px 0 rgba(20, 14, 7, 0.5),
+    inset 3px 3px 0 rgba(247, 227, 155, 0.2);
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% { box-shadow:
+    0 0 0 1px var(--text-bright),
+    inset 0 0 0 1px var(--shadow);
+  }
+  50% { box-shadow:
+    0 0 0 2px var(--accent),
+    inset 0 0 0 1px var(--shadow);
+  }
 }
 
 /* Base responsive design - Mobile First */
@@ -539,35 +567,183 @@ button {
   background: #330000;
 }
 
-/* Stats bar retro styling */
+/* Stats header row */
 .stats-panel {
-  background: var(--bg);
-  border: 2px solid var(--panel-border);
-  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  padding: 16px;
   margin-bottom: 16px;
+  box-shadow: inset 0 0 0 1px var(--shadow);
 }
 
-.stats-row {
-  display: flex;
-  justify-content: space-between;
+.header-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
   align-items: center;
-  margin-bottom: 8px;
 }
 
-.stats-row:last-child {
-  margin-bottom: 0;
+.header-persona {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(20, 14, 7, 0.35);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+}
+
+.persona-portrait {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #5b3b22 0%, #2b1a0f 100%);
+  border: 1px solid var(--panel-border);
+  box-shadow:
+    inset -2px -2px 0 rgba(20, 14, 7, 0.6),
+    inset 2px 2px 0 rgba(247, 227, 155, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-pulse {
+}
+
+.portrait-initial {
+  color: var(--text-bright);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.persona-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.persona-copy p {
+  margin: 0;
+}
+
+.persona-name {
+  color: var(--text-bright);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.stat-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-self: stretch;
+}
+
+.stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(20, 14, 7, 0.3);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+  min-height: 48px;
+}
+
+.stat-icon {
+  flex-shrink: 0;
+}
+
+.stat-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
 }
 
 .stat-label {
   color: var(--text-dim);
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.5px;
 }
 
 .stat-value {
   color: var(--text-bright);
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.conditions-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.pants-meter {
+  flex: 1;
+  min-width: 220px;
+}
+
+.meter-label {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.condition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+  min-height: 36px;
+}
+
+.condition-label {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.weather-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--shadow);
+  color: var(--text-bright);
+  font-weight: 700;
+}
+
+.weather-pill.mitigated {
+  opacity: 0.75;
+  filter: saturate(0.8);
+}
+
+.exec-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  color: var(--text-bright);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.exec-pill {
+  background: rgba(247, 227, 155, 0.1);
 }
 
 /* Menu styling - Mobile First */
@@ -580,6 +756,140 @@ button {
 
 .retro-header {
   margin-bottom: 20px;
+}
+
+/* Persona selection grid */
+.persona-select {
+  text-align: left;
+}
+
+.persona-layout {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.persona-grid {
+  flex: 2;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.persona-tile {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(20, 14, 7, 0.35);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+  cursor: pointer;
+}
+
+.persona-tile:hover {
+  border-color: var(--text-bright);
+  background: rgba(247, 227, 155, 0.08);
+}
+
+.persona-tile.selected {
+  border-color: var(--text-bright);
+  box-shadow:
+    0 0 0 1px var(--text-bright),
+    inset 0 0 0 1px var(--shadow);
+}
+
+.persona-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.persona-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.persona-mult {
+  background: var(--accent-2);
+  color: var(--bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.persona-desc {
+  margin: 0;
+}
+
+.persona-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.persona-preview-card {
+  flex: 1;
+  min-width: 240px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 12px;
+  background: rgba(20, 14, 7, 0.3);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+}
+
+.persona-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.persona-preview-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.persona-mods {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.mini-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+.mini-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--panel-border);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.mini-stat-value {
+  color: var(--text-bright);
+  font-weight: 700;
 }
 
   /* Desktop layout improvements */
@@ -702,6 +1012,25 @@ button {
   .ascii-art {
     font-size: 14px;
     line-height: 1.2;
+  }
+}
+
+@media (max-width: 720px) {
+  .header-row {
+    grid-template-columns: 1fr;
+  }
+
+  .conditions-stack {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .persona-layout {
+    flex-direction: column;
+  }
+
+  .persona-grid {
+    grid-template-columns: 1fr;
   }
 }
 
