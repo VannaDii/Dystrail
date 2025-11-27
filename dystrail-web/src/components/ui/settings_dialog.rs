@@ -6,6 +6,8 @@ use yew::prelude::*;
 pub struct Props {
     pub open: bool,
     pub on_close: Callback<()>,
+    #[prop_or_default]
+    pub on_hc_changed: Callback<bool>,
 }
 
 #[function_component(SettingsDialog)]
@@ -119,10 +121,12 @@ pub fn settings_dialog(p: &Props) -> Html {
 
     let on_toggle_hc = {
         let hc = hc.clone();
+        let hc_cb = p.on_hc_changed.clone();
         Callback::from(move |_| {
             let next = !*hc;
             hc.set(next);
             crate::a11y::set_high_contrast(next);
+            hc_cb.emit(next);
         })
     };
 
@@ -154,6 +158,7 @@ mod tests {
         let props = Props {
             open: false,
             on_close: Callback::noop(),
+            on_hc_changed: Callback::noop(),
         };
         let html = block_on(LocalServerRenderer::<SettingsDialog>::with_props(props).render());
         assert!(!html.contains("drawer-body"));
@@ -165,6 +170,7 @@ mod tests {
         let props = Props {
             open: true,
             on_close: Callback::noop(),
+            on_hc_changed: Callback::noop(),
         };
         let html = block_on(LocalServerRenderer::<SettingsDialog>::with_props(props).render());
         assert!(html.contains("High Contrast"));

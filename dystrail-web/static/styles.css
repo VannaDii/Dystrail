@@ -708,6 +708,8 @@ button {
   gap: 12px;
   align-items: center;
   margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .pants-meter {
@@ -738,6 +740,32 @@ button {
   font-weight: 600;
 }
 
+.sprite-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--accent);
+  text-shadow: 1px 1px 0 var(--shadow);
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px var(--shadow);
+}
+
+.sprite-weather {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.sprite-eo {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
 .weather-icon {
   width: 24px;
   height: 24px;
@@ -754,22 +782,9 @@ button {
   filter: brightness(0.75) saturate(0.9);
 }
 
-.exec-icon {
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  border: 1px solid var(--panel-border);
-  background: var(--panel);
-  color: var(--text-bright);
-  font-weight: 700;
-  font-size: 11px;
-}
-
 .exec-pill {
   background: rgba(247, 227, 155, 0.1);
+  gap: 8px;
 }
 
 /* Menu styling - Mobile First */
@@ -1115,19 +1130,46 @@ button {
 
 .seed-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 12px;
   margin-top: 8px;
   border: 1px solid var(--panel-border);
   border-radius: 4px;
   background: rgba(20, 14, 7, 0.4);
+  box-shadow: inset 0 0 0 1px var(--shadow);
+}
+
+.seed-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.seed-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .seed-label {
   color: var(--text-bright);
   font-weight: 700;
+}
+
+.seed-code {
+  padding: 6px 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text-bright);
+  letter-spacing: 1px;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px var(--shadow);
 }
 
 .store-cart-summary {
@@ -1145,48 +1187,41 @@ button {
   font-weight: 700;
 }
 
-  /* Desktop layout improvements */
-  .header-with-controls {
-    flex-direction: row; /* Horizontal layout on desktop */
-    align-items: center;
-  }
+header[role="banner"] {
+  max-width: min(800px, 95vw);
+  margin: 12px auto 0;
+}
 
-  .header-controls-row {
-    display: contents; /* Flatten the controls back into main flex */
-  }
-
-  .header-center {
-    order: 0; /* Reset order on desktop */
-  }/* Controls row on mobile - below ASCII art */
-.header-controls-row {
+.header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
   gap: 12px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--shadow), 4px 4px 0 var(--shadow);
 }
 
 .header-left {
-  flex: 0 0 auto;
+  flex: 1;
   display: flex;
   align-items: center;
 }
 
 .header-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  min-width: 0; /* Allow shrinking */
-  order: -1; /* Put ASCII art first on mobile */
+  text-align: center;
 }
 
 .header-right {
-  flex: 0 0 auto;
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
-/* Language selector in menu */
 .header-left select {
   appearance: none;
   background: var(--button-bg);
@@ -1200,7 +1235,7 @@ button {
   letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow: 2px 2px 0 var(--shadow);
-  min-width: auto;
+  min-width: 120px;
   position: relative;
   line-height: 1;
 }
@@ -1215,16 +1250,23 @@ button {
   outline-offset: 2px;
 }
 
-/* Save button in menu header */
 .header-right button {
   padding: 6px 10px;
   font-size: 11px;
   min-width: auto;
 }
 
-.header-right button::before {
+#save-open-btn::before {
   content: "💾 ";
   color: var(--accent);
+}
+
+.hc-toggle::before {
+  content: none;
+}
+
+.hc-toggle {
+  min-width: 72px;
 }
 
 /* ASCII Art - Mobile First */
@@ -1247,14 +1289,14 @@ button {
 
 /* Desktop and larger screens */
 @media (min-width: 768px) {
-  .header-with-controls {
+  .header-content {
     gap: 16px;
   }
 
   .header-left select {
-    padding: 6px 8px;
+    padding: 6px 12px;
     font-size: 12px;
-    min-width: 60px;
+    min-width: 140px;
   }
 
   .header-right button {
@@ -1276,6 +1318,16 @@ button {
   .conditions-stack {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .persona-layout {

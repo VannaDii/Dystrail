@@ -7,6 +7,7 @@ pub mod pace_diet_panel;
 pub mod persona_select;
 pub mod result_screen;
 pub mod save_drawer;
+pub mod seed_footer;
 pub mod settings_dialog;
 pub mod share_code_bar;
 pub mod stats_bar;

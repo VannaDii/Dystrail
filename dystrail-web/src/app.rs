@@ -11,7 +11,6 @@ use crate::game::{JourneySession, ResultConfig, StrategyId, load_result_config};
 use crate::i18n;
 use crate::routes::Route;
 use std::rc::Rc;
-use wasm_bindgen::JsCast;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -90,12 +89,14 @@ pub fn app_inner() -> Html {
     let result_config = use_state(ResultConfig::default);
     let preload_progress = use_state(|| 0_u8);
     let boot_ready = use_state(|| false);
+    let high_contrast = use_state(crate::a11y::high_contrast_enabled);
     let pending_state = use_state(|| None::<GameState>);
     let session = use_state(|| None::<JourneySession>);
     let logs = use_state(Vec::<String>::new);
     let result = use_state(|| None::<(String, String)>);
     let run_seed = use_state(|| 0_u64);
     let show_save = use_state(|| false);
+    let save_focus_target = use_state(|| AttrValue::from("save-open-btn"));
     let show_settings = use_state(|| false);
     let current_language = use_state(crate::i18n::current_lang);
     let data_ready = !data.encounters.is_empty();
@@ -415,14 +416,30 @@ pub fn app_inner() -> Html {
     // Language change callback
     let on_lang_change = {
         let current_language = current_language.clone();
-        Callback::from(move |e: web_sys::Event| {
-            if let Some(select) = e
-                .target()
-                .and_then(|t| t.dyn_into::<web_sys::HtmlSelectElement>().ok())
-            {
-                crate::i18n::set_lang(&select.value());
-                current_language.set(select.value());
-            }
+        Callback::from(move |code: String| {
+            crate::i18n::set_lang(&code);
+            current_language.set(code);
+        })
+    };
+    let on_hc_toggle = {
+        let high_contrast = high_contrast.clone();
+        Callback::from(move |next: bool| {
+            crate::a11y::set_high_contrast(next);
+            high_contrast.set(next);
+        })
+    };
+    let on_settings_hc_changed = {
+        let high_contrast = high_contrast.clone();
+        Callback::from(move |next: bool| {
+            high_contrast.set(next);
+        })
+    };
+    let on_open_save_header = {
+        let show_save = show_save.clone();
+        let focus_target = save_focus_target.clone();
+        Callback::from(move |()| {
+            focus_target.set(AttrValue::from("save-open-btn"));
+            show_save.set(true);
         })
     };
 
@@ -567,11 +584,15 @@ pub fn app_inner() -> Html {
             let on_select = {
                 let show_save_handle = show_save.clone();
                 let show_settings_handle = show_settings.clone();
+                let save_focus = save_focus_target.clone();
                 let phase_handle = phase.clone();
                 Callback::from(move |idx: u8| match idx {
                     1 => start_with_code_action(),
                     2 => phase_handle.set(Phase::Camp),
-                    7 => show_save_handle.set(true),
+                    7 => {
+                        save_focus.set(AttrValue::from("save-open-btn"));
+                        show_save_handle.set(true);
+                    }
                     8 => show_settings_handle.set(true),
                     0 => phase_handle.set(Phase::Boot),
                     3..=6 | 9..=u8::MAX => {}
@@ -580,42 +601,15 @@ pub fn app_inner() -> Html {
             html! {
                             <section class="panel retro-menu">
                     <header class="retro-header" role="banner">
-                                    <div class="header-with-controls">
-                                        <div class="header-center">
-                                            <pre class="ascii-art">
+                                    <div class="header-center">
+                                        <pre class="ascii-art">
             { "═══════════════════════════════" }<br/>
             { "D Y S T R A I L" }<br/>
             { "A Political Survival Adventure" }<br/>
             { "═══════════════════════════════" }
-                                            </pre>
-                                            <p class="muted" aria-live="polite">{ format!("{seed_label} {code}", seed_label = i18n::t("game.seed_label"), code = (*code).clone()) }</p>
-                                        </div>
-                                        <div class="header-controls-row">
-                                            <div class="header-left">
-                                                <nav aria-label={crate::i18n::t("nav.language")}>
-                                                    <label for="menu-lang-select" class="sr-only">{crate::i18n::t("nav.language")}</label>
-                                        <select id="menu-lang-select" onchange={on_lang_change} value={(*current_language).clone()}>
-                                            <option value="en">{"English"}</option>
-                                            <option value="zh">{"中文"}</option>
-                                            <option value="hi">{"हिन्दी"}</option>
-                                            <option value="es">{"Español"}</option>
-                                            <option value="fr">{"Français"}</option>
-                                            <option value="ar">{"العربية"}</option>
-                                            <option value="bn">{"বাংলা"}</option>
-                                            <option value="pt">{"Português"}</option>
-                                            <option value="ru">{"Русский"}</option>
-                                            <option value="ja">{"日本語"}</option>
-                                            <option value="it">{"Italiano"}</option>
-                                        </select>
-                                                </nav>
-                                            </div>
-                                            <div class="header-right">
-                                                <button id="menu-save-btn" onclick={{ let s=show_save.clone(); Callback::from(move |_| s.set(true)) }}>
-                                                    {crate::i18n::t("save.header")}
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </pre>
                                     </div>
+                                            <p class="muted" aria-live="polite">{ format!("{seed_label} {code}", seed_label = i18n::t("game.seed_label"), code = (*code).clone()) }</p>
                             </header>
                                 <img src="/static/img/logo.png" alt="Dystrail" loading="lazy" style="width:min(520px,80vw)"/>
                                 <crate::components::ui::main_menu::MainMenu seed_text={Some((*code).to_string())} on_select={Some(on_select)} />
@@ -879,28 +873,62 @@ pub fn app_inner() -> Html {
         }),
     };
 
-    let seed_footer = (*session).as_ref().map(|sess| {
-        let seed_value = if *seed_footer_seed == 0 {
-            sess.state().seed
-        } else {
-            *seed_footer_seed
-        };
-        html! {
-            <div class="seed-footer" role="contentinfo">
-                <span class="seed-label">{ format!("{} {}", i18n::t("game.seed_label"), seed_value) }</span>
-            </div>
-        }
-    }).unwrap_or_default();
+    let seed_footer = (*session)
+        .as_ref()
+        .map(|sess| {
+            let seed_value = if *seed_footer_seed == 0 {
+                sess.state().seed
+            } else {
+                *seed_footer_seed
+            };
+            let is_deep = sess.state().mode.is_deep();
+            let open_save_from_footer = {
+                let focus_target = save_focus_target.clone();
+                let save_open = show_save.clone();
+                Callback::from(move |_| {
+                    focus_target.set(AttrValue::from("seed-save-btn"));
+                    save_open.set(true);
+                })
+            };
+            let open_settings_from_footer = {
+                let show_settings = show_settings.clone();
+                Callback::from(move |_| show_settings.set(true))
+            };
+            html! {
+                <crate::components::ui::seed_footer::SeedFooter seed={seed_value} is_deep_mode={is_deep}>
+                    <button
+                        id="seed-save-btn"
+                        class="retro-btn-secondary"
+                        onclick={open_save_from_footer}
+                    >
+                        { i18n::t("save.header") }
+                    </button>
+                    <button class="retro-btn-secondary" onclick={open_settings_from_footer}>
+                        { i18n::t("menu.settings") }
+                    </button>
+                </crate::components::ui::seed_footer::SeedFooter>
+            }
+        })
+        .unwrap_or_default();
 
     html! {
-        <main id="main" role="main">
-            <style>{ crate::a11y::visible_focus_css() }</style>
-            { html!{ <crate::components::ui::save_drawer::SaveDrawer open={open_save} on_close={on_close_save} on_save={on_save_cb} on_load={on_load_cb} on_export={on_export_cb} on_import={on_import_cb} return_focus_id={Some(AttrValue::from("menu-save-btn"))} /> } }
-            { html!{ <crate::components::ui::settings_dialog::SettingsDialog open={*show_settings} on_close={{ let s=show_settings.clone(); Callback::from(move |()| s.set(false)) }} /> } }
-            { main_view }
-            { seed_footer }
-            <crate::components::footer::Footer />
-        </main>
+        <>
+            <crate::components::header::Header
+                on_open_save={on_open_save_header}
+                on_lang_change={on_lang_change}
+                current_lang={(*current_language).clone()}
+                high_contrast={*high_contrast}
+                on_toggle_hc={on_hc_toggle}
+            />
+            <main id="main" role="main">
+                <style>{ crate::a11y::visible_focus_css() }</style>
+                { html!{ <crate::components::ui::save_drawer::SaveDrawer open={open_save} on_close={on_close_save} on_save={on_save_cb} on_load={on_load_cb} on_export={on_export_cb} on_import={on_import_cb} return_focus_id={Some((*save_focus_target).clone())} /> } }
+                { html!{ <crate::components::ui::settings_dialog::SettingsDialog open={*show_settings} on_close={{ let s=show_settings.clone(); Callback::from(move |()| s.set(false)) }} on_hc_changed={on_settings_hc_changed.clone()} /> } }
+                { main_view }
+                { seed_footer }
+                <crate::components::footer::Footer />
+            </main>
+        </>
     }
 }
 

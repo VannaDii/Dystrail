@@ -201,7 +201,7 @@ pub fn stats_bar(p: &Props) -> Html {
                         let condition_label = format!("{} {}", i18n::t("weather.title"), label);
                         html! {
                             <div class={classes!("condition-pill", "weather-pill", if w.mitigated { Some("mitigated") } else { None })} aria-label={condition_label}>
-                                <span class="weather-icon" aria-hidden="true">{ weather_symbol(w.weather) }</span>
+                                <span class="sprite-badge sprite-weather" aria-hidden="true">{ weather_symbol(w.weather) }</span>
                                 <span class="condition-label">{ label }</span>
                             </div>
                         }
@@ -214,7 +214,7 @@ pub fn stats_bar(p: &Props) -> Html {
                         let full_label = format!("{} {}", i18n::t("eo.prefix"), order_label);
                         html! {
                             <div class="condition-pill exec-pill" aria-label={full_label} aria-live="polite">
-                                <span class="exec-icon" aria-hidden="true">{ abbr }</span>
+                                <span class="sprite-badge sprite-eo" aria-hidden="true">{ abbr }</span>
                                 <span class="condition-label">{ order_label }</span>
                             </div>
                         }

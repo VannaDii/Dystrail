@@ -7,6 +7,8 @@ pub struct Props {
     pub on_open_save: Callback<()>,
     pub on_lang_change: Callback<String>,
     pub current_lang: String,
+    pub high_contrast: bool,
+    pub on_toggle_hc: Callback<bool>,
 }
 
 #[function_component(Header)]
@@ -22,6 +24,11 @@ pub fn header(p: &Props) -> Html {
                 cb.emit(sel.value());
             }
         })
+    };
+    let on_hc_toggle = {
+        let cb = p.on_toggle_hc.clone();
+        let current = p.high_contrast;
+        Callback::from(move |_| cb.emit(!current))
     };
     let open_save = {
         let cb = p.on_open_save.clone();
@@ -48,6 +55,9 @@ pub fn header(p: &Props) -> Html {
                     </select>
                 </nav>
                 <div class="header-right">
+                    <button aria-pressed={p.high_contrast.to_string()} onclick={on_hc_toggle} class="hc-toggle">
+                        { if p.high_contrast { "HC On" } else { "HC Off" } }
+                    </button>
                     <button id="save-open-btn" onclick={open_save}>{ t("save.header") }</button>
                 </div>
             </div>
