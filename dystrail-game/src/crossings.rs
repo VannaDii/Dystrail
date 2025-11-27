@@ -309,7 +309,9 @@ pub fn apply_detour(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
     let type_cfg = cfg.types.get(&kind).unwrap();
     gs.stats.supplies += type_cfg.detour.supplies; // Can be negative (cost)
     gs.stats.pants += type_cfg.detour.pants;
-    // Note: days would affect time progression, which we'll handle elsewhere
+    let partial = crate::day_accounting::partial_day_miles(gs, 0.0);
+    gs.record_travel_day(crate::journey::TravelDayKind::Partial, partial, "detour");
+    gs.end_of_day();
     "crossing.result.detour.success".to_string()
 }
 
@@ -357,4 +359,28 @@ pub fn can_use_permit(gs: &crate::GameState, _kind: &CrossingKind) -> bool {
     gs.receipts
         .iter()
         .any(|receipt| PERMIT_REQUIRED_TAGS.iter().any(|tag| receipt.contains(tag)))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::journey::{RngBundle, TravelDayKind};
+    use crate::state::GameState;
+    use std::rc::Rc;
+
+    #[test]
+    fn apply_detour_records_partial_day() {
+        let mut state = GameState::default();
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(5)));
+        let cfg = CrossingConfig::default();
+        let baseline_records = state.day_records.len();
+
+        let result = apply_detour(&mut state, &cfg, CrossingKind::BridgeOut);
+
+        assert_eq!(result, "crossing.result.detour.success");
+        assert_eq!(state.day_records.len(), baseline_records + 1);
+        let record = state.day_records.last().expect("recorded day");
+        assert_eq!(record.kind, TravelDayKind::Partial);
+        assert!(record.miles > 0.0, "detour should credit partial-day miles");
+    }
 }

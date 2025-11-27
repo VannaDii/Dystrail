@@ -20,6 +20,8 @@ anyhow = { workspace = true }
 thiserror = { workspace = true }
 smallvec = { workspace = true }
 twox-hash = { workspace = true }
+hmac = { workspace = true }
+sha2 = { workspace = true }
 
 # Optional dependencies for specific features
 tokio = { workspace = true, optional = true, features = ["macros", "rt"] }

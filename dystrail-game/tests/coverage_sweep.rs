@@ -30,7 +30,7 @@ use dystrail_game::{
     DayRecord, JourneyCfg, JourneyController, PolicyId, StrategyId, compute_day_ledger_metrics,
 };
 use rand::rngs::SmallRng;
-use rand::{Rng, RngCore, SeedableRng};
+use rand::{RngCore, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use std::cell::RefCell;
 use std::collections::{HashMap, VecDeque};
@@ -67,17 +67,6 @@ fn load_personas() -> PersonasList {
         "../../dystrail-web/static/assets/data/personas.json"
     ))
     .unwrap()
-}
-
-fn rng_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
-    for seed in 0..10_000u64 {
-        let bundle = RngBundle::from_user_seed(seed);
-        let mut rng = bundle.encounter();
-        if predicate(rng.random::<u8>()) {
-            return seed;
-        }
-    }
-    panic!("unable to locate deterministic rng seed");
 }
 
 fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
@@ -147,6 +136,8 @@ fn boss_outcomes_cover_all_paths() {
     victory_cfg.rounds = 1;
     victory_cfg.pants_gain_per_round = 0;
     victory_cfg.sanity_loss_per_round = 0;
+    victory_cfg.base_victory_chance = 1.0;
+    victory_cfg.min_chance = 1.0;
     victory_cfg.max_chance = 1.0;
     assert_eq!(
         run_boss_minigame(&mut victory_state, &victory_cfg),
@@ -157,13 +148,12 @@ fn boss_outcomes_cover_all_paths() {
     let mut fail_state = empty_state();
     fail_state.stats.supplies = 0;
     fail_state.stats.morale = 0;
-    let high_roll_seed = rng_seed_where(|roll| roll > 90);
-    fail_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(high_roll_seed)));
     let mut fail_cfg = BossConfig::load_from_static();
     fail_cfg.rounds = 1;
     fail_cfg.pants_gain_per_round = 0;
     fail_cfg.base_victory_chance = 0.0;
-    fail_cfg.max_chance = 0.01;
+    fail_cfg.min_chance = 0.0;
+    fail_cfg.max_chance = 0.0;
     assert_eq!(
         run_boss_minigame(&mut fail_state, &fail_cfg),
         BossOutcome::SurvivedFlood
@@ -183,12 +173,11 @@ fn boss_probability_edges_cover_low_and_high() {
     fail_state.miles_traveled_actual = 50.0;
     fail_state.encounters_resolved = 0;
     fail_state.receipts.clear();
-    let fail_seed = rng_seed_where(|roll| roll > 90);
-    fail_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(fail_seed)));
     let mut fail_cfg = BossConfig::load_from_static();
     fail_cfg.rounds = 0;
     fail_cfg.distance_required = 5_000.0;
-    fail_cfg.max_chance = 0.25;
+    fail_cfg.max_chance = 0.0;
+    fail_cfg.min_chance = 0.0;
     fail_cfg.base_victory_chance = 0.0;
     let fail_outcome = run_boss_minigame(&mut fail_state, &fail_cfg);
     assert!(matches!(fail_outcome, BossOutcome::SurvivedFlood));
@@ -211,11 +200,12 @@ fn boss_probability_edges_cover_low_and_high() {
         .extend((0..5).map(|idx| format!("receipt-{idx}")));
     win_state.vehicle_breakdowns = 1;
     win_state.miles_traveled_actual = 2_400.0;
-    let win_seed = rng_seed_where(|roll| roll == 0);
-    win_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(win_seed)));
+    win_state.detach_rng_bundle();
     let mut win_cfg = BossConfig::load_from_static();
     win_cfg.rounds = 0;
     win_cfg.distance_required = 800.0;
+    win_cfg.base_victory_chance = 1.0;
+    win_cfg.min_chance = 1.0;
     win_cfg.max_chance = 1.0;
     let win_outcome = run_boss_minigame(&mut win_state, &win_cfg);
     assert!(matches!(win_outcome, BossOutcome::PassedCloture));

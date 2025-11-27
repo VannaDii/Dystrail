@@ -302,7 +302,7 @@ mod tests {
     #[test]
     fn breakdown_uses_part_weights() {
         let mut state = GameState::default();
-        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(7)));
+        state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.2));
         state.journey_breakdown.base = 1.0;
         state.journey_breakdown.beta = 0.0;
         state.journey_part_weights = PartWeights {
@@ -769,7 +769,7 @@ mod tests {
         // Ally attrition path exercises positive case.
         state.stats.allies = 2;
         state.attach_rng_bundle(encounter_bundle_with_roll_below(
-            ALLY_ATTRITION_CHANCE + 0.05,
+            ALLY_ATTRITION_CHANCE * 0.5,
         ));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
@@ -1166,7 +1166,7 @@ mod tests {
         state.stats.allies = 2;
         state.logs.clear();
         state.attach_rng_bundle(encounter_bundle_with_roll_below(
-            ALLY_ATTRITION_CHANCE * 2.0,
+            ALLY_ATTRITION_CHANCE * 0.5,
         ));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));

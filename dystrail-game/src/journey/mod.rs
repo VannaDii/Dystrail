@@ -1,15 +1,15 @@
 //! Journey domain primitives shared by the controller and state ledger.
+use hmac::{Hmac, Mac};
 use rand::SeedableRng;
 use rand::rngs::SmallRng;
 use serde::{Deserialize, Serialize};
+use sha2::Sha256;
 use smallvec::SmallVec;
 use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
-use std::hash::Hasher;
 use std::rc::Rc;
 use std::sync::OnceLock;
 use thiserror::Error;
-use twox_hash::XxHash64;
 
 use crate::endgame::EndgameTravelCfg;
 use crate::state::{DietId, GameMode, PaceId, PolicyKind};
@@ -1392,11 +1392,10 @@ impl RngBundle {
     /// Construct the bundle from a user-visible seed.
     #[must_use]
     pub fn from_user_seed(seed: u64) -> Self {
-        let root = hash64(seed.to_le_bytes(), 0);
-        let travel = CountingRng::new(seed_domain(root, b"travel"));
-        let breakdown = CountingRng::new(seed_domain(root, b"breakdown"));
-        let encounter = CountingRng::new(seed_domain(root, b"encounter"));
-        let crossing = CountingRng::new(seed_domain(root, b"crossing"));
+        let travel = CountingRng::new(derive_stream_seed(seed, b"travel"));
+        let breakdown = CountingRng::new(derive_stream_seed(seed, b"breakdown"));
+        let encounter = CountingRng::new(derive_stream_seed(seed, b"encounter"));
+        let crossing = CountingRng::new(derive_stream_seed(seed, b"crossing"));
         Self {
             travel: RefCell::new(travel),
             breakdown: RefCell::new(breakdown),
@@ -1471,16 +1470,13 @@ impl<R: rand::RngCore> rand::RngCore for CountingRng<R> {
     }
 }
 
-fn hash64(bytes: [u8; 8], seed: u64) -> u64 {
-    let mut hasher = XxHash64::with_seed(seed);
-    hasher.write(&bytes);
-    hasher.finish()
-}
-
-fn seed_domain(root: u64, tag: &[u8]) -> u64 {
-    let mut hasher = XxHash64::with_seed(root);
-    hasher.write(tag);
-    hasher.finish()
+fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
+    let mut mac =
+        Hmac::<Sha256>::new_from_slice(&user_seed.to_le_bytes()).expect("64-bit seed is valid key");
+    mac.update(domain_tag);
+    let digest = mac.finalize().into_bytes();
+    let seed_bytes: [u8; 8] = digest[..8].try_into().expect("digest slice length");
+    u64::from_le_bytes(seed_bytes)
 }
 
 /// Shell journey controller; later phases will expand its responsibilities.
@@ -1648,6 +1644,9 @@ mod tests {
     use super::*;
     use crate::state::GameState;
     use crate::weather::Weather;
+    use rand::RngCore;
+    use rand::SeedableRng;
+    use rand::rngs::SmallRng;
 
     #[test]
     fn policy_catalog_resolves_family_and_overlay() {
@@ -1752,6 +1751,28 @@ mod tests {
         controller.reseed(2);
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
+    }
+
+    #[test]
+    fn rng_bundle_uses_domain_hmac() {
+        let seed = 0xFEED_CAFE_u64;
+        let bundle = RngBundle::from_user_seed(seed);
+
+        let mut travel_rng = bundle.travel();
+        let mut expected_travel = SmallRng::seed_from_u64(derive_stream_seed(seed, b"travel"));
+        assert_eq!(travel_rng.next_u32(), expected_travel.next_u32());
+        assert_eq!(travel_rng.draws(), 1);
+
+        let mut breakdown_rng = bundle.breakdown();
+        let mut expected_breakdown =
+            SmallRng::seed_from_u64(derive_stream_seed(seed, b"breakdown"));
+        assert_eq!(breakdown_rng.next_u64(), expected_breakdown.next_u64());
+
+        assert_ne!(
+            derive_stream_seed(seed, b"travel"),
+            derive_stream_seed(seed, b"crossing"),
+            "domain tags must derive distinct seeds"
+        );
     }
 
     #[test]

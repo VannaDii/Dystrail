@@ -145,8 +145,9 @@ mod tests {
         let mut fail_cfg = BossConfig::load_from_static();
         fail_cfg.rounds = 0;
         fail_cfg.distance_required = 5_000.0;
-        fail_cfg.max_chance = 0.2;
         fail_cfg.base_victory_chance = 0.0;
+        fail_cfg.min_chance = 0.0;
+        fail_cfg.max_chance = 0.0;
         let fail_outcome = run_boss_minigame(&mut fail_state, &fail_cfg);
         assert!(matches!(fail_outcome, BossOutcome::SurvivedFlood));
 
@@ -165,7 +166,8 @@ mod tests {
         win_state.detach_rng_bundle();
         let mut win_cfg = BossConfig::load_from_static();
         win_cfg.rounds = 0;
-        win_cfg.max_chance = 0.7;
+        win_cfg.base_victory_chance = 1.0;
+        win_cfg.max_chance = 1.0;
         let win_outcome = run_boss_minigame(&mut win_state, &win_cfg);
         assert!(matches!(win_outcome, BossOutcome::PassedCloture));
     }
