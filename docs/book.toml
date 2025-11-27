@@ -1,0 +1,11 @@
+[book]
+title = "Dystrail Docs"
+authors = ["Dystrail Team"]
+language = "en"
+src = "."
+
+[output.html]
+default-theme = "light"
+site-url = "/docs/"
+git-repository-url = "https://github.com/VannaDii/Dystrail"
+preferred-dark-theme = "navy"

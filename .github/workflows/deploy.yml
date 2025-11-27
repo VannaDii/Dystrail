@@ -1,0 +1,86 @@
+name: Deploy site and game
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Install trunk and mdBook
+        run: |
+          cargo install trunk --locked
+          cargo install mdbook --locked
+
+      - name: Prepare build output
+        run: |
+          rm -rf build
+          mkdir -p build/play build/docs
+
+      - name: Build playable web client
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          cd dystrail-web
+          BASE="${BASE_PATH%/}"
+          PUB_URL="${BASE:+$BASE}/play/"
+          [ -z "$PUB_URL" ] && PUB_URL="/play/"
+          trunk build --release --public-url "$PUB_URL" --dist ../build/play
+
+      - name: Build docs
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          BASE="${BASE_URL%/}"
+          MDBOOK_OUTPUT__HTML__SITE_URL="${BASE}/docs/" mdbook build docs -d ../build/docs
+
+      - name: Add splash page and domain
+        run: |
+          cp -R site/* build/
+          echo "dystrail.com" > build/CNAME
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
