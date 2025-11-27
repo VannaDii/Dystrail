@@ -232,8 +232,16 @@ pub fn travel_panel(p: &Props) -> Html {
                         }
                         if let Some(gs) = p.game_state.as_ref() {
                             <div class="current-settings" role="status" aria-live="polite">
-                                <p>{format!("{} {}", i18n::t("pacediet.pace_label"), gs.pace)}</p>
-                                <p>{format!("{} {}", i18n::t("pacediet.diet_label"), gs.diet)}</p>
+                                <div class="pace-diet-row" role="list">
+                                    <div class="condition-pill pace-pill" role="listitem">
+                                        <span class="sprite-badge sprite-pace" aria-hidden="true">{ pace_code(gs.pace) }</span>
+                                        <span class="condition-label">{ format!("{} {}", i18n::t("menu.pace"), gs.pace) }</span>
+                                    </div>
+                                    <div class="condition-pill diet-pill" role="listitem">
+                                        <span class="sprite-badge sprite-diet" aria-hidden="true">{ diet_code(gs.diet) }</span>
+                                        <span class="condition-label">{ format!("{} {}", i18n::t("menu.diet"), gs.diet) }</span>
+                                    </div>
+                                </div>
                             </div>
                         }
                         if !p.logs.is_empty() {
@@ -460,4 +468,20 @@ fn format_weather_announcement(
             format!("Weather: {weather_name}. {effects_text}")
         },
     )
+}
+
+const fn pace_code(pace: PaceId) -> &'static str {
+    match pace {
+        PaceId::Steady => "ST",
+        PaceId::Heated => "HT",
+        PaceId::Blitz => "BZ",
+    }
+}
+
+const fn diet_code(diet: DietId) -> &'static str {
+    match diet {
+        DietId::Quiet => "QT",
+        DietId::Mixed => "MX",
+        DietId::Doom => "DS",
+    }
 }

@@ -215,9 +215,13 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
             &list_ref,
             &on_keydown,
         ),
-        StoreScreen::Cart => {
-            render_cart_screen(&store_state, &props.game_state, &list_ref, &on_keydown)
-        }
+        StoreScreen::Cart => render_cart_screen(
+            &store_state,
+            &props.game_state,
+            &list_ref,
+            &on_keydown,
+            props,
+        ),
     }
 }
 
@@ -1085,6 +1089,7 @@ fn render_cart_screen(
     game_state: &GameState,
     list_ref: &NodeRef,
     on_keydown: &Callback<KeyboardEvent>,
+    props: &OutfittingStoreProps,
 ) -> Html {
     let total_str = format_currency(state.cart.total_cents);
     let remaining = game_state.budget_cents - state.cart.total_cents;
@@ -1102,6 +1107,19 @@ fn render_cart_screen(
 
     let can_checkout = remaining >= 0;
     let mut cart_lines = Vec::new();
+
+    let on_checkout = {
+        let st = state.clone();
+        let props = props.clone();
+        Callback::from(move |_| {
+            handle_cart_selection(0, &st, &st, &props);
+        })
+    };
+
+    let on_back = {
+        let st = state.clone();
+        Callback::from(move |_| handle_back_navigation(&st, &st))
+    };
 
     // Add cart items
     for (i, line) in state.cart.lines.iter().enumerate() {
@@ -1132,45 +1150,55 @@ fn render_cart_screen(
     cart_lines.push((0u8, i18n::t("store.cart.checkout")));
 
     html! {
-        <main class="outfitting-store">
-            <section role="region" aria-labelledby="cart-title" onkeydown={on_keydown}>
+        <section class="panel store-cart-panel" role="region" aria-labelledby="cart-title" onkeydown={on_keydown}>
+            <header class="section-header">
                 <h1 id="cart-title">{ i18n::t("store.cart.title") }</h1>
-                { if state.cart.lines.is_empty() {
-                    html! { <p class="empty-cart">{ "Your cart is empty." }</p> }
-                } else {
-                    html! {
-                        <>
-                            <ul role="menu" aria-label={i18n::t("store.cart.title")} ref={list_ref}>
-                                { for cart_lines.iter().enumerate().map(|(i, (idx, label))| {
-                                    let focused = state.focus_idx == *idx;
-                                    let disabled = *idx == 0 && !can_checkout;
-                                    let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                <div class="store-cart-summary" aria-live="polite">
+                    <span class="label">{ i18n::t("store.budget") }</span>
+                    <span class="value">{ remaining_str }</span>
+                </div>
+            </header>
+            { if state.cart.lines.is_empty() {
+                html! { <p class="empty-cart">{ "NONE" }</p> }
+            } else {
+                html! {
+                    <div class="cart-body">
+                        <ul role="menu" aria-label={i18n::t("store.cart.title")} ref={list_ref} class="store-cart-list">
+                            { for cart_lines.iter().enumerate().map(|(i, (idx, label))| {
+                                let focused = state.focus_idx == *idx;
+                                let disabled = *idx == 0 && !can_checkout;
+                                let posinset = u8::try_from(i).unwrap_or(0) + 1;
 
-                                    html!{
-                                        <li role="menuitem"
-                                            tabindex={if focused && !disabled { "0" } else { "-1" }}
-                                            data-key={idx.to_string()}
-                                            aria-posinset={posinset.to_string()}
-                                            aria-setsize={cart_lines.len().to_string()}
-                                            aria-disabled={disabled.to_string()}
-                                            class={classes!("ot-menuitem", disabled.then_some("disabled"))}>
-                                            <span class="num">{ format!("{})", idx) }</span>
-                                            <span class="label">{ label.clone() }</span>
-                                        </li>
-                                    }
-                                }) }
-                            </ul>
-                            <p class="cart-total" aria-live="polite">{ cart_total_line }</p>
-                            { if can_checkout {
-                                html! {}
-                            } else {
-                                html! { <p class="error" role="alert">{ i18n::t("store.alerts.over_budget") }</p> }
-                            }}
-                        </>
-                    }
-                }}
-                <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
-            </section>
-        </main>
+                                html!{
+                                    <li role="menuitem"
+                                        tabindex={if focused && !disabled { "0" } else { "-1" }}
+                                        data-key={idx.to_string()}
+                                        aria-posinset={posinset.to_string()}
+                                        aria-setsize={cart_lines.len().to_string()}
+                                        aria-disabled={disabled.to_string()}
+                                        class={classes!("ot-menuitem", "store-cart-line", disabled.then_some("disabled"))}>
+                                        <span class="num">{ format!("{})", idx) }</span>
+                                        <span class="label">{ label.clone() }</span>
+                                    </li>
+                                }
+                            }) }
+                        </ul>
+                        <p class="cart-total" aria-live="polite">{ cart_total_line }</p>
+                        { if can_checkout {
+                            html! {}
+                        } else {
+                            html! { <p class="error" role="alert">{ i18n::t("store.alerts.over_budget") }</p> }
+                        }}
+                    </div>
+                }
+            }}
+            <footer class="panel-footer">
+                <button class="retro-btn-secondary" onclick={on_back}>{ i18n::t("store.menu.back") }</button>
+                <button class="retro-btn-primary" onclick={on_checkout} disabled={!can_checkout}>
+                    { i18n::t("store.cart.checkout") }
+                </button>
+            </footer>
+            <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
+        </section>
     }
 }
