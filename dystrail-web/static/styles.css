@@ -1086,6 +1086,49 @@ button {
   padding: 0;
 }
 
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.travel-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.travel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.store-cart-summary {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.store-cart-summary .value {
+  color: var(--text-bright);
+  font-weight: 700;
+}
+
   /* Desktop layout improvements */
   .header-with-controls {
     flex-direction: row; /* Horizontal layout on desktop */

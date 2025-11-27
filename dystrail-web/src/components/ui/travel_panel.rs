@@ -206,13 +206,12 @@ pub fn travel_panel(p: &Props) -> Html {
     };
 
     html! {
-        <section class="panel">
-            <h2>{ i18n::t("travel.title") }</h2>
+        <section class="panel travel-shell">
+            <header class="section-header">
+                <h2>{ i18n::t("travel.title") }</h2>
+                { weather_info.clone() }
+            </header>
 
-            // Weather header strip
-            { weather_info.clone() }
-
-            // Show breakdown alert banner if travel is blocked
             if travel_blocked {
                 if let Some(msg) = &breakdown_msg {
                     <div class="alert breakdown-alert" role="alert" aria-live="assertive">
@@ -222,48 +221,50 @@ pub fn travel_panel(p: &Props) -> Html {
                 }
             }
 
-            // Weather details card if shown
-            if *show_weather_details {
-                { weather_details }
-            } else if *show_pace_diet {
-                { pace_diet_panel }
-            } else {
-                <>
-                    <div class="controls">
-                        <button onclick={on_show_pace_diet} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
-                            { i18n::t("pacediet.title") }
-                        </button>
-                        <button
-                            onclick={on_click}
-                            aria-label={i18n::t("travel.next")}
-                            class="retro-btn-primary"
-                            disabled={travel_blocked}
-                            aria-describedby={if travel_blocked { "breakdown-notice" } else { "" }}
-                        >
-                            { i18n::t("travel.next") }
-                        </button>
+            { if *show_weather_details { weather_details } else if *show_pace_diet { pace_diet_panel } else {
+                html! {
+                    <div class="travel-body">
+                        if travel_blocked {
+                            <p id="breakdown-notice" class="help-text">
+                                { i18n::t("vehicle.announce.blocked") }
+                            </p>
+                        }
+                        if let Some(gs) = p.game_state.as_ref() {
+                            <div class="current-settings" role="status" aria-live="polite">
+                                <p>{format!("{} {}", i18n::t("pacediet.pace_label"), gs.pace)}</p>
+                                <p>{format!("{} {}", i18n::t("pacediet.diet_label"), gs.diet)}</p>
+                            </div>
+                        }
+                        if !p.logs.is_empty() {
+                            <div class="log" role="log" aria-live="polite">
+                                { for p.logs.iter().map(|l| html!{ <p>{l}</p> }) }
+                            </div>
+                        }
                     </div>
+                }
+            }}
 
-                    if travel_blocked {
-                        <p id="breakdown-notice" class="help-text">
-                            { i18n::t("vehicle.announce.blocked") }
-                        </p>
-                    }
-
-                    if let Some(gs) = p.game_state.as_ref() {
-                        <div class="current-settings" role="status" aria-live="polite">
-                            <p>{"Current Pace: "}{gs.pace}</p>
-                            <p>{"Current Info Diet: "}{gs.diet}</p>
-                        </div>
-                    }
-                </>
-            }
-
-            if !p.logs.is_empty() {
-                <div class="log" role="log" aria-live="polite">
-                    { for p.logs.iter().map(|l| html!{ <p>{l}</p> }) }
-                </div>
-            }
+            <footer class="panel-footer">
+                <button onclick={on_show_pace_diet} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
+                    { i18n::t("pacediet.title") }
+                </button>
+                <button
+                    onclick={on_toggle_weather_details.clone()}
+                    aria-label={i18n::t("weather.details.header")}
+                    class="retro-btn-secondary"
+                >
+                    { i18n::t("weather.details.header") }
+                </button>
+                <button
+                    onclick={on_click}
+                    aria-label={i18n::t("travel.next")}
+                    class="retro-btn-primary"
+                    disabled={travel_blocked}
+                    aria-describedby={if travel_blocked { "breakdown-notice" } else { "" }}
+                >
+                    { i18n::t("travel.next") }
+                </button>
+            </footer>
         </section>
     }
 }

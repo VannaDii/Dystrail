@@ -811,6 +811,11 @@ fn render_category_screen(
         Callback::from(move |_| set_screen(&state, StoreScreen::Home))
     };
 
+    let cart_cta = Callback::from({
+        let state = state.clone();
+        move |_| set_screen(&state, StoreScreen::Cart)
+    });
+
     html! {
         <main class="outfitting-store">
             <section role="region" aria-labelledby="category-title" onkeydown={on_keydown} class="store-shell">
@@ -823,6 +828,10 @@ fn render_category_screen(
                         <span class="value">{ budget_str }</span>
                     </div>
                 </header>
+                <div class="store-cart-summary" role="status" aria-live="polite">
+                    <span>{ i18n::t("store.cart.title") }</span>
+                    <span class="value">{ format_currency(state.cart.total_cents) }</span>
+                </div>
                 <div class="store-item-grid" ref={list_ref}>
                     { for items.iter().enumerate().map(|(i, item)| render_store_item_card(
                         u8::try_from(i + 1).unwrap_or(0),
@@ -833,10 +842,7 @@ fn render_category_screen(
                 </div>
                 <div class="store-footer-row">
                     <button class="retro-btn-secondary" onclick={on_nav}>{ i18n::t("store.menu.back") }</button>
-                    <button class="retro-btn-primary" onclick={Callback::from({
-                        let state = state.clone();
-                        move |_| set_screen(&state, StoreScreen::Cart)
-                    })}>{ i18n::t("store.menu.view_cart") }</button>
+                    <button class="retro-btn-primary" onclick={cart_cta}>{ i18n::t("store.menu.view_cart") }</button>
                 </div>
                 <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
             </section>

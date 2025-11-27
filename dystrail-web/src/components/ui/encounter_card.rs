@@ -14,15 +14,19 @@ pub fn encounter_card(p: &Props) -> Html {
             let on_choice = p.on_choice.clone();
             Callback::from(move |_| on_choice.emit(i))
         };
-        html! { <button onclick={cb} class="retro-btn-choice">{ c.label.clone() }</button> }
+        html! { <button onclick={cb} class="retro-btn-choice">{ format!("{}{}", i + 1, ") ") }{ c.label.clone() }</button> }
     });
     html! {
         <section class="panel retro-encounter" role="dialog" aria-modal="false" aria-labelledby="enc-title">
-            <h2 id="enc-title">{ p.encounter.name.clone() }</h2>
+            <header class="section-header">
+                <h2 id="enc-title">{ p.encounter.name.clone() }</h2>
+            </header>
             <div class="encounter-desc">
                 <p>{ p.encounter.desc.clone() }</p>
             </div>
-            <div class="controls">{ for buttons }</div>
+            <footer class="panel-footer">
+                { for buttons }
+            </footer>
         </section>
     }
 }
