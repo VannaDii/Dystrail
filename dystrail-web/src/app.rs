@@ -788,7 +788,7 @@ pub fn app_inner() -> Html {
                         persona_id={persona_id}
                         weather={Some(weather_badge)}
                     />
-                    <section class="panel boss-phase">
+                    <section class="panel boss-phase boss-panel">
                         <h2>{ i18n::t("boss.title") }</h2>
                         <div class="encounter-desc">
                             <p>{ i18n::t("boss.phases_hint") }</p>
@@ -925,6 +925,14 @@ pub fn app_inner() -> Html {
                 { html!{ <crate::components::ui::save_drawer::SaveDrawer open={open_save} on_close={on_close_save} on_save={on_save_cb} on_load={on_load_cb} on_export={on_export_cb} on_import={on_import_cb} return_focus_id={Some((*save_focus_target).clone())} /> } }
                 { html!{ <crate::components::ui::settings_dialog::SettingsDialog open={*show_settings} on_close={{ let s=show_settings.clone(); Callback::from(move |()| s.set(false)) }} on_hc_changed={on_settings_hc_changed.clone()} /> } }
                 { main_view }
+                <div class="panel-footer nav-footer" role="navigation" aria-label={i18n::t("menu.title")}>
+                    <button class="retro-btn-secondary" onclick={{ let s=show_settings.clone(); Callback::from(move |_| s.set(true)) }}>
+                        { i18n::t("menu.settings") }
+                    </button>
+                    <button class="retro-btn-secondary" onclick={{ let s=show_save.clone(); Callback::from(move |_| s.set(true)) }}>
+                        { i18n::t("save.header") }
+                    </button>
+                </div>
                 { seed_footer }
                 <crate::components::footer::Footer />
             </main>

@@ -233,11 +233,11 @@ pub fn travel_panel(p: &Props) -> Html {
                         if let Some(gs) = p.game_state.as_ref() {
                             <div class="current-settings" role="status" aria-live="polite">
                                 <div class="pace-diet-row" role="list">
-                                    <div class="condition-pill pace-pill" role="listitem">
+                                    <div class="condition-pill pace-pill" role="listitem" title={pace_preview(&p.pacing_config, gs.pace)}>
                                         <span class="sprite-badge sprite-pace" aria-hidden="true">{ pace_code(gs.pace) }</span>
                                         <span class="condition-label">{ format!("{} {}", i18n::t("menu.pace"), gs.pace) }</span>
                                     </div>
-                                    <div class="condition-pill diet-pill" role="listitem">
+                                    <div class="condition-pill diet-pill" role="listitem" title={diet_preview(&p.pacing_config, gs.diet)}>
                                         <span class="sprite-badge sprite-diet" aria-hidden="true">{ diet_code(gs.diet) }</span>
                                         <span class="condition-label">{ format!("{} {}", i18n::t("menu.diet"), gs.diet) }</span>
                                     </div>
@@ -484,4 +484,24 @@ const fn diet_code(diet: DietId) -> &'static str {
         DietId::Mixed => "MX",
         DietId::Doom => "DS",
     }
+}
+
+fn pace_preview(pacing_config: &PacingConfig, pace: PaceId) -> String {
+    let cfg = pacing_config.get_pace_safe(pace.as_str());
+    format!(
+        "San {san:+} | Pants {pants:+} | Enc {enc:+.0}%",
+        san = cfg.sanity,
+        pants = cfg.pants,
+        enc = cfg.encounter_chance_delta * 100.0
+    )
+}
+
+fn diet_preview(pacing_config: &PacingConfig, diet: DietId) -> String {
+    let cfg = pacing_config.get_diet_safe(diet.as_str());
+    format!(
+        "San {san:+} | Pants {pants:+} | Receipts {rcpt:+}%",
+        san = cfg.sanity,
+        pants = cfg.pants,
+        rcpt = cfg.receipt_find_pct_delta
+    )
 }

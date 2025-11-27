@@ -17,7 +17,7 @@ pub fn encounter_card(p: &Props) -> Html {
         html! { <button onclick={cb} class="retro-btn-choice">{ format!("{}{}", i + 1, ") ") }{ c.label.clone() }</button> }
     });
     html! {
-        <section class="panel retro-encounter" role="dialog" aria-modal="false" aria-labelledby="enc-title">
+        <section class="panel retro-encounter encounter-panel" role="dialog" aria-modal="false" aria-labelledby="enc-title">
             <header class="section-header">
                 <h2 id="enc-title">{ p.encounter.name.clone() }</h2>
             </header>
