@@ -68,8 +68,9 @@ fn build_weather_badge(state: &GameState, cfg: &WeatherConfig) -> WeatherBadge {
 /// This is the top-level component that gets mounted to the DOM.
 #[function_component(App)]
 pub fn app() -> Html {
+    let router_base = crate::paths::router_base().map(AttrValue::from);
     html! {
-        <BrowserRouter>
+        <BrowserRouter basename={router_base}>
             <AppInner />
         </BrowserRouter>
     }

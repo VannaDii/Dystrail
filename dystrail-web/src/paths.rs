@@ -15,13 +15,35 @@ pub fn asset_path(relative: &str) -> String {
     }
 }
 
+/// Base path for the router (e.g., `/play` when hosted under a subdirectory).
+///
+/// Returns `None` when no base path is configured so the router falls back to root.
+#[must_use]
+pub fn router_base() -> Option<String> {
+    let base = option_env!("PUBLIC_URL")
+        .unwrap_or("")
+        .trim_end_matches('/')
+        .trim();
+
+    if base.is_empty() {
+        None
+    } else {
+        Some(base.to_string())
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::asset_path;
+    use super::{asset_path, router_base};
 
     #[test]
     fn builds_root_prefixed_path_when_base_missing() {
         assert_eq!(asset_path("static/img/logo.png"), "/static/img/logo.png");
         assert_eq!(asset_path("/static/img/logo.png"), "/static/img/logo.png");
+    }
+
+    #[test]
+    fn router_base_is_none_by_default() {
+        assert_eq!(router_base(), None);
     }
 }

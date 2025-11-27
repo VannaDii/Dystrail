@@ -16,12 +16,12 @@ security:
     cargo deny check licenses bans advisories sources
 
 build-release:
-    cd dystrail-web && trunk build --release
+    cd dystrail-web && PUBLIC_URL=/play trunk build --release --public-url /play/
     cargo build --workspace --release
 
 serve-web:
     # Run the web UI with live reload/watch
-    cd dystrail-web && trunk serve --open --watch
+    cd dystrail-web && PUBLIC_URL=/play trunk serve --open --watch . --public-url /play/
 
 qa:
     cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
