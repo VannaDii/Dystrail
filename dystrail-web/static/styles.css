@@ -727,6 +727,20 @@ html.hc .boss-panel {
   padding-bottom: 4px;
 }
 
+.conditions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.exec-row {
+  display: inline-flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
 .pace-diet-row {
   display: inline-flex;
   flex-wrap: wrap;
@@ -788,6 +802,27 @@ html.hc .boss-panel {
   border-radius: 3px;
   font-size: 12px;
 }
+
+.sprite-pace,
+.sprite-diet {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.sprite-weather-clear { background: linear-gradient(135deg, #f7e39b 0%, #54381f 100%); }
+.sprite-weather-storm { background: linear-gradient(135deg, #2d1b00 0%, #8a7e6a 100%); }
+.sprite-weather-heat { background: linear-gradient(135deg, #d29a43 0%, #f7e39b 100%); }
+.sprite-weather-cold { background: linear-gradient(135deg, #3a2918 0%, #8a7e6a 100%); }
+.sprite-weather-smoke { background: linear-gradient(135deg, #2d1b00 0%, #6f8b45 100%); }
+
+.sprite-eo-shutdown { background: linear-gradient(135deg, #8a2c2c 0%, #54381f 100%); }
+.sprite-eo-travelban { background: linear-gradient(135deg, #2d1b00 0%, #d29a43 100%); }
+.sprite-eo-book { background: linear-gradient(135deg, #3a2918 0%, #f7e39b 100%); }
+.sprite-eo-tariff { background: linear-gradient(135deg, #140e07 0%, #d29a43 100%); }
+.sprite-eo-doe { background: linear-gradient(135deg, #2d1b00 0%, #6f8b45 100%); }
+.sprite-eo-war { background: linear-gradient(135deg, #54381f 0%, #f7e39b 100%); }
 
 .sprite-pace,
 .sprite-diet {

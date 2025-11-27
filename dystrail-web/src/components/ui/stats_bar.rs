@@ -79,6 +79,27 @@ const fn exec_order_token(order: ExecOrder) -> &'static str {
     }
 }
 
+const fn weather_sprite_class(weather: Weather) -> &'static str {
+    match weather {
+        Weather::Clear => "sprite-weather-clear",
+        Weather::Storm => "sprite-weather-storm",
+        Weather::HeatWave => "sprite-weather-heat",
+        Weather::ColdSnap => "sprite-weather-cold",
+        Weather::Smoke => "sprite-weather-smoke",
+    }
+}
+
+const fn exec_sprite_class(order: ExecOrder) -> &'static str {
+    match order {
+        ExecOrder::Shutdown => "sprite-eo-shutdown",
+        ExecOrder::TravelBanLite => "sprite-eo-travelban",
+        ExecOrder::BookPanic => "sprite-eo-book",
+        ExecOrder::TariffTsunami => "sprite-eo-tariff",
+        ExecOrder::DoEEliminated => "sprite-eo-doe",
+        ExecOrder::WarDeptReorg => "sprite-eo-war",
+    }
+}
+
 fn stat_icon(kind: &str) -> Html {
     let stroke = "#1A1000";
     let fill = "var(--text-bright)";
@@ -195,31 +216,37 @@ pub fn stats_bar(p: &Props) -> Html {
                         <div class={classes!("bar-fill", if p.stats.pants >= 90 { Some("bar-fill-pulse") } else { Some("bar-fill-glow") })} style={format!("width: {pants}%", pants = p.stats.pants)}></div>
                     </div>
                 </div>
-                {
-                    p.weather.as_ref().map(|w| {
-                        let label = i18n::t(w.weather.i18n_key());
-                        let condition_label = format!("{} {}", i18n::t("weather.title"), label);
-                        html! {
-                            <div class={classes!("condition-pill", "weather-pill", if w.mitigated { Some("mitigated") } else { None })} aria-label={condition_label.clone()} title={condition_label}>
-                                <span class="sprite-badge sprite-weather" aria-hidden="true">{ weather_symbol(w.weather) }</span>
-                                <span class="condition-label">{ label }</span>
-                            </div>
-                        }
-                    }).unwrap_or_default()
-                }
-                {
-                    p.exec_order.map_or_else(Html::default, |order| {
-                        let order_label = i18n::t(order.name_key());
-                        let abbr = exec_order_token(order);
-                        let full_label = format!("{} {}", i18n::t("eo.prefix"), order_label);
-                        html! {
-                            <div class="condition-pill exec-pill" aria-label={full_label.clone()} aria-live="polite" title={full_label}>
-                                <span class="sprite-badge sprite-eo" aria-hidden="true">{ abbr }</span>
-                                <span class="condition-label">{ order_label }</span>
-                            </div>
-                        }
-                    })
-                }
+                <div class="conditions-row">
+                    {
+                        p.weather.as_ref().map(|w| {
+                            let label = i18n::t(w.weather.i18n_key());
+                            let condition_label = format!("{} {}", i18n::t("weather.title"), label);
+                            let sprite_class = weather_sprite_class(w.weather);
+                            html! {
+                                <div class={classes!("condition-pill", "weather-pill", if w.mitigated { Some("mitigated") } else { None })} aria-label={condition_label.clone()} title={condition_label}>
+                                    <span class={classes!("sprite-badge", "sprite-weather", sprite_class)} aria-hidden="true">{ weather_symbol(w.weather) }</span>
+                                    <span class="condition-label">{ label }</span>
+                                </div>
+                            }
+                        }).unwrap_or_default()
+                    }
+                    <div class="exec-row" aria-live="polite">
+                    {
+                        p.exec_order.map_or_else(Html::default, |order| {
+                            let order_label = i18n::t(order.name_key());
+                            let abbr = exec_order_token(order);
+                            let sprite_class = exec_sprite_class(order);
+                            let full_label = format!("{} {}", i18n::t("eo.prefix"), order_label);
+                            html! {
+                                <div class="condition-pill exec-pill" aria-label={full_label.clone()} title={full_label}>
+                                    <span class={classes!("sprite-badge", "sprite-eo", sprite_class)} aria-hidden="true">{ abbr }</span>
+                                    <span class="condition-label">{ order_label }</span>
+                                </div>
+                            }
+                        })
+                    }
+                    </div>
+                </div>
             </div>
         </section>
     }
@@ -249,7 +276,10 @@ mod tests {
             region: Region::RustBelt,
             exec_order: None,
             persona_id: None,
-            weather: None,
+            weather: Some(WeatherBadge {
+                weather: Weather::Clear,
+                mitigated: false,
+            }),
         };
 
         let html = block_on(LocalServerRenderer::<StatsBar>::with_props(props).render());
@@ -264,6 +294,10 @@ mod tests {
         assert!(
             html.contains("HP"),
             "stat abbreviations should be present: {html}"
+        );
+        assert!(
+            html.contains("sprite-weather-clear"),
+            "weather sprite class should render: {html}"
         );
     }
 
@@ -283,6 +317,10 @@ mod tests {
         assert!(
             html.contains("Tariff Tsunami"),
             "exec order should render announcement block: {html}"
+        );
+        assert!(
+            html.contains("sprite-eo-tariff"),
+            "exec order sprite class should render: {html}"
         );
     }
 }
