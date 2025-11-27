@@ -57,7 +57,8 @@ fn region_label(region: Region) -> String {
     }
 }
 
-const fn weather_symbol(weather: Weather) -> &'static str {
+#[must_use]
+pub const fn weather_symbol(weather: Weather) -> &'static str {
     match weather {
         Weather::Clear => "☼",
         Weather::Storm => "⛈",

@@ -751,8 +751,7 @@ button {
 }
 
 .weather-pill.mitigated {
-  opacity: 0.75;
-  filter: saturate(0.8);
+  filter: brightness(0.75) saturate(0.9);
 }
 
 .exec-icon {
@@ -1001,7 +1000,7 @@ button {
 
 .store-card {
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: 32px 1fr;
   gap: 12px;
   padding: 12px;
   border: 1px solid var(--panel-border);
@@ -1011,8 +1010,8 @@ button {
 }
 
 .store-card-icon {
-  width: 64px;
-  height: 64px;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   background: linear-gradient(135deg, #5b3b22 0%, #2b1a0f 100%);
   border: 1px solid var(--panel-border);
@@ -1112,6 +1111,23 @@ button {
   gap: 10px;
   justify-content: flex-end;
   margin-top: 8px;
+}
+
+.seed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(20, 14, 7, 0.4);
+}
+
+.seed-label {
+  color: var(--text-bright);
+  font-weight: 700;
 }
 
 .store-cart-summary {

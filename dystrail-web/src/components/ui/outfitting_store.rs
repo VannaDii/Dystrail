@@ -924,7 +924,8 @@ fn render_store_item_card(
             role="group"
             aria-labelledby={format!("store-item-{idx}")}
             class="store-card"
-            data-key={idx.to_string()}>
+            data-key={idx.to_string()}
+            title={desc.clone()}>
             <div class="store-card-icon" aria-hidden="true">
                 <span>{ initials }</span>
             </div>

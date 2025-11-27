@@ -1,3 +1,4 @@
+use crate::components::ui::stats_bar::weather_symbol;
 use crate::game::{DietId, GameState, PaceId, PacingConfig};
 use crate::i18n;
 use std::rc::Rc;
@@ -275,6 +276,7 @@ fn render_weather_info(game_state: &GameState) -> Html {
 
     let weather_cfg = WeatherConfig::default_config();
     let today = game_state.weather_state.today;
+    let icon = weather_symbol(today);
 
     // Get weather effects for display
     let effect = weather_cfg.effects.get(&today);
@@ -318,6 +320,7 @@ fn render_weather_info(game_state: &GameState) -> Html {
                role="button"
                aria-expanded="false"
                onclick={Callback::from(move |_| {})}>
+                <span class="weather-icon" aria-hidden="true">{ icon }</span>
                 <span class="day-region">
                     { format!("Day {day} — Region: {region}", day = game_state.day, region = region_name) }
                 </span>

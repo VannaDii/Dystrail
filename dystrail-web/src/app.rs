@@ -99,6 +99,7 @@ pub fn app_inner() -> Html {
     let show_settings = use_state(|| false);
     let current_language = use_state(crate::i18n::current_lang);
     let data_ready = !data.encounters.is_empty();
+    let seed_footer_seed = run_seed.clone();
 
     // Add routing hooks - handle potential failures gracefully
     let navigator = use_navigator();
@@ -878,12 +879,26 @@ pub fn app_inner() -> Html {
         }),
     };
 
+    let seed_footer = (*session).as_ref().map(|sess| {
+        let seed_value = if *seed_footer_seed == 0 {
+            sess.state().seed
+        } else {
+            *seed_footer_seed
+        };
+        html! {
+            <div class="seed-footer" role="contentinfo">
+                <span class="seed-label">{ format!("{} {}", i18n::t("game.seed_label"), seed_value) }</span>
+            </div>
+        }
+    }).unwrap_or_default();
+
     html! {
         <main id="main" role="main">
             <style>{ crate::a11y::visible_focus_css() }</style>
             { html!{ <crate::components::ui::save_drawer::SaveDrawer open={open_save} on_close={on_close_save} on_save={on_save_cb} on_load={on_load_cb} on_export={on_export_cb} on_import={on_import_cb} return_focus_id={Some(AttrValue::from("menu-save-btn"))} /> } }
             { html!{ <crate::components::ui::settings_dialog::SettingsDialog open={*show_settings} on_close={{ let s=show_settings.clone(); Callback::from(move |()| s.set(false)) }} /> } }
             { main_view }
+            { seed_footer }
             <crate::components::footer::Footer />
         </main>
     }
