@@ -178,6 +178,8 @@ pub struct EndgameState {
     pub breakdown_scale: f32,
     #[serde(default = "EndgameState::default_wear_shave_ratio")]
     pub wear_shave_ratio: f32,
+    #[serde(default)]
+    pub wear_reset_used: bool,
 }
 
 impl Default for EndgameState {
@@ -199,6 +201,7 @@ impl Default for EndgameState {
             stop_cap_max_full: EndgamePolicyCfg::default_stop_cap_max_full(),
             breakdown_scale: Self::default_breakdown_scale(),
             wear_shave_ratio: Self::default_wear_shave_ratio(),
+            wear_reset_used: false,
         }
     }
 }
@@ -253,6 +256,7 @@ impl EndgameState {
         self.stop_cap_max_full = policy.stop_cap_max_full;
         self.breakdown_scale = policy.breakdown_scale.clamp(0.0, 1.0);
         self.wear_shave_ratio = policy.wear_shave_ratio.clamp(0.0, 1.0);
+        self.wear_reset_used = false;
     }
 }
 
@@ -294,6 +298,16 @@ pub fn run_endgame_controller(
 
     if breakdown_started && !state.endgame.field_repair_used {
         run_field_repair(state, policy_cfg, computed_miles_today);
+    }
+
+    if breakdown_started
+        && !state.endgame.wear_reset_used
+        && policy_cfg.wear_reset >= 0.0
+        && state.endgame.active
+    {
+        apply_vehicle_stabilizers(state, 0.0, policy_cfg.wear_reset);
+        state.endgame.wear_reset_used = true;
+        state.logs.push(String::from("log.endgame.wear_reset"));
     }
 }
 
@@ -421,8 +435,8 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::Breakdown;
     use crate::vehicle::Part;
+    use crate::{Breakdown, GameMode, PolicyKind};
 
     #[test]
     fn config_defaults_load() {
@@ -456,6 +470,38 @@ mod tests {
         assert!(state.breakdown.is_none());
         assert!(state.endgame.field_repair_used);
         assert!(state.logs.iter().any(|log| log == LOG_ENDGAME_FIELD_REPAIR));
+    }
+
+    #[test]
+    fn one_time_wear_reset_applies_once() {
+        #![allow(clippy::field_reassign_with_default)]
+        let mut state = GameState::default();
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Balanced);
+        state.miles_traveled_actual = 1_900.0;
+        state.vehicle.set_wear(12.0);
+
+        let mut cfg = EndgameTravelCfg::default_config();
+        let entry = cfg
+            .policies
+            .get_mut("deep_balanced")
+            .expect("policy exists");
+        entry.wear_reset = 1.5;
+
+        // Activate endgame
+        run_endgame_controller(&mut state, 0.0, false, &cfg);
+        assert!(state.endgame.active);
+
+        // First breakdown triggers reset
+        state.vehicle.set_wear(10.0);
+        run_endgame_controller(&mut state, 0.0, true, &cfg);
+        assert!(state.endgame.wear_reset_used);
+        assert!(state.vehicle.wear <= 1.5);
+
+        // Subsequent breakdowns do not reset again
+        state.vehicle.set_wear(9.0);
+        run_endgame_controller(&mut state, 0.0, true, &cfg);
+        assert!(state.vehicle.wear >= 9.0 - f32::EPSILON);
     }
 
     #[test]

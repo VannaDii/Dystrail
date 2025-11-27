@@ -3633,6 +3633,11 @@ impl GameState {
         true
     }
 
+    /// Test helper exposing the breakdown roll with current configuration.
+    pub fn vehicle_roll_for_testing(&mut self) -> bool {
+        self.vehicle_roll()
+    }
+
     pub fn apply_choice(&mut self, idx: usize) {
         let Some(enc) = self.current_encounter.clone() else {
             self.finalize_encounter();
@@ -4073,6 +4078,11 @@ impl GameState {
             self.end_of_day();
             self.suppress_stop_ratio = false;
         }
+    }
+
+    #[cfg(test)]
+    pub fn vehicle_roll_test(&mut self) -> bool {
+        self.vehicle_roll()
     }
 
     pub const fn tick_camp_cooldowns(&mut self) {

@@ -309,9 +309,19 @@ pub fn apply_detour(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
     let type_cfg = cfg.types.get(&kind).unwrap();
     gs.stats.supplies += type_cfg.detour.supplies; // Can be negative (cost)
     gs.stats.pants += type_cfg.detour.pants;
+    let detour_days = type_cfg.detour.days.max(1);
     let partial = crate::day_accounting::partial_day_miles(gs, 0.0);
     gs.record_travel_day(crate::journey::TravelDayKind::Partial, partial, "detour");
     gs.end_of_day();
+    if detour_days > 1 {
+        let extra = u32::try_from(detour_days - 1).unwrap_or(0);
+        gs.advance_days_with_credit(
+            extra,
+            crate::journey::TravelDayKind::Partial,
+            partial,
+            "detour",
+        );
+    }
     "crossing.result.detour.success".to_string()
 }
 
@@ -378,9 +388,17 @@ mod tests {
         let result = apply_detour(&mut state, &cfg, CrossingKind::BridgeOut);
 
         assert_eq!(result, "crossing.result.detour.success");
-        assert_eq!(state.day_records.len(), baseline_records + 1);
-        let record = state.day_records.last().expect("recorded day");
-        assert_eq!(record.kind, TravelDayKind::Partial);
-        assert!(record.miles > 0.0, "detour should credit partial-day miles");
+        let added = state.day_records.len().saturating_sub(baseline_records);
+        assert!(
+            added >= 1,
+            "expected detour to add at least one recorded day, got {added}"
+        );
+        let last_days = &state.day_records[(state.day_records.len() - added)..];
+        assert!(
+            last_days
+                .iter()
+                .all(|rec| rec.kind == TravelDayKind::Partial)
+        );
+        assert!(last_days.iter().all(|rec| rec.miles > 0.0));
     }
 }
