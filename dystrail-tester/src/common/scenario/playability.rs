@@ -14,10 +14,10 @@ pub fn resource_stress_scenario() -> SimulationScenario {
     )
 }
 
-pub fn deterministic_verification_scenario() -> SimulationScenario {
+pub fn deterministic_verification_scenario(tester: GameTester) -> SimulationScenario {
     SimulationScenario::new(
         "Deterministic Playthrough Verification",
-        deterministic_plan(deterministic_verification_expectation),
+        deterministic_plan(deterministic_verification_expectation(tester)),
     )
 }
 
@@ -34,7 +34,9 @@ fn stress_plan() -> SimulationPlan {
     SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(40)
 }
 
-fn deterministic_plan(expectation: fn(&SimulationSummary) -> Result<()>) -> SimulationPlan {
+fn deterministic_plan(
+    expectation: impl Into<crate::logic::SimulationExpectation>,
+) -> SimulationPlan {
     SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
         .with_max_days(20)
         .with_expectation(expectation)
@@ -68,25 +70,28 @@ fn resource_stress_expectation(summary: &SimulationSummary) -> Result<()> {
     Ok(())
 }
 
-fn deterministic_verification_expectation(summary: &SimulationSummary) -> Result<()> {
-    let comparison_plan = deterministic_plan(noop_expectation);
-    let tester = GameTester::try_new(false);
-    let comparison = tester.run_plan(&comparison_plan, summary.seed);
+fn deterministic_verification_expectation(
+    tester: GameTester,
+) -> crate::logic::SimulationExpectation {
+    crate::logic::SimulationExpectation::new(move |summary: &SimulationSummary| {
+        let comparison_plan = deterministic_plan(noop_expectation);
+        let comparison = tester.run_plan(&comparison_plan, summary.seed);
 
-    anyhow::ensure!(
-        summary.turns.len() == comparison.turns.len(),
-        "Deterministic runs should have identical turn counts"
-    );
-    anyhow::ensure!(
-        summary.metrics.final_hp == comparison.metrics.final_hp
-            && summary.metrics.final_supplies == comparison.metrics.final_supplies
-            && summary.metrics.final_sanity == comparison.metrics.final_sanity
-            && summary.metrics.final_pants == comparison.metrics.final_pants,
-        "Deterministic runs diverged: original {metrics:?}, comparison {comparison:?}",
-        metrics = summary.metrics,
-        comparison = comparison.metrics
-    );
-    Ok(())
+        anyhow::ensure!(
+            summary.turns.len() == comparison.turns.len(),
+            "Deterministic runs should have identical turn counts"
+        );
+        anyhow::ensure!(
+            summary.metrics.final_hp == comparison.metrics.final_hp
+                && summary.metrics.final_supplies == comparison.metrics.final_supplies
+                && summary.metrics.final_sanity == comparison.metrics.final_sanity
+                && summary.metrics.final_pants == comparison.metrics.final_pants,
+            "Deterministic runs diverged: original {metrics:?}, comparison {comparison:?}",
+            metrics = summary.metrics,
+            comparison = comparison.metrics
+        );
+        Ok(())
+    })
 }
 
 #[allow(clippy::unnecessary_wraps)]

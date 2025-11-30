@@ -636,12 +636,11 @@ const PLAYABILITY_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
 ];
 
 pub fn run_playability_analysis(
+    tester: &GameTester,
     seeds: &[SeedInfo],
     iterations: usize,
-    verbose: bool,
 ) -> Result<Vec<PlayabilityRecord>> {
     let iterations = iterations.max(1);
-    let tester = GameTester::try_new(verbose);
     let mut records = Vec::with_capacity(seeds.len() * PLAYABILITY_SCENARIOS.len() * iterations);
 
     for &(mode, strategy) in PLAYABILITY_SCENARIOS {
@@ -652,7 +651,7 @@ pub fn run_playability_analysis(
                 let plan = add_expectations(full_game_plan(mode, strategy), strategy);
                 let summary = tester.run_plan(&plan, iteration_seed);
                 for expectation in &plan.expectations {
-                    expectation(&summary).with_context(|| {
+                    expectation.evaluate(&summary).with_context(|| {
                         format!(
                             "Playability expectation failed for mode {:?}, strategy {}, seed {} (iteration {})",
                             mode, strategy, seed.seed, iteration + 1
@@ -909,18 +908,23 @@ fn add_expectations(
 mod tests {
     use super::*;
     use crate::logic::reports::generate_csv_report;
-    use crate::logic::run_playability_analysis;
     use crate::logic::seeds::SeedInfo;
+    use crate::logic::{GameTester, TesterAssets, run_playability_analysis};
     use dystrail_game::GameMode;
     use dystrail_game::data::EncounterData;
     use sha2::{Digest, Sha256};
     use std::collections::HashSet;
     use std::path::PathBuf;
+    use std::sync::Arc;
+
+    fn tester(verbose: bool) -> GameTester {
+        GameTester::new(Arc::new(TesterAssets::load_default()), verbose)
+    }
 
     #[test]
     fn generates_records_for_each_scenario() {
         let seeds = vec![SeedInfo::from_numeric(1337)];
-        let records = run_playability_analysis(&seeds, 1, false).unwrap();
+        let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
         assert_eq!(records.len(), PLAYABILITY_SCENARIOS.len());
         assert!(records.iter().all(|r| !r.seed_code.is_empty()));
     }
@@ -933,7 +937,7 @@ mod tests {
                 SeedInfo::for_mode(10_000_u64 + offset, GameMode::Classic)
             })
             .collect();
-        let records = run_playability_analysis(&seeds, 1, false).unwrap();
+        let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
         let aggregates = aggregate_playability(&records);
 
         let balanced_summary = aggregates
@@ -986,7 +990,7 @@ mod tests {
     fn aggregates_match_record_counts() {
         let seeds = vec![SeedInfo::from_numeric(1337)];
         let iterations = 3;
-        let records = run_playability_analysis(&seeds, iterations, false).unwrap();
+        let records = run_playability_analysis(&tester(false), &seeds, iterations).unwrap();
         let aggregates = aggregate_playability(&records);
 
         let scenario_name = "Classic - Balanced";
@@ -1134,7 +1138,7 @@ mod tests {
     #[test]
     fn deterministic_csv_digest_for_fixed_seed() {
         let seeds = vec![SeedInfo::from_numeric(4242)];
-        let records = run_playability_analysis(&seeds, 1, false).unwrap();
+        let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
         let digest = csv_digest(&records);
         assert_eq!(
             digest, CSV_DIGEST_BASELINE,

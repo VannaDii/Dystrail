@@ -5,7 +5,7 @@ use crate::browser::TestBridge;
 pub mod catalog;
 
 use crate::logic::{
-    DEFAULT_POLICY_SIM_DAYS, GameplayStrategy, SimulationPlan, default_policy_setup,
+    DEFAULT_POLICY_SIM_DAYS, GameTester, GameplayStrategy, SimulationPlan, default_policy_setup,
 };
 use catalog::find_catalog_scenario;
 use dystrail_game::GameMode;
@@ -120,7 +120,10 @@ fn strategy_scenario(name: &'static str, strategy: GameplayStrategy) -> Simulati
     )
 }
 
-pub fn get_scenario(name: &str) -> Option<Box<dyn CombinedScenario + Send + Sync>> {
+pub fn get_scenario(
+    name: &str,
+    tester: &GameTester,
+) -> Option<Box<dyn CombinedScenario + Send + Sync>> {
     match name.to_lowercase().as_str() {
         "smoke" | "all" => Some(Box::new(smoke::SmokeScenario)),
         "real-game" | "real" => Some(Box::new(real_game_scenario())),
@@ -146,9 +149,9 @@ pub fn get_scenario(name: &str) -> Option<Box<dyn CombinedScenario + Send + Sync
             Some(Box::new(full_game::full_game_balanced_scenario()))
         }
         "resource-stress" | "stress" => Some(Box::new(playability::resource_stress_scenario())),
-        "deterministic" | "deterministic-verification" => {
-            Some(Box::new(playability::deterministic_verification_scenario()))
-        }
+        "deterministic" | "deterministic-verification" => Some(Box::new(
+            playability::deterministic_verification_scenario(tester.clone()),
+        )),
         "edge-case" | "edge" => Some(Box::new(playability::edge_case_survival_scenario())),
 
         // Comprehensive test scenarios

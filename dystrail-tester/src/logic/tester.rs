@@ -21,12 +21,16 @@ pub struct ScenarioResult {
 }
 
 pub struct LogicTester {
-    verbose: bool,
+    tester: GameTester,
 }
 
 impl LogicTester {
-    pub const fn new(verbose: bool) -> Self {
-        Self { verbose }
+    pub const fn new(tester: GameTester) -> Self {
+        Self { tester }
+    }
+
+    const fn is_verbose(&self) -> bool {
+        self.tester.verbose()
     }
 
     pub fn run_scenario(
@@ -36,9 +40,10 @@ impl LogicTester {
         iterations: usize,
     ) -> Vec<ScenarioResult> {
         let mut results = Vec::new();
+        let verbose = self.is_verbose();
 
         for &seed in seeds {
-            if self.verbose {
+            if verbose {
                 let mode_label = format!("{:?}", scenario.plan.mode);
                 println!(
                     "🧪 Testing scenario: {} (mode: {} seed: {})",
@@ -88,7 +93,8 @@ impl LogicTester {
         seed: u64,
         iterations: usize,
     ) -> (usize, Vec<String>, Vec<Duration>) {
-        let tester = GameTester::try_new(self.verbose);
+        let tester = self.tester.clone();
+        let verbose = self.is_verbose();
 
         let mut successes = 0;
         let mut failures = Vec::new();
@@ -126,7 +132,7 @@ impl LogicTester {
                     final_stats.pants
                 ));
 
-                if self.verbose {
+                if verbose {
                     println!(
                         "  ❌ Iteration {}/{} failed: {}",
                         i + 1,
@@ -149,7 +155,7 @@ impl LogicTester {
                 let duration = start_time.elapsed();
                 performance_data.push(duration);
 
-                if self.verbose {
+                if verbose {
                     println!(
                         "  ✅ Iteration {}/{} passed ({duration:?}) days:{} ending:{} strategy:{}",
                         i + 1,
@@ -168,7 +174,7 @@ impl LogicTester {
 
 fn evaluate_expectations(plan: &SimulationPlan, summary: &SimulationSummary) -> Option<String> {
     for expectation in &plan.expectations {
-        if let Err(err) = expectation(summary) {
+        if let Err(err) = expectation.evaluate(summary) {
             return Some(err.to_string());
         }
     }

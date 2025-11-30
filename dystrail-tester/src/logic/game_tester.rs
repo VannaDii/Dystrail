@@ -35,7 +35,7 @@ const MILESTONE_DAY_LIMIT: u32 = 150;
 
 /// Collection of immutable data required to run a simulation.
 #[derive(Debug, Clone)]
-struct TesterAssets {
+pub struct TesterAssets {
     encounter_data: EncounterData,
     pacing_config: PacingConfig,
     personas: PersonasList,
@@ -47,7 +47,7 @@ struct TesterAssets {
 }
 
 impl TesterAssets {
-    fn load_default() -> Self {
+    pub fn load_default() -> Self {
         let encounter_data =
             Self::load_encounters_from_assets().unwrap_or_else(Self::fallback_encounter_data);
         let pacing_config = Self::load_pacing_from_assets().unwrap_or_default();
@@ -297,14 +297,46 @@ impl SimulationPlan {
     }
 
     #[must_use]
-    pub fn with_expectation(mut self, expectation: SimulationExpectation) -> Self {
-        self.expectations.push(expectation);
+    pub fn with_expectation(mut self, expectation: impl Into<SimulationExpectation>) -> Self {
+        self.expectations.push(expectation.into());
         self
     }
 }
 
 /// Assertion hook run after a simulation completes.
-pub type SimulationExpectation = fn(&SimulationSummary) -> Result<()>;
+#[derive(Clone)]
+pub struct SimulationExpectation(
+    Arc<dyn Fn(&SimulationSummary) -> Result<()> + Send + Sync + 'static>,
+);
+
+impl std::fmt::Debug for SimulationExpectation {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("SimulationExpectation").finish()
+    }
+}
+
+impl SimulationExpectation {
+    #[must_use]
+    pub fn new<F>(f: F) -> Self
+    where
+        F: Fn(&SimulationSummary) -> Result<()> + Send + Sync + 'static,
+    {
+        Self(Arc::new(f))
+    }
+
+    pub fn evaluate(&self, summary: &SimulationSummary) -> Result<()> {
+        (self.0)(summary)
+    }
+}
+
+impl<F> From<F> for SimulationExpectation
+where
+    F: Fn(&SimulationSummary) -> Result<()> + Send + Sync + 'static,
+{
+    fn from(f: F) -> Self {
+        Self(Arc::new(f))
+    }
+}
 
 /// Complete record of a simulation run.
 #[derive(Debug, Clone)]
@@ -327,12 +359,12 @@ pub struct GameTester {
 }
 
 impl GameTester {
-    pub fn try_new(verbose: bool) -> Self {
-        let assets = TesterAssets::load_default();
-        Self {
-            verbose,
-            assets: Arc::new(assets),
-        }
+    pub fn new(assets: Arc<TesterAssets>, verbose: bool) -> Self {
+        Self { verbose, assets }
+    }
+
+    pub const fn verbose(&self) -> bool {
+        self.verbose
     }
 
     fn persona_for_strategy(&self, strategy: GameplayStrategy) -> Option<Persona> {
@@ -1331,6 +1363,11 @@ fn humanize_log_message(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::sync::Arc;
+
+    fn build_tester() -> GameTester {
+        GameTester::new(Arc::new(TesterAssets::load_default()), false)
+    }
 
     #[test]
     fn boss_config_loads_balanced_biases() {
@@ -1351,7 +1388,7 @@ mod tests {
 
     #[test]
     fn balanced_setup_applies_persona_and_store_plan() {
-        let tester = GameTester::try_new(false);
+        let tester = build_tester();
         let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
             .with_max_days(0)
             .with_setup(default_policy_setup(GameplayStrategy::Balanced));
@@ -1378,7 +1415,7 @@ mod tests {
 
     #[test]
     fn balanced_run_survives_past_day_45() {
-        let tester = GameTester::try_new(false);
+        let tester = build_tester();
         let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
             .with_max_days(55)
             .with_setup(default_policy_setup(GameplayStrategy::Balanced));
@@ -1393,7 +1430,7 @@ mod tests {
 
     #[test]
     fn miles_reflect_miles_traveled() {
-        let tester = GameTester::try_new(false);
+        let tester = build_tester();
         let plan =
             SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(5);
         let summary = tester.run_plan(&plan, 2024);

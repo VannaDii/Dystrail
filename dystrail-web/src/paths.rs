@@ -5,7 +5,9 @@
 /// fall back to root-anchored paths.
 #[must_use]
 pub fn asset_path(relative: &str) -> String {
-    let base = option_env!("PUBLIC_URL").unwrap_or("").trim_end_matches('/');
+    let base = option_env!("PUBLIC_URL")
+        .unwrap_or("")
+        .trim_end_matches('/');
     let rel = relative.trim_start_matches('/');
 
     if base.is_empty() {

@@ -8,14 +8,16 @@ use colored::Colorize;
 use std::fs::File;
 use std::io::{BufWriter, Write, stdout};
 use std::path::PathBuf;
+use std::sync::Arc;
 use std::time::Instant;
 
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
 use logic::{
-    LogicTester, PlayabilityAggregate, PlayabilityRecord, aggregate_playability,
-    resolve_seed_inputs, run_playability_analysis, validate_playability_targets,
+    GameTester, LogicTester, PlayabilityAggregate, PlayabilityRecord, TesterAssets,
+    aggregate_playability, resolve_seed_inputs, run_playability_analysis,
+    validate_playability_targets,
 };
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -167,6 +169,8 @@ async fn main() -> Result<()> {
     let seed_tokens = split_csv(&args.seeds);
     let seed_infos = resolve_seed_inputs(&seed_tokens)?;
     let logic_seeds: Vec<u64> = seed_infos.iter().map(|s| s.seed).collect();
+    let tester_assets = Arc::new(TesterAssets::load_default());
+    let game_tester = GameTester::new(tester_assets, args.verbose);
 
     let mut all_results: Vec<logic::ScenarioResult> = Vec::new();
 
@@ -175,10 +179,10 @@ async fn main() -> Result<()> {
         println!("{}", "🧠 Running Logic Tests".bright_yellow().bold());
         println!("{}", "-".repeat(30).yellow());
 
-        let logic_tester = LogicTester::new(args.verbose);
+        let logic_tester = LogicTester::new(game_tester.clone());
 
         for scenario_name in &scenarios {
-            if let Some(combined_scenario) = get_scenario(scenario_name) {
+            if let Some(combined_scenario) = get_scenario(scenario_name, &game_tester) {
                 if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
                     let results =
                         logic_tester.run_scenario(&logic_scenario, &logic_seeds, args.iterations);
@@ -229,7 +233,7 @@ async fn main() -> Result<()> {
             };
 
             for scenario_name in &scenarios {
-                if let Some(scenario) = get_scenario(scenario_name) {
+                if let Some(scenario) = get_scenario(scenario_name, &game_tester) {
                     for seed_info in &seed_infos {
                         let bridge = TestBridge::new(&driver);
                         let ctx = ScenarioCtx {
@@ -287,7 +291,7 @@ async fn main() -> Result<()> {
 
     if require_playability {
         let playability =
-            run_playability_analysis(&seed_infos, playability_iterations, args.verbose)?;
+            run_playability_analysis(&game_tester, &seed_infos, playability_iterations)?;
         playability_aggregates = Some(aggregate_playability(&playability));
         playability_records = Some(playability);
     }
