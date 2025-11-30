@@ -1,6 +1,20 @@
 use serde_json::Value;
 use std::cell::RefCell;
-use std::collections::HashMap;
+use std::collections::BTreeMap;
+
+const LOCALE_TABLE: &[(&str, &str)] = &[
+    ("en", include_str!("../i18n/en.json")),
+    ("it", include_str!("../i18n/it.json")),
+    ("es", include_str!("../i18n/es.json")),
+    ("ar", include_str!("../i18n/ar.json")),
+    ("zh", include_str!("../i18n/zh.json")),
+    ("hi", include_str!("../i18n/hi.json")),
+    ("fr", include_str!("../i18n/fr.json")),
+    ("bn", include_str!("../i18n/bn.json")),
+    ("pt", include_str!("../i18n/pt.json")),
+    ("ru", include_str!("../i18n/ru.json")),
+    ("ja", include_str!("../i18n/ja.json")),
+];
 
 pub struct I18nBundle {
     pub lang: String,
@@ -9,22 +23,11 @@ pub struct I18nBundle {
     fallback: Value,
 }
 
-#[allow(clippy::match_same_arms)]
 fn load_translations(lang: &str) -> Option<Value> {
-    let bundle = match lang {
-        "en" => include_str!("../i18n/en.json"),
-        "it" => include_str!("../i18n/it.json"),
-        "es" => include_str!("../i18n/es.json"),
-        "ar" => include_str!("../i18n/ar.json"),
-        "zh" => include_str!("../i18n/zh.json"),
-        "hi" => include_str!("../i18n/hi.json"),
-        "fr" => include_str!("../i18n/fr.json"),
-        "bn" => include_str!("../i18n/bn.json"),
-        "pt" => include_str!("../i18n/pt.json"),
-        "ru" => include_str!("../i18n/ru.json"),
-        "ja" => include_str!("../i18n/ja.json"),
-        _ => include_str!("../i18n/en.json"), // Default to English
-    };
+    let bundle = LOCALE_TABLE
+        .iter()
+        .find_map(|(code, data)| (*code == lang).then_some(*data))
+        .unwrap_or(LOCALE_TABLE[0].1);
 
     serde_json::from_str(bundle).ok()
 }
@@ -149,11 +152,10 @@ pub fn t(key: &str) -> String {
 
 /// Translate a key with variable substitution
 ///
-/// Supports template variable replacement using `HashMap` of key-value pairs.
+/// Supports template variable replacement using an ordered map of key-value pairs.
 /// Variables in the translated string use the format {key} or {{key}}.
 #[must_use]
-#[allow(clippy::implicit_hasher)]
-pub fn tr(key: &str, args: Option<&HashMap<&str, &str>>) -> String {
+pub fn tr(key: &str, args: Option<&BTreeMap<&str, &str>>) -> String {
     CURRENT.with(|cell| {
         let b = cell.borrow();
 
@@ -186,7 +188,7 @@ pub fn tr(key: &str, args: Option<&HashMap<&str, &str>>) -> String {
 #[must_use]
 pub fn fmt_pct(pct: u8) -> String {
     let pct_str = pct.to_string();
-    let mut map = HashMap::new();
+    let mut map = BTreeMap::new();
     map.insert("pct", pct_str.as_str());
     tr("ui.loading", Some(&map))
 }

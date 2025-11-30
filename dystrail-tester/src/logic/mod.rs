@@ -15,5 +15,5 @@ pub use playability::{
     validate_playability_targets,
 };
 pub use policy::GameplayStrategy;
-pub use seeds::resolve_seed_inputs;
+pub use seeds::{SeedInfo, resolve_seed_inputs};
 pub use tester::*;

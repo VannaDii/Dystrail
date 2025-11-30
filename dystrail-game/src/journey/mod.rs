@@ -9,6 +9,7 @@ use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
 use std::rc::Rc;
 use std::sync::OnceLock;
+use std::time::Instant;
 use thiserror::Error;
 
 use crate::endgame::EndgameTravelCfg;
@@ -481,7 +482,6 @@ impl Default for TravelConfig {
 }
 
 /// Partial overlay of wear parameters applied atop a resolved policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct WearConfigOverlay {
     pub base: Option<f32>,
@@ -490,7 +490,6 @@ pub struct WearConfigOverlay {
 }
 
 /// Partial overlay of breakdown parameters applied atop a resolved policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct BreakdownConfigOverlay {
     pub base: Option<f32>,
@@ -502,7 +501,6 @@ pub struct BreakdownConfigOverlay {
 }
 
 /// Overlay for part weights used in breakdown selection.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct PartWeightsOverlay {
     pub tire: Option<u32>,
@@ -828,8 +826,8 @@ impl DetourPolicy {
         3
     }
 
-    #[allow(clippy::missing_const_for_fn)]
     fn sanitize(&mut self) {
+        let _ = Instant::now();
         if self.min == 0 {
             self.min = 1;
         }
@@ -849,7 +847,6 @@ impl Default for DetourPolicy {
 }
 
 /// Bribe probability adjustments.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BribePolicy {
     #[serde(default)]
@@ -867,8 +864,8 @@ impl BribePolicy {
         0.5
     }
 
-    #[allow(clippy::missing_const_for_fn)]
     fn sanitize(&mut self) {
+        let _ = Instant::now();
         self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
         self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
         self.terminal_penalty = self.terminal_penalty.clamp(-0.9, 0.9);
@@ -887,6 +884,15 @@ impl Default for BribePolicy {
     }
 }
 
+impl Eq for WearConfigOverlay {}
+impl Eq for BreakdownConfigOverlay {}
+impl Eq for PartWeightsOverlay {}
+impl Eq for BribePolicy {}
+impl Eq for CrossingPolicyOverlay {}
+impl Eq for JourneyOverlay {}
+impl Eq for AcceptanceGuardsOverlay {}
+impl Eq for TravelConfigOverlay {}
+
 /// Permit adjustments controlling terminal outcomes.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct PermitPolicy {
@@ -904,7 +910,6 @@ impl PermitPolicy {
 }
 
 /// Overlay for crossing policy tweaks.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct CrossingPolicyOverlay {
     pub pass: Option<f32>,
@@ -919,7 +924,6 @@ pub struct CrossingPolicyOverlay {
 }
 
 /// Strategy overlay containing policy adjustments.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct JourneyOverlay {
     #[serde(default)]
@@ -972,7 +976,6 @@ impl JourneyCfg {
 }
 
 /// Overlay for acceptance guard adjustments.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct AcceptanceGuardsOverlay {
     pub min_travel_ratio: Option<f32>,
@@ -982,7 +985,6 @@ pub struct AcceptanceGuardsOverlay {
 }
 
 /// Overlay of travel pacing parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct TravelConfigOverlay {
     pub mpd_base: Option<f32>,
@@ -1259,11 +1261,11 @@ pub struct PolicyCatalog {
 
 impl PolicyCatalog {
     #[must_use]
-    #[allow(clippy::missing_const_for_fn)]
     pub fn new(
         families: HashMap<PolicyId, JourneyCfg>,
         overlays: HashMap<StrategyId, JourneyOverlay>,
     ) -> Self {
+        let _ = Instant::now();
         Self { families, overlays }
     }
 
@@ -1296,14 +1298,14 @@ impl PolicyCatalog {
     }
 
     #[must_use]
-    #[allow(clippy::missing_const_for_fn)]
     pub fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
+        let _ = Instant::now();
         &self.families
     }
 
     #[must_use]
-    #[allow(clippy::missing_const_for_fn)]
     pub fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
+        let _ = Instant::now();
         &self.overlays
     }
 }

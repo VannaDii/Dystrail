@@ -221,8 +221,7 @@ pub fn app_inner() -> Html {
         });
     }
 
-    #[allow(unused_variables)]
-    let on_code_change = {
+    let _on_code_change = {
         let code_handle = code.clone();
         let code_valid_handle = code_valid;
         Callback::from(move |v: String| {
@@ -489,8 +488,6 @@ pub fn app_inner() -> Html {
                     pending.set(Some(gs));
                 })
             };
-            #[allow(clippy::redundant_clone)]
-            #[allow(clippy::redundant_clone)]
             let on_continue = {
                 let phase = phase.clone();
                 Callback::from(move |()| phase.set(Phase::Outfitting))
@@ -504,10 +501,9 @@ pub fn app_inner() -> Html {
         Phase::Outfitting => {
             // Outfitting Store
             let current_state = (*pending_state).clone().unwrap_or_default();
+            #[allow(clippy::redundant_clone)]
             let on_continue = {
-                #[allow(clippy::redundant_clone)]
                 let pending = pending_state.clone();
-                #[allow(clippy::redundant_clone)]
                 let phase = phase.clone();
                 Callback::from(
                     move |(new_state, _grants, _tags): (
@@ -555,7 +551,7 @@ pub fn app_inner() -> Html {
                         } else {
                             crate::i18n::t("mode.classic")
                         };
-                        let mut m = std::collections::HashMap::new();
+                        let mut m = std::collections::BTreeMap::new();
                         m.insert("mode", mode_label.as_str());
                         logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
                         run_seed.set(seed);
@@ -571,7 +567,7 @@ pub fn app_inner() -> Html {
                             let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
                             let sess = session_from_state(gs, &endgame_cfg);
                             let mode_label = crate::i18n::t("mode.classic");
-                            let mut m = std::collections::HashMap::new();
+                            let mut m = std::collections::BTreeMap::new();
                             m.insert("mode", mode_label.as_str());
                             logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
                             run_seed.set(seed);
@@ -746,22 +742,22 @@ pub fn app_inner() -> Html {
                 chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
                 let chance_pct = format!("{:.1}", chance * 100.0);
 
-                let mut rounds_map: std::collections::HashMap<&str, &str> =
-                    std::collections::HashMap::new();
+                        let mut rounds_map: std::collections::BTreeMap<&str, &str> =
+                            std::collections::BTreeMap::new();
                 let rounds_value = cfg.rounds.to_string();
                 let passes_value = cfg.passes_required.to_string();
                 rounds_map.insert("rounds", rounds_value.as_str());
                 rounds_map.insert("passes", passes_value.as_str());
                 let rounds_text = i18n::tr("boss.stats.rounds", Some(&rounds_map));
 
-                let mut chance_map: std::collections::HashMap<&str, &str> =
-                    std::collections::HashMap::new();
+                        let mut chance_map: std::collections::BTreeMap<&str, &str> =
+                            std::collections::BTreeMap::new();
                 chance_map.insert("chance", chance_pct.as_str());
                 let chance_text = i18n::tr("boss.stats.chance", Some(&chance_map));
 
                 let sanity_text = if cfg.sanity_loss_per_round > 0 {
-                    let mut map: std::collections::HashMap<&str, &str> =
-                        std::collections::HashMap::new();
+                    let mut map: std::collections::BTreeMap<&str, &str> =
+                        std::collections::BTreeMap::new();
                     let delta = format!("{:+}", -cfg.sanity_loss_per_round);
                     map.insert("sanity", delta.as_str());
                     Some(i18n::tr("boss.stats.sanity", Some(&map)))
@@ -770,8 +766,8 @@ pub fn app_inner() -> Html {
                 };
 
                 let pants_text = if cfg.pants_gain_per_round > 0 {
-                    let mut map: std::collections::HashMap<&str, &str> =
-                        std::collections::HashMap::new();
+                    let mut map: std::collections::BTreeMap<&str, &str> =
+                        std::collections::BTreeMap::new();
                     let delta = format!("{:+}", cfg.pants_gain_per_round);
                     map.insert("pants", delta.as_str());
                     Some(i18n::tr("boss.stats.pants", Some(&map)))

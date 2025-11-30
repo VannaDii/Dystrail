@@ -213,7 +213,7 @@ fn warn_deep_conservative(record: &PlayabilityRecord, warn_counts: &mut BTreeMap
         return;
     }
 
-    if !record.metrics.reached_2000_by_day150 {
+    if !record.metrics.milestones.reached_2000_by_day150 {
         push_limited_warn(
             warn_counts,
             &format!("{}::deep_conservative_2k", record.scenario_name),
@@ -259,7 +259,7 @@ fn warn_deep_aggressive(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<S
         return;
     }
 
-    if !record.metrics.boss_reached {
+    if !record.metrics.boss.reached {
         push_limited_warn(
             warn_counts,
             &format!("{}::deep_aggressive_reach", record.scenario_name),
@@ -271,7 +271,7 @@ fn warn_deep_aggressive(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<S
                 )
             },
         );
-    } else if !record.metrics.boss_won {
+    } else if !record.metrics.boss.won {
         push_limited_warn(
             warn_counts,
             &format!("{}::deep_aggressive_win", record.scenario_name),
@@ -1007,13 +1007,13 @@ mod tests {
 
         let boss_reached: u32 = matching
             .iter()
-            .filter(|r| r.metrics.boss_reached)
+            .filter(|r| r.metrics.boss.reached)
             .count()
             .try_into()
             .unwrap();
         let boss_won: u32 = matching
             .iter()
-            .filter(|r| r.metrics.boss_won)
+            .filter(|r| r.metrics.boss.won)
             .count()
             .try_into()
             .unwrap();
@@ -1215,14 +1215,14 @@ mod tests {
         metrics.rotation_events = 6;
         metrics.travel_ratio = 0.95;
         metrics.unique_per_20_days = if mode.is_deep() { 1.7 } else { 2.1 };
-        metrics.reached_2000_by_day150 = true;
+        metrics.milestones.reached_2000_by_day150 = true;
         metrics.crossing_events.clear();
         metrics.crossing_permit_uses = 0;
         metrics.crossing_bribe_attempts = 0;
         metrics.crossing_bribe_successes = 0;
         metrics.crossing_detours_taken = 0;
         metrics.crossing_failures = 0;
-        metrics.survived_run = true;
+        metrics.milestones.survived = true;
         metrics.failure_family = Some(FailureFamily::Vehicle);
         metrics
     }
@@ -1439,16 +1439,16 @@ impl AggregateBuilder {
         self.stats_days.add(f64::from(metrics.days_survived));
         self.stats_miles.add(f64::from(metrics.miles_traveled));
         self.avg_mpd_sum += metrics.avg_miles_per_day;
-        if metrics.boss_reached {
+        if metrics.boss.reached {
             self.boss_reached += 1;
         }
-        if metrics.boss_won {
+        if metrics.boss.won {
             self.boss_won += 1;
         }
         if metrics.final_pants >= 100 || metrics.ending_type.contains("Pants") {
             self.pants_failures += 1;
         }
-        if metrics.reached_2000_by_day150 {
+        if metrics.milestones.reached_2000_by_day150 {
             self.milestone_hits += 1;
         }
         self.travel_ratio_sum += metrics.travel_ratio;
@@ -1479,16 +1479,16 @@ impl AggregateBuilder {
         self.stop_cap_sum = self
             .stop_cap_sum
             .saturating_add(metrics.stop_cap_conversions);
-        if metrics.endgame_active {
+        if metrics.endgame.active {
             self.endgame_active_runs = self.endgame_active_runs.saturating_add(1);
         }
-        if metrics.endgame_field_repair_used {
+        if metrics.endgame.field_repair_used {
             self.endgame_field_repair_runs = self.endgame_field_repair_runs.saturating_add(1);
         }
         self.endgame_cooldown_sum = self
             .endgame_cooldown_sum
             .saturating_add(metrics.endgame_cooldown_days);
-        if metrics.survived_run {
+        if metrics.milestones.survived {
             self.survival_sum = self.survival_sum.saturating_add(1);
         }
         match metrics.failure_family {

@@ -11,7 +11,7 @@ pub fn asset_path(relative: &str) -> String {
     let rel = relative.trim_start_matches('/');
 
     if base.is_empty() {
-        format!("/{}", rel)
+        format!("/{rel}")
     } else {
         format!("{base}/{rel}")
     }

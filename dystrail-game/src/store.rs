@@ -1,4 +1,5 @@
 //! Store management and shopping cart
+use crate::numbers::{ceil_f64_to_i64, i64_to_f64};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -187,15 +188,15 @@ impl Store {
 /// Calculate the effective price after persona discount.
 /// Returns price in cents, rounded up.
 #[must_use]
-#[allow(clippy::cast_precision_loss, clippy::cast_possible_truncation)]
 pub fn calculate_effective_price(base_price_cents: i64, discount_pct: f64) -> i64 {
     if discount_pct <= 0.0 {
         return base_price_cents;
     }
 
-    let multiplier = 1.0 - (discount_pct / 100.0);
-    let discounted = base_price_cents as f64 * multiplier;
-    discounted.ceil() as i64
+    let pct = discount_pct.clamp(0.0, 100.0);
+    let multiplier = 1.0 - (pct / 100.0);
+    let discounted = i64_to_f64(base_price_cents).mul_add(multiplier, 0.0);
+    ceil_f64_to_i64(discounted)
 }
 
 /// Calculate the total cost of a cart with persona discount applied.

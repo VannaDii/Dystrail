@@ -156,7 +156,7 @@ pub fn travel_panel(p: &Props) -> Html {
     let breakdown_msg = p.game_state.as_ref().and_then(|gs| {
         gs.breakdown.as_ref().map(|breakdown| {
             let part_name = i18n::t(breakdown.part.key());
-            let mut vars = std::collections::HashMap::new();
+            let mut vars = std::collections::BTreeMap::new();
             vars.insert("part", part_name.as_str());
             i18n::tr("vehicle.breakdown", Some(&vars))
         })

@@ -2,7 +2,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::{Stats, TravelDayKind};
+use crate::{Stats, TravelDayKind, numbers::round_f64_to_i32};
 
 const DEFAULT_CAMP_DATA: &str = include_str!("../../dystrail-web/static/assets/data/camp.json");
 
@@ -161,12 +161,13 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     if supplies_delta != 0 && !forage_cfg.region_multipliers.is_empty() {
         let region_key = gs.region.asset_key();
         if let Some(multiplier) = forage_cfg.region_multipliers.get(region_key) {
-            #[allow(clippy::cast_possible_truncation, clippy::cast_precision_loss)]
-            let adjusted = (f64::from(supplies_delta) * f64::from(*multiplier)).round() as i32;
+            let scaled = f64::from(supplies_delta) * f64::from(*multiplier);
+            let clamped = scaled.clamp(f64::from(i32::MIN), f64::from(i32::MAX));
+            let adjusted_i32 = round_f64_to_i32(clamped);
             supplies_delta = if supplies_delta > 0 {
-                adjusted.max(1)
+                adjusted_i32.max(1)
             } else {
-                adjusted.min(-1)
+                adjusted_i32.min(-1)
             };
         }
     }

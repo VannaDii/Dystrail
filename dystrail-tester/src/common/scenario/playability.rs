@@ -74,7 +74,8 @@ fn deterministic_verification_expectation(
     tester: GameTester,
 ) -> crate::logic::SimulationExpectation {
     crate::logic::SimulationExpectation::new(move |summary: &SimulationSummary| {
-        let comparison_plan = deterministic_plan(noop_expectation);
+        let comparison_plan =
+            deterministic_plan(crate::logic::SimulationExpectation::new(|_| Ok(())));
         let comparison = tester.run_plan(&comparison_plan, summary.seed);
 
         anyhow::ensure!(
@@ -92,11 +93,6 @@ fn deterministic_verification_expectation(
         );
         Ok(())
     })
-}
-
-#[allow(clippy::unnecessary_wraps)]
-const fn noop_expectation(_: &SimulationSummary) -> Result<()> {
-    Ok(())
 }
 
 const fn edge_case_survival_setup(game_state: &mut dystrail_game::GameState) {

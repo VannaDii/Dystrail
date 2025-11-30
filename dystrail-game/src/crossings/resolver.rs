@@ -3,6 +3,7 @@ use std::convert::TryFrom;
 
 use super::CrossingKind;
 use crate::journey::{BribePolicy, CrossingPolicy};
+use crate::numbers::clamp_f64_to_f32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CrossingResult {
@@ -45,8 +46,7 @@ pub struct CrossingContext<'a> {
 #[must_use]
 pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> CrossingOutcome {
     let sample = rng.next_u32();
-    #[allow(clippy::cast_possible_truncation)]
-    let draw = ((f64::from(sample) + 0.5) / (f64::from(u32::MAX) + 1.0)) as f32;
+    let draw = safe_sample_ratio(sample);
 
     let (pass_weight, detour_weight, _terminal_weight, permit_used) = effective_weights(&ctx);
     let detour_threshold = pass_weight + detour_weight;
@@ -115,7 +115,8 @@ fn detour_days_for_sample(policy: &CrossingPolicy, sample: u32) -> u8 {
     }
     let span = u32::from(max.saturating_sub(min)) + 1;
     let offset = sample % span;
-    min.saturating_add(u8::try_from(offset).unwrap_or(u8::MAX))
+    let offset_u8 = u8::try_from(offset).unwrap_or(u8::MAX);
+    min.saturating_add(offset_u8)
 }
 
 fn bribe_multiplier(policy: &BribePolicy, attempt_index: u32) -> f32 {
@@ -125,10 +126,7 @@ fn bribe_multiplier(policy: &BribePolicy, attempt_index: u32) -> f32 {
     let returns = f64::from(policy.diminishing_returns.max(0.0));
     let attempts = f64::from(attempt_index);
     let denom = returns.mul_add(attempts, 1.0);
-    #[allow(clippy::cast_precision_loss, clippy::cast_possible_truncation)]
-    {
-        (1.0 / denom) as f32
-    }
+    clamp_f64_to_f32(1.0 / denom)
 }
 
 fn permit_allows(policy: &CrossingPolicy, kind: CrossingKind) -> bool {
@@ -144,6 +142,12 @@ fn permit_allows(policy: &CrossingPolicy, kind: CrossingKind) -> bool {
         .eligible
         .iter()
         .any(|entry| entry == kind_token)
+}
+
+fn safe_sample_ratio(sample: u32) -> f32 {
+    let denom = f64::from(u32::MAX) + 1.0;
+    let ratio = (f64::from(sample) + 0.5) / denom;
+    clamp_f64_to_f32(ratio.clamp(0.0, 1.0))
 }
 
 #[cfg(test)]

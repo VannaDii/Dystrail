@@ -1,7 +1,7 @@
 use crate::game::{DietId, GameState, PaceId, PacingConfig};
 use crate::i18n;
 use crate::input::numeric_key_to_index;
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use std::rc::Rc;
 use yew::prelude::*;
 
@@ -16,7 +16,7 @@ fn pace_message(pacing_config: &PacingConfig, pace_id: PaceId) -> SelectionOutco
     let sanity_str = format!("{:+}", pace_cfg.sanity);
     let pants_str = format!("{:+}", pace_cfg.pants);
     let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
-    let mut args = HashMap::new();
+    let mut args = BTreeMap::new();
     args.insert("pace", pace_cfg.name.as_str());
     args.insert("sanity", sanity_str.as_str());
     args.insert("pants", pants_str.as_str());
@@ -30,7 +30,7 @@ fn diet_message(pacing_config: &PacingConfig, diet_id: DietId) -> SelectionOutco
     let sanity_str = format!("{:+}", diet_cfg.sanity);
     let pants_str = format!("{:+}", diet_cfg.pants);
     let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
-    let mut args = HashMap::new();
+    let mut args = BTreeMap::new();
     args.insert("diet", diet_cfg.name.as_str());
     args.insert("sanity", sanity_str.as_str());
     args.insert("pants", pants_str.as_str());

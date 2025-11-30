@@ -3,7 +3,7 @@ use crate::game::personas::PersonasList;
 use crate::game::state::{Region, Stats};
 use crate::game::weather::Weather;
 use crate::i18n;
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use std::sync::OnceLock;
 use yew::prelude::*;
 
@@ -26,7 +26,7 @@ pub struct Props {
     pub weather: Option<WeatherBadge>,
 }
 
-static PERSONA_NAMES: OnceLock<HashMap<String, String>> = OnceLock::new();
+static PERSONA_NAMES: OnceLock<BTreeMap<String, String>> = OnceLock::new();
 
 fn persona_name_for(id: &str) -> String {
     let names = PERSONA_NAMES.get_or_init(|| {
@@ -36,7 +36,7 @@ fn persona_name_for(id: &str) -> String {
                 list.0
                     .into_iter()
                     .map(|p| (p.id, p.name))
-                    .collect::<HashMap<_, _>>()
+                    .collect::<BTreeMap<_, _>>()
             })
             .unwrap_or_default()
     });
@@ -167,14 +167,14 @@ pub fn stats_bar(p: &Props) -> Html {
     let persona_initial = persona_initial(&persona_name);
 
     let day_region_text = {
-        let mut m = HashMap::new();
+        let mut m = BTreeMap::new();
         m.insert("day", day_str.as_str());
         m.insert("region", region_text.as_str());
         i18n::tr("stats.day_region", Some(&m))
     };
 
     let pants_text = {
-        let mut m = HashMap::new();
+        let mut m = BTreeMap::new();
         m.insert("pct", pants_str.as_str());
         i18n::tr("stats.pants", Some(&m))
     };

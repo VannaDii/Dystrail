@@ -3,6 +3,7 @@ use crate::constants::{
     TRAVEL_V2_BASE_DISTANCE,
 };
 use crate::journey::{DayRecord, TravelDayKind};
+use crate::numbers::clamp_f64_to_f32;
 use crate::state::{GameState, PolicyKind, TravelProgressKind};
 
 /// Aggregate metrics derived from recorded day history.
@@ -21,17 +22,7 @@ pub struct DayLedgerMetrics {
 impl DayLedgerMetrics {
     #[must_use]
     pub fn travel_ratio(self) -> f32 {
-        if self.total_days == 0 {
-            1.0
-        } else {
-            let traveled = f64::from(self.travel_days + self.partial_days);
-            let total = f64::from(self.total_days);
-            #[allow(clippy::cast_precision_loss)]
-            #[allow(clippy::cast_possible_truncation)]
-            {
-                (traveled / total) as f32
-            }
-        }
+        compute_ratio(self.travel_days + self.partial_days, self.total_days)
     }
 }
 
@@ -73,6 +64,14 @@ pub fn compute_day_ledger_metrics(records: &[DayRecord]) -> DayLedgerMetrics {
         }
     }
     metrics
+}
+
+fn compute_ratio(numerator: u32, denominator: u32) -> f32 {
+    if denominator == 0 {
+        return 1.0;
+    }
+    let ratio = f64::from(numerator) / f64::from(denominator);
+    clamp_f64_to_f32(ratio.clamp(0.0, 1.0))
 }
 
 /// Record travel day details and update counters consistently.
@@ -414,16 +413,7 @@ mod tests {
             }
         }
         let total = u32::try_from(records.len()).expect("record count fits in u32");
-        let manual_ratio = if total == 0 {
-            1.0
-        } else {
-            let numerator = f64::from(travel + partial);
-            let denominator = f64::from(total);
-            #[allow(clippy::cast_precision_loss, clippy::cast_possible_truncation)]
-            {
-                (numerator / denominator) as f32
-            }
-        };
+        let manual_ratio = compute_ratio(travel + partial, total);
         assert!((metrics.travel_ratio() - manual_ratio).abs() <= 1e-5);
     }
 

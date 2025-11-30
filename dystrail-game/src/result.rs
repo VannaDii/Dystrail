@@ -1,4 +1,5 @@
 //! End game result calculation
+use crate::numbers::round_f64_to_i32;
 use crate::seed::encode_friendly;
 use crate::state::{CollapseCause, Ending, GameMode, GameState};
 use serde::{Deserialize, Serialize};
@@ -213,11 +214,7 @@ fn apply_rounding(value: f64, rounding: Rounding) -> i32 {
 }
 
 fn to_i32(value: f64) -> i32 {
-    let clamped = value.clamp(f64::from(i32::MIN), f64::from(i32::MAX));
-    #[allow(clippy::cast_possible_truncation, clippy::cast_precision_loss)]
-    {
-        clamped as i32
-    }
+    round_f64_to_i32(value)
 }
 
 fn total_multiplier(gs: &GameState, mult_cfg: &MultipliersCfg) -> f64 {

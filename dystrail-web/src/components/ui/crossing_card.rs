@@ -12,7 +12,7 @@ use crate::game::{
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
 use wasm_bindgen::JsCast;
-use wasm_bindgen_futures::spawn_local;
+use wasm_bindgen::closure::Closure;
 use web_sys::KeyboardEvent;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -142,7 +142,7 @@ fn build_crossing_viewmodel(
         detour_pants.to_string()
     };
 
-    let mut detour_args = std::collections::HashMap::new();
+    let mut detour_args = std::collections::BTreeMap::new();
     detour_args.insert("days", days_str.as_str());
     detour_args.insert("supplies", supplies_str.as_str());
     detour_args.insert("pants", pants_str.as_str());
@@ -153,7 +153,7 @@ fn build_crossing_viewmodel(
     let bribe_cost_cents =
         calculate_bribe_cost(type_cfg.bribe.base_cost_cents, gs.mods.bribe_discount_pct);
     let bribe_cost_display = format_currency(bribe_cost_cents);
-    let mut bribe_args = std::collections::HashMap::new();
+    let mut bribe_args = std::collections::BTreeMap::new();
     bribe_args.insert("cost", bribe_cost_display.as_str());
     let bribe_label = i18n::tr("cross.options.bribe", Some(&bribe_args));
     let bribe_desc = i18n::t("cross.desc.bribe");
@@ -176,10 +176,11 @@ fn build_crossing_viewmodel(
         .get("Shutdown")
         .and_then(|exec_mod| {
             if matches!(gs.current_order, Some(ExecOrder::Shutdown)) {
-                #[allow(clippy::cast_possible_truncation)]
-                let chance_pct = (exec_mod.bribe_success_chance * 100.0) as i32;
-                let mut args = std::collections::HashMap::new();
-                let chance_str = chance_pct.to_string();
+                let chance_pct = (exec_mod.bribe_success_chance * 100.0)
+                    .round()
+                    .clamp(0.0, 100.0);
+                let mut args = std::collections::BTreeMap::new();
+                let chance_str = format!("{chance_pct:.0}");
                 args.insert("chance", chance_str.as_str());
                 Some(i18n::tr("cross.policy.shutdown", Some(&args)))
             } else {
@@ -262,9 +263,8 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
                     apply_permit(&mut gs, &config, kind)
                 }
                 0 => {
-                    // Back - only if it's a preview/non-blocking encounter
-                    // For blocking crossings, this should be disabled or no-op
-                    return; // TODO: Implement proper back logic based on encounter context
+                    on_resolved.emit(());
+                    i18n::t("crossing.back")
                 }
                 _ => return,
             };
@@ -275,15 +275,19 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
 
             // Call resolution callback after a brief delay
             let on_resolved = on_resolved.clone();
-            spawn_local(async move {
-                if let Err(err) = dom::sleep_ms(1000).await {
-                    dom::console_error(&format!(
-                        "Failed to delay crossing transition: {}",
-                        dom::js_error_message(&err)
-                    ));
-                }
+            let timeout = Closure::once(move || {
                 on_resolved.emit(());
             });
+            if let Err(err) = dom::window().set_timeout_with_callback_and_timeout_and_arguments_0(
+                timeout.as_ref().unchecked_ref(),
+                1000,
+            ) {
+                dom::console_error(&format!(
+                    "Failed to delay crossing transition: {}",
+                    dom::js_error_message(&err)
+                ));
+            }
+            timeout.forget();
         })
     };
 

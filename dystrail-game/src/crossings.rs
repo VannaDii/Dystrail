@@ -339,10 +339,18 @@ pub fn apply_permit(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
 
 /// Calculate bribe cost based on base cost and discount
 #[must_use]
-#[allow(clippy::cast_possible_truncation, clippy::cast_precision_loss)]
 pub fn calculate_bribe_cost(base_cost: i64, discount_pct: i32) -> i64 {
-    let discount_mult = 1.0 - (f64::from(discount_pct) / 100.0);
-    (base_cost as f64 * discount_mult).round() as i64
+    if discount_pct <= 0 {
+        return base_cost;
+    }
+    let clamped_pct = discount_pct.clamp(0, 100);
+    let numerator = base_cost.saturating_mul(i64::from(100 - clamped_pct));
+    let (quot, rem) = (numerator.div_euclid(100), numerator.rem_euclid(100));
+    if rem == 0 {
+        quot
+    } else {
+        quot.saturating_add(1)
+    }
 }
 
 /// Check if player can afford bribe

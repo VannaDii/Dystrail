@@ -154,14 +154,14 @@ fn evaluate_selection(
 ) -> SelectionResolution {
     let used_spare_message = |part: Part| {
         let part_name = i18n::t(part.key());
-        let mut vars = std::collections::HashMap::new();
+        let mut vars = std::collections::BTreeMap::new();
         vars.insert("part", part_name.as_str());
         vars.insert("sup", "1");
         i18n::tr("vehicle.announce.used_spare", Some(&vars))
     };
     let missing_spare_message = |part: Part| {
         let part_name = i18n::t(part.key());
-        let mut vars = std::collections::HashMap::new();
+        let mut vars = std::collections::BTreeMap::new();
         vars.insert("part", part_name.as_str());
         i18n::tr("vehicle.announce.no_spare", Some(&vars))
     };
@@ -203,7 +203,7 @@ fn evaluate_selection(
         },
         5 => {
             if breakdown_part.is_some() {
-                let mut vars = std::collections::HashMap::new();
+                let mut vars = std::collections::BTreeMap::new();
                 vars.insert("sup", "3");
                 vars.insert("cred", "1");
                 vars.insert("day", "1");
@@ -377,7 +377,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         || i18n::t("vehicle.no_active"),
         |breakdown| {
             let part_name = i18n::t(breakdown.part.key());
-            let mut vars = std::collections::HashMap::new();
+            let mut vars = std::collections::BTreeMap::new();
             vars.insert("part", part_name.as_str());
             i18n::tr("vehicle.breakdown", Some(&vars))
         },

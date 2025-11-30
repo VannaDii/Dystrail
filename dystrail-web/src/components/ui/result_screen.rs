@@ -240,11 +240,11 @@ impl ResultScreen {
         match key.as_str() {
             "ArrowUp" => {
                 e.prevent_default();
-                self.navigate_up();
+                self.current_focus = Self::navigate_up_index(self.current_focus);
             }
             "ArrowDown" => {
                 e.prevent_default();
-                self.navigate_down();
+                self.current_focus = Self::navigate_down_index(self.current_focus);
             }
             "Enter" | " " => {
                 e.prevent_default();
@@ -284,16 +284,6 @@ impl ResultScreen {
             5 => 0,
             n => n + 1,
         }
-    }
-
-    #[allow(clippy::missing_const_for_fn)]
-    fn navigate_up(&mut self) {
-        self.current_focus = Self::navigate_up_index(self.current_focus);
-    }
-
-    #[allow(clippy::missing_const_for_fn)]
-    fn navigate_down(&mut self) {
-        self.current_focus = Self::navigate_down_index(self.current_focus);
     }
 
     fn handle_menu_action(ctx: &Context<Self>, action: u8) {

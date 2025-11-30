@@ -61,7 +61,6 @@ const fn default_travel_mult() -> f32 {
 }
 
 /// Daily effects from weather conditions
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherEffect {
     pub supplies: i32,
@@ -73,7 +72,6 @@ pub struct WeatherEffect {
 }
 
 /// Gear-based mitigation for weather effects
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherMitigation {
     pub tag: String,
@@ -84,14 +82,12 @@ pub struct WeatherMitigation {
 }
 
 /// Executive order modifiers for weather encounters
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ExecWeatherMod {
     pub enc_delta: f32,
 }
 
 /// Configuration limits for weather system
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherLimits {
     pub max_extreme_streak: i32,
@@ -101,7 +97,6 @@ pub struct WeatherLimits {
 }
 
 /// Complete weather system configuration
-#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherConfig {
     pub limits: WeatherLimits,
@@ -134,6 +129,12 @@ impl Default for WeatherState {
         }
     }
 }
+
+impl Eq for WeatherEffect {}
+impl Eq for WeatherMitigation {}
+impl Eq for ExecWeatherMod {}
+impl Eq for WeatherLimits {}
+impl Eq for WeatherConfig {}
 
 impl WeatherConfig {
     /// Load weather configuration from JSON string
@@ -193,141 +194,22 @@ impl WeatherConfig {
 
     /// Get embedded default configuration if loading fails
     #[must_use]
-    #[allow(clippy::too_many_lines)]
     pub fn default_config() -> Self {
-        use std::collections::HashMap;
-
-        let mut effects = HashMap::new();
-        effects.insert(
-            Weather::Clear,
-            WeatherEffect {
-                supplies: 0,
-                sanity: 0,
-                pants: 0,
-                enc_delta: 0.00,
-                travel_mult: 1.0,
-            },
-        );
-        effects.insert(
-            Weather::Storm,
-            WeatherEffect {
-                supplies: 1,
-                sanity: -1,
-                pants: 2,
-                enc_delta: 0.05,
-                travel_mult: 0.80,
-            },
-        );
-        effects.insert(
-            Weather::HeatWave,
-            WeatherEffect {
-                supplies: 1,
-                sanity: -1,
-                pants: 1,
-                enc_delta: 0.03,
-                travel_mult: 0.90,
-            },
-        );
-        effects.insert(
-            Weather::ColdSnap,
-            WeatherEffect {
-                supplies: 0,
-                sanity: -1,
-                pants: 0,
-                enc_delta: 0.00,
-                travel_mult: 0.85,
-            },
-        );
-        effects.insert(
-            Weather::Smoke,
-            WeatherEffect {
-                supplies: 1,
-                sanity: -1,
-                pants: 1,
-                enc_delta: 0.03,
-                travel_mult: 0.92,
-            },
-        );
-
-        let mut mitigation = HashMap::new();
-        mitigation.insert(
-            Weather::ColdSnap,
-            WeatherMitigation {
-                tag: "cold_resist".to_string(),
-                sanity: Some(0),
-                pants: None,
-            },
-        );
-        mitigation.insert(
-            Weather::Smoke,
-            WeatherMitigation {
-                tag: "plague_resist".to_string(),
-                sanity: Some(0),
-                pants: None,
-            },
-        );
-        mitigation.insert(
-            Weather::Storm,
-            WeatherMitigation {
-                tag: "rain_resist".to_string(),
-                sanity: None,
-                pants: Some(1),
-            },
-        );
-
-        let mut weights = HashMap::new();
-
-        let mut heartland = HashMap::new();
-        heartland.insert(Weather::Clear, 60);
-        heartland.insert(Weather::Storm, 15);
-        heartland.insert(Weather::HeatWave, 10);
-        heartland.insert(Weather::ColdSnap, 10);
-        heartland.insert(Weather::Smoke, 5);
-        weights.insert(Region::Heartland, heartland);
-
-        let mut rust_belt = HashMap::new();
-        rust_belt.insert(Weather::Clear, 55);
-        rust_belt.insert(Weather::Storm, 20);
-        rust_belt.insert(Weather::HeatWave, 8);
-        rust_belt.insert(Weather::ColdSnap, 12);
-        rust_belt.insert(Weather::Smoke, 5);
-        weights.insert(Region::RustBelt, rust_belt);
-
-        let mut beltway = HashMap::new();
-        beltway.insert(Weather::Clear, 50);
-        beltway.insert(Weather::Storm, 25);
-        beltway.insert(Weather::HeatWave, 10);
-        beltway.insert(Weather::ColdSnap, 10);
-        beltway.insert(Weather::Smoke, 5);
-        weights.insert(Region::Beltway, beltway);
-
-        let mut exec_mods = HashMap::new();
-        exec_mods.insert(
-            "TariffTsunami".to_string(),
-            ExecWeatherMod { enc_delta: 0.00 },
-        );
-        exec_mods.insert(
-            "NatGuardDeployment".to_string(),
-            ExecWeatherMod { enc_delta: 0.02 },
-        );
-        exec_mods.insert(
-            "DoEEliminated".to_string(),
-            ExecWeatherMod { enc_delta: 0.00 },
-        );
-        exec_mods.insert("WarDept".to_string(), ExecWeatherMod { enc_delta: 0.00 });
-
-        Self {
+        serde_json::from_str(include_str!(
+            "../../dystrail-web/static/assets/data/weather.json"
+        ))
+        .unwrap_or_else(|_| Self {
             limits: WeatherLimits {
-                max_extreme_streak: 3,
-                encounter_cap: 1.0,
+                max_extreme_streak: 2,
+                encounter_cap: 0.35,
                 pants_floor: 0,
                 pants_ceiling: 100,
             },
-            effects,
-            mitigation,
-            weights,
-            exec_mods,
-        }
+            effects: HashMap::new(),
+            mitigation: HashMap::new(),
+            weights: HashMap::new(),
+            exec_mods: HashMap::new(),
+        })
     }
 }
 
@@ -500,53 +382,46 @@ fn apply_neutral_buffer<R: Rng>(
 }
 
 /// Apply weather effects to game state
-#[allow(clippy::too_many_lines)]
 pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
-    // Update streak counters
     let today = gs.weather_state.today;
-    let was_extreme = gs.weather_state.yesterday.is_extreme();
-    let is_extreme = today.is_extreme();
+    update_weather_streaks(&mut gs.weather_state, today);
 
-    gs.weather_state.extreme_streak = if is_extreme {
-        if was_extreme {
-            gs.weather_state.extreme_streak + 1
-        } else {
-            1
-        }
-    } else {
-        0
-    };
-
-    if today == Weather::HeatWave {
-        gs.weather_state.heatwave_streak = gs.weather_state.heatwave_streak.saturating_add(1);
-    } else {
-        gs.weather_state.heatwave_streak = 0;
-    }
-
-    if today == Weather::ColdSnap {
-        gs.weather_state.coldsnap_streak = gs.weather_state.coldsnap_streak.saturating_add(1);
-    } else {
-        gs.weather_state.coldsnap_streak = 0;
-    }
-
-    // Get base effect
     let Some(effect) = cfg.effects.get(&today) else {
-        // Return early with no effects if configuration is missing
         return;
     };
 
-    let travel_mult = effect.travel_mult.max(0.1);
-    gs.weather_travel_multiplier = travel_mult;
+    gs.weather_travel_multiplier = effect.travel_mult.max(0.1);
+    let (delta_sup, delta_san, delta_pants) = apply_mitigation(effect, cfg, gs);
+    apply_stat_changes(gs, cfg, delta_sup, delta_san, delta_pants, effect.enc_delta);
+    apply_exposure(gs, today);
+}
 
-    let delta_sup = effect.supplies;
+fn apply_stat_changes(
+    gs: &mut GameState,
+    cfg: &WeatherConfig,
+    delta_sup: i32,
+    delta_san: i32,
+    delta_pants: i32,
+    delta_enc: f32,
+) {
+    gs.stats.supplies += delta_sup;
+    gs.stats.sanity += delta_san;
+    gs.stats.pants =
+        (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
+    gs.encounter_chance_today =
+        (gs.encounter_chance_today + delta_enc).clamp(0.0, cfg.limits.encounter_cap);
+}
+
+fn apply_mitigation(
+    effect: &WeatherEffect,
+    cfg: &WeatherConfig,
+    gs: &GameState,
+) -> (i32, i32, i32) {
     let mut delta_san = effect.sanity;
     let mut delta_pants = effect.pants;
-    let delta_enc = effect.enc_delta;
-
-    // Apply gear mitigation
     if let Some(mitigation) = cfg
         .mitigation
-        .get(&today)
+        .get(&gs.weather_state.today)
         .filter(|m| gs.inventory.tags.contains(&m.tag))
     {
         if let Some(san) = mitigation.sanity {
@@ -556,95 +431,140 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
             delta_pants = pants;
         }
     }
+    (effect.supplies, delta_san, delta_pants)
+}
 
-    // Apply stat changes
-    gs.stats.supplies += delta_sup;
-    gs.stats.sanity += delta_san;
-    gs.stats.pants =
-        (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
-
-    let mut hp_damage = 0;
-    let mut exposure_kind: Option<ExposureKind> = None;
+fn apply_exposure(gs: &mut GameState, today: Weather) {
     let has_heat_gear = gs.inventory.has_tag("water_jugs") || gs.inventory.has_tag("water");
     let has_cold_gear = gs.inventory.has_tag("warm_coat") || gs.inventory.has_tag("cold_resist");
     let heat_conditions = today == Weather::HeatWave && !has_heat_gear;
     let cold_conditions = today == Weather::ColdSnap && !has_cold_gear;
 
-    if gs.features.exposure_streaks {
-        if heat_conditions {
-            gs.exposure_streak_heat = gs.exposure_streak_heat.saturating_add(1);
-        } else {
-            gs.exposure_streak_heat = 0;
-        }
-        if cold_conditions {
-            gs.exposure_streak_cold = gs.exposure_streak_cold.saturating_add(1);
-        } else {
-            gs.exposure_streak_cold = 0;
-        }
-
-        let cold_trigger =
-            cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout;
-        if cold_trigger {
-            hp_damage = 1;
-            gs.mark_damage(DamageCause::ExposureCold);
-            gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
-            exposure_kind = Some(ExposureKind::Cold);
-        }
-
-        let heat_trigger = if heat_conditions {
-            gs.stats.sanity -= 1;
-            gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout
-        } else {
-            false
-        };
-        if heat_trigger {
-            hp_damage = 1;
-            gs.mark_damage(DamageCause::ExposureHeat);
-            gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
-            exposure_kind = Some(ExposureKind::Heat);
-        }
-
-        if gs.exposure_damage_lockout && hp_damage == 0 {
-            gs.exposure_damage_lockout = false;
-        } else {
-            gs.exposure_damage_lockout = cold_trigger || heat_trigger;
-        }
+    let (hp_damage, exposure_kind) = if gs.features.exposure_streaks {
+        apply_exposure_with_streak_lockout(gs, heat_conditions, cold_conditions)
     } else {
-        if cold_conditions {
-            gs.exposure_streak_cold = gs.exposure_streak_cold.saturating_add(1);
-            if gs.exposure_streak_cold >= 3 {
-                hp_damage += 1;
-                gs.mark_damage(DamageCause::ExposureCold);
-                gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
-                exposure_kind = Some(ExposureKind::Cold);
-            }
-        } else {
-            gs.exposure_streak_cold = 0;
-        }
-        if heat_conditions {
-            gs.exposure_streak_heat = gs.exposure_streak_heat.saturating_add(1);
-            gs.stats.sanity -= 1;
-            if gs.exposure_streak_heat >= 3 {
-                hp_damage += 1;
-                gs.mark_damage(DamageCause::ExposureHeat);
-                gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
-                exposure_kind = Some(ExposureKind::Heat);
-            }
-        } else {
-            gs.exposure_streak_heat = 0;
-        }
-        gs.exposure_damage_lockout = false;
-    }
+        apply_exposure_basic(gs, heat_conditions, cold_conditions)
+    };
+
     if hp_damage > 0 {
         gs.stats.hp -= hp_damage;
         if let Some(kind) = exposure_kind.filter(|_| gs.stats.hp <= 0 && gs.ending.is_none()) {
             gs.ending = Some(Ending::Exposure { kind });
         }
     }
+}
 
-    // Add weather encounter chance delta
-    gs.encounter_chance_today =
-        (gs.encounter_chance_today + delta_enc).clamp(0.0, cfg.limits.encounter_cap);
+fn apply_exposure_with_streak_lockout(
+    gs: &mut GameState,
+    heat_conditions: bool,
+    cold_conditions: bool,
+) -> (i32, Option<ExposureKind>) {
+    let mut hp_damage = 0;
+    let mut exposure_kind: Option<ExposureKind> = None;
+
+    if heat_conditions {
+        gs.exposure_streak_heat = gs.exposure_streak_heat.saturating_add(1);
+    } else {
+        gs.exposure_streak_heat = 0;
+    }
+    if cold_conditions {
+        gs.exposure_streak_cold = gs.exposure_streak_cold.saturating_add(1);
+    } else {
+        gs.exposure_streak_cold = 0;
+    }
+
+    let cold_trigger =
+        cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout;
+    if cold_trigger {
+        hp_damage = 1;
+        gs.mark_damage(DamageCause::ExposureCold);
+        gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+        exposure_kind = Some(ExposureKind::Cold);
+    }
+
+    let heat_trigger = if heat_conditions {
+        gs.stats.sanity -= 1;
+        gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout
+    } else {
+        false
+    };
+    if heat_trigger {
+        hp_damage = 1;
+        gs.mark_damage(DamageCause::ExposureHeat);
+        gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+        exposure_kind = Some(ExposureKind::Heat);
+    }
+
+    if gs.exposure_damage_lockout && hp_damage == 0 {
+        gs.exposure_damage_lockout = false;
+    } else {
+        gs.exposure_damage_lockout = cold_trigger || heat_trigger;
+    }
+
+    (hp_damage, exposure_kind)
+}
+
+fn apply_exposure_basic(
+    gs: &mut GameState,
+    heat_conditions: bool,
+    cold_conditions: bool,
+) -> (i32, Option<ExposureKind>) {
+    let mut hp_damage = 0;
+    let mut exposure_kind: Option<ExposureKind> = None;
+
+    if cold_conditions {
+        gs.exposure_streak_cold = gs.exposure_streak_cold.saturating_add(1);
+        if gs.exposure_streak_cold >= 3 {
+            hp_damage += 1;
+            gs.mark_damage(DamageCause::ExposureCold);
+            gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+            exposure_kind = Some(ExposureKind::Cold);
+        }
+    } else {
+        gs.exposure_streak_cold = 0;
+    }
+
+    if heat_conditions {
+        gs.exposure_streak_heat = gs.exposure_streak_heat.saturating_add(1);
+        gs.stats.sanity -= 1;
+        if gs.exposure_streak_heat >= 3 {
+            hp_damage += 1;
+            gs.mark_damage(DamageCause::ExposureHeat);
+            gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+            exposure_kind = Some(ExposureKind::Heat);
+        }
+    } else {
+        gs.exposure_streak_heat = 0;
+    }
+    gs.exposure_damage_lockout = false;
+
+    (hp_damage, exposure_kind)
+}
+
+fn update_weather_streaks(state: &mut WeatherState, today: Weather) {
+    let was_extreme = state.yesterday.is_extreme();
+    let is_extreme = today.is_extreme();
+    state.extreme_streak = if is_extreme {
+        if was_extreme {
+            state.extreme_streak + 1
+        } else {
+            1
+        }
+    } else {
+        0
+    };
+
+    if today == Weather::HeatWave {
+        state.heatwave_streak = state.heatwave_streak.saturating_add(1);
+    } else {
+        state.heatwave_streak = 0;
+    }
+
+    if today == Weather::ColdSnap {
+        state.coldsnap_streak = state.coldsnap_streak.saturating_add(1);
+    } else {
+        state.coldsnap_streak = 0;
+    }
 }
 
 /// Process daily weather step in game tick

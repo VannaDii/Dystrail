@@ -15,7 +15,7 @@ use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
 use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
 use logic::{
-    GameTester, LogicTester, PlayabilityAggregate, PlayabilityRecord, TesterAssets,
+    GameTester, LogicTester, PlayabilityAggregate, PlayabilityRecord, SeedInfo, TesterAssets,
     aggregate_playability, resolve_seed_inputs, run_playability_analysis,
     validate_playability_targets,
 };
@@ -109,26 +109,73 @@ struct Args {
     headless: HeadlessMode,
 }
 
-#[allow(clippy::too_many_lines)]
 #[tokio::main]
 async fn main() -> Result<()> {
     env_logger::init();
     let args = Args::parse();
 
-    if args.list_scenarios {
-        let mut output_target = OutputTarget::new(args.output.clone())?;
-        writeln!(output_target.writer(), "Available scenarios:")?;
-        for (key, description) in list_scenarios() {
-            writeln!(output_target.writer(), "  {key:25} - {description}")?;
-        }
-        output_target.flush_inner()?;
+    if maybe_list_scenarios(&args)? {
         return Ok(());
     }
 
+    announce_banner();
+
+    let playability_iterations = compute_playability_iterations(&args);
+    let start_time = Instant::now();
+    let scenarios = expand_scenarios(&args.scenarios);
+    let seed_tokens = split_csv(&args.seeds);
+    let seed_infos = resolve_seed_inputs(&seed_tokens)?;
+    let logic_seeds: Vec<u64> = seed_infos.iter().map(|s| s.seed).collect();
+    let tester_assets = Arc::new(TesterAssets::load_default());
+    let game_tester = GameTester::new(tester_assets, args.verbose);
+
+    let all_results = run_logic_scenarios(&args, &scenarios, &logic_seeds, &game_tester);
+
+    run_browser_scenarios(&args, &scenarios, &seed_infos, &game_tester).await?;
+
+    let (playability_records, playability_aggregates) =
+        gather_playability(&args, &game_tester, &seed_infos, playability_iterations)?;
+
+    write_reports(
+        &args,
+        &all_results,
+        playability_records.as_deref(),
+        playability_aggregates.as_deref(),
+        start_time,
+    )?;
+
+    if let Some(aggregates) = playability_aggregates.as_ref() {
+        let record_slice = playability_records.as_deref().unwrap_or(&[]);
+        validate_playability_targets(aggregates, record_slice)?;
+    }
+
+    if all_results.iter().any(|r| !r.passed) {
+        std::process::exit(1);
+    }
+
+    Ok(())
+}
+
+fn maybe_list_scenarios(args: &Args) -> Result<bool> {
+    if !args.list_scenarios {
+        return Ok(false);
+    }
+    let mut output_target = OutputTarget::new(args.output.clone())?;
+    writeln!(output_target.writer(), "Available scenarios:")?;
+    for (key, description) in list_scenarios() {
+        writeln!(output_target.writer(), "  {key:25} - {description}")?;
+    }
+    output_target.flush_inner()?;
+    Ok(true)
+}
+
+fn announce_banner() {
     println!("{}", "🎮 Dystrail Automated Tester".bright_cyan().bold());
     println!("{}", "================================".cyan());
+}
 
-    let playability_iterations = if args.acceptance {
+fn compute_playability_iterations(args: &Args) -> usize {
+    if args.acceptance {
         if args.iterations < 100 {
             println!(
                 "🔁 Acceptance mode enabled: increasing playability iterations from {} to 100",
@@ -143,12 +190,11 @@ async fn main() -> Result<()> {
         args.iterations.max(100)
     } else {
         args.iterations
-    };
+    }
+}
 
-    let start_time = Instant::now();
-    let mut scenarios = split_csv(&args.scenarios);
-
-    // Expand 'all' to include all comprehensive test scenarios
+fn expand_scenarios(scenarios_arg: &str) -> Vec<String> {
+    let mut scenarios = split_csv(scenarios_arg);
     if scenarios.contains(&"all".to_string()) {
         scenarios.retain(|s| s != "all");
         scenarios.extend_from_slice(&[
@@ -165,125 +211,157 @@ async fn main() -> Result<()> {
             "game-mode-variations".to_string(),
         ]);
     }
+    scenarios
+}
 
-    let seed_tokens = split_csv(&args.seeds);
-    let seed_infos = resolve_seed_inputs(&seed_tokens)?;
-    let logic_seeds: Vec<u64> = seed_infos.iter().map(|s| s.seed).collect();
-    let tester_assets = Arc::new(TesterAssets::load_default());
-    let game_tester = GameTester::new(tester_assets, args.verbose);
+fn run_logic_scenarios(
+    args: &Args,
+    scenarios: &[String],
+    logic_seeds: &[u64],
+    game_tester: &GameTester,
+) -> Vec<logic::ScenarioResult> {
+    let mut results: Vec<logic::ScenarioResult> = Vec::new();
+    if !matches!(args.mode, TestMode::Logic | TestMode::Both) {
+        return results;
+    }
 
-    let mut all_results: Vec<logic::ScenarioResult> = Vec::new();
+    println!("{}", "🧠 Running Logic Tests".bright_yellow().bold());
+    println!("{}", "-".repeat(30).yellow());
 
-    // Run logic tests if requested
-    if matches!(args.mode, TestMode::Logic | TestMode::Both) {
-        println!("{}", "🧠 Running Logic Tests".bright_yellow().bold());
-        println!("{}", "-".repeat(30).yellow());
+    let logic_tester = LogicTester::new(game_tester.clone());
 
-        let logic_tester = LogicTester::new(game_tester.clone());
-
-        for scenario_name in &scenarios {
-            if let Some(combined_scenario) = get_scenario(scenario_name, &game_tester) {
-                if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
-                    let results =
-                        logic_tester.run_scenario(&logic_scenario, &logic_seeds, args.iterations);
-                    all_results.extend(results);
-                } else {
-                    eprintln!(
-                        "⚠️  Scenario {} has no logic test implementation",
-                        scenario_name.yellow()
-                    );
-                }
+    for scenario_name in scenarios {
+        if let Some(combined_scenario) = get_scenario(scenario_name, game_tester) {
+            if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
+                let scenario_results =
+                    logic_tester.run_scenario(&logic_scenario, logic_seeds, args.iterations);
+                results.extend(scenario_results);
             } else {
-                eprintln!("⚠️  Unknown scenario: {}", scenario_name.yellow());
+                eprintln!(
+                    "⚠️  Scenario {} has no logic test implementation",
+                    scenario_name.yellow()
+                );
             }
+        } else {
+            eprintln!("⚠️  Unknown scenario: {}", scenario_name.yellow());
         }
     }
 
-    // Run browser tests if requested
-    if matches!(args.mode, TestMode::Browser | TestMode::Both) {
-        println!("{}", "🌐 Running Browser Tests".bright_blue().bold());
-        println!("{}", "-".repeat(30).blue());
+    results
+}
 
-        let browsers = split_csv(&args.browsers);
+async fn run_browser_scenarios(
+    args: &Args,
+    scenarios: &[String],
+    seed_infos: &[SeedInfo],
+    game_tester: &GameTester,
+) -> Result<()> {
+    if !matches!(args.mode, TestMode::Browser | TestMode::Both) {
+        return Ok(());
+    }
 
-        for browser_name in browsers {
-            let kind = match browser_name.as_str() {
-                "chrome" => BrowserKind::Chrome,
-                "edge" => BrowserKind::Edge,
-                "firefox" => BrowserKind::Firefox,
-                "safari" => BrowserKind::Safari,
-                other => {
-                    eprintln!("⚠️  Unknown browser: {}", other.yellow());
-                    continue;
-                }
-            };
+    println!("{}", "🌐 Running Browser Tests".bright_blue().bold());
+    println!("{}", "-".repeat(30).blue());
 
-            let cfg = BrowserConfig {
-                headless: args.headless.is_headless(),
-                implicit_wait_secs: 3,
-                remote_hub: args.hub.clone(),
-            };
+    let browsers = split_csv(&args.browsers);
 
-            let driver = match new_session(kind, &cfg).await {
-                Ok(d) => d,
-                Err(e) => {
-                    eprintln!("❌ Could not start {kind:?}: {e}");
-                    continue;
-                }
-            };
+    for browser_name in browsers {
+        let kind = match browser_name.as_str() {
+            "chrome" => BrowserKind::Chrome,
+            "edge" => BrowserKind::Edge,
+            "firefox" => BrowserKind::Firefox,
+            "safari" => BrowserKind::Safari,
+            other => {
+                eprintln!("⚠️  Unknown browser: {}", other.yellow());
+                continue;
+            }
+        };
 
-            for scenario_name in &scenarios {
-                if let Some(scenario) = get_scenario(scenario_name, &game_tester) {
-                    for seed_info in &seed_infos {
-                        let bridge = TestBridge::new(&driver);
-                        let ctx = ScenarioCtx {
-                            base_url: args.base_url.clone(),
-                            seed: seed_info.seed,
-                            bridge,
-                            verbose: args.verbose,
-                        };
+        let cfg = BrowserConfig {
+            headless: args.headless.is_headless(),
+            implicit_wait_secs: 3,
+            remote_hub: args.hub.clone(),
+        };
 
-                        let label = format!("{kind:?}").to_lowercase();
-                        let dir = artifacts_dir(
-                            &args.artifacts_dir,
-                            &label,
-                            scenario_name,
+        let driver = match new_session(kind, &cfg).await {
+            Ok(d) => d,
+            Err(e) => {
+                eprintln!("❌ Could not start {kind:?}: {e}");
+                continue;
+            }
+        };
+
+        run_browser_scenarios_for_driver(args, scenarios, seed_infos, game_tester, kind, &driver)
+            .await;
+        let _ = driver.quit().await;
+    }
+
+    Ok(())
+}
+
+async fn run_browser_scenarios_for_driver(
+    args: &Args,
+    scenarios: &[String],
+    seed_infos: &[SeedInfo],
+    game_tester: &GameTester,
+    kind: BrowserKind,
+    driver: &thirtyfour::WebDriver,
+) {
+    for scenario_name in scenarios {
+        if let Some(scenario) = get_scenario(scenario_name, game_tester) {
+            for seed_info in seed_infos {
+                let bridge = TestBridge::new(driver);
+                let ctx = ScenarioCtx {
+                    base_url: args.base_url.clone(),
+                    seed: seed_info.seed,
+                    bridge,
+                    verbose: args.verbose,
+                };
+
+                let label = format!("{kind:?}").to_lowercase();
+                let dir = artifacts_dir(&args.artifacts_dir, &label, scenario_name, seed_info.seed);
+
+                let scenario_start = Instant::now();
+                match scenario.run_browser(driver, &ctx).await {
+                    Ok(()) => {
+                        let duration = scenario_start.elapsed();
+                        println!(
+                            "✅ [{} seed {}] {} - {:?}",
+                            label.green(),
                             seed_info.seed,
+                            scenario_name,
+                            duration
                         );
-
-                        let scenario_start = Instant::now();
-                        match scenario.run_browser(&driver, &ctx).await {
-                            Ok(()) => {
-                                let duration = scenario_start.elapsed();
-                                println!(
-                                    "✅ [{} seed {}] {} - {:?}",
-                                    label.green(),
-                                    seed_info.seed,
-                                    scenario_name,
-                                    duration
-                                );
-                            }
-                            Err(e) => {
-                                let duration = scenario_start.elapsed();
-                                eprintln!(
-                                    "❌ [{} seed {}] {} - {:?}: {:#}",
-                                    label.red(),
-                                    seed_info.seed,
-                                    scenario_name,
-                                    duration,
-                                    e
-                                );
-                                let _ = capture_artifacts(&driver, &dir, &e).await;
-                            }
-                        }
+                    }
+                    Err(e) => {
+                        let duration = scenario_start.elapsed();
+                        eprintln!(
+                            "❌ [{} seed {}] {} - {:?}: {:#}",
+                            label.red(),
+                            seed_info.seed,
+                            scenario_name,
+                            duration,
+                            e
+                        );
+                        let _ = capture_artifacts(driver, &dir, &e).await;
                     }
                 }
             }
-
-            let _ = driver.quit().await;
         }
     }
+}
 
+type PlayabilitySummary = (
+    Option<Vec<PlayabilityRecord>>,
+    Option<Vec<PlayabilityAggregate>>,
+);
+
+fn gather_playability(
+    args: &Args,
+    game_tester: &GameTester,
+    seed_infos: &[SeedInfo],
+    playability_iterations: usize,
+) -> Result<PlayabilitySummary> {
     let mut playability_records: Option<Vec<PlayabilityRecord>> = None;
     let mut playability_aggregates: Option<Vec<PlayabilityAggregate>> = None;
     let require_playability = matches!(args.report.as_str(), "console" | "csv")
@@ -291,33 +369,43 @@ async fn main() -> Result<()> {
 
     if require_playability {
         let playability =
-            run_playability_analysis(&game_tester, &seed_infos, playability_iterations)?;
+            run_playability_analysis(game_tester, seed_infos, playability_iterations)?;
         playability_aggregates = Some(aggregate_playability(&playability));
         playability_records = Some(playability);
     }
 
+    Ok((playability_records, playability_aggregates))
+}
+
+fn write_reports(
+    args: &Args,
+    results: &[logic::ScenarioResult],
+    playability_records: Option<&[PlayabilityRecord]>,
+    playability_aggregates: Option<&[PlayabilityAggregate]>,
+    start_time: Instant,
+) -> Result<()> {
     let mut output_target = OutputTarget::new(args.output.clone())?;
 
     match args.report.as_str() {
         "json" => {
-            if all_results.is_empty() {
+            if results.is_empty() {
                 writeln!(&mut output_target, "[]")?;
             } else {
-                logic::reports::generate_json_report(&mut output_target, &all_results)?;
+                logic::reports::generate_json_report(&mut output_target, results)?;
             }
         }
         "markdown" => {
-            if all_results.is_empty() {
+            if results.is_empty() {
                 writeln!(
                     &mut output_target,
                     "# Dystrail Logic Test Results\n\n_No scenarios executed._"
                 )?;
             } else {
-                logic::reports::generate_markdown_report(&mut output_target, &all_results)?;
+                logic::reports::generate_markdown_report(&mut output_target, results)?;
             }
         }
         "csv" => {
-            if let Some(records) = playability_records.as_ref() {
+            if let Some(records) = playability_records {
                 logic::reports::generate_csv_report(&mut output_target, records)?;
             } else {
                 writeln!(&mut output_target, "[]")?;
@@ -325,12 +413,12 @@ async fn main() -> Result<()> {
         }
         _ => {
             let duration = start_time.elapsed();
-            if all_results.is_empty() {
+            if results.is_empty() {
                 writeln!(&mut output_target, "No logic scenarios executed.")?;
-            } else if let Some(aggregates) = playability_aggregates.as_ref() {
+            } else if let Some(aggregates) = playability_aggregates {
                 logic::reports::generate_console_report(
                     &mut output_target,
-                    &all_results,
+                    results,
                     aggregates,
                     duration,
                 )?;
@@ -340,22 +428,10 @@ async fn main() -> Result<()> {
         }
     }
 
-    if let Some(aggregates) = playability_aggregates.as_ref() {
-        let record_slice = playability_records.as_deref().unwrap_or(&[]);
-        validate_playability_targets(aggregates, record_slice)?;
-    }
-
     let duration = start_time.elapsed();
     writeln!(&mut output_target)?;
     writeln!(&mut output_target, "🏁 Total time: {duration:?}")?;
     output_target.flush_inner()?;
-
-    // Exit with error code if any tests failed
-    let failed_tests = all_results.iter().any(|r| !r.passed);
-    if failed_tests {
-        std::process::exit(1);
-    }
-
     Ok(())
 }
 enum OutputTarget {

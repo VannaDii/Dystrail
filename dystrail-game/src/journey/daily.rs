@@ -1,6 +1,7 @@
 use crate::Stats;
 use crate::exec_orders::ExecOrder;
 use crate::journey::{DailyChannelConfig, DailyTickConfig, HealthTickConfig};
+use crate::numbers::round_f32_to_i32;
 use crate::state::{DietId, GameState, PaceId};
 use crate::weather::Weather;
 
@@ -124,12 +125,8 @@ fn apply_health_delta(state: &mut GameState, delta: i32) {
     state.stats.hp = hp.clamp(0, max_hp);
 }
 
-#[allow(clippy::missing_const_for_fn)]
 fn rounded_i32(value: f32) -> i32 {
-    #[allow(clippy::cast_possible_truncation)]
-    {
-        value.round() as i32
-    }
+    round_f32_to_i32(value)
 }
 
 #[cfg(test)]

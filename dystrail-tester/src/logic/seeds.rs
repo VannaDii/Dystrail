@@ -44,18 +44,6 @@ impl SeedInfo {
         self.source_mode
             .is_none_or(|source_mode| source_mode == mode)
     }
-
-    #[allow(dead_code)]
-    #[must_use]
-    pub fn share_code_for_mode(&self, mode: GameMode) -> String {
-        if let (Some(code), Some(source_mode)) = (&self.code, self.source_mode)
-            && source_mode == mode
-        {
-            return code.clone();
-        }
-
-        dystrail_game::encode_friendly(matches!(mode, GameMode::Deep), self.seed)
-    }
 }
 
 /// Resolve a list of CLI seed arguments into canonical seed metadata.

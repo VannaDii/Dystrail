@@ -125,7 +125,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let mor = per.start.morale.to_string();
         let allies = per.start.allies.to_string();
         let budget = per.start.budget.to_string();
-        let mut m = std::collections::HashMap::new();
+        let mut m = std::collections::BTreeMap::new();
         m.insert("sup", sup.as_str());
         m.insert("cred", cred.as_str());
         m.insert("san", san.as_str());
@@ -136,7 +136,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     });
     let mult_line = preview.as_ref().map_or_else(String::new, |per| {
         let mult = format!("{:.1}", per.score_mult);
-        let mut m = std::collections::HashMap::new();
+        let mut m = std::collections::BTreeMap::new();
         m.insert("mult", mult.as_str());
         crate::i18n::tr("persona.mult", Some(&m))
     });
@@ -144,25 +144,25 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let mut lines: Vec<String> = vec![];
         if per.mods.receipt_find_pct != 0 {
             let pct = per.mods.receipt_find_pct.to_string();
-            let mut m = std::collections::HashMap::new();
+            let mut m = std::collections::BTreeMap::new();
             m.insert("pct", pct.as_str());
             lines.push(crate::i18n::tr("persona.mods.receipts_pct", Some(&m)));
         }
         if per.mods.store_discount_pct != 0 {
             let pct = per.mods.store_discount_pct.to_string();
-            let mut m = std::collections::HashMap::new();
+            let mut m = std::collections::BTreeMap::new();
             m.insert("pct", pct.as_str());
             lines.push(crate::i18n::tr("persona.mods.store_discount_pct", Some(&m)));
         }
         if per.mods.bribe_discount_pct != 0 {
             let pct = per.mods.bribe_discount_pct.to_string();
-            let mut m = std::collections::HashMap::new();
+            let mut m = std::collections::BTreeMap::new();
             m.insert("pct", pct.as_str());
             lines.push(crate::i18n::tr("persona.mods.bribe_discount_pct", Some(&m)));
         }
         if per.mods.eo_heat_pct != 0 {
             let pct = per.mods.eo_heat_pct.to_string();
-            let mut m = std::collections::HashMap::new();
+            let mut m = std::collections::BTreeMap::new();
             m.insert("pct", pct.as_str());
             lines.push(crate::i18n::tr("persona.mods.eo_heat_pct", Some(&m)));
         }
@@ -194,7 +194,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
                 let disp_desc = if ldesc == desc_key { per.desc.clone() } else { ldesc };
                 let mult_value = format!("×{:.1}", per.score_mult);
                 let mult_label = {
-                    let mut m = std::collections::HashMap::new();
+                    let mut m = std::collections::BTreeMap::new();
                     m.insert("mult", mult_value.as_str());
                     crate::i18n::tr("persona.mult", Some(&m))
                 };

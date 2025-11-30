@@ -9,6 +9,7 @@ use dystrail_game::boss::BossConfig;
 use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::endgame::EndgameTravelCfg;
+use dystrail_game::numbers::clamp_f64_to_f32;
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::{
@@ -282,14 +283,12 @@ impl SimulationPlan {
         }
     }
 
-    #[allow(dead_code)]
     #[must_use]
     pub const fn with_max_days(mut self, max_days: u32) -> Self {
         self.max_days = Some(max_days);
         self
     }
 
-    #[allow(dead_code)]
     #[must_use]
     pub fn with_setup(mut self, setup: fn(&mut GameState)) -> Self {
         self.setup = Some(setup);
@@ -304,10 +303,11 @@ impl SimulationPlan {
 }
 
 /// Assertion hook run after a simulation completes.
+type SimulationExpectationFn =
+    Arc<dyn Fn(&SimulationSummary) -> Result<()> + Send + Sync + 'static>;
+
 #[derive(Clone)]
-pub struct SimulationExpectation(
-    Arc<dyn Fn(&SimulationSummary) -> Result<()> + Send + Sync + 'static>,
-);
+pub struct SimulationExpectation(SimulationExpectationFn);
 
 impl std::fmt::Debug for SimulationExpectation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -359,7 +359,7 @@ pub struct GameTester {
 }
 
 impl GameTester {
-    pub fn new(assets: Arc<TesterAssets>, verbose: bool) -> Self {
+    pub const fn new(assets: Arc<TesterAssets>, verbose: bool) -> Self {
         Self { verbose, assets }
     }
 
@@ -826,20 +826,6 @@ impl GameTester {
             game_ended: final_outcome.game_ended,
         }
     }
-
-    #[allow(dead_code)]
-    pub fn play_game(
-        &self,
-        mode: GameMode,
-        strategy: GameplayStrategy,
-        seed: u64,
-    ) -> PlayabilityMetrics {
-        let plan = SimulationPlan::new(mode, strategy)
-            .with_max_days(DEFAULT_POLICY_SIM_DAYS)
-            .with_setup(default_policy_setup(strategy));
-        let summary = self.run_plan(&plan, seed);
-        summary.metrics
-    }
 }
 
 fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
@@ -848,17 +834,14 @@ fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
         plan.mode,
         plan.strategy.label()
     );
-    #[allow(clippy::cast_precision_loss)]
-    {
-        println!(
-            "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${}",
-            state.stats.hp,
-            state.stats.supplies,
-            state.stats.sanity,
-            state.stats.pants,
-            format_cents(state.budget_cents)
-        );
-    }
+    println!(
+        "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${}",
+        state.stats.hp,
+        state.stats.supplies,
+        state.stats.sanity,
+        state.stats.pants,
+        format_cents(state.budget_cents)
+    );
 }
 
 fn log_turn(outcome: &TurnOutcome, state: &GameState) {
@@ -897,8 +880,25 @@ fn format_cents(cents: i64) -> String {
     format!("{sign}{dollars}.{remainder:02}")
 }
 
+#[derive(Debug, Clone, Default)]
+pub struct BossOutcomeFlags {
+    pub reached: bool,
+    pub won: bool,
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct EndgameStatus {
+    pub active: bool,
+    pub field_repair_used: bool,
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct RunMilestones {
+    pub reached_2000_by_day150: bool,
+    pub survived: bool,
+}
+
 /// Aggregated analytics produced by a simulation run.
-#[allow(clippy::struct_excessive_bools)]
 #[derive(Debug, Clone)]
 pub struct PlayabilityMetrics {
     pub days_survived: i32,
@@ -912,8 +912,7 @@ pub struct PlayabilityMetrics {
     pub final_pants: i32,
     pub final_budget_cents: i64,
     pub decision_log: Vec<DecisionRecord>,
-    pub boss_reached: bool,
-    pub boss_won: bool,
+    pub boss: BossOutcomeFlags,
     pub miles_traveled: f32,
     pub travel_days: u32,
     pub partial_travel_days: u32,
@@ -932,7 +931,7 @@ pub struct PlayabilityMetrics {
     pub rotation_events: u32,
     pub travel_ratio: f64,
     pub unique_per_20_days: f64,
-    pub reached_2000_by_day150: bool,
+    pub milestones: RunMilestones,
     pub crossing_events: Vec<CrossingTelemetry>,
     pub crossing_permit_uses: u32,
     pub crossing_bribe_attempts: u32,
@@ -940,11 +939,9 @@ pub struct PlayabilityMetrics {
     pub crossing_detours_taken: u32,
     pub crossing_failures: u32,
     pub day_reason_history: Vec<String>,
-    pub endgame_active: bool,
-    pub endgame_field_repair_used: bool,
+    pub endgame: EndgameStatus,
     pub endgame_cooldown_days: u32,
     pub stop_cap_conversions: u32,
-    pub survived_run: bool,
     pub failure_family: Option<FailureFamily>,
     encounter_ids: HashSet<String>,
 }
@@ -972,8 +969,7 @@ impl Default for PlayabilityMetrics {
             final_pants: 0,
             final_budget_cents: 10_000,
             decision_log: Vec::new(),
-            boss_reached: false,
-            boss_won: false,
+            boss: BossOutcomeFlags::default(),
             miles_traveled: 0.0,
             travel_days: 0,
             partial_travel_days: 0,
@@ -992,7 +988,7 @@ impl Default for PlayabilityMetrics {
             rotation_events: 0,
             travel_ratio: 0.0,
             unique_per_20_days: 0.0,
-            reached_2000_by_day150: false,
+            milestones: RunMilestones::default(),
             crossing_events: Vec::new(),
             crossing_permit_uses: 0,
             crossing_bribe_attempts: 0,
@@ -1000,11 +996,9 @@ impl Default for PlayabilityMetrics {
             crossing_detours_taken: 0,
             crossing_failures: 0,
             day_reason_history: Vec::new(),
-            endgame_active: false,
-            endgame_field_repair_used: false,
+            endgame: EndgameStatus::default(),
             endgame_cooldown_days: 0,
             stop_cap_conversions: 0,
-            survived_run: false,
             failure_family: None,
             encounter_ids: HashSet::new(),
         }
@@ -1020,11 +1014,6 @@ struct LedgerSummary {
     stop_cap_conversions: u32,
     total_days: u32,
     reason_history: Vec<String>,
-}
-
-#[allow(clippy::cast_possible_truncation)]
-fn clamp_f64_to_f32(value: f64) -> f32 {
-    value.clamp(f64::from(f32::MIN), f64::from(f32::MAX)) as f32
 }
 
 impl PlayabilityMetrics {
@@ -1069,11 +1058,11 @@ impl PlayabilityMetrics {
             self.decision_log.push(decision);
         }
 
-        if !self.reached_2000_by_day150
+        if !self.milestones.reached_2000_by_day150
             && outcome.miles_traveled_actual >= MILESTONE_MILES
             && outcome.day <= MILESTONE_DAY_LIMIT
         {
-            self.reached_2000_by_day150 = true;
+            self.milestones.reached_2000_by_day150 = true;
         }
 
         if outcome.breakdown_started {
@@ -1122,8 +1111,8 @@ impl PlayabilityMetrics {
         let (ending, cause) = describe_ending(state, outcome);
         self.ending_type = ending;
         self.ending_cause = cause;
-        self.boss_won = state.boss_victory;
-        self.boss_reached = state.boss_reached;
+        self.boss.reached = state.boss_reached;
+        self.boss.won = state.boss_victory;
         let ledger = Self::summarize_day_records(state);
         self.miles_traveled = clamp_f64_to_f32(ledger.miles.max(0.0));
         self.travel_days = ledger.travel_days;
@@ -1150,10 +1139,10 @@ impl PlayabilityMetrics {
         self.days_with_repair = state.days_with_repair;
         self.day_reason_history.clone_from(&ledger.reason_history);
         self.stop_cap_conversions = ledger.stop_cap_conversions;
-        self.endgame_active = state.endgame.active;
-        self.endgame_field_repair_used = state.endgame.field_repair_used;
+        self.endgame.active = state.endgame.active;
+        self.endgame.field_repair_used = state.endgame.field_repair_used;
         self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
-        self.survived_run = survived_or_long_run(state);
+        self.milestones.survived = survived_or_long_run(state);
         self.failure_family = classify_failure_family(state);
         let total_days = ledger.total_days;
         if total_days > 0 {
@@ -1183,8 +1172,8 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        self.boss_reached = state.boss_reached;
-        self.boss_won = state.boss_victory;
+        self.boss.reached = state.boss_reached;
+        self.boss.won = state.boss_victory;
         let ledger = Self::summarize_day_records(state);
         self.miles_traveled = clamp_f64_to_f32(ledger.miles.max(0.0));
         self.travel_days = ledger.travel_days;
@@ -1211,8 +1200,8 @@ impl PlayabilityMetrics {
         self.days_with_repair = state.days_with_repair;
         self.day_reason_history.clone_from(&ledger.reason_history);
         self.stop_cap_conversions = ledger.stop_cap_conversions;
-        self.endgame_active = state.endgame.active;
-        self.endgame_field_repair_used = state.endgame.field_repair_used;
+        self.endgame.active = state.endgame.active;
+        self.endgame.field_repair_used = state.endgame.field_repair_used;
         self.endgame_cooldown_days = state.vehicle.breakdown_cooldown;
         let total_days = ledger.total_days;
         if total_days > 0 {
@@ -1233,11 +1222,11 @@ impl PlayabilityMetrics {
         )
         .unwrap_or(u32::MAX);
         self.capture_crossing_telemetry(state);
-        if !self.reached_2000_by_day150
+        if !self.milestones.reached_2000_by_day150
             && state.miles_traveled_actual >= MILESTONE_MILES
             && state.day <= MILESTONE_DAY_LIMIT
         {
-            self.reached_2000_by_day150 = true;
+            self.milestones.reached_2000_by_day150 = true;
         }
         let (ending, cause) = describe_ending(
             state,
@@ -1252,7 +1241,7 @@ impl PlayabilityMetrics {
         );
         self.ending_type = ending;
         self.ending_cause = cause;
-        self.survived_run = survived_or_long_run(state);
+        self.milestones.survived = survived_or_long_run(state);
         self.failure_family = classify_failure_family(state);
     }
 }
@@ -1463,8 +1452,8 @@ mod tests {
         };
 
         metrics.finalize(&state, &outcome);
-        assert!(!metrics.boss_reached);
-        assert!(!metrics.boss_won);
+        assert!(!metrics.boss.reached);
+        assert!(!metrics.boss.won);
 
         let attempted_state = GameState {
             boss_attempted: true,
@@ -1474,7 +1463,7 @@ mod tests {
         };
         let mut attempted_metrics = PlayabilityMetrics::default();
         attempted_metrics.finalize(&attempted_state, &outcome);
-        assert!(attempted_metrics.boss_reached);
-        assert!(!attempted_metrics.boss_won);
+        assert!(attempted_metrics.boss.reached);
+        assert!(!attempted_metrics.boss.won);
     }
 }

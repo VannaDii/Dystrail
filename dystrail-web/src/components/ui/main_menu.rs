@@ -180,7 +180,7 @@ pub fn main_menu(p: &MainMenuProps) -> Html {
     };
 
     let seed = p.seed_text.clone().unwrap_or_default();
-    let mut vars = std::collections::HashMap::new();
+    let mut vars = std::collections::BTreeMap::new();
     vars.insert("seed", seed.as_str());
     let helper_text = i18n::tr("menu.help", Some(&vars));
 

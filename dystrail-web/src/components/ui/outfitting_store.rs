@@ -3,10 +3,9 @@
 //! This component handles the store interface where players can purchase supplies,
 //! vehicle spares, PPE, and documents before starting their journey.
 
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use wasm_bindgen::JsCast;
-use wasm_bindgen_futures::JsFuture;
-use web_sys::{KeyboardEvent, window};
+use web_sys::KeyboardEvent;
 use yew::prelude::*;
 
 use crate::a11y::set_status;
@@ -94,22 +93,18 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
     // Load store data on mount
     {
         let store_state = store_state.clone();
-        use_effect_with((), move |()| {
-            wasm_bindgen_futures::spawn_local(async move {
-                match load_store_data().await {
-                    Ok(store_data) => {
-                        let mut state = (*store_state).clone();
-                        state.store_data = store_data;
-                        state.discount_pct = discount_pct;
-                        state.cart.total_cents =
-                            calculate_cart_total(&state.cart, &state.store_data, discount_pct);
-                        store_state.set(state);
-                    }
-                    Err(e) => {
-                        dom::console_error(&format!("Failed to load store data: {e}"));
-                    }
-                }
-            });
+        use_effect_with((), move |()| match load_store_data() {
+            Ok(store_data) => {
+                let mut state = (*store_state).clone();
+                state.store_data = store_data;
+                state.discount_pct = discount_pct;
+                state.cart.total_cents =
+                    calculate_cart_total(&state.cart, &state.store_data, discount_pct);
+                store_state.set(state);
+            }
+            Err(e) => {
+                dom::console_error(&format!("Failed to load store data: {e}"));
+            }
         });
     }
 
@@ -227,41 +222,14 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
 
 #[derive(Debug, Error)]
 enum StoreLoadError {
-    #[error("Request failed: {0}")]
-    Request(String),
-    #[error("Response was not valid UTF-8")]
-    Utf8,
     #[error("JSON parsing error: {0}")]
     Parse(#[from] serde_json::Error),
 }
 
-/// Load store data from JSON file
-#[allow(clippy::future_not_send)]
-async fn load_store_data() -> Result<Store, StoreLoadError> {
-    let data_url = crate::paths::asset_path("static/assets/data/store.json");
-    let response = dom::fetch_response(&data_url)
-        .await
-        .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?;
-
-    if !response.ok() {
-        return Err(StoreLoadError::Request(format!(
-            "HTTP {status}: {status_text}",
-            status = response.status(),
-            status_text = response.status_text()
-        )));
-    }
-
-    let text_js = JsFuture::from(
-        response
-            .text()
-            .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?,
-    )
-    .await
-    .map_err(|err| StoreLoadError::Request(dom::js_error_message(&err)))?;
-
-    let text = text_js.as_string().ok_or(StoreLoadError::Utf8)?;
-
-    let store: Store = serde_json::from_str(&text)?;
+/// Load store data from embedded JSON.
+fn load_store_data() -> Result<Store, StoreLoadError> {
+    let text = include_str!("../../../static/assets/data/store.json");
+    let store: Store = serde_json::from_str(text)?;
     Ok(store)
 }
 
@@ -535,7 +503,7 @@ fn announce_quantity_change(
         i18n::tr(
             "store.alerts.added",
             Some(&{
-                let mut vars = HashMap::new();
+                let mut vars = BTreeMap::new();
                 vars.insert("item", item_name.as_str());
                 vars.insert("price", price_str.as_str());
                 vars.insert("left", remaining_str.as_str());
@@ -546,7 +514,7 @@ fn announce_quantity_change(
         i18n::tr(
             "store.alerts.removed",
             Some(&{
-                let mut vars = HashMap::new();
+                let mut vars = BTreeMap::new();
                 vars.insert("item", item_name.as_str());
                 vars.insert("left", remaining_str.as_str());
                 vars
@@ -564,7 +532,7 @@ fn announce_cannot_add(item: &StoreItem) {
         i18n::tr(
             "store.alerts.unique",
             Some(&{
-                let mut vars = HashMap::new();
+                let mut vars = BTreeMap::new();
                 vars.insert("item", item_name.as_str());
                 vars
             }),
@@ -573,7 +541,7 @@ fn announce_cannot_add(item: &StoreItem) {
         i18n::tr(
             "store.alerts.max_qty",
             Some(&{
-                let mut vars = HashMap::new();
+                let mut vars = BTreeMap::new();
                 vars.insert("item", item_name.as_str());
                 vars
             }),
@@ -639,50 +607,13 @@ fn handle_checkout(state: &StoreState, props: &OutfittingStoreProps) {
         .emit((new_game_state, total_grants, all_tags));
 }
 
-/// Format currency using Intl API
+/// Format currency (USD) using integer math to avoid float rounding errors.
 fn format_currency(cents: i64) -> String {
-    #[allow(clippy::cast_precision_loss)]
-    let dollars = cents as f64 / 100.0;
-
-    // Use the browser's Intl API for currency formatting
-    let Some(window) = window() else {
-        return format!("${dollars:.2}");
-    };
-    let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) else {
-        return format!("${dollars:.2}");
-    };
-    let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) else {
-        return format!("${dollars:.2}");
-    };
-
-    let locale = "en-US".into();
-    let options = {
-        let options = js_sys::Object::new();
-        // Set currency formatting options, ignore errors for fallback behavior
-        let _ = js_sys::Reflect::set(&options, &"style".into(), &"currency".into());
-        let _ = js_sys::Reflect::set(&options, &"currency".into(), &"USD".into());
-        options
-    };
-    let args = js_sys::Array::of2(&locale, &options.into());
-    let Ok(formatter) = js_sys::Reflect::construct(&number_format.into(), &args) else {
-        return format!("${dollars:.2}");
-    };
-    let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into()) else {
-        return format!("${dollars:.2}");
-    };
-    let Ok(result) = js_sys::Reflect::apply(
-        &format_fn.into(),
-        &formatter,
-        &js_sys::Array::of1(&dollars.into()),
-    ) else {
-        return format!("${dollars:.2}");
-    };
-    if let Some(formatted) = result.as_string() {
-        return formatted;
-    }
-
-    // Fallback formatting
-    format!("${dollars:.2}")
+    let cents_abs = cents.unsigned_abs();
+    let dollars = cents_abs / 100;
+    let remainder = cents_abs % 100;
+    let sign = if cents < 0 { "-" } else { "" };
+    format!("{sign}${dollars}.{remainder:02}")
 }
 
 /// Announce message to screen readers
@@ -701,7 +632,7 @@ fn render_home_screen(
     let title = i18n::tr(
         "store.menu.home",
         Some(&{
-            let mut vars = HashMap::new();
+            let mut vars = BTreeMap::new();
             vars.insert("budget", budget_str.as_str());
             vars
         }),
@@ -950,8 +881,103 @@ fn render_store_item_card(
     }
 }
 
+#[derive(Debug, Clone)]
+struct QuantityOption {
+    idx: u8,
+    label: String,
+    preview: String,
+}
+
+fn build_quantity_options(
+    item: &StoreItem,
+    state: &StoreState,
+    game_state: &GameState,
+    effective_price: i64,
+    current_qty: i32,
+) -> Vec<QuantityOption> {
+    let mut options = Vec::new();
+
+    let can_add_1 = can_add_item(
+        &state.cart,
+        item,
+        1,
+        game_state.budget_cents,
+        state.discount_pct,
+    );
+    options.push(if can_add_1 {
+        let budget_preview = game_state.budget_cents - state.cart.total_cents - effective_price;
+        let preview_str = format!(
+            "[{}{}]",
+            i18n::t("store.budget"),
+            format_currency(budget_preview)
+        );
+        QuantityOption {
+            idx: 1,
+            label: i18n::t("store.qty_prompt.add1"),
+            preview: preview_str,
+        }
+    } else {
+        QuantityOption {
+            idx: 1,
+            label: i18n::t("store.qty_prompt.add1"),
+            preview: String::from("[Max/Budget]"),
+        }
+    });
+
+    if !item.unique {
+        let can_add_5 = can_add_item(
+            &state.cart,
+            item,
+            5,
+            game_state.budget_cents,
+            state.discount_pct,
+        );
+        let add5 = if can_add_5 {
+            let budget_preview =
+                game_state.budget_cents - state.cart.total_cents - (effective_price * 5);
+            let preview_str = format!(
+                "[{}{}]",
+                i18n::t("store.budget"),
+                format_currency(budget_preview)
+            );
+            QuantityOption {
+                idx: 2,
+                label: i18n::t("store.qty_prompt.add5"),
+                preview: preview_str,
+            }
+        } else {
+            QuantityOption {
+                idx: 2,
+                label: i18n::t("store.qty_prompt.add5"),
+                preview: String::from("[Max/Budget]"),
+            }
+        };
+        options.push(add5);
+    }
+
+    if current_qty > 0 {
+        options.push(QuantityOption {
+            idx: 3,
+            label: i18n::t("store.qty_prompt.rem1"),
+            preview: String::new(),
+        });
+        options.push(QuantityOption {
+            idx: 4,
+            label: i18n::t("store.qty_prompt.rem_all"),
+            preview: String::new(),
+        });
+    }
+
+    options.push(QuantityOption {
+        idx: 0,
+        label: i18n::t("store.menu.back"),
+        preview: String::new(),
+    });
+
+    options
+}
+
 /// Render quantity prompt screen
-#[allow(clippy::too_many_lines)]
 fn render_quantity_screen(
     item_id: &str,
     state: &UseStateHandle<StoreState>,
@@ -970,7 +996,7 @@ fn render_quantity_screen(
     let title = i18n::tr(
         "store.qty_prompt.title",
         Some(&{
-            let mut vars = HashMap::new();
+            let mut vars = BTreeMap::new();
             vars.insert("item", item_name.as_str());
             vars.insert("price", price_str.as_str());
             vars
@@ -978,71 +1004,7 @@ fn render_quantity_screen(
     );
 
     let current_qty = state.cart.get_quantity(item_id);
-    let mut options = Vec::new();
-
-    // Add +1 option
-    let can_add_1 = can_add_item(
-        &state.cart,
-        item,
-        1,
-        game_state.budget_cents,
-        state.discount_pct,
-    );
-    if can_add_1 {
-        let budget_preview = game_state.budget_cents - state.cart.total_cents - effective_price;
-        let preview_str = format!(
-            "[{}{}]",
-            i18n::t("store.budget"),
-            format_currency(budget_preview)
-        );
-        options.push((1u8, i18n::t("store.qty_prompt.add1"), preview_str));
-    } else {
-        options.push((
-            1u8,
-            i18n::t("store.qty_prompt.add1"),
-            String::from("[Max/Budget]"),
-        ));
-    }
-
-    // Add +5 option (if not unique)
-    if !item.unique {
-        let can_add_5 = can_add_item(
-            &state.cart,
-            item,
-            5,
-            game_state.budget_cents,
-            state.discount_pct,
-        );
-        if can_add_5 {
-            let budget_preview =
-                game_state.budget_cents - state.cart.total_cents - (effective_price * 5);
-            let preview_str = format!(
-                "[{}{}]",
-                i18n::t("store.budget"),
-                format_currency(budget_preview)
-            );
-            options.push((2u8, i18n::t("store.qty_prompt.add5"), preview_str));
-        } else {
-            options.push((
-                2u8,
-                i18n::t("store.qty_prompt.add5"),
-                String::from("[Max/Budget]"),
-            ));
-        }
-    }
-
-    // Remove -1 option (if we have any)
-    if current_qty > 0 {
-        options.push((3u8, i18n::t("store.qty_prompt.rem1"), String::new()));
-    }
-
-    // Remove all option (if we have any)
-    if current_qty > 0 {
-        options.push((4u8, i18n::t("store.qty_prompt.rem_all"), String::new()));
-    }
-
-    // Back option
-    options.push((0u8, i18n::t("store.menu.back"), String::new()));
+    let options = build_quantity_options(item, state, game_state, effective_price, current_qty);
 
     html! {
         <main class="outfitting-store">
@@ -1054,24 +1016,24 @@ fn render_quantity_screen(
                     html! {}
                 }}
                 <ul role="menu" aria-label={item_name} ref={list_ref}>
-                    { for options.iter().enumerate().map(|(i, (idx, label, preview))| {
-                        let focused = state.focus_idx == *idx;
+                    { for options.iter().enumerate().map(|(i, option)| {
+                        let focused = state.focus_idx == option.idx;
                         let posinset = u8::try_from(i).unwrap_or(0) + 1;
 
                         html!{
                             <li role="menuitem"
                                 tabindex={if focused { "0" } else { "-1" }}
-                                data-key={idx.to_string()}
+                                data-key={option.idx.to_string()}
                                 aria-posinset={posinset.to_string()}
                                 aria-setsize={options.len().to_string()}
                                 class="ot-menuitem">
-                                <span class="num">{ format!("{})", idx) }</span>
+                                <span class="num">{ format!("{})", option.idx) }</span>
                                 <span class="label">
-                                    { label.clone() }
-                                    { if preview.is_empty() {
+                                    { option.label.clone() }
+                                    { if option.preview.is_empty() {
                                         html! {}
                                     } else {
-                                        html! { <span class="preview">{ format!(" {preview}") }</span> }
+                                        html! { <span class="preview">{ format!(" {}", option.preview) }</span> }
                                     }}
                                 </span>
                             </li>
@@ -1099,7 +1061,7 @@ fn render_cart_screen(
     let cart_total_line = i18n::tr(
         "store.cart.total",
         Some(&{
-            let mut vars = HashMap::new();
+            let mut vars = BTreeMap::new();
             vars.insert("sum", total_str.as_str());
             vars.insert("left", remaining_str.as_str());
             vars
@@ -1135,7 +1097,7 @@ fn render_cart_screen(
             let label = i18n::tr(
                 "store.cart.line",
                 Some(&{
-                    let mut vars = HashMap::new();
+                    let mut vars = BTreeMap::new();
                     vars.insert("item", item_name.as_str());
                     vars.insert("qty", qty_str.as_str());
                     vars.insert("line_total", line_total_str.as_str());
