@@ -152,6 +152,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - Routing via `yew_router` with typed routes; 404 page present.
 - Errors: typed errors (`thiserror`), surfaced to the UI with non-blocking toasts/alerts; never panic in user flows.
 - Side effects isolated; add unit tests for pure functions.
+- Inject dependencies (configs, data loaders, RNG, storage/IO) through constructors/parameters; modules must not instantiate their own dependencies so they remain fully testable.
 - No `.unwrap()` or `.expect()` in UI path; use `ok_or_else` + user-safe fallback.
 
 ### 4.4 - Lint Enforcement
@@ -318,3 +319,120 @@ Any failure blocks merge. CI must run on PRs and default branch.
 - PWA manifest + service worker (offline shell).
 - Color scheme toggle (system / light / dark / high-contrast).
 - Telemetry (privacy-respecting, opt-in) for a11y errors in production.
+
+⸻
+
+## 14) File & Module Organization (small, cohesive units)
+
+The goal is that **no single file becomes a grab-bag**. Files must stay **small, cohesive, and named for what they own**. If you’re scrolling forever or adding unrelated types “because they’re nearby,” you’re breaking this rule.
+
+### 14.1 General rules
+
+- **Single responsibility per file**
+
+  - Each `*.rs` file must have **one primary responsibility** along a clear axis:
+    - by layer (`domain`, `app`, `http`, `infra`, `tasks`, `telemetry`, `config`, etc.), or
+    - by feature/vertical (`torrents`, `setup`, `dashboard`, `indexers`), or
+    - by type kind (`requests`, `responses`, `errors`, `extractors`, `rate_limit`, etc.).
+  - If you can’t summarise the file in a single sentence without “and also,” it’s probably doing too much.
+
+- **File size guidance**
+
+  - Target **≤ ~300–400 non-test LOC per file** for production code.
+  - Hitting `clippy::too_many_lines` is treated as a **design smell**, not a lint to be silenced. Fix it by:
+    - extracting helpers into private functions,
+    - moving cohesive logic into a dedicated module, or
+    - splitting the file along a clear responsibility boundary.
+  - Test modules may be larger, but if a single `tests` module starts to sprawl, split into `mod something_tests;` files under `tests/`.
+
+- **Naming must reflect contents**
+  - A file name must clearly describe what it owns. Some canonical patterns:
+    - `api.rs` – API trait / router wiring for a feature or service.
+    - `requests.rs` / `responses.rs` – transport DTOs for HTTP.
+    - `errors.rs` – error enums/types for that module.
+    - `state.rs` – module-local state structs, not global grab-bags.
+    - `auth.rs`, `rate_limit.rs`, `sse.rs`, `health.rs` – behaviorally scoped modules.
+  - If someone can’t guess what’s inside from the filename, rename or split it.
+
+### 14.2 Types-per-file rules (“like-kind” only)
+
+- **Allowed:** multiple types of the same “kind” in a single file when the name reflects that:
+
+  - `responses.rs` may contain all HTTP response shapes for a given area:
+    - `DashboardResponse`, `HealthResponse`, `FullHealthResponse`, etc.
+  - `errors.rs` may hold `ApiError`, `DomainError`, helper structs like `ErrorRateLimitContext`, as long as they are **error-centric and local** to that module.
+  - `rate_limit.rs` may hold `RateLimiter`, `RateLimitStatus`, `RateLimitSnapshot`, `RateLimitError`, plus helpers.
+
+- **Not allowed:** mixing unrelated kinds in one file:
+
+  - Do **not** define API traits, HTTP handlers, router construction, DTOs, auth extractors, rate limiting, OpenAPI persistence, and test harnesses all in a single `lib.rs` or `api.rs`.
+  - Do **not** put domain types, HTTP DTOs, and infra adapters in one file “for convenience.”
+  - If two types **would normally live in different folders** (`domain/`, `http/`, `infra/`, `telemetry/`), they must **not** share a file.
+
+- **Like-kind rule of thumb**
+  - If all types would be described with the same suffix in docs (“…response types”, “…request types”, “…rate limiting primitives”, “…auth extractors”), they can share a file.
+  - If you’d naturally split the sentence (“this file has API traits, response types, and the whole router”), it must be split.
+
+### 14.3 `lib.rs` and `main.rs` constraints
+
+- **`lib.rs`**
+
+  - `lib.rs` is for:
+    - crate docs (`//!`),
+    - `pub mod` declarations,
+    - **light** re-exports, and
+    - very small glue types (simple newtypes, marker traits) that truly represent the crate boundary.
+  - `lib.rs` must **not**:
+    - contain full API implementations,
+    - define large structs with behavior,
+    - host HTTP handlers, routers, or Axum/Tower wiring,
+    - embed rate limiting logic, event streaming, or complex state structs.
+  - Any non-trivial behavior seen in `lib.rs` must be moved to an appropriately named module:
+    - e.g. `http/api_server.rs`, `http/state.rs`, `http/auth.rs`, `http/rate_limit.rs`, `http/sse.rs`, `http/health.rs`, `http/openapi.rs`, etc., with `lib.rs` re-exporting as needed.
+
+- **`main.rs`**
+  - `main.rs` remains a **thin bootstrap only**:
+    - parse config/CLI,
+    - initialize telemetry,
+    - wire concrete implementations,
+    - call a `run()` in `bootstrap.rs` or equivalent.
+  - No business logic, no HTTP handlers, no domain types in `main.rs`.
+
+### 14.4 Module hierarchy & layering
+
+- **Respect crate archetypes (Section 18)** at the directory level and mirror that at the file level:
+
+  - `http/`:
+    - `router.rs` – route wiring.
+    - `handlers/` – one file per feature/vertical (e.g. `torrents.rs`, `setup.rs`, `health.rs`, `dashboard.rs`).
+    - `dto/` – `requests.rs`, `responses.rs`, `errors.rs`.
+    - `auth.rs`, `rate_limit.rs`, `sse.rs`, `middleware.rs` – cross-cutting concerns.
+  - `app/`:
+    - `services/` – orchestration per use-case (`torrents_service.rs`, `setup_service.rs`).
+    - No HTTP or transport types here; operate on domain types.
+  - `domain/`:
+    - `model/` – core types per concept (`torrent.rs`, `config.rs`).
+    - `policy/` – rules/decisions in dedicated files.
+    - `service/` – pure services per domain concern.
+
+- **Tests and support code**
+  - Unit tests local to a module live in the same file in `#[cfg(test)] mod tests { … }`, or in a dedicated `modname_tests.rs` if they get large.
+  - Shared test helpers belong in a test support crate (`dystrail-test-support`) or clearly named `tests/fixtures.rs`, **never** in production modules.
+
+### 14.5 Refactoring triggers (when you MUST split a file)
+
+You **must** split or reorganize a file when any of the following are true:
+
+1. Clippy complains about `too_many_lines` and you’re tempted to silence it.
+2. The file defines:
+   - a long-lived state struct (`ApiState`) **and**
+   - a server wrapper (`ApiServer`) **and**
+   - HTTP handlers **and**
+   - middleware **and/or**
+   - DTOs and helper types.
+3. A reviewer or your future self struggles to find where a given behaviour lives (“where is rate limiting implemented?”, “where is SSE filtered?”).
+4. You find yourself using comments like `// region: X` to mentally group sections — each “region” probably deserves a module.
+
+At each trigger, **split by responsibility** and ensure file names and paths reflect the new structure. Update `lib.rs`/`mod.rs` docs to describe the layout after the change.
+
+_This section is normative. If a file organization choice conflicts with 19.x, reorganize the code to comply rather than weakening lints or adding grab-bag files._
