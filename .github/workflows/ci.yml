@@ -1,0 +1,178 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+          components: clippy, rustfmt
+          targets: wasm32-unknown-unknown
+
+      - name: Cargo fmt (check)
+        run: cargo fmt --all -- --check
+
+      - name: Cargo clippy (pedantic)
+        run: cargo clippy --workspace --all-targets --all-features -- -D warnings -W clippy::pedantic
+
+  tests:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+          components: clippy
+          targets: wasm32-unknown-unknown
+
+      - name: Install wasm-pack
+        run: cargo install wasm-pack --locked
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Cargo test (workspace)
+        run: cargo test --workspace --all-features --locked -- --nocapture
+
+      - name: wasm-bindgen tests (chrome, headless)
+        working-directory: dystrail-web
+        run: wasm-pack test --headless --chrome
+
+  i18n-coverage:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+          components: rustfmt
+
+      - name: Locale coverage tests
+        run: |
+          cargo test -p dystrail-web --test crossing_i18n_tests -- --nocapture
+          cargo test -p dystrail-web i18n_tests -- --nocapture
+
+  security:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+
+      - name: Install audit/deny
+        run: |
+          cargo install cargo-audit --locked
+          cargo install cargo-deny --locked
+
+      - name: cargo audit
+        run: cargo audit --file audit.toml --deny warnings
+
+      - name: cargo deny
+        run: cargo deny check licenses bans advisories sources
+
+  build:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+          targets: wasm32-unknown-unknown
+
+      - name: Install trunk and wasm-pack
+        run: |
+          cargo install trunk --locked
+          cargo install wasm-pack --locked
+
+      - name: Install wasm-opt (binaryen)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binaryen
+
+      - name: Trunk build (release, wasm-opt)
+        working-directory: dystrail-web
+        env:
+          PUBLIC_URL: /play
+        run: trunk build --release --public-url /play/
+
+      - name: Cargo build (workspace release)
+        run: cargo build --workspace --release
+
+  qa:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+
+      - name: Logic QA sweep
+        run: cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
+
+  tests-e2e-a11y:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assert Playwright project exists
+        run: |
+          if [ ! -f "dystrail-web/package.json" ]; then
+            echo "Playwright project missing (dystrail-web/package.json). Add E2E a11y suite to satisfy AGENT.";
+            exit 1;
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: dystrail-web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: dystrail-web
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: dystrail-web
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        working-directory: dystrail-web
+        run: npx playwright test
