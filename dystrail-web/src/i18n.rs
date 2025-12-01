@@ -14,6 +14,15 @@ const LOCALE_TABLE: &[(&str, &str)] = &[
     ("pt", include_str!("../i18n/pt.json")),
     ("ru", include_str!("../i18n/ru.json")),
     ("ja", include_str!("../i18n/ja.json")),
+    ("de", include_str!("../i18n/de.json")),
+    ("id", include_str!("../i18n/id.json")),
+    ("jv", include_str!("../i18n/jv.json")),
+    ("ko", include_str!("../i18n/ko.json")),
+    ("mr", include_str!("../i18n/mr.json")),
+    ("pa", include_str!("../i18n/pa.json")),
+    ("ta", include_str!("../i18n/ta.json")),
+    ("te", include_str!("../i18n/te.json")),
+    ("tr", include_str!("../i18n/tr.json")),
 ];
 
 pub struct I18nBundle {
@@ -152,7 +161,7 @@ pub fn t(key: &str) -> String {
 
 /// Translate a key with variable substitution
 ///
-/// Supports template variable replacement using an ordered map of key-value pairs.
+/// Supports template variable replacement using ordered key-value pairs.
 /// Variables in the translated string use the format {key} or {{key}}.
 #[must_use]
 pub fn tr(key: &str, args: Option<&BTreeMap<&str, &str>>) -> String {

@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "Dystraille"
   },
   "boss": {
     "begin": "Lancer le boss",
     "phases_hint": "Affrontez les phases : clôture, points d’ordre, déluge d’amendements.",
-    "title": "Boss du filibuster"
+    "title": "Boss du filibuster",
+    "reminder": "Le repos se déclenche automatiquement avant le vote.",
+    "stats": {
+      "chance": "Chances de réussite par tour : {chance} %",
+      "pants": "Pantalon par échec : {pants}",
+      "rounds": "{rounds} tours ; ",
+      "sanity": "Santé mentale par échec : {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -91,47 +98,56 @@
     "war_dept_reorg": "Réorg. du Département de la Guerre"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© Dystrail – Tous droits réservés"
   },
   "game": {
     "seed_label": "Graine :"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "Vous continuez seul maintenant."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 Un allié est parti ou a péri."
     },
     "booting": "Démarrage…",
-    "encounter": "Rencontre !",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "Rencontre!",
+      "rest-requested": "L'équipage insiste pour un sort de récupération."
+    },
+    "health_collapse": "Santé épuisée!",
     "pants_emergency": "Urgence nationale du pantalon !",
     "run_begins": "Départ de la partie ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "La santé mentale fracturée !",
     "seed_set": "Graine définie",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "Réapprovisionnement assuré. ",
+      "tick": "La famine fait des ravages.",
+      "backstop": "Vous titubez avec un dernier point de vie."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "Fournitures épuisées !",
     "traveled": "A voyagé",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "Le véhicule est irréparable.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 Dépannage routier d'urgence : -10,00$"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "Le froid mord fort sans équipement approprié.",
+      "heatstroke": "Une chaleur torride a cuit votre course."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "Vous vous regroupez avant la confrontation.",
+        "supplies": "L'équipage brûle des fournitures pour calmer les nerfs avant le vote.",
+        "funds": "Les fonds d’urgence mobilisent le personnel pour l’effort final."
       }
+    },
+    "disease": {
+      "hit": "La maladie frappe l'équipage.",
+      "tick": "Une maladie persistante sape vos forces.",
+      "recover": "La maladie disparaît après un repos durement gagné."
     }
   },
   "menu": {
@@ -226,46 +242,73 @@
   },
   "result": {
     "badges": {
-      "fail": "Fail",
-      "success": "Pass"
+      "fail": "Échouer",
+      "success": "Passer",
+      "mode_deep": "+5% (affichage uniquement)"
     },
     "epilogue": {
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "collapse_breakdown": "Chaque système est surchargé en même temps. ",
+      "collapse_hunger": "Vous avez attendu trop longtemps pour vous réapprovisionner ; ",
+      "collapse_vehicle": "Une panne mécanique a vidé toutes les réserves jusqu'à ce que la course s'effondre.",
+      "collapse_weather": "Les éléments vous ont ralenti, puis vous ont arrêté. ",
+      "exposure": "Coup de chaleur ou engelures, la météo a mis fin à ce que la politique avait commencé.",
+      "generic": "Le voyage se termine inachevé, mais le prochain code de partage pourrait réécrire l’histoire.",
+      "vehicle_failure": "Le fourgon de campagne a finalement abandonné. ",
+      "vehicle_failure_vehicle_destroyed": "Le fourgon de campagne a finalement abandonné. ",
+      "exposure_cold": "Coup de chaleur ou engelures, la météo a mis fin à ce que la politique avait commencé.",
+      "exposure_heat": "Coup de chaleur ou engelures, la météo a mis fin à ce que la politique avait commencé.",
+      "boss_loss": "Vous êtes parvenu au Congrès mais le vote de clôture a échoué.",
+      "collapse": "Vous avez atteint les marches mais pas l'arrivée. ",
+      "pants": "Le chyron a fait le reste. ",
+      "sanity": "Cette absurdité vous a brisé avant le Sénat.",
+      "victory": "Les historiens citeront vos reçus. "
     },
     "exhausted": "ÉPUISÉ",
     "exhausted_desc": "Vous vous effondrez sous la procédure.",
     "headline": {
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "collapse_breakdown": "EFFONDREMENT DE BURNOUT",
+      "collapse_hunger": "L'EFFONDREMENT DE LA FAMILLE",
+      "collapse_vehicle": "Effondrement mécanique",
+      "collapse_weather": "EFFONDREMENT METEO",
+      "exposure": "EXPOSÉ AUX ÉLÉMENTS",
+      "vehicle_failure": "VÉHICULE DÉTRUIT",
+      "vehicle_failure_vehicle_destroyed": "VÉHICULE DÉTRUIT",
+      "exposure_cold": "EXPOSÉ AUX ÉLÉMENTS",
+      "exposure_heat": "EXPOSÉ AUX ÉLÉMENTS",
+      "boss_loss": "FILIBUSTER VOUS A ÉCRASÉ",
+      "collapse": "S'EFFONDRER SUR LES MARCHES",
+      "pants": "PANTALON NATIONAL D'URGENCE",
+      "sanity": "FRACTURE SANITAIRE",
+      "victory": "VOUS AVEZ PASSÉ CLOTURE !"
     },
     "labels": {
-      "breakdowns": "Breakdowns",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
-      "passed_threshold": "Boss Vote Ready",
-      "score_threshold": "Score Threshold",
+      "breakdowns": "Pannes",
+      "malnutrition": "Jours de famine",
+      "miles": "Miles parcourus",
+      "passed_threshold": "Le vote du patron est prêt",
+      "score_threshold": "Seuil de score",
       "travel_days": "Jours de voyage",
       "non_travel_days": "Jours bloqués/camp",
       "avg_mpd": "Moy. miles/jour",
       "unique_encounters": "Rencontres uniques",
       "repairs_spent_cents": "Dépenses réparations (¢)",
-      "bribes_spent_cents": "Dépenses pots-de-vin (¢)"
+      "bribes_spent_cents": "Dépenses pots-de-vin (¢)",
+      "allies": "Alliés",
+      "credibility": "Crédibilité",
+      "days": "Jours",
+      "encounters": "Rencontres",
+      "mode": "Mode de jeu",
+      "pants_pct": "Pantalon",
+      "persona": "Personnage",
+      "receipts": "Recettes",
+      "score": "Points",
+      "seed": "Graine",
+      "stats": "Statistiques",
+      "supplies": "Fournitures",
+      "days_with_camp": "Jours au camp",
+      "days_with_repair": "Jours de réparation",
+      "exposure_streak_heat": "Série de chaleur (jours)",
+      "exposure_streak_cold": "Séquence de froid (jours)"
     },
     "pants_emergency": "URGENCE NATIONALE DU PANTALON",
     "pants_emergency_desc": "La jauge de pantalon a atteint 100 % — échec glorieux.",
@@ -275,7 +318,22 @@
     "survived_filibuster_desc": "Une marche éprouvée mais victorieuse vers DC.",
     "thanks": "Merci d’avoir joué",
     "title": "Résultat",
-    "title_aria": "Résultat"
+    "title_aria": "Résultat",
+    "announce": {
+      "copied": "Copié dans le presse-papiers.",
+      "copy_failed": "La copie a échoué. "
+    },
+    "menu": {
+      "copy_seed": "Copier la graine",
+      "copy_share": "Copier le texte de partage",
+      "export": "Exporter Enregistrer",
+      "new_run": "Nouvelle exécution (graine aléatoire)",
+      "replay_seed": "Rejouez cette graine",
+      "title": "Titre"
+    },
+    "share": {
+      "template": "Dystrail — {headline} · Score {score} · Graine {seed} · Persona {persona} ({mult}) · Mode {mode}"
+    }
   },
   "save": {
     "close": "Fermer",
@@ -300,11 +358,11 @@
     "allies_short": "Alliés",
     "cred_short": "Créd",
     "day_region": "Jour {{day}} — {{region}}",
-    "hp_short": "HP",
-    "mor_short": "Mor",
+    "hp_short": "PV",
+    "mor_short": "Moral",
     "pants": "Pantalon {{pct}}%",
     "pants_label": "Jauge de pantalon",
-    "sanity_short": "San",
+    "sanity_short": "Santé mentale",
     "sup_short": "Rav"
   },
   "store": {
@@ -315,10 +373,10 @@
       "removed": "Retiré {item}. Budget restant {left}.",
       "unique": "{item} est unique; vous en avez déjà un."
     },
-    "budget": "Budget: {amount}",
+    "budget": "Budget : {amount}",
     "cart": {
       "checkout": "Payer",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} x{qty} = {line_total}",
       "title": "Panier",
       "total": "Total: {sum}   Budget restant: {left}"
     },
@@ -355,7 +413,7 @@
       },
       "ponchos": {
         "desc": "Adaptés aux tempêtes.",
-        "name": "Ponchos"
+        "name": "Ponchos imperméables"
       },
       "press_pass": {
         "desc": "Peut agir comme un permis.",

@@ -328,7 +328,9 @@ impl ResultScreen {
     }
 
     fn fallback_copy(text: &str) -> Result<(), String> {
-        let document = dom::document();
+        let Some(document) = dom::document() else {
+            return Err("Document unavailable".to_string());
+        };
         let textarea = document
             .create_element("textarea")
             .map_err(|_| "Failed to create textarea".to_string())?

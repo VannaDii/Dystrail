@@ -278,14 +278,18 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
             let timeout = Closure::once(move || {
                 on_resolved.emit(());
             });
-            if let Err(err) = dom::window().set_timeout_with_callback_and_timeout_and_arguments_0(
-                timeout.as_ref().unchecked_ref(),
-                1000,
-            ) {
-                dom::console_error(&format!(
-                    "Failed to delay crossing transition: {}",
-                    dom::js_error_message(&err)
-                ));
+            if let Some(win) = dom::window() {
+                if let Err(err) = win.set_timeout_with_callback_and_timeout_and_arguments_0(
+                    timeout.as_ref().unchecked_ref(),
+                    1000,
+                ) {
+                    dom::console_error(&format!(
+                        "Failed to delay crossing transition: {}",
+                        dom::js_error_message(&err)
+                    ));
+                }
+            } else {
+                dom::console_error("Failed to delay crossing transition: window unavailable");
             }
             timeout.forget();
         })

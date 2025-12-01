@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "Distrail"
   },
   "boss": {
     "begin": "Patronu Başlat",
     "phases_hint": "Aşamalarla yüzleş: Cloture, Usul Noktaları, Değişiklik Seli.",
-    "title": "Filibuster Patron"
+    "title": "Filibuster Patron",
+    "reminder": "Dinlenme, oylamadan önce otomatik olarak tetiklenir.",
+    "stats": {
+      "chance": "Tur başına başarı şansı: %{chance}",
+      "pants": "Kaçırılan pantolon sayısı: {pants}",
+      "rounds": "{rounds} turlar; ",
+      "sanity": "Iskalama başına akıl sağlığı: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -91,47 +98,56 @@
     "war_dept_reorg": "Savaş Bakanlığı Yeniden Yapılanma"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© Dystrail – Tüm haklar saklıdır"
   },
   "game": {
     "seed_label": "Tohum:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "Artık tek başına devam ediyorsun."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 Bir müttefik gitti veya yok oldu."
     },
     "booting": "Başlatılıyor…",
-    "encounter": "Karşılaşma!",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "Rastlamak!",
+      "rest-requested": "Mürettebat bir kurtarma büyüsü yapılması konusunda ısrar ediyor."
+    },
+    "health_collapse": "Sağlık tükendi!",
     "pants_emergency": "Ulusal Pantolon Acil Durumu!",
     "run_begins": "Oyun başlıyor ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "Akıl sağlığı bozuldu!",
     "seed_set": "Tohum ayarlandı",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "İkmal sağlandı. ",
+      "tick": "Açlık etkisini gösteriyor.",
+      "backstop": "Son bir vuruş puanıyla sendeleyerek yoluna devam edersin."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "Malzemeler tükendi!",
     "traveled": "Seyahat edildi",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "Araç tamir edilemeyecek durumda.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 Acil yol kenarı onarımı: -10,00$"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "Soğuk, uygun ekipman olmadan sert bir şekilde ısırır.",
+      "heatstroke": "Kavurucu sıcak koşunu pişirdi."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "Hesaplaşmadan önce yeniden toplanıyorsunuz.",
+        "supplies": "Mürettebat, oylamadan önce sinirleri yatıştırmak için malzemeleri yakıyor.",
+        "funds": "Acil durum fonları personeli son hamle için bir araya getiriyor."
       }
+    },
+    "disease": {
+      "hit": "Hastalık mürettebatı vurur.",
+      "tick": "Uzun süren hastalık gücünüzü tüketir.",
+      "recover": "Zorlukla kazanılan dinlenmenin ardından hastalık iyileşir."
     }
   },
   "menu": {
@@ -230,58 +246,58 @@
       "copy_failed": "Kopyalama başarısız. Lütfen manuel kopyalayın."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "Hata",
       "mode_deep": "+5% (sadece görünüm)",
-      "success": "Pass"
+      "success": "Geçmek"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "Kongreye gittiniz ama pıhtı oylaması başarısız oldu.",
       "collapse": "Merdivenlere ulaştınız ama bitiş çizgisine değil. Sonraki deneme.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "Her sistem aynı anda aşırı yüklendi. ",
+      "collapse_hunger": "İkmal yapmak için çok uzun süre beklediniz; ",
+      "collapse_vehicle": "Mekanik arıza, koşu çökene kadar tüm rezervleri tüketti.",
+      "collapse_weather": "Elementler sizi yavaşlattı, sonra durdurdu. ",
+      "exposure": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi.",
+      "generic": "Yolculuk tamamlanmadan sona eriyor ancak bir sonraki paylaşım kodu hikayeyi yeniden yazabilir.",
       "pants": "Altyazı gerisini halletti. GIF sonsuza dek kalacak.",
       "sanity": "Senato yapmadan önce saçmalık sizi kırdı.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "Kampanya minibüsü sonunda pes etti. ",
+      "vehicle_failure_vehicle_destroyed": "Kampanya minibüsü sonunda pes etti. ",
       "victory": "Tarihçiler kanıtlarınızı alıntılayacak. Lobiciler adınıza lanet okuyacak.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi.",
+      "exposure_heat": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi."
     },
     "headline": {
       "boss_loss": "FILIBUSTER SİZİ EZDİ",
       "collapse": "MERDİVENLERDE ÇÖKME",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "TÜKENMİŞ ÇÖKÜŞ",
+      "collapse_hunger": "AÇLIK ÇÖKÜŞÜ",
+      "collapse_vehicle": "MEKANİK ÇÖKME",
+      "collapse_weather": "HAVA ÇÖKÜŞÜ",
+      "exposure": "ELEMENTLERE MARUZ KALDI",
       "pants": "ULUSAL PANTOLON ACİL DURUMU",
       "sanity": "AKIL KIRILMASI",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "ARAÇ HASAR OLDU",
+      "vehicle_failure_vehicle_destroyed": "ARAÇ HASAR OLDU",
       "victory": "CLOTURE'U GEÇTİNİZ!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "ELEMENTLERE MARUZ KALDI",
+      "exposure_heat": "ELEMENTLERE MARUZ KALDI"
     },
     "labels": {
       "allies": "Müttefik",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "Arızalar",
       "credibility": "Güvenilirlik",
       "days": "Gün",
       "encounters": "Karşılaşma",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
+      "malnutrition": "Açlık Günleri",
+      "miles": "Kat Edilen Mil",
       "mode": "Mod",
       "pants_pct": "Pantolon",
-      "passed_threshold": "Boss Vote Ready",
-      "persona": "Persona",
+      "passed_threshold": "Patron Oyu Hazır",
+      "persona": "Kişilik",
       "receipts": "Kanıt",
       "score": "Puan",
-      "score_threshold": "Score Threshold",
+      "score_threshold": "Puan Eşiği",
       "seed": "Tohum",
       "stats": "İstatistik",
       "supplies": "Malzeme",
@@ -290,7 +306,11 @@
       "avg_mpd": "Ort. mil/gün",
       "unique_encounters": "Benzersiz karşılaşmalar",
       "repairs_spent_cents": "Tamir harcaması (¢)",
-      "bribes_spent_cents": "Rüşvet harcaması (¢)"
+      "bribes_spent_cents": "Rüşvet harcaması (¢)",
+      "days_with_camp": "Kamptaki Günler",
+      "days_with_repair": "Onarım Günleri",
+      "exposure_streak_heat": "Isı Çizgisi (Günler)",
+      "exposure_streak_cold": "Soğuk Seri (Günler)"
     },
     "menu": {
       "copy_seed": "Tohumu Kopyala",
@@ -330,7 +350,7 @@
     "cred_short": "Güven",
     "day_region": "Gün {{day}} — {{region}}",
     "hp_short": "Can",
-    "mor_short": "Mor",
+    "mor_short": "mor",
     "pants": "Pantolon {{pct}}%",
     "pants_label": "Pantolon Ölçer",
     "sanity_short": "Akıl",
@@ -347,7 +367,7 @@
     "budget": "Bütçe: {amount}",
     "cart": {
       "checkout": "Ödeme",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} x{qty} = {line_total}",
       "title": "Sepet",
       "total": "Toplam: {sum}   Kalan bütçe: {left}"
     },

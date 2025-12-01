@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "ディストレール"
   },
   "boss": {
     "begin": "ボス開始",
     "phases_hint": "フェーズに挑め：クローチャー、秩序の問題、修正案の洪水。",
-    "title": "フィリバスターボス"
+    "title": "フィリバスターボス",
+    "reminder": "投票前に休息が自動的にトリガーされます。",
+    "stats": {
+      "chance": "ラウンドごとの成功確率: {chance}%",
+      "pants": "ミスごとのパンツ: {pants}",
+      "rounds": "{rounds} ラウンド。 ",
+      "sanity": "ミスごとの正気度: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -91,47 +98,56 @@
     "war_dept_reorg": "戦争省再編"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© ディストレール"
   },
   "game": {
     "seed_label": "シード:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "あなたは今も一人で続けています。"
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 味方が去ったか死亡しました。"
     },
     "booting": "起動中…",
-    "encounter": "遭遇！",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "出会い！",
+      "rest-requested": "乗組員は回復呪文を主張する。"
+    },
+    "health_collapse": "体力が減りました！",
     "pants_emergency": "全国パンツ緊急！",
     "run_begins": "ラン開始（{{mode}}）",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "正気が壊れた！",
     "seed_set": "シード設定",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "再供給は確保されています。",
+      "tick": "飢餓が被害をもたらしています。",
+      "backstop": "最後のヒットポイントでよろめきながら進みます。"
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "物資が尽きた！",
     "traveled": "旅した",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "その車両は修理不能です。",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 道路脇の緊急修理: -$10.00"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "適切なギアがないと寒さは厳しくなります。",
+      "heatstroke": "猛烈な暑さがあなたの走りを調理しました。"
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "対決の前に再編成します。",
+        "supplies": "乗組員は投票前に緊張を安定させるために物資を燃やします。",
+        "funds": "最後の一押しに向けて緊急募金スタッフが集結。"
       }
+    },
+    "disease": {
+      "hit": "乗組員たちを病気が襲う。",
+      "tick": "長引く病気は体力を消耗します。",
+      "recover": "苦労して休んだ後、病気は治ります。"
     }
   },
   "menu": {
@@ -226,46 +242,73 @@
   },
   "result": {
     "badges": {
-      "fail": "Fail",
-      "success": "Pass"
+      "fail": "失敗",
+      "success": "合格",
+      "mode_deep": "+5% (表示のみ)"
     },
     "epilogue": {
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "collapse_breakdown": "すべてのシステムが一度に過負荷になりました。",
+      "collapse_hunger": "補給を待つ時間が長すぎました。",
+      "collapse_vehicle": "機械的故障により、走行が崩壊するまですべての予備が枯渇しました。",
+      "collapse_weather": "雨風があなたを遅らせ、そして止めました。",
+      "exposure": "熱中症か凍傷か、政治が始めたものは天気によって終わった。",
+      "generic": "この旅は未完のまま終了しますが、次の共有コードによって物語が書き換えられる可能性があります。",
+      "vehicle_failure": "選挙カーはついに断念した。",
+      "vehicle_failure_vehicle_destroyed": "選挙カーはついに断念した。",
+      "exposure_cold": "熱中症か凍傷か、政治が始めたものは天気によって終わった。",
+      "exposure_heat": "熱中症か凍傷か、政治が始めたものは天気によって終わった。",
+      "boss_loss": "あなたは議会に提出しましたが、クローチャー投票は失敗しました。",
+      "collapse": "ステップまでは到達しましたが、ゴールには達していません。",
+      "pants": "残りはカイロンがやってくれました。 ",
+      "sanity": "上院がそうする前に、その不条理にあなたは心が折れました。",
+      "victory": "歴史家はあなたの領収書を引用するでしょう。"
     },
     "exhausted": "疲弊",
     "exhausted_desc": "手続きに押し潰された。",
     "headline": {
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "collapse_breakdown": "バーンアウトコラプス",
+      "collapse_hunger": "飢餓崩壊",
+      "collapse_vehicle": "機械的崩壊",
+      "collapse_weather": "天気の崩壊",
+      "exposure": "風雨にさらされる",
+      "vehicle_failure": "車両が破壊されました",
+      "vehicle_failure_vehicle_destroyed": "車両が破壊されました",
+      "exposure_cold": "風雨にさらされる",
+      "exposure_heat": "風雨にさらされる",
+      "boss_loss": "議事妨害で君は潰された",
+      "collapse": "階段で倒れる",
+      "pants": "全国的なパンツ緊急事態",
+      "sanity": "正気度の骨折",
+      "victory": "閉塞を通過しました!"
     },
     "labels": {
-      "breakdowns": "Breakdowns",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
-      "passed_threshold": "Boss Vote Ready",
-      "score_threshold": "Score Threshold",
+      "breakdowns": "内訳",
+      "malnutrition": "飢餓の日々",
+      "miles": "走行マイル数",
+      "passed_threshold": "ボスの投票準備完了",
+      "score_threshold": "スコアのしきい値",
       "travel_days": "移動日数",
       "non_travel_days": "停滞日数",
       "avg_mpd": "平均マイル/日",
       "unique_encounters": "ユニークな遭遇",
       "repairs_spent_cents": "修理費(¢)",
-      "bribes_spent_cents": "賄賂費(¢)"
+      "bribes_spent_cents": "賄賂費(¢)",
+      "allies": "同盟国",
+      "credibility": "信頼性",
+      "days": "日数",
+      "encounters": "出会い",
+      "mode": "モード",
+      "pants_pct": "パンツ",
+      "persona": "ペルソナ",
+      "receipts": "領収書",
+      "score": "スコア",
+      "seed": "シード",
+      "stats": "統計",
+      "supplies": "用品",
+      "days_with_camp": "キャンプでの日々",
+      "days_with_repair": "修理日数",
+      "exposure_streak_heat": "ヒートストリーク (日)",
+      "exposure_streak_cold": "コールドストリーク (日)"
     },
     "pants_emergency": "全国パンツ緊急事態",
     "pants_emergency_desc": "パンツメーターが100%—見事に失敗した。",
@@ -275,7 +318,22 @@
     "survived_filibuster_desc": "傷だらけだが勝利してDCへ。",
     "thanks": "プレイしてくれてありがとう",
     "title": "結果",
-    "title_aria": "結果"
+    "title_aria": "結果",
+    "announce": {
+      "copied": "クリップボードにコピーされました。",
+      "copy_failed": "コピーに失敗しました。"
+    },
+    "menu": {
+      "copy_seed": "シードをコピー",
+      "copy_share": "共有テキストをコピー",
+      "export": "エクスポート保存",
+      "new_run": "新しい実行 (ランダム シード)",
+      "replay_seed": "このシードを再生する",
+      "title": "タイトル"
+    },
+    "share": {
+      "template": "ディストレール — {headline} · スコア {score} · シード {seed} · ペルソナ {persona} ({mult}) · モード {mode}"
+    }
   },
   "save": {
     "close": "閉じる",
@@ -300,7 +358,7 @@
     "allies_short": "仲間",
     "cred_short": "信用",
     "day_region": "日 {{day}} — {{region}}",
-    "hp_short": "HP",
+    "hp_short": "体力",
     "mor_short": "士気",
     "pants": "パンツ {{pct}}%",
     "pants_label": "パンツメーター",
@@ -318,7 +376,7 @@
     "budget": "予算: {amount}",
     "cart": {
       "checkout": "決済",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} x{qty} = {line_total}",
       "title": "カート",
       "total": "合計: {sum}   残り予算: {left}"
     },
@@ -399,7 +457,8 @@
     "loading": "読み込み中… {{pct}}%",
     "loading_counters": "イベントを読み込み中…",
     "select_mode": "モードを選択",
-    "skip_to_content": "コンテンツへスキップ"
+    "skip_to_content": "コンテンツへスキップ",
+    "loading_encounters": "出会いを読み込み中…"
   },
   "vehicle": {
     "announce": {

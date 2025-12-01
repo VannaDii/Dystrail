@@ -115,6 +115,21 @@ footer {
   white-space: nowrap;
   border: 0;
 }
+.sr-only:focus,
+.sr-only:active {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 8px 12px;
+  clip: auto;
+  overflow: visible;
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  background: var(--panel);
+  color: var(--text-bright);
+  z-index: 1000;
+}
 
 /* Main container */
 #main {

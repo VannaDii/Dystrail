@@ -176,9 +176,8 @@ pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
         })
     };
 
-    #[allow(clippy::redundant_clone)]
     let on_click = {
-        let on_activate = on_activate.clone();
+        let on_activate = on_activate;
         Callback::from(move |idx: u8| {
             on_activate.emit(idx);
         })

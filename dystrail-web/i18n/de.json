@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "Dystrail – Überlebensreise"
   },
   "boss": {
     "begin": "Boss beginnen",
     "phases_hint": "Stelle dich den Phasen: Cloture, Geschäftsordnungsanträge, Änderungsflut.",
-    "title": "Filibuster-Boss"
+    "title": "Filibuster-Boss",
+    "reminder": "Die Pause wird automatisch vor der Abstimmung ausgelöst.",
+    "stats": {
+      "chance": "Erfolgschance pro Runde: {chance} %",
+      "pants": "Hosen pro Fehlschuss: {pants}",
+      "rounds": "{rounds} Runden; ",
+      "sanity": "Vernunft pro Fehlschlag: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -84,54 +91,63 @@
     "deportation_sweep": "Abschiebungswelle",
     "doe_eliminated": "Bildungsministerium abgeschafft",
     "gas_stove_police": "Gasherd-Polizei",
-    "prefix": "EO:",
+    "prefix": "VO:",
     "shutdown": "Regierungsschließung",
     "tariff_tsunami": "Zoll-Tsunami",
     "travel_ban_lite": "Reiseverbot Light",
     "war_dept_reorg": "Kriegsministerium-Umstrukturierung"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© Dystrail – Alle Rechte vorbehalten"
   },
   "game": {
-    "seed_label": "Seed:"
+    "seed_label": "Samen:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "Du machst jetzt alleine weiter."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 Ein Verbündeter ist gegangen oder umgekommen."
     },
     "booting": "Startet…",
-    "encounter": "Begegnung!",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "Begegnen!",
+      "rest-requested": "Die Besatzung besteht auf einem Wiederherstellungszauber."
+    },
+    "health_collapse": "Gesundheit erschöpft!",
     "pants_emergency": "Nationaler Hosen-Notstand!",
     "run_begins": "Lauf beginnt ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "Der Verstand ist gebrochen!",
     "seed_set": "Seed gesetzt",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "Nachschub gesichert. ",
+      "tick": "Der Hunger fordert seinen Tribut.",
+      "backstop": "Du taumelst mit einem letzten Trefferpunkt weiter."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "Vorräte erschöpft!",
     "traveled": "Gereist",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "Das Fahrzeug ist nicht mehr zu reparieren.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 Notreparatur am Straßenrand: -10,00 $"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "Ohne die richtige Ausrüstung ist eine Erkältung hart.",
+      "heatstroke": "Die glühende Hitze hat deinen Lauf zum Kochen gebracht."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "Sie gruppieren sich vor dem Showdown neu.",
+        "supplies": "Die Besatzung verbrennt vor der Abstimmung Vorräte, um die Nerven zu beruhigen.",
+        "funds": "Notfallfonds sammeln Mitarbeiter für den letzten Vorstoß."
       }
+    },
+    "disease": {
+      "hit": "Die Besatzung wird von einer Krankheit heimgesucht.",
+      "tick": "Eine anhaltende Krankheit zehrt an den Kräften.",
+      "recover": "Die Krankheit verschwindet nach der hart verdienten Ruhepause."
     }
   },
   "menu": {
@@ -144,7 +160,7 @@
     "selected": "Ausgewählt",
     "settings": "Einstellungen",
     "share": "Seed speichern/teilen",
-    "status": "Status",
+    "status": "Statusübersicht",
     "title": "Hauptmenü",
     "travel": "Reisen"
   },
@@ -185,11 +201,11 @@
     "choose": "Wählen Sie Ihre Persona:",
     "journalist": {
       "desc": "Glaubwürdig und einfallsreich; gedeiht bei Belegen.",
-      "name": "Journalist"
+      "name": "Journalist:in"
     },
     "lobbyist": {
       "desc": "Verbindungen reduzieren Kosten.",
-      "name": "Lobbyist"
+      "name": "Lobbyist:in"
     },
     "mods": {
       "bribe_discount_pct": "-{pct}% Bestechung",
@@ -216,11 +232,11 @@
     },
     "whistleblower": {
       "desc": "Zieht Aufmerksamkeit; findet mehr Belege.",
-      "name": "Whistleblower"
+      "name": "Hinweisgeber:in"
     }
   },
   "region": {
-    "beltway": "Beltway",
+    "beltway": "Umgehungsstraße",
     "heartland": "Kernland",
     "rustbelt": "Rostgürtel"
   },
@@ -230,67 +246,71 @@
       "copy_failed": "Kopieren fehlgeschlagen. Bitte manuell kopieren."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "Scheitern",
       "mode_deep": "+5% (nur Anzeige)",
-      "success": "Pass"
+      "success": "Passieren"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "Sie haben es in den Kongress geschafft, aber die Cloture-Abstimmung ist gescheitert.",
       "collapse": "Sie erreichten die Stufen, aber nicht das Ziel. Nächster Versuch.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "Jedes System war auf einmal überlastet. ",
+      "collapse_hunger": "Sie haben zu lange mit der Nachlieferung gewartet; ",
+      "collapse_vehicle": "Ein mechanischer Defekt erschöpfte alle Reserven, bis der Lauf zusammenbrach.",
+      "collapse_weather": "Die Elemente verlangsamten dich, stoppten dich dann. ",
+      "exposure": "Ob Hitzschlag oder Erfrierung, das Wetter beendete, was die Politik begann.",
+      "generic": "Die Reise endet unvollendet, aber der nächste Share-Code könnte die Geschichte neu schreiben.",
       "pants": "Die Schlagzeile tat den Rest. Das GIF ist für immer.",
       "sanity": "Die Absurdität brach Sie, bevor der Senat es tat.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "Der Wahlkampfwagen gab schließlich auf. ",
+      "vehicle_failure_vehicle_destroyed": "Der Wahlkampfwagen gab schließlich auf. ",
       "victory": "Historiker werden Ihre Belege zitieren. Lobbyisten verfluchen Ihren Namen.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "Ob Hitzschlag oder Erfrierung, das Wetter beendete, was die Politik begann.",
+      "exposure_heat": "Ob Hitzschlag oder Erfrierung, das Wetter beendete, was die Politik begann."
     },
     "headline": {
       "boss_loss": "FILIBUSTER HAT SIE ZERQUETSCHT",
       "collapse": "ZUSAMMENBRUCH AUF DEN STUFEN",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "BURNOUT-KOLLAPS",
+      "collapse_hunger": "Hungerkollaps",
+      "collapse_vehicle": "MECHANISCHER ZUSAMMENBRUCH",
+      "collapse_weather": "WETTERKOLLAP",
+      "exposure": "Den Elementen ausgesetzt",
       "pants": "NATIONALER HOSEN-NOTSTAND",
       "sanity": "VERNUNFT-BRUCH",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "FAHRZEUG ZERSTÖRT",
+      "vehicle_failure_vehicle_destroyed": "FAHRZEUG ZERSTÖRT",
       "victory": "SIE HABEN CLOTURE BESTANDEN!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "Den Elementen ausgesetzt",
+      "exposure_heat": "Den Elementen ausgesetzt"
     },
     "labels": {
       "allies": "Verbündete",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "Pannen",
       "credibility": "Glaubwürdigkeit",
       "days": "Tage",
       "encounters": "Begegnungen",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
+      "malnutrition": "Hungertage",
+      "miles": "Meilen zurückgelegt",
       "mode": "Modus",
       "pants_pct": "Hosen",
-      "passed_threshold": "Boss Vote Ready",
-      "persona": "Persona",
+      "passed_threshold": "Boss-Abstimmung bereit",
+      "persona": "Charakter",
       "receipts": "Belege",
       "score": "Punkte",
-      "score_threshold": "Score Threshold",
-      "seed": "Seed",
-      "stats": "Stats",
+      "score_threshold": "Punkteschwelle",
+      "seed": "Samen",
+      "stats": "Statistiken",
       "supplies": "Vorräte",
       "travel_days": "Reisetage",
       "non_travel_days": "Camp-/Blocktage",
       "avg_mpd": "Ø Meilen/Reisetag",
       "unique_encounters": "Einzigartige Begegnungen",
       "repairs_spent_cents": "Reparaturkosten (¢)",
-      "bribes_spent_cents": "Bestechungsausgaben (¢)"
+      "bribes_spent_cents": "Bestechungsausgaben (¢)",
+      "days_with_camp": "Tage im Camp",
+      "days_with_repair": "Tage für Reparaturen",
+      "exposure_streak_heat": "Hitzewelle (Tage)",
+      "exposure_streak_cold": "Kältewelle (Tage)"
     },
     "menu": {
       "copy_seed": "Seed kopieren",
@@ -330,7 +350,7 @@
     "cred_short": "Glaub",
     "day_region": "Tag {{day}} — {{region}}",
     "hp_short": "LP",
-    "mor_short": "Mor",
+    "mor_short": "Moral",
     "pants": "Hosen {{pct}}%",
     "pants_label": "Hosen-Meter",
     "sanity_short": "Ver",
@@ -344,10 +364,10 @@
       "removed": "{item} entfernt. Budget übrig {left}.",
       "unique": "{item} ist einzigartig; Sie haben bereits eins."
     },
-    "budget": "Budget: {amount}",
+    "budget": "Budget – {amount}",
     "cart": {
       "checkout": "Zur Kasse",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} x{qty} = {line_total}",
       "title": "Warenkorb",
       "total": "Gesamt: {sum}   Budget übrig: {left}"
     },
@@ -384,7 +404,7 @@
       },
       "ponchos": {
         "desc": "Sturmfreundlich.",
-        "name": "Ponchos"
+        "name": "Ponchos (Regen)"
       },
       "press_pass": {
         "desc": "Kann als Genehmigung fungieren.",

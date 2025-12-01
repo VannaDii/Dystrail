@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "Distrail"
   },
   "boss": {
     "begin": "Mulai Boss",
     "phases_hint": "Hadapi fase: Cloture, Keberatan Prosedur, Banjir Amandemen.",
-    "title": "Boss Filibuster"
+    "title": "Boss Filibuster",
+    "reminder": "Istirahat terpicu secara otomatis sebelum pemungutan suara.",
+    "stats": {
+      "chance": "Peluang sukses per putaran: {chance}%",
+      "pants": "Celana per rindu: {pants}",
+      "rounds": "putaran {rounds}; ",
+      "sanity": "Kewarasan per kesalahan: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -33,7 +40,7 @@
       "use_spare": "Gunakan Suku Cadang"
     },
     "parts": {
-      "alt": "Alternator",
+      "alt": "alternator",
       "battery": "Baterai",
       "pump": "Pompa Bahan Bakar",
       "tire": "Ban"
@@ -84,54 +91,63 @@
     "deportation_sweep": "Gelombang Deportasi",
     "doe_eliminated": "Kemendikbud Dihapus",
     "gas_stove_police": "Polisi Kompor Gas",
-    "prefix": "EO:",
+    "prefix": "KE:",
     "shutdown": "Penutupan Pemerintah",
     "tariff_tsunami": "Tsunami Tarif",
     "travel_ban_lite": "Larangan Perjalanan Lite",
     "war_dept_reorg": "Reorganisasi Kemhan"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© Distrail"
   },
   "game": {
-    "seed_label": "Seed:"
+    "seed_label": "Benih:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "Anda melanjutkan sendirian sekarang."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 Seorang sekutu telah pergi atau binasa."
     },
-    "booting": "Booting…",
-    "encounter": "Pertemuan!",
-    "health_collapse": "Health depleted!",
+    "booting": "Mem-boot…",
+    "encounter": {
+      "_": "Bertemu!",
+      "rest-requested": "Kru bersikeras menggunakan mantra pemulihan."
+    },
+    "health_collapse": "Kesehatan habis!",
     "pants_emergency": "Darurat Celana Nasional!",
     "run_begins": "Permainan dimulai ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "Kewarasan retak!",
     "seed_set": "Seed diatur",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "Pasokan ulang diamankan. ",
+      "tick": "Kelaparan mulai berdampak buruk.",
+      "backstop": "Anda terhuyung-huyung dengan satu titik pukulan terakhir."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "Persediaan habis!",
     "traveled": "Bepergian",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "Kendaraan tidak dapat diperbaiki lagi.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 Perbaikan darurat di pinggir jalan: -$10.00"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "Gigitan dingin terasa keras tanpa perlengkapan yang tepat.",
+      "heatstroke": "Panas terik memasak lari Anda."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "Anda berkumpul kembali sebelum pertarungan.",
+        "supplies": "Para kru membakar perbekalan untuk menenangkan diri sebelum pemungutan suara.",
+        "funds": "Dana darurat mengumpulkan staf untuk upaya terakhir."
       }
+    },
+    "disease": {
+      "hit": "Penyakit menyerang kru.",
+      "tick": "Penyakit yang berkepanjangan melemahkan kekuatan Anda.",
+      "recover": "Penyakit hilang setelah istirahat yang diperoleh dengan susah payah."
     }
   },
   "menu": {
@@ -144,7 +160,7 @@
     "selected": "Dipilih",
     "settings": "Pengaturan",
     "share": "Simpan/Bagikan Seed",
-    "status": "Status",
+    "status": "Keadaan",
     "title": "Menu Utama",
     "travel": "Perjalanan"
   },
@@ -164,7 +180,7 @@
     },
     "menu": {
       "back": "Kembali",
-      "diet_doom": "Diet:  Doomscroll",
+      "diet_doom": "Diet: Gulir Kiamat",
       "diet_mixed": "Diet: [Campuran]",
       "diet_quiet": "Diet:  Tenang",
       "pace_blitz": "Kecepatan:  Kilat",
@@ -216,11 +232,11 @@
     },
     "whistleblower": {
       "desc": "Menarik perhatian; menemukan lebih banyak bukti.",
-      "name": "Whistleblower"
+      "name": "Pelapor"
     }
   },
   "region": {
-    "beltway": "Beltway",
+    "beltway": "jalur sabuk",
     "heartland": "Jantung Negeri",
     "rustbelt": "Sabuk Karat"
   },
@@ -230,59 +246,59 @@
       "copy_failed": "Gagal menyalin. Silakan salin manual."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "Gagal",
       "mode_deep": "+5% (tampilan saja)",
-      "success": "Pass"
+      "success": "Lulus"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "Anda berhasil mencapai Kongres tetapi pemungutan suara gagal.",
       "collapse": "Anda mencapai tangga tapi bukan garis finish. Coba lagi.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "Setiap sistem kelebihan beban sekaligus. ",
+      "collapse_hunger": "Anda menunggu terlalu lama untuk memasok; ",
+      "collapse_vehicle": "Kegagalan mekanis menguras setiap cadangan hingga proses tersebut runtuh.",
+      "collapse_weather": "Unsur-unsur tersebut memperlambat Anda, lalu menghentikan Anda. ",
+      "exposure": "Serangan panas atau radang dingin, cuaca mengakhiri awal mula politik.",
+      "generic": "Perjalanannya berakhir belum selesai, namun kode share selanjutnya bisa saja menulis ulang ceritanya.",
       "pants": "Chyron melakukan sisanya. GIF itu selamanya.",
       "sanity": "Absurditas menghancurkan Anda sebelum Senat melakukannya.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "Mobil van kampanye akhirnya menyerah. ",
+      "vehicle_failure_vehicle_destroyed": "Mobil van kampanye akhirnya menyerah. ",
       "victory": "Sejarawan akan mengutip bukti Anda. Pelobi mengutuk nama Anda.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "Serangan panas atau radang dingin, cuaca mengakhiri awal mula politik.",
+      "exposure_heat": "Serangan panas atau radang dingin, cuaca mengakhiri awal mula politik."
     },
     "headline": {
       "boss_loss": "FILIBUSTER MENGHANCURKAN ANDA",
       "collapse": "JATUH DI TANGGA",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "KERUGIAN BURNOUT",
+      "collapse_hunger": "KEJADIAN KELAPARAN",
+      "collapse_vehicle": "KERUGIAN MEKANIK",
+      "collapse_weather": "KERUSAKAN CUACA",
+      "exposure": "TERKENA PADA ELEMEN",
       "pants": "DARURAT CELANA NASIONAL",
       "sanity": "KERETAKAN KEWARASAN",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "KENDARAAN DIHANCURKAN",
+      "vehicle_failure_vehicle_destroyed": "KENDARAAN DIHANCURKAN",
       "victory": "ANDA LOLOS CLOTURE!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "TERKENA PADA ELEMEN",
+      "exposure_heat": "TERKENA PADA ELEMEN"
     },
     "labels": {
       "allies": "Sekutu",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "Kerusakan",
       "credibility": "Kredibilitas",
       "days": "Hari",
       "encounters": "Pertemuan",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
-      "mode": "Mode",
+      "malnutrition": "Hari Kelaparan",
+      "miles": "Bermil-mil Perjalanan",
+      "mode": "Mode permainan",
       "pants_pct": "Celana",
-      "passed_threshold": "Boss Vote Ready",
-      "persona": "Persona",
+      "passed_threshold": "Bos Pilih Siap",
+      "persona": "kepribadian",
       "receipts": "Bukti",
       "score": "Skor",
-      "score_threshold": "Score Threshold",
-      "seed": "Seed",
+      "score_threshold": "Ambang Skor",
+      "seed": "Benih",
       "stats": "Statistik",
       "supplies": "Persediaan",
       "travel_days": "Hari perjalanan",
@@ -290,7 +306,11 @@
       "avg_mpd": "Rata mil/hari",
       "unique_encounters": "Pertemuan unik",
       "repairs_spent_cents": "Biaya perbaikan (¢)",
-      "bribes_spent_cents": "Biaya suap (¢)"
+      "bribes_spent_cents": "Biaya suap (¢)",
+      "days_with_camp": "Hari-hari di Perkemahan",
+      "days_with_repair": "Hari-hari Perbaikan",
+      "exposure_streak_heat": "Garis Panas (Hari)",
+      "exposure_streak_cold": "Garis Dingin (Hari)"
     },
     "menu": {
       "copy_seed": "Salin Seed",
@@ -329,8 +349,8 @@
     "allies_short": "Sekutu",
     "cred_short": "Kredib",
     "day_region": "Hari {{day}} — {{region}}",
-    "hp_short": "HP",
-    "mor_short": "Mor",
+    "hp_short": "Nyawa",
+    "mor_short": "Moral",
     "pants": "Celana {{pct}}%",
     "pants_label": "Meter Celana",
     "sanity_short": "Waras",
@@ -344,10 +364,10 @@
       "removed": "Dihapus {item}. Budget tersisa {left}.",
       "unique": "{item} unik; Anda sudah memiliki satu."
     },
-    "budget": "Budget: {amount}",
+    "budget": "Anggaran: {amount}",
     "cart": {
-      "checkout": "Checkout",
-      "line": "{item}  x{qty}  = {line_total}",
+      "checkout": "Check-out",
+      "line": "{item} x{qty} = {line_total}",
       "title": "Keranjang",
       "total": "Total: {sum}   Budget tersisa: {left}"
     },
@@ -360,7 +380,7 @@
     "items": {
       "alternator": {
         "desc": "Muatan dipulihkan.",
-        "name": "Alternator"
+        "name": "alternator"
       },
       "battery": {
         "desc": "Start dingin.",
@@ -444,7 +464,7 @@
     "help": "Gunakan tombol angka 1-5 atau 0 untuk kembali",
     "no_active": "Tidak ada kerusakan aktif.",
     "parts": {
-      "alt": "Alternator",
+      "alt": "alternator",
       "battery": "Baterai",
       "pump": "Pompa Bahan Bakar",
       "tire": "Ban"

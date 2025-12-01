@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "난황"
   },
   "boss": {
     "begin": "보스 시작",
     "phases_hint": "단계를 맞서라: 클로처, 의사진행발언, 수정안 홍수.",
-    "title": "필리버스터 보스"
+    "title": "필리버스터 보스",
+    "reminder": "휴식은 투표 전에 자동으로 실행됩니다.",
+    "stats": {
+      "chance": "라운드당 성공 확률: {chance}%",
+      "pants": "실수당 바지: {pants}",
+      "rounds": "{rounds} 라운드; ",
+      "sanity": "놓칠 때의 정신력: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -84,54 +91,63 @@
     "deportation_sweep": "추방 소탕",
     "doe_eliminated": "교육부 폐지",
     "gas_stove_police": "가스레인지 경찰",
-    "prefix": "EO:",
+    "prefix": "행정명령:",
     "shutdown": "정부 셧다운",
     "tariff_tsunami": "관세 쓰나미",
     "travel_ban_lite": "여행금지 라이트",
     "war_dept_reorg": "국방부 개편"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© 디스트레일"
   },
   "game": {
     "seed_label": "시드:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "당신은 지금 혼자 계속합니다."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 동맹이 떠났거나 사망했습니다."
     },
     "booting": "부팅 중…",
-    "encounter": "이벤트!",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "맞닥뜨리다!",
+      "rest-requested": "승무원은 회복 주문을 주장합니다."
+    },
+    "health_collapse": "체력이 고갈되었습니다!",
     "pants_emergency": "국가 바지 비상사태!",
     "run_begins": "플레이 시작 ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "정신이 무너졌습니다!",
     "seed_set": "시드 설정됨",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "재공급이 확보되었습니다. ",
+      "tick": "기아가 큰 타격을 주고 있습니다.",
+      "backstop": "당신은 마지막 적중점을 가지고 비틀거리며 나아갑니다."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "소모품이 소진되었습니다!",
     "traveled": "여행함",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "차량은 수리할 수 없는 상태입니다.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 긴급 길가 수리: -$10.00"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "적절한 장비 없이는 감기에 걸리기 쉽습니다.",
+      "heatstroke": "맹렬한 열기가 당신의 달리기를 요리했습니다."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "대결 전에 재집결하세요.",
+        "supplies": "승무원은 투표 전에 안정적인 신경을 사용하여 보급품을 태워줍니다.",
+        "funds": "최종 추진을 위한 긴급 자금 집결 직원."
       }
+    },
+    "disease": {
+      "hit": "질병이 승무원을 덮칩니다.",
+      "tick": "질병이 지속되면 힘이 약해집니다.",
+      "recover": "힘들게 휴식을 취하면 질병이 사라집니다."
     }
   },
   "menu": {
@@ -230,58 +246,58 @@
       "copy_failed": "복사 실패. 수동으로 복사해주세요."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "실패하다",
       "mode_deep": "+5% (표시만)",
-      "success": "Pass"
+      "success": "통과하다"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "당신은 의회에 진출했지만 클로처 투표는 실패했습니다.",
       "collapse": "계단에 도달했지만 피니시라인에는 도달하지 못했습니다. 다음 시도.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "모든 시스템이 한꺼번에 과부하됩니다. ",
+      "collapse_hunger": "재보급을 너무 오래 기다렸습니다. ",
+      "collapse_vehicle": "기계적 고장으로 인해 실행이 무너질 때까지 모든 예비량이 소진되었습니다.",
+      "collapse_weather": "그 요소들은 당신을 느리게 했다가 멈추게 했습니다. ",
+      "exposure": "열사병이나 동상, 정치가 시작된 것을 날씨가 끝냈습니다.",
+      "generic": "여행은 끝나지 않은 채로 끝나지만 다음 공유 코드가 이야기를 다시 쓸 수 있습니다.",
       "pants": "자막이 나머지를 해냈습니다. GIF는 영원합니다.",
       "sanity": "상원이 하기 전에 부조리가 당신을 무너뜨렸습니다.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "캠페인 밴은 마침내 포기했습니다. ",
+      "vehicle_failure_vehicle_destroyed": "캠페인 밴은 마침내 포기했습니다. ",
       "victory": "역사가들이 당신의 증거를 인용할 것입니다. 로비스트들이 당신의 이름을 저주합니다.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "열사병이나 동상, 정치가 시작된 것을 날씨가 끝냈습니다.",
+      "exposure_heat": "열사병이나 동상, 정치가 시작된 것을 날씨가 끝냈습니다."
     },
     "headline": {
       "boss_loss": "필리버스터에게 패배했습니다",
       "collapse": "계단에서 쓰러짐",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "번아웃 붕괴",
+      "collapse_hunger": "기아 붕괴",
+      "collapse_vehicle": "기계적 붕괴",
+      "collapse_weather": "날씨 붕괴",
+      "exposure": "요소에 노출됨",
       "pants": "국가 바지 비상사태",
       "sanity": "정신력 파괴",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "차량 파괴",
+      "vehicle_failure_vehicle_destroyed": "차량 파괴",
       "victory": "클로처를 통과했습니다!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "요소에 노출됨",
+      "exposure_heat": "요소에 노출됨"
     },
     "labels": {
       "allies": "동맹",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "고장",
       "credibility": "신뢰도",
       "days": "일수",
       "encounters": "이벤트",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
+      "malnutrition": "기아 일",
+      "miles": "여행한 마일",
       "mode": "모드",
       "pants_pct": "바지",
-      "passed_threshold": "Boss Vote Ready",
+      "passed_threshold": "보스 투표 준비",
       "persona": "페르소나",
       "receipts": "증거",
       "score": "점수",
-      "score_threshold": "Score Threshold",
+      "score_threshold": "점수 임계값",
       "seed": "시드",
       "stats": "통계",
       "supplies": "보급품",
@@ -290,7 +306,11 @@
       "avg_mpd": "평균 거리/일",
       "unique_encounters": "고유 사건",
       "repairs_spent_cents": "수리 지출(¢)",
-      "bribes_spent_cents": "뇌물 지출(¢)"
+      "bribes_spent_cents": "뇌물 지출(¢)",
+      "days_with_camp": "캠프에서의 일",
+      "days_with_repair": "수리 일수",
+      "exposure_streak_heat": "열사병(일)",
+      "exposure_streak_cold": "연속 콜드(일)"
     },
     "menu": {
       "copy_seed": "시드 복사",
@@ -347,7 +367,7 @@
     "budget": "예산: {amount}",
     "cart": {
       "checkout": "결제",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} x{qty} = {line_total}",
       "title": "장바구니",
       "total": "총합: {sum}   남은 예산: {left}"
     },

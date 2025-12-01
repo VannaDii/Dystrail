@@ -2,24 +2,16 @@ use wasm_bindgen::JsCast;
 use wasm_bindgen::prelude::*;
 use web_sys::{Document, Storage, Window};
 
-/// Retrieve the global `window` object.
-///
-/// # Panics
-/// Panics if executed outside of a browser context where `window` is unavailable.
+/// Retrieve the global `window` object, if available.
 #[must_use]
-pub fn window() -> Window {
-    web_sys::window().expect("`window` should be available in web context")
+pub fn window() -> Option<Window> {
+    web_sys::window()
 }
 
-/// Retrieve the document object for DOM interactions.
-///
-/// # Panics
-/// Panics when the document cannot be accessed from the current browser window.
+/// Retrieve the document object for DOM interactions, if available.
 #[must_use]
-pub fn document() -> Document {
-    window()
-        .document()
-        .expect("`document` should exist in browser context")
+pub fn document() -> Option<Document> {
+    window().and_then(|win| win.document())
 }
 
 /// Convert a JavaScript value into a readable string for error reporting.
@@ -46,6 +38,7 @@ pub fn console_error(message: &str) {
 /// Returns an error if the browser window cannot be accessed or `localStorage` is unavailable.
 pub fn local_storage() -> Result<Storage, JsValue> {
     window()
+        .ok_or_else(|| JsValue::from_str("window unavailable"))?
         .local_storage()?
         .ok_or_else(|| JsValue::from_str("localStorage unavailable"))
 }

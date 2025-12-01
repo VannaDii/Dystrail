@@ -34,7 +34,7 @@ anyhow = { workspace = true }
 once_cell = { workspace = true }
 
 [features]
-default = ["console_error_panic_hook"]
+default = []
 
 [dev-dependencies]
 wasm-bindgen-test = { workspace = true }

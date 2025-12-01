@@ -42,16 +42,25 @@ pub fn header(p: &Props) -> Html {
                     <label for="lang-select" class="sr-only">{ t("nav.language") }</label>
                     <select id="lang-select" onchange={on_change} value={p.current_lang.clone()} aria-label={t("nav.language")}>
                         <option value="en">{"English"}</option>
+                        <option value="es">{"Español"}</option>
+                        <option value="it">{"Italiano"}</option>
+                        <option value="ar">{"العربية"}</option>
                         <option value="zh">{"中文"}</option>
                         <option value="hi">{"हिन्दी"}</option>
-                        <option value="es">{"Español"}</option>
-                        <option value="fr">{"Français"}</option>
-                        <option value="ar">{"العربية"}</option>
                         <option value="bn">{"বাংলা"}</option>
+                        <option value="de">{"Deutsch"}</option>
+                        <option value="fr">{"Français"}</option>
+                        <option value="id">{"Bahasa Indonesia"}</option>
+                        <option value="ja">{"日本語"}</option>
+                        <option value="jv">{"Basa Jawa"}</option>
+                        <option value="ko">{"한국어"}</option>
+                        <option value="mr">{"मराठी"}</option>
+                        <option value="pa">{"ਪੰਜਾਬੀ"}</option>
                         <option value="pt">{"Português"}</option>
                         <option value="ru">{"Русский"}</option>
-                        <option value="ja">{"日本語"}</option>
-                        <option value="it">{"Italiano"}</option>
+                        <option value="ta">{"தமிழ்"}</option>
+                        <option value="te">{"తెలుగు"}</option>
+                        <option value="tr">{"Türkçe"}</option>
                     </select>
                 </nav>
                 <div class="header-right">

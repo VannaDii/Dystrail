@@ -5,7 +5,14 @@
   "boss": {
     "begin": "ابدأ المواجهة",
     "phases_hint": "واجه المراحل: الإغلاق، نقاط النظام، سيل التعديلات.",
-    "title": "الزعيم المعرقل"
+    "title": "الزعيم المعرقل",
+    "reminder": "يتم تفعيل الراحة تلقائيًا قبل التصويت.",
+    "stats": {
+      "chance": "فرصة النجاح لكل جولة: {chance}%",
+      "pants": "السراويل لكل ملكة جمال: {pants}",
+      "rounds": "{rounds} جولات؛ ",
+      "sanity": "التعقل لكل ملكة جمال: {sanity}"
+    }
   },
   "camp": {
     "announce": {
@@ -98,40 +105,49 @@
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "أنت تستمر بمفردك الآن."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀رحل حليف أو هلك."
     },
     "booting": "يجري الإقلاع…",
-    "encounter": "حدث!",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "يقابل!",
+      "rest-requested": "يصر الطاقم على تعويذة التعافي."
+    },
+    "health_collapse": "الصحة استنفدت!",
     "pants_emergency": "حالة طوارئ وطنية للسراويل!",
     "run_begins": "بدأت الجولة ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "العقلانية مكسورة!",
     "seed_set": "تم تعيين البذرة",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "إعادة الإمداد مضمونة. ",
+      "tick": "المجاعة تأخذ أثرها.",
+      "backstop": "أنت تترنح بنقطة إصابة أخيرة."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "استنفدت الإمدادات!",
     "traveled": "سافرت",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "السيارة غير قابلة للإصلاح.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 إصلاح الطوارئ على جانب الطريق: -10.00 دولارًا"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "لدغات باردة صعبة بدون معدات مناسبة.",
+      "heatstroke": "الحرارة الشديدة طبخت جريتك."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "يمكنك إعادة تجميع صفوفك قبل المواجهة.",
+        "supplies": "الطاقم يحرق الإمدادات لأعصاب ثابتة قبل التصويت.",
+        "funds": "أموال الطوارئ تجمع الموظفين للدفعة النهائية."
       }
+    },
+    "disease": {
+      "hit": "المرض يضرب الطاقم.",
+      "tick": "المرض المستمر يستنزف قوتك.",
+      "recover": "يختفي المرض بعد الراحة التي حصلنا عليها بشق الأنفس."
     }
   },
   "menu": {
@@ -230,58 +246,58 @@
       "copy_failed": "فشل النسخ. يرجى النسخ يدوياً."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "يفشل",
       "mode_deep": "+5% (عرض فقط)",
-      "success": "Pass"
+      "success": "يمر"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "لقد وصلت إلى الكونجرس لكن التصويت على الجلطات فشل.",
       "collapse": "وصلت إلى الدرجات لكن ليس النهاية. المحاولة القادمة.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "كل نظام مثقل في وقت واحد. ",
+      "collapse_hunger": "لقد انتظرت طويلاً لإعادة الإمداد؛ ",
+      "collapse_vehicle": "استنزف عطل ميكانيكي كل احتياطي حتى انهار التشغيل.",
+      "collapse_weather": "أبطأت العناصر لك، ثم أوقفتك. ",
+      "exposure": "ضربة الشمس أو قضمة الصقيع، أنهى الطقس ما بدأته السياسة.",
+      "generic": "تنتهي الرحلة غير مكتملة، لكن رمز المشاركة التالي قد يعيد كتابة القصة.",
       "pants": "الشريط السفلي فعل الباقي. الصورة المتحركة إلى الأبد.",
       "sanity": "العبث كسرك قبل مجلس الشيوخ.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "واستسلمت شاحنة الحملة أخيرا. ",
+      "vehicle_failure_vehicle_destroyed": "واستسلمت شاحنة الحملة أخيرا. ",
       "victory": "سيستشهد المؤرخون بإيصالاتك. اللوبيون يلعنون اسمك.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "ضربة الشمس أو قضمة الصقيع، أنهى الطقس ما بدأته السياسة.",
+      "exposure_heat": "ضربة الشمس أو قضمة الصقيع، أنهى الطقس ما بدأته السياسة."
     },
     "headline": {
       "boss_loss": "سحقك التعطيل",
       "collapse": "انهيار على الدرجات",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "انهيار الإرهاق",
+      "collapse_hunger": "انهيار المجاعة",
+      "collapse_vehicle": "انهيار ميكانيكي",
+      "collapse_weather": "انهيار الطقس",
+      "exposure": "مكشوف للعناصر",
       "pants": "حالة طوارئ وطنية للسراويل",
       "sanity": "انهيار العقل",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "تم تدمير السيارة",
+      "vehicle_failure_vehicle_destroyed": "تم تدمير السيارة",
       "victory": "نجحت في الإغلاق!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "مكشوف للعناصر",
+      "exposure_heat": "مكشوف للعناصر"
     },
     "labels": {
       "allies": "الحلفاء",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "الأعطال",
       "credibility": "المصداقية",
       "days": "الأيام",
       "encounters": "المواجهات",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
+      "malnutrition": "أيام المجاعة",
+      "miles": "سافر مايلز",
       "mode": "الوضع",
       "pants_pct": "السراويل",
-      "passed_threshold": "Boss Vote Ready",
+      "passed_threshold": "تصويت رئيسه جاهز",
       "persona": "الشخصية",
       "receipts": "الإيصالات",
       "score": "النقاط",
-      "score_threshold": "Score Threshold",
+      "score_threshold": "عتبة النتيجة",
       "seed": "البذرة",
       "stats": "الإحصائيات",
       "supplies": "الإمدادات",
@@ -290,7 +306,11 @@
       "avg_mpd": "متوسط الأميال/يوم",
       "unique_encounters": "مواجهات فريدة",
       "repairs_spent_cents": "إنفاق الإصلاح (¢)",
-      "bribes_spent_cents": "إنفاق الرشاوى (¢)"
+      "bribes_spent_cents": "إنفاق الرشاوى (¢)",
+      "days_with_camp": "أيام في المعسكر",
+      "days_with_repair": "أيام الإصلاح",
+      "exposure_streak_heat": "خط الحرارة (أيام)",
+      "exposure_streak_cold": "خط البرد (أيام)"
     },
     "menu": {
       "copy_seed": "نسخ البذرة",
@@ -347,7 +367,7 @@
     "budget": "الميزانية: {amount}",
     "cart": {
       "checkout": "الدفع",
-      "line": "{item}  x{qty}  = {line_total}",
+      "line": "{item} س{qty} = {line_total}",
       "title": "السلة",
       "total": "المجموع: {sum}   الميزانية المتبقية: {left}"
     },

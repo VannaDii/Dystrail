@@ -1,11 +1,18 @@
 {
   "app": {
-    "title": "Dystrail"
+    "title": "Dystrail – Lelana Slamet"
   },
   "boss": {
     "begin": "Mulai boss",
     "phases_hint": "Hadapi tahap: Cloture, titik proses, banjir amandemen.",
-    "title": "Boss Filibuster"
+    "title": "Boss Filibuster",
+    "reminder": "Ngaso micu kanthi otomatis sadurunge milih.",
+    "stats": {
+      "chance": "Kasedhiya sukses saben babak: __ph0 __%",
+      "pants": "Celonone saben miss: __ph0__",
+      "rounds": "__Ph0__ Rounds; ",
+      "sanity": "Sanity saben miss: __ph0__"
+    }
   },
   "camp": {
     "announce": {
@@ -33,7 +40,7 @@
       "use_spare": "Gunakno cadangan"
     },
     "parts": {
-      "alt": "Alternator",
+      "alt": "Alternator kendaraan",
       "battery": "Baterei",
       "pump": "Pompa Bahan Bakar",
       "tire": "Ban"
@@ -69,10 +76,10 @@
       "shutdown": "Shutdown aktif: sukses suap {chance}%."
     },
     "prompt": "Ana checkpoint ngarep. Pilih:",
-    "title": "Checkpoint",
+    "title": "Priksa",
     "types": {
       "bridge_out": "Kreteg Tutup",
-      "checkpoint": "Checkpoint"
+      "checkpoint": "Priksa"
     }
   },
   "dialogs": {
@@ -84,54 +91,63 @@
     "deportation_sweep": "Sweeping Deportasi",
     "doe_eliminated": "Departemen Pendidikan Diilangi",
     "gas_stove_police": "Polisi Kompor Gas",
-    "prefix": "EO:",
+    "prefix": "KE:",
     "shutdown": "Penutupan Pamrentahan",
     "tariff_tsunami": "Tsunami Tarif",
     "travel_ban_lite": "Larangan Perjalanan Lite",
     "war_dept_reorg": "Reorganisasi Departemen Perang"
   },
   "footer": {
-    "copyright": "© Dystrail"
+    "copyright": "© Dystrail – Hak cipta dilindungi"
   },
   "game": {
     "seed_label": "Wiji:"
   },
   "log": {
     "allies": {
-      "gone": "You continue alone now."
+      "gone": "Sampeyan terus wae saiki."
     },
     "ally": {
-      "lost": "💀 An ally has left or perished."
+      "lost": "💀 A sekutu wis lunga utawa mati."
     },
     "booting": "Lagi boot…",
-    "encounter": "Pertemuan!",
-    "health_collapse": "Health depleted!",
+    "encounter": {
+      "_": "Papasan!",
+      "rest-requested": "Kru ngeyel kanggo nggawe mantra pemulihan."
+    },
+    "health_collapse": "Kesehatan kurang!",
     "pants_emergency": "Darurat Celono Nasional!",
     "run_begins": "Game dimulai ({{mode}})",
-    "sanity_collapse": "Sanity fractured!",
+    "sanity_collapse": "SANITA FIRCTD!",
     "seed_set": "Wiji disetel",
     "starvation": {
-      "relief": "Resupply secured. Morale flickers back.",
-      "tick": "Starvation is taking its toll."
+      "relief": "Resupply aman. ",
+      "tick": "Kelainan njupuk tol.",
+      "backstop": "Sampeyan stagger karo siji titik pungkasan."
     },
-    "supplies_depleted": "Supplies exhausted!",
+    "supplies_depleted": "Perlengkapan kesel!",
     "traveled": "Wis mlaku",
     "vehicle": {
-      "failure": "The vehicle is beyond repair.",
+      "failure": "Kendharaan ora mung ndandani.",
       "repair": {
-        "emergency": "💸 Emergency roadside repair: -$10.00"
+        "emergency": "💸 Darurat Darurat Darurat: - $ 10.00"
       }
     },
     "weather": {
-      "exposure": "Cold bites hard without proper gear.",
-      "heatstroke": "Blistering heat cooked your run."
+      "exposure": "Kadhemen cemlorot kanthi gampang tanpa peralatan sing tepat.",
+      "heatstroke": "Panas blistering masak jangka sampeyan."
     },
     "boss": {
       "compose": {
-        "_": "You regroup before the showdown.",
-        "supplies": "Crew burns supplies to steady nerves before the vote.",
-        "funds": "Emergency funds rally staff for the final push."
+        "_": "Sampeyan regroup sadurunge pertunjukan.",
+        "supplies": "Crew ngobong nyedhiyakake saraf sing mantep sadurunge milih.",
+        "funds": "Staff rally darurat darurat kanggo push pungkasan."
       }
+    },
+    "disease": {
+      "hit": "Penyakit nyerang kru.",
+      "tick": "Penyakit sing lingering kanthi kekuwatan sampeyan.",
+      "recover": "Penyakit ngresiki sawise istirahat sing angel."
     }
   },
   "menu": {
@@ -144,7 +160,7 @@
     "selected": "Dipilih",
     "settings": "Setelan",
     "share": "Simpen/enggo wiji",
-    "status": "Status",
+    "status": "Kahanan",
     "title": "Menu Utama",
     "travel": "Mlaku"
   },
@@ -164,7 +180,7 @@
     },
     "menu": {
       "back": "Balik",
-      "diet_doom": "Diet:  Doomscroll",
+      "diet_doom": "Diet: Doomscroll",
       "diet_mixed": "Diet: [Campuran]",
       "diet_quiet": "Diet:  Sepi",
       "pace_blitz": "Jangkah:  Blitz",
@@ -189,7 +205,7 @@
     },
     "lobbyist": {
       "desc": "Koneksi ngurangi biaya.",
-      "name": "Lobbyist"
+      "name": "Lobi"
     },
     "mods": {
       "bribe_discount_pct": "-{pct}% suap",
@@ -201,7 +217,7 @@
     "mult": "Pengali ×{mult}",
     "organizer": {
       "desc": "Mbangun morale lan kanca.",
-      "name": "Organizer"
+      "name": "Organisasi"
     },
     "preview": "Wiwitan: Pasokan {sup} · Kapercayan {cred} · Waras {san} · Morale {mor} · Kanca {allies} · Anggaran ${budget}",
     "preview_wait": "Pilih persona kanggo ndeleng rincian.",
@@ -216,13 +232,13 @@
     },
     "whistleblower": {
       "desc": "Narik kawigaten; golek luwih akeh bukti.",
-      "name": "Whistleblower"
+      "name": "Pelapor"
     }
   },
   "region": {
-    "beltway": "Beltway",
-    "heartland": "Heartland",
-    "rustbelt": "Rust Belt"
+    "beltway": "Jalur Sabuk",
+    "heartland": "Pedalaman",
+    "rustbelt": "Sabuk karat"
   },
   "result": {
     "announce": {
@@ -230,58 +246,58 @@
       "copy_failed": "Gagal nyalin. Mangga salin manual."
     },
     "badges": {
-      "fail": "Fail",
+      "fail": "Gagal",
       "mode_deep": "+5% (tampilan bae)",
-      "success": "Pass"
+      "success": "Sukses"
     },
     "epilogue": {
-      "boss_loss": "You made it to Congress but the cloture vote failed.",
+      "boss_loss": "Sampeyan digawe menyang Kongres nanging milih clote gagal.",
       "collapse": "Sampeyan tekan undhak-undhakan nanging ora tekan garis finish. Wektu sabanjure.",
-      "collapse_breakdown": "Every system overloaded at once. The staff scattered and you hit the pavement.",
-      "collapse_hunger": "You waited too long to resupply; hunger did what the Senate couldn’t.",
-      "collapse_vehicle": "Mechanical failure drained every reserve until the run collapsed.",
-      "collapse_weather": "The elements slowed you, then stopped you. No lobbyist beats a blizzard.",
-      "exposure": "Heatstroke or frostbite, the weather finished what politics started.",
-      "generic": "The journey ends unfinished, but the next share code could rewrite the story.",
+      "collapse_breakdown": "Saben sistem kakehan sekaligus. ",
+      "collapse_hunger": "Sampeyan ngenteni suwe banget kanggo resupply; ",
+      "collapse_vehicle": "Gagal mekanik lemak saben cadangan nganti roto ambruk.",
+      "collapse_weather": "Unsur-unsur kasebut alon-alon sampeyan, banjur mandheg sampeyan. ",
+      "exposure": "Heatstroke utawa Frostbite, cuaca rampung babagan politik sing diwiwiti.",
+      "generic": "Perjalanan kasebut rampung durung rampung, nanging kode saham sabanjure bisa nulis ulang crita kasebut.",
       "pants": "Chiron nindakaké sisane. GIF iku langgeng.",
       "sanity": "Waras kabotan durung tekan Senate.",
-      "vehicle_failure": "The campaign van finally gave up. The trail ends in a cloud of steam.",
-      "vehicle_failure_vehicle_destroyed": "The campaign van finally gave up. The trail ends in a cloud of steam.",
+      "vehicle_failure": "VAN Kampanye pungkasane nyerah. ",
+      "vehicle_failure_vehicle_destroyed": "VAN Kampanye pungkasane nyerah. ",
       "victory": "Sejarawan bakal ngutip bukti sampeyan. Lobbyist bakal ngipat-ipat jeneng sampeyan.",
-      "exposure_cold": "Heatstroke or frostbite, the weather finished what politics started.",
-      "exposure_heat": "Heatstroke or frostbite, the weather finished what politics started."
+      "exposure_cold": "Heatstroke utawa Frostbite, cuaca rampung babagan politik sing diwiwiti.",
+      "exposure_heat": "Heatstroke utawa Frostbite, cuaca rampung babagan politik sing diwiwiti."
     },
     "headline": {
       "boss_loss": "Filibuster ngalahke sampeyan",
       "collapse": "Ambruk ing undhak-undhakan",
-      "collapse_breakdown": "BURNOUT COLLAPSE",
-      "collapse_hunger": "STARVATION COLLAPSE",
-      "collapse_vehicle": "MECHANICAL COLLAPSE",
-      "collapse_weather": "WEATHER COLLAPSE",
-      "exposure": "EXPOSED TO THE ELEMENTS",
+      "collapse_breakdown": "Burnout Collapse",
+      "collapse_hunger": "Kondhang Starvation",
+      "collapse_vehicle": "Ambruk mekanik",
+      "collapse_weather": "Cuaca Collapse",
+      "exposure": "Kapapar unsur-unsur",
       "pants": "Darurat Celono Nasional",
       "sanity": "Waras pecah",
-      "vehicle_failure": "VEHICLE DESTROYED",
-      "vehicle_failure_vehicle_destroyed": "VEHICLE DESTROYED",
+      "vehicle_failure": "Kendaraan rusak",
+      "vehicle_failure_vehicle_destroyed": "Kendaraan rusak",
       "victory": "Sampeyan ngeluyuske cloture!",
-      "exposure_cold": "EXPOSED TO THE ELEMENTS",
-      "exposure_heat": "EXPOSED TO THE ELEMENTS"
+      "exposure_cold": "Kapapar unsur-unsur",
+      "exposure_heat": "Kapapar unsur-unsur"
     },
     "labels": {
       "allies": "Kanca",
-      "breakdowns": "Breakdowns",
+      "breakdowns": "Risak",
       "credibility": "Kapercayan",
       "days": "Dina",
       "encounters": "Pertemuan",
-      "malnutrition": "Starvation Days",
-      "miles": "Miles Traveled",
-      "mode": "Mode",
+      "malnutrition": "Dina Keluwen",
+      "miles": "Miles kesah",
+      "mode": "Mode Game",
       "pants_pct": "Celono",
-      "passed_threshold": "Boss Vote Ready",
-      "persona": "Persona",
+      "passed_threshold": "Boss milih siap",
+      "persona": "Karakter",
       "receipts": "Bukti",
       "score": "Skor",
-      "score_threshold": "Score Threshold",
+      "score_threshold": "Ambang skor",
       "seed": "Wiji",
       "stats": "Stat",
       "supplies": "Pasokan",
@@ -290,7 +306,11 @@
       "avg_mpd": "Rata mil/dina",
       "unique_encounters": "Paparan unik",
       "repairs_spent_cents": "Biaya ndandani (¢)",
-      "bribes_spent_cents": "Biaya sogokan (¢)"
+      "bribes_spent_cents": "Biaya sogokan (¢)",
+      "days_with_camp": "Dina ing Camp",
+      "days_with_repair": "Dina kanggo ndandani",
+      "exposure_streak_heat": "Streak Panas (Dina)",
+      "exposure_streak_cold": "Tilas kadhemen (dina)"
     },
     "menu": {
       "copy_seed": "Salin wiji",
@@ -329,7 +349,7 @@
     "allies_short": "Kanca",
     "cred_short": "Kapercayan",
     "day_region": "Dina {{day}} — {{region}}",
-    "hp_short": "HP",
+    "hp_short": "Hp",
     "mor_short": "Morale",
     "pants": "Celono {{pct}}%",
     "pants_label": "Meter Celono",
@@ -346,8 +366,8 @@
     },
     "budget": "Anggaran: {amount}",
     "cart": {
-      "checkout": "Checkout",
-      "line": "{item}  x{qty}  = {line_total}",
+      "checkout": "Bayar",
+      "line": "__Ph0__ x__ph1__ = __ph2__",
       "title": "Keranjang",
       "total": "Total: {sum}   Anggaran sisa: {left}"
     },
@@ -360,7 +380,7 @@
     "items": {
       "alternator": {
         "desc": "Mulihno daya.",
-        "name": "Alternator"
+        "name": "Alternator kendaraan"
       },
       "battery": {
         "desc": "Mulai dingin.",
@@ -416,7 +436,7 @@
       "rem_all": "Busak kabeh",
       "title": "{item} — saben {price}"
     },
-    "title": "Outfitting"
+    "title": "Toko"
   },
   "travel": {
     "next": "Mlaku menyang tahap sabanjure",
@@ -444,7 +464,7 @@
     "help": "Gunakno tombol nomer 1-5 utawa 0 kanggo balik",
     "no_active": "Ora ana rusak aktif.",
     "parts": {
-      "alt": "Alternator",
+      "alt": "Alternator kendaraan",
       "battery": "Baterei",
       "pump": "Pompa Bahan Bakar",
       "tire": "Ban"

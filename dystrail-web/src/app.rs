@@ -479,9 +479,8 @@ pub fn app_inner() -> Html {
         }
         Phase::Persona => {
             // On-persona selected callback
-            #[allow(clippy::redundant_clone)]
             let on_selected = {
-                let pending = pending_state.clone();
+                let pending = pending_state;
                 Callback::from(move |per: crate::game::personas::Persona| {
                     let mut gs = (*pending).clone().unwrap_or_default();
                     gs.apply_persona(&per);
@@ -501,18 +500,17 @@ pub fn app_inner() -> Html {
         Phase::Outfitting => {
             // Outfitting Store
             let current_state = (*pending_state).clone().unwrap_or_default();
-            #[allow(clippy::redundant_clone)]
             let on_continue = {
-                let pending = pending_state.clone();
-                let phase = phase.clone();
+                let pending_handle = pending_state;
+                let phase_handle = phase.clone();
                 Callback::from(
                     move |(new_state, _grants, _tags): (
                         crate::game::GameState,
                         crate::game::store::Grants,
                         Vec<String>,
                     )| {
-                        pending.set(Some(new_state));
-                        phase.set(Phase::Menu);
+                        pending_handle.set(Some(new_state));
+                        phase_handle.set(Phase::Menu);
                     },
                 )
             };
@@ -526,25 +524,24 @@ pub fn app_inner() -> Html {
         }
         Phase::Menu => {
             // Main menu actions wiring
-            #[allow(clippy::redundant_clone)]
             let start_with_code_action = {
-                let code = code.clone();
-                let pending = pending_state.clone();
-                let phase = phase.clone();
-                let logs = logs.clone();
-                let data = data.clone();
-                let run_seed = run_seed.clone();
+                let code_handle = code.clone();
+                let pending_handle = pending_state;
+                let phase_handle = phase.clone();
+                let logs_handle = logs;
+                let data_handle = data;
+                let run_seed_handle = run_seed;
                 let session_handle = session.clone();
                 let endgame_cfg = (*endgame_config).clone();
                 move || {
-                    if let Some((is_deep, seed)) = decode_to_seed(&code) {
+                    if let Some((is_deep, seed)) = decode_to_seed(&code_handle) {
                         let mode = if is_deep {
                             GameMode::Deep
                         } else {
                             GameMode::Classic
                         };
-                        let base = (*pending).clone().unwrap_or_default();
-                        let gs = base.with_seed(seed, mode, (*data).clone());
+                        let base = (*pending_handle).clone().unwrap_or_default();
+                        let gs = base.with_seed(seed, mode, (*data_handle).clone());
                         let sess = session_from_state(gs, &endgame_cfg);
                         let mode_label = if is_deep {
                             crate::i18n::t("mode.deep")
@@ -553,27 +550,28 @@ pub fn app_inner() -> Html {
                         };
                         let mut m = std::collections::BTreeMap::new();
                         m.insert("mode", mode_label.as_str());
-                        logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                        run_seed.set(seed);
-                        pending.set(Some(sess.state().clone()));
+                        logs_handle.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                        run_seed_handle.set(seed);
+                        pending_handle.set(Some(sess.state().clone()));
                         session_handle.set(Some(sess));
-                        phase.set(Phase::Travel);
+                        phase_handle.set(Phase::Travel);
                     } else {
                         let entropy = js_sys::Date::now().to_bits();
                         let new_code = generate_code_from_entropy(false, entropy);
-                        code.set(new_code.clone().into());
+                        code_handle.set(new_code.clone().into());
                         if let Some((_, seed)) = decode_to_seed(&new_code) {
-                            let base = (*pending).clone().unwrap_or_default();
-                            let gs = base.with_seed(seed, GameMode::Classic, (*data).clone());
+                            let base = (*pending_handle).clone().unwrap_or_default();
+                            let gs =
+                                base.with_seed(seed, GameMode::Classic, (*data_handle).clone());
                             let sess = session_from_state(gs, &endgame_cfg);
                             let mode_label = crate::i18n::t("mode.classic");
                             let mut m = std::collections::BTreeMap::new();
                             m.insert("mode", mode_label.as_str());
-                            logs.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                            run_seed.set(seed);
-                            pending.set(Some(sess.state().clone()));
+                            logs_handle.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                            run_seed_handle.set(seed);
+                            pending_handle.set(Some(sess.state().clone()));
                             session_handle.set(Some(sess));
-                            phase.set(Phase::Travel);
+                            phase_handle.set(Phase::Travel);
                         }
                     }
                 }
