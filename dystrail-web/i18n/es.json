@@ -448,7 +448,10 @@
     "loading": "Cargando… {{pct}}%",
     "loading_encounters": "Cargando encuentros…",
     "select_mode": "Seleccionar modo",
-    "skip_to_content": "Ir al contenido"
+    "skip_to_content": "Ir al contenido",
+    "hc_on": "Alto contraste activado",
+    "hc_off": "Alto contraste desactivado",
+    "hc_toggle": "Alto contraste activado"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "Tormenta"
     },
     "title": "Clima"
+  },
+  "settings": {
+    "title": "Ajustes"
   }
 }

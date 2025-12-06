@@ -2,7 +2,7 @@ use crate::dom;
 use crate::game::{GameState, ResultConfig, ResultSummary, result_summary};
 use crate::i18n;
 use wasm_bindgen::JsCast;
-use web_sys::{HtmlTextAreaElement, window};
+use web_sys::HtmlTextAreaElement;
 use yew::prelude::*;
 
 /// Properties for the result screen component
@@ -117,7 +117,7 @@ impl Component for ResultScreen {
 
                     <div class="score-display">
                         <strong>{ i18n::t("result.labels.score") }{": "}</strong>
-                        <span class="score-value">{ Self::format_number(summary.score) }</span>
+                        <span class="score-value">{ crate::i18n::fmt_number(f64::from(summary.score)) }</span>
                     </div>
                 </section>
 
@@ -141,9 +141,9 @@ impl Component for ResultScreen {
                         <dt>{ i18n::t("result.labels.breakdowns") }</dt>
                         <dd>{ summary.vehicle_breakdowns }</dd>
                         <dt>{ i18n::t("result.labels.miles") }</dt>
-                        <dd>{ format!("{:.0}", summary.miles_traveled) }</dd>
+                        <dd>{ crate::i18n::fmt_number(f64::from(summary.miles_traveled).round()) }</dd>
                         <dt>{ i18n::t("result.labels.score_threshold") }</dt>
-                        <dd>{ Self::format_number(summary.score_threshold) }</dd>
+                        <dd>{ crate::i18n::fmt_number(f64::from(summary.score_threshold)) }</dd>
                         <dt>{ i18n::t("result.labels.passed_threshold") }</dt>
                         <dd>{ if summary.passed_threshold { i18n::t("result.badges.success") } else { i18n::t("result.badges.fail") } }</dd>
                         <dt>{ i18n::t("result.labels.malnutrition") }</dt>
@@ -368,67 +368,14 @@ impl ResultScreen {
     ) -> String {
         template
             .replace("{headline}", headline_text)
-            .replace("{score}", &Self::format_number(summary.score))
+            .replace(
+                "{score}",
+                &crate::i18n::fmt_number(f64::from(summary.score)),
+            )
             .replace("{seed}", &summary.seed)
             .replace("{persona}", &summary.persona_name)
             .replace("{mult}", &summary.mult_str)
             .replace("{mode}", &summary.mode)
-    }
-
-    fn format_number(n: i32) -> String {
-        if !cfg!(target_arch = "wasm32") {
-            return Self::simple_number_format(n);
-        }
-        // Use browser's Intl.NumberFormat for proper localization
-        let Some(window) = window() else {
-            return Self::simple_number_format(n);
-        };
-        let Ok(intl) = js_sys::Reflect::get(&window, &"Intl".into()) else {
-            return Self::simple_number_format(n);
-        };
-        let Ok(number_format) = js_sys::Reflect::get(&intl, &"NumberFormat".into()) else {
-            return Self::simple_number_format(n);
-        };
-        let Ok(formatter) =
-            js_sys::Reflect::construct(&number_format.into(), &js_sys::Array::new())
-        else {
-            return Self::simple_number_format(n);
-        };
-        let Ok(format_fn) = js_sys::Reflect::get(&formatter, &"format".into()) else {
-            return Self::simple_number_format(n);
-        };
-        let Ok(result) = js_sys::Reflect::apply(
-            &format_fn.into(),
-            &formatter,
-            &js_sys::Array::of1(&(n.into())),
-        ) else {
-            return Self::simple_number_format(n);
-        };
-        if let Some(formatted) = result.as_string() {
-            return formatted;
-        }
-
-        // Fallback to simple formatting
-        Self::simple_number_format(n)
-    }
-
-    fn simple_number_format(n: i32) -> String {
-        let mut digits = n.abs().to_string();
-        let mut out = String::new();
-        while digits.len() > 3 {
-            let chunk = digits.split_off(digits.len() - 3);
-            if out.is_empty() {
-                out = chunk;
-            } else {
-                out = format!("{chunk},{out}");
-            }
-        }
-        if out.is_empty() {
-            out = digits;
-        } else if !digits.is_empty() {
-            out = format!("{digits},{out}");
-        }
-        if n < 0 { format!("-{out}") } else { out }
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {
@@ -516,12 +463,6 @@ mod tests {
         assert_eq!(ResultScreen::parse_numeric_key("3"), Some(3));
         assert_eq!(ResultScreen::parse_numeric_key("0"), Some(0));
         assert_eq!(ResultScreen::parse_numeric_key("A"), None);
-    }
-
-    #[test]
-    fn format_number_inserts_separators() {
-        assert_eq!(ResultScreen::format_number(1_234_567), "1,234,567");
-        assert_eq!(ResultScreen::format_number(-9_000), "-9,000");
     }
 
     #[test]

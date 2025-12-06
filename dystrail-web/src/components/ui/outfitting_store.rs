@@ -342,14 +342,14 @@ fn get_max_menu_index(state: &StoreState) -> u8 {
             .iter()
             .find(|c| c.id == *category_id)
             .map_or(1, |category| {
-                u8::try_from(category.items.len()).unwrap_or(255)
+                u8::try_from(category.items.len()).unwrap_or(u8::MAX)
             }),
         StoreScreen::QuantityPrompt(_) => 4, // Add +1, +5, Remove -1, Remove All (1-4), back 0
         StoreScreen::Cart => {
             if state.cart.lines.is_empty() {
                 1 // Only checkout/back
             } else {
-                u8::try_from(state.cart.lines.len()).unwrap_or(255) // Cart items 1-N, checkout 0
+                u8::try_from(state.cart.lines.len()).unwrap_or(u8::MAX) // Cart items 1-N, checkout 0
             }
         }
     }
@@ -609,11 +609,7 @@ fn handle_checkout(state: &StoreState, props: &OutfittingStoreProps) {
 
 /// Format currency (USD) using integer math to avoid float rounding errors.
 fn format_currency(cents: i64) -> String {
-    let cents_abs = cents.unsigned_abs();
-    let dollars = cents_abs / 100;
-    let remainder = cents_abs % 100;
-    let sign = if cents < 0 { "-" } else { "" };
-    format!("{sign}${dollars}.{remainder:02}")
+    crate::i18n::fmt_currency(cents)
 }
 
 /// Announce message to screen readers
@@ -676,7 +672,7 @@ fn render_home_screen(
                 <nav class="store-tabs" aria-label={i18n::t("store.title")}>
                     {
                         state.store_data.categories.iter().enumerate().map(|(i, cat)| {
-                            let idx = u8::try_from(i + 1).unwrap_or(0);
+                            let idx = u8::try_from(i + 1).unwrap_or_default();
                             let focused = state.focus_idx == idx;
                             html! {
                                 <button
@@ -695,7 +691,7 @@ fn render_home_screen(
                     { for categories.iter().enumerate().map(|(i, (idx, label))| {
                         let focused = state.focus_idx == *idx;
                         let disabled = *idx == 0 && !can_continue;
-                        let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                        let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
 
                         html!{
                             <li role="menuitem"
@@ -770,7 +766,7 @@ fn render_category_screen(
                 </div>
                 <div class="store-item-grid" ref={list_ref}>
                     { for items.iter().enumerate().map(|(i, item)| render_store_item_card(
-                        u8::try_from(i + 1).unwrap_or(0),
+                        u8::try_from(i + 1).unwrap_or_default(),
                         item,
                         state,
                         game_state
@@ -1018,7 +1014,7 @@ fn render_quantity_screen(
                 <ul role="menu" aria-label={item_name} ref={list_ref}>
                     { for options.iter().enumerate().map(|(i, option)| {
                         let focused = state.focus_idx == option.idx;
-                        let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                        let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
 
                         html!{
                             <li role="menuitem"
@@ -1087,7 +1083,7 @@ fn render_cart_screen(
     // Add cart items
     for (i, line) in state.cart.lines.iter().enumerate() {
         if let Some(item) = state.store_data.find_item(&line.item_id) {
-            let idx = u8::try_from(i + 1).unwrap_or(255);
+            let idx = u8::try_from(i + 1).unwrap_or(u8::MAX);
             let item_name = i18n::t(&format!("store.items.{}.name", item.id));
             let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
             let line_total = effective_price * i64::from(line.qty);
@@ -1130,7 +1126,7 @@ fn render_cart_screen(
                             { for cart_lines.iter().enumerate().map(|(i, (idx, label))| {
                                 let focused = state.focus_idx == *idx;
                                 let disabled = *idx == 0 && !can_checkout;
-                                let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                                let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
 
                                 html!{
                                     <li role="menuitem"

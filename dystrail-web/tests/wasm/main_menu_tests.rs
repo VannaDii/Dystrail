@@ -1,17 +1,42 @@
 use wasm_bindgen_test::*;
-use web_sys::{KeyboardEvent, EventTarget};
+use web_sys::{Element, KeyboardEvent, EventTarget};
 use yew::prelude::*;
+
+use dystrail_web::components::ui::main_menu::MainMenu;
+use dystrail_web::components::ui::settings_dialog::SettingsDialog;
 use dystrail_web::dom;
+use dystrail_web::i18n;
 
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
 
+fn ensure_app_root() -> Element {
+    let doc = dom::document().expect("document");
+    if let Some(root) = doc.get_element_by_id("app") {
+        return root;
+    }
+    let root = doc.create_element("div").expect("create app root");
+    root.set_id("app");
+    doc.body()
+        .expect("document body")
+        .append_child(&root)
+        .expect("append app root");
+    root
+}
+
+#[function_component(SettingsHost)]
+fn settings_host() -> Html {
+    let open = use_state(|| true);
+    let on_close = {
+        let open = open.clone();
+        Callback::from(move |_| open.set(false))
+    };
+    html! { <SettingsDialog open={*open} on_close={on_close} /> }
+}
+
 #[wasm_bindgen_test]
 fn menu_roles_and_aria_live_present() {
-    yew::Renderer::<crate::components::ui::main_menu::MainMenu>::with_root(
-        dom::document().get_element_by_id("app").unwrap(),
-    )
-    .render();
-    let doc = dom::document();
+    yew::Renderer::<MainMenu>::with_root(ensure_app_root()).render();
+    let doc = dom::document().expect("document");
     // Expect main menu container and live region
     assert!(doc.get_element_by_id("main-menu").is_some());
     let helper = doc.get_element_by_id("menu-helper").expect("live region present");
@@ -30,11 +55,8 @@ fn dispatch_key(el: &web_sys::Element, key: &str, code: &str) {
 
 #[wasm_bindgen_test]
 fn digit3_triggers_status_update() {
-    yew::Renderer::<crate::components::ui::main_menu::MainMenu>::with_root(
-        dom::document().get_element_by_id("app").unwrap(),
-    )
-    .render();
-    let doc = dom::document();
+    yew::Renderer::<MainMenu>::with_root(ensure_app_root()).render();
+    let doc = dom::document().expect("document");
     // keydown on region element
     let region = doc
         .query_selector("section[role='region']")
@@ -48,11 +70,8 @@ fn digit3_triggers_status_update() {
 
 #[wasm_bindgen_test]
 fn roving_tabindex_moves_with_arrows() {
-    yew::Renderer::<crate::components::ui::main_menu::MainMenu>::with_root(
-        dom::document().get_element_by_id("app").unwrap(),
-    )
-    .render();
-    let doc = dom::document();
+    yew::Renderer::<MainMenu>::with_root(ensure_app_root()).render();
+    let doc = dom::document().expect("document");
     let region = doc
         .query_selector("section[role='region']")
         .unwrap()
@@ -65,15 +84,8 @@ fn roving_tabindex_moves_with_arrows() {
 
 #[wasm_bindgen_test]
 fn esc_closes_settings_dialog() {
-    // Mount the settings dialog open
-    #[function_component(TestHost)]
-    fn test_host() -> Html {
-        let open = use_state(|| true);
-        let on_close = { let open = open.clone(); Callback::from(move |_| open.set(false)) };
-        html!{ <crate::components::ui::settings_dialog::SettingsDialog open={*open} on_close={on_close} /> }
-    }
-    yew::Renderer::<TestHost>::with_root(dom::document().get_element_by_id("app").unwrap()).render();
-    let doc = dom::document();
+    yew::Renderer::<SettingsHost>::with_root(ensure_app_root()).render();
+    let doc = dom::document().expect("document");
     let dlg = doc.query_selector(".drawer").unwrap();
     assert!(dlg.is_some());
     let root = doc.query_selector(".drawer").unwrap().unwrap();
@@ -90,11 +102,11 @@ fn esc_closes_settings_dialog() {
 
 #[wasm_bindgen_test]
 fn rtl_dir_applies_on_locale_switch() {
-    crate::i18n::set_lang("ar");
-    let doc = dom::document();
+    i18n::set_lang("ar");
+    let doc = dom::document().expect("document");
     let html = doc.document_element().unwrap();
     assert_eq!(html.get_attribute("dir"), Some("rtl".into()));
-    crate::i18n::set_lang("en");
-    let html2 = dom::document().document_element().unwrap();
+    i18n::set_lang("en");
+    let html2 = dom::document().expect("document").document_element().unwrap();
     assert_eq!(html2.get_attribute("dir"), Some("ltr".into()));
 }

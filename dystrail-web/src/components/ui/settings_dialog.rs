@@ -133,9 +133,9 @@ pub fn settings_dialog(p: &Props) -> Html {
     html! {
       <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="settings-title" ref={ref_node} onkeydown={on_keydown}>
         <div class="drawer-body">
-          <h2 id="settings-title">{"Settings"}</h2>
+          <h2 id="settings-title">{ crate::i18n::t("settings.title") }</h2>
           <div class="field">
-            <label for="hc-toggle"><strong>{"High Contrast"}</strong></label>
+            <label for="hc-toggle"><strong>{ crate::i18n::t("ui.hc_toggle") }</strong></label>
             <input id="hc-toggle" type="checkbox" checked={*hc} onclick={on_toggle_hc} />
           </div>
           <div class="controls">
@@ -173,6 +173,6 @@ mod tests {
             on_hc_changed: Callback::noop(),
         };
         let html = block_on(LocalServerRenderer::<SettingsDialog>::with_props(props).render());
-        assert!(html.contains("High Contrast"));
+        assert!(html.contains("High contrast"));
     }
 }

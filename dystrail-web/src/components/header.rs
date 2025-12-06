@@ -1,4 +1,4 @@
-use crate::i18n::{set_lang, t};
+use crate::i18n::{locales, set_lang, t};
 use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
@@ -41,31 +41,16 @@ pub fn header(p: &Props) -> Html {
                 <nav aria-label={t("nav.language")} class="header-left">
                     <label for="lang-select" class="sr-only">{ t("nav.language") }</label>
                     <select id="lang-select" onchange={on_change} value={p.current_lang.clone()} aria-label={t("nav.language")}>
-                        <option value="en">{"English"}</option>
-                        <option value="es">{"Español"}</option>
-                        <option value="it">{"Italiano"}</option>
-                        <option value="ar">{"العربية"}</option>
-                        <option value="zh">{"中文"}</option>
-                        <option value="hi">{"हिन्दी"}</option>
-                        <option value="bn">{"বাংলা"}</option>
-                        <option value="de">{"Deutsch"}</option>
-                        <option value="fr">{"Français"}</option>
-                        <option value="id">{"Bahasa Indonesia"}</option>
-                        <option value="ja">{"日本語"}</option>
-                        <option value="jv">{"Basa Jawa"}</option>
-                        <option value="ko">{"한국어"}</option>
-                        <option value="mr">{"मराठी"}</option>
-                        <option value="pa">{"ਪੰਜਾਬੀ"}</option>
-                        <option value="pt">{"Português"}</option>
-                        <option value="ru">{"Русский"}</option>
-                        <option value="ta">{"தமிழ்"}</option>
-                        <option value="te">{"తెలుగు"}</option>
-                        <option value="tr">{"Türkçe"}</option>
+                        { for locales().iter().map(|meta| {
+                            let value = meta.code.to_string();
+                            let label = meta.name;
+                            html! { <option value={value}>{ label }</option> }
+                        }) }
                     </select>
                 </nav>
                 <div class="header-right">
                     <button aria-pressed={p.high_contrast.to_string()} onclick={on_hc_toggle} class="hc-toggle">
-                        { if p.high_contrast { "HC On" } else { "HC Off" } }
+                        { if p.high_contrast { t("ui.hc_on") } else { t("ui.hc_off") } }
                     </button>
                     <button id="save-open-btn" onclick={open_save}>{ t("save.header") }</button>
                 </div>

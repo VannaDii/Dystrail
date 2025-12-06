@@ -448,7 +448,10 @@
     "loading": "Loading… {{pct}}%",
     "loading_encounters": "Loading encounters…",
     "select_mode": "Select Mode",
-    "skip_to_content": "Skip to content"
+    "skip_to_content": "Skip to content",
+    "hc_on": "High contrast on",
+    "hc_off": "High contrast off",
+    "hc_toggle": "High contrast on"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "Storm"
     },
     "title": "Weather"
+  },
+  "settings": {
+    "title": "Settings"
   }
 }

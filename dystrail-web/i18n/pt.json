@@ -457,7 +457,10 @@
     "loading": "Carregando… {{pct}}%",
     "loading_encounters": "Carregando encontros…",
     "select_mode": "Selecionar modo",
-    "skip_to_content": "Ir para o conteúdo"
+    "skip_to_content": "Ir para o conteúdo",
+    "hc_on": "Alto contraste ativado",
+    "hc_off": "Alto contraste desativado",
+    "hc_toggle": "Alto contraste ativado"
   },
   "vehicle": {
     "announce": {
@@ -519,5 +522,8 @@
       "Storm": "Tempestade"
     },
     "title": "Clima"
+  },
+  "settings": {
+    "title": "Configurações"
   }
 }

@@ -457,7 +457,10 @@
     "loading": "Chargement… {{pct}}%",
     "loading_encounters": "Chargement des rencontres…",
     "select_mode": "Choisir un mode",
-    "skip_to_content": "Passer au contenu"
+    "skip_to_content": "Passer au contenu",
+    "hc_on": "Contraste élevé activé",
+    "hc_off": "Contraste élevé désactivé",
+    "hc_toggle": "Contraste élevé activé"
   },
   "vehicle": {
     "announce": {
@@ -519,5 +522,8 @@
       "Storm": "Tempête"
     },
     "title": "Météo"
+  },
+  "settings": {
+    "title": "Paramètres"
   }
 }

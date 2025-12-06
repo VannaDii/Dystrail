@@ -448,7 +448,10 @@
     "loading": "Memuat… {{pct}}%",
     "loading_encounters": "Memuat pertemuan…",
     "select_mode": "Pilih Mode",
-    "skip_to_content": "Lewati ke konten"
+    "skip_to_content": "Lewati ke konten",
+    "hc_on": "Kontras tinggi aktif",
+    "hc_off": "Kontras tinggi nonaktif",
+    "hc_toggle": "Kontras tinggi aktif"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "Badai"
     },
     "title": "Cuaca"
+  },
+  "settings": {
+    "title": "Pengaturan"
   }
 }

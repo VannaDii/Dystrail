@@ -448,7 +448,10 @@
     "loading": "Ngamot… {{pct}}%",
     "loading_encounters": "Ngamot pertemuan…",
     "select_mode": "Pilih mode",
-    "skip_to_content": "Lompat menyang konten"
+    "skip_to_content": "Lompat menyang konten",
+    "hc_on": "Kontras dhuwur urip",
+    "hc_off": "Kontras dhuwur mati",
+    "hc_toggle": "Kontras dhuwur urip"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "Badai"
     },
     "title": "Cuaca"
+  },
+  "settings": {
+    "title": "Setelan"
   }
 }

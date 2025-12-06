@@ -1,6 +1,120 @@
+#[cfg(target_arch = "wasm32")]
+use js_sys::{Array, Function, Intl, Object, Reflect};
 use serde_json::Value;
 use std::cell::RefCell;
 use std::collections::BTreeMap;
+#[cfg(target_arch = "wasm32")]
+use wasm_bindgen::JsValue;
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub struct LocaleMeta {
+    pub code: &'static str,
+    pub name: &'static str,
+    pub rtl: bool,
+}
+
+const LOCALE_META: &[LocaleMeta] = &[
+    LocaleMeta {
+        code: "en",
+        name: "English",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "it",
+        name: "Italiano",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "es",
+        name: "Español",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "ar",
+        name: "العربية",
+        rtl: true,
+    },
+    LocaleMeta {
+        code: "zh",
+        name: "中文",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "hi",
+        name: "हिन्दी",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "fr",
+        name: "Français",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "bn",
+        name: "বাংলা",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "pt",
+        name: "Português",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "ru",
+        name: "Русский",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "ja",
+        name: "日本語",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "de",
+        name: "Deutsch",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "id",
+        name: "Bahasa Indonesia",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "jv",
+        name: "Basa Jawa",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "ko",
+        name: "한국어",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "mr",
+        name: "मराठी",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "pa",
+        name: "ਪੰਜਾਬੀ",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "ta",
+        name: "தமிழ்",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "te",
+        name: "తెలుగు",
+        rtl: false,
+    },
+    LocaleMeta {
+        code: "tr",
+        name: "Türkçe",
+        rtl: false,
+    },
+];
 
 const LOCALE_TABLE: &[(&str, &str)] = &[
     ("en", include_str!("../i18n/en.json")),
@@ -42,7 +156,7 @@ fn load_translations(lang: &str) -> Option<Value> {
 }
 
 fn build_bundle(lang: &str) -> Option<I18nBundle> {
-    let rtl = lang == "ar";
+    let rtl = LOCALE_META.iter().any(|m| m.code == lang && m.rtl);
 
     let fallback = load_translations("en")?;
     let translations = load_translations(lang)?;
@@ -53,6 +167,12 @@ fn build_bundle(lang: &str) -> Option<I18nBundle> {
         translations,
         fallback,
     })
+}
+
+/// Supported locales with their native names and direction metadata.
+#[must_use]
+pub const fn locales() -> &'static [LocaleMeta] {
+    LOCALE_META
 }
 
 fn fallback_bundle() -> I18nBundle {
@@ -130,7 +250,7 @@ pub fn is_rtl() -> bool {
     CURRENT.with(|c| c.borrow().rtl)
 }
 
-fn get_nested_value(obj: &Value, key: &str) -> Option<String> {
+fn get_nested_value<'a>(obj: &'a Value, key: &str) -> Option<&'a Value> {
     let keys: Vec<&str> = key.split('.').collect();
     let mut current = obj;
 
@@ -140,14 +260,95 @@ fn get_nested_value(obj: &Value, key: &str) -> Option<String> {
             None => return None,
         }
     }
-    match current {
-        Value::String(s) => Some(s.clone()),
-        Value::Object(map) => map
-            .get("_")
-            .and_then(Value::as_str)
-            .map(std::string::ToString::to_string),
-        _ => None,
+    Some(current)
+}
+
+fn plural_category(lang: &str, count: f64) -> String {
+    #[cfg(target_arch = "wasm32")]
+    {
+        let locales = {
+            let arr = Array::new();
+            arr.push(&JsValue::from_str(lang));
+            arr
+        };
+        let rules = Intl::PluralRules::new(&locales, &Object::new());
+        match rules.select(count).as_string() {
+            Some(selected) => selected,
+            None => {
+                if (count - 1.0).abs() < f64::EPSILON {
+                    "one".to_string()
+                } else if count.abs() < f64::EPSILON {
+                    "zero".to_string()
+                } else {
+                    "other".to_string()
+                }
+            }
+        }
     }
+
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = lang;
+        if (count - 1.0).abs() < f64::EPSILON {
+            "one".to_string()
+        } else if count.abs() < f64::EPSILON {
+            "zero".to_string()
+        } else {
+            "other".to_string()
+        }
+    }
+}
+
+fn render_value(value: &Value, lang: &str, args: Option<&BTreeMap<&str, &str>>) -> Option<String> {
+    let mut text = match value {
+        Value::String(s) => s.clone(),
+        Value::Object(map) => {
+            // Prefer plural categories if count provided
+            if let Some(count_str) = args.and_then(|m| m.get("count")).copied() {
+                if let Ok(count) = count_str.parse::<f64>() {
+                    let category = plural_category(lang, count);
+                    if let Some(s) = map.get(&category).and_then(Value::as_str) {
+                        s.to_string()
+                    } else if let Some(default) = map.get("_").and_then(Value::as_str) {
+                        default.to_string()
+                    } else {
+                        return None;
+                    }
+                } else {
+                    map.get("_")
+                        .and_then(Value::as_str)
+                        .map(std::string::ToString::to_string)?
+                }
+            } else if let Some(default) = map.get("_").and_then(Value::as_str) {
+                default.to_string()
+            } else {
+                return None;
+            }
+        }
+        _ => return None,
+    };
+
+    if let Some(args_map) = args {
+        for (k, v) in args_map {
+            let ph1 = format!("{{{{{k}}}}}"); // {{var}}
+            let ph2 = format!("{{{k}}}"); // {var}
+            text = text.replace(&ph1, v);
+            text = text.replace(&ph2, v);
+        }
+    }
+    Some(text)
+}
+
+fn resolve(key: &str, args: Option<&BTreeMap<&str, &str>>) -> Option<String> {
+    CURRENT.with(|cell| {
+        let bundle = cell.borrow();
+        get_nested_value(&bundle.translations, key)
+            .and_then(|v| render_value(v, &bundle.lang, args))
+            .or_else(|| {
+                get_nested_value(&bundle.fallback, key)
+                    .and_then(|v| render_value(v, &bundle.lang, args))
+            })
+    })
 }
 
 /// Translate a key to the current language
@@ -165,29 +366,7 @@ pub fn t(key: &str) -> String {
 /// Variables in the translated string use the format {key} or {{key}}.
 #[must_use]
 pub fn tr(key: &str, args: Option<&BTreeMap<&str, &str>>) -> String {
-    CURRENT.with(|cell| {
-        let b = cell.borrow();
-
-        // Try to get from main translations first, then fallback
-        let result =
-            get_nested_value(&b.translations, key).or_else(|| get_nested_value(&b.fallback, key));
-
-        result.map_or_else(
-            || key.to_string(),
-            |mut text| {
-                // Handle template variables like {{var}} and {var}
-                if let Some(args_map) = args {
-                    for (k, v) in args_map {
-                        let ph1 = format!("{{{{{k}}}}}"); // {{var}}
-                        let ph2 = format!("{{{k}}}"); // {var}
-                        text = text.replace(&ph1, v);
-                        text = text.replace(&ph2, v);
-                    }
-                }
-                text
-            },
-        )
-    })
+    resolve(key, args).unwrap_or_else(|| key.to_string())
 }
 
 /// Format a percentage value for display
@@ -196,10 +375,129 @@ pub fn tr(key: &str, args: Option<&BTreeMap<&str, &str>>) -> String {
 /// Returns a localized string representation of the percentage.
 #[must_use]
 pub fn fmt_pct(pct: u8) -> String {
-    let pct_str = pct.to_string();
-    let mut map = BTreeMap::new();
-    map.insert("pct", pct_str.as_str());
-    tr("ui.loading", Some(&map))
+    fmt_number(pct.into())
 }
 
-// wasm i18n tests provided in tests/wasm
+/// Format a number using the current locale via Intl
+#[must_use]
+pub fn fmt_number(num: f64) -> String {
+    #[cfg(target_arch = "wasm32")]
+    {
+        CURRENT.with(|c| {
+            let lang = c.borrow().lang.clone();
+            let locales = {
+                let arr = Array::new();
+                arr.push(&JsValue::from_str(&lang));
+                arr
+            };
+            let nf = Intl::NumberFormat::new(&locales, &Object::new());
+            let format_fn: Function = nf.format();
+            format_fn
+                .call1(&nf, &JsValue::from_f64(num))
+                .ok()
+                .and_then(|v| v.as_string())
+                .unwrap_or_else(|| num.to_string())
+        })
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        num.to_string()
+    }
+}
+
+/// Format an ISO 8601 date string using the current locale (browser-side)
+#[must_use]
+pub fn fmt_date_iso(date_iso: &str) -> String {
+    #[cfg(target_arch = "wasm32")]
+    {
+        CURRENT.with(|c| {
+            let lang = c.borrow().lang.clone();
+            let date = js_sys::Date::new(&JsValue::from_str(date_iso));
+            date.to_locale_date_string(&lang, &JsValue::UNDEFINED)
+                .as_string()
+                .unwrap_or_else(|| date_iso.to_string())
+        })
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        date_iso.to_string()
+    }
+}
+
+/// Format currency (USD) using the current locale via Intl
+#[must_use]
+pub fn fmt_currency(cents: i64) -> String {
+    fn fallback_usd(cents: i64) -> String {
+        let sign = if cents < 0 { "-" } else { "" };
+        let abs = cents.abs();
+        let whole = abs / 100;
+        let frac = abs % 100;
+        format!("{sign}${whole}.{frac:02}")
+    }
+
+    let amount = i32::try_from(cents).ok().map(|v| f64::from(v) / 100.0);
+    #[cfg(target_arch = "wasm32")]
+    {
+        if let Some(amount) = amount {
+            return CURRENT.with(|c| {
+                let lang = c.borrow().lang.clone();
+                let locales = {
+                    let arr = Array::new();
+                    arr.push(&JsValue::from_str(&lang));
+                    arr
+                };
+                let opts = Object::new();
+                let _ = Reflect::set(
+                    &opts,
+                    &JsValue::from_str("style"),
+                    &JsValue::from_str("currency"),
+                );
+                let _ = Reflect::set(
+                    &opts,
+                    &JsValue::from_str("currency"),
+                    &JsValue::from_str("USD"),
+                );
+                let nf = Intl::NumberFormat::new(&locales, &opts);
+                nf.format()
+                    .call1(&nf, &JsValue::from_f64(amount))
+                    .ok()
+                    .and_then(|v| v.as_string())
+                    .unwrap_or_else(|| format!("{amount:.2}"))
+            });
+        }
+        fallback_usd(cents)
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        amount.map_or_else(|| fallback_usd(cents), |a| format!("{a:.2}"))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn plural_selection_defaults() {
+        let mut map = serde_json::Map::new();
+        map.insert("one".into(), Value::String("one cat".into()));
+        map.insert("other".into(), Value::String("{count} cats".into()));
+        let value = Value::Object(map);
+        let mut args = BTreeMap::new();
+        args.insert("count", "1");
+        let one = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(one, "one cat");
+        args.insert("count", "3");
+        let many = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(many, "3 cats");
+    }
+
+    #[test]
+    fn interpolation_handles_braced_forms() {
+        let value = Value::String("Hello, {name}! {{name}}!".into());
+        let mut args = BTreeMap::new();
+        args.insert("name", "Tester");
+        let resolved = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(resolved, "Hello, Tester! Tester!");
+    }
+}

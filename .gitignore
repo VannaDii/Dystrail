@@ -78,5 +78,7 @@ rust-project.json
 # Generated site outputs
 build/
 docs/book/
+node_modules/
+npm-debug.log*
 
 # End of https://www.toptal.com/developers/gitignore/api/rust,rust-analyzer,visualstudiocode,macos

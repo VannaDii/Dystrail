@@ -1,16 +1,32 @@
 use wasm_bindgen_test::*;
-use web_sys::{KeyboardEvent, EventTarget};
+use web_sys::{Element, KeyboardEvent, EventTarget};
 use yew::prelude::*;
+
+use dystrail_web::components::ui::vehicle_status::{VehicleStatus, VehicleStatusProps};
 use dystrail_web::dom;
-use dystrail::components::ui::vehicle_status::VehicleStatus;
-use dystrail::game::state::GameState;
-use dystrail::game::vehicle::{Part, Breakdown};
-use dystrail::i18n::I18n;
+use dystrail_web::game::{
+    state::GameState,
+    vehicle::{Breakdown, Part},
+};
+use dystrail_web::i18n;
 
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
 
+fn ensure_app_root() -> Element {
+    let doc = dom::document().expect("document");
+    if let Some(root) = doc.get_element_by_id("app") {
+        return root;
+    }
+    let root = doc.create_element("div").expect("create app root");
+    root.set_id("app");
+    doc.body()
+        .expect("document body")
+        .append_child(&root)
+        .expect("append app root");
+    root
+}
+
 fn create_test_props() -> <VehicleStatus as Component>::Properties {
-    use dystrail::components::ui::vehicle_status::VehicleStatusProps;
     VehicleStatusProps {
         game_state: GameState::default(),
         on_repair_action: Callback::noop(),
@@ -22,11 +38,11 @@ fn vehicle_status_menu_accessibility() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Check for proper ARIA roles
     let menu = doc.query_selector("[role='menu']").unwrap().unwrap();
@@ -58,11 +74,11 @@ fn vehicle_status_keyboard_navigation() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let menu = doc.query_selector("[role='menu']").unwrap().unwrap();
 
     // Test number key navigation (1-5, 0)
@@ -83,18 +99,18 @@ fn breakdown_state_disables_travel() {
     });
     game_state.travel_blocked = true;
 
-    let props = dystrail::components::ui::vehicle_status::VehicleStatusProps {
+    let props = VehicleStatusProps {
         game_state,
         on_repair_action: Callback::noop(),
     };
 
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Should show breakdown status
     let breakdown_text = doc.query_selector("[data-testid='breakdown-status']");
@@ -110,18 +126,18 @@ fn spare_usage_options_enabled() {
     });
     game_state.inventory.spares.tire = 2; // Has spare tires
 
-    let props = dystrail::components::ui::vehicle_status::VehicleStatusProps {
+    let props = VehicleStatusProps {
         game_state,
         on_repair_action: Callback::noop(),
     };
 
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Tire spare option should be enabled since we have a tire breakdown and spare tires
     let tire_option = doc.query_selector("[data-action='spare-tire']").unwrap();
@@ -132,22 +148,21 @@ fn spare_usage_options_enabled() {
 
 #[wasm_bindgen_test]
 fn i18n_vehicle_keys_present() {
-    let i18n = I18n::new("en");
+    i18n::set_lang("en");
 
-    // Test key vehicle translation keys
-    assert!(!i18n.t("vehicle.title").is_empty());
-    assert!(!i18n.t("vehicle.breakdown").is_empty());
-    assert!(!i18n.t("vehicle.spares.tire").is_empty());
-    assert!(!i18n.t("vehicle.parts.tire").is_empty());
-    assert!(!i18n.t("vehicle.announce.used_spare").is_empty());
+    assert!(!i18n::t("vehicle.title").is_empty());
+    assert!(!i18n::t("vehicle.breakdown").is_empty());
+    assert!(!i18n::t("vehicle.spares.tire").is_empty());
+    assert!(!i18n::t("vehicle.parts.tire").is_empty());
+    assert!(!i18n::t("vehicle.announce.used_spare").is_empty());
 }
 
 #[wasm_bindgen_test]
 fn rtl_layout_for_arabic() {
-    let i18n = I18n::new("ar");
+    i18n::set_lang("ar");
 
     // Change to Arabic locale
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let html = doc.document_element().unwrap();
     html.set_attribute("lang", "ar").unwrap();
     html.set_attribute("dir", "rtl").unwrap();
@@ -155,7 +170,7 @@ fn rtl_layout_for_arabic() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
@@ -172,11 +187,11 @@ fn status_announcements_via_aria_live() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Check that the live region exists for status announcements
     let live_region = doc.get_element_by_id("menu-helper").expect("aria-live region should exist");
@@ -188,11 +203,11 @@ fn focus_management_and_visible_rings() {
     let props = create_test_props();
     yew::Renderer::<VehicleStatus>::with_props_and_root(
         props,
-        dom::document().get_element_by_id("app").unwrap(),
+        ensure_app_root(),
     )
     .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Check that focusable elements have visible focus rings
     let menu_items = doc.query_selector_all("[role='menuitem']").unwrap();

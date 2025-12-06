@@ -448,7 +448,10 @@
     "loading": "Yükleniyor… {{pct}}%",
     "loading_encounters": "Karşılaşmalar yükleniyor…",
     "select_mode": "Mod Seç",
-    "skip_to_content": "İçeriğe atla"
+    "skip_to_content": "İçeriğe atla",
+    "hc_on": "Yüksek kontrast açık",
+    "hc_off": "Yüksek kontrast kapalı",
+    "hc_toggle": "Yüksek kontrast açık"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "Fırtına"
     },
     "title": "Hava Durumu"
+  },
+  "settings": {
+    "title": "Ayarlar"
   }
 }

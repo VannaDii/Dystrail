@@ -370,7 +370,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         ]
     };
 
-    let setsize = u8::try_from(items.len()).unwrap_or(255);
+    let setsize = u8::try_from(items.len()).unwrap_or(u8::MAX);
 
     // Status message
     let status_msg = breakdown.map_or_else(
@@ -394,7 +394,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         <ul role="menu" aria-label={i18n::t("vehicle.title")} id="vehicle-menu" ref={list_ref}>
           { for items.iter().enumerate().map(|(i, (idx, (label, enabled)))| {
               let focused = *focus_idx == *idx;
-              let posinset = u8::try_from(i).unwrap_or(0) + 1;
+              let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
               html!{ <VehicleMenuItem
                 index={*idx}
                 posinset={posinset}

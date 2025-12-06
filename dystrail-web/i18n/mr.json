@@ -448,7 +448,10 @@
     "loading": "लोड होत आहे… {{pct}}%",
     "loading_encounters": "चकमकी लोड होत आहेत…",
     "select_mode": "मोड निवडा",
-    "skip_to_content": "मुख्य मजकुराकडे जा"
+    "skip_to_content": "मुख्य मजकुराकडे जा",
+    "hc_on": "हाय कॉन्ट्रास्ट चालू",
+    "hc_off": "हाय कॉन्ट्रास्ट बंद",
+    "hc_toggle": "हाय कॉन्ट्रास्ट चालू"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "वादळ"
     },
     "title": "हवामान"
+  },
+  "settings": {
+    "title": "सेटिंग्ज"
   }
 }

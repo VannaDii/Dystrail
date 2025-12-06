@@ -205,11 +205,7 @@ fn build_crossing_viewmodel(
 }
 
 fn format_currency(cents: i64) -> String {
-    let sign = if cents < 0 { "-" } else { "" };
-    let cents_abs = cents.unsigned_abs();
-    let dollars = cents_abs / 100;
-    let remainder = cents_abs % 100;
-    format!("{sign}${dollars}.{remainder:02}")
+    crate::i18n::fmt_currency(cents)
 }
 
 #[function_component(CrossingCard)]

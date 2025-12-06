@@ -448,7 +448,10 @@
     "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ… {{pct}}%",
     "loading_encounters": "ਮੁਲਾਕਾਤਾਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ…",
     "select_mode": "ਮੋਡ ਚੁਣੋ",
-    "skip_to_content": "ਸਮੱਗਰੀ 'ਤੇ ਜਾਓ"
+    "skip_to_content": "ਸਮੱਗਰੀ 'ਤੇ ਜਾਓ",
+    "hc_on": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਆਨ",
+    "hc_off": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਬੰਦ",
+    "hc_toggle": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਆਨ"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "ਤੂਫਾਨ"
     },
     "title": "ਮੌਸਮ"
+  },
+  "settings": {
+    "title": "ਸੈਟਿੰਗਾਂ"
   }
 }

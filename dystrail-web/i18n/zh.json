@@ -457,7 +457,10 @@
     "loading": "正在加载… {{pct}}%",
     "loading_encounters": "正在加载事件…",
     "select_mode": "选择模式",
-    "skip_to_content": "跳到内容"
+    "skip_to_content": "跳到内容",
+    "hc_on": "高对比度已开启",
+    "hc_off": "高对比度已关闭",
+    "hc_toggle": "高对比度已开启"
   },
   "vehicle": {
     "announce": {
@@ -519,5 +522,8 @@
       "Storm": "风暴"
     },
     "title": "天气"
+  },
+  "settings": {
+    "title": "设置"
   }
 }

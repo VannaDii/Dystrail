@@ -66,23 +66,25 @@ mod tests {
             Some(SelectionOutcome::Pace(PaceId::Steady, _))
         ));
 
-        let heated = selection_outcome(&pacing, 2).unwrap();
-        if let SelectionOutcome::Pace(id, msg) = heated {
-            assert_eq!(id, PaceId::Heated);
-            assert!(msg.contains('%'), "message should contain encounter delta");
-        } else {
-            panic!("expected heated pace outcome");
+        let heated = selection_outcome(&pacing, 2);
+        match heated {
+            Some(SelectionOutcome::Pace(id, msg)) => {
+                assert_eq!(id, PaceId::Heated);
+                assert!(msg.contains('%'), "message should contain encounter delta");
+            }
+            other => panic!("expected heated pace outcome, got {other:?}"),
         }
 
-        let doom = selection_outcome(&pacing, 6).unwrap();
-        if let SelectionOutcome::Diet(id, msg) = doom {
-            assert_eq!(id, DietId::Doom);
-            assert!(
-                msg.contains("Doom"),
-                "diet announcement should reference the Doom diet: {msg}"
-            );
-        } else {
-            panic!("expected doom diet outcome");
+        let doom = selection_outcome(&pacing, 6);
+        match doom {
+            Some(SelectionOutcome::Diet(id, msg)) => {
+                assert_eq!(id, DietId::Doom);
+                assert!(
+                    msg.contains("Doom"),
+                    "diet announcement should reference the Doom diet: {msg}"
+                );
+            }
+            other => panic!("expected doom diet outcome, got {other:?}"),
         }
 
         assert!(selection_outcome(&pacing, 0).is_none());

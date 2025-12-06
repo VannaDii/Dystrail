@@ -457,7 +457,10 @@
     "loading": "লোড হচ্ছে… {{pct}}%",
     "loading_encounters": "এনকাউন্টার লোড হচ্ছে…",
     "select_mode": "মোড নির্বাচন করুন",
-    "skip_to_content": "কন্টেন্টে যান"
+    "skip_to_content": "কন্টেন্টে যান",
+    "hc_on": "হাই কনট্রাস্ট চালু",
+    "hc_off": "হাই কনট্রাস্ট বন্ধ",
+    "hc_toggle": "হাই কনট্রাস্ট চালু"
   },
   "vehicle": {
     "announce": {
@@ -519,5 +522,8 @@
       "Storm": "ঝড়"
     },
     "title": "আবহাওয়া"
+  },
+  "settings": {
+    "title": "সেটিংস"
   }
 }

@@ -151,12 +151,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Assert Playwright project exists
-        run: |
-          if [ ! -f "dystrail-web/package.json" ]; then
-            echo "Playwright project missing (dystrail-web/package.json). Add E2E a11y suite to satisfy AGENT.";
-            exit 1;
-          fi
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.91.0"
+          targets: wasm32-unknown-unknown
+
+      - name: Install trunk
+        run: cargo install trunk --locked
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -175,4 +177,6 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: dystrail-web
-        run: npx playwright test
+        env:
+          PUBLIC_URL: /play
+        run: npm run test:e2e

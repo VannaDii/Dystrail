@@ -448,7 +448,10 @@
     "loading": "로딩 중… {{pct}}%",
     "loading_encounters": "이벤트 로딩 중…",
     "select_mode": "모드 선택",
-    "skip_to_content": "콘텐츠로 건너뛰기"
+    "skip_to_content": "콘텐츠로 건너뛰기",
+    "hc_on": "고대비 켬",
+    "hc_off": "고대비 끔",
+    "hc_toggle": "고대비 켬"
   },
   "vehicle": {
     "announce": {
@@ -510,5 +513,8 @@
       "Storm": "폭풍"
     },
     "title": "날씨"
+  },
+  "settings": {
+    "title": "설정"
   }
 }

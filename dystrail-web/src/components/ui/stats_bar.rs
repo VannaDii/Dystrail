@@ -144,12 +144,13 @@ fn stat_icon(kind: &str) -> Html {
 }
 
 fn stat_chip(label: String, value: i32, kind: &'static str) -> Html {
+    let value_text = crate::i18n::fmt_number(f64::from(value));
     html! {
         <div class="stat-chip" role="listitem">
             { stat_icon(kind) }
             <div class="stat-copy">
                 <span class="stat-label">{ label }</span>
-                <span class="stat-value">{ value }</span>
+                <span class="stat-value">{ value_text }</span>
             </div>
         </div>
     }
@@ -158,8 +159,9 @@ fn stat_chip(label: String, value: i32, kind: &'static str) -> Html {
 #[function_component(StatsBar)]
 pub fn stats_bar(p: &Props) -> Html {
     let region_text = region_label(p.region);
-    let day_str = p.day.to_string();
-    let pants_str = p.stats.pants.to_string();
+    let day_str = crate::i18n::fmt_number(f64::from(p.day));
+    let pants_raw = p.stats.pants;
+    let pants_str = crate::i18n::fmt_number(f64::from(pants_raw));
     let persona_name = p
         .persona_id
         .as_deref()
@@ -210,7 +212,7 @@ pub fn stats_bar(p: &Props) -> Html {
                 { stat_chip(i18n::t("stats.allies_short"), p.stats.allies, "allies") }
             </div>
             <div class="conditions-stack">
-                <div class={pants_meter_class} role="meter" aria-label={i18n::t("stats.pants_label")} aria-valuemin="0" aria-valuemax="100" aria-valuenow={pants_str.clone()}>
+                <div class={pants_meter_class} role="meter" aria-label={i18n::t("stats.pants_label")} aria-valuemin="0" aria-valuemax="100" aria-valuenow={pants_raw.to_string()}>
                     <div class="meter-label">{ pants_text.clone() }</div>
                     <div class="bar-wrap slim">
                         <div class={classes!("bar-fill", if p.stats.pants >= 90 { Some("bar-fill-pulse") } else { Some("bar-fill-glow") })} style={format!("width: {pants}%", pants = p.stats.pants)}></div>

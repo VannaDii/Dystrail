@@ -1,12 +1,31 @@
-use wasm_bindgen_test::*;
-use yew::prelude::*;
-use dystrail_web::dom;
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
+use wasm_bindgen_test::*;
+use web_sys::Element;
+use yew::prelude::*;
 
-use dystrail::game::{GameState, CrossingConfig, CrossingKind, calculate_bribe_cost, can_use_permit, can_afford_bribe};
+use dystrail_web::components::ui::crossing_card::{CrossingCard, CrossingCardProps};
+use dystrail_web::dom;
+use dystrail_web::game::{
+    CrossingConfig, CrossingKind, GameState, calculate_bribe_cost, can_afford_bribe, can_use_permit,
+};
+use dystrail_web::i18n;
 
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);
+
+fn ensure_app_root() -> Element {
+    let doc = dom::document().expect("document");
+    if let Some(root) = doc.get_element_by_id("app") {
+        return root;
+    }
+    let root = doc.create_element("div").expect("create app root");
+    root.set_id("app");
+    doc.body()
+        .expect("document body")
+        .append_child(&root)
+        .expect("append app root");
+    root
+}
 
 fn create_test_game_state() -> GameState {
     let mut gs = GameState::default();
@@ -73,16 +92,17 @@ fn digit1_activates_detour() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_day = gs.borrow().day;
@@ -102,16 +122,17 @@ fn digit2_activates_bribe() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_budget = gs.borrow().budget_cents;
@@ -129,16 +150,17 @@ fn digit3_activates_permit() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     let initial_cred = gs.borrow().stats.credibility;
@@ -162,16 +184,17 @@ fn disabled_menuitem_has_aria_disabled() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let permit_item = doc.query_selector("li[data-key='3']").unwrap().expect("permit menuitem exists");
 
     // Should be disabled when no receipts or permit tags
@@ -185,16 +208,17 @@ fn arrow_keys_change_focus() {
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     // Initial focus should be on item 1
@@ -215,31 +239,32 @@ fn arrow_keys_change_focus() {
 #[wasm_bindgen_test]
 fn rtl_locale_works() {
     // This test ensures RTL locales don't break the component structure
-    dystrail::i18n::set_locale("ar"); // Set Arabic RTL locale
+    i18n::set_lang("ar"); // Set Arabic RTL locale
 
     let gs = Rc::new(RefCell::new(create_test_game_state()));
     let cfg = Rc::new(CrossingConfig::default());
     let on_resolved = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
-        dom::document().get_element_by_id("app").unwrap(),
-        yew::Props::from(dystrail::components::ui::crossing_card::CrossingCardProps {
+        ensure_app_root(),
+        yew::Props::from(CrossingCardProps {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
             on_resolved,
-        })
-    ).render();
+        }),
+    )
+    .render();
 
-    let doc = dom::document();
+    let doc = dom::document().expect("document");
 
     // Component should still render properly with RTL locale
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
-    assert!(region.is_some());
+    assert!(region.has_attribute("role"));
 
     let menuitems = doc.query_selector_all("li[role='menuitem']").unwrap();
     assert_eq!(menuitems.length(), 4);
 
     // Reset locale
-    dystrail::i18n::set_locale("en");
+    i18n::set_lang("en");
 }

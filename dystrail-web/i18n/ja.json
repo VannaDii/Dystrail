@@ -458,7 +458,10 @@
     "loading_counters": "イベントを読み込み中…",
     "select_mode": "モードを選択",
     "skip_to_content": "コンテンツへスキップ",
-    "loading_encounters": "出会いを読み込み中…"
+    "loading_encounters": "出会いを読み込み中…",
+    "hc_on": "ハイコントラストオン",
+    "hc_off": "ハイコントラストオフ",
+    "hc_toggle": "ハイコントラストオン"
   },
   "vehicle": {
     "announce": {
@@ -520,5 +523,8 @@
       "Storm": "嵐"
     },
     "title": "天気"
+  },
+  "settings": {
+    "title": "設定"
   }
 }

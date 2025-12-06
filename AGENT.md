@@ -12,7 +12,7 @@ IMPORTANT: NEVER TAKE SHORT CUTS! Document and run the required CLI workflows fo
 - **trunk** (build/serve).
 - **binaryen/wasm-opt** (size/perf).
 - **cargo-audit**, **cargo-deny** (security/licensing).
-- **serde** + **serde_wasm_bindgen** (data).
+- **serde** + **serde-wasm-bindgen** (data).
 - **thiserror** / **anyhow** (errors).
 - **yew-style-inliner** or CSS pipeline via Trunk (for SSR-ish critical path styles if needed).
 
@@ -54,7 +54,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 - **trunk** (build/serve).
 - **binaryen/wasm-opt** (size/perf).
 - **cargo-audit**, **cargo-deny** (security/licensing).
-- **serde** + **serde_wasm_bindgen** (data).
+- **serde** + **serde-wasm-bindgen** (data).
 - **thiserror** / **anyhow** (errors).
 - **yew-style-inliner** or CSS pipeline via Trunk (for SSR-ish critical path styles if needed).
 

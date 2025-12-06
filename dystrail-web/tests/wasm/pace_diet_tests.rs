@@ -1,8 +1,8 @@
 //! WASM tests for pace and diet functionality
 
-use dystrail::game::pacing::{DietCfg, PaceCfg, PacingConfig};
-use dystrail::game::personas::Persona;
-use dystrail::game::state::{DietId, GameMode, GameState, PaceId, Region};
+use dystrail_game::pacing::{DietCfg, PaceCfg, PacingConfig};
+use dystrail_game::personas::Persona;
+use dystrail_game::state::{DietId, GameMode, GameState, PaceId, Region};
 use wasm_bindgen_test::*;
 
 wasm_bindgen_test_configure!(run_in_browser);

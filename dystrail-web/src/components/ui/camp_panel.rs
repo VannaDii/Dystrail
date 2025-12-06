@@ -283,7 +283,7 @@ pub fn camp_panel(p: &Props) -> Html {
                     <ul role="menu" aria-label={i18n::t("camp.title")} ref={list_ref}>
                         { for items.into_iter().enumerate().map(|(i, (idx, label, enabled))| {
                             let focused = *focus_idx == idx;
-                            let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                            let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
                             let disabled_class = if enabled { "" } else { "disabled" };
                             let disabled_attr = if enabled { "false" } else { "true" };
 
@@ -341,7 +341,7 @@ pub fn camp_panel(p: &Props) -> Html {
                     <ul role="menu" aria-label={i18n::t("camp.repair.title")} ref={list_ref}>
                         { for items.into_iter().enumerate().map(|(i, (idx, label, _enabled))| {
                             let focused = *focus_idx == idx;
-                            let posinset = u8::try_from(i).unwrap_or(0) + 1;
+                            let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
 
                             html! {
                                 <li

@@ -228,4 +228,25 @@ mod tests {
             "expected deep bonus from assets"
         );
     }
+
+    #[test]
+    fn balanced_defaults_match_const_fns() {
+        let bias = BalancedBossBias::default();
+        assert!(
+            (bias.classic_bonus - BalancedBossBias::default_classic_bonus()).abs() < f32::EPSILON
+        );
+        assert!(
+            (bias.deep_multiplier - BalancedBossBias::default_deep_multiplier()).abs()
+                < f32::EPSILON
+        );
+        assert!((bias.deep_bonus - BalancedBossBias::default_deep_bonus()).abs() < f32::EPSILON);
+    }
+
+    #[test]
+    fn default_config_has_minimum_rounds_and_passes() {
+        let cfg = BossConfig::default();
+        assert!(cfg.rounds >= 1);
+        assert!(cfg.passes_required >= 1);
+        assert_eq!(cfg.balanced, BalancedBossBias::default());
+    }
 }
