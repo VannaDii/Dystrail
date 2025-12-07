@@ -237,7 +237,7 @@ pub fn select_weather_for_today(
         .iter()
         .map(|weather| weather_weight(region_weights, *weather))
         .sum();
-    let mut roll = rng.random_range(0..total);
+    let mut roll = rng.gen_range(0..total);
     let mut candidate = Weather::Clear;
 
     for weather in WEATHER_ORDER {
@@ -262,7 +262,7 @@ pub fn select_weather_for_today(
             .sum();
 
         if non_extreme_total > 0 {
-            let mut r2 = rng.random_range(0..non_extreme_total);
+            let mut r2 = rng.gen_range(0..non_extreme_total);
             for weather in WEATHER_ORDER {
                 if weather.is_extreme() {
                     continue;
@@ -312,28 +312,28 @@ pub fn select_weather_for_today(
 fn seasonal_override<R: Rng>(season: Season, current: Weather, rng: &mut R) -> Weather {
     match season {
         Season::Winter => {
-            if rng.random::<f32>() < 0.20 {
+            if rng.r#gen::<f32>() < 0.20 {
                 Weather::ColdSnap
             } else {
                 current
             }
         }
         Season::Summer => {
-            if rng.random::<f32>() < 0.20 {
+            if rng.r#gen::<f32>() < 0.20 {
                 Weather::HeatWave
             } else {
                 current
             }
         }
         Season::Fall => {
-            if rng.random::<f32>() < 0.15 {
+            if rng.r#gen::<f32>() < 0.15 {
                 Weather::Storm
             } else {
                 current
             }
         }
         Season::Spring => {
-            if rng.random::<f32>() < 0.12 {
+            if rng.r#gen::<f32>() < 0.12 {
                 Weather::Smoke
             } else {
                 current
@@ -356,7 +356,7 @@ fn pick_neutral_weather<R: Rng>(
         return Weather::Clear;
     }
 
-    let mut roll = rng.random_range(0..total);
+    let mut roll = rng.gen_range(0..total);
     for weather in neutral_order {
         let weight = weather_weight(weights, weather);
         if weight == 0 {
@@ -376,7 +376,7 @@ fn apply_neutral_buffer<R: Rng>(
     rng: &mut R,
 ) -> Weather {
     let new_weather = pick_neutral_weather(region_weights, rng);
-    let buffer_len: u8 = rng.random_range(NEUTRAL_BUFFER_MIN..=NEUTRAL_BUFFER_MAX);
+    let buffer_len: u8 = rng.gen_range(NEUTRAL_BUFFER_MIN..=NEUTRAL_BUFFER_MAX);
     *neutral_buffer = buffer_len.saturating_sub(1);
     new_weather
 }

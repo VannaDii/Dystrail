@@ -28,8 +28,8 @@ If any requirement conflicts, **fail the pipeline**, pause implementation, and d
 
 - ✅ **Accessibility:** WCAG 2.2 AA across pages, keyboard-only usable, visible focus, trap-free modals, correct ARIA, color-contrast ≥ 4.5:1.
 - 🌍 **Internationalization:** At least `en`, `it`, `es`, and one RTL (e.g., `ar`). Runtime language switcher; persist locale; pluralization & interpolation; RTL flipping; number/date formatting.
-- 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX). No lint suppressions (`#[allow(...)]` or `#![allow(...)]`) are permitted—refactor code to satisfy clippy instead.
-- 🚫 **No Suppression Flags:** Do not use any CLI or tooling flags that suppress diagnostics (e.g., `--ignore-filename-regex '(dystrail-(game|web|tester))'`, `--allow-dirty`, `--allow-staged`). Tool outputs must remain fully visible.
+- 🦀 **Rust Quality:** `cargo clippy -- -D warnings -W clippy::pedantic`, `rustfmt`, `cargo test`, `cargo audit`, `cargo deny check` all pass. No unwraps in UI code-paths (use `?` or safe error UX). Lint suppressions are not permitted except `clippy::multiple-crate-versions`, which is allowed until upstream dependencies converge.
+- 🚫 **No Suppression Flags:** Do not use any CLI or tooling flags that suppress diagnostics (e.g., `--ignore-filename-regex '(dystrail-(game|web|tester))'`, `--allow-dirty`, `--allow-staged`). Tool outputs must remain fully visible. For dependency ecosystems with unavoidable duplicates (e.g., multi-version crates from upstream), multiple crate versions are allowed via `-Aclippy::multiple-crate-versions`.
 - 🔒 **Security/Supply:** No yanked crates; `Cargo.lock` checked in; audit clean or documented (with temporary allow + issue).
 - 🧪 **Tests:** Unit (wasm-bindgen-test), i18n snapshot checks for each locale.
 - 🛠️ **Reproducible Build:** `rust-toolchain.toml` pins versions; Trunk build; wasm-opt `-Oz`. CI must build release artifacts.

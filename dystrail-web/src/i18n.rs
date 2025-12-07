@@ -214,16 +214,16 @@ thread_local! {
 pub fn set_lang(lang: &str) {
     if let Some(b) = build_bundle(lang) {
         CURRENT.with(|cell| cell.replace(b));
-        #[cfg(not(test))]
+        #[cfg(target_arch = "wasm32")]
         {
             if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-                let _ = doc.document_element().map(|el| {
+                if let Some(el) = doc.document_element() {
                     CURRENT.with(|cell| {
                         let read = cell.borrow();
                         let _ = el.set_attribute("lang", &read.lang);
                         let _ = el.set_attribute("dir", if read.rtl { "rtl" } else { "ltr" });
                     });
-                });
+                }
             }
             if let Some(storage) =
                 web_sys::window().and_then(|win| win.local_storage().ok().flatten())

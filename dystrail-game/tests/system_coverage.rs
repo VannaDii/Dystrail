@@ -24,7 +24,7 @@ fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
     for seed in 0..50_000u64 {
         let probe = RngBundle::from_user_seed(seed);
         let mut rng = probe.encounter();
-        let value = (rng.random::<u32>() % 100) as u8;
+        let value = (rng.r#gen::<u32>() % 100) as u8;
         if predicate(value) {
             return seed;
         }
@@ -90,7 +90,7 @@ fn boss_minigame_exercises_outcomes() {
     let preview = {
         let probe = RngBundle::from_user_seed(seed);
         let mut rng = probe.encounter();
-        (rng.random::<u32>() % 100) as u8
+        (rng.r#gen::<u32>() % 100) as u8
     };
     assert!(preview > 20);
     lose_state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));

@@ -192,7 +192,7 @@ where
         return None;
     }
 
-    let roll = rng.random_range(0..total_weight);
+    let roll = rng.gen_range(0..total_weight);
     let mut current_weight = 0;
 
     for (item, weight) in options {
@@ -207,7 +207,7 @@ where
 
 /// Roll for vehicle breakdown
 pub fn breakdown_roll<R: Rng>(base_chance: f32, rng: &mut R) -> bool {
-    rng.random::<f32>() < base_chance
+    rng.r#gen::<f32>() < base_chance
 }
 
 /// Process daily breakdown chance

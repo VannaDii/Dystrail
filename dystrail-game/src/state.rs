@@ -207,7 +207,7 @@ mod tests {
             let probe = RngBundle::from_user_seed(seed);
             {
                 let mut rng = domain(&probe);
-                if rng.random::<f32>() < threshold {
+                if rng.r#gen::<f32>() < threshold {
                     return Rc::new(RngBundle::from_user_seed(seed));
                 }
             }
@@ -2085,7 +2085,7 @@ impl GameState {
                 let cooldown = self
                     .encounter_rng()
                     .map_or(EXEC_ORDER_MIN_COOLDOWN, |mut rng| {
-                        rng.random_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN)
+                        rng.gen_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN)
                     });
                 self.exec_order_cooldown = cooldown;
             }
@@ -2104,11 +2104,11 @@ impl GameState {
         }
 
         let next_order = if let Some(mut rng) = self.encounter_rng()
-            && rng.random::<f32>() < exec_chance
+            && rng.r#gen::<f32>() < exec_chance
         {
-            let idx = rng.random_range(0..ExecOrder::ALL.len());
+            let idx = rng.gen_range(0..ExecOrder::ALL.len());
             let order = ExecOrder::ALL[idx];
-            let duration = rng.random_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
+            let duration = rng.gen_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
             Some((order, duration))
         } else {
             None
@@ -2629,7 +2629,7 @@ impl GameState {
         }
         let roll = self
             .breakdown_rng()
-            .map_or(1.0, |mut rng| rng.random::<f32>());
+            .map_or(1.0, |mut rng| rng.r#gen::<f32>());
         if roll >= 0.65 {
             return false;
         }
@@ -2866,7 +2866,7 @@ impl GameState {
             chance *= 0.5;
         }
 
-        let roll = self.travel_rng().map_or(1.0, |mut rng| rng.random::<f32>());
+        let roll = self.travel_rng().map_or(1.0, |mut rng| rng.r#gen::<f32>());
         if roll >= chance {
             return;
         }
@@ -2874,7 +2874,7 @@ impl GameState {
         let duration = self
             .travel_rng()
             .map_or(DISEASE_DURATION_RANGE.0, |mut rng| {
-                rng.random_range(DISEASE_DURATION_RANGE.0..=DISEASE_DURATION_RANGE.1)
+                rng.gen_range(DISEASE_DURATION_RANGE.0..=DISEASE_DURATION_RANGE.1)
             });
         self.illness_days_remaining = duration;
         self.stats.hp -= DISEASE_HP_PENALTY;
@@ -2893,7 +2893,7 @@ impl GameState {
         }
         let trigger = self
             .encounter_rng()
-            .is_some_and(|mut rng| rng.random::<f32>() <= ALLY_ATTRITION_CHANCE);
+            .is_some_and(|mut rng| rng.r#gen::<f32>() <= ALLY_ATTRITION_CHANCE);
         if trigger {
             self.stats.allies -= 1;
             self.stats.morale -= 1;
@@ -3472,7 +3472,7 @@ impl GameState {
         } else if let Some(bundle) = rng_bundle.as_ref() {
             let roll = {
                 let mut rng = bundle.encounter();
-                rng.random::<f32>()
+                rng.r#gen::<f32>()
             };
             if roll < self.encounter_chance_today {
                 trigger_encounter = true;
@@ -3535,7 +3535,7 @@ impl GameState {
                 let reroll_penalty = self.encounter_reroll_penalty();
                 let reroll_trigger = rng_bundle.as_ref().is_some_and(|bundle| {
                     let mut rng = bundle.encounter();
-                    rng.random::<f32>() < reroll_penalty
+                    rng.r#gen::<f32>() < reroll_penalty
                 });
                 if reroll_trigger
                     && let (Some(bundle), Some(data)) = (rng_bundle.as_ref(), self.data.as_ref())
@@ -3669,7 +3669,7 @@ impl GameState {
 
         let roll = self
             .breakdown_rng()
-            .map_or(1.0, |mut rng| rng.random::<f32>());
+            .map_or(1.0, |mut rng| rng.r#gen::<f32>());
         if roll >= breakdown_chance {
             return false;
         }

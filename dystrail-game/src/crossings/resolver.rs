@@ -183,6 +183,11 @@ mod tests {
                 *byte = value[idx % value.len()];
             }
         }
+
+        fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), rand::Error> {
+            self.fill_bytes(dest);
+            Ok(())
+        }
     }
 
     #[test]

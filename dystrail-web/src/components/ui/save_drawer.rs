@@ -175,7 +175,7 @@ pub fn save_drawer(p: &Props) -> Html {
                 <div class="panel">
                     <div class="field">
                         <label for="import-json"><strong>{ i18n::t("save.import_label") }</strong></label>
-                        <textarea id="import-json" value={(*import_text).clone()} oninput={on_input} rows={6} cols={40}></textarea>
+                        <textarea id="import-json" value={(*import_text).clone()} oninput={on_input} rows={6} cols={40} />
                     </div>
                     <div class="controls">
                         <button onclick={import_btn}>{ i18n::t("save.import_button") }</button>

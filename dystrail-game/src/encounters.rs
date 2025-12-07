@@ -302,7 +302,7 @@ fn choose_weighted<R: Rng>(weights: &[(usize, u32)], rng: &mut R) -> Option<usiz
         return None;
     }
 
-    let roll = rng.random_range(0..total_weight);
+    let roll = rng.gen_range(0..total_weight);
     let mut current = 0;
     for (idx, weight) in weights {
         current += *weight;

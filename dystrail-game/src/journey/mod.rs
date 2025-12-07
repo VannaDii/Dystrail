@@ -1458,6 +1458,11 @@ impl<R: rand::RngCore> rand::RngCore for CountingRng<R> {
         self.draws = self.draws.saturating_add(1);
         self.rng.fill_bytes(dest);
     }
+
+    fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), rand::Error> {
+        self.draws = self.draws.saturating_add(1);
+        self.rng.try_fill_bytes(dest)
+    }
 }
 
 fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {

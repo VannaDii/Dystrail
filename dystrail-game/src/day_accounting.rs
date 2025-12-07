@@ -389,14 +389,14 @@ mod tests {
         let mut rng = StdRng::seed_from_u64(0x5A5A);
         let mut records = Vec::new();
         for day in 0..40_u16 {
-            let kind = match rng.random_range(0..3) {
+            let kind = match rng.gen_range(0..3) {
                 0 => TravelDayKind::Travel,
                 1 => TravelDayKind::Partial,
                 _ => TravelDayKind::NonTravel,
             };
             let miles = match kind {
-                TravelDayKind::Travel => rng.random_range(5.0..18.0),
-                TravelDayKind::Partial => rng.random_range(2.0..9.0),
+                TravelDayKind::Travel => rng.gen_range(5.0..18.0),
+                TravelDayKind::Partial => rng.gen_range(2.0..9.0),
                 TravelDayKind::NonTravel => 0.0,
             };
             records.push(DayRecord::new(day, kind, miles));
