@@ -1,15 +1,13 @@
-use crate::a11y::set_status;
-use crate::game::{
-    CampConfig, CampOutcome, GameState, camp_forage, camp_repair_hack, camp_repair_spare,
-    camp_rest, camp_therapy, can_repair, can_therapy,
-};
+use crate::game::{CampConfig, GameState, can_repair, can_therapy};
 use crate::i18n;
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
+use actions::build_on_action;
 use std::rc::Rc;
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
 
+mod actions;
 #[derive(Properties, Clone)]
 pub struct Props {
     pub game_state: Rc<GameState>,
@@ -25,56 +23,8 @@ impl PartialEq for Props {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::game::vehicle::{Breakdown, Part};
-    use futures::executor::block_on;
-    use std::rc::Rc;
-    use yew::LocalServerRenderer;
-
-    fn base_props(state: GameState) -> Props {
-        Props {
-            game_state: Rc::new(state),
-            camp_config: Rc::new(CampConfig::default_config()),
-            on_state_change: Callback::from(|_: GameState| {}),
-            on_close: Callback::noop(),
-        }
-    }
-
-    #[test]
-    fn camp_panel_main_view_renders_actions() {
-        crate::i18n::set_lang("en");
-        let props = base_props(GameState::default());
-
-        let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
-        assert!(
-            html.contains("Rest") && html.contains("Forage"),
-            "main view should list key camp actions: {html}"
-        );
-    }
-
-    #[test]
-    fn camp_panel_with_breakdown_starts_in_repair_view() {
-        crate::i18n::set_lang("en");
-        let mut game_state = GameState::default();
-        game_state.day_state.travel.travel_blocked = true;
-        game_state.breakdown = Some(Breakdown {
-            part: Part::Battery,
-            day_started: 3,
-        });
-        let props = base_props(game_state);
-
-        let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
-        assert!(
-            html.contains("Repair Vehicle") || html.contains("Use Spare"),
-            "repair menu should surface when breakdown present: {html}"
-        );
-    }
-}
-
-#[derive(Clone, PartialEq)]
-enum CampView {
+#[derive(Clone, Copy, PartialEq)]
+pub(crate) enum CampView {
     Main,
     Repair,
 }
@@ -108,96 +58,21 @@ pub fn camp_panel(p: &Props) -> Html {
         });
     }
 
-    // Action handler
-    let on_action = {
-        let game_state = p.game_state.clone();
-        let camp_config = p.camp_config.clone();
-        let on_state_change = p.on_state_change.clone();
-        let on_close = p.on_close.clone();
-        let view_setter = current_view.setter();
-        let view_current = (*current_view).clone();
-        let status_setter = status_msg.setter();
-
-        Callback::from(move |action: u8| {
-            let mut new_state = (*game_state).clone();
-            let outcome = match (&view_current, action) {
-                (CampView::Main, 1) => {
-                    // Rest
-                    camp_rest(&mut new_state, &camp_config)
-                }
-                (CampView::Main, 2) => {
-                    // Repair Vehicle
-                    if can_repair(&new_state, &camp_config) {
-                        view_setter.set(CampView::Repair);
-                        return;
-                    }
-                    CampOutcome {
-                        message: i18n::t("camp.announce.no_breakdown"),
-                        rested: false,
-                        supplies_delta: 0,
-                    }
-                }
-                (CampView::Main, 3) => {
-                    // Forage
-                    camp_forage(&mut new_state, &camp_config)
-                }
-                (CampView::Main, 4) => {
-                    // Therapy
-                    camp_therapy(&mut new_state, &camp_config)
-                }
-                (CampView::Main, 0) => {
-                    // Close
-                    on_close.emit(());
-                    return;
-                }
-                (CampView::Repair, 1) => {
-                    // Use Spare
-                    if let Some(breakdown) = &new_state.breakdown {
-                        let part = breakdown.part;
-                        let result = camp_repair_spare(&mut new_state, &camp_config, part);
-                        view_setter.set(CampView::Main);
-                        result
-                    } else {
-                        CampOutcome {
-                            message: i18n::t("camp.announce.no_breakdown"),
-                            rested: false,
-                            supplies_delta: 0,
-                        }
-                    }
-                }
-                (CampView::Repair, 2) => {
-                    // Hack Fix
-                    let result = camp_repair_hack(&mut new_state, &camp_config);
-                    view_setter.set(CampView::Main);
-                    result
-                }
-                (CampView::Repair, 0) => {
-                    // Back to main
-                    view_setter.set(CampView::Main);
-                    return;
-                }
-                _ => return,
-            };
-
-            status_setter.set(outcome.message.clone());
-            set_status(&outcome.message);
-            on_state_change.emit(new_state);
-
-            // Close modal if action advanced the day
-            if matches!(&view_current, CampView::Repair)
-                || (matches!(action, 1 | 3 | 4) && matches!(&view_current, CampView::Main))
-            {
-                on_close.emit(());
-            }
-        })
-    };
+    let on_action = build_on_action(
+        p.game_state.clone(),
+        p.camp_config.clone(),
+        p.on_state_change.clone(),
+        p.on_close.clone(),
+        &current_view,
+        &status_msg,
+    );
 
     // Keyboard handler
     let on_keydown = {
         let on_action = on_action.clone();
         let focus_idx = focus_idx.clone();
         let on_close = p.on_close.clone();
-        let view_state = (*current_view).clone();
+        let view_state = *current_view;
 
         Callback::from(move |e: KeyboardEvent| {
             let key = e.key();
@@ -369,3 +244,6 @@ pub fn camp_panel(p: &Props) -> Html {
         }
     }
 }
+
+#[cfg(test)]
+mod tests;
