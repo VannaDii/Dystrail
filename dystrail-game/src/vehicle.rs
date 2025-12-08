@@ -227,7 +227,7 @@ pub fn process_daily_breakdown<R: Rng>(game_state: &mut crate::state::GameState,
                 part,
                 day_started: i32::try_from(game_state.day).unwrap_or(0),
             });
-            game_state.travel_blocked = true;
+            game_state.day_state.travel.travel_blocked = true;
         }
     }
 }

@@ -334,7 +334,7 @@ pub fn enforce_failure_guard(state: &mut GameState) -> bool {
     }
     state.logs.push(String::from(LOG_ENDGAME_FAILURE_GUARD));
     state.add_day_reason_tag("endgame_guard");
-    state.rest_requested = true;
+    state.day_state.rest.rest_requested = true;
     true
 }
 
@@ -388,7 +388,7 @@ fn run_field_repair(
     }
 
     state.breakdown = None;
-    state.travel_blocked = false;
+    state.day_state.travel.travel_blocked = false;
     state.last_breakdown_part = None;
     state.endgame.field_repair_used = true;
     state.add_day_reason_tag("field_repair");
@@ -404,8 +404,8 @@ fn run_field_repair(
     state.distance_today_raw = partial;
     state.partial_distance_today = partial;
     state.current_day_miles = partial;
-    state.partial_traveled_today = true;
-    state.traveled_today = false;
+    state.day_state.travel.partial_traveled_today = true;
+    state.day_state.travel.traveled_today = false;
     state.stats.clamp();
 }
 
@@ -436,7 +436,7 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
 mod tests {
     use super::*;
     use crate::vehicle::Part;
-    use crate::{Breakdown, GameMode, PolicyKind};
+    use crate::{Breakdown, GameMode, Inventory, PolicyKind, Spares, Vehicle};
 
     #[test]
     fn config_defaults_load() {
@@ -447,7 +447,6 @@ mod tests {
 
     #[test]
     fn field_repair_consumes_resources() {
-        #![allow(clippy::field_reassign_with_default)]
         let cfg = EndgamePolicyCfg {
             health_floor: 60.0,
             wear_reset: 5.0,
@@ -457,15 +456,26 @@ mod tests {
             resource_priority: vec![ResourceKind::MatchingSpare, ResourceKind::Emergency],
             ..EndgamePolicyCfg::default()
         };
-        let mut state = GameState::default();
-        state.breakdown = Some(Breakdown {
-            part: Part::Tire,
-            day_started: 1,
-        });
-        state.last_breakdown_part = Some(Part::Tire);
-        state.inventory.spares.tire = 1;
-        state.budget_cents = 10_000;
-        state.endgame.partial_ratio = 0.5;
+        let mut state = GameState {
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 1,
+            }),
+            last_breakdown_part: Some(Part::Tire),
+            inventory: Inventory {
+                spares: Spares {
+                    tire: 1,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            budget_cents: 10_000,
+            endgame: EndgameState {
+                partial_ratio: 0.5,
+                ..EndgameState::default()
+            },
+            ..GameState::default()
+        };
         run_field_repair(&mut state, &cfg, 12.0);
         assert!(state.breakdown.is_none());
         assert!(state.endgame.field_repair_used);
@@ -474,12 +484,16 @@ mod tests {
 
     #[test]
     fn one_time_wear_reset_applies_once() {
-        #![allow(clippy::field_reassign_with_default)]
-        let mut state = GameState::default();
-        state.mode = GameMode::Deep;
-        state.policy = Some(PolicyKind::Balanced);
-        state.miles_traveled_actual = 1_900.0;
-        state.vehicle.set_wear(12.0);
+        let mut state = GameState {
+            mode: GameMode::Deep,
+            policy: Some(PolicyKind::Balanced),
+            miles_traveled_actual: 1_900.0,
+            vehicle: Vehicle {
+                wear: 12.0,
+                ..Vehicle::default()
+            },
+            ..GameState::default()
+        };
 
         let mut cfg = EndgameTravelCfg::default_config();
         let entry = cfg

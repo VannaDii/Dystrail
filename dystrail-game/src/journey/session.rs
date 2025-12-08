@@ -131,8 +131,8 @@ mod tests {
         assert_eq!(session.state().seed, seed);
         assert_eq!(session.state().policy, Some(PolicyKind::Balanced));
 
-        session.with_state_mut(|state| state.rest_requested = true);
-        assert!(session.state().rest_requested);
+        session.with_state_mut(|state| state.day_state.rest.rest_requested = true);
+        assert!(session.state().day_state.rest.rest_requested);
 
         session.reseed(99);
         assert_eq!(session.state().seed, 99);

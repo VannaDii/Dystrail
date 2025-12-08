@@ -308,10 +308,10 @@ fn camp_multi_day_sequences_cover_loops() {
 
     // Clear cooldown and rest again to walk the recovery path.
     state.camp.rest_cooldown = 0;
-    state.rest_requested = true;
+    state.day_state.rest.rest_requested = true;
     let rest_again = camp::camp_rest(&mut state, &cfg);
     assert!(rest_again.rested);
-    assert!(!state.rest_requested);
+    assert!(!state.day_state.rest.rest_requested);
 
     // Positive supply path without recovery day hits alternate branch.
     cfg.rest.recovery_day = false;
@@ -817,7 +817,7 @@ fn day_accounting_ratio_and_sanitize() {
             .any(|tag| tag == "stop_cap")
     );
 
-    state.suppress_stop_ratio = true;
+    state.day_state.lifecycle.suppress_stop_ratio = true;
     let (result, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::INFINITY);
     assert_eq!(result, TravelDayKind::NonTravel);
 }
@@ -1048,25 +1048,13 @@ fn day_accounting_transition_matrix_covers_edges() {
     assert_eq!(metrics.partial_days, 2);
     assert_eq!(metrics.travel_days, 2);
 }
-#[allow(
-    clippy::cast_lossless,
-    clippy::cast_possible_truncation,
-    clippy::cast_sign_loss,
-    clippy::suboptimal_flops
-)]
 fn sample_for(draw: f32) -> u32 {
     let clamped = draw.clamp(0.0, 1.0 - f32::EPSILON);
     let denom = f64::from(u32::MAX) + 1.0;
     let value = f64::from(clamped).mul_add(denom, -0.5).max(0.0);
-    value as u32
+    value.floor().to_string().parse::<u32>().unwrap_or(u32::MAX)
 }
 
-#[allow(
-    clippy::cast_lossless,
-    clippy::cast_possible_truncation,
-    clippy::cast_sign_loss,
-    clippy::suboptimal_flops
-)]
 fn sample_with_remainder(draw: f32, span: u32, remainder: u32) -> u32 {
     if span == 0 {
         return sample_for(draw);
@@ -1097,8 +1085,7 @@ impl FixedRng {
         }
     }
 
-    #[allow(clippy::missing_const_for_fn)]
-    fn with_value(value: u32) -> Self {
+    const fn with_value(value: u32) -> Self {
         Self { value }
     }
 }

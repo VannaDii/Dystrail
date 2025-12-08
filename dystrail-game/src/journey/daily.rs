@@ -92,7 +92,7 @@ fn health_change(
         delta -= decay;
     }
 
-    if cfg.rest_heal > 0.0 && state.rest_requested {
+    if cfg.rest_heal > 0.0 && state.day_state.rest.rest_requested {
         delta += cfg.rest_heal;
     }
 
@@ -228,7 +228,7 @@ mod tests {
         let mut state = populated_state();
         state.weather_state.today = Weather::HeatWave;
         state.current_order = Some(ExecOrder::WarDeptReorg);
-        state.rest_requested = true;
+        state.day_state.rest.rest_requested = true;
 
         let exec_key = state.current_order.map(ExecOrder::key);
         let expected_delta =

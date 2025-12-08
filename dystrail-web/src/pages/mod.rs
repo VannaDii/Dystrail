@@ -1,0 +1,10 @@
+pub mod boot;
+pub mod boss;
+pub mod camp;
+pub mod encounter;
+pub mod menu;
+pub mod not_found;
+pub mod outfitting;
+pub mod persona;
+pub mod result;
+pub mod travel;

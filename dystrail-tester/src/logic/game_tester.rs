@@ -424,7 +424,7 @@ impl GameTester {
         };
         state.auto_camp_rest = auto_rest;
         state.rest_threshold = threshold;
-        state.rest_requested = false;
+        state.day_state.rest.rest_requested = false;
         state.policy = Some(match strategy {
             GameplayStrategy::Balanced => PolicyKind::Balanced,
             GameplayStrategy::Conservative => PolicyKind::Conservative,
@@ -1111,8 +1111,8 @@ impl PlayabilityMetrics {
         let (ending, cause) = describe_ending(state, outcome);
         self.ending_type = ending;
         self.ending_cause = cause;
-        self.boss.reached = state.boss_reached;
-        self.boss.won = state.boss_victory;
+        self.boss.reached = state.boss.readiness.reached;
+        self.boss.won = state.boss.outcome.victory;
         let ledger = Self::summarize_day_records(state);
         self.miles_traveled = clamp_f64_to_f32(ledger.miles.max(0.0));
         self.travel_days = ledger.travel_days;
@@ -1172,8 +1172,8 @@ impl PlayabilityMetrics {
         self.final_sanity = state.stats.sanity;
         self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
-        self.boss.reached = state.boss_reached;
-        self.boss.won = state.boss_victory;
+        self.boss.reached = state.boss.readiness.reached;
+        self.boss.won = state.boss.outcome.victory;
         let ledger = Self::summarize_day_records(state);
         self.miles_traveled = clamp_f64_to_f32(ledger.miles.max(0.0));
         self.travel_days = ledger.travel_days;
@@ -1249,7 +1249,7 @@ impl PlayabilityMetrics {
 const SURVIVAL_DAY_THRESHOLD: u32 = 84;
 
 const fn survived_or_long_run(state: &GameState) -> bool {
-    state.boss_reached || state.day >= SURVIVAL_DAY_THRESHOLD
+    state.boss.readiness.reached || state.day >= SURVIVAL_DAY_THRESHOLD
 }
 
 const fn classify_failure_family(state: &GameState) -> Option<FailureFamily> {
@@ -1273,7 +1273,7 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String)
     match state.ending {
         Some(Ending::BossVictory) => (
             "Victory - Boss Defeated".to_string(),
-            "boss_victory".to_string(),
+            "boss.victory".to_string(),
         ),
         Some(Ending::BossVoteFailed) => (
             "Boss Vote Failed - Game Over".to_string(),
@@ -1311,13 +1311,13 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String)
             "Supplies Depleted - Game Over".to_string(),
             "supplies".to_string(),
         ),
-        None if state.boss_attempted && !state.boss_victory => (
+        None if state.boss.outcome.attempted && !state.boss.outcome.victory => (
             "Boss Vote Failed - Game Over".to_string(),
             "boss_vote_failed".to_string(),
         ),
-        None if state.boss_victory => (
+        None if state.boss.outcome.victory => (
             "Victory - Boss Defeated".to_string(),
-            "boss_victory".to_string(),
+            "boss.victory".to_string(),
         ),
         None if outcome.game_ended => (
             format!(
@@ -1352,6 +1352,7 @@ fn humanize_log_message(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use dystrail_game::{BossProgress, BossReadiness, BossResolution};
     use std::sync::Arc;
 
     fn build_tester() -> GameTester {
@@ -1456,8 +1457,16 @@ mod tests {
         assert!(!metrics.boss.won);
 
         let attempted_state = GameState {
-            boss_attempted: true,
-            boss_reached: true,
+            boss: BossProgress {
+                readiness: BossReadiness {
+                    ready: true,
+                    reached: true,
+                },
+                outcome: BossResolution {
+                    attempted: true,
+                    ..BossResolution::default()
+                },
+            },
             miles_traveled_actual: 1500.0,
             ..GameState::default()
         };

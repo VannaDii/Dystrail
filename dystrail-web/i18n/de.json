@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Einstellungen"
+  },
+  "not_found": {
+    "title": "Seite nicht gefunden",
+    "message": "Diese Seite wurde nicht gefunden. Verwenden Sie die obigen Steuerelemente, um zurückzukehren.",
+    "back": "Zur Startseite zurück"
   }
 }

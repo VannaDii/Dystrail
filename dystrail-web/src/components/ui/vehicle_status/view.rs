@@ -1,3 +1,5 @@
+use super::logic::{SelectionResolution, VehicleAction, evaluate_selection};
+use super::menu_item::VehicleMenuItem;
 use crate::a11y::set_status;
 use crate::game::{GameState, Part};
 use crate::i18n;
@@ -6,92 +8,6 @@ use std::rc::Rc;
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
-
-#[derive(Properties, PartialEq, Clone)]
-pub struct VehicleMenuItemProps {
-    pub index: u8,        // 0..9
-    pub label: AttrValue, // resolved string
-    pub focused: bool,    // tabindex 0 vs -1
-    pub disabled: bool,   // aria-disabled
-    pub posinset: u8,     // 1..=setsize
-    pub setsize: u8,
-    pub on_activate: Callback<u8>, // called with index
-}
-
-#[function_component(VehicleMenuItem)]
-pub fn vehicle_menu_item(p: &VehicleMenuItemProps) -> Html {
-    let idx = p.index;
-    let on_click = {
-        let on = p.on_activate.clone();
-        let disabled = p.disabled;
-        Callback::from(move |_| {
-            if !disabled {
-                on.emit(idx);
-            }
-        })
-    };
-
-    let classes = if p.disabled {
-        "ot-menuitem disabled"
-    } else {
-        "ot-menuitem"
-    };
-
-    html! {
-      <li role="menuitem"
-          tabindex={ if p.focused { "0" } else { "-1" } }
-          data-key={idx.to_string()}
-          aria-posinset={p.posinset.to_string()}
-          aria-setsize={p.setsize.to_string()}
-          aria-disabled={p.disabled.to_string()}
-          onclick={on_click}
-          class={classes}>
-         <span class="num">{ format!("{idx})") }</span>
-         <span class="label">{ p.label.clone() }</span>
-      </li>
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn evaluate_selection_uses_spare_when_available() {
-        crate::i18n::set_lang("en");
-        let outcome = evaluate_selection(1, Some(Part::Tire), Some((1, 0, 0, 0)));
-        assert!(matches!(
-            outcome,
-            SelectionResolution::Action(VehicleAction::UseSpare(Part::Tire), _)
-        ));
-    }
-
-    #[test]
-    fn evaluate_selection_reports_missing_spare() {
-        crate::i18n::set_lang("en");
-        let outcome = evaluate_selection(2, Some(Part::Battery), Some((0, 0, 0, 0)));
-        assert!(matches!(outcome, SelectionResolution::Message(_)));
-    }
-
-    #[test]
-    fn evaluate_selection_handles_hack_fix() {
-        crate::i18n::set_lang("en");
-        let with_breakdown = evaluate_selection(5, Some(Part::FuelPump), None);
-        assert!(matches!(
-            with_breakdown,
-            SelectionResolution::Action(VehicleAction::HackFix, _)
-        ));
-
-        let without = evaluate_selection(5, None, None);
-        assert!(matches!(without, SelectionResolution::Message(_)));
-    }
-
-    #[test]
-    fn evaluate_selection_back_option() {
-        crate::i18n::set_lang("en");
-        assert_eq!(evaluate_selection(0, None, None), SelectionResolution::Back);
-    }
-}
 
 #[derive(Properties, Clone)]
 pub struct VehicleStatusProps {
@@ -102,7 +18,6 @@ pub struct VehicleStatusProps {
 
 impl PartialEq for VehicleStatusProps {
     fn eq(&self, other: &Self) -> bool {
-        // Compare by game state fields that matter for re-rendering
         let self_breakdown = self
             .game_state
             .as_ref()
@@ -130,93 +45,6 @@ impl PartialEq for VehicleStatusProps {
         });
 
         self_breakdown == other_breakdown && self_spares == other_spares
-    }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum VehicleAction {
-    UseSpare(Part),
-    HackFix,
-}
-
-#[derive(Debug, PartialEq)]
-enum SelectionResolution {
-    Action(VehicleAction, String),
-    Message(String),
-    Back,
-    None,
-}
-
-fn evaluate_selection(
-    idx: u8,
-    breakdown_part: Option<Part>,
-    spare_counts: Option<(i32, i32, i32, i32)>,
-) -> SelectionResolution {
-    let used_spare_message = |part: Part| {
-        let part_name = i18n::t(part.key());
-        let mut vars = std::collections::BTreeMap::new();
-        vars.insert("part", part_name.as_str());
-        vars.insert("sup", "1");
-        i18n::tr("vehicle.announce.used_spare", Some(&vars))
-    };
-    let missing_spare_message = |part: Part| {
-        let part_name = i18n::t(part.key());
-        let mut vars = std::collections::BTreeMap::new();
-        vars.insert("part", part_name.as_str());
-        i18n::tr("vehicle.announce.no_spare", Some(&vars))
-    };
-
-    match idx {
-        1 => match (breakdown_part, spare_counts) {
-            (Some(Part::Tire), Some((tire, _, _, _))) if tire > 0 => SelectionResolution::Action(
-                VehicleAction::UseSpare(Part::Tire),
-                used_spare_message(Part::Tire),
-            ),
-            _ => SelectionResolution::Message(missing_spare_message(Part::Tire)),
-        },
-        2 => match (breakdown_part, spare_counts) {
-            (Some(Part::Battery), Some((_, battery, _, _))) if battery > 0 => {
-                SelectionResolution::Action(
-                    VehicleAction::UseSpare(Part::Battery),
-                    used_spare_message(Part::Battery),
-                )
-            }
-            _ => SelectionResolution::Message(missing_spare_message(Part::Battery)),
-        },
-        3 => match (breakdown_part, spare_counts) {
-            (Some(Part::Alternator), Some((_, _, alt, _))) if alt > 0 => {
-                SelectionResolution::Action(
-                    VehicleAction::UseSpare(Part::Alternator),
-                    used_spare_message(Part::Alternator),
-                )
-            }
-            _ => SelectionResolution::Message(missing_spare_message(Part::Alternator)),
-        },
-        4 => match (breakdown_part, spare_counts) {
-            (Some(Part::FuelPump), Some((_, _, _, pump))) if pump > 0 => {
-                SelectionResolution::Action(
-                    VehicleAction::UseSpare(Part::FuelPump),
-                    used_spare_message(Part::FuelPump),
-                )
-            }
-            _ => SelectionResolution::Message(missing_spare_message(Part::FuelPump)),
-        },
-        5 => {
-            if breakdown_part.is_some() {
-                let mut vars = std::collections::BTreeMap::new();
-                vars.insert("sup", "3");
-                vars.insert("cred", "1");
-                vars.insert("day", "1");
-                SelectionResolution::Action(
-                    VehicleAction::HackFix,
-                    i18n::tr("vehicle.announce.hack_applied", Some(&vars)),
-                )
-            } else {
-                SelectionResolution::Message(i18n::t("vehicle.no_active"))
-            }
-        }
-        0 => SelectionResolution::Back,
-        _ => SelectionResolution::None,
     }
 }
 
@@ -251,7 +79,6 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         )
     };
 
-    // When focus index changes, move DOM focus to the corresponding item
     {
         let list_ref = list_ref.clone();
         use_effect_with(*focus_idx, move |idx| {
@@ -272,13 +99,11 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         let focus_idx = focus_idx.clone();
         Callback::from(move |e: KeyboardEvent| {
             let key = e.key();
-            // Direct numeric activation
             if let Some(n) = numeric_key_to_index(&key) {
                 activate.emit(n);
                 e.prevent_default();
                 return;
             }
-            // Use code (DigitN/NumpadN) as fallback
             if let Some(n) = numeric_code_to_index(&e.code()) {
                 activate.emit(n);
                 e.prevent_default();
@@ -288,7 +113,7 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
                 activate.emit(*focus_idx);
                 e.prevent_default();
             } else if key == "Escape" {
-                activate.emit(0); // Back
+                activate.emit(0);
                 e.prevent_default();
             } else if key == "ArrowDown" {
                 let mut next = *focus_idx + 1;
@@ -308,7 +133,6 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
         })
     };
 
-    // Build menu items with proper disabled states
     let items = {
         let breakdown_part = breakdown.map(|b| b.part);
         let spare_counts = spares.map(|s| (s.tire, s.battery, s.alt, s.pump));
@@ -372,7 +196,6 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
 
     let setsize = u8::try_from(items.len()).unwrap_or(u8::MAX);
 
-    // Status message
     let status_msg = breakdown.map_or_else(
         || i18n::t("vehicle.no_active"),
         |breakdown| {

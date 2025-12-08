@@ -129,7 +129,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     }
     gs.camp.rest_cooldown = rest_cfg.cooldown_days;
     gs.clear_illness_penalty();
-    gs.rest_requested = false;
+    gs.day_state.rest.rest_requested = false;
     gs.logs.push(String::from("log.camp.rest"));
     CampOutcome {
         message: String::from("log.camp.rest"),

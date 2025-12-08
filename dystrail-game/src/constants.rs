@@ -6,7 +6,7 @@
 //! JSON assets.
 
 // Logging keys -------------------------------------------------------------
-#[cfg_attr(not(debug_assertions), allow(dead_code))]
+#[cfg(debug_assertions)]
 pub(crate) const DEBUG_ENV_VAR: &str = "DYSTRAIL_DEBUG_LOGS";
 pub(crate) const LOG_PANTS_EMERGENCY: &str = "log.pants-emergency";
 pub(crate) const LOG_HEALTH_COLLAPSE: &str = "log.health-collapse";

@@ -131,12 +131,12 @@ impl SimulationSession {
         self.state.tick_camp_cooldowns();
         self.state.refresh_exec_order();
 
-        if self.state.boss_ready
-            && !self.state.boss_attempted
+        if self.state.boss.readiness.ready
+            && !self.state.boss.outcome.attempted
             && self.state.camp.rest_cooldown == 0
-            && !self.state.rest_requested
+            && !self.state.day_state.rest.rest_requested
         {
-            self.state.rest_requested = true;
+            self.state.day_state.rest.rest_requested = true;
         }
 
         let forage_cfg = self.camp_config.forage.clone();
@@ -158,10 +158,10 @@ impl SimulationSession {
             };
         }
 
-        let wants_rest = self.state.rest_requested || self.state.should_auto_rest();
+        let wants_rest = self.state.day_state.rest.rest_requested || self.state.should_auto_rest();
 
         if wants_rest {
-            self.state.rest_requested = false;
+            self.state.day_state.rest.rest_requested = false;
             let camp_cfg = self.camp_config.clone();
             let outcome = camp::camp_rest(self.state_mut(), &camp_cfg);
             if outcome.rested {
@@ -219,7 +219,7 @@ impl SimulationSession {
             travel_message = String::from("Max days reached");
         }
 
-        if self.state.boss_ready && !self.state.boss_attempted {
+        if self.state.boss.readiness.ready && !self.state.boss.outcome.attempted {
             let boss_cfg = self.boss_config.clone();
             let outcome = boss::run_boss_minigame(self.state_mut(), &boss_cfg);
             game_ended = true;
@@ -229,7 +229,7 @@ impl SimulationSession {
                 BossOutcome::PantsEmergency => String::from("log.pants-emergency"),
                 BossOutcome::Exhausted => String::from("log.sanity-collapse"),
             };
-            self.state.boss_ready = false;
+            self.state.boss.readiness.ready = false;
         }
 
         TurnOutcome {
@@ -303,7 +303,7 @@ impl SimulationSession {
             && state.stats.pants >= 65
             && state.camp.rest_cooldown == 0
         {
-            state.rest_requested = true;
+            state.day_state.rest.rest_requested = true;
         }
     }
 }

@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Setelan"
+  },
+  "not_found": {
+    "title": "Kaca ora ditemokake",
+    "message": "Kita ora nemokake kaca iki. Gunakake kontrol ing ndhuwur kanggo bali.",
+    "back": "Bali menyang beranda"
   }
 }

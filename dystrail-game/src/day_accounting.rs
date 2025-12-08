@@ -83,7 +83,7 @@ pub fn record_travel_day(
     state.start_of_day();
     let mut effective_kind = kind;
     let mut miles = sanitize_miles(miles_earned);
-    let suppress_stop_ratio = state.suppress_stop_ratio;
+    let suppress_stop_ratio = state.day_state.lifecycle.suppress_stop_ratio;
 
     if matches!(effective_kind, TravelDayKind::NonTravel)
         && !suppress_stop_ratio
@@ -128,16 +128,16 @@ pub fn record_travel_day(
 
     match effective_kind {
         TravelDayKind::Travel => {
-            state.traveled_today = true;
-            state.partial_traveled_today = false;
+            state.day_state.travel.traveled_today = true;
+            state.day_state.travel.partial_traveled_today = false;
         }
         TravelDayKind::Partial => {
-            state.traveled_today = false;
-            state.partial_traveled_today = true;
+            state.day_state.travel.traveled_today = false;
+            state.day_state.travel.partial_traveled_today = true;
         }
         TravelDayKind::NonTravel => {
-            state.traveled_today = false;
-            state.partial_traveled_today = false;
+            state.day_state.travel.traveled_today = false;
+            state.day_state.travel.partial_traveled_today = false;
         }
     }
 
@@ -294,8 +294,8 @@ mod tests {
 
         let (kind, _) = record_travel_day(&mut state, TravelDayKind::Travel, 10.0);
         assert_eq!(kind, TravelDayKind::Travel);
-        assert!(state.traveled_today);
-        assert!(!state.partial_traveled_today);
+        assert!(state.day_state.travel.traveled_today);
+        assert!(!state.day_state.travel.partial_traveled_today);
         state.end_of_day();
         assert_eq!(state.travel_days, 1);
         assert_eq!(state.partial_travel_days, 1);

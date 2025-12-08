@@ -1,5 +1,3 @@
-#![allow(clippy::float_cmp)]
-
 use dystrail_game::journey::RngBundle;
 use dystrail_game::{
     CampConfig, Cart, CartLine, CrossingConfig, CrossingKind, EncounterData, EndgameTravelCfg,
@@ -128,9 +126,9 @@ fn run_campaign_setup_and_loop() -> (
             camp_therapy(&mut state, &camp_cfg);
         }
 
-        if state.travel_blocked {
+        if state.day_state.travel.travel_blocked {
             state.breakdown = None;
-            state.travel_blocked = false;
+            state.day_state.travel.travel_blocked = false;
         }
 
         if ended {

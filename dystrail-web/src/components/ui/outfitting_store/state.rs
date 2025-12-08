@@ -1,0 +1,80 @@
+use crate::game::{
+    GameState,
+    store::{Cart, Grants, Store},
+};
+use thiserror::Error;
+use yew::prelude::*;
+
+/// The different screens within the store
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum StoreScreen {
+    /// Main store menu showing categories
+    Home,
+    /// Category view showing items in a category
+    Category(String),
+    /// Quantity selection for a specific item
+    QuantityPrompt(String),
+    /// Cart/checkout view
+    Cart,
+}
+
+/// Store interface state
+#[derive(Clone)]
+pub struct StoreState {
+    pub store_data: Store,
+    pub cart: Cart,
+    pub current_screen: StoreScreen,
+    pub focus_idx: u8,
+    pub discount_pct: f64,
+}
+
+impl Default for StoreState {
+    fn default() -> Self {
+        Self {
+            store_data: Store {
+                categories: vec![],
+                items: vec![],
+            },
+            cart: Cart::new(),
+            current_screen: StoreScreen::Home,
+            focus_idx: 1,
+            discount_pct: 0.0,
+        }
+    }
+}
+
+#[derive(Properties, Clone)]
+pub struct OutfittingStoreProps {
+    /// Current game state for budget and persona info
+    pub game_state: GameState,
+    /// Callback when the player proceeds past the store
+    pub on_continue: Callback<(GameState, Grants, Vec<String>)>,
+}
+
+impl PartialEq for OutfittingStoreProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.game_state.budget_cents == other.game_state.budget_cents
+            && self.game_state.persona_id == other.game_state.persona_id
+            && self.game_state.mods.store_discount_pct == other.game_state.mods.store_discount_pct
+    }
+}
+
+pub(super) fn set_screen(state: &UseStateHandle<StoreState>, screen: StoreScreen) {
+    let mut new_state = (**state).clone();
+    new_state.current_screen = screen;
+    new_state.focus_idx = 1;
+    state.set(new_state);
+}
+
+#[derive(Debug, Error)]
+pub(super) enum StoreLoadError {
+    #[error("JSON parsing error: {0}")]
+    Parse(#[from] serde_json::Error),
+}
+
+/// Load store data from embedded JSON.
+pub(super) fn load_store_data() -> Result<Store, StoreLoadError> {
+    let text = include_str!("../../../../static/assets/data/store.json");
+    let store: Store = serde_json::from_str(text)?;
+    Ok(store)
+}

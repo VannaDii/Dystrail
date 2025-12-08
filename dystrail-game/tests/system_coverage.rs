@@ -1,14 +1,10 @@
-#![allow(deprecated)]
-#![allow(clippy::field_reassign_with_default)]
-#![allow(clippy::float_cmp)]
-#![allow(clippy::redundant_clone)]
-
 use dystrail_game::journey::RngBundle;
-use dystrail_game::state::Season;
+use dystrail_game::state::{Season, Stats};
 use dystrail_game::store::StoreCategory;
 use dystrail_game::vehicle::{PartWeights, process_daily_breakdown, weighted_pick};
 use dystrail_game::weather::{
-    Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
+    Weather, WeatherConfig, WeatherState, apply_weather_effects, process_daily_weather,
+    select_weather_for_today,
 };
 use dystrail_game::{
     BossConfig, Breakdown, CampConfig, Cart, GameMode, GameState, Grants, PaceCfg, PacingConfig,
@@ -34,55 +30,77 @@ fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
 
 #[test]
 fn boss_minigame_exercises_outcomes() {
-    let mut pants_cfg = BossConfig::default();
-    pants_cfg.rounds = 1;
-    pants_cfg.pants_gain_per_round = 10;
-    pants_cfg.sanity_loss_per_round = 0;
+    let pants_cfg = BossConfig {
+        rounds: 1,
+        pants_gain_per_round: 10,
+        sanity_loss_per_round: 0,
+        ..BossConfig::default()
+    };
 
-    let mut pants_state = GameState::default();
-    pants_state.stats.pants = 95;
+    let mut pants_state = GameState {
+        stats: Stats {
+            pants: 95,
+            ..Stats::default()
+        },
+        ..GameState::default()
+    };
     let outcome = run_boss_minigame(&mut pants_state, &pants_cfg);
     assert_eq!(outcome, BossOutcome::PantsEmergency);
 
-    let mut exhaust_cfg = BossConfig::default();
-    exhaust_cfg.rounds = 2;
-    exhaust_cfg.pants_gain_per_round = 0;
-    exhaust_cfg.sanity_loss_per_round = 7;
+    let exhaust_cfg = BossConfig {
+        rounds: 2,
+        pants_gain_per_round: 0,
+        sanity_loss_per_round: 7,
+        ..BossConfig::default()
+    };
 
-    let mut exhaust_state = GameState::default();
-    exhaust_state.stats.sanity = 5;
+    let mut exhaust_state = GameState {
+        stats: Stats {
+            sanity: 5,
+            ..Stats::default()
+        },
+        ..GameState::default()
+    };
     let outcome = run_boss_minigame(&mut exhaust_state, &exhaust_cfg);
     assert_eq!(outcome, BossOutcome::Exhausted);
 
-    let mut win_cfg = BossConfig::default();
-    win_cfg.rounds = 1;
-    win_cfg.pants_gain_per_round = 0;
-    win_cfg.sanity_loss_per_round = 0;
-    win_cfg.max_chance = 0.8;
+    let win_cfg = BossConfig {
+        rounds: 1,
+        pants_gain_per_round: 0,
+        sanity_loss_per_round: 0,
+        max_chance: 0.8,
+        ..BossConfig::default()
+    };
 
-    let mut win_state = GameState::default();
-    win_state.mode = GameMode::Deep;
-    win_state.policy = Some(PolicyKind::Aggressive);
-    win_state.stats.supplies = 10;
-    win_state.stats.pants = 10;
-    win_state.day = 180;
-    win_state.encounters_resolved = 30;
-    win_state.logs.clear();
+    let mut win_state = GameState {
+        mode: GameMode::Deep,
+        policy: Some(PolicyKind::Aggressive),
+        stats: Stats {
+            supplies: 10,
+            pants: 10,
+            ..Stats::default()
+        },
+        day: 180,
+        encounters_resolved: 30,
+        ..GameState::default()
+    };
 
     let outcome = run_boss_minigame(&mut win_state, &win_cfg);
     assert_eq!(outcome, BossOutcome::PassedCloture);
-    assert!(win_state.boss_victory);
+    assert!(win_state.boss.outcome.victory);
     assert!(
         win_state.logs.iter().any(|line| line == "log.boss.compose"),
         "aggressive compose sequence should log when triggered"
     );
 
-    let mut lose_cfg = BossConfig::default();
-    lose_cfg.rounds = 1;
-    lose_cfg.pants_gain_per_round = 0;
-    lose_cfg.sanity_loss_per_round = 0;
-    lose_cfg.max_chance = 0.2;
-    lose_cfg.base_victory_chance = 0.0;
+    let lose_cfg = BossConfig {
+        rounds: 1,
+        pants_gain_per_round: 0,
+        sanity_loss_per_round: 0,
+        max_chance: 0.2,
+        base_victory_chance: 0.0,
+        ..BossConfig::default()
+    };
 
     let mut lose_state = GameState::default();
     lose_state.logs.clear();
@@ -174,11 +192,13 @@ fn camp_actions_cover_key_paths() {
         "log.camp.repair"
     );
 
-    let mut repair_state = GameState::default();
-    repair_state.breakdown = Some(Breakdown {
-        part: Part::Tire,
-        day_started: 3,
-    });
+    let repair_state = GameState {
+        breakdown: Some(Breakdown {
+            part: Part::Tire,
+            day_started: 3,
+        }),
+        ..GameState::default()
+    };
     assert!(can_repair(&repair_state, &forage_cfg));
     assert!(can_therapy(&state, &forage_cfg));
 }
@@ -236,9 +256,9 @@ fn store_cart_covers_operations() {
         categories: vec![StoreCategory {
             id: "supplies".into(),
             name: "Supplies".into(),
-            items: vec![gear_item.clone()],
+            items: vec![gear_item],
         }],
-        items: vec![spare_item.clone()],
+        items: vec![spare_item],
     };
 
     assert!(store.find_item("rope").is_some());
@@ -267,9 +287,9 @@ fn vehicle_system_behaviour() {
     assert!(wear_applied > 0.0);
 
     vehicle.set_wear_multiplier(-1.0);
-    assert_eq!(vehicle.wear_multiplier, 0.0);
+    assert!(vehicle.wear_multiplier.abs() < f32::EPSILON);
     vehicle.clear_wear_multiplier();
-    assert_eq!(vehicle.wear_multiplier, 1.0);
+    assert!((vehicle.wear_multiplier - 1.0).abs() < f32::EPSILON);
 
     vehicle.set_breakdown_cooldown(2);
     vehicle.tick_breakdown_cooldown();
@@ -298,7 +318,7 @@ fn vehicle_system_behaviour() {
     let mut state = GameState::default();
     process_daily_breakdown(&mut state, &mut StepRng::new(0, 1));
     assert!(state.breakdown.is_some());
-    assert!(state.travel_blocked);
+    assert!(state.day_state.travel.travel_blocked);
 }
 
 #[test]
@@ -314,7 +334,7 @@ fn pacing_accessors_are_resilient() {
     };
 
     let cfg = PacingConfig {
-        pace: vec![pace.clone()],
+        pace: vec![pace],
         diet: vec![dystrail_game::DietCfg {
             id: "quiet".into(),
             name: "Quiet".into(),
@@ -347,17 +367,25 @@ fn weather_effects_and_selection() {
     let mut cfg = WeatherConfig::default_config();
     cfg.limits.max_extreme_streak = 1;
 
-    let mut state = GameState::default();
-    state.region = Region::Heartland;
-    state.season = Season::Summer;
+    let mut state = GameState {
+        region: Region::Heartland,
+        season: Season::Summer,
+        stats: Stats {
+            sanity: 4,
+            hp: 3,
+            pants: 10,
+            ..Stats::default()
+        },
+        weather_state: WeatherState {
+            today: Weather::HeatWave,
+            yesterday: Weather::HeatWave,
+            ..WeatherState::default()
+        },
+        exposure_streak_heat: 2,
+        ..GameState::default()
+    };
     state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(2)));
     state.inventory.tags.clear();
-    state.stats.sanity = 4;
-    state.stats.hp = 3;
-    state.stats.pants = 10;
-    state.weather_state.today = Weather::HeatWave;
-    state.weather_state.yesterday = Weather::HeatWave;
-    state.exposure_streak_heat = 2;
 
     apply_weather_effects(&mut state, &cfg);
     assert!(

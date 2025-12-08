@@ -525,5 +525,10 @@
   },
   "settings": {
     "title": "Paramètres"
+  },
+  "not_found": {
+    "title": "Page introuvable",
+    "message": "Nous ne trouvons pas cette page. Utilisez les contrôles ci-dessus pour revenir.",
+    "back": "Retour à l'accueil"
   }
 }

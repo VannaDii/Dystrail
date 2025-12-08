@@ -48,8 +48,9 @@ pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};
 pub use result::{ResultConfig, ResultSummary, load_result_config, result_summary};
 pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code};
 pub use state::{
-    CollapseCause, CrossingOutcomeTelemetry, CrossingTelemetry, DietId, Ending, FeatureFlags,
-    GameMode, GamePhase, GameState, Inventory, PaceId, PolicyKind, Region, Spares, Stats,
+    BossProgress, BossReadiness, BossResolution, CollapseCause, CrossingOutcomeTelemetry,
+    CrossingTelemetry, DayState, DietId, EncounterState, Ending, FeatureFlags, GameMode, GamePhase,
+    GameState, GuardState, Inventory, PaceId, PolicyKind, Region, Spares, Stats,
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,

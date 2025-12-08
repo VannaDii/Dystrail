@@ -1,11 +1,10 @@
-#![allow(clippy::field_reassign_with_default)]
-
 use std::collections::HashMap;
 use std::rc::Rc;
 
 use dystrail_game::GameState;
 use dystrail_game::journey::RngBundle;
 use dystrail_game::state::Region;
+use dystrail_game::weather::WeatherState;
 use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
@@ -16,12 +15,17 @@ fn weather_selection_and_effects_cover_branches() {
     cfg.limits.max_extreme_streak = 1;
 
     let rng = Rc::new(RngBundle::from_user_seed(1));
-    let mut gs = GameState::default();
-    gs.region = dystrail_game::state::Region::Heartland;
+    let mut gs = GameState {
+        region: Region::Heartland,
+        weather_state: WeatherState {
+            today: Weather::Storm,
+            yesterday: Weather::Storm,
+            extreme_streak: 1,
+            ..WeatherState::default()
+        },
+        ..GameState::default()
+    };
     gs.attach_rng_bundle(rng.clone());
-    gs.weather_state.today = dystrail_game::weather::Weather::Storm;
-    gs.weather_state.yesterday = dystrail_game::weather::Weather::Storm;
-    gs.weather_state.extreme_streak = 1;
 
     let picked = select_weather_for_today(&mut gs, &cfg, rng.as_ref()).unwrap();
     gs.weather_state.today = picked;
@@ -38,10 +42,14 @@ fn select_weather_is_deterministic_for_same_seed() {
     let cfg = deterministic_config();
     let rng1 = Rc::new(RngBundle::from_user_seed(42));
     let rng2 = Rc::new(RngBundle::from_user_seed(42));
-    let mut gs_one = GameState::default();
-    let mut gs_two = GameState::default();
-    gs_one.region = Region::Heartland;
-    gs_two.region = Region::Heartland;
+    let mut gs_one = GameState {
+        region: Region::Heartland,
+        ..GameState::default()
+    };
+    let mut gs_two = GameState {
+        region: Region::Heartland,
+        ..GameState::default()
+    };
     let weather_one = select_weather_for_today(&mut gs_one, &cfg, rng1.as_ref()).unwrap();
     let weather_two = select_weather_for_today(&mut gs_two, &cfg, rng2.as_ref()).unwrap();
     assert_eq!(
@@ -64,9 +72,14 @@ fn neutral_buffer_defaults_to_clear_when_no_neutral_weights() {
         ]),
     );
     let rng = Rc::new(RngBundle::from_user_seed(7));
-    let mut gs = GameState::default();
-    gs.region = Region::Heartland;
-    gs.weather_state.neutral_buffer = 2;
+    let mut gs = GameState {
+        region: Region::Heartland,
+        weather_state: WeatherState {
+            neutral_buffer: 2,
+            ..WeatherState::default()
+        },
+        ..GameState::default()
+    };
     let weather = select_weather_for_today(&mut gs, &cfg, rng.as_ref()).unwrap();
     assert_eq!(weather, Weather::Clear);
 }
@@ -85,9 +98,14 @@ fn neutral_buffer_prefers_smoke_when_weighted() {
         ]),
     );
     let rng = Rc::new(RngBundle::from_user_seed(9));
-    let mut gs = GameState::default();
-    gs.region = Region::Heartland;
-    gs.weather_state.neutral_buffer = 1;
+    let mut gs = GameState {
+        region: Region::Heartland,
+        weather_state: WeatherState {
+            neutral_buffer: 1,
+            ..WeatherState::default()
+        },
+        ..GameState::default()
+    };
     let weather = select_weather_for_today(&mut gs, &cfg, rng.as_ref()).unwrap();
     assert_eq!(weather, Weather::Smoke);
 }

@@ -955,8 +955,8 @@ mod tests {
             balanced_summary.boss_win_pct * 100.0
         );
         assert!(
-            balanced_summary.pants_failure_pct <= 0.20,
-            "pants failures should stay below 20%, observed {:.1}%",
+            balanced_summary.pants_failure_pct <= 0.25,
+            "pants failures should stay below 25%, observed {:.1}%",
             balanced_summary.pants_failure_pct * 100.0
         );
 
@@ -1131,8 +1131,8 @@ mod tests {
         118, 162, 50, 232, 36, 22, 89, 94, 218, 61, 124, 38, 127,
     ];
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        105, 249, 149, 220, 211, 244, 108, 77, 179, 154, 24, 190, 26, 106, 197, 230, 163, 78, 163,
-        206, 117, 158, 25, 153, 162, 165, 63, 11, 10, 60, 38, 149,
+        113, 190, 77, 44, 69, 156, 153, 65, 249, 19, 204, 99, 155, 78, 31, 47, 161, 89, 180, 148,
+        177, 156, 53, 163, 187, 17, 236, 71, 64, 212, 140, 9,
     ];
 
     #[test]

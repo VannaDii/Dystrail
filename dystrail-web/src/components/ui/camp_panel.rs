@@ -57,14 +57,13 @@ mod tests {
     #[test]
     fn camp_panel_with_breakdown_starts_in_repair_view() {
         crate::i18n::set_lang("en");
-        let props = base_props(GameState {
-            travel_blocked: true,
-            breakdown: Some(Breakdown {
-                part: Part::Battery,
-                day_started: 3,
-            }),
-            ..GameState::default()
+        let mut game_state = GameState::default();
+        game_state.day_state.travel.travel_blocked = true;
+        game_state.breakdown = Some(Breakdown {
+            part: Part::Battery,
+            day_started: 3,
         });
+        let props = base_props(game_state);
 
         let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
         assert!(
@@ -82,11 +81,12 @@ enum CampView {
 
 #[function_component(CampPanel)]
 pub fn camp_panel(p: &Props) -> Html {
-    let start_view = if p.game_state.breakdown.is_some() && p.game_state.travel_blocked {
-        CampView::Repair
-    } else {
-        CampView::Main
-    };
+    let start_view =
+        if p.game_state.breakdown.is_some() && p.game_state.day_state.travel.travel_blocked {
+            CampView::Repair
+        } else {
+            CampView::Main
+        };
     let current_view = use_state(move || start_view);
     let focus_idx = use_state(|| 1_u8);
     let list_ref = use_node_ref();

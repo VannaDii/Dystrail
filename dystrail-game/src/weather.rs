@@ -474,7 +474,7 @@ fn apply_exposure_with_streak_lockout(
     }
 
     let cold_trigger =
-        cold_conditions && gs.exposure_streak_cold >= 3 && !gs.exposure_damage_lockout;
+        cold_conditions && gs.exposure_streak_cold >= 3 && !gs.guards.exposure_damage_lockout;
     if cold_trigger {
         hp_damage = 1;
         gs.mark_damage(DamageCause::ExposureCold);
@@ -484,7 +484,7 @@ fn apply_exposure_with_streak_lockout(
 
     let heat_trigger = if heat_conditions {
         gs.stats.sanity -= 1;
-        gs.exposure_streak_heat >= 3 && !gs.exposure_damage_lockout
+        gs.exposure_streak_heat >= 3 && !gs.guards.exposure_damage_lockout
     } else {
         false
     };
@@ -495,10 +495,10 @@ fn apply_exposure_with_streak_lockout(
         exposure_kind = Some(ExposureKind::Heat);
     }
 
-    if gs.exposure_damage_lockout && hp_damage == 0 {
-        gs.exposure_damage_lockout = false;
+    if gs.guards.exposure_damage_lockout && hp_damage == 0 {
+        gs.guards.exposure_damage_lockout = false;
     } else {
-        gs.exposure_damage_lockout = cold_trigger || heat_trigger;
+        gs.guards.exposure_damage_lockout = cold_trigger || heat_trigger;
     }
 
     (hp_damage, exposure_kind)
@@ -536,7 +536,7 @@ fn apply_exposure_basic(
     } else {
         gs.exposure_streak_heat = 0;
     }
-    gs.exposure_damage_lockout = false;
+    gs.guards.exposure_damage_lockout = false;
 
     (hp_damage, exposure_kind)
 }

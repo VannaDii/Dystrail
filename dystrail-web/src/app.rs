@@ -9,7 +9,19 @@ use crate::game::state::{DietId, GameMode, GameState, PaceId, Region};
 use crate::game::weather::WeatherConfig;
 use crate::game::{JourneySession, ResultConfig, StrategyId, load_result_config};
 use crate::i18n;
-use crate::routes::Route;
+use crate::pages::{
+    boot::BootPage,
+    boss::BossPage,
+    camp::CampPage,
+    encounter::EncounterPage,
+    menu::{MenuAction, MenuPage},
+    not_found::NotFound,
+    outfitting::OutfittingPage,
+    persona::PersonaPage,
+    result::ResultPage,
+    travel::TravelPage,
+};
+use crate::router::Route;
 use std::rc::Rc;
 use yew::prelude::*;
 use yew_router::prelude::*;
@@ -102,16 +114,17 @@ pub fn app_inner() -> Html {
     let current_language = use_state(crate::i18n::current_lang);
     let data_ready = !data.encounters.is_empty();
     let seed_footer_seed = run_seed.clone();
-    let logo_src: AttrValue = crate::paths::asset_path("static/img/logo.png").into();
 
     // Add routing hooks - handle potential failures gracefully
     let navigator = use_navigator();
-    let route = use_route::<Route>().unwrap_or(Route::Home);
+    let navigator_for_phase = navigator.clone();
+    let route = use_route::<Route>();
+    let active_route = route.clone().unwrap_or(Route::Home);
+    let not_found = matches!(route.as_ref(), None | Some(Route::NotFound));
 
     // Sync route with phase (only when phase changes programmatically)
     {
-        let navigator_for_phase = navigator;
-        let current_route = route.clone();
+        let current_route = active_route;
         use_effect_with(
             (phase.clone(), current_route),
             move |(phase, current_route)| {
@@ -130,11 +143,11 @@ pub fn app_inner() -> Html {
     {
         let phase = phase.clone();
         use_effect_with(route, move |route| {
-            if let Some(new_phase) = route.to_phase() {
-                // Only update phase if it's different to prevent circular updates
-                if new_phase != *phase {
-                    phase.set(new_phase);
-                }
+            if let Some(route) = route
+                && let Some(new_phase) = route.to_phase()
+                && new_phase != *phase
+            {
+                phase.set(new_phase);
             }
         });
     }
@@ -301,7 +314,7 @@ pub fn app_inner() -> Html {
         let phase_handle = phase.clone();
         let result_handle = result;
         let boss_config_handle = boss_config.clone();
-        Callback::from(move |_| {
+        Callback::from(move |()| {
             if let Some(mut sess) = (*session_handle).clone() {
                 let cfg = (*boss_config_handle).clone();
                 let out =
@@ -444,127 +457,116 @@ pub fn app_inner() -> Html {
         })
     };
 
-    let main_view = match *phase {
-        Phase::Boot => {
-            let on_begin_click = {
-                let phase = phase.clone();
-                let ready = boot_ready.clone();
-                Callback::from(move |_| {
-                    if *ready {
-                        phase.set(Phase::Persona);
-                    }
-                })
-            };
-            let on_begin_key = {
-                let phase = phase.clone();
-                let ready = boot_ready.clone();
-                Callback::from(move |e: web_sys::KeyboardEvent| {
-                    if *ready {
-                        e.prevent_default();
-                        phase.set(Phase::Persona);
-                    }
-                })
-            };
-            html! {
-                <section class="panel boot-screen" aria-busy={(!*boot_ready).to_string()} aria-live="polite" onclick={on_begin_click} onkeydown={on_begin_key} tabindex="0">
-                    <img src={logo_src.clone()} alt="Dystrail" loading="eager" style="width:min(520px,80vw)"/>
-                    <div class="bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={(*preload_progress).to_string()}>
-                        <div class="bar-fill" style={format!("width:{}%", *preload_progress)}/>
-                    </div>
-                    <p class={classes!("muted", if *boot_ready { Some("cta-pulse") } else { None })}>
-                        { if *boot_ready { i18n::t("ui.cta_start") } else { i18n::t("ui.loading") } }
-                    </p>
-                </section>
+    let go_home = {
+        let phase = phase.clone();
+        Callback::from(move |()| {
+            if let Some(nav) = navigator.as_ref() {
+                nav.push(&Route::Home);
             }
-        }
-        Phase::Persona => {
-            // On-persona selected callback
-            let on_selected = {
-                let pending = pending_state;
-                Callback::from(move |per: crate::game::personas::Persona| {
-                    let mut gs = (*pending).clone().unwrap_or_default();
-                    gs.apply_persona(&per);
-                    pending.set(Some(gs));
-                })
-            };
-            let on_continue = {
-                let phase = phase.clone();
-                Callback::from(move |()| phase.set(Phase::Outfitting))
-            };
-            html! {
-              <section class="panel retro-menu">
-                <crate::components::ui::persona_select::PersonaSelect on_selected={Some(on_selected)} on_continue={Some(on_continue)} />
-              </section>
+            phase.set(Phase::Menu);
+        })
+    };
+
+    let begin_boot = {
+        let phase = phase.clone();
+        let ready = boot_ready.clone();
+        Callback::from(move |()| {
+            if *ready {
+                phase.set(Phase::Persona);
             }
-        }
-        Phase::Outfitting => {
-            // Outfitting Store
-            let current_state = (*pending_state).clone().unwrap_or_default();
-            let on_continue = {
-                let pending_handle = pending_state;
-                let phase_handle = phase.clone();
-                Callback::from(
-                    move |(new_state, _grants, _tags): (
-                        crate::game::GameState,
-                        crate::game::store::Grants,
-                        Vec<String>,
-                    )| {
-                        pending_handle.set(Some(new_state));
-                        phase_handle.set(Phase::Menu);
-                    },
-                )
-            };
-            html! {
-                <section class="panel retro-menu">
-                    <crate::components::ui::outfitting_store::OutfittingStore
-                        game_state={current_state}
-                        on_continue={on_continue} />
-                </section>
+        })
+    };
+
+    let persona_pending = pending_state.clone();
+    let outfitting_pending = pending_state.clone();
+    let camp_pending = pending_state.clone();
+    let result_pending_replay = pending_state.clone();
+    let result_pending_new = pending_state.clone();
+    let result_pending_title = pending_state.clone();
+    let menu_pending = pending_state.clone();
+    let menu_logs = logs.clone();
+    let menu_run_seed = run_seed.clone();
+    let menu_session = session.clone();
+    let menu_phase = phase.clone();
+    let menu_code = code.clone();
+    let menu_endgame_cfg = (*endgame_config).clone();
+
+    let main_view = if not_found {
+        html! { <NotFound on_go_home={go_home} /> }
+    } else {
+        match *phase {
+            Phase::Boot => {
+                let boot_logo_src: AttrValue =
+                    crate::paths::asset_path("static/img/logo.png").into();
+                html! {
+                    <BootPage
+                        logo_src={boot_logo_src}
+                        ready={*boot_ready}
+                        preload_progress={*preload_progress}
+                        on_begin={begin_boot}
+                    />
+                }
             }
-        }
-        Phase::Menu => {
-            // Main menu actions wiring
-            let start_with_code_action = {
-                let code_handle = code.clone();
-                let pending_handle = pending_state;
-                let phase_handle = phase.clone();
-                let logs_handle = logs;
-                let data_handle = data;
-                let run_seed_handle = run_seed;
-                let session_handle = session.clone();
-                let endgame_cfg = (*endgame_config).clone();
-                move || {
-                    if let Some((is_deep, seed)) = decode_to_seed(&code_handle) {
-                        let mode = if is_deep {
-                            GameMode::Deep
-                        } else {
-                            GameMode::Classic
-                        };
-                        let base = (*pending_handle).clone().unwrap_or_default();
-                        let gs = base.with_seed(seed, mode, (*data_handle).clone());
-                        let sess = session_from_state(gs, &endgame_cfg);
-                        let mode_label = if is_deep {
-                            crate::i18n::t("mode.deep")
-                        } else {
-                            crate::i18n::t("mode.classic")
-                        };
-                        let mut m = std::collections::BTreeMap::new();
-                        m.insert("mode", mode_label.as_str());
-                        logs_handle.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
-                        run_seed_handle.set(seed);
-                        pending_handle.set(Some(sess.state().clone()));
-                        session_handle.set(Some(sess));
-                        phase_handle.set(Phase::Travel);
-                    } else {
-                        let entropy = js_sys::Date::now().to_bits();
-                        let new_code = generate_code_from_entropy(false, entropy);
-                        code_handle.set(new_code.clone().into());
-                        if let Some((_, seed)) = decode_to_seed(&new_code) {
+            Phase::Persona => {
+                let on_selected = {
+                    let pending = persona_pending;
+                    Callback::from(move |per: crate::game::personas::Persona| {
+                        let mut gs = (*pending).clone().unwrap_or_default();
+                        gs.apply_persona(&per);
+                        pending.set(Some(gs));
+                    })
+                };
+                let on_continue = {
+                    let phase = phase.clone();
+                    Callback::from(move |()| phase.set(Phase::Outfitting))
+                };
+                html! { <PersonaPage {on_selected} {on_continue} /> }
+            }
+            Phase::Outfitting => {
+                let current_state = (*pending_state).clone().unwrap_or_default();
+                let on_continue = {
+                    let pending_handle = outfitting_pending;
+                    let phase_handle = phase.clone();
+                    Callback::from(
+                        move |(new_state, _grants, _tags): (
+                            crate::game::GameState,
+                            crate::game::store::Grants,
+                            Vec<String>,
+                        )| {
+                            pending_handle.set(Some(new_state));
+                            phase_handle.set(Phase::Menu);
+                        },
+                    )
+                };
+                html! {
+                    <OutfittingPage game_state={current_state} {on_continue} />
+                }
+            }
+            Phase::Menu => {
+                let start_with_code_action = {
+                    let code_handle = menu_code;
+                    let pending_handle = menu_pending;
+                    let phase_handle = menu_phase;
+                    let logs_handle = menu_logs;
+                    let data_handle = data;
+                    let run_seed_handle = menu_run_seed;
+                    let session_handle = menu_session;
+                    let endgame_cfg = menu_endgame_cfg;
+                    move || {
+                        if let Some((is_deep, seed)) = decode_to_seed(&code_handle) {
+                            let mode = if is_deep {
+                                GameMode::Deep
+                            } else {
+                                GameMode::Classic
+                            };
                             let base = (*pending_handle).clone().unwrap_or_default();
-                            let gs =
-                                base.with_seed(seed, GameMode::Classic, (*data_handle).clone());
+                            let gs = base.with_seed(seed, mode, (*data_handle).clone());
                             let sess = session_from_state(gs, &endgame_cfg);
-                            let mode_label = crate::i18n::t("mode.classic");
+                            let mode_label = if is_deep {
+                                crate::i18n::t("mode.deep")
+                            } else {
+                                crate::i18n::t("mode.classic")
+                            };
                             let mut m = std::collections::BTreeMap::new();
                             m.insert("mode", mode_label.as_str());
                             logs_handle.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
@@ -572,113 +574,89 @@ pub fn app_inner() -> Html {
                             pending_handle.set(Some(sess.state().clone()));
                             session_handle.set(Some(sess));
                             phase_handle.set(Phase::Travel);
+                        } else {
+                            let entropy = js_sys::Date::now().to_bits();
+                            let new_code = generate_code_from_entropy(false, entropy);
+                            code_handle.set(new_code.clone().into());
+                            if let Some((_, seed)) = decode_to_seed(&new_code) {
+                                let base = (*pending_handle).clone().unwrap_or_default();
+                                let gs =
+                                    base.with_seed(seed, GameMode::Classic, (*data_handle).clone());
+                                let sess = session_from_state(gs, &endgame_cfg);
+                                let mode_label = crate::i18n::t("mode.classic");
+                                let mut m = std::collections::BTreeMap::new();
+                                m.insert("mode", mode_label.as_str());
+                                logs_handle.set(vec![crate::i18n::tr("log.run_begins", Some(&m))]);
+                                run_seed_handle.set(seed);
+                                pending_handle.set(Some(sess.state().clone()));
+                                session_handle.set(Some(sess));
+                                phase_handle.set(Phase::Travel);
+                            }
                         }
                     }
-                }
-            };
+                };
 
-            let on_select = {
-                let show_save_handle = show_save.clone();
-                let show_settings_handle = show_settings.clone();
-                let save_focus = save_focus_target.clone();
-                let phase_handle = phase.clone();
-                Callback::from(move |idx: u8| match idx {
-                    1 => start_with_code_action(),
-                    2 => phase_handle.set(Phase::Camp),
-                    7 => {
-                        save_focus.set(AttrValue::from("save-open-btn"));
-                        show_save_handle.set(true);
-                    }
-                    8 => show_settings_handle.set(true),
-                    0 => phase_handle.set(Phase::Boot),
-                    3..=6 | 9..=u8::MAX => {}
-                })
-            };
-            html! {
-                            <section class="panel retro-menu">
-                    <header class="retro-header" role="banner">
-                                    <div class="header-center">
-                                        <pre class="ascii-art">
-            { "═══════════════════════════════" }<br/>
-            { "D Y S T R A I L" }<br/>
-            { "A Political Survival Adventure" }<br/>
-            { "═══════════════════════════════" }
-                                        </pre>
-                                    </div>
-                                            <p class="muted" aria-live="polite">{ format!("{seed_label} {code}", seed_label = i18n::t("game.seed_label"), code = (*code).clone()) }</p>
-                            </header>
-                                <img src={logo_src.clone()} alt="Dystrail" loading="lazy" style="width:min(520px,80vw)"/>
-                                <crate::components::ui::main_menu::MainMenu seed_text={Some((*code).to_string())} on_select={Some(on_select)} />
-                            </section>
+                let on_action = {
+                    let show_save_handle = show_save.clone();
+                    let show_settings_handle = show_settings.clone();
+                    let save_focus = save_focus_target.clone();
+                    let phase_handle = phase.clone();
+                    Callback::from(move |action: MenuAction| match action {
+                        MenuAction::StartRun => start_with_code_action(),
+                        MenuAction::CampPreview => phase_handle.set(Phase::Camp),
+                        MenuAction::OpenSave => {
+                            save_focus.set(AttrValue::from("save-open-btn"));
+                            show_save_handle.set(true);
                         }
-        }
-        Phase::Travel => (*session).clone().map_or_else(Html::default, |sess| {
-            let snapshot = sess.state().clone();
-            let stats = snapshot.stats.clone();
-            let day = snapshot.day;
-            let region = snapshot.region;
-            let exec_order = snapshot.current_order;
-            let persona_id = snapshot.persona_id.clone();
-            let weather_badge = build_weather_badge(&snapshot, &weather_config);
-            let state_rc = Rc::new(snapshot);
-            let pacing_config_rc = Rc::new((*pacing_config).clone());
-            html! {
-                <>
-                    <crate::components::ui::stats_bar::StatsBar
-                        stats={stats}
-                        day={day}
-                        region={region}
-                        exec_order={exec_order}
-                        persona_id={persona_id}
-                        weather={Some(weather_badge)}
-                    />
-                    <crate::components::ui::travel_panel::TravelPanel
-                        on_travel={do_travel}
-                        logs={(*logs).clone()}
-                        game_state={Some(state_rc)}
-                        pacing_config={pacing_config_rc}
-                        on_pace_change={on_pace_change}
-                        on_diet_change={on_diet_change}
-                    />
-                    { if data_ready { Html::default() } else { html! { <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> } } }
-                </>
+                        MenuAction::OpenSettings => show_settings_handle.set(true),
+                        MenuAction::Reset => phase_handle.set(Phase::Boot),
+                    })
+                };
+
+                let menu_logo_src: AttrValue =
+                    crate::paths::asset_path("static/img/logo.png").into();
+                html! { <MenuPage code={(*code).clone()} logo_src={menu_logo_src} on_action={on_action} /> }
             }
-        }),
-        Phase::Camp => (*session).clone().map_or_else(Html::default, |sess| {
-            let snapshot = sess.state().clone();
-            let stats = snapshot.stats.clone();
-            let day = snapshot.day;
-            let region = snapshot.region;
-            let exec_order = snapshot.current_order;
-            let persona_id = snapshot.persona_id.clone();
-            let weather_cfg = (*weather_config).clone();
-            let weather_today = snapshot.weather_state.today;
-            let weather_mitigated = weather_cfg
-                .mitigation
-                .get(&weather_today)
-                .is_some_and(|mit| snapshot.inventory.tags.contains(&mit.tag));
-            let weather_badge = WeatherBadge {
-                weather: weather_today,
-                mitigated: weather_mitigated,
-            };
-            let camp_state = Rc::new(snapshot);
-            let camp_config_rc = Rc::new((*camp_config).clone());
-            html! {
-                <>
-                    <crate::components::ui::stats_bar::StatsBar
-                        stats={stats}
-                        day={day}
-                        region={region}
-                        exec_order={exec_order}
-                        persona_id={persona_id}
-                        weather={Some(weather_badge)}
+            Phase::Travel => (*session).clone().map_or_else(Html::default, |sess| {
+                let snapshot = sess.state().clone();
+                let weather_badge = build_weather_badge(&snapshot, &weather_config);
+                let state_rc = Rc::new(snapshot);
+                let pacing_config_rc = Rc::new((*pacing_config).clone());
+                html! {
+                    <TravelPage
+                        state={state_rc}
+                        logs={(*logs).clone()}
+                        pacing_config={pacing_config_rc}
+                        weather_badge={weather_badge}
+                        data_ready={data_ready}
+                        on_travel={do_travel.clone()}
+                        on_pace_change={on_pace_change.clone()}
+                        on_diet_change={on_diet_change.clone()}
                     />
-                    <crate::components::ui::camp_panel::CampPanel
-                        game_state={camp_state}
+                }
+            }),
+            Phase::Camp => (*session).clone().map_or_else(Html::default, |sess| {
+                let snapshot = sess.state().clone();
+                let weather_cfg = (*weather_config).clone();
+                let weather_today = snapshot.weather_state.today;
+                let weather_mitigated = weather_cfg
+                    .mitigation
+                    .get(&weather_today)
+                    .is_some_and(|mit| snapshot.inventory.tags.contains(&mit.tag));
+                let weather_badge = WeatherBadge {
+                    weather: weather_today,
+                    mitigated: weather_mitigated,
+                };
+                let camp_state = Rc::new(snapshot);
+                let camp_config_rc = Rc::new((*camp_config).clone());
+                html! {
+                    <CampPage
+                        state={camp_state}
                         camp_config={camp_config_rc}
+                        weather={weather_badge}
                         on_state_change={{
                             let session_handle = session.clone();
-                            let pending_state = pending_state.clone();
+                            let pending_state = camp_pending.clone();
                             let endgame_cfg = (*endgame_config).clone();
                             Callback::from(move |new_state: GameState| {
                                 let snapshot = new_state.clone();
@@ -692,130 +670,39 @@ pub fn app_inner() -> Html {
                             Callback::from(move |()| phase_handle.set(Phase::Menu))
                         }}
                     />
-                </>
-            }
-        }),
-        Phase::Encounter => (*session).clone().map_or_else(Html::default, |sess| {
-            sess.state().current_encounter.as_ref().map_or_else(
-                || {
-                    if data_ready {
-                        Html::default()
-                    } else {
-                        html! { <p class="muted" role="status">{ i18n::t("ui.loading_encounters") }</p> }
-                    }
-                },
-                |enc| {
-                    let snapshot = sess.state().clone();
-                    let persona_id = snapshot.persona_id.clone();
-                    let weather_badge = build_weather_badge(&snapshot, &weather_config);
-                    html! {
-                        <>
-                            <crate::components::ui::stats_bar::StatsBar
-                                stats={snapshot.stats.clone()}
-                                day={snapshot.day}
-                                region={snapshot.region}
-                                exec_order={snapshot.current_order}
-                                persona_id={persona_id}
-                                weather={Some(weather_badge)}
-                            />
-                            <crate::components::ui::encounter_card::EncounterCard
-                                encounter={enc.clone()}
-                                on_choice={on_choice.clone()}
-                            />
-                        </>
-                    }
-                },
-            )
-        }),
-        Phase::Boss => (*session).clone().map_or_else(Html::default, |sess| {
-            let gs = sess.state().clone();
-            let cfg = (*boss_config).clone();
-            let persona_id = gs.persona_id.clone();
-                let mut chance = f64::from(cfg.base_victory_chance);
-                chance += f64::from(gs.stats.credibility) * f64::from(cfg.credibility_weight);
-                chance += f64::from(gs.stats.sanity) * f64::from(cfg.sanity_weight);
-                chance += f64::from(gs.stats.supplies) * f64::from(cfg.supplies_weight);
-                chance += f64::from(gs.stats.allies) * f64::from(cfg.allies_weight);
-                chance -= f64::from(gs.stats.pants) * f64::from(cfg.pants_penalty_weight);
-                chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
-                let chance_pct = format!("{:.1}", chance * 100.0);
-
-                        let mut rounds_map: std::collections::BTreeMap<&str, &str> =
-                            std::collections::BTreeMap::new();
-                let rounds_value = cfg.rounds.to_string();
-                let passes_value = cfg.passes_required.to_string();
-                rounds_map.insert("rounds", rounds_value.as_str());
-                rounds_map.insert("passes", passes_value.as_str());
-                let rounds_text = i18n::tr("boss.stats.rounds", Some(&rounds_map));
-
-                        let mut chance_map: std::collections::BTreeMap<&str, &str> =
-                            std::collections::BTreeMap::new();
-                chance_map.insert("chance", chance_pct.as_str());
-                let chance_text = i18n::tr("boss.stats.chance", Some(&chance_map));
-
-                let sanity_text = if cfg.sanity_loss_per_round > 0 {
-                    let mut map: std::collections::BTreeMap<&str, &str> =
-                        std::collections::BTreeMap::new();
-                    let delta = format!("{:+}", -cfg.sanity_loss_per_round);
-                    map.insert("sanity", delta.as_str());
-                    Some(i18n::tr("boss.stats.sanity", Some(&map)))
-                } else {
-                    None
-                };
-
-                let pants_text = if cfg.pants_gain_per_round > 0 {
-                    let mut map: std::collections::BTreeMap<&str, &str> =
-                        std::collections::BTreeMap::new();
-                    let delta = format!("{:+}", cfg.pants_gain_per_round);
-                    map.insert("pants", delta.as_str());
-                    Some(i18n::tr("boss.stats.pants", Some(&map)))
-                } else {
-                    None
-                };
-
-                let weather_badge = build_weather_badge(&gs, &weather_config);
-            html! {
-                <>
-                    <crate::components::ui::stats_bar::StatsBar
-                        stats={gs.stats.clone()}
-                        day={gs.day}
-                        region={gs.region}
-                        exec_order={gs.current_order}
-                        persona_id={persona_id}
-                        weather={Some(weather_badge)}
+                }
+            }),
+            Phase::Encounter => (*session).clone().map_or_else(Html::default, |sess| {
+                let snapshot = sess.state().clone();
+                let weather_badge = build_weather_badge(&snapshot, &weather_config);
+                html! {
+                    <EncounterPage
+                        state={Rc::new(snapshot)}
+                        weather={weather_badge}
+                        on_choice={on_choice.clone()}
                     />
-                    <section class="panel boss-phase boss-panel">
-                        <h2>{ i18n::t("boss.title") }</h2>
-                        <div class="encounter-desc">
-                            <p>{ i18n::t("boss.phases_hint") }</p>
-                            <ul class="boss-stats">
-                                <li>{ rounds_text }</li>
-                                { sanity_text.map_or_else(
-                                    Html::default,
-                                    |text| html! { <li>{ text }</li> },
-                                ) }
-                                { pants_text.map_or_else(
-                                    Html::default,
-                                    |text| html! { <li>{ text }</li> },
-                                ) }
-                                <li>{ chance_text }</li>
-                            </ul>
-                            <p class="muted">{ i18n::t("boss.reminder") }</p>
-                        </div>
-                        <div class="controls">
-                            <button class="retro-btn-primary" onclick={boss_act}>{ i18n::t("boss.begin") }</button>
-                        </div>
-                    </section>
-                </>
-            }
-        }),
-        Phase::Result => (*session).clone().map_or_else(Html::default, |sess| {
-            let result_state = sess.state().clone();
-            let result_config_data = (*result_config).clone();
-            let boss_won = result_state.boss_victory;
+                }
+            }),
+            Phase::Boss => (*session).clone().map_or_else(Html::default, |sess| {
+                let gs = sess.state().clone();
+                let cfg = (*boss_config).clone();
+                let weather_badge = build_weather_badge(&gs, &weather_config);
+                html! {
+                    <BossPage
+                        state={gs}
+                        config={cfg}
+                        weather={weather_badge}
+                        on_begin={boss_act.clone()}
+                    />
+                }
+            }),
+            Phase::Result => (*session).clone().map_or_else(Html::default, |sess| {
+                let result_state = sess.state().clone();
+                let result_config_data = (*result_config).clone();
+                let boss_won = result_state.boss.outcome.victory;
 
                 let session_for_replay = session.clone();
-                let pending_state_for_replay = pending_state.clone();
+                let pending_state_for_replay = result_pending_replay.clone();
                 let seed_for_replay = *run_seed;
                 let on_replay_seed = Callback::from(move |()| {
                     let new_game = GameState {
@@ -827,14 +714,14 @@ pub fn app_inner() -> Html {
                 });
 
                 let session_for_new_run = session.clone();
-                let pending_state_for_new_run = pending_state.clone();
+                let pending_state_for_new_run = result_pending_new.clone();
                 let on_new_run = Callback::from(move |()| {
                     pending_state_for_new_run.set(Some(GameState::default()));
                     session_for_new_run.set(None);
                 });
 
                 let session_for_title = session.clone();
-                let pending_state_for_title = pending_state.clone();
+                let pending_state_for_title = result_pending_title.clone();
                 let on_title = {
                     let phase = phase.clone();
                     Callback::from(move |()| {
@@ -857,16 +744,19 @@ pub fn app_inner() -> Html {
                     })
                 };
 
-            html! { <crate::components::ui::result_screen::ResultScreen
-                game_state={result_state}
-                result_config={result_config_data}
-                boss_won={boss_won}
-                on_replay_seed={on_replay_seed}
-                on_new_run={on_new_run}
-                on_title={on_title}
-                on_export={on_export}
-            /> }
-        }),
+                html! {
+                    <ResultPage
+                        state={result_state}
+                        result_config={result_config_data}
+                        boss_won={boss_won}
+                        on_replay_seed={on_replay_seed}
+                        on_new_run={on_new_run}
+                        on_title={on_title}
+                        on_export={on_export}
+                    />
+                }
+            }),
+        }
     };
 
     let seed_footer = (*session)
@@ -951,7 +841,7 @@ mod tests {
 
     #[test]
     fn route_phase_mappings_cover_all_states() {
-        use crate::routes::Route;
+        use crate::router::Route;
 
         let phases = [
             Phase::Boot,

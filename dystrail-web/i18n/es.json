@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Ajustes"
+  },
+  "not_found": {
+    "title": "Página no encontrada",
+    "message": "No pudimos encontrar esta página. Usa los controles de arriba para volver.",
+    "back": "Volver al inicio"
   }
 }

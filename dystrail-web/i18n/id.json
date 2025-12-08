@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Pengaturan"
+  },
+  "not_found": {
+    "title": "Halaman tidak ditemukan",
+    "message": "Kami tidak dapat menemukan halaman ini. Gunakan kontrol di atas untuk kembali.",
+    "back": "Kembali ke beranda"
   }
 }

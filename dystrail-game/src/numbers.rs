@@ -1,5 +1,6 @@
-//! Numeric conversion helpers centralizing clippy-allowed casts.
-#![allow(clippy::cast_possible_truncation)]
+//! Numeric conversion helpers centralizing safe numeric casts.
+
+use num_traits::cast::cast;
 
 /// Clamp a f64 to the f32 range and downcast, returning 0.0 for non-finite values.
 #[must_use]
@@ -7,10 +8,10 @@ pub fn clamp_f64_to_f32(value: f64) -> f32 {
     if !value.is_finite() {
         return 0.0;
     }
-    #[allow(clippy::cast_precision_loss)]
-    {
-        value.clamp(f64::from(f32::MIN), f64::from(f32::MAX)) as f32
-    }
+    let min = cast::<f32, f64>(f32::MIN).unwrap_or(f64::MIN);
+    let max = cast::<f32, f64>(f32::MAX).unwrap_or(f64::MAX);
+    let clamped = value.clamp(min, max);
+    cast::<f64, f32>(clamped).unwrap_or(0.0)
 }
 
 /// Round a f64 and clamp it to the i32 range, returning 0 for NaN values.
@@ -19,9 +20,10 @@ pub fn round_f64_to_i32(value: f64) -> i32 {
     if value.is_nan() {
         return 0;
     }
-    value
-        .clamp(f64::from(i32::MIN), f64::from(i32::MAX))
-        .round() as i32
+    let min = cast::<i32, f64>(i32::MIN).unwrap_or(f64::MIN);
+    let max = cast::<i32, f64>(i32::MAX).unwrap_or(f64::MAX);
+    let clamped = value.clamp(min, max).round();
+    cast::<f64, i32>(clamped).unwrap_or(0)
 }
 
 /// Round a f32 and clamp it to the i32 range, returning 0 for NaN values.
@@ -32,37 +34,30 @@ pub fn round_f32_to_i32(value: f32) -> i32 {
 
 /// Ceil a f64 and clamp it to the i64 range, returning 0 for non-finite values.
 #[must_use]
-#[allow(clippy::missing_const_for_fn)]
 pub fn ceil_f64_to_i64(value: f64) -> i64 {
     if !value.is_finite() {
         return 0;
     }
-    #[allow(clippy::cast_precision_loss)]
-    {
-        value
-            .clamp(i64_to_f64(i64::MIN), i64_to_f64(i64::MAX))
-            .ceil() as i64
-    }
+    let min = cast::<i64, f64>(i64::MIN).unwrap_or(f64::MIN);
+    let max = cast::<i64, f64>(i64::MAX).unwrap_or(f64::MAX);
+    let clamped = value.clamp(min, max).ceil();
+    cast::<f64, i64>(clamped).unwrap_or(0)
 }
 
 /// Convert i64 to f64 while allowing precision loss in a single location.
 #[must_use]
-pub const fn i64_to_f64(value: i64) -> f64 {
-    #[allow(clippy::cast_precision_loss)]
-    {
-        value as f64
-    }
+pub fn i64_to_f64(value: i64) -> f64 {
+    cast::<i64, f64>(value).unwrap_or(0.0)
 }
 
 #[cfg(test)]
-#[allow(clippy::float_cmp)]
 mod tests {
     use super::*;
 
     #[test]
     fn clamp_handles_non_finite() {
-        assert_eq!(clamp_f64_to_f32(f64::NAN), 0.0);
-        assert_eq!(clamp_f64_to_f32(f64::from(f32::MAX) * 2.0), f32::MAX);
+        assert!((clamp_f64_to_f32(f64::NAN) - 0.0).abs() < f32::EPSILON);
+        assert!((clamp_f64_to_f32(f64::from(f32::MAX) * 2.0) - f32::MAX).abs() < f32::EPSILON);
     }
 
     #[test]

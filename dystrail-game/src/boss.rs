@@ -103,7 +103,7 @@ impl BossConfig {
 }
 
 pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome {
-    state.boss_attempted = true;
+    state.boss.outcome.attempted = true;
 
     if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
         let _ = state.apply_deep_aggressive_compose();
@@ -154,7 +154,7 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
 
     let roll = f64::from(state.next_pct()) / 100.0;
     if roll < win_prob {
-        state.boss_victory = true;
+        state.boss.outcome.victory = true;
         state.logs.push(String::from("log.boss.victory"));
         BossOutcome::PassedCloture
     } else {

@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Settings"
+  },
+  "not_found": {
+    "title": "Page not found",
+    "message": "We couldn't find that page. Use the controls above to get back on track.",
+    "back": "Back to home"
   }
 }

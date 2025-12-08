@@ -20,6 +20,9 @@ pub enum Route {
     Boss,
     #[at("/result")]
     Result,
+    #[at("/404")]
+    #[not_found]
+    NotFound,
 }
 
 impl Route {
@@ -48,6 +51,7 @@ impl Route {
             Self::Encounter => Some(crate::app::Phase::Encounter),
             Self::Boss => Some(crate::app::Phase::Boss),
             Self::Result => Some(crate::app::Phase::Result),
+            Self::NotFound => None,
         }
     }
 }

@@ -97,7 +97,7 @@ fn breakdown_state_disables_travel() {
         part: Part::Tire,
         day_started: 1,
     });
-    game_state.travel_blocked = true;
+    game_state.day_state.travel.travel_blocked = true;
 
     let props = VehicleStatusProps {
         game_state,

@@ -310,21 +310,26 @@ const fn success_threshold(mode: GameMode) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    #![allow(clippy::field_reassign_with_default)]
     use super::*;
     use crate::state::VehicleFailureCause;
 
     #[test]
     fn high_score_triggers_victory() {
         let cfg = ResultConfig::default();
-        let mut state = GameState::default();
-        state.stats.supplies = 20;
-        state.stats.hp = 10;
-        state.stats.morale = 10;
-        state.stats.credibility = 20;
-        state.stats.allies = 5;
-        state.day = 45;
-        state.encounters_resolved = 8;
+        let state = GameState {
+            stats: crate::state::Stats {
+                supplies: 20,
+                hp: 10,
+                sanity: 10,
+                credibility: 20,
+                morale: 10,
+                allies: 5,
+                ..crate::state::Stats::default()
+            },
+            day: 45,
+            encounters_resolved: 8,
+            ..GameState::default()
+        };
 
         let summary = result_summary(&state, &cfg).unwrap();
         assert!(summary.passed_threshold);
@@ -334,12 +339,13 @@ mod tests {
 
     #[test]
     fn hunger_collapse_maps_to_hunger_keys() {
-        #![allow(clippy::field_reassign_with_default)]
         let cfg = ResultConfig::default();
-        let mut state = GameState::default();
-        state.ending = Some(Ending::Collapse {
-            cause: CollapseCause::Hunger,
-        });
+        let state = GameState {
+            ending: Some(Ending::Collapse {
+                cause: CollapseCause::Hunger,
+            }),
+            ..GameState::default()
+        };
 
         let summary = result_summary(&state, &cfg).unwrap();
         assert_eq!(summary.headline_key, "result.headline.collapse_hunger");
@@ -349,12 +355,13 @@ mod tests {
 
     #[test]
     fn vehicle_failure_uses_detailed_keys() {
-        #![allow(clippy::field_reassign_with_default)]
         let cfg = ResultConfig::default();
-        let mut state = GameState::default();
-        state.ending = Some(Ending::VehicleFailure {
-            cause: VehicleFailureCause::Destroyed,
-        });
+        let state = GameState {
+            ending: Some(Ending::VehicleFailure {
+                cause: VehicleFailureCause::Destroyed,
+            }),
+            ..GameState::default()
+        };
 
         let summary = result_summary(&state, &cfg).unwrap();
         assert_eq!(
@@ -374,12 +381,21 @@ mod tests {
     #[test]
     fn persona_resolution_and_headlines() {
         let cfg = ResultConfig::default();
-        let mut state = GameState::default();
-        state.persona_id = Some("persona".into());
-        assert_eq!(resolve_persona_name(&state), "persona");
-        state.persona_id = None;
-        state.party.leader = "Leader".into();
-        assert_eq!(resolve_persona_name(&state), "Leader");
+        let persona_state = GameState {
+            persona_id: Some("persona".into()),
+            ..GameState::default()
+        };
+        assert_eq!(resolve_persona_name(&persona_state), "persona");
+
+        let leader_state = GameState {
+            persona_id: None,
+            party: crate::state::Party {
+                leader: "Leader".into(),
+                ..crate::state::Party::default()
+            },
+            ..GameState::default()
+        };
+        assert_eq!(resolve_persona_name(&leader_state), "Leader");
 
         let token = ending_cause_token(Ending::Exposure {
             kind: crate::state::ExposureKind::Heat,

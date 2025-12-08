@@ -516,5 +516,10 @@
   },
   "settings": {
     "title": "Ayarlar"
+  },
+  "not_found": {
+    "title": "Sayfa bulunamadı",
+    "message": "Bu sayfayı bulamadık. Yukarıdaki kontrollerle geri dönün.",
+    "back": "Ana sayfaya dön"
   }
 }

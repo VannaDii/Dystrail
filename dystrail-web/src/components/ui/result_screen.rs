@@ -181,7 +181,9 @@ impl ResultScreen {
     }
 
     fn resolved_headline_key(summary: &ResultSummary, props: &Props) -> String {
-        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
+        if (props.game_state.boss.outcome.attempted || props.game_state.boss.readiness.ready)
+            && !props.boss_won
+        {
             "result.headline.boss_loss".to_string()
         } else if props.boss_won {
             "result.headline.victory".to_string()
@@ -191,7 +193,9 @@ impl ResultScreen {
     }
 
     fn resolved_epilogue_key(summary: &ResultSummary, props: &Props) -> String {
-        if (props.game_state.boss_attempted || props.game_state.boss_ready) && !props.boss_won {
+        if (props.game_state.boss.outcome.attempted || props.game_state.boss.readiness.ready)
+            && !props.boss_won
+        {
             "result.epilogue.boss_loss".to_string()
         } else if props.boss_won {
             "result.epilogue.victory".to_string()
@@ -434,7 +438,7 @@ mod tests {
     fn headline_resolution_prefers_boss_flags() {
         let summary = baseline_summary();
         let mut props = baseline_props();
-        props.game_state.boss_attempted = true;
+        props.game_state.boss.outcome.attempted = true;
         props.boss_won = false;
         let key = ResultScreen::resolved_headline_key(&summary, &props);
         assert_eq!(key, "result.headline.boss_loss");
@@ -448,7 +452,7 @@ mod tests {
     fn epilogue_resolution_tracks_victory_state() {
         let summary = baseline_summary();
         let mut props = baseline_props();
-        props.game_state.boss_ready = true;
+        props.game_state.boss.readiness.ready = true;
         props.boss_won = false;
         let key = ResultScreen::resolved_epilogue_key(&summary, &props);
         assert_eq!(key, "result.epilogue.boss_loss");

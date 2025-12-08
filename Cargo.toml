@@ -54,3 +54,4 @@ async-trait = "0.1"
 thirtyfour = { version = "0.36.1", default-features = false, features = ["reqwest", "rustls-tls", "component", "tokio-multi-threaded"] }
 chrono = { version = "0.4", features = ["clock"] }
 env_logger = "0.11"
+num-traits = "0.2"
