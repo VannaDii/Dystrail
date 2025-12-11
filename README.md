@@ -1,13 +1,14 @@
 # 🎮 Dystrail
 
-*What if Oregon Trail took a wrong turn and ended up in DC?*
+_What if Oregon Trail took a wrong turn and ended up in DC?_
 
 **Dystrail** is a SNES-lite parody survival game where you march toward Capitol Hill, dodging tariffs, raw milk stands, brain worms, and the dreaded **National Pants Emergency**.
 
 ![Dystrail Social Card](static/img/social-card.png)
 
 ## 🕹️ Gameplay Loop
-1. **Boot & Loading** → asset preloading with progress bar, *Press Any Key to Begin*.
+
+1. **Boot & Loading** → asset preloading with progress bar, _Press Any Key to Begin_.
 2. **Persona Selection** → choose your character (Journalist, Organizer, Whistleblower, Lobbyist, Staffer, Satirist) with unique stats and abilities.
 3. **Outfitting Store** → purchase supplies and gear before departure.
 4. **Share Code & Mode** → prefilled seed (e.g., `CL-ORANGE42`), paste a friend/streamer's code to replay their run.
@@ -19,9 +20,10 @@
 10. **Vehicle Breakdowns** → random failures requiring spare parts or repair time.
 11. **Border Crossings** → navigate checkpoints with permits, bribes, or alternative routes.
 12. **Filibuster Boss** → multi-phase final challenge.
-12. **Result Screen** → comprehensive ending analysis with deterministic scoring, detailed statistics breakdown, shareable text generation, and replay functionality via **OT-style keyboard navigation** (1-9/0 keys).
+13. **Result Screen** → comprehensive ending analysis with deterministic scoring, detailed statistics breakdown, shareable text generation, and replay functionality via **OT-style keyboard navigation** (1-9/0 keys).
 
 ## ✨ Features
+
 - **SNES-lite 16-bit style** palette and sprites.
 - **Six unique personas** with distinct starting stats and gameplay modifiers.
 - **Comprehensive survival mechanics**: supplies, sanity, credibility, morale, allies, budget.
@@ -42,6 +44,7 @@
 - **Meta tags**: clean social media unfurls on Discord, Slack, X/Twitter, Facebook.
 
 ## 📦 Assets & Data
+
 - `dystrail-web/static/img/palette.png` — locked SNES-lite color palette
 - `dystrail-web/static/img/spritesheet.png` — game sprites and tiles
 - `dystrail-web/static/img/logo.png` — DYSTRAIL wordmark
@@ -60,58 +63,51 @@
 - `dystrail-web/i18n/` — internationalization files for 20 languages
 
 ## 🛠 Dev Setup
-**Prerequisites:**
+
+**Prerequisites (workspace root):**
+
 ```bash
-# Install Rust and required targets
+# Toolchain
 rustup target add wasm32-unknown-unknown
-cargo install trunk
+cargo install trunk wasm-pack cargo-tarpaulin cargo-deny cargo-audit just
 ```
 
-**Development:**
+**Development & Validation (run from repo root):**
+
 ```bash
-# Clone and run dev server
-git clone https://github.com/VannaDii/Dystrail.git
-cd Dystrail
-cd dystrail-web  # Navigate to web frontend
-trunk serve --open
-```
+# Live-reload web UI
+just serve-web
 
-**Building:**
-```bash
-# Production build (from dystrail-web directory)
-cd dystrail-web
-trunk build --release
+# Full lint/test sweep (fmt + clippy + workspace tests + wasm-pack + coverage)
+just lint
 
-# Or build all workspace crates
-cargo build --release
-```
+# Faster sanity checks
+just tests
 
-**Testing:**
-```bash
-# Run all tests across workspace
-cargo test
+# Security/license checks
+just security
 
-# Run specific crate tests
-cargo test -p dystrail-game
-cargo test -p dystrail-web
-cargo test -p dystrail-tester
+# Release artifacts (Trunk + workspace release builds)
+just build-release
 
-# Run WASM tests in browser
-wasm-pack test --headless --firefox dystrail-web
+# Full pre-merge pipeline
+just validate
 ```
 
 ## ➕ Contributing
 
 ### Adding Encounters
+
 Edit `dystrail-web/static/assets/data/game.json`:
+
 ```json
 {
   "id": "tariff_whiplash",
   "name": "Tariff Whiplash",
   "desc": "A surprise tariff now applies to... your stuff.",
   "weight": 5,
-  "regions": ["RustBelt","Beltway"],
-  "modes": ["classic","deep_end"],
+  "regions": ["RustBelt", "Beltway"],
+  "modes": ["classic", "deep_end"],
   "choices": [
     {
       "label": "Pay the tariff",
@@ -127,23 +123,27 @@ Edit `dystrail-web/static/assets/data/game.json`:
 ```
 
 ### Adding Personas
+
 Edit `dystrail-web/static/assets/data/personas.json`:
+
 ```json
 {
   "my_persona": {
     "name": "My Persona",
     "desc": "A custom character with unique abilities.",
     "score_mult": 1.0,
-    "start": { "supplies":18, "credibility":6, "sanity":10, "morale":5, "allies":1, "budget":110 },
+    "start": { "supplies": 18, "credibility": 6, "sanity": 10, "morale": 5, "allies": 1, "budget": 110 },
     "mods": { "receipt_find_pct": 5 }
   }
 }
 ```
 
 ### Internationalization
+
 Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as the reference template.
 
 ### Code Style
+
 - Use Rust 2024 edition conventions
 - Follow Yew functional component patterns
 - Keep components small and focused
@@ -152,20 +152,16 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 ## 🏗️ Architecture
 
 **Workspace Structure:**
-- `dystrail-game/` — Platform-agnostic core game engine (Rust library)
-- `dystrail-web/` — Web frontend using Yew framework (WebAssembly)
-- `dystrail-tester/` — Automated testing and scenario validation tools
 
-**Frontend:** Rust + Yew (React-like) → WebAssembly
-**Deployment:** Static hosting (GitHub Pages, Netlify, Vercel)
-**State Management:** Yew hooks (`use_state`, `use_reducer`) + LocalStorage
-**Routing:** Yew Router for SPA navigation
-**Styling:** CSS with retro/pixel-art aesthetic
-**Assets:** Static files served from `dystrail-web/static/`
-**Data:** JSON configuration files loaded at runtime
-**I18n:** Runtime language switching with fallback to English
+- `dystrail-game/` — Platform-agnostic core game engine (Rust library)
+- `dystrail-web/` — Web frontend using Yew (WebAssembly)
+- `dystrail-tester/` — Automated testing and scenario validation tools
+- `Justfile` — canonical dev scripts for fmt/lint/tests/security/build
+
+**Frontend:** Rust + Yew (React-like) → WebAssembly **Deployment:** Static hosting (GitHub Pages, Netlify, Vercel) **State Management:** Yew hooks (`use_state`, `use_reducer`) + LocalStorage **Routing:** Yew Router for SPA navigation **Styling:** CSS with retro/pixel-art aesthetic **Assets:** Static files served from `dystrail-web/static/` **Data:** JSON configuration files loaded at runtime **I18n:** Runtime language switching with fallback to English
 
 **Core Game Engine (`dystrail-game/`):**
+
 - `src/state.rs` — core game state and turn progression logic
 - `src/encounters.rs` — encounter system and selection algorithms
 - `src/personas.rs` — character classes and abilities
@@ -177,15 +173,22 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 - `src/result.rs` — deterministic scoring and ending analysis
 
 **Web Frontend (`dystrail-web/`):**
-- `src/app.rs` — main application and routing logic
-- `src/components/ui/` — all UI components (menus, panels, dialogs)
-- `src/game/` — web-specific game integrations
-- `src/i18n.rs` — internationalization management
-- `tests/wasm/` — WebAssembly test suite
+
+- `src/lib.rs` — WASM entrypoint; renders `app::App` and bootstraps a11y/i18n
+- `src/app/` — app state machine, routing glue, and top-level view composition
+- `src/router.rs` & `src/pages/` — typed routes + page modules (boot, persona, outfitting, menu, travel, camp, encounter, boss, result, 404)
+- `src/components/` — shared shell components (header, footer, buttons, modal)
+- `src/components/ui/` — feature modules (travel panel, pace/diet panel, camp panel, vehicle status, main menu, save drawer, settings dialog, result screen, crossing card, outfitting store, etc.)
+- `src/i18n/` — bundle, formatting, locale metadata, rendering helpers
+- `src/a11y.rs` — focus management, high-contrast toggle, aria utilities
+- `static/` — assets (images, favicon, JSON data)
+- `i18n/*.json` — translations for 20 locales
+- `tests/` — wasm-bindgen tests (headless browser)
 
 ## 🚀 Roadmap
 
 ### Phase 1 (Current)
+
 - ✅ Core game mechanics and survival systems
 - ✅ Persona system with 6 unique characters
 - ✅ Comprehensive UI with accessibility features
@@ -195,6 +198,7 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 - ✅ Result screen with deterministic scoring and social sharing
 
 ### Phase 2 (Planned)
+
 - 🔊 **Audio System:** encounter chimes, success/fail stings, filibuster fanfare
 - 🎨 **Enhanced Visuals:** animated sprites, particle effects, dynamic backgrounds
 - 📊 **Analytics:** gameplay metrics and balance insights
@@ -202,6 +206,7 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 - 🌐 **PWA Features:** offline play, app installation
 
 ### Phase 3 (Future)
+
 - 🏆 **Achievement System:** unlockable goals and rewards
 - 📱 **Mobile App:** native iOS/Android versions
 - 🔗 **Social Features:** leaderboards, shared challenge modes
@@ -209,11 +214,11 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 - 🎪 **Seasonal Events:** time-limited content and themes
 
 ## 📜 License
+
 MIT
 
 ## 👥 Credits
-**Team Dystrail** — design, development, pixel art, and political satire
-**Community Contributors** — encounter ideas, translations, and feedback
-**Special Thanks** — to everyone who helped test and improve the game
+
+**Team Dystrail** — design, development, pixel art, and political satire **Community Contributors** — encounter ideas, translations, and feedback **Special Thanks** — to everyone who helped test and improve the game
 
 Community contributions welcome! See the Contributing section above for how to help.

@@ -71,34 +71,29 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 ├─ Cargo.toml
 ├─ Cargo.lock
 ├─ rust-toolchain.toml
-├─ Trunk.toml
-├─ index.html
-├─ static/                 # favicons, manifest, images
-├─ i18n/
-│  ├─ en.json
-│  ├─ it.json
-│  ├─ es.json
-│  └─ ar.json               # RTL example
-├─ src/
-│  ├─ main.rs
-│  ├─ app.rs
-│  ├─ router.rs
-│  ├─ i18n.rs
-│  ├─ a11y.rs             # focus mgmt, aria helpers, traps
-│  ├─ components/
-│  │  ├─ header.rs        # language switcher, skip link
-│  │  ├─ footer.rs
-│  │  ├─ button.rs        # keyboard & aria complete
-│  │  ├─ modal.rs         # focus trap, esc close, aria-modal
-│  │  └─ form/
-│  │     ├─ field.rs      # label/aria-describedby, errors
-│  │     └─ text_input.rs
-│  └─ pages/
-│     ├─ home.rs
-│     └─ settings.rs
-└─ tests/
-├─ wasm/
-   └─ app_tests.rs        # wasm-bindgen-test
+├─ Justfile
+├─ dystrail-game/
+├─ dystrail-web/
+│  ├─ Cargo.toml
+│  ├─ Trunk.toml
+│  ├─ index.html
+│  ├─ static/                 # favicons, manifest, images, JSON data
+│  ├─ i18n/                   # translations (20 locales)
+│  └─ src/
+│     ├─ lib.rs               # WASM entrypoint
+│     ├─ app/                 # bootstrap, routing glue, app state, views
+│     ├─ router.rs
+│     ├─ pages/               # boot, persona, outfitting, menu, travel, camp, encounter, boss, result, 404
+│     ├─ components/          # header/footer/button/modal + ui/*
+│     │  └─ ui/               # travel panel, pace/diet panel, camp panel, vehicle status, result screen, settings dialog, etc.
+│     ├─ i18n/                # bundle/render/format/locales
+│     ├─ a11y.rs              # focus mgmt, aria helpers, traps, contrast toggle
+│     ├─ dom.rs
+│     ├─ game.rs
+│     ├─ input.rs
+│     └─ paths.rs
+├─ dystrail-tester/
+└─ docs/
 ```
 
 ---
@@ -114,7 +109,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 | Release build   | `just build-release` |
 | QA sweeps       | `just qa`            |
 | Full validation | `just validate`      |
-| Dev server      | `trunk serve --open` |
+| Dev server      | `just serve-web`     |
 
 > CI must run all above; any failure blocks merge.
 
@@ -137,7 +132,7 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 
 ### 4.2 - Internationalization & Localization
 
-- Store messages in `i18n/<locale>.json`. Keys are **namespaced** (`app.nav.home`, `form.error.required`).
+- Store messages in `dystrail-web/i18n/<locale>.json`. Keys are **namespaced** (`app.nav.home`, `form.error.required`).
 - Implement a **language switcher** in `Header`; saves preference (localStorage) and updates `<html lang>` and `dir="rtl"` for RTL locales.
 - Support **variable interpolation** via JSON templates with `{{var}}` and `{var}` syntax.
 - Use browser **Intl** for number/date formatting; never hardcode formats.
@@ -170,40 +165,57 @@ Pin versions in `rust-toolchain.toml` and `Cargo.toml`:
 
 ## 5 - Key Files (Sketches)
 
-### 5.1 - `src/main.rs`
+### 5.1 - `dystrail-web/src/lib.rs`
 
 ```rust
 #![forbid(unsafe_code)]
-use yew::prelude::*;
-mod app;
-fn main() {
-    console_error_panic_hook::set_once(); // dev only (cfg)
+use wasm_bindgen::prelude::*;
+
+pub mod app;
+pub mod a11y;
+pub mod i18n;
+// ...
+
+#[wasm_bindgen(start)]
+pub fn start() {
+    #[cfg(feature = "console_error_panic_hook")]
+    console_error_panic_hook::set_once();
+    // seed DOM lang/dir + high-contrast from saved prefs
+    crate::i18n::set_lang(&crate::i18n::current_lang());
+    if crate::a11y::high_contrast_enabled() {
+        crate::a11y::set_high_contrast(true);
+    }
     yew::Renderer::<app::App>::new().render();
 }
 ```
 
-### 5.2 - src/i18n.rs (loader + context)
+### 5.2 - `dystrail-web/src/i18n/` (loader + context)
 
 ```rust
+// mod.rs
+mod bundle;
+mod format;
+mod locales;
+mod render;
+
+pub use bundle::{I18nBundle, current_lang, is_rtl, set_lang};
+pub use format::{fmt_currency, fmt_date_iso, fmt_number, fmt_pct};
+pub use locales::{LocaleMeta, locales};
+pub use render::{t, tr};
+
+// bundle.rs
 use serde_json::Value;
-use std::collections::HashMap;
+use std::cell::RefCell;
 
 pub struct I18nBundle {
     pub lang: String,
     pub rtl: bool,
-    translations: Value,
-    fallback: Value,
-}
-
-impl I18nBundle {
-    pub fn t(&self, key: &str) -> String { /* resolve string or fallback */ }
-    pub fn tr(&self, key: &str, args: Option<&HashMap<&str, &str>>) -> String { /* resolve with variable interpolation */ }
-    pub fn set_lang(&mut self, lang: &str) { /* rebuild bundle, set rtl, update DOM lang/dir */ }
-    pub fn is_rtl(&self) -> bool { self.rtl }
+    pub translations: Value,
+    pub fallback: Value,
 }
 ```
 
-### 5.3 - src/a11y.rs (focus utils)
+### 5.3 - `dystrail-web/src/a11y.rs` (focus utils)
 
 ```rust
 pub fn restore_focus(prev_id: &str) { /* querySelector + focus via web-sys */ }
@@ -218,7 +230,7 @@ pub fn trap_focus_in(container_id: &str) { /* on keydown Tab, cycle focusables *
 
 ⸻
 
-## 6 - i18n Message Example (i18n/en.json)
+## 6 - i18n Message Example (`dystrail-web/i18n/en.json`)
 
 ```json
 {
@@ -377,26 +389,12 @@ The goal is that **no single file becomes a grab-bag**. Files must stay **small,
 
 - **`lib.rs`**
 
-  - `lib.rs` is for:
-    - crate docs (`//!`),
-    - `pub mod` declarations,
-    - **light** re-exports, and
-    - very small glue types (simple newtypes, marker traits) that truly represent the crate boundary.
-  - `lib.rs` must **not**:
-    - contain full API implementations,
-    - define large structs with behavior,
-    - host HTTP handlers, routers, or Axum/Tower wiring,
-    - embed rate limiting logic, event streaming, or complex state structs.
-  - Any non-trivial behavior seen in `lib.rs` must be moved to an appropriately named module:
-    - e.g. `http/api_server.rs`, `http/state.rs`, `http/auth.rs`, `http/rate_limit.rs`, `http/sse.rs`, `http/health.rs`, `http/openapi.rs`, etc., with `lib.rs` re-exporting as needed.
+  - `lib.rs` is for crate docs (`//!`), `pub mod` declarations, **light** re-exports, and minimal bootstrap glue (e.g., `#[wasm_bindgen(start)]` that sets lang/dir/high-contrast before rendering).
+  - Do not park feature logic, UI components, or large state machines in `lib.rs`; move them into named modules (`app/`, `components/`, `pages/`, etc.) and re-export as needed.
 
-- **`main.rs`**
-  - `main.rs` remains a **thin bootstrap only**:
-    - parse config/CLI,
-    - initialize telemetry,
-    - wire concrete implementations,
-    - call a `run()` in `bootstrap.rs` or equivalent.
-  - No business logic, no HTTP handlers, no domain types in `main.rs`.
+- **`main.rs`** (only if a crate has one)
+  - Stays a **thin bootstrap**: parse config/CLI, initialize telemetry, wire concrete implementations, then call a `run()`/`bootstrap()` in a dedicated module.
+  - No business logic, HTTP handlers, or domain types in `main.rs`.
 
 ### 14.4 Module hierarchy & layering
 
