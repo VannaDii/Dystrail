@@ -53,7 +53,7 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
             focus_target.set(AttrValue::from("seed-save-btn"));
             show_save.set(true);
         });
-        phases::render_seed_footer(state, open_save_footer, open_settings)
+        phases::render_seed_footer(state, &open_save_footer, &open_settings)
     };
 
     html! {

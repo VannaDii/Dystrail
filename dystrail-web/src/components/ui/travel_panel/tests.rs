@@ -1,14 +1,13 @@
-use super::helpers::{format_delta, format_percent, format_weather_announcement};
+use super::weather::{format_delta, format_percent, format_weather_announcement};
 use super::*;
-use crate::game::Inventory;
-use crate::game::PacingConfig;
-use crate::game::Region;
 use crate::game::vehicle::{Breakdown, Part};
 use crate::game::weather::{Weather, WeatherConfig, WeatherState};
+use crate::game::{GameState, Inventory, PacingConfig, Region};
 use futures::executor::block_on;
 use std::collections::HashSet;
 use std::iter::FromIterator;
 use std::rc::Rc;
+use yew::Callback;
 use yew::LocalServerRenderer;
 
 fn sample_game_state() -> Rc<GameState> {

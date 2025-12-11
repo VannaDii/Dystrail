@@ -1,3 +1,4 @@
+mod layout;
 mod logic;
 mod menu_item;
 mod view;
