@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: ["main"]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   CARGO_TERM_COLOR: always
 
@@ -17,9 +21,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
           components: clippy, rustfmt
           targets: wasm32-unknown-unknown
 
@@ -37,9 +41,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
           components: clippy
           targets: wasm32-unknown-unknown
 
@@ -64,9 +68,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
           components: rustfmt
 
       - name: Locale coverage tests
@@ -82,9 +86,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
 
       - name: Install audit/deny
         run: |
@@ -105,9 +109,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
           targets: wasm32-unknown-unknown
 
       - name: Install trunk and wasm-pack
@@ -143,9 +147,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
 
       - name: Logic QA sweep
         run: cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
@@ -158,9 +162,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Rust
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: "1.91.0"
+          toolchain: stable
           targets: wasm32-unknown-unknown
 
       - name: Install trunk
