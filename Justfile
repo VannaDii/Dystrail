@@ -27,7 +27,7 @@ qa:
     cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
 
 tests:
-    cargo test --workspace --all --all-features --locked -- --nocapture
+    cargo test --workspace --all --all-features -- --nocapture
 
 validate:
     just lint
