@@ -54,7 +54,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Cargo test (workspace)
-        run: cargo test --workspace --all-features --locked -- --nocapture
+        run: cargo test --workspace --all-features -- --nocapture
 
       - name: wasm-bindgen tests (chrome, headless)
         working-directory: dystrail-web
