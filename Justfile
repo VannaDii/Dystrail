@@ -42,3 +42,10 @@ check:
 
 coverage:
     cargo tarpaulin --packages dystrail-game --fail-under 77
+
+# Docs
+docs-build:
+    cd docs && mdbook build
+
+docs-serve:
+    cd docs && mdbook serve --open
