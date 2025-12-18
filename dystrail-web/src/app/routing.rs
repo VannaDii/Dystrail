@@ -24,6 +24,11 @@ pub fn use_sync_route_with_phase(
 pub fn use_sync_phase_with_route(phase: &UseStateHandle<Phase>, route: Option<Route>) {
     let phase = phase.clone();
     use_effect_with(route, move |route| {
+        // Don't change phase during Boot - only route changes should trigger phase changes
+        if *phase == Phase::Boot {
+            return;
+        }
+
         if let Some(route) = route
             && let Some(new_phase) = route.to_phase()
             && new_phase != *phase

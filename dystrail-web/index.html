@@ -1,22 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Dystrail — A Satirical 16-bit Trek to DC</title>
-  <meta name="description" content="Dystrail: a SNES-lite parody survival trek to Capitol Hill. Play in your browser."/>
-  <meta property="og:title" content="Dystrail — A Satirical 16-bit Trek to DC"/>
-  <meta property="og:description" content="Survive tariffs, gators, raw milk and the Filibuster. Play in your browser."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="static/img/social-card.png"/>
-  <link rel="icon" href="static/favicon.ico"/>
-  <link rel="apple-touch-icon" href="static/img/logo.png"/>
-  <link rel="stylesheet" href="static/styles.css"/>
-  <link data-trunk rel="rust" href="Cargo.toml" data-wasm-opt="z" />
-  <link data-trunk rel="copy-dir" href="static" />
-</head>
-<body>
-  <a href="#main" class="sr-only">Skip to content</a>
-  <div id="app"></div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dystrail — A Satirical 16-bit Trek to DC</title>
+    <meta
+      name="description"
+      content="Dystrail: a SNES-lite parody survival trek to Capitol Hill. Play in your browser." />
+    <meta property="og:title" content="Dystrail — A Satirical 16-bit Trek to DC" />
+    <meta
+      property="og:description"
+      content="Survive tariffs, gators, raw milk and the Filibuster. Play in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="static/img/social-card.png" />
+    <link rel="icon" href="static/favicon.ico" />
+    <link rel="apple-touch-icon" href="static/img/logo.png" />
+    <!-- DaisyUI via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link data-trunk rel="rust" href="Cargo.toml" data-wasm-opt="z" />
+    <link data-trunk rel="copy-dir" href="static" />
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Skip to content</a>
+    <div id="app"></div>
+  </body>
 </html>

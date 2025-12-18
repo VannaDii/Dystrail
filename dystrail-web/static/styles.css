@@ -34,6 +34,52 @@ html.hc {
 /* Import retro pixel font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* DaisyUI Oregon Trail Theme Customizations */
+.dystrail-title {
+  font-family: 'Press Start 2P', 'Courier Prime', 'Courier New', monospace;
+}
+
+/* Slow pulse animation for "Press any key" prompt */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* DaisyUI progress bar customization for Oregon Trail theme */
+.progress::-webkit-progress-bar {
+  background-color: #C9A961;
+}
+
+.progress::-webkit-progress-value {
+  background-color: #8B6914;
+  border-right: 2px solid #654321;
+}
+
+.progress::-moz-progress-bar {
+  background-color: #8B6914;
+  border-right: 2px solid #654321;
+}
+
+.progress-warning::-webkit-progress-bar {
+  background-color: #C9A961;
+}
+
+.progress-warning::-webkit-progress-value {
+  background-color: #8B6914;
+}
+
+.progress-warning::-moz-progress-bar {
+  background-color: #8B6914;
+}
+
 /* Reset and base styles */
 * {
   box-sizing: border-box;

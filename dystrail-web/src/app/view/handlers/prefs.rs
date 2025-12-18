@@ -41,6 +41,7 @@ pub fn build_begin_boot(state: &AppState) -> Callback<()> {
     let phase = state.phase.clone();
     let ready = state.boot_ready.clone();
     Callback::from(move |()| {
+        // Only advance when explicitly called (user presses key)
         if *ready {
             phase.set(Phase::Persona);
         }

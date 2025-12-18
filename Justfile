@@ -21,7 +21,7 @@ build-release:
 
 serve-web:
     # Run the web UI with live reload/watch
-    cd dystrail-web && PUBLIC_URL=/play trunk serve --open --watch . --public-url /play/
+    cd dystrail-web && PUBLIC_URL=/play trunk serve --open --watch . --public-url /play/ --port 8081
 
 qa:
     cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
