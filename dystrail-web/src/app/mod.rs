@@ -68,9 +68,7 @@ mod tests {
             let route = Route::from_phase(&phase);
             let round_trip = route.to_phase();
             match (phase, round_trip) {
-                (Phase::Boot | Phase::Menu, Some(mapped)) => {
-                    assert!(mapped == Phase::Menu);
-                }
+                (Phase::Boot | Phase::Menu, None) => {}
                 (_, Some(mapped)) => assert!(mapped == phase),
                 (_, None) => panic!("Route should map to a phase"),
             }

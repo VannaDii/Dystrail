@@ -434,7 +434,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
 
 ## 3) RNG: Domain Streams + Phase-Scoped Consumption
 
-- [ ] RNG-001 (P0) Expand `RngBundle` to full domain streams required by spec
+- [x] RNG-001 (P0) Expand `RngBundle` to full domain streams required by spec
   - Requirement:
     - Provide at least these streams with stable seeding:
       - `weather`, `health`, `travel`, `events`, `crossing`, `trade`, `hunt`, `vehicle/breakdown`, `encounter`
@@ -446,7 +446,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - The engine exposes these streams and kernel phases use only their designated streams.
     - Each stream reports draw counts (or equivalent instrumentation) for determinism debugging.
 
-- [ ] RNG-002 (P0) Make WeatherTick consume `rng.weather()` (not travel RNG)
+- [x] RNG-002 (P0) Make WeatherTick consume `rng.weather()` (not travel RNG)
   - Requirement:
     - Weather selection and any weather-related stochastic decisions must come from `rng.weather()` only.
   - Spec refs:
@@ -455,7 +455,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - No weather-related code uses `rng.travel()` or `rng.encounter()`.
     - Weather outcomes are identical regardless of whether travel computations occur.
 
-- [ ] RNG-003 (P0) Make afflictions/disease consume `rng.health()` only
+- [x] RNG-003 (P0) Make afflictions/disease consume `rng.health()` only
   - Requirement:
     - Affliction roll, disease selection, duration rolls, and per-day disease tick stochastic elements must come from `rng.health()`.
   - Spec refs:

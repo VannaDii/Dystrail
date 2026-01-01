@@ -223,7 +223,7 @@ pub fn select_weather_for_today(
     cfg: &WeatherConfig,
     rngs: &RngBundle,
 ) -> Result<Weather, String> {
-    let mut rng = rngs.travel();
+    let mut rng = rngs.weather();
 
     let Some(region_weights) = cfg.weights.get(&gs.region) else {
         return Err(format!(

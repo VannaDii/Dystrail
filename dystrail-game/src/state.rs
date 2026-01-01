@@ -264,8 +264,8 @@ mod tests {
         bundle_with_roll_below(threshold, RngBundle::encounter)
     }
 
-    fn travel_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
-        bundle_with_roll_below(threshold, RngBundle::travel)
+    fn health_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
+        bundle_with_roll_below(threshold, RngBundle::health)
     }
 
     fn breakdown_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
@@ -953,7 +953,7 @@ mod tests {
             disease_cooldown: 0,
             ..GameState::default()
         };
-        state.attach_rng_bundle(travel_bundle_with_roll_below(0.5));
+        state.attach_rng_bundle(health_bundle_with_roll_below(0.5));
         state.roll_daily_illness();
         assert_eq!(state.illness_days_remaining, 1);
         assert!(state.day_state.rest.rest_requested);
@@ -978,7 +978,7 @@ mod tests {
             },
             ..GameState::default()
         };
-        state.attach_rng_bundle(travel_bundle_with_roll_below(0.05));
+        state.attach_rng_bundle(health_bundle_with_roll_below(0.05));
 
         state.roll_daily_illness();
         assert!(state.illness_days_remaining > 0);
@@ -2250,8 +2250,8 @@ impl GameState {
         self.rng_bundle = None;
     }
 
-    fn travel_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
-        self.rng_bundle.as_ref().map(|bundle| bundle.travel())
+    fn health_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.health())
     }
 
     fn breakdown_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
@@ -3175,13 +3175,13 @@ impl GameState {
             chance *= 0.5;
         }
 
-        let roll = self.travel_rng().map_or(1.0, |mut rng| rng.r#gen::<f32>());
+        let roll = self.health_rng().map_or(1.0, |mut rng| rng.r#gen::<f32>());
         if roll >= chance {
             return;
         }
 
         let duration = self
-            .travel_rng()
+            .health_rng()
             .map_or(DISEASE_DURATION_RANGE.0, |mut rng| {
                 rng.gen_range(DISEASE_DURATION_RANGE.0..=DISEASE_DURATION_RANGE.1)
             });

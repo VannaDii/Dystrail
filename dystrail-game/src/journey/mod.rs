@@ -1372,26 +1372,53 @@ pub struct DayOutcome {
 /// Deterministic bundle of RNG streams segregated by simulation domain.
 #[derive(Debug, Clone)]
 pub struct RngBundle {
+    weather: RefCell<CountingRng<SmallRng>>,
+    health: RefCell<CountingRng<SmallRng>>,
     travel: RefCell<CountingRng<SmallRng>>,
+    events: RefCell<CountingRng<SmallRng>>,
     breakdown: RefCell<CountingRng<SmallRng>>,
     encounter: RefCell<CountingRng<SmallRng>>,
     crossing: RefCell<CountingRng<SmallRng>>,
+    trade: RefCell<CountingRng<SmallRng>>,
+    hunt: RefCell<CountingRng<SmallRng>>,
 }
 
 impl RngBundle {
     /// Construct the bundle from a user-visible seed.
     #[must_use]
     pub fn from_user_seed(seed: u64) -> Self {
+        let weather = CountingRng::new(derive_stream_seed(seed, b"weather"));
+        let health = CountingRng::new(derive_stream_seed(seed, b"health"));
         let travel = CountingRng::new(derive_stream_seed(seed, b"travel"));
+        let events = CountingRng::new(derive_stream_seed(seed, b"events"));
         let breakdown = CountingRng::new(derive_stream_seed(seed, b"breakdown"));
         let encounter = CountingRng::new(derive_stream_seed(seed, b"encounter"));
         let crossing = CountingRng::new(derive_stream_seed(seed, b"crossing"));
+        let trade = CountingRng::new(derive_stream_seed(seed, b"trade"));
+        let hunt = CountingRng::new(derive_stream_seed(seed, b"hunt"));
         Self {
+            weather: RefCell::new(weather),
+            health: RefCell::new(health),
             travel: RefCell::new(travel),
+            events: RefCell::new(events),
             breakdown: RefCell::new(breakdown),
             encounter: RefCell::new(encounter),
             crossing: RefCell::new(crossing),
+            trade: RefCell::new(trade),
+            hunt: RefCell::new(hunt),
         }
+    }
+
+    /// Access the weather RNG stream.
+    #[must_use]
+    pub fn weather(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.weather.borrow_mut()
+    }
+
+    /// Access the health RNG stream.
+    #[must_use]
+    pub fn health(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.health.borrow_mut()
     }
 
     /// Access the travel RNG stream.
@@ -1400,9 +1427,21 @@ impl RngBundle {
         self.travel.borrow_mut()
     }
 
+    /// Access the events RNG stream.
+    #[must_use]
+    pub fn events(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.events.borrow_mut()
+    }
+
     /// Access the breakdown RNG stream.
     #[must_use]
     pub fn breakdown(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.breakdown.borrow_mut()
+    }
+
+    /// Access the vehicle RNG stream (alias for breakdown/vehicle incidents).
+    #[must_use]
+    pub fn vehicle(&self) -> RefMut<'_, CountingRng<SmallRng>> {
         self.breakdown.borrow_mut()
     }
 
@@ -1416,6 +1455,18 @@ impl RngBundle {
     #[must_use]
     pub fn crossing(&self) -> RefMut<'_, CountingRng<SmallRng>> {
         self.crossing.borrow_mut()
+    }
+
+    /// Access the trade RNG stream.
+    #[must_use]
+    pub fn trade(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.trade.borrow_mut()
+    }
+
+    /// Access the hunt RNG stream.
+    #[must_use]
+    pub fn hunt(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.hunt.borrow_mut()
     }
 }
 
@@ -1753,15 +1804,40 @@ mod tests {
         let seed = 0xFEED_CAFE_u64;
         let bundle = RngBundle::from_user_seed(seed);
 
+        let mut weather_rng = bundle.weather();
+        let mut expected_weather = SmallRng::seed_from_u64(derive_stream_seed(seed, b"weather"));
+        assert_eq!(weather_rng.next_u32(), expected_weather.next_u32());
+        assert_eq!(weather_rng.draws(), 1);
+
+        let mut health_rng = bundle.health();
+        let mut expected_health = SmallRng::seed_from_u64(derive_stream_seed(seed, b"health"));
+        assert_eq!(health_rng.next_u32(), expected_health.next_u32());
+        assert_eq!(health_rng.draws(), 1);
+
         let mut travel_rng = bundle.travel();
         let mut expected_travel = SmallRng::seed_from_u64(derive_stream_seed(seed, b"travel"));
         assert_eq!(travel_rng.next_u32(), expected_travel.next_u32());
         assert_eq!(travel_rng.draws(), 1);
 
+        let mut events_rng = bundle.events();
+        let mut expected_events = SmallRng::seed_from_u64(derive_stream_seed(seed, b"events"));
+        assert_eq!(events_rng.next_u32(), expected_events.next_u32());
+        assert_eq!(events_rng.draws(), 1);
+
         let mut breakdown_rng = bundle.breakdown();
         let mut expected_breakdown =
             SmallRng::seed_from_u64(derive_stream_seed(seed, b"breakdown"));
         assert_eq!(breakdown_rng.next_u64(), expected_breakdown.next_u64());
+
+        let mut trade_rng = bundle.trade();
+        let mut expected_trade = SmallRng::seed_from_u64(derive_stream_seed(seed, b"trade"));
+        assert_eq!(trade_rng.next_u32(), expected_trade.next_u32());
+        assert_eq!(trade_rng.draws(), 1);
+
+        let mut hunt_rng = bundle.hunt();
+        let mut expected_hunt = SmallRng::seed_from_u64(derive_stream_seed(seed, b"hunt"));
+        assert_eq!(hunt_rng.next_u32(), expected_hunt.next_u32());
+        assert_eq!(hunt_rng.draws(), 1);
 
         assert_ne!(
             derive_stream_seed(seed, b"travel"),
