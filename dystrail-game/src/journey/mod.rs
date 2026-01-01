@@ -99,6 +99,19 @@ impl DayRecord {
     }
 }
 
+/// Mechanical ruleset selection for the simulation kernel.
+///
+/// This is distinct from strategy/difficulty overlays (`StrategyId`) and from the
+/// legacy campaign families (`PolicyId`). It must be explicit so parity-critical
+/// rules cannot drift via piecemeal mixing.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum MechanicalPolicyId {
+    #[default]
+    DystrailLegacy,
+    OtDeluxe90s,
+}
+
 /// High-level policy family.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -1379,6 +1392,7 @@ pub struct RngBundle {
     breakdown: RefCell<CountingRng<SmallRng>>,
     encounter: RefCell<CountingRng<SmallRng>>,
     crossing: RefCell<CountingRng<SmallRng>>,
+    boss: RefCell<CountingRng<SmallRng>>,
     trade: RefCell<CountingRng<SmallRng>>,
     hunt: RefCell<CountingRng<SmallRng>>,
 }
@@ -1394,6 +1408,7 @@ impl RngBundle {
         let breakdown = CountingRng::new(derive_stream_seed(seed, b"breakdown"));
         let encounter = CountingRng::new(derive_stream_seed(seed, b"encounter"));
         let crossing = CountingRng::new(derive_stream_seed(seed, b"crossing"));
+        let boss = CountingRng::new(derive_stream_seed(seed, b"boss"));
         let trade = CountingRng::new(derive_stream_seed(seed, b"trade"));
         let hunt = CountingRng::new(derive_stream_seed(seed, b"hunt"));
         Self {
@@ -1404,6 +1419,7 @@ impl RngBundle {
             breakdown: RefCell::new(breakdown),
             encounter: RefCell::new(encounter),
             crossing: RefCell::new(crossing),
+            boss: RefCell::new(boss),
             trade: RefCell::new(trade),
             hunt: RefCell::new(hunt),
         }
@@ -1455,6 +1471,12 @@ impl RngBundle {
     #[must_use]
     pub fn crossing(&self) -> RefMut<'_, CountingRng<SmallRng>> {
         self.crossing.borrow_mut()
+    }
+
+    /// Access the boss RNG stream.
+    #[must_use]
+    pub fn boss(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.boss.borrow_mut()
     }
 
     /// Access the trade RNG stream.
@@ -1528,6 +1550,7 @@ fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
 /// Shell journey controller; later phases will expand its responsibilities.
 #[derive(Debug, Clone)]
 pub struct JourneyController {
+    mechanics: MechanicalPolicyId,
     policy: PolicyId,
     strategy: StrategyId,
     cfg: JourneyCfg,
@@ -1538,9 +1561,15 @@ pub struct JourneyController {
 impl JourneyController {
     /// Create a new controller with default configuration.
     #[must_use]
-    pub fn new(policy: PolicyId, strategy: StrategyId, seed: u64) -> Self {
+    pub fn new(
+        mechanics: MechanicalPolicyId,
+        policy: PolicyId,
+        strategy: StrategyId,
+        seed: u64,
+    ) -> Self {
         let cfg = policy_catalog().resolve(policy, strategy);
         Self::with_config(
+            mechanics,
             policy,
             strategy,
             cfg,
@@ -1556,12 +1585,17 @@ impl JourneyController {
     /// Panics when the supplied configuration violates validation rules.
     #[must_use]
     pub fn with_config(
+        mechanics: MechanicalPolicyId,
         policy: PolicyId,
         strategy: StrategyId,
         cfg: JourneyCfg,
         seed: u64,
         endgame_cfg: EndgameTravelCfg,
     ) -> Self {
+        assert!(
+            matches!(mechanics, MechanicalPolicyId::DystrailLegacy),
+            "Mechanical policy {mechanics:?} is not implemented yet"
+        );
         cfg.validate().expect("valid journey config");
         let mut resolved_cfg = cfg;
         resolved_cfg.partial_ratio = resolved_cfg.partial_ratio.clamp(0.2, 0.95);
@@ -1619,12 +1653,18 @@ impl JourneyController {
         resolved_cfg.crossing.sanitize();
         resolved_cfg.daily.sanitize();
         Self {
+            mechanics,
             policy,
             strategy,
             cfg: resolved_cfg,
             rng: Rc::new(RngBundle::from_user_seed(seed)),
             endgame_cfg,
         }
+    }
+
+    #[must_use]
+    pub const fn mechanics(&self) -> MechanicalPolicyId {
+        self.mechanics
     }
 
     #[must_use]
@@ -1662,6 +1702,7 @@ impl JourneyController {
     #[must_use]
     pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
         state.attach_rng_bundle(self.rng.clone());
+        state.mechanical_policy = self.mechanics;
         state.policy = Some(self.strategy.into());
         state.journey_partial_ratio = self.cfg.partial_ratio;
         state.trail_distance = self.cfg.victory_miles.max(1.0);
@@ -1670,6 +1711,12 @@ impl JourneyController {
         state.journey_breakdown = self.cfg.breakdown.clone();
         state.journey_part_weights = self.cfg.part_weights.clone();
         state.journey_crossing = self.cfg.crossing.clone();
+
+        let starting_new_day = !state.day_state.lifecycle.day_initialized;
+        state.start_of_day();
+        if starting_new_day {
+            let _ = apply_daily_effect(&self.cfg.daily, state);
+        }
         {
             let travel_rng = self.rng.travel();
             let _ = travel_rng.draws();
@@ -1777,6 +1824,7 @@ mod tests {
     #[test]
     fn journey_config_partial_ratio_clamped() {
         let mut controller = JourneyController::with_config(
+            MechanicalPolicyId::DystrailLegacy,
             PolicyId::Classic,
             StrategyId::Balanced,
             JourneyCfg {
@@ -1793,7 +1841,12 @@ mod tests {
 
     #[test]
     fn reseed_resets_rng_bundle() {
-        let mut controller = JourneyController::new(PolicyId::Classic, StrategyId::Balanced, 1);
+        let mut controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            PolicyId::Classic,
+            StrategyId::Balanced,
+            1,
+        );
         controller.reseed(2);
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
@@ -1833,6 +1886,11 @@ mod tests {
         let mut expected_trade = SmallRng::seed_from_u64(derive_stream_seed(seed, b"trade"));
         assert_eq!(trade_rng.next_u32(), expected_trade.next_u32());
         assert_eq!(trade_rng.draws(), 1);
+
+        let mut boss_rng = bundle.boss();
+        let mut expected_boss = SmallRng::seed_from_u64(derive_stream_seed(seed, b"boss"));
+        assert_eq!(boss_rng.next_u32(), expected_boss.next_u32());
+        assert_eq!(boss_rng.draws(), 1);
 
         let mut hunt_rng = bundle.hunt();
         let mut expected_hunt = SmallRng::seed_from_u64(derive_stream_seed(seed, b"hunt"));

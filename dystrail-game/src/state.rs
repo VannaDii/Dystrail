@@ -69,8 +69,8 @@ use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
-    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, JourneyCfg, RngBundle,
-    TravelConfig, TravelDayKind, WearConfig,
+    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, JourneyCfg,
+    MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -260,8 +260,8 @@ mod tests {
         panic!("unable to find deterministic seed below {threshold}");
     }
 
-    fn encounter_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
-        bundle_with_roll_below(threshold, RngBundle::encounter)
+    fn events_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
+        bundle_with_roll_below(threshold, RngBundle::events)
     }
 
     fn health_bundle_with_roll_below(threshold: f32) -> Rc<RngBundle> {
@@ -995,9 +995,7 @@ mod tests {
             },
             ..GameState::default()
         };
-        state.attach_rng_bundle(encounter_bundle_with_roll_below(
-            ALLY_ATTRITION_CHANCE * 0.5,
-        ));
+        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
 
@@ -1005,7 +1003,7 @@ mod tests {
         state.current_order = Some(ExecOrder::Shutdown);
         state.exec_order_days_remaining = 1;
         state.exec_order_cooldown = 0;
-        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+        state.attach_rng_bundle(events_bundle_with_roll_below(
             EXEC_ORDER_DAILY_CHANCE + 0.05,
         ));
         state.tick_exec_order_state();
@@ -1014,7 +1012,7 @@ mod tests {
         // No current order: force issuing a new one via deterministic RNG.
         state.current_order = None;
         state.exec_order_cooldown = 0;
-        state.attach_rng_bundle(encounter_bundle_with_roll_below(
+        state.attach_rng_bundle(events_bundle_with_roll_below(
             EXEC_ORDER_DAILY_CHANCE + 0.05,
         ));
         state.tick_exec_order_state();
@@ -1498,9 +1496,7 @@ mod tests {
 
         state.stats.allies = 2;
         state.logs.clear();
-        state.attach_rng_bundle(encounter_bundle_with_roll_below(
-            ALLY_ATTRITION_CHANCE * 0.5,
-        ));
+        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
 
@@ -1882,6 +1878,8 @@ pub enum GamePhase {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GameState {
     pub mode: GameMode,
+    #[serde(default)]
+    pub mechanical_policy: MechanicalPolicyId,
     pub seed: u64,
     #[serde(default = "GameState::current_version")]
     pub state_version: u16,
@@ -2080,6 +2078,7 @@ impl Default for GameState {
     fn default() -> Self {
         Self {
             mode: GameMode::Classic,
+            mechanical_policy: MechanicalPolicyId::default(),
             seed: 0,
             state_version: Self::current_version(),
             day: 1,
@@ -2254,16 +2253,20 @@ impl GameState {
         self.rng_bundle.as_ref().map(|bundle| bundle.health())
     }
 
+    fn events_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.events())
+    }
+
     fn breakdown_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
         self.rng_bundle.as_ref().map(|bundle| bundle.breakdown())
     }
 
-    fn encounter_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
-        self.rng_bundle.as_ref().map(|bundle| bundle.encounter())
-    }
-
     fn crossing_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
         self.rng_bundle.as_ref().map(|bundle| bundle.crossing())
+    }
+
+    fn boss_rng(&self) -> Option<RefMut<'_, CountingRng<SmallRng>>> {
+        self.rng_bundle.as_ref().map(|bundle| bundle.boss())
     }
 
     fn journey_pace_factor(&self) -> f32 {
@@ -2357,7 +2360,7 @@ impl GameState {
                     .push(format!("{}{}", LOG_EXEC_END_PREFIX, order.key()));
                 self.current_order = None;
                 let cooldown = self
-                    .encounter_rng()
+                    .events_rng()
                     .map_or(EXEC_ORDER_MIN_COOLDOWN, |mut rng| {
                         rng.gen_range(EXEC_ORDER_MIN_COOLDOWN..=EXEC_ORDER_MAX_COOLDOWN)
                     });
@@ -2377,7 +2380,7 @@ impl GameState {
             exec_chance *= 0.5;
         }
 
-        let next_order = if let Some(mut rng) = self.encounter_rng()
+        let next_order = if let Some(mut rng) = self.events_rng()
             && rng.r#gen::<f32>() < exec_chance
         {
             let idx = rng.gen_range(0..ExecOrder::ALL.len());
@@ -3201,7 +3204,7 @@ impl GameState {
             return;
         }
         let trigger = self
-            .encounter_rng()
+            .events_rng()
             .is_some_and(|mut rng| rng.r#gen::<f32>() <= ALLY_ATTRITION_CHANCE);
         if trigger {
             self.stats.allies -= 1;
@@ -3734,6 +3737,7 @@ impl GameState {
     #[must_use]
     pub fn with_seed(mut self, seed: u64, mode: GameMode, data: EncounterData) -> Self {
         self.mode = mode;
+        self.mechanical_policy = MechanicalPolicyId::default();
         self.seed = seed;
         self.state_version = Self::current_version();
         self.day_records.clear();
@@ -4302,7 +4306,7 @@ impl GameState {
     }
 
     pub fn next_u32(&mut self) -> u32 {
-        self.encounter_rng().map_or(0, |mut rng| rng.next_u32())
+        self.boss_rng().map_or(0, |mut rng| rng.next_u32())
     }
 
     pub fn next_pct(&mut self) -> u8 {

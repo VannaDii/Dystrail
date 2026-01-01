@@ -1,5 +1,5 @@
 use crate::endgame::EndgameTravelCfg;
-use crate::journey::{JourneyController, PolicyId, StrategyId, apply_daily_effect};
+use crate::journey::{JourneyController, MechanicalPolicyId, PolicyId, StrategyId};
 use crate::state::GameState;
 use crate::{DayOutcome, EncounterData, GameMode};
 
@@ -21,7 +21,13 @@ impl JourneySession {
         endgame_cfg: &EndgameTravelCfg,
     ) -> Self {
         let state = GameState::default().with_seed(seed, mode, data);
-        let controller = Self::build_controller(mode, strategy, seed, endgame_cfg);
+        let controller = Self::build_controller(
+            MechanicalPolicyId::DystrailLegacy,
+            mode,
+            strategy,
+            seed,
+            endgame_cfg,
+        );
         let mut session = Self { controller, state };
         session.reset_state_policy(strategy);
         session
@@ -36,32 +42,34 @@ impl JourneySession {
     ) -> Self {
         let mode = state.mode;
         let seed = state.seed;
-        let controller = Self::build_controller(mode, strategy, seed, endgame_cfg);
+        let controller =
+            Self::build_controller(state.mechanical_policy, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
         session.reset_state_policy(strategy);
         session
     }
 
     fn build_controller(
+        mechanics: MechanicalPolicyId,
         mode: GameMode,
         strategy: StrategyId,
         seed: u64,
         endgame_cfg: &EndgameTravelCfg,
     ) -> JourneyController {
-        let mut controller = JourneyController::new(PolicyId::from(mode), strategy, seed);
+        let mut controller =
+            JourneyController::new(mechanics, PolicyId::from(mode), strategy, seed);
         controller.set_endgame_config(endgame_cfg.clone());
         controller
     }
 
     fn reset_state_policy(&mut self, strategy: StrategyId) {
+        self.state.mechanical_policy = self.controller.mechanics();
         self.state.policy = Some(strategy.into());
         self.state.attach_rng_bundle(self.controller.rng_bundle());
     }
 
     /// Advance the simulation by one day, returning the resulting outcome.
     pub fn tick_day(&mut self) -> DayOutcome {
-        let cfg = self.controller.config();
-        apply_daily_effect(&cfg.daily, &mut self.state);
         self.controller.tick_day(&mut self.state)
     }
 

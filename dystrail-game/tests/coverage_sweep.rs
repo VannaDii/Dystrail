@@ -27,7 +27,8 @@ use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
 use dystrail_game::{
-    DayRecord, JourneyCfg, JourneyController, PolicyId, StrategyId, compute_day_ledger_metrics,
+    DayRecord, JourneyCfg, JourneyController, MechanicalPolicyId, PolicyId, StrategyId,
+    compute_day_ledger_metrics,
 };
 use rand::rngs::SmallRng;
 use rand::{RngCore, SeedableRng};
@@ -81,7 +82,7 @@ fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
         PolicyKind::Conservative => StrategyId::Conservative,
         PolicyKind::ResourceManager => StrategyId::ResourceManager,
     };
-    JourneyController::new(policy_id, strategy, 0)
+    JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy_id, strategy, 0)
         .config()
         .clone()
 }
@@ -343,8 +344,12 @@ fn camp_multi_day_sequences_cover_loops() {
 #[test]
 fn journey_controller_tick_yields_day_record() {
     let mut state = empty_state();
-    let mut controller =
-        JourneyController::new(PolicyId::Classic, StrategyId::Balanced, 0xD15E_u64);
+    let mut controller = JourneyController::new(
+        MechanicalPolicyId::DystrailLegacy,
+        PolicyId::Classic,
+        StrategyId::Balanced,
+        0xD15E_u64,
+    );
     let outcome = controller.tick_day(&mut state);
 
     assert!(!state.day_records.is_empty());
@@ -361,6 +366,7 @@ fn journey_controller_applies_partial_ratio() {
     let mut state = empty_state();
     let endgame = EndgameTravelCfg::default_config();
     let mut controller = JourneyController::with_config(
+        MechanicalPolicyId::DystrailLegacy,
         PolicyId::Classic,
         StrategyId::Balanced,
         JourneyCfg {

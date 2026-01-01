@@ -438,6 +438,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Requirement:
     - Provide at least these streams with stable seeding:
       - `weather`, `health`, `travel`, `events`, `crossing`, `trade`, `hunt`, `vehicle/breakdown`, `encounter`
+    - (Dystrail extension) Add a dedicated `boss` stream so boss outcomes never couple to encounter/event selection.
   - Spec refs:
     - Systems spec §4.1; Kernel pseudocode “RNG”.
   - Current code notes (must change for parity):
@@ -467,6 +468,8 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Requirement:
     - Navigation hard-stops are applied in ComputeMilesToday using `rng.events()` in a fixed, documented order.
     - RandomEventTick uses `rng.events()` (same stream, but separate phase with fixed draw ordering).
+    - Any “global” random subsystems that are not encounter selection (e.g., exec orders, ally attrition) MUST also
+      draw from `rng.events()` so encounter selection remains independent.
   - Spec refs:
     - Systems spec §14 phase 10 and 14; Kernel pseudocode shows separate navigation and non-navigation events.
   - Acceptance criteria:
@@ -502,6 +505,20 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - Systems spec §4.3, §16; Journey diff “No piecemeal mixing”.
   - Acceptance criteria:
     - A single field/config selects the mechanical overlay; every parity-critical rule is sourced from it.
+  - Progress:
+    - [x] POLICY-001A Plumb `MechanicalPolicyId` through engine state/controller
+      - Requirements:
+        - Add `MechanicalPolicyId` enum with at least: `DystrailLegacy`, `OtDeluxe90s`.
+        - Persist the selected mechanical policy on `GameState` so saves/replays cannot silently drift.
+        - Ensure `JourneyController::tick_day` writes `state.mechanical_policy` every tick.
+      - Acceptance criteria:
+        - `JourneySession::from_state` uses the saved mechanical policy when rebuilding the controller.
+        - Existing Dystrail behavior remains unchanged under `DystrailLegacy`.
+    - [ ] POLICY-001B Route parity-critical mechanics through the selected overlay
+      - Requirements:
+        - OTDeluxe and Dystrail mechanics must be cleanly separated; no cross-reading legacy constants.
+      - Acceptance criteria:
+        - Under `OtDeluxe90s`, all parity-critical constants/curves come from `OTDeluxe90sPolicy` (not legacy config).
 
 - [ ] POLICY-002 (P0) Represent every “policy-defined” value as an explicit parameter (no hidden constants)
   - Requirement:

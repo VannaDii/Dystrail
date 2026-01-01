@@ -1,7 +1,7 @@
 use dystrail_game::crossings::{CrossingContext, CrossingResult};
 use dystrail_game::journey::JourneyCfg;
 use dystrail_game::state::{GameMode, GameState, PaceId, PolicyKind};
-use dystrail_game::{CrossingPolicy, JourneyController, PolicyId, StrategyId};
+use dystrail_game::{CrossingPolicy, JourneyController, MechanicalPolicyId, PolicyId, StrategyId};
 use rand::SeedableRng;
 use rand::rngs::SmallRng;
 use std::convert::TryFrom;
@@ -150,6 +150,7 @@ fn endgame_breakdown_scale_reduces_breaks() {
     cfg.breakdown.weather_factor =
         std::iter::once((dystrail_game::weather::Weather::Clear, 1.0)).collect();
     let mut controller = JourneyController::with_config(
+        MechanicalPolicyId::DystrailLegacy,
         PolicyId::Deep,
         StrategyId::Balanced,
         cfg,

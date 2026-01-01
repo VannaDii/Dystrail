@@ -40,8 +40,8 @@ pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use journey::{
     AcceptanceGuards, BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome,
     DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, JourneyCfg, JourneyController,
-    JourneySession, PermitPolicy, PolicyId, RngBundle, StrategyId, TravelDayKind,
-    apply_daily_effect,
+    JourneySession, MechanicalPolicyId, PermitPolicy, PolicyId, RngBundle, StrategyId,
+    TravelDayKind, apply_daily_effect,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};

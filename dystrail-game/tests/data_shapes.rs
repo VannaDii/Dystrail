@@ -2,7 +2,9 @@ use std::collections::BTreeMap;
 use std::hash::Hasher;
 
 use dystrail_game::data::EncounterData;
-use dystrail_game::{GameMode, GameState, JourneyController, PolicyId, StrategyId, TravelDayKind};
+use dystrail_game::{
+    GameMode, GameState, JourneyController, MechanicalPolicyId, PolicyId, StrategyId, TravelDayKind,
+};
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
 
@@ -23,7 +25,12 @@ fn journey_config_snapshot_stable() {
 
     let mut snapshot = BTreeMap::new();
     for (policy, strategy) in combos {
-        let controller = JourneyController::new(policy, strategy, 0x00C0_FFEE);
+        let controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            policy,
+            strategy,
+            0x00C0_FFEE,
+        );
         let value = canonicalize_value(serde_json::to_value(controller.config()).unwrap());
         let key = format!("{}:{}", policy_label(policy), strategy_label(strategy));
         snapshot.insert(key, value);
@@ -43,8 +50,12 @@ fn game_state_serialization_preserves_day_records() {
     ))
     .unwrap();
     let mut state = GameState::default().with_seed(0xFACE_B00C, GameMode::Classic, encounters);
-    let mut controller =
-        JourneyController::new(PolicyId::Classic, StrategyId::Balanced, 0xFACE_B00C);
+    let mut controller = JourneyController::new(
+        MechanicalPolicyId::DystrailLegacy,
+        PolicyId::Classic,
+        StrategyId::Balanced,
+        0xFACE_B00C,
+    );
     for _ in 0..3 {
         let outcome = controller.tick_day(&mut state);
         assert!(outcome.record.is_some(), "expected day record");

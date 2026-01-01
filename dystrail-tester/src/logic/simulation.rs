@@ -3,7 +3,8 @@ use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::{
-    GameMode, GameState, JourneyController, PaceId, PolicyId, StrategyId, apply_daily_effect,
+    GameMode, GameState, JourneyController, MechanicalPolicyId, PaceId, PolicyId, StrategyId,
+    apply_daily_effect,
 };
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
@@ -94,8 +95,12 @@ impl SimulationSession {
         let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
         state.trail_distance = boss_config.distance_required;
         let strategy_id = strategy_id_for(config.strategy);
-        let mut controller =
-            JourneyController::new(PolicyId::from(config.mode), strategy_id, config.seed);
+        let mut controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            PolicyId::from(config.mode),
+            strategy_id,
+            config.seed,
+        );
         controller.set_endgame_config(endgame_config);
         state.policy = Some(strategy_id.into());
         state.attach_rng_bundle(controller.rng_bundle());

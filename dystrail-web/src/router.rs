@@ -45,14 +45,13 @@ impl Route {
         match self {
             Self::Persona => Some(crate::app::Phase::Persona),
             Self::Outfitting => Some(crate::app::Phase::Outfitting),
-            Self::Home => None, // Don't convert Home route to any phase - preserve current phase
+            Self::Home | Self::NotFound => None, // Preserve current phase on Home / 404 routes.
             Self::Game => Some(crate::app::Phase::Menu),
             Self::Travel => Some(crate::app::Phase::Travel),
             Self::Camp => Some(crate::app::Phase::Camp),
             Self::Encounter => Some(crate::app::Phase::Encounter),
             Self::Boss => Some(crate::app::Phase::Boss),
             Self::Result => Some(crate::app::Phase::Result),
-            Self::NotFound => None,
         }
     }
 }

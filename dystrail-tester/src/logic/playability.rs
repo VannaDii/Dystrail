@@ -11,7 +11,9 @@ use crate::logic::game_tester::FailureFamily;
 use crate::logic::seeds::SeedInfo;
 use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
 use dystrail_game::GameMode;
-use dystrail_game::journey::{AcceptanceGuards, JourneyController, PolicyId, StrategyId};
+use dystrail_game::journey::{
+    AcceptanceGuards, JourneyController, MechanicalPolicyId, PolicyId, StrategyId,
+};
 use dystrail_game::state::CrossingOutcomeTelemetry;
 
 const AVG_MPD_MIN: f64 = 10.0;
@@ -95,7 +97,8 @@ fn guard_registry() -> &'static HashMap<GuardKey, AcceptanceGuards> {
                 StrategyId::Conservative,
                 StrategyId::ResourceManager,
             ] {
-                let controller = JourneyController::new(policy, strategy, 0);
+                let controller =
+                    JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy, strategy, 0);
                 map.insert((policy, strategy), controller.config().guards.clone());
             }
         }
@@ -1127,12 +1130,12 @@ mod tests {
     }
 
     const JOURNEY_LEDGER_DIGEST: [u8; 32] = [
-        60, 185, 137, 27, 23, 11, 165, 208, 78, 158, 135, 49, 114, 180, 251, 154, 88, 231, 254,
-        68, 158, 158, 117, 227, 18, 245, 56, 127, 124, 23, 129, 147,
+        119, 47, 185, 75, 143, 178, 235, 124, 7, 160, 121, 106, 184, 88, 95, 106, 255, 188, 53,
+        147, 246, 149, 62, 54, 39, 126, 40, 12, 207, 13, 136, 161,
     ];
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        156, 50, 235, 155, 39, 157, 104, 73, 186, 174, 61, 113, 82, 28, 182, 148, 183, 150, 197,
-        4, 228, 84, 134, 10, 195, 27, 108, 217, 34, 118, 155, 23,
+        137, 213, 11, 180, 153, 205, 77, 202, 36, 111, 132, 203, 86, 109, 200, 96, 159, 0, 125,
+        141, 251, 254, 104, 225, 161, 243, 18, 248, 46, 137, 209, 167,
     ];
 
     #[test]
