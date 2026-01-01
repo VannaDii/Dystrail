@@ -27,13 +27,32 @@ Legend:
 Locked decisions already made (DO NOT re-litigate during implementation unless new Deluxe evidence appears):
 - Oregon City is presentation-only (not a distinct node).
 - `STORE_PRICE_MULT_PCT_BY_NODE` index-to-node mapping is treated as normative.
-- Occupation numeric defaults are accepted for now:
+- MECC Appendix B numeric thresholds are treated as binding for Deluxe parity and live in policy (not hard-coded).
+- Affliction probability curve defaults to the piecewise-linear `AFFLICTION_CURVE_PWL` described in the systems spec (policy-owned).
+- Hunting carry cap uses `100 * alive_party_members` and “alive” means “not dead” (injuries still count).
+- Ferry defaults:
+  - `FERRY_MIN_DEPTH_FT = 2.5`
+  - wait-days distribution is uniform `0..=6` (until extracted/fitted)
+  - accident bucket is non-lethal by default (until Deluxe evidence proves ferry deaths)
+- Snake River guide defaults:
+  - `GUIDE_RISK_MULT = 0.20`
+  - `GUIDE_LOSS_MULT = 0.50` (until extracted/fitted)
+- River swiftness is modeled as continuous (no invented hard threshold gate unless extracted).
+- Ford wet-goods defaults:
+  - depth `2.5..=3.0` triggers `DRYING_COST_DAYS = 1` and does not cause permanent loss by default.
+- Wagon capacity model defaults to per-item caps only (no global weight cap unless proven later).
+- Weather generator remains Dystrail-regional (`weather.json`) for now, but must preserve MECC/Deluxe causal fan-out; snow accumulators remain present even if dormant.
+- Arrival scoring defaults:
+  - `SCORE_POINTS_PER_PERSON_BY_HEALTH`: Good=500, non-Good=0 until proven otherwise
+- Death-imminent defaults:
+  - `DEATH_IMMINENT_GRACE_DAYS = 3` and `reset_on_recovery_below_threshold` (until extracted/fitted)
+- Occupation numeric defaults are accepted for now (policy-owned knobs):
   - `OCC_DOCTOR_FATALITY_MULT = 0.50`
   - `OCC_REPAIR_SUCCESS_MULT = 1.25`
   - `OCC_MOBILITY_FAILURE_MULT = 0.75`
 
 Coverage index (quick “did we miss anything?” map):
-- Systems spec MUST coverage (selected, exhaustive for “MUST” statements):
+- Systems spec MUST coverage (high-level index; exhaustive mapping is in Appendix A):
   - Satire/value-neutral kernel + i18n-only narrative + deterministic extra flavor: `GLOBAL-002`, `UI-002`
   - Policy overlays required + no piecemeal mixing: `GLOBAL-003`, `POLICY-001`, `POLICY-002`
   - Weather causal fan-out + snow hook: `WEATHER-002`, `WEATHER-003`
@@ -70,7 +89,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
    - Answer the questions in **Section 19 (Open Questions / Unresolvable Contradictions)** so architecture doesn’t churn mid-refactor.
 
 2) **Scaffolding: policy + RNG + events + phase boundaries**
-  - Mechanical overlay system + gating: `GLOBAL-003`, `POLICY-001..POLICY-006`
+   - Mechanical overlay system + gating: `GLOBAL-003`, `POLICY-001..POLICY-006`
    - RNG domain expansion + phase guards: `GLOBAL-001`, `RNG-001..RNG-006`
    - Event bus + explainability: `EVENT-001..EVENT-003`
    - Phase ownership enforcement (structural): `ARCH-004B`, `TEST-001`
@@ -116,6 +135,67 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
    - Determinism tests + digests: `TEST-001..TEST-003`
    - EXE extraction + empirical fit harness (optional but recommended for “unknowns”): `LOCK-001`, `LOCK-002`
    - Run the preflight audit: `AUDIT-001..AUDIT-016`
+
+---
+
+## Appendix A) Spec MUST Coverage Map (exhaustive)
+
+This section is a “nothing fell through the cracks” map: every `MUST` in the sacred specs points to one or more checklist IDs.
+
+### `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md`
+
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:46` policy-configure Dystrail-only translation layers → `POLICY-002`, `HEALTH-004`, `POLICY-004`, `POLICY-005`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:48` divergences must be explicit overlays (no piecemeal mixing) → `GLOBAL-003`, `POLICY-001`, `POLICY-006`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:95` kernel must remain value-neutral/mechanical → `GLOBAL-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:99` narrative text must be i18n-keyed → `GLOBAL-002`, `UI-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:100` satire must not change RNG/hidden modifiers/timing → `GLOBAL-002`, `AUDIT-011`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:101` optional satire flavor must be deterministic (no RNG) → `GLOBAL-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:118` wrapper may rename/narrate but must preserve event kind → `GLOBAL-002`, `EVENT-001`, `EVENT-003`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:207` satire rendering must not change RNG/phase order/numerics → `GLOBAL-002`, `AUDIT-011`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:212` unknown Deluxe numeric still must be explicit policy parameter → `POLICY-002`, `POLICY-005`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:307` unspecified mappings must be policy parameters (not hard-coded) → `POLICY-002`, `POLICY-005`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:318` DystrailLegacyPolicy must remain deterministic and fully specified → `GLOBAL-001`, `POLICY-001`, `POLICY-006`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:380` must carry `snow_depth` + slowdown hook → `WEATHER-003`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:389` must preserve Weather → fan-out causal chain → `WEATHER-002`, `WEATHER-001`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:423` health thresholds must live in policy/config → `HEALTH-001`, `POLICY-002`, `HEALTH-007`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:707` Sublette Cutoff must skip Fort Bridger node effects → `TRAIL-002`, `TRAIL-004`, `STORE-001`, `AUDIT-016`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:724` Dalles shortcut must skip Fort Walla Walla node effects → `TRAIL-002`, `TRAIL-004`, `STORE-001`, `AUDIT-016`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:743` combined shortcuts must skip both nodes → `TRAIL-002`, `TRAIL-004`, `STORE-001`, `AUDIT-016`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:836` optional flavor rendering must be deterministic by stable inputs → `GLOBAL-002`, `UI-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:852` The Dalles gate must block travel beyond node 16 until resolved → `TRAIL-003`, `UI-001`, `AUDIT-008`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:854` rafting/Barlow options must be deterministic, day-advancing subflows → `TRAIL-003`, `RECORD-001`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:855` policy must define rafting/Barlow costs/time/outcomes → `TRAIL-003`, `POLICY-005`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:882` event selection must produce explainable telemetry → `EVENT-002`, `ENCOUNTER-003`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:958` store purchase units and caps must match policy tables → `STORE-001`, `STORE-002`, `STORE-004`, `AUDIT-015`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1006` per-person points by health label must be an explicit policy parameter → `SCORE-001`, `POLICY-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1075` if future Deluxe capture contradicts score tiers, policy must be updated (kernel stays stable) → `LOCK-001`, `LOCK-002`, `SCORE-001`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1103` MECC health-scalar role must be replicated via derived `general_strain` computed daily → `HEALTH-004`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1107` `general_strain` must be deterministic → `GLOBAL-001`, `HEALTH-004`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1108` `general_strain` must not be player-visible → `HEALTH-004`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1158` affliction odds driver must be explicit per policy → `POLICY-004`, `HEALTH-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1227` OTDeluxe must enforce `distance_today_raw == distance_today` (no miles leak) → `TRAVEL-003`, `TRAVEL-009`, `AUDIT-005`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1261` rest/trade/hunt must each consume a full day and record it → `INTENT-001`, `REST-001`, `TRADE-001`, `HUNT-001`, `RECORD-001`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1303` phase must not mutate state it does not own → `ARCH-004B`, `TEST-001`, `AUDIT-001`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1324` cross-slice influence must flow via derived effects (not ad-hoc mutation) → `WEATHER-002`, `EXEC-001`, `ARCH-004B`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1345` parity-critical rules must be selected via named policy overlay → `GLOBAL-003`, `POLICY-001`, `POLICY-006`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1386` crossing outcomes must include required families (incl. drownings where applicable) → `CROSSING-002`, `AUDIT-009`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1437` policy must define event weights, context multipliers, and nav delay distributions → `POLICY-005`, `ENCOUNTER-003`, `TRAVEL-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1444` policy must set `SCORE_POINTS_PER_PERSON_BY_HEALTH` → `SCORE-001`, `POLICY-002`
+- `ENGINE_SYSTEMS_SPEC_DYSTRAIL_PARITY.md:1450` policy must set death-imminent grace days and reset behavior → `HEALTH-005`, `POLICY-005`
+
+### `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md`
+
+- `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md:42` `Event.kind` must be mechanical; satire is presentation-only via `ui_surface_hint` → `GLOBAL-002`, `EVENT-001`, `UI-002`
+- `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md:44` narrative rendering must not change outcomes/RNG/phase order → `GLOBAL-002`, `AUDIT-011`
+- `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md:100` `0` sentinel mile markers must be treated as “node absent” → `TRAIL-001`, `TRAIL-002`, `AUDIT-007`
+- `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md:290` crossing outcomes must include required families → `CROSSING-002`, `AUDIT-009`
+- `ENGINE_KERNEL_PSEUDOCODE_DYSTRAIL_PARITY.md:348` The Dalles gate must block travel beyond node 16 until resolved → `TRAIL-003`, `UI-001`, `AUDIT-008`
+
+### `ENGINE_JOURNEY_CONTROLLER_DIFF.md`
+
+- `ENGINE_JOURNEY_CONTROLLER_DIFF.md:136` satire must be presentation-layer only → `GLOBAL-002`, `UI-002`
+- `ENGINE_JOURNEY_CONTROLLER_DIFF.md:137` events must remain mechanically named → `GLOBAL-002`, `EVENT-001`, `EVENT-003`
+- `ENGINE_JOURNEY_CONTROLLER_DIFF.md:139` satire must not add hidden modifiers/RNG/reorder phases → `GLOBAL-002`, `AUDIT-011`
 
 ## 0) Non-Negotiable Global Requirements (applies to every item)
 
@@ -386,6 +466,9 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
       - weather and river highs can depend on month/season (even if OT climate stations are optional for v1)
   - Spec refs:
     - Systems spec §3.1 (season derived from date), §9.2 (March/April highs), §5.2 (labeling), §5.1 (stations model optional).
+  - Current code notes (must change for parity):
+    - `dystrail-game/src/state.rs::Season::from_day` currently uses fixed 45-day seasons and does not track month/day-in-month,
+      so it cannot express March/April river highs or month-scoped climate behavior.
   - Acceptance criteria:
     - Advancing N days always advances date deterministically and recomputes season accordingly.
 
@@ -673,6 +756,13 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Acceptance criteria:
     - A day outcome contains `events: Vec<Event>`.
     - UI can render the day using event-to-copy mapping.
+  - Progress:
+    - [x] EVENT-001A Add core `Event` types and plumb `events[]` through `DayOutcome`
+      - Acceptance criteria:
+        - `dystrail-game/src/journey/event.rs` defines `Event`, `EventId`, `EventKind`, and `UiSurfaceHint`.
+        - `dystrail-game/src/journey/mod.rs::DayOutcome` includes `events: Vec<Event>`.
+        - `dystrail-web/src/app/view/handlers/travel.rs` renders day output from `outcome.events` (with a fallback to `log_key` during transition).
+    - [ ] EVENT-001B Emit structured events for all state changes (retire `log_key` as the only truth)
 
 - [ ] EVENT-002 (P0) Implement “explainable event selection telemetry” (`EventDecisionTrace`)
   - Requirement:
@@ -681,12 +771,18 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - Systems spec §9.4 “Implementation-binding requirement (Q15): event selection MUST produce explainable telemetry”.
   - Acceptance criteria:
     - Telemetry is available in debug builds/tests and can be optionally recorded in `DayRecord`.
+  - Progress:
+    - [x] EVENT-002A Add `EventDecisionTrace` data type (no emit sites yet)
+    - [ ] EVENT-002B Populate traces from encounter/event selection and store them in `DayOutcome` (and optionally `DayRecord`)
 
 - [ ] EVENT-003 (P1) Provide stable event IDs and tags
   - Requirement:
     - Events must include stable identifiers for replay and log correlation.
   - Acceptance criteria:
     - A replay can compare event streams for equality (including IDs) when desired.
+  - Progress:
+    - [x] EVENT-003A Add `EventId { day, seq }` and `tags: DayTagSet` on `Event` (deterministic, non-RNG)
+    - [ ] EVENT-003B Ensure all event emit sites assign stable `seq` ordering per day and preserve ordering across refactors
 
 ---
 
@@ -1170,6 +1266,25 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Acceptance criteria:
     - Changing event weights does not require code changes.
 
+- [ ] ENCOUNTER-004 (P0) Ensure Deluxe random-event families are covered (by events/encounters/vehicle/weather/exec orders)
+  - Requirement:
+    - The engine’s combined “event surface area” MUST cover the Deluxe families listed in the systems spec:
+      - weather catastrophes (blizzard/hail/thunderstorm/fog/strong winds)
+      - resource shortages (bad water/no water/no grass)
+      - navigation (lost/wrong/rough/impassable/snowbound)
+      - party incidents (lost member, snakebite)
+      - oxen incidents (ox wandered off, ox sickness/death)
+      - resource changes (abandoned wagon, thief, wild fruit, mutual-aid help find food, gravesite, fire)
+      - wagon part breaks (repair/replace/unrepairable)
+    - Each family must have:
+      - a stable mechanical event kind/id
+      - a deterministic payload (time loss, item loss, health effects, etc.)
+      - a satire-safe presentation key.
+  - Spec refs:
+    - Systems spec §10 (random events list + mapping note).
+  - Acceptance criteria:
+    - A coverage test can enumerate the event catalog and confirm every required family is represented.
+
 - [ ] ENCOUNTER-005 (P0) Implement `RandomEventTick` (phase 14) as the sole applicator of non-navigation random events
   - Requirement:
     - Implement a distinct RandomEventTick phase that:
@@ -1196,25 +1311,6 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - `dystrail-game/src/encounters/*` (event pools / selection)
   - Acceptance criteria:
     - Non-navigation event selection and application is centralized and testable as a standalone tick.
-
-- [ ] ENCOUNTER-004 (P0) Ensure Deluxe random-event families are covered (by events/encounters/vehicle/weather/exec orders)
-  - Requirement:
-    - The engine’s combined “event surface area” MUST cover the Deluxe families listed in the systems spec:
-      - weather catastrophes (blizzard/hail/thunderstorm/fog/strong winds)
-      - resource shortages (bad water/no water/no grass)
-      - navigation (lost/wrong/rough/impassable/snowbound)
-      - party incidents (lost member, snakebite)
-      - oxen incidents (ox wandered off, ox sickness/death)
-      - resource changes (abandoned wagon, thief, wild fruit, mutual-aid help find food, gravesite, fire)
-      - wagon part breaks (repair/replace/unrepairable)
-    - Each family must have:
-      - a stable mechanical event kind/id
-      - a deterministic payload (time loss, item loss, health effects, etc.)
-      - a satire-safe presentation key.
-  - Spec refs:
-    - Systems spec §10 (random events list + mapping note).
-  - Acceptance criteria:
-    - A coverage test can enumerate the event catalog and confirm every required family is represented.
 
 ---
 

@@ -18,8 +18,10 @@ use crate::vehicle::PartWeights;
 use crate::weather::Weather;
 
 pub mod daily;
+pub mod event;
 pub mod session;
 pub use daily::{DailyTickOutcome, apply_daily_effect};
+pub use event::{Event, EventDecisionTrace, EventId, EventKind, EventSeverity, UiSurfaceHint};
 pub use session::JourneySession;
 
 /// Maximum tag capacity stored inline without additional allocations.
@@ -1380,6 +1382,8 @@ pub struct DayOutcome {
     pub log_key: String,
     pub breakdown_started: bool,
     pub record: Option<DayRecord>,
+    pub events: Vec<Event>,
+    pub decision_traces: Vec<EventDecisionTrace>,
 }
 
 /// Deterministic bundle of RNG streams segregated by simulation domain.
@@ -1722,12 +1726,29 @@ impl JourneyController {
             let _ = travel_rng.draws();
         }
         let (ended, log_key, breakdown_started) = state.travel_next_leg(&self.endgame_cfg);
-        let record = state.day_records.last().cloned();
+        let day_consumed = state.day_state.lifecycle.did_end_of_day;
+        let event_day = if day_consumed {
+            state.day.saturating_sub(1)
+        } else {
+            state.day
+        };
+        let record = if day_consumed {
+            state.day_records.last().cloned()
+        } else {
+            None
+        };
+        let events = vec![Event::legacy_log_key(
+            EventId::new(event_day, 0),
+            event_day,
+            log_key.clone(),
+        )];
         DayOutcome {
             ended,
             log_key,
             breakdown_started,
             record,
+            events,
+            decision_traces: Vec::new(),
         }
     }
 }
@@ -1850,6 +1871,40 @@ mod tests {
         controller.reseed(2);
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
+    }
+
+    #[test]
+    fn tick_day_emits_events_with_stable_day_id_when_day_is_consumed() {
+        let mut state = GameState {
+            // Ensure encounter selection cannot early-return into the encounter UI flow.
+            data: None,
+            ..GameState::default()
+        };
+
+        let mut controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            PolicyId::Classic,
+            StrategyId::Balanced,
+            77,
+        );
+
+        let outcome = controller.tick_day(&mut state);
+
+        assert!(
+            state.day >= 2,
+            "expected day counter to advance after a completed day"
+        );
+        let record = outcome
+            .record
+            .as_ref()
+            .expect("expected a day record when the day is finalized");
+        let event = outcome.events.first().expect("expected at least one event");
+
+        assert_eq!(event.day, u32::from(record.day_index) + 1);
+        assert_eq!(event.id.day, event.day);
+        assert_eq!(event.id.seq, 0);
+        assert_eq!(event.ui_key.as_deref(), Some(outcome.log_key.as_str()));
+        assert_eq!(event.kind, EventKind::LegacyLogKey);
     }
 
     #[test]

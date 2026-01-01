@@ -16,7 +16,15 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
         let outcome = sess.tick_day();
 
         let mut lg = (*logs).clone();
-        lg.push(crate::i18n::t(&outcome.log_key));
+        if outcome.events.is_empty() {
+            lg.push(crate::i18n::t(&outcome.log_key));
+        } else {
+            for event in &outcome.events {
+                if let Some(key) = event.ui_key.as_deref() {
+                    lg.push(crate::i18n::t(key));
+                }
+            }
+        }
         let state_ref = sess.state();
         if outcome.ended || state_ref.stats.pants >= 100 {
             phase.set(Phase::Result);
