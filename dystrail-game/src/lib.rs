@@ -14,6 +14,7 @@ pub mod encounters;
 pub mod endgame;
 pub mod exec_orders;
 pub mod journey;
+pub mod mechanics;
 pub mod numbers;
 pub mod pacing;
 pub mod personas;
@@ -42,6 +43,9 @@ pub use journey::{
     DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, JourneyCfg, JourneyController,
     JourneySession, MechanicalPolicyId, PermitPolicy, PolicyId, RngBundle, StrategyId,
     TravelDayKind, apply_daily_effect,
+};
+pub use mechanics::{
+    OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};

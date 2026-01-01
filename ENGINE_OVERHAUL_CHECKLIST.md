@@ -70,7 +70,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
    - Answer the questions in **Section 19 (Open Questions / Unresolvable Contradictions)** so architecture doesn’t churn mid-refactor.
 
 2) **Scaffolding: policy + RNG + events + phase boundaries**
-   - Mechanical overlay system + gating: `GLOBAL-003`, `POLICY-001..POLICY-006`, `POLICY-002B`
+  - Mechanical overlay system + gating: `GLOBAL-003`, `POLICY-001..POLICY-006`
    - RNG domain expansion + phase guards: `GLOBAL-001`, `RNG-001..RNG-006`
    - Event bus + explainability: `EVENT-001..EVENT-003`
    - Phase ownership enforcement (structural): `ARCH-004B`, `TEST-001`
@@ -441,8 +441,9 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - (Dystrail extension) Add a dedicated `boss` stream so boss outcomes never couple to encounter/event selection.
   - Spec refs:
     - Systems spec §4.1; Kernel pseudocode “RNG”.
-  - Current code notes (must change for parity):
-    - `dystrail-game/src/journey/mod.rs::RngBundle` currently only exposes: `travel`, `breakdown`, `encounter`, `crossing`.
+  - Implementation notes (status):
+    - `dystrail-game/src/journey/mod.rs::RngBundle` now exposes the full stream set, including `events`, `trade`, `hunt`, and `boss`.
+    - All streams are wrapped in `CountingRng` so draw counts are available for determinism debugging.
   - Acceptance criteria:
     - The engine exposes these streams and kernel phases use only their designated streams.
     - Each stream reports draw counts (or equivalent instrumentation) for determinism debugging.
@@ -475,6 +476,15 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Acceptance criteria:
     - A regression test can assert “given this seed and this day context, the selected event is X”.
     - Event selection changes only if the events stream is intentionally altered.
+  - Progress:
+    - [x] RNG-004A Route “global random subsystems” (non-encounter) to `rng.events()`
+      - Requirements:
+        - Exec order selection/duration RNG uses `rng.events()`.
+        - Ally attrition RNG uses `rng.events()`.
+      - Acceptance criteria:
+        - `dystrail-game/src/state.rs::GameState::tick_exec_order_state` uses `events_rng()`.
+        - `dystrail-game/src/state.rs::GameState::tick_ally_attrition` uses `events_rng()`.
+    - [ ] RNG-004B Route navigation hard-stops + RandomEventTick to `rng.events()` with fixed draw ordering
 
 - [ ] RNG-005 (P1) Add optional runtime “Phase RNG Guard”
   - Requirement:
@@ -527,8 +537,17 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - Systems spec §4.3.1 policy table and all “MUST be expressed as policy parameters” language.
   - Acceptance criteria:
     - No parity-critical numeric remains “implied by code”; policy config is the single place to change them later.
+  - Progress:
+    - [x] POLICY-002A Add an `OtDeluxe90sPolicy` data module with explicit parameters and defaults
+      - Requirements:
+        - Introduce a dedicated data type for the OTDeluxe90s mechanical overlay (do not reuse Dystrail strategy overlays).
+        - Include explicit policy fields for parity-critical knobs, even when the value is “policy-defined”.
+      - Acceptance criteria:
+        - `dystrail-game/src/mechanics/otdeluxe90s.rs` provides `OtDeluxe90sPolicy::default()` without reading any runtime state.
+        - Types for OTDeluxe enums (pace/rations/occupations/trail variants) exist and are serializable.
+    - [ ] POLICY-002B Route parity-critical computations through `OtDeluxe90sPolicy` (no legacy constants)
 
-- [ ] POLICY-002B (P1) Support per-region and per-season overrides inside the mechanical policy
+- [ ] POLICY-002C (P1) Support per-region and per-season overrides inside the mechanical policy
   - Requirement:
     - The policy layer must support overrides keyed by:
       - region/terrain band
@@ -554,6 +573,19 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - Systems spec §4.3.1 (policy table), §8.5 (mile markers), §10 (store), §9 (crossings).
   - Acceptance criteria:
     - Policy values match the spec exactly; any code using different values is removed or gated to other policies.
+  - Progress:
+    - [x] POLICY-003A Embed EXE-extracted store/trail/crossing constants in `OtDeluxe90sPolicy::default()`
+      - Requirements:
+        - Store price multiplier schedule is treated as normative (first 18 entries align to node indices 0..17).
+        - Oregon City is presentation-only (no additional node beyond Willamette Valley).
+      - Acceptance criteria:
+        - `OtDeluxe90sPolicy::default()` includes:
+          - `STORE_BASE_PRICE_CENTS[...]`
+          - `STORE_PRICE_MULT_PCT_BY_NODE[...]`
+          - `STORE_MAX_BUY[...]`
+          - Trail mile marker lists (main + 3 route variants with 0 sentinels)
+          - `FERRY_COST_CENTS` and `GUIDE_COST_CLOTHES`
+        - A future OTDeluxe kernel can consume these constants without any additional extraction step.
 
 - [ ] POLICY-004 (P0) Policy must define the affliction odds curve and odds driver
   - Requirement:
@@ -622,7 +654,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Current code notes (must change for parity):
     - `dystrail-game/src/state.rs::GameState::tick_exec_order_state` currently:
       - runs in `start_of_day()`
-      - consumes `encounter_rng()` for selection/duration
+      - consumes `rng.events()` for selection/duration (fixed), but is still not owned by an explicit RandomEventTick phase
       - directly mutates stats and multipliers outside an explicit derived-effects boundary.
   - Acceptance criteria:
     - Exec orders do not mutate downstream state directly outside their owning phase; they produce derived effects.
@@ -667,7 +699,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
     - Systems spec §5 and §14 phase 2; Journey diff delta “Weather must be the root cause”.
   - Current code notes (must change for parity):
     - `dystrail-game/src/state.rs::GameState::start_of_day` calls `crate::weather::process_daily_weather(...)` today (too early/embedded).
-    - `dystrail-game/src/weather.rs::select_weather_for_today` currently consumes `rngs.travel()`; this MUST move to `rng.weather()`.
+    - `dystrail-game/src/weather.rs::select_weather_for_today` now consumes `rng.weather()` (fixed), but is still invoked from `start_of_day()` instead of a dedicated WeatherTick phase.
   - Acceptance criteria:
     - Kernel phase order enforces this; no other phase selects or mutates `weather_state.today`.
 
@@ -803,7 +835,7 @@ Use this ordering when turning the checklist into PRs. Within each step, do **P0
   - Current code notes (must change for parity):
     - `dystrail-game/src/state.rs::GameState::roll_daily_illness` currently:
       - runs in `start_of_day()`, before weather/supplies ordering
-      - consumes `travel_rng()` (not `rng.health()`)
+      - consumes `rng.health()` (fixed), but is still not scoped to an explicit HealthTick phase
       - uses Dystrail-specific chance modifiers (supplies/hp/starvation/behind-schedule), not the OTDeluxe `health_general -> 0..0.40` curve.
   - Acceptance criteria:
     - Afflictions are deterministic with `rng.health()` only.
