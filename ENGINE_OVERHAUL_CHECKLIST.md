@@ -774,6 +774,9 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Progress:
     - [x] EVENT-002A Add `EventDecisionTrace` data type (no emit sites yet)
     - [ ] EVENT-002B Populate traces from encounter/event selection and store them in `DayOutcome` (and optionally `DayRecord`)
+      - Progress:
+        - Encounter selection now emits traces and `JourneyController::tick_day()` surfaces them via `DayOutcome.decision_traces`.
+        - Remaining: RandomEventTick + any other weighted pools must emit traces too (with fixed draw ordering).
 
 - [ ] EVENT-003 (P1) Provide stable event IDs and tags
   - Requirement:

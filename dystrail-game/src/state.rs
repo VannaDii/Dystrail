@@ -69,8 +69,8 @@ use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
-    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, JourneyCfg,
-    MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
+    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
+    JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -2063,6 +2063,8 @@ pub struct GameState {
     #[serde(skip)]
     pub last_damage: Option<DamageCause>,
     #[serde(skip)]
+    pub decision_traces_today: Vec<EventDecisionTrace>,
+    #[serde(skip)]
     pub current_day_record: Option<DayRecord>,
     #[serde(skip)]
     pub current_day_kind: Option<TravelDayKind>,
@@ -2168,6 +2170,7 @@ impl Default for GameState {
             rng_bundle: None,
             data: None,
             last_damage: None,
+            decision_traces_today: Vec::new(),
             current_day_record: None,
             current_day_kind: None,
             current_day_reason_tags: Vec::new(),
@@ -2311,6 +2314,7 @@ impl GameState {
         self.current_day_kind = None;
         self.current_day_reason_tags.clear();
         self.current_day_miles = 0.0;
+        self.decision_traces_today.clear();
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
         self.exec_travel_multiplier = 1.0;
@@ -3921,14 +3925,18 @@ impl GameState {
             };
             {
                 let mut rng = bundle.encounter();
-                let (pick, satisfied) = pick_encounter(&request, &mut rotation_backlog, &mut *rng);
+                let pick = pick_encounter(&request, &mut rotation_backlog, &mut *rng);
+                if let Some(trace) = pick.decision_trace {
+                    self.decision_traces_today.push(trace);
+                }
+                let satisfied = pick.rotation_satisfied;
                 if forced {
                     if satisfied {
                         rotation_logged = true;
                     }
                     force_rotation_pending = !rotation_backlog.is_empty();
                 }
-                encounter = pick;
+                encounter = pick.encounter;
             }
         }
         self.encounters.force_rotation_pending = force_rotation_pending;
@@ -4027,12 +4035,15 @@ impl GameState {
                 };
                 {
                     let mut rng = bundle.encounter();
-                    let (replacement, satisfied) =
-                        pick_encounter(&request, &mut rotation_backlog, &mut *rng);
+                    let replacement = pick_encounter(&request, &mut rotation_backlog, &mut *rng);
+                    if let Some(trace) = replacement.decision_trace {
+                        self.decision_traces_today.push(trace);
+                    }
+                    let satisfied = replacement.rotation_satisfied;
                     if satisfied {
                         self.encounters.force_rotation_pending = false;
                     }
-                    encounter = replacement;
+                    encounter = replacement.encounter;
                 }
             }
         }

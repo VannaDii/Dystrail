@@ -3,6 +3,7 @@
 use crate::constants::DEBUG_ENV_VAR;
 use crate::constants::{ENCOUNTER_REPEAT_WINDOW_DAYS, ROTATION_LOOKBACK_DAYS};
 use crate::data::{Encounter, EncounterData};
+use crate::journey::event::{EventDecisionTrace, RollValue, WeightFactor, WeightedCandidate};
 use crate::state::{PolicyKind, RecentEncounter, Region};
 use rand::Rng;
 use std::collections::{HashMap, VecDeque};
@@ -29,11 +30,96 @@ pub struct EncounterRequest<'a> {
     pub force_rotation: bool,
 }
 
+#[derive(Debug, Clone, PartialEq)]
+pub struct EncounterPick {
+    pub encounter: Option<Encounter>,
+    pub rotation_satisfied: bool,
+    pub decision_trace: Option<EventDecisionTrace>,
+}
+
+const fn pick_none(rotation_satisfied: bool) -> EncounterPick {
+    EncounterPick {
+        encounter: None,
+        rotation_satisfied,
+        decision_trace: None,
+    }
+}
+
+fn find_candidate<'a>(candidates: &[&'a Encounter], encounter_id: &str) -> Option<&'a Encounter> {
+    candidates
+        .iter()
+        .copied()
+        .find(|encounter| encounter.id == encounter_id)
+}
+
+fn rotation_ready(current_day: u32, last_seen: &HashMap<&str, u32>, encounter_id: &str) -> bool {
+    last_seen
+        .get(encounter_id)
+        .map(|day| current_day.saturating_sub(*day))
+        .is_none_or(|age| age >= ENCOUNTER_REPEAT_WINDOW_DAYS)
+}
+
+fn try_pick_ready_from_rotation_queue(
+    request: &EncounterRequest<'_>,
+    rotation_queue: &mut VecDeque<String>,
+    candidates: &[&Encounter],
+    last_seen: &HashMap<&str, u32>,
+) -> Option<Encounter> {
+    if rotation_queue.is_empty() {
+        return None;
+    }
+    let queue_len = rotation_queue.len();
+    for _ in 0..queue_len {
+        let Some(next_id) = rotation_queue.pop_front() else {
+            break;
+        };
+        if let Some(encounter) = find_candidate(candidates, &next_id)
+            && rotation_ready(request.current_day, last_seen, encounter.id.as_str())
+        {
+            if debug_log_enabled() {
+                println!(
+                    "Encounter rotation | day {} queued {}",
+                    request.current_day, encounter.id
+                );
+            }
+            return Some(encounter.clone());
+        }
+        rotation_queue.push_back(next_id);
+    }
+    None
+}
+
+fn try_pick_forced_from_rotation_queue(
+    request: &EncounterRequest<'_>,
+    rotation_queue: &mut VecDeque<String>,
+    candidates: &[&Encounter],
+    last_seen: &HashMap<&str, u32>,
+) -> Option<Encounter> {
+    if !request.force_rotation {
+        return None;
+    }
+    if rotation_queue.is_empty() {
+        *rotation_queue = build_rotation_backlog(request, candidates, last_seen);
+    }
+    while let Some(next_id) = rotation_queue.pop_front() {
+        if let Some(encounter) = find_candidate(candidates, &next_id) {
+            if debug_log_enabled() {
+                println!(
+                    "Encounter rotation | day {} forced {}",
+                    request.current_day, encounter.id
+                );
+            }
+            return Some(encounter.clone());
+        }
+    }
+    None
+}
+
 pub fn pick_encounter<R: Rng>(
     request: &EncounterRequest<'_>,
     rotation_queue: &mut VecDeque<String>,
     rng: &mut R,
-) -> (Option<Encounter>, bool) {
+) -> EncounterPick {
     let candidates = filter_candidates(request);
 
     if debug_log_enabled() {
@@ -46,7 +132,7 @@ pub fn pick_encounter<R: Rng>(
     }
 
     if candidates.is_empty() {
-        return (None, false);
+        return pick_none(false);
     }
 
     let last_seen = build_last_seen_map(request.recent);
@@ -54,62 +140,29 @@ pub fn pick_encounter<R: Rng>(
         *rotation_queue = build_rotation_backlog(request, &candidates, &last_seen);
     }
 
-    if !rotation_queue.is_empty() {
-        let queue_len = rotation_queue.len();
-        for _ in 0..queue_len {
-            let Some(next_id) = rotation_queue.pop_front() else {
-                break;
-            };
-            if let Some((_, encounter)) = candidates
-                .iter()
-                .enumerate()
-                .find(|(_, enc)| enc.id == next_id)
-            {
-                let ready_for_rotation = last_seen
-                    .get(encounter.id.as_str())
-                    .map(|day| request.current_day.saturating_sub(*day))
-                    .is_none_or(|age| age >= ENCOUNTER_REPEAT_WINDOW_DAYS);
-                if ready_for_rotation {
-                    if debug_log_enabled() {
-                        println!(
-                            "Encounter rotation | day {} queued {}",
-                            request.current_day, encounter.id
-                        );
-                    }
-                    return (Some((*encounter).clone()), true);
-                }
-            }
-            rotation_queue.push_back(next_id);
-        }
+    if let Some(encounter) =
+        try_pick_ready_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
+    {
+        return EncounterPick {
+            encounter: Some(encounter),
+            rotation_satisfied: true,
+            decision_trace: None,
+        };
     }
 
-    if request.force_rotation {
-        if rotation_queue.is_empty() {
-            *rotation_queue = build_rotation_backlog(request, &candidates, &last_seen);
-        }
-        while let Some(next_id) = rotation_queue.pop_front() {
-            if let Some((_, encounter)) = candidates
-                .iter()
-                .enumerate()
-                .find(|(_, enc)| enc.id == next_id)
-            {
-                if debug_log_enabled() {
-                    println!(
-                        "Encounter rotation | day {} forced {}",
-                        request.current_day, encounter.id
-                    );
-                }
-                return (Some((*encounter).clone()), true);
-            }
-        }
+    if let Some(encounter) =
+        try_pick_forced_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
+    {
+        return EncounterPick {
+            encounter: Some(encounter),
+            rotation_satisfied: true,
+            decision_trace: None,
+        };
     }
+
     let (primary, fallback) = categorize_candidates(request, &candidates, &last_seen);
     let (selection, rotation_satisfied) =
         determine_selection(primary, fallback, request.force_rotation, candidates.len());
-
-    if selection.is_empty() {
-        return (None, rotation_satisfied);
-    }
 
     let region_counts =
         if request.is_deep && matches!(request.policy, Some(PolicyKind::Conservative)) {
@@ -127,16 +180,60 @@ pub fn pick_encounter<R: Rng>(
         region_counts.as_ref(),
         region_min,
     );
-    let Some(chosen_idx) = choose_weighted(&weighted, rng) else {
-        return (None, rotation_satisfied);
+    let Some((chosen_idx, roll)) = choose_weighted(&weighted, rng) else {
+        return pick_none(rotation_satisfied);
     };
 
-    (
-        candidates
-            .get(chosen_idx)
-            .map(|encounter| (*encounter).clone()),
+    let chosen_ref = candidates.get(chosen_idx).copied();
+    let chosen = chosen_ref.map(|encounter| (*encounter).clone());
+
+    let decision_trace =
+        chosen_ref.map(|encounter| build_decision_trace(&candidates, &weighted, roll, encounter));
+
+    EncounterPick {
+        encounter: chosen,
         rotation_satisfied,
-    )
+        decision_trace,
+    }
+}
+
+fn build_decision_trace(
+    candidates: &[&Encounter],
+    weights: &[(usize, u32)],
+    roll: u32,
+    chosen: &Encounter,
+) -> EventDecisionTrace {
+    const POOL_ID: &str = "dystrail.encounter";
+
+    let weighted_candidates = weights
+        .iter()
+        .filter_map(|(idx, final_weight)| {
+            let encounter = *candidates.get(*idx)?;
+            let base_weight = f64::from(encounter.weight.max(1));
+            let final_weight_f = f64::from(*final_weight);
+            let multiplier = if base_weight > 0.0 {
+                final_weight_f / base_weight
+            } else {
+                1.0
+            };
+            Some(WeightedCandidate {
+                id: encounter.id.clone(),
+                base_weight,
+                multipliers: vec![WeightFactor {
+                    label: String::from("effective"),
+                    value: multiplier,
+                }],
+                final_weight: final_weight_f,
+            })
+        })
+        .collect();
+
+    EventDecisionTrace {
+        pool_id: String::from(POOL_ID),
+        roll: RollValue::U32(roll),
+        candidates: weighted_candidates,
+        chosen_id: chosen.id.clone(),
+    }
 }
 
 fn is_forage(encounter: &Encounter) -> bool {
@@ -296,7 +393,7 @@ fn build_weights(
     weighted
 }
 
-fn choose_weighted<R: Rng>(weights: &[(usize, u32)], rng: &mut R) -> Option<usize> {
+fn choose_weighted<R: Rng>(weights: &[(usize, u32)], rng: &mut R) -> Option<(usize, u32)> {
     let total_weight: u32 = weights.iter().map(|(_, weight)| *weight).sum();
     if total_weight == 0 {
         return None;
@@ -307,11 +404,11 @@ fn choose_weighted<R: Rng>(weights: &[(usize, u32)], rng: &mut R) -> Option<usiz
     for (idx, weight) in weights {
         current += *weight;
         if roll < current {
-            return Some(*idx);
+            return Some((*idx, roll));
         }
     }
 
-    weights.first().map(|(idx, _)| *idx)
+    weights.first().map(|(idx, _)| (*idx, roll))
 }
 
 fn build_rotation_backlog<'a>(
@@ -398,7 +495,9 @@ fn encounter_regions(encounter: &Encounter, fallback: Region) -> Vec<Region> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::constants::FLOAT_EPSILON;
     use crate::state::{RecentEncounter, Region};
+    use rand::Rng;
     use rand::SeedableRng;
     use rand_chacha::ChaCha20Rng;
     use std::collections::VecDeque;
@@ -486,6 +585,92 @@ mod tests {
     }
 
     #[test]
+    fn weighted_selection_emits_decision_trace() {
+        let data = sample_encounters();
+        let current_day = 20;
+        let recent = vec![
+            RecentEncounter::new(String::from("alpha"), current_day - 1, Region::Heartland),
+            RecentEncounter::new(String::from("beta"), current_day - 1, Region::Heartland),
+            RecentEncounter::new(String::from("gamma"), current_day - 1, Region::Heartland),
+        ];
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &recent,
+            current_day,
+            policy: None,
+            force_rotation: false,
+        };
+
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(&recent);
+        let (primary, fallback) = categorize_candidates(&request, &candidates, &last_seen);
+        let (selection, rotation_satisfied) =
+            determine_selection(primary, fallback, request.force_rotation, candidates.len());
+        assert!(!rotation_satisfied, "no forced rotation in this scenario");
+        let weighted = build_weights(selection, &candidates, &request, &last_seen, None, 0);
+        let total_weight: u32 = weighted.iter().map(|(_, weight)| *weight).sum();
+        assert!(total_weight > 0, "expected non-empty weighted pool");
+
+        let mut expected_rng = ChaCha20Rng::from_seed([1u8; 32]);
+        let expected_roll = expected_rng.gen_range(0..total_weight);
+        let mut expected_choice = weighted
+            .first()
+            .map(|(idx, _)| *idx)
+            .expect("weighted pool has entries");
+        let mut current = 0_u32;
+        for (idx, weight) in &weighted {
+            current = current.saturating_add(*weight);
+            if expected_roll < current {
+                expected_choice = *idx;
+                break;
+            }
+        }
+
+        let mut queue = VecDeque::new();
+        let mut rng = ChaCha20Rng::from_seed([1u8; 32]);
+        let pick = pick_encounter(&request, &mut queue, &mut rng);
+        assert_eq!(pick.rotation_satisfied, rotation_satisfied);
+
+        let encounter = pick.encounter.expect("encounter selected");
+        assert_eq!(encounter.id, candidates[expected_choice].id);
+
+        let trace = pick.decision_trace.expect("decision trace recorded");
+        assert_eq!(trace.pool_id, "dystrail.encounter");
+        assert_eq!(trace.roll, RollValue::U32(expected_roll));
+        assert_eq!(trace.chosen_id, encounter.id);
+        assert_eq!(trace.candidates.len(), weighted.len());
+
+        for (candidate_trace, (idx, weight)) in trace.candidates.iter().zip(weighted.iter()) {
+            let encounter = candidates[*idx];
+            let base_weight = f64::from(encounter.weight.max(1));
+            let final_weight = f64::from(*weight);
+            assert_eq!(candidate_trace.id, encounter.id);
+            assert!(
+                (candidate_trace.base_weight - base_weight).abs() < FLOAT_EPSILON,
+                "expected base weight {base_weight} but got {}",
+                candidate_trace.base_weight
+            );
+            assert!(
+                (candidate_trace.final_weight - final_weight).abs() < FLOAT_EPSILON,
+                "expected final weight {final_weight} but got {}",
+                candidate_trace.final_weight
+            );
+            assert_eq!(candidate_trace.multipliers.len(), 1);
+            assert_eq!(candidate_trace.multipliers[0].label, "effective");
+            let expected_multiplier = final_weight / base_weight;
+            let actual_multiplier = candidate_trace.multipliers[0].value;
+            assert!(
+                (actual_multiplier - expected_multiplier).abs() < FLOAT_EPSILON,
+                "expected multiplier {expected_multiplier} but got {actual_multiplier}"
+            );
+        }
+    }
+
+    #[test]
     fn determine_selection_falls_back() {
         let (primary, satisfied) = determine_selection(vec![], vec![1, 2, 3], false, 4);
         assert_eq!(primary, vec![1, 2, 3]);
@@ -499,7 +684,7 @@ mod tests {
     fn weighted_choice_prefers_higher_weight() {
         let mut rng = ChaCha20Rng::from_seed([1u8; 32]);
         let weights = vec![(0, 1), (1, 50)];
-        let pick = choose_weighted(&weights, &mut rng);
+        let pick = choose_weighted(&weights, &mut rng).map(|(idx, _)| idx);
         assert_eq!(pick, Some(1));
     }
 }

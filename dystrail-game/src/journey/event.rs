@@ -94,21 +94,37 @@ impl Event {
 pub struct EventDecisionTrace {
     /// Identifier for the selection pool (e.g., `otdeluxe.random_events`).
     pub pool_id: String,
-    /// The selected event kind (mechanical).
-    pub chosen_kind: EventKind,
-    /// Base weight before applying circumstance multipliers.
-    pub base_weight: f32,
+    /// Random draw used to select from the weighted pool.
+    pub roll: RollValue,
+    /// Candidate weights considered during selection.
+    pub candidates: Vec<WeightedCandidate>,
+    /// Identifier of the selected candidate.
+    pub chosen_id: String,
+}
+
+/// Candidate weight telemetry captured during event selection.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WeightedCandidate {
+    pub id: String,
+    pub base_weight: f64,
     /// Multipliers applied in order.
     pub multipliers: Vec<WeightFactor>,
-    /// Final computed weight after applying multipliers.
-    pub final_weight: f32,
+    pub final_weight: f64,
+}
+
+/// Random roll value used by weighted selection.
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[serde(tag = "kind", content = "value", rename_all = "snake_case")]
+pub enum RollValue {
+    U32(u32),
+    F32(f32),
 }
 
 /// Single multiplicative weight factor used in an event selection trace.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeightFactor {
     pub label: String,
-    pub value: f32,
+    pub value: f64,
 }
 
 #[cfg(test)]
@@ -137,19 +153,23 @@ mod tests {
     fn decision_trace_roundtrips() {
         let trace = EventDecisionTrace {
             pool_id: String::from("example.pool"),
-            chosen_kind: EventKind::LegacyLogKey,
-            base_weight: 1.0,
-            multipliers: vec![
-                WeightFactor {
-                    label: String::from("region"),
-                    value: 1.25,
-                },
-                WeightFactor {
-                    label: String::from("weather"),
-                    value: 0.8,
-                },
-            ],
-            final_weight: 1.0,
+            roll: RollValue::U32(7),
+            candidates: vec![WeightedCandidate {
+                id: String::from("candidate-a"),
+                base_weight: 1.0,
+                multipliers: vec![
+                    WeightFactor {
+                        label: String::from("region"),
+                        value: 1.25,
+                    },
+                    WeightFactor {
+                        label: String::from("weather"),
+                        value: 0.8,
+                    },
+                ],
+                final_weight: 1.0,
+            }],
+            chosen_id: String::from("candidate-a"),
         };
 
         let json = serde_json::to_string(&trace).expect("serialize");

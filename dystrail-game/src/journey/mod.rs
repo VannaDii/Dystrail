@@ -1742,13 +1742,14 @@ impl JourneyController {
             event_day,
             log_key.clone(),
         )];
+        let decision_traces = std::mem::take(&mut state.decision_traces_today);
         DayOutcome {
             ended,
             log_key,
             breakdown_started,
             record,
             events,
-            decision_traces: Vec::new(),
+            decision_traces,
         }
     }
 }
@@ -1756,11 +1757,14 @@ impl JourneyController {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::data::{Encounter, EncounterData};
     use crate::state::GameState;
+    use crate::state::{FeatureFlags, RecentEncounter, Region};
     use crate::weather::Weather;
     use rand::RngCore;
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
+    use std::collections::VecDeque;
 
     #[test]
     fn policy_catalog_resolves_family_and_overlay() {
@@ -1905,6 +1909,83 @@ mod tests {
         assert_eq!(event.id.seq, 0);
         assert_eq!(event.ui_key.as_deref(), Some(outcome.log_key.as_str()));
         assert_eq!(event.kind, EventKind::LegacyLogKey);
+    }
+
+    #[test]
+    fn tick_day_surfaces_and_drains_decision_traces() {
+        let encounter_data = EncounterData::from_encounters(vec![
+            Encounter {
+                id: String::from("alpha"),
+                name: String::from("Alpha"),
+                desc: String::new(),
+                weight: 5,
+                regions: vec![String::from("heartland")],
+                modes: vec![String::from("classic")],
+                choices: Vec::new(),
+                hard_stop: false,
+                major_repair: false,
+                chainable: false,
+            },
+            Encounter {
+                id: String::from("beta"),
+                name: String::from("Beta"),
+                desc: String::new(),
+                weight: 5,
+                regions: vec![String::from("heartland")],
+                modes: vec![String::from("classic")],
+                choices: Vec::new(),
+                hard_stop: false,
+                major_repair: false,
+                chainable: false,
+            },
+            Encounter {
+                id: String::from("gamma"),
+                name: String::from("Gamma"),
+                desc: String::new(),
+                weight: 5,
+                regions: vec![String::from("heartland")],
+                modes: vec![String::from("classic")],
+                choices: Vec::new(),
+                hard_stop: false,
+                major_repair: false,
+                chainable: false,
+            },
+        ]);
+
+        let mut state = GameState {
+            day: 20,
+            data: Some(encounter_data),
+            region: Region::Heartland,
+            encounter_chance_today: 1.0,
+            features: FeatureFlags {
+                encounter_diversity: false,
+                ..FeatureFlags::default()
+            },
+            recent_encounters: VecDeque::from(vec![
+                RecentEncounter::new(String::from("alpha"), 19, Region::Heartland),
+                RecentEncounter::new(String::from("beta"), 19, Region::Heartland),
+                RecentEncounter::new(String::from("gamma"), 19, Region::Heartland),
+            ]),
+            ..GameState::default()
+        };
+
+        let mut controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            PolicyId::Classic,
+            StrategyId::Balanced,
+            101,
+        );
+
+        let outcome = controller.tick_day(&mut state);
+        assert_eq!(outcome.log_key, "log.encounter");
+        assert!(
+            !outcome.decision_traces.is_empty(),
+            "expected encounter selection trace to be surfaced in the day outcome"
+        );
+        assert!(
+            state.decision_traces_today.is_empty(),
+            "expected decision traces to be drained from state after ticking"
+        );
     }
 
     #[test]
