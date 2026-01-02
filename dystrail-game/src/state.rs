@@ -4583,9 +4583,7 @@ impl GameState {
             if matches!(kind, TravelDayKind::NonTravel) && miles <= 0.0 {
                 self.day_state.lifecycle.suppress_stop_ratio = true;
             }
-            crate::journey::apply_daily_kernel_for_state(self);
-            self.record_travel_day(kind, miles, reason_tag);
-            self.end_of_day();
+            let _ = crate::journey::tick_non_travel_day_for_state(self, kind, miles, reason_tag);
             self.day_state.lifecycle.suppress_stop_ratio = false;
         }
     }

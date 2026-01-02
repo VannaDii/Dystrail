@@ -310,10 +310,12 @@ pub fn apply_detour(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
     gs.stats.supplies += type_cfg.detour.supplies; // Can be negative (cost)
     gs.stats.pants += type_cfg.detour.pants;
     let detour_days = type_cfg.detour.days.max(1);
-    crate::journey::apply_daily_kernel_for_state(gs);
-    let partial = crate::day_accounting::partial_day_miles(gs, 0.0);
-    gs.record_travel_day(crate::journey::TravelDayKind::Partial, partial, "detour");
-    gs.end_of_day();
+    let partial = crate::journey::tick_non_travel_day_for_state(
+        gs,
+        crate::journey::TravelDayKind::Partial,
+        0.0,
+        "detour",
+    );
     if detour_days > 1 {
         let extra = u32::try_from(detour_days - 1).unwrap_or(0);
         gs.advance_days_with_credit(

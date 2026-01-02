@@ -1736,6 +1736,17 @@ pub(crate) fn apply_daily_kernel_for_state(state: &mut crate::state::GameState) 
     kernel.apply_daily_physics(state);
 }
 
+pub(crate) fn tick_non_travel_day_for_state(
+    state: &mut crate::state::GameState,
+    kind: TravelDayKind,
+    miles: f32,
+    reason_tag: &str,
+) -> f32 {
+    let cfg = resolve_cfg_for_state(state);
+    let kernel = DailyTickKernel::new(&cfg, default_endgame_config());
+    kernel.tick_non_travel_day(state, kind, miles, reason_tag)
+}
+
 fn default_endgame_config() -> &'static EndgameTravelCfg {
     static CONFIG: OnceLock<EndgameTravelCfg> = OnceLock::new();
     CONFIG.get_or_init(EndgameTravelCfg::default_config)

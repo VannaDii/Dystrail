@@ -2,8 +2,9 @@
 
 use std::sync::OnceLock;
 
+use crate::day_accounting;
 use crate::endgame::EndgameTravelCfg;
-use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, apply_daily_effect};
+use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, TravelDayKind, apply_daily_effect};
 use crate::pacing::PacingConfig;
 use crate::state::GameState;
 
@@ -56,6 +57,24 @@ impl<'a> DailyTickKernel<'a> {
             events,
             decision_traces,
         }
+    }
+
+    pub(crate) fn tick_non_travel_day(
+        &self,
+        state: &mut GameState,
+        kind: TravelDayKind,
+        miles: f32,
+        reason_tag: &str,
+    ) -> f32 {
+        self.apply_daily_physics(state);
+        let credited_miles = if matches!(kind, TravelDayKind::Partial) && miles <= 0.0 {
+            day_accounting::partial_day_miles(state, miles)
+        } else {
+            miles
+        };
+        state.record_travel_day(kind, credited_miles, reason_tag);
+        state.end_of_day();
+        credited_miles
     }
 }
 
