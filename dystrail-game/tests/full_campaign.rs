@@ -1,18 +1,15 @@
-use dystrail_game::journey::RngBundle;
 use dystrail_game::{
     CampConfig, Cart, CartLine, CrossingConfig, CrossingKind, EncounterData, EndgameTravelCfg,
-    GameMode, GameState, PacingConfig, PersonasList, PolicyKind, ResultConfig, Store, Weather,
-    WeatherConfig, apply_bribe, apply_detour, apply_permit, calculate_bribe_cost,
-    calculate_effective_price, camp_forage, camp_rest, camp_therapy, can_afford_bribe,
-    can_use_permit,
+    GameMode, GameState, JourneyController, MechanicalPolicyId, PersonasList, PolicyId, PolicyKind,
+    ResultConfig, Store, StrategyId, Weather, apply_bribe, apply_detour, apply_permit,
+    calculate_bribe_cost, calculate_effective_price, camp_forage, camp_rest, camp_therapy,
+    can_afford_bribe, can_use_permit,
     endgame::{enforce_failure_guard, run_endgame_controller},
     exec_orders::ExecOrder,
     load_result_config, result_summary, run_boss_minigame,
     seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code},
-    weather::process_daily_weather,
 };
 use std::collections::HashSet;
-use std::rc::Rc;
 
 fn load_store() -> Store {
     serde_json::from_str(include_str!(
@@ -75,15 +72,19 @@ fn run_campaign_setup_and_loop() -> (
     EndgameTravelCfg,
     HashSet<Weather>,
 ) {
-    let pacing = PacingConfig::load_from_static();
-    let weather_cfg = WeatherConfig::load_from_static();
     let camp_cfg = CampConfig::load_from_static();
     let boss_cfg = dystrail_game::BossConfig::load_from_static();
     let result_cfg = load_result_config().unwrap_or_else(|_| ResultConfig::default());
     let mut state = configure_state(0xDEAD_BEEF);
     let endgame_cfg = EndgameTravelCfg::default_config();
-    let rng_bundle = Rc::new(RngBundle::from_user_seed(0xCAFE_F00D));
-    state.attach_rng_bundle(rng_bundle.clone());
+    let strategy: StrategyId = state.policy.unwrap_or(PolicyKind::Balanced).into();
+    let mut controller = JourneyController::new(
+        MechanicalPolicyId::DystrailLegacy,
+        PolicyId::from(state.mode),
+        strategy,
+        state.seed,
+    );
+    controller.set_endgame_config(endgame_cfg.clone());
     let mut weather_seen = HashSet::new();
     let store = load_store();
     let by_id = store.items_by_id();
@@ -107,10 +108,8 @@ fn run_campaign_setup_and_loop() -> (
 
     // Simulate 60 days of play hitting diverse systems.
     for day in 0..120 {
-        process_daily_weather(&mut state, &weather_cfg, Some(rng_bundle.as_ref()));
+        let outcome = controller.tick_day(&mut state);
         weather_seen.insert(state.weather_state.today);
-        state.apply_pace_and_diet(&pacing);
-        let (ended, _, _) = state.travel_next_leg(&endgame_cfg);
         if state.current_encounter.is_some() {
             state.apply_choice(0);
         }
@@ -131,7 +130,7 @@ fn run_campaign_setup_and_loop() -> (
             state.day_state.travel.travel_blocked = false;
         }
 
-        if ended {
+        if outcome.ended {
             break;
         }
     }

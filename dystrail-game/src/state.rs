@@ -559,6 +559,7 @@ mod tests {
         let morale_before = state.stats.morale;
 
         state.start_of_day();
+        state.run_daily_root_ticks();
 
         assert!(state.current_order.is_none());
         assert_eq!(state.exec_order_cooldown, EXEC_ORDER_MIN_COOLDOWN);
@@ -706,6 +707,7 @@ mod tests {
 
         let mut base_state = GameState::default();
         base_state.detach_rng_bundle();
+        base_state.start_of_day();
         base_state.apply_pace_and_diet(&cfg);
         let base = base_state.encounter_chance_today;
         assert!((f64::from(base) - f64::from(ENCOUNTER_BASE_DEFAULT)).abs() < FLOAT_EPSILON);
@@ -715,6 +717,7 @@ mod tests {
             ..GameState::default()
         };
         capped_state.detach_rng_bundle();
+        capped_state.start_of_day();
         capped_state.apply_pace_and_diet(&cfg);
         let capped = capped_state.encounter_chance_today;
         assert!(
@@ -808,6 +811,7 @@ mod tests {
         };
         state.data = Some(EncounterData::from_encounters(vec![encounter]));
         let cfg = crate::pacing::PacingConfig::default_config();
+        state.start_of_day();
         state.apply_pace_and_diet(&cfg);
         state.encounter_chance_today = 0.0;
         state.day_state.lifecycle.day_initialized = true;
@@ -844,6 +848,7 @@ mod tests {
         state.data = Some(EncounterData::from_encounters(vec![encounter]));
         let cfg = crate::pacing::PacingConfig::default_config();
 
+        state.start_of_day();
         state.apply_pace_and_diet(&cfg);
         state.encounter_chance_today = 1.0;
         let end_cfg = endgame_cfg();
@@ -853,6 +858,7 @@ mod tests {
         state.apply_choice(0);
         assert!(!state.encounters.occurred_today);
 
+        state.start_of_day();
         state.apply_pace_and_diet(&cfg);
         state.encounter_chance_today = 1.0;
         let (_ended_second, msg_second, _) = state.travel_next_leg(&end_cfg);
@@ -861,6 +867,7 @@ mod tests {
         state.apply_choice(0);
         assert!(state.encounters.occurred_today);
 
+        state.start_of_day();
         state.apply_pace_and_diet(&cfg);
         state.encounter_chance_today = 1.0;
         let (_ended_third, msg_third, _) = state.travel_next_leg(&end_cfg);
@@ -2337,12 +2344,14 @@ impl GameState {
         if self.encounter_cooldown > 0 {
             self.encounter_cooldown -= 1;
         }
+    }
 
+    pub(crate) fn run_daily_root_ticks(&mut self) {
         self.tick_exec_order_state();
-
         self.apply_starvation_tick();
         self.roll_daily_illness();
         self.apply_deep_aggressive_sanity_guard();
+
         let weather_cfg = WeatherConfig::default_config();
         let weather_rng = self.rng_bundle.as_ref().map(Rc::clone);
         crate::weather::process_daily_weather(self, &weather_cfg, weather_rng.as_deref());
@@ -4341,7 +4350,6 @@ impl GameState {
 
     /// Apply pace and diet configuration (placeholder)
     pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
-        self.start_of_day();
         let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
         let diet_cfg = cfg.get_diet_safe(self.diet.as_str());
         let limits = &cfg.limits;
@@ -4579,7 +4587,11 @@ impl GameState {
             if matches!(kind, TravelDayKind::NonTravel) && miles <= 0.0 {
                 self.day_state.lifecycle.suppress_stop_ratio = true;
             }
+            let starting_new_day = !self.day_state.lifecycle.day_initialized;
             self.start_of_day();
+            if starting_new_day {
+                self.run_daily_root_ticks();
+            }
             self.record_travel_day(kind, miles, reason_tag);
             self.end_of_day();
             self.day_state.lifecycle.suppress_stop_ratio = false;

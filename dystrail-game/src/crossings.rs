@@ -310,6 +310,11 @@ pub fn apply_detour(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
     gs.stats.supplies += type_cfg.detour.supplies; // Can be negative (cost)
     gs.stats.pants += type_cfg.detour.pants;
     let detour_days = type_cfg.detour.days.max(1);
+    let starting_new_day = !gs.day_state.lifecycle.day_initialized;
+    gs.start_of_day();
+    if starting_new_day {
+        gs.run_daily_root_ticks();
+    }
     let partial = crate::day_accounting::partial_day_miles(gs, 0.0);
     gs.record_travel_day(crate::journey::TravelDayKind::Partial, partial, "detour");
     gs.end_of_day();

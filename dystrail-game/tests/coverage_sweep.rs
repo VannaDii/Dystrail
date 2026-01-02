@@ -386,8 +386,6 @@ fn full_content_walkthrough() {
     let crossings = load_crossing_config();
     let store = load_store();
     let personas = load_personas();
-    let pacing = PacingConfig::default_config();
-    let weather_cfg = WeatherConfig::load_from_static();
     let camp_cfg = CampConfig::default_config();
     let mut endgame_cfg = EndgameTravelCfg::default_config();
     endgame_cfg.enabled = true;
@@ -396,18 +394,16 @@ fn full_content_walkthrough() {
         let mut state =
             GameState::default().with_seed(0xABC0 + idx as u64, GameMode::Deep, encounters.clone());
         state.apply_persona(persona);
-        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(0xF00D + idx as u64)));
+        let mut controller = JourneyController::new(
+            MechanicalPolicyId::DystrailLegacy,
+            PolicyId::from(state.mode),
+            StrategyId::Balanced,
+            state.seed,
+        );
+        controller.set_endgame_config(endgame_cfg.clone());
 
         for day in 0..80 {
-            let rng_shared = state
-                .rng_bundle
-                .as_ref()
-                .map(Rc::clone)
-                .expect("rng attached in walkthrough");
-            let _ = select_weather_for_today(&mut state, &weather_cfg, rng_shared.as_ref());
-            process_daily_weather(&mut state, &weather_cfg, Some(rng_shared.as_ref()));
-            state.apply_pace_and_diet(&pacing);
-            let (_ended, _, _) = state.travel_next_leg(&endgame_cfg);
+            let outcome = controller.tick_day(&mut state);
 
             if let Some(enc) = state.current_encounter.clone() {
                 for choice_idx in 0..enc.choices.len() {
@@ -429,6 +425,10 @@ fn full_content_walkthrough() {
                     let _ = camp::camp_therapy(&mut state, &camp_cfg);
                 }
                 _ => {}
+            }
+
+            if outcome.ended {
+                break;
             }
         }
 

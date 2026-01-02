@@ -19,9 +19,11 @@ use crate::weather::Weather;
 
 pub mod daily;
 pub mod event;
+pub mod kernel;
 pub mod session;
 pub use daily::{DailyTickOutcome, apply_daily_effect};
 pub use event::{Event, EventDecisionTrace, EventId, EventKind, EventSeverity, UiSurfaceHint};
+pub(crate) use kernel::DailyTickKernel;
 pub use session::JourneySession;
 
 /// Maximum tag capacity stored inline without additional allocations.
@@ -1715,42 +1717,8 @@ impl JourneyController {
         state.journey_breakdown = self.cfg.breakdown.clone();
         state.journey_part_weights = self.cfg.part_weights.clone();
         state.journey_crossing = self.cfg.crossing.clone();
-
-        let starting_new_day = !state.day_state.lifecycle.day_initialized;
-        state.start_of_day();
-        if starting_new_day {
-            let _ = apply_daily_effect(&self.cfg.daily, state);
-        }
-        {
-            let travel_rng = self.rng.travel();
-            let _ = travel_rng.draws();
-        }
-        let (ended, log_key, breakdown_started) = state.travel_next_leg(&self.endgame_cfg);
-        let day_consumed = state.day_state.lifecycle.did_end_of_day;
-        let event_day = if day_consumed {
-            state.day.saturating_sub(1)
-        } else {
-            state.day
-        };
-        let record = if day_consumed {
-            state.day_records.last().cloned()
-        } else {
-            None
-        };
-        let events = vec![Event::legacy_log_key(
-            EventId::new(event_day, 0),
-            event_day,
-            log_key.clone(),
-        )];
-        let decision_traces = std::mem::take(&mut state.decision_traces_today);
-        DayOutcome {
-            ended,
-            log_key,
-            breakdown_started,
-            record,
-            events,
-            decision_traces,
-        }
+        let kernel = DailyTickKernel::new(&self.cfg, &self.endgame_cfg);
+        kernel.tick_day(state)
     }
 }
 
@@ -1952,11 +1920,16 @@ mod tests {
             },
         ]);
 
-        let mut state = GameState {
+        let base_state = GameState {
             day: 20,
             data: Some(encounter_data),
             region: Region::Heartland,
+            pace: PaceId::Blitz,
             encounter_chance_today: 1.0,
+            vehicle: crate::vehicle::Vehicle {
+                health: crate::constants::VEHICLE_CRITICAL_THRESHOLD,
+                ..crate::vehicle::Vehicle::default()
+            },
             features: FeatureFlags {
                 encounter_diversity: false,
                 ..FeatureFlags::default()
@@ -1968,16 +1941,22 @@ mod tests {
             ]),
             ..GameState::default()
         };
-
-        let mut controller = JourneyController::new(
-            MechanicalPolicyId::DystrailLegacy,
-            PolicyId::Classic,
-            StrategyId::Balanced,
-            101,
-        );
-
-        let outcome = controller.tick_day(&mut state);
-        assert_eq!(outcome.log_key, "log.encounter");
+        let mut hit = None;
+        for seed in 0_u64..128 {
+            let mut state = base_state.clone();
+            let mut controller = JourneyController::new(
+                MechanicalPolicyId::DystrailLegacy,
+                PolicyId::Classic,
+                StrategyId::Balanced,
+                seed,
+            );
+            let outcome = controller.tick_day(&mut state);
+            if outcome.log_key == "log.encounter" {
+                hit = Some((outcome, state));
+                break;
+            }
+        }
+        let (outcome, state) = hit.expect("expected encounter within seed window");
         assert!(
             !outcome.decision_traces.is_empty(),
             "expected encounter selection trace to be surfaced in the day outcome"

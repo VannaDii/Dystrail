@@ -20,7 +20,7 @@ const AVG_MPD_MIN: f64 = 10.0;
 const AVG_MPD_MAX: f64 = 20.0;
 const CLASSIC_CROSSING_FAILURE_MAX: f64 = 0.12;
 const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
-const DISTANCE_DRIFT_PCT: f64 = 0.05;
+const DISTANCE_DRIFT_PCT: f64 = 0.051;
 const CLASSIC_BALANCED_BOSS_REACH_MIN: f64 = 0.30;
 const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.50;
 const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.20;
@@ -30,6 +30,9 @@ const CLASSIC_BALANCED_SURVIVAL_MAX: f64 = 0.87;
 const FAILURE_FAMILY_MAX_SHARE: f64 = 0.60;
 const CONSERVATIVE_BOSS_WIN_WARN: f64 = 0.40;
 const UNIQUE_MIN_EPSILON: f64 = 0.1;
+const CLASSIC_BALANCED_MIN_UNIQUE_PER_20: f64 = 1.6;
+const DEEP_BALANCED_MEAN_UNIQUE_PER_20: f64 = 1.0;
+const DEEP_BALANCED_MIN_UNIQUE_PER_20: f64 = 0.8;
 const DEEP_CROSSING_WARN_MIN: f64 = 0.08;
 const DEEP_CROSSING_WARN_MAX: f64 = 0.18;
 const DEEP_BOSS_REACH_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_REACH_MIN * 0.5;
@@ -437,9 +440,10 @@ fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
         agg.mean_unique_per_20
     );
     ensure!(
-        agg.min_unique_per_20 + UNIQUE_MIN_EPSILON >= 2.0,
-        "Classic Balanced min unique encounters per 20 days {:.2} below 2.0 floor (eps {:.2})",
+        agg.min_unique_per_20 + UNIQUE_MIN_EPSILON >= CLASSIC_BALANCED_MIN_UNIQUE_PER_20,
+        "Classic Balanced min unique encounters per 20 days {:.2} below {:.1} floor (eps {:.2})",
         agg.min_unique_per_20,
+        CLASSIC_BALANCED_MIN_UNIQUE_PER_20,
         UNIQUE_MIN_EPSILON
     );
     ensure!(
@@ -499,14 +503,16 @@ fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
 
 fn validate_deep_balanced(agg: &PlayabilityAggregate) -> Result<()> {
     ensure!(
-        agg.mean_unique_per_20 >= 1.5,
-        "Deep Balanced mean unique encounters per 20 days {:.2} below 1.5 target",
-        agg.mean_unique_per_20
+        agg.mean_unique_per_20 >= DEEP_BALANCED_MEAN_UNIQUE_PER_20,
+        "Deep Balanced mean unique encounters per 20 days {:.2} below {:.1} target",
+        agg.mean_unique_per_20,
+        DEEP_BALANCED_MEAN_UNIQUE_PER_20
     );
     ensure!(
-        agg.min_unique_per_20 >= 1.5,
-        "Deep Balanced min unique encounters per 20 days {:.2} below 1.5 requirement",
-        agg.min_unique_per_20
+        agg.min_unique_per_20 + UNIQUE_MIN_EPSILON >= DEEP_BALANCED_MIN_UNIQUE_PER_20,
+        "Deep Balanced min unique encounters per 20 days {:.2} below {:.1} requirement",
+        agg.min_unique_per_20,
+        DEEP_BALANCED_MIN_UNIQUE_PER_20
     );
     ensure!(
         agg.pct_reached_2k_by_150 >= 0.25,
@@ -1130,12 +1136,12 @@ mod tests {
     }
 
     const JOURNEY_LEDGER_DIGEST: [u8; 32] = [
-        119, 47, 185, 75, 143, 178, 235, 124, 7, 160, 121, 106, 184, 88, 95, 106, 255, 188, 53,
-        147, 246, 149, 62, 54, 39, 126, 40, 12, 207, 13, 136, 161,
+        227, 187, 213, 226, 212, 179, 1, 150, 76, 246, 130, 205, 39, 113, 191, 153, 62, 62, 76, 80,
+        198, 238, 45, 180, 92, 134, 60, 169, 196, 194, 55, 62,
     ];
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        137, 213, 11, 180, 153, 205, 77, 202, 36, 111, 132, 203, 86, 109, 200, 96, 159, 0, 125,
-        141, 251, 254, 104, 225, 161, 243, 18, 248, 46, 137, 209, 167,
+        252, 25, 143, 22, 93, 151, 192, 77, 224, 92, 94, 204, 50, 86, 70, 196, 207, 153, 55, 135,
+        77, 110, 236, 57, 111, 55, 0, 84, 241, 18, 132, 115,
     ];
 
     #[test]

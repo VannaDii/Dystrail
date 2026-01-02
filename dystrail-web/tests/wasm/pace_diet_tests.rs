@@ -63,6 +63,7 @@ fn test_pace_diet_effects() {
     let initial_pants = game_state.stats.pants;
 
     // Apply pace and diet effects
+    game_state.start_of_day();
     game_state.apply_pace_and_diet(&config);
 
     // Check that effects were applied
@@ -84,6 +85,7 @@ fn test_default_pace_diet() {
     );
 
     // Test default values work
+    game_state.start_of_day();
     game_state.apply_pace_and_diet(&config);
 
     // Should not crash and should have reasonable defaults

@@ -4,12 +4,9 @@ use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::{
     GameMode, GameState, JourneyController, MechanicalPolicyId, PaceId, PolicyId, StrategyId,
-    apply_daily_effect,
 };
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
-
-use dystrail_game::pacing::PacingConfig;
 
 /// Configuration for a simulation session.
 #[derive(Debug, Clone, Copy)]
@@ -73,7 +70,6 @@ const fn strategy_id_for(strategy: GameplayStrategy) -> StrategyId {
 /// Core deterministic simulation harness used by the tester.
 pub struct SimulationSession {
     state: GameState,
-    pacing_config: PacingConfig,
     camp_config: CampConfig,
     boss_config: BossConfig,
     max_days: u32,
@@ -87,7 +83,6 @@ impl SimulationSession {
     pub fn new(
         config: SimulationConfig,
         encounters: EncounterData,
-        pacing_config: PacingConfig,
         camp_config: CampConfig,
         endgame_config: EndgameTravelCfg,
         boss_config: BossConfig,
@@ -106,7 +101,6 @@ impl SimulationSession {
         state.attach_rng_bundle(controller.rng_bundle());
         Self {
             state,
-            pacing_config,
             camp_config,
             boss_config,
             max_days: config.max_days,
@@ -134,7 +128,6 @@ impl SimulationSession {
 
     pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
         self.state.tick_camp_cooldowns();
-        self.state.refresh_exec_order();
 
         if self.state.boss.readiness.ready
             && !self.state.boss.outcome.attempted
@@ -184,10 +177,6 @@ impl SimulationSession {
         }
 
         self.adjust_daily_pace();
-        self.state.apply_pace_and_diet(&self.pacing_config);
-        let cfg = self.controller.config();
-        let _ = apply_daily_effect(&cfg.daily, &mut self.state);
-
         let mut decision: Option<DecisionRecord> = None;
 
         if let Some(encounter) = self.state.current_encounter.clone() {

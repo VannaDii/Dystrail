@@ -1,0 +1,61 @@
+//! Kernel orchestration for a single simulated day.
+
+use std::sync::OnceLock;
+
+use crate::endgame::EndgameTravelCfg;
+use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, apply_daily_effect};
+use crate::pacing::PacingConfig;
+use crate::state::GameState;
+
+pub(crate) struct DailyTickKernel<'a> {
+    cfg: &'a JourneyCfg,
+    endgame_cfg: &'a EndgameTravelCfg,
+}
+
+impl<'a> DailyTickKernel<'a> {
+    pub(crate) const fn new(cfg: &'a JourneyCfg, endgame_cfg: &'a EndgameTravelCfg) -> Self {
+        Self { cfg, endgame_cfg }
+    }
+
+    pub(crate) fn tick_day(&self, state: &mut GameState) -> DayOutcome {
+        let starting_new_day = !state.day_state.lifecycle.day_initialized;
+        state.start_of_day();
+        if starting_new_day {
+            state.run_daily_root_ticks();
+            let _ = apply_daily_effect(&self.cfg.daily, state);
+        }
+        state.apply_pace_and_diet(default_pacing_config());
+
+        let (ended, log_key, breakdown_started) = state.travel_next_leg(self.endgame_cfg);
+        let day_consumed = state.day_state.lifecycle.did_end_of_day;
+        let event_day = if day_consumed {
+            state.day.saturating_sub(1)
+        } else {
+            state.day
+        };
+        let record = if day_consumed {
+            state.day_records.last().cloned()
+        } else {
+            None
+        };
+        let events = vec![Event::legacy_log_key(
+            EventId::new(event_day, 0),
+            event_day,
+            log_key.clone(),
+        )];
+        let decision_traces = std::mem::take(&mut state.decision_traces_today);
+        DayOutcome {
+            ended,
+            log_key,
+            breakdown_started,
+            record,
+            events,
+            decision_traces,
+        }
+    }
+}
+
+fn default_pacing_config() -> &'static PacingConfig {
+    static CONFIG: OnceLock<PacingConfig> = OnceLock::new();
+    CONFIG.get_or_init(PacingConfig::default_config)
+}

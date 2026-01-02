@@ -10,7 +10,6 @@ use dystrail_game::camp::CampConfig;
 use dystrail_game::data::{Choice, Effects, Encounter, EncounterData};
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::numbers::clamp_f64_to_f32;
-use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::{Persona, PersonasList};
 use dystrail_game::state::{
     CollapseCause, CrossingOutcomeTelemetry, CrossingTelemetry, Ending, Season,
@@ -38,7 +37,6 @@ const MILESTONE_DAY_LIMIT: u32 = 150;
 #[derive(Debug, Clone)]
 pub struct TesterAssets {
     encounter_data: EncounterData,
-    pacing_config: PacingConfig,
     personas: PersonasList,
     store: Store,
     camp_config: CampConfig,
@@ -51,7 +49,6 @@ impl TesterAssets {
     pub fn load_default() -> Self {
         let encounter_data =
             Self::load_encounters_from_assets().unwrap_or_else(Self::fallback_encounter_data);
-        let pacing_config = Self::load_pacing_from_assets().unwrap_or_default();
         let personas = Self::load_personas_from_assets().unwrap_or_else(PersonasList::empty);
         let store = Self::load_store_from_assets().unwrap_or_else(Self::fallback_store_data);
         let camp_config = Self::load_camp_from_assets().unwrap_or_default();
@@ -63,7 +60,6 @@ impl TesterAssets {
 
         Self {
             encounter_data,
-            pacing_config,
             personas,
             store,
             camp_config,
@@ -109,12 +105,6 @@ impl TesterAssets {
                 None
             }
         }
-    }
-
-    fn load_pacing_from_assets() -> Option<PacingConfig> {
-        let base = Self::assets_data_root();
-        let json = fs::read_to_string(base.join("pacing.json")).ok()?;
-        serde_json::from_str(&json).ok()
     }
 
     fn load_camp_from_assets() -> Option<CampConfig> {
@@ -757,7 +747,6 @@ impl GameTester {
         let mut session = SimulationSession::new(
             SimulationConfig::new(plan.mode, plan.strategy, seed).with_max_days(max_days),
             self.assets.encounter_data.clone(),
-            self.assets.pacing_config.clone(),
             self.assets.camp_config.clone(),
             self.assets.endgame_config.clone(),
             self.assets.boss_config.clone(),

@@ -7,12 +7,10 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
     let session_handle = state.session.clone();
     let logs = state.logs.clone();
     let phase = state.phase.clone();
-    let pacing_cfg = (*state.pacing_config).clone();
     Callback::from(move |()| {
         let Some(mut sess) = (*session_handle).clone() else {
             return;
         };
-        sess.with_state_mut(|gs| gs.apply_pace_and_diet(&pacing_cfg));
         let outcome = sess.tick_day();
 
         let mut lg = (*logs).clone();
