@@ -17,13 +17,17 @@ impl<'a> DailyTickKernel<'a> {
         Self { cfg, endgame_cfg }
     }
 
-    pub(crate) fn tick_day(&self, state: &mut GameState) -> DayOutcome {
+    pub(crate) fn apply_daily_physics(&self, state: &mut GameState) {
         let starting_new_day = !state.day_state.lifecycle.day_initialized;
         state.start_of_day();
         if starting_new_day {
             state.run_daily_root_ticks();
             let _ = apply_daily_effect(&self.cfg.daily, state);
         }
+    }
+
+    pub(crate) fn tick_day(&self, state: &mut GameState) -> DayOutcome {
+        self.apply_daily_physics(state);
         state.apply_pace_and_diet(default_pacing_config());
 
         let (ended, log_key, breakdown_started) = state.travel_next_leg(self.endgame_cfg);

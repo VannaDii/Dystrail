@@ -558,8 +558,7 @@ mod tests {
         let supplies_before = state.stats.supplies;
         let morale_before = state.stats.morale;
 
-        state.start_of_day();
-        state.run_daily_root_ticks();
+        crate::journey::apply_daily_kernel_for_state(&mut state);
 
         assert!(state.current_order.is_none());
         assert_eq!(state.exec_order_cooldown, EXEC_ORDER_MIN_COOLDOWN);
@@ -4587,11 +4586,7 @@ impl GameState {
             if matches!(kind, TravelDayKind::NonTravel) && miles <= 0.0 {
                 self.day_state.lifecycle.suppress_stop_ratio = true;
             }
-            let starting_new_day = !self.day_state.lifecycle.day_initialized;
-            self.start_of_day();
-            if starting_new_day {
-                self.run_daily_root_ticks();
-            }
+            crate::journey::apply_daily_kernel_for_state(self);
             self.record_travel_day(kind, miles, reason_tag);
             self.end_of_day();
             self.day_state.lifecycle.suppress_stop_ratio = false;

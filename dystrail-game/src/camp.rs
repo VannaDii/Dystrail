@@ -73,11 +73,6 @@ impl CampConfig {
 }
 
 pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
-    let starting_new_day = !gs.day_state.lifecycle.day_initialized;
-    gs.start_of_day();
-    if starting_new_day {
-        gs.run_daily_root_ticks();
-    }
     let rest_cfg = &cfg.rest;
     if rest_cfg.day == 0 {
         return CampOutcome {
@@ -95,6 +90,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
+    crate::journey::apply_daily_kernel_for_state(gs);
     let mut supplies_delta = 0;
     if rest_cfg.supplies < 0 {
         let cost = rest_cfg.supplies.abs();
@@ -122,11 +118,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     let rest_days = rest_cfg.day.max(1);
     for day_idx in 0..rest_days {
         if day_idx > 0 {
-            let starting_new_day = !gs.day_state.lifecycle.day_initialized;
-            gs.start_of_day();
-            if starting_new_day {
-                gs.run_daily_root_ticks();
-            }
+            crate::journey::apply_daily_kernel_for_state(gs);
         }
         if rest_cfg.recovery_day {
             gs.record_travel_day(TravelDayKind::NonTravel, 0.0, "camp");
@@ -147,11 +139,6 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
 }
 
 pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
-    let starting_new_day = !gs.day_state.lifecycle.day_initialized;
-    gs.start_of_day();
-    if starting_new_day {
-        gs.run_daily_root_ticks();
-    }
     let forage_cfg = &cfg.forage;
     if forage_cfg.day == 0 || forage_cfg.supplies == 0 {
         return CampOutcome {
@@ -169,6 +156,7 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
+    crate::journey::apply_daily_kernel_for_state(gs);
     let mut supplies_delta = forage_cfg.supplies;
     if supplies_delta != 0 && !forage_cfg.region_multipliers.is_empty() {
         let region_key = gs.region.asset_key();

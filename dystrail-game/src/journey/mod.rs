@@ -1602,62 +1602,7 @@ impl JourneyController {
             matches!(mechanics, MechanicalPolicyId::DystrailLegacy),
             "Mechanical policy {mechanics:?} is not implemented yet"
         );
-        cfg.validate().expect("valid journey config");
-        let mut resolved_cfg = cfg;
-        resolved_cfg.partial_ratio = resolved_cfg.partial_ratio.clamp(0.2, 0.95);
-        resolved_cfg.travel.sanitize();
-        resolved_cfg.wear.base = resolved_cfg.wear.base.max(0.0);
-        resolved_cfg.wear.fatigue_k = resolved_cfg.wear.fatigue_k.max(0.0);
-        resolved_cfg.wear.comfort_miles = resolved_cfg.wear.comfort_miles.max(0.0);
-        resolved_cfg.breakdown.base = resolved_cfg.breakdown.base.clamp(0.0, 1.0);
-        resolved_cfg.breakdown.beta = resolved_cfg.breakdown.beta.max(0.0);
-        resolved_cfg.breakdown.pace_factor.insert(
-            PaceId::Steady,
-            resolved_cfg
-                .breakdown
-                .pace_factor
-                .get(&PaceId::Steady)
-                .copied()
-                .unwrap_or(crate::constants::PACE_BREAKDOWN_STEADY),
-        );
-        resolved_cfg.breakdown.pace_factor.insert(
-            PaceId::Heated,
-            resolved_cfg
-                .breakdown
-                .pace_factor
-                .get(&PaceId::Heated)
-                .copied()
-                .unwrap_or(crate::constants::PACE_BREAKDOWN_HEATED),
-        );
-        resolved_cfg.breakdown.pace_factor.insert(
-            PaceId::Blitz,
-            resolved_cfg
-                .breakdown
-                .pace_factor
-                .get(&PaceId::Blitz)
-                .copied()
-                .unwrap_or(crate::constants::PACE_BREAKDOWN_BLITZ),
-        );
-        for weather in [
-            Weather::Clear,
-            Weather::Storm,
-            Weather::HeatWave,
-            Weather::ColdSnap,
-            Weather::Smoke,
-        ] {
-            let default = BreakdownConfig::default_weather_factor()
-                .get(&weather)
-                .copied()
-                .unwrap_or(1.0);
-            let entry = resolved_cfg
-                .breakdown
-                .weather_factor
-                .entry(weather)
-                .or_insert(default);
-            *entry = entry.max(0.0);
-        }
-        resolved_cfg.crossing.sanitize();
-        resolved_cfg.daily.sanitize();
+        let resolved_cfg = normalize_cfg(cfg);
         Self {
             mechanics,
             policy,
@@ -1720,6 +1665,80 @@ impl JourneyController {
         let kernel = DailyTickKernel::new(&self.cfg, &self.endgame_cfg);
         kernel.tick_day(state)
     }
+}
+
+fn normalize_cfg(mut cfg: JourneyCfg) -> JourneyCfg {
+    cfg.validate().expect("valid journey config");
+    cfg.partial_ratio = cfg.partial_ratio.clamp(0.2, 0.95);
+    cfg.travel.sanitize();
+    cfg.wear.base = cfg.wear.base.max(0.0);
+    cfg.wear.fatigue_k = cfg.wear.fatigue_k.max(0.0);
+    cfg.wear.comfort_miles = cfg.wear.comfort_miles.max(0.0);
+    cfg.breakdown.base = cfg.breakdown.base.clamp(0.0, 1.0);
+    cfg.breakdown.beta = cfg.breakdown.beta.max(0.0);
+    cfg.breakdown.pace_factor.insert(
+        PaceId::Steady,
+        cfg.breakdown
+            .pace_factor
+            .get(&PaceId::Steady)
+            .copied()
+            .unwrap_or(crate::constants::PACE_BREAKDOWN_STEADY),
+    );
+    cfg.breakdown.pace_factor.insert(
+        PaceId::Heated,
+        cfg.breakdown
+            .pace_factor
+            .get(&PaceId::Heated)
+            .copied()
+            .unwrap_or(crate::constants::PACE_BREAKDOWN_HEATED),
+    );
+    cfg.breakdown.pace_factor.insert(
+        PaceId::Blitz,
+        cfg.breakdown
+            .pace_factor
+            .get(&PaceId::Blitz)
+            .copied()
+            .unwrap_or(crate::constants::PACE_BREAKDOWN_BLITZ),
+    );
+    for weather in [
+        Weather::Clear,
+        Weather::Storm,
+        Weather::HeatWave,
+        Weather::ColdSnap,
+        Weather::Smoke,
+    ] {
+        let default = BreakdownConfig::default_weather_factor()
+            .get(&weather)
+            .copied()
+            .unwrap_or(1.0);
+        let entry = cfg
+            .breakdown
+            .weather_factor
+            .entry(weather)
+            .or_insert(default);
+        *entry = entry.max(0.0);
+    }
+    cfg.crossing.sanitize();
+    cfg.daily.sanitize();
+    cfg
+}
+
+pub(crate) fn resolve_cfg_for_state(state: &crate::state::GameState) -> JourneyCfg {
+    let strategy = state.policy.map_or(StrategyId::Balanced, StrategyId::from);
+    let policy = PolicyId::from(state.mode);
+    let cfg = policy_catalog().resolve(policy, strategy);
+    normalize_cfg(cfg)
+}
+
+pub(crate) fn apply_daily_kernel_for_state(state: &mut crate::state::GameState) {
+    let cfg = resolve_cfg_for_state(state);
+    let kernel = DailyTickKernel::new(&cfg, default_endgame_config());
+    kernel.apply_daily_physics(state);
+}
+
+fn default_endgame_config() -> &'static EndgameTravelCfg {
+    static CONFIG: OnceLock<EndgameTravelCfg> = OnceLock::new();
+    CONFIG.get_or_init(EndgameTravelCfg::default_config)
 }
 
 #[cfg(test)]
