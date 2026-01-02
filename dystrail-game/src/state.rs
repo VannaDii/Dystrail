@@ -1001,7 +1001,7 @@ mod tests {
             },
             ..GameState::default()
         };
-        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
 
@@ -1502,7 +1502,7 @@ mod tests {
 
         state.stats.allies = 2;
         state.logs.clear();
-        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
 
@@ -2354,7 +2354,6 @@ impl GameState {
         let weather_cfg = WeatherConfig::default_config();
         let weather_rng = self.rng_bundle.as_ref().map(Rc::clone);
         crate::weather::process_daily_weather(self, &weather_cfg, weather_rng.as_deref());
-        self.stats.clamp();
 
         if !self.features.travel_v2 {
             self.apply_travel_wear_scaled(1.0);
@@ -3211,12 +3210,12 @@ impl GameState {
         self.logs.push(String::from(LOG_DISEASE_HIT));
     }
 
-    fn tick_ally_attrition(&mut self) {
+    pub(crate) fn tick_ally_attrition(&mut self) {
         if self.stats.allies <= 0 {
             return;
         }
         let trigger = self
-            .events_rng()
+            .health_rng()
             .is_some_and(|mut rng| rng.r#gen::<f32>() <= ALLY_ATTRITION_CHANCE);
         if trigger {
             self.stats.allies -= 1;
@@ -3869,8 +3868,6 @@ impl GameState {
     }
 
     fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
-        self.tick_ally_attrition();
-        self.stats.clamp();
         self.failure_log_key().map(|log_key| {
             self.end_of_day();
             (true, String::from(log_key), false)

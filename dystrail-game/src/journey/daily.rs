@@ -41,6 +41,7 @@ pub fn apply_daily_effect(cfg: &DailyTickConfig, state: &mut GameState) -> Daily
     apply_sanity_delta(state, sanity_delta);
     apply_health_delta(state, health_delta);
 
+    state.tick_ally_attrition();
     state.stats.clamp();
 
     DailyTickOutcome {
