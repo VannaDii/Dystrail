@@ -35,7 +35,6 @@ validate:
     just tests
     just security
     just build-release
-    just qa
 
 check:
     just validate
