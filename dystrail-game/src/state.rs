@@ -70,8 +70,7 @@ use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, RngPhase, RngStream, RngStreamMask, TravelConfig,
-    TravelDayKind, WearConfig,
+    JourneyCfg, MechanicalPolicyId, RngBundle, RngPhase, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -2349,22 +2348,16 @@ impl GameState {
     pub(crate) fn run_daily_root_ticks(&mut self) {
         let rng_bundle = self.rng_bundle.clone();
         {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::ExecOrders,
-                    RngStreamMask::single(RngStream::Events),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::ExecOrders));
             self.tick_exec_order_state();
         }
         self.apply_starvation_tick();
         {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::HealthTick,
-                    RngStreamMask::single(RngStream::Health),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
             self.roll_daily_illness();
         }
         self.apply_deep_aggressive_sanity_guard();
@@ -2372,12 +2365,9 @@ impl GameState {
         let weather_cfg = WeatherConfig::default_config();
         let weather_rng = rng_bundle.as_deref();
         {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::WeatherTick,
-                    RngStreamMask::single(RngStream::Weather),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::WeatherTick));
             crate::weather::process_daily_weather(self, &weather_cfg, weather_rng);
         }
 
@@ -3850,12 +3840,9 @@ impl GameState {
         }
 
         let breakdown_started = {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::VehicleBreakdown,
-                    RngStreamMask::single(RngStream::Breakdown),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::VehicleBreakdown));
             self.vehicle_roll()
         };
         self.resolve_breakdown();
@@ -3867,12 +3854,9 @@ impl GameState {
         }
 
         if let Some(result) = {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::EncounterTick,
-                    RngStreamMask::single(RngStream::Encounter),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::EncounterTick));
             self.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
         } {
             return result;
@@ -3885,12 +3869,9 @@ impl GameState {
         let computed_miles_today = self.distance_today.max(self.distance_today_raw);
         endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
         if let Some((ended, log)) = {
-            let _guard = rng_bundle.as_ref().map(|bundle| {
-                bundle.phase_guard(
-                    RngPhase::CrossingTick,
-                    RngStreamMask::single(RngStream::Crossing),
-                )
-            });
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
             self.handle_crossing_event(computed_miles_today)
         } {
             return (ended, log, breakdown_started);

@@ -1448,6 +1448,20 @@ pub(crate) enum RngPhase {
     BossTick,
 }
 
+impl RngPhase {
+    pub(crate) const fn allowed_streams(self) -> RngStreamMask {
+        match self {
+            Self::DailyEffects | Self::ExecOrders => RngStreamMask::single(RngStream::Events),
+            Self::HealthTick => RngStreamMask::single(RngStream::Health),
+            Self::WeatherTick => RngStreamMask::single(RngStream::Weather),
+            Self::VehicleBreakdown => RngStreamMask::single(RngStream::Breakdown),
+            Self::EncounterTick => RngStreamMask::single(RngStream::Encounter),
+            Self::CrossingTick => RngStreamMask::single(RngStream::Crossing),
+            Self::BossTick => RngStreamMask::single(RngStream::Boss),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 struct RngPhaseGuardState {
     phase: Option<RngPhase>,
@@ -1601,7 +1615,7 @@ impl RngBundle {
         self.hunt.borrow_mut()
     }
 
-    pub(crate) fn phase_guard(&self, phase: RngPhase, allowed: RngStreamMask) -> RngPhaseGuard<'_> {
+    pub(crate) fn phase_guard_for(&self, phase: RngPhase) -> RngPhaseGuard<'_> {
         if !phase_guard_enabled() {
             return RngPhaseGuard {
                 bundle: self,
@@ -1613,7 +1627,7 @@ impl RngBundle {
         let prev = *state;
         *state = RngPhaseGuardState {
             phase: Some(phase),
-            allowed,
+            allowed: phase.allowed_streams(),
         };
         RngPhaseGuard {
             bundle: self,
@@ -2194,6 +2208,42 @@ mod tests {
             derive_stream_seed(seed, b"travel"),
             derive_stream_seed(seed, b"crossing"),
             "domain tags must derive distinct seeds"
+        );
+    }
+
+    #[test]
+    fn rng_phase_contract_matches_expected_streams() {
+        assert_eq!(
+            RngPhase::DailyEffects.allowed_streams(),
+            RngStreamMask::single(RngStream::Events)
+        );
+        assert_eq!(
+            RngPhase::ExecOrders.allowed_streams(),
+            RngStreamMask::single(RngStream::Events)
+        );
+        assert_eq!(
+            RngPhase::HealthTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Health)
+        );
+        assert_eq!(
+            RngPhase::WeatherTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Weather)
+        );
+        assert_eq!(
+            RngPhase::VehicleBreakdown.allowed_streams(),
+            RngStreamMask::single(RngStream::Breakdown)
+        );
+        assert_eq!(
+            RngPhase::EncounterTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Encounter)
+        );
+        assert_eq!(
+            RngPhase::CrossingTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Crossing)
+        );
+        assert_eq!(
+            RngPhase::BossTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Boss)
         );
     }
 

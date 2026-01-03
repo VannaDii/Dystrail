@@ -575,7 +575,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - In debug builds/tests, the engine can assert the active phase and disallow unexpected stream usage.
 
-- [ ] RNG-006 (P1) Document and enforce the phase→RNG-stream contract (including multi-stream phases)
+- [x] RNG-006 (P1) Document and enforce the phase→RNG-stream contract (including multi-stream phases)
   - Requirement:
     - Maintain a single source of truth that maps:
       - each kernel phase → allowed RNG stream(s)
