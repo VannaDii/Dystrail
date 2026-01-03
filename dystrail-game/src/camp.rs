@@ -90,42 +90,52 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
-    crate::journey::apply_daily_kernel_for_state(gs);
     let mut supplies_delta = 0;
-    if rest_cfg.supplies < 0 {
-        let cost = rest_cfg.supplies.abs();
-        let available = gs.stats.supplies.max(0);
-        let actual_cost = cost.min(available);
-        gs.stats.supplies -= actual_cost;
-        supplies_delta -= actual_cost;
-    } else if rest_cfg.supplies > 0 {
-        gs.stats.supplies += rest_cfg.supplies;
-        supplies_delta += rest_cfg.supplies;
-    }
-
+    let rest_days = rest_cfg.day.max(1);
+    let rest_supplies = rest_cfg.supplies;
+    let rest_hp = rest_cfg.hp;
+    let rest_sanity = rest_cfg.sanity;
+    let rest_pants = rest_cfg.pants;
+    let rest_recovery_day = rest_cfg.recovery_day;
     let max_hp = Stats::default().hp;
     let max_sanity = Stats::default().sanity;
-    if rest_cfg.hp != 0 {
-        gs.stats.hp = (gs.stats.hp + rest_cfg.hp).clamp(0, max_hp);
-    }
-    if rest_cfg.sanity != 0 {
-        gs.stats.sanity = (gs.stats.sanity + rest_cfg.sanity).clamp(0, max_sanity);
-    }
-    if rest_cfg.pants != 0 {
-        gs.stats.pants = (gs.stats.pants + rest_cfg.pants).clamp(0, 100);
-    }
-
-    let rest_days = rest_cfg.day.max(1);
     for day_idx in 0..rest_days {
-        if day_idx > 0 {
-            crate::journey::apply_daily_kernel_for_state(gs);
-        }
-        if rest_cfg.recovery_day {
-            gs.record_travel_day(TravelDayKind::NonTravel, 0.0, "camp");
-        } else {
-            gs.apply_rest_travel_credit();
-        }
-        gs.end_of_day();
+        let apply_effects = day_idx == 0;
+        crate::journey::tick_non_travel_day_with_hook_for_state(
+            gs,
+            TravelDayKind::NonTravel,
+            0.0,
+            "camp",
+            |state| {
+                if apply_effects {
+                    if rest_supplies < 0 {
+                        let cost = rest_supplies.abs();
+                        let available = state.stats.supplies.max(0);
+                        let actual_cost = cost.min(available);
+                        state.stats.supplies -= actual_cost;
+                        supplies_delta = -actual_cost;
+                    } else if rest_supplies > 0 {
+                        state.stats.supplies += rest_supplies;
+                        supplies_delta = rest_supplies;
+                    }
+
+                    if rest_hp != 0 {
+                        state.stats.hp = (state.stats.hp + rest_hp).clamp(0, max_hp);
+                    }
+                    if rest_sanity != 0 {
+                        state.stats.sanity =
+                            (state.stats.sanity + rest_sanity).clamp(0, max_sanity);
+                    }
+                    if rest_pants != 0 {
+                        state.stats.pants = (state.stats.pants + rest_pants).clamp(0, 100);
+                    }
+                }
+
+                if !rest_recovery_day {
+                    state.apply_rest_travel_credit();
+                }
+            },
+        );
     }
     gs.camp.rest_cooldown = rest_cfg.cooldown_days;
     gs.clear_illness_penalty();
@@ -156,7 +166,6 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
-    crate::journey::apply_daily_kernel_for_state(gs);
     let mut supplies_delta = forage_cfg.supplies;
     if supplies_delta != 0 && !forage_cfg.region_multipliers.is_empty() {
         let region_key = gs.region.asset_key();
@@ -172,10 +181,22 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         }
     }
 
-    gs.stats.supplies += supplies_delta;
-    gs.stats.clamp();
     let forage_days = forage_cfg.day.max(1);
-    gs.advance_days_with_reason(forage_days, "camp");
+    for day_idx in 0..forage_days {
+        let apply_forage = day_idx == 0 && supplies_delta != 0;
+        crate::journey::tick_non_travel_day_with_hook_for_state(
+            gs,
+            TravelDayKind::NonTravel,
+            0.0,
+            "camp",
+            |state| {
+                if apply_forage {
+                    state.stats.supplies += supplies_delta;
+                    state.stats.clamp();
+                }
+            },
+        );
+    }
     gs.camp.forage_cooldown = forage_cfg.cooldown_days;
     gs.logs.push(String::from("log.camp.forage"));
 

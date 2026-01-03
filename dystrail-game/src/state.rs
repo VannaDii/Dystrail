@@ -558,7 +558,12 @@ mod tests {
         let supplies_before = state.stats.supplies;
         let morale_before = state.stats.morale;
 
-        crate::journey::apply_daily_kernel_for_state(&mut state);
+        let _ = crate::journey::tick_non_travel_day_for_state(
+            &mut state,
+            TravelDayKind::NonTravel,
+            0.0,
+            "test",
+        );
 
         assert!(state.current_order.is_none());
         assert_eq!(state.exec_order_cooldown, EXEC_ORDER_MIN_COOLDOWN);

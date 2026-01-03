@@ -72,13 +72,33 @@ impl<'a> DailyTickKernel<'a> {
         miles: f32,
         reason_tag: &str,
     ) -> f32 {
+        self.tick_non_travel_day_with_hook(state, kind, miles, reason_tag, |_| {})
+    }
+
+    pub(crate) fn tick_non_travel_day_with_hook<F>(
+        &self,
+        state: &mut GameState,
+        kind: TravelDayKind,
+        miles: f32,
+        reason_tag: &str,
+        hook: F,
+    ) -> f32
+    where
+        F: FnOnce(&mut GameState),
+    {
         self.apply_daily_physics(state);
-        let credited_miles = if matches!(kind, TravelDayKind::Partial) && miles <= 0.0 {
-            day_accounting::partial_day_miles(state, miles)
+        hook(state);
+        let credited_miles = if state.current_day_kind.is_none() {
+            let credited = if matches!(kind, TravelDayKind::Partial) && miles <= 0.0 {
+                day_accounting::partial_day_miles(state, miles)
+            } else {
+                miles
+            };
+            state.record_travel_day(kind, credited, reason_tag);
+            credited
         } else {
-            miles
+            state.current_day_miles
         };
-        state.record_travel_day(kind, credited_miles, reason_tag);
         state.end_of_day();
         credited_miles
     }
