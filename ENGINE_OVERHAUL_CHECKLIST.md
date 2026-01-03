@@ -569,7 +569,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
         - `dystrail-game/src/state.rs::GameState::tick_ally_attrition` uses `events_rng()`.
     - [ ] RNG-004B Route navigation hard-stops + RandomEventTick to `rng.events()` with fixed draw ordering
 
-- [ ] RNG-005 (P1) Add optional runtime “Phase RNG Guard”
+- [x] RNG-005 (P1) Add optional runtime “Phase RNG Guard”
   - Requirement:
     - Detect cross-phase RNG usage (e.g., WeatherTick accidentally calling `rng.travel()`).
   - Acceptance criteria:

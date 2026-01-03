@@ -1388,6 +1388,97 @@ pub struct DayOutcome {
     pub decision_traces: Vec<EventDecisionTrace>,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum RngStream {
+    Weather,
+    Health,
+    Travel,
+    Events,
+    Breakdown,
+    Encounter,
+    Crossing,
+    Boss,
+    Trade,
+    Hunt,
+}
+
+impl RngStream {
+    const fn bit(self) -> u16 {
+        match self {
+            Self::Weather => 1 << 0,
+            Self::Health => 1 << 1,
+            Self::Travel => 1 << 2,
+            Self::Events => 1 << 3,
+            Self::Breakdown => 1 << 4,
+            Self::Encounter => 1 << 5,
+            Self::Crossing => 1 << 6,
+            Self::Boss => 1 << 7,
+            Self::Trade => 1 << 8,
+            Self::Hunt => 1 << 9,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) struct RngStreamMask(u16);
+
+impl RngStreamMask {
+    pub(crate) const fn empty() -> Self {
+        Self(0)
+    }
+
+    pub(crate) const fn single(stream: RngStream) -> Self {
+        Self(stream.bit())
+    }
+
+    pub(crate) const fn contains(self, stream: RngStream) -> bool {
+        (self.0 & stream.bit()) != 0
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum RngPhase {
+    DailyEffects,
+    ExecOrders,
+    HealthTick,
+    WeatherTick,
+    VehicleBreakdown,
+    EncounterTick,
+    CrossingTick,
+    BossTick,
+}
+
+#[derive(Debug, Clone, Copy)]
+struct RngPhaseGuardState {
+    phase: Option<RngPhase>,
+    allowed: RngStreamMask,
+}
+
+impl Default for RngPhaseGuardState {
+    fn default() -> Self {
+        Self {
+            phase: None,
+            allowed: RngStreamMask::empty(),
+        }
+    }
+}
+
+pub(crate) struct RngPhaseGuard<'a> {
+    bundle: &'a RngBundle,
+    prev: RngPhaseGuardState,
+    enabled: bool,
+}
+
+impl Drop for RngPhaseGuard<'_> {
+    fn drop(&mut self) {
+        if !self.enabled {
+            return;
+        }
+        let mut state = self.bundle.phase_guard_state.borrow_mut();
+        *state = self.prev;
+    }
+}
+
 /// Deterministic bundle of RNG streams segregated by simulation domain.
 #[derive(Debug, Clone)]
 pub struct RngBundle {
@@ -1401,6 +1492,7 @@ pub struct RngBundle {
     boss: RefCell<CountingRng<SmallRng>>,
     trade: RefCell<CountingRng<SmallRng>>,
     hunt: RefCell<CountingRng<SmallRng>>,
+    phase_guard_state: RefCell<RngPhaseGuardState>,
 }
 
 impl RngBundle {
@@ -1428,73 +1520,123 @@ impl RngBundle {
             boss: RefCell::new(boss),
             trade: RefCell::new(trade),
             hunt: RefCell::new(hunt),
+            phase_guard_state: RefCell::new(RngPhaseGuardState::default()),
         }
     }
 
     /// Access the weather RNG stream.
     #[must_use]
     pub fn weather(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Weather);
         self.weather.borrow_mut()
     }
 
     /// Access the health RNG stream.
     #[must_use]
     pub fn health(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Health);
         self.health.borrow_mut()
     }
 
     /// Access the travel RNG stream.
     #[must_use]
     pub fn travel(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Travel);
         self.travel.borrow_mut()
     }
 
     /// Access the events RNG stream.
     #[must_use]
     pub fn events(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Events);
         self.events.borrow_mut()
     }
 
     /// Access the breakdown RNG stream.
     #[must_use]
     pub fn breakdown(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Breakdown);
         self.breakdown.borrow_mut()
     }
 
     /// Access the vehicle RNG stream (alias for breakdown/vehicle incidents).
     #[must_use]
     pub fn vehicle(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Breakdown);
         self.breakdown.borrow_mut()
     }
 
     /// Access the encounter RNG stream.
     #[must_use]
     pub fn encounter(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Encounter);
         self.encounter.borrow_mut()
     }
 
     /// Access the crossing RNG stream.
     #[must_use]
     pub fn crossing(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Crossing);
         self.crossing.borrow_mut()
     }
 
     /// Access the boss RNG stream.
     #[must_use]
     pub fn boss(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Boss);
         self.boss.borrow_mut()
     }
 
     /// Access the trade RNG stream.
     #[must_use]
     pub fn trade(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Trade);
         self.trade.borrow_mut()
     }
 
     /// Access the hunt RNG stream.
     #[must_use]
     pub fn hunt(&self) -> RefMut<'_, CountingRng<SmallRng>> {
+        self.assert_stream_allowed(RngStream::Hunt);
         self.hunt.borrow_mut()
+    }
+
+    pub(crate) fn phase_guard(&self, phase: RngPhase, allowed: RngStreamMask) -> RngPhaseGuard<'_> {
+        if !phase_guard_enabled() {
+            return RngPhaseGuard {
+                bundle: self,
+                prev: RngPhaseGuardState::default(),
+                enabled: false,
+            };
+        }
+        let mut state = self.phase_guard_state.borrow_mut();
+        let prev = *state;
+        *state = RngPhaseGuardState {
+            phase: Some(phase),
+            allowed,
+        };
+        RngPhaseGuard {
+            bundle: self,
+            prev,
+            enabled: true,
+        }
+    }
+
+    fn assert_stream_allowed(&self, stream: RngStream) {
+        if !phase_guard_enabled() {
+            return;
+        }
+        let state = self.phase_guard_state.borrow();
+        let Some(phase) = state.phase else {
+            return;
+        };
+        assert!(
+            state.allowed.contains(stream),
+            "RNG stream {:?} used during {:?}; allowed {:?}",
+            stream,
+            phase,
+            state.allowed
+        );
     }
 }
 
@@ -1551,6 +1693,12 @@ fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
     let digest = mac.finalize().into_bytes();
     let seed_bytes: [u8; 8] = digest[..8].try_into().expect("digest slice length");
     u64::from_le_bytes(seed_bytes)
+}
+
+fn phase_guard_enabled() -> bool {
+    static ENABLED: OnceLock<bool> = OnceLock::new();
+    *ENABLED
+        .get_or_init(|| matches!(std::env::var("DYSTRAIL_RNG_PHASE_GUARD"), Ok(val) if val != "0"))
 }
 
 /// Shell journey controller; later phases will expand its responsibilities.

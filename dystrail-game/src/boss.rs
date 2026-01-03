@@ -1,4 +1,5 @@
 //! Boss fight system
+use crate::journey::{RngPhase, RngStream, RngStreamMask};
 use crate::state::{GameState, PolicyKind};
 use serde::{Deserialize, Serialize};
 
@@ -103,6 +104,10 @@ impl BossConfig {
 }
 
 pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome {
+    let rng_bundle = state.rng_bundle.clone();
+    let _guard = rng_bundle.as_ref().map(|bundle| {
+        bundle.phase_guard(RngPhase::BossTick, RngStreamMask::single(RngStream::Boss))
+    });
     state.boss.outcome.attempted = true;
 
     if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {

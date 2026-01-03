@@ -70,7 +70,8 @@ use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
+    JourneyCfg, MechanicalPolicyId, RngBundle, RngPhase, RngStream, RngStreamMask, TravelConfig,
+    TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -2346,14 +2347,39 @@ impl GameState {
     }
 
     pub(crate) fn run_daily_root_ticks(&mut self) {
-        self.tick_exec_order_state();
+        let rng_bundle = self.rng_bundle.clone();
+        {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::ExecOrders,
+                    RngStreamMask::single(RngStream::Events),
+                )
+            });
+            self.tick_exec_order_state();
+        }
         self.apply_starvation_tick();
-        self.roll_daily_illness();
+        {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::HealthTick,
+                    RngStreamMask::single(RngStream::Health),
+                )
+            });
+            self.roll_daily_illness();
+        }
         self.apply_deep_aggressive_sanity_guard();
 
         let weather_cfg = WeatherConfig::default_config();
-        let weather_rng = self.rng_bundle.as_ref().map(Rc::clone);
-        crate::weather::process_daily_weather(self, &weather_cfg, weather_rng.as_deref());
+        let weather_rng = rng_bundle.as_deref();
+        {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::WeatherTick,
+                    RngStreamMask::single(RngStream::Weather),
+                )
+            });
+            crate::weather::process_daily_weather(self, &weather_cfg, weather_rng);
+        }
 
         if !self.features.travel_v2 {
             self.apply_travel_wear_scaled(1.0);
@@ -3823,7 +3849,15 @@ impl GameState {
             return result;
         }
 
-        let breakdown_started = self.vehicle_roll();
+        let breakdown_started = {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::VehicleBreakdown,
+                    RngStreamMask::single(RngStream::Breakdown),
+                )
+            });
+            self.vehicle_roll()
+        };
         self.resolve_breakdown();
         if let Some(result) = self.handle_vehicle_state(breakdown_started) {
             return result;
@@ -3832,7 +3866,15 @@ impl GameState {
             return result;
         }
 
-        if let Some(result) = self.process_encounter_flow(rng_bundle.as_ref(), breakdown_started) {
+        if let Some(result) = {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::EncounterTick,
+                    RngStreamMask::single(RngStream::Encounter),
+                )
+            });
+            self.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
+        } {
             return result;
         }
 
@@ -3842,7 +3884,15 @@ impl GameState {
 
         let computed_miles_today = self.distance_today.max(self.distance_today_raw);
         endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
-        if let Some((ended, log)) = self.handle_crossing_event(computed_miles_today) {
+        if let Some((ended, log)) = {
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::CrossingTick,
+                    RngStreamMask::single(RngStream::Crossing),
+                )
+            });
+            self.handle_crossing_event(computed_miles_today)
+        } {
             return (ended, log, breakdown_started);
         }
 

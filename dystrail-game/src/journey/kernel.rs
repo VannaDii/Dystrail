@@ -4,7 +4,10 @@ use std::sync::OnceLock;
 
 use crate::day_accounting;
 use crate::endgame::EndgameTravelCfg;
-use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, TravelDayKind, apply_daily_effect};
+use crate::journey::{
+    DayOutcome, Event, EventId, JourneyCfg, RngPhase, RngStream, RngStreamMask, TravelDayKind,
+    apply_daily_effect,
+};
 use crate::pacing::PacingConfig;
 use crate::state::GameState;
 
@@ -23,6 +26,13 @@ impl<'a> DailyTickKernel<'a> {
         state.start_of_day();
         if starting_new_day {
             state.run_daily_root_ticks();
+            let rng_bundle = state.rng_bundle.clone();
+            let _guard = rng_bundle.as_ref().map(|bundle| {
+                bundle.phase_guard(
+                    RngPhase::DailyEffects,
+                    RngStreamMask::single(RngStream::Events),
+                )
+            });
             let _ = apply_daily_effect(&self.cfg.daily, state);
         }
     }
