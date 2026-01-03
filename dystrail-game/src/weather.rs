@@ -392,7 +392,7 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
 
     gs.weather_travel_multiplier = effect.travel_mult.max(0.1);
     let (delta_sup, delta_san, delta_pants) = apply_mitigation(effect, cfg, gs);
-    apply_stat_changes(gs, cfg, delta_sup, delta_san, delta_pants, effect.enc_delta);
+    apply_stat_changes(gs, cfg, delta_sup, delta_san, delta_pants);
     apply_exposure(gs, today);
 }
 
@@ -402,14 +402,11 @@ fn apply_stat_changes(
     delta_sup: i32,
     delta_san: i32,
     delta_pants: i32,
-    delta_enc: f32,
 ) {
     gs.stats.supplies += delta_sup;
     gs.stats.sanity += delta_san;
     gs.stats.pants =
         (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
-    gs.encounter_chance_today =
-        (gs.encounter_chance_today + delta_enc).clamp(0.0, cfg.limits.encounter_cap);
 }
 
 fn apply_mitigation(

@@ -26,6 +26,21 @@ impl DailyTickOutcome {
 
 /// Apply policy-driven daily effects to the provided game state.
 pub fn apply_daily_effect(cfg: &DailyTickConfig, state: &mut GameState) -> DailyTickOutcome {
+    let supply_outcome = apply_daily_supplies_sanity(cfg, state);
+    let health_delta = apply_daily_health(cfg, state);
+    finalize_daily_effects(state);
+
+    DailyTickOutcome {
+        supplies_delta: supply_outcome.supplies_delta,
+        sanity_delta: supply_outcome.sanity_delta,
+        health_delta,
+    }
+}
+
+pub(crate) fn apply_daily_supplies_sanity(
+    cfg: &DailyTickConfig,
+    state: &mut GameState,
+) -> DailyTickOutcome {
     let weather = state.weather_state.today;
     let exec_key = state.current_order.map(ExecOrder::key);
     let pace = state.pace;
@@ -33,22 +48,30 @@ pub fn apply_daily_effect(cfg: &DailyTickConfig, state: &mut GameState) -> Daily
 
     let supplies_loss = channel_value(&cfg.supplies, pace, diet, weather, exec_key);
     let sanity_loss = channel_value(&cfg.sanity, pace, diet, weather, exec_key);
-    let health_delta = health_change(&cfg.health, state, weather, exec_key);
 
     let supplies_delta = -rounded_i32(supplies_loss);
     let sanity_delta = -rounded_i32(sanity_loss);
     apply_supplies_delta(state, supplies_delta);
     apply_sanity_delta(state, sanity_delta);
-    apply_health_delta(state, health_delta);
-
-    state.tick_ally_attrition();
-    state.stats.clamp();
 
     DailyTickOutcome {
         supplies_delta,
         sanity_delta,
-        health_delta,
+        health_delta: 0,
     }
+}
+
+pub(crate) fn apply_daily_health(cfg: &DailyTickConfig, state: &mut GameState) -> i32 {
+    let weather = state.weather_state.today;
+    let exec_key = state.current_order.map(ExecOrder::key);
+    let health_delta = health_change(&cfg.health, state, weather, exec_key);
+    apply_health_delta(state, health_delta);
+    health_delta
+}
+
+pub(crate) fn finalize_daily_effects(state: &mut GameState) {
+    state.tick_ally_attrition();
+    state.stats.clamp();
 }
 
 fn channel_value(

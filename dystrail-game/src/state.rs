@@ -41,7 +41,7 @@ use crate::constants::{
     LOG_EXEC_START_PREFIX, LOG_HEALTH_COLLAPSE, LOG_PANTS_EMERGENCY, LOG_REST_REQUESTED_ENCOUNTER,
     LOG_SANITY_COLLAPSE, LOG_STARVATION_BACKSTOP, LOG_STARVATION_RELIEF, LOG_STARVATION_TICK,
     LOG_TRAVEL_BLOCKED, LOG_TRAVEL_BONUS, LOG_TRAVEL_DELAY_CREDIT, LOG_TRAVEL_PARTIAL,
-    LOG_TRAVEL_REST_CREDIT, LOG_TRAVELED, LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE,
+    LOG_TRAVEL_REST_CREDIT, LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE,
     LOG_VEHICLE_FIELD_REPAIR_GUARD, LOG_VEHICLE_REPAIR_EMERGENCY, LOG_VEHICLE_REPAIR_SPARE,
     MAX_ENCOUNTERS_PER_DAY, PROBABILITY_FLOOR, PROBABILITY_MAX, REST_TRAVEL_CREDIT_MILES,
     ROTATION_FORCE_INTERVAL, SANITY_POINT_REWARD, STARVATION_BASE_HP_LOSS, STARVATION_GRACE_DAYS,
@@ -66,11 +66,11 @@ use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
 use crate::encounters::{EncounterRequest, pick_encounter};
-use crate::endgame::{self, EndgameState, EndgameTravelCfg};
+use crate::endgame::{self, EndgameState};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, RngPhase, TravelConfig, TravelDayKind, WearConfig,
+    JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -234,9 +234,12 @@ const fn default_pace() -> PaceId {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE};
+    use crate::constants::{
+        CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE, LOG_TRAVELED,
+    };
     use crate::data::{Choice, Effects, Encounter};
-    use crate::journey::{CountingRng, RngBundle};
+    use crate::endgame::EndgameTravelCfg;
+    use crate::journey::{CountingRng, DailyTickKernel, DayOutcome, JourneyCfg, RngBundle};
     use crate::pacing::{PaceCfg, PacingLimits};
     use crate::weather::Weather;
     use rand::Rng;
@@ -456,6 +459,25 @@ mod tests {
         EndgameTravelCfg::default()
     }
 
+    fn tick_day(state: &mut GameState, endgame_cfg: &EndgameTravelCfg) -> DayOutcome {
+        let cfg = JourneyCfg::default();
+        let kernel = DailyTickKernel::new(&cfg, endgame_cfg);
+        kernel.tick_day(state)
+    }
+
+    fn tick_day_with_hook<F>(
+        state: &mut GameState,
+        endgame_cfg: &EndgameTravelCfg,
+        hook: F,
+    ) -> DayOutcome
+    where
+        F: FnOnce(&mut GameState),
+    {
+        let cfg = JourneyCfg::default();
+        let kernel = DailyTickKernel::new(&cfg, endgame_cfg);
+        kernel.tick_day_with_hook(state, hook)
+    }
+
     #[test]
     fn breakdown_consumes_spare_and_clears_block() {
         let mut state = GameState {
@@ -483,7 +505,7 @@ mod tests {
         state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(1)));
 
         let cfg = endgame_cfg();
-        let (_ended, _msg, _started) = state.travel_next_leg(&cfg);
+        let _ = tick_day(&mut state, &cfg);
 
         assert_eq!(state.inventory.spares.tire, 0);
         assert!(!state.day_state.travel.travel_blocked);
@@ -510,8 +532,8 @@ mod tests {
         state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(2)));
 
         let cfg = endgame_cfg();
-        let (_ended_first, msg_first, _started_first) = state.travel_next_leg(&cfg);
-        assert_eq!(msg_first, "log.traveled");
+        let outcome = tick_day(&mut state, &cfg);
+        assert_eq!(outcome.log_key, "log.traveled");
         assert!(!state.day_state.travel.travel_blocked);
         assert!(state.breakdown.is_none());
         assert!(
@@ -540,7 +562,7 @@ mod tests {
         state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(3)));
 
         let cfg = endgame_cfg();
-        let (_ended, _msg, _started) = state.travel_next_leg(&cfg);
+        let _ = tick_day(&mut state, &cfg);
 
         assert!(state.stats.supplies >= 0, "supplies went negative");
         assert!(state.stats.sanity >= 0, "sanity went negative");
@@ -666,16 +688,14 @@ mod tests {
             ..GameState::default()
         };
         state.detach_rng_bundle();
-        let pacing = crate::pacing::PacingConfig::default_config();
         let cfg = endgame_cfg();
         for _ in 0..30 {
-            state.start_of_day();
             state.weather_state.today = Weather::Clear;
             state.weather_state.yesterday = Weather::Clear;
-            state.apply_pace_and_diet(&pacing);
-            state.encounter_chance_today = 0.0;
-            let (ended, _, _) = state.travel_next_leg(&cfg);
-            assert!(!ended, "run ended prematurely");
+            let outcome = tick_day_with_hook(&mut state, &cfg, |state| {
+                state.encounter_chance_today = 0.0;
+            });
+            assert!(!outcome.ended, "run ended prematurely");
         }
         assert!(
             state.travel_days + state.partial_travel_days >= 30,
@@ -814,19 +834,16 @@ mod tests {
             chainable: false,
         };
         state.data = Some(EncounterData::from_encounters(vec![encounter]));
-        let cfg = crate::pacing::PacingConfig::default_config();
-        state.start_of_day();
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 0.0;
-        state.day_state.lifecycle.day_initialized = true;
-        if let Some(back) = state.encounter_history.back_mut() {
-            *back = state.encounters_today;
-        }
-
         let end_cfg = endgame_cfg();
-        let (ended, message, _) = state.travel_next_leg(&end_cfg);
-        assert!(!ended);
-        assert_eq!(message, LOG_TRAVELED);
+        let outcome = tick_day_with_hook(&mut state, &end_cfg, |state| {
+            state.encounter_chance_today = 0.0;
+            state.encounters_today = MAX_ENCOUNTERS_PER_DAY;
+            if let Some(back) = state.encounter_history.back_mut() {
+                *back = state.encounters_today;
+            }
+        });
+        assert!(!outcome.ended);
+        assert_eq!(outcome.log_key, LOG_TRAVELED);
         assert!(state.current_encounter.is_none());
     }
 
@@ -850,32 +867,27 @@ mod tests {
             chainable: false,
         };
         state.data = Some(EncounterData::from_encounters(vec![encounter]));
-        let cfg = crate::pacing::PacingConfig::default_config();
-
-        state.start_of_day();
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 1.0;
         let end_cfg = endgame_cfg();
-        let (_ended_first, msg_first, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_first, "log.encounter");
+        let outcome = tick_day_with_hook(&mut state, &end_cfg, |state| {
+            state.encounter_chance_today = 1.0;
+        });
+        assert_eq!(outcome.log_key, "log.encounter");
         assert_eq!(state.encounters_today, 1);
         state.apply_choice(0);
         assert!(!state.encounters.occurred_today);
 
-        state.start_of_day();
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 1.0;
-        let (_ended_second, msg_second, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_second, "log.encounter");
+        let outcome = tick_day_with_hook(&mut state, &end_cfg, |state| {
+            state.encounter_chance_today = 1.0;
+        });
+        assert_eq!(outcome.log_key, "log.encounter");
         assert_eq!(state.encounters_today, 2);
         state.apply_choice(0);
         assert!(state.encounters.occurred_today);
 
-        state.start_of_day();
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 1.0;
-        let (_ended_third, msg_third, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_third, LOG_TRAVELED);
+        let outcome = tick_day_with_hook(&mut state, &end_cfg, |state| {
+            state.encounter_chance_today = 1.0;
+        });
+        assert_eq!(outcome.log_key, LOG_TRAVELED);
         assert_eq!(
             state.encounter_history.back(),
             Some(&MAX_ENCOUNTERS_PER_DAY)
@@ -2350,38 +2362,7 @@ impl GameState {
         }
     }
 
-    pub(crate) fn run_daily_root_ticks(&mut self) {
-        let rng_bundle = self.rng_bundle.clone();
-        {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::ExecOrders));
-            self.tick_exec_order_state();
-        }
-        self.apply_starvation_tick();
-        {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
-            self.roll_daily_illness();
-        }
-        self.apply_deep_aggressive_sanity_guard();
-
-        let weather_cfg = WeatherConfig::default_config();
-        let weather_rng = rng_bundle.as_deref();
-        {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::WeatherTick));
-            crate::weather::process_daily_weather(self, &weather_cfg, weather_rng);
-        }
-
-        if !self.features.travel_v2 {
-            self.apply_travel_wear_scaled(1.0);
-        }
-    }
-
-    fn tick_exec_order_state(&mut self) {
+    pub(crate) fn tick_exec_order_state(&mut self) {
         if let Some(order) = self.current_order {
             self.apply_exec_order_effects(order);
             if self.exec_order_days_remaining > 0 {
@@ -2721,7 +2702,7 @@ impl GameState {
         self.vehicle.apply_scaled_wear(wear_delta);
     }
 
-    fn apply_travel_wear(&mut self) {
+    pub(crate) fn apply_travel_wear(&mut self) {
         self.apply_travel_wear_scaled(1.0);
     }
 
@@ -3131,7 +3112,7 @@ impl GameState {
         self.inventory.total_spares()
     }
 
-    fn apply_starvation_tick(&mut self) {
+    pub(crate) fn apply_starvation_tick(&mut self) {
         if self.stats.supplies > 0 {
             if self.starvation_days > 0 {
                 self.logs.push(String::from(LOG_STARVATION_RELIEF));
@@ -3169,7 +3150,7 @@ impl GameState {
         }
     }
 
-    fn roll_daily_illness(&mut self) {
+    pub(crate) fn roll_daily_illness(&mut self) {
         if self.disease_cooldown > 0 {
             self.disease_cooldown -= 1;
         }
@@ -3296,7 +3277,7 @@ impl GameState {
         1.0
     }
 
-    fn apply_deep_aggressive_sanity_guard(&mut self) {
+    pub(crate) fn apply_deep_aggressive_sanity_guard(&mut self) {
         if self.guards.deep_aggressive_sanity_guard_used {
             return;
         }
@@ -3624,7 +3605,10 @@ impl GameState {
         self.record_travel_day(kind, delta, reason_tag);
     }
 
-    fn handle_crossing_event(&mut self, computed_miles_today: f32) -> Option<(bool, String)> {
+    pub(crate) fn handle_crossing_event(
+        &mut self,
+        computed_miles_today: f32,
+    ) -> Option<(bool, String)> {
         let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
         let &milestone = CROSSING_MILESTONES.get(next_idx)?;
         if self.miles_traveled_actual + f32::EPSILON < milestone {
@@ -3832,70 +3816,7 @@ impl GameState {
         }
     }
 
-    pub fn travel_next_leg(&mut self, endgame_cfg: &EndgameTravelCfg) -> (bool, String, bool) {
-        self.start_of_day();
-
-        let rng_bundle = self.rng_bundle.as_ref().map(Rc::clone);
-
-        if let Some(result) = self.guard_boss_gate() {
-            return result;
-        }
-        if let Some(result) = self.pre_travel_checks() {
-            return result;
-        }
-
-        let breakdown_started = {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::VehicleBreakdown));
-            self.vehicle_roll()
-        };
-        self.resolve_breakdown();
-        if let Some(result) = self.handle_vehicle_state(breakdown_started) {
-            return result;
-        }
-        if let Some(result) = self.handle_travel_block(breakdown_started) {
-            return result;
-        }
-
-        if let Some(result) = {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::EncounterTick));
-            self.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
-        } {
-            return result;
-        }
-
-        if self.features.travel_v2 {
-            self.apply_travel_wear();
-        }
-
-        let computed_miles_today = self.distance_today.max(self.distance_today_raw);
-        endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
-        if let Some((ended, log)) = {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
-            self.handle_crossing_event(computed_miles_today)
-        } {
-            return (ended, log, breakdown_started);
-        }
-
-        let additional_miles = (self.distance_today - self.current_day_miles).max(0.0);
-        self.record_travel_day(TravelDayKind::Travel, additional_miles, "");
-        self.log_travel_debug();
-
-        if let Some(log_key) = self.failure_log_key() {
-            self.end_of_day();
-            return (true, String::from(log_key), breakdown_started);
-        }
-
-        self.end_of_day();
-        (false, String::from(LOG_TRAVELED), breakdown_started)
-    }
-
-    fn guard_boss_gate(&self) -> Option<(bool, String, bool)> {
+    pub(crate) fn guard_boss_gate(&self) -> Option<(bool, String, bool)> {
         if self.boss.readiness.ready && !self.boss.outcome.attempted {
             Some((false, String::from("log.boss.await"), false))
         } else {
@@ -3903,14 +3824,17 @@ impl GameState {
         }
     }
 
-    fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
+    pub(crate) fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
         self.failure_log_key().map(|log_key| {
             self.end_of_day();
             (true, String::from(log_key), false)
         })
     }
 
-    fn handle_vehicle_state(&mut self, breakdown_started: bool) -> Option<(bool, String, bool)> {
+    pub(crate) fn handle_vehicle_state(
+        &mut self,
+        breakdown_started: bool,
+    ) -> Option<(bool, String, bool)> {
         if self.check_vehicle_terminal_state() {
             self.end_of_day();
             Some((true, String::from(LOG_VEHICLE_FAILURE), breakdown_started))
@@ -3919,7 +3843,10 @@ impl GameState {
         }
     }
 
-    fn handle_travel_block(&mut self, breakdown_started: bool) -> Option<(bool, String, bool)> {
+    pub(crate) fn handle_travel_block(
+        &mut self,
+        breakdown_started: bool,
+    ) -> Option<(bool, String, bool)> {
         if self.day_state.travel.travel_blocked {
             if !self.day_state.travel.partial_traveled_today {
                 self.apply_delay_travel_credit("repair");
@@ -3931,7 +3858,7 @@ impl GameState {
         }
     }
 
-    fn process_encounter_flow(
+    pub(crate) fn process_encounter_flow(
         &mut self,
         rng_bundle: Option<&Rc<RngBundle>>,
         breakdown_started: bool,
@@ -4092,7 +4019,7 @@ impl GameState {
         encounter
     }
 
-    fn log_travel_debug(&self) {
+    pub(crate) fn log_travel_debug(&self) {
         if debug_log_enabled() {
             println!(
                 "Day {}: distance {:.1}/{:.1} (actual {:.1}), boss.ready {}, HP {}, Sanity {}",
@@ -4108,7 +4035,7 @@ impl GameState {
     }
 
     /// Apply vehicle breakdown logic
-    fn vehicle_roll(&mut self) -> bool {
+    pub(crate) fn vehicle_roll(&mut self) -> bool {
         if self.breakdown.is_some() {
             return false;
         }
@@ -4252,7 +4179,7 @@ impl GameState {
         self.finalize_encounter();
     }
 
-    fn resolve_breakdown(&mut self) {
+    pub(crate) fn resolve_breakdown(&mut self) {
         if let Some(breakdown) = self.breakdown.clone() {
             if self.consume_spare_for_part(breakdown.part) {
                 self.vehicle.repair(VEHICLE_JURY_RIG_HEAL);
@@ -4392,12 +4319,14 @@ impl GameState {
             limits.encounter_base
         };
         let encounter_floor = limits.encounter_floor;
-        let encounter_ceiling = if limits.encounter_ceiling == 0.0 {
+        let base_ceiling = if limits.encounter_ceiling == 0.0 {
             1.0
         } else {
             limits.encounter_ceiling
         };
-        let mut encounter = encounter_base + pace_cfg.encounter_chance_delta;
+        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
+        let encounter_ceiling = base_ceiling.min(weather_cap);
+        let mut encounter = encounter_base + pace_cfg.encounter_chance_delta + weather_delta;
 
         let _ = self.compute_miles_for_today(&pace_cfg, limits);
 
@@ -4450,6 +4379,20 @@ impl GameState {
 
         self.receipt_bonus_pct += diet_cfg.receipt_find_pct_delta;
         self.receipt_bonus_pct = self.receipt_bonus_pct.clamp(-100, 100);
+    }
+
+    fn encounter_weather_adjustment(&self) -> (f32, f32) {
+        let cfg = WeatherConfig::default_config();
+        let delta = cfg
+            .effects
+            .get(&self.weather_state.today)
+            .map_or(0.0, |effect| effect.enc_delta);
+        let cap = if cfg.limits.encounter_cap > 0.0 {
+            cfg.limits.encounter_cap
+        } else {
+            1.0
+        };
+        (delta, cap)
     }
 
     /// Save game state (placeholder - platform specific)
@@ -4515,7 +4458,7 @@ impl GameState {
         self.day_state.rest.rest_requested = true;
     }
 
-    fn failure_log_key(&mut self) -> Option<&'static str> {
+    pub(crate) fn failure_log_key(&mut self) -> Option<&'static str> {
         if self.vehicle.health <= 0.0 {
             if self.mode == GameMode::Classic
                 && matches!(self.policy, Some(PolicyKind::Balanced))

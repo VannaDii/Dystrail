@@ -2,13 +2,16 @@
 
 use std::sync::OnceLock;
 
+use crate::constants::LOG_TRAVELED;
 use crate::day_accounting;
-use crate::endgame::EndgameTravelCfg;
-use crate::journey::{
-    DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDayKind, apply_daily_effect,
+use crate::endgame::{self, EndgameTravelCfg};
+use crate::journey::daily::{
+    apply_daily_health, apply_daily_supplies_sanity, finalize_daily_effects,
 };
+use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDayKind};
 use crate::pacing::PacingConfig;
 use crate::state::GameState;
+use crate::weather::WeatherConfig;
 
 pub(crate) struct DailyTickKernel<'a> {
     cfg: &'a JourneyCfg,
@@ -24,20 +27,27 @@ impl<'a> DailyTickKernel<'a> {
         let starting_new_day = !state.day_state.lifecycle.day_initialized;
         state.start_of_day();
         if starting_new_day {
-            state.run_daily_root_ticks();
-            let rng_bundle = state.rng_bundle.clone();
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
-            let _ = apply_daily_effect(&self.cfg.daily, state);
+            Self::run_weather_tick(state);
+            Self::run_exec_order_tick(state);
+            self.run_supplies_tick(state);
+            self.run_health_tick(state);
+            finalize_daily_effects(state);
         }
     }
 
     pub(crate) fn tick_day(&self, state: &mut GameState) -> DayOutcome {
+        self.tick_day_with_hook(state, |_| {})
+    }
+
+    pub(crate) fn tick_day_with_hook<F>(&self, state: &mut GameState, hook: F) -> DayOutcome
+    where
+        F: FnOnce(&mut GameState),
+    {
         self.apply_daily_physics(state);
         state.apply_pace_and_diet(default_pacing_config());
+        hook(state);
 
-        let (ended, log_key, breakdown_started) = state.travel_next_leg(self.endgame_cfg);
+        let (ended, log_key, breakdown_started) = self.run_travel_flow(state);
         let day_consumed = state.day_state.lifecycle.did_end_of_day;
         let event_day = if day_consumed {
             state.day.saturating_sub(1)
@@ -101,6 +111,110 @@ impl<'a> DailyTickKernel<'a> {
         };
         state.end_of_day();
         credited_miles
+    }
+
+    fn run_travel_flow(&self, state: &mut GameState) -> (bool, String, bool) {
+        let rng_bundle = state.rng_bundle.as_ref().map(std::rc::Rc::clone);
+
+        if let Some(result) = state.guard_boss_gate() {
+            return result;
+        }
+        if let Some(result) = state.pre_travel_checks() {
+            return result;
+        }
+
+        let breakdown_started = {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::VehicleBreakdown));
+            state.vehicle_roll()
+        };
+        state.resolve_breakdown();
+        if let Some(result) = state.handle_vehicle_state(breakdown_started) {
+            return result;
+        }
+        if let Some(result) = state.handle_travel_block(breakdown_started) {
+            return result;
+        }
+
+        if let Some(result) = {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::EncounterTick));
+            state.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
+        } {
+            return result;
+        }
+
+        let computed_miles_today = state.distance_today.max(state.distance_today_raw);
+        state.apply_travel_wear();
+        endgame::run_endgame_controller(
+            state,
+            computed_miles_today,
+            breakdown_started,
+            self.endgame_cfg,
+        );
+        if let Some((ended, log)) = {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
+            state.handle_crossing_event(computed_miles_today)
+        } {
+            return (ended, log, breakdown_started);
+        }
+
+        let additional_miles = (state.distance_today - state.current_day_miles).max(0.0);
+        state.record_travel_day(TravelDayKind::Travel, additional_miles, "");
+        state.log_travel_debug();
+
+        if let Some(log_key) = state.failure_log_key() {
+            state.end_of_day();
+            return (true, String::from(log_key), breakdown_started);
+        }
+
+        state.end_of_day();
+        (false, String::from(LOG_TRAVELED), breakdown_started)
+    }
+
+    fn run_weather_tick(state: &mut GameState) {
+        let weather_cfg = WeatherConfig::default_config();
+        let rng_bundle = state.rng_bundle.clone();
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::WeatherTick));
+        crate::weather::process_daily_weather(state, &weather_cfg, rng_bundle.as_deref());
+    }
+
+    fn run_exec_order_tick(state: &mut GameState) {
+        let rng_bundle = state.rng_bundle.clone();
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::ExecOrders));
+        state.tick_exec_order_state();
+    }
+
+    fn run_supplies_tick(&self, state: &mut GameState) {
+        let rng_bundle = state.rng_bundle.clone();
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
+        let _ = apply_daily_supplies_sanity(&self.cfg.daily, state);
+    }
+
+    fn run_health_tick(&self, state: &mut GameState) {
+        state.apply_starvation_tick();
+        let rng_bundle = state.rng_bundle.clone();
+        {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
+            state.roll_daily_illness();
+        }
+        state.apply_deep_aggressive_sanity_guard();
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
+        let _ = apply_daily_health(&self.cfg.daily, state);
     }
 }
 
