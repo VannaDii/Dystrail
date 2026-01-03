@@ -1,3 +1,6 @@
+[graph]
+targets = ["wasm32-unknown-unknown", "x86_64-unknown-linux-gnu"]
+
 [licenses]
 allow = [
     "MIT",
@@ -6,7 +9,6 @@ allow = [
     "BSD-3-Clause",
     "ISC",
     "Unicode-3.0",
-    "0BSD",
     "Unlicense",
     "MPL-2.0",
     "CDLA-Permissive-2.0",
@@ -15,6 +17,14 @@ allow = [
 
 [bans]
 multiple-versions = "warn"
+skip = [
+    # yew + gloo + reqwest pull incompatible major versions.
+    "bincode",
+    "http",
+    "syn",
+    "thiserror",
+    "thiserror-impl",
+]
 
 [advisories]
 ignore = [

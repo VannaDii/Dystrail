@@ -1619,7 +1619,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - For a fixed seed/day context, stream draw counts are stable and documented.
 
-- [ ] TEST-003 (P0) Update/replace deterministic digest baselines knowingly
+- [x] TEST-003 (P0) Update/replace deterministic digest baselines knowingly
   - Requirement:
     - Existing “journey digest baseline” tests will drift after refactor; update them only after validating parity intent.
   - Touchpoints:
