@@ -10,6 +10,7 @@ use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDay
 use crate::pacing::PacingConfig;
 use crate::state::{DayIntent, GameState};
 use crate::weather::WeatherConfig;
+use crate::{hunt, trade};
 
 pub(crate) struct DailyTickKernel<'a> {
     cfg: &'a JourneyCfg,
@@ -231,12 +232,28 @@ impl<'a> DailyTickKernel<'a> {
             DayIntent::Trade => {
                 state.intent.pending = DayIntent::Continue;
                 state.intent.rest_days_remaining = 0;
+                let rng_bundle = state.rng_bundle.clone();
+                if let Some(bundle) = rng_bundle.as_ref() {
+                    let _guard = bundle.phase_guard_for(RngPhase::TradeTick);
+                    let mut rng = bundle.trade();
+                    let _ = trade::resolve_trade_with_rng(state, &mut *rng);
+                } else {
+                    let _ = trade::resolve_trade(state);
+                }
                 Self::record_intent_day(state, "intent_trade");
                 Some((false, String::from(LOG_TRAVELED), false))
             }
             DayIntent::Hunt => {
                 state.intent.pending = DayIntent::Continue;
                 state.intent.rest_days_remaining = 0;
+                let rng_bundle = state.rng_bundle.clone();
+                if let Some(bundle) = rng_bundle.as_ref() {
+                    let _guard = bundle.phase_guard_for(RngPhase::HuntTick);
+                    let mut rng = bundle.hunt();
+                    let _ = hunt::resolve_hunt_with_rng(state, &mut *rng);
+                } else {
+                    let _ = hunt::resolve_hunt(state);
+                }
                 Self::record_intent_day(state, "intent_hunt");
                 Some((false, String::from(LOG_TRAVELED), false))
             }
@@ -587,5 +604,49 @@ mod tests {
         assert!(matches!(second_record.kind, TravelDayKind::NonTravel));
         assert!(second_record.tags.iter().any(|tag| tag.0 == "intent_rest"));
         assert_eq!(state.day_records.len(), 2);
+    }
+
+    #[test]
+    fn trade_intent_consumes_day_and_uses_trade_rng() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::Trade;
+        state.ot_deluxe.inventory.cash_cents = 2_500;
+        let bundle = Rc::new(RngBundle::from_user_seed(77));
+        state.attach_rng_bundle(bundle.clone());
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(matches!(state.intent.pending, DayIntent::Continue));
+        assert!(bundle.trade().draws() > 0);
+        let record = outcome.record.expect("expected trade record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "intent_trade"));
+    }
+
+    #[test]
+    fn hunt_intent_consumes_day_and_spends_bullets() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::Hunt;
+        state.ot_deluxe.inventory.bullets = 10;
+        state.ot_deluxe.party.members = vec![crate::otdeluxe_state::OtDeluxePartyMember::new("A")];
+        let bundle = Rc::new(RngBundle::from_user_seed(93));
+        state.attach_rng_bundle(bundle.clone());
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(matches!(state.intent.pending, DayIntent::Continue));
+        assert!(bundle.hunt().draws() > 0);
+        assert!(state.ot_deluxe.inventory.bullets < 10);
+        let record = outcome.record.expect("expected hunt record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "intent_hunt"));
     }
 }

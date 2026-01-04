@@ -1446,6 +1446,8 @@ pub(crate) enum RngPhase {
     EncounterTick,
     CrossingTick,
     BossTick,
+    TradeTick,
+    HuntTick,
 }
 
 impl RngPhase {
@@ -1458,6 +1460,8 @@ impl RngPhase {
             Self::EncounterTick => RngStreamMask::single(RngStream::Encounter),
             Self::CrossingTick => RngStreamMask::single(RngStream::Crossing),
             Self::BossTick => RngStreamMask::single(RngStream::Boss),
+            Self::TradeTick => RngStreamMask::single(RngStream::Trade),
+            Self::HuntTick => RngStreamMask::single(RngStream::Hunt),
         }
     }
 }
@@ -2253,6 +2257,14 @@ mod tests {
         assert_eq!(
             RngPhase::BossTick.allowed_streams(),
             RngStreamMask::single(RngStream::Boss)
+        );
+        assert_eq!(
+            RngPhase::TradeTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Trade)
+        );
+        assert_eq!(
+            RngPhase::HuntTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Hunt)
         );
     }
 

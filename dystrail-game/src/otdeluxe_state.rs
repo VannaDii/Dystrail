@@ -5,7 +5,17 @@ use serde::{Deserialize, Serialize};
 use crate::mechanics::otdeluxe90s::{
     OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
-use crate::state::{Region, Season};
+use crate::state::Season;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum OtDeluxeTerrain {
+    #[default]
+    Plains,
+    Mountains,
+    #[serde(other)]
+    Unknown,
+}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 #[serde(rename_all = "snake_case")]
@@ -188,6 +198,85 @@ impl Default for OtDeluxeCalendar {
     }
 }
 
+impl OtDeluxeCalendar {
+    #[must_use]
+    pub fn from_day_index(day: u32) -> Self {
+        let mut calendar = Self::default();
+        if day > 1 {
+            calendar.advance_days(day.saturating_sub(1));
+        }
+        calendar
+    }
+
+    #[must_use]
+    pub const fn season(&self) -> Season {
+        match self.month {
+            12 | 1 | 2 => Season::Winter,
+            3..=5 => Season::Spring,
+            6..=8 => Season::Summer,
+            _ => Season::Fall,
+        }
+    }
+
+    pub fn advance_days(&mut self, mut days: u32) {
+        if days == 0 {
+            return;
+        }
+        self.normalize();
+        while days > 0 {
+            let month_len = Self::month_length(self.year, self.month);
+            let remaining = month_len.saturating_sub(self.day_in_month);
+            if days <= u32::from(remaining) {
+                if let Ok(days_u8) = u8::try_from(days) {
+                    self.day_in_month = self.day_in_month.saturating_add(days_u8);
+                } else {
+                    self.day_in_month = month_len;
+                }
+                return;
+            }
+            days -= u32::from(remaining).saturating_add(1);
+            self.day_in_month = 1;
+            if self.month >= 12 {
+                self.month = 1;
+                self.year = self.year.saturating_add(1);
+            } else {
+                self.month = self.month.saturating_add(1);
+            }
+        }
+    }
+
+    const fn normalize(&mut self) {
+        if self.month == 0 || self.month > 12 {
+            self.month = 1;
+        }
+        let month_len = Self::month_length(self.year, self.month);
+        if self.day_in_month == 0 {
+            self.day_in_month = 1;
+        }
+        if self.day_in_month > month_len {
+            self.day_in_month = month_len;
+        }
+    }
+
+    const fn month_length(year: u16, month: u8) -> u8 {
+        match month {
+            1 | 3 | 5 | 7 | 8 | 10 | 12 => 31,
+            2 => {
+                if Self::is_leap_year(year) {
+                    29
+                } else {
+                    28
+                }
+            }
+            _ => 30,
+        }
+    }
+
+    const fn is_leap_year(year: u16) -> bool {
+        (year.is_multiple_of(4) && !year.is_multiple_of(100)) || year.is_multiple_of(400)
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct OtDeluxeWeatherToday {
     pub temperature_f: i16,
@@ -207,6 +296,8 @@ pub struct OtDeluxeTravelState {
     pub wagon_state: OtDeluxeWagonState,
     pub delay_days_remaining: u8,
     pub blocked_days_remaining: u8,
+    #[serde(default)]
+    pub ferry_wait_days_remaining: u8,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -236,7 +327,8 @@ pub struct OtDeluxeModifiers {
 pub struct OtDeluxeState {
     pub day: u32,
     pub miles_traveled: f32,
-    pub region: Region,
+    #[serde(default, alias = "region")]
+    pub terrain: OtDeluxeTerrain,
     pub season: Season,
     pub calendar: OtDeluxeCalendar,
     pub party: OtDeluxePartyState,
@@ -256,12 +348,13 @@ pub struct OtDeluxeState {
 
 impl Default for OtDeluxeState {
     fn default() -> Self {
+        let calendar = OtDeluxeCalendar::default();
         Self {
             day: 1,
             miles_traveled: 0.0,
-            region: Region::Heartland,
-            season: Season::default(),
-            calendar: OtDeluxeCalendar::default(),
+            terrain: OtDeluxeTerrain::default(),
+            season: calendar.season(),
+            calendar,
             party: OtDeluxePartyState::default(),
             health_general: 0,
             death_imminent_days_remaining: 0,
@@ -276,5 +369,68 @@ impl Default for OtDeluxeState {
             route: OtDeluxeRouteState::default(),
             mods: OtDeluxeModifiers::default(),
         }
+    }
+}
+
+impl OtDeluxeState {
+    pub fn advance_days(&mut self, days: u32) {
+        if days == 0 {
+            return;
+        }
+        self.day = self.day.saturating_add(days);
+        self.calendar.advance_days(days);
+        self.season = self.calendar.season();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{OtDeluxeCalendar, OtDeluxeState};
+    use crate::state::Season;
+
+    #[test]
+    fn calendar_advances_and_rolls_year() {
+        let mut calendar = OtDeluxeCalendar {
+            month: 12,
+            day_in_month: 31,
+            year: 1848,
+        };
+        calendar.advance_days(1);
+        assert_eq!(calendar.month, 1);
+        assert_eq!(calendar.day_in_month, 1);
+        assert_eq!(calendar.year, 1849);
+    }
+
+    #[test]
+    fn calendar_tracks_season_by_month() {
+        let spring = OtDeluxeCalendar {
+            month: 3,
+            ..OtDeluxeCalendar::default()
+        };
+        assert_eq!(spring.season(), Season::Spring);
+        let summer = OtDeluxeCalendar {
+            month: 7,
+            ..OtDeluxeCalendar::default()
+        };
+        assert_eq!(summer.season(), Season::Summer);
+        let fall = OtDeluxeCalendar {
+            month: 10,
+            ..OtDeluxeCalendar::default()
+        };
+        assert_eq!(fall.season(), Season::Fall);
+        let winter = OtDeluxeCalendar {
+            month: 1,
+            ..OtDeluxeCalendar::default()
+        };
+        assert_eq!(winter.season(), Season::Winter);
+    }
+
+    #[test]
+    fn state_advancing_updates_calendar_and_season() {
+        let mut state = OtDeluxeState::default();
+        state.advance_days(31);
+        assert_eq!(state.calendar.month, 4);
+        assert_eq!(state.calendar.day_in_month, 1);
+        assert_eq!(state.season, Season::Spring);
     }
 }

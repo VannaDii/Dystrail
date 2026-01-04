@@ -385,7 +385,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 2) State Model, Calendar, and Core Data Structures
 
-- [ ] STATE-001 (P0) Implement the required OTDeluxe day state (minimum MECC parity fields)
+- [x] STATE-001 (P0) Implement the required OTDeluxe day state (minimum MECC parity fields)
   - Requirement:
     - Under `OTDeluxe90sPolicy`, the engine MUST have explicit state (fields or a single nested struct) for the minimum parity model:
       - `day` (day counter)
@@ -459,7 +459,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Repeatedly opening/closing the crossing UI does not reroll river conditions.
 
-- [ ] TIME-001 (P0) Implement calendar/date and season derivation for Deluxe parity
+- [x] TIME-001 (P0) Implement calendar/date and season derivation for Deluxe parity
   - Requirement:
     - Track a calendar date (or at minimum month + day-in-month) so that:
       - `season` is derived deterministically from date
@@ -1083,7 +1083,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Rest cannot be implemented as a multi-day “fast forward” that skips per-day weather/health.
 
-- [ ] TRADE-001 (P0) Implement trade offers and enforce `TRADE_COST_DAYS = 1`
+- [x] TRADE-001 (P0) Implement trade offers and enforce `TRADE_COST_DAYS = 1`
   - Requirement:
     - Each accepted trade costs a day away from the trail (NonTravel day with root-cause ticks).
     - Trade offer generation uses `rng.trade()` only.
@@ -1094,7 +1094,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Accepting a trade advances day exactly once and records a NonTravel day.
 
-- [ ] HUNT-001 (P0) Implement hunting as a day-atomic intent and enforce carry cap
+- [x] HUNT-001 (P0) Implement hunting as a day-atomic intent and enforce carry cap
   - Requirement:
     - Hunting consumes a full day away from the trail (NonTravel; root-cause ticks still run).
     - Carry cap is `100 * alive_party_members` under OTDeluxe90sPolicy; injuries do not reduce cap.

@@ -73,7 +73,9 @@ use crate::journey::{
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::mechanics::otdeluxe90s::{OtDeluxePace, OtDeluxeRations};
-use crate::otdeluxe_state::{OtDeluxePartyState, OtDeluxeState};
+use crate::otdeluxe_state::{
+    OtDeluxeCalendar, OtDeluxeInventory, OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain,
+};
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
@@ -2401,12 +2403,20 @@ impl GameState {
             DietId::Doom => OtDeluxeRations::BareBones,
         };
 
+        let cash_cents = u32::try_from(self.budget_cents.max(0)).unwrap_or(u32::MAX);
+
+        let calendar = OtDeluxeCalendar::from_day_index(self.day);
         OtDeluxeState {
             day: self.day,
             miles_traveled: self.miles_traveled_actual,
-            region: self.region,
-            season: self.season,
+            terrain: OtDeluxeTerrain::default(),
+            season: calendar.season(),
+            calendar,
             party: OtDeluxePartyState::from_names(names),
+            inventory: OtDeluxeInventory {
+                cash_cents,
+                ..OtDeluxeInventory::default()
+            },
             pace,
             rations,
             ..OtDeluxeState::default()
@@ -2728,6 +2738,14 @@ impl GameState {
         self.day_state.lifecycle.day_initialized = false;
         self.day_state.lifecycle.did_end_of_day = true;
         self.day = self.day.saturating_add(1);
+        if self.ot_deluxe.day.saturating_add(1) == self.day {
+            self.ot_deluxe.advance_days(1);
+        } else {
+            self.ot_deluxe.day = self.day;
+            self.ot_deluxe.calendar = OtDeluxeCalendar::from_day_index(self.day);
+            self.ot_deluxe.season = self.ot_deluxe.calendar.season();
+        }
+        self.ot_deluxe.miles_traveled = self.miles_traveled_actual;
     }
 
     fn unlock_aggressive_boss_ready(&mut self) {

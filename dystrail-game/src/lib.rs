@@ -13,6 +13,7 @@ pub mod day_accounting;
 pub mod encounters;
 pub mod endgame;
 pub mod exec_orders;
+pub mod hunt;
 pub mod journey;
 pub mod mechanics;
 pub mod numbers;
@@ -23,6 +24,7 @@ pub mod result;
 pub mod seed;
 pub mod state;
 pub mod store;
+pub mod trade;
 pub mod vehicle;
 pub mod weather;
 
@@ -39,6 +41,7 @@ pub use crossings::{
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
 pub use endgame::{EndgameState, EndgameTravelCfg};
+pub use hunt::{HuntBlockReason, HuntOutcome, resolve_hunt, resolve_hunt_with_rng};
 pub use journey::{
     AcceptanceGuards, BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome,
     DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, Event, EventDecisionTrace, EventId,
@@ -60,6 +63,10 @@ pub use state::{
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,
+};
+pub use trade::{
+    TradeGood, TradeGoodKind, TradeOffer, TradeOutcome, TradeResolution, resolve_trade,
+    resolve_trade_with_rng,
 };
 pub use vehicle::{Breakdown, Part, Vehicle, VehicleConfig};
 pub use weather::{Weather, WeatherConfig, WeatherEffect, WeatherMitigation, WeatherState};
