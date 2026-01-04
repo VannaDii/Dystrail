@@ -7,6 +7,7 @@ use std::convert::TryFrom;
 use std::fmt;
 use std::rc::Rc;
 use std::str::FromStr;
+use std::sync::OnceLock;
 
 use crate::camp::CampState;
 #[cfg(debug_assertions)]
@@ -72,9 +73,10 @@ use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
-use crate::mechanics::otdeluxe90s::{OtDeluxePace, OtDeluxeRations};
+use crate::mechanics::otdeluxe90s::{OtDeluxe90sPolicy, OtDeluxePace, OtDeluxeRations};
 use crate::otdeluxe_state::{
     OtDeluxeCalendar, OtDeluxeInventory, OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain,
+    OtDeluxeWagonState,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -233,6 +235,11 @@ const fn debug_log_enabled() -> bool {
 /// Default pace setting
 const fn default_pace() -> PaceId {
     PaceId::Steady
+}
+
+fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
+    static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
+    POLICY.get_or_init(OtDeluxe90sPolicy::default)
 }
 
 #[cfg(test)]
@@ -3941,10 +3948,25 @@ impl GameState {
     }
 
     pub(crate) fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
-        self.failure_log_key().map(|log_key| {
+        if let Some(log_key) = self.failure_log_key() {
             self.end_of_day();
-            (true, String::from(log_key), false)
-        })
+            return Some((true, String::from(log_key), false));
+        }
+        self.check_otdeluxe_oxen_gate()
+    }
+
+    fn check_otdeluxe_oxen_gate(&mut self) -> Option<(bool, String, bool)> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        let policy = default_otdeluxe_policy();
+        if !self.ot_deluxe.travel_blocked_by_oxen(policy) {
+            return None;
+        }
+        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Blocked;
+        self.record_travel_day(TravelDayKind::NonTravel, 0.0, "otdeluxe.no_oxen");
+        self.end_of_day();
+        Some((false, String::from(LOG_TRAVEL_BLOCKED), false))
     }
 
     pub(crate) fn handle_vehicle_state(

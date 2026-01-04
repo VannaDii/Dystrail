@@ -256,7 +256,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Determinism notes:
     - Kernel must be the only place that consumes day-level RNG streams; no pre-tick RNG consumption in UI helpers.
 
-- [ ] ARCH-002 (P0) Make `start_of_day()` resets-only (remove embedded physics)
+- [x] ARCH-002 (P0) Make `start_of_day()` resets-only (remove embedded physics)
   - Requirement:
     - `StartOfDay` must only reset per-day flags/counters, initialize day record, decrement timers/cooldowns as allowed.
     - It must not apply starvation, illness, weather selection, clamps, or other “physics”.
@@ -1687,7 +1687,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 Use this section as a pre-implementation sanity pass. Every item must be true in the final codebase.
 
-- [ ] AUDIT-001 `StartOfDay` does not apply physics (only resets/cooldowns) and does not consume RNG.
+- [x] AUDIT-001 `StartOfDay` does not apply physics (only resets/cooldowns) and does not consume RNG.
 - [ ] AUDIT-002 Weather selection uses only `rng.weather()`; afflictions use only `rng.health()`.
 - [ ] AUDIT-003 Supplies burn runs exactly once per day and is always before HealthTick.
 - [ ] AUDIT-004 Encounter chance is derived once per day from a single function; weather does not mutate it ad hoc.

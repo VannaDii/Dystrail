@@ -329,11 +329,14 @@ fn default_pacing_config() -> &'static PacingConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::constants::LOG_TRAVEL_BLOCKED;
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
-        DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, RngBundle,
+        DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, MechanicalPolicyId,
+        RngBundle,
     };
     use crate::numbers::round_f32_to_i32;
+    use crate::otdeluxe_state::OtDeluxeWagonState;
     use crate::state::{GameState, Region, Stats};
     use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
     use std::rc::Rc;
@@ -578,6 +581,30 @@ mod tests {
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "wait_ferry"));
+    }
+
+    #[test]
+    fn otdeluxe_no_oxen_blocks_travel() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.sick = 1;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(state.day, 2);
+        let record = outcome.record.expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Blocked
+        ));
     }
 
     #[test]

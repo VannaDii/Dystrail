@@ -178,6 +178,23 @@ pub struct OtDeluxeOccupationAdvantages {
     pub mobility_failure_mult: f32,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeOxenPolicy {
+    pub sick_ox_weight: f32,
+    pub min_to_move: f32,
+    pub min_for_base: f32,
+}
+
+impl Default for OtDeluxeOxenPolicy {
+    fn default() -> Self {
+        Self {
+            sick_ox_weight: 0.5,
+            min_to_move: 1.0,
+            min_for_base: 4.0,
+        }
+    }
+}
+
 /// Parity-oriented policy for Oregon Trail Deluxe (DOS v3.0 lineage).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxe90sPolicy {
@@ -188,6 +205,7 @@ pub struct OtDeluxe90sPolicy {
     pub store: OtDeluxeStorePolicy,
     pub occupations: [OtDeluxeOccupationSpec; 8],
     pub occupation_advantages: OtDeluxeOccupationAdvantages,
+    pub oxen: OtDeluxeOxenPolicy,
     pub health: OtDeluxeHealthPolicy,
     pub affliction: OtDeluxeAfflictionPolicy,
     pub crossings: OtDeluxeCrossingPolicy,
@@ -446,6 +464,7 @@ impl Default for OtDeluxe90sPolicy {
             store: OtDeluxeStorePolicy::default(),
             occupations: DEFAULT_OCCUPATIONS,
             occupation_advantages: OtDeluxeOccupationAdvantages::default(),
+            oxen: OtDeluxeOxenPolicy::default(),
             health: OtDeluxeHealthPolicy::default(),
             affliction: OtDeluxeAfflictionPolicy::default(),
             crossings: OtDeluxeCrossingPolicy::default(),
@@ -511,6 +530,9 @@ mod tests {
         assert_eq!(policy.crossings.guide_cost_clothes_sets, 3);
         assert_eq!(policy.crossings.ferry_wait_days_min, 0);
         assert_eq!(policy.crossings.ferry_wait_days_max, 6);
+        assert_f32_eq(policy.oxen.sick_ox_weight, 0.5);
+        assert_f32_eq(policy.oxen.min_to_move, 1.0);
+        assert_f32_eq(policy.oxen.min_for_base, 4.0);
 
         assert_eq!(policy.score.points_per_person_by_health.good, 500);
         assert_eq!(policy.score.divisor_cash_cents, 500);

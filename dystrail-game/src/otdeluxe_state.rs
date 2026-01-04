@@ -2,8 +2,10 @@
 
 use serde::{Deserialize, Serialize};
 
+use rand::seq::SliceRandom;
+
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
+    OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
 use crate::state::Season;
 
@@ -54,6 +56,20 @@ pub enum OtDeluxeCrossingMethod {
     Guide,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum OtDeluxeAfflictionKind {
+    Illness,
+    Injury,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct OtDeluxeAfflictionOutcome {
+    pub member_index: usize,
+    pub died: bool,
+    pub kind: OtDeluxeAfflictionKind,
+}
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct OtDeluxeRiverState {
     pub width_ft: f32,
@@ -101,6 +117,37 @@ impl OtDeluxePartyMember {
     pub const fn is_injured(&self) -> bool {
         self.injured_days_remaining > 0
     }
+
+    #[must_use]
+    pub const fn has_affliction(&self) -> bool {
+        self.is_sick() || self.is_injured()
+    }
+
+    pub const fn clear_afflictions(&mut self) {
+        self.sick_days_remaining = 0;
+        self.injured_days_remaining = 0;
+    }
+
+    pub fn apply_affliction(&mut self, kind: OtDeluxeAfflictionKind, days: u8) -> bool {
+        if !self.alive {
+            return false;
+        }
+        if self.has_affliction() {
+            self.alive = false;
+            self.clear_afflictions();
+            return true;
+        }
+        let days = days.max(1);
+        match kind {
+            OtDeluxeAfflictionKind::Illness => {
+                self.sick_days_remaining = days;
+            }
+            OtDeluxeAfflictionKind::Injury => {
+                self.injured_days_remaining = days;
+            }
+        }
+        false
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
@@ -146,6 +193,45 @@ impl OtDeluxePartyState {
             .filter(|member| member.is_injured())
             .count();
         u16::try_from(count).unwrap_or(u16::MAX)
+    }
+
+    #[must_use]
+    pub fn apply_affliction_random<R>(
+        &mut self,
+        rng: &mut R,
+        kind: OtDeluxeAfflictionKind,
+        days: u8,
+    ) -> Option<OtDeluxeAfflictionOutcome>
+    where
+        R: rand::Rng + ?Sized,
+    {
+        let alive_indices: Vec<usize> = self
+            .members
+            .iter()
+            .enumerate()
+            .filter_map(|(idx, member)| member.alive.then_some(idx))
+            .collect();
+        let &member_index = alive_indices.choose(rng)?;
+        let died = self.members[member_index].apply_affliction(kind, days);
+        Some(OtDeluxeAfflictionOutcome {
+            member_index,
+            died,
+            kind,
+        })
+    }
+
+    pub fn tick_afflictions(&mut self) {
+        for member in &mut self.members {
+            if !member.alive {
+                continue;
+            }
+            if member.sick_days_remaining > 0 {
+                member.sick_days_remaining = member.sick_days_remaining.saturating_sub(1);
+            }
+            if member.injured_days_remaining > 0 {
+                member.injured_days_remaining = member.injured_days_remaining.saturating_sub(1);
+            }
+        }
     }
 }
 
@@ -381,12 +467,24 @@ impl OtDeluxeState {
         self.calendar.advance_days(days);
         self.season = self.calendar.season();
     }
+
+    #[must_use]
+    pub fn effective_oxen(&self, policy: &OtDeluxe90sPolicy) -> f32 {
+        self.oxen.effective_oxen(policy.oxen.sick_ox_weight)
+    }
+
+    #[must_use]
+    pub fn travel_blocked_by_oxen(&self, policy: &OtDeluxe90sPolicy) -> bool {
+        self.effective_oxen(policy) < policy.oxen.min_to_move
+    }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{OtDeluxeCalendar, OtDeluxeState};
+    use super::{OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxePartyState, OtDeluxeState};
     use crate::state::Season;
+    use rand::SeedableRng;
+    use rand::rngs::SmallRng;
 
     #[test]
     fn calendar_advances_and_rolls_year() {
@@ -432,5 +530,35 @@ mod tests {
         assert_eq!(state.calendar.month, 4);
         assert_eq!(state.calendar.day_in_month, 1);
         assert_eq!(state.season, Season::Spring);
+    }
+
+    #[test]
+    fn repeat_affliction_kills_member() {
+        let mut party = OtDeluxePartyState::from_names(["A"]);
+        let died = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 3);
+        assert!(!died);
+        let died_on_repeat = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Injury, 3);
+        assert!(died_on_repeat);
+        assert!(!party.members[0].alive);
+    }
+
+    #[test]
+    fn random_affliction_targets_alive_member() {
+        let mut party = OtDeluxePartyState::from_names(["A", "B"]);
+        party.members[0].alive = false;
+        let mut rng = SmallRng::seed_from_u64(7);
+        let outcome = party
+            .apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Illness, 2)
+            .expect("alive member");
+        assert_eq!(outcome.member_index, 1);
+        assert!(party.members[1].is_sick());
+    }
+
+    #[test]
+    fn tick_afflictions_counts_down() {
+        let mut party = OtDeluxePartyState::from_names(["A"]);
+        party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 2);
+        party.tick_afflictions();
+        assert_eq!(party.members[0].sick_days_remaining, 1);
     }
 }
