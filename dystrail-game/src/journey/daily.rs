@@ -1,6 +1,6 @@
 use crate::Stats;
 use crate::exec_orders::ExecOrder;
-use crate::journey::{DailyChannelConfig, DailyTickConfig, HealthTickConfig};
+use crate::journey::{DailyChannelConfig, DailyTickConfig, HealthTickConfig, RngPhase};
 use crate::numbers::round_f32_to_i32;
 use crate::state::{DietId, GameState, PaceId};
 use crate::weather::Weather;
@@ -70,7 +70,13 @@ pub(crate) fn apply_daily_health(cfg: &DailyTickConfig, state: &mut GameState) -
 }
 
 pub(crate) fn finalize_daily_effects(state: &mut GameState) {
-    state.tick_ally_attrition();
+    let rng_bundle = state.rng_bundle.clone();
+    {
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
+        state.tick_ally_attrition();
+    }
     state.stats.clamp();
 }
 

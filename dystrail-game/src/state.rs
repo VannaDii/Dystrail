@@ -1018,7 +1018,7 @@ mod tests {
             },
             ..GameState::default()
         };
-        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
 
@@ -1519,7 +1519,7 @@ mod tests {
 
         state.stats.allies = 2;
         state.logs.clear();
-        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
 
@@ -3217,7 +3217,7 @@ impl GameState {
             return;
         }
         let trigger = self
-            .events_rng()
+            .health_rng()
             .is_some_and(|mut rng| rng.r#gen::<f32>() <= ALLY_ATTRITION_CHANCE);
         if trigger {
             self.stats.allies -= 1;

@@ -5,9 +5,7 @@ use std::sync::OnceLock;
 use crate::constants::LOG_TRAVELED;
 use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
-use crate::journey::daily::{
-    apply_daily_health, apply_daily_supplies_sanity, finalize_daily_effects,
-};
+use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
 use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDayKind};
 use crate::pacing::PacingConfig;
 use crate::state::GameState;
@@ -31,7 +29,6 @@ impl<'a> DailyTickKernel<'a> {
             Self::run_exec_order_tick(state);
             self.run_supplies_tick(state);
             self.run_health_tick(state);
-            finalize_daily_effects(state);
         }
     }
 
@@ -211,10 +208,19 @@ impl<'a> DailyTickKernel<'a> {
             state.roll_daily_illness();
         }
         state.apply_deep_aggressive_sanity_guard();
-        let _guard = rng_bundle
-            .as_ref()
-            .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
-        let _ = apply_daily_health(&self.cfg.daily, state);
+        {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
+            let _ = apply_daily_health(&self.cfg.daily, state);
+        }
+        {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
+            state.tick_ally_attrition();
+        }
+        state.stats.clamp();
     }
 }
 
@@ -350,6 +356,79 @@ mod tests {
 
         assert_eq!(state.stats.supplies, 0);
         assert_eq!(state.starvation_days, 1);
+    }
+
+    #[test]
+    fn daily_physics_runs_exec_order_tick_before_supplies() {
+        let weather_cfg = WeatherConfig::default_config();
+        let seed = 7_u64;
+        let mut probe_state = GameState {
+            region: Region::Heartland,
+            ..GameState::default()
+        };
+        let expected_weather = select_weather_for_today(
+            &mut probe_state,
+            &weather_cfg,
+            &RngBundle::from_user_seed(seed),
+        )
+        .expect("weather selection");
+
+        let mut supplies = DailyChannelConfig::new(2.0);
+        supplies
+            .exec
+            .insert(String::from(ExecOrder::TravelBanLite.key()), 3.0);
+
+        let daily = DailyTickConfig {
+            supplies,
+            sanity: DailyChannelConfig::new(0.0),
+            health: HealthTickConfig {
+                decay: 0.0,
+                rest_heal: 0.0,
+                ..HealthTickConfig::default()
+            },
+        };
+
+        let cfg = JourneyCfg {
+            daily,
+            ..JourneyCfg::default()
+        };
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            region: Region::Heartland,
+            current_order: Some(ExecOrder::TravelBanLite),
+            exec_order_days_remaining: 1,
+            stats: Stats {
+                supplies: 10,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
+
+        kernel.apply_daily_physics(&mut state);
+
+        let weather_effect = weather_cfg
+            .effects
+            .get(&expected_weather)
+            .map_or(0, |effect| effect.supplies);
+        let weather_multiplier = cfg
+            .daily
+            .supplies
+            .weather
+            .get(&expected_weather)
+            .copied()
+            .unwrap_or(1.0);
+        let daily_supplies_delta = -round_f32_to_i32(cfg.daily.supplies.base * weather_multiplier);
+        let mut expected_stats = Stats {
+            supplies: 10 + weather_effect + daily_supplies_delta,
+            ..Stats::default()
+        };
+        expected_stats.clamp();
+
+        assert_eq!(state.stats.supplies, expected_stats.supplies);
+        assert!(state.current_order.is_none());
     }
 
     #[test]
