@@ -222,3 +222,167 @@ fn default_pacing_config() -> &'static PacingConfig {
     static CONFIG: OnceLock<PacingConfig> = OnceLock::new();
     CONFIG.get_or_init(PacingConfig::default_config)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::exec_orders::ExecOrder;
+    use crate::journey::{
+        DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, RngBundle,
+    };
+    use crate::numbers::round_f32_to_i32;
+    use crate::state::{GameState, Region, Stats};
+    use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
+    use std::rc::Rc;
+
+    fn seed_with_non_clear_weather(cfg: &WeatherConfig) -> (u64, Weather) {
+        let base_state = GameState {
+            region: Region::Heartland,
+            ..GameState::default()
+        };
+        for seed in 1_u64..10_000 {
+            let mut probe_state = base_state.clone();
+            let rng_bundle = RngBundle::from_user_seed(seed);
+            if let Ok(weather) = select_weather_for_today(&mut probe_state, cfg, &rng_bundle)
+                && weather != Weather::Clear
+            {
+                return (seed, weather);
+            }
+        }
+        panic!("unable to find seed that produces non-clear weather");
+    }
+
+    #[test]
+    fn daily_physics_applies_weather_before_supplies() {
+        let weather_cfg = WeatherConfig::default_config();
+        let (seed, expected_weather) = seed_with_non_clear_weather(&weather_cfg);
+
+        let mut supplies = DailyChannelConfig::new(1.0);
+        supplies.weather.insert(Weather::Clear, 1.0);
+        supplies.weather.insert(Weather::Storm, 5.0);
+        supplies.weather.insert(Weather::HeatWave, 3.0);
+        supplies.weather.insert(Weather::ColdSnap, 2.0);
+        supplies.weather.insert(Weather::Smoke, 4.0);
+
+        let daily = DailyTickConfig {
+            supplies,
+            sanity: DailyChannelConfig::new(0.0),
+            health: HealthTickConfig {
+                decay: 0.0,
+                rest_heal: 0.0,
+                ..HealthTickConfig::default()
+            },
+        };
+
+        let cfg = JourneyCfg {
+            daily,
+            ..JourneyCfg::default()
+        };
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            region: Region::Heartland,
+            weather_state: WeatherState {
+                today: Weather::Clear,
+                ..WeatherState::default()
+            },
+            current_order: Some(ExecOrder::WarDeptReorg),
+            exec_order_days_remaining: 2,
+            stats: Stats {
+                supplies: 20,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
+
+        kernel.apply_daily_physics(&mut state);
+
+        let weather_effect = weather_cfg
+            .effects
+            .get(&expected_weather)
+            .map_or(0, |effect| effect.supplies);
+        let weather_multiplier = cfg
+            .daily
+            .supplies
+            .weather
+            .get(&expected_weather)
+            .copied()
+            .unwrap_or(1.0);
+        let daily_supplies_delta = -round_f32_to_i32(cfg.daily.supplies.base * weather_multiplier);
+        let expected_supplies = 20 + weather_effect + daily_supplies_delta;
+
+        assert_eq!(state.stats.supplies, expected_supplies);
+    }
+
+    #[test]
+    fn daily_physics_burns_supplies_before_starvation_tick() {
+        let daily = DailyTickConfig {
+            supplies: DailyChannelConfig::new(2.0),
+            sanity: DailyChannelConfig::new(0.0),
+            health: HealthTickConfig {
+                decay: 0.0,
+                rest_heal: 0.0,
+                ..HealthTickConfig::default()
+            },
+        };
+
+        let cfg = JourneyCfg {
+            daily,
+            ..JourneyCfg::default()
+        };
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            current_order: Some(ExecOrder::WarDeptReorg),
+            exec_order_days_remaining: 2,
+            stats: Stats {
+                supplies: 1,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(11)));
+
+        kernel.apply_daily_physics(&mut state);
+
+        assert_eq!(state.stats.supplies, 0);
+        assert_eq!(state.starvation_days, 1);
+    }
+
+    #[test]
+    fn daily_physics_uses_only_weather_rng_when_health_and_events_gated() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            current_order: Some(ExecOrder::WarDeptReorg),
+            exec_order_days_remaining: 2,
+            illness_days_remaining: 1,
+            stats: Stats {
+                allies: 0,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+
+        let bundle = Rc::new(RngBundle::from_user_seed(123));
+        state.attach_rng_bundle(bundle.clone());
+
+        kernel.apply_daily_physics(&mut state);
+
+        assert!(bundle.weather().draws() > 0);
+        assert_eq!(bundle.health().draws(), 0);
+        assert_eq!(bundle.events().draws(), 0);
+        assert_eq!(bundle.travel().draws(), 0);
+        assert_eq!(bundle.breakdown().draws(), 0);
+        assert_eq!(bundle.encounter().draws(), 0);
+        assert_eq!(bundle.crossing().draws(), 0);
+        assert_eq!(bundle.boss().draws(), 0);
+        assert_eq!(bundle.trade().draws(), 0);
+        assert_eq!(bundle.hunt().draws(), 0);
+    }
+}
