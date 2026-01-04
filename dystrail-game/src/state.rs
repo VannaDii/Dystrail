@@ -72,6 +72,8 @@ use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
+use crate::mechanics::otdeluxe90s::{OtDeluxePace, OtDeluxeRations};
+use crate::otdeluxe_state::{OtDeluxePartyState, OtDeluxeState};
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
@@ -1726,6 +1728,38 @@ pub struct GuardState {
     pub exposure_damage_lockout: bool,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum DayIntent {
+    #[default]
+    Continue,
+    Rest,
+    Trade,
+    Hunt,
+    CrossingChoicePending,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IntentState {
+    pub pending: DayIntent,
+    pub rest_days_remaining: u8,
+}
+
+impl Default for IntentState {
+    fn default() -> Self {
+        Self {
+            pending: DayIntent::Continue,
+            rest_days_remaining: 0,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct WaitState {
+    pub ferry_wait_days_remaining: u8,
+    pub drying_days_remaining: u8,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct RestState {
     pub rest_requested: bool,
@@ -2026,6 +2060,12 @@ pub struct GameState {
     #[serde(default)]
     pub day_state: DayState,
     #[serde(default)]
+    pub intent: IntentState,
+    #[serde(default)]
+    pub wait: WaitState,
+    #[serde(default)]
+    pub ot_deluxe: OtDeluxeState,
+    #[serde(default)]
     pub encounters_today: u8,
     #[serde(default)]
     pub encounter_history: VecDeque<u8>,
@@ -2099,8 +2139,8 @@ pub struct GameState {
     pub last_breakdown_part: Option<Part>,
 }
 
-impl Default for GameState {
-    fn default() -> Self {
+macro_rules! game_state_defaults {
+    () => {
         Self {
             mode: GameMode::Classic,
             mechanical_policy: MechanicalPolicyId::default(),
@@ -2111,7 +2151,7 @@ impl Default for GameState {
             season: Season::default(),
             stats: Stats::default(),
             budget: 100,
-            budget_cents: 10_000, // $100.00 in cents
+            budget_cents: 10_000,
             inventory: Inventory::default(),
             persona_id: None,
             score_mult: 1.0,
@@ -2165,6 +2205,9 @@ impl Default for GameState {
             days_with_camp: 0,
             days_with_repair: 0,
             day_state: DayState::default(),
+            intent: IntentState::default(),
+            wait: WaitState::default(),
+            ot_deluxe: OtDeluxeState::default(),
             encounters_today: 0,
             encounter_history: VecDeque::with_capacity(ENCOUNTER_HISTORY_WINDOW + 2),
             recent_encounters: VecDeque::with_capacity(ENCOUNTER_RECENT_MEMORY),
@@ -2200,6 +2243,12 @@ impl Default for GameState {
             current_day_miles: 0.0,
             last_breakdown_part: None,
         }
+    };
+}
+
+impl Default for GameState {
+    fn default() -> Self {
+        game_state_defaults!()
     }
 }
 
@@ -2320,7 +2369,48 @@ impl GameState {
     }
 
     const fn current_version() -> u16 {
-        3
+        4
+    }
+
+    fn build_ot_deluxe_state_from_legacy(&self) -> OtDeluxeState {
+        let mut names = Vec::new();
+        if !self.party.leader.trim().is_empty() {
+            names.push(self.party.leader.clone());
+        }
+        for companion in &self.party.companions {
+            if !companion.trim().is_empty() {
+                names.push(companion.clone());
+            }
+        }
+        if names.len() > 5 {
+            names.truncate(5);
+        }
+        while names.len() < 5 {
+            let idx = names.len() + 1;
+            names.push(format!("Traveler {idx}"));
+        }
+
+        let pace = match self.pace {
+            PaceId::Steady => OtDeluxePace::Steady,
+            PaceId::Heated => OtDeluxePace::Strenuous,
+            PaceId::Blitz => OtDeluxePace::Grueling,
+        };
+        let rations = match self.diet {
+            DietId::Mixed => OtDeluxeRations::Filling,
+            DietId::Quiet => OtDeluxeRations::Meager,
+            DietId::Doom => OtDeluxeRations::BareBones,
+        };
+
+        OtDeluxeState {
+            day: self.day,
+            miles_traveled: self.miles_traveled_actual,
+            region: self.region,
+            season: self.season,
+            party: OtDeluxePartyState::from_names(names),
+            pace,
+            rations,
+            ..OtDeluxeState::default()
+        }
     }
 
     pub(crate) fn start_of_day(&mut self) {
@@ -3765,6 +3855,9 @@ impl GameState {
         self.journey_breakdown = BreakdownConfig::default();
         self.journey_part_weights = PartWeights::default();
         self.journey_crossing = CrossingPolicy::default();
+        self.intent = IntentState::default();
+        self.wait = WaitState::default();
+        self.ot_deluxe = OtDeluxeState::default();
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -3775,6 +3868,11 @@ impl GameState {
     pub fn rehydrate(mut self, data: EncounterData) -> Self {
         self.data = Some(data);
         if self.state_version < Self::current_version() {
+            if self.state_version < 4 {
+                self.intent = IntentState::default();
+                self.wait = WaitState::default();
+                self.ot_deluxe = self.build_ot_deluxe_state_from_legacy();
+            }
             self.state_version = Self::current_version();
             if self.day_records.is_empty()
                 && (self.travel_days > 0

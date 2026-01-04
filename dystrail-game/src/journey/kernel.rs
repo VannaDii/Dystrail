@@ -8,7 +8,7 @@ use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
 use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDayKind};
 use crate::pacing::PacingConfig;
-use crate::state::GameState;
+use crate::state::{DayIntent, GameState};
 use crate::weather::WeatherConfig;
 
 pub(crate) struct DailyTickKernel<'a> {
@@ -44,7 +44,24 @@ impl<'a> DailyTickKernel<'a> {
         state.apply_pace_and_diet(default_pacing_config());
         hook(state);
 
+        if let Some((ended, log_key, breakdown_started)) = Self::run_wait_gate(state) {
+            return Self::build_outcome(state, ended, log_key, breakdown_started);
+        }
+
+        if let Some((ended, log_key, breakdown_started)) = Self::run_intent_gate(state) {
+            return Self::build_outcome(state, ended, log_key, breakdown_started);
+        }
+
         let (ended, log_key, breakdown_started) = self.run_travel_flow(state);
+        Self::build_outcome(state, ended, log_key, breakdown_started)
+    }
+
+    fn build_outcome(
+        state: &mut GameState,
+        ended: bool,
+        log_key: String,
+        breakdown_started: bool,
+    ) -> DayOutcome {
         let day_consumed = state.day_state.lifecycle.did_end_of_day;
         let event_day = if day_consumed {
             state.day.saturating_sub(1)
@@ -171,6 +188,69 @@ impl<'a> DailyTickKernel<'a> {
 
         state.end_of_day();
         (false, String::from(LOG_TRAVELED), breakdown_started)
+    }
+
+    fn run_wait_gate(state: &mut GameState) -> Option<(bool, String, bool)> {
+        let reason_tag = if state.wait.ferry_wait_days_remaining > 0 {
+            state.wait.ferry_wait_days_remaining =
+                state.wait.ferry_wait_days_remaining.saturating_sub(1);
+            Some("wait_ferry")
+        } else if state.wait.drying_days_remaining > 0 {
+            state.wait.drying_days_remaining = state.wait.drying_days_remaining.saturating_sub(1);
+            Some("wait_drying")
+        } else {
+            None
+        };
+
+        let tag = reason_tag?;
+
+        if state.current_day_kind.is_none() {
+            state.day_state.lifecycle.suppress_stop_ratio = true;
+            state.record_travel_day(TravelDayKind::NonTravel, 0.0, tag);
+        } else {
+            state.add_day_reason_tag(tag);
+        }
+        state.end_of_day();
+        Some((false, String::from(LOG_TRAVELED), false))
+    }
+
+    fn run_intent_gate(state: &mut GameState) -> Option<(bool, String, bool)> {
+        match state.intent.pending {
+            DayIntent::Continue => None,
+            DayIntent::CrossingChoicePending => Some((false, String::from(LOG_TRAVELED), false)),
+            DayIntent::Rest => {
+                let remaining = state.intent.rest_days_remaining.clamp(1, 9);
+                let updated = remaining.saturating_sub(1);
+                state.intent.rest_days_remaining = updated;
+                if updated == 0 {
+                    state.intent.pending = DayIntent::Continue;
+                }
+                Self::record_intent_day(state, "intent_rest");
+                Some((false, String::from(LOG_TRAVELED), false))
+            }
+            DayIntent::Trade => {
+                state.intent.pending = DayIntent::Continue;
+                state.intent.rest_days_remaining = 0;
+                Self::record_intent_day(state, "intent_trade");
+                Some((false, String::from(LOG_TRAVELED), false))
+            }
+            DayIntent::Hunt => {
+                state.intent.pending = DayIntent::Continue;
+                state.intent.rest_days_remaining = 0;
+                Self::record_intent_day(state, "intent_hunt");
+                Some((false, String::from(LOG_TRAVELED), false))
+            }
+        }
+    }
+
+    fn record_intent_day(state: &mut GameState, reason_tag: &str) {
+        if state.current_day_kind.is_none() {
+            state.day_state.lifecycle.suppress_stop_ratio = true;
+            state.record_travel_day(TravelDayKind::NonTravel, 0.0, reason_tag);
+        } else {
+            state.add_day_reason_tag(reason_tag);
+        }
+        state.end_of_day();
     }
 
     fn run_weather_tick(state: &mut GameState) {
@@ -463,5 +543,49 @@ mod tests {
         assert_eq!(bundle.boss().draws(), 0);
         assert_eq!(bundle.trade().draws(), 0);
         assert_eq!(bundle.hunt().draws(), 0);
+    }
+
+    #[test]
+    fn wait_gate_consumes_non_travel_day_and_decrements_counter() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.wait.ferry_wait_days_remaining = 1;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(state.wait.ferry_wait_days_remaining, 0);
+        assert_eq!(state.day, 2);
+        let record = outcome.record.expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "wait_ferry"));
+    }
+
+    #[test]
+    fn rest_intent_counts_down_and_records_non_travel_days() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::Rest;
+        state.intent.rest_days_remaining = 2;
+
+        let first = kernel.tick_day(&mut state);
+        assert!(matches!(state.intent.pending, DayIntent::Rest));
+        assert_eq!(state.intent.rest_days_remaining, 1);
+        let first_record = first.record.expect("expected first record");
+        assert!(matches!(first_record.kind, TravelDayKind::NonTravel));
+        assert!(first_record.tags.iter().any(|tag| tag.0 == "intent_rest"));
+
+        let second = kernel.tick_day(&mut state);
+        assert!(matches!(state.intent.pending, DayIntent::Continue));
+        assert_eq!(state.intent.rest_days_remaining, 0);
+        let second_record = second.record.expect("expected second record");
+        assert!(matches!(second_record.kind, TravelDayKind::NonTravel));
+        assert!(second_record.tags.iter().any(|tag| tag.0 == "intent_rest"));
+        assert_eq!(state.day_records.len(), 2);
     }
 }

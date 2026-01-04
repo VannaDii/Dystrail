@@ -1044,7 +1044,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 9) Intent System: Rest, Trade, Hunt, Continue (Day-Atomic)
 
-- [ ] INTENT-001 (P0) Introduce `DayIntent` and intent resolution phase (phase 6)
+- [x] INTENT-001 (P0) Introduce `DayIntent` and intent resolution phase (phase 6)
   - Requirement:
     - Implement explicit daily intent resolution:
       - Continue (travel)
@@ -1057,7 +1057,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Intent resolution happens exactly once per day in the kernel and is recorded in DayInputs/DayEvents.
 
-- [ ] WAIT-001 (P0) Implement scheduled non-travel “wait day” gates (ferry queues, drying days, etc.)
+- [x] WAIT-001 (P0) Implement scheduled non-travel “wait day” gates (ferry queues, drying days, etc.)
   - Requirement:
     - Certain mechanics produce forced non-travel days that are not player-chosen intents (Deluxe lineage examples: ferry wait days; drying day after wet goods).
     - Implement a kernel gate (before IntentTick) that:
@@ -1072,7 +1072,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - While waiting for a ferry, the player cannot “continue traveling” or start hunting/trading; only the wait day is applied.
     - The day record clearly distinguishes forced wait days from voluntary Rest intent days.
 
-- [ ] REST-001 (P0) Implement rest as N day-atomic intents (1..9 for Deluxe UX)
+- [x] REST-001 (P0) Implement rest as N day-atomic intents (1..9 for Deluxe UX)
   - Requirement:
     - Rest must:
       - advance the day loop (not “free”)
@@ -1675,7 +1675,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Running the harness produces reproducible artifacts under pinned inputs (seed/save-state + EXE hash).
     - Fitted policy parameters can be updated without modifying kernel code.
 
-- [ ] MIGRATION-001 (P0) Add state version bump + save migration for new fields
+- [x] MIGRATION-001 (P0) Add state version bump + save migration for new fields
   - Requirement:
     - New state fields (health_general, general_strain, accumulators, route variant, pending intents, etc.) must be migrated from old saves.
   - Acceptance criteria:

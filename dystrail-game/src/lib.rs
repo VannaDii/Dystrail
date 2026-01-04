@@ -16,6 +16,7 @@ pub mod exec_orders;
 pub mod journey;
 pub mod mechanics;
 pub mod numbers;
+pub mod otdeluxe_state;
 pub mod pacing;
 pub mod personas;
 pub mod result;
