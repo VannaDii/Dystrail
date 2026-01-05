@@ -73,10 +73,13 @@ use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
-use crate::mechanics::otdeluxe90s::{OtDeluxe90sPolicy, OtDeluxePace, OtDeluxeRations};
+use crate::mechanics::otdeluxe90s::{
+    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxePace, OtDeluxePaceHealthPolicy,
+    OtDeluxeRations, OtDeluxeRationsPolicy,
+};
 use crate::otdeluxe_state::{
-    OtDeluxeCalendar, OtDeluxeInventory, OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain,
-    OtDeluxeWagonState,
+    OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeInventory,
+    OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
 };
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -240,6 +243,95 @@ const fn default_pace() -> PaceId {
 fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
+}
+
+fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflictionPolicy) -> f32 {
+    let mut probability = policy.curve_pwl[0].probability;
+    if health_general <= policy.curve_pwl[0].health {
+        return probability.clamp(0.0, policy.probability_max);
+    }
+    for window in policy.curve_pwl.windows(2) {
+        let start = window[0];
+        let end = window[1];
+        if health_general <= end.health {
+            let span = f32::from(end.health.saturating_sub(start.health));
+            if span > 0.0 {
+                let offset = f32::from(health_general.saturating_sub(start.health));
+                let t = (offset / span).clamp(0.0, 1.0);
+                probability = start.probability.mul_add(1.0 - t, end.probability * t);
+            } else {
+                probability = start.probability;
+            }
+            return probability.clamp(0.0, policy.probability_max);
+        }
+    }
+    if let Some(last) = policy.curve_pwl.last() {
+        probability = last.probability;
+    }
+    probability.clamp(0.0, policy.probability_max)
+}
+
+fn roll_otdeluxe_affliction_kind<R>(
+    policy: &OtDeluxeAfflictionPolicy,
+    rng: &mut R,
+) -> OtDeluxeAfflictionKind
+where
+    R: rand::Rng + ?Sized,
+{
+    let total = u32::from(policy.weight_illness) + u32::from(policy.weight_injury);
+    if total == 0 {
+        return OtDeluxeAfflictionKind::Illness;
+    }
+    let roll = rng.gen_range(0..total);
+    if roll < u32::from(policy.weight_illness) {
+        OtDeluxeAfflictionKind::Illness
+    } else {
+        OtDeluxeAfflictionKind::Injury
+    }
+}
+
+const fn otdeluxe_pace_health_penalty(
+    pace: OtDeluxePace,
+    policy: &OtDeluxePaceHealthPolicy,
+) -> i32 {
+    match pace {
+        OtDeluxePace::Steady => policy.steady,
+        OtDeluxePace::Strenuous => policy.strenuous,
+        OtDeluxePace::Grueling => policy.grueling,
+    }
+}
+
+const fn otdeluxe_rations_food_per_person(
+    rations: OtDeluxeRations,
+    policy: &OtDeluxeRationsPolicy,
+) -> u16 {
+    match rations {
+        OtDeluxeRations::Filling => policy.food_lbs_per_person[0],
+        OtDeluxeRations::Meager => policy.food_lbs_per_person[1],
+        OtDeluxeRations::BareBones => policy.food_lbs_per_person[2],
+    }
+}
+
+const fn otdeluxe_rations_health_penalty(
+    rations: OtDeluxeRations,
+    policy: &OtDeluxeRationsPolicy,
+) -> i32 {
+    match rations {
+        OtDeluxeRations::Filling => policy.health_penalty[0],
+        OtDeluxeRations::Meager => policy.health_penalty[1],
+        OtDeluxeRations::BareBones => policy.health_penalty[2],
+    }
+}
+
+fn otdeluxe_affliction_duration(
+    kind: OtDeluxeAfflictionKind,
+    policy: &OtDeluxeAfflictionPolicy,
+) -> u8 {
+    let duration = match kind {
+        OtDeluxeAfflictionKind::Illness => policy.illness_duration_days,
+        OtDeluxeAfflictionKind::Injury => policy.injury_duration_days,
+    };
+    duration.max(1)
 }
 
 #[cfg(test)]
@@ -1561,6 +1653,61 @@ mod tests {
         state.budget_cents = BOSS_COMPOSE_FUNDS_COST + 500;
         assert!(state.apply_deep_aggressive_compose());
     }
+
+    #[test]
+    fn otdeluxe_affliction_probability_interpolates() {
+        let policy = default_otdeluxe_policy();
+        let probability = otdeluxe_affliction_probability(52, &policy.affliction);
+        assert!((probability - 0.10).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_travel_scales_with_oxen_and_sick_party() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 2;
+        state.ot_deluxe.pace = OtDeluxePace::Steady;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state.ot_deluxe.party.members[0].sick_days_remaining = 1;
+
+        state.apply_otdeluxe_pace_and_rations();
+
+        assert!((state.distance_today - 9.0).abs() <= 1e-6);
+        assert!((state.distance_today_raw - 9.0).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_consumption_scales_with_rations_and_alive_members() {
+        let mut state = GameState::default();
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B", "C"]);
+        state.ot_deluxe.inventory.food_lbs = 20;
+        state.ot_deluxe.rations = OtDeluxeRations::Meager;
+
+        let consumed = state.apply_otdeluxe_consumption();
+
+        assert_eq!(consumed, 6);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 14);
+    }
+
+    #[test]
+    fn otdeluxe_health_update_applies_pace_and_rations() {
+        let mut state = GameState::default();
+        let policy = default_otdeluxe_policy();
+        state.ot_deluxe.health_general = 20;
+        state.ot_deluxe.pace = OtDeluxePace::Grueling;
+        state.ot_deluxe.rations = OtDeluxeRations::BareBones;
+
+        let delta = state.apply_otdeluxe_health_update();
+
+        let expected_delta = policy.health.recovery_baseline
+            + policy.pace_health_penalty.grueling
+            + policy.rations.health_penalty[2];
+        let expected_health = (20 + expected_delta).max(0);
+        assert_eq!(delta, expected_delta);
+        assert_eq!(
+            state.ot_deluxe.health_general,
+            u16::try_from(expected_health).unwrap_or(u16::MAX)
+        );
+    }
 }
 
 /// Default diet setting
@@ -2428,6 +2575,40 @@ impl GameState {
             rations,
             ..OtDeluxeState::default()
         }
+    }
+
+    pub(crate) fn otdeluxe_alive_party_count(&self) -> u16 {
+        if !self.ot_deluxe.party.members.is_empty() {
+            return self.ot_deluxe.party.alive_count();
+        }
+        let leader = u16::from(!self.party.leader.trim().is_empty());
+        let companions = u16::try_from(self.party.companions.len()).unwrap_or(u16::MAX);
+        leader.saturating_add(companions)
+    }
+
+    pub(crate) fn apply_otdeluxe_consumption(&mut self) -> u16 {
+        let policy = default_otdeluxe_policy();
+        let per_person = otdeluxe_rations_food_per_person(self.ot_deluxe.rations, &policy.rations);
+        let alive = self.otdeluxe_alive_party_count();
+        let needed = u32::from(per_person).saturating_mul(u32::from(alive));
+        let needed_u16 = u16::try_from(needed).unwrap_or(u16::MAX);
+        let consumed = needed_u16.min(self.ot_deluxe.inventory.food_lbs);
+        self.ot_deluxe.inventory.food_lbs =
+            self.ot_deluxe.inventory.food_lbs.saturating_sub(consumed);
+        consumed
+    }
+
+    pub(crate) fn apply_otdeluxe_health_update(&mut self) -> i32 {
+        let policy = default_otdeluxe_policy();
+        let pace_penalty =
+            otdeluxe_pace_health_penalty(self.ot_deluxe.pace, &policy.pace_health_penalty);
+        let rations_penalty =
+            otdeluxe_rations_health_penalty(self.ot_deluxe.rations, &policy.rations);
+        let total_delta = policy.health.recovery_baseline + pace_penalty + rations_penalty;
+        let current = i32::from(self.ot_deluxe.health_general);
+        let next = (current + total_delta).max(0);
+        self.ot_deluxe.health_general = u16::try_from(next).unwrap_or(u16::MAX);
+        total_delta
     }
 
     pub(crate) fn start_of_day(&mut self) {
@@ -3327,6 +3508,30 @@ impl GameState {
         self.logs.push(String::from(LOG_DISEASE_HIT));
     }
 
+    pub(crate) fn tick_otdeluxe_afflictions(&mut self) -> Option<OtDeluxeAfflictionOutcome> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        self.ot_deluxe.party.tick_afflictions();
+        let policy = default_otdeluxe_policy();
+        let probability =
+            otdeluxe_affliction_probability(self.ot_deluxe.health_general, &policy.affliction);
+        if probability <= 0.0 {
+            return None;
+        }
+        let bundle = self.rng_bundle.clone()?;
+        let mut rng = bundle.health();
+        let roll: f32 = rng.r#gen();
+        if roll >= probability {
+            return None;
+        }
+        let kind = roll_otdeluxe_affliction_kind(&policy.affliction, &mut *rng);
+        let duration = otdeluxe_affliction_duration(kind, &policy.affliction);
+        self.ot_deluxe
+            .party
+            .apply_affliction_random(&mut *rng, kind, duration)
+    }
+
     pub(crate) fn tick_ally_attrition(&mut self) {
         if self.stats.allies <= 0 {
             return;
@@ -3526,6 +3731,41 @@ impl GameState {
         self.distance_today = clamped_distance;
         self.partial_distance_today = partial_distance;
         self.distance_today
+    }
+
+    fn compute_otdeluxe_miles_for_today(&mut self, policy: &OtDeluxe90sPolicy) -> f32 {
+        let base = policy.travel.base_mpd_plains_steady_good.max(0.0);
+        let pace_mult = match self.ot_deluxe.pace {
+            OtDeluxePace::Steady => policy.pace_mult_steady,
+            OtDeluxePace::Strenuous => policy.pace_mult_strenuous,
+            OtDeluxePace::Grueling => policy.pace_mult_grueling,
+        };
+        let terrain_mult = if matches!(self.ot_deluxe.terrain, OtDeluxeTerrain::Mountains) {
+            policy.travel.terrain_mult_mountains
+        } else {
+            1.0
+        };
+        let effective_oxen = self.ot_deluxe.effective_oxen(policy);
+        let oxen_mult =
+            if policy.oxen.min_for_base > 0.0 && effective_oxen < policy.oxen.min_for_base {
+                (effective_oxen / policy.oxen.min_for_base).max(0.0)
+            } else {
+                1.0
+            };
+        let sick_count = f32::from(self.ot_deluxe.party.sick_count());
+        let sick_penalty = policy
+            .travel
+            .sick_member_speed_penalty
+            .mul_add(-sick_count, 1.0)
+            .max(0.0);
+        let miles = (base * pace_mult * terrain_mult * oxen_mult * sick_penalty).max(0.0);
+        let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
+        let partial = (miles * ratio).clamp(0.0, miles);
+        self.distance_today_raw = miles;
+        self.distance_today = miles;
+        self.partial_distance_today = partial;
+        self.distance_cap_today = miles;
+        miles
     }
 
     fn pace_scalar(&self, travel_cfg: &TravelConfig, pace_cfg: &crate::pacing::PaceCfg) -> f32 {
@@ -4517,6 +4757,11 @@ impl GameState {
 
         self.receipt_bonus_pct += diet_cfg.receipt_find_pct_delta;
         self.receipt_bonus_pct = self.receipt_bonus_pct.clamp(-100, 100);
+    }
+
+    pub fn apply_otdeluxe_pace_and_rations(&mut self) {
+        let policy = default_otdeluxe_policy();
+        let _ = self.compute_otdeluxe_miles_for_today(policy);
     }
 
     fn encounter_weather_adjustment(&self) -> (f32, f32) {

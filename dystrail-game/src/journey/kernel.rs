@@ -6,7 +6,9 @@ use crate::constants::LOG_TRAVELED;
 use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
-use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, RngPhase, TravelDayKind};
+use crate::journey::{
+    DayOutcome, Event, EventId, JourneyCfg, MechanicalPolicyId, RngPhase, TravelDayKind,
+};
 use crate::pacing::PacingConfig;
 use crate::state::{DayIntent, GameState};
 use crate::weather::WeatherConfig;
@@ -42,7 +44,11 @@ impl<'a> DailyTickKernel<'a> {
         F: FnOnce(&mut GameState),
     {
         self.apply_daily_physics(state);
-        state.apply_pace_and_diet(default_pacing_config());
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            state.apply_otdeluxe_pace_and_rations();
+        } else {
+            state.apply_pace_and_diet(default_pacing_config());
+        }
         hook(state);
 
         if let Some((ended, log_key, breakdown_started)) = Self::run_wait_gate(state) {
@@ -292,10 +298,18 @@ impl<'a> DailyTickKernel<'a> {
         let _guard = rng_bundle
             .as_ref()
             .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            state.apply_otdeluxe_consumption();
+            return;
+        }
         let _ = apply_daily_supplies_sanity(&self.cfg.daily, state);
     }
 
     fn run_health_tick(&self, state: &mut GameState) {
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            Self::run_otdeluxe_health_tick(state);
+            return;
+        }
         state.apply_starvation_tick();
         let rng_bundle = state.rng_bundle.clone();
         {
@@ -318,6 +332,15 @@ impl<'a> DailyTickKernel<'a> {
             state.tick_ally_attrition();
         }
         state.stats.clamp();
+    }
+
+    fn run_otdeluxe_health_tick(state: &mut GameState) {
+        let rng_bundle = state.rng_bundle.clone();
+        let _guard = rng_bundle
+            .as_ref()
+            .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
+        state.apply_otdeluxe_health_update();
+        let _ = state.tick_otdeluxe_afflictions();
     }
 }
 

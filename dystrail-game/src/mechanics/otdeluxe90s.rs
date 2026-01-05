@@ -14,12 +14,44 @@ pub enum OtDeluxePace {
     Grueling,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct OtDeluxePaceHealthPolicy {
+    pub steady: i32,
+    pub strenuous: i32,
+    pub grueling: i32,
+}
+
+impl Default for OtDeluxePaceHealthPolicy {
+    fn default() -> Self {
+        Self {
+            steady: 0,
+            strenuous: 5,
+            grueling: 10,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum OtDeluxeRations {
     Filling,
     Meager,
     BareBones,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct OtDeluxeRationsPolicy {
+    pub food_lbs_per_person: [u16; 3],
+    pub health_penalty: [i32; 3],
+}
+
+impl Default for OtDeluxeRationsPolicy {
+    fn default() -> Self {
+        Self {
+            food_lbs_per_person: [3, 2, 1],
+            health_penalty: [0, 5, 10],
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -104,6 +136,14 @@ pub struct OtDeluxeAfflictionCurvePoint {
 pub struct OtDeluxeAfflictionPolicy {
     pub probability_max: f32,
     pub curve_pwl: [OtDeluxeAfflictionCurvePoint; 9],
+    #[serde(default)]
+    pub weight_illness: u16,
+    #[serde(default)]
+    pub weight_injury: u16,
+    #[serde(default)]
+    pub illness_duration_days: u8,
+    #[serde(default)]
+    pub injury_duration_days: u8,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -179,6 +219,23 @@ pub struct OtDeluxeOccupationAdvantages {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeTravelPolicy {
+    pub base_mpd_plains_steady_good: f32,
+    pub terrain_mult_mountains: f32,
+    pub sick_member_speed_penalty: f32,
+}
+
+impl Default for OtDeluxeTravelPolicy {
+    fn default() -> Self {
+        Self {
+            base_mpd_plains_steady_good: 20.0,
+            terrain_mult_mountains: 0.5,
+            sick_member_speed_penalty: 0.10,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxeOxenPolicy {
     pub sick_ox_weight: f32,
     pub min_to_move: f32,
@@ -201,11 +258,16 @@ pub struct OtDeluxe90sPolicy {
     pub pace_mult_steady: f32,
     pub pace_mult_strenuous: f32,
     pub pace_mult_grueling: f32,
+    #[serde(default)]
+    pub pace_health_penalty: OtDeluxePaceHealthPolicy,
     pub rations_enum: [OtDeluxeRations; 3],
+    #[serde(default)]
+    pub rations: OtDeluxeRationsPolicy,
     pub store: OtDeluxeStorePolicy,
     pub occupations: [OtDeluxeOccupationSpec; 8],
     pub occupation_advantages: OtDeluxeOccupationAdvantages,
     pub oxen: OtDeluxeOxenPolicy,
+    pub travel: OtDeluxeTravelPolicy,
     pub health: OtDeluxeHealthPolicy,
     pub affliction: OtDeluxeAfflictionPolicy,
     pub crossings: OtDeluxeCrossingPolicy,
@@ -431,6 +493,10 @@ impl Default for OtDeluxeAfflictionPolicy {
         Self {
             probability_max: 0.40,
             curve_pwl: DEFAULT_AFFLICTION_CURVE_PWL,
+            weight_illness: 1,
+            weight_injury: 1,
+            illness_duration_days: 10,
+            injury_duration_days: 30,
         }
     }
 }
@@ -460,11 +526,14 @@ impl Default for OtDeluxe90sPolicy {
             pace_mult_steady: 1.0,
             pace_mult_strenuous: 1.5,
             pace_mult_grueling: 2.0,
+            pace_health_penalty: OtDeluxePaceHealthPolicy::default(),
             rations_enum: DEFAULT_RATIONS_ENUM,
+            rations: OtDeluxeRationsPolicy::default(),
             store: OtDeluxeStorePolicy::default(),
             occupations: DEFAULT_OCCUPATIONS,
             occupation_advantages: OtDeluxeOccupationAdvantages::default(),
             oxen: OtDeluxeOxenPolicy::default(),
+            travel: OtDeluxeTravelPolicy::default(),
             health: OtDeluxeHealthPolicy::default(),
             affliction: OtDeluxeAfflictionPolicy::default(),
             crossings: OtDeluxeCrossingPolicy::default(),
@@ -533,6 +602,18 @@ mod tests {
         assert_f32_eq(policy.oxen.sick_ox_weight, 0.5);
         assert_f32_eq(policy.oxen.min_to_move, 1.0);
         assert_f32_eq(policy.oxen.min_for_base, 4.0);
+        assert_f32_eq(policy.travel.base_mpd_plains_steady_good, 20.0);
+        assert_f32_eq(policy.travel.terrain_mult_mountains, 0.5);
+        assert_f32_eq(policy.travel.sick_member_speed_penalty, 0.10);
+        assert_eq!(policy.pace_health_penalty.steady, 0);
+        assert_eq!(policy.pace_health_penalty.strenuous, 5);
+        assert_eq!(policy.pace_health_penalty.grueling, 10);
+        assert_eq!(policy.rations.food_lbs_per_person, [3, 2, 1]);
+        assert_eq!(policy.rations.health_penalty, [0, 5, 10]);
+        assert_eq!(policy.affliction.weight_illness, 1);
+        assert_eq!(policy.affliction.weight_injury, 1);
+        assert_eq!(policy.affliction.illness_duration_days, 10);
+        assert_eq!(policy.affliction.injury_duration_days, 30);
 
         assert_eq!(policy.score.points_per_person_by_health.good, 500);
         assert_eq!(policy.score.divisor_cash_cents, 500);

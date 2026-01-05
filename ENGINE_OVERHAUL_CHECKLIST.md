@@ -437,7 +437,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Party-alive count is authoritative and consistent across health, hunting, and scoring.
 
-- [ ] STATE-003 (P0) Implement oxen state + “effective oxen” computation (Deluxe mobility)
+- [x] STATE-003 (P0) Implement oxen state + “effective oxen” computation (Deluxe mobility)
   - Requirement:
     - Track oxen as a quantity (including “sick” vs “healthy” if modeled explicitly).
     - Implement `effective_oxen = healthy_oxen + sick_oxen * SICK_OX_WEIGHT`.
@@ -472,7 +472,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Advancing N days always advances date deterministically and recomputes season accordingly.
 
-- [ ] PACE-001 (P0) Implement OTDeluxe pace model (8/12/16 hours + multipliers + health/fatigue effects)
+- [x] PACE-001 (P0) Implement OTDeluxe pace model (8/12/16 hours + multipliers + health/fatigue effects)
   - Requirement:
     - `pace` must be a Deluxe-style enum:
       - Steady (8 hours/day), Strenuous (12), Grueling (16)
@@ -485,7 +485,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Pace affects both progress and health/strain in the same day’s causal chain (no delayed/hidden updates).
 
-- [ ] RATIONS-001 (P0) Implement OTDeluxe rations model and ensure it affects BOTH consumption and health
+- [x] RATIONS-001 (P0) Implement OTDeluxe rations model and ensure it affects BOTH consumption and health
   - Requirement:
     - `rations` must be a Deluxe-style enum: Filling / Meager / Bare Bones.
     - Rations must affect:
@@ -923,7 +923,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - `health_general` updates occur in HealthTick only and match the policy function.
 
-- [ ] HEALTH-002 (P0) Implement the affliction roll semantics (0..40% odds, repeat kills)
+- [x] HEALTH-002 (P0) Implement the affliction roll semantics (0..40% odds, repeat kills)
   - Requirement:
     - In HealthTick, compute `p_affliction_today` from policy’s odds driver:
       - OTDeluxe90sPolicy: `AFFLICTION_CURVE_PWL(health_general)` clamped to 0..0.40
@@ -1002,7 +1002,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A single-day trace can account for every change to `health_general` without hidden/duplicate steps.
 
-- [ ] HEALTH-008 (P1) Implement `M_party_sick` travel slowdown and keep it consistent with party state
+- [x] HEALTH-008 (P1) Implement `M_party_sick` travel slowdown and keep it consistent with party state
   - Requirement:
     - Each sick party member reduces travel speed by 10%:
       - `M_party_sick(sick_count) = max(0, 1 - 0.10*sick_count)`

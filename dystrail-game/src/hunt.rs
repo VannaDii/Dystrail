@@ -105,15 +105,7 @@ const fn is_crowded_location(region: Region) -> bool {
 }
 
 fn carry_cap_lbs(state: &GameState) -> u16 {
-    let has_ot_members = !state.ot_deluxe.party.members.is_empty();
-    let alive = if has_ot_members {
-        state.ot_deluxe.party.alive_count()
-    } else {
-        let leader = u16::from(!state.party.leader.trim().is_empty());
-        let companions = u16::try_from(state.party.companions.len()).unwrap_or(u16::MAX);
-        let count = leader.saturating_add(companions);
-        count.max(1)
-    };
+    let alive = state.otdeluxe_alive_party_count();
     alive.saturating_mul(100)
 }
 
