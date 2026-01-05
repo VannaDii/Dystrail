@@ -5,6 +5,9 @@
 //! behavior by itself.
 
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
+
+use crate::weather::Weather;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -146,13 +149,27 @@ pub struct OtDeluxeAfflictionPolicy {
     pub injury_duration_days: u8,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxeHealthPolicy {
     pub recovery_baseline: i32,
     pub death_threshold: u16,
     pub label_ranges: OtDeluxeHealthLabelRanges,
     pub death_imminent_grace_days: u8,
     pub death_imminent_resets_on_recovery_below_threshold: bool,
+    #[serde(default)]
+    pub weather_penalty: HashMap<Weather, i32>,
+    #[serde(default)]
+    pub clothing_sets_per_person: u16,
+    #[serde(default)]
+    pub clothing_penalty_winter: i32,
+    #[serde(default)]
+    pub affliction_illness_penalty: i32,
+    #[serde(default)]
+    pub affliction_injury_penalty: i32,
+    #[serde(default)]
+    pub drought_threshold: f32,
+    #[serde(default)]
+    pub drought_penalty: i32,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -455,6 +472,13 @@ impl Default for OtDeluxeHealthPolicy {
             },
             death_imminent_grace_days: 3,
             death_imminent_resets_on_recovery_below_threshold: true,
+            weather_penalty: HashMap::new(),
+            clothing_sets_per_person: 2,
+            clothing_penalty_winter: 0,
+            affliction_illness_penalty: 0,
+            affliction_injury_penalty: 0,
+            drought_threshold: 0.0,
+            drought_penalty: 0,
         }
     }
 }
@@ -614,6 +638,13 @@ mod tests {
         assert_eq!(policy.affliction.weight_injury, 1);
         assert_eq!(policy.affliction.illness_duration_days, 10);
         assert_eq!(policy.affliction.injury_duration_days, 30);
+        assert!(policy.health.weather_penalty.is_empty());
+        assert_eq!(policy.health.clothing_sets_per_person, 2);
+        assert_eq!(policy.health.clothing_penalty_winter, 0);
+        assert_eq!(policy.health.affliction_illness_penalty, 0);
+        assert_eq!(policy.health.affliction_injury_penalty, 0);
+        assert_f32_eq(policy.health.drought_threshold, 0.0);
+        assert_eq!(policy.health.drought_penalty, 0);
 
         assert_eq!(policy.score.points_per_person_by_health.good, 500);
         assert_eq!(policy.score.divisor_cash_cents, 500);

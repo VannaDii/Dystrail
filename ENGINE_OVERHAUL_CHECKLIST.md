@@ -913,7 +913,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 8) Health, Afflictions, and Disease Catalog
 
-- [ ] HEALTH-001 (P0) Add `health_general` and implement OTDeluxe90s health arithmetic
+- [x] HEALTH-001 (P0) Add `health_general` and implement OTDeluxe90s health arithmetic
   - Requirement:
     - Maintain `health_general` scalar and implement baseline recovery and penalties in policy:
       - `HEALTH_RECOVERY_BASELINE = health_general -= 10` (policy-defined)
@@ -965,7 +965,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - `general_strain` is recomputed daily in HealthTick and used only as allowed (odds/weights hooks).
 
-- [ ] HEALTH-005 (P1) Implement death-imminent timer semantics (Deluxe phrase “within a few days”)
+- [x] HEALTH-005 (P1) Implement death-imminent timer semantics (Deluxe phrase “within a few days”)
   - Requirement:
     - If `health_general >= HEALTH_DEATH_THRESHOLD`, set/advance a death timer:
       - `DEATH_IMMINENT_GRACE_DAYS` and reset behavior are policy-defined.
@@ -984,7 +984,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Perk effects are applied only via policy hooks; no hard-coded profession if/else in the kernel.
 
-- [ ] HEALTH-007 (P0) Implement the full Deluxe-lineage daily health formula (all additive factors)
+- [x] HEALTH-007 (P0) Implement the full Deluxe-lineage daily health formula (all additive factors)
   - Requirement:
     - HealthTick must apply the normative equation (no double-counting):
       - baseline recovery `health_general -= 10`

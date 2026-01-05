@@ -74,8 +74,8 @@ use crate::journey::{
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxePace, OtDeluxePaceHealthPolicy,
-    OtDeluxeRations, OtDeluxeRationsPolicy,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxePace,
+    OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
 };
 use crate::otdeluxe_state::{
     OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeInventory,
@@ -321,6 +321,79 @@ const fn otdeluxe_rations_health_penalty(
         OtDeluxeRations::Meager => policy.health_penalty[1],
         OtDeluxeRations::BareBones => policy.health_penalty[2],
     }
+}
+
+fn otdeluxe_weather_health_penalty(weather: Weather, policy: &OtDeluxeHealthPolicy) -> i32 {
+    *policy.weather_penalty.get(&weather).unwrap_or(&0)
+}
+
+fn otdeluxe_clothing_health_penalty(
+    season: Season,
+    inventory: &OtDeluxeInventory,
+    alive: u16,
+    policy: &OtDeluxeHealthPolicy,
+) -> i32 {
+    if season != Season::Winter {
+        return 0;
+    }
+    if policy.clothing_penalty_winter == 0 || policy.clothing_sets_per_person == 0 {
+        return 0;
+    }
+    let needed = u32::from(policy.clothing_sets_per_person).saturating_mul(u32::from(alive));
+    if u32::from(inventory.clothes_sets) < needed {
+        policy.clothing_penalty_winter
+    } else {
+        0
+    }
+}
+
+fn otdeluxe_affliction_health_penalty(
+    party: &OtDeluxePartyState,
+    policy: &OtDeluxeHealthPolicy,
+) -> i32 {
+    let sick = i64::from(party.sick_count());
+    let injured = i64::from(party.injured_count());
+    let illness_penalty = i64::from(policy.affliction_illness_penalty);
+    let injury_penalty = i64::from(policy.affliction_injury_penalty);
+    let total = sick.saturating_mul(illness_penalty) + injured.saturating_mul(injury_penalty);
+    i32::try_from(total.clamp(i64::from(i32::MIN), i64::from(i32::MAX))).unwrap_or(0)
+}
+
+fn otdeluxe_drought_health_penalty(rain_accum: f32, policy: &OtDeluxeHealthPolicy) -> i32 {
+    if !rain_accum.is_finite() || policy.drought_threshold <= 0.0 {
+        return 0;
+    }
+    if rain_accum <= policy.drought_threshold {
+        policy.drought_penalty
+    } else {
+        0
+    }
+}
+
+fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
+    let pace_penalty =
+        otdeluxe_pace_health_penalty(state.ot_deluxe.pace, &policy.pace_health_penalty);
+    let rations_penalty = otdeluxe_rations_health_penalty(state.ot_deluxe.rations, &policy.rations);
+    let weather_penalty =
+        otdeluxe_weather_health_penalty(state.weather_state.today, &policy.health);
+    let alive = state.otdeluxe_alive_party_count();
+    let clothing_penalty = otdeluxe_clothing_health_penalty(
+        state.ot_deluxe.season,
+        &state.ot_deluxe.inventory,
+        alive,
+        &policy.health,
+    );
+    let affliction_penalty =
+        otdeluxe_affliction_health_penalty(&state.ot_deluxe.party, &policy.health);
+    let drought_penalty =
+        otdeluxe_drought_health_penalty(state.ot_deluxe.weather.rain_accum, &policy.health);
+    policy.health.recovery_baseline
+        + pace_penalty
+        + rations_penalty
+        + weather_penalty
+        + clothing_penalty
+        + affliction_penalty
+        + drought_penalty
 }
 
 fn otdeluxe_affliction_duration(
@@ -1698,15 +1771,59 @@ mod tests {
 
         let delta = state.apply_otdeluxe_health_update();
 
-        let expected_delta = policy.health.recovery_baseline
-            + policy.pace_health_penalty.grueling
-            + policy.rations.health_penalty[2];
+        let expected_delta = otdeluxe_health_delta(&state, policy);
         let expected_health = (20 + expected_delta).max(0);
         assert_eq!(delta, expected_delta);
         assert_eq!(
             state.ot_deluxe.health_general,
             u16::try_from(expected_health).unwrap_or(u16::MAX)
         );
+    }
+
+    #[test]
+    fn otdeluxe_health_delta_includes_weather_and_clothing_penalties() {
+        let mut state = GameState::default();
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A"]);
+        state.ot_deluxe.inventory.clothes_sets = 0;
+        state.ot_deluxe.season = Season::Winter;
+        state.weather_state.today = Weather::Storm;
+
+        let mut policy = OtDeluxe90sPolicy::default();
+        policy.health.weather_penalty.insert(Weather::Storm, 7);
+        policy.health.clothing_penalty_winter = 5;
+        policy.health.clothing_sets_per_person = 2;
+
+        let delta = otdeluxe_health_delta(&state, &policy);
+
+        let expected = policy.health.recovery_baseline
+            + policy.pace_health_penalty.steady
+            + policy.rations.health_penalty[0]
+            + 7
+            + 5;
+        assert_eq!(delta, expected);
+    }
+
+    #[test]
+    fn otdeluxe_death_imminent_counts_down_and_resets() {
+        let mut state = GameState::default();
+        let policy = OtDeluxe90sPolicy::default();
+        state.ot_deluxe.health_general = policy.health.death_threshold;
+
+        state.update_otdeluxe_death_imminent(&policy.health);
+        assert_eq!(
+            state.ot_deluxe.death_imminent_days_remaining,
+            policy.health.death_imminent_grace_days
+        );
+
+        state.update_otdeluxe_death_imminent(&policy.health);
+        assert_eq!(
+            state.ot_deluxe.death_imminent_days_remaining,
+            policy.health.death_imminent_grace_days.saturating_sub(1)
+        );
+
+        state.ot_deluxe.health_general = policy.health.death_threshold.saturating_sub(1);
+        state.update_otdeluxe_death_imminent(&policy.health);
+        assert_eq!(state.ot_deluxe.death_imminent_days_remaining, 0);
     }
 }
 
@@ -2600,15 +2717,42 @@ impl GameState {
 
     pub(crate) fn apply_otdeluxe_health_update(&mut self) -> i32 {
         let policy = default_otdeluxe_policy();
-        let pace_penalty =
-            otdeluxe_pace_health_penalty(self.ot_deluxe.pace, &policy.pace_health_penalty);
-        let rations_penalty =
-            otdeluxe_rations_health_penalty(self.ot_deluxe.rations, &policy.rations);
-        let total_delta = policy.health.recovery_baseline + pace_penalty + rations_penalty;
+        let total_delta = otdeluxe_health_delta(self, policy);
         let current = i32::from(self.ot_deluxe.health_general);
         let next = (current + total_delta).max(0);
         self.ot_deluxe.health_general = u16::try_from(next).unwrap_or(u16::MAX);
+        self.update_otdeluxe_death_imminent(&policy.health);
         total_delta
+    }
+
+    fn update_otdeluxe_death_imminent(&mut self, policy: &OtDeluxeHealthPolicy) {
+        if self.ot_deluxe.health_general >= policy.death_threshold {
+            let grace = policy.death_imminent_grace_days;
+            if self.ot_deluxe.death_imminent_days_remaining == 0 {
+                self.ot_deluxe.death_imminent_days_remaining = grace;
+            } else {
+                if self.ot_deluxe.death_imminent_days_remaining > grace {
+                    self.ot_deluxe.death_imminent_days_remaining = grace;
+                }
+                if self.ot_deluxe.death_imminent_days_remaining > 0 {
+                    self.ot_deluxe.death_imminent_days_remaining = self
+                        .ot_deluxe
+                        .death_imminent_days_remaining
+                        .saturating_sub(1);
+                }
+            }
+            if grace == 0 || self.ot_deluxe.death_imminent_days_remaining == 0 {
+                for member in &mut self.ot_deluxe.party.members {
+                    member.alive = false;
+                    member.clear_afflictions();
+                }
+                self.set_ending(Ending::Collapse {
+                    cause: CollapseCause::Disease,
+                });
+            }
+        } else if policy.death_imminent_resets_on_recovery_below_threshold {
+            self.ot_deluxe.death_imminent_days_remaining = 0;
+        }
     }
 
     pub(crate) fn start_of_day(&mut self) {
