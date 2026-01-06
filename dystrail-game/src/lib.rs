@@ -10,6 +10,7 @@ pub mod coverage_anchor;
 pub mod crossings;
 pub mod data;
 pub mod day_accounting;
+pub mod disease;
 pub mod encounters;
 pub mod endgame;
 pub mod exec_orders;
@@ -40,6 +41,9 @@ pub use crossings::{
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
+pub use disease::{
+    DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind, FatalityModel, FatalityModifier,
+};
 pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use hunt::{HuntBlockReason, HuntOutcome, resolve_hunt, resolve_hunt_with_rng};
 pub use journey::{

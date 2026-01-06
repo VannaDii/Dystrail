@@ -63,11 +63,13 @@ pub enum OtDeluxeAfflictionKind {
     Injury,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct OtDeluxeAfflictionOutcome {
     pub member_index: usize,
     pub died: bool,
     pub kind: OtDeluxeAfflictionKind,
+    pub disease_id: Option<String>,
+    pub display_key: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
@@ -95,6 +97,10 @@ pub struct OtDeluxePartyMember {
     pub alive: bool,
     pub sick_days_remaining: u8,
     pub injured_days_remaining: u8,
+    #[serde(default)]
+    pub illness_id: Option<String>,
+    #[serde(default)]
+    pub injury_id: Option<String>,
 }
 
 impl OtDeluxePartyMember {
@@ -105,6 +111,8 @@ impl OtDeluxePartyMember {
             alive: true,
             sick_days_remaining: 0,
             injured_days_remaining: 0,
+            illness_id: None,
+            injury_id: None,
         }
     }
 
@@ -123,12 +131,19 @@ impl OtDeluxePartyMember {
         self.is_sick() || self.is_injured()
     }
 
-    pub const fn clear_afflictions(&mut self) {
+    pub fn clear_afflictions(&mut self) {
         self.sick_days_remaining = 0;
         self.injured_days_remaining = 0;
+        self.illness_id = None;
+        self.injury_id = None;
     }
 
-    pub fn apply_affliction(&mut self, kind: OtDeluxeAfflictionKind, days: u8) -> bool {
+    pub fn apply_affliction(
+        &mut self,
+        kind: OtDeluxeAfflictionKind,
+        days: u8,
+        disease_id: Option<&str>,
+    ) -> bool {
         if !self.alive {
             return false;
         }
@@ -141,9 +156,13 @@ impl OtDeluxePartyMember {
         match kind {
             OtDeluxeAfflictionKind::Illness => {
                 self.sick_days_remaining = days;
+                self.illness_id = disease_id.map(str::to_string);
+                self.injury_id = None;
             }
             OtDeluxeAfflictionKind::Injury => {
                 self.injured_days_remaining = days;
+                self.injury_id = disease_id.map(str::to_string);
+                self.illness_id = None;
             }
         }
         false
@@ -201,6 +220,7 @@ impl OtDeluxePartyState {
         rng: &mut R,
         kind: OtDeluxeAfflictionKind,
         days: u8,
+        disease_id: Option<&str>,
     ) -> Option<OtDeluxeAfflictionOutcome>
     where
         R: rand::Rng + ?Sized,
@@ -212,11 +232,13 @@ impl OtDeluxePartyState {
             .filter_map(|(idx, member)| member.alive.then_some(idx))
             .collect();
         let &member_index = alive_indices.choose(rng)?;
-        let died = self.members[member_index].apply_affliction(kind, days);
+        let died = self.members[member_index].apply_affliction(kind, days, disease_id);
         Some(OtDeluxeAfflictionOutcome {
             member_index,
             died,
             kind,
+            disease_id: disease_id.map(str::to_string),
+            display_key: None,
         })
     }
 
@@ -227,9 +249,15 @@ impl OtDeluxePartyState {
             }
             if member.sick_days_remaining > 0 {
                 member.sick_days_remaining = member.sick_days_remaining.saturating_sub(1);
+                if member.sick_days_remaining == 0 {
+                    member.illness_id = None;
+                }
             }
             if member.injured_days_remaining > 0 {
                 member.injured_days_remaining = member.injured_days_remaining.saturating_sub(1);
+                if member.injured_days_remaining == 0 {
+                    member.injury_id = None;
+                }
             }
         }
     }
@@ -377,13 +405,31 @@ pub struct OtDeluxeWeatherState {
     pub snow_depth: f32,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxeTravelState {
     pub wagon_state: OtDeluxeWagonState,
     pub delay_days_remaining: u8,
     pub blocked_days_remaining: u8,
     #[serde(default)]
     pub ferry_wait_days_remaining: u8,
+    #[serde(default = "default_disease_speed_mult")]
+    pub disease_speed_mult: f32,
+}
+
+impl Default for OtDeluxeTravelState {
+    fn default() -> Self {
+        Self {
+            wagon_state: OtDeluxeWagonState::default(),
+            delay_days_remaining: 0,
+            blocked_days_remaining: 0,
+            ferry_wait_days_remaining: 0,
+            disease_speed_mult: default_disease_speed_mult(),
+        }
+    }
+}
+
+const fn default_disease_speed_mult() -> f32 {
+    1.0
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -535,9 +581,10 @@ mod tests {
     #[test]
     fn repeat_affliction_kills_member() {
         let mut party = OtDeluxePartyState::from_names(["A"]);
-        let died = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 3);
+        let died = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 3, None);
         assert!(!died);
-        let died_on_repeat = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Injury, 3);
+        let died_on_repeat =
+            party.members[0].apply_affliction(OtDeluxeAfflictionKind::Injury, 3, None);
         assert!(died_on_repeat);
         assert!(!party.members[0].alive);
     }
@@ -548,7 +595,7 @@ mod tests {
         party.members[0].alive = false;
         let mut rng = SmallRng::seed_from_u64(7);
         let outcome = party
-            .apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Illness, 2)
+            .apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Illness, 2, None)
             .expect("alive member");
         assert_eq!(outcome.member_index, 1);
         assert!(party.members[1].is_sick());
@@ -557,7 +604,7 @@ mod tests {
     #[test]
     fn tick_afflictions_counts_down() {
         let mut party = OtDeluxePartyState::from_names(["A"]);
-        party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 2);
+        party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 2, None);
         party.tick_afflictions();
         assert_eq!(party.members[0].sick_days_remaining, 1);
     }

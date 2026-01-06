@@ -80,15 +80,18 @@ impl<'a> DailyTickKernel<'a> {
         } else {
             None
         };
+        let terminal_log_key = state.terminal_log_key.take();
+        let resolved_log_key = terminal_log_key.unwrap_or(log_key);
+        let resolved_ended = ended || state.ending.is_some();
         let events = vec![Event::legacy_log_key(
             EventId::new(event_day, 0),
             event_day,
-            log_key.clone(),
+            resolved_log_key.clone(),
         )];
         let decision_traces = std::mem::take(&mut state.decision_traces_today);
         DayOutcome {
-            ended,
-            log_key,
+            ended: resolved_ended,
+            log_key: resolved_log_key,
             breakdown_started,
             record,
             events,
@@ -187,11 +190,6 @@ impl<'a> DailyTickKernel<'a> {
         let additional_miles = (state.distance_today - state.current_day_miles).max(0.0);
         state.record_travel_day(TravelDayKind::Travel, additional_miles, "");
         state.log_travel_debug();
-
-        if let Some(log_key) = state.failure_log_key() {
-            state.end_of_day();
-            return (true, String::from(log_key), breakdown_started);
-        }
 
         state.end_of_day();
         (false, String::from(LOG_TRAVELED), breakdown_started)

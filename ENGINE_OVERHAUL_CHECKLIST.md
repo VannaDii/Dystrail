@@ -940,7 +940,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Afflictions are deterministic with `rng.health()` only.
     - Repeat selection causes death according to policy.
 
-- [ ] HEALTH-003 (P0) Implement named `DiseaseCatalog` as data (not hard-coded)
+- [x] HEALTH-003 (P0) Implement named `DiseaseCatalog` as data (not hard-coded)
   - Requirement:
     - Provide a catalog of named illnesses/injuries matching Deluxe presentation needs.
     - Each entry must define:
@@ -974,7 +974,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - The timer behavior is fully deterministic and documented; tests cover reset semantics.
 
-- [ ] HEALTH-006 (P1) Implement occupation perk hooks for fatality/repair/mobility
+- [x] HEALTH-006 (P1) Implement occupation perk hooks for fatality/repair/mobility
   - Requirement:
     - Doctor fatality multiplier affects relevant fatality checks (disease complications, repeat-kills if applicable).
     - Blacksmith/Carpenter repair success multiplier affects repair outcomes.
@@ -1023,7 +1023,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - For a fixed state, label derivation is deterministic and does not consume RNG.
 
-- [ ] HEALTH-010 (P0) Move Dystrail “pre-travel checks” into HealthTick (ally attrition + clamps), and remove duplicate early-exit paths
+- [x] HEALTH-010 (P0) Move Dystrail “pre-travel checks” into HealthTick (ally attrition + clamps), and remove duplicate early-exit paths
   - Requirement:
     - The systems spec defines “pre-travel checks” as part of HealthTick (phase 4), not a separate early phase.
     - Migrate:

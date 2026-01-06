@@ -66,6 +66,9 @@ use crate::constants::{ASSERT_MIN_AVG_MPD, FLOAT_EPSILON};
 use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
+use crate::disease::{
+    DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind, FatalityModel, FatalityModifier,
+};
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState};
 use crate::exec_orders::ExecOrder;
@@ -75,8 +78,8 @@ use crate::journey::{
     WearConfig,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxePace,
-    OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeOccupation,
+    OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
 };
 use crate::otdeluxe_state::{
     OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeInventory,
@@ -408,6 +411,156 @@ fn otdeluxe_affliction_duration(
     duration.max(1)
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum OtDeluxeHealthLabel {
+    Good,
+    Fair,
+    Poor,
+    VeryPoor,
+}
+
+#[derive(Debug, Clone, Copy)]
+struct OtDeluxeFatalityContext {
+    health_general: u16,
+    pace: OtDeluxePace,
+    rations: OtDeluxeRations,
+    weather: Weather,
+    occupation: Option<OtDeluxeOccupation>,
+}
+
+const fn otdeluxe_health_label(
+    health_general: u16,
+    policy: &OtDeluxeHealthPolicy,
+) -> OtDeluxeHealthLabel {
+    if health_general <= policy.label_ranges.good_max {
+        OtDeluxeHealthLabel::Good
+    } else if health_general <= policy.label_ranges.fair_max {
+        OtDeluxeHealthLabel::Fair
+    } else if health_general <= policy.label_ranges.poor_max {
+        OtDeluxeHealthLabel::Poor
+    } else {
+        OtDeluxeHealthLabel::VeryPoor
+    }
+}
+
+const fn sanitize_disease_multiplier(mult: f32) -> f32 {
+    if mult.is_finite() { mult.max(0.0) } else { 1.0 }
+}
+
+fn apply_otdeluxe_disease_effects(
+    health_general: &mut u16,
+    inventory: &mut OtDeluxeInventory,
+    effects: &DiseaseEffects,
+) -> f32 {
+    if effects.health_general_delta != 0 {
+        let current = i32::from(*health_general);
+        let next = (current + effects.health_general_delta).max(0);
+        *health_general = u16::try_from(next).unwrap_or(u16::MAX);
+    }
+    if effects.food_lbs_delta != 0 {
+        let current = i32::from(inventory.food_lbs);
+        let next = (current + effects.food_lbs_delta).max(0);
+        inventory.food_lbs = u16::try_from(next).unwrap_or(u16::MAX);
+    }
+    sanitize_disease_multiplier(effects.travel_speed_mult)
+}
+
+fn otdeluxe_fatality_probability(
+    model: &FatalityModel,
+    context: OtDeluxeFatalityContext,
+    policy: &OtDeluxe90sPolicy,
+) -> f32 {
+    let mut prob = model.base_prob_per_day.max(0.0);
+    for modifier in &model.prob_modifiers {
+        let mult = match modifier {
+            FatalityModifier::Constant { mult } => *mult,
+            FatalityModifier::HealthLabel {
+                good,
+                fair,
+                poor,
+                very_poor,
+            } => match otdeluxe_health_label(context.health_general, &policy.health) {
+                OtDeluxeHealthLabel::Good => *good,
+                OtDeluxeHealthLabel::Fair => *fair,
+                OtDeluxeHealthLabel::Poor => *poor,
+                OtDeluxeHealthLabel::VeryPoor => *very_poor,
+            },
+            FatalityModifier::Pace {
+                steady,
+                strenuous,
+                grueling,
+            } => match context.pace {
+                OtDeluxePace::Steady => *steady,
+                OtDeluxePace::Strenuous => *strenuous,
+                OtDeluxePace::Grueling => *grueling,
+            },
+            FatalityModifier::Rations {
+                filling,
+                meager,
+                bare_bones,
+            } => match context.rations {
+                OtDeluxeRations::Filling => *filling,
+                OtDeluxeRations::Meager => *meager,
+                OtDeluxeRations::BareBones => *bare_bones,
+            },
+            FatalityModifier::Weather { weather: key, mult } => {
+                if *key == context.weather {
+                    *mult
+                } else {
+                    1.0
+                }
+            }
+        };
+        prob *= sanitize_disease_multiplier(mult);
+    }
+    if model.apply_doctor_mult && matches!(context.occupation, Some(OtDeluxeOccupation::Doctor)) {
+        prob *= sanitize_disease_multiplier(policy.occupation_advantages.doctor_fatality_mult);
+    }
+    if prob.is_finite() {
+        prob.clamp(0.0, 1.0)
+    } else {
+        0.0
+    }
+}
+
+fn otdeluxe_roll_disease_fatality<R>(
+    model: &FatalityModel,
+    rng: &mut R,
+    context: OtDeluxeFatalityContext,
+    policy: &OtDeluxe90sPolicy,
+) -> bool
+where
+    R: rand::Rng + ?Sized,
+{
+    let prob = otdeluxe_fatality_probability(model, context, policy);
+    prob > 0.0 && rng.r#gen::<f32>() < prob
+}
+
+const fn otdeluxe_repair_success_mult(
+    occupation: Option<OtDeluxeOccupation>,
+    policy: &OtDeluxe90sPolicy,
+) -> f32 {
+    if matches!(
+        occupation,
+        Some(OtDeluxeOccupation::Blacksmith | OtDeluxeOccupation::Carpenter)
+    ) {
+        sanitize_disease_multiplier(policy.occupation_advantages.repair_success_mult)
+    } else {
+        1.0
+    }
+}
+
+const fn otdeluxe_mobility_failure_mult(
+    occupation: Option<OtDeluxeOccupation>,
+    policy: &OtDeluxe90sPolicy,
+) -> f32 {
+    if matches!(occupation, Some(OtDeluxeOccupation::Farmer)) {
+        sanitize_disease_multiplier(policy.occupation_advantages.mobility_failure_mult)
+    } else {
+        1.0
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -420,6 +573,7 @@ mod tests {
         CountingRng, DailyTickKernel, DayOutcome, JourneyCfg, RngBundle, StrainConfig,
         StrainLabelBounds, StrainWeights,
     };
+    use crate::mechanics::otdeluxe90s::OtDeluxeOccupation;
     use crate::pacing::{PaceCfg, PacingLimits};
     use crate::weather::Weather;
     use rand::Rng;
@@ -1892,6 +2046,27 @@ mod tests {
         state.update_otdeluxe_death_imminent(&policy.health);
         assert_eq!(state.ot_deluxe.death_imminent_days_remaining, 0);
     }
+
+    #[test]
+    fn otdeluxe_doctor_fatality_mult_scales_probability() {
+        let policy = OtDeluxe90sPolicy::default();
+        let model = FatalityModel {
+            base_prob_per_day: 1.0,
+            apply_doctor_mult: true,
+            prob_modifiers: Vec::new(),
+        };
+        let context = OtDeluxeFatalityContext {
+            health_general: 0,
+            pace: OtDeluxePace::Steady,
+            rations: OtDeluxeRations::Filling,
+            weather: Weather::Clear,
+            occupation: Some(OtDeluxeOccupation::Doctor),
+        };
+
+        let prob = otdeluxe_fatality_probability(&model, context, &policy);
+
+        assert!((prob - policy.occupation_advantages.doctor_fatality_mult).abs() <= 1e-6);
+    }
 }
 
 /// Default diet setting
@@ -2487,6 +2662,8 @@ pub struct GameState {
     pub current_day_miles: f32,
     #[serde(skip)]
     pub last_breakdown_part: Option<Part>,
+    #[serde(skip)]
+    pub terminal_log_key: Option<String>,
 }
 
 macro_rules! game_state_defaults {
@@ -2593,6 +2770,7 @@ macro_rules! game_state_defaults {
             current_day_reason_tags: Vec::new(),
             current_day_miles: 0.0,
             last_breakdown_part: None,
+            terminal_log_key: None,
         }
     };
 }
@@ -2917,6 +3095,7 @@ impl GameState {
         self.decision_traces_today.clear();
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
+        self.terminal_log_key = None;
         self.exec_travel_multiplier = 1.0;
         self.exec_breakdown_bonus = 0.0;
         self.weather_travel_multiplier = 1.0;
@@ -3036,6 +3215,11 @@ impl GameState {
     pub(crate) fn end_of_day(&mut self) {
         if self.day_state.lifecycle.did_end_of_day {
             return;
+        }
+        if self.mechanical_policy == MechanicalPolicyId::DystrailLegacy {
+            self.terminal_log_key = self.failure_log_key().map(str::to_string);
+        } else {
+            self.terminal_log_key = None;
         }
         self.update_encounter_history();
         let miles_delta = self.compute_day_progress();
@@ -3540,7 +3724,13 @@ impl GameState {
         let roll = self
             .breakdown_rng()
             .map_or(1.0, |mut rng| rng.r#gen::<f32>());
-        if roll >= 0.65 {
+        let mut success_chance = 0.65;
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            let policy = default_otdeluxe_policy();
+            success_chance *= otdeluxe_repair_success_mult(self.ot_deluxe.mods.occupation, policy);
+        }
+        success_chance = success_chance.clamp(0.0, 1.0);
+        if roll >= success_chance {
             return false;
         }
 
@@ -3801,24 +3991,168 @@ impl GameState {
         if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
             return None;
         }
-        self.ot_deluxe.party.tick_afflictions();
+        let catalog = DiseaseCatalog::default_catalog();
+        self.tick_otdeluxe_afflictions_with_catalog(catalog)
+    }
+
+    fn tick_otdeluxe_afflictions_with_catalog(
+        &mut self,
+        catalog: &DiseaseCatalog,
+    ) -> Option<OtDeluxeAfflictionOutcome> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
         let policy = default_otdeluxe_policy();
+        let bundle = self.rng_bundle.clone()?;
+        let mut rng = bundle.health();
+        self.apply_otdeluxe_daily_afflictions(catalog, &mut *rng, policy);
+        if self.ot_deluxe.party.alive_count() == 0 {
+            self.set_ending(Ending::Collapse {
+                cause: CollapseCause::Disease,
+            });
+            return None;
+        }
+        self.roll_otdeluxe_affliction_with_catalog(catalog, &mut *rng, policy)
+    }
+
+    fn apply_otdeluxe_daily_afflictions(
+        &mut self,
+        catalog: &DiseaseCatalog,
+        rng: &mut impl Rng,
+        policy: &OtDeluxe90sPolicy,
+    ) {
+        let weather_today = self.weather_state.today;
+        let occupation = self.ot_deluxe.mods.occupation;
+        let pace = self.ot_deluxe.pace;
+        let rations = self.ot_deluxe.rations;
+
+        let mut travel_mult = 1.0;
+        {
+            let OtDeluxeState {
+                party,
+                health_general,
+                inventory,
+                travel,
+                ..
+            } = &mut self.ot_deluxe;
+            for member in &mut party.members {
+                if !member.alive {
+                    continue;
+                }
+                let mut died = false;
+                if member.sick_days_remaining > 0
+                    && let Some(id) = member.illness_id.as_deref()
+                    && let Some(disease) = catalog.find_by_id(id)
+                {
+                    travel_mult *= apply_otdeluxe_disease_effects(
+                        health_general,
+                        inventory,
+                        &disease.daily_tick_effects,
+                    );
+                    if let Some(model) = disease.fatality_model.as_ref() {
+                        let context = OtDeluxeFatalityContext {
+                            health_general: *health_general,
+                            pace,
+                            rations,
+                            weather: weather_today,
+                            occupation,
+                        };
+                        died = otdeluxe_roll_disease_fatality(model, rng, context, policy);
+                    }
+                }
+                if !died
+                    && member.injured_days_remaining > 0
+                    && let Some(id) = member.injury_id.as_deref()
+                    && let Some(disease) = catalog.find_by_id(id)
+                {
+                    travel_mult *= apply_otdeluxe_disease_effects(
+                        health_general,
+                        inventory,
+                        &disease.daily_tick_effects,
+                    );
+                    if let Some(model) = disease.fatality_model.as_ref() {
+                        let context = OtDeluxeFatalityContext {
+                            health_general: *health_general,
+                            pace,
+                            rations,
+                            weather: weather_today,
+                            occupation,
+                        };
+                        died = otdeluxe_roll_disease_fatality(model, rng, context, policy);
+                    }
+                }
+                if died {
+                    member.alive = false;
+                    member.clear_afflictions();
+                }
+            }
+            party.tick_afflictions();
+            travel.disease_speed_mult = sanitize_disease_multiplier(travel_mult);
+        }
+    }
+
+    fn roll_otdeluxe_affliction_with_catalog(
+        &mut self,
+        catalog: &DiseaseCatalog,
+        rng: &mut impl Rng,
+        policy: &OtDeluxe90sPolicy,
+    ) -> Option<OtDeluxeAfflictionOutcome> {
         let probability =
             otdeluxe_affliction_probability(self.ot_deluxe.health_general, &policy.affliction);
         if probability <= 0.0 {
             return None;
         }
-        let bundle = self.rng_bundle.clone()?;
-        let mut rng = bundle.health();
         let roll: f32 = rng.r#gen();
         if roll >= probability {
             return None;
         }
-        let kind = roll_otdeluxe_affliction_kind(&policy.affliction, &mut *rng);
-        let duration = otdeluxe_affliction_duration(kind, &policy.affliction);
-        self.ot_deluxe
+        let kind = roll_otdeluxe_affliction_kind(&policy.affliction, rng);
+        let disease_kind = match kind {
+            OtDeluxeAfflictionKind::Illness => DiseaseKind::Illness,
+            OtDeluxeAfflictionKind::Injury => DiseaseKind::Injury,
+        };
+        let disease = catalog.pick_by_kind(disease_kind, rng);
+        let duration = disease.map_or_else(
+            || otdeluxe_affliction_duration(kind, &policy.affliction),
+            |selected| selected.duration_for(&policy.affliction),
+        );
+        let disease_id = disease.map(|selected| selected.id.as_str());
+        let mut outcome = self
+            .ot_deluxe
             .party
-            .apply_affliction_random(&mut *rng, kind, duration)
+            .apply_affliction_random(rng, kind, duration, disease_id);
+        if let (Some(selected), Some(ref mut result)) = (disease, outcome.as_mut()) {
+            result.display_key = Some(selected.display_key.clone());
+            if result.disease_id.is_none() {
+                result.disease_id = Some(selected.id.clone());
+            }
+            if !result.died {
+                let combined = self.apply_otdeluxe_disease_onset(selected);
+                self.ot_deluxe.travel.disease_speed_mult = sanitize_disease_multiplier(
+                    self.ot_deluxe.travel.disease_speed_mult * combined,
+                );
+            }
+        }
+        if self.ot_deluxe.party.alive_count() == 0 {
+            self.set_ending(Ending::Collapse {
+                cause: CollapseCause::Disease,
+            });
+        }
+        outcome
+    }
+
+    fn apply_otdeluxe_disease_onset(&mut self, disease: &DiseaseDef) -> f32 {
+        let onset_mult = apply_otdeluxe_disease_effects(
+            &mut self.ot_deluxe.health_general,
+            &mut self.ot_deluxe.inventory,
+            &disease.onset_effects,
+        );
+        let daily_mult = apply_otdeluxe_disease_effects(
+            &mut self.ot_deluxe.health_general,
+            &mut self.ot_deluxe.inventory,
+            &disease.daily_tick_effects,
+        );
+        onset_mult * daily_mult
     }
 
     pub(crate) fn tick_ally_attrition(&mut self) {
@@ -4047,7 +4381,9 @@ impl GameState {
             .sick_member_speed_penalty
             .mul_add(-sick_count, 1.0)
             .max(0.0);
-        let miles = (base * pace_mult * terrain_mult * oxen_mult * sick_penalty).max(0.0);
+        let disease_mult = self.ot_deluxe.travel.disease_speed_mult.max(0.0);
+        let miles =
+            (base * pace_mult * terrain_mult * oxen_mult * sick_penalty * disease_mult).max(0.0);
         let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
         let partial = (miles * ratio).clamp(0.0, miles);
         self.distance_today_raw = miles;
@@ -4478,10 +4814,6 @@ impl GameState {
     }
 
     pub(crate) fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
-        if let Some(log_key) = self.failure_log_key() {
-            self.end_of_day();
-            return Some((true, String::from(log_key), false));
-        }
         self.check_otdeluxe_oxen_gate()
     }
 
@@ -4729,7 +5061,14 @@ impl GameState {
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive)) {
             breakdown_chance *= 0.7;
         }
-        breakdown_chance = breakdown_chance.min(0.35);
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            let policy = default_otdeluxe_policy();
+            breakdown_chance *=
+                otdeluxe_mobility_failure_mult(self.ot_deluxe.mods.occupation, policy);
+        }
+        breakdown_chance = breakdown_chance
+            .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX)
+            .min(0.35);
 
         let roll = self
             .breakdown_rng()
