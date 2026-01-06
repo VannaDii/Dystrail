@@ -38,6 +38,23 @@ pub enum OtDeluxeRoutePrompt {
     DallesFinal,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum OtDeluxeRouteDecision {
+    StayOnTrail,
+    SubletteCutoff,
+    DallesShortcut,
+    RaftColumbia,
+    BarlowRoad,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum OtDeluxeDallesChoice {
+    Raft,
+    Barlow,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 #[serde(rename_all = "snake_case")]
 pub enum OtDeluxeRiverBed {
@@ -437,6 +454,8 @@ pub struct OtDeluxeRouteState {
     pub variant: OtDeluxeTrailVariant,
     pub current_node_index: u8,
     pub pending_prompt: Option<OtDeluxeRoutePrompt>,
+    #[serde(default)]
+    pub dalles_choice: Option<OtDeluxeDallesChoice>,
 }
 
 impl Default for OtDeluxeRouteState {
@@ -445,6 +464,7 @@ impl Default for OtDeluxeRouteState {
             variant: OtDeluxeTrailVariant::Main,
             current_node_index: 0,
             pending_prompt: None,
+            dalles_choice: None,
         }
     }
 }

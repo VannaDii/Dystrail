@@ -80,10 +80,12 @@ use crate::journey::{
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeOccupation,
     OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
+    OtDeluxeTrailVariant,
 };
 use crate::otdeluxe_state::{
-    OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeInventory,
-    OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
+    OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeDallesChoice,
+    OtDeluxeInventory, OtDeluxePartyState, OtDeluxeRouteDecision, OtDeluxeRoutePrompt,
+    OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
 };
 use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt};
 use crate::otdeluxe_trail;
@@ -2069,6 +2071,45 @@ mod tests {
 
         assert!((prob - policy.occupation_advantages.doctor_fatality_mult).abs() <= 1e-6);
     }
+
+    #[test]
+    fn otdeluxe_route_prompt_clamps_at_south_pass() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.miles_traveled_actual = 900.0;
+        state.prev_miles_traveled = 900.0;
+        state.ot_deluxe.miles_traveled = 900.0;
+        state.sync_otdeluxe_trail_distance();
+
+        let applied = state.apply_travel_progress(50.0, TravelProgressKind::Full);
+
+        assert!((applied - 32.0).abs() <= 1e-3);
+        assert!((state.miles_traveled_actual - 932.0).abs() <= 1e-3);
+        assert_eq!(
+            state.ot_deluxe.route.pending_prompt,
+            Some(OtDeluxeRoutePrompt::SubletteCutoff)
+        );
+    }
+
+    #[test]
+    fn otdeluxe_route_prompt_resolves_and_updates_variant() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
+
+        let resolved = state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::SubletteCutoff);
+
+        assert!(resolved);
+        assert_eq!(state.ot_deluxe.route.pending_prompt, None);
+        assert_eq!(
+            state.ot_deluxe.route.variant,
+            OtDeluxeTrailVariant::SubletteCutoff
+        );
+    }
 }
 
 /// Default diet setting
@@ -2959,6 +3000,74 @@ impl GameState {
         ot_state
     }
 
+    fn sync_otdeluxe_trail_distance(&mut self) {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        let policy = default_otdeluxe_policy();
+        let total =
+            otdeluxe_trail::total_miles_for_variant(&policy.trail, self.ot_deluxe.route.variant);
+        self.trail_distance = f32::from(total).max(1.0);
+    }
+
+    fn otdeluxe_next_prompt_marker(&self) -> Option<(OtDeluxeRoutePrompt, u16)> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        if self.ot_deluxe.route.pending_prompt.is_some() {
+            return None;
+        }
+        let policy = default_otdeluxe_policy();
+        let variant = self.ot_deluxe.route.variant;
+        let current_miles = self.miles_traveled_actual;
+        let mut candidate: Option<(OtDeluxeRoutePrompt, u16)> = None;
+
+        let mut consider = |prompt: OtDeluxeRoutePrompt, node_index: u8| {
+            let Some(marker) =
+                otdeluxe_trail::mile_marker_for_node(&policy.trail, variant, node_index)
+            else {
+                return;
+            };
+            if f32::from(marker) <= current_miles {
+                return;
+            }
+            match candidate {
+                None => candidate = Some((prompt, marker)),
+                Some((_, existing)) if marker < existing => candidate = Some((prompt, marker)),
+                _ => {}
+            }
+        };
+
+        if !matches!(
+            variant,
+            OtDeluxeTrailVariant::SubletteCutoff | OtDeluxeTrailVariant::SubletteAndDallesShortcut
+        ) {
+            consider(
+                OtDeluxeRoutePrompt::SubletteCutoff,
+                otdeluxe_trail::SOUTH_PASS_NODE_INDEX,
+            );
+        }
+
+        if !matches!(
+            variant,
+            OtDeluxeTrailVariant::DallesShortcut | OtDeluxeTrailVariant::SubletteAndDallesShortcut
+        ) {
+            consider(
+                OtDeluxeRoutePrompt::DallesShortcut,
+                otdeluxe_trail::BLUE_MOUNTAINS_NODE_INDEX,
+            );
+        }
+
+        if self.ot_deluxe.route.dalles_choice.is_none() {
+            consider(
+                OtDeluxeRoutePrompt::DallesFinal,
+                otdeluxe_trail::DALLES_NODE_INDEX,
+            );
+        }
+
+        candidate
+    }
+
     pub(crate) fn otdeluxe_alive_party_count(&self) -> u16 {
         if !self.ot_deluxe.party.members.is_empty() {
             return self.ot_deluxe.party.alive_count();
@@ -3296,6 +3405,9 @@ impl GameState {
     }
 
     fn apply_conservative_travel_bonus(&mut self) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         if !self.mode.is_deep()
             || !matches!(self.policy, Some(PolicyKind::Conservative))
             || self.current_day_miles <= 0.0
@@ -3356,6 +3468,9 @@ impl GameState {
     }
 
     fn apply_stop_ratio_floor(&mut self, mut day_kind: TravelDayKind) -> TravelDayKind {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return day_kind;
+        }
         if matches!(day_kind, TravelDayKind::NonTravel)
             && !self.day_state.lifecycle.suppress_stop_ratio
         {
@@ -3521,6 +3636,18 @@ impl GameState {
         if distance <= 0.0 {
             return 0.0;
         }
+        let mut prompt_reached = None;
+        let mut distance = distance;
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            self.sync_otdeluxe_trail_distance();
+            if let Some((prompt, marker)) = self.otdeluxe_next_prompt_marker() {
+                let remaining_to_marker = f32::from(marker) - self.miles_traveled_actual;
+                if remaining_to_marker > 0.0 && distance + f32::EPSILON >= remaining_to_marker {
+                    distance = remaining_to_marker;
+                    prompt_reached = Some(prompt);
+                }
+            }
+        }
         let remaining = (self.trail_distance - self.miles_traveled_actual).max(0.0);
         if remaining <= 0.0 {
             return 0.0;
@@ -3538,6 +3665,19 @@ impl GameState {
             if self.ending.is_none() && self.miles_traveled_actual >= self.trail_distance {
                 self.boss.readiness.ready = true;
                 self.boss.readiness.reached = true;
+            }
+        }
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            self.ot_deluxe.miles_traveled = self.miles_traveled_actual;
+            let policy = default_otdeluxe_policy();
+            self.ot_deluxe.route.current_node_index = otdeluxe_trail::node_index_for_miles(
+                &policy.trail,
+                self.ot_deluxe.route.variant,
+                self.ot_deluxe.miles_traveled,
+            );
+            if let Some(prompt) = prompt_reached {
+                self.ot_deluxe.route.pending_prompt = Some(prompt);
+                self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
             }
         }
         applied
@@ -3573,6 +3713,13 @@ impl GameState {
         self.day_state.travel.partial_traveled_today = false;
     }
 
+    pub(crate) const fn clear_today_travel_distance(&mut self) {
+        self.distance_today = 0.0;
+        self.distance_today_raw = 0.0;
+        self.partial_distance_today = 0.0;
+        self.distance_cap_today = 0.0;
+    }
+
     fn rotation_force_interval(&self) -> u32 {
         let mut interval = ROTATION_FORCE_INTERVAL;
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Conservative)) {
@@ -3582,6 +3729,9 @@ impl GameState {
     }
 
     fn enforce_aggressive_delay_cap(&mut self, computed_miles: f32) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         if self.day_state.travel.traveled_today || self.day_state.travel.partial_traveled_today {
             return;
         }
@@ -3654,6 +3804,9 @@ impl GameState {
         if distance <= 0.0 {
             return;
         }
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         if self.day_state.travel.traveled_today && !self.day_state.travel.partial_traveled_today {
             self.reset_today_progress();
         }
@@ -3665,15 +3818,24 @@ impl GameState {
     }
 
     pub(crate) fn apply_rest_travel_credit(&mut self) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         self.apply_partial_travel_credit(REST_TRAVEL_CREDIT_MILES, LOG_TRAVEL_REST_CREDIT, "camp");
     }
 
     fn apply_delay_travel_credit(&mut self, reason_tag: &str) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         let miles = day_accounting::partial_day_miles(self, 0.0).max(DELAY_TRAVEL_CREDIT_MILES);
         self.apply_partial_travel_credit(miles, LOG_TRAVEL_DELAY_CREDIT, reason_tag);
     }
 
     fn apply_classic_field_repair_guard(&mut self) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
         let partial = day_accounting::partial_day_miles(self, 0.0);
         if partial > 0.0 {
             self.apply_partial_travel_credit(
@@ -3698,6 +3860,9 @@ impl GameState {
     }
 
     fn try_emergency_limp_guard(&mut self) -> bool {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
         if self.mode == GameMode::Classic && matches!(self.policy, Some(PolicyKind::Balanced)) {
             return false;
         }
@@ -3730,6 +3895,9 @@ impl GameState {
     }
 
     fn try_deep_aggressive_field_repair(&mut self) -> bool {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
         if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
             return false;
         }
@@ -4829,6 +4997,14 @@ impl GameState {
     }
 
     pub(crate) fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            self.sync_otdeluxe_trail_distance();
+            if self.ot_deluxe.route.pending_prompt.is_some() {
+                self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
+                self.clear_today_travel_distance();
+                return Some((false, String::from(LOG_TRAVEL_BLOCKED), false));
+            }
+        }
         self.check_otdeluxe_oxen_gate()
     }
 
@@ -4841,6 +5017,7 @@ impl GameState {
             return None;
         }
         self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Blocked;
+        self.clear_today_travel_distance();
         self.record_travel_day(TravelDayKind::NonTravel, 0.0, "otdeluxe.no_oxen");
         self.end_of_day();
         Some((false, String::from(LOG_TRAVEL_BLOCKED), false))
@@ -4863,7 +5040,14 @@ impl GameState {
         breakdown_started: bool,
     ) -> Option<(bool, String, bool)> {
         if self.day_state.travel.travel_blocked {
-            if !self.day_state.travel.partial_traveled_today {
+            if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+                self.clear_today_travel_distance();
+                if self.current_day_kind.is_none() {
+                    self.record_travel_day(TravelDayKind::NonTravel, 0.0, "repair");
+                } else {
+                    self.add_day_reason_tag("repair");
+                }
+            } else if !self.day_state.travel.partial_traveled_today {
                 self.apply_delay_travel_credit("repair");
             }
             self.end_of_day();
@@ -5688,5 +5872,67 @@ impl GameState {
             self.ot_deluxe.route.variant,
             self.ot_deluxe.route.current_node_index,
         )
+    }
+
+    pub fn resolve_otdeluxe_route_prompt(&mut self, decision: OtDeluxeRouteDecision) -> bool {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
+        let Some(prompt) = self.ot_deluxe.route.pending_prompt else {
+            return false;
+        };
+        let mut handled = false;
+        match prompt {
+            OtDeluxeRoutePrompt::SubletteCutoff => match decision {
+                OtDeluxeRouteDecision::StayOnTrail => handled = true,
+                OtDeluxeRouteDecision::SubletteCutoff => {
+                    self.ot_deluxe.route.variant = match self.ot_deluxe.route.variant {
+                        OtDeluxeTrailVariant::DallesShortcut => {
+                            OtDeluxeTrailVariant::SubletteAndDallesShortcut
+                        }
+                        _ => OtDeluxeTrailVariant::SubletteCutoff,
+                    };
+                    handled = true;
+                }
+                _ => {}
+            },
+            OtDeluxeRoutePrompt::DallesShortcut => match decision {
+                OtDeluxeRouteDecision::StayOnTrail => handled = true,
+                OtDeluxeRouteDecision::DallesShortcut => {
+                    self.ot_deluxe.route.variant = match self.ot_deluxe.route.variant {
+                        OtDeluxeTrailVariant::SubletteCutoff => {
+                            OtDeluxeTrailVariant::SubletteAndDallesShortcut
+                        }
+                        _ => OtDeluxeTrailVariant::DallesShortcut,
+                    };
+                    handled = true;
+                }
+                _ => {}
+            },
+            OtDeluxeRoutePrompt::DallesFinal => match decision {
+                OtDeluxeRouteDecision::RaftColumbia => {
+                    self.ot_deluxe.route.dalles_choice = Some(OtDeluxeDallesChoice::Raft);
+                    handled = true;
+                }
+                OtDeluxeRouteDecision::BarlowRoad => {
+                    self.ot_deluxe.route.dalles_choice = Some(OtDeluxeDallesChoice::Barlow);
+                    handled = true;
+                }
+                _ => {}
+            },
+        }
+
+        if handled {
+            self.ot_deluxe.route.pending_prompt = None;
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+            self.sync_otdeluxe_trail_distance();
+            let policy = default_otdeluxe_policy();
+            self.ot_deluxe.route.current_node_index = otdeluxe_trail::node_index_for_miles(
+                &policy.trail,
+                self.ot_deluxe.route.variant,
+                self.ot_deluxe.miles_traveled,
+            );
+        }
+        handled
     }
 }

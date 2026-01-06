@@ -18,6 +18,7 @@ pub mod hunt;
 pub mod journey;
 pub mod mechanics;
 pub mod numbers;
+pub mod otdeluxe_score;
 pub mod otdeluxe_state;
 pub mod otdeluxe_store;
 pub mod otdeluxe_trail;
@@ -58,6 +59,8 @@ pub use journey::{
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
+pub use otdeluxe_score::compute_score as compute_otdeluxe_score;
+pub use otdeluxe_state::{OtDeluxeDallesChoice, OtDeluxeRouteDecision, OtDeluxeRoutePrompt};
 pub use otdeluxe_store::{
     OtDeluxeStoreError, OtDeluxeStoreItem, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt,
     apply_purchase as apply_otdeluxe_store_purchase, base_price_cents as otdeluxe_base_price_cents,

@@ -1132,7 +1132,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - There is no “delay travel credit” leak for OTDeluxe hard-stops.
 
-- [ ] TRAVEL-003 (P0) Enforce “no miles leak” when hard-stopped
+- [x] TRAVEL-003 (P0) Enforce “no miles leak” when hard-stopped
   - Requirement:
     - If using `computed_miles_today = max(distance_today, distance_today_raw)`, OTDeluxe90sPolicy MUST ensure:
       - `distance_today_raw == distance_today` whenever travel is allowed
@@ -1142,7 +1142,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Hard-stops cannot yield miles via a “raw distance” fallback.
 
-- [ ] TRAVEL-004 (P1) Replace Dystrail-specific stop-caps and travel-credit hacks under OTDeluxe90sPolicy
+- [x] TRAVEL-004 (P1) Replace Dystrail-specific stop-caps and travel-credit hacks under OTDeluxe90sPolicy
   - Requirement:
     - Disable or policy-gate mechanisms that turn NonTravel into Partial miles:
       - ratio floors
@@ -1319,7 +1319,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 12) TrailGraph + Deluxe Mile Markers + Route Variants
 
-- [ ] TRAIL-001 (P0) Implement `TrailGraph` and derive `current_node_index` from mile markers
+- [x] TRAIL-001 (P0) Implement `TrailGraph` and derive `current_node_index` from mile markers
   - Requirement:
     - Progression must be derived from `miles_traveled` vs the active mile-marker table, not ad-hoc milestone checks.
     - Active lists contain `0` sentinels for skipped nodes and MUST treat `0` as “node absent”.
@@ -1331,7 +1331,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Node arrival and store availability are functions of node index.
 
-- [ ] TRAIL-002 (P0) Implement route variants and ensure branching removes skipped nodes deterministically
+- [x] TRAIL-002 (P0) Implement route variants and ensure branching removes skipped nodes deterministically
   - Requirement:
     - Support these route variants (Deluxe EXE extracted):
       - main
@@ -1344,7 +1344,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Derived node indices remain monotone and skip absent nodes.
 
-- [ ] TRAIL-003 (P0) Implement The Dalles gate as a mandatory hard stop at node 16
+- [x] TRAIL-003 (P0) Implement The Dalles gate as a mandatory hard stop at node 16
   - Requirement:
     - At node 16 (The Dalles), the simulation MUST block travel beyond until a final route option is resolved.
     - Both options MUST be day-advancing, deterministic subflows emitting events.
@@ -1356,7 +1356,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - The game cannot silently “pass” The Dalles; UI must prompt and state must persist the unresolved choice.
 
-- [ ] TRAIL-004 (P0) Implement the route-variant branch-choice prompts at the correct nodes (South Pass, Blue Mountains)
+- [x] TRAIL-004 (P0) Implement the route-variant branch-choice prompts at the correct nodes (South Pass, Blue Mountains)
   - Requirement:
     - The route-variant choices are not abstract toggles; they must be offered at the correct branch points:
       - Sublette Cutoff prompt at South Pass (node index 7 on the main list)
@@ -1479,7 +1479,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Purchase flows reject quantities above caps deterministically and emit appropriate events/log keys.
 
-- [ ] STORE-003 (P1) Align “money unit” and state fields (`cash_cents` vs existing `budget_cents`)
+- [x] STORE-003 (P1) Align “money unit” and state fields (`cash_cents` vs existing `budget_cents`)
   - Requirement:
     - OTDeluxe economy uses `cash_cents` for store and score.
     - Engine currently has `budget_cents`; implement a clear mapping or introduce `cash_cents` for OTDeluxe policy.
@@ -1553,7 +1553,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - There is no code path that advances RNG/day physics without producing a DayRecord for that day.
 
-- [ ] SCORE-001 (P0) Implement OTDeluxe scoring formula under OTDeluxe90sPolicy
+- [x] SCORE-001 (P0) Implement OTDeluxe scoring formula under OTDeluxe90sPolicy
   - Requirement:
     - Implement the exact points and divisors:
       - wagon 50, ox 4, spare parts 2, clothes 2, bullets/50, food/25, cash/5
@@ -1691,19 +1691,19 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [ ] AUDIT-002 Weather selection uses only `rng.weather()`; afflictions use only `rng.health()`.
 - [ ] AUDIT-003 Supplies burn runs exactly once per day and is always before HealthTick.
 - [ ] AUDIT-004 Encounter chance is derived once per day from a single function; weather does not mutate it ad hoc.
-- [ ] AUDIT-005 OTDeluxe hard-stops always produce `computed_miles_today = 0`; no “delay travel credit” leaks.
+- [x] AUDIT-005 OTDeluxe hard-stops always produce `computed_miles_today = 0`; no “delay travel credit” leaks.
 - [ ] AUDIT-006 All “policy-defined” values are explicit in OTDeluxe90sPolicy config and not hard-coded.
-- [ ] AUDIT-007 TrailGraph uses Deluxe mile markers + route variants; `0` sentinels are skipped in derivations.
-- [ ] AUDIT-008 The Dalles gate blocks travel beyond node 16 until resolved.
+- [x] AUDIT-007 TrailGraph uses Deluxe mile markers + route variants; `0` sentinels are skipped in derivations.
+- [x] AUDIT-008 The Dalles gate blocks travel beyond node 16 until resolved.
 - [ ] AUDIT-009 Crossing choices are interactive under OTDeluxe90sPolicy; outcomes include the required families.
-- [ ] AUDIT-010 Scoring under OTDeluxe90sPolicy matches the spec exactly (including occupation multiplier).
+- [x] AUDIT-010 Scoring under OTDeluxe90sPolicy matches the spec exactly (including occupation multiplier).
 - [ ] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
 
 - [ ] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
 - [ ] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
 - [ ] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
 - [x] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.
-- [ ] AUDIT-016 Route-variant prompts occur at South Pass and Blue Mountains; taking a shortcut cannot visit skipped nodes or apply their store multipliers.
+- [x] AUDIT-016 Route-variant prompts occur at South Pass and Blue Mountains; taking a shortcut cannot visit skipped nodes or apply their store multipliers.
 
 ---
 

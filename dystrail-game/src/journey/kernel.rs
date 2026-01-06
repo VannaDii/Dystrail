@@ -122,6 +122,9 @@ impl<'a> DailyTickKernel<'a> {
     {
         self.apply_daily_physics(state);
         hook(state);
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            state.clear_today_travel_distance();
+        }
         let credited_miles = if state.current_day_kind.is_none() {
             let credited = if matches!(kind, TravelDayKind::Partial) && miles <= 0.0 {
                 day_accounting::partial_day_miles(state, miles)
@@ -170,7 +173,11 @@ impl<'a> DailyTickKernel<'a> {
             return result;
         }
 
-        let computed_miles_today = state.distance_today.max(state.distance_today_raw);
+        let computed_miles_today = if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            state.distance_today
+        } else {
+            state.distance_today.max(state.distance_today_raw)
+        };
         state.apply_travel_wear();
         endgame::run_endgame_controller(
             state,

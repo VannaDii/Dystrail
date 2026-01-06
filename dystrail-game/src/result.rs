@@ -1,5 +1,7 @@
 //! End game result calculation
+use crate::journey::MechanicalPolicyId;
 use crate::numbers::round_f64_to_i32;
+use crate::otdeluxe_score;
 use crate::seed::encode_friendly;
 use crate::state::{CollapseCause, Ending, GameMode, GameState};
 use serde::{Deserialize, Serialize};
@@ -192,6 +194,10 @@ pub fn select_ending(gs: &GameState, cfg: &ResultConfig, boss_won: bool) -> Endi
 }
 
 fn compute_score(gs: &GameState, cfg: &ScoreCfg, mult_cfg: &MultipliersCfg) -> i32 {
+    if gs.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+        return otdeluxe_score::compute_score(&gs.ot_deluxe);
+    }
+
     let mut base = gs.journey_score();
     let pants = gs.stats.pants.max(0);
 

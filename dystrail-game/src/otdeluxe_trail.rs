@@ -6,6 +6,9 @@ use crate::mechanics::otdeluxe90s::{
 
 const OTDELUXE_TRAIL_NODE_COUNT: u8 = 18;
 const OTDELUXE_TRAIL_MARKER_COUNT: u8 = 17;
+pub const SOUTH_PASS_NODE_INDEX: u8 = 7;
+pub const BLUE_MOUNTAINS_NODE_INDEX: u8 = 14;
+pub const DALLES_NODE_INDEX: u8 = 16;
 
 const fn markers_for_variant(
     policy: &OtDeluxeTrailPolicy,
