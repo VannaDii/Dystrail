@@ -83,5 +83,38 @@
       "decay": 0.0,
       "rest_heal": 0.0
     }
+  },
+  "strain": {
+    "weights": {
+      "hp": 0.1,
+      "sanity": 0.1,
+      "pants": 0.01,
+      "starvation": 0.2,
+      "vehicle": 1.0,
+      "weather": 1.0,
+      "exec": 1.0
+    },
+    "weather_severity": {
+      "Clear": 0.0,
+      "Storm": 1.0,
+      "HeatWave": 1.0,
+      "ColdSnap": 0.6,
+      "Smoke": 0.8
+    },
+    "exec_order_bonus": {
+      "shutdown": 1.0,
+      "travel_ban_lite": 1.0,
+      "book_panic": 1.0,
+      "tariff_tsunami": 1.0,
+      "doe_eliminated": 1.0,
+      "war_dept_reorg": 1.0
+    },
+    "vehicle_wear_norm_denom": 100.0,
+    "strain_norm_denom": 4.0,
+    "label_bounds": {
+      "good_max": 0.25,
+      "fair_max": 0.5,
+      "poor_max": 0.75
+    }
   }
 }

@@ -71,7 +71,8 @@ use crate::endgame::{self, EndgameState};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
+    JourneyCfg, MechanicalPolicyId, RngBundle, StrainConfig, TravelConfig, TravelDayKind,
+    WearConfig,
 };
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxePace,
@@ -415,7 +416,10 @@ mod tests {
     };
     use crate::data::{Choice, Effects, Encounter};
     use crate::endgame::EndgameTravelCfg;
-    use crate::journey::{CountingRng, DailyTickKernel, DayOutcome, JourneyCfg, RngBundle};
+    use crate::journey::{
+        CountingRng, DailyTickKernel, DayOutcome, JourneyCfg, RngBundle, StrainConfig,
+        StrainLabelBounds, StrainWeights,
+    };
     use crate::pacing::{PaceCfg, PacingLimits};
     use crate::weather::Weather;
     use rand::Rng;
@@ -1728,6 +1732,69 @@ mod tests {
     }
 
     #[test]
+    fn general_strain_combines_components() {
+        let mut state = GameState::default();
+        state.stats.hp = 8;
+        state.stats.sanity = 7;
+        state.stats.pants = 12;
+        state.malnutrition_level = 2;
+        state.vehicle.wear = 5.0;
+        state.weather_state.today = Weather::Storm;
+        state.current_order = Some(ExecOrder::Shutdown);
+
+        let cfg = StrainConfig {
+            weights: StrainWeights {
+                hp: 1.0,
+                sanity: 1.0,
+                pants: 1.0,
+                starvation: 1.0,
+                vehicle: 1.0,
+                weather: 1.0,
+                exec: 1.0,
+            },
+            weather_severity: HashMap::from([(Weather::Storm, 2.0)]),
+            exec_order_bonus: HashMap::from([(String::from("shutdown"), 3.0)]),
+            vehicle_wear_norm_denom: 10.0,
+            strain_norm_denom: 4.0,
+            label_bounds: StrainLabelBounds::default(),
+        };
+
+        let strain = state.update_general_strain(&cfg);
+
+        let expected = 2.0 + 3.0 + 12.0 + 2.0 + 0.5 + 2.0 + 3.0;
+        approx_eq(strain, expected);
+        approx_eq(state.general_strain, expected);
+    }
+
+    #[test]
+    fn general_strain_labels_follow_bounds() {
+        let cfg = StrainConfig {
+            strain_norm_denom: 4.0,
+            label_bounds: StrainLabelBounds {
+                good_max: 0.25,
+                fair_max: 0.5,
+                poor_max: 0.75,
+            },
+            ..StrainConfig::default()
+        };
+        let mut state = GameState::default();
+
+        assert_eq!(state.general_strain_label(&cfg), HealthLabel::Good);
+
+        state.general_strain = 1.0;
+        assert_eq!(state.general_strain_label(&cfg), HealthLabel::Fair);
+
+        state.general_strain = 1.9;
+        assert_eq!(state.general_strain_label(&cfg), HealthLabel::Fair);
+
+        state.general_strain = 2.0;
+        assert_eq!(state.general_strain_label(&cfg), HealthLabel::Poor);
+
+        state.general_strain = 3.0;
+        assert_eq!(state.general_strain_label(&cfg), HealthLabel::VeryPoor);
+    }
+
+    #[test]
     fn otdeluxe_affliction_probability_interpolates() {
         let policy = default_otdeluxe_policy();
         let probability = otdeluxe_affliction_probability(52, &policy.affliction);
@@ -2107,6 +2174,14 @@ impl Stats {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum HealthLabel {
+    Good,
+    Fair,
+    Poor,
+    VeryPoor,
+}
+
 /// Player inventory including spares and tags
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct Inventory {
@@ -2218,6 +2293,8 @@ pub struct GameState {
     #[serde(default)]
     pub season: Season,
     pub stats: Stats,
+    #[serde(default)]
+    pub general_strain: f32,
     #[serde(default)]
     pub budget: i32,
     /// Budget in cents for precise calculations
@@ -2423,6 +2500,7 @@ macro_rules! game_state_defaults {
             region: Region::Heartland,
             season: Season::default(),
             stats: Stats::default(),
+            general_strain: 0.0,
             budget: 100,
             budget_cents: 10_000,
             inventory: Inventory::default(),
@@ -2752,6 +2830,73 @@ impl GameState {
             }
         } else if policy.death_imminent_resets_on_recovery_below_threshold {
             self.ot_deluxe.death_imminent_days_remaining = 0;
+        }
+    }
+
+    pub(crate) fn update_general_strain(&mut self, cfg: &StrainConfig) -> f32 {
+        let stats = &self.stats;
+        let max_hp = Stats::default().hp;
+        let max_sanity = Stats::default().sanity;
+        let hp_gap =
+            f32::from(u16::try_from((max_hp - stats.hp).clamp(0, max_hp)).unwrap_or(u16::MAX));
+        let sanity_gap = f32::from(
+            u16::try_from((max_sanity - stats.sanity).clamp(0, max_sanity)).unwrap_or(u16::MAX),
+        );
+        let pants = f32::from(u16::try_from(stats.pants.clamp(0, 100)).unwrap_or(u16::MAX));
+        let malnutrition = f32::from(
+            u16::try_from(self.malnutrition_level.min(STARVATION_MAX_STACK)).unwrap_or(u16::MAX),
+        );
+        let wear_norm = if cfg.vehicle_wear_norm_denom > 0.0 {
+            (self.vehicle.wear.max(0.0) / cfg.vehicle_wear_norm_denom).clamp(0.0, 1.0)
+        } else {
+            0.0
+        };
+        let weather_severity = cfg
+            .weather_severity
+            .get(&self.weather_state.today)
+            .copied()
+            .unwrap_or(0.0)
+            .max(0.0);
+        let exec_bonus = self
+            .current_order
+            .and_then(|order| cfg.exec_order_bonus.get(order.key()).copied())
+            .unwrap_or(0.0)
+            .max(0.0);
+
+        let weights = &cfg.weights;
+        let mut strain = weights.hp.mul_add(hp_gap, weights.sanity * sanity_gap);
+        strain = weights.pants.mul_add(pants, strain);
+        strain = weights.starvation.mul_add(malnutrition, strain);
+        strain = weights.vehicle.mul_add(wear_norm, strain);
+        strain = weights.weather.mul_add(weather_severity, strain);
+        strain = weights.exec.mul_add(exec_bonus, strain);
+        if !strain.is_finite() {
+            strain = 0.0;
+        }
+        self.general_strain = strain.max(0.0);
+        self.general_strain
+    }
+
+    #[must_use]
+    pub fn general_strain_norm(&self, cfg: &StrainConfig) -> f32 {
+        if cfg.strain_norm_denom <= 0.0 || !cfg.strain_norm_denom.is_finite() {
+            return 0.0;
+        }
+        (self.general_strain / cfg.strain_norm_denom).clamp(0.0, 1.0)
+    }
+
+    #[must_use]
+    pub fn general_strain_label(&self, cfg: &StrainConfig) -> HealthLabel {
+        let norm = self.general_strain_norm(cfg);
+        let bounds = &cfg.label_bounds;
+        if norm < bounds.good_max {
+            HealthLabel::Good
+        } else if norm < bounds.fair_max {
+            HealthLabel::Fair
+        } else if norm < bounds.poor_max {
+            HealthLabel::Poor
+        } else {
+            HealthLabel::VeryPoor
         }
     }
 
@@ -4258,6 +4403,7 @@ impl GameState {
         self.day_records.clear();
         self.recompute_day_counters();
         self.current_day_record = None;
+        self.general_strain = 0.0;
         self.journey_partial_ratio = JourneyCfg::default_partial_ratio();
         self.journey_travel = TravelConfig::default();
         self.journey_wear = WearConfig::default();

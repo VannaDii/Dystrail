@@ -956,7 +956,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Catalog is data-driven (JSON/TOML/ron) and loaded by engine.
     - Adding a disease does not require code changes.
 
-- [ ] HEALTH-004 (P1) Implement `general_strain` as the Dystrail parity scalar (derived, hidden)
+- [x] HEALTH-004 (P1) Implement `general_strain` as the Dystrail parity scalar (derived, hidden)
   - Requirement:
     - Compute `general_strain` once per day, deterministically, from HP/Sanity/Pants/vehicle/weather/exec/starvation.
     - Must be policy-weighted and not player-visible.
@@ -1012,7 +1012,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Travel speed reduction matches the multiplier and is deterministic.
 
-- [ ] HEALTH-009 (P1) Implement Dystrail health-label derivation via `general_strain_norm` (for UI/scoring parity)
+- [x] HEALTH-009 (P1) Implement Dystrail health-label derivation via `general_strain_norm` (for UI/scoring parity)
   - Requirement:
     - Compute:
       - `general_strain_norm = clamp(general_strain / STRAIN_NORM_DENOM, 0..1)`

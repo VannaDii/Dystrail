@@ -203,6 +203,8 @@ pub struct JourneyCfg {
     #[serde(default)]
     pub daily: DailyTickConfig,
     #[serde(default)]
+    pub strain: StrainConfig,
+    #[serde(default)]
     pub guards: AcceptanceGuards,
 }
 
@@ -230,6 +232,7 @@ impl JourneyCfg {
         self.breakdown.validate()?;
         self.crossing.validate()?;
         self.daily.validate()?;
+        self.strain.validate()?;
         self.guards.validate()?;
         Ok(())
     }
@@ -272,6 +275,7 @@ impl Default for JourneyCfg {
             part_weights: PartWeights::default(),
             crossing: CrossingPolicy::default(),
             daily: DailyTickConfig::default(),
+            strain: StrainConfig::default(),
             guards: AcceptanceGuards::default(),
         }
     }
@@ -812,6 +816,291 @@ impl HealthTickConfig {
     }
 }
 
+/// Derived general strain configuration (Dystrail parity scalar).
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct StrainConfig {
+    #[serde(default)]
+    pub weights: StrainWeights,
+    #[serde(default = "StrainConfig::default_weather_severity")]
+    pub weather_severity: HashMap<Weather, f32>,
+    #[serde(default)]
+    pub exec_order_bonus: HashMap<String, f32>,
+    #[serde(default = "StrainConfig::default_vehicle_wear_norm_denom")]
+    pub vehicle_wear_norm_denom: f32,
+    #[serde(default = "StrainConfig::default_strain_norm_denom")]
+    pub strain_norm_denom: f32,
+    #[serde(default)]
+    pub label_bounds: StrainLabelBounds,
+}
+
+impl Default for StrainConfig {
+    fn default() -> Self {
+        Self {
+            weights: StrainWeights::default(),
+            weather_severity: Self::default_weather_severity(),
+            exec_order_bonus: HashMap::new(),
+            vehicle_wear_norm_denom: Self::default_vehicle_wear_norm_denom(),
+            strain_norm_denom: Self::default_strain_norm_denom(),
+            label_bounds: StrainLabelBounds::default(),
+        }
+    }
+}
+
+impl StrainConfig {
+    const fn default_vehicle_wear_norm_denom() -> f32 {
+        100.0
+    }
+
+    const fn default_strain_norm_denom() -> f32 {
+        4.0
+    }
+
+    fn default_weather_severity() -> HashMap<Weather, f32> {
+        HashMap::from([
+            (Weather::Clear, 0.0),
+            (Weather::Storm, 1.0),
+            (Weather::HeatWave, 1.0),
+            (Weather::ColdSnap, 0.6),
+            (Weather::Smoke, 0.8),
+        ])
+    }
+
+    pub fn sanitize(&mut self) {
+        self.weights.sanitize();
+        for value in self.weather_severity.values_mut() {
+            if !value.is_finite() || *value < 0.0 {
+                *value = 0.0;
+            }
+        }
+        for value in self.exec_order_bonus.values_mut() {
+            if !value.is_finite() || *value < 0.0 {
+                *value = 0.0;
+            }
+        }
+        if !self.vehicle_wear_norm_denom.is_finite() || self.vehicle_wear_norm_denom <= 0.0 {
+            self.vehicle_wear_norm_denom = Self::default_vehicle_wear_norm_denom();
+        }
+        if !self.strain_norm_denom.is_finite() || self.strain_norm_denom <= 0.0 {
+            self.strain_norm_denom = Self::default_strain_norm_denom();
+        }
+        self.label_bounds.sanitize();
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        self.weights.validate()?;
+        for &value in self.weather_severity.values() {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "strain.weather_severity",
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        for &value in self.exec_order_bonus.values() {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field: "strain.exec_order_bonus",
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        if self.vehicle_wear_norm_denom <= 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "strain.vehicle_wear_norm_denom",
+                min: f32::EPSILON,
+                value: self.vehicle_wear_norm_denom,
+            });
+        }
+        if self.strain_norm_denom <= 0.0 {
+            return Err(JourneyConfigError::MinViolation {
+                field: "strain.strain_norm_denom",
+                min: f32::EPSILON,
+                value: self.strain_norm_denom,
+            });
+        }
+        self.label_bounds.validate()?;
+        Ok(())
+    }
+}
+
+/// Per-axis weights for computing general strain.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct StrainWeights {
+    #[serde(default = "StrainWeights::default_hp")]
+    pub hp: f32,
+    #[serde(default = "StrainWeights::default_sanity")]
+    pub sanity: f32,
+    #[serde(default = "StrainWeights::default_pants")]
+    pub pants: f32,
+    #[serde(default = "StrainWeights::default_starvation")]
+    pub starvation: f32,
+    #[serde(default = "StrainWeights::default_vehicle")]
+    pub vehicle: f32,
+    #[serde(default = "StrainWeights::default_weather")]
+    pub weather: f32,
+    #[serde(default = "StrainWeights::default_exec")]
+    pub exec: f32,
+}
+
+impl Default for StrainWeights {
+    fn default() -> Self {
+        Self {
+            hp: Self::default_hp(),
+            sanity: Self::default_sanity(),
+            pants: Self::default_pants(),
+            starvation: Self::default_starvation(),
+            vehicle: Self::default_vehicle(),
+            weather: Self::default_weather(),
+            exec: Self::default_exec(),
+        }
+    }
+}
+
+impl StrainWeights {
+    const fn default_hp() -> f32 {
+        0.1
+    }
+
+    const fn default_sanity() -> f32 {
+        0.1
+    }
+
+    const fn default_pants() -> f32 {
+        0.01
+    }
+
+    const fn default_starvation() -> f32 {
+        0.2
+    }
+
+    const fn default_vehicle() -> f32 {
+        1.0
+    }
+
+    const fn default_weather() -> f32 {
+        1.0
+    }
+
+    const fn default_exec() -> f32 {
+        1.0
+    }
+
+    fn sanitize(&mut self) {
+        for value in [
+            &mut self.hp,
+            &mut self.sanity,
+            &mut self.pants,
+            &mut self.starvation,
+            &mut self.vehicle,
+            &mut self.weather,
+            &mut self.exec,
+        ] {
+            if !value.is_finite() || *value < 0.0 {
+                *value = 0.0;
+            }
+        }
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        for (field, value) in [
+            ("strain.weights.hp", self.hp),
+            ("strain.weights.sanity", self.sanity),
+            ("strain.weights.pants", self.pants),
+            ("strain.weights.starvation", self.starvation),
+            ("strain.weights.vehicle", self.vehicle),
+            ("strain.weights.weather", self.weather),
+            ("strain.weights.exec", self.exec),
+        ] {
+            if value < 0.0 {
+                return Err(JourneyConfigError::MinViolation {
+                    field,
+                    min: 0.0,
+                    value,
+                });
+            }
+        }
+        Ok(())
+    }
+}
+
+/// Label thresholds for general strain normalization.
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct StrainLabelBounds {
+    #[serde(default = "StrainLabelBounds::default_good_max")]
+    pub good_max: f32,
+    #[serde(default = "StrainLabelBounds::default_fair_max")]
+    pub fair_max: f32,
+    #[serde(default = "StrainLabelBounds::default_poor_max")]
+    pub poor_max: f32,
+}
+
+impl Default for StrainLabelBounds {
+    fn default() -> Self {
+        Self {
+            good_max: Self::default_good_max(),
+            fair_max: Self::default_fair_max(),
+            poor_max: Self::default_poor_max(),
+        }
+    }
+}
+
+impl StrainLabelBounds {
+    const fn default_good_max() -> f32 {
+        0.25
+    }
+
+    const fn default_fair_max() -> f32 {
+        0.5
+    }
+
+    const fn default_poor_max() -> f32 {
+        0.75
+    }
+
+    const fn sanitize(&mut self) {
+        if !self.good_max.is_finite() {
+            self.good_max = Self::default_good_max();
+        }
+        if !self.fair_max.is_finite() {
+            self.fair_max = Self::default_fair_max();
+        }
+        if !self.poor_max.is_finite() {
+            self.poor_max = Self::default_poor_max();
+        }
+        self.good_max = self.good_max.clamp(0.0, 1.0);
+        self.fair_max = self.fair_max.clamp(self.good_max, 1.0);
+        self.poor_max = self.poor_max.clamp(self.fair_max, 1.0);
+    }
+
+    fn validate(&self) -> Result<(), JourneyConfigError> {
+        for (field, value) in [
+            ("strain.label_bounds.good_max", self.good_max),
+            ("strain.label_bounds.fair_max", self.fair_max),
+            ("strain.label_bounds.poor_max", self.poor_max),
+        ] {
+            if !(0.0..=1.0).contains(&value) {
+                return Err(JourneyConfigError::RangeViolation {
+                    field,
+                    min: 0.0,
+                    max: 1.0,
+                    value,
+                });
+            }
+        }
+        if self.good_max > self.fair_max || self.fair_max > self.poor_max {
+            return Err(JourneyConfigError::RangeViolation {
+                field: "strain.label_bounds",
+                min: 0.0,
+                max: 1.0,
+                value: self.good_max.max(self.fair_max).max(self.poor_max),
+            });
+        }
+        Ok(())
+    }
+}
+
 impl Default for CrossingPolicy {
     fn default() -> Self {
         Self {
@@ -1311,6 +1600,8 @@ impl PolicyCatalog {
         });
         resolved.travel.sanitize();
         resolved.crossing.sanitize();
+        resolved.daily.sanitize();
+        resolved.strain.sanitize();
         resolved
     }
 
@@ -1886,6 +2177,7 @@ fn normalize_cfg(mut cfg: JourneyCfg) -> JourneyCfg {
     }
     cfg.crossing.sanitize();
     cfg.daily.sanitize();
+    cfg.strain.sanitize();
     cfg
 }
 

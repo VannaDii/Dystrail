@@ -325,6 +325,7 @@ impl<'a> DailyTickKernel<'a> {
                 .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
             let _ = apply_daily_health(&self.cfg.daily, state);
         }
+        state.update_general_strain(&self.cfg.strain);
         {
             let _guard = rng_bundle
                 .as_ref()
