@@ -19,6 +19,8 @@ pub mod journey;
 pub mod mechanics;
 pub mod numbers;
 pub mod otdeluxe_state;
+pub mod otdeluxe_store;
+pub mod otdeluxe_trail;
 pub mod pacing;
 pub mod personas;
 pub mod result;
@@ -55,6 +57,21 @@ pub use journey::{
 };
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
+};
+pub use otdeluxe_store::{
+    OtDeluxeStoreError, OtDeluxeStoreItem, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt,
+    apply_purchase as apply_otdeluxe_store_purchase, base_price_cents as otdeluxe_base_price_cents,
+    max_inventory as otdeluxe_max_inventory, price_cents_at_node as otdeluxe_price_cents_at_node,
+    quote_purchase as quote_otdeluxe_store_purchase,
+};
+pub use otdeluxe_trail::{
+    mile_marker_for_node as otdeluxe_mile_marker_for_node,
+    next_node_index as otdeluxe_next_node_index,
+    node_index_for_miles as otdeluxe_node_index_for_miles,
+    price_multiplier_pct_for_node as otdeluxe_price_multiplier_pct_for_node,
+    price_multiplier_pct_for_stage as otdeluxe_price_multiplier_pct_for_stage,
+    store_available_at_node as otdeluxe_store_available_at_node,
+    total_miles_for_variant as otdeluxe_total_miles_for_variant,
 };
 pub use pacing::{DietCfg, PaceCfg, PacingConfig, PacingLimits};
 pub use personas::{Persona, PersonaMods, PersonaStart, PersonasList};

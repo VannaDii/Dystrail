@@ -85,6 +85,8 @@ use crate::otdeluxe_state::{
     OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeInventory,
     OtDeluxePartyState, OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
 };
+use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt};
+use crate::otdeluxe_trail;
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
@@ -2933,7 +2935,7 @@ impl GameState {
         let cash_cents = u32::try_from(self.budget_cents.max(0)).unwrap_or(u32::MAX);
 
         let calendar = OtDeluxeCalendar::from_day_index(self.day);
-        OtDeluxeState {
+        let mut ot_state = OtDeluxeState {
             day: self.day,
             miles_traveled: self.miles_traveled_actual,
             terrain: OtDeluxeTerrain::default(),
@@ -2947,7 +2949,14 @@ impl GameState {
             pace,
             rations,
             ..OtDeluxeState::default()
-        }
+        };
+        let policy = default_otdeluxe_policy();
+        ot_state.route.current_node_index = otdeluxe_trail::node_index_for_miles(
+            &policy.trail,
+            ot_state.route.variant,
+            ot_state.miles_traveled,
+        );
+        ot_state
     }
 
     pub(crate) fn otdeluxe_alive_party_count(&self) -> u16 {
@@ -3407,6 +3416,12 @@ impl GameState {
             self.ot_deluxe.season = self.ot_deluxe.calendar.season();
         }
         self.ot_deluxe.miles_traveled = self.miles_traveled_actual;
+        let policy = default_otdeluxe_policy();
+        self.ot_deluxe.route.current_node_index = otdeluxe_trail::node_index_for_miles(
+            &policy.trail,
+            self.ot_deluxe.route.variant,
+            self.ot_deluxe.miles_traveled,
+        );
     }
 
     fn unlock_aggressive_boss_ready(&mut self) {
@@ -5642,5 +5657,36 @@ impl GameState {
 
         // Clamp stats to valid ranges
         self.clamp_stats();
+    }
+
+    /// Apply an `OTDeluxe` store purchase to the run state.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if the purchase exceeds caps or cash on hand.
+    pub fn apply_otdeluxe_store_purchase(
+        &mut self,
+        node_index: u8,
+        lines: &[OtDeluxeStoreLineItem],
+    ) -> Result<OtDeluxeStoreReceipt, OtDeluxeStoreError> {
+        let policy = default_otdeluxe_policy();
+        crate::otdeluxe_store::apply_purchase(
+            &policy.store,
+            node_index,
+            &mut self.ot_deluxe.inventory,
+            &mut self.ot_deluxe.oxen,
+            lines,
+        )
+    }
+
+    #[must_use]
+    pub fn otdeluxe_store_available(&self) -> bool {
+        let policy = default_otdeluxe_policy();
+        otdeluxe_trail::store_available_at_node(
+            &policy.trail,
+            &policy.store,
+            self.ot_deluxe.route.variant,
+            self.ot_deluxe.route.current_node_index,
+        )
     }
 }

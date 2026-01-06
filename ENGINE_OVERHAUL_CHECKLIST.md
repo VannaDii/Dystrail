@@ -1444,7 +1444,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 14) Store / Economy / Capacity (OTDeluxe90s)
 
-- [ ] STORE-001 (P0) Implement OTDeluxe store inventory and pricing model (cents, per-node multipliers)
+- [x] STORE-001 (P0) Implement OTDeluxe store inventory and pricing model (cents, per-node multipliers)
   - Requirement:
     - OTDeluxe store sells itemized goods and uses:
       - base prices in cents
@@ -1465,7 +1465,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Price calculation is deterministic and uses the policy multiplier for the current node.
 
-- [ ] STORE-002 (P0) Enforce OTDeluxe store max-buy caps and capacity model
+- [x] STORE-002 (P0) Enforce OTDeluxe store max-buy caps and capacity model
   - Requirement:
     - Enforce per-item caps (OTDeluxe default):
       - oxen ≤ 20
@@ -1488,7 +1488,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - OTDeluxe score uses `cash_cents / 500` as specified, not a Dystrail-specific budget abstraction.
 
-- [ ] STORE-004 (P0) Implement ammo-box purchase unit and conversion to bullets
+- [x] STORE-004 (P0) Implement ammo-box purchase unit and conversion to bullets
   - Requirement:
     - Store purchases ammo as `ammo_boxes`.
     - `bullets = ammo_boxes * BULLETS_PER_BOX`, where `BULLETS_PER_BOX = 20` (policy-defined, Deluxe stated).
@@ -1702,7 +1702,7 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [ ] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
 - [ ] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
 - [ ] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
-- [ ] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.
+- [x] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.
 - [ ] AUDIT-016 Route-variant prompts occur at South Pass and Blue Mountains; taking a shortcut cannot visit skipped nodes or apply their store multipliers.
 
 ---
