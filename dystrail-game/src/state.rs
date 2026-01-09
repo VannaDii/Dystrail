@@ -82,6 +82,8 @@ use crate::mechanics::otdeluxe90s::{
     OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
     OtDeluxeTrailVariant,
 };
+#[cfg(test)]
+use crate::otdeluxe_state::OtDeluxeTravelState;
 use crate::otdeluxe_state::{
     OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeDallesChoice,
     OtDeluxeInventory, OtDeluxePartyState, OtDeluxeRouteDecision, OtDeluxeRoutePrompt,
@@ -449,6 +451,21 @@ const fn otdeluxe_health_label(
 
 const fn sanitize_disease_multiplier(mult: f32) -> f32 {
     if mult.is_finite() { mult.max(0.0) } else { 1.0 }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum OtDeluxeSparePart {
+    Wheel,
+    Axle,
+    Tongue,
+}
+
+const fn otdeluxe_spare_for_breakdown(part: Part) -> OtDeluxeSparePart {
+    match part {
+        Part::Battery => OtDeluxeSparePart::Axle,
+        Part::Alternator => OtDeluxeSparePart::Tongue,
+        Part::Tire | Part::FuelPump => OtDeluxeSparePart::Wheel,
+    }
 }
 
 fn apply_otdeluxe_disease_effects(
@@ -883,6 +900,81 @@ mod tests {
         assert_eq!(state.budget_cents, 9_000);
         assert_eq!(state.budget, 90);
         assert_eq!(state.repairs_spent_cents, EMERGENCY_REPAIR_COST);
+    }
+
+    #[test]
+    fn otdeluxe_breakdown_consumes_ot_spare_and_unblocks() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                inventory: OtDeluxeInventory {
+                    spares_wheels: 1,
+                    ..OtDeluxeInventory::default()
+                },
+                travel: OtDeluxeTravelState {
+                    wagon_state: OtDeluxeWagonState::Blocked,
+                    ..OtDeluxeTravelState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 1,
+            }),
+            day_state: DayState {
+                travel: TravelDayState {
+                    travel_blocked: true,
+                    ..TravelDayState::default()
+                },
+                ..DayState::default()
+            },
+            ..GameState::default()
+        };
+
+        state.resolve_breakdown();
+
+        assert_eq!(state.ot_deluxe.inventory.spares_wheels, 0);
+        assert!(!state.day_state.travel.travel_blocked);
+        assert!(state.breakdown.is_none());
+        assert_eq!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Moving
+        );
+    }
+
+    #[test]
+    fn otdeluxe_breakdown_without_spare_stays_blocked() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                travel: OtDeluxeTravelState {
+                    wagon_state: OtDeluxeWagonState::Moving,
+                    ..OtDeluxeTravelState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            breakdown: Some(Breakdown {
+                part: Part::Battery,
+                day_started: 1,
+            }),
+            day_state: DayState {
+                travel: TravelDayState {
+                    travel_blocked: false,
+                    ..TravelDayState::default()
+                },
+                ..DayState::default()
+            },
+            ..GameState::default()
+        };
+
+        state.resolve_breakdown();
+
+        assert!(state.day_state.travel.travel_blocked);
+        assert!(state.breakdown.is_some());
+        assert_eq!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Blocked
+        );
     }
 
     #[test]
@@ -5386,6 +5478,29 @@ impl GameState {
     }
 
     pub(crate) fn resolve_breakdown(&mut self) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            if let Some(breakdown) = self.breakdown.clone() {
+                if self.consume_otdeluxe_spare_for_breakdown(breakdown.part) {
+                    self.vehicle.repair(VEHICLE_JURY_RIG_HEAL);
+                    self.breakdown = None;
+                    self.day_state.travel.travel_blocked = false;
+                    if matches!(
+                        self.ot_deluxe.travel.wagon_state,
+                        OtDeluxeWagonState::Blocked
+                    ) {
+                        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+                    }
+                    self.last_breakdown_part = None;
+                    self.logs.push(String::from("log.breakdown-repaired"));
+                } else {
+                    self.day_state.travel.travel_blocked = true;
+                    self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Blocked;
+                }
+            } else {
+                self.day_state.travel.travel_blocked = false;
+            }
+            return;
+        }
         if let Some(breakdown) = self.breakdown.clone() {
             if self.consume_spare_for_part(breakdown.part) {
                 self.vehicle.repair(VEHICLE_JURY_RIG_HEAL);
@@ -5418,6 +5533,25 @@ impl GameState {
             }
         } else {
             self.day_state.travel.travel_blocked = false;
+        }
+    }
+
+    const fn consume_otdeluxe_spare_for_breakdown(&mut self, part: Part) -> bool {
+        let inventory = &mut self.ot_deluxe.inventory;
+        match otdeluxe_spare_for_breakdown(part) {
+            OtDeluxeSparePart::Wheel if inventory.spares_wheels > 0 => {
+                inventory.spares_wheels -= 1;
+                true
+            }
+            OtDeluxeSparePart::Axle if inventory.spares_axles > 0 => {
+                inventory.spares_axles -= 1;
+                true
+            }
+            OtDeluxeSparePart::Tongue if inventory.spares_tongues > 0 => {
+                inventory.spares_tongues -= 1;
+                true
+            }
+            _ => false,
         }
     }
 

@@ -1166,7 +1166,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Vehicle breakdown chance is influenced by weather effects in a single causal chain.
 
-- [ ] TRAVEL-006 (P0) Implement Deluxe travel viability gates (no oxen / only ox sick / broken parts)
+- [x] TRAVEL-006 (P0) Implement Deluxe travel viability gates (no oxen / only ox sick / broken parts)
   - Requirement:
     - Travel must be blocked if:
       - `effective_oxen < OXEN_MIN_TO_MOVE` (default 1.0 effective oxen)
