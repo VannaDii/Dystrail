@@ -80,7 +80,7 @@ use crate::journey::{
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeOccupation,
     OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
-    OtDeluxeTrailVariant,
+    OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 #[cfg(test)]
 use crate::otdeluxe_state::OtDeluxeTravelState;
@@ -335,6 +335,20 @@ const fn otdeluxe_rations_health_penalty(
 
 fn otdeluxe_weather_health_penalty(weather: Weather, policy: &OtDeluxeHealthPolicy) -> i32 {
     *policy.weather_penalty.get(&weather).unwrap_or(&0)
+}
+
+fn otdeluxe_snow_speed_mult(snow_depth: f32, policy: &OtDeluxeTravelPolicy) -> f32 {
+    if !snow_depth.is_finite() {
+        return 1.0;
+    }
+    let penalty_per_in = policy.snow_speed_penalty_per_in.max(0.0);
+    if penalty_per_in <= 0.0 {
+        return 1.0;
+    }
+    let floor = policy.snow_speed_floor.clamp(0.0, 1.0);
+    let depth = snow_depth.max(0.0);
+    let mult = 1.0 - depth * penalty_per_in;
+    mult.clamp(floor, 1.0)
 }
 
 fn otdeluxe_clothing_health_penalty(
@@ -2066,6 +2080,34 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_travel_applies_snow_multiplier() {
+        let mut state = GameState::default();
+        let mut policy = OtDeluxe90sPolicy::default();
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.weather.snow_depth = 2.0;
+        policy.travel.snow_speed_penalty_per_in = 0.1;
+
+        let miles = state.compute_otdeluxe_miles_for_today(&policy);
+
+        assert!((miles - 16.0).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_terrain_updates_from_miles() {
+        let mut state = GameState::default();
+        let policy = OtDeluxe90sPolicy::default();
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.miles_traveled = 932.0;
+
+        let _ = state.compute_otdeluxe_miles_for_today(&policy);
+
+        assert!(matches!(
+            state.ot_deluxe.terrain,
+            OtDeluxeTerrain::Mountains
+        ));
+    }
+
+    #[test]
     fn otdeluxe_consumption_scales_with_rations_and_alive_members() {
         let mut state = GameState::default();
         state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B", "C"]);
@@ -3767,6 +3809,15 @@ impl GameState {
                 self.ot_deluxe.route.variant,
                 self.ot_deluxe.miles_traveled,
             );
+            self.ot_deluxe.terrain = if otdeluxe_trail::is_mountain_for_miles(
+                &policy.trail,
+                self.ot_deluxe.route.variant,
+                self.ot_deluxe.miles_traveled,
+            ) {
+                OtDeluxeTerrain::Mountains
+            } else {
+                OtDeluxeTerrain::Plains
+            };
             if let Some(prompt) = prompt_reached {
                 self.ot_deluxe.route.pending_prompt = Some(prompt);
                 self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
@@ -4638,6 +4689,15 @@ impl GameState {
             OtDeluxePace::Strenuous => policy.pace_mult_strenuous,
             OtDeluxePace::Grueling => policy.pace_mult_grueling,
         };
+        self.ot_deluxe.terrain = if otdeluxe_trail::is_mountain_for_miles(
+            &policy.trail,
+            self.ot_deluxe.route.variant,
+            self.ot_deluxe.miles_traveled,
+        ) {
+            OtDeluxeTerrain::Mountains
+        } else {
+            OtDeluxeTerrain::Plains
+        };
         let terrain_mult = if matches!(self.ot_deluxe.terrain, OtDeluxeTerrain::Mountains) {
             policy.travel.terrain_mult_mountains
         } else {
@@ -4657,8 +4717,10 @@ impl GameState {
             .mul_add(-sick_count, 1.0)
             .max(0.0);
         let disease_mult = self.ot_deluxe.travel.disease_speed_mult.max(0.0);
+        let snow_mult = otdeluxe_snow_speed_mult(self.ot_deluxe.weather.snow_depth, &policy.travel);
         let miles =
-            (base * pace_mult * terrain_mult * oxen_mult * sick_penalty * disease_mult).max(0.0);
+            (base * pace_mult * terrain_mult * oxen_mult * sick_penalty * disease_mult * snow_mult)
+                .max(0.0);
         let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
         let partial = (miles * ratio).clamp(0.0, miles);
         self.distance_today_raw = miles;

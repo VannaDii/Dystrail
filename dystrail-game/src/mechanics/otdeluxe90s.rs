@@ -226,6 +226,8 @@ pub struct OtDeluxeTrailPolicy {
     pub mile_markers_sublette: [u16; 17],
     pub mile_markers_dalles_shortcut: [u16; 17],
     pub mile_markers_sublette_and_dalles_shortcut: [u16; 17],
+    #[serde(default)]
+    pub mountain_nodes: [bool; 18],
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
@@ -240,6 +242,10 @@ pub struct OtDeluxeTravelPolicy {
     pub base_mpd_plains_steady_good: f32,
     pub terrain_mult_mountains: f32,
     pub sick_member_speed_penalty: f32,
+    #[serde(default)]
+    pub snow_speed_penalty_per_in: f32,
+    #[serde(default)]
+    pub snow_speed_floor: f32,
 }
 
 impl Default for OtDeluxeTravelPolicy {
@@ -248,6 +254,8 @@ impl Default for OtDeluxeTravelPolicy {
             base_mpd_plains_steady_good: 20.0,
             terrain_mult_mountains: 0.5,
             sick_member_speed_penalty: 0.10,
+            snow_speed_penalty_per_in: 0.0,
+            snow_speed_floor: 0.0,
         }
     }
 }
@@ -417,6 +425,10 @@ impl Default for OtDeluxeStorePolicy {
 
 impl Default for OtDeluxeTrailPolicy {
     fn default() -> Self {
+        const DEFAULT_MOUNTAIN_NODES: [bool; 18] = [
+            false, false, false, false, false, false, false, true, false, false, false, false,
+            false, false, true, false, false, false,
+        ];
         Self {
             total_miles_main: 2083,
             mile_markers_main: [
@@ -435,6 +447,7 @@ impl Default for OtDeluxeTrailPolicy {
                 102, 185, 304, 554, 640, 830, 932, 0, 1057, 1201, 1258, 1440, 1554, 1714, 0, 1839,
                 1939,
             ],
+            mountain_nodes: DEFAULT_MOUNTAIN_NODES,
         }
     }
 }

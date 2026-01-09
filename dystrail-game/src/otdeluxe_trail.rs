@@ -69,6 +69,27 @@ pub fn node_index_for_miles(
     current
 }
 
+/// Determine whether the specified node is marked as mountainous terrain.
+#[must_use]
+pub fn is_mountain_node(policy: &OtDeluxeTrailPolicy, node_index: u8) -> bool {
+    let idx = usize::from(node_index);
+    if idx >= policy.mountain_nodes.len() {
+        return false;
+    }
+    policy.mountain_nodes[idx]
+}
+
+/// Determine whether the current miles traveled place the party in mountain terrain.
+#[must_use]
+pub fn is_mountain_for_miles(
+    policy: &OtDeluxeTrailPolicy,
+    variant: OtDeluxeTrailVariant,
+    miles_traveled: f32,
+) -> bool {
+    let node_index = node_index_for_miles(policy, variant, miles_traveled);
+    is_mountain_node(policy, node_index)
+}
+
 /// Return the next reachable node index after the current node.
 #[must_use]
 pub fn next_node_index(
@@ -191,5 +212,14 @@ mod tests {
             OtDeluxeTrailVariant::DallesShortcut,
             15
         ));
+    }
+
+    #[test]
+    fn mountain_nodes_follow_policy_map() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        assert!(is_mountain_node(trail, SOUTH_PASS_NODE_INDEX));
+        assert!(is_mountain_node(trail, BLUE_MOUNTAINS_NODE_INDEX));
+        assert!(!is_mountain_node(trail, 0));
     }
 }

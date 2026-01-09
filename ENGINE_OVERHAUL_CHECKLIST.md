@@ -1198,7 +1198,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Under OTDeluxe90sPolicy, the travel model does not depend on Dystrail’s current `TravelConfig` multipliers unless explicitly mapped.
 
-- [ ] TRAVEL-008 (P1) Implement terrain classification per node and use it in travel speed
+- [x] TRAVEL-008 (P1) Implement terrain classification per node and use it in travel speed
   - Requirement:
     - Trail nodes (or segments) must carry a terrain classification sufficient to apply `TERRAIN_MULT[mountains]=0.5`.
   - Spec refs:
