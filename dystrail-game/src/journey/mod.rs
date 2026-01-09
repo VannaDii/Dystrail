@@ -1722,6 +1722,10 @@ impl RngStreamMask {
         Self(stream.bit())
     }
 
+    pub(crate) const fn pair(first: RngStream, second: RngStream) -> Self {
+        Self(first.bit() | second.bit())
+    }
+
     pub(crate) const fn contains(self, stream: RngStream) -> bool {
         (self.0 & stream.bit()) != 0
     }
@@ -1735,6 +1739,7 @@ pub(crate) enum RngPhase {
     WeatherTick,
     VehicleBreakdown,
     EncounterTick,
+    TravelTick,
     CrossingTick,
     BossTick,
     TradeTick,
@@ -1749,6 +1754,7 @@ impl RngPhase {
             Self::WeatherTick => RngStreamMask::single(RngStream::Weather),
             Self::VehicleBreakdown => RngStreamMask::single(RngStream::Breakdown),
             Self::EncounterTick => RngStreamMask::single(RngStream::Encounter),
+            Self::TravelTick => RngStreamMask::pair(RngStream::Travel, RngStream::Events),
             Self::CrossingTick => RngStreamMask::single(RngStream::Crossing),
             Self::BossTick => RngStreamMask::single(RngStream::Boss),
             Self::TradeTick => RngStreamMask::single(RngStream::Trade),
@@ -2541,6 +2547,10 @@ mod tests {
         assert_eq!(
             RngPhase::EncounterTick.allowed_streams(),
             RngStreamMask::single(RngStream::Encounter)
+        );
+        assert_eq!(
+            RngPhase::TravelTick.allowed_streams(),
+            RngStreamMask::pair(RngStream::Travel, RngStream::Events)
         );
         assert_eq!(
             RngPhase::CrossingTick.allowed_streams(),

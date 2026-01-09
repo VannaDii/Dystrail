@@ -230,6 +230,57 @@ pub struct OtDeluxeTrailPolicy {
     pub mountain_nodes: [bool; 18],
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct OtDeluxeNavigationDelay {
+    pub min_days: u8,
+    pub max_days: u8,
+}
+
+impl Default for OtDeluxeNavigationDelay {
+    fn default() -> Self {
+        Self {
+            min_days: 1,
+            max_days: 3,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeNavigationPolicy {
+    pub chance_per_day: f32,
+    pub lost_weight: u16,
+    pub wrong_weight: u16,
+    pub impassable_weight: u16,
+    pub snowbound_weight: u16,
+    #[serde(default)]
+    pub lost_delay: OtDeluxeNavigationDelay,
+    #[serde(default)]
+    pub wrong_delay: OtDeluxeNavigationDelay,
+    #[serde(default)]
+    pub impassable_delay: OtDeluxeNavigationDelay,
+    #[serde(default)]
+    pub snowbound_delay: OtDeluxeNavigationDelay,
+    #[serde(default)]
+    pub snowbound_min_depth_in: f32,
+}
+
+impl Default for OtDeluxeNavigationPolicy {
+    fn default() -> Self {
+        Self {
+            chance_per_day: 0.0,
+            lost_weight: 1,
+            wrong_weight: 1,
+            impassable_weight: 1,
+            snowbound_weight: 1,
+            lost_delay: OtDeluxeNavigationDelay::default(),
+            wrong_delay: OtDeluxeNavigationDelay::default(),
+            impassable_delay: OtDeluxeNavigationDelay::default(),
+            snowbound_delay: OtDeluxeNavigationDelay::default(),
+            snowbound_min_depth_in: 0.0,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxeOccupationAdvantages {
     pub doctor_fatality_mult: f32,
@@ -293,6 +344,7 @@ pub struct OtDeluxe90sPolicy {
     pub occupation_advantages: OtDeluxeOccupationAdvantages,
     pub oxen: OtDeluxeOxenPolicy,
     pub travel: OtDeluxeTravelPolicy,
+    pub navigation: OtDeluxeNavigationPolicy,
     pub health: OtDeluxeHealthPolicy,
     pub affliction: OtDeluxeAfflictionPolicy,
     pub crossings: OtDeluxeCrossingPolicy,
@@ -571,6 +623,7 @@ impl Default for OtDeluxe90sPolicy {
             occupation_advantages: OtDeluxeOccupationAdvantages::default(),
             oxen: OtDeluxeOxenPolicy::default(),
             travel: OtDeluxeTravelPolicy::default(),
+            navigation: OtDeluxeNavigationPolicy::default(),
             health: OtDeluxeHealthPolicy::default(),
             affliction: OtDeluxeAfflictionPolicy::default(),
             crossings: OtDeluxeCrossingPolicy::default(),
@@ -658,6 +711,20 @@ mod tests {
         assert_eq!(policy.health.affliction_injury_penalty, 0);
         assert_f32_eq(policy.health.drought_threshold, 0.0);
         assert_eq!(policy.health.drought_penalty, 0);
+        assert_f32_eq(policy.navigation.chance_per_day, 0.0);
+        assert_eq!(policy.navigation.lost_weight, 1);
+        assert_eq!(policy.navigation.wrong_weight, 1);
+        assert_eq!(policy.navigation.impassable_weight, 1);
+        assert_eq!(policy.navigation.snowbound_weight, 1);
+        assert_eq!(policy.navigation.lost_delay.min_days, 1);
+        assert_eq!(policy.navigation.lost_delay.max_days, 3);
+        assert_eq!(policy.navigation.wrong_delay.min_days, 1);
+        assert_eq!(policy.navigation.wrong_delay.max_days, 3);
+        assert_eq!(policy.navigation.impassable_delay.min_days, 1);
+        assert_eq!(policy.navigation.impassable_delay.max_days, 3);
+        assert_eq!(policy.navigation.snowbound_delay.min_days, 1);
+        assert_eq!(policy.navigation.snowbound_delay.max_days, 3);
+        assert_f32_eq(policy.navigation.snowbound_min_depth_in, 0.0);
 
         assert_eq!(policy.score.points_per_person_by_health.good, 500);
         assert_eq!(policy.score.divisor_cash_cents, 500);

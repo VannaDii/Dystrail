@@ -1121,7 +1121,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Refactored pipeline matches the phase list and ownership boundaries.
 
-- [ ] TRAVEL-002 (P0) Implement navigation hard-stops and multi-day delays (lost/wrong/impassable/snowbound)
+- [x] TRAVEL-002 (P0) Implement navigation hard-stops and multi-day delays (lost/wrong/impassable/snowbound)
   - Requirement:
     - If any navigation hard-stop occurs:
       - today’s miles are 0

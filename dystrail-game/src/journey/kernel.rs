@@ -2,7 +2,7 @@
 
 use std::sync::OnceLock;
 
-use crate::constants::LOG_TRAVELED;
+use crate::constants::{LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
 use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
@@ -163,6 +163,9 @@ impl<'a> DailyTickKernel<'a> {
         if let Some(result) = state.handle_travel_block(breakdown_started) {
             return result;
         }
+        if state.consume_otdeluxe_navigation_delay_day() {
+            return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
+        }
 
         if let Some(result) = {
             let _guard = rng_bundle
@@ -171,6 +174,14 @@ impl<'a> DailyTickKernel<'a> {
             state.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
         } {
             return result;
+        }
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::TravelTick));
+            if state.apply_otdeluxe_navigation_event() {
+                return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
+            }
         }
 
         let computed_miles_today = if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
@@ -358,7 +369,7 @@ fn default_pacing_config() -> &'static PacingConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::LOG_TRAVEL_BLOCKED;
+    use crate::constants::{LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
         DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, MechanicalPolicyId,
@@ -634,6 +645,60 @@ mod tests {
             state.ot_deluxe.travel.wagon_state,
             OtDeluxeWagonState::Blocked
         ));
+    }
+
+    #[test]
+    fn otdeluxe_navigation_delay_blocks_travel() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.travel.delay_days_remaining = 1;
+        state.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Delayed;
+        state.vehicle.breakdown_cooldown = 2;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        let record = outcome.record.expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "otdeluxe.nav_delay"));
+        assert_eq!(state.ot_deluxe.travel.delay_days_remaining, 0);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Moving
+        ));
+    }
+
+    #[test]
+    fn otdeluxe_travel_flow_reaches_navigation_roll() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            encounter_chance_today: 0.0,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 4;
+        state.vehicle.breakdown_cooldown = 2;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(101)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVELED);
+        let record = outcome.record.expect("expected day record");
+        assert!(matches!(
+            record.kind,
+            TravelDayKind::Travel | TravelDayKind::Partial
+        ));
+        assert!(state.distance_today > 0.0);
     }
 
     #[test]

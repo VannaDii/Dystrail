@@ -78,9 +78,9 @@ use crate::journey::{
     WearConfig,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeOccupation,
-    OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxeRations, OtDeluxeRationsPolicy,
-    OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationDelay,
+    OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePaceHealthPolicy,
+    OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 #[cfg(test)]
 use crate::otdeluxe_state::OtDeluxeTravelState;
@@ -474,12 +474,101 @@ enum OtDeluxeSparePart {
     Tongue,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum OtDeluxeNavigationEvent {
+    LostTrail,
+    WrongTrail,
+    Impassable,
+    Snowbound,
+}
+
 const fn otdeluxe_spare_for_breakdown(part: Part) -> OtDeluxeSparePart {
     match part {
         Part::Battery => OtDeluxeSparePart::Axle,
         Part::Alternator => OtDeluxeSparePart::Tongue,
         Part::Tire | Part::FuelPump => OtDeluxeSparePart::Wheel,
     }
+}
+
+const fn otdeluxe_navigation_reason_tag(event: OtDeluxeNavigationEvent) -> &'static str {
+    match event {
+        OtDeluxeNavigationEvent::LostTrail => "otdeluxe.nav_lost",
+        OtDeluxeNavigationEvent::WrongTrail => "otdeluxe.nav_wrong",
+        OtDeluxeNavigationEvent::Impassable => "otdeluxe.nav_impassable",
+        OtDeluxeNavigationEvent::Snowbound => "otdeluxe.nav_snowbound",
+    }
+}
+
+const fn otdeluxe_navigation_delay_tag(blocked: bool) -> &'static str {
+    if blocked {
+        "otdeluxe.nav_blocked"
+    } else {
+        "otdeluxe.nav_delay"
+    }
+}
+
+const fn otdeluxe_navigation_is_blocked(event: OtDeluxeNavigationEvent) -> bool {
+    matches!(
+        event,
+        OtDeluxeNavigationEvent::Impassable | OtDeluxeNavigationEvent::Snowbound
+    )
+}
+
+const fn otdeluxe_navigation_delay_for(
+    event: OtDeluxeNavigationEvent,
+    policy: &OtDeluxeNavigationPolicy,
+) -> OtDeluxeNavigationDelay {
+    match event {
+        OtDeluxeNavigationEvent::LostTrail => policy.lost_delay,
+        OtDeluxeNavigationEvent::WrongTrail => policy.wrong_delay,
+        OtDeluxeNavigationEvent::Impassable => policy.impassable_delay,
+        OtDeluxeNavigationEvent::Snowbound => policy.snowbound_delay,
+    }
+}
+
+fn roll_otdeluxe_navigation_delay_days<R: Rng>(delay: OtDeluxeNavigationDelay, rng: &mut R) -> u8 {
+    if delay.max_days == 0 {
+        return 0;
+    }
+    let min_days = delay.min_days.min(delay.max_days);
+    let max_days = delay.max_days.max(delay.min_days);
+    rng.gen_range(min_days..=max_days)
+}
+
+fn roll_otdeluxe_navigation_event<R: Rng>(
+    policy: &OtDeluxeNavigationPolicy,
+    snow_depth: f32,
+    rng: &mut R,
+) -> Option<OtDeluxeNavigationEvent> {
+    let chance = policy.chance_per_day.clamp(0.0, 1.0);
+    if chance <= 0.0 {
+        return None;
+    }
+    if rng.r#gen::<f32>() >= chance {
+        return None;
+    }
+
+    let snow_weight = if snow_depth >= policy.snowbound_min_depth_in {
+        policy.snowbound_weight
+    } else {
+        0
+    };
+    let options = [
+        (
+            OtDeluxeNavigationEvent::LostTrail,
+            u32::from(policy.lost_weight),
+        ),
+        (
+            OtDeluxeNavigationEvent::WrongTrail,
+            u32::from(policy.wrong_weight),
+        ),
+        (
+            OtDeluxeNavigationEvent::Impassable,
+            u32::from(policy.impassable_weight),
+        ),
+        (OtDeluxeNavigationEvent::Snowbound, u32::from(snow_weight)),
+    ];
+    weighted_pick(&options, rng)
 }
 
 fn apply_otdeluxe_disease_effects(
@@ -2108,6 +2197,73 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_navigation_event_requires_snow_depth() {
+        let policy = OtDeluxeNavigationPolicy {
+            chance_per_day: 1.0,
+            lost_weight: 0,
+            wrong_weight: 0,
+            impassable_weight: 0,
+            snowbound_weight: 1,
+            snowbound_min_depth_in: 5.0,
+            ..OtDeluxeNavigationPolicy::default()
+        };
+
+        let mut rng = SmallRng::seed_from_u64(7);
+        let none = roll_otdeluxe_navigation_event(&policy, 2.0, &mut rng);
+        assert!(none.is_none());
+
+        let mut rng = SmallRng::seed_from_u64(7);
+        let event = roll_otdeluxe_navigation_event(&policy, 6.0, &mut rng);
+        assert!(matches!(event, Some(OtDeluxeNavigationEvent::Snowbound)));
+    }
+
+    #[test]
+    fn otdeluxe_navigation_hard_stop_records_nontravel() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            distance_today: 12.0,
+            distance_today_raw: 12.0,
+            partial_distance_today: 6.0,
+            ..GameState::default()
+        };
+
+        state.apply_otdeluxe_navigation_hard_stop(OtDeluxeNavigationEvent::LostTrail, 2);
+
+        assert_eq!(state.ot_deluxe.travel.delay_days_remaining, 1);
+        assert_eq!(state.ot_deluxe.travel.blocked_days_remaining, 0);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Delayed
+        ));
+        approx_eq(state.distance_today, 0.0);
+        approx_eq(state.distance_today_raw, 0.0);
+        let record = state.day_records.last().expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "otdeluxe.nav_lost"));
+    }
+
+    #[test]
+    fn otdeluxe_navigation_delay_consumes_day() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.travel.delay_days_remaining = 2;
+        state.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Delayed;
+
+        assert!(state.consume_otdeluxe_navigation_delay_day());
+
+        assert_eq!(state.ot_deluxe.travel.delay_days_remaining, 1);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Delayed
+        ));
+        let record = state.day_records.last().expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "otdeluxe.nav_delay"));
+    }
+
+    #[test]
     fn otdeluxe_consumption_scales_with_rations_and_alive_members() {
         let mut state = GameState::default();
         state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B", "C"]);
@@ -3336,6 +3492,9 @@ impl GameState {
         }
         self.day_state.lifecycle.day_initialized = true;
         self.day_state.lifecycle.did_end_of_day = false;
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            self.day_state.lifecycle.suppress_stop_ratio = true;
+        }
         self.day_state.travel.traveled_today = false;
         self.day_state.travel.partial_traveled_today = false;
         self.encounters_today = 0;
@@ -5175,6 +5334,111 @@ impl GameState {
         self.record_travel_day(TravelDayKind::NonTravel, 0.0, "otdeluxe.no_oxen");
         self.end_of_day();
         Some((false, String::from(LOG_TRAVEL_BLOCKED), false))
+    }
+
+    pub(crate) fn consume_otdeluxe_navigation_delay_day(&mut self) -> bool {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
+        let blocked_remaining = self.ot_deluxe.travel.blocked_days_remaining;
+        let delay_remaining = self.ot_deluxe.travel.delay_days_remaining;
+        if blocked_remaining == 0 && delay_remaining == 0 {
+            return false;
+        }
+
+        let (blocked, remaining) = if blocked_remaining > 0 {
+            let next = blocked_remaining.saturating_sub(1);
+            self.ot_deluxe.travel.blocked_days_remaining = next;
+            (true, next)
+        } else {
+            let next = delay_remaining.saturating_sub(1);
+            self.ot_deluxe.travel.delay_days_remaining = next;
+            (false, next)
+        };
+
+        self.day_state.lifecycle.suppress_stop_ratio = true;
+        self.clear_today_travel_distance();
+        self.day_state.travel.traveled_today = false;
+        self.day_state.travel.partial_traveled_today = false;
+        let tag = otdeluxe_navigation_delay_tag(blocked);
+        if self.current_day_kind.is_none() {
+            self.record_travel_day(TravelDayKind::NonTravel, 0.0, tag);
+        } else {
+            self.add_day_reason_tag(tag);
+        }
+        self.ot_deluxe.travel.wagon_state = if blocked {
+            OtDeluxeWagonState::Blocked
+        } else {
+            OtDeluxeWagonState::Delayed
+        };
+        if remaining == 0 {
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+        }
+        self.end_of_day();
+        true
+    }
+
+    pub(crate) fn apply_otdeluxe_navigation_event(&mut self) -> bool {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
+        if self.ot_deluxe.travel.delay_days_remaining > 0
+            || self.ot_deluxe.travel.blocked_days_remaining > 0
+        {
+            return false;
+        }
+        if self.distance_today <= 0.0 && self.distance_today_raw <= 0.0 {
+            return false;
+        }
+
+        let policy = default_otdeluxe_policy();
+        let Some((event, delay_days)) = (|| {
+            let mut rng = self.events_rng()?;
+            let event = roll_otdeluxe_navigation_event(
+                &policy.navigation,
+                self.ot_deluxe.weather.snow_depth,
+                &mut *rng,
+            )?;
+            let delay = otdeluxe_navigation_delay_for(event, &policy.navigation);
+            let delay_days = roll_otdeluxe_navigation_delay_days(delay, &mut *rng);
+            Some((event, delay_days))
+        })() else {
+            return false;
+        };
+        self.apply_otdeluxe_navigation_hard_stop(event, delay_days);
+        true
+    }
+
+    fn apply_otdeluxe_navigation_hard_stop(
+        &mut self,
+        event: OtDeluxeNavigationEvent,
+        delay_days: u8,
+    ) {
+        let remaining = delay_days.saturating_sub(1);
+        let blocked = otdeluxe_navigation_is_blocked(event);
+        self.day_state.lifecycle.suppress_stop_ratio = true;
+        self.clear_today_travel_distance();
+        self.day_state.travel.traveled_today = false;
+        self.day_state.travel.partial_traveled_today = false;
+        if blocked {
+            self.ot_deluxe.travel.blocked_days_remaining = remaining;
+            self.ot_deluxe.travel.delay_days_remaining = 0;
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Blocked;
+        } else {
+            self.ot_deluxe.travel.delay_days_remaining = remaining;
+            self.ot_deluxe.travel.blocked_days_remaining = 0;
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Delayed;
+        }
+        let tag = otdeluxe_navigation_reason_tag(event);
+        if self.current_day_kind.is_none() {
+            self.record_travel_day(TravelDayKind::NonTravel, 0.0, tag);
+        } else {
+            self.add_day_reason_tag(tag);
+        }
+        if remaining == 0 {
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+        }
+        self.end_of_day();
     }
 
     pub(crate) fn handle_vehicle_state(
