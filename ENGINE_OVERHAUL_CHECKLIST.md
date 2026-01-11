@@ -1699,7 +1699,7 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [x] AUDIT-010 Scoring under OTDeluxe90sPolicy matches the spec exactly (including occupation multiplier).
 - [ ] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
 
-- [ ] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
+- [x] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
 - [ ] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
 - [ ] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
 - [x] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.

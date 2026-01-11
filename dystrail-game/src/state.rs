@@ -82,6 +82,7 @@ use crate::mechanics::otdeluxe90s::{
     OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePaceHealthPolicy,
     OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
+use crate::numbers::round_f32_to_i32;
 #[cfg(test)]
 use crate::otdeluxe_state::OtDeluxeTravelState;
 use crate::otdeluxe_state::{
@@ -311,6 +312,15 @@ const fn otdeluxe_pace_health_penalty(
     }
 }
 
+const fn otdeluxe_pace_food_multiplier(pace: OtDeluxePace, policy: &OtDeluxe90sPolicy) -> f32 {
+    let mult = match pace {
+        OtDeluxePace::Steady => policy.pace_mult_steady,
+        OtDeluxePace::Strenuous => policy.pace_mult_strenuous,
+        OtDeluxePace::Grueling => policy.pace_mult_grueling,
+    };
+    if mult < 0.0 { 0.0 } else { mult }
+}
+
 const fn otdeluxe_rations_food_per_person(
     rations: OtDeluxeRations,
     policy: &OtDeluxeRationsPolicy,
@@ -331,6 +341,17 @@ const fn otdeluxe_rations_health_penalty(
         OtDeluxeRations::Meager => policy.health_penalty[1],
         OtDeluxeRations::BareBones => policy.health_penalty[2],
     }
+}
+
+fn otdeluxe_rations_food_per_person_scaled(
+    rations: OtDeluxeRations,
+    pace: OtDeluxePace,
+    policy: &OtDeluxe90sPolicy,
+) -> u16 {
+    let per_person = otdeluxe_rations_food_per_person(rations, &policy.rations);
+    let scaled = f32::from(per_person) * otdeluxe_pace_food_multiplier(pace, policy);
+    let rounded = round_f32_to_i32(scaled).max(0);
+    u16::try_from(rounded).unwrap_or(u16::MAX)
 }
 
 fn otdeluxe_weather_health_penalty(weather: Weather, policy: &OtDeluxeHealthPolicy) -> i32 {
@@ -2288,16 +2309,25 @@ mod tests {
     }
 
     #[test]
-    fn otdeluxe_consumption_scales_with_rations_and_alive_members() {
+    fn otdeluxe_consumption_scales_with_rations_pace_and_alive_members() {
         let mut state = GameState::default();
         state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B", "C"]);
-        state.ot_deluxe.inventory.food_lbs = 20;
+        state.ot_deluxe.inventory.food_lbs = 50;
         state.ot_deluxe.rations = OtDeluxeRations::Meager;
+        state.ot_deluxe.pace = OtDeluxePace::Grueling;
 
-        let consumed = state.apply_otdeluxe_consumption();
+        let consumed_meager = state.apply_otdeluxe_consumption();
 
-        assert_eq!(consumed, 6);
-        assert_eq!(state.ot_deluxe.inventory.food_lbs, 14);
+        assert_eq!(consumed_meager, 12);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 38);
+
+        state.ot_deluxe.inventory.food_lbs = 50;
+        state.ot_deluxe.rations = OtDeluxeRations::BareBones;
+
+        let consumed_bare = state.apply_otdeluxe_consumption();
+
+        assert_eq!(consumed_bare, 6);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 44);
     }
 
     #[test]
@@ -3393,7 +3423,11 @@ impl GameState {
 
     pub(crate) fn apply_otdeluxe_consumption(&mut self) -> u16 {
         let policy = default_otdeluxe_policy();
-        let per_person = otdeluxe_rations_food_per_person(self.ot_deluxe.rations, &policy.rations);
+        let per_person = otdeluxe_rations_food_per_person_scaled(
+            self.ot_deluxe.rations,
+            self.ot_deluxe.pace,
+            policy,
+        );
         let alive = self.otdeluxe_alive_party_count();
         let needed = u32::from(per_person).saturating_mul(u32::from(alive));
         let needed_u16 = u16::try_from(needed).unwrap_or(u16::MAX);
