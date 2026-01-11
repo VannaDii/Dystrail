@@ -611,6 +611,46 @@ mod tests {
     }
 
     #[test]
+    fn daily_physics_runs_once_per_day() {
+        let daily = DailyTickConfig {
+            supplies: DailyChannelConfig::new(2.0),
+            sanity: DailyChannelConfig::new(0.0),
+            health: HealthTickConfig {
+                decay: 0.0,
+                rest_heal: 0.0,
+                ..HealthTickConfig::default()
+            },
+        };
+        let cfg = JourneyCfg {
+            daily,
+            ..JourneyCfg::default()
+        };
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            weather_state: WeatherState {
+                today: Weather::Clear,
+                ..WeatherState::default()
+            },
+            stats: Stats {
+                supplies: 10,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+
+        kernel.apply_daily_physics(&mut state);
+        let supplies_after_first = state.stats.supplies;
+        let starvation_after_first = state.starvation_days;
+
+        kernel.apply_daily_physics(&mut state);
+
+        assert_eq!(state.stats.supplies, supplies_after_first);
+        assert_eq!(state.starvation_days, starvation_after_first);
+    }
+
+    #[test]
     fn wait_gate_consumes_non_travel_day_and_decrements_counter() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();

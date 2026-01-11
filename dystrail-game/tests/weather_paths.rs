@@ -59,6 +59,20 @@ fn select_weather_is_deterministic_for_same_seed() {
 }
 
 #[test]
+fn weather_selection_consumes_weather_rng_only() {
+    let cfg = deterministic_config();
+    let rng = Rc::new(RngBundle::from_user_seed(5));
+    let mut gs = GameState {
+        region: Region::Heartland,
+        ..GameState::default()
+    };
+    let _ = select_weather_for_today(&mut gs, &cfg, rng.as_ref()).unwrap();
+
+    assert!(rng.weather().draws() > 0);
+    assert_eq!(rng.health().draws(), 0);
+}
+
+#[test]
 fn neutral_buffer_defaults_to_clear_when_no_neutral_weights() {
     let mut cfg = deterministic_config();
     cfg.weights.insert(

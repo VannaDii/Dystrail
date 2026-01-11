@@ -1542,6 +1542,30 @@ mod tests {
     }
 
     #[test]
+    fn illness_roll_consumes_health_rng_only() {
+        let mut state = GameState {
+            data: Some(EncounterData::empty()),
+            disease_cooldown: 0,
+            illness_days_remaining: 0,
+            stats: Stats {
+                hp: 8,
+                sanity: 8,
+                supplies: 5,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        let bundle = Rc::new(RngBundle::from_user_seed(444));
+        state.attach_rng_bundle(bundle.clone());
+
+        state.roll_daily_illness();
+
+        assert!(bundle.health().draws() > 0);
+        assert_eq!(bundle.weather().draws(), 0);
+        assert_eq!(bundle.events().draws(), 0);
+    }
+
+    #[test]
     fn ally_attrition_and_exec_order_paths() {
         let mut state = GameState {
             data: Some(EncounterData::empty()),

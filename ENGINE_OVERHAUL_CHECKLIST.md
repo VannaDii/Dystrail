@@ -1688,8 +1688,8 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 Use this section as a pre-implementation sanity pass. Every item must be true in the final codebase.
 
 - [x] AUDIT-001 `StartOfDay` does not apply physics (only resets/cooldowns) and does not consume RNG.
-- [ ] AUDIT-002 Weather selection uses only `rng.weather()`; afflictions use only `rng.health()`.
-- [ ] AUDIT-003 Supplies burn runs exactly once per day and is always before HealthTick.
+- [x] AUDIT-002 Weather selection uses only `rng.weather()`; afflictions use only `rng.health()`.
+- [x] AUDIT-003 Supplies burn runs exactly once per day and is always before HealthTick.
 - [ ] AUDIT-004 Encounter chance is derived once per day from a single function; weather does not mutate it ad hoc.
 - [x] AUDIT-005 OTDeluxe hard-stops always produce `computed_miles_today = 0`; no “delay travel credit” leaks.
 - [ ] AUDIT-006 All “policy-defined” values are explicit in OTDeluxe90sPolicy config and not hard-coded.
