@@ -34,7 +34,7 @@ use crate::constants::{
     EXEC_ORDER_BREAKDOWN_BONUS, EXEC_ORDER_DAILY_CHANCE, EXEC_ORDER_MAX_COOLDOWN,
     EXEC_ORDER_MAX_DURATION, EXEC_ORDER_MIN_COOLDOWN, EXEC_ORDER_MIN_DURATION,
     EXEC_ORDER_SPEED_BONUS, EXEC_TRAVEL_MULTIPLIER_CLAMP_MIN, ILLNESS_TRAVEL_PENALTY,
-    LOG_ALLIES_GONE, LOG_ALLY_LOST, LOG_BOSS_COMPOSE, LOG_BOSS_COMPOSE_FUNDS,
+    LOG_ALLIES_GONE, LOG_ALLY_LOST, LOG_BOSS_AWAIT, LOG_BOSS_COMPOSE, LOG_BOSS_COMPOSE_FUNDS,
     LOG_BOSS_COMPOSE_SUPPLIES, LOG_CROSSING_DECISION_BRIBE, LOG_CROSSING_DECISION_PERMIT,
     LOG_CROSSING_DETOUR, LOG_CROSSING_FAILURE, LOG_CROSSING_PASSED,
     LOG_DEEP_AGGRESSIVE_FIELD_REPAIR, LOG_DISEASE_HIT, LOG_DISEASE_RECOVER, LOG_DISEASE_TICK,
@@ -3833,6 +3833,9 @@ impl GameState {
     }
 
     fn unlock_aggressive_boss_ready(&mut self) {
+        if self.mechanical_policy != MechanicalPolicyId::DystrailLegacy {
+            return;
+        }
         if self.mode.is_deep()
             && matches!(self.policy, Some(PolicyKind::Aggressive))
             && !self.boss.readiness.ready
@@ -3955,7 +3958,10 @@ impl GameState {
                 TravelProgressKind::Full => self.day_state.travel.traveled_today = true,
                 TravelProgressKind::Partial => self.day_state.travel.partial_traveled_today = true,
             }
-            if self.ending.is_none() && self.miles_traveled_actual >= self.trail_distance {
+            if self.ending.is_none()
+                && self.miles_traveled_actual >= self.trail_distance
+                && self.mechanical_policy == MechanicalPolicyId::DystrailLegacy
+            {
                 self.boss.readiness.ready = true;
                 self.boss.readiness.reached = true;
             }
@@ -5302,8 +5308,11 @@ impl GameState {
     }
 
     pub(crate) fn guard_boss_gate(&self) -> Option<(bool, String, bool)> {
+        if self.mechanical_policy != MechanicalPolicyId::DystrailLegacy {
+            return None;
+        }
         if self.boss.readiness.ready && !self.boss.outcome.attempted {
-            Some((false, String::from("log.boss.await"), false))
+            Some((false, String::from(LOG_BOSS_AWAIT), false))
         } else {
             None
         }

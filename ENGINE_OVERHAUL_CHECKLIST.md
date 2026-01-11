@@ -364,7 +364,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - The controller provides explicit inputs (policy selection, strategy overlay, seed/RNG bundle, endgame config) to the kernel.
     - Switching policies is declarative, not a side-effect of “ticking once”.
 
-- [ ] BOSS-001 (P0) Implement `BossGateTick` (phase 5) and migrate current boss-gate semantics
+- [x] BOSS-001 (P0) Implement `BossGateTick` (phase 5) and migrate current boss-gate semantics
   - Requirement:
     - Boss gating MUST occur after WeatherTick + SuppliesBurnTick + HealthTick, and before IntentTick.
     - Boss gating must:

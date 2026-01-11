@@ -51,6 +51,10 @@ impl<'a> DailyTickKernel<'a> {
         }
         hook(state);
 
+        if let Some((ended, log_key, breakdown_started)) = Self::run_boss_gate(state) {
+            return Self::build_outcome(state, ended, log_key, breakdown_started);
+        }
+
         if let Some((ended, log_key, breakdown_started)) = Self::run_wait_gate(state) {
             return Self::build_outcome(state, ended, log_key, breakdown_started);
         }
@@ -143,9 +147,6 @@ impl<'a> DailyTickKernel<'a> {
     fn run_travel_flow(&self, state: &mut GameState) -> (bool, String, bool) {
         let rng_bundle = state.rng_bundle.as_ref().map(std::rc::Rc::clone);
 
-        if let Some(result) = state.guard_boss_gate() {
-            return result;
-        }
         if let Some(result) = state.pre_travel_checks() {
             return result;
         }
@@ -227,13 +228,7 @@ impl<'a> DailyTickKernel<'a> {
 
         let tag = reason_tag?;
 
-        if state.current_day_kind.is_none() {
-            state.day_state.lifecycle.suppress_stop_ratio = true;
-            state.record_travel_day(TravelDayKind::NonTravel, 0.0, tag);
-        } else {
-            state.add_day_reason_tag(tag);
-        }
-        state.end_of_day();
+        Self::record_gate_day(state, tag);
         Some((false, String::from(LOG_TRAVELED), false))
     }
 
@@ -283,6 +278,10 @@ impl<'a> DailyTickKernel<'a> {
     }
 
     fn record_intent_day(state: &mut GameState, reason_tag: &str) {
+        Self::record_gate_day(state, reason_tag);
+    }
+
+    fn record_gate_day(state: &mut GameState, reason_tag: &str) {
         if state.current_day_kind.is_none() {
             state.day_state.lifecycle.suppress_stop_ratio = true;
             state.record_travel_day(TravelDayKind::NonTravel, 0.0, reason_tag);
@@ -290,6 +289,12 @@ impl<'a> DailyTickKernel<'a> {
             state.add_day_reason_tag(reason_tag);
         }
         state.end_of_day();
+    }
+
+    fn run_boss_gate(state: &mut GameState) -> Option<(bool, String, bool)> {
+        let (ended, log_key, breakdown_started) = state.guard_boss_gate()?;
+        Self::record_gate_day(state, "boss_gate");
+        Some((ended, log_key, breakdown_started))
     }
 
     fn run_weather_tick(state: &mut GameState) {
@@ -369,7 +374,7 @@ fn default_pacing_config() -> &'static PacingConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
+    use crate::constants::{LOG_BOSS_AWAIT, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
         DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, MechanicalPolicyId,
@@ -621,6 +626,51 @@ mod tests {
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "wait_ferry"));
+    }
+
+    #[test]
+    fn boss_gate_records_non_travel_day_and_blocks_waits() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.boss.readiness.ready = true;
+        state.wait.ferry_wait_days_remaining = 2;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_BOSS_AWAIT);
+        assert_eq!(state.wait.ferry_wait_days_remaining, 2);
+        assert_eq!(state.day, 2);
+        let record = outcome.record.expect("expected boss gate record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "boss_gate"));
+    }
+
+    #[test]
+    fn boss_gate_skips_otdeluxe_runs() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.boss.readiness.ready = true;
+        state.ot_deluxe.oxen.healthy = 4;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(88)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_ne!(outcome.log_key, LOG_BOSS_AWAIT);
+        assert!(
+            !outcome
+                .record
+                .as_ref()
+                .is_some_and(|record| record.tags.iter().any(|tag| tag.0 == "boss_gate"))
+        );
     }
 
     #[test]

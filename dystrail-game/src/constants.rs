@@ -29,6 +29,7 @@ pub(crate) const LOG_VEHICLE_REPAIR_SPARE: &str = "log.vehicle.repair.spare";
 pub(crate) const LOG_BOSS_COMPOSE: &str = "log.boss.compose";
 pub(crate) const LOG_BOSS_COMPOSE_SUPPLIES: &str = "log.boss.compose.supplies";
 pub(crate) const LOG_BOSS_COMPOSE_FUNDS: &str = "log.boss.compose.funds";
+pub(crate) const LOG_BOSS_AWAIT: &str = "log.boss.await";
 pub(crate) const LOG_CROSSING_DETOUR: &str = "log.crossing.detour";
 pub(crate) const LOG_CROSSING_PASSED: &str = "log.crossing.passed";
 pub(crate) const LOG_CROSSING_FAILURE: &str = "log.crossing.failure";
