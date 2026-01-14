@@ -91,6 +91,11 @@ impl JourneySession {
         &self.state
     }
 
+    /// Borrow the underlying mutable game state.
+    pub const fn state_mut(&mut self) -> &mut GameState {
+        &mut self.state
+    }
+
     /// Apply a closure to the mutable game state.
     pub fn with_state_mut<R>(&mut self, f: impl FnOnce(&mut GameState) -> R) -> R {
         f(&mut self.state)

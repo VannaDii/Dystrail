@@ -2,9 +2,7 @@ use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
-use dystrail_game::{
-    GameMode, GameState, JourneyController, MechanicalPolicyId, PaceId, PolicyId, StrategyId,
-};
+use dystrail_game::{GameMode, GameState, JourneySession, PaceId, StrategyId};
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
 
@@ -69,14 +67,13 @@ const fn strategy_id_for(strategy: GameplayStrategy) -> StrategyId {
 
 /// Core deterministic simulation harness used by the tester.
 pub struct SimulationSession {
-    state: GameState,
+    session: JourneySession,
     camp_config: CampConfig,
     boss_config: BossConfig,
     max_days: u32,
     strategy: GameplayStrategy,
     conservative_heat_days: u32,
     aggressive_heat_days: u32,
-    controller: JourneyController,
 }
 
 impl SimulationSession {
@@ -84,165 +81,204 @@ impl SimulationSession {
         config: SimulationConfig,
         encounters: EncounterData,
         camp_config: CampConfig,
-        endgame_config: EndgameTravelCfg,
+        endgame_config: &EndgameTravelCfg,
         boss_config: BossConfig,
     ) -> Self {
-        let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
-        state.trail_distance = boss_config.distance_required;
         let strategy_id = strategy_id_for(config.strategy);
-        let mut controller = JourneyController::new(
-            MechanicalPolicyId::DystrailLegacy,
-            PolicyId::from(config.mode),
+        let mut session = JourneySession::new(
+            config.mode,
             strategy_id,
             config.seed,
+            encounters,
+            endgame_config,
         );
-        controller.set_endgame_config(endgame_config);
-        state.policy = Some(strategy_id.into());
-        state.attach_rng_bundle(controller.rng_bundle());
+        session.state_mut().trail_distance = boss_config.distance_required;
         Self {
-            state,
+            session,
             camp_config,
             boss_config,
             max_days: config.max_days,
             strategy: config.strategy,
             conservative_heat_days: 0,
             aggressive_heat_days: 0,
-            controller,
         }
     }
 
     #[must_use]
     pub const fn state(&self) -> &GameState {
-        &self.state
+        self.session.state()
     }
 
     #[must_use]
     pub const fn state_mut(&mut self) -> &mut GameState {
-        &mut self.state
+        self.session.state_mut()
     }
 
     #[must_use]
     pub fn into_state(self) -> GameState {
-        self.state
+        self.session.into_state()
     }
 
     pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
-        self.state.tick_camp_cooldowns();
+        self.session.state_mut().tick_camp_cooldowns();
+        self.queue_boss_rest();
 
-        if self.state.boss.readiness.ready
-            && !self.state.boss.outcome.attempted
-            && self.state.camp.rest_cooldown == 0
-            && !self.state.day_state.rest.rest_requested
-        {
-            self.state.day_state.rest.rest_requested = true;
+        if let Some(outcome) = self.try_forage_day() {
+            return outcome;
         }
-
-        let forage_cfg = self.camp_config.forage.clone();
-        if forage_cfg.supplies > 0
-            && self.state.camp.forage_cooldown == 0
-            && self.state.stats.supplies <= forage_cfg.supplies.max(2)
-        {
-            let camp_cfg = self.camp_config.clone();
-            let outcome = camp::camp_forage(self.state_mut(), &camp_cfg);
-            let day = self.state.day;
-            let game_ended = day >= self.max_days;
-            return TurnOutcome {
-                day,
-                travel_message: outcome.message,
-                breakdown_started: false,
-                game_ended,
-                decision: None,
-                miles_traveled_actual: self.state.miles_traveled_actual,
-            };
-        }
-
-        let wants_rest = self.state.day_state.rest.rest_requested || self.state.should_auto_rest();
-
-        if wants_rest {
-            self.state.day_state.rest.rest_requested = false;
-            let camp_cfg = self.camp_config.clone();
-            let outcome = camp::camp_rest(self.state_mut(), &camp_cfg);
-            if outcome.rested {
-                let day = self.state.day;
-                let game_ended = day >= self.max_days;
-                return TurnOutcome {
-                    day,
-                    travel_message: outcome.message,
-                    breakdown_started: false,
-                    game_ended,
-                    decision: None,
-                    miles_traveled_actual: self.state.miles_traveled_actual,
-                };
-            }
+        if let Some(outcome) = self.try_rest_day() {
+            return outcome;
         }
 
         self.adjust_daily_pace();
-        let mut decision: Option<DecisionRecord> = None;
+        let decision = self.resolve_encounter_choice(policy);
 
-        if let Some(encounter) = self.state.current_encounter.clone() {
-            let PolicyDecision {
-                choice_index,
-                rationale,
-            } = policy.pick_choice(&self.state, &encounter);
-
-            let safe_index = clamp_choice_index(choice_index, &encounter);
-            let choice_label = encounter.choices.get(safe_index).map_or_else(
-                || "No available choice".to_string(),
-                |choice| choice.label.clone(),
-            );
-
-            decision = Some(DecisionRecord {
-                day: self.state.day,
-                encounter_id: encounter.id.clone(),
-                encounter_name: encounter.name.clone(),
-                choice_index: safe_index,
-                choice_label,
-                policy_name: policy.name().to_string(),
-                rationale,
-            });
-
-            self.state.apply_choice(safe_index);
-        }
-
-        let outcome = self.controller.tick_day(&mut self.state);
+        let outcome = self.session.tick_day();
         let mut game_ended = outcome.ended;
         let mut travel_message = outcome.log_key.clone();
         let breakdown_started = outcome.breakdown_started;
-        if !game_ended && self.state.day >= self.max_days {
+        if !game_ended && self.session.state().day >= self.max_days {
             game_ended = true;
             travel_message = String::from("Max days reached");
         }
 
-        if self.state.boss.readiness.ready && !self.state.boss.outcome.attempted {
-            let boss_cfg = self.boss_config.clone();
-            let outcome = boss::run_boss_minigame(self.state_mut(), &boss_cfg);
+        if let Some(boss_message) = self.try_boss_minigame() {
             game_ended = true;
-            travel_message = match outcome {
-                BossOutcome::PassedCloture => String::from("log.boss.victory"),
-                BossOutcome::SurvivedFlood => String::from("log.boss.failure"),
-                BossOutcome::PantsEmergency => String::from("log.pants-emergency"),
-                BossOutcome::Exhausted => String::from("log.sanity-collapse"),
-            };
-            self.state.boss.readiness.ready = false;
+            travel_message = boss_message;
         }
 
+        self.build_turn_outcome(travel_message, breakdown_started, game_ended, decision)
+    }
+
+    const fn queue_boss_rest(&mut self) {
+        let boss_ready = {
+            let state = self.session.state();
+            state.boss.readiness.ready
+                && !state.boss.outcome.attempted
+                && state.camp.rest_cooldown == 0
+                && !state.day_state.rest.rest_requested
+        };
+        if boss_ready {
+            self.session.state_mut().day_state.rest.rest_requested = true;
+        }
+    }
+
+    fn try_forage_day(&mut self) -> Option<TurnOutcome> {
+        let forage_cfg = self.camp_config.forage.clone();
+        let should_forage = {
+            let state = self.session.state();
+            forage_cfg.supplies > 0
+                && state.camp.forage_cooldown == 0
+                && state.stats.supplies <= forage_cfg.supplies.max(2)
+        };
+        if !should_forage {
+            return None;
+        }
+        let camp_cfg = self.camp_config.clone();
+        let outcome = camp::camp_forage(self.session.state_mut(), &camp_cfg);
+        Some(self.build_nontravel_outcome(outcome.message))
+    }
+
+    fn try_rest_day(&mut self) -> Option<TurnOutcome> {
+        let wants_rest = {
+            let state = self.session.state();
+            state.day_state.rest.rest_requested || state.should_auto_rest()
+        };
+        if !wants_rest {
+            return None;
+        }
+        self.session.state_mut().day_state.rest.rest_requested = false;
+        let camp_cfg = self.camp_config.clone();
+        let outcome = camp::camp_rest(self.session.state_mut(), &camp_cfg);
+        if outcome.rested {
+            Some(self.build_nontravel_outcome(outcome.message))
+        } else {
+            None
+        }
+    }
+
+    fn resolve_encounter_choice(
+        &mut self,
+        policy: &mut dyn PlayerPolicy,
+    ) -> Option<DecisionRecord> {
+        let encounter = self.session.state().current_encounter.clone()?;
+        let PolicyDecision {
+            choice_index,
+            rationale,
+        } = policy.pick_choice(self.session.state(), &encounter);
+        let safe_index = clamp_choice_index(choice_index, &encounter);
+        let choice_label = encounter.choices.get(safe_index).map_or_else(
+            || "No available choice".to_string(),
+            |choice| choice.label.clone(),
+        );
+        let decision = DecisionRecord {
+            day: self.session.state().day,
+            encounter_id: encounter.id.clone(),
+            encounter_name: encounter.name.clone(),
+            choice_index: safe_index,
+            choice_label,
+            policy_name: policy.name().to_string(),
+            rationale,
+        };
+        self.session.state_mut().apply_choice(safe_index);
+        Some(decision)
+    }
+
+    fn try_boss_minigame(&mut self) -> Option<String> {
+        let boss_ready = {
+            let state = self.session.state();
+            state.boss.readiness.ready && !state.boss.outcome.attempted
+        };
+        if !boss_ready {
+            return None;
+        }
+        let boss_cfg = self.boss_config.clone();
+        let outcome = boss::run_boss_minigame(self.session.state_mut(), &boss_cfg);
+        self.session.state_mut().boss.readiness.ready = false;
+        Some(match outcome {
+            BossOutcome::PassedCloture => String::from("log.boss.victory"),
+            BossOutcome::SurvivedFlood => String::from("log.boss.failure"),
+            BossOutcome::PantsEmergency => String::from("log.pants-emergency"),
+            BossOutcome::Exhausted => String::from("log.sanity-collapse"),
+        })
+    }
+
+    const fn build_nontravel_outcome(&self, travel_message: String) -> TurnOutcome {
+        let game_ended = self.session.state().day >= self.max_days;
+        self.build_turn_outcome(travel_message, false, game_ended, None)
+    }
+
+    const fn build_turn_outcome(
+        &self,
+        travel_message: String,
+        breakdown_started: bool,
+        game_ended: bool,
+        decision: Option<DecisionRecord>,
+    ) -> TurnOutcome {
+        let state = self.session.state();
         TurnOutcome {
-            day: self.state.day,
+            day: state.day,
             travel_message,
             breakdown_started,
             game_ended,
             decision,
-            miles_traveled_actual: self.state.miles_traveled_actual,
+            miles_traveled_actual: state.miles_traveled_actual,
         }
     }
 
     fn adjust_daily_pace(&mut self) {
-        let state = &mut self.state;
-        match self.strategy {
+        let strategy = self.strategy;
+        match strategy {
             GameplayStrategy::Balanced | GameplayStrategy::ResourceManager => {
-                let healthy = state.stats.hp >= 8 && state.stats.sanity >= 7;
-                let supplies_ok = state.stats.supplies >= 6;
-                let illness_active = state.illness_travel_penalty < 0.99;
+                let (healthy, supplies_ok, illness_active) = {
+                    let state = self.session.state();
+                    (
+                        state.stats.hp >= 8 && state.stats.sanity >= 7,
+                        state.stats.supplies >= 6,
+                        state.illness_travel_penalty < 0.99,
+                    )
+                };
+                let state = self.session.state_mut();
                 if healthy && supplies_ok && !illness_active {
                     if matches!(state.pace, PaceId::Steady) {
                         state.pace = PaceId::Heated;
@@ -252,52 +288,65 @@ impl SimulationSession {
                 }
             }
             GameplayStrategy::Aggressive => {
-                if state.stats.hp <= 4 || state.stats.sanity <= 4 {
-                    state.pace = PaceId::Steady;
-                    self.aggressive_heat_days = 0;
-                } else {
-                    if state.mode.is_deep() && self.aggressive_heat_days == 0 {
-                        let ratio_10 = state.travel_ratio_recent(10);
-                        if ratio_10 < 0.85 {
-                            self.aggressive_heat_days = 3;
+                let mut aggressive_heat_days = self.aggressive_heat_days;
+                {
+                    let state = self.session.state_mut();
+                    if state.stats.hp <= 4 || state.stats.sanity <= 4 {
+                        state.pace = PaceId::Steady;
+                        aggressive_heat_days = 0;
+                    } else {
+                        if state.mode.is_deep() && aggressive_heat_days == 0 {
+                            let ratio_10 = state.travel_ratio_recent(10);
+                            if ratio_10 < 0.85 {
+                                aggressive_heat_days = 3;
+                            }
+                        }
+                        state.pace = PaceId::Heated;
+                        if aggressive_heat_days > 0 {
+                            aggressive_heat_days = aggressive_heat_days.saturating_sub(1);
                         }
                     }
-                    state.pace = PaceId::Heated;
-                    if self.aggressive_heat_days > 0 {
-                        self.aggressive_heat_days = self.aggressive_heat_days.saturating_sub(1);
-                    }
                 }
+                self.aggressive_heat_days = aggressive_heat_days;
             }
             GameplayStrategy::Conservative => {
-                if self.conservative_heat_days > 0 {
-                    if state.stats.hp <= 4 || state.stats.sanity <= 4 {
-                        self.conservative_heat_days = 0;
-                        state.pace = PaceId::Steady;
-                    } else {
-                        state.pace = PaceId::Heated;
-                        self.conservative_heat_days = self.conservative_heat_days.saturating_sub(1);
-                    }
-                } else {
-                    state.pace = PaceId::Steady;
-                    if state.day > 60 && state.stats.hp > 4 && state.stats.sanity > 4 {
-                        let travel_ratio = f64::from(state.travel_ratio_recent(10));
-                        let days_survived = state.day.saturating_sub(1).max(1);
-                        let avg_mpd =
-                            f64::from(state.miles_traveled_actual) / f64::from(days_survived);
-                        if travel_ratio < 0.90_f64 || avg_mpd < 11.5_f64 {
-                            let severe = travel_ratio < 0.85_f64 || avg_mpd < 10.8_f64;
-                            self.conservative_heat_days = if severe { 5 } else { 3 };
+                let mut conservative_heat_days = self.conservative_heat_days;
+                {
+                    let state = self.session.state_mut();
+                    if conservative_heat_days > 0 {
+                        if state.stats.hp <= 4 || state.stats.sanity <= 4 {
+                            conservative_heat_days = 0;
+                            state.pace = PaceId::Steady;
+                        } else {
                             state.pace = PaceId::Heated;
+                            conservative_heat_days = conservative_heat_days.saturating_sub(1);
+                        }
+                    } else {
+                        state.pace = PaceId::Steady;
+                        if state.day > 60 && state.stats.hp > 4 && state.stats.sanity > 4 {
+                            let travel_ratio = f64::from(state.travel_ratio_recent(10));
+                            let days_survived = state.day.saturating_sub(1).max(1);
+                            let avg_mpd =
+                                f64::from(state.miles_traveled_actual) / f64::from(days_survived);
+                            if travel_ratio < 0.90_f64 || avg_mpd < 11.5_f64 {
+                                let severe = travel_ratio < 0.85_f64 || avg_mpd < 10.8_f64;
+                                conservative_heat_days = if severe { 5 } else { 3 };
+                                state.pace = PaceId::Heated;
+                            }
                         }
                     }
                 }
+                self.conservative_heat_days = conservative_heat_days;
             }
         }
-        if matches!(self.strategy, GameplayStrategy::ResourceManager)
-            && state.stats.pants >= 65
-            && state.camp.rest_cooldown == 0
-        {
-            state.day_state.rest.rest_requested = true;
+        if matches!(strategy, GameplayStrategy::ResourceManager) {
+            let rest_ready = {
+                let state = self.session.state();
+                state.stats.pants >= 65 && state.camp.rest_cooldown == 0
+            };
+            if rest_ready {
+                self.session.state_mut().day_state.rest.rest_requested = true;
+            }
         }
     }
 }

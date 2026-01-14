@@ -92,6 +92,7 @@ use crate::otdeluxe_state::{
 };
 use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt};
 use crate::otdeluxe_trail;
+use crate::pacing::{PacingConfig, PacingLimits};
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
@@ -254,6 +255,11 @@ const fn default_pace() -> PaceId {
 fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
+}
+
+fn default_pacing_config() -> &'static PacingConfig {
+    static CONFIG: OnceLock<PacingConfig> = OnceLock::new();
+    CONFIG.get_or_init(PacingConfig::default_config)
 }
 
 fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflictionPolicy) -> f32 {
@@ -2328,6 +2334,28 @@ mod tests {
 
         assert_eq!(consumed_bare, 6);
         assert_eq!(state.ot_deluxe.inventory.food_lbs, 44);
+    }
+
+    #[test]
+    fn otdeluxe_pace_updates_encounter_chance_from_single_source() {
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::Clear;
+        state.encounter_chance_today = 0.0;
+
+        let cfg = default_pacing_config();
+        let (weather_delta, weather_cap) = state.encounter_weather_adjustment();
+        let mut expected_state = state.clone();
+        expected_state.apply_encounter_chance_today(0.0, weather_delta, weather_cap, &cfg.limits);
+        let expected = expected_state.encounter_chance_today;
+
+        state.apply_otdeluxe_pace_and_rations();
+
+        let epsilon = f32::EPSILON;
+        assert!(
+            (state.encounter_chance_today - expected).abs() < epsilon,
+            "expected encounter chance {expected}, got {}",
+            state.encounter_chance_today
+        );
     }
 
     #[test]
@@ -6040,12 +6068,13 @@ impl GameState {
         }
     }
 
-    /// Apply pace and diet configuration (placeholder)
-    pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
-        let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
-        let diet_cfg = cfg.get_diet_safe(self.diet.as_str());
-        let limits = &cfg.limits;
-
+    fn apply_encounter_chance_today(
+        &mut self,
+        pace_delta: f32,
+        weather_delta: f32,
+        weather_cap: f32,
+        limits: &PacingLimits,
+    ) {
         let encounter_base = if limits.encounter_base == 0.0 {
             ENCOUNTER_BASE_DEFAULT
         } else {
@@ -6057,11 +6086,8 @@ impl GameState {
         } else {
             limits.encounter_ceiling
         };
-        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
         let encounter_ceiling = base_ceiling.min(weather_cap);
-        let mut encounter = encounter_base + pace_cfg.encounter_chance_delta + weather_delta;
-
-        let _ = self.compute_miles_for_today(&pace_cfg, limits);
+        let mut encounter = encounter_base + pace_delta + weather_delta;
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             encounter = (encounter + ENCOUNTER_CRITICAL_VEHICLE_BONUS)
@@ -6083,6 +6109,22 @@ impl GameState {
         self.encounter_chance_today = encounter
             .clamp(encounter_floor, encounter_ceiling)
             .max(PROBABILITY_FLOOR);
+    }
+
+    /// Apply pace and diet configuration (placeholder)
+    pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
+        let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
+        let diet_cfg = cfg.get_diet_safe(self.diet.as_str());
+        let limits = &cfg.limits;
+
+        let _ = self.compute_miles_for_today(&pace_cfg, limits);
+        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
+        self.apply_encounter_chance_today(
+            pace_cfg.encounter_chance_delta,
+            weather_delta,
+            weather_cap,
+            limits,
+        );
 
         let pants_floor = limits.pants_floor;
         let pants_ceiling = limits.pants_ceiling;
@@ -6117,6 +6159,9 @@ impl GameState {
     pub fn apply_otdeluxe_pace_and_rations(&mut self) {
         let policy = default_otdeluxe_policy();
         let _ = self.compute_otdeluxe_miles_for_today(policy);
+        let cfg = default_pacing_config();
+        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
+        self.apply_encounter_chance_today(0.0, weather_delta, weather_cap, &cfg.limits);
     }
 
     fn encounter_weather_adjustment(&self) -> (f32, f32) {

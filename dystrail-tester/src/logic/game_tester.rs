@@ -748,7 +748,7 @@ impl GameTester {
             SimulationConfig::new(plan.mode, plan.strategy, seed).with_max_days(max_days),
             self.assets.encounter_data.clone(),
             self.assets.camp_config.clone(),
-            self.assets.endgame_config.clone(),
+            &self.assets.endgame_config,
             self.assets.boss_config.clone(),
         );
 
