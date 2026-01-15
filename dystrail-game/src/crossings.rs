@@ -8,7 +8,9 @@ use crate::state::{Region, Season};
 
 mod resolver;
 
-pub use resolver::{CrossingContext, CrossingOutcome, CrossingResult, resolve_crossing};
+pub use resolver::{
+    CrossingContext, CrossingOutcome, CrossingResult, resolve_crossing, resolve_crossing_with_trace,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum CrossingKind {

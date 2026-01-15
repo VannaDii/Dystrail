@@ -22,7 +22,10 @@ pub mod event;
 pub mod kernel;
 pub mod session;
 pub use daily::{DailyTickOutcome, apply_daily_effect};
-pub use event::{Event, EventDecisionTrace, EventId, EventKind, EventSeverity, UiSurfaceHint};
+pub use event::{
+    Event, EventDecisionTrace, EventId, EventKind, EventSeverity, RollValue, UiSurfaceHint,
+    WeightFactor, WeightedCandidate,
+};
 pub(crate) use kernel::DailyTickKernel;
 pub use session::JourneySession;
 

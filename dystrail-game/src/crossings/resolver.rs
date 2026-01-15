@@ -2,7 +2,9 @@ use rand::RngCore;
 use std::convert::TryFrom;
 
 use super::CrossingKind;
-use crate::journey::{BribePolicy, CrossingPolicy};
+use crate::journey::{
+    BribePolicy, CrossingPolicy, EventDecisionTrace, RollValue, WeightedCandidate,
+};
 use crate::numbers::clamp_f64_to_f32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -45,10 +47,19 @@ pub struct CrossingContext<'a> {
 
 #[must_use]
 pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> CrossingOutcome {
+    let (outcome, _) = resolve_crossing_with_trace(ctx, rng);
+    outcome
+}
+
+#[must_use]
+pub fn resolve_crossing_with_trace<R: RngCore>(
+    ctx: CrossingContext<'_>,
+    rng: &mut R,
+) -> (CrossingOutcome, Option<EventDecisionTrace>) {
     let sample = rng.next_u32();
     let draw = safe_sample_ratio(sample);
 
-    let (pass_weight, detour_weight, _terminal_weight, permit_used) = effective_weights(&ctx);
+    let (pass_weight, detour_weight, terminal_weight, permit_used) = effective_weights(&ctx);
     let detour_threshold = pass_weight + detour_weight;
 
     let result = if draw < pass_weight {
@@ -64,7 +75,43 @@ pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> Cr
     outcome.used_permit = permit_used;
     outcome.bribe_attempted = ctx.bribe_intent;
     outcome.bribe_succeeded = ctx.bribe_intent && matches!(result, CrossingResult::Pass);
-    outcome
+
+    let pool_id = match ctx.kind {
+        CrossingKind::Checkpoint => "crossing.checkpoint",
+        CrossingKind::BridgeOut => "crossing.bridge_out",
+    };
+    let candidates = vec![
+        WeightedCandidate {
+            id: String::from("pass"),
+            base_weight: f64::from(pass_weight),
+            multipliers: Vec::new(),
+            final_weight: f64::from(pass_weight),
+        },
+        WeightedCandidate {
+            id: String::from("detour"),
+            base_weight: f64::from(detour_weight),
+            multipliers: Vec::new(),
+            final_weight: f64::from(detour_weight),
+        },
+        WeightedCandidate {
+            id: String::from("terminal"),
+            base_weight: f64::from(terminal_weight),
+            multipliers: Vec::new(),
+            final_weight: f64::from(terminal_weight),
+        },
+    ];
+    let chosen_id = match outcome.result {
+        CrossingResult::Pass => "pass",
+        CrossingResult::Detour(_) => "detour",
+        CrossingResult::TerminalFail => "terminal",
+    };
+    let trace = EventDecisionTrace {
+        pool_id: pool_id.to_string(),
+        roll: RollValue::F32(draw),
+        candidates,
+        chosen_id: chosen_id.to_string(),
+    };
+    (outcome, Some(trace))
 }
 
 fn effective_weights(ctx: &CrossingContext<'_>) -> (f32, f32, f32, bool) {

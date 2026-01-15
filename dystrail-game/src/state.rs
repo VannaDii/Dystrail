@@ -74,8 +74,8 @@ use crate::endgame::{self, EndgameState};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, StrainConfig, TravelConfig, TravelDayKind,
-    WearConfig,
+    JourneyCfg, MechanicalPolicyId, RngBundle, RollValue, StrainConfig, TravelConfig,
+    TravelDayKind, WearConfig, WeightedCandidate,
 };
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationDelay,
@@ -94,7 +94,7 @@ use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeS
 use crate::otdeluxe_trail;
 use crate::pacing::{PacingConfig, PacingLimits};
 use crate::personas::{Persona, PersonaMods};
-use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
+use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
 
 const ENCOUNTER_UNIQUE_WINDOW: u32 = 20;
@@ -291,20 +291,45 @@ fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflict
 fn roll_otdeluxe_affliction_kind<R>(
     policy: &OtDeluxeAfflictionPolicy,
     rng: &mut R,
-) -> OtDeluxeAfflictionKind
+) -> (OtDeluxeAfflictionKind, Option<EventDecisionTrace>)
 where
     R: rand::Rng + ?Sized,
 {
     let total = u32::from(policy.weight_illness) + u32::from(policy.weight_injury);
     if total == 0 {
-        return OtDeluxeAfflictionKind::Illness;
+        return (OtDeluxeAfflictionKind::Illness, None);
     }
     let roll = rng.gen_range(0..total);
-    if roll < u32::from(policy.weight_illness) {
+    let kind = if roll < u32::from(policy.weight_illness) {
         OtDeluxeAfflictionKind::Illness
     } else {
         OtDeluxeAfflictionKind::Injury
-    }
+    };
+    let candidates = vec![
+        WeightedCandidate {
+            id: String::from("illness"),
+            base_weight: f64::from(policy.weight_illness),
+            multipliers: Vec::new(),
+            final_weight: f64::from(policy.weight_illness),
+        },
+        WeightedCandidate {
+            id: String::from("injury"),
+            base_weight: f64::from(policy.weight_injury),
+            multipliers: Vec::new(),
+            final_weight: f64::from(policy.weight_injury),
+        },
+    ];
+    let chosen_id = match kind {
+        OtDeluxeAfflictionKind::Illness => "illness",
+        OtDeluxeAfflictionKind::Injury => "injury",
+    };
+    let trace = EventDecisionTrace {
+        pool_id: String::from("otdeluxe.affliction_kind"),
+        roll: RollValue::U32(roll),
+        candidates,
+        chosen_id: chosen_id.to_string(),
+    };
+    (kind, Some(trace))
 }
 
 const fn otdeluxe_pace_health_penalty(
@@ -534,6 +559,15 @@ const fn otdeluxe_navigation_delay_tag(blocked: bool) -> &'static str {
     }
 }
 
+const fn otdeluxe_navigation_event_id(event: OtDeluxeNavigationEvent) -> &'static str {
+    match event {
+        OtDeluxeNavigationEvent::LostTrail => "lost_trail",
+        OtDeluxeNavigationEvent::WrongTrail => "wrong_trail",
+        OtDeluxeNavigationEvent::Impassable => "impassable",
+        OtDeluxeNavigationEvent::Snowbound => "snowbound",
+    }
+}
+
 const fn otdeluxe_navigation_is_blocked(event: OtDeluxeNavigationEvent) -> bool {
     matches!(
         event,
@@ -562,17 +596,17 @@ fn roll_otdeluxe_navigation_delay_days<R: Rng>(delay: OtDeluxeNavigationDelay, r
     rng.gen_range(min_days..=max_days)
 }
 
-fn roll_otdeluxe_navigation_event<R: Rng>(
+fn roll_otdeluxe_navigation_event_with_trace<R: Rng>(
     policy: &OtDeluxeNavigationPolicy,
     snow_depth: f32,
     rng: &mut R,
-) -> Option<OtDeluxeNavigationEvent> {
+) -> (Option<OtDeluxeNavigationEvent>, Option<EventDecisionTrace>) {
     let chance = policy.chance_per_day.clamp(0.0, 1.0);
     if chance <= 0.0 {
-        return None;
+        return (None, None);
     }
     if rng.r#gen::<f32>() >= chance {
-        return None;
+        return (None, None);
     }
 
     let snow_weight = if snow_depth >= policy.snowbound_min_depth_in {
@@ -595,7 +629,38 @@ fn roll_otdeluxe_navigation_event<R: Rng>(
         ),
         (OtDeluxeNavigationEvent::Snowbound, u32::from(snow_weight)),
     ];
-    weighted_pick(&options, rng)
+    let total_weight: u32 = options.iter().map(|(_, weight)| *weight).sum();
+    if total_weight == 0 {
+        return (None, None);
+    }
+    let roll = rng.gen_range(0..total_weight);
+    let mut current = 0_u32;
+    let mut selected = None;
+    for (event, weight) in &options {
+        current = current.saturating_add(*weight);
+        if roll < current {
+            selected = Some(*event);
+            break;
+        }
+    }
+    let selected = selected.or_else(|| options.first().map(|(event, _)| *event));
+    let total_weight_f64 = f64::from(total_weight);
+    let candidates = options
+        .iter()
+        .map(|(event, weight)| WeightedCandidate {
+            id: otdeluxe_navigation_event_id(*event).to_string(),
+            base_weight: f64::from(*weight),
+            multipliers: Vec::new(),
+            final_weight: f64::from(*weight) / total_weight_f64,
+        })
+        .collect();
+    let trace = selected.map(|event| EventDecisionTrace {
+        pool_id: String::from("otdeluxe.navigation"),
+        roll: RollValue::U32(roll),
+        candidates,
+        chosen_id: otdeluxe_navigation_event_id(event).to_string(),
+    });
+    (selected, trace)
 }
 
 fn apply_otdeluxe_disease_effects(
@@ -716,7 +781,8 @@ const fn otdeluxe_mobility_failure_mult(
 mod tests {
     use super::*;
     use crate::constants::{
-        CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE, LOG_TRAVELED,
+        CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE, EXEC_ORDER_DAILY_CHANCE,
+        LOG_TRAVELED,
     };
     use crate::data::{Choice, Effects, Encounter};
     use crate::endgame::EndgameTravelCfg;
@@ -938,6 +1004,12 @@ mod tests {
         let triggered = state.vehicle_roll();
         assert!(triggered);
         assert_eq!(state.last_breakdown_part, Some(Part::Battery));
+        let trace = state
+            .decision_traces_today
+            .iter()
+            .find(|trace| trace.pool_id == "dystrail.breakdown_part")
+            .expect("breakdown trace recorded");
+        assert_eq!(trace.chosen_id, Part::Battery.key());
     }
 
     fn endgame_cfg() -> EndgameTravelCfg {
@@ -1153,6 +1225,23 @@ mod tests {
         assert!(state.logs.iter().any(|entry| entry == &end_log));
         assert!(state.stats.supplies < supplies_before);
         assert!(state.stats.morale < morale_before);
+    }
+
+    #[test]
+    fn exec_order_selection_records_decision_trace() {
+        let mut state = GameState::default();
+        state.attach_rng_bundle(events_bundle_with_roll_below(EXEC_ORDER_DAILY_CHANCE));
+
+        state.tick_exec_order_state();
+
+        assert!(state.current_order.is_some());
+        let trace = state
+            .decision_traces_today
+            .iter()
+            .find(|trace| trace.pool_id == "dystrail.exec_order")
+            .expect("exec order trace recorded");
+        let chosen = state.current_order.expect("expected current exec order");
+        assert_eq!(trace.chosen_id, chosen.key());
     }
 
     #[test]
@@ -2206,6 +2295,28 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_affliction_kind_records_decision_trace() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["Ada"]);
+        state.ot_deluxe.health_general = 140;
+        state.attach_rng_bundle(health_bundle_with_roll_below(0.2));
+        state.start_of_day();
+
+        let outcome = state.tick_otdeluxe_afflictions();
+
+        assert!(outcome.is_some());
+        assert!(
+            state
+                .decision_traces_today
+                .iter()
+                .any(|trace| trace.pool_id == "otdeluxe.affliction_kind")
+        );
+    }
+
+    #[test]
     fn otdeluxe_travel_scales_with_oxen_and_sick_party() {
         let mut state = GameState::default();
         state.ot_deluxe.oxen.healthy = 2;
@@ -2260,12 +2371,13 @@ mod tests {
         };
 
         let mut rng = SmallRng::seed_from_u64(7);
-        let none = roll_otdeluxe_navigation_event(&policy, 2.0, &mut rng);
+        let (none, _) = roll_otdeluxe_navigation_event_with_trace(&policy, 2.0, &mut rng);
         assert!(none.is_none());
 
         let mut rng = SmallRng::seed_from_u64(7);
-        let event = roll_otdeluxe_navigation_event(&policy, 6.0, &mut rng);
+        let (event, trace) = roll_otdeluxe_navigation_event_with_trace(&policy, 6.0, &mut rng);
         assert!(matches!(event, Some(OtDeluxeNavigationEvent::Snowbound)));
+        assert!(trace.is_some());
     }
 
     #[test]
@@ -3658,12 +3770,28 @@ impl GameState {
             let idx = rng.gen_range(0..ExecOrder::ALL.len());
             let order = ExecOrder::ALL[idx];
             let duration = rng.gen_range(EXEC_ORDER_MIN_DURATION..=EXEC_ORDER_MAX_DURATION);
-            Some((order, duration))
+            let roll = u32::try_from(idx).unwrap_or(0);
+            let candidates = ExecOrder::ALL
+                .iter()
+                .map(|candidate| WeightedCandidate {
+                    id: candidate.key().to_string(),
+                    base_weight: 1.0,
+                    multipliers: Vec::new(),
+                    final_weight: 1.0,
+                })
+                .collect();
+            let trace = EventDecisionTrace {
+                pool_id: String::from("dystrail.exec_order"),
+                roll: RollValue::U32(roll),
+                candidates,
+                chosen_id: order.key().to_string(),
+            };
+            Some((order, duration, trace))
         } else {
             None
         };
 
-        if let Some((order, duration)) = next_order {
+        if let Some((order, duration, trace)) = next_order {
             self.current_order = Some(order);
             self.exec_order_days_remaining = duration;
             self.logs
@@ -3672,6 +3800,7 @@ impl GameState {
             if self.exec_order_days_remaining > 0 {
                 self.exec_order_days_remaining -= 1;
             }
+            self.decision_traces_today.push(trace);
         }
     }
 
@@ -4689,7 +4818,10 @@ impl GameState {
         if roll >= probability {
             return None;
         }
-        let kind = roll_otdeluxe_affliction_kind(&policy.affliction, rng);
+        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, rng);
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
         let disease_kind = match kind {
             OtDeluxeAfflictionKind::Illness => DiseaseKind::Illness,
             OtDeluxeAfflictionKind::Injury => DiseaseKind::Injury,
@@ -5219,19 +5351,23 @@ impl GameState {
     }
 
     fn resolve_crossing_outcome(
-        &self,
+        &mut self,
         ctx: CrossingContext<'_>,
         next_idx: usize,
     ) -> crossings::CrossingOutcome {
-        self.crossing_rng().map_or_else(
+        let (outcome, trace) = self.crossing_rng().map_or_else(
             || {
                 let seed_mix =
                     self.seed ^ (u64::try_from(next_idx).unwrap_or(0) << 32) ^ u64::from(self.day);
                 let mut fallback = SmallRng::seed_from_u64(seed_mix);
-                crossings::resolve_crossing(ctx, &mut fallback)
+                crossings::resolve_crossing_with_trace(ctx, &mut fallback)
             },
-            |mut rng| crossings::resolve_crossing(ctx, &mut *rng),
-        )
+            |mut rng| crossings::resolve_crossing_with_trace(ctx, &mut *rng),
+        );
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
+        outcome
     }
 
     fn apply_crossing_decisions(
@@ -5495,19 +5631,23 @@ impl GameState {
         }
 
         let policy = default_otdeluxe_policy();
-        let Some((event, delay_days)) = (|| {
+        let Some((event, delay_days, trace)) = (|| {
             let mut rng = self.events_rng()?;
-            let event = roll_otdeluxe_navigation_event(
+            let (event, trace) = roll_otdeluxe_navigation_event_with_trace(
                 &policy.navigation,
                 self.ot_deluxe.weather.snow_depth,
                 &mut *rng,
-            )?;
+            );
+            let event = event?;
             let delay = otdeluxe_navigation_delay_for(event, &policy.navigation);
             let delay_days = roll_otdeluxe_navigation_delay_days(delay, &mut *rng);
-            Some((event, delay_days))
+            Some((event, delay_days, trace))
         })() else {
             return false;
         };
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
         self.apply_otdeluxe_navigation_hard_stop(event, delay_days);
         true
     }
@@ -5754,6 +5894,50 @@ impl GameState {
         }
     }
 
+    fn select_breakdown_part_with_trace<R: rand::Rng + ?Sized>(
+        &self,
+        rng: &mut R,
+    ) -> (Part, Option<EventDecisionTrace>) {
+        let choices = [
+            (Part::Tire, self.journey_part_weights.tire),
+            (Part::Battery, self.journey_part_weights.battery),
+            (Part::Alternator, self.journey_part_weights.alt),
+            (Part::FuelPump, self.journey_part_weights.pump),
+        ];
+        let total = choices
+            .iter()
+            .fold(0_u32, |acc, (_, weight)| acc.saturating_add(*weight));
+        if total == 0 {
+            return (Part::Tire, None);
+        }
+        let roll = rng.gen_range(0..total);
+        let mut current = 0_u32;
+        let mut selected = Part::Tire;
+        for (part, weight) in &choices {
+            current = current.saturating_add(*weight);
+            if roll < current {
+                selected = *part;
+                break;
+            }
+        }
+        let candidates = choices
+            .iter()
+            .map(|(part, weight)| WeightedCandidate {
+                id: part.key().to_string(),
+                base_weight: f64::from(*weight),
+                multipliers: Vec::new(),
+                final_weight: f64::from(*weight),
+            })
+            .collect();
+        let trace = EventDecisionTrace {
+            pool_id: String::from("dystrail.breakdown_part"),
+            roll: RollValue::U32(roll),
+            candidates,
+            chosen_id: selected.key().to_string(),
+        };
+        (selected, Some(trace))
+    }
+
     /// Apply vehicle breakdown logic
     pub(crate) fn vehicle_roll(&mut self) -> bool {
         if self.breakdown.is_some() {
@@ -5797,19 +5981,12 @@ impl GameState {
             return false;
         }
 
-        let choices = [
-            (Part::Tire, self.journey_part_weights.tire),
-            (Part::Battery, self.journey_part_weights.battery),
-            (Part::Alternator, self.journey_part_weights.alt),
-            (Part::FuelPump, self.journey_part_weights.pump),
-        ];
-        let part = if let Some(mut rng) = self.breakdown_rng()
-            && let Some(selected) = weighted_pick(&choices, &mut *rng)
-        {
-            selected
-        } else {
-            Part::Tire
-        };
+        let (part, trace) = self.breakdown_rng().map_or((Part::Tire, None), |mut rng| {
+            self.select_breakdown_part_with_trace(&mut *rng)
+        });
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
         self.last_breakdown_part = Some(part);
         self.breakdown = Some(crate::vehicle::Breakdown {
             part,
