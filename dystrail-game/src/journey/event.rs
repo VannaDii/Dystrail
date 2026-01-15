@@ -29,6 +29,26 @@ impl EventId {
 pub enum EventKind {
     /// Transitional event mapping an existing i18n log key into the event stream.
     LegacyLogKey,
+    /// Executive order activation in the Dystrail campaign.
+    ExecOrderStarted,
+    /// Executive order completion in the Dystrail campaign.
+    ExecOrderEnded,
+    /// Vehicle breakdown started and blocks travel.
+    BreakdownStarted,
+    /// Vehicle breakdown resolved (repair, jury rig, or emergency fix).
+    BreakdownResolved,
+    /// Encounter selected for the day.
+    EncounterTriggered,
+    /// Trade intent resolved with an offer or rejection.
+    TradeResolved,
+    /// Hunt intent resolved with success or block reason.
+    HuntResolved,
+    /// Affliction triggered on an `OTDeluxe` party member.
+    AfflictionTriggered,
+    /// `OTDeluxe` navigation delay or block event applied.
+    NavigationEvent,
+    /// Travel is blocked for the day (vehicle, navigation, or other gates).
+    TravelBlocked,
 }
 
 /// Severity tier for a simulation event.

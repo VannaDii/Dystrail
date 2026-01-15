@@ -73,9 +73,10 @@ use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
-    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
-    JourneyCfg, MechanicalPolicyId, RngBundle, RollValue, StrainConfig, TravelConfig,
-    TravelDayKind, WearConfig, WeightedCandidate,
+    BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, DayTagSet, Event,
+    EventDecisionTrace, EventId, EventKind, EventSeverity, JourneyCfg, MechanicalPolicyId,
+    RngBundle, RollValue, StrainConfig, TravelConfig, TravelDayKind, UiSurfaceHint, WearConfig,
+    WeightedCandidate,
 };
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationDelay,
@@ -3190,6 +3191,8 @@ pub struct GameState {
     #[serde(skip)]
     pub decision_traces_today: Vec<EventDecisionTrace>,
     #[serde(skip)]
+    pub events_today: Vec<Event>,
+    #[serde(skip)]
     pub current_day_record: Option<DayRecord>,
     #[serde(skip)]
     pub current_day_kind: Option<TravelDayKind>,
@@ -3302,6 +3305,7 @@ macro_rules! game_state_defaults {
             data: None,
             last_damage: None,
             decision_traces_today: Vec::new(),
+            events_today: Vec::new(),
             current_day_record: None,
             current_day_kind: None,
             current_day_reason_tags: Vec::new(),
@@ -3712,6 +3716,7 @@ impl GameState {
         self.current_day_reason_tags.clear();
         self.current_day_miles = 0.0;
         self.decision_traces_today.clear();
+        self.events_today.clear();
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
         self.terminal_log_key = None;
@@ -3739,6 +3744,36 @@ impl GameState {
         }
     }
 
+    const fn next_event_id(&mut self) -> EventId {
+        let seq = self.day_state.lifecycle.event_seq;
+        let id = EventId::new(self.day, seq);
+        self.day_state.lifecycle.event_seq = seq.saturating_add(1);
+        id
+    }
+
+    pub(crate) fn push_event(
+        &mut self,
+        kind: EventKind,
+        severity: EventSeverity,
+        tags: DayTagSet,
+        ui_surface_hint: Option<UiSurfaceHint>,
+        ui_key: Option<String>,
+        payload: serde_json::Value,
+    ) {
+        let day = self.day;
+        let id = self.next_event_id();
+        self.events_today.push(Event {
+            id,
+            day,
+            kind,
+            severity,
+            tags,
+            ui_surface_hint,
+            ui_key,
+            payload,
+        });
+    }
+
     pub(crate) fn tick_exec_order_state(&mut self) {
         if let Some(order) = self.current_order {
             self.apply_exec_order_effects(order);
@@ -3748,6 +3783,14 @@ impl GameState {
             if self.exec_order_days_remaining == 0 {
                 self.logs
                     .push(format!("{}{}", LOG_EXEC_END_PREFIX, order.key()));
+                self.push_event(
+                    EventKind::ExecOrderEnded,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::json!({ "order": order.key() }),
+                );
                 self.current_order = None;
                 let cooldown = self
                     .events_rng()
@@ -3802,6 +3845,14 @@ impl GameState {
             self.exec_order_days_remaining = duration;
             self.logs
                 .push(format!("{}{}", LOG_EXEC_START_PREFIX, order.key()));
+            self.push_event(
+                EventKind::ExecOrderStarted,
+                EventSeverity::Info,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({ "order": order.key(), "duration_days": duration }),
+            );
             self.apply_exec_order_effects(order);
             if self.exec_order_days_remaining > 0 {
                 self.exec_order_days_remaining -= 1;
@@ -4857,6 +4908,22 @@ impl GameState {
                 );
             }
         }
+        if let Some(ref result) = outcome {
+            self.push_event(
+                EventKind::AfflictionTriggered,
+                EventSeverity::Warning,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({
+                    "member_index": result.member_index,
+                    "kind": result.kind,
+                    "disease_id": result.disease_id,
+                    "display_key": result.display_key,
+                    "died": result.died
+                }),
+            );
+        }
         if self.ot_deluxe.party.alive_count() == 0 {
             self.set_ending(Ending::Collapse {
                 cause: CollapseCause::Disease,
@@ -5488,6 +5555,8 @@ impl GameState {
         self.intent = IntentState::default();
         self.wait = WaitState::default();
         self.ot_deluxe = OtDeluxeState::default();
+        self.events_today.clear();
+        self.decision_traces_today.clear();
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -5527,6 +5596,8 @@ impl GameState {
         self.journey_travel.sanitize();
         self.journey_crossing.sanitize();
         self.recompute_day_counters();
+        self.events_today.clear();
+        self.decision_traces_today.clear();
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
         }
@@ -5622,6 +5693,22 @@ impl GameState {
         if remaining == 0 {
             self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
         }
+        self.push_event(
+            EventKind::TravelBlocked,
+            if blocked {
+                EventSeverity::Critical
+            } else {
+                EventSeverity::Warning
+            },
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "reason": "navigation_delay",
+                "blocked": blocked,
+                "remaining_days": remaining
+            }),
+        );
         self.end_of_day();
         true
     }
@@ -5687,6 +5774,24 @@ impl GameState {
         } else {
             self.add_day_reason_tag(tag);
         }
+        let severity = if blocked {
+            EventSeverity::Critical
+        } else {
+            EventSeverity::Warning
+        };
+        self.push_event(
+            EventKind::NavigationEvent,
+            severity,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "event": otdeluxe_navigation_event_id(event),
+                "blocked": blocked,
+                "delay_days": delay_days,
+                "remaining_days": remaining
+            }),
+        );
         if remaining == 0 {
             self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
         }
@@ -5720,6 +5825,17 @@ impl GameState {
             } else if !self.day_state.travel.partial_traveled_today {
                 self.apply_delay_travel_credit("repair");
             }
+            self.push_event(
+                EventKind::TravelBlocked,
+                EventSeverity::Warning,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({
+                    "reason": "vehicle_breakdown",
+                    "breakdown_started": breakdown_started
+                }),
+            );
             self.end_of_day();
             Some((false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started))
         } else {
@@ -5786,6 +5902,7 @@ impl GameState {
         if let Some(enc) = encounter {
             let is_hard_stop = enc.hard_stop;
             let is_major_repair = enc.major_repair;
+            let is_chainable = enc.chainable;
             if self.features.travel_v2
                 && self.distance_today > 0.0
                 && !(is_hard_stop || is_major_repair)
@@ -5813,6 +5930,19 @@ impl GameState {
             self.current_encounter = Some(enc);
             self.encounters.occurred_today = true;
             self.record_encounter(&encounter_id);
+            self.push_event(
+                EventKind::EncounterTriggered,
+                EventSeverity::Info,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({
+                    "id": encounter_id,
+                    "hard_stop": is_hard_stop,
+                    "major_repair": is_major_repair,
+                    "chainable": is_chainable
+                }),
+            );
             return Some((false, String::from("log.encounter"), breakdown_started));
         }
 
@@ -6011,6 +6141,18 @@ impl GameState {
         };
         self.vehicle.wear = (self.vehicle.wear + breakdown_wear).min(VEHICLE_HEALTH_MAX);
         self.mark_damage(DamageCause::Vehicle);
+        self.push_event(
+            EventKind::BreakdownStarted,
+            EventSeverity::Warning,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "part": part.key(),
+                "roll": roll,
+                "chance": breakdown_chance
+            }),
+        );
         if debug_log_enabled() {
             println!(
                 "🚗 Breakdown started: {:?} | health {} | roll {:.3} chance {:.3}",
@@ -6107,6 +6249,17 @@ impl GameState {
                     }
                     self.last_breakdown_part = None;
                     self.logs.push(String::from("log.breakdown-repaired"));
+                    self.push_event(
+                        EventKind::BreakdownResolved,
+                        EventSeverity::Info,
+                        DayTagSet::new(),
+                        None,
+                        None,
+                        serde_json::json!({
+                            "part": breakdown.part.key(),
+                            "resolution": "spare"
+                        }),
+                    );
                 } else {
                     self.day_state.travel.travel_blocked = true;
                     self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Blocked;
@@ -6123,6 +6276,17 @@ impl GameState {
                 self.day_state.travel.travel_blocked = false;
                 self.last_breakdown_part = None;
                 self.logs.push(String::from("log.breakdown-repaired"));
+                self.push_event(
+                    EventKind::BreakdownResolved,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::json!({
+                        "part": breakdown.part.key(),
+                        "resolution": "spare"
+                    }),
+                );
                 return;
             }
 
@@ -6131,6 +6295,17 @@ impl GameState {
                 self.breakdown = None;
                 self.day_state.travel.travel_blocked = false;
                 self.last_breakdown_part = None;
+                self.push_event(
+                    EventKind::BreakdownResolved,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::json!({
+                        "part": breakdown.part.key(),
+                        "resolution": "emergency"
+                    }),
+                );
                 return;
             }
 
@@ -6143,6 +6318,17 @@ impl GameState {
                 self.day_state.travel.travel_blocked = false;
                 self.last_breakdown_part = None;
                 self.logs.push(String::from("log.breakdown-jury-rigged"));
+                self.push_event(
+                    EventKind::BreakdownResolved,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::json!({
+                        "part": breakdown.part.key(),
+                        "resolution": "jury_rigged"
+                    }),
+                );
             } else {
                 self.day_state.travel.travel_blocked = true;
             }

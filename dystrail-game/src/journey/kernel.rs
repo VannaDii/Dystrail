@@ -7,7 +7,8 @@ use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
 use crate::journey::{
-    DayOutcome, Event, EventId, JourneyCfg, MechanicalPolicyId, RngPhase, TravelDayKind,
+    DayOutcome, DayTagSet, Event, EventId, EventKind, EventSeverity, JourneyCfg,
+    MechanicalPolicyId, RngPhase, TravelDayKind,
 };
 use crate::pacing::PacingConfig;
 use crate::state::{DayIntent, GameState};
@@ -87,7 +88,7 @@ impl<'a> DailyTickKernel<'a> {
         let terminal_log_key = state.terminal_log_key.take();
         let resolved_log_key = terminal_log_key.unwrap_or(log_key);
         let resolved_ended = ended || state.ending.is_some();
-        let mut events = Vec::new();
+        let mut events = std::mem::take(&mut state.events_today);
         let mut seq = state.day_state.lifecycle.event_seq;
         events.push(Event::legacy_log_key(
             EventId::new(event_day, seq),
@@ -270,13 +271,21 @@ impl<'a> DailyTickKernel<'a> {
                 state.intent.pending = DayIntent::Continue;
                 state.intent.rest_days_remaining = 0;
                 let rng_bundle = state.rng_bundle.clone();
-                if let Some(bundle) = rng_bundle.as_ref() {
+                let outcome = if let Some(bundle) = rng_bundle.as_ref() {
                     let _guard = bundle.phase_guard_for(RngPhase::TradeTick);
                     let mut rng = bundle.trade();
-                    let _ = trade::resolve_trade_with_rng(state, &mut *rng);
+                    trade::resolve_trade_with_rng(state, &mut *rng)
                 } else {
-                    let _ = trade::resolve_trade(state);
-                }
+                    trade::resolve_trade(state)
+                };
+                state.push_event(
+                    EventKind::TradeResolved,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::to_value(outcome).unwrap_or(serde_json::Value::Null),
+                );
                 Self::record_intent_day(state, "intent_trade");
                 Some((false, String::from(LOG_TRAVELED), false))
             }
@@ -284,13 +293,21 @@ impl<'a> DailyTickKernel<'a> {
                 state.intent.pending = DayIntent::Continue;
                 state.intent.rest_days_remaining = 0;
                 let rng_bundle = state.rng_bundle.clone();
-                if let Some(bundle) = rng_bundle.as_ref() {
+                let outcome = if let Some(bundle) = rng_bundle.as_ref() {
                     let _guard = bundle.phase_guard_for(RngPhase::HuntTick);
                     let mut rng = bundle.hunt();
-                    let _ = hunt::resolve_hunt_with_rng(state, &mut *rng);
+                    hunt::resolve_hunt_with_rng(state, &mut *rng)
                 } else {
-                    let _ = hunt::resolve_hunt(state);
-                }
+                    hunt::resolve_hunt(state)
+                };
+                state.push_event(
+                    EventKind::HuntResolved,
+                    EventSeverity::Info,
+                    DayTagSet::new(),
+                    None,
+                    None,
+                    serde_json::to_value(outcome).unwrap_or(serde_json::Value::Null),
+                );
                 Self::record_intent_day(state, "intent_hunt");
                 Some((false, String::from(LOG_TRAVELED), false))
             }
@@ -397,12 +414,12 @@ mod tests {
     use crate::constants::{LOG_BOSS_AWAIT, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
-        DailyChannelConfig, DailyTickConfig, HealthTickConfig, JourneyCfg, MechanicalPolicyId,
-        RngBundle,
+        DailyChannelConfig, DailyTickConfig, EventKind, HealthTickConfig, JourneyCfg,
+        MechanicalPolicyId, RngBundle,
     };
     use crate::numbers::round_f32_to_i32;
     use crate::otdeluxe_state::OtDeluxeWagonState;
-    use crate::state::{GameState, Region, Stats};
+    use crate::state::{DayIntent, GameState, Region, Stats};
     use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
     use std::rc::Rc;
 
@@ -884,6 +901,13 @@ mod tests {
 
         assert!(matches!(state.intent.pending, DayIntent::Continue));
         assert!(bundle.trade().draws() > 0);
+        assert!(
+            outcome
+                .events
+                .iter()
+                .any(|event| event.kind == EventKind::TradeResolved),
+            "expected trade resolved event"
+        );
         let record = outcome.record.expect("expected trade record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "intent_trade"));
@@ -907,6 +931,13 @@ mod tests {
         assert!(matches!(state.intent.pending, DayIntent::Continue));
         assert!(bundle.hunt().draws() > 0);
         assert!(state.ot_deluxe.inventory.bullets < 10);
+        assert!(
+            outcome
+                .events
+                .iter()
+                .any(|event| event.kind == EventKind::HuntResolved),
+            "expected hunt resolved event"
+        );
         let record = outcome.record.expect("expected hunt record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "intent_hunt"));

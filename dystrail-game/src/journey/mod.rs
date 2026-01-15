@@ -2376,13 +2376,23 @@ mod tests {
             .record
             .as_ref()
             .expect("expected a day record when the day is finalized");
-        let event = outcome.events.first().expect("expected at least one event");
+        let log_event = outcome
+            .events
+            .iter()
+            .find(|event| event.ui_key.as_deref() == Some(outcome.log_key.as_str()))
+            .expect("expected legacy log event");
 
-        assert_eq!(event.day, u32::from(record.day_index) + 1);
-        assert_eq!(event.id.day, event.day);
-        assert_eq!(event.id.seq, 0);
-        assert_eq!(event.ui_key.as_deref(), Some(outcome.log_key.as_str()));
-        assert_eq!(event.kind, EventKind::LegacyLogKey);
+        assert_eq!(log_event.day, u32::from(record.day_index) + 1);
+        assert_eq!(log_event.id.day, log_event.day);
+        assert_eq!(log_event.kind, EventKind::LegacyLogKey);
+
+        for (idx, event) in outcome.events.iter().enumerate() {
+            let expected = u16::try_from(idx).unwrap_or(u16::MAX);
+            assert_eq!(
+                event.id.seq, expected,
+                "event sequence should be contiguous and ordered"
+            );
+        }
     }
 
     #[test]
