@@ -3,6 +3,7 @@
 use rand::Rng;
 use serde::{Deserialize, Serialize};
 
+use crate::journey::{EventDecisionTrace, RollValue, WeightedCandidate};
 use crate::state::GameState;
 
 const TRADE_MAX_OXEN: u32 = 2;
@@ -22,6 +23,22 @@ pub enum TradeGoodKind {
     Tongue,
     Food,
     Cash,
+}
+
+impl TradeGoodKind {
+    #[must_use]
+    pub const fn key(self) -> &'static str {
+        match self {
+            Self::Oxen => "oxen",
+            Self::Clothes => "clothes",
+            Self::Bullets => "bullets",
+            Self::Wheel => "wheel",
+            Self::Axle => "axle",
+            Self::Tongue => "tongue",
+            Self::Food => "food",
+            Self::Cash => "cash",
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -83,8 +100,8 @@ pub fn resolve_trade(state: &mut GameState) -> TradeOutcome {
     apply_offer(state, offer)
 }
 
-fn generate_offer_with_rng(state: &GameState, rng: &mut impl Rng) -> Option<TradeOffer> {
-    let mut give_candidates: Vec<TradeGoodKind> = TRADE_GOODS
+fn generate_offer_with_rng(state: &mut GameState, rng: &mut impl Rng) -> Option<TradeOffer> {
+    let give_candidates: Vec<TradeGoodKind> = TRADE_GOODS
         .iter()
         .copied()
         .filter(|kind| available_amount(state, *kind) > 0)
@@ -93,13 +110,29 @@ fn generate_offer_with_rng(state: &GameState, rng: &mut impl Rng) -> Option<Trad
         return None;
     }
 
-    let give_kind = give_candidates.remove(rng.gen_range(0..give_candidates.len()));
+    let give_roll = rng.gen_range(0..give_candidates.len());
+    let give_kind = give_candidates[give_roll];
+    record_trade_trace(
+        state,
+        "otdeluxe.trade.give",
+        give_roll,
+        &give_candidates,
+        give_kind,
+    );
     let receive_candidates: Vec<TradeGoodKind> = TRADE_GOODS
         .iter()
         .copied()
         .filter(|kind| *kind != give_kind)
         .collect();
-    let receive_kind = receive_candidates[rng.gen_range(0..receive_candidates.len())];
+    let receive_roll = rng.gen_range(0..receive_candidates.len());
+    let receive_kind = receive_candidates[receive_roll];
+    record_trade_trace(
+        state,
+        "otdeluxe.trade.receive",
+        receive_roll,
+        &receive_candidates,
+        receive_kind,
+    );
 
     let give_amount = generate_give_amount(rng, state, give_kind);
     let receive_amount = generate_receive_amount(rng, receive_kind);
@@ -114,6 +147,31 @@ fn generate_offer_with_rng(state: &GameState, rng: &mut impl Rng) -> Option<Trad
             amount: receive_amount,
         },
     })
+}
+
+fn record_trade_trace(
+    state: &mut GameState,
+    pool_id: &str,
+    roll: usize,
+    candidates: &[TradeGoodKind],
+    chosen: TradeGoodKind,
+) {
+    let candidates = candidates
+        .iter()
+        .map(|kind| WeightedCandidate {
+            id: kind.key().to_string(),
+            base_weight: 1.0,
+            multipliers: Vec::new(),
+            final_weight: 1.0,
+        })
+        .collect();
+    let trace = EventDecisionTrace {
+        pool_id: pool_id.to_string(),
+        roll: RollValue::U32(u32::try_from(roll).unwrap_or(0)),
+        candidates,
+        chosen_id: chosen.key().to_string(),
+    };
+    state.decision_traces_today.push(trace);
 }
 
 fn generate_offer_deterministic(state: &GameState) -> Option<TradeOffer> {
@@ -335,4 +393,43 @@ fn clamp_u16(value: u32) -> u16 {
 
 fn clamp_u8(value: u32) -> u8 {
     u8::try_from(value).unwrap_or(u8::MAX)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::otdeluxe_state::OtDeluxeInventory;
+    use rand::SeedableRng;
+    use rand::rngs::SmallRng;
+
+    #[test]
+    fn trade_offer_records_decision_traces() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 2;
+        state.ot_deluxe.inventory = OtDeluxeInventory {
+            food_lbs: 50,
+            bullets: 40,
+            clothes_sets: 2,
+            cash_cents: 500,
+            spares_wheels: 1,
+            spares_axles: 1,
+            spares_tongues: 1,
+        };
+
+        let mut rng = SmallRng::seed_from_u64(7);
+        let _ = resolve_trade_with_rng(&mut state, &mut rng);
+
+        assert!(
+            state
+                .decision_traces_today
+                .iter()
+                .any(|trace| trace.pool_id == "otdeluxe.trade.give")
+        );
+        assert!(
+            state
+                .decision_traces_today
+                .iter()
+                .any(|trace| trace.pool_id == "otdeluxe.trade.receive")
+        );
+    }
 }

@@ -2314,6 +2314,12 @@ mod tests {
                 .iter()
                 .any(|trace| trace.pool_id == "otdeluxe.affliction_kind")
         );
+        assert!(
+            state
+                .decision_traces_today
+                .iter()
+                .any(|trace| trace.pool_id.starts_with("otdeluxe.affliction_disease."))
+        );
     }
 
     #[test]
@@ -4826,7 +4832,10 @@ impl GameState {
             OtDeluxeAfflictionKind::Illness => DiseaseKind::Illness,
             OtDeluxeAfflictionKind::Injury => DiseaseKind::Injury,
         };
-        let disease = catalog.pick_by_kind(disease_kind, rng);
+        let (disease, trace) = catalog.pick_by_kind_with_trace(disease_kind, rng);
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
         let duration = disease.map_or_else(
             || otdeluxe_affliction_duration(kind, &policy.affliction),
             |selected| selected.duration_for(&policy.affliction),

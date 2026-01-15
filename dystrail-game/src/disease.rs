@@ -2,6 +2,7 @@ use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::sync::OnceLock;
 
+use crate::journey::{EventDecisionTrace, RollValue, WeightFactor, WeightedCandidate};
 use crate::mechanics::otdeluxe90s::OtDeluxeAfflictionPolicy;
 use crate::weather::Weather;
 
@@ -13,6 +14,16 @@ const DEFAULT_DISEASE_DATA: &str =
 pub enum DiseaseKind {
     Illness,
     Injury,
+}
+
+impl DiseaseKind {
+    #[must_use]
+    pub const fn key(self) -> &'static str {
+        match self {
+            Self::Illness => "illness",
+            Self::Injury => "injury",
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
@@ -45,6 +56,19 @@ impl DiseaseCatalog {
     where
         R: Rng + ?Sized,
     {
+        let (pick, _) = self.pick_by_kind_with_trace(kind, rng);
+        pick
+    }
+
+    #[must_use]
+    pub fn pick_by_kind_with_trace<R>(
+        &self,
+        kind: DiseaseKind,
+        rng: &mut R,
+    ) -> (Option<&DiseaseDef>, Option<EventDecisionTrace>)
+    where
+        R: Rng + ?Sized,
+    {
         let mut candidates = Vec::new();
         let mut total_weight = 0_u32;
         for (idx, disease) in self.diseases.iter().enumerate() {
@@ -55,24 +79,71 @@ impl DiseaseCatalog {
             }
         }
         if candidates.is_empty() {
-            return None;
+            return (None, None);
         }
-        if total_weight == 0 {
+
+        let (chosen_idx, roll) = if total_weight == 0 {
             let choice = rng.gen_range(0..candidates.len());
-            return self.diseases.get(candidates[choice].0);
-        }
-        let first_idx = candidates.first().map(|(idx, _)| *idx);
-        let mut roll = rng.gen_range(0..total_weight);
-        for (idx, weight) in &candidates {
-            if *weight == 0 {
-                continue;
+            let roll = u32::try_from(choice).unwrap_or(0);
+            (candidates[choice].0, roll)
+        } else {
+            let mut roll = rng.gen_range(0..total_weight);
+            let original_roll = roll;
+            let first_idx = candidates.first().map_or(0, |(idx, _)| *idx);
+            let mut selected = first_idx;
+            for (idx, weight) in &candidates {
+                if *weight == 0 {
+                    continue;
+                }
+                if roll < *weight {
+                    selected = *idx;
+                    break;
+                }
+                roll = roll.saturating_sub(*weight);
             }
-            if roll < *weight {
-                return self.diseases.get(*idx);
-            }
-            roll = roll.saturating_sub(*weight);
-        }
-        first_idx.and_then(|idx| self.diseases.get(idx))
+            (selected, original_roll)
+        };
+
+        let uniform_fallback = total_weight == 0;
+        let weighted_candidates = candidates
+            .iter()
+            .filter_map(|(idx, weight)| {
+                let disease = self.diseases.get(*idx)?;
+                let base = if uniform_fallback {
+                    1.0
+                } else {
+                    f64::from(*weight)
+                };
+                let multipliers = if uniform_fallback {
+                    vec![WeightFactor {
+                        label: String::from("uniform_fallback"),
+                        value: 1.0,
+                    }]
+                } else {
+                    Vec::new()
+                };
+                let final_weight = base;
+                Some(WeightedCandidate {
+                    id: disease.id.clone(),
+                    base_weight: base,
+                    multipliers,
+                    final_weight,
+                })
+            })
+            .collect();
+
+        let trace = self
+            .diseases
+            .get(chosen_idx)
+            .map(|disease| EventDecisionTrace {
+                pool_id: format!("otdeluxe.affliction_disease.{}", kind.key()),
+                roll: RollValue::U32(roll),
+                candidates: weighted_candidates,
+                chosen_id: disease.id.clone(),
+            });
+
+        let chosen = self.diseases.get(chosen_idx);
+        (chosen, trace)
     }
 
     #[must_use]
