@@ -2707,6 +2707,10 @@ pub struct LifecycleState {
     pub day_initialized: bool,
     pub did_end_of_day: bool,
     pub suppress_stop_ratio: bool,
+    #[serde(default)]
+    pub log_cursor: u32,
+    #[serde(default)]
+    pub event_seq: u16,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
@@ -3593,6 +3597,8 @@ impl GameState {
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
         self.terminal_log_key = None;
+        self.day_state.lifecycle.log_cursor = u32::try_from(self.logs.len()).unwrap_or(u32::MAX);
+        self.day_state.lifecycle.event_seq = 0;
         self.exec_travel_multiplier = 1.0;
         self.exec_breakdown_bonus = 0.0;
         self.weather_travel_multiplier = 1.0;
@@ -5379,6 +5385,8 @@ impl GameState {
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
         }
+        self.day_state.lifecycle.log_cursor = u32::try_from(self.logs.len()).unwrap_or(u32::MAX);
+        self.day_state.lifecycle.event_seq = 0;
         self
     }
 

@@ -87,11 +87,31 @@ impl<'a> DailyTickKernel<'a> {
         let terminal_log_key = state.terminal_log_key.take();
         let resolved_log_key = terminal_log_key.unwrap_or(log_key);
         let resolved_ended = ended || state.ending.is_some();
-        let events = vec![Event::legacy_log_key(
-            EventId::new(event_day, 0),
+        let mut events = Vec::new();
+        let mut seq = state.day_state.lifecycle.event_seq;
+        events.push(Event::legacy_log_key(
+            EventId::new(event_day, seq),
             event_day,
             resolved_log_key.clone(),
-        )];
+        ));
+        seq = seq.saturating_add(1);
+
+        let log_start = usize::try_from(state.day_state.lifecycle.log_cursor).unwrap_or(0);
+        let log_end = state.logs.len();
+        let log_start = log_start.min(log_end);
+        for log in &state.logs[log_start..log_end] {
+            if log == &resolved_log_key {
+                continue;
+            }
+            events.push(Event::legacy_log_key(
+                EventId::new(event_day, seq),
+                event_day,
+                log.clone(),
+            ));
+            seq = seq.saturating_add(1);
+        }
+        state.day_state.lifecycle.log_cursor = u32::try_from(log_end).unwrap_or(u32::MAX);
+        state.day_state.lifecycle.event_seq = seq;
         let decision_traces = std::mem::take(&mut state.decision_traces_today);
         DayOutcome {
             ended: resolved_ended,
@@ -648,6 +668,37 @@ mod tests {
 
         assert_eq!(state.stats.supplies, supplies_after_first);
         assert_eq!(state.starvation_days, starvation_after_first);
+    }
+
+    #[test]
+    fn tick_day_emits_new_logs_as_events() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            data: None,
+            stats: Stats {
+                supplies: 20,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.logs.push(String::from("log.previous"));
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(44)));
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |state| {
+            state.logs.push(String::from("log.hook"));
+        });
+
+        let keys: Vec<&str> = outcome
+            .events
+            .iter()
+            .filter_map(|event| event.ui_key.as_deref())
+            .collect();
+        assert!(keys.contains(&outcome.log_key.as_str()));
+        assert!(keys.contains(&"log.hook"));
+        assert!(!keys.contains(&"log.previous"));
     }
 
     #[test]
