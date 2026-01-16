@@ -29,6 +29,14 @@ impl EventId {
 pub enum EventKind {
     /// Transitional event mapping an existing i18n log key into the event stream.
     LegacyLogKey,
+    /// Daily weather selection and effects applied.
+    WeatherResolved,
+    /// Daily consumption/supplies burn applied.
+    DailyConsumptionApplied,
+    /// Daily health tick applied.
+    HealthTickApplied,
+    /// Derived general strain value computed.
+    GeneralStrainComputed,
     /// Executive order activation in the Dystrail campaign.
     ExecOrderStarted,
     /// Executive order completion in the Dystrail campaign.

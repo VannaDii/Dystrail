@@ -336,11 +336,42 @@ impl<'a> DailyTickKernel<'a> {
 
     fn run_weather_tick(state: &mut GameState) {
         let weather_cfg = WeatherConfig::default_config();
+        let previous = state.weather_state.today;
+        let stats_before = state.stats.clone();
         let rng_bundle = state.rng_bundle.clone();
         let _guard = rng_bundle
             .as_ref()
             .map(|bundle| bundle.phase_guard_for(RngPhase::WeatherTick));
         crate::weather::process_daily_weather(state, &weather_cfg, rng_bundle.as_deref());
+        let stats_after = state.stats.clone();
+        let supplies_delta = stats_after.supplies - stats_before.supplies;
+        let sanity_delta = stats_after.sanity - stats_before.sanity;
+        let pants_delta = stats_after.pants - stats_before.pants;
+        let hp_delta = stats_after.hp - stats_before.hp;
+        let weather = state.weather_state.today;
+        let encounter_delta = weather_cfg
+            .effects
+            .get(&weather)
+            .map_or(0.0, |effect| effect.enc_delta);
+        state.push_event(
+            EventKind::WeatherResolved,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "previous": previous,
+                "weather": weather,
+                "stats_delta": {
+                    "supplies": supplies_delta,
+                    "sanity": sanity_delta,
+                    "pants": pants_delta,
+                    "hp": hp_delta
+                },
+                "travel_mult": state.weather_travel_multiplier,
+                "encounter_delta": encounter_delta
+            }),
+        );
     }
 
     fn run_exec_order_tick(state: &mut GameState) {
@@ -357,10 +388,46 @@ impl<'a> DailyTickKernel<'a> {
             .as_ref()
             .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
         if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
-            state.apply_otdeluxe_consumption();
+            let food_before = state.ot_deluxe.inventory.food_lbs;
+            let consumed = state.apply_otdeluxe_consumption();
+            let food_after = state.ot_deluxe.inventory.food_lbs;
+            state.push_event(
+                EventKind::DailyConsumptionApplied,
+                EventSeverity::Info,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({
+                    "policy": "otdeluxe90s",
+                    "food_before_lbs": food_before,
+                    "food_after_lbs": food_after,
+                    "consumed_lbs": consumed,
+                    "alive_party": state.otdeluxe_alive_party_count(),
+                    "pace": state.ot_deluxe.pace,
+                    "rations": state.ot_deluxe.rations
+                }),
+            );
             return;
         }
+        let stats_before = state.stats.clone();
         let _ = apply_daily_supplies_sanity(&self.cfg.daily, state);
+        let stats_after = state.stats.clone();
+        state.push_event(
+            EventKind::DailyConsumptionApplied,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "policy": "dystrail",
+                "supplies_before": stats_before.supplies,
+                "supplies_after": stats_after.supplies,
+                "supplies_delta": stats_after.supplies - stats_before.supplies,
+                "sanity_before": stats_before.sanity,
+                "sanity_after": stats_after.sanity,
+                "sanity_delta": stats_after.sanity - stats_before.sanity
+            }),
+        );
     }
 
     fn run_health_tick(&self, state: &mut GameState) {
@@ -368,6 +435,7 @@ impl<'a> DailyTickKernel<'a> {
             Self::run_otdeluxe_health_tick(state);
             return;
         }
+        let stats_before = state.stats.clone();
         state.apply_starvation_tick();
         let rng_bundle = state.rng_bundle.clone();
         {
@@ -383,7 +451,15 @@ impl<'a> DailyTickKernel<'a> {
                 .map(|bundle| bundle.phase_guard_for(RngPhase::DailyEffects));
             let _ = apply_daily_health(&self.cfg.daily, state);
         }
-        state.update_general_strain(&self.cfg.strain);
+        let strain = state.update_general_strain(&self.cfg.strain);
+        state.push_event(
+            EventKind::GeneralStrainComputed,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({ "value": strain }),
+        );
         {
             let _guard = rng_bundle
                 .as_ref()
@@ -391,6 +467,29 @@ impl<'a> DailyTickKernel<'a> {
             state.tick_ally_attrition();
         }
         state.stats.clamp();
+        let stats_after = state.stats.clone();
+        state.push_event(
+            EventKind::HealthTickApplied,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "policy": "dystrail",
+                "hp_before": stats_before.hp,
+                "hp_after": stats_after.hp,
+                "hp_delta": stats_after.hp - stats_before.hp,
+                "sanity_before": stats_before.sanity,
+                "sanity_after": stats_after.sanity,
+                "sanity_delta": stats_after.sanity - stats_before.sanity,
+                "supplies_before": stats_before.supplies,
+                "supplies_after": stats_after.supplies,
+                "supplies_delta": stats_after.supplies - stats_before.supplies,
+                "pants_before": stats_before.pants,
+                "pants_after": stats_after.pants,
+                "pants_delta": stats_after.pants - stats_before.pants
+            }),
+        );
     }
 
     fn run_otdeluxe_health_tick(state: &mut GameState) {
@@ -398,7 +497,22 @@ impl<'a> DailyTickKernel<'a> {
         let _guard = rng_bundle
             .as_ref()
             .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
-        state.apply_otdeluxe_health_update();
+        let health_before = state.ot_deluxe.health_general;
+        let delta = state.apply_otdeluxe_health_update();
+        let health_after = state.ot_deluxe.health_general;
+        state.push_event(
+            EventKind::HealthTickApplied,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "policy": "otdeluxe90s",
+                "health_general_before": health_before,
+                "health_general_after": health_after,
+                "health_delta": delta
+            }),
+        );
         let _ = state.tick_otdeluxe_afflictions();
     }
 }
