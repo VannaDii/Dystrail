@@ -96,7 +96,7 @@ use crate::otdeluxe_trail;
 use crate::pacing::{PacingConfig, PacingLimits};
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle};
-use crate::weather::{Weather, WeatherConfig, WeatherState};
+use crate::weather::{Weather, WeatherEffects, WeatherState};
 
 const ENCOUNTER_UNIQUE_WINDOW: u32 = 20;
 const ENCOUNTER_UNIQUE_RATIO_FLOOR: f32 = 0.075;
@@ -3167,6 +3167,8 @@ pub struct GameState {
     /// Weather state and history for streak tracking
     #[serde(default)]
     pub weather_state: WeatherState,
+    #[serde(skip)]
+    pub weather_effects: WeatherEffects,
     /// Camp state and cooldowns
     #[serde(default)]
     pub camp: CampState,
@@ -3294,6 +3296,7 @@ macro_rules! game_state_defaults {
             vehicle: Vehicle::default(),
             breakdown: None,
             weather_state: WeatherState::default(),
+            weather_effects: WeatherEffects::default(),
             camp: CampState::default(),
             endgame: EndgameState::default(),
             rotation_travel_days: ROTATION_FORCE_INTERVAL,
@@ -3423,11 +3426,12 @@ impl GameState {
     }
 
     fn journey_weather_factor(&self) -> f32 {
-        self.journey_breakdown
-            .weather_factor
-            .get(&self.weather_state.today)
-            .copied()
-            .unwrap_or(1.0)
+        let mult = self.weather_effects.breakdown_mult;
+        if mult.is_finite() && mult > 0.0 {
+            mult
+        } else {
+            1.0
+        }
     }
 
     fn journey_fatigue_multiplier(&self) -> f32 {
@@ -3717,6 +3721,7 @@ impl GameState {
         self.current_day_miles = 0.0;
         self.decision_traces_today.clear();
         self.events_today.clear();
+        self.weather_effects = WeatherEffects::default();
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
         self.terminal_log_key = None;
@@ -5557,6 +5562,7 @@ impl GameState {
         self.ot_deluxe = OtDeluxeState::default();
         self.events_today.clear();
         self.decision_traces_today.clear();
+        self.weather_effects = WeatherEffects::default();
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -5598,6 +5604,7 @@ impl GameState {
         self.recompute_day_counters();
         self.events_today.clear();
         self.decision_traces_today.clear();
+        self.weather_effects = WeatherEffects::default();
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
         }
@@ -6544,18 +6551,11 @@ impl GameState {
         self.apply_encounter_chance_today(0.0, weather_delta, weather_cap, &cfg.limits);
     }
 
-    fn encounter_weather_adjustment(&self) -> (f32, f32) {
-        let cfg = WeatherConfig::default_config();
-        let delta = cfg
-            .effects
-            .get(&self.weather_state.today)
-            .map_or(0.0, |effect| effect.enc_delta);
-        let cap = if cfg.limits.encounter_cap > 0.0 {
-            cfg.limits.encounter_cap
-        } else {
-            1.0
-        };
-        (delta, cap)
+    const fn encounter_weather_adjustment(&self) -> (f32, f32) {
+        (
+            self.weather_effects.encounter_delta,
+            self.weather_effects.encounter_cap,
+        )
     }
 
     /// Save game state (placeholder - platform specific)

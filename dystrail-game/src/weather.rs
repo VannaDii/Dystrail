@@ -69,6 +69,10 @@ pub struct WeatherEffect {
     pub enc_delta: f32,
     #[serde(default = "default_travel_mult")]
     pub travel_mult: f32,
+    #[serde(default)]
+    pub rain_delta: f32,
+    #[serde(default)]
+    pub snow_delta: f32,
 }
 
 /// Gear-based mitigation for weather effects
@@ -107,7 +111,7 @@ pub struct WeatherConfig {
 }
 
 /// Weather state tracking for streaks and history
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WeatherState {
     pub today: Weather,
     pub yesterday: Weather,
@@ -115,6 +119,10 @@ pub struct WeatherState {
     pub heatwave_streak: i32,
     pub coldsnap_streak: i32,
     pub neutral_buffer: u8,
+    #[serde(default)]
+    pub rain_accum: f32,
+    #[serde(default)]
+    pub snow_depth: f32,
 }
 
 impl Default for WeatherState {
@@ -126,6 +134,38 @@ impl Default for WeatherState {
             heatwave_streak: 0,
             coldsnap_streak: 0,
             neutral_buffer: 0,
+            rain_accum: 0.0,
+            snow_depth: 0.0,
+        }
+    }
+}
+
+/// Weather fan-out values used by downstream phases.
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct WeatherEffects {
+    pub travel_mult: f32,
+    pub supplies_delta: i32,
+    pub sanity_delta: i32,
+    pub pants_delta: i32,
+    pub encounter_delta: f32,
+    pub encounter_cap: f32,
+    pub breakdown_mult: f32,
+    pub rain_accum_delta: f32,
+    pub snow_depth_delta: f32,
+}
+
+impl Default for WeatherEffects {
+    fn default() -> Self {
+        Self {
+            travel_mult: 1.0,
+            supplies_delta: 0,
+            sanity_delta: 0,
+            pants_delta: 0,
+            encounter_delta: 0.0,
+            encounter_cap: 1.0,
+            breakdown_mult: 1.0,
+            rain_accum_delta: 0.0,
+            snow_depth_delta: 0.0,
         }
     }
 }
@@ -382,18 +422,52 @@ fn apply_neutral_buffer<R: Rng>(
 }
 
 /// Apply weather effects to game state
-pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
+pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) -> WeatherEffects {
     let today = gs.weather_state.today;
     update_weather_streaks(&mut gs.weather_state, today);
 
     let Some(effect) = cfg.effects.get(&today) else {
-        return;
+        gs.weather_effects = WeatherEffects::default();
+        gs.weather_travel_multiplier = gs.weather_effects.travel_mult;
+        return gs.weather_effects;
     };
 
-    gs.weather_travel_multiplier = effect.travel_mult.max(0.1);
     let (delta_sup, delta_san, delta_pants) = apply_mitigation(effect, cfg, gs);
-    apply_stat_changes(gs, cfg, delta_sup, delta_san, delta_pants);
+    let encounter_cap = if cfg.limits.encounter_cap > 0.0 {
+        cfg.limits.encounter_cap
+    } else {
+        1.0
+    };
+    let breakdown_mult = gs
+        .journey_breakdown
+        .weather_factor
+        .get(&today)
+        .copied()
+        .unwrap_or(1.0);
+    let effects = WeatherEffects {
+        travel_mult: effect.travel_mult.max(0.1),
+        supplies_delta: delta_sup,
+        sanity_delta: delta_san,
+        pants_delta: delta_pants,
+        encounter_delta: effect.enc_delta,
+        encounter_cap,
+        breakdown_mult,
+        rain_accum_delta: effect.rain_delta,
+        snow_depth_delta: effect.snow_delta,
+    };
+
+    gs.weather_travel_multiplier = effects.travel_mult;
+    apply_stat_changes(
+        gs,
+        cfg,
+        effects.supplies_delta,
+        effects.sanity_delta,
+        effects.pants_delta,
+    );
+    update_precip_accumulators(gs, effects);
     apply_exposure(gs, today);
+    gs.weather_effects = effects;
+    effects
 }
 
 fn apply_stat_changes(
@@ -429,6 +503,15 @@ fn apply_mitigation(
         }
     }
     (effect.supplies, delta_san, delta_pants)
+}
+
+fn update_precip_accumulators(gs: &mut GameState, effects: WeatherEffects) {
+    let rain = gs.weather_state.rain_accum + effects.rain_accum_delta;
+    let snow = gs.weather_state.snow_depth + effects.snow_depth_delta;
+    gs.weather_state.rain_accum = rain.max(0.0);
+    gs.weather_state.snow_depth = snow.max(0.0);
+    gs.ot_deluxe.weather.rain_accum = gs.weather_state.rain_accum;
+    gs.ot_deluxe.weather.snow_depth = gs.weather_state.snow_depth;
 }
 
 fn apply_exposure(gs: &mut GameState, today: Weather) {
@@ -578,5 +661,5 @@ pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig, rngs: Opti
     // If weather selection fails, keep previous weather
 
     // Apply effects
-    apply_weather_effects(gs, cfg);
+    let _ = apply_weather_effects(gs, cfg);
 }

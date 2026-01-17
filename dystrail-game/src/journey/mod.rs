@@ -2105,6 +2105,11 @@ impl JourneyController {
         self.rng.clone()
     }
 
+    /// Replace the controller RNG bundle to keep sessions deterministic across state rehydration.
+    pub fn set_rng_bundle(&mut self, bundle: Rc<RngBundle>) {
+        self.rng = bundle;
+    }
+
     /// Override the controller's endgame travel configuration.
     pub fn set_endgame_config(&mut self, cfg: EndgameTravelCfg) {
         self.endgame_cfg = cfg;

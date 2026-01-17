@@ -65,7 +65,13 @@ impl JourneySession {
     fn reset_state_policy(&mut self, strategy: StrategyId) {
         self.state.mechanical_policy = self.controller.mechanics();
         self.state.policy = Some(strategy.into());
-        self.state.attach_rng_bundle(self.controller.rng_bundle());
+        let rng_bundle = self
+            .state
+            .rng_bundle
+            .clone()
+            .unwrap_or_else(|| self.controller.rng_bundle());
+        self.controller.set_rng_bundle(rng_bundle.clone());
+        self.state.attach_rng_bundle(rng_bundle);
     }
 
     /// Advance the simulation by one day, returning the resulting outcome.

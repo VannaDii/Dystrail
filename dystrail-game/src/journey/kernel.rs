@@ -349,10 +349,7 @@ impl<'a> DailyTickKernel<'a> {
         let pants_delta = stats_after.pants - stats_before.pants;
         let hp_delta = stats_after.hp - stats_before.hp;
         let weather = state.weather_state.today;
-        let encounter_delta = weather_cfg
-            .effects
-            .get(&weather)
-            .map_or(0.0, |effect| effect.enc_delta);
+        let effects = state.weather_effects;
         state.push_event(
             EventKind::WeatherResolved,
             EventSeverity::Info,
@@ -368,8 +365,12 @@ impl<'a> DailyTickKernel<'a> {
                     "pants": pants_delta,
                     "hp": hp_delta
                 },
-                "travel_mult": state.weather_travel_multiplier,
-                "encounter_delta": encounter_delta
+                "travel_mult": effects.travel_mult,
+                "encounter_delta": effects.encounter_delta,
+                "encounter_cap": effects.encounter_cap,
+                "breakdown_mult": effects.breakdown_mult,
+                "rain_accum": state.weather_state.rain_accum,
+                "snow_depth": state.weather_state.snow_depth
             }),
         );
     }

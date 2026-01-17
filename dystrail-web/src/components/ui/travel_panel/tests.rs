@@ -26,6 +26,8 @@ fn sample_game_state() -> Rc<GameState> {
             heatwave_streak: 0,
             coldsnap_streak: 0,
             neutral_buffer: 0,
+            rain_accum: 0.0,
+            snow_depth: 0.0,
         },
         inventory: Inventory {
             tags: HashSet::from_iter([String::from("rain_resist")]),
