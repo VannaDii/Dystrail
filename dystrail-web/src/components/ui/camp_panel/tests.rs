@@ -1,4 +1,5 @@
 use super::*;
+use crate::game::EndgameTravelCfg;
 use crate::game::vehicle::{Breakdown, Part};
 use futures::executor::block_on;
 use std::rc::Rc;
@@ -8,6 +9,7 @@ fn base_props(state: GameState) -> Props {
     Props {
         game_state: Rc::new(state),
         camp_config: Rc::new(CampConfig::default_config()),
+        endgame_config: Rc::new(EndgameTravelCfg::default_config()),
         on_state_change: Callback::from(|_: GameState| {}),
         on_close: Callback::noop(),
     }

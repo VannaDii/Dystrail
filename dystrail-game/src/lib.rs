@@ -36,8 +36,8 @@ pub mod weather;
 // Re-export commonly used types
 pub use boss::{BossConfig, BossOutcome, run_boss_minigame};
 pub use camp::{
-    CampConfig, CampOutcome, CampState, camp_forage, camp_repair_hack, camp_repair_spare,
-    camp_rest, camp_therapy, can_repair, can_therapy,
+    CampConfig, CampOutcome, CampState, camp_forage, camp_forage_with_endgame, camp_repair_hack,
+    camp_repair_spare, camp_rest, camp_rest_with_endgame, camp_therapy, can_repair, can_therapy,
 };
 pub use crossings::{
     CrossingChoice, CrossingConfig, CrossingKind, ThresholdEntry, ThresholdTable, apply_bribe,

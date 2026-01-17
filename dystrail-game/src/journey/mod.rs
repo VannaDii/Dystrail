@@ -2212,21 +2212,6 @@ pub(crate) fn tick_non_travel_day_for_state(
     kernel.tick_non_travel_day(state, kind, miles, reason_tag)
 }
 
-pub(crate) fn tick_non_travel_day_with_hook_for_state<F>(
-    state: &mut crate::state::GameState,
-    kind: TravelDayKind,
-    miles: f32,
-    reason_tag: &str,
-    hook: F,
-) -> f32
-where
-    F: FnOnce(&mut crate::state::GameState),
-{
-    let cfg = resolve_cfg_for_state(state);
-    let kernel = DailyTickKernel::new(&cfg, default_endgame_config());
-    kernel.tick_non_travel_day_with_hook(state, kind, miles, reason_tag, hook)
-}
-
 fn default_endgame_config() -> &'static EndgameTravelCfg {
     static CONFIG: OnceLock<EndgameTravelCfg> = OnceLock::new();
     CONFIG.get_or_init(EndgameTravelCfg::default_config)

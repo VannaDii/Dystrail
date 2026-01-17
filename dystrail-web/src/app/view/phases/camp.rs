@@ -20,10 +20,12 @@ pub fn render_camp(state: &AppState) -> Html {
         };
         let camp_state = Rc::new(snapshot);
         let camp_config_rc = Rc::new((*state.camp_config).clone());
+        let endgame_config_rc = Rc::new((*state.endgame_config).clone());
         html! {
             <CampPage
                 state={camp_state}
                 camp_config={camp_config_rc}
+                endgame_config={endgame_config_rc}
                 weather={weather_badge}
                 on_state_change={{
                     let session_handle = state.session.clone();

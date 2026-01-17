@@ -74,6 +74,7 @@ const fn strategy_id_for(strategy: GameplayStrategy) -> StrategyId {
 pub struct SimulationSession {
     session: JourneySession,
     camp_config: CampConfig,
+    endgame_config: EndgameTravelCfg,
     boss_config: BossConfig,
     max_days: u32,
     strategy: GameplayStrategy,
@@ -101,6 +102,7 @@ impl SimulationSession {
         Self {
             session,
             camp_config,
+            endgame_config: endgame_config.clone(),
             boss_config,
             max_days: config.max_days,
             strategy: config.strategy,
@@ -173,7 +175,11 @@ impl SimulationSession {
             return None;
         }
         let camp_cfg = self.camp_config.clone();
-        let outcome = camp::camp_forage(self.session.state_mut(), &camp_cfg);
+        let outcome = camp::camp_forage_with_endgame(
+            self.session.state_mut(),
+            &camp_cfg,
+            &self.endgame_config,
+        );
         Some(self.build_nontravel_outcome(outcome.message))
     }
 
@@ -187,7 +193,8 @@ impl SimulationSession {
         }
         self.session.state_mut().day_state.rest.rest_requested = false;
         let camp_cfg = self.camp_config.clone();
-        let outcome = camp::camp_rest(self.session.state_mut(), &camp_cfg);
+        let outcome =
+            camp::camp_rest_with_endgame(self.session.state_mut(), &camp_cfg, &self.endgame_config);
         if outcome.rested {
             Some(self.build_nontravel_outcome(outcome.message))
         } else {

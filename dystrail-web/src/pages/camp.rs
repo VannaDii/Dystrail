@@ -1,5 +1,5 @@
 use crate::components::ui::stats_bar::WeatherBadge;
-use crate::game::{CampConfig, GameState};
+use crate::game::{CampConfig, EndgameTravelCfg, GameState};
 use std::rc::Rc;
 use yew::prelude::*;
 
@@ -7,6 +7,7 @@ use yew::prelude::*;
 pub struct CampPageProps {
     pub state: Rc<GameState>,
     pub camp_config: Rc<CampConfig>,
+    pub endgame_config: Rc<EndgameTravelCfg>,
     pub weather: WeatherBadge,
     pub on_state_change: Callback<GameState>,
     pub on_close: Callback<()>,
@@ -16,6 +17,7 @@ impl PartialEq for CampPageProps {
     fn eq(&self, other: &Self) -> bool {
         Rc::ptr_eq(&self.state, &other.state)
             && Rc::ptr_eq(&self.camp_config, &other.camp_config)
+            && Rc::ptr_eq(&self.endgame_config, &other.endgame_config)
             && self.weather == other.weather
     }
 }
@@ -41,6 +43,7 @@ pub fn camp_page(props: &CampPageProps) -> Html {
             <crate::components::ui::camp_panel::CampPanel
                 game_state={props.state.clone()}
                 camp_config={props.camp_config.clone()}
+                endgame_config={props.endgame_config.clone()}
                 on_state_change={props.on_state_change.clone()}
                 on_close={props.on_close.clone()}
             />

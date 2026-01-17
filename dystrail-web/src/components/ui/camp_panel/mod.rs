@@ -4,7 +4,7 @@ mod repair_view;
 #[cfg(test)]
 mod tests;
 
-use crate::game::{CampConfig, GameState, can_repair, can_therapy};
+use crate::game::{CampConfig, EndgameTravelCfg, GameState, can_repair, can_therapy};
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
 use actions::build_on_action;
 use std::rc::Rc;
@@ -16,6 +16,7 @@ use yew::prelude::*;
 pub struct Props {
     pub game_state: Rc<GameState>,
     pub camp_config: Rc<CampConfig>,
+    pub endgame_config: Rc<EndgameTravelCfg>,
     pub on_state_change: Callback<GameState>,
     pub on_close: Callback<()>,
 }
@@ -24,6 +25,7 @@ impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
         Rc::ptr_eq(&self.game_state, &other.game_state)
             && Rc::ptr_eq(&self.camp_config, &other.camp_config)
+            && Rc::ptr_eq(&self.endgame_config, &other.endgame_config)
     }
 }
 
@@ -64,6 +66,7 @@ pub fn camp_panel(p: &Props) -> Html {
     let on_action = build_on_action(
         p.game_state.clone(),
         p.camp_config.clone(),
+        p.endgame_config.clone(),
         p.on_state_change.clone(),
         p.on_close.clone(),
         &current_view,
