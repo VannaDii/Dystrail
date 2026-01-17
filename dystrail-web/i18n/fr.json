@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Fournitures épuisées !",
     "traveled": "A voyagé",
+    "trade": "Échangé",
+    "hunt": "Chassé",
     "vehicle": {
       "failure": "Le véhicule est irréparable.",
       "repair": {
@@ -459,6 +461,8 @@
   },
   "travel": {
     "next": "Parcourir l’étape suivante",
+    "trade": "Échanger",
+    "hunt": "Chasser",
     "title": "Voyager"
   },
   "ui": {

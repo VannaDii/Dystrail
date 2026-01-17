@@ -132,6 +132,8 @@
     },
     "supplies_depleted": "Supplies exhausted!",
     "traveled": "Traveled",
+    "trade": "Traded",
+    "hunt": "Hunted",
     "boss": {
       "compose": {
         "_": "You regroup before the showdown.",
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Travel Next Leg",
+    "trade": "Trade",
+    "hunt": "Hunt",
     "title": "Travel"
   },
   "ui": {

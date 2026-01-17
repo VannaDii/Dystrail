@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Vorräte erschöpft!",
     "traveled": "Gereist",
+    "trade": "Gehandelt",
+    "hunt": "Gejagt",
     "vehicle": {
       "failure": "Das Fahrzeug ist nicht mehr zu reparieren.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Nächste Etappe reisen",
+    "trade": "Handeln",
+    "hunt": "Jagen",
     "title": "Reisen"
   },
   "ui": {

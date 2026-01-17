@@ -1,6 +1,6 @@
-use super::layout::{PanelContext, render_panel};
+use super::layout::{IntentActions, PanelContext, PanelMode, render_panel};
 use super::weather::{render_weather_details, render_weather_info};
-use crate::game::{DietId, GameState, PaceId, PacingConfig};
+use crate::game::{DietId, GameState, MechanicalPolicyId, PaceId, PacingConfig};
 use crate::i18n;
 use std::rc::Rc;
 use web_sys::MouseEvent;
@@ -9,6 +9,8 @@ use yew::prelude::*;
 #[derive(Properties, Clone)]
 pub struct Props {
     pub on_travel: Callback<()>,
+    pub on_trade: Callback<()>,
+    pub on_hunt: Callback<()>,
     pub logs: Vec<String>,
     pub game_state: Option<Rc<GameState>>,
     pub pacing_config: Rc<PacingConfig>,
@@ -31,8 +33,18 @@ pub fn travel_panel(p: &Props) -> Html {
     let show_weather_details = use_state(|| false);
 
     let trigger_travel = p.on_travel.clone();
+    let trigger_trade = p.on_trade.clone();
+    let trigger_hunt = p.on_hunt.clone();
     let on_click: Callback<MouseEvent> = {
         let cb = trigger_travel.clone();
+        Callback::from(move |_| cb.emit(()))
+    };
+    let on_trade_click: Callback<MouseEvent> = {
+        let cb = trigger_trade.clone();
+        Callback::from(move |_| cb.emit(()))
+    };
+    let on_hunt_click: Callback<MouseEvent> = {
+        let cb = trigger_hunt.clone();
         Callback::from(move |_| cb.emit(()))
     };
 
@@ -61,6 +73,10 @@ pub fn travel_panel(p: &Props) -> Html {
         .game_state
         .as_ref()
         .is_some_and(|gs| gs.day_state.travel.travel_blocked);
+    let show_otdeluxe_intents = p
+        .game_state
+        .as_ref()
+        .is_some_and(|gs| gs.mechanical_policy == MechanicalPolicyId::OtDeluxe90s);
 
     let breakdown_msg = p.game_state.as_ref().and_then(|gs| {
         gs.breakdown.as_ref().map(|breakdown| {
@@ -95,6 +111,19 @@ pub fn travel_panel(p: &Props) -> Html {
         Html::default()
     };
 
+    let panel_mode = if *show_weather_details {
+        PanelMode::WeatherDetails
+    } else if *show_pace_diet {
+        PanelMode::PaceDiet
+    } else {
+        PanelMode::Main
+    };
+
+    let intent_actions = show_otdeluxe_intents.then_some(IntentActions {
+        on_trade: &on_trade_click,
+        on_hunt: &on_hunt_click,
+    });
+
     let pace_diet_panel = if *show_pace_diet {
         p.game_state.as_ref().map_or_else(
             || html! { <div class="error">{"Game state unavailable"}</div> },
@@ -115,7 +144,7 @@ pub fn travel_panel(p: &Props) -> Html {
     };
 
     let on_keydown = {
-        let show_pace_diet = show_pace_diet.clone();
+        let intents_enabled = show_otdeluxe_intents;
         Callback::from(move |e: KeyboardEvent| match e.key().as_str() {
             "Enter" | " " => {
                 trigger_travel.emit(());
@@ -125,23 +154,31 @@ pub fn travel_panel(p: &Props) -> Html {
                 show_pace_diet.set(true);
                 e.prevent_default();
             }
+            "t" | "T" if intents_enabled => {
+                trigger_trade.emit(());
+                e.prevent_default();
+            }
+            "h" | "H" if intents_enabled => {
+                trigger_hunt.emit(());
+                e.prevent_default();
+            }
             _ => {}
         })
     };
 
     html! {
         <section class="panel travel-shell" onkeydown={on_keydown}>
-            { render_panel(PanelContext {
+            { render_panel(&PanelContext {
                 travel_blocked,
                 breakdown_msg: breakdown_msg.as_deref(),
-                show_weather_details: *show_weather_details,
+                mode: panel_mode,
                 weather_details,
-                show_pace_diet: *show_pace_diet,
                 pace_diet_panel,
                 weather_info,
                 logs: &p.logs,
                 game_state: p.game_state.as_deref(),
                 pacing_config: &p.pacing_config,
+                intent_actions,
                 on_show_pace_diet: &on_show_pace_diet,
                 on_toggle_weather_details: &on_toggle_weather_details,
                 on_click: &on_click,

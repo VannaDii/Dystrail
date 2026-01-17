@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Malzemeler tükendi!",
     "traveled": "Seyahat edildi",
+    "trade": "Takas edildi",
+    "hunt": "Av yapıldı",
     "vehicle": {
       "failure": "Araç tamir edilemeyecek durumda.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Sonraki Etabı Seyahat Et",
+    "trade": "Takas",
+    "hunt": "Avlan",
     "title": "Seyahat"
   },
   "ui": {

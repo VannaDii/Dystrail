@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Scorte esaurite!",
     "traveled": "Viaggiato",
+    "trade": "Scambiato",
+    "hunt": "Cacciato",
     "vehicle": {
       "failure": "Il veicolo è irreparabile.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Prosegui al tratto successivo",
+    "trade": "Baratta",
+    "hunt": "Caccia",
     "title": "Viaggio"
   },
   "ui": {

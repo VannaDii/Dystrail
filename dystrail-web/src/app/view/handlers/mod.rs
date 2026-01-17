@@ -17,11 +17,16 @@ pub use prefs::{
 };
 pub use route_prompt::build_route_prompt_choice;
 pub use storage::{build_export_state, build_import_state, build_load, build_save};
-pub use travel::{build_diet_change, build_encounter_choice, build_pace_change, build_travel};
+pub use travel::{
+    build_diet_change, build_encounter_choice, build_hunt, build_pace_change, build_trade,
+    build_travel,
+};
 
 #[derive(Clone)]
 pub struct AppHandlers {
     pub travel: Callback<()>,
+    pub trade: Callback<()>,
+    pub hunt: Callback<()>,
     pub pace_change: Callback<PaceId>,
     pub diet_change: Callback<DietId>,
     pub encounter_choice: Callback<usize>,
@@ -45,6 +50,8 @@ impl AppHandlers {
     pub fn new(state: &AppState, navigator: Option<Navigator>) -> Self {
         Self {
             travel: build_travel(state),
+            trade: build_trade(state),
+            hunt: build_hunt(state),
             pace_change: build_pace_change(state),
             diet_change: build_diet_change(state),
             encounter_choice: build_encounter_choice(state),

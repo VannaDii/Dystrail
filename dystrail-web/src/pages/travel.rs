@@ -11,6 +11,8 @@ pub struct TravelPageProps {
     pub weather_badge: WeatherBadge,
     pub data_ready: bool,
     pub on_travel: Callback<()>,
+    pub on_trade: Callback<()>,
+    pub on_hunt: Callback<()>,
     pub on_pace_change: Callback<PaceId>,
     pub on_diet_change: Callback<DietId>,
 }
@@ -44,6 +46,8 @@ pub fn travel_page(props: &TravelPageProps) -> Html {
             />
             <crate::components::ui::travel_panel::TravelPanel
                 on_travel={props.on_travel.clone()}
+                on_trade={props.on_trade.clone()}
+                on_hunt={props.on_hunt.clone()}
                 logs={props.logs.clone()}
                 game_state={Some(props.state.clone())}
                 pacing_config={props.pacing_config.clone()}

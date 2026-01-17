@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Perlengkapan kesel!",
     "traveled": "Wis mlaku",
+    "trade": "Wis dagang",
+    "hunt": "Wis mburu",
     "vehicle": {
       "failure": "Kendharaan ora mung ndandani.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Mlaku menyang tahap sabanjure",
+    "trade": "Dagang",
+    "hunt": "Mburu",
     "title": "Mlaku"
   },
   "ui": {

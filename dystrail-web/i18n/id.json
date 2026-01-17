@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Persediaan habis!",
     "traveled": "Bepergian",
+    "trade": "Berdagang",
+    "hunt": "Berburu",
     "vehicle": {
       "failure": "Kendaraan tidak dapat diperbaiki lagi.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Perjalanan Etape Berikutnya",
+    "trade": "Berdagang",
+    "hunt": "Berburu",
     "title": "Perjalanan"
   },
   "ui": {

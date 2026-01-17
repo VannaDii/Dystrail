@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "소모품이 소진되었습니다!",
     "traveled": "여행함",
+    "trade": "거래함",
+    "hunt": "사냥함",
     "vehicle": {
       "failure": "차량은 수리할 수 없는 상태입니다.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "다음 구간 여행",
+    "trade": "거래",
+    "hunt": "사냥",
     "title": "여행"
   },
   "ui": {

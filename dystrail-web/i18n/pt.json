@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "Suprimentos esgotados!",
     "traveled": "Viajou",
+    "trade": "Negociou",
+    "hunt": "Caçou",
     "vehicle": {
       "failure": "O veículo não pode ser reparado.",
       "repair": {
@@ -459,6 +461,8 @@
   },
   "travel": {
     "next": "Viajar próximo trecho",
+    "trade": "Negociar",
+    "hunt": "Caçar",
     "title": "Viajar"
   },
   "ui": {

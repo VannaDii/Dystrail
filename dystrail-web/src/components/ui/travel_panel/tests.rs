@@ -46,6 +46,8 @@ fn travel_panel_render_includes_weather_and_breakdown() {
     let html = block_on(
         LocalServerRenderer::<TravelPanel>::with_props(Props {
             on_travel: Callback::noop(),
+            on_trade: Callback::noop(),
+            on_hunt: Callback::noop(),
             logs: vec!["Welcome back".into()],
             game_state: Some(sample_game_state()),
             pacing_config: Rc::new(PacingConfig::default_config()),

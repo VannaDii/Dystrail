@@ -2,7 +2,7 @@
 
 use std::sync::OnceLock;
 
-use crate::constants::{LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
+use crate::constants::{LOG_HUNT, LOG_TRADE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
 use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
@@ -355,7 +355,7 @@ impl<'a> DailyTickKernel<'a> {
                     serde_json::to_value(outcome).unwrap_or(serde_json::Value::Null),
                 );
                 Self::record_intent_day(state, "intent_trade");
-                Some((false, String::from(LOG_TRAVELED), false))
+                Some((false, String::from(LOG_TRADE), false))
             }
             DayIntent::Hunt => {
                 state.intent.pending = DayIntent::Continue;
@@ -377,7 +377,7 @@ impl<'a> DailyTickKernel<'a> {
                     serde_json::to_value(outcome).unwrap_or(serde_json::Value::Null),
                 );
                 Self::record_intent_day(state, "intent_hunt");
-                Some((false, String::from(LOG_TRAVELED), false))
+                Some((false, String::from(LOG_HUNT), false))
             }
         }
     }

@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "物资耗尽！",
     "traveled": "已旅行",
+    "trade": "已交易",
+    "hunt": "已狩猎",
     "vehicle": {
       "failure": "车辆已无法修复。",
       "repair": {
@@ -459,6 +461,8 @@
   },
   "travel": {
     "next": "前往下一段",
+    "trade": "交易",
+    "hunt": "狩猎",
     "title": "旅行"
   },
   "ui": {

@@ -19,6 +19,8 @@ pub fn render_travel(state: &AppState, handlers: &AppHandlers) -> Html {
                 weather_badge={weather_badge}
                 data_ready={state.data_ready()}
                 on_travel={handlers.travel.clone()}
+                on_trade={handlers.trade.clone()}
+                on_hunt={handlers.hunt.clone()}
                 on_pace_change={handlers.pace_change.clone()}
                 on_diet_change={handlers.diet_change.clone()}
             />

@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "¡Suministros agotados!",
     "traveled": "Viajaste",
+    "trade": "Intercambiaste",
+    "hunt": "Cazaste",
     "vehicle": {
       "failure": "El vehículo no se puede reparar.",
       "repair": {
@@ -450,6 +452,8 @@
   },
   "travel": {
     "next": "Viajar al siguiente tramo",
+    "trade": "Intercambiar",
+    "hunt": "Cazar",
     "title": "Viaje"
   },
   "ui": {

@@ -4,49 +4,47 @@ use crate::i18n;
 use web_sys::MouseEvent;
 use yew::prelude::*;
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum PanelMode {
+    Main,
+    WeatherDetails,
+    PaceDiet,
+}
+
+pub struct IntentActions<'a> {
+    pub on_trade: &'a Callback<MouseEvent>,
+    pub on_hunt: &'a Callback<MouseEvent>,
+}
+
 pub struct PanelContext<'a> {
     pub travel_blocked: bool,
     pub breakdown_msg: Option<&'a str>,
-    pub show_weather_details: bool,
+    pub mode: PanelMode,
     pub weather_details: Html,
-    pub show_pace_diet: bool,
     pub pace_diet_panel: Html,
     pub weather_info: Html,
     pub logs: &'a [String],
     pub game_state: Option<&'a GameState>,
     pub pacing_config: &'a PacingConfig,
+    pub intent_actions: Option<IntentActions<'a>>,
     pub on_show_pace_diet: &'a Callback<MouseEvent>,
     pub on_toggle_weather_details: &'a Callback<MouseEvent>,
     pub on_click: &'a Callback<MouseEvent>,
 }
 
-pub fn render_panel(ctx: PanelContext) -> Html {
+pub fn render_panel(ctx: &PanelContext<'_>) -> Html {
     html! {
         <section class="panel travel-shell">
             <header class="section-header">
                 <h2>{ i18n::t("travel.title") }</h2>
-                { ctx.weather_info }
+                { ctx.weather_info.clone() }
             </header>
 
             { render_breakdown(ctx.travel_blocked, ctx.breakdown_msg) }
 
-            { render_body(
-                ctx.travel_blocked,
-                ctx.show_weather_details,
-                ctx.weather_details,
-                ctx.show_pace_diet,
-                ctx.pace_diet_panel,
-                ctx.game_state,
-                ctx.pacing_config,
-                ctx.logs,
-            ) }
+            { render_body(ctx) }
 
-            { render_footer(
-                ctx.travel_blocked,
-                ctx.on_show_pace_diet,
-                ctx.on_toggle_weather_details,
-                ctx.on_click,
-            ) }
+            { render_footer(ctx) }
         </section>
     }
 }
@@ -67,30 +65,17 @@ fn render_breakdown(travel_blocked: bool, breakdown_msg: Option<&str>) -> Html {
     }
 }
 
-#[allow(clippy::too_many_arguments)]
-fn render_body(
-    travel_blocked: bool,
-    show_weather_details: bool,
-    weather_details: Html,
-    show_pace_diet: bool,
-    pace_diet_panel: Html,
-    game_state: Option<&GameState>,
-    pacing_config: &PacingConfig,
-    logs: &[String],
-) -> Html {
-    if show_weather_details {
-        return weather_details;
-    }
-    if show_pace_diet {
-        return pace_diet_panel;
-    }
-
-    html! {
-        <div class="travel-body">
-            { render_block_notice(travel_blocked) }
-            { render_current_settings(game_state, pacing_config) }
-            { render_logs(logs) }
-        </div>
+fn render_body(ctx: &PanelContext<'_>) -> Html {
+    match ctx.mode {
+        PanelMode::WeatherDetails => ctx.weather_details.clone(),
+        PanelMode::PaceDiet => ctx.pace_diet_panel.clone(),
+        PanelMode::Main => html! {
+            <div class="travel-body">
+                { render_block_notice(ctx.travel_blocked) }
+                { render_current_settings(ctx.game_state, ctx.pacing_config) }
+                { render_logs(ctx.logs) }
+            </div>
+        },
     }
 }
 
@@ -139,30 +124,38 @@ fn render_logs(logs: &[String]) -> Html {
     }
 }
 
-fn render_footer(
-    travel_blocked: bool,
-    on_show_pace_diet: &Callback<MouseEvent>,
-    on_toggle_weather_details: &Callback<MouseEvent>,
-    on_click: &Callback<MouseEvent>,
-) -> Html {
+fn render_footer(ctx: &PanelContext<'_>) -> Html {
+    let intent_actions = ctx.intent_actions.as_ref().map_or_else(Html::default, |actions| {
+        html! {
+            <>
+                <button onclick={actions.on_trade.clone()} aria-label={i18n::t("travel.trade")} class="retro-btn-secondary">
+                    { i18n::t("travel.trade") }
+                </button>
+                <button onclick={actions.on_hunt.clone()} aria-label={i18n::t("travel.hunt")} class="retro-btn-secondary">
+                    { i18n::t("travel.hunt") }
+                </button>
+            </>
+        }
+    });
     html! {
         <footer class="panel-footer">
-            <button onclick={on_show_pace_diet.clone()} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
+            { intent_actions }
+            <button onclick={ctx.on_show_pace_diet.clone()} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
                 { i18n::t("pacediet.title") }
             </button>
             <button
-                onclick={on_toggle_weather_details.clone()}
+                onclick={ctx.on_toggle_weather_details.clone()}
                 aria-label={i18n::t("weather.details.header")}
                 class="retro-btn-secondary"
             >
                 { i18n::t("weather.details.header") }
             </button>
             <button
-                onclick={on_click.clone()}
+                onclick={ctx.on_click.clone()}
                 aria-label={i18n::t("travel.next")}
                 class="retro-btn-primary"
-                disabled={travel_blocked}
-                aria-describedby={if travel_blocked { "breakdown-notice" } else { "" }}
+                disabled={ctx.travel_blocked}
+                aria-describedby={if ctx.travel_blocked { "breakdown-notice" } else { "" }}
             >
                 { i18n::t("travel.next") }
             </button>

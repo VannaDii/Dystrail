@@ -127,6 +127,8 @@
     },
     "supplies_depleted": "物資が尽きた！",
     "traveled": "旅した",
+    "trade": "取引した",
+    "hunt": "狩りをした",
     "vehicle": {
       "failure": "その車両は修理不能です。",
       "repair": {
@@ -459,6 +461,8 @@
   },
   "travel": {
     "next": "次の区間へ進む",
+    "trade": "取引",
+    "hunt": "狩り",
     "title": "旅"
   },
   "ui": {

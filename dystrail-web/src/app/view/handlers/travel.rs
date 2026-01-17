@@ -1,7 +1,32 @@
 use crate::app::phase::{Phase, phase_for_state};
 use crate::app::state::AppState;
-use crate::game::state::{DietId, PaceId};
+use crate::game::MechanicalPolicyId;
+use crate::game::state::{DayIntent, DietId, PaceId};
+use crate::game::{DayOutcome, JourneySession};
+use std::ops::Deref;
 use yew::prelude::*;
+
+fn commit_outcome(
+    sess: JourneySession,
+    outcome: &DayOutcome,
+    logs: &UseStateHandle<Vec<String>>,
+    phase: &UseStateHandle<Phase>,
+    session_handle: &UseStateHandle<Option<JourneySession>>,
+) {
+    let mut lg = logs.deref().clone();
+    if outcome.events.is_empty() {
+        lg.push(crate::i18n::t(&outcome.log_key));
+    } else {
+        for event in &outcome.events {
+            if let Some(key) = event.ui_key.as_deref() {
+                lg.push(crate::i18n::t(key));
+            }
+        }
+    }
+    phase.set(phase_for_state(sess.state()));
+    logs.set(lg);
+    session_handle.set(Some(sess));
+}
 
 pub fn build_travel(state: &AppState) -> Callback<()> {
     let session_handle = state.session.clone();
@@ -12,22 +37,41 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
             return;
         };
         let outcome = sess.tick_day();
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
+    })
+}
 
-        let mut lg = (*logs).clone();
-        if outcome.events.is_empty() {
-            lg.push(crate::i18n::t(&outcome.log_key));
-        } else {
-            for event in &outcome.events {
-                if let Some(key) = event.ui_key.as_deref() {
-                    lg.push(crate::i18n::t(key));
-                }
-            }
+pub fn build_trade(state: &AppState) -> Callback<()> {
+    let session_handle = state.session.clone();
+    let logs = state.logs.clone();
+    let phase = state.phase.clone();
+    Callback::from(move |()| {
+        let Some(mut sess) = (*session_handle).clone() else {
+            return;
+        };
+        if sess.state().mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
         }
-        let state_ref = sess.state();
-        phase.set(phase_for_state(state_ref));
+        sess.with_state_mut(|gs| gs.intent.pending = DayIntent::Trade);
+        let outcome = sess.tick_day();
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
+    })
+}
 
-        logs.set(lg);
-        session_handle.set(Some(sess));
+pub fn build_hunt(state: &AppState) -> Callback<()> {
+    let session_handle = state.session.clone();
+    let logs = state.logs.clone();
+    let phase = state.phase.clone();
+    Callback::from(move |()| {
+        let Some(mut sess) = (*session_handle).clone() else {
+            return;
+        };
+        if sess.state().mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        sess.with_state_mut(|gs| gs.intent.pending = DayIntent::Hunt);
+        let outcome = sess.tick_day();
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
     })
 }
 
