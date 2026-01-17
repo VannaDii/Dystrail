@@ -44,6 +44,9 @@ impl<'a> DailyTickKernel<'a> {
     where
         F: FnOnce(&mut GameState),
     {
+        if let Some(outcome) = Self::resolve_pending_route_prompt(state) {
+            return outcome;
+        }
         if let Some(outcome) = Self::resolve_pending_crossing(state) {
             return outcome;
         }
@@ -72,11 +75,57 @@ impl<'a> DailyTickKernel<'a> {
     }
 
     fn resolve_pending_crossing(state: &mut GameState) -> Option<DayOutcome> {
+        let rng_bundle = state.rng_bundle.clone();
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            if !state.ot_deluxe.crossing.choice_pending {
+                return None;
+            }
+            if let Some(method) = state.ot_deluxe.crossing.chosen_method.take() {
+                let _guard = rng_bundle
+                    .as_ref()
+                    .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
+                if let Some((ended, log_key)) =
+                    state.resolve_pending_otdeluxe_crossing_choice(method)
+                {
+                    return Some(Self::build_outcome(state, ended, log_key, false));
+                }
+            }
+            return Some(Self::build_outcome(
+                state,
+                false,
+                String::from(LOG_TRAVEL_BLOCKED),
+                false,
+            ));
+        }
+
         state.pending_crossing?;
-        if let Some(choice) = state.pending_crossing_choice.take()
-            && let Some((ended, log_key)) = state.resolve_pending_crossing_choice(choice)
-        {
-            return Some(Self::build_outcome(state, ended, log_key, false));
+        if let Some(choice) = state.pending_crossing_choice.take() {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
+            if let Some((ended, log_key)) = state.resolve_pending_crossing_choice(choice) {
+                return Some(Self::build_outcome(state, ended, log_key, false));
+            }
+        }
+        Some(Self::build_outcome(
+            state,
+            false,
+            String::from(LOG_TRAVEL_BLOCKED),
+            false,
+        ))
+    }
+
+    fn resolve_pending_route_prompt(state: &mut GameState) -> Option<DayOutcome> {
+        if state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            state.pending_route_choice = None;
+            return None;
+        }
+        if state.ot_deluxe.route.pending_prompt.is_none() {
+            state.pending_route_choice = None;
+            return None;
+        }
+        if let Some(choice) = state.pending_route_choice.take() {
+            let _ = state.resolve_otdeluxe_route_prompt(choice);
         }
         Some(Self::build_outcome(
             state,
@@ -136,6 +185,7 @@ impl<'a> DailyTickKernel<'a> {
             ended: resolved_ended,
             log_key: resolved_log_key,
             breakdown_started,
+            day_consumed,
             record,
             events,
             decision_traces,
@@ -545,14 +595,16 @@ fn default_pacing_config() -> &'static PacingConfig {
 mod tests {
     use super::*;
     use crate::constants::{LOG_BOSS_AWAIT, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
+    use crate::crossings::CrossingKind;
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
         DailyChannelConfig, DailyTickConfig, EventKind, HealthTickConfig, JourneyCfg,
         MechanicalPolicyId, RngBundle,
     };
     use crate::numbers::round_f32_to_i32;
+    use crate::otdeluxe_state::OtDeluxeRoutePrompt;
     use crate::otdeluxe_state::OtDeluxeWagonState;
-    use crate::state::{DayIntent, GameState, Region, Stats};
+    use crate::state::{DayIntent, GameState, PendingCrossing, Region, Stats};
     use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
     use std::rc::Rc;
 
@@ -852,6 +904,85 @@ mod tests {
     }
 
     #[test]
+    fn tick_day_phase_order_emits_core_events_in_sequence() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            encounter_chance_today: 0.0,
+            exec_order_cooldown: 1,
+            stats: Stats {
+                supplies: 20,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(11)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        let find_kind = |kind| {
+            outcome
+                .events
+                .iter()
+                .position(|event| event.kind == kind)
+                .unwrap_or_else(|| panic!("missing event {kind:?}"))
+        };
+        let weather_idx = find_kind(EventKind::WeatherResolved);
+        let supplies_idx = find_kind(EventKind::DailyConsumptionApplied);
+        let strain_idx = find_kind(EventKind::GeneralStrainComputed);
+        let health_idx = find_kind(EventKind::HealthTickApplied);
+
+        assert!(weather_idx < supplies_idx);
+        assert!(supplies_idx < strain_idx);
+        assert!(strain_idx < health_idx);
+        assert!(outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_crossing_blocks_without_consuming_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 0.0,
+            }),
+            ..GameState::default()
+        };
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(!outcome.day_consumed);
+        assert!(outcome.record.is_none());
+        assert_eq!(state.day, 1);
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+    }
+
+    #[test]
+    fn pending_route_prompt_blocks_without_consuming_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(!outcome.day_consumed);
+        assert!(outcome.record.is_none());
+        assert_eq!(state.day, 1);
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+    }
+
+    #[test]
     fn wait_gate_consumes_non_travel_day_and_decrements_counter() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -864,6 +995,7 @@ mod tests {
 
         assert_eq!(state.wait.ferry_wait_days_remaining, 0);
         assert_eq!(state.day, 2);
+        assert!(outcome.day_consumed);
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "wait_ferry"));
@@ -884,6 +1016,7 @@ mod tests {
         assert_eq!(outcome.log_key, LOG_BOSS_AWAIT);
         assert_eq!(state.wait.ferry_wait_days_remaining, 2);
         assert_eq!(state.day, 2);
+        assert!(outcome.day_consumed);
         let record = outcome.record.expect("expected boss gate record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "boss_gate"));
@@ -929,6 +1062,7 @@ mod tests {
         let outcome = kernel.tick_day(&mut state);
 
         assert_eq!(state.day, 2);
+        assert!(outcome.day_consumed);
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
@@ -956,6 +1090,7 @@ mod tests {
         let outcome = kernel.tick_day(&mut state);
 
         assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(outcome.day_consumed);
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "otdeluxe.nav_delay"));
@@ -984,6 +1119,7 @@ mod tests {
         let outcome = kernel.tick_day(&mut state);
 
         assert_eq!(outcome.log_key, LOG_TRAVELED);
+        assert!(outcome.day_consumed);
         let record = outcome.record.expect("expected day record");
         assert!(matches!(
             record.kind,
@@ -1003,6 +1139,7 @@ mod tests {
         state.intent.rest_days_remaining = 2;
 
         let first = kernel.tick_day(&mut state);
+        assert!(first.day_consumed);
         assert!(matches!(state.intent.pending, DayIntent::Rest));
         assert_eq!(state.intent.rest_days_remaining, 1);
         let first_record = first.record.expect("expected first record");
@@ -1010,6 +1147,7 @@ mod tests {
         assert!(first_record.tags.iter().any(|tag| tag.0 == "intent_rest"));
 
         let second = kernel.tick_day(&mut state);
+        assert!(second.day_consumed);
         assert!(matches!(state.intent.pending, DayIntent::Continue));
         assert_eq!(state.intent.rest_days_remaining, 0);
         let second_record = second.record.expect("expected second record");
@@ -1034,6 +1172,7 @@ mod tests {
 
         assert!(matches!(state.intent.pending, DayIntent::Continue));
         assert!(bundle.trade().draws() > 0);
+        assert!(outcome.day_consumed);
         assert!(
             outcome
                 .events

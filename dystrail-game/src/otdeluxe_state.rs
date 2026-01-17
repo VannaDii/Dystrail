@@ -66,6 +66,15 @@ pub enum OtDeluxeRiverBed {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+pub enum OtDeluxeRiver {
+    Kansas,
+    BigBlue,
+    Green,
+    Snake,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
 pub enum OtDeluxeCrossingMethod {
     Ford,
     CaulkFloat,
@@ -106,6 +115,10 @@ pub struct OtDeluxeCrossingState {
     pub chosen_method: Option<OtDeluxeCrossingMethod>,
     #[serde(default)]
     pub river: Option<OtDeluxeRiverState>,
+    #[serde(default)]
+    pub river_kind: Option<OtDeluxeRiver>,
+    #[serde(default)]
+    pub computed_miles_today: f32,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

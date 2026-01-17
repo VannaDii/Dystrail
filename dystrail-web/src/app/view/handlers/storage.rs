@@ -1,4 +1,4 @@
-use crate::app::phase::{Phase, session_from_state};
+use crate::app::phase::{phase_for_state, session_from_state};
 use crate::app::state::AppState;
 use crate::game::state::GameState;
 use yew::prelude::*;
@@ -28,13 +28,14 @@ pub fn build_load(state: &AppState) -> Callback<()> {
         if let Some(mut gs) = GameState::load() {
             gs = gs.rehydrate((*data_handle).clone());
             let sess = session_from_state(gs, &endgame_cfg);
+            let next_phase = phase_for_state(sess.state());
             run_seed_handle.set(sess.state().seed);
             pending_handle.set(Some(sess.state().clone()));
             session_handle.set(Some(sess));
             let mut l = (*logs_handle).clone();
             l.push(crate::i18n::t("save.loaded"));
             logs_handle.set(l);
-            phase_handle.set(Phase::Travel);
+            phase_handle.set(next_phase);
         }
     })
 }
@@ -68,13 +69,14 @@ pub fn build_import_state(state: &AppState) -> Callback<String> {
         if let Ok(mut gs) = serde_json::from_str::<GameState>(&txt) {
             gs = gs.rehydrate((*data_handle).clone());
             let sess = session_from_state(gs, &endgame_cfg);
+            let next_phase = phase_for_state(sess.state());
             run_seed_handle.set(sess.state().seed);
             pending_handle.set(Some(sess.state().clone()));
             session_handle.set(Some(sess));
             let mut l = (*logs_handle).clone();
             l.push(crate::i18n::t("save.loaded"));
             logs_handle.set(l);
-            phase_handle.set(Phase::Travel);
+            phase_handle.set(next_phase);
         } else {
             let mut l = (*logs_handle).clone();
             l.push(crate::i18n::t("save.error"));

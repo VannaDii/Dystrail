@@ -20,14 +20,28 @@ impl JourneySession {
         data: EncounterData,
         endgame_cfg: &EndgameTravelCfg,
     ) -> Self {
-        let state = GameState::default().with_seed(seed, mode, data);
-        let controller = Self::build_controller(
+        Self::new_with_mechanics(
             MechanicalPolicyId::DystrailLegacy,
             mode,
             strategy,
             seed,
+            data,
             endgame_cfg,
-        );
+        )
+    }
+
+    /// Construct a fresh session from seed, mode, strategy, and encounter data.
+    #[must_use]
+    pub fn new_with_mechanics(
+        mechanics: MechanicalPolicyId,
+        mode: GameMode,
+        strategy: StrategyId,
+        seed: u64,
+        data: EncounterData,
+        endgame_cfg: &EndgameTravelCfg,
+    ) -> Self {
+        let state = GameState::default().with_seed(seed, mode, data);
+        let controller = Self::build_controller(mechanics, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
         session.reset_state_policy(strategy);
         session
@@ -171,5 +185,23 @@ mod tests {
 
         // Ensure tick_day exercises daily application without panicking.
         let _ = session.tick_day();
+    }
+
+    #[test]
+    fn session_construction_supports_otdeluxe_mechanics() {
+        let data = EncounterData::empty();
+        let endgame = EndgameTravelCfg::default_config();
+        let session = JourneySession::new_with_mechanics(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameMode::Classic,
+            StrategyId::Balanced,
+            7,
+            data,
+            &endgame,
+        );
+        assert_eq!(
+            session.state().mechanical_policy,
+            MechanicalPolicyId::OtDeluxe90s
+        );
     }
 }

@@ -55,6 +55,8 @@ pub enum EventKind {
     AfflictionTriggered,
     /// `OTDeluxe` navigation delay or block event applied.
     NavigationEvent,
+    /// `OTDeluxe` river crossing resolved.
+    CrossingResolved,
     /// Travel is blocked for the day (vehicle, navigation, or other gates).
     TravelBlocked,
 }

@@ -1,4 +1,5 @@
 use rand::rngs::SmallRng;
+use rand::seq::SliceRandom;
 use rand::{Rng, RngCore, SeedableRng};
 use serde::{Deserialize, Serialize};
 use std::cell::RefMut;
@@ -39,21 +40,23 @@ use crate::constants::{
     LOG_CROSSING_DETOUR, LOG_CROSSING_FAILURE, LOG_CROSSING_PASSED,
     LOG_DEEP_AGGRESSIVE_FIELD_REPAIR, LOG_DISEASE_HIT, LOG_DISEASE_RECOVER, LOG_DISEASE_TICK,
     LOG_EMERGENCY_REPAIR_FORCED, LOG_ENCOUNTER_ROTATION, LOG_EXEC_END_PREFIX,
-    LOG_EXEC_START_PREFIX, LOG_HEALTH_COLLAPSE, LOG_PANTS_EMERGENCY, LOG_REST_REQUESTED_ENCOUNTER,
-    LOG_SANITY_COLLAPSE, LOG_STARVATION_BACKSTOP, LOG_STARVATION_RELIEF, LOG_STARVATION_TICK,
-    LOG_TRAVEL_BLOCKED, LOG_TRAVEL_BONUS, LOG_TRAVEL_DELAY_CREDIT, LOG_TRAVEL_PARTIAL,
-    LOG_TRAVEL_REST_CREDIT, LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE,
-    LOG_VEHICLE_FIELD_REPAIR_GUARD, LOG_VEHICLE_REPAIR_EMERGENCY, LOG_VEHICLE_REPAIR_SPARE,
-    MAX_ENCOUNTERS_PER_DAY, PROBABILITY_FLOOR, PROBABILITY_MAX, REST_TRAVEL_CREDIT_MILES,
-    ROTATION_FORCE_INTERVAL, SANITY_POINT_REWARD, STARVATION_BASE_HP_LOSS, STARVATION_GRACE_DAYS,
-    STARVATION_MAX_STACK, STARVATION_PANTS_GAIN, STARVATION_SANITY_LOSS,
-    TRAVEL_CLASSIC_BASE_DISTANCE, TRAVEL_CLASSIC_PENALTY_FLOOR, TRAVEL_CONFIG_MIN_MULTIPLIER,
-    TRAVEL_HISTORY_WINDOW, TRAVEL_PARTIAL_CLAMP_HIGH, TRAVEL_PARTIAL_CLAMP_LOW,
-    TRAVEL_PARTIAL_DEFAULT_WEAR, TRAVEL_PARTIAL_MIN_DISTANCE, TRAVEL_PARTIAL_RATIO,
-    TRAVEL_PARTIAL_RECOVERY_RATIO, TRAVEL_RATIO_DEFAULT, TRAVEL_V2_BASE_DISTANCE,
-    TRAVEL_V2_PENALTY_FLOOR, VEHICLE_BASE_TOLERANCE_CLASSIC, VEHICLE_BASE_TOLERANCE_DEEP,
-    VEHICLE_BREAKDOWN_DAMAGE, VEHICLE_BREAKDOWN_PARTIAL_FACTOR, VEHICLE_BREAKDOWN_WEAR,
-    VEHICLE_BREAKDOWN_WEAR_CLASSIC, VEHICLE_CRITICAL_SPEED_FACTOR, VEHICLE_CRITICAL_THRESHOLD,
+    LOG_EXEC_START_PREFIX, LOG_HEALTH_COLLAPSE, LOG_OT_CROSSING_DROWNED, LOG_OT_CROSSING_SAFE,
+    LOG_OT_CROSSING_SANK, LOG_OT_CROSSING_STUCK, LOG_OT_CROSSING_TIPPED, LOG_OT_CROSSING_WET,
+    LOG_PANTS_EMERGENCY, LOG_REST_REQUESTED_ENCOUNTER, LOG_SANITY_COLLAPSE,
+    LOG_STARVATION_BACKSTOP, LOG_STARVATION_RELIEF, LOG_STARVATION_TICK, LOG_TRAVEL_BLOCKED,
+    LOG_TRAVEL_BONUS, LOG_TRAVEL_DELAY_CREDIT, LOG_TRAVEL_PARTIAL, LOG_TRAVEL_REST_CREDIT,
+    LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE, LOG_VEHICLE_FIELD_REPAIR_GUARD,
+    LOG_VEHICLE_REPAIR_EMERGENCY, LOG_VEHICLE_REPAIR_SPARE, MAX_ENCOUNTERS_PER_DAY,
+    PROBABILITY_FLOOR, PROBABILITY_MAX, REST_TRAVEL_CREDIT_MILES, ROTATION_FORCE_INTERVAL,
+    SANITY_POINT_REWARD, STARVATION_BASE_HP_LOSS, STARVATION_GRACE_DAYS, STARVATION_MAX_STACK,
+    STARVATION_PANTS_GAIN, STARVATION_SANITY_LOSS, TRAVEL_CLASSIC_BASE_DISTANCE,
+    TRAVEL_CLASSIC_PENALTY_FLOOR, TRAVEL_CONFIG_MIN_MULTIPLIER, TRAVEL_HISTORY_WINDOW,
+    TRAVEL_PARTIAL_CLAMP_HIGH, TRAVEL_PARTIAL_CLAMP_LOW, TRAVEL_PARTIAL_DEFAULT_WEAR,
+    TRAVEL_PARTIAL_MIN_DISTANCE, TRAVEL_PARTIAL_RATIO, TRAVEL_PARTIAL_RECOVERY_RATIO,
+    TRAVEL_RATIO_DEFAULT, TRAVEL_V2_BASE_DISTANCE, TRAVEL_V2_PENALTY_FLOOR,
+    VEHICLE_BASE_TOLERANCE_CLASSIC, VEHICLE_BASE_TOLERANCE_DEEP, VEHICLE_BREAKDOWN_DAMAGE,
+    VEHICLE_BREAKDOWN_PARTIAL_FACTOR, VEHICLE_BREAKDOWN_WEAR, VEHICLE_BREAKDOWN_WEAR_CLASSIC,
+    VEHICLE_CRITICAL_SPEED_FACTOR, VEHICLE_CRITICAL_THRESHOLD,
     VEHICLE_DEEP_EMERGENCY_HEAL_AGGRESSIVE, VEHICLE_DEEP_EMERGENCY_HEAL_BALANCED,
     VEHICLE_EMERGENCY_HEAL, VEHICLE_EXEC_MULTIPLIER_DECAY, VEHICLE_EXEC_MULTIPLIER_FLOOR,
     VEHICLE_HEALTH_MAX, VEHICLE_JURY_RIG_HEAL, VEHICLE_MALNUTRITION_MIN_FACTOR,
@@ -84,12 +87,13 @@ use crate::mechanics::otdeluxe90s::{
     OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 use crate::numbers::round_f32_to_i32;
+use crate::otdeluxe_crossings;
 #[cfg(test)]
 use crate::otdeluxe_state::OtDeluxeTravelState;
 use crate::otdeluxe_state::{
-    OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeDallesChoice,
-    OtDeluxeInventory, OtDeluxePartyState, OtDeluxeRouteDecision, OtDeluxeRoutePrompt,
-    OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
+    OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome, OtDeluxeCalendar, OtDeluxeCrossingMethod,
+    OtDeluxeDallesChoice, OtDeluxeInventory, OtDeluxePartyState, OtDeluxeRiver, OtDeluxeRiverState,
+    OtDeluxeRouteDecision, OtDeluxeRoutePrompt, OtDeluxeState, OtDeluxeTerrain, OtDeluxeWagonState,
 };
 use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt};
 use crate::otdeluxe_trail;
@@ -2794,6 +2798,16 @@ pub struct PendingCrossing {
     pub computed_miles_today: f32,
 }
 
+#[derive(Debug, Clone, Copy, Default)]
+struct OtDeluxeCrossingLosses {
+    food_lbs: u16,
+    bullets: u16,
+    clothes_sets: u16,
+    spares_wheels: u8,
+    spares_axles: u8,
+    spares_tongues: u8,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct IntentState {
     pub pending: DayIntent,
@@ -3061,6 +3075,8 @@ pub struct GameState {
     pub pending_crossing: Option<PendingCrossing>,
     #[serde(skip)]
     pub pending_crossing_choice: Option<CrossingChoice>,
+    #[serde(skip)]
+    pub pending_route_choice: Option<OtDeluxeRouteDecision>,
     #[serde(default)]
     pub starvation_days: u32,
     #[serde(default)]
@@ -3253,6 +3269,7 @@ macro_rules! game_state_defaults {
             crossing_events: Vec::new(),
             pending_crossing: None,
             pending_crossing_choice: None,
+            pending_route_choice: None,
             starvation_days: 0,
             malnutrition_level: 0,
             exposure_streak_heat: 0,
@@ -5408,6 +5425,9 @@ impl GameState {
         &mut self,
         computed_miles_today: f32,
     ) -> Option<(bool, String)> {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return self.handle_otdeluxe_crossing_event(computed_miles_today);
+        }
         if self.pending_crossing.is_some() {
             return Some((false, String::from(LOG_TRAVEL_BLOCKED)));
         }
@@ -5457,6 +5477,57 @@ impl GameState {
 
         self.apply_crossing_decisions(resolved, &cfg, kind, &mut telemetry);
         Some(self.process_crossing_result(resolved, telemetry, computed_miles_today))
+    }
+
+    fn handle_otdeluxe_crossing_event(
+        &mut self,
+        computed_miles_today: f32,
+    ) -> Option<(bool, String)> {
+        if self.ot_deluxe.crossing.choice_pending {
+            return Some((false, String::from(LOG_TRAVEL_BLOCKED)));
+        }
+        let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
+        let river = otdeluxe_crossings::river_for_index(next_idx)?;
+        let node_index = otdeluxe_crossings::node_index_for_river(river);
+        let policy = default_otdeluxe_policy();
+        let marker = otdeluxe_trail::mile_marker_for_node(
+            &policy.trail,
+            self.ot_deluxe.route.variant,
+            node_index,
+        )?;
+        let marker_miles = f32::from(marker);
+        if self.miles_traveled_actual + computed_miles_today + f32::EPSILON < marker_miles {
+            return None;
+        }
+
+        let distance_to_marker = (marker_miles - self.miles_traveled_actual).max(0.0);
+        let river_state = otdeluxe_crossings::derive_river_state(
+            &policy.crossings,
+            river,
+            self.ot_deluxe.season,
+            self.ot_deluxe.weather.rain_accum,
+        );
+        self.ot_deluxe.crossing.choice_pending = true;
+        self.ot_deluxe.crossing.chosen_method = None;
+        self.ot_deluxe.crossing.river = Some(river_state);
+        self.ot_deluxe.crossing.river_kind = Some(river);
+        self.ot_deluxe.crossing.computed_miles_today = distance_to_marker;
+        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
+
+        self.push_event(
+            EventKind::TravelBlocked,
+            EventSeverity::Warning,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "reason": "crossing_choice",
+                "river": format!("{river:?}").to_lowercase(),
+                "node_index": node_index,
+            }),
+        );
+
+        Some((false, String::from(LOG_TRAVEL_BLOCKED)))
     }
 
     pub(crate) fn resolve_pending_crossing_choice(
@@ -5529,6 +5600,322 @@ impl GameState {
         Some(self.process_crossing_result(resolved, telemetry, pending.computed_miles_today))
     }
 
+    pub(crate) fn resolve_pending_otdeluxe_crossing_choice(
+        &mut self,
+        method: OtDeluxeCrossingMethod,
+    ) -> Option<(bool, String)> {
+        let (river_kind, river_state) = self.otdeluxe_crossing_context(method)?;
+        let alive_indices = self.otdeluxe_alive_indices();
+        let (resolution, trace, drowned_indices) =
+            self.roll_otdeluxe_crossing(river_kind, &river_state, method, &alive_indices);
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
+
+        let policy = default_otdeluxe_policy();
+        self.apply_otdeluxe_crossing_costs(policy, method);
+        let losses = self.apply_otdeluxe_crossing_losses(resolution.loss_ratio);
+        let drown_count = self.apply_otdeluxe_drownings(&drowned_indices);
+
+        let (log_key, severity) = Self::otdeluxe_crossing_log_and_severity(resolution.outcome);
+        self.logs.push(String::from(log_key));
+        self.emit_otdeluxe_crossing_event(
+            river_kind,
+            method,
+            &resolution,
+            severity,
+            losses,
+            drown_count,
+        );
+
+        let computed_miles_today = self.clear_otdeluxe_crossing_state();
+        self.crossings_completed = self.crossings_completed.saturating_add(1);
+
+        let target_miles = computed_miles_today.max(0.0);
+        self.apply_target_travel(TravelDayKind::Partial, target_miles, "otdeluxe_crossing");
+        self.stats.clamp();
+
+        if self.ot_deluxe.party.alive_count() == 0 {
+            self.set_ending(Ending::Collapse {
+                cause: CollapseCause::Crossing,
+            });
+        }
+
+        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+        self.end_of_day();
+
+        if self.ending.is_none() {
+            self.apply_otdeluxe_crossing_delays(policy, &resolution);
+        }
+
+        Some((self.ending.is_some(), String::from(log_key)))
+    }
+
+    fn otdeluxe_crossing_context(
+        &mut self,
+        method: OtDeluxeCrossingMethod,
+    ) -> Option<(OtDeluxeRiver, OtDeluxeRiverState)> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        if !self.ot_deluxe.crossing.choice_pending {
+            return None;
+        }
+        let river_kind = self.ot_deluxe.crossing.river_kind?;
+        let river_state = self.ot_deluxe.crossing.river.clone()?;
+        let policy = default_otdeluxe_policy();
+        let options = otdeluxe_crossings::crossing_options(
+            &policy.crossings,
+            river_kind,
+            &river_state,
+            &self.ot_deluxe.inventory,
+        );
+        if !options.is_allowed(method) {
+            self.ot_deluxe.crossing.chosen_method = None;
+            return None;
+        }
+        Some((river_kind, river_state))
+    }
+
+    fn otdeluxe_alive_indices(&self) -> Vec<usize> {
+        self.ot_deluxe
+            .party
+            .members
+            .iter()
+            .enumerate()
+            .filter_map(|(idx, member)| member.alive.then_some(idx))
+            .collect()
+    }
+
+    fn roll_otdeluxe_crossing(
+        &self,
+        river_kind: OtDeluxeRiver,
+        river_state: &OtDeluxeRiverState,
+        method: OtDeluxeCrossingMethod,
+        alive_indices: &[usize],
+    ) -> (
+        otdeluxe_crossings::OtDeluxeCrossingResolution,
+        Option<EventDecisionTrace>,
+        Vec<usize>,
+    ) {
+        let policy = default_otdeluxe_policy();
+        let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
+        let seed_mix =
+            self.seed ^ (u64::try_from(next_idx).unwrap_or(0) << 32) ^ u64::from(self.day);
+        self.crossing_rng().map_or_else(
+            || {
+                let mut fallback = SmallRng::seed_from_u64(seed_mix);
+                let (resolution, trace) = otdeluxe_crossings::resolve_crossing_with_trace(
+                    &policy.crossings,
+                    river_kind,
+                    river_state,
+                    method,
+                    &mut fallback,
+                );
+                let drowned_indices = Self::select_drowning_indices(
+                    &mut fallback,
+                    alive_indices,
+                    resolution.drownings,
+                );
+                (resolution, trace, drowned_indices)
+            },
+            |mut rng| {
+                let (resolution, trace) = otdeluxe_crossings::resolve_crossing_with_trace(
+                    &policy.crossings,
+                    river_kind,
+                    river_state,
+                    method,
+                    &mut *rng,
+                );
+                let drowned_indices =
+                    Self::select_drowning_indices(&mut *rng, alive_indices, resolution.drownings);
+                (resolution, trace, drowned_indices)
+            },
+        )
+    }
+
+    const fn apply_otdeluxe_crossing_costs(
+        &mut self,
+        policy: &OtDeluxe90sPolicy,
+        method: OtDeluxeCrossingMethod,
+    ) {
+        match method {
+            OtDeluxeCrossingMethod::Ferry => {
+                let cost = policy.crossings.ferry_cost_cents;
+                self.ot_deluxe.inventory.cash_cents =
+                    self.ot_deluxe.inventory.cash_cents.saturating_sub(cost);
+            }
+            OtDeluxeCrossingMethod::Guide => {
+                let cost = policy.crossings.guide_cost_clothes_sets;
+                self.ot_deluxe.inventory.clothes_sets =
+                    self.ot_deluxe.inventory.clothes_sets.saturating_sub(cost);
+            }
+            OtDeluxeCrossingMethod::Ford | OtDeluxeCrossingMethod::CaulkFloat => {}
+        }
+    }
+
+    fn apply_otdeluxe_crossing_losses(&mut self, loss_ratio: f32) -> OtDeluxeCrossingLosses {
+        if loss_ratio <= 0.0 {
+            return OtDeluxeCrossingLosses::default();
+        }
+        let inventory = &mut self.ot_deluxe.inventory;
+        let food_lbs = otdeluxe_crossings::apply_loss_ratio(inventory.food_lbs, loss_ratio);
+        let bullets = otdeluxe_crossings::apply_loss_ratio(inventory.bullets, loss_ratio);
+        let clothes_sets = otdeluxe_crossings::apply_loss_ratio(inventory.clothes_sets, loss_ratio);
+        let wheels_loss_u16 =
+            otdeluxe_crossings::apply_loss_ratio(u16::from(inventory.spares_wheels), loss_ratio);
+        let axles_loss_u16 =
+            otdeluxe_crossings::apply_loss_ratio(u16::from(inventory.spares_axles), loss_ratio);
+        let tongues_loss_u16 =
+            otdeluxe_crossings::apply_loss_ratio(u16::from(inventory.spares_tongues), loss_ratio);
+
+        let spares_wheels = u8::try_from(wheels_loss_u16).unwrap_or(u8::MAX);
+        let spares_axles = u8::try_from(axles_loss_u16).unwrap_or(u8::MAX);
+        let spares_tongues = u8::try_from(tongues_loss_u16).unwrap_or(u8::MAX);
+
+        inventory.food_lbs = inventory.food_lbs.saturating_sub(food_lbs);
+        inventory.bullets = inventory.bullets.saturating_sub(bullets);
+        inventory.clothes_sets = inventory.clothes_sets.saturating_sub(clothes_sets);
+        inventory.spares_wheels = inventory.spares_wheels.saturating_sub(spares_wheels);
+        inventory.spares_axles = inventory.spares_axles.saturating_sub(spares_axles);
+        inventory.spares_tongues = inventory.spares_tongues.saturating_sub(spares_tongues);
+
+        OtDeluxeCrossingLosses {
+            food_lbs,
+            bullets,
+            clothes_sets,
+            spares_wheels,
+            spares_axles,
+            spares_tongues,
+        }
+    }
+
+    fn apply_otdeluxe_drownings(&mut self, drowned_indices: &[usize]) -> u8 {
+        for idx in drowned_indices {
+            if let Some(member) = self.ot_deluxe.party.members.get_mut(*idx) {
+                member.alive = false;
+            }
+        }
+        u8::try_from(drowned_indices.len()).unwrap_or(u8::MAX)
+    }
+
+    const fn otdeluxe_crossing_log_and_severity(
+        outcome: otdeluxe_crossings::OtDeluxeCrossingOutcome,
+    ) -> (&'static str, EventSeverity) {
+        match outcome {
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::Safe => {
+                (LOG_OT_CROSSING_SAFE, EventSeverity::Info)
+            }
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::StuckInMud => {
+                (LOG_OT_CROSSING_STUCK, EventSeverity::Warning)
+            }
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::SuppliesWet => {
+                (LOG_OT_CROSSING_WET, EventSeverity::Warning)
+            }
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::Tipped => {
+                (LOG_OT_CROSSING_TIPPED, EventSeverity::Critical)
+            }
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::Sank => {
+                (LOG_OT_CROSSING_SANK, EventSeverity::Critical)
+            }
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::Drowned => {
+                (LOG_OT_CROSSING_DROWNED, EventSeverity::Critical)
+            }
+        }
+    }
+
+    fn emit_otdeluxe_crossing_event(
+        &mut self,
+        river_kind: OtDeluxeRiver,
+        method: OtDeluxeCrossingMethod,
+        resolution: &otdeluxe_crossings::OtDeluxeCrossingResolution,
+        severity: EventSeverity,
+        losses: OtDeluxeCrossingLosses,
+        drown_count: u8,
+    ) {
+        self.push_event(
+            EventKind::CrossingResolved,
+            severity,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "river": format!("{river_kind:?}").to_lowercase(),
+                "method": format!("{method:?}").to_lowercase(),
+                "outcome": resolution.outcome.id(),
+                "wait_days": resolution.wait_days,
+                "crossing_days": resolution.crossing_days,
+                "drying_days": resolution.drying_days,
+                "loss_ratio": resolution.loss_ratio,
+                "drownings": drown_count,
+                "losses": {
+                    "food_lbs": losses.food_lbs,
+                    "bullets": losses.bullets,
+                    "clothes_sets": losses.clothes_sets,
+                    "spares_wheels": losses.spares_wheels,
+                    "spares_axles": losses.spares_axles,
+                    "spares_tongues": losses.spares_tongues,
+                }
+            }),
+        );
+    }
+
+    const fn clear_otdeluxe_crossing_state(&mut self) -> f32 {
+        let computed_miles_today = self.ot_deluxe.crossing.computed_miles_today;
+        self.ot_deluxe.crossing.choice_pending = false;
+        self.ot_deluxe.crossing.chosen_method = None;
+        self.ot_deluxe.crossing.river = None;
+        self.ot_deluxe.crossing.river_kind = None;
+        self.ot_deluxe.crossing.computed_miles_today = 0.0;
+        computed_miles_today
+    }
+
+    fn apply_otdeluxe_crossing_delays(
+        &mut self,
+        policy: &OtDeluxe90sPolicy,
+        resolution: &otdeluxe_crossings::OtDeluxeCrossingResolution,
+    ) {
+        let extra_crossing_days = resolution.crossing_days.saturating_sub(1);
+        let stuck_days = if matches!(
+            resolution.outcome,
+            otdeluxe_crossings::OtDeluxeCrossingOutcome::StuckInMud
+        ) {
+            policy.crossings.stuck_cost_days
+        } else {
+            0
+        };
+        if resolution.wait_days == 0
+            && extra_crossing_days == 0
+            && stuck_days == 0
+            && resolution.drying_days == 0
+        {
+            return;
+        }
+        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Delayed;
+        if resolution.wait_days > 0 {
+            self.advance_days_with_reason(
+                u32::from(resolution.wait_days),
+                "otdeluxe.crossing.wait",
+            );
+        }
+        if extra_crossing_days > 0 {
+            self.advance_days_with_reason(
+                u32::from(extra_crossing_days),
+                "otdeluxe.crossing.cross",
+            );
+        }
+        if stuck_days > 0 {
+            self.advance_days_with_reason(u32::from(stuck_days), "otdeluxe.crossing.stuck");
+        }
+        if resolution.drying_days > 0 {
+            self.advance_days_with_reason(
+                u32::from(resolution.drying_days),
+                "otdeluxe.crossing.dry",
+            );
+        }
+        self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
+    }
+
     fn crossing_options(&self, cfg: &CrossingConfig, kind: CrossingKind) -> (bool, bool) {
         let has_permit = crossings::can_use_permit(self, &kind);
         let bribe_offered = !has_permit && crossings::can_afford_bribe(self, cfg, kind);
@@ -5557,6 +5944,21 @@ impl GameState {
         let offset = sample % span;
         let offset_u8 = u8::try_from(offset).unwrap_or(u8::MAX);
         min.saturating_add(offset_u8)
+    }
+
+    fn select_drowning_indices<R: RngCore + Rng>(
+        rng: &mut R,
+        alive_indices: &[usize],
+        drownings: u8,
+    ) -> Vec<usize> {
+        let count = usize::from(drownings);
+        if count == 0 || alive_indices.is_empty() {
+            return Vec::new();
+        }
+        let mut indices = alive_indices.to_vec();
+        indices.shuffle(rng);
+        indices.truncate(count.min(indices.len()));
+        indices
     }
 
     fn resolve_crossing_outcome(
@@ -5693,6 +6095,7 @@ impl GameState {
         self.weather_effects = WeatherEffects::default();
         self.pending_crossing = None;
         self.pending_crossing_choice = None;
+        self.pending_route_choice = None;
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -5736,6 +6139,8 @@ impl GameState {
         self.decision_traces_today.clear();
         self.weather_effects = WeatherEffects::default();
         self.pending_crossing_choice = None;
+        self.pending_route_choice = None;
+        self.ot_deluxe.crossing.chosen_method = None;
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
         }
@@ -6374,6 +6779,14 @@ impl GameState {
 
     pub const fn set_crossing_choice(&mut self, choice: CrossingChoice) {
         self.pending_crossing_choice = Some(choice);
+    }
+
+    pub const fn set_otdeluxe_crossing_choice(&mut self, method: OtDeluxeCrossingMethod) {
+        self.ot_deluxe.crossing.chosen_method = Some(method);
+    }
+
+    pub const fn set_route_prompt_choice(&mut self, choice: OtDeluxeRouteDecision) {
+        self.pending_route_choice = Some(choice);
     }
 
     pub(crate) fn resolve_breakdown(&mut self) {

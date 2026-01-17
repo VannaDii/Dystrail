@@ -148,6 +148,16 @@
       "hit": "Hastalık mürettebatı vurur.",
       "tick": "Uzun süren hastalık gücünüzü tüketir.",
       "recover": "Zorlukla kazanılan dinlenmenin ardından hastalık iyileşir."
+    },
+    "crossing": {
+      "ot": {
+        "safe": "You crossed safely.",
+        "stuck": "You got stuck in the mud and lost time.",
+        "wet": "Supplies got wet; you stop to dry them.",
+        "tipped": "The wagon tipped; supplies were lost.",
+        "sank": "The wagon sank; supplies were lost.",
+        "drowned": "Tragedy at the crossing."
+      }
     }
   },
   "menu": {
@@ -521,5 +531,72 @@
     "title": "Sayfa bulunamadı",
     "message": "Bu sayfayı bulamadık. Yukarıdaki kontrollerle geri dönün.",
     "back": "Ana sayfaya dön"
+  },
+  "route_prompt": {
+    "sublette": {
+      "title": "Sublette Cutoff",
+      "prompt": "At South Pass. Choose your route:",
+      "options": {
+        "stay": "Stay on the main trail",
+        "take": "Take the Sublette Cutoff"
+      },
+      "desc": {
+        "stay": "Longer but safer.",
+        "take": "Shorter, rougher terrain."
+      }
+    },
+    "dalles_shortcut": {
+      "title": "Dalles Shortcut",
+      "prompt": "At Blue Mountains. Choose your route:",
+      "options": {
+        "stay": "Stay on the main trail",
+        "take": "Take the Dalles Shortcut"
+      },
+      "desc": {
+        "stay": "Safer, longer route.",
+        "take": "Faster, riskier route."
+      }
+    },
+    "dalles_final": {
+      "title": "The Dalles",
+      "prompt": "The river is ahead. Choose your crossing:",
+      "options": {
+        "raft": "Raft the Columbia",
+        "barlow": "Take the Barlow Road"
+      },
+      "desc": {
+        "raft": "Fast but dangerous.",
+        "barlow": "Safer, costs time."
+      }
+    }
+  },
+  "ot_cross": {
+    "title": "River Crossing",
+    "prompt": "You have reached the {river}. Choose how to cross.",
+    "stats": "Width {width} ft, Depth {depth} ft, Swiftness {swiftness}, Bed: {bed}",
+    "options": {
+      "ford": "Ford the river",
+      "caulk_float": "Caulk the wagon and float it",
+      "ferry": "Take the ferry ({cost})",
+      "guide": "Hire a guide ({sets} sets of clothes)",
+      "back": "Back"
+    },
+    "desc": {
+      "ford": "Risky in deep or swift water.",
+      "caulk_float": "Seal the wagon to float it.",
+      "ferry": "Wait for a ferry to carry you across.",
+      "guide": "Snake River only; lower risk."
+    },
+    "river": {
+      "kansas": "Kansas River",
+      "big_blue": "Big Blue River",
+      "green": "Green River",
+      "snake": "Snake River"
+    },
+    "bed": {
+      "rocky": "Rocky bed",
+      "muddy": "Muddy bed",
+      "unknown": "Unknown bed"
+    }
   }
 }

@@ -1677,6 +1677,7 @@ pub struct DayOutcome {
     pub ended: bool,
     pub log_key: String,
     pub breakdown_started: bool,
+    pub day_consumed: bool,
     pub record: Option<DayRecord>,
     pub events: Vec<Event>,
     pub decision_traces: Vec<EventDecisionTrace>,
@@ -2064,10 +2065,6 @@ impl JourneyController {
         seed: u64,
         endgame_cfg: EndgameTravelCfg,
     ) -> Self {
-        assert!(
-            matches!(mechanics, MechanicalPolicyId::DystrailLegacy),
-            "Mechanical policy {mechanics:?} is not implemented yet"
-        );
         let resolved_cfg = normalize_cfg(cfg);
         Self {
             mechanics,
@@ -2126,13 +2123,15 @@ impl JourneyController {
         state.attach_rng_bundle(self.rng.clone());
         state.mechanical_policy = self.mechanics;
         state.policy = Some(self.strategy.into());
-        state.journey_partial_ratio = self.cfg.partial_ratio;
-        state.trail_distance = self.cfg.victory_miles.max(1.0);
-        state.journey_travel = self.cfg.travel.clone();
-        state.journey_wear = self.cfg.wear.clone();
-        state.journey_breakdown = self.cfg.breakdown.clone();
-        state.journey_part_weights = self.cfg.part_weights.clone();
-        state.journey_crossing = self.cfg.crossing.clone();
+        if self.mechanics == MechanicalPolicyId::DystrailLegacy {
+            state.journey_partial_ratio = self.cfg.partial_ratio;
+            state.trail_distance = self.cfg.victory_miles.max(1.0);
+            state.journey_travel = self.cfg.travel.clone();
+            state.journey_wear = self.cfg.wear.clone();
+            state.journey_breakdown = self.cfg.breakdown.clone();
+            state.journey_part_weights = self.cfg.part_weights.clone();
+            state.journey_crossing = self.cfg.crossing.clone();
+        }
         let kernel = DailyTickKernel::new(&self.cfg, &self.endgame_cfg);
         kernel.tick_day(state)
     }

@@ -1,6 +1,9 @@
-use crate::app::phase::Phase;
+use crate::app::phase::{Phase, phase_for_state};
 use crate::app::state::AppState;
-use crate::game::{CrossingChoice, MechanicalPolicyId, can_afford_bribe, can_use_permit};
+use crate::game::{
+    CrossingChoice, MechanicalPolicyId, OtDeluxe90sPolicy, OtDeluxeCrossingMethod,
+    can_afford_bribe, can_use_permit, otdeluxe_crossing_options,
+};
 use yew::prelude::*;
 
 pub fn build_crossing_choice(state: &AppState) -> Callback<u8> {
@@ -54,21 +57,71 @@ pub fn build_crossing_choice(state: &AppState) -> Callback<u8> {
         }
 
         let state_ref = sess.state();
-        let boss_gate = state_ref.mechanical_policy == MechanicalPolicyId::DystrailLegacy
-            && state_ref.boss.readiness.ready
-            && !state_ref.boss.outcome.attempted;
+        phase.set(phase_for_state(state_ref));
 
-        if outcome.ended || state_ref.stats.pants >= 100 {
-            phase.set(Phase::Result);
-        } else if state_ref.pending_crossing.is_some() {
-            phase.set(Phase::Crossing);
-        } else if state_ref.current_encounter.is_some() {
-            phase.set(Phase::Encounter);
-        } else if boss_gate {
-            phase.set(Phase::Boss);
-        } else {
+        logs.set(lg);
+        session_handle.set(Some(sess));
+    })
+}
+
+pub fn build_otdeluxe_crossing_choice(state: &AppState) -> Callback<u8> {
+    let session_handle = state.session.clone();
+    let logs = state.logs.clone();
+    let phase = state.phase.clone();
+
+    Callback::from(move |idx: u8| {
+        if idx == 0 {
             phase.set(Phase::Travel);
+            return;
         }
+
+        let method = match idx {
+            1 => OtDeluxeCrossingMethod::Ford,
+            2 => OtDeluxeCrossingMethod::CaulkFloat,
+            3 => OtDeluxeCrossingMethod::Ferry,
+            4 => OtDeluxeCrossingMethod::Guide,
+            _ => return,
+        };
+
+        let Some(mut sess) = (*session_handle).clone() else {
+            return;
+        };
+        if sess.state().mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        let Some(river_kind) = sess.state().ot_deluxe.crossing.river_kind else {
+            return;
+        };
+        let Some(river_state) = sess.state().ot_deluxe.crossing.river.as_ref() else {
+            return;
+        };
+        let policy = OtDeluxe90sPolicy::default();
+        let options = otdeluxe_crossing_options(
+            &policy.crossings,
+            river_kind,
+            river_state,
+            &sess.state().ot_deluxe.inventory,
+        );
+        if !options.is_allowed(method) {
+            return;
+        }
+
+        sess.with_state_mut(|gs| gs.set_otdeluxe_crossing_choice(method));
+        let outcome = sess.tick_day();
+
+        let mut lg = (*logs).clone();
+        if outcome.events.is_empty() {
+            lg.push(crate::i18n::t(&outcome.log_key));
+        } else {
+            for event in &outcome.events {
+                if let Some(key) = event.ui_key.as_deref() {
+                    lg.push(crate::i18n::t(key));
+                }
+            }
+        }
+
+        let state_ref = sess.state();
+        phase.set(phase_for_state(state_ref));
 
         logs.set(lg);
         session_handle.set(Some(sess));

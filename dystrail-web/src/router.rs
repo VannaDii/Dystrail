@@ -14,6 +14,8 @@ pub enum Route {
     Travel,
     #[at("/crossing")]
     Crossing,
+    #[at("/route")]
+    RoutePrompt,
     #[at("/camp")]
     Camp,
     #[at("/encounter")]
@@ -36,6 +38,7 @@ impl Route {
             crate::app::Phase::Menu | crate::app::Phase::Boot => Self::Home,
             crate::app::Phase::Travel => Self::Travel,
             crate::app::Phase::Crossing => Self::Crossing,
+            crate::app::Phase::RoutePrompt => Self::RoutePrompt,
             crate::app::Phase::Camp => Self::Camp,
             crate::app::Phase::Encounter => Self::Encounter,
             crate::app::Phase::Boss => Self::Boss,
@@ -52,6 +55,7 @@ impl Route {
             Self::Game => Some(crate::app::Phase::Menu),
             Self::Travel => Some(crate::app::Phase::Travel),
             Self::Crossing => Some(crate::app::Phase::Crossing),
+            Self::RoutePrompt => Some(crate::app::Phase::RoutePrompt),
             Self::Camp => Some(crate::app::Phase::Camp),
             Self::Encounter => Some(crate::app::Phase::Encounter),
             Self::Boss => Some(crate::app::Phase::Boss),

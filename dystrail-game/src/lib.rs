@@ -18,6 +18,7 @@ pub mod hunt;
 pub mod journey;
 pub mod mechanics;
 pub mod numbers;
+pub mod otdeluxe_crossings;
 pub mod otdeluxe_score;
 pub mod otdeluxe_state;
 pub mod otdeluxe_store;
@@ -59,8 +60,18 @@ pub use journey::{
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
+pub use otdeluxe_crossings::{
+    OtDeluxeCrossingOptions, OtDeluxeCrossingOutcome, OtDeluxeCrossingResolution,
+    crossing_options as otdeluxe_crossing_options,
+    derive_river_state as otdeluxe_derive_river_state,
+    node_index_for_river as otdeluxe_node_index_for_river,
+    river_for_index as otdeluxe_river_for_index,
+};
 pub use otdeluxe_score::compute_score as compute_otdeluxe_score;
-pub use otdeluxe_state::{OtDeluxeDallesChoice, OtDeluxeRouteDecision, OtDeluxeRoutePrompt};
+pub use otdeluxe_state::{
+    OtDeluxeCrossingMethod, OtDeluxeDallesChoice, OtDeluxeRiver, OtDeluxeRiverBed,
+    OtDeluxeRouteDecision, OtDeluxeRoutePrompt,
+};
 pub use otdeluxe_store::{
     OtDeluxeStoreError, OtDeluxeStoreItem, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt,
     apply_purchase as apply_otdeluxe_store_purchase, base_price_cents as otdeluxe_base_price_cents,

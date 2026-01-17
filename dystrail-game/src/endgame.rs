@@ -9,6 +9,7 @@ use crate::constants::{
 };
 use crate::{
     TravelDayKind,
+    journey::MechanicalPolicyId,
     state::{GameState, PolicyKind},
 };
 
@@ -267,6 +268,9 @@ pub fn run_endgame_controller(
     breakdown_started: bool,
     cfg: &EndgameTravelCfg,
 ) {
+    if state.mechanical_policy != MechanicalPolicyId::DystrailLegacy {
+        return;
+    }
     if !cfg.enabled || !state.mode.is_deep() {
         return;
     }
@@ -311,6 +315,9 @@ pub fn run_endgame_controller(
 
 /// Prevent terminal vehicle failures before the configured mileage guard.
 pub fn enforce_failure_guard(state: &mut GameState) -> bool {
+    if state.mechanical_policy != MechanicalPolicyId::DystrailLegacy {
+        return false;
+    }
     if !state.endgame.active {
         return false;
     }
@@ -435,6 +442,7 @@ pub const fn policy_key_for_mode(policy: Option<PolicyKind>) -> Option<&'static 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::journey::MechanicalPolicyId;
     use crate::vehicle::Part;
     use crate::{Breakdown, GameMode, Inventory, PolicyKind, Spares, Vehicle};
 
@@ -518,6 +526,39 @@ mod tests {
         state.vehicle.set_wear(9.0);
         run_endgame_controller(&mut state, 0.0, true, &cfg);
         assert!(state.vehicle.wear >= 9.0 - f32::EPSILON);
+    }
+
+    #[test]
+    fn endgame_skips_otdeluxe_mechanics() {
+        let mut state = GameState {
+            mode: GameMode::Deep,
+            policy: Some(PolicyKind::Balanced),
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            miles_traveled_actual: 2_000.0,
+            ..GameState::default()
+        };
+        let mut cfg = EndgameTravelCfg::default_config();
+        cfg.enabled = true;
+        run_endgame_controller(&mut state, 12.0, false, &cfg);
+        assert!(!state.endgame.active);
+        assert!(!state.logs.iter().any(|log| log == LOG_ENDGAME_ACTIVATE));
+    }
+
+    #[test]
+    fn failure_guard_skips_otdeluxe_mechanics() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            endgame: EndgameState {
+                active: true,
+                ..EndgameState::default()
+            },
+            vehicle: Vehicle {
+                health: 0.0,
+                ..Vehicle::default()
+            },
+            ..GameState::default()
+        };
+        assert!(!enforce_failure_guard(&mut state));
     }
 
     #[test]

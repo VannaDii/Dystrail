@@ -2,7 +2,7 @@ use crate::components::ui::stats_bar::WeatherBadge;
 use crate::game::endgame::EndgameTravelCfg;
 use crate::game::state::{GameMode, GameState};
 use crate::game::weather::WeatherConfig;
-use crate::game::{JourneySession, StrategyId};
+use crate::game::{JourneySession, MechanicalPolicyId, StrategyId};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Phase {
@@ -12,6 +12,7 @@ pub enum Phase {
     Menu,
     Travel,
     Crossing,
+    RoutePrompt,
     Camp,
     Encounter,
     Boss,
@@ -42,6 +43,31 @@ pub fn strategy_for_state(state: &GameState) -> StrategyId {
 pub fn session_from_state(state: GameState, endgame_cfg: &EndgameTravelCfg) -> JourneySession {
     let strategy = strategy_for_state(&state);
     JourneySession::from_state(state, strategy, endgame_cfg)
+}
+
+#[must_use]
+pub fn phase_for_state(state: &GameState) -> Phase {
+    let boss_gate = state.mechanical_policy == MechanicalPolicyId::DystrailLegacy
+        && state.boss.readiness.ready
+        && !state.boss.outcome.attempted;
+    let dystrail_crossing = state.mechanical_policy == MechanicalPolicyId::DystrailLegacy
+        && state.pending_crossing.is_some();
+    let otdeluxe_crossing = state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s
+        && state.ot_deluxe.crossing.choice_pending;
+
+    if state.ending.is_some() || state.stats.pants >= 100 {
+        Phase::Result
+    } else if state.ot_deluxe.route.pending_prompt.is_some() {
+        Phase::RoutePrompt
+    } else if otdeluxe_crossing || dystrail_crossing {
+        Phase::Crossing
+    } else if state.current_encounter.is_some() {
+        Phase::Encounter
+    } else if boss_gate {
+        Phase::Boss
+    } else {
+        Phase::Travel
+    }
 }
 
 #[must_use]

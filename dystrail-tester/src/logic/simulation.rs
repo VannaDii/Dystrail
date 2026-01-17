@@ -3,8 +3,10 @@ use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::{
-    CrossingChoice, CrossingConfig, DayOutcome, GameMode, GameState, JourneySession, PaceId,
-    StrategyId, can_afford_bribe, can_use_permit,
+    CrossingChoice, CrossingConfig, DayOutcome, GameMode, GameState, JourneySession,
+    MechanicalPolicyId, OtDeluxe90sPolicy, OtDeluxeCrossingMethod, OtDeluxeRouteDecision,
+    OtDeluxeRoutePrompt, PaceId, StrategyId, can_afford_bribe, can_use_permit,
+    otdeluxe_crossing_options,
 };
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
@@ -123,6 +125,9 @@ impl SimulationSession {
     }
 
     pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
+        if let Some(outcome) = self.try_resolve_route_prompt() {
+            return outcome;
+        }
         if let Some(outcome) = self.try_resolve_crossing() {
             return outcome;
         }
@@ -217,7 +222,60 @@ impl SimulationSession {
         Some(decision)
     }
 
+    fn try_resolve_route_prompt(&mut self) -> Option<TurnOutcome> {
+        let state = self.session.state();
+        if state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        let prompt = state.ot_deluxe.route.pending_prompt?;
+        let decision = match (prompt, self.strategy) {
+            (OtDeluxeRoutePrompt::SubletteCutoff, GameplayStrategy::Aggressive) => {
+                OtDeluxeRouteDecision::SubletteCutoff
+            }
+            (OtDeluxeRoutePrompt::DallesShortcut, GameplayStrategy::Aggressive) => {
+                OtDeluxeRouteDecision::DallesShortcut
+            }
+            (OtDeluxeRoutePrompt::DallesFinal, GameplayStrategy::Aggressive) => {
+                OtDeluxeRouteDecision::RaftColumbia
+            }
+            (OtDeluxeRoutePrompt::DallesFinal, _) => OtDeluxeRouteDecision::BarlowRoad,
+            _ => OtDeluxeRouteDecision::StayOnTrail,
+        };
+        self.session.state_mut().set_route_prompt_choice(decision);
+        let outcome = self.session.tick_day();
+        Some(self.finalize_outcome(outcome, None))
+    }
+
     fn try_resolve_crossing(&mut self) -> Option<TurnOutcome> {
+        if self.session.state().mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            if !self.session.state().ot_deluxe.crossing.choice_pending {
+                return None;
+            }
+            let river_kind = self.session.state().ot_deluxe.crossing.river_kind?;
+            let river_state = self.session.state().ot_deluxe.crossing.river.as_ref()?;
+            let policy = OtDeluxe90sPolicy::default();
+            let options = otdeluxe_crossing_options(
+                &policy.crossings,
+                river_kind,
+                river_state,
+                &self.session.state().ot_deluxe.inventory,
+            );
+            let method = if options.ferry() {
+                OtDeluxeCrossingMethod::Ferry
+            } else if options.guide() {
+                OtDeluxeCrossingMethod::Guide
+            } else if options.caulk_float() {
+                OtDeluxeCrossingMethod::CaulkFloat
+            } else {
+                OtDeluxeCrossingMethod::Ford
+            };
+            self.session
+                .state_mut()
+                .set_otdeluxe_crossing_choice(method);
+            let outcome = self.session.tick_day();
+            return Some(self.finalize_outcome(outcome, None));
+        }
+
         let pending = self.session.state().pending_crossing?;
         let kind = pending.kind;
         let cfg = CrossingConfig::default();

@@ -7,6 +7,8 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+use crate::otdeluxe_state::{OtDeluxeRiver, OtDeluxeRiverBed};
+use crate::state::Season;
 use crate::weather::Weather;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -194,6 +196,210 @@ pub struct OtDeluxeCrossingPolicy {
     pub guide_loss_mult: f32,
     pub ferry_wait_days_min: u8,
     pub ferry_wait_days_max: u8,
+    #[serde(default)]
+    pub ferry_accident_risk_max: f32,
+    #[serde(default)]
+    pub outcome_weights: OtDeluxeCrossingOutcomeWeightsByMethod,
+    #[serde(default)]
+    pub river_profiles: OtDeluxeRiverProfiles,
+    #[serde(default)]
+    pub seasonal_depth_mult: OtDeluxeSeasonalFactors,
+    #[serde(default)]
+    pub seasonal_swiftness_mult: OtDeluxeSeasonalFactors,
+    #[serde(default)]
+    pub rain_accum_max: f32,
+    #[serde(default)]
+    pub rain_depth_mult: f32,
+    #[serde(default)]
+    pub rain_width_mult: f32,
+    #[serde(default)]
+    pub rain_swiftness_mult: f32,
+    #[serde(default)]
+    pub swiftness_risk_mult: f32,
+    #[serde(default)]
+    pub shallow_safe_bonus: f32,
+    #[serde(default)]
+    pub wet_goods_bonus: f32,
+    #[serde(default)]
+    pub swamped_sank_bonus: f32,
+    #[serde(default)]
+    pub stuck_muddy_mult: f32,
+    #[serde(default)]
+    pub tipped_rocky_mult: f32,
+    #[serde(default)]
+    pub stuck_cost_days: u8,
+    #[serde(default)]
+    pub tipped_loss_ratio: f32,
+    #[serde(default)]
+    pub sank_loss_ratio: f32,
+    #[serde(default)]
+    pub drownings_min: u8,
+    #[serde(default)]
+    pub drownings_max: u8,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeCrossingOutcomeWeights {
+    pub safe: f32,
+    pub stuck: f32,
+    pub wet: f32,
+    pub tipped: f32,
+    pub sank: f32,
+    pub drowned: f32,
+}
+
+impl Default for OtDeluxeCrossingOutcomeWeights {
+    fn default() -> Self {
+        Self {
+            safe: 0.6,
+            stuck: 0.1,
+            wet: 0.15,
+            tipped: 0.1,
+            sank: 0.04,
+            drowned: 0.01,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeCrossingOutcomeWeightsByMethod {
+    pub ford: OtDeluxeCrossingOutcomeWeights,
+    pub caulk_float: OtDeluxeCrossingOutcomeWeights,
+    pub ferry: OtDeluxeCrossingOutcomeWeights,
+}
+
+impl Default for OtDeluxeCrossingOutcomeWeightsByMethod {
+    fn default() -> Self {
+        Self {
+            ford: OtDeluxeCrossingOutcomeWeights::default(),
+            caulk_float: OtDeluxeCrossingOutcomeWeights {
+                safe: 0.45,
+                stuck: 0.1,
+                wet: 0.15,
+                tipped: 0.15,
+                sank: 0.1,
+                drowned: 0.05,
+            },
+            ferry: OtDeluxeCrossingOutcomeWeights {
+                safe: 0.85,
+                stuck: 0.0,
+                wet: 0.1,
+                tipped: 0.03,
+                sank: 0.02,
+                drowned: 0.0,
+            },
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeSeasonalFactors {
+    pub spring: f32,
+    pub summer: f32,
+    pub fall: f32,
+    pub winter: f32,
+}
+
+impl OtDeluxeSeasonalFactors {
+    #[must_use]
+    pub const fn for_season(self, season: Season) -> f32 {
+        match season {
+            Season::Spring => self.spring,
+            Season::Summer => self.summer,
+            Season::Fall => self.fall,
+            Season::Winter => self.winter,
+        }
+    }
+}
+
+impl Default for OtDeluxeSeasonalFactors {
+    fn default() -> Self {
+        Self {
+            spring: 1.1,
+            summer: 0.85,
+            fall: 0.95,
+            winter: 1.0,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeRiverProfile {
+    pub min_depth_ft: f32,
+    pub max_depth_ft: f32,
+    pub min_width_ft: f32,
+    pub max_width_ft: f32,
+    pub min_swiftness: f32,
+    pub max_swiftness: f32,
+    pub bed: OtDeluxeRiverBed,
+    pub ferry_available: bool,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeRiverProfiles {
+    pub kansas: OtDeluxeRiverProfile,
+    pub big_blue: OtDeluxeRiverProfile,
+    pub green: OtDeluxeRiverProfile,
+    pub snake: OtDeluxeRiverProfile,
+}
+
+impl Default for OtDeluxeRiverProfiles {
+    fn default() -> Self {
+        Self {
+            kansas: OtDeluxeRiverProfile {
+                min_depth_ft: 1.8,
+                max_depth_ft: 4.5,
+                min_width_ft: 180.0,
+                max_width_ft: 520.0,
+                min_swiftness: 0.25,
+                max_swiftness: 0.85,
+                bed: OtDeluxeRiverBed::Muddy,
+                ferry_available: true,
+            },
+            big_blue: OtDeluxeRiverProfile {
+                min_depth_ft: 2.0,
+                max_depth_ft: 5.0,
+                min_width_ft: 160.0,
+                max_width_ft: 480.0,
+                min_swiftness: 0.3,
+                max_swiftness: 0.9,
+                bed: OtDeluxeRiverBed::Muddy,
+                ferry_available: false,
+            },
+            green: OtDeluxeRiverProfile {
+                min_depth_ft: 2.4,
+                max_depth_ft: 6.0,
+                min_width_ft: 200.0,
+                max_width_ft: 600.0,
+                min_swiftness: 0.35,
+                max_swiftness: 1.0,
+                bed: OtDeluxeRiverBed::Rocky,
+                ferry_available: true,
+            },
+            snake: OtDeluxeRiverProfile {
+                min_depth_ft: 2.8,
+                max_depth_ft: 7.0,
+                min_width_ft: 260.0,
+                max_width_ft: 720.0,
+                min_swiftness: 0.45,
+                max_swiftness: 1.15,
+                bed: OtDeluxeRiverBed::Rocky,
+                ferry_available: true,
+            },
+        }
+    }
+}
+
+impl OtDeluxeRiverProfiles {
+    #[must_use]
+    pub const fn profile_for(&self, river: OtDeluxeRiver) -> &OtDeluxeRiverProfile {
+        match river {
+            OtDeluxeRiver::Kansas => &self.kansas,
+            OtDeluxeRiver::BigBlue => &self.big_blue,
+            OtDeluxeRiver::Green => &self.green,
+            OtDeluxeRiver::Snake => &self.snake,
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -605,6 +811,26 @@ impl Default for OtDeluxeCrossingPolicy {
             guide_loss_mult: 0.50,
             ferry_wait_days_min: 0,
             ferry_wait_days_max: 6,
+            ferry_accident_risk_max: 0.10,
+            outcome_weights: OtDeluxeCrossingOutcomeWeightsByMethod::default(),
+            river_profiles: OtDeluxeRiverProfiles::default(),
+            seasonal_depth_mult: OtDeluxeSeasonalFactors::default(),
+            seasonal_swiftness_mult: OtDeluxeSeasonalFactors::default(),
+            rain_accum_max: 4.0,
+            rain_depth_mult: 1.0,
+            rain_width_mult: 1.0,
+            rain_swiftness_mult: 1.0,
+            swiftness_risk_mult: 0.8,
+            shallow_safe_bonus: 1.2,
+            wet_goods_bonus: 1.5,
+            swamped_sank_bonus: 2.0,
+            stuck_muddy_mult: 1.25,
+            tipped_rocky_mult: 1.25,
+            stuck_cost_days: 1,
+            tipped_loss_ratio: 0.10,
+            sank_loss_ratio: 0.30,
+            drownings_min: 1,
+            drownings_max: 1,
         }
     }
 }

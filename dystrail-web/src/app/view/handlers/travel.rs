@@ -1,6 +1,5 @@
-use crate::app::phase::Phase;
+use crate::app::phase::{Phase, phase_for_state};
 use crate::app::state::AppState;
-use crate::game::MechanicalPolicyId;
 use crate::game::state::{DietId, PaceId};
 use yew::prelude::*;
 
@@ -25,18 +24,7 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
             }
         }
         let state_ref = sess.state();
-        let boss_gate = state_ref.mechanical_policy == MechanicalPolicyId::DystrailLegacy
-            && state_ref.boss.readiness.ready
-            && !state_ref.boss.outcome.attempted;
-        if outcome.ended || state_ref.stats.pants >= 100 {
-            phase.set(Phase::Result);
-        } else if state_ref.pending_crossing.is_some() {
-            phase.set(Phase::Crossing);
-        } else if state_ref.current_encounter.is_some() {
-            phase.set(Phase::Encounter);
-        } else if boss_gate {
-            phase.set(Phase::Boss);
-        }
+        phase.set(phase_for_state(state_ref));
 
         logs.set(lg);
         session_handle.set(Some(sess));
