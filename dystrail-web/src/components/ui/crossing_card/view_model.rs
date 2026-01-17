@@ -1,6 +1,5 @@
 use crate::game::{
-    CrossingConfig, CrossingKind, GameState, apply_bribe, apply_detour, apply_permit,
-    calculate_bribe_cost, can_afford_bribe, can_use_permit,
+    CrossingConfig, CrossingKind, GameState, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 use crate::i18n;
 
@@ -126,19 +125,4 @@ pub fn build_crossing_viewmodel(
 
 fn format_currency(cents: i64) -> String {
     crate::i18n::fmt_currency(cents)
-}
-
-pub fn apply_choice(
-    idx: u8,
-    game_state: &mut GameState,
-    config: &CrossingConfig,
-    kind: CrossingKind,
-) -> String {
-    match idx {
-        1 => apply_detour(game_state, config, kind),
-        2 => apply_bribe(game_state, config, kind),
-        3 => apply_permit(game_state, config, kind),
-        0 => crate::i18n::t("crossing.back"),
-        _ => String::new(),
-    }
 }

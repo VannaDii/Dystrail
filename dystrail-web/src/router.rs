@@ -12,6 +12,8 @@ pub enum Route {
     Game,
     #[at("/travel")]
     Travel,
+    #[at("/crossing")]
+    Crossing,
     #[at("/camp")]
     Camp,
     #[at("/encounter")]
@@ -33,6 +35,7 @@ impl Route {
             crate::app::Phase::Outfitting => Self::Outfitting,
             crate::app::Phase::Menu | crate::app::Phase::Boot => Self::Home,
             crate::app::Phase::Travel => Self::Travel,
+            crate::app::Phase::Crossing => Self::Crossing,
             crate::app::Phase::Camp => Self::Camp,
             crate::app::Phase::Encounter => Self::Encounter,
             crate::app::Phase::Boss => Self::Boss,
@@ -48,6 +51,7 @@ impl Route {
             Self::Home | Self::NotFound => None, // Preserve current phase on Home / 404 routes.
             Self::Game => Some(crate::app::Phase::Menu),
             Self::Travel => Some(crate::app::Phase::Travel),
+            Self::Crossing => Some(crate::app::Phase::Crossing),
             Self::Camp => Some(crate::app::Phase::Camp),
             Self::Encounter => Some(crate::app::Phase::Encounter),
             Self::Boss => Some(crate::app::Phase::Boss),

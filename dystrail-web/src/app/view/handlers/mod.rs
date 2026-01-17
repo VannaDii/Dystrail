@@ -1,4 +1,5 @@
 mod boss;
+mod crossing;
 mod prefs;
 mod storage;
 mod travel;
@@ -9,6 +10,7 @@ use yew::prelude::*;
 use yew_router::prelude::Navigator;
 
 pub use boss::build_boss;
+pub use crossing::build_crossing_choice;
 pub use prefs::{
     build_begin_boot, build_go_home, build_lang_change, build_settings_hc_change, build_toggle_hc,
 };
@@ -21,6 +23,7 @@ pub struct AppHandlers {
     pub pace_change: Callback<PaceId>,
     pub diet_change: Callback<DietId>,
     pub encounter_choice: Callback<usize>,
+    pub crossing_choice: Callback<u8>,
     pub boss: Callback<()>,
     pub save: Callback<()>,
     pub load: Callback<()>,
@@ -41,6 +44,7 @@ impl AppHandlers {
             pace_change: build_pace_change(state),
             diet_change: build_diet_change(state),
             encounter_choice: build_encounter_choice(state),
+            crossing_choice: build_crossing_choice(state),
             boss: build_boss(state),
             save: build_save(state),
             load: build_load(state),

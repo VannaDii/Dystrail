@@ -11,6 +11,7 @@ pub fn use_bootstrap(app_state: &AppState) {
     let preload_progress = app_state.preload_progress.clone();
     let boot_ready = app_state.boot_ready.clone();
     let camp_config = app_state.camp_config.clone();
+    let crossing_config = app_state.crossing_config.clone();
     let result_config = app_state.result_config.clone();
 
     use_effect_with((), move |()| {
@@ -32,6 +33,11 @@ pub fn use_bootstrap(app_state: &AppState) {
                 bump(&preload_progress);
                 let loaded_camp = crate::game::CampConfig::load_from_static();
                 bump(&preload_progress);
+                let loaded_crossings = serde_json::from_str::<crate::game::CrossingConfig>(
+                    include_str!("../../static/assets/data/crossings.json"),
+                )
+                .unwrap_or_default();
+                bump(&preload_progress);
                 let loaded_result = load_result_config().unwrap_or_default();
                 bump(&preload_progress);
                 let _ = serde_json::from_str::<crate::game::store::Store>(include_str!(
@@ -41,10 +47,6 @@ pub fn use_bootstrap(app_state: &AppState) {
                 let _ = crate::game::personas::PersonasList::from_json(include_str!(
                     "../../static/assets/data/personas.json"
                 ));
-                bump(&preload_progress);
-                let _ = serde_json::from_str::<crate::game::crossings::CrossingConfig>(
-                    include_str!("../../static/assets/data/crossings.json"),
-                );
                 bump(&preload_progress);
                 let _ = serde_json::from_str::<crate::game::vehicle::VehicleConfig>(include_str!(
                     "../../static/assets/data/vehicle.json"
@@ -59,6 +61,7 @@ pub fn use_bootstrap(app_state: &AppState) {
                 endgame_config.set(loaded_endgame);
                 weather_config.set(loaded_weather);
                 camp_config.set(loaded_camp);
+                crossing_config.set(loaded_crossings);
                 result_config.set(loaded_result);
                 preload_progress.set(100);
                 boot_ready.set(true);
@@ -71,12 +74,17 @@ pub fn use_bootstrap(app_state: &AppState) {
             let loaded_endgame = crate::game::endgame::EndgameTravelCfg::default_config();
             let loaded_weather = crate::game::weather::WeatherConfig::load_from_static();
             let loaded_camp = crate::game::CampConfig::load_from_static();
+            let loaded_crossings = serde_json::from_str::<crate::game::CrossingConfig>(
+                include_str!("../../static/assets/data/crossings.json"),
+            )
+            .unwrap_or_default();
             let loaded_result = load_result_config().unwrap_or_default();
             data.set(loaded_data);
             pacing_config.set(loaded_pacing);
             endgame_config.set(loaded_endgame);
             weather_config.set(loaded_weather);
             camp_config.set(loaded_camp);
+            crossing_config.set(loaded_crossings);
             result_config.set(loaded_result);
             preload_progress.set(100);
             boot_ready.set(true);

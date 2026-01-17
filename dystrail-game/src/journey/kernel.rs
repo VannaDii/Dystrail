@@ -44,6 +44,9 @@ impl<'a> DailyTickKernel<'a> {
     where
         F: FnOnce(&mut GameState),
     {
+        if let Some(outcome) = Self::resolve_pending_crossing(state) {
+            return outcome;
+        }
         self.apply_daily_physics(state);
         if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
             state.apply_otdeluxe_pace_and_rations();
@@ -66,6 +69,21 @@ impl<'a> DailyTickKernel<'a> {
 
         let (ended, log_key, breakdown_started) = self.run_travel_flow(state);
         Self::build_outcome(state, ended, log_key, breakdown_started)
+    }
+
+    fn resolve_pending_crossing(state: &mut GameState) -> Option<DayOutcome> {
+        state.pending_crossing?;
+        if let Some(choice) = state.pending_crossing_choice.take()
+            && let Some((ended, log_key)) = state.resolve_pending_crossing_choice(choice)
+        {
+            return Some(Self::build_outcome(state, ended, log_key, false));
+        }
+        Some(Self::build_outcome(
+            state,
+            false,
+            String::from(LOG_TRAVEL_BLOCKED),
+            false,
+        ))
     }
 
     fn build_outcome(

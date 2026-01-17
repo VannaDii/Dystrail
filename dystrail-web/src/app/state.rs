@@ -1,11 +1,11 @@
 use crate::app::phase::Phase;
-use crate::game::CampConfig;
 use crate::game::boss::BossConfig;
 use crate::game::data::EncounterData;
 use crate::game::endgame::EndgameTravelCfg;
 use crate::game::pacing::PacingConfig;
 use crate::game::state::GameState;
 use crate::game::weather::WeatherConfig;
+use crate::game::{CampConfig, CrossingConfig};
 use crate::game::{JourneySession, ResultConfig};
 use yew::prelude::*;
 
@@ -18,6 +18,7 @@ pub struct AppState {
     pub endgame_config: UseStateHandle<EndgameTravelCfg>,
     pub weather_config: UseStateHandle<WeatherConfig>,
     pub camp_config: UseStateHandle<CampConfig>,
+    pub crossing_config: UseStateHandle<CrossingConfig>,
     pub boss_config: UseStateHandle<BossConfig>,
     pub result_config: UseStateHandle<ResultConfig>,
     pub preload_progress: UseStateHandle<u8>,
@@ -43,6 +44,7 @@ pub fn use_app_state() -> AppState {
         endgame_config: use_state(EndgameTravelCfg::default_config),
         weather_config: use_state(WeatherConfig::default_config),
         camp_config: use_state(CampConfig::default_config),
+        crossing_config: use_state(CrossingConfig::default),
         boss_config: use_state(BossConfig::load_from_static),
         result_config: use_state(ResultConfig::default),
         preload_progress: use_state(|| 0_u8),

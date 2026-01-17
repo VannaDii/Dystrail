@@ -1,7 +1,7 @@
-use std::cell::RefCell;
+use std::cell::Cell;
 use std::rc::Rc;
 use wasm_bindgen_test::*;
-use web_sys::Element;
+use web_sys::{Element, EventTarget, KeyboardEvent};
 use yew::prelude::*;
 
 use dystrail_web::components::ui::crossing_card::{CrossingCard, CrossingCardProps};
@@ -25,6 +25,25 @@ fn ensure_app_root() -> Element {
         .append_child(&root)
         .expect("append app root");
     root
+}
+
+fn dispatch_key(el: &web_sys::Element, key: &str, code: &str) {
+    let event = KeyboardEvent::new_with_keyboard_event_init_dict(
+        "keydown",
+        web_sys::KeyboardEventInit::new().key(key).code(code).bubbles(true).cancelable(true),
+    )
+    .unwrap();
+    let target: EventTarget = el.clone().into();
+    let _ = target.dispatch_event(&event);
+}
+
+fn capture_choice() -> (Callback<u8>, Rc<Cell<Option<u8>>>) {
+    let last_choice = Rc::new(Cell::new(None));
+    let captured = last_choice.clone();
+    let callback = Callback::from(move |idx: u8| {
+        captured.set(Some(idx));
+    });
+    (callback, last_choice)
 }
 
 fn create_test_game_state() -> GameState {
@@ -87,9 +106,9 @@ fn crossing_config_loads_default() {
 
 #[wasm_bindgen_test]
 fn digit1_activates_detour() {
-    let gs = Rc::new(RefCell::new(create_test_game_state()));
+    let gs = Rc::new(create_test_game_state());
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let (on_choice, choice) = capture_choice();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -97,7 +116,7 @@ fn digit1_activates_detour() {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();
@@ -105,21 +124,16 @@ fn digit1_activates_detour() {
     let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
-    let initial_day = gs.borrow().day;
-    let initial_supplies = gs.borrow().stats.supplies;
-
     dispatch_key(&region, "1", "Digit1");
 
-    // Should apply detour effects
-    assert_eq!(gs.borrow().day, initial_day + 2); // Default checkpoint detour: +2 days
-    assert_eq!(gs.borrow().stats.supplies, initial_supplies - 2); // -2 supplies
+    assert_eq!(choice.get(), Some(1));
 }
 
 #[wasm_bindgen_test]
 fn digit2_activates_bribe() {
-    let gs = Rc::new(RefCell::new(create_test_game_state()));
+    let gs = Rc::new(create_test_game_state());
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let (on_choice, choice) = capture_choice();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -127,7 +141,7 @@ fn digit2_activates_bribe() {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();
@@ -135,19 +149,16 @@ fn digit2_activates_bribe() {
     let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
-    let initial_budget = gs.borrow().budget_cents;
-
     dispatch_key(&region, "2", "Digit2");
 
-    // Should deduct bribe cost (default $10.00 = 1000 cents)
-    assert!(gs.borrow().budget_cents < initial_budget);
+    assert_eq!(choice.get(), Some(2));
 }
 
 #[wasm_bindgen_test]
 fn digit3_activates_permit() {
-    let gs = Rc::new(RefCell::new(create_test_game_state()));
+    let gs = Rc::new(create_test_game_state());
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let (on_choice, choice) = capture_choice();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -155,7 +166,7 @@ fn digit3_activates_permit() {
             game_state: gs.clone(),
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();
@@ -163,14 +174,9 @@ fn digit3_activates_permit() {
     let doc = dom::document().expect("document");
     let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
-    let initial_cred = gs.borrow().stats.credibility;
-    let initial_receipts = gs.borrow().receipts.len();
-
     dispatch_key(&region, "3", "Digit3");
 
-    // Should use press_pass tag (no receipt consumed) and gain credibility
-    assert_eq!(gs.borrow().stats.credibility, initial_cred + 1);
-    assert_eq!(gs.borrow().receipts.len(), initial_receipts); // No receipt consumed
+    assert_eq!(choice.get(), Some(3));
 }
 
 #[wasm_bindgen_test]
@@ -178,10 +184,10 @@ fn disabled_menuitem_has_aria_disabled() {
     let mut gs = create_test_game_state();
     gs.receipts.clear(); // Remove receipts
     gs.inventory.tags.clear(); // Remove permit tags
-    let gs = Rc::new(RefCell::new(gs));
+    let gs = Rc::new(gs);
 
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let (on_choice, choice) = capture_choice();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -189,23 +195,26 @@ fn disabled_menuitem_has_aria_disabled() {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();
 
     let doc = dom::document().expect("document");
     let permit_item = doc.query_selector("li[data-key='3']").unwrap().expect("permit menuitem exists");
+    let region = doc.query_selector("section[role='region']").unwrap().expect("region exists");
 
     // Should be disabled when no receipts or permit tags
     assert_eq!(permit_item.get_attribute("aria-disabled").unwrap(), "true");
+    dispatch_key(&region, "3", "Digit3");
+    assert_eq!(choice.get(), None);
 }
 
 #[wasm_bindgen_test]
 fn arrow_keys_change_focus() {
-    let gs = Rc::new(RefCell::new(create_test_game_state()));
+    let gs = Rc::new(create_test_game_state());
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let on_choice = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -213,7 +222,7 @@ fn arrow_keys_change_focus() {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();
@@ -241,9 +250,9 @@ fn rtl_locale_works() {
     // This test ensures RTL locales don't break the component structure
     i18n::set_lang("ar"); // Set Arabic RTL locale
 
-    let gs = Rc::new(RefCell::new(create_test_game_state()));
+    let gs = Rc::new(create_test_game_state());
     let cfg = Rc::new(CrossingConfig::default());
-    let on_resolved = Callback::noop();
+    let on_choice = Callback::noop();
 
     yew::Renderer::<CrossingCard>::with_root_and_props(
         ensure_app_root(),
@@ -251,7 +260,7 @@ fn rtl_locale_works() {
             game_state: gs,
             config: cfg,
             kind: CrossingKind::Checkpoint,
-            on_resolved,
+            on_choice,
         }),
     )
     .render();

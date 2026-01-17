@@ -1,17 +1,45 @@
 use crate::app::phase::Phase;
 use crate::app::state::AppState;
-use crate::game::MechanicalPolicyId;
-use crate::game::state::{DietId, PaceId};
+use crate::game::{CrossingChoice, MechanicalPolicyId, can_afford_bribe, can_use_permit};
 use yew::prelude::*;
 
-pub fn build_travel(state: &AppState) -> Callback<()> {
+pub fn build_crossing_choice(state: &AppState) -> Callback<u8> {
     let session_handle = state.session.clone();
     let logs = state.logs.clone();
     let phase = state.phase.clone();
-    Callback::from(move |()| {
+    let crossing_config = state.crossing_config.clone();
+
+    Callback::from(move |idx: u8| {
+        if idx == 0 {
+            phase.set(Phase::Travel);
+            return;
+        }
+
+        let choice = match idx {
+            1 => CrossingChoice::Detour,
+            2 => CrossingChoice::Bribe,
+            3 => CrossingChoice::Permit,
+            _ => return,
+        };
+
         let Some(mut sess) = (*session_handle).clone() else {
             return;
         };
+        let cfg = (*crossing_config).clone();
+        let kind = match sess.state().pending_crossing {
+            Some(pending) => pending.kind,
+            None => return,
+        };
+        let allowed = match choice {
+            CrossingChoice::Detour => true,
+            CrossingChoice::Bribe => can_afford_bribe(sess.state(), &cfg, kind),
+            CrossingChoice::Permit => can_use_permit(sess.state(), &kind),
+        };
+        if !allowed {
+            return;
+        }
+
+        sess.with_state_mut(|gs| gs.set_crossing_choice(choice));
         let outcome = sess.tick_day();
 
         let mut lg = (*logs).clone();
@@ -24,10 +52,12 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
                 }
             }
         }
+
         let state_ref = sess.state();
         let boss_gate = state_ref.mechanical_policy == MechanicalPolicyId::DystrailLegacy
             && state_ref.boss.readiness.ready
             && !state_ref.boss.outcome.attempted;
+
         if outcome.ended || state_ref.stats.pants >= 100 {
             phase.set(Phase::Result);
         } else if state_ref.pending_crossing.is_some() {
@@ -36,41 +66,11 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
             phase.set(Phase::Encounter);
         } else if boss_gate {
             phase.set(Phase::Boss);
+        } else {
+            phase.set(Phase::Travel);
         }
 
         logs.set(lg);
         session_handle.set(Some(sess));
-    })
-}
-
-pub fn build_pace_change(state: &AppState) -> Callback<PaceId> {
-    let session_handle = state.session.clone();
-    Callback::from(move |new_pace: PaceId| {
-        if let Some(mut sess) = (*session_handle).clone() {
-            sess.with_state_mut(|gs| gs.pace = new_pace);
-            session_handle.set(Some(sess));
-        }
-    })
-}
-
-pub fn build_diet_change(state: &AppState) -> Callback<DietId> {
-    let session_handle = state.session.clone();
-    Callback::from(move |new_diet: DietId| {
-        if let Some(mut sess) = (*session_handle).clone() {
-            sess.with_state_mut(|gs| gs.diet = new_diet);
-            session_handle.set(Some(sess));
-        }
-    })
-}
-
-pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
-    let session_handle = state.session.clone();
-    let phase_handle = state.phase.clone();
-    Callback::from(move |idx: usize| {
-        if let Some(mut sess) = (*session_handle).clone() {
-            sess.with_state_mut(|gs| gs.apply_choice(idx));
-            phase_handle.set(Phase::Travel);
-            session_handle.set(Some(sess));
-        }
     })
 }

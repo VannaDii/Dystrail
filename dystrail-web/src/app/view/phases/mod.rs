@@ -1,5 +1,6 @@
 mod boss;
 mod camp;
+mod crossing;
 mod encounter;
 mod menu;
 mod outfitting;
@@ -17,6 +18,7 @@ use yew::prelude::*;
 
 pub use boss::render_boss;
 pub use camp::render_camp;
+pub use crossing::render_crossing;
 pub use encounter::render_encounter;
 pub use menu::render_menu;
 pub use outfitting::render_outfitting;
@@ -47,6 +49,7 @@ pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<
         Phase::Outfitting => render_outfitting(state),
         Phase::Menu => render_menu(state),
         Phase::Travel => render_travel(state, handlers),
+        Phase::Crossing => render_crossing(state, handlers),
         Phase::Camp => render_camp(state),
         Phase::Encounter => render_encounter(state, handlers),
         Phase::Boss => render_boss(state, handlers),

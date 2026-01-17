@@ -63,7 +63,7 @@ use crate::constants::{
 };
 #[cfg(test)]
 use crate::constants::{ASSERT_MIN_AVG_MPD, FLOAT_EPSILON};
-use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
+use crate::crossings::{self, CrossingChoice, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
 use crate::disease::{
@@ -2788,6 +2788,12 @@ pub enum DayIntent {
     CrossingChoicePending,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct PendingCrossing {
+    pub kind: CrossingKind,
+    pub computed_miles_today: f32,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct IntentState {
     pub pending: DayIntent,
@@ -3052,6 +3058,10 @@ pub struct GameState {
     #[serde(default)]
     pub crossing_events: Vec<CrossingTelemetry>,
     #[serde(default)]
+    pub pending_crossing: Option<PendingCrossing>,
+    #[serde(skip)]
+    pub pending_crossing_choice: Option<CrossingChoice>,
+    #[serde(default)]
     pub starvation_days: u32,
     #[serde(default)]
     pub malnutrition_level: u32,
@@ -3241,6 +3251,8 @@ macro_rules! game_state_defaults {
             crossing_bribe_attempts: 0,
             crossing_bribe_successes: 0,
             crossing_events: Vec::new(),
+            pending_crossing: None,
+            pending_crossing_choice: None,
             starvation_days: 0,
             malnutrition_level: 0,
             exposure_streak_heat: 0,
@@ -5396,6 +5408,9 @@ impl GameState {
         &mut self,
         computed_miles_today: f32,
     ) -> Option<(bool, String)> {
+        if self.pending_crossing.is_some() {
+            return Some((false, String::from(LOG_TRAVEL_BLOCKED)));
+        }
         let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
         let &milestone = CROSSING_MILESTONES.get(next_idx)?;
         if self.miles_traveled_actual + f32::EPSILON < milestone {
@@ -5405,6 +5420,25 @@ impl GameState {
         let kind = self.crossing_kind_for_index(next_idx);
         let cfg = CrossingConfig::default();
         let policy = self.journey_crossing.clone();
+        if self.mechanical_policy == MechanicalPolicyId::DystrailLegacy {
+            self.pending_crossing = Some(PendingCrossing {
+                kind,
+                computed_miles_today,
+            });
+            self.pending_crossing_choice = None;
+            self.push_event(
+                EventKind::TravelBlocked,
+                EventSeverity::Warning,
+                DayTagSet::new(),
+                None,
+                None,
+                serde_json::json!({
+                    "reason": "crossing_choice",
+                    "kind": format!("{kind:?}").to_lowercase(),
+                }),
+            );
+            return Some((false, String::from(LOG_TRAVEL_BLOCKED)));
+        }
         let (has_permit, bribe_offered) = self.crossing_options(&cfg, kind);
         let ctx = CrossingContext {
             policy: &policy,
@@ -5425,10 +5459,104 @@ impl GameState {
         Some(self.process_crossing_result(resolved, telemetry, computed_miles_today))
     }
 
+    pub(crate) fn resolve_pending_crossing_choice(
+        &mut self,
+        choice: CrossingChoice,
+    ) -> Option<(bool, String)> {
+        let pending = *self.pending_crossing.as_ref()?;
+        let kind = pending.kind;
+        let cfg = CrossingConfig::default();
+        let has_permit = crossings::can_use_permit(self, &kind);
+        let can_bribe = crossings::can_afford_bribe(self, &cfg, kind);
+        match choice {
+            CrossingChoice::Permit if !has_permit => {
+                self.pending_crossing_choice = None;
+                return None;
+            }
+            CrossingChoice::Bribe if !can_bribe => {
+                self.pending_crossing_choice = None;
+                return None;
+            }
+            _ => {}
+        }
+
+        self.pending_crossing_choice = None;
+        self.pending_crossing = None;
+
+        let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
+        let policy = self.journey_crossing.clone();
+        let mut telemetry = CrossingTelemetry::new(self.day, self.region, self.season, kind);
+        let resolved = match choice {
+            CrossingChoice::Detour => {
+                let sample = self.sample_crossing_roll(next_idx);
+                let detour_days = Self::detour_days_for_sample(&policy, sample);
+                crossings::CrossingOutcome {
+                    result: crossings::CrossingResult::Detour(detour_days),
+                    used_permit: false,
+                    bribe_attempted: false,
+                    bribe_succeeded: false,
+                }
+            }
+            CrossingChoice::Bribe => {
+                let ctx = CrossingContext {
+                    policy: &policy,
+                    kind,
+                    has_permit: false,
+                    bribe_intent: true,
+                    prior_bribe_attempts: self.crossing_bribe_attempts,
+                };
+                self.resolve_crossing_outcome(ctx, next_idx)
+            }
+            CrossingChoice::Permit => {
+                let ctx = CrossingContext {
+                    policy: &policy,
+                    kind,
+                    has_permit: true,
+                    bribe_intent: false,
+                    prior_bribe_attempts: self.crossing_bribe_attempts,
+                };
+                self.resolve_crossing_outcome(ctx, next_idx)
+            }
+        };
+
+        telemetry.permit_used = resolved.used_permit;
+        telemetry.bribe_attempted = resolved.bribe_attempted;
+        if resolved.bribe_attempted {
+            telemetry.bribe_success = Some(resolved.bribe_succeeded);
+        }
+
+        self.apply_crossing_decisions(resolved, &cfg, kind, &mut telemetry);
+        Some(self.process_crossing_result(resolved, telemetry, pending.computed_miles_today))
+    }
+
     fn crossing_options(&self, cfg: &CrossingConfig, kind: CrossingKind) -> (bool, bool) {
         let has_permit = crossings::can_use_permit(self, &kind);
         let bribe_offered = !has_permit && crossings::can_afford_bribe(self, cfg, kind);
         (has_permit, bribe_offered)
+    }
+
+    fn sample_crossing_roll(&self, next_idx: usize) -> u32 {
+        self.crossing_rng().map_or_else(
+            || {
+                let seed_mix =
+                    self.seed ^ (u64::try_from(next_idx).unwrap_or(0) << 32) ^ u64::from(self.day);
+                let mut fallback = SmallRng::seed_from_u64(seed_mix);
+                fallback.next_u32()
+            },
+            |mut rng| rng.next_u32(),
+        )
+    }
+
+    fn detour_days_for_sample(policy: &CrossingPolicy, sample: u32) -> u8 {
+        let min = policy.detour_days.min;
+        let max = policy.detour_days.max;
+        if min >= max {
+            return min;
+        }
+        let span = u32::from(max.saturating_sub(min)) + 1;
+        let offset = sample % span;
+        let offset_u8 = u8::try_from(offset).unwrap_or(u8::MAX);
+        min.saturating_add(offset_u8)
     }
 
     fn resolve_crossing_outcome(
@@ -5563,6 +5691,8 @@ impl GameState {
         self.events_today.clear();
         self.decision_traces_today.clear();
         self.weather_effects = WeatherEffects::default();
+        self.pending_crossing = None;
+        self.pending_crossing_choice = None;
         self.logs.push(String::from("log.seed-set"));
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
@@ -5605,6 +5735,7 @@ impl GameState {
         self.events_today.clear();
         self.decision_traces_today.clear();
         self.weather_effects = WeatherEffects::default();
+        self.pending_crossing_choice = None;
         if self.rng_bundle.is_none() {
             self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(self.seed)));
         }
@@ -6239,6 +6370,10 @@ impl GameState {
         }
 
         self.finalize_encounter();
+    }
+
+    pub const fn set_crossing_choice(&mut self, choice: CrossingChoice) {
+        self.pending_crossing_choice = Some(choice);
     }
 
     pub(crate) fn resolve_breakdown(&mut self) {

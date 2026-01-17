@@ -39,8 +39,8 @@ pub use camp::{
     camp_rest, camp_therapy, can_repair, can_therapy,
 };
 pub use crossings::{
-    CrossingConfig, CrossingKind, ThresholdEntry, ThresholdTable, apply_bribe, apply_detour,
-    apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
+    CrossingChoice, CrossingConfig, CrossingKind, ThresholdEntry, ThresholdTable, apply_bribe,
+    apply_detour, apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
 pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
@@ -83,7 +83,7 @@ pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, pars
 pub use state::{
     BossProgress, BossReadiness, BossResolution, CollapseCause, CrossingOutcomeTelemetry,
     CrossingTelemetry, DayState, DietId, EncounterState, Ending, FeatureFlags, GameMode, GamePhase,
-    GameState, GuardState, Inventory, PaceId, PolicyKind, Region, Spares, Stats,
+    GameState, GuardState, Inventory, PaceId, PendingCrossing, PolicyKind, Region, Spares, Stats,
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,

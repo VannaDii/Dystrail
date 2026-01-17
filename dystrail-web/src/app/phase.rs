@@ -11,6 +11,7 @@ pub enum Phase {
     Outfitting,
     Menu,
     Travel,
+    Crossing,
     Camp,
     Encounter,
     Boss,

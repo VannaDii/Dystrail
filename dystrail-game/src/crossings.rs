@@ -20,6 +20,14 @@ pub enum CrossingKind {
     BridgeOut,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum CrossingChoice {
+    Detour,
+    Bribe,
+    Permit,
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DetourCfg {
     pub days: i32,

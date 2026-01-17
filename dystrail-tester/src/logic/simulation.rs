@@ -2,7 +2,10 @@ use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
-use dystrail_game::{GameMode, GameState, JourneySession, PaceId, StrategyId};
+use dystrail_game::{
+    CrossingChoice, CrossingConfig, DayOutcome, GameMode, GameState, JourneySession, PaceId,
+    StrategyId, can_afford_bribe, can_use_permit,
+};
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
 
@@ -120,6 +123,9 @@ impl SimulationSession {
     }
 
     pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
+        if let Some(outcome) = self.try_resolve_crossing() {
+            return outcome;
+        }
         self.session.state_mut().tick_camp_cooldowns();
         self.queue_boss_rest();
 
@@ -134,20 +140,7 @@ impl SimulationSession {
         let decision = self.resolve_encounter_choice(policy);
 
         let outcome = self.session.tick_day();
-        let mut game_ended = outcome.ended;
-        let mut travel_message = outcome.log_key.clone();
-        let breakdown_started = outcome.breakdown_started;
-        if !game_ended && self.session.state().day >= self.max_days {
-            game_ended = true;
-            travel_message = String::from("Max days reached");
-        }
-
-        if let Some(boss_message) = self.try_boss_minigame() {
-            game_ended = true;
-            travel_message = boss_message;
-        }
-
-        self.build_turn_outcome(travel_message, breakdown_started, game_ended, decision)
+        self.finalize_outcome(outcome, decision)
     }
 
     const fn queue_boss_rest(&mut self) {
@@ -224,6 +217,22 @@ impl SimulationSession {
         Some(decision)
     }
 
+    fn try_resolve_crossing(&mut self) -> Option<TurnOutcome> {
+        let pending = self.session.state().pending_crossing?;
+        let kind = pending.kind;
+        let cfg = CrossingConfig::default();
+        let choice = if can_use_permit(self.session.state(), &kind) {
+            CrossingChoice::Permit
+        } else if can_afford_bribe(self.session.state(), &cfg, kind) {
+            CrossingChoice::Bribe
+        } else {
+            CrossingChoice::Detour
+        };
+        self.session.state_mut().set_crossing_choice(choice);
+        let outcome = self.session.tick_day();
+        Some(self.finalize_outcome(outcome, None))
+    }
+
     fn try_boss_minigame(&mut self) -> Option<String> {
         let boss_ready = {
             let state = self.session.state();
@@ -246,6 +255,32 @@ impl SimulationSession {
     const fn build_nontravel_outcome(&self, travel_message: String) -> TurnOutcome {
         let game_ended = self.session.state().day >= self.max_days;
         self.build_turn_outcome(travel_message, false, game_ended, None)
+    }
+
+    fn finalize_outcome(
+        &mut self,
+        outcome: DayOutcome,
+        decision: Option<DecisionRecord>,
+    ) -> TurnOutcome {
+        let breakdown_started = outcome.breakdown_started;
+        let mut game_ended = outcome.ended;
+        let day_limit_reached = !game_ended && self.session.state().day >= self.max_days;
+        if day_limit_reached {
+            game_ended = true;
+        }
+        let boss_message = self.try_boss_minigame();
+        if boss_message.is_some() {
+            game_ended = true;
+        }
+        let travel_message = if let Some(message) = boss_message {
+            message
+        } else if day_limit_reached {
+            String::from("Max days reached")
+        } else {
+            outcome.log_key
+        };
+
+        self.build_turn_outcome(travel_message, breakdown_started, game_ended, decision)
     }
 
     const fn build_turn_outcome(

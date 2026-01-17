@@ -1,6 +1,7 @@
 pub mod boot;
 pub mod boss;
 pub mod camp;
+pub mod crossing;
 pub mod encounter;
 pub mod menu;
 pub mod not_found;

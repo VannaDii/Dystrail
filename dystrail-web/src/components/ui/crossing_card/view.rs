@@ -2,21 +2,20 @@ use super::interactions::{activate_handler, focus_effect, keydown_handler};
 use super::option::CrossingOption;
 use super::view_model::{CrossingViewModel, build_crossing_viewmodel};
 use crate::game::{CrossingConfig, CrossingKind, GameState};
-use std::cell::RefCell;
 use std::rc::Rc;
 use yew::prelude::*;
 
 #[derive(Properties, Clone)]
 pub struct CrossingCardProps {
-    pub game_state: Rc<RefCell<GameState>>,
+    pub game_state: Rc<GameState>,
     pub config: Rc<CrossingConfig>,
     pub kind: CrossingKind,
-    pub on_resolved: Callback<()>,
+    pub on_choice: Callback<u8>,
 }
 
 impl PartialEq for CrossingCardProps {
     fn eq(&self, other: &Self) -> bool {
-        std::ptr::eq(self.game_state.as_ptr(), other.game_state.as_ptr())
+        Rc::ptr_eq(&self.game_state, &other.game_state)
             && Rc::ptr_eq(&self.config, &other.config)
             && self.kind == other.kind
     }
@@ -28,9 +27,8 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
     let list_ref = use_node_ref();
     let resolved = use_state(|| false);
 
-    let vm: CrossingViewModel = {
-        let gs = props.game_state.borrow();
-        match build_crossing_viewmodel(&gs, &props.config, props.kind) {
+    let vm: CrossingViewModel =
+        match build_crossing_viewmodel(&props.game_state, &props.config, props.kind) {
             Ok(vm) => vm,
             Err(error_msg) => {
                 return html! {
@@ -40,15 +38,13 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
                     </section>
                 };
             }
-        }
-    };
+        };
 
     let activate = activate_handler(
-        props.game_state.clone(),
-        props.config.clone(),
-        props.kind,
-        props.on_resolved.clone(),
+        props.on_choice.clone(),
         resolved.clone(),
+        vm.bribe_available,
+        vm.permit_available,
     );
 
     focus_effect(list_ref.clone(), &focus_idx);
