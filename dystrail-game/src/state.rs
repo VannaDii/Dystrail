@@ -3767,6 +3767,7 @@ impl GameState {
             self.illness_travel_penalty = 1.0;
         }
         self.vehicle.tick_breakdown_cooldown();
+        self.tick_camp_cooldowns();
 
         if self.encounter_history.len() >= ENCOUNTER_HISTORY_WINDOW {
             self.encounter_history.pop_front();

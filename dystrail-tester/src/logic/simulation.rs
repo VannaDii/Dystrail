@@ -133,7 +133,6 @@ impl SimulationSession {
         if let Some(outcome) = self.try_resolve_crossing() {
             return outcome;
         }
-        self.session.state_mut().tick_camp_cooldowns();
         self.queue_boss_rest();
 
         if let Some(outcome) = self.try_forage_day() {
