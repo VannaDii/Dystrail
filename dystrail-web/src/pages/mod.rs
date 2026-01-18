@@ -6,6 +6,7 @@ pub mod encounter;
 pub mod menu;
 pub mod not_found;
 pub mod otdeluxe_crossing;
+pub mod otdeluxe_store;
 pub mod outfitting;
 pub mod persona;
 pub mod result;

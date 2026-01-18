@@ -8,6 +8,7 @@ mod persona;
 mod result;
 mod route_prompt;
 mod seed_footer;
+mod store;
 mod travel;
 
 use crate::app::phase::Phase;
@@ -27,6 +28,7 @@ pub use persona::render_persona;
 pub use result::render_result;
 pub use route_prompt::render_route_prompt;
 pub use seed_footer::render_seed_footer;
+pub use store::render_store;
 pub use travel::render_travel;
 
 pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<&Route>) -> Html {
@@ -51,6 +53,7 @@ pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<
         Phase::Outfitting => render_outfitting(state),
         Phase::Menu => render_menu(state),
         Phase::Travel => render_travel(state, handlers),
+        Phase::Store => render_store(state, handlers),
         Phase::Crossing => render_crossing(state, handlers),
         Phase::RoutePrompt => render_route_prompt(state, handlers),
         Phase::Camp => render_camp(state),

@@ -2,7 +2,7 @@
 
 use std::sync::OnceLock;
 
-use crate::constants::{LOG_HUNT, LOG_TRADE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
+use crate::constants::{LOG_HUNT, LOG_STORE, LOG_TRADE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
 use crate::day_accounting;
 use crate::endgame::{self, EndgameTravelCfg};
 use crate::journey::daily::{apply_daily_health, apply_daily_supplies_sanity};
@@ -48,6 +48,9 @@ impl<'a> DailyTickKernel<'a> {
             return outcome;
         }
         if let Some(outcome) = Self::resolve_pending_crossing(state) {
+            return outcome;
+        }
+        if let Some(outcome) = Self::resolve_pending_store(state) {
             return outcome;
         }
         self.apply_daily_physics(state);
@@ -111,6 +114,35 @@ impl<'a> DailyTickKernel<'a> {
             state,
             false,
             String::from(LOG_TRAVEL_BLOCKED),
+            false,
+        ))
+    }
+
+    fn resolve_pending_store(state: &mut GameState) -> Option<DayOutcome> {
+        if state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            state.ot_deluxe.store.pending_node = None;
+            state.ot_deluxe.store.pending_purchase = None;
+            return None;
+        }
+        let pending_node = state.ot_deluxe.store.pending_node?;
+        if let Some(lines) = state.ot_deluxe.store.pending_purchase.take() {
+            if state
+                .apply_otdeluxe_store_purchase(pending_node, &lines)
+                .is_ok()
+            {
+                state.clear_otdeluxe_store_pending();
+            }
+            return Some(Self::build_outcome(
+                state,
+                false,
+                String::from(LOG_STORE),
+                false,
+            ));
+        }
+        Some(Self::build_outcome(
+            state,
+            false,
+            String::from(LOG_STORE),
             false,
         ))
     }
@@ -298,6 +330,9 @@ impl<'a> DailyTickKernel<'a> {
         let additional_miles = (state.distance_today - state.current_day_miles).max(0.0);
         state.record_travel_day(TravelDayKind::Travel, additional_miles, "");
         state.log_travel_debug();
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            state.queue_otdeluxe_store_if_available();
+        }
 
         state.end_of_day();
         (false, String::from(LOG_TRAVELED), breakdown_started)
@@ -594,7 +629,7 @@ fn default_pacing_config() -> &'static PacingConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{LOG_BOSS_AWAIT, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
+    use crate::constants::{LOG_BOSS_AWAIT, LOG_STORE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
     use crate::crossings::CrossingKind;
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
@@ -604,6 +639,7 @@ mod tests {
     use crate::numbers::round_f32_to_i32;
     use crate::otdeluxe_state::OtDeluxeRoutePrompt;
     use crate::otdeluxe_state::OtDeluxeWagonState;
+    use crate::otdeluxe_store::{OtDeluxeStoreItem, OtDeluxeStoreLineItem};
     use crate::state::{DayIntent, GameState, PendingCrossing, Region, Stats};
     use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
     use std::rc::Rc;
@@ -1045,6 +1081,33 @@ mod tests {
                 .as_ref()
                 .is_some_and(|record| record.tags.iter().any(|tag| tag.0 == "boss_gate"))
         );
+    }
+
+    #[test]
+    fn otdeluxe_store_purchase_resolves_without_consuming_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.cash_cents = 10_000;
+        state.ot_deluxe.store.pending_node = Some(0);
+        state.ot_deluxe.store.pending_purchase = Some(vec![OtDeluxeStoreLineItem {
+            item: OtDeluxeStoreItem::Oxen,
+            quantity: 2,
+        }]);
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(!outcome.day_consumed);
+        assert_eq!(state.day, 1);
+        assert_eq!(state.ot_deluxe.oxen.healthy, 2);
+        assert!(state.ot_deluxe.store.pending_node.is_none());
+        assert_eq!(state.ot_deluxe.store.last_node, Some(0));
     }
 
     #[test]

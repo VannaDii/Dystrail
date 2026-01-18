@@ -15,6 +15,7 @@ pub(crate) const LOG_TRAVEL_BLOCKED: &str = "log.travel-blocked";
 pub(crate) const LOG_TRAVELED: &str = "log.traveled";
 pub(crate) const LOG_TRADE: &str = "log.trade";
 pub(crate) const LOG_HUNT: &str = "log.hunt";
+pub(crate) const LOG_STORE: &str = "log.store";
 pub(crate) const LOG_EXEC_START_PREFIX: &str = "exec.start.";
 pub(crate) const LOG_EXEC_END_PREFIX: &str = "exec.end.";
 pub(crate) const LOG_STARVATION_TICK: &str = "log.starvation.tick";

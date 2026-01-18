@@ -11,6 +11,7 @@ pub enum Phase {
     Outfitting,
     Menu,
     Travel,
+    Store,
     Crossing,
     RoutePrompt,
     Camp,
@@ -54,6 +55,8 @@ pub fn phase_for_state(state: &GameState) -> Phase {
         && state.pending_crossing.is_some();
     let otdeluxe_crossing = state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s
         && state.ot_deluxe.crossing.choice_pending;
+    let otdeluxe_store = state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s
+        && state.ot_deluxe.store.pending_node.is_some();
 
     if state.ending.is_some() || state.stats.pants >= 100 {
         Phase::Result
@@ -61,6 +64,8 @@ pub fn phase_for_state(state: &GameState) -> Phase {
         Phase::RoutePrompt
     } else if otdeluxe_crossing || dystrail_crossing {
         Phase::Crossing
+    } else if otdeluxe_store {
+        Phase::Store
     } else if state.current_encounter.is_some() {
         Phase::Encounter
     } else if boss_gate {

@@ -58,6 +58,7 @@ mod tests {
             Phase::Outfitting,
             Phase::Menu,
             Phase::Travel,
+            Phase::Store,
             Phase::Crossing,
             Phase::RoutePrompt,
             Phase::Camp,

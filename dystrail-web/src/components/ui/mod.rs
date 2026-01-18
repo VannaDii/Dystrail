@@ -3,6 +3,7 @@ pub mod crossing_card;
 pub mod encounter_card;
 pub mod main_menu;
 pub mod otdeluxe_crossing_card;
+pub mod otdeluxe_store_panel;
 pub mod outfitting_store;
 pub mod pace_diet_panel;
 pub mod persona_select;

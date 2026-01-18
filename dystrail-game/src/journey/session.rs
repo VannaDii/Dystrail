@@ -44,6 +44,7 @@ impl JourneySession {
         let controller = Self::build_controller(mechanics, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
         session.reset_state_policy(strategy);
+        session.state.queue_otdeluxe_store_if_available();
         session
     }
 

@@ -133,6 +133,9 @@ impl SimulationSession {
         if let Some(outcome) = self.try_resolve_crossing() {
             return outcome;
         }
+        if let Some(outcome) = self.try_resolve_store() {
+            return outcome;
+        }
         self.queue_boss_rest();
 
         if let Some(outcome) = self.try_forage_day() {
@@ -293,6 +296,28 @@ impl SimulationSession {
             CrossingChoice::Detour
         };
         self.session.state_mut().set_crossing_choice(choice);
+        let outcome = self.session.tick_day();
+        Some(self.finalize_outcome(outcome, None))
+    }
+
+    fn try_resolve_store(&mut self) -> Option<TurnOutcome> {
+        if self.session.state().mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        let _ = self.session.state().ot_deluxe.store.pending_node?;
+        let pending_purchase = self
+            .session
+            .state()
+            .ot_deluxe
+            .store
+            .pending_purchase
+            .is_some();
+        if !pending_purchase {
+            let _ = self
+                .session
+                .state_mut()
+                .set_otdeluxe_store_purchase(Vec::new());
+        }
         let outcome = self.session.tick_day();
         Some(self.finalize_outcome(outcome, None))
     }

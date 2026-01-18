@@ -7,6 +7,7 @@ use rand::seq::SliceRandom;
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
 };
+use crate::otdeluxe_store::OtDeluxeStoreLineItem;
 use crate::state::Season;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
@@ -119,6 +120,16 @@ pub struct OtDeluxeCrossingState {
     pub river_kind: Option<OtDeluxeRiver>,
     #[serde(default)]
     pub computed_miles_today: f32,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+pub struct OtDeluxeStoreState {
+    #[serde(default)]
+    pub pending_node: Option<u8>,
+    #[serde(default)]
+    pub pending_purchase: Option<Vec<OtDeluxeStoreLineItem>>,
+    #[serde(default)]
+    pub last_node: Option<u8>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -507,6 +518,8 @@ pub struct OtDeluxeState {
     pub weather: OtDeluxeWeatherState,
     pub travel: OtDeluxeTravelState,
     pub crossing: OtDeluxeCrossingState,
+    #[serde(default)]
+    pub store: OtDeluxeStoreState,
     pub route: OtDeluxeRouteState,
     pub mods: OtDeluxeModifiers,
 }
@@ -531,6 +544,7 @@ impl Default for OtDeluxeState {
             weather: OtDeluxeWeatherState::default(),
             travel: OtDeluxeTravelState::default(),
             crossing: OtDeluxeCrossingState::default(),
+            store: OtDeluxeStoreState::default(),
             route: OtDeluxeRouteState::default(),
             mods: OtDeluxeModifiers::default(),
         }

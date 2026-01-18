@@ -7364,6 +7364,44 @@ impl GameState {
         )
     }
 
+    pub fn set_otdeluxe_store_purchase(&mut self, lines: Vec<OtDeluxeStoreLineItem>) -> bool {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return false;
+        }
+        if self.ot_deluxe.store.pending_node.is_none() {
+            return false;
+        }
+        self.ot_deluxe.store.pending_purchase = Some(lines);
+        true
+    }
+
+    pub fn clear_otdeluxe_store_pending(&mut self) {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        if let Some(node) = self.ot_deluxe.store.pending_node.take() {
+            self.ot_deluxe.store.last_node = Some(node);
+        }
+        self.ot_deluxe.store.pending_purchase = None;
+    }
+
+    pub(crate) fn queue_otdeluxe_store_if_available(&mut self) {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        if self.ot_deluxe.store.pending_node.is_some() {
+            return;
+        }
+        let node = self.ot_deluxe.route.current_node_index;
+        if self.ot_deluxe.store.last_node == Some(node) {
+            return;
+        }
+        if self.otdeluxe_store_available() {
+            self.ot_deluxe.store.pending_node = Some(node);
+            self.ot_deluxe.store.pending_purchase = None;
+        }
+    }
+
     #[must_use]
     pub fn otdeluxe_store_available(&self) -> bool {
         let policy = default_otdeluxe_policy();

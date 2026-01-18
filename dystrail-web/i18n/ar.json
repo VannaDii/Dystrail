@@ -160,7 +160,8 @@
         "sank": "The wagon sank; supplies were lost.",
         "drowned": "Tragedy at the crossing."
       }
-    }
+    },
+    "store": "Store"
   },
   "menu": {
     "camp": "التخييم",
@@ -601,6 +602,52 @@
       "rocky": "Rocky bed",
       "muddy": "Muddy bed",
       "unknown": "Unknown bed"
+    }
+  },
+  "otdeluxe": {
+    "store": {
+      "title": "Trading Post",
+      "cash": "Cash: {amount}",
+      "cash_label": "Cash",
+      "total": "Total: {amount}",
+      "remaining": "Remaining: {amount}",
+      "leave": "Leave Store",
+      "checkout": "Checkout",
+      "owned_cap": "Owned {owned} / Cap {cap}",
+      "qty": {
+        "add1": "Add +1",
+        "rem1": "Remove -1"
+      },
+      "items": {
+        "oxen": {
+          "name": "Oxen",
+          "desc": "Stronger teams haul the wagon."
+        },
+        "food": {
+          "name": "Food",
+          "desc": "Supplies for the trail."
+        },
+        "clothes": {
+          "name": "Clothes",
+          "desc": "Extra sets for the journey."
+        },
+        "ammo": {
+          "name": "Ammo",
+          "desc": "Boxes of bullets for hunting."
+        },
+        "wheel": {
+          "name": "Wheel",
+          "desc": "Spare wagon wheel."
+        },
+        "axle": {
+          "name": "Axle",
+          "desc": "Spare wagon axle."
+        },
+        "tongue": {
+          "name": "Tongue",
+          "desc": "Spare wagon tongue."
+        }
+      }
     }
   }
 }

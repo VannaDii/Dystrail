@@ -1,8 +1,10 @@
 mod boss;
 mod crossing;
+mod outcome;
 mod prefs;
 mod route_prompt;
 mod storage;
+mod store;
 mod travel;
 
 use crate::app::state::AppState;
@@ -17,6 +19,7 @@ pub use prefs::{
 };
 pub use route_prompt::build_route_prompt_choice;
 pub use storage::{build_export_state, build_import_state, build_load, build_save};
+pub use store::{build_store_leave, build_store_purchase};
 pub use travel::{
     build_diet_change, build_encounter_choice, build_hunt, build_pace_change, build_trade,
     build_travel,
@@ -27,6 +30,8 @@ pub struct AppHandlers {
     pub travel: Callback<()>,
     pub trade: Callback<()>,
     pub hunt: Callback<()>,
+    pub store_purchase: Callback<Vec<crate::game::OtDeluxeStoreLineItem>>,
+    pub store_leave: Callback<()>,
     pub pace_change: Callback<PaceId>,
     pub diet_change: Callback<DietId>,
     pub encounter_choice: Callback<usize>,
@@ -52,6 +57,8 @@ impl AppHandlers {
             travel: build_travel(state),
             trade: build_trade(state),
             hunt: build_hunt(state),
+            store_purchase: build_store_purchase(state),
+            store_leave: build_store_leave(state),
             pace_change: build_pace_change(state),
             diet_change: build_diet_change(state),
             encounter_choice: build_encounter_choice(state),
