@@ -1,4 +1,5 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::TargetCast;
 
 #[derive(f::Properties, PartialEq, Clone)]
@@ -22,8 +23,15 @@ pub fn textarea(props: &TextareaProps) -> f::Html {
     let oninput = {
         let cb = props.oninput.clone();
         f::Callback::from(move |e: f::InputEvent| {
-            if let Some(input) = e.target_dyn_into::<f::HtmlTextAreaElement>() {
-                cb.emit(input.value());
+            #[cfg(target_arch = "wasm32")]
+            {
+                if let Some(input) = e.target_dyn_into::<f::HtmlTextAreaElement>() {
+                    cb.emit(input.value());
+                }
+            }
+            #[cfg(not(target_arch = "wasm32"))]
+            {
+                let _ = (&e, &cb);
             }
         })
     };

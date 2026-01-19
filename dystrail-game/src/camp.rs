@@ -257,3 +257,34 @@ pub const fn can_therapy(_gs: &crate::GameState, _cfg: &CampConfig) -> bool {
     // Placeholder - could check sanity levels, etc.
     true
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::state::{Region, Stats};
+
+    #[test]
+    fn forage_negative_supplies_apply_region_multiplier() {
+        let mut cfg = CampConfig::default();
+        cfg.forage.day = 1;
+        cfg.forage.supplies = -3;
+        cfg.forage
+            .region_multipliers
+            .insert(String::from("Heartland"), 0.5);
+
+        let mut state = crate::GameState {
+            region: Region::Heartland,
+            stats: Stats {
+                supplies: 10,
+                ..Stats::default()
+            },
+            ..crate::GameState::default()
+        };
+
+        let outcome = camp_forage(&mut state, &cfg);
+
+        assert!(outcome.supplies_delta < 0);
+        assert!(state.stats.supplies < 10);
+        assert_eq!(outcome.message, "log.camp.forage");
+    }
+}

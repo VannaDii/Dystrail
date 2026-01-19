@@ -29,6 +29,21 @@ fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
 }
 
 #[test]
+fn encounter_seed_helper_finds_matching_value() {
+    let seed = encounter_seed_where(|value| value == 0);
+    let probe = RngBundle::from_user_seed(seed);
+    let mut rng = probe.encounter();
+    let value = (rng.r#gen::<u32>() % 100) as u8;
+    assert_eq!(value, 0);
+}
+
+#[test]
+#[should_panic(expected = "unable to locate encounter seed")]
+fn encounter_seed_helper_panics_when_missing() {
+    let _ = encounter_seed_where(|_| false);
+}
+
+#[test]
 fn boss_minigame_exercises_outcomes() {
     let pants_cfg = BossConfig {
         rounds: 1,

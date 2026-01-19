@@ -110,3 +110,64 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
         </section>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::exec_orders::ExecOrder;
+    use futures::executor::block_on;
+    use std::collections::BTreeMap;
+    use std::rc::Rc;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn crossing_card_renders_viewmodel_content() {
+        crate::i18n::set_lang("en");
+        let gs = Rc::new(GameState::default());
+        let cfg = Rc::new(CrossingConfig::default());
+        let props = CrossingCardProps {
+            game_state: gs,
+            config: cfg,
+            kind: CrossingKind::Checkpoint,
+            on_choice: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<CrossingCard>::with_props(props).render());
+        assert!(html.contains(&crate::i18n::t("cross.prompt")));
+        assert!(html.contains(&crate::i18n::t("cross.types.checkpoint")));
+    }
+
+    #[test]
+    fn crossing_card_renders_shutdown_notice() {
+        crate::i18n::set_lang("en");
+        let gs = GameState {
+            current_order: Some(ExecOrder::Shutdown),
+            ..GameState::default()
+        };
+        let props = CrossingCardProps {
+            game_state: Rc::new(gs),
+            config: Rc::new(CrossingConfig::default()),
+            kind: CrossingKind::Checkpoint,
+            on_choice: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<CrossingCard>::with_props(props).render());
+        let mut args = BTreeMap::new();
+        args.insert("chance", "50");
+        let expected = crate::i18n::tr("cross.policy.shutdown", Some(&args));
+        assert!(html.contains(&expected));
+    }
+
+    #[test]
+    fn crossing_card_renders_error_when_missing_config() {
+        crate::i18n::set_lang("en");
+        let mut cfg = CrossingConfig::default();
+        cfg.types.clear();
+        let props = CrossingCardProps {
+            game_state: Rc::new(GameState::default()),
+            config: Rc::new(cfg),
+            kind: CrossingKind::Checkpoint,
+            on_choice: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<CrossingCard>::with_props(props).render());
+        assert!(html.contains("Configuration Error"));
+    }
+}

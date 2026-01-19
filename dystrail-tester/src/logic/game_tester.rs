@@ -1341,11 +1341,46 @@ fn humanize_log_message(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use dystrail_game::personas::{Persona, PersonaMods, PersonaStart, PersonasList};
+    use dystrail_game::store::{Grants, Store, StoreItem};
+    use dystrail_game::weather::{Weather, WeatherConfig, WeatherLimits};
     use dystrail_game::{BossProgress, BossReadiness, BossResolution};
+    use std::collections::HashMap;
     use std::sync::Arc;
 
     fn build_tester() -> GameTester {
         GameTester::new(Arc::new(TesterAssets::load_default()), false)
+    }
+
+    fn make_weather_config(weights: HashMap<Region, HashMap<Weather, u32>>) -> WeatherConfig {
+        WeatherConfig {
+            limits: WeatherLimits {
+                max_extreme_streak: 1,
+                encounter_cap: 0.0,
+                pants_floor: 0,
+                pants_ceiling: 100,
+            },
+            effects: HashMap::new(),
+            mitigation: HashMap::new(),
+            weights,
+            exec_mods: HashMap::new(),
+        }
+    }
+
+    fn build_assets(
+        weather_config: WeatherConfig,
+        store: Store,
+        personas: PersonasList,
+    ) -> TesterAssets {
+        TesterAssets {
+            encounter_data: TesterAssets::fallback_encounter_data(),
+            personas,
+            store,
+            camp_config: CampConfig::default(),
+            boss_config: BossConfig::default(),
+            weather_config,
+            endgame_config: EndgameTravelCfg::default_config(),
+        }
     }
 
     #[test]
@@ -1463,5 +1498,190 @@ mod tests {
         attempted_metrics.finalize(&attempted_state, &outcome);
         assert!(attempted_metrics.boss.reached);
         assert!(!attempted_metrics.boss.won);
+    }
+
+    #[test]
+    fn default_policy_setup_applies_strategy_defaults() {
+        let mut state = GameState::default();
+        default_policy_setup(GameplayStrategy::Balanced)(&mut state);
+        assert!(state.stats.hp >= 8);
+        assert!(state.stats.sanity >= 8);
+        assert!(state.stats.supplies >= 12);
+        assert!(state.stats.pants <= 5);
+        assert!(state.inventory.spares.tire >= 1);
+
+        let mut state = GameState::default();
+        default_policy_setup(GameplayStrategy::Conservative)(&mut state);
+        assert_eq!(state.stats.pants, 2);
+        assert!(state.inventory.spares.tire >= 2);
+
+        let mut state = GameState::default();
+        default_policy_setup(GameplayStrategy::Aggressive)(&mut state);
+        assert_eq!(state.stats.pants, 6);
+        assert!(state.stats.supplies <= 12);
+
+        let mut state = GameState::default();
+        default_policy_setup(GameplayStrategy::ResourceManager)(&mut state);
+        assert_eq!(state.budget_cents, 18_000);
+        assert!(state.stats.supplies >= 12);
+    }
+
+    #[test]
+    fn purchase_plan_adjusts_for_weather_risk() {
+        let mut weights = HashMap::new();
+        weights.insert(
+            Region::Heartland,
+            HashMap::from([
+                (Weather::HeatWave, 10),
+                (Weather::ColdSnap, 10),
+                (Weather::Clear, 1),
+            ]),
+        );
+        let weather_config = make_weather_config(weights);
+        let store = Store {
+            categories: Vec::new(),
+            items: Vec::new(),
+        };
+        let assets = build_assets(weather_config, store, PersonasList::empty());
+        let tester = GameTester::new(Arc::new(assets), false);
+
+        let state = GameState {
+            mode: GameMode::Classic,
+            season: Season::Winter,
+            ..GameState::default()
+        };
+
+        let plan = tester.planned_purchases(&state, GameplayStrategy::Balanced, 1);
+        let ids: Vec<&str> = plan.iter().map(|(id, _)| *id).collect();
+        assert!(ids.contains(&"water"));
+        assert!(ids.contains(&"coats"));
+    }
+
+    #[test]
+    fn ensure_min_quantity_updates_and_inserts() {
+        let mut plan = vec![("water", 1)];
+        GameTester::ensure_min_quantity(&mut plan, "water", 3, None);
+        assert!(plan.iter().any(|(id, qty)| *id == "water" && *qty == 3));
+
+        GameTester::ensure_min_quantity(&mut plan, "coats", 1, Some(0));
+        assert_eq!(plan.first().map(|(id, _)| *id), Some("coats"));
+    }
+
+    #[test]
+    fn trim_noncritical_spare_removes_duplicates() {
+        let mut plan = vec![("spare_tire", 1), ("spare_tire", 1), ("battery", 1)];
+        GameTester::trim_noncritical_spare(&mut plan);
+        let spare_count = plan.iter().filter(|(id, _)| *id == "spare_tire").count();
+        assert_eq!(spare_count, 1);
+    }
+
+    #[test]
+    fn prioritize_coat_inserts_near_spares() {
+        let mut plan = vec![("spare_tire", 1), ("spare_tire", 1)];
+        GameTester::prioritize_coat(&mut plan, GameplayStrategy::Conservative);
+        assert!(plan.iter().any(|(id, _)| *id == "coats"));
+    }
+
+    #[test]
+    fn party_roster_rotates_with_seed() {
+        let (leader, companions) = GameTester::party_roster(GameplayStrategy::Balanced, 1);
+        assert_eq!(leader, "Jordan Rivers");
+        assert_eq!(companions.len(), 4);
+    }
+
+    #[test]
+    fn dynamic_price_multiplier_accounts_for_conditions() {
+        let state = GameState {
+            season: Season::Winter,
+            region: Region::Beltway,
+            vehicle_breakdowns: 4,
+            ..GameState::default()
+        };
+
+        let item = StoreItem {
+            id: "coats".to_string(),
+            name: "Coats".to_string(),
+            desc: "Warm".to_string(),
+            price_cents: 1000,
+            unique: false,
+            max_qty: 5,
+            grants: Grants::default(),
+            tags: vec!["warm_coat".to_string()],
+            category: String::new(),
+        };
+
+        let multiplier = GameTester::dynamic_price_multiplier(&state, &item);
+        assert!(multiplier > 100);
+    }
+
+    #[test]
+    fn execute_purchase_applies_grants_and_logs() {
+        let item = StoreItem {
+            id: "water".to_string(),
+            name: "Water".to_string(),
+            desc: "Hydration".to_string(),
+            price_cents: 100,
+            unique: false,
+            max_qty: 5,
+            grants: Grants {
+                supplies: 2,
+                ..Grants::default()
+            },
+            tags: vec!["water_jugs".to_string()],
+            category: String::new(),
+        };
+        let store = Store {
+            categories: Vec::new(),
+            items: vec![item],
+        };
+        let personas = PersonasList(vec![Persona {
+            id: "staffer".to_string(),
+            name: "Staffer".to_string(),
+            desc: "Test".to_string(),
+            score_mult: 1.0,
+            start: PersonaStart::default(),
+            mods: PersonaMods::default(),
+        }]);
+
+        let weather_config = make_weather_config(HashMap::new());
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, personas)),
+            false,
+        );
+        let mut state = GameState {
+            budget_cents: 10_000,
+            ..GameState::default()
+        };
+
+        tester.execute_purchase(&mut state, "water", 2);
+        assert!(state.stats.supplies >= 12);
+        assert!(state.budget_cents < 10_000);
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|log| log.contains("log.store.purchase.water"))
+        );
+    }
+
+    #[test]
+    fn apply_store_loadout_skips_without_budget() {
+        let weather_config = make_weather_config(HashMap::new());
+        let store = Store {
+            categories: Vec::new(),
+            items: Vec::new(),
+        };
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, PersonasList::empty())),
+            false,
+        );
+        let mut state = GameState {
+            budget_cents: 0,
+            ..GameState::default()
+        };
+        let starting_logs = state.logs.clone();
+        tester.apply_store_loadout(&mut state, GameplayStrategy::Balanced, 1);
+        assert_eq!(state.budget_cents, 0);
+        assert_eq!(state.logs, starting_logs);
     }
 }

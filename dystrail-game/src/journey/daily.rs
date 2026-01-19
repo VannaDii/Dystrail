@@ -303,6 +303,14 @@ mod tests {
         assert_eq!(cfg.health.weather.get(&Weather::Smoke), Some(&0.0));
     }
 
+    #[test]
+    fn daily_tick_outcome_zero_is_empty() {
+        let outcome = DailyTickOutcome::zero();
+        assert_eq!(outcome.supplies_delta, 0);
+        assert_eq!(outcome.sanity_delta, 0);
+        assert_eq!(outcome.health_delta, 0);
+    }
+
     fn approx_eq(left: f32, right: f32) {
         const EPS: f32 = 1e-6;
         assert!((left - right).abs() <= EPS, "{left} != {right}");

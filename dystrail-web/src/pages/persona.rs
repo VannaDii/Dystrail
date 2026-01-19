@@ -25,3 +25,18 @@ pub fn persona_page(props: &PersonaPageProps) -> Html {
       </section>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::PersonaPageProps;
+    use yew::Callback;
+
+    #[test]
+    fn props_eq_is_always_false() {
+        let props = PersonaPageProps {
+            on_selected: Callback::noop(),
+            on_continue: Callback::noop(),
+        };
+        assert!(!props.eq(&props));
+    }
+}

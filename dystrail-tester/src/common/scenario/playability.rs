@@ -123,3 +123,136 @@ fn edge_case_survival_expectation(summary: &SimulationSummary) -> Result<()> {
     );
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::common::scenario::CombinedScenario;
+    use crate::logic::TesterAssets;
+    use crate::logic::game_tester::PlayabilityMetrics;
+    use crate::logic::simulation::TurnOutcome;
+    use std::sync::Arc;
+
+    fn summary_with(metrics: PlayabilityMetrics) -> SimulationSummary {
+        SimulationSummary {
+            seed: 7,
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            turns: vec![TurnOutcome {
+                day: 1,
+                travel_message: String::from("ok"),
+                breakdown_started: false,
+                game_ended: false,
+                decision: None,
+                miles_traveled_actual: 0.0,
+            }],
+            metrics,
+            final_state: dystrail_game::GameState::default(),
+            ending_message: String::from("ok"),
+            game_ended: false,
+        }
+    }
+
+    #[test]
+    fn resource_stress_setup_sets_low_resources() {
+        let mut state = dystrail_game::GameState::default();
+        resource_stress_setup(&mut state);
+        assert_eq!(state.stats.supplies, 2);
+        assert_eq!(state.stats.hp, 3);
+        assert_eq!(state.stats.sanity, 4);
+        assert_eq!(state.budget_cents, 500);
+    }
+
+    #[test]
+    fn edge_case_survival_setup_sets_fragile_stats() {
+        let mut state = dystrail_game::GameState::default();
+        edge_case_survival_setup(&mut state);
+        assert_eq!(state.stats.pants, 95);
+        assert_eq!(state.stats.sanity, 1);
+        assert_eq!(state.stats.supplies, 1);
+        assert_eq!(state.stats.hp, 1);
+        assert_eq!(state.budget_cents, 50);
+    }
+
+    #[test]
+    fn resource_stress_expectation_accepts_depleted_metrics() {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 10;
+        metrics.final_supplies = 0;
+        let summary = summary_with(metrics);
+        resource_stress_expectation(&summary).expect("stress expectation ok");
+    }
+
+    #[test]
+    fn resource_stress_expectation_rejects_empty_turns() {
+        let metrics = PlayabilityMetrics::default();
+        let mut summary = summary_with(metrics);
+        summary.turns.clear();
+        let err = resource_stress_expectation(&summary).expect_err("turns should fail");
+        assert!(err.to_string().contains("no turns"));
+    }
+
+    #[test]
+    fn edge_case_survival_expectation_accepts_failure_metrics() {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 5;
+        metrics.final_hp = 0;
+        let summary = summary_with(metrics);
+        edge_case_survival_expectation(&summary).expect("edge expectation ok");
+    }
+
+    #[test]
+    fn edge_case_survival_expectation_rejects_non_failure() {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 5;
+        metrics.final_hp = 5;
+        metrics.final_supplies = 5;
+        metrics.final_sanity = 5;
+        metrics.final_pants = 10;
+        let summary = summary_with(metrics);
+        let err = edge_case_survival_expectation(&summary).expect_err("should fail");
+        assert!(err.to_string().contains("failure"));
+    }
+
+    #[test]
+    fn deterministic_verification_expectation_compares_runs() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let scenario = deterministic_verification_scenario(
+            crate::logic::game_tester::GameTester::new(assets.clone(), false),
+        );
+        let runner = crate::logic::game_tester::GameTester::new(assets, false);
+        let summary = runner.run_plan(&scenario.plan, 123);
+        for expectation in scenario.plan.expectations {
+            expectation.evaluate(&summary).expect("determinism ok");
+        }
+    }
+
+    #[test]
+    fn resource_stress_scenario_builds_logic_plan() {
+        let scenario = resource_stress_scenario();
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert!(logic.name.contains("Resource Management Stress"));
+        assert_eq!(logic.plan.max_days, Some(40));
+        assert!(logic.plan.setup.is_some());
+    }
+
+    #[test]
+    fn edge_case_survival_scenario_builds_logic_plan() {
+        let scenario = edge_case_survival_scenario();
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert!(logic.name.contains("Edge Case Survival"));
+        assert_eq!(logic.plan.max_days, Some(40));
+        assert!(logic.plan.setup.is_some());
+    }
+
+    #[test]
+    fn deterministic_verification_scenario_builds_logic_plan() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let scenario = deterministic_verification_scenario(
+            crate::logic::game_tester::GameTester::new(assets, false),
+        );
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert_eq!(logic.plan.max_days, Some(20));
+        assert_eq!(logic.plan.expectations.len(), 1);
+    }
+}

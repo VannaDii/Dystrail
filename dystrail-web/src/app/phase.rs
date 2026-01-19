@@ -4,7 +4,7 @@ use crate::game::state::{GameMode, GameState};
 use crate::game::weather::WeatherConfig;
 use crate::game::{JourneySession, MechanicalPolicyId, StrategyId};
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Phase {
     Boot,
     Persona,
@@ -85,5 +85,101 @@ pub fn build_weather_badge(state: &GameState, cfg: &WeatherConfig) -> WeatherBad
     WeatherBadge {
         weather: weather_today,
         mitigated,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::CrossingKind;
+    use crate::game::data::{Choice, Effects, Encounter};
+    use crate::game::exec_orders::ExecOrder;
+    use crate::game::state::{Ending, PendingCrossing, PolicyKind};
+
+    fn encounter_stub() -> Encounter {
+        Encounter {
+            id: String::from("enc"),
+            name: String::from("Encounter"),
+            desc: String::new(),
+            weight: 1,
+            regions: Vec::new(),
+            modes: Vec::new(),
+            choices: vec![Choice {
+                label: String::from("Continue"),
+                effects: Effects::default(),
+            }],
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        }
+    }
+
+    #[test]
+    fn strategy_and_phase_helpers_cover_branches() {
+        let mut state = GameState::default();
+        assert_eq!(strategy_for_state(&state), StrategyId::Balanced);
+        state.policy = Some(PolicyKind::Aggressive);
+        assert_eq!(strategy_for_state(&state), StrategyId::Aggressive);
+
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let session = session_from_state(state.clone(), &endgame_cfg);
+        assert_eq!(session.state().seed, state.seed);
+
+        let mut state = GameState::default();
+        assert_eq!(phase_for_state(&state), Phase::Travel);
+
+        state.current_encounter = Some(encounter_stub());
+        assert_eq!(phase_for_state(&state), Phase::Encounter);
+        state.current_encounter = None;
+
+        state.pending_crossing = Some(PendingCrossing {
+            kind: CrossingKind::Checkpoint,
+            computed_miles_today: 0.0,
+        });
+        assert_eq!(phase_for_state(&state), Phase::Crossing);
+        state.pending_crossing = None;
+
+        state.mechanical_policy = MechanicalPolicyId::OtDeluxe90s;
+        state.ot_deluxe.store.pending_node = Some(3);
+        assert_eq!(phase_for_state(&state), Phase::Store);
+        state.ot_deluxe.store.pending_node = None;
+
+        state.ot_deluxe.crossing.choice_pending = true;
+        assert_eq!(phase_for_state(&state), Phase::Crossing);
+        state.ot_deluxe.crossing.choice_pending = false;
+
+        state.ot_deluxe.route.pending_prompt =
+            Some(crate::game::OtDeluxeRoutePrompt::SubletteCutoff);
+        assert_eq!(phase_for_state(&state), Phase::RoutePrompt);
+        state.ot_deluxe.route.pending_prompt = None;
+
+        state.mechanical_policy = MechanicalPolicyId::DystrailLegacy;
+        state.boss.readiness.ready = true;
+        state.boss.outcome.attempted = false;
+        assert_eq!(phase_for_state(&state), Phase::Boss);
+
+        state.ending = Some(Ending::BossVictory);
+        assert_eq!(phase_for_state(&state), Phase::Result);
+        state.ending = None;
+        state.stats.pants = 120;
+        assert_eq!(phase_for_state(&state), Phase::Result);
+
+        state.current_order = Some(ExecOrder::Shutdown);
+        let _ = state.current_order;
+    }
+
+    #[test]
+    fn build_weather_badge_marks_mitigation() {
+        let mut state = GameState::default();
+        let config = WeatherConfig::load_from_static();
+        if let Some((weather, mitigation)) = config.mitigation.iter().next() {
+            state.weather_state.today = *weather;
+            state.inventory.tags.insert(mitigation.tag.clone());
+            let badge = build_weather_badge(&state, &config);
+            assert!(badge.mitigated);
+        } else {
+            let badge = build_weather_badge(&state, &config);
+            assert!(!badge.mitigated);
+        }
     }
 }

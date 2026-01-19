@@ -121,3 +121,78 @@ fn smoke_expectation(summary: &SimulationSummary) -> Result<()> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::{PlayabilityMetrics, SimulationSummary};
+
+    fn base_summary() -> SimulationSummary {
+        SimulationSummary {
+            seed: 1,
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            turns: Vec::new(),
+            metrics: PlayabilityMetrics::default(),
+            final_state: dystrail_game::GameState::default(),
+            ending_message: String::from("ok"),
+            game_ended: false,
+        }
+    }
+
+    #[test]
+    fn smoke_scenario_exposes_logic_plan() {
+        let scenario = SmokeScenario;
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert_eq!(logic.name, "Smoke Test");
+    }
+
+    #[test]
+    fn smoke_expectation_accepts_default_state() {
+        let summary = base_summary();
+        smoke_expectation(&summary).expect("smoke ok");
+    }
+
+    #[test]
+    fn smoke_plan_sets_expectations() {
+        let plan = SmokeScenario::plan();
+        assert_eq!(plan.mode, GameMode::Classic);
+        assert_eq!(plan.strategy, GameplayStrategy::Balanced);
+        assert_eq!(plan.max_days, Some(0));
+        assert_eq!(plan.expectations.len(), 1);
+    }
+
+    #[test]
+    fn smoke_expectation_rejects_invalid_stats() {
+        let mut summary = base_summary();
+        summary.final_state.stats.hp = 0;
+        let err = smoke_expectation(&summary).expect_err("hp should fail");
+        assert!(err.to_string().contains("HP"));
+
+        let mut summary = base_summary();
+        summary.final_state.stats.supplies = -1;
+        let err = smoke_expectation(&summary).expect_err("supplies should fail");
+        assert!(err.to_string().to_lowercase().contains("supplies"));
+    }
+
+    #[test]
+    fn smoke_expectation_rejects_out_of_range_stats() {
+        let mut summary = base_summary();
+        summary.final_state.stats.hp = 11;
+        let err = smoke_expectation(&summary).expect_err("hp upper bound should fail");
+        assert!(err.to_string().contains("HP should be <= 10"));
+
+        let mut summary = base_summary();
+        summary.final_state.stats.sanity = 11;
+        let err = smoke_expectation(&summary).expect_err("sanity upper bound should fail");
+        assert!(err.to_string().contains("Sanity should be <= 10"));
+    }
+
+    #[test]
+    fn smoke_expectation_rejects_zero_day() {
+        let mut summary = base_summary();
+        summary.final_state.day = 0;
+        let err = smoke_expectation(&summary).expect_err("day lower bound should fail");
+        assert!(err.to_string().contains("day"));
+    }
+}

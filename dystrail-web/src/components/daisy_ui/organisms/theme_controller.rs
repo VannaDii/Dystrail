@@ -1,6 +1,8 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::TargetCast;
 
+#[cfg(target_arch = "wasm32")]
 fn apply_theme(theme: &str) {
     if let Some(window) = web_sys::window()
         && let Some(document) = window.document()
@@ -30,13 +32,21 @@ pub fn theme_controller(props: &ThemeControllerProps) -> f::Html {
         .unwrap_or_else(|| props.themes.first().cloned().unwrap_or_default());
     let on_change = {
         let cb = props.on_change.clone();
-        f::Callback::from(move |e: f::Event| {
-            if let Some(sel) = e.target_dyn_into::<f::HtmlSelectElement>() {
-                let value: f::AttrValue = sel.value().into();
-                apply_theme(&value);
-                cb.emit(value);
-            }
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            f::Callback::from(move |e: f::Event| {
+                if let Some(sel) = e.target_dyn_into::<f::HtmlSelectElement>() {
+                    let value: f::AttrValue = sel.value().into();
+                    apply_theme(&value);
+                    cb.emit(value);
+                }
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = cb;
+            f::Callback::from(|_e: f::Event| {})
+        }
     };
     f::html! {
         <select class={class} value={selected} onchange={on_change} aria-label="Theme selector">

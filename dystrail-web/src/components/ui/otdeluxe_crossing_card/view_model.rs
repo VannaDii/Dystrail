@@ -119,3 +119,64 @@ const fn bed_key(bed: OtDeluxeRiverBed) -> &'static str {
 fn round_one_decimal(value: f32) -> f32 {
     (value * 10.0).round() / 10.0
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::otdeluxe_state::OtDeluxeRiverState;
+
+    #[test]
+    fn build_viewmodel_errors_without_river_data() {
+        crate::i18n::set_lang("en");
+        let gs = GameState::default();
+        let err =
+            build_otdeluxe_crossing_viewmodel(&gs).expect_err("missing river data should error");
+        assert!(err.contains("Missing river"));
+    }
+
+    #[test]
+    fn river_name_key_maps_variants() {
+        assert_eq!(
+            river_name_key(OtDeluxeRiver::Kansas),
+            "ot_cross.river.kansas"
+        );
+        assert_eq!(
+            river_name_key(OtDeluxeRiver::BigBlue),
+            "ot_cross.river.big_blue"
+        );
+        assert_eq!(river_name_key(OtDeluxeRiver::Green), "ot_cross.river.green");
+        assert_eq!(river_name_key(OtDeluxeRiver::Snake), "ot_cross.river.snake");
+    }
+
+    #[test]
+    fn bed_key_maps_variants() {
+        assert_eq!(bed_key(OtDeluxeRiverBed::Rocky), "ot_cross.bed.rocky");
+        assert_eq!(bed_key(OtDeluxeRiverBed::Muddy), "ot_cross.bed.muddy");
+        assert_eq!(bed_key(OtDeluxeRiverBed::Unknown), "ot_cross.bed.unknown");
+    }
+
+    #[test]
+    fn round_one_decimal_rounds_expected_values() {
+        assert!((round_one_decimal(12.34) - 12.3).abs() < f32::EPSILON);
+        assert!((round_one_decimal(9.96) - 10.0).abs() < f32::EPSILON);
+    }
+
+    #[test]
+    fn build_viewmodel_populates_stats_and_labels() {
+        crate::i18n::set_lang("en");
+        let mut gs = GameState::default();
+        gs.ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Snake);
+        gs.ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            width_ft: 612.4,
+            depth_ft: 3.6,
+            swiftness: 0.42,
+            bed: OtDeluxeRiverBed::Muddy,
+        });
+
+        let vm = build_otdeluxe_crossing_viewmodel(&gs).expect("view model should build");
+        assert!(vm.prompt.contains(&i18n::t("ot_cross.river.snake")));
+        assert!(vm.stats.contains(&i18n::t("ot_cross.bed.muddy")));
+        assert!(!vm.ferry_label.is_empty());
+        assert!(!vm.guide_label.is_empty());
+    }
+}

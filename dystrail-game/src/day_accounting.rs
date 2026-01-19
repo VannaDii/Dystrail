@@ -418,6 +418,66 @@ mod tests {
     }
 
     #[test]
+    fn ledger_ratio_defaults_to_one_without_days() {
+        let metrics = DayLedgerMetrics::default();
+        assert!((metrics.travel_ratio() - 1.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn endgame_stop_cap_forces_partial_day() {
+        let mut state = fresh_state();
+        state.endgame.active = true;
+        state.endgame.stop_cap_window = 3;
+        state.endgame.stop_cap_max_full = 0;
+
+        let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+
+        assert_eq!(kind, TravelDayKind::Partial);
+        assert!(
+            state
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "auto_cap")
+        );
+    }
+
+    #[test]
+    fn endgame_stop_cap_counts_recent_nontravel_days() {
+        let mut state = fresh_state();
+        state.endgame.active = true;
+        state.endgame.stop_cap_window = 2;
+        state.endgame.stop_cap_max_full = 1;
+        state.recent_travel_days =
+            VecDeque::from(vec![TravelDayKind::Travel, TravelDayKind::NonTravel]);
+
+        assert!(enforce_endgame_stop_cap(&state));
+    }
+
+    #[test]
+    fn endgame_wear_shave_reduces_wear() {
+        let mut state = fresh_state();
+        state.endgame.active = true;
+        state.endgame.wear_shave_ratio = 0.5;
+        state.vehicle.wear = 10.0;
+
+        let _ = record_travel_day(&mut state, TravelDayKind::Partial, 4.0);
+
+        assert!((state.vehicle.wear - 5.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn record_travel_day_zeroes_miles_when_trail_complete() {
+        let mut state = fresh_state();
+        state.trail_distance = 0.0;
+        state.miles_traveled_actual = 0.0;
+
+        let (_, miles) = record_travel_day(&mut state, TravelDayKind::Travel, 5.0);
+
+        assert!(miles.abs() <= f32::EPSILON);
+        assert!(state.current_day_miles.abs() <= f32::EPSILON);
+    }
+
+    #[test]
     fn day_record_serialization_roundtrip_is_stable() {
         let records = vec![
             DayRecord::new(0, TravelDayKind::Travel, 9.25),

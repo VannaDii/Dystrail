@@ -14,8 +14,15 @@ pub fn share_code_bar(p: &Props) -> Html {
     let oninput = {
         let cb = p.onchange.clone();
         Callback::from(move |e: InputEvent| {
-            if let Some(input) = e.target_dyn_into::<web_sys::HtmlInputElement>() {
-                cb.emit(input.value());
+            #[cfg(target_arch = "wasm32")]
+            {
+                if let Some(input) = e.target_dyn_into::<web_sys::HtmlInputElement>() {
+                    cb.emit(input.value());
+                }
+            }
+            #[cfg(not(target_arch = "wasm32"))]
+            {
+                let _ = (&e, &cb);
             }
         })
     };

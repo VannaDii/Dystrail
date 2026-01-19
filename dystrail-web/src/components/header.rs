@@ -1,4 +1,7 @@
-use crate::i18n::{locales, set_lang, t};
+#[cfg(target_arch = "wasm32")]
+use crate::i18n::set_lang;
+use crate::i18n::{locales, t};
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
@@ -15,24 +18,48 @@ pub struct Props {
 pub fn header(p: &Props) -> Html {
     let on_change = {
         let cb = p.on_lang_change.clone();
-        Callback::from(move |e: web_sys::Event| {
-            if let Some(sel) = e
-                .target()
-                .and_then(|t| t.dyn_into::<web_sys::HtmlSelectElement>().ok())
-            {
-                set_lang(&sel.value());
-                cb.emit(sel.value());
-            }
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: web_sys::Event| {
+                if let Some(sel) = e
+                    .target()
+                    .and_then(|t| t.dyn_into::<web_sys::HtmlSelectElement>().ok())
+                {
+                    set_lang(&sel.value());
+                    cb.emit(sel.value());
+                }
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = cb;
+            Callback::from(|_e: web_sys::Event| {})
+        }
     };
     let on_hc_toggle = {
         let cb = p.on_toggle_hc.clone();
         let current = p.high_contrast;
-        Callback::from(move |_| cb.emit(!current))
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |_| cb.emit(!current))
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (cb, current);
+            Callback::from(|_| {})
+        }
     };
     let open_save = {
         let cb = p.on_open_save.clone();
-        Callback::from(move |_| cb.emit(()))
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |_| cb.emit(()))
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = cb;
+            Callback::from(|_| {})
+        }
     };
     html! {
         <header role="banner">

@@ -346,4 +346,134 @@ mod tests {
             }
         }
     }
+
+    #[test]
+    fn quote_purchase_aggregates_and_ignores_zero_lines() {
+        let policy = OtDeluxe90sPolicy::default();
+        let store = &policy.store;
+        let inventory = OtDeluxeInventory {
+            cash_cents: 10_000,
+            ..OtDeluxeInventory::default()
+        };
+        let oxen = OtDeluxeOxenState::default();
+
+        let lines = [
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::ClothesSet,
+                quantity: 2,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::ClothesSet,
+                quantity: 1,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::FoodLb,
+                quantity: 0,
+            },
+        ];
+        let receipt = quote_purchase(store, 0, &inventory, oxen, &lines).expect("quote");
+        assert_eq!(receipt.lines.len(), 1);
+        assert_eq!(
+            receipt.lines[0],
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::ClothesSet,
+                quantity: 3,
+            }
+        );
+        let expected = price_cents_at_node(store, OtDeluxeStoreItem::ClothesSet, 0) * 3;
+        assert_eq!(receipt.total_cost_cents, expected);
+    }
+
+    #[test]
+    fn apply_purchase_rejects_when_cash_insufficient() {
+        let policy = OtDeluxe90sPolicy::default();
+        let store = &policy.store;
+        let mut inventory = OtDeluxeInventory {
+            cash_cents: 100,
+            ..OtDeluxeInventory::default()
+        };
+        let mut oxen = OtDeluxeOxenState::default();
+
+        let lines = [OtDeluxeStoreLineItem {
+            item: OtDeluxeStoreItem::Oxen,
+            quantity: 1,
+        }];
+        let err = apply_purchase(store, 0, &mut inventory, &mut oxen, &lines)
+            .expect_err("expected cash error");
+        match err {
+            OtDeluxeStoreError::InsufficientCash {
+                required_cents,
+                available_cents,
+            } => {
+                assert!(required_cents > available_cents);
+                assert_eq!(available_cents, 100);
+            }
+            OtDeluxeStoreError::ExceedsCap { .. } => panic!("unexpected error"),
+        }
+    }
+
+    #[test]
+    fn apply_purchase_updates_all_item_kinds() {
+        let policy = OtDeluxe90sPolicy::default();
+        let store = &policy.store;
+        let mut inventory = OtDeluxeInventory {
+            cash_cents: 30_000,
+            bullets: 10,
+            clothes_sets: 1,
+            food_lbs: 10,
+            ..OtDeluxeInventory::default()
+        };
+        let mut oxen = OtDeluxeOxenState {
+            healthy: 2,
+            sick: 0,
+        };
+
+        let lines = [
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::Oxen,
+                quantity: 2,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::ClothesSet,
+                quantity: 1,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::AmmoBox,
+                quantity: 1,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::FoodLb,
+                quantity: 25,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::Wheel,
+                quantity: 1,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::Axle,
+                quantity: 1,
+            },
+            OtDeluxeStoreLineItem {
+                item: OtDeluxeStoreItem::Tongue,
+                quantity: 1,
+            },
+        ];
+
+        let receipt =
+            apply_purchase(store, 0, &mut inventory, &mut oxen, &lines).expect("purchase succeeds");
+
+        let expected_cost = lines.iter().fold(0_u32, |acc, line| {
+            acc.saturating_add(
+                price_cents_at_node(store, line.item, 0).saturating_mul(u32::from(line.quantity)),
+            )
+        });
+        assert_eq!(receipt.total_cost_cents, expected_cost);
+        assert_eq!(oxen.healthy, 4);
+        assert_eq!(inventory.clothes_sets, 2);
+        assert_eq!(inventory.bullets, 30);
+        assert_eq!(inventory.food_lbs, 35);
+        assert_eq!(inventory.spares_wheels, 1);
+        assert_eq!(inventory.spares_axles, 1);
+        assert_eq!(inventory.spares_tongues, 1);
+    }
 }

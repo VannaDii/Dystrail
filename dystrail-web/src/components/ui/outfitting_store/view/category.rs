@@ -1,4 +1,4 @@
-use super::super::handlers::format_currency;
+use super::super::handlers::announce::format_currency;
 use super::super::state::{StoreScreen, StoreState, set_screen};
 use super::item_card::render_store_item_card;
 use crate::i18n;

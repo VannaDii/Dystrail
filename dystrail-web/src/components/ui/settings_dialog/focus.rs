@@ -1,16 +1,19 @@
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::hook;
 use yew::prelude::*;
 
+#[cfg(target_arch = "wasm32")]
 const FOCUSABLE_QUERY: &str =
     "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])";
 
+#[cfg(target_arch = "wasm32")]
 #[hook]
 pub fn use_focus_management(open: bool, container_ref: NodeRef) {
     use_effect_with((open, container_ref), move |(open, container_ref)| {
         let mut prev_focus: Option<web_sys::HtmlElement> = None;
-        let focus_target = if cfg!(target_arch = "wasm32") && *open {
+        let focus_target = if *open {
             prev_focus = web_sys::window()
                 .and_then(|w| w.document())
                 .and_then(|doc| {
@@ -41,12 +44,16 @@ pub fn use_focus_management(open: bool, container_ref: NodeRef) {
     });
 }
 
-pub fn keydown_handler(container_ref: NodeRef, on_close: Callback<()>) -> Callback<KeyboardEvent> {
+#[cfg(not(target_arch = "wasm32"))]
+#[hook]
+pub fn use_focus_management(open: bool, container_ref: NodeRef) {
+    let _ = (open, container_ref);
+}
+
+#[cfg(target_arch = "wasm32")]
+pub fn keydown_handler(container_ref: &NodeRef, on_close: Callback<()>) -> Callback<KeyboardEvent> {
+    let container_ref = container_ref.clone();
     Callback::from(move |e: KeyboardEvent| {
-        if !cfg!(target_arch = "wasm32") {
-            let _ = e;
-            return;
-        }
         if e.key() == "Escape" {
             on_close.emit(());
             return;
@@ -92,5 +99,13 @@ pub fn keydown_handler(container_ref: NodeRef, on_close: Callback<()>) -> Callba
                 let _ = first.focus();
             }
         }
+    })
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn keydown_handler(container_ref: &NodeRef, on_close: Callback<()>) -> Callback<KeyboardEvent> {
+    let _ = container_ref;
+    Callback::from(move |_e: KeyboardEvent| {
+        let _ = &on_close;
     })
 }

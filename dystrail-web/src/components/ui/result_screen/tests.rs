@@ -86,3 +86,49 @@ fn result_screen_renders_summary() {
     assert!(html.contains("result-screen"));
     assert!(html.contains("Result"));
 }
+
+#[test]
+fn interpolate_template_includes_summary_fields() {
+    crate::i18n::set_lang("en");
+    let summary = baseline_summary();
+    let text = share::interpolate_template(
+        "Seed {seed} Score {score} {headline} {persona} {mult} {mode}",
+        &summary,
+        "Heading",
+    );
+    assert!(text.contains(&summary.seed));
+    assert!(text.contains(&summary.persona_name));
+    assert!(text.contains(&summary.mode));
+    assert!(text.contains("Heading"));
+}
+
+#[test]
+fn copy_payload_errors_without_document() {
+    let err = share::copy_payload("payload").unwrap_err();
+    assert!(err.contains("Document"));
+}
+
+#[test]
+fn summary_uses_result_config() {
+    let props = baseline_props();
+    let summary = share::summary(&props).expect("summary should build");
+    assert!(!summary.seed.is_empty());
+    assert!(!summary.mode.is_empty());
+}
+
+#[test]
+fn props_eq_tracks_result_config_and_boss_only() {
+    let mut props_a = baseline_props();
+    let mut props_b = baseline_props();
+    props_b.game_state.day = props_a.game_state.day + 5;
+    assert!(props_a == props_b);
+
+    props_b.boss_won = true;
+    assert!(props_a != props_b);
+
+    props_a.boss_won = true;
+    props_b = baseline_props();
+    props_b.boss_won = true;
+    props_b.result_config.limits.share_seed_maxlen = 99;
+    assert!(props_a != props_b);
+}

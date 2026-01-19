@@ -9,14 +9,14 @@ lint:
     cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
     cargo test --workspace --all --all-features --locked -- --nocapture
     wasm-pack test --headless --chrome dystrail-web
-    cargo tarpaulin --packages dystrail-game --fail-under 77
+    just coverage
 
 security:
     cargo audit --file audit.toml --deny warnings
     cargo deny check licenses bans advisories sources
 
 build-release:
-    cd dystrail-web && PUBLIC_URL=/play trunk build --release --public-url /play/
+    cd dystrail-web && NO_COLOR=true PUBLIC_URL=/play trunk build --release --public-url /play/
     cargo build --workspace --release
 
 serve-web:
@@ -40,7 +40,9 @@ check:
     just validate
 
 coverage:
-    cargo tarpaulin --packages dystrail-game --fail-under 77
+    cargo tarpaulin --workspace --packages dystrail-game --exclude dystrail-tester dystrail-web --include-files '*dystrail-game*' --fail-under 90
+    cargo tarpaulin --workspace --packages dystrail-tester --exclude dystrail-game dystrail-web --include-files '*dystrail-tester*' --fail-under 90
+    cargo tarpaulin --workspace --packages dystrail-web --exclude dystrail-game dystrail-tester --include-files '*dystrail-web*' --fail-under 90
 
 # Docs
 docs-build:

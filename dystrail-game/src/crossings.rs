@@ -396,7 +396,7 @@ pub fn can_use_permit(gs: &crate::GameState, _kind: &CrossingKind) -> bool {
 mod tests {
     use super::*;
     use crate::journey::{RngBundle, TravelDayKind};
-    use crate::state::GameState;
+    use crate::state::{GameState, Region, Season};
     use std::rc::Rc;
 
     #[test]
@@ -421,5 +421,98 @@ mod tests {
                 .all(|rec| rec.kind == TravelDayKind::Partial)
         );
         assert!(last_days.iter().all(|rec| rec.miles > 0.0));
+    }
+
+    #[test]
+    fn calculate_bribe_cost_rounds_up() {
+        assert_eq!(calculate_bribe_cost(1000, 0), 1000);
+        assert_eq!(calculate_bribe_cost(999, 10), 900);
+        assert_eq!(calculate_bribe_cost(1000, 150), 0);
+    }
+
+    #[test]
+    fn apply_bribe_spends_budget_when_possible() {
+        let mut state = GameState {
+            budget_cents: 1500,
+            budget: 15,
+            ..GameState::default()
+        };
+        let cfg = CrossingConfig::default();
+        let bribe_cost = calculate_bribe_cost(
+            cfg.types[&CrossingKind::Checkpoint].bribe.base_cost_cents,
+            0,
+        );
+
+        let result = apply_bribe(&mut state, &cfg, CrossingKind::Checkpoint);
+
+        assert_eq!(result, "crossing.result.bribe.success");
+        assert_eq!(state.bribes_spent_cents, bribe_cost);
+        assert_eq!(state.budget_cents, 1500 - bribe_cost);
+    }
+
+    #[test]
+    fn apply_bribe_fails_without_budget() {
+        let mut state = GameState::default();
+        let cfg = CrossingConfig::default();
+        let bribe_cost =
+            calculate_bribe_cost(cfg.types[&CrossingKind::BridgeOut].bribe.base_cost_cents, 0);
+        state.budget_cents = bribe_cost.saturating_sub(1);
+        state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
+
+        let result = apply_bribe(&mut state, &cfg, CrossingKind::BridgeOut);
+
+        assert_eq!(result, "crossing.result.bribe.fail");
+        assert_eq!(state.bribes_spent_cents, 0);
+    }
+
+    #[test]
+    fn apply_permit_increases_credibility() {
+        let mut state = GameState::default();
+        let cfg = CrossingConfig::default();
+        let starting = state.stats.credibility;
+
+        let result = apply_permit(&mut state, &cfg, CrossingKind::Checkpoint);
+
+        assert_eq!(result, "crossing.result.permit.success");
+        assert_eq!(
+            state.stats.credibility,
+            starting + cfg.types[&CrossingKind::Checkpoint].permit.cred_gain
+        );
+    }
+
+    #[test]
+    fn can_afford_bribe_respects_discount() {
+        let mut state = GameState::default();
+        let cfg = CrossingConfig::default();
+        state.mods.bribe_discount_pct = 50;
+        let cost = calculate_bribe_cost(
+            cfg.types[&CrossingKind::Checkpoint].bribe.base_cost_cents,
+            state.mods.bribe_discount_pct,
+        );
+        state.budget_cents = cost.saturating_sub(1);
+        assert!(!can_afford_bribe(&state, &cfg, CrossingKind::Checkpoint));
+        state.budget_cents = cost;
+        assert!(can_afford_bribe(&state, &cfg, CrossingKind::Checkpoint));
+    }
+
+    #[test]
+    fn can_use_permit_detects_tags_and_receipts() {
+        let mut state = GameState::default();
+        assert!(!can_use_permit(&state, &CrossingKind::Checkpoint));
+
+        state.inventory.tags.insert(String::from("permit"));
+        assert!(can_use_permit(&state, &CrossingKind::Checkpoint));
+
+        state.inventory.tags.clear();
+        state.receipts.push(String::from("press_pass"));
+        assert!(can_use_permit(&state, &CrossingKind::Checkpoint));
+    }
+
+    #[test]
+    fn threshold_table_defaults_lookup_values() {
+        let table = ThresholdTable::with_defaults();
+        let entry = table.lookup(Region::Heartland, Season::Summer);
+        assert_eq!(entry.cost_multiplier, 113);
+        assert!((entry.success_adjust + 0.035).abs() <= f32::EPSILON);
     }
 }

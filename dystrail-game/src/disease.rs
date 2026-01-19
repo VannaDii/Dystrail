@@ -247,3 +247,148 @@ const fn default_weight() -> u16 {
 const fn default_one_f32() -> f32 {
     1.0
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::mechanics::otdeluxe90s::OtDeluxe90sPolicy;
+    use rand::SeedableRng;
+
+    #[test]
+    fn disease_kind_keys_are_stable() {
+        assert_eq!(DiseaseKind::Illness.key(), "illness");
+        assert_eq!(DiseaseKind::Injury.key(), "injury");
+    }
+
+    #[test]
+    fn catalog_loads_and_finds_by_id() {
+        let catalog = DiseaseCatalog::default_catalog();
+        assert!(!catalog.diseases.is_empty());
+        let first = &catalog.diseases[0];
+        let found = catalog.find_by_id(&first.id);
+        assert!(found.is_some());
+    }
+
+    #[test]
+    fn catalog_parsing_errors_on_invalid_json() {
+        let err = DiseaseCatalog::from_json("{invalid json}");
+        assert!(err.is_err());
+    }
+
+    #[test]
+    fn pick_by_kind_with_uniform_fallback_emits_trace() {
+        let catalog = DiseaseCatalog {
+            diseases: vec![
+                DiseaseDef {
+                    id: "d1".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.d1".into(),
+                    weight: 0,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+                DiseaseDef {
+                    id: "d2".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.d2".into(),
+                    weight: 0,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+            ],
+        };
+
+        let mut rng = rand::rngs::SmallRng::from_seed([1_u8; 32]);
+        let (picked, trace) = catalog.pick_by_kind_with_trace(DiseaseKind::Illness, &mut rng);
+        assert!(picked.is_some());
+        let trace = trace.expect("trace should be returned");
+        assert_eq!(trace.pool_id, "otdeluxe.affliction_disease.illness");
+        assert_eq!(trace.candidates.len(), 2);
+    }
+
+    #[test]
+    fn pick_by_kind_returns_none_when_kind_missing() {
+        let catalog = DiseaseCatalog {
+            diseases: Vec::new(),
+        };
+        let mut rng = rand::rngs::SmallRng::from_seed([2_u8; 32]);
+        let picked = catalog.pick_by_kind(DiseaseKind::Illness, &mut rng);
+        assert!(picked.is_none());
+    }
+
+    #[test]
+    fn pick_by_kind_selects_weighted_candidate() {
+        let catalog = DiseaseCatalog {
+            diseases: vec![
+                DiseaseDef {
+                    id: "zero".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.zero".into(),
+                    weight: 0,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+                DiseaseDef {
+                    id: "weighted".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.weighted".into(),
+                    weight: 2,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+            ],
+        };
+
+        let mut rng = rand::rngs::mock::StepRng::new(0, 0);
+        let picked = catalog.pick_by_kind(DiseaseKind::Illness, &mut rng);
+        assert!(picked.is_some());
+        assert_eq!(picked.unwrap().id, "weighted");
+    }
+
+    #[test]
+    fn duration_uses_policy_fallbacks() {
+        let policy = OtDeluxe90sPolicy::default();
+        let def = DiseaseDef {
+            id: "illness".into(),
+            kind: DiseaseKind::Illness,
+            display_key: "illness".into(),
+            weight: 1,
+            duration_days: None,
+            onset_effects: DiseaseEffects::default(),
+            daily_tick_effects: DiseaseEffects::default(),
+            fatality_model: None,
+            tags: Vec::new(),
+        };
+        assert_eq!(
+            def.duration_for(&policy.affliction),
+            policy.affliction.illness_duration_days
+        );
+
+        let injury = DiseaseDef {
+            kind: DiseaseKind::Injury,
+            duration_days: Some(5),
+            ..def
+        };
+        assert_eq!(injury.duration_for(&policy.affliction), 5);
+    }
+
+    #[test]
+    fn disease_effects_defaults_are_stable() {
+        let effects = DiseaseEffects::default();
+        assert_eq!(effects.health_general_delta, 0);
+        assert_eq!(effects.food_lbs_delta, 0);
+        assert!((effects.travel_speed_mult - 1.0).abs() <= f32::EPSILON);
+    }
+}

@@ -87,3 +87,85 @@ pub(super) fn evaluate_selection(
         _ => SelectionResolution::None,
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn evaluate_selection_handles_spares_and_messages() {
+        crate::i18n::set_lang("en");
+        let resolution = evaluate_selection(1, Some(Part::Tire), Some((1, 0, 0, 0)));
+        assert!(matches!(
+            resolution,
+            SelectionResolution::Action(VehicleAction::UseSpare(Part::Tire), _)
+        ));
+
+        let missing = evaluate_selection(2, Some(Part::Battery), Some((0, 0, 0, 0)));
+        assert!(matches!(missing, SelectionResolution::Message(_)));
+    }
+
+    #[test]
+    fn evaluate_selection_handles_hack_and_back() {
+        crate::i18n::set_lang("en");
+        let hack = evaluate_selection(5, Some(Part::Alternator), Some((0, 0, 0, 0)));
+        assert!(matches!(
+            hack,
+            SelectionResolution::Action(VehicleAction::HackFix, _)
+        ));
+
+        let back = evaluate_selection(0, None, None);
+        assert_eq!(back, SelectionResolution::Back);
+    }
+
+    #[test]
+    fn evaluate_selection_ignores_unknown_indices() {
+        let none = evaluate_selection(9, None, None);
+        assert_eq!(none, SelectionResolution::None);
+    }
+
+    #[test]
+    fn evaluate_selection_covers_remaining_spare_paths() {
+        crate::i18n::set_lang("en");
+        let alt = evaluate_selection(3, Some(Part::Alternator), Some((0, 0, 1, 0)));
+        assert!(matches!(
+            alt,
+            SelectionResolution::Action(VehicleAction::UseSpare(Part::Alternator), _)
+        ));
+
+        let pump = evaluate_selection(4, Some(Part::FuelPump), Some((0, 0, 0, 2)));
+        assert!(matches!(
+            pump,
+            SelectionResolution::Action(VehicleAction::UseSpare(Part::FuelPump), _)
+        ));
+
+        let no_active = evaluate_selection(5, None, Some((0, 0, 0, 0)));
+        assert!(matches!(no_active, SelectionResolution::Message(_)));
+    }
+
+    #[test]
+    fn evaluate_selection_reports_missing_spares() {
+        crate::i18n::set_lang("en");
+        let tire_missing = evaluate_selection(1, Some(Part::Tire), Some((0, 0, 0, 0)));
+        assert!(matches!(tire_missing, SelectionResolution::Message(_)));
+
+        let battery_missing = evaluate_selection(2, Some(Part::Battery), Some((0, 0, 0, 0)));
+        assert!(matches!(battery_missing, SelectionResolution::Message(_)));
+
+        let alt_missing = evaluate_selection(3, Some(Part::Alternator), Some((0, 0, 0, 0)));
+        assert!(matches!(alt_missing, SelectionResolution::Message(_)));
+
+        let pump_missing = evaluate_selection(4, Some(Part::FuelPump), Some((0, 0, 0, 0)));
+        assert!(matches!(pump_missing, SelectionResolution::Message(_)));
+    }
+
+    #[test]
+    fn evaluate_selection_uses_battery_spare_when_available() {
+        crate::i18n::set_lang("en");
+        let battery = evaluate_selection(2, Some(Part::Battery), Some((0, 2, 0, 0)));
+        assert!(matches!(
+            battery,
+            SelectionResolution::Action(VehicleAction::UseSpare(Part::Battery), _)
+        ));
+    }
+}

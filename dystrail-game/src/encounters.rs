@@ -687,4 +687,392 @@ mod tests {
         let pick = choose_weighted(&weights, &mut rng).map(|(idx, _)| idx);
         assert_eq!(pick, Some(1));
     }
+
+    #[test]
+    fn weights_apply_starvation_bonus_to_forage() {
+        let mut forage = make_enc("forage_cache", &["Heartland"]);
+        forage.name = "Forage Cache".to_string();
+        let normal = make_enc("normal", &["Heartland"]);
+        let data = EncounterData::from_encounters(vec![forage, normal]);
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 1,
+            starving: true,
+            data: &data,
+            recent: &[],
+            current_day: 10,
+            policy: None,
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(&[]);
+        let weights = build_weights(vec![0, 1], &candidates, &request, &last_seen, None, 0);
+        let forage_weight = weights
+            .iter()
+            .find(|(idx, _)| *idx == 0)
+            .map_or(0, |(_, weight)| *weight);
+        let normal_weight = weights
+            .iter()
+            .find(|(idx, _)| *idx == 1)
+            .map_or(0, |(_, weight)| *weight);
+        assert!(forage_weight > normal_weight);
+    }
+
+    #[test]
+    fn weights_penalize_chainable_encounters() {
+        let mut chainable = make_enc("chain", &["Heartland"]);
+        chainable.chainable = true;
+        let normal = make_enc("plain", &["Heartland"]);
+        let data = EncounterData::from_encounters(vec![chainable, normal]);
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &[],
+            current_day: 10,
+            policy: None,
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(&[]);
+        let weights = build_weights(vec![0, 1], &candidates, &request, &last_seen, None, 0);
+        let chain_weight = weights
+            .iter()
+            .find(|(idx, _)| *idx == 0)
+            .map_or(0, |(_, weight)| *weight);
+        let normal_weight = weights
+            .iter()
+            .find(|(idx, _)| *idx == 1)
+            .map_or(0, |(_, weight)| *weight);
+        assert!(chain_weight < normal_weight);
+    }
+
+    #[test]
+    fn choose_weighted_returns_none_when_total_zero() {
+        let mut rng = ChaCha20Rng::from_seed([0u8; 32]);
+        let weights = vec![(0, 0)];
+        assert!(choose_weighted(&weights, &mut rng).is_none());
+    }
+
+    #[test]
+    fn forced_rotation_rebuilds_queue_when_empty() {
+        let data = sample_encounters();
+        let mut request = mk_request(&data);
+        request.force_rotation = true;
+        request.is_deep = false;
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::new();
+
+        let picked =
+            try_pick_forced_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+        assert!(picked.is_some());
+    }
+
+    #[test]
+    fn region_counts_track_minimum() {
+        let recent = vec![
+            RecentEncounter::new("a".to_string(), 2, Region::Heartland),
+            RecentEncounter::new("b".to_string(), 3, Region::Heartland),
+            RecentEncounter::new("c".to_string(), 4, Region::RustBelt),
+        ];
+        let counts = build_recent_region_counts(&recent);
+        assert_eq!(counts.get(&Region::Heartland).copied().unwrap_or(0), 2);
+        assert_eq!(counts.get(&Region::RustBelt).copied().unwrap_or(0), 1);
+        assert_eq!(global_min_region_count(&counts), 0);
+    }
+
+    #[test]
+    fn rotation_ready_respects_repeat_window() {
+        let mut last_seen = HashMap::new();
+        last_seen.insert("enc", 10);
+
+        assert!(!rotation_ready(
+            10 + ENCOUNTER_REPEAT_WINDOW_DAYS - 1,
+            &last_seen,
+            "enc"
+        ));
+        assert!(rotation_ready(
+            10 + ENCOUNTER_REPEAT_WINDOW_DAYS,
+            &last_seen,
+            "enc"
+        ));
+        assert!(rotation_ready(1, &last_seen, "missing"));
+    }
+
+    #[test]
+    fn try_pick_ready_from_rotation_queue_skips_recent() {
+        let data = sample_encounters();
+        let recent = vec![RecentEncounter::new(
+            String::from("alpha"),
+            19,
+            Region::Heartland,
+        )];
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &recent,
+            current_day: 20,
+            policy: None,
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::from(vec![String::from("alpha"), String::from("beta")]);
+
+        let picked =
+            try_pick_ready_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+        assert!(picked.is_some());
+        assert_eq!(picked.expect("picked").id, "beta");
+    }
+
+    #[test]
+    fn try_pick_ready_from_rotation_queue_returns_none_when_empty() {
+        let data = sample_encounters();
+        let request = mk_request(&data);
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::new();
+
+        let picked =
+            try_pick_ready_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+
+        assert!(picked.is_none());
+        assert!(queue.is_empty());
+    }
+
+    #[test]
+    fn try_pick_ready_from_rotation_queue_returns_none_when_unready() {
+        let data = sample_encounters();
+        let recent = vec![RecentEncounter::new(
+            String::from("alpha"),
+            10,
+            Region::Heartland,
+        )];
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &recent,
+            current_day: 11,
+            policy: None,
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::from(vec![String::from("alpha"), String::from("unknown")]);
+
+        let picked =
+            try_pick_ready_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+
+        assert!(picked.is_none());
+        assert_eq!(
+            queue,
+            VecDeque::from(vec![String::from("alpha"), String::from("unknown")])
+        );
+    }
+
+    #[test]
+    fn try_pick_forced_from_rotation_queue_returns_none_when_missing_candidates() {
+        let data = sample_encounters();
+        let mut request = mk_request(&data);
+        request.force_rotation = true;
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::from(vec![String::from("unknown")]);
+
+        let picked =
+            try_pick_forced_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+
+        assert!(picked.is_none());
+        assert!(queue.is_empty());
+    }
+
+    #[test]
+    fn pick_encounter_prefers_ready_rotation_queue() {
+        let data = sample_encounters();
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &[],
+            current_day: 5,
+            policy: None,
+            force_rotation: false,
+        };
+        let mut queue = VecDeque::from(vec![String::from("alpha")]);
+        let mut rng = ChaCha20Rng::from_seed([9u8; 32]);
+
+        let pick = pick_encounter(&request, &mut queue, &mut rng);
+
+        assert!(pick.rotation_satisfied);
+        assert_eq!(pick.encounter.expect("encounter").id, "alpha");
+    }
+
+    #[test]
+    fn encounter_regions_falls_back_to_default() {
+        let encounter = make_enc("delta", &["unknown"]);
+        let regions = encounter_regions(&encounter, Region::Beltway);
+        assert_eq!(regions, vec![Region::Beltway]);
+
+        let encounter = make_enc("eps", &["Heartland", "RustBelt"]);
+        let regions = encounter_regions(&encounter, Region::Beltway);
+        assert_eq!(regions, vec![Region::Heartland, Region::RustBelt]);
+    }
+
+    #[test]
+    fn build_last_seen_map_tracks_latest_day() {
+        let recent = vec![
+            RecentEncounter::new(String::from("alpha"), 2, Region::Heartland),
+            RecentEncounter::new(String::from("alpha"), 5, Region::Heartland),
+            RecentEncounter::new(String::from("beta"), 3, Region::Heartland),
+        ];
+        let map = build_last_seen_map(&recent);
+        assert_eq!(map.get("alpha").copied(), Some(5));
+        assert_eq!(map.get("beta").copied(), Some(3));
+    }
+
+    #[test]
+    fn categorize_candidates_force_rotation_separates_recent() {
+        let data = EncounterData::from_encounters(vec![
+            make_enc("a", &["Heartland"]),
+            make_enc("b", &["Heartland"]),
+        ]);
+        let recent = vec![RecentEncounter::new(
+            String::from("a"),
+            10,
+            Region::Heartland,
+        )];
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &recent,
+            current_day: 10,
+            policy: None,
+            force_rotation: true,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(&recent);
+        let (primary, fallback) = categorize_candidates(&request, &candidates, &last_seen);
+
+        assert!(primary.contains(&1));
+        assert!(fallback.contains(&0));
+    }
+
+    #[test]
+    fn build_rotation_backlog_empty_for_chainable_only() {
+        let mut encounter = make_enc("chain", &["Heartland"]);
+        encounter.chainable = true;
+        let data = EncounterData::from_encounters(vec![encounter]);
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &[],
+            current_day: 5,
+            policy: None,
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let backlog = build_rotation_backlog(&request, &candidates, &last_seen);
+        assert!(backlog.is_empty());
+    }
+
+    #[test]
+    fn build_weights_boosts_min_region_when_conservative() {
+        let mut encounter = make_enc("alpha", &["Heartland"]);
+        encounter.modes = vec![String::from("deep")];
+        let data = EncounterData::from_encounters(vec![encounter]);
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: true,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &[],
+            current_day: 5,
+            policy: Some(PolicyKind::Conservative),
+            force_rotation: false,
+        };
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(&[]);
+        let selection = vec![0];
+        let baseline = build_weights(
+            selection.clone(),
+            &candidates,
+            &request,
+            &last_seen,
+            None,
+            0,
+        );
+
+        let counts = HashMap::from([
+            (Region::Heartland, 0),
+            (Region::RustBelt, 1),
+            (Region::Beltway, 1),
+        ]);
+        let region_min = global_min_region_count(&counts);
+        let boosted = build_weights(
+            selection,
+            &candidates,
+            &request,
+            &last_seen,
+            Some(&counts),
+            region_min,
+        );
+
+        assert!(boosted[0].1 > baseline[0].1);
+    }
+
+    #[test]
+    fn pick_encounter_returns_none_when_no_candidates() {
+        let mut encounter = make_enc("deep_only", &["RustBelt"]);
+        encounter.modes = vec![String::from("deep")];
+        let data = EncounterData::from_encounters(vec![encounter]);
+        let request = EncounterRequest {
+            region: Region::Heartland,
+            is_deep: false,
+            malnutrition_level: 0,
+            starving: false,
+            data: &data,
+            recent: &[],
+            current_day: 2,
+            policy: None,
+            force_rotation: false,
+        };
+        let mut queue = VecDeque::new();
+        let mut rng = ChaCha20Rng::from_seed([0u8; 32]);
+        let pick = pick_encounter(&request, &mut queue, &mut rng);
+        assert!(pick.encounter.is_none());
+        assert!(!pick.rotation_satisfied);
+    }
+
+    #[test]
+    fn try_pick_forced_from_rotation_queue_returns_none_when_not_forced() {
+        let data = sample_encounters();
+        let request = mk_request(&data);
+        let candidates = filter_candidates(&request);
+        let last_seen = build_last_seen_map(request.recent);
+        let mut queue = VecDeque::new();
+
+        let picked =
+            try_pick_forced_from_rotation_queue(&request, &mut queue, &candidates, &last_seen);
+        assert!(picked.is_none());
+    }
 }

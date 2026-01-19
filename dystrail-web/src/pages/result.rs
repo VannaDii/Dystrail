@@ -34,3 +34,54 @@ pub fn result_page(props: &ResultPageProps) -> Html {
         />
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::ResultPageProps;
+    use crate::game::{GameState, Region, ResultConfig};
+    use yew::Callback;
+
+    #[test]
+    fn props_eq_compares_day_region_and_boss() {
+        let state = GameState {
+            day: 10,
+            region: Region::RustBelt,
+            ..GameState::default()
+        };
+        let props_a = ResultPageProps {
+            state: state.clone(),
+            result_config: ResultConfig::default(),
+            boss_won: false,
+            on_replay_seed: Callback::noop(),
+            on_new_run: Callback::noop(),
+            on_title: Callback::noop(),
+            on_export: Callback::noop(),
+        };
+        let props_b = ResultPageProps {
+            state,
+            result_config: ResultConfig::default(),
+            boss_won: false,
+            on_replay_seed: Callback::noop(),
+            on_new_run: Callback::noop(),
+            on_title: Callback::noop(),
+            on_export: Callback::noop(),
+        };
+        assert!(props_a == props_b);
+
+        let changed = GameState {
+            day: 11,
+            region: Region::RustBelt,
+            ..GameState::default()
+        };
+        let props_c = ResultPageProps {
+            state: changed,
+            result_config: ResultConfig::default(),
+            boss_won: false,
+            on_replay_seed: Callback::noop(),
+            on_new_run: Callback::noop(),
+            on_title: Callback::noop(),
+            on_export: Callback::noop(),
+        };
+        assert!(props_a != props_c);
+    }
+}

@@ -1,5 +1,6 @@
 use super::selection::{SelectionOutcome, selection_outcome};
 use crate::game::{DietId, PaceId, PacingConfig};
+#[cfg(target_arch = "wasm32")]
 use crate::input::numeric_key_to_index;
 use std::rc::Rc;
 use yew::prelude::*;
@@ -37,6 +38,7 @@ pub fn focus_handler(focused_index: UseStateHandle<u8>) -> Callback<u8> {
     Callback::from(move |idx: u8| focused_index.set(idx))
 }
 
+#[cfg(target_arch = "wasm32")]
 pub fn keydown_handler(
     focused_index: UseStateHandle<u8>,
     on_activate: Callback<u8>,
@@ -70,4 +72,13 @@ pub fn keydown_handler(
         }
         _ => {}
     })
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn keydown_handler(
+    focused_index: UseStateHandle<u8>,
+    on_activate: Callback<u8>,
+) -> Callback<KeyboardEvent> {
+    let _ = (focused_index, on_activate);
+    Callback::from(|_e: KeyboardEvent| {})
 }

@@ -24,7 +24,7 @@ pub fn settings_dialog(p: &Props) -> Html {
         return html! {};
     }
 
-    let on_keydown = keydown_handler(ref_node.clone(), p.on_close.clone());
+    let on_keydown = keydown_handler(&ref_node, p.on_close.clone());
 
     let on_toggle_hc = {
         let hc = hc.clone();

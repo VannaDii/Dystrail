@@ -485,4 +485,478 @@ const fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encou
     }
 }
 
-impl SimulationSession {}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dystrail_game::data::{Choice, Effects, Encounter};
+    use dystrail_game::journey::TravelDayKind;
+    use dystrail_game::otdeluxe_state::{OtDeluxePartyMember, OtDeluxeRiverState};
+    use dystrail_game::{CrossingKind, OtDeluxeRiver, OtDeluxeTrailVariant, PendingCrossing};
+    use std::collections::VecDeque;
+
+    #[test]
+    fn simulation_config_defaults_to_200_days() {
+        let config = SimulationConfig::new(GameMode::Classic, GameplayStrategy::Balanced, 1);
+        assert_eq!(config.max_days, 200);
+        let config = config.with_max_days(15);
+        assert_eq!(config.max_days, 15);
+    }
+
+    #[test]
+    fn strategy_id_mapping_is_consistent() {
+        assert_eq!(
+            strategy_id_for(GameplayStrategy::Balanced),
+            StrategyId::Balanced
+        );
+        assert_eq!(
+            strategy_id_for(GameplayStrategy::Aggressive),
+            StrategyId::Aggressive
+        );
+        assert_eq!(
+            strategy_id_for(GameplayStrategy::Conservative),
+            StrategyId::Conservative
+        );
+        assert_eq!(
+            strategy_id_for(GameplayStrategy::ResourceManager),
+            StrategyId::ResourceManager
+        );
+    }
+
+    fn make_session(
+        mechanics: MechanicalPolicyId,
+        strategy: GameplayStrategy,
+        seed: u64,
+    ) -> SimulationSession {
+        let encounters = EncounterData::empty();
+        let camp_config = CampConfig::default();
+        let endgame_config = EndgameTravelCfg::default_config();
+        let boss_config = BossConfig::default();
+        let session = JourneySession::new_with_mechanics(
+            mechanics,
+            GameMode::Classic,
+            strategy_id_for(strategy),
+            seed,
+            encounters,
+            &endgame_config,
+        );
+        SimulationSession {
+            session,
+            camp_config,
+            endgame_config,
+            boss_config,
+            max_days: 10,
+            strategy,
+            conservative_heat_days: 0,
+            aggressive_heat_days: 0,
+        }
+    }
+
+    #[test]
+    fn clamp_choice_index_handles_bounds() {
+        let encounter = Encounter {
+            id: String::from("enc"),
+            name: String::from("enc"),
+            desc: String::new(),
+            weight: 1,
+            regions: vec![],
+            modes: vec![],
+            choices: vec![
+                Choice {
+                    label: String::from("a"),
+                    effects: Effects::default(),
+                },
+                Choice {
+                    label: String::from("b"),
+                    effects: Effects::default(),
+                },
+            ],
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        };
+        assert_eq!(clamp_choice_index(0, &encounter), 0);
+        assert_eq!(clamp_choice_index(10, &encounter), 1);
+        let empty = Encounter {
+            choices: Vec::new(),
+            ..encounter
+        };
+        assert_eq!(clamp_choice_index(5, &empty), 0);
+    }
+
+    #[test]
+    fn resolve_route_prompt_for_otdeluxe_session() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Aggressive,
+            9,
+        );
+        session.state_mut().ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        session.state_mut().ot_deluxe.oxen.healthy = 4;
+
+        let outcome = session.try_resolve_route_prompt();
+
+        assert!(outcome.is_some());
+        let choice = session.state().ot_deluxe.route.dalles_choice;
+        assert!(choice.is_some());
+    }
+
+    #[test]
+    fn resolve_crossing_for_dystrail_session() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Balanced,
+            7,
+        );
+        session.state_mut().pending_crossing = Some(PendingCrossing {
+            kind: CrossingKind::Checkpoint,
+            computed_miles_today: 4.0,
+        });
+        session
+            .state_mut()
+            .inventory
+            .tags
+            .insert(String::from("permit"));
+
+        let outcome = session.try_resolve_crossing();
+
+        assert!(outcome.is_some());
+        assert!(session.state().pending_crossing.is_none());
+    }
+
+    #[test]
+    fn resolve_crossing_for_otdeluxe_session() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            11,
+        );
+        session.state_mut().ot_deluxe.crossing.choice_pending = true;
+        session.state_mut().ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        session.state_mut().ot_deluxe.crossing.river = Some(OtDeluxeRiverState::default());
+        session.state_mut().ot_deluxe.crossing.computed_miles_today = 3.0;
+        session.state_mut().ot_deluxe.inventory.cash_cents = 1000;
+        session.state_mut().ot_deluxe.party.members = vec![OtDeluxePartyMember::new("A")];
+
+        let outcome = session.try_resolve_crossing();
+
+        assert!(outcome.is_some());
+        assert!(!session.state().ot_deluxe.crossing.choice_pending);
+    }
+
+    #[test]
+    fn resolve_crossing_prefers_guide_when_available() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            18,
+        );
+        session.state_mut().ot_deluxe.crossing.choice_pending = true;
+        session.state_mut().ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Snake);
+        session.state_mut().ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            depth_ft: 1.0,
+            ..OtDeluxeRiverState::default()
+        });
+        session.state_mut().ot_deluxe.crossing.computed_miles_today = 3.0;
+        session.state_mut().ot_deluxe.inventory.cash_cents = 0;
+        session.state_mut().ot_deluxe.inventory.clothes_sets = 3;
+        session.state_mut().ot_deluxe.party.members = vec![OtDeluxePartyMember::new("A")];
+
+        let outcome = session.try_resolve_crossing();
+
+        assert!(outcome.is_some());
+        assert!(!session.state().ot_deluxe.crossing.choice_pending);
+    }
+
+    #[test]
+    fn resolve_crossing_prefers_caulk_float_when_available() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            19,
+        );
+        session.state_mut().ot_deluxe.crossing.choice_pending = true;
+        session.state_mut().ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        session.state_mut().ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            depth_ft: 2.0,
+            ..OtDeluxeRiverState::default()
+        });
+        session.state_mut().ot_deluxe.crossing.computed_miles_today = 3.0;
+        session.state_mut().ot_deluxe.inventory.cash_cents = 0;
+        session.state_mut().ot_deluxe.party.members = vec![OtDeluxePartyMember::new("A")];
+
+        let outcome = session.try_resolve_crossing();
+
+        assert!(outcome.is_some());
+        assert!(!session.state().ot_deluxe.crossing.choice_pending);
+    }
+
+    #[test]
+    fn resolve_store_for_otdeluxe_session() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            15,
+        );
+        session.state_mut().ot_deluxe.inventory.cash_cents = 5000;
+        session.state_mut().ot_deluxe.store.pending_node = Some(0);
+
+        let outcome = session.try_resolve_store();
+
+        assert!(outcome.is_some());
+        assert!(session.state().ot_deluxe.store.pending_node.is_none());
+    }
+
+    #[test]
+    fn advance_short_circuits_on_route_prompt() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Aggressive,
+            9,
+        );
+        session.state_mut().ot_deluxe.route.pending_prompt =
+            Some(OtDeluxeRoutePrompt::SubletteCutoff);
+        session.state_mut().ot_deluxe.oxen.healthy = 4;
+
+        let mut policy = GameplayStrategy::Balanced.create_policy(0);
+        let outcome = session.advance(policy.as_mut());
+
+        assert_eq!(outcome.day, session.state().day);
+        assert!(session.state().ot_deluxe.route.pending_prompt.is_none());
+    }
+
+    #[test]
+    fn resolve_route_prompt_prefers_dalles_shortcut_for_aggressive() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Aggressive,
+            12,
+        );
+        session.state_mut().ot_deluxe.route.pending_prompt =
+            Some(OtDeluxeRoutePrompt::DallesShortcut);
+
+        let outcome = session.try_resolve_route_prompt();
+
+        assert!(outcome.is_some());
+        assert!(session.state().ot_deluxe.route.pending_prompt.is_none());
+    }
+
+    #[test]
+    fn resolve_route_prompt_defaults_to_barlow_for_balanced() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            14,
+        );
+        session.state_mut().ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+
+        let outcome = session.try_resolve_route_prompt();
+
+        assert!(outcome.is_some());
+        assert!(session.state().ot_deluxe.route.pending_prompt.is_none());
+    }
+
+    #[test]
+    fn resolve_route_prompt_stays_on_trail_for_balanced() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            16,
+        );
+        session.state_mut().ot_deluxe.route.pending_prompt =
+            Some(OtDeluxeRoutePrompt::SubletteCutoff);
+        session.state_mut().ot_deluxe.oxen.healthy = 4;
+
+        let outcome = session.try_resolve_route_prompt();
+
+        assert!(outcome.is_some());
+        assert_eq!(
+            session.state().ot_deluxe.route.variant,
+            OtDeluxeTrailVariant::Main
+        );
+    }
+
+    #[test]
+    fn advance_short_circuits_on_crossing() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            11,
+        );
+        session.state_mut().ot_deluxe.crossing.choice_pending = true;
+        session.state_mut().ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        session.state_mut().ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            depth_ft: 5.0,
+            ..OtDeluxeRiverState::default()
+        });
+        session.state_mut().ot_deluxe.crossing.computed_miles_today = 3.0;
+        session.state_mut().ot_deluxe.inventory.cash_cents = 5000;
+        session.state_mut().ot_deluxe.party.members = vec![OtDeluxePartyMember::new("A")];
+
+        let mut policy = GameplayStrategy::Balanced.create_policy(0);
+        let outcome = session.advance(policy.as_mut());
+
+        assert_eq!(outcome.day, session.state().day);
+    }
+
+    #[test]
+    fn advance_short_circuits_on_store() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            15,
+        );
+        session.state_mut().ot_deluxe.store.pending_node = Some(0);
+        session.state_mut().ot_deluxe.inventory.cash_cents = 5000;
+
+        let mut policy = GameplayStrategy::Balanced.create_policy(0);
+        let outcome = session.advance(policy.as_mut());
+
+        assert_eq!(outcome.day, session.state().day);
+        assert!(session.state().ot_deluxe.store.pending_node.is_none());
+    }
+
+    #[test]
+    fn try_resolve_crossing_skips_when_not_pending() {
+        let mut session = make_session(
+            MechanicalPolicyId::OtDeluxe90s,
+            GameplayStrategy::Balanced,
+            2,
+        );
+
+        let outcome = session.try_resolve_crossing();
+
+        assert!(outcome.is_none());
+    }
+
+    #[test]
+    fn resolve_encounter_choice_handles_empty_choices() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Balanced,
+            4,
+        );
+        session.state_mut().current_encounter = Some(Encounter {
+            id: String::from("enc"),
+            name: String::from("encounter"),
+            desc: String::new(),
+            weight: 1,
+            regions: vec![],
+            modes: vec![],
+            choices: Vec::new(),
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        });
+        let mut policy = GameplayStrategy::Balanced.create_policy(0);
+
+        let decision = session
+            .resolve_encounter_choice(policy.as_mut())
+            .expect("decision");
+
+        assert_eq!(decision.choice_label, "No available choice");
+    }
+
+    #[test]
+    fn queue_boss_rest_requests_rest_when_ready() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Balanced,
+            6,
+        );
+        let state = session.state_mut();
+        state.boss.readiness.ready = true;
+        state.boss.outcome.attempted = false;
+        state.camp.rest_cooldown = 0;
+        state.day_state.rest.rest_requested = false;
+
+        session.queue_boss_rest();
+
+        assert!(session.state().day_state.rest.rest_requested);
+    }
+
+    #[test]
+    fn adjust_daily_pace_aggressive_sets_heat_days_when_stalled() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Aggressive,
+            5,
+        );
+        session.state_mut().mode = GameMode::Deep;
+        session.state_mut().stats.hp = 9;
+        session.state_mut().stats.sanity = 9;
+        session.state_mut().recent_travel_days = VecDeque::from(vec![TravelDayKind::NonTravel; 10]);
+
+        session.adjust_daily_pace();
+
+        assert_eq!(session.state().pace, PaceId::Heated);
+        assert_eq!(session.aggressive_heat_days, 2);
+    }
+
+    #[test]
+    fn adjust_daily_pace_conservative_resets_when_stats_low() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Conservative,
+            3,
+        );
+        session.conservative_heat_days = 2;
+        session.state_mut().stats.hp = 4;
+        session.state_mut().stats.sanity = 6;
+
+        session.adjust_daily_pace();
+
+        assert_eq!(session.state().pace, PaceId::Steady);
+        assert_eq!(session.conservative_heat_days, 0);
+    }
+
+    #[test]
+    fn adjust_daily_pace_conservative_decrements_heat_days() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Conservative,
+            3,
+        );
+        session.conservative_heat_days = 2;
+        session.state_mut().stats.hp = 8;
+        session.state_mut().stats.sanity = 8;
+
+        session.adjust_daily_pace();
+
+        assert_eq!(session.state().pace, PaceId::Heated);
+        assert_eq!(session.conservative_heat_days, 1);
+    }
+
+    #[test]
+    fn adjust_daily_pace_conservative_heats_on_slow_travel() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Conservative,
+            3,
+        );
+        session.state_mut().day = 70;
+        session.state_mut().stats.hp = 8;
+        session.state_mut().stats.sanity = 8;
+        session.state_mut().miles_traveled_actual = 600.0;
+        session.state_mut().recent_travel_days = VecDeque::from(vec![TravelDayKind::NonTravel; 10]);
+
+        session.adjust_daily_pace();
+
+        assert_eq!(session.state().pace, PaceId::Heated);
+        assert_eq!(session.conservative_heat_days, 5);
+    }
+
+    #[test]
+    fn adjust_daily_pace_resource_manager_requests_rest() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::ResourceManager,
+            8,
+        );
+        session.state_mut().stats.pants = 70;
+        session.state_mut().camp.rest_cooldown = 0;
+
+        session.adjust_daily_pace();
+
+        assert!(session.state().day_state.rest.rest_requested);
+    }
+}

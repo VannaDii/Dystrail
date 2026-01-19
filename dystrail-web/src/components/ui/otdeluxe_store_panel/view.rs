@@ -344,3 +344,75 @@ fn render_amount(key: &str, amount: &str) -> String {
 fn u64_to_i64(value: u64) -> i64 {
     i64::try_from(value).unwrap_or(i64::MAX)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::otdeluxe_state::{OtDeluxeInventory, OtDeluxeOxenState};
+
+    #[test]
+    fn current_quantity_covers_inventory_branches() {
+        let inventory = OtDeluxeInventory {
+            food_lbs: 250,
+            bullets: 40,
+            clothes_sets: 5,
+            spares_wheels: 1,
+            spares_axles: 2,
+            spares_tongues: 3,
+            cash_cents: 0,
+        };
+        let oxen = OtDeluxeOxenState {
+            healthy: 3,
+            sick: 1,
+        };
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::Oxen, &inventory, oxen, 20),
+            4
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::FoodLb, &inventory, oxen, 20),
+            250
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::ClothesSet, &inventory, oxen, 20),
+            5
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::Wheel, &inventory, oxen, 20),
+            1
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::Axle, &inventory, oxen, 20),
+            2
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::Tongue, &inventory, oxen, 20),
+            3
+        );
+        assert_eq!(
+            current_quantity(OtDeluxeStoreItem::AmmoBox, &inventory, oxen, 20),
+            2
+        );
+    }
+
+    #[test]
+    fn cart_total_cents_sums_line_items() {
+        let policy = OtDeluxe90sPolicy::default().store;
+        let mut cart = vec![0_u16; STORE_ITEMS.len()];
+        cart[0] = 1;
+        cart[1] = 2;
+        let total = cart_total_cents(&cart, &policy, 0);
+        let oxen_price = otdeluxe_store::price_cents_at_node(&policy, OtDeluxeStoreItem::Oxen, 0);
+        let food_price = otdeluxe_store::price_cents_at_node(&policy, OtDeluxeStoreItem::FoodLb, 0);
+        let expected = u64::from(oxen_price) + u64::from(food_price) * 2;
+        assert_eq!(total, expected);
+    }
+
+    #[test]
+    fn render_amount_and_u64_to_i64_cover_helpers() {
+        crate::i18n::set_lang("en");
+        let text = render_amount("otdeluxe.store.cash", "$5.00");
+        assert!(text.contains("$5.00"));
+        assert_eq!(u64_to_i64(u64::MAX), i64::MAX);
+    }
+}

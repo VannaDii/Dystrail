@@ -26,11 +26,7 @@ impl<'a> TestBridge<'a> {
             .driver
             .execute("return !!window.__dystrailTest", vec![])
             .await?;
-        let ok = result.json().as_bool().unwrap_or(false);
-        if !ok {
-            bail!("__dystrailTest is not available. Did you pass ?test=1 and expose the bridge?");
-        }
-        Ok(())
+        parse_bridge_available(result.json())
     }
 
     pub async fn seed(&self, n: i64) -> Result<()> {
@@ -72,8 +68,64 @@ impl<'a> TestBridge<'a> {
             .driver
             .execute("return window.__dystrailTest.state()", vec![])
             .await?;
-        let v = result.json().clone();
-        let s: GameState = serde_json::from_value(v).context("parsing GameState")?;
-        Ok(s)
+        parse_game_state(result.json())
+    }
+}
+
+fn parse_bridge_available(value: &Value) -> Result<()> {
+    let ok = value.as_bool().unwrap_or(false);
+    if !ok {
+        bail!("__dystrailTest is not available. Did you pass ?test=1 and expose the bridge?");
+    }
+    Ok(())
+}
+
+fn parse_game_state(value: &Value) -> Result<GameState> {
+    let parsed = serde_json::from_value(value.clone()).context("parsing GameState")?;
+    Ok(parsed)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use serde_json::json;
+
+    #[test]
+    fn bridge_game_state_defaults_empty() {
+        let state = GameState::default();
+        assert!(state.screen.is_none());
+        assert!(state.hp.is_none());
+        assert!(state.pos.is_none());
+    }
+
+    #[test]
+    fn bridge_available_accepts_true() {
+        parse_bridge_available(&json!(true)).expect("bridge should be available");
+    }
+
+    #[test]
+    fn bridge_available_rejects_false() {
+        let err = parse_bridge_available(&json!(false)).expect_err("bridge should be missing");
+        assert!(err.to_string().contains("__dystrailTest"));
+    }
+
+    #[test]
+    fn parse_game_state_from_json() {
+        let value = json!({
+            "screen": "travel",
+            "hp": 9,
+            "day": 2,
+            "pos": { "x": 1 }
+        });
+        let parsed = parse_game_state(&value).expect("state should parse");
+        assert_eq!(parsed.screen.as_deref(), Some("travel"));
+        assert_eq!(parsed.hp, Some(9));
+        assert_eq!(parsed.day, Some(2));
+    }
+
+    #[test]
+    fn parse_game_state_rejects_invalid_value() {
+        let err = parse_game_state(&json!("bad")).expect_err("invalid state should fail");
+        assert!(err.to_string().contains("parsing GameState"));
     }
 }

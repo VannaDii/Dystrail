@@ -1,4 +1,5 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::TargetCast;
 
 #[derive(Clone, PartialEq, Eq)]
@@ -27,8 +28,15 @@ pub fn select(props: &SelectProps) -> f::Html {
     let on_change = {
         let cb = props.on_change.clone();
         f::Callback::from(move |e: f::Event| {
-            if let Some(sel) = e.target_dyn_into::<f::HtmlSelectElement>() {
-                cb.emit(sel.value().into());
+            #[cfg(target_arch = "wasm32")]
+            {
+                if let Some(sel) = e.target_dyn_into::<f::HtmlSelectElement>() {
+                    cb.emit(sel.value().into());
+                }
+            }
+            #[cfg(not(target_arch = "wasm32"))]
+            {
+                let _ = (&e, &cb);
             }
         })
     };

@@ -1,4 +1,5 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::JsCast;
 
 #[derive(f::Properties, PartialEq, Eq, Clone)]
@@ -29,6 +30,7 @@ pub fn text_rotate(props: &TextRotateProps) -> f::Html {
             || {}
         });
     }
+    #[cfg(target_arch = "wasm32")]
     {
         let active = active.clone();
         let interval = props.interval_ms;
@@ -63,6 +65,11 @@ pub fn text_rotate(props: &TextRotateProps) -> f::Html {
                 }
             }
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.interval_ms;
+        let _ = item_count;
     }
     let class = f::class_list(&["text-rotate", "font-mono"], &props.class);
     let next = {

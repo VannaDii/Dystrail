@@ -231,3 +231,52 @@ pub fn process_daily_breakdown<R: Rng>(game_state: &mut crate::state::GameState,
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::state::GameState;
+    use rand::rngs::mock::StepRng;
+
+    #[test]
+    fn critical_threshold_is_inclusive() {
+        let mut vehicle = Vehicle {
+            health: 20.0,
+            ..Vehicle::default()
+        };
+        assert!(vehicle.is_critical());
+        vehicle.health = 20.1;
+        assert!(!vehicle.is_critical());
+    }
+
+    #[test]
+    fn apply_scaled_wear_respects_zero_base_and_multiplier() {
+        let mut vehicle = Vehicle {
+            health: 100.0,
+            wear: 0.0,
+            ..Vehicle::default()
+        };
+        let applied = vehicle.apply_scaled_wear(0.0);
+        assert!(applied.abs() <= f32::EPSILON);
+        assert!(vehicle.wear.abs() <= f32::EPSILON);
+        assert!((vehicle.health - 100.0).abs() <= f32::EPSILON);
+
+        vehicle.set_wear_multiplier(0.0);
+        let applied = vehicle.apply_scaled_wear(5.0);
+        assert!(applied.abs() <= f32::EPSILON);
+        assert!(vehicle.wear.abs() <= f32::EPSILON);
+        assert!((vehicle.health - 100.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn process_daily_breakdown_sets_breakdown_and_blocks_travel() {
+        let mut state = GameState::default();
+        let mut rng = StepRng::new(0, 0);
+
+        process_daily_breakdown(&mut state, &mut rng);
+
+        let breakdown = state.breakdown.expect("expected breakdown to be set");
+        assert_eq!(breakdown.part, Part::Tire);
+        assert!(state.day_state.travel.travel_blocked);
+    }
+}

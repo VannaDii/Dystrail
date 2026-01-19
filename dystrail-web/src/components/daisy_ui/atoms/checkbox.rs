@@ -1,4 +1,5 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::TargetCast;
 
 #[derive(f::Properties, PartialEq, Clone)]
@@ -20,8 +21,15 @@ pub fn checkbox(props: &CheckboxProps) -> f::Html {
     let on_change = {
         let on_toggle = props.on_toggle.clone();
         f::Callback::from(move |e: f::Event| {
-            if let Some(input) = e.target_dyn_into::<f::HtmlInputElement>() {
-                on_toggle.emit(input.checked());
+            #[cfg(target_arch = "wasm32")]
+            {
+                if let Some(input) = e.target_dyn_into::<f::HtmlInputElement>() {
+                    on_toggle.emit(input.checked());
+                }
+            }
+            #[cfg(not(target_arch = "wasm32"))]
+            {
+                let _ = (&e, &on_toggle);
             }
         })
     };

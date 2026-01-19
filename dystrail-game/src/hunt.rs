@@ -112,3 +112,70 @@ fn carry_cap_lbs(state: &GameState) -> u16 {
 fn clamp_u16(value: u32) -> u16 {
     u16::try_from(value).unwrap_or(u16::MAX)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::otdeluxe_state::OtDeluxePartyState;
+    use rand::SeedableRng;
+
+    fn base_state() -> GameState {
+        let mut state = GameState::default();
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state
+    }
+
+    #[test]
+    fn hunt_blocks_without_bullets() {
+        let mut state = base_state();
+        state.ot_deluxe.inventory.bullets = 0;
+        let outcome = resolve_hunt(&mut state);
+        assert_eq!(outcome, HuntOutcome::Blocked(HuntBlockReason::NoBullets));
+    }
+
+    #[test]
+    fn hunt_blocks_in_severe_weather() {
+        let mut state = base_state();
+        state.ot_deluxe.inventory.bullets = 5;
+        state.weather_state.today = Weather::Storm;
+        let outcome = resolve_hunt(&mut state);
+        assert_eq!(
+            outcome,
+            HuntOutcome::Blocked(HuntBlockReason::SevereWeather)
+        );
+    }
+
+    #[test]
+    fn hunt_blocks_in_crowded_locations() {
+        let mut state = base_state();
+        state.ot_deluxe.inventory.bullets = 5;
+        state.region = Region::Beltway;
+        let outcome = resolve_hunt(&mut state);
+        assert_eq!(
+            outcome,
+            HuntOutcome::Blocked(HuntBlockReason::CrowdedLocation)
+        );
+    }
+
+    #[test]
+    fn hunt_with_rng_consumes_bullets_and_adds_food() {
+        let mut state = base_state();
+        state.ot_deluxe.inventory.bullets = 10;
+        state.ot_deluxe.inventory.food_lbs = 0;
+        let mut rng = rand::rngs::SmallRng::from_seed([9_u8; 32]);
+
+        let outcome = resolve_hunt_with_rng(&mut state, &mut rng);
+        match outcome {
+            HuntOutcome::Success {
+                bullets_spent,
+                food_gained_lbs,
+            } => {
+                assert!((1..=10).contains(&bullets_spent));
+                assert!(food_gained_lbs > 0);
+                assert_eq!(state.ot_deluxe.inventory.bullets, 10 - bullets_spent);
+                assert!(state.ot_deluxe.inventory.food_lbs >= food_gained_lbs);
+            }
+            HuntOutcome::Blocked(_) => panic!("expected hunt success"),
+        }
+    }
+}

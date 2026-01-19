@@ -6,7 +6,6 @@
 pub mod boss;
 pub mod camp;
 pub mod constants;
-pub mod coverage_anchor;
 pub mod crossings;
 pub mod data;
 pub mod day_accounting;

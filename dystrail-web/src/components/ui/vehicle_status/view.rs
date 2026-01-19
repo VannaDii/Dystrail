@@ -88,3 +88,85 @@ pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
       </section>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::{Breakdown, Inventory, Part, Spares};
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn props_equality_tracks_breakdown_and_spares() {
+        crate::i18n::set_lang("en");
+        let base = GameState {
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 1,
+            }),
+            inventory: Inventory {
+                spares: Spares {
+                    tire: 1,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            ..GameState::default()
+        };
+
+        let props_a = VehicleStatusProps {
+            game_state: Some(Rc::new(base.clone())),
+            on_back: Callback::noop(),
+            on_repair_action: Callback::noop(),
+        };
+        let props_b = VehicleStatusProps {
+            game_state: Some(Rc::new(base)),
+            on_back: Callback::noop(),
+            on_repair_action: Callback::noop(),
+        };
+        assert!(props_a == props_b);
+
+        let altered = GameState {
+            inventory: Inventory {
+                spares: Spares {
+                    tire: 2,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            ..GameState::default()
+        };
+        let props_c = VehicleStatusProps {
+            game_state: Some(Rc::new(altered)),
+            on_back: Callback::noop(),
+            on_repair_action: Callback::noop(),
+        };
+        assert!(props_a != props_c);
+    }
+
+    #[test]
+    fn vehicle_status_renders_menu() {
+        crate::i18n::set_lang("en");
+        let state = GameState {
+            breakdown: Some(Breakdown {
+                part: Part::Battery,
+                day_started: 2,
+            }),
+            inventory: Inventory {
+                spares: Spares {
+                    battery: 1,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            ..GameState::default()
+        };
+        let props = VehicleStatusProps {
+            game_state: Some(Rc::new(state)),
+            on_back: Callback::noop(),
+            on_repair_action: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<VehicleStatus>::with_props(props).render());
+        assert!(html.contains("vehicle-title"));
+    }
+}

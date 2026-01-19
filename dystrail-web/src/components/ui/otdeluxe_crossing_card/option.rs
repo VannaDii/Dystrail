@@ -43,3 +43,46 @@ pub fn otdeluxe_crossing_option(props: &OtDeluxeCrossingOptionProps) -> Html {
         </li>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn otdeluxe_option_renders_disabled_state() {
+        let props = OtDeluxeCrossingOptionProps {
+            index: 4,
+            label: AttrValue::from("Guide"),
+            desc: AttrValue::from("Desc"),
+            focused: false,
+            disabled: true,
+            posinset: 4,
+            setsize: 5,
+            on_activate: Callback::noop(),
+        };
+        let html =
+            block_on(LocalServerRenderer::<OtDeluxeCrossingOption>::with_props(props).render());
+        assert!(html.contains("aria-disabled=\"true\""));
+        assert!(html.contains("tabindex=\"-1\""));
+    }
+
+    #[test]
+    fn otdeluxe_option_renders_focused_state() {
+        let props = OtDeluxeCrossingOptionProps {
+            index: 1,
+            label: AttrValue::from("Ford"),
+            desc: AttrValue::from("Desc"),
+            focused: true,
+            disabled: false,
+            posinset: 1,
+            setsize: 5,
+            on_activate: Callback::noop(),
+        };
+        let html =
+            block_on(LocalServerRenderer::<OtDeluxeCrossingOption>::with_props(props).render());
+        assert!(html.contains("aria-disabled=\"false\""));
+        assert!(html.contains("tabindex=\"0\""));
+    }
+}

@@ -16,10 +16,17 @@ pub fn seed_footer(p: &Props) -> Html {
     let share_code = encode_friendly(p.is_deep_mode, p.seed);
     let share_code_copy = share_code.clone();
     let on_copy = Callback::from(move |_| {
-        if let Some(win) = web_sys::window() {
-            let nav = win.navigator();
-            let clipboard = nav.clipboard();
-            let _ = clipboard.write_text(&share_code_copy);
+        #[cfg(target_arch = "wasm32")]
+        {
+            if let Some(win) = web_sys::window() {
+                let nav = win.navigator();
+                let clipboard = nav.clipboard();
+                let _ = clipboard.write_text(&share_code_copy);
+            }
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = &share_code_copy;
         }
     });
 

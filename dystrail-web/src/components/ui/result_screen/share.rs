@@ -1,6 +1,9 @@
+#[cfg(target_arch = "wasm32")]
 use crate::dom;
 use crate::game::{ResultSummary, result_summary};
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
+#[cfg(target_arch = "wasm32")]
 use web_sys::HtmlTextAreaElement;
 
 pub(super) fn summary(props: &super::Props) -> Result<ResultSummary, String> {
@@ -31,6 +34,7 @@ pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Prop
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 pub(super) fn interpolate_template(
     template: &str,
     summary: &ResultSummary,
@@ -48,10 +52,12 @@ pub(super) fn interpolate_template(
         .replace("{mode}", &summary.mode)
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 pub(super) fn copy_payload(text: &str) -> Result<(), String> {
     fallback_copy(text)
 }
 
+#[cfg(all(target_arch = "wasm32", any(target_arch = "wasm32", test)))]
 fn fallback_copy(text: &str) -> Result<(), String> {
     let Some(document) = dom::document() else {
         return Err("Document unavailable".to_string());
@@ -80,4 +86,10 @@ fn fallback_copy(text: &str) -> Result<(), String> {
     } else {
         Err("No body element".to_string())
     }
+}
+
+#[cfg(all(not(target_arch = "wasm32"), test))]
+fn fallback_copy(text: &str) -> Result<(), String> {
+    let _ = text;
+    Err("Document unavailable".to_string())
 }

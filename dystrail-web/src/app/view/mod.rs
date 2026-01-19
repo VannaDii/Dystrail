@@ -84,3 +84,57 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
         </>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::app::phase::Phase;
+    use crate::game::data::EncounterData;
+    use crate::game::state::GameMode;
+    use crate::game::{EndgameTravelCfg, JourneySession, StrategyId};
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[function_component(RenderAppHarness)]
+    fn render_app_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let data = EncounterData::load_from_static();
+        let base = crate::game::GameState::default().with_seed(7, GameMode::Classic, data.clone());
+        let session = JourneySession::from_state(
+            base.clone(),
+            StrategyId::Balanced,
+            &EndgameTravelCfg::default_config(),
+        );
+        let state = AppState {
+            phase: use_state(|| Phase::Menu),
+            code: use_state(|| AttrValue::from("CL-ORANGE42")),
+            data: use_state(move || data),
+            pacing_config: use_state(crate::game::pacing::PacingConfig::default_config),
+            endgame_config: use_state(EndgameTravelCfg::default_config),
+            weather_config: use_state(crate::game::weather::WeatherConfig::default_config),
+            camp_config: use_state(crate::game::CampConfig::default_config),
+            crossing_config: use_state(crate::game::CrossingConfig::default),
+            boss_config: use_state(crate::game::boss::BossConfig::load_from_static),
+            result_config: use_state(crate::game::ResultConfig::default),
+            preload_progress: use_state(|| 100_u8),
+            boot_ready: use_state(|| true),
+            high_contrast: use_state(|| false),
+            pending_state: use_state(|| Some(base.clone())),
+            session: use_state(|| Some(session)),
+            logs: use_state(Vec::<String>::new),
+            run_seed: use_state(|| 7_u64),
+            show_save: use_state(|| false),
+            save_focus_target: use_state(|| AttrValue::from("save-open-btn")),
+            show_settings: use_state(|| false),
+            current_language: use_state(|| String::from("en")),
+        };
+        render_app(&state, Some(&Route::Home), None)
+    }
+
+    #[test]
+    fn render_app_builds_shell() {
+        let html = block_on(LocalServerRenderer::<RenderAppHarness>::new().render());
+        assert!(html.contains("nav-footer"));
+        assert!(html.contains("save-open-btn"));
+    }
+}

@@ -55,3 +55,17 @@ pub fn menu_options(current_pace: PaceId, current_diet: DietId) -> Vec<MenuOptio
         },
     ]
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn menu_options_mark_selected_entries() {
+        crate::i18n::set_lang("en");
+        let options = menu_options(PaceId::Heated, DietId::Mixed);
+        assert!(options.iter().any(|opt| opt.idx == 2 && opt.selected));
+        assert!(options.iter().any(|opt| opt.idx == 5 && opt.selected));
+        assert!(options.iter().any(|opt| opt.idx == 0));
+    }
+}

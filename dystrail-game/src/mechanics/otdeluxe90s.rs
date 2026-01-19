@@ -864,6 +864,7 @@ impl Default for OtDeluxe90sPolicy {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::state::Season;
 
     fn assert_f32_eq(a: f32, b: f32) {
         let epsilon = 1e-6_f32;
@@ -954,5 +955,19 @@ mod tests {
 
         assert_eq!(policy.score.points_per_person_by_health.good, 500);
         assert_eq!(policy.score.divisor_cash_cents, 500);
+    }
+
+    #[test]
+    fn seasonal_factors_return_per_season_values() {
+        let factors = OtDeluxeSeasonalFactors {
+            spring: 1.0,
+            summer: 2.0,
+            fall: 3.0,
+            winter: 4.0,
+        };
+        assert_f32_eq(factors.for_season(Season::Spring), 1.0);
+        assert_f32_eq(factors.for_season(Season::Summer), 2.0);
+        assert_f32_eq(factors.for_season(Season::Fall), 3.0);
+        assert_f32_eq(factors.for_season(Season::Winter), 4.0);
     }
 }

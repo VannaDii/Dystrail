@@ -118,3 +118,59 @@ macro_rules! simple_component {
         }
     };
 }
+
+#[cfg(test)]
+mod tests {
+    use super::{DaisyColor, DaisySize, attr_value, class_list};
+    use yew::Classes;
+
+    #[test]
+    fn daisy_color_classes_include_prefix_and_suffix() {
+        let colors = [
+            DaisyColor::Neutral,
+            DaisyColor::Primary,
+            DaisyColor::Secondary,
+            DaisyColor::Accent,
+            DaisyColor::Info,
+            DaisyColor::Success,
+            DaisyColor::Warning,
+            DaisyColor::Error,
+        ];
+        for color in colors {
+            let class = color.class("text");
+            assert!(class.starts_with("text-"));
+        }
+    }
+
+    #[test]
+    fn daisy_size_classes_include_prefix_and_suffix() {
+        let sizes = [
+            DaisySize::Xs,
+            DaisySize::Sm,
+            DaisySize::Md,
+            DaisySize::Lg,
+            DaisySize::Xl,
+        ];
+        for size in sizes {
+            let class = size.class("btn");
+            assert!(class.starts_with("btn-"));
+        }
+    }
+
+    #[test]
+    fn class_list_combines_base_and_extra() {
+        let extra = Classes::from("mx-1");
+        let classes = class_list(&["btn", "btn-primary"], &extra);
+        let rendered = classes.to_string();
+        assert!(rendered.contains("btn"));
+        assert!(rendered.contains("btn-primary"));
+        assert!(rendered.contains("mx-1"));
+    }
+
+    #[test]
+    fn attr_value_clones_optional_attr() {
+        let value = Some(yew::AttrValue::from("test"));
+        let cloned = attr_value(&value);
+        assert_eq!(cloned.as_deref(), Some("test"));
+    }
+}

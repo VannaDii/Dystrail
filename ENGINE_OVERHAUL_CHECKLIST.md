@@ -345,7 +345,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Kernel is the only orchestrator of the day; `travel_next_leg()` no longer contains phase-order decisions.
     - All early returns in the day tick still produce a `DayRecord` and `events[]` consistent with the spec.
 
-- [ ] ARCH-006 (P0) Refactor `JourneyController::tick_day()` to call the kernel (stop per-tick state mutation)
+- [x] ARCH-006 (P0) Refactor `JourneyController::tick_day()` to call the kernel (stop per-tick state mutation)
   - Requirement:
     - `dystrail-game/src/journey/mod.rs::JourneyController::tick_day` currently injects config into `GameState` and then calls `travel_next_leg()`.
     - Post-refactor, controller tick MUST:

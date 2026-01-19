@@ -1,5 +1,7 @@
 // Accessibility helpers
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::closure::Closure;
 
 /// Get CSS for visible focus indicators and screen reader utilities
@@ -15,11 +17,8 @@ pub const fn visible_focus_css() -> &'static str {
 ///
 /// Updates the text content of the #menu-helper element if present.
 /// This provides announcements to assistive technology users.
+#[cfg(target_arch = "wasm32")]
 pub fn set_status(msg: &str) {
-    if !cfg!(target_arch = "wasm32") {
-        let _ = msg;
-        return;
-    }
     if let Some(node) = web_sys::window()
         .and_then(|win| win.document())
         .and_then(|doc| doc.get_element_by_id("menu-helper"))
@@ -28,15 +27,17 @@ pub fn set_status(msg: &str) {
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+pub const fn set_status(msg: &str) {
+    let _ = msg;
+}
+
 /// Toggle high-contrast mode for accessibility
 ///
 /// Adds or removes the 'hc' class from the HTML element and persists the choice.
 /// This enables high-contrast styling for users with visual impairments.
+#[cfg(target_arch = "wasm32")]
 pub fn set_high_contrast(enabled: bool) {
-    if !cfg!(target_arch = "wasm32") {
-        let _ = enabled;
-        return;
-    }
     let Some(win) = web_sys::window() else {
         return;
     };
@@ -54,30 +55,36 @@ pub fn set_high_contrast(enabled: bool) {
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+pub const fn set_high_contrast(enabled: bool) {
+    let _ = enabled;
+}
+
 /// Check if high-contrast mode is currently enabled
 ///
 /// Reads the saved preference from localStorage to determine if high-contrast
 /// styling should be active. Returns false if no preference is stored.
 #[must_use]
+#[cfg(target_arch = "wasm32")]
 pub fn high_contrast_enabled() -> bool {
-    if !cfg!(target_arch = "wasm32") {
-        return false;
-    }
     web_sys::window()
         .and_then(|win| win.local_storage().ok().flatten())
         .and_then(|storage| storage.get_item("dystrail.hc").ok().flatten())
         .is_some_and(|v| v == "1")
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+#[must_use]
+pub const fn high_contrast_enabled() -> bool {
+    false
+}
+
 /// Restore focus to the element with the provided ID, if it exists.
 ///
 /// This is used when closing transient UI (dialogs, drawers) to return focus
 /// to the triggering control and keep keyboard users oriented.
+#[cfg(target_arch = "wasm32")]
 pub fn restore_focus(prev_id: &str) {
-    if !cfg!(target_arch = "wasm32") {
-        let _ = prev_id;
-        return;
-    }
     if let Some(doc) = web_sys::window().and_then(|win| win.document())
         && let Some(el) = doc
             .get_element_by_id(prev_id)
@@ -87,15 +94,17 @@ pub fn restore_focus(prev_id: &str) {
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+pub const fn restore_focus(prev_id: &str) {
+    let _ = prev_id;
+}
+
 /// Trap focus within a container by cycling focusable elements on Tab/Shift+Tab.
 ///
 /// Attaches a keydown handler to the container; leaks the handler intentionally
 /// so it survives for the life of the dialog. No-op outside the browser target.
+#[cfg(target_arch = "wasm32")]
 pub fn trap_focus_in(container_id: &str) {
-    if !cfg!(target_arch = "wasm32") {
-        let _ = container_id;
-        return;
-    }
     let Some(doc) = web_sys::window().and_then(|win| win.document()) else {
         return;
     };
@@ -145,6 +154,11 @@ pub fn trap_focus_in(container_id: &str) {
 
     let _ = container.add_event_listener_with_callback("keydown", closure.as_ref().unchecked_ref());
     closure.forget();
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub const fn trap_focus_in(container_id: &str) {
+    let _ = container_id;
 }
 
 #[cfg(test)]

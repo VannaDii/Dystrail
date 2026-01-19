@@ -49,3 +49,26 @@ pub fn menu_line(props: &MenuLineProps) -> Html {
         </li>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn menu_line_renders_tooltip_and_labels() {
+        let props = MenuLineProps {
+            index: 1,
+            text: String::from("Steady"),
+            selected: true,
+            focused: true,
+            tooltip: String::from("Tip"),
+            on_activate: Callback::noop(),
+            on_focus: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<MenuLine>::with_props(props).render());
+        assert!(html.contains("Steady"));
+        assert!(html.contains("tooltip-1"));
+    }
+}

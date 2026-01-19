@@ -3,7 +3,9 @@ use super::menu_item::VehicleMenuItem;
 use crate::a11y::set_status;
 use crate::game::Part;
 use crate::i18n;
+#[cfg(target_arch = "wasm32")]
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
@@ -81,6 +83,7 @@ pub fn status_message(status: Option<Part>) -> String {
     )
 }
 
+#[cfg(target_arch = "wasm32")]
 pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
     let focus_idx = focus_idx.clone();
     use_effect_with(*focus_idx, move |idx| {
@@ -96,6 +99,12 @@ pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
     });
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
+    let _ = (list_ref, focus_idx);
+}
+
+#[cfg(target_arch = "wasm32")]
 pub fn keydown_handler(
     activate: Callback<u8>,
     focus_idx: UseStateHandle<u8>,
@@ -134,6 +143,15 @@ pub fn keydown_handler(
             e.prevent_default();
         }
     })
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn keydown_handler(
+    activate: Callback<u8>,
+    focus_idx: UseStateHandle<u8>,
+) -> Callback<KeyboardEvent> {
+    let _ = (activate, focus_idx);
+    Callback::from(|_e: KeyboardEvent| {})
 }
 
 pub fn render_menu(
@@ -181,4 +199,70 @@ pub fn resolve_selection(
             SelectionResolution::None => {}
         }
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::components::ui::vehicle_status::logic::VehicleAction;
+    use futures::executor::block_on;
+    use std::cell::RefCell;
+    use std::rc::Rc;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn menu_items_enable_correct_entries() {
+        crate::i18n::set_lang("en");
+        let items = menu_items(Some(Part::Tire), Some((1, 0, 0, 0)));
+        let tire = items.iter().find(|(idx, _)| *idx == 1).unwrap();
+        assert!(tire.1.1);
+        let battery = items.iter().find(|(idx, _)| *idx == 2).unwrap();
+        assert!(!battery.1.1);
+    }
+
+    #[test]
+    fn status_message_defaults_when_none() {
+        crate::i18n::set_lang("en");
+        let msg = status_message(None);
+        assert!(!msg.is_empty());
+    }
+
+    #[function_component(TestMenu)]
+    fn test_menu() -> Html {
+        let items = menu_items(Some(Part::Tire), Some((1, 0, 0, 0)));
+        let activate = Callback::from(|_| ());
+        html! { <ul>{ render_menu(&items, 1, 6, &activate) }</ul> }
+    }
+
+    #[test]
+    fn render_menu_outputs_items() {
+        crate::i18n::set_lang("en");
+        let html = block_on(LocalServerRenderer::<TestMenu>::new().render());
+        assert!(html.contains("ot-menuitem"));
+    }
+
+    #[test]
+    fn resolve_selection_emits_callbacks() {
+        crate::i18n::set_lang("en");
+        let action_slot: Rc<RefCell<Option<VehicleAction>>> = Rc::new(RefCell::new(None));
+        let action_slot_clone = action_slot.clone();
+        let back_hit = Rc::new(RefCell::new(false));
+        let back_hit_clone = back_hit.clone();
+        let on_back = Callback::from(move |()| {
+            *back_hit_clone.borrow_mut() = true;
+        });
+        let on_repair = Callback::from(move |action| {
+            *action_slot_clone.borrow_mut() = Some(action);
+        });
+
+        let callback = resolve_selection(on_back, on_repair, Some(Part::Tire), Some((1, 0, 0, 0)));
+        callback.emit(1);
+        assert!(matches!(
+            *action_slot.borrow(),
+            Some(VehicleAction::UseSpare(Part::Tire))
+        ));
+
+        callback.emit(0);
+        assert!(*back_hit.borrow());
+    }
 }

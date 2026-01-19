@@ -254,4 +254,28 @@ mod tests {
         assert!(cfg.passes_required >= 1);
         assert_eq!(cfg.balanced, BalancedBossBias::default());
     }
+
+    #[test]
+    fn balanced_policy_biases_apply_for_classic_and_deep() {
+        let data = EncounterData::empty();
+        let mut cfg = BossConfig::load_from_static();
+        cfg.rounds = 0;
+        cfg.base_victory_chance = 0.0;
+        cfg.min_chance = 0.0;
+        cfg.max_chance = 1.0;
+        cfg.distance_required = 10_000.0;
+
+        let mut classic_state =
+            GameState::default().with_seed(0xBADA, GameMode::Classic, data.clone());
+        classic_state.policy = Some(PolicyKind::Balanced);
+        classic_state.detach_rng_bundle();
+        let classic_outcome = run_boss_minigame(&mut classic_state, &cfg);
+        assert!(matches!(classic_outcome, BossOutcome::PassedCloture));
+
+        let mut deep_state = GameState::default().with_seed(0xD00D, GameMode::Deep, data);
+        deep_state.policy = Some(PolicyKind::Balanced);
+        deep_state.detach_rng_bundle();
+        let deep_outcome = run_boss_minigame(&mut deep_state, &cfg);
+        assert!(matches!(deep_outcome, BossOutcome::PassedCloture));
+    }
 }

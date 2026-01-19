@@ -55,7 +55,7 @@ pub fn save_drawer(p: &Props) -> Html {
         return html! {};
     }
 
-    let on_keydown = focus_keydown_handler(container_ref.clone(), p.on_close.clone());
+    let on_keydown = focus_keydown_handler(&container_ref, p.on_close.clone());
 
     html! {
         <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="save-title" ref={container_ref} onkeydown={on_keydown}>

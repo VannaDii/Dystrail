@@ -88,3 +88,29 @@ pub fn calendar(props: &CalendarProps) -> f::Html {
         </div>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::{days_in_month, is_leap_year, weekday_index};
+
+    #[test]
+    fn leap_year_detection_matches_rules() {
+        assert!(is_leap_year(2000));
+        assert!(!is_leap_year(1900));
+        assert!(is_leap_year(2024));
+        assert!(!is_leap_year(2023));
+    }
+
+    #[test]
+    fn days_in_month_handles_leap_and_fallbacks() {
+        assert_eq!(days_in_month(2024, 2), 29);
+        assert_eq!(days_in_month(2023, 2), 28);
+        assert_eq!(days_in_month(2023, 13), 30);
+    }
+
+    #[test]
+    fn weekday_index_returns_valid_range() {
+        let day = weekday_index(2024, 1, 1);
+        assert!(day < 7);
+    }
+}

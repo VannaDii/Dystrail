@@ -1,17 +1,20 @@
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::hook;
 use yew::prelude::*;
 
+#[cfg(target_arch = "wasm32")]
 const FOCUSABLE_QUERY: &str =
     "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])";
 
+#[cfg(target_arch = "wasm32")]
 #[hook]
 pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_ref: NodeRef) {
     use_effect_with(
         (open, return_focus_id, container_ref),
         move |(open, ret, container_ref)| {
-            let focus_target = if cfg!(target_arch = "wasm32") && *open {
+            let focus_target = if *open {
                 container_ref.cast::<web_sys::Element>().and_then(|el| {
                     el.query_selector_all(FOCUSABLE_QUERY)
                         .ok()
@@ -30,18 +33,14 @@ pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_
 
             let ret_id = ret.clone();
             move || {
-                let maybe_focus = if cfg!(target_arch = "wasm32") {
-                    ret_id
-                        .clone()
-                        .and_then(|id| {
-                            web_sys::window()
-                                .and_then(|w| w.document())
-                                .and_then(|doc| doc.get_element_by_id(id.as_ref()))
-                        })
-                        .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok())
-                } else {
-                    None
-                };
+                let maybe_focus = ret_id
+                    .clone()
+                    .and_then(|id| {
+                        web_sys::window()
+                            .and_then(|w| w.document())
+                            .and_then(|doc| doc.get_element_by_id(id.as_ref()))
+                    })
+                    .and_then(|node| node.dyn_into::<web_sys::HtmlElement>().ok());
 
                 if let Some(el) = maybe_focus {
                     let _ = el.focus();
@@ -51,15 +50,19 @@ pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_
     );
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+#[hook]
+pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_ref: NodeRef) {
+    let _ = (open, return_focus_id, container_ref);
+}
+
+#[cfg(target_arch = "wasm32")]
 pub fn focus_keydown_handler(
-    container_ref: NodeRef,
+    container_ref: &NodeRef,
     on_close: Callback<()>,
 ) -> Callback<KeyboardEvent> {
+    let container_ref = container_ref.clone();
     Callback::from(move |e: KeyboardEvent| {
-        if !cfg!(target_arch = "wasm32") {
-            let _ = e;
-            return;
-        }
         if e.key() == "Escape" {
             on_close.emit(());
             return;
@@ -105,5 +108,16 @@ pub fn focus_keydown_handler(
                 let _ = first.focus();
             }
         }
+    })
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn focus_keydown_handler(
+    container_ref: &NodeRef,
+    on_close: Callback<()>,
+) -> Callback<KeyboardEvent> {
+    let _ = container_ref;
+    Callback::from(move |_e: KeyboardEvent| {
+        let _ = &on_close;
     })
 }

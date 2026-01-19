@@ -213,3 +213,85 @@ fn resource_penalty(choice: &Choice) -> i32 {
     }
     penalty
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dystrail_game::data::{Choice, Effects, Encounter};
+
+    fn sample_encounter() -> Encounter {
+        Encounter {
+            id: "enc1".into(),
+            name: "Encounter".into(),
+            desc: "Desc".into(),
+            weight: 1,
+            regions: vec![],
+            modes: vec![],
+            choices: vec![
+                Choice {
+                    label: "Risky".into(),
+                    effects: Effects {
+                        hp: -2,
+                        supplies: 0,
+                        sanity: -1,
+                        pants: 0,
+                        ..Effects::default()
+                    },
+                },
+                Choice {
+                    label: "Reward".into(),
+                    effects: Effects {
+                        hp: 1,
+                        supplies: 2,
+                        credibility: 1,
+                        ..Effects::default()
+                    },
+                },
+            ],
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        }
+    }
+
+    #[test]
+    fn strategy_labels_are_stable() {
+        assert_eq!(GameplayStrategy::Balanced.label(), "Balanced");
+        assert_eq!(
+            GameplayStrategy::ResourceManager.label(),
+            "Resource Manager"
+        );
+    }
+
+    #[test]
+    fn conservative_prefers_lower_risk() {
+        let encounter = sample_encounter();
+        let mut policy = ConservativePolicy;
+        let decision = policy.pick_choice(&GameState::default(), &encounter);
+        assert_eq!(decision.choice_index, 1);
+    }
+
+    #[test]
+    fn aggressive_prefers_higher_reward() {
+        let encounter = sample_encounter();
+        let mut policy = AggressivePolicy;
+        let decision = policy.pick_choice(&GameState::default(), &encounter);
+        assert_eq!(decision.choice_index, 1);
+    }
+
+    #[test]
+    fn balanced_scores_combine_reward_and_risk() {
+        let encounter = sample_encounter();
+        let mut policy = BalancedPolicy;
+        let decision = policy.pick_choice(&GameState::default(), &encounter);
+        assert_eq!(decision.choice_index, 1);
+    }
+
+    #[test]
+    fn resource_manager_prefers_penalty_minimization() {
+        let encounter = sample_encounter();
+        let mut policy = ResourceManagerPolicy;
+        let decision = policy.pick_choice(&GameState::default(), &encounter);
+        assert_eq!(decision.choice_index, 1);
+    }
+}

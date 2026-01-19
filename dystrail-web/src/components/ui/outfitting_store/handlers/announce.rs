@@ -1,8 +1,13 @@
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::a11y::set_status;
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::game::store::StoreItem;
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::i18n;
+#[cfg(any(target_arch = "wasm32", test))]
 use std::collections::BTreeMap;
 
+#[cfg(any(target_arch = "wasm32", test))]
 pub fn announce_quantity_change(
     item: &StoreItem,
     qty: i32,
@@ -47,6 +52,7 @@ pub fn announce_quantity_change(
     set_status(&message);
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 pub fn announce_cannot_add(item: &StoreItem) {
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let message = if item.unique {
@@ -74,4 +80,42 @@ pub fn announce_cannot_add(item: &StoreItem) {
 
 pub fn format_currency(cents: i64) -> String {
     crate::i18n::fmt_currency(cents)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::components::ui::outfitting_store::state::StoreState;
+    use crate::game::store::{Grants, StoreItem};
+
+    fn item(unique: bool) -> StoreItem {
+        StoreItem {
+            id: String::from("water"),
+            name: String::from("Water"),
+            desc: String::from("Desc"),
+            price_cents: 100,
+            unique,
+            max_qty: 5,
+            grants: Grants::default(),
+            tags: Vec::new(),
+            category: String::from("fuel_food"),
+        }
+    }
+
+    #[test]
+    fn announce_quantity_change_covers_branches() {
+        crate::i18n::set_lang("en");
+        let mut state = StoreState::default();
+        state.cart.total_cents = 100;
+        announce_quantity_change(&item(false), 1, true, &state, 500);
+        announce_quantity_change(&item(false), 1, false, &state, 500);
+        assert!(!format_currency(0).is_empty());
+    }
+
+    #[test]
+    fn announce_cannot_add_covers_unique_and_max() {
+        crate::i18n::set_lang("en");
+        announce_cannot_add(&item(true));
+        announce_cannot_add(&item(false));
+    }
 }

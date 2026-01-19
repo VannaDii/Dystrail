@@ -358,4 +358,46 @@ mod tests {
         let outcome_max = resolve_crossing(ctx, &mut rng_max);
         assert!(matches!(outcome_max.result, CrossingResult::Detour(5)));
     }
+
+    #[test]
+    fn resolve_crossing_defaults_when_weights_zero() {
+        let policy = CrossingPolicy {
+            pass: 0.0,
+            detour: 0.0,
+            terminal: 0.0,
+            ..CrossingPolicy::default()
+        };
+        let ctx = CrossingContext {
+            policy: &policy,
+            kind: CrossingKind::Checkpoint,
+            has_permit: false,
+            bribe_intent: false,
+            prior_bribe_attempts: 0,
+        };
+        let mut rng = StubRng::new(0);
+        let outcome = resolve_crossing(ctx, &mut rng);
+        assert!(matches!(outcome.result, CrossingResult::Pass));
+    }
+
+    #[test]
+    fn detour_days_return_min_when_range_collapses() {
+        let policy = CrossingPolicy {
+            detour_days: DetourPolicy { min: 4, max: 2 },
+            ..CrossingPolicy::default()
+        };
+        let days = detour_days_for_sample(&policy, 99);
+        assert_eq!(days, 4);
+    }
+
+    #[test]
+    fn permit_allows_bridge_out_when_eligible() {
+        let policy = CrossingPolicy {
+            permit: PermitPolicy {
+                disable_terminal: false,
+                eligible: vec![String::from("bridge_out")],
+            },
+            ..CrossingPolicy::default()
+        };
+        assert!(permit_allows(&policy, CrossingKind::BridgeOut));
+    }
 }

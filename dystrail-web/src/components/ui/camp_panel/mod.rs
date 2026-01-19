@@ -5,9 +5,11 @@ mod repair_view;
 mod tests;
 
 use crate::game::{CampConfig, EndgameTravelCfg, GameState, can_repair, can_therapy};
+#[cfg(target_arch = "wasm32")]
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
 use actions::build_on_action;
 use std::rc::Rc;
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
@@ -48,6 +50,7 @@ pub fn camp_panel(p: &Props) -> Html {
     let list_ref = use_node_ref();
     let status_msg = use_state(String::new);
 
+    #[cfg(target_arch = "wasm32")]
     {
         let list_ref = list_ref.clone();
         use_effect_with(*focus_idx, move |idx| {
@@ -61,6 +64,11 @@ pub fn camp_panel(p: &Props) -> Html {
                 }
             }
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = list_ref;
+        let _ = focus_idx;
     }
 
     let on_action = build_on_action(
@@ -78,58 +86,65 @@ pub fn camp_panel(p: &Props) -> Html {
         let focus_idx = focus_idx.clone();
         let on_close = p.on_close.clone();
         let view_state = *current_view;
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: KeyboardEvent| {
+                let key = e.key();
 
-        Callback::from(move |e: KeyboardEvent| {
-            let key = e.key();
-
-            if let Some(n) = numeric_key_to_index(&key) {
-                on_action.emit(n);
-                e.prevent_default();
-                return;
-            }
-
-            if let Some(n) = numeric_code_to_index(&e.code()) {
-                on_action.emit(n);
-                e.prevent_default();
-                return;
-            }
-
-            match key.as_str() {
-                "Enter" | " " => {
-                    on_action.emit(*focus_idx);
+                if let Some(n) = numeric_key_to_index(&key) {
+                    on_action.emit(n);
                     e.prevent_default();
+                    return;
                 }
-                "Escape" => {
-                    on_close.emit(());
+
+                if let Some(n) = numeric_code_to_index(&e.code()) {
+                    on_action.emit(n);
                     e.prevent_default();
+                    return;
                 }
-                "ArrowDown" => {
-                    let max = match view_state {
-                        CampView::Main => 4,
-                        CampView::Repair => 2,
-                    };
-                    let mut next = *focus_idx + 1;
-                    if next > max {
-                        next = 0;
+
+                match key.as_str() {
+                    "Enter" | " " => {
+                        on_action.emit(*focus_idx);
+                        e.prevent_default();
                     }
-                    focus_idx.set(next);
-                    e.prevent_default();
-                }
-                "ArrowUp" => {
-                    let max = match view_state {
-                        CampView::Main => 4,
-                        CampView::Repair => 2,
-                    };
-                    let mut prev = if *focus_idx == 0 { max } else { *focus_idx - 1 };
-                    if prev == 0 {
-                        prev = max;
+                    "Escape" => {
+                        on_close.emit(());
+                        e.prevent_default();
                     }
-                    focus_idx.set(prev);
-                    e.prevent_default();
+                    "ArrowDown" => {
+                        let max = match view_state {
+                            CampView::Main => 4,
+                            CampView::Repair => 2,
+                        };
+                        let mut next = *focus_idx + 1;
+                        if next > max {
+                            next = 0;
+                        }
+                        focus_idx.set(next);
+                        e.prevent_default();
+                    }
+                    "ArrowUp" => {
+                        let max = match view_state {
+                            CampView::Main => 4,
+                            CampView::Repair => 2,
+                        };
+                        let mut prev = if *focus_idx == 0 { max } else { *focus_idx - 1 };
+                        if prev == 0 {
+                            prev = max;
+                        }
+                        focus_idx.set(prev);
+                        e.prevent_default();
+                    }
+                    _ => {}
                 }
-                _ => {}
-            }
-        })
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (on_action, focus_idx, on_close, view_state);
+            Callback::from(|_e: KeyboardEvent| {})
+        }
     };
 
     match &*current_view {

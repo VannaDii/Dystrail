@@ -1,4 +1,3 @@
-use dystrail_game::GameEngine;
 use dystrail_game::TravelDayKind;
 use dystrail_game::boss::{BossConfig, BossOutcome, run_boss_minigame};
 use dystrail_game::camp::{self, CampConfig, CampState, RestConfig};
@@ -12,6 +11,7 @@ use dystrail_game::endgame::{
     self, EndgamePolicyCfg, EndgameState, EndgameTravelCfg, ResourceKind,
 };
 use dystrail_game::journey::RngBundle;
+use dystrail_game::otdeluxe_state::{OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxePartyState};
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::PersonasList;
 use dystrail_game::result::{ResultConfig, ResultSummary, result_summary, select_ending};
@@ -26,11 +26,13 @@ use dystrail_game::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pic
 use dystrail_game::weather::{
     Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
+use dystrail_game::{DataLoader, GameEngine, GameStorage};
 use dystrail_game::{
     DayRecord, JourneyCfg, JourneyController, MechanicalPolicyId, PolicyId, StrategyId,
     compute_day_ledger_metrics,
 };
 use rand::rngs::SmallRng;
+use rand::rngs::mock::StepRng;
 use rand::{RngCore, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use std::cell::RefCell;
@@ -350,6 +352,7 @@ fn journey_controller_tick_yields_day_record() {
         StrategyId::Balanced,
         0xD15E_u64,
     );
+    controller.configure_state(&mut state);
     let outcome = controller.tick_day(&mut state);
 
     assert!(!state.day_records.is_empty());
@@ -376,8 +379,11 @@ fn journey_controller_applies_partial_ratio() {
         123,
         endgame,
     );
+    controller.configure_state(&mut state);
     let _ = controller.tick_day(&mut state);
     assert!((state.journey_partial_ratio - 0.8).abs() < 1e-6);
+    let _ = journey_cfg_for(PolicyKind::Conservative, GameMode::Classic);
+    let _ = journey_cfg_for(PolicyKind::ResourceManager, GameMode::Deep);
 }
 
 #[test]
@@ -401,6 +407,7 @@ fn full_content_walkthrough() {
             state.seed,
         );
         controller.set_endgame_config(endgame_cfg.clone());
+        controller.configure_state(&mut state);
 
         for day in 0..80 {
             let outcome = controller.tick_day(&mut state);
@@ -503,14 +510,34 @@ impl dystrail_game::GameStorage for TestStorage {
 
 #[test]
 fn game_engine_smoke_and_storage_paths() {
-    let loader = TestLoader::default();
+    let mut loader = TestLoader::default();
+    let _ = loader
+        .load_config::<CampConfig>("missing")
+        .expect("missing config");
+    let config_json = serde_json::to_string(&CampConfig::default()).expect("config json");
+    loader.configs.insert(String::from("camp"), config_json);
+    loader
+        .configs
+        .insert(String::from("broken"), String::from("{bad json"));
+    let _ = loader
+        .load_config::<CampConfig>("camp")
+        .expect("camp config");
+    let broken = loader
+        .load_config::<CampConfig>("broken")
+        .expect("broken config");
+    assert_eq!(broken, CampConfig::default());
     let storage = TestStorage::default();
+    storage.delete_save("slot1").unwrap();
     let engine = GameEngine::new(loader, storage);
     assert!(engine.load_game("missing").unwrap().is_none());
     let game = engine.create_game(42, GameMode::Classic).expect("game");
+    let _ = engine
+        .create_session(7, GameMode::Classic, StrategyId::Balanced)
+        .expect("session");
     engine.save_game("slot1", &game).unwrap();
     let restored = engine.load_game("slot1").unwrap();
     assert!(restored.is_some());
+    assert!(engine.load_game("slot1").unwrap().is_some());
 }
 
 #[test]
@@ -1116,4 +1143,95 @@ impl RngCore for FixedRng {
         self.fill_bytes(dest);
         Ok(())
     }
+}
+
+#[test]
+fn helpers_cover_fixed_rng_and_sampling_edges() {
+    let direct = sample_with_remainder(0.75, 0, 0);
+    assert_eq!(direct, sample_for(0.75));
+
+    let mut rng = FixedRng::with_value(0xA5A5_A5A5);
+    assert_eq!(rng.next_u64(), 0xA5A5_A5A5_u64);
+    let mut bytes = [0_u8; 4];
+    rng.fill_bytes(&mut bytes);
+    assert!(bytes.iter().any(|byte| *byte != 0));
+    let mut bytes = [0_u8; 3];
+    rng.try_fill_bytes(&mut bytes).expect("fill bytes");
+}
+
+#[test]
+fn sample_with_remainder_caps_overflow() {
+    let draw = 1.0;
+    let base = sample_for(draw);
+    let mut chosen = None;
+    for span in 2..=10_000_u32 {
+        let bucket = u64::from(base) / u64::from(span);
+        if bucket == 0 {
+            continue;
+        }
+        let remainder = span - 1;
+        let overflowed = bucket
+            .saturating_mul(u64::from(span))
+            .saturating_add(u64::from(remainder));
+        if overflowed > u64::from(u32::MAX) {
+            chosen = Some((span, remainder, bucket, overflowed));
+            break;
+        }
+    }
+    let (span, remainder, bucket, overflowed) = chosen.expect("expected overflow parameters");
+    assert!(overflowed > u64::from(u32::MAX));
+
+    let expected = (bucket - 1)
+        .saturating_mul(u64::from(span))
+        .saturating_add(u64::from(remainder))
+        .min(u64::from(u32::MAX));
+    let expected = u32::try_from(expected).unwrap_or(u32::MAX);
+    let capped = sample_with_remainder(draw, span, remainder);
+    assert_eq!(capped, expected);
+}
+
+#[test]
+fn otdeluxe_party_state_affliction_records_disease() {
+    let mut party = OtDeluxePartyState::from_names(["Ada", "Lin"]);
+    assert_eq!(party.alive_count(), 2);
+    let mut rng = StepRng::new(0, 0);
+    let outcome = party
+        .apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Illness, 3, Some("flu"))
+        .expect("affliction outcome");
+    assert_eq!(outcome.disease_id.as_deref(), Some("flu"));
+    assert!(party.members[outcome.member_index].is_sick());
+    assert_eq!(
+        party.members[outcome.member_index].illness_id.as_deref(),
+        Some("flu")
+    );
+}
+
+#[test]
+fn otdeluxe_calendar_normalizes_and_handles_leap_years() {
+    let mut invalid = OtDeluxeCalendar {
+        month: 0,
+        day_in_month: 0,
+        year: 1849,
+    };
+    invalid.advance_days(1);
+    assert_eq!(invalid.month, 1);
+    assert_eq!(invalid.day_in_month, 2);
+
+    let mut overflow = OtDeluxeCalendar {
+        month: 2,
+        day_in_month: 99,
+        year: 1900,
+    };
+    overflow.advance_days(1);
+    assert_eq!(overflow.month, 3);
+    assert_eq!(overflow.day_in_month, 1);
+
+    let mut leap = OtDeluxeCalendar {
+        month: 2,
+        day_in_month: 28,
+        year: 2000,
+    };
+    leap.advance_days(1);
+    assert_eq!(leap.month, 2);
+    assert_eq!(leap.day_in_month, 29);
 }

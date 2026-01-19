@@ -402,6 +402,21 @@ mod tests {
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
 
+    fn stocked_state() -> GameState {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 6;
+        state.ot_deluxe.inventory = OtDeluxeInventory {
+            food_lbs: 100,
+            bullets: 60,
+            clothes_sets: 4,
+            cash_cents: 5000,
+            spares_wheels: 2,
+            spares_axles: 2,
+            spares_tongues: 2,
+        };
+        state
+    }
+
     #[test]
     fn trade_offer_records_decision_traces() {
         let mut state = GameState::default();
@@ -431,5 +446,217 @@ mod tests {
                 .iter()
                 .any(|trace| trace.pool_id == "otdeluxe.trade.receive")
         );
+    }
+
+    #[test]
+    fn trade_returns_no_offer_when_no_goods_available() {
+        let mut state = GameState::default();
+        let mut rng = SmallRng::seed_from_u64(1);
+        let outcome = resolve_trade_with_rng(&mut state, &mut rng);
+        assert_eq!(outcome.resolution, TradeResolution::NoOffer);
+        assert!(outcome.offer.is_none());
+
+        let outcome = resolve_trade(&mut state);
+        assert_eq!(outcome.resolution, TradeResolution::NoOffer);
+        assert!(outcome.offer.is_none());
+    }
+
+    #[test]
+    fn trade_amount_bounds_handle_singleton_goods() {
+        let mut rng = SmallRng::seed_from_u64(11);
+        let mut state = stocked_state();
+        state.ot_deluxe.inventory.spares_wheels = 0;
+
+        let give_amount = generate_give_amount(&mut rng, &state, TradeGoodKind::Wheel);
+        let receive_amount = generate_receive_amount(&mut rng, TradeGoodKind::Axle);
+
+        assert_eq!(amount_bounds(TradeGoodKind::Wheel), (1, 1));
+        assert_eq!(give_amount, 1);
+        assert_eq!(receive_amount, 1);
+    }
+
+    #[test]
+    fn apply_offer_rejects_unaffordable_goods() {
+        let mut state = GameState::default();
+        state.ot_deluxe.inventory.food_lbs = 10;
+        let offer = TradeOffer {
+            give: TradeGood {
+                kind: TradeGoodKind::Food,
+                amount: 25,
+            },
+            receive: TradeGood {
+                kind: TradeGoodKind::Cash,
+                amount: 500,
+            },
+        };
+        let outcome = apply_offer(&mut state, Some(offer));
+        assert_eq!(outcome.resolution, TradeResolution::Unaffordable);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 10);
+    }
+
+    #[test]
+    fn add_good_updates_each_inventory_slot() {
+        let mut state = GameState::default();
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Oxen,
+                amount: 2,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Clothes,
+                amount: 3,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Bullets,
+                amount: 40,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Wheel,
+                amount: 1,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Axle,
+                amount: 1,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Tongue,
+                amount: 1,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Food,
+                amount: 25,
+            },
+        );
+        add_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Cash,
+                amount: 500,
+            },
+        );
+
+        assert_eq!(state.ot_deluxe.oxen.healthy, 2);
+        assert_eq!(state.ot_deluxe.inventory.clothes_sets, 3);
+        assert_eq!(state.ot_deluxe.inventory.bullets, 40);
+        assert_eq!(state.ot_deluxe.inventory.spares_wheels, 1);
+        assert_eq!(state.ot_deluxe.inventory.spares_axles, 1);
+        assert_eq!(state.ot_deluxe.inventory.spares_tongues, 1);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 25);
+        assert_eq!(state.ot_deluxe.inventory.cash_cents, 500);
+    }
+
+    #[test]
+    fn subtract_good_updates_each_inventory_slot() {
+        let mut state = stocked_state();
+        assert!(!subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Food,
+                amount: 0,
+            }
+        ));
+        assert!(!subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Food,
+                amount: 1000,
+            }
+        ));
+
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Oxen,
+                amount: 2,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Clothes,
+                amount: 1,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Bullets,
+                amount: 20,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Wheel,
+                amount: 1,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Axle,
+                amount: 1,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Tongue,
+                amount: 1,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Food,
+                amount: 25,
+            }
+        ));
+        assert!(subtract_good(
+            &mut state,
+            TradeGood {
+                kind: TradeGoodKind::Cash,
+                amount: 500,
+            }
+        ));
+
+        assert_eq!(state.ot_deluxe.oxen.healthy, 4);
+        assert_eq!(state.ot_deluxe.inventory.clothes_sets, 3);
+        assert_eq!(state.ot_deluxe.inventory.bullets, 40);
+        assert_eq!(state.ot_deluxe.inventory.spares_wheels, 1);
+        assert_eq!(state.ot_deluxe.inventory.spares_axles, 1);
+        assert_eq!(state.ot_deluxe.inventory.spares_tongues, 1);
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 75);
+        assert_eq!(state.ot_deluxe.inventory.cash_cents, 4500);
+    }
+
+    #[test]
+    fn deterministic_offer_uses_minimum_amounts() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 1;
+        let offer = generate_offer_deterministic(&state).expect("offer expected");
+        assert_eq!(offer.give.kind, TradeGoodKind::Oxen);
+        assert_eq!(offer.give.amount, 1);
+        assert_eq!(offer.receive.kind, TradeGoodKind::Clothes);
+        assert_eq!(offer.receive.amount, 1);
     }
 }

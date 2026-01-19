@@ -85,6 +85,7 @@ fn run_campaign_setup_and_loop() -> (
         state.seed,
     );
     controller.set_endgame_config(endgame_cfg.clone());
+    controller.configure_state(&mut state);
     let mut weather_seen = HashSet::new();
     let store = load_store();
     let by_id = store.items_by_id();

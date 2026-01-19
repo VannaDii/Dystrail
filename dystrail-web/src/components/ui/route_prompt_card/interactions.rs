@@ -1,4 +1,6 @@
+#[cfg(target_arch = "wasm32")]
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
@@ -28,6 +30,7 @@ pub fn activate_handler(
     })
 }
 
+#[cfg(target_arch = "wasm32")]
 pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
     let focus_idx = focus_idx.clone();
     use_effect_with(*focus_idx, move |idx| {
@@ -43,6 +46,12 @@ pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
     });
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
+    let _ = (list_ref, focus_idx);
+}
+
+#[cfg(target_arch = "wasm32")]
 pub fn keydown_handler(
     activate: Callback<u8>,
     focus_idx: &UseStateHandle<u8>,
@@ -76,4 +85,14 @@ pub fn keydown_handler(
             e.prevent_default();
         }
     })
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn keydown_handler(
+    activate: Callback<u8>,
+    focus_idx: &UseStateHandle<u8>,
+    resolved: &UseStateHandle<bool>,
+) -> Callback<KeyboardEvent> {
+    let _ = (activate, focus_idx, resolved);
+    Callback::from(|_e: KeyboardEvent| {})
 }

@@ -419,4 +419,88 @@ mod tests {
         assert_eq!(mode_display(GameMode::Classic), "Classic");
         assert_eq!(mode_display(GameMode::Deep), "The Deep End");
     }
+
+    #[test]
+    fn headline_keys_cover_failure_branches() {
+        let cfg = ResultConfig::default();
+
+        let vehicle_key = headline_key_for(
+            Ending::VehicleFailure {
+                cause: VehicleFailureCause::Destroyed,
+            },
+            &cfg.endings,
+            None,
+        );
+        assert_eq!(vehicle_key, "result.headline.vehicle_failure");
+
+        let exposure_key = headline_key_for(
+            Ending::Exposure {
+                kind: crate::state::ExposureKind::Cold,
+            },
+            &cfg.endings,
+            None,
+        );
+        assert_eq!(exposure_key, "result.headline.exposure_cold");
+    }
+
+    fn collapse_headline_key(cfg: &ResultConfig, cause: CollapseCause) -> String {
+        headline_key_for(Ending::Collapse { cause }, &cfg.endings, None)
+    }
+
+    #[test]
+    fn headline_keys_cover_collapse_branches() {
+        let cfg = ResultConfig::default();
+
+        let panic_key = collapse_headline_key(&cfg, CollapseCause::Panic);
+        assert_eq!(panic_key, cfg.endings.pants_key);
+
+        for cause in [
+            CollapseCause::Vehicle,
+            CollapseCause::Hunger,
+            CollapseCause::Weather,
+            CollapseCause::Breakdown,
+            CollapseCause::Disease,
+            CollapseCause::Crossing,
+        ] {
+            let expected = format!("{}_{}", cfg.endings.collapse_key, cause.key());
+            assert_eq!(collapse_headline_key(&cfg, cause), expected);
+        }
+
+        assert_eq!(epilogue_key_for("headline.only"), "result.epilogue.generic");
+    }
+
+    #[test]
+    fn rounding_modes_cover_all_branches() {
+        assert_eq!(apply_rounding(1.2, Rounding::Down), 1);
+        assert_eq!(apply_rounding(1.2, Rounding::Up), 2);
+        assert_eq!(apply_rounding(1.5, Rounding::Nearest), 2);
+    }
+
+    #[test]
+    fn select_ending_returns_existing_value() {
+        let cfg = ResultConfig::default();
+        let state = GameState {
+            ending: Some(Ending::SanityLoss),
+            ..GameState::default()
+        };
+        assert_eq!(select_ending(&state, &cfg, false), Ending::SanityLoss);
+    }
+
+    #[test]
+    fn otdeluxe_score_path_is_used() {
+        let cfg = ResultConfig::default();
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.cash_cents = 5000;
+        state.ot_deluxe.inventory.food_lbs = 100;
+        state.ot_deluxe.inventory.bullets = 100;
+        state.ot_deluxe.inventory.clothes_sets = 5;
+        state.ot_deluxe.oxen.healthy = 4;
+
+        let summary = result_summary(&state, &cfg).expect("summary");
+        let expected = otdeluxe_score::compute_score(&state.ot_deluxe);
+        assert_eq!(summary.score, expected);
+    }
 }

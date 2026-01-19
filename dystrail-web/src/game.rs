@@ -3,6 +3,7 @@
 //! This module provides web-specific implementations of the dystrail-game traits
 //! and re-exports the core game logic types.
 
+#[cfg(target_arch = "wasm32")]
 use crate::dom;
 use serde::de::DeserializeOwned;
 
@@ -73,40 +74,70 @@ impl GameStorage for WebGameStorage {
         save_name: &str,
         game_state: &dystrail_game::GameState,
     ) -> Result<(), Self::Error> {
-        let key = format!("dystrail.save.{save_name}");
-        let storage = dom::local_storage()
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        let serialized = serde_json::to_string(game_state)?;
-        storage
-            .set_item(&key, &serialized)
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        Ok(())
+        #[cfg(target_arch = "wasm32")]
+        {
+            let key = format!("dystrail.save.{save_name}");
+            let storage = dom::local_storage()
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            let serialized = serde_json::to_string(game_state)?;
+            storage
+                .set_item(&key, &serialized)
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            Ok(())
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (save_name, game_state);
+            Err(WebStorageError::Storage(String::from(
+                "Storage unavailable",
+            )))
+        }
     }
 
     fn load_game(&self, save_name: &str) -> Result<Option<dystrail_game::GameState>, Self::Error> {
-        let key = format!("dystrail.save.{save_name}");
-        let storage = dom::local_storage()
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        let value = storage
-            .get_item(&key)
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        match value {
-            Some(json) => {
-                let state = serde_json::from_str(&json)?;
-                Ok(Some(state))
+        #[cfg(target_arch = "wasm32")]
+        {
+            let key = format!("dystrail.save.{save_name}");
+            let storage = dom::local_storage()
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            let value = storage
+                .get_item(&key)
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            match value {
+                Some(json) => {
+                    let state = serde_json::from_str(&json)?;
+                    Ok(Some(state))
+                }
+                None => Ok(None),
             }
-            None => Ok(None),
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = save_name;
+            Err(WebStorageError::Storage(String::from(
+                "Storage unavailable",
+            )))
         }
     }
 
     fn delete_save(&self, save_name: &str) -> Result<(), Self::Error> {
-        let key = format!("dystrail.save.{save_name}");
-        let storage = dom::local_storage()
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        storage
-            .remove_item(&key)
-            .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
-        Ok(())
+        #[cfg(target_arch = "wasm32")]
+        {
+            let key = format!("dystrail.save.{save_name}");
+            let storage = dom::local_storage()
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            storage
+                .remove_item(&key)
+                .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
+            Ok(())
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = save_name;
+            Err(WebStorageError::Storage(String::from(
+                "Storage unavailable",
+            )))
+        }
     }
 }
 
@@ -149,6 +180,36 @@ mod tests {
             !weather.effects.is_empty(),
             "weather config should describe effects"
         );
+
+        let personas: serde_json::Value = loader
+            .load_config("personas")
+            .expect("personas config should deserialize");
+        assert!(personas.is_object());
+
+        let store: serde_json::Value = loader
+            .load_config("store")
+            .expect("store config should deserialize");
+        assert!(store.is_object());
+
+        let vehicle: serde_json::Value = loader
+            .load_config("vehicle")
+            .expect("vehicle config should deserialize");
+        assert!(vehicle.is_object());
+
+        let camp: serde_json::Value = loader
+            .load_config("camp")
+            .expect("camp config should deserialize");
+        assert!(camp.is_object());
+
+        let crossings: serde_json::Value = loader
+            .load_config("crossings")
+            .expect("crossings config should deserialize");
+        assert!(crossings.is_object());
+
+        let result: serde_json::Value = loader
+            .load_config("result")
+            .expect("result config should deserialize");
+        assert!(result.is_object());
     }
 
     #[test]
@@ -171,5 +232,26 @@ mod tests {
             .expect("engine should build a default game");
         assert_eq!(game.seed, 42);
         assert_eq!(game.mode, dystrail_game::GameMode::Classic);
+    }
+
+    #[test]
+    fn web_storage_errors_without_browser_storage() {
+        let storage = WebGameStorage;
+        let state = dystrail_game::GameState::default();
+
+        let err = storage
+            .save_game("test", &state)
+            .expect_err("save should fail without storage");
+        assert!(matches!(err, WebStorageError::Storage(_)));
+
+        let err = storage
+            .load_game("test")
+            .expect_err("load should fail without storage");
+        assert!(matches!(err, WebStorageError::Storage(_)));
+
+        let err = storage
+            .delete_save("test")
+            .expect_err("delete should fail without storage");
+        assert!(matches!(err, WebStorageError::Storage(_)));
     }
 }

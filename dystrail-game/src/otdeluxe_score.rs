@@ -162,4 +162,47 @@ mod tests {
         let score = compute_score_with_policy(&state, &policy);
         assert_eq!(score, 50);
     }
+
+    #[test]
+    fn score_labels_cover_all_ranges() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        policy.score.points_wagon = 0;
+        policy.score.points_ox = 0;
+        policy.score.points_spare_part = 0;
+        policy.score.points_clothes = 0;
+        policy.score.points_per_person_by_health = OtDeluxeScorePointsPerPersonByHealth {
+            good: 10,
+            fair: 20,
+            poor: 30,
+            very_poor: 40,
+        };
+
+        let mut state = OtDeluxeState {
+            party: OtDeluxePartyState::from_names(["A"]),
+            inventory: OtDeluxeInventory {
+                food_lbs: 0,
+                bullets: 0,
+                clothes_sets: 0,
+                cash_cents: 0,
+                spares_wheels: 0,
+                spares_axles: 0,
+                spares_tongues: 0,
+            },
+            oxen: crate::otdeluxe_state::OtDeluxeOxenState {
+                healthy: 0,
+                sick: 0,
+            },
+            ..OtDeluxeState::default()
+        };
+
+        let ranges = policy.health.label_ranges;
+        state.health_general = ranges.good_max;
+        assert_eq!(compute_score_with_policy(&state, &policy), 10);
+        state.health_general = ranges.fair_max;
+        assert_eq!(compute_score_with_policy(&state, &policy), 20);
+        state.health_general = ranges.poor_max;
+        assert_eq!(compute_score_with_policy(&state, &policy), 30);
+        state.health_general = ranges.very_poor_max.saturating_add(1);
+        assert_eq!(compute_score_with_policy(&state, &policy), 40);
+    }
 }

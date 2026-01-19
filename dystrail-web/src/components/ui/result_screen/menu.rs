@@ -31,6 +31,7 @@ pub(super) fn render_menu_item(
     }
 }
 
+#[cfg(target_arch = "wasm32")]
 pub(super) fn handle_keyboard(
     current_focus: u8,
     event: &KeyboardEvent,
@@ -67,6 +68,7 @@ pub(super) fn handle_keyboard(
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 pub(super) fn parse_numeric_key(key: &str) -> Option<u8> {
     match key {
         "1" | "Digit1" => Some(1),
@@ -79,6 +81,7 @@ pub(super) fn parse_numeric_key(key: &str) -> Option<u8> {
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 const fn navigate_up_index(idx: u8) -> u8 {
     match idx {
         1 => 0,
@@ -87,10 +90,62 @@ const fn navigate_up_index(idx: u8) -> u8 {
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 const fn navigate_down_index(idx: u8) -> u8 {
     match idx {
         0 => 1,
         5 => 0,
         n => n + 1,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[function_component(MenuItemHarness)]
+    fn menu_item_harness() -> Html {
+        let on_action = Callback::from(|_: u8| {});
+        render_menu_item(1, 1, "Replay", &on_action)
+    }
+
+    #[test]
+    fn render_menu_item_outputs_label_and_index() {
+        let html = block_on(LocalServerRenderer::<MenuItemHarness>::new().render());
+        assert!(html.contains("menu-item"));
+        assert!(html.contains("Replay"));
+    }
+
+    #[test]
+    fn render_menu_item_handles_zero_index() {
+        #[function_component(ZeroMenuItemHarness)]
+        fn zero_menu_item_harness() -> Html {
+            let on_action = Callback::from(|_: u8| {});
+            render_menu_item(0, 0, "Title", &on_action)
+        }
+
+        let html = block_on(LocalServerRenderer::<ZeroMenuItemHarness>::new().render());
+        assert!(html.contains("0) Title"));
+    }
+
+    #[test]
+    fn navigate_index_wraps() {
+        assert_eq!(navigate_up_index(1), 0);
+        assert_eq!(navigate_up_index(0), 5);
+        assert_eq!(navigate_up_index(3), 2);
+        assert_eq!(navigate_down_index(5), 0);
+        assert_eq!(navigate_down_index(0), 1);
+        assert_eq!(navigate_down_index(3), 4);
+    }
+
+    #[test]
+    fn parse_numeric_key_matches_digit_variants() {
+        assert_eq!(parse_numeric_key("1"), Some(1));
+        assert_eq!(parse_numeric_key("Digit2"), Some(2));
+        assert_eq!(parse_numeric_key("5"), Some(5));
+        assert_eq!(parse_numeric_key("Digit0"), Some(0));
+        assert_eq!(parse_numeric_key("X"), None);
     }
 }

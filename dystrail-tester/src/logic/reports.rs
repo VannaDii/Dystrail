@@ -423,3 +423,198 @@ const fn strategy_rank(strategy: GameplayStrategy) -> u8 {
         GameplayStrategy::ResourceManager => 3,
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::{
+        BossOutcomeFlags, EndgameStatus, PlayabilityMetrics, RunMilestones,
+    };
+
+    fn sample_result(passed: bool) -> ScenarioResult {
+        ScenarioResult {
+            scenario_name: "Smoke".to_string(),
+            passed,
+            iterations_run: 3,
+            successful_iterations: if passed { 3 } else { 2 },
+            failures: if passed {
+                Vec::new()
+            } else {
+                vec!["failure".to_string()]
+            },
+            average_duration: Duration::from_millis(10),
+            performance_data: vec![Duration::from_millis(10)],
+        }
+    }
+
+    fn sample_metrics() -> PlayabilityMetrics {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 5;
+        metrics.ending_type = "Victory".to_string();
+        metrics.ending_cause = "None".to_string();
+        metrics.miles_traveled = 120.0;
+        metrics.avg_miles_per_day = 12.0;
+        metrics.travel_ratio = 0.8;
+        metrics.unique_per_20_days = 1.2;
+        metrics.rotation_events = 2;
+        metrics.milestones = RunMilestones {
+            reached_2000_by_day150: true,
+            survived: true,
+        };
+        metrics.boss = BossOutcomeFlags {
+            reached: true,
+            won: false,
+        };
+        metrics.endgame = EndgameStatus {
+            active: true,
+            field_repair_used: false,
+        };
+        metrics
+    }
+
+    fn sample_record() -> PlayabilityRecord {
+        PlayabilityRecord {
+            scenario_name: "Smoke".to_string(),
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            seed_code: "CL-ORANGE42".to_string(),
+            seed_value: 42,
+            metrics: sample_metrics(),
+        }
+    }
+
+    fn sample_aggregate() -> PlayabilityAggregate {
+        PlayabilityAggregate {
+            scenario_name: "Smoke".to_string(),
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            iterations: 1,
+            mean_days: 5.0,
+            std_days: 0.0,
+            mean_miles: 120.0,
+            std_miles: 0.0,
+            mean_avg_mpd: 12.0,
+            boss_reach_pct: 0.4,
+            boss_win_pct: 0.2,
+            pants_failure_pct: 0.1,
+            mean_travel_ratio: 0.8,
+            mean_unique_per_20: 1.2,
+            mean_rotation_events: 2.0,
+            pct_reached_2k_by_150: 0.5,
+            min_unique_per_20: 0.8,
+            min_travel_ratio: 0.7,
+            mean_crossing_events: 1.0,
+            crossing_permit_rate: 0.6,
+            mean_crossing_bribes: 0.1,
+            crossing_bribe_success_rate: 0.2,
+            mean_crossing_detours: 0.0,
+            crossing_failure_rate: 0.05,
+            mean_stop_cap_conversions: 0.0,
+            endgame_activation_rate: 0.3,
+            endgame_field_repair_rate: 0.1,
+            mean_endgame_cooldown: 2.0,
+            survival_rate: 0.9,
+            failure_vehicle_pct: 0.0,
+            failure_sanity_pct: 0.0,
+            failure_exposure_pct: 0.0,
+            failure_crossing_pct: 0.0,
+        }
+    }
+
+    #[test]
+    fn console_report_includes_summary() {
+        let mut out = Vec::new();
+        let results = vec![sample_result(true), sample_result(false)];
+        let aggregates = vec![sample_aggregate()];
+        generate_console_report(&mut out, &results, &aggregates, Duration::from_secs(1)).unwrap();
+        let output = String::from_utf8(out).unwrap();
+        assert!(output.contains("Logic Test Results Summary"));
+        assert!(output.contains("Playability Summary"));
+    }
+
+    #[test]
+    fn console_report_handles_empty_results() {
+        let mut out = Vec::new();
+        generate_console_report(&mut out, &[], &[], Duration::ZERO).unwrap();
+        let output = String::from_utf8(out).unwrap();
+        assert!(output.contains("Logic Test Results Summary"));
+    }
+
+    #[test]
+    fn console_report_emits_warning_thresholds() {
+        let mut out = Vec::new();
+        let mut aggregate = sample_aggregate();
+        aggregate.crossing_failure_rate = 0.2;
+        aggregate.mean_crossing_bribes = 1.0;
+        aggregate.crossing_bribe_success_rate = 0.2;
+        aggregate.mean_travel_ratio = 0.6;
+        aggregate.min_travel_ratio = 0.6;
+        aggregate.mean_unique_per_20 = 1.0;
+        aggregate.min_unique_per_20 = 1.0;
+        aggregate.mean_miles = 1500.0;
+        aggregate.pct_reached_2k_by_150 = 0.2;
+        generate_console_report(
+            &mut out,
+            &[sample_result(true)],
+            &[aggregate],
+            Duration::from_secs(1),
+        )
+        .unwrap();
+        let output = String::from_utf8(out).unwrap();
+        assert!(output.contains("crossing failure rate"));
+        assert!(output.contains("bribe success"));
+        assert!(output.contains("travel ratio"));
+        assert!(output.contains("unique encounters per 20d"));
+        assert!(output.contains("average mileage"));
+        assert!(output.contains("2,000mi"));
+    }
+
+    #[test]
+    fn json_and_markdown_reports_render() {
+        let mut out = Vec::new();
+        generate_json_report(&mut out, &[sample_result(true)]).unwrap();
+        let json = String::from_utf8(out).unwrap();
+        assert!(json.contains("scenario_name"));
+
+        let mut md = Vec::new();
+        generate_markdown_report(&mut md, &[sample_result(true)]).unwrap();
+        let markdown = String::from_utf8(md).unwrap();
+        assert!(markdown.contains("# Dystrail Logic Test Results"));
+    }
+
+    #[test]
+    fn csv_report_renders_rows() {
+        let mut out = Vec::new();
+        generate_csv_report(&mut out, &[sample_record()]).unwrap();
+        let csv = String::from_utf8(out).unwrap();
+        assert!(csv.contains("scenario,mode,strategy"));
+        assert!(csv.contains("Smoke"));
+    }
+
+    #[test]
+    fn markdown_report_handles_empty_results() {
+        let mut out = Vec::new();
+        generate_markdown_report(&mut out, &[]).unwrap();
+        let markdown = String::from_utf8(out).unwrap();
+        assert!(markdown.contains("Total scenarios"));
+        assert!(markdown.contains("Success rate"));
+    }
+
+    #[test]
+    fn markdown_report_includes_failures_section() {
+        let mut out = Vec::new();
+        generate_markdown_report(&mut out, &[sample_result(false)]).unwrap();
+        let markdown = String::from_utf8(out).unwrap();
+        assert!(markdown.contains("Failures"));
+    }
+
+    #[test]
+    fn rank_helpers_cover_branches() {
+        assert_eq!(mode_rank(GameMode::Classic), 0);
+        assert_eq!(mode_rank(GameMode::Deep), 1);
+        assert_eq!(strategy_rank(GameplayStrategy::Conservative), 0);
+        assert_eq!(strategy_rank(GameplayStrategy::Aggressive), 1);
+        assert_eq!(strategy_rank(GameplayStrategy::Balanced), 2);
+        assert_eq!(strategy_rank(GameplayStrategy::ResourceManager), 3);
+    }
+}

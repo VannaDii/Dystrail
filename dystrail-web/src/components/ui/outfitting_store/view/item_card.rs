@@ -1,8 +1,13 @@
-use super::super::handlers::{announce_quantity_change, can_add_item, format_currency};
+#[cfg(target_arch = "wasm32")]
+use super::super::handlers::announce::announce_quantity_change;
+use super::super::handlers::announce::format_currency;
+use super::super::handlers::quantity::can_add_item;
 use super::super::state::StoreState;
+#[cfg(target_arch = "wasm32")]
+use crate::game::store::calculate_cart_total;
 use crate::game::{
     GameState,
-    store::{StoreItem, calculate_cart_total, calculate_effective_price},
+    store::{StoreItem, calculate_effective_price},
 };
 use crate::i18n;
 use yew::prelude::*;
@@ -34,46 +39,62 @@ pub fn render_store_item_card(
         let state = state.clone();
         let item_clone = item.clone();
         let budget = game_state.budget_cents;
-        Callback::from(move |_| {
-            let mut new_state = (*state).clone();
-            if can_add_item(
-                &new_state.cart,
-                &item_clone,
-                1,
-                budget,
-                new_state.discount_pct,
-            ) {
-                new_state.cart.add_item(&item_clone.id, 1);
-                announce_quantity_change(&item_clone, 1, true, &new_state, budget);
-                new_state.cart.total_cents = calculate_cart_total(
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |_| {
+                let mut new_state = (*state).clone();
+                if can_add_item(
                     &new_state.cart,
-                    &new_state.store_data,
+                    &item_clone,
+                    1,
+                    budget,
                     new_state.discount_pct,
-                );
-                new_state.focus_idx = idx;
-                state.set(new_state);
-            }
-        })
+                ) {
+                    new_state.cart.add_item(&item_clone.id, 1);
+                    announce_quantity_change(&item_clone, 1, true, &new_state, budget);
+                    new_state.cart.total_cents = calculate_cart_total(
+                        &new_state.cart,
+                        &new_state.store_data,
+                        new_state.discount_pct,
+                    );
+                    new_state.focus_idx = idx;
+                    state.set(new_state);
+                }
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (state, item_clone, budget);
+            Callback::from(|_| {})
+        }
     };
 
     let on_remove = {
         let state = state.clone();
         let item_clone = item.clone();
         let budget = game_state.budget_cents;
-        Callback::from(move |_| {
-            let mut new_state = (*state).clone();
-            if new_state.cart.get_quantity(&item_clone.id) > 0 {
-                new_state.cart.remove_item(&item_clone.id, 1);
-                announce_quantity_change(&item_clone, 1, false, &new_state, budget);
-                new_state.cart.total_cents = calculate_cart_total(
-                    &new_state.cart,
-                    &new_state.store_data,
-                    new_state.discount_pct,
-                );
-                new_state.focus_idx = idx;
-                state.set(new_state);
-            }
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |_| {
+                let mut new_state = (*state).clone();
+                if new_state.cart.get_quantity(&item_clone.id) > 0 {
+                    new_state.cart.remove_item(&item_clone.id, 1);
+                    announce_quantity_change(&item_clone, 1, false, &new_state, budget);
+                    new_state.cart.total_cents = calculate_cart_total(
+                        &new_state.cart,
+                        &new_state.store_data,
+                        new_state.discount_pct,
+                    );
+                    new_state.focus_idx = idx;
+                    state.set(new_state);
+                }
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (state, item_clone, budget);
+            Callback::from(|_| {})
+        }
     };
 
     html! {

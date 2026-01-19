@@ -382,11 +382,8 @@ impl OtDeluxeCalendar {
             let month_len = Self::month_length(self.year, self.month);
             let remaining = month_len.saturating_sub(self.day_in_month);
             if days <= u32::from(remaining) {
-                if let Ok(days_u8) = u8::try_from(days) {
-                    self.day_in_month = self.day_in_month.saturating_add(days_u8);
-                } else {
-                    self.day_in_month = month_len;
-                }
+                let days_u8 = u8::try_from(days).unwrap_or(remaining);
+                self.day_in_month = self.day_in_month.saturating_add(days_u8);
                 return;
             }
             days -= u32::from(remaining).saturating_add(1);
@@ -574,7 +571,10 @@ impl OtDeluxeState {
 
 #[cfg(test)]
 mod tests {
-    use super::{OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxePartyState, OtDeluxeState};
+    use super::{
+        OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxeOxenState, OtDeluxePartyMember,
+        OtDeluxePartyState, OtDeluxeState,
+    };
     use crate::state::Season;
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
@@ -654,5 +654,63 @@ mod tests {
         party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 2, None);
         party.tick_afflictions();
         assert_eq!(party.members[0].sick_days_remaining, 1);
+    }
+
+    #[test]
+    fn affliction_on_dead_member_noops() {
+        let mut member = OtDeluxePartyMember::new("A");
+        member.alive = false;
+        let died = member.apply_affliction(OtDeluxeAfflictionKind::Illness, 2, None);
+        assert!(!died);
+        assert!(!member.is_sick());
+    }
+
+    #[test]
+    fn random_affliction_returns_none_when_no_alive_members() {
+        let mut party = OtDeluxePartyState::from_names(["A"]);
+        party.members[0].alive = false;
+        let mut rng = SmallRng::seed_from_u64(9);
+        let outcome =
+            party.apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Injury, 2, None);
+        assert!(outcome.is_none());
+    }
+
+    #[test]
+    fn tick_afflictions_clears_ids_when_resolved() {
+        let mut party = OtDeluxePartyState::from_names(["A"]);
+        party.members[0].sick_days_remaining = 1;
+        party.members[0].illness_id = Some(String::from("flu"));
+        party.members[0].injured_days_remaining = 1;
+        party.members[0].injury_id = Some(String::from("sprain"));
+        party.tick_afflictions();
+        assert!(party.members[0].illness_id.is_none());
+        assert!(party.members[0].injury_id.is_none());
+    }
+
+    #[test]
+    fn party_counts_reflect_afflictions() {
+        let mut party = OtDeluxePartyState::from_names(["A", "B"]);
+        party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 2, None);
+        party.members[1].apply_affliction(OtDeluxeAfflictionKind::Injury, 2, None);
+
+        assert_eq!(party.alive_count(), 2);
+        assert_eq!(party.sick_count(), 1);
+        assert_eq!(party.injured_count(), 1);
+    }
+
+    #[test]
+    fn oxen_effective_uses_healthy_when_weight_zero() {
+        let oxen = OtDeluxeOxenState {
+            healthy: 4,
+            sick: 2,
+        };
+        assert!((oxen.effective_oxen(0.0) - 4.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn calendar_from_day_index_advances_dates() {
+        let calendar = OtDeluxeCalendar::from_day_index(32);
+        assert_eq!(calendar.month, 4);
+        assert_eq!(calendar.day_in_month, 1);
     }
 }

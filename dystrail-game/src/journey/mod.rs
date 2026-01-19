@@ -2107,6 +2107,22 @@ impl JourneyController {
         self.rng = bundle;
     }
 
+    /// Apply controller configuration to a game state before ticking.
+    pub fn configure_state(&self, state: &mut crate::state::GameState) {
+        state.attach_rng_bundle(self.rng.clone());
+        state.mechanical_policy = self.mechanics;
+        state.policy = Some(self.strategy.into());
+        if self.mechanics == MechanicalPolicyId::DystrailLegacy {
+            state.journey_partial_ratio = self.cfg.partial_ratio;
+            state.trail_distance = self.cfg.victory_miles.max(1.0);
+            state.journey_travel = self.cfg.travel.clone();
+            state.journey_wear = self.cfg.wear.clone();
+            state.journey_breakdown = self.cfg.breakdown.clone();
+            state.journey_part_weights = self.cfg.part_weights.clone();
+            state.journey_crossing = self.cfg.crossing.clone();
+        }
+    }
+
     /// Override the controller's endgame travel configuration.
     pub fn set_endgame_config(&mut self, cfg: EndgameTravelCfg) {
         self.endgame_cfg = cfg;
@@ -2120,18 +2136,6 @@ impl JourneyController {
     /// Perform a single day tick using the current game state.
     #[must_use]
     pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
-        state.attach_rng_bundle(self.rng.clone());
-        state.mechanical_policy = self.mechanics;
-        state.policy = Some(self.strategy.into());
-        if self.mechanics == MechanicalPolicyId::DystrailLegacy {
-            state.journey_partial_ratio = self.cfg.partial_ratio;
-            state.trail_distance = self.cfg.victory_miles.max(1.0);
-            state.journey_travel = self.cfg.travel.clone();
-            state.journey_wear = self.cfg.wear.clone();
-            state.journey_breakdown = self.cfg.breakdown.clone();
-            state.journey_part_weights = self.cfg.part_weights.clone();
-            state.journey_crossing = self.cfg.crossing.clone();
-        }
         let kernel = DailyTickKernel::new(&self.cfg, &self.endgame_cfg);
         kernel.tick_day(state)
     }
@@ -2227,7 +2231,7 @@ mod tests {
     use rand::RngCore;
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
-    use std::collections::VecDeque;
+    use std::collections::{HashMap, VecDeque};
 
     #[test]
     fn policy_catalog_resolves_family_and_overlay() {
@@ -2323,6 +2327,7 @@ mod tests {
             EndgameTravelCfg::default_config(),
         );
         let mut state = GameState::default();
+        controller.configure_state(&mut state);
         let _ = controller.tick_day(&mut state);
         assert!((state.journey_partial_ratio - 0.8).abs() < f32::EPSILON);
     }
@@ -2337,6 +2342,7 @@ mod tests {
         );
         controller.reseed(2);
         let mut state = GameState::default();
+        controller.configure_state(&mut state);
         let _ = controller.tick_day(&mut state);
     }
 
@@ -2355,6 +2361,7 @@ mod tests {
             77,
         );
 
+        controller.configure_state(&mut state);
         let outcome = controller.tick_day(&mut state);
 
         assert!(
@@ -2455,6 +2462,7 @@ mod tests {
                 StrategyId::Balanced,
                 seed,
             );
+            controller.configure_state(&mut state);
             let outcome = controller.tick_day(&mut state);
             if outcome.log_key == "log.encounter" {
                 hit = Some((outcome, state));
@@ -2605,5 +2613,670 @@ mod tests {
         let cfg: JourneyCfg = serde_json::from_str("{}").expect("deserialize");
         assert_eq!(cfg, JourneyCfg::default());
         cfg.validate().expect("defaults are valid");
+    }
+
+    #[test]
+    fn day_tags_trim_and_ignore_empty() {
+        let tag = DayTag::new("  camp  ");
+        assert_eq!(tag.0, "camp");
+        assert!(DayTag::new("   ").is_empty());
+    }
+
+    #[test]
+    fn day_record_push_tag_ignores_duplicates() {
+        let mut record = DayRecord::new(1, TravelDayKind::Travel, 12.0);
+        record.push_tag(DayTag::new("camp"));
+        record.push_tag(DayTag::new("camp"));
+        record.push_tag(DayTag::new(" "));
+        assert_eq!(record.tags.len(), 1);
+        assert_eq!(record.tags[0].0, "camp");
+    }
+
+    #[test]
+    fn journey_config_rejects_invalid_victory_miles() {
+        let cfg = JourneyCfg {
+            victory_miles: 200.0,
+            ..JourneyCfg::default()
+        };
+        assert!(matches!(
+            cfg.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "victory_miles"
+        ));
+    }
+
+    #[test]
+    fn normalize_cfg_clamps_breakdown_and_defaults() {
+        let cfg = JourneyCfg {
+            partial_ratio: 0.9,
+            breakdown: BreakdownConfig {
+                base: 0.2,
+                beta: 0.3,
+                pace_factor: HashMap::new(),
+                weather_factor: HashMap::new(),
+            },
+            ..JourneyCfg::default()
+        };
+        let normalized = normalize_cfg(cfg);
+        assert!(normalized.partial_ratio >= 0.2);
+        assert!(normalized.partial_ratio <= 0.95);
+        assert!(normalized.breakdown.base >= 0.0);
+        assert!(
+            normalized
+                .breakdown
+                .pace_factor
+                .contains_key(&PaceId::Steady)
+        );
+        assert!(
+            normalized
+                .breakdown
+                .weather_factor
+                .contains_key(&Weather::Clear)
+        );
+    }
+
+    #[test]
+    fn crossing_policy_sanitize_normalizes_and_dedups() {
+        let mut policy = CrossingPolicy {
+            pass: -1.0,
+            detour: -2.0,
+            terminal: -3.0,
+            detour_days: DetourPolicy { min: 0, max: 0 },
+            bribe: BribePolicy {
+                pass_bonus: 2.0,
+                detour_bonus: -2.0,
+                terminal_penalty: 2.0,
+                diminishing_returns: 2.0,
+            },
+            permit: PermitPolicy {
+                disable_terminal: true,
+                eligible: vec!["checkpoint".to_string(), "checkpoint".to_string()],
+            },
+        };
+
+        policy.sanitize();
+
+        let total = policy.pass + policy.detour + policy.terminal;
+        assert!((total - 1.0).abs() <= 1e-6);
+        assert!(policy.pass > 0.0);
+        assert_eq!(policy.detour_days.min, 1);
+        assert_eq!(policy.detour_days.max, 1);
+        assert!(policy.bribe.pass_bonus <= 0.9 + f32::EPSILON);
+        assert!(policy.bribe.detour_bonus >= -0.9 - f32::EPSILON);
+        assert!(policy.bribe.diminishing_returns <= 1.0);
+        assert_eq!(policy.permit.eligible.len(), 1);
+    }
+
+    #[test]
+    fn daily_channel_sanitize_resets_invalid_values() {
+        let mut channel = DailyChannelConfig {
+            base: -1.0,
+            pace: HashMap::from([(PaceId::Steady, 0.0)]),
+            diet: HashMap::from([(DietId::Mixed, f32::NAN)]),
+            weather: HashMap::from([(Weather::Clear, -1.0)]),
+            exec: HashMap::from([(String::from("order"), 0.0)]),
+        };
+
+        channel.sanitize();
+
+        assert!((channel.base - 0.0).abs() <= f32::EPSILON);
+        assert!((channel.pace[&PaceId::Steady] - 1.0).abs() <= f32::EPSILON);
+        assert!((channel.diet[&DietId::Mixed] - 1.0).abs() <= f32::EPSILON);
+        assert!((channel.weather[&Weather::Clear] - 1.0).abs() <= f32::EPSILON);
+        assert!((channel.exec["order"] - 1.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn daily_channel_validation_rejects_negative_base() {
+        let channel = DailyChannelConfig {
+            base: -0.5,
+            ..DailyChannelConfig::default()
+        };
+        assert!(matches!(
+            channel.validate("daily.supplies"),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "daily.supplies"
+        ));
+    }
+
+    #[test]
+    fn health_tick_sanitize_clamps_values() {
+        let mut cfg = HealthTickConfig {
+            decay: -1.0,
+            rest_heal: f32::NAN,
+            weather: HashMap::from([(Weather::Storm, -2.0)]),
+            exec: HashMap::from([(String::from("order"), f32::NAN)]),
+        };
+
+        cfg.sanitize();
+
+        assert!((cfg.decay - 0.0).abs() <= f32::EPSILON);
+        assert!((cfg.rest_heal - 0.0).abs() <= f32::EPSILON);
+        assert!((cfg.weather[&Weather::Storm] - 0.0).abs() <= f32::EPSILON);
+        assert!((cfg.exec["order"] - 0.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn strain_config_sanitize_clamps_values() {
+        let mut cfg = StrainConfig {
+            weights: StrainWeights {
+                hp: -1.0,
+                sanity: f32::NAN,
+                pants: -2.0,
+                starvation: 0.2,
+                vehicle: f32::NAN,
+                weather: -3.0,
+                exec: 1.0,
+            },
+            weather_severity: HashMap::from([(Weather::Clear, -1.0)]),
+            exec_order_bonus: HashMap::from([(String::from("order"), f32::NAN)]),
+            vehicle_wear_norm_denom: 0.0,
+            strain_norm_denom: -1.0,
+            label_bounds: StrainLabelBounds {
+                good_max: f32::NAN,
+                fair_max: -1.0,
+                poor_max: 2.0,
+            },
+        };
+
+        cfg.sanitize();
+
+        assert!(cfg.weights.hp >= 0.0);
+        assert!(cfg.weights.pants >= 0.0);
+        assert!(cfg.weather_severity[&Weather::Clear] >= 0.0);
+        assert!(cfg.exec_order_bonus["order"] >= 0.0);
+        assert!(cfg.vehicle_wear_norm_denom > 0.0);
+        assert!(cfg.strain_norm_denom > 0.0);
+        assert!(cfg.label_bounds.good_max <= cfg.label_bounds.fair_max);
+        assert!(cfg.label_bounds.fair_max <= cfg.label_bounds.poor_max);
+    }
+
+    #[test]
+    fn strain_config_validation_rejects_negative_weight() {
+        let cfg = StrainConfig {
+            weights: StrainWeights {
+                hp: -0.1,
+                ..StrainWeights::default()
+            },
+            ..StrainConfig::default()
+        };
+        assert!(matches!(
+            cfg.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "strain.weights.hp"
+        ));
+    }
+
+    #[test]
+    fn acceptance_guards_validation_rejects_out_of_range() {
+        let guards = AcceptanceGuards {
+            min_travel_ratio: 0.3,
+            ..AcceptanceGuards::default()
+        };
+        assert!(matches!(
+            guards.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "guards.min_travel_ratio"
+        ));
+    }
+
+    #[test]
+    fn strain_label_bounds_validation_rejects_invalid_order() {
+        let bounds = StrainLabelBounds {
+            good_max: 0.8,
+            fair_max: 0.5,
+            poor_max: 0.6,
+        };
+        assert!(matches!(
+            bounds.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "strain.label_bounds"
+        ));
+    }
+
+    #[test]
+    fn crossing_policy_validation_rejects_negative_weights() {
+        let policy = CrossingPolicy {
+            pass: -0.1,
+            ..CrossingPolicy::default()
+        };
+        assert!(matches!(
+            policy.validate(),
+            Err(JourneyConfigError::CrossingProbabilities { .. })
+        ));
+    }
+
+    #[test]
+    fn travel_validation_rejects_base_out_of_range() {
+        let config = TravelConfig {
+            mpd_min: 10.0,
+            mpd_max: 20.0,
+            mpd_base: 30.0,
+            ..TravelConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "travel.mpd_base"
+        ));
+    }
+
+    #[test]
+    fn travel_validation_rejects_pace_multiplier_below_floor() {
+        let config = TravelConfig {
+            pace_factor: HashMap::from([(PaceId::Steady, 0.0)]),
+            ..TravelConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "travel.pace_factor"
+        ));
+    }
+
+    #[test]
+    fn travel_validation_rejects_weather_multiplier_below_floor() {
+        let config = TravelConfig {
+            weather_factor: HashMap::from([(Weather::Clear, 0.0)]),
+            ..TravelConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "travel.weather_factor"
+        ));
+    }
+
+    #[test]
+    fn wear_validation_rejects_negative_values() {
+        let config = WearConfig {
+            base: -1.0,
+            ..WearConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "wear.base"
+        ));
+    }
+
+    #[test]
+    fn breakdown_validation_rejects_base_out_of_range() {
+        let config = BreakdownConfig {
+            base: 2.0,
+            ..BreakdownConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "breakdown.base"
+        ));
+    }
+
+    #[test]
+    fn breakdown_validation_rejects_negative_beta() {
+        let config = BreakdownConfig {
+            beta: -0.1,
+            ..BreakdownConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "breakdown.beta"
+        ));
+    }
+
+    #[test]
+    fn breakdown_validation_rejects_negative_pace_factor() {
+        let config = BreakdownConfig {
+            pace_factor: HashMap::from([(PaceId::Steady, -1.0)]),
+            ..BreakdownConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "breakdown.pace_factor"
+        ));
+    }
+
+    #[test]
+    fn breakdown_validation_rejects_negative_weather_factor() {
+        let config = BreakdownConfig {
+            weather_factor: HashMap::from([(Weather::Clear, -1.0)]),
+            ..BreakdownConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "breakdown.weather_factor"
+        ));
+    }
+
+    #[test]
+    fn health_tick_validation_rejects_negative_decay() {
+        let config = HealthTickConfig {
+            decay: -0.5,
+            ..HealthTickConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "daily.health.decay"
+        ));
+    }
+
+    #[test]
+    fn health_tick_validation_rejects_negative_rest_heal() {
+        let config = HealthTickConfig {
+            rest_heal: -1.0,
+            ..HealthTickConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "daily.health.rest_heal"
+        ));
+    }
+
+    #[test]
+    fn strain_validation_rejects_negative_weather_severity() {
+        let config = StrainConfig {
+            weather_severity: HashMap::from([(Weather::Storm, -1.0)]),
+            ..StrainConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "strain.weather_severity"
+        ));
+    }
+
+    #[test]
+    fn strain_validation_rejects_negative_exec_bonus() {
+        let config = StrainConfig {
+            exec_order_bonus: HashMap::from([(String::from("order"), -1.0)]),
+            ..StrainConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "strain.exec_order_bonus"
+        ));
+    }
+
+    #[test]
+    fn strain_validation_rejects_non_positive_vehicle_norm() {
+        let config = StrainConfig {
+            vehicle_wear_norm_denom: 0.0,
+            ..StrainConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "strain.vehicle_wear_norm_denom"
+        ));
+    }
+
+    #[test]
+    fn strain_validation_rejects_non_positive_strain_norm() {
+        let config = StrainConfig {
+            strain_norm_denom: 0.0,
+            ..StrainConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "strain.strain_norm_denom"
+        ));
+    }
+
+    #[test]
+    fn acceptance_guards_validation_rejects_target_distance() {
+        let guards = AcceptanceGuards {
+            target_distance: 0.0,
+            ..AcceptanceGuards::default()
+        };
+        assert!(matches!(
+            guards.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "guards.target_distance"
+        ));
+    }
+
+    #[test]
+    fn acceptance_guards_validation_rejects_target_days_min() {
+        let guards = AcceptanceGuards {
+            target_days_min: 0,
+            ..AcceptanceGuards::default()
+        };
+        assert!(matches!(
+            guards.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "guards.target_days_min"
+        ));
+    }
+
+    #[test]
+    fn acceptance_guards_validation_rejects_days_range() {
+        let guards = AcceptanceGuards {
+            target_days_min: 10,
+            target_days_max: 5,
+            ..AcceptanceGuards::default()
+        };
+        assert!(matches!(
+            guards.validate(),
+            Err(JourneyConfigError::GuardDaysRange { .. })
+        ));
+    }
+
+    #[test]
+    fn crossing_policy_validation_rejects_detour_bounds() {
+        let policy = CrossingPolicy {
+            detour_days: DetourPolicy { min: 3, max: 1 },
+            ..CrossingPolicy::default()
+        };
+        assert!(matches!(
+            policy.validate(),
+            Err(JourneyConfigError::CrossingDetourBounds { .. })
+        ));
+    }
+
+    #[test]
+    fn crossing_policy_validation_rejects_zero_sum() {
+        let policy = CrossingPolicy {
+            pass: 0.0,
+            detour: 0.0,
+            terminal: 0.0,
+            ..CrossingPolicy::default()
+        };
+        assert!(matches!(
+            policy.validate(),
+            Err(JourneyConfigError::CrossingProbabilities { .. })
+        ));
+    }
+
+    #[test]
+    fn strategy_conversion_covers_all_variants() {
+        assert_eq!(
+            PolicyKind::from(StrategyId::Conservative),
+            PolicyKind::Conservative
+        );
+        assert_eq!(
+            PolicyKind::from(StrategyId::ResourceManager),
+            PolicyKind::ResourceManager
+        );
+        assert_eq!(
+            StrategyId::from(PolicyKind::Conservative),
+            StrategyId::Conservative
+        );
+        assert_eq!(
+            StrategyId::from(PolicyKind::ResourceManager),
+            StrategyId::ResourceManager
+        );
+    }
+
+    #[test]
+    fn acceptance_guards_overlay_applies_fields() {
+        let guards = AcceptanceGuards::default();
+        let overlay = AcceptanceGuardsOverlay {
+            min_travel_ratio: Some(0.95),
+            target_distance: Some(1500.0),
+            target_days_min: Some(90),
+            target_days_max: Some(120),
+        };
+
+        let merged = guards.with_overlay(&overlay);
+
+        assert!((merged.min_travel_ratio - 0.95).abs() <= f32::EPSILON);
+        assert!((merged.target_distance - 1500.0).abs() <= f32::EPSILON);
+        assert_eq!(merged.target_days_min, 90);
+        assert_eq!(merged.target_days_max, 120);
+    }
+
+    #[test]
+    fn travel_validation_rejects_min_below_floor() {
+        let config = TravelConfig {
+            mpd_min: 0.0,
+            ..TravelConfig::default()
+        };
+        assert!(matches!(
+            config.validate(),
+            Err(JourneyConfigError::MinViolation { field, .. }) if field == "travel.mpd_min"
+        ));
+    }
+
+    #[test]
+    fn crossing_policy_overlay_applies_detour_days() {
+        let policy = CrossingPolicy::default();
+        let overlay = CrossingPolicyOverlay {
+            detour_days: Some(DetourPolicy { min: 2, max: 4 }),
+            ..CrossingPolicyOverlay::default()
+        };
+
+        let merged = policy.with_overlay(&overlay);
+
+        assert_eq!(merged.detour_days.min, 2);
+        assert_eq!(merged.detour_days.max, 4);
+    }
+
+    #[test]
+    fn travel_config_sanitize_restores_invalid_base() {
+        let mut config = TravelConfig {
+            mpd_base: 0.0,
+            mpd_min: 10.0,
+            mpd_max: 20.0,
+            ..TravelConfig::default()
+        };
+
+        config.sanitize();
+
+        assert!(config.mpd_base >= config.mpd_min);
+    }
+
+    #[test]
+    fn breakdown_overlay_applies_weather_map() {
+        let base = BreakdownConfig::default();
+        let overlay = BreakdownConfigOverlay {
+            weather_factor: Some(HashMap::from([(Weather::Smoke, 1.9)])),
+            ..BreakdownConfigOverlay::default()
+        };
+
+        let merged = base.with_overlay(&overlay);
+
+        assert!((merged.weather_factor[&Weather::Smoke] - 1.9).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn journey_cfg_merge_overlay_applies_guard_overrides() {
+        let base = JourneyCfg::default();
+        let overlay = JourneyOverlay {
+            guards: Some(AcceptanceGuardsOverlay {
+                min_travel_ratio: Some(0.95),
+                target_distance: Some(1500.0),
+                target_days_min: Some(90),
+                target_days_max: Some(110),
+            }),
+            ..JourneyOverlay::default()
+        };
+
+        let merged = base.merge_overlay(&overlay);
+
+        assert!((merged.guards.min_travel_ratio - 0.95).abs() <= f32::EPSILON);
+        assert!((merged.guards.target_distance - 1500.0).abs() <= f32::EPSILON);
+        assert_eq!(merged.guards.target_days_min, 90);
+        assert_eq!(merged.guards.target_days_max, 110);
+    }
+
+    #[test]
+    fn policy_catalog_resolve_falls_back_to_defaults() {
+        let catalog = PolicyCatalog::new(HashMap::new(), HashMap::new());
+        let resolved = catalog.resolve(PolicyId::Classic, StrategyId::Balanced);
+
+        assert_eq!(resolved, JourneyCfg::default());
+        assert!(catalog.families().is_empty());
+        assert!(catalog.overlays().is_empty());
+    }
+
+    #[test]
+    fn policy_catalog_resolve_panics_on_invalid_config() {
+        let invalid = JourneyCfg {
+            partial_ratio: 1.2,
+            ..JourneyCfg::default()
+        };
+        let catalog = PolicyCatalog::new(
+            HashMap::from([(PolicyId::Classic, invalid)]),
+            HashMap::new(),
+        );
+
+        let result = std::panic::catch_unwind(|| {
+            let _ = catalog.resolve(PolicyId::Classic, StrategyId::Balanced);
+        });
+
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn rng_stream_mask_contains_bits() {
+        let mask = RngStreamMask::pair(RngStream::Travel, RngStream::Events);
+        assert!(mask.contains(RngStream::Travel));
+        assert!(!mask.contains(RngStream::Health));
+    }
+
+    #[test]
+    fn rng_bundle_vehicle_accessor_returns_breakdown_stream() {
+        let bundle = RngBundle::from_user_seed(7);
+        {
+            let mut vehicle_rng = bundle.vehicle();
+            let _ = vehicle_rng.next_u32();
+        }
+        let breakdown_draws = bundle.breakdown().draws();
+        assert_eq!(breakdown_draws, 1);
+    }
+
+    #[test]
+    fn counting_rng_tracks_fill_bytes_calls() {
+        let bundle = RngBundle::from_user_seed(4242);
+        let mut buffer = [0_u8; 8];
+        {
+            let mut rng = bundle.weather();
+            let draws_before = rng.draws();
+            rng.fill_bytes(&mut buffer);
+            assert_eq!(rng.draws(), draws_before + 1);
+        }
+        let mut buffer = [0_u8; 4];
+        {
+            let mut rng = bundle.weather();
+            let draws_before = rng.draws();
+            rng.try_fill_bytes(&mut buffer).expect("fill bytes");
+            assert_eq!(rng.draws(), draws_before + 1);
+        }
+    }
+
+    #[test]
+    fn strain_label_bounds_sanitize_replaces_non_finite() {
+        let mut bounds = StrainLabelBounds {
+            good_max: f32::NAN,
+            fair_max: f32::NAN,
+            poor_max: f32::NAN,
+        };
+
+        bounds.sanitize();
+
+        assert!(bounds.good_max.is_finite());
+        assert!(bounds.fair_max.is_finite());
+        assert!(bounds.poor_max.is_finite());
+    }
+
+    #[test]
+    fn strain_label_bounds_validation_rejects_out_of_range() {
+        let bounds = StrainLabelBounds {
+            good_max: 1.2,
+            fair_max: 0.5,
+            poor_max: 0.6,
+        };
+
+        assert!(matches!(
+            bounds.validate(),
+            Err(JourneyConfigError::RangeViolation { field, .. }) if field == "strain.label_bounds.good_max"
+        ));
     }
 }

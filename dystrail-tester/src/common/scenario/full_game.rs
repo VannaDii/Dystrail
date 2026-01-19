@@ -134,3 +134,93 @@ pub fn full_game_resource_manager_expectation(summary: &SimulationSummary) -> Re
     );
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::common::scenario::CombinedScenario;
+    use crate::logic::game_tester::{PlayabilityMetrics, SimulationSummary};
+    use crate::logic::simulation::TurnOutcome;
+
+    fn base_summary() -> SimulationSummary {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 3;
+        metrics.ending_type = "Victory".to_string();
+        metrics.ending_cause = "None".to_string();
+        metrics.final_hp = 5;
+        metrics.final_sanity = 5;
+        metrics.final_supplies = 5;
+        metrics.final_pants = 3;
+        metrics.vehicle_breakdowns = 0;
+        metrics.encounters_faced = 1;
+        metrics.final_budget_cents = 0;
+
+        SimulationSummary {
+            seed: 1,
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            turns: vec![TurnOutcome {
+                day: 1,
+                travel_message: "ok".to_string(),
+                breakdown_started: false,
+                game_ended: false,
+                decision: None,
+                miles_traveled_actual: 0.0,
+            }],
+            metrics,
+            final_state: dystrail_game::GameState::default(),
+            ending_message: "ok".to_string(),
+            game_ended: false,
+        }
+    }
+
+    #[test]
+    fn full_game_plan_sets_max_days_and_setup() {
+        let plan = full_game_plan(GameMode::Classic, GameplayStrategy::Balanced);
+        assert_eq!(plan.max_days, Some(FULL_GAME_MAX_DAYS));
+        assert!(plan.setup.is_some());
+    }
+
+    #[test]
+    fn full_game_expectations_accept_valid_summary() {
+        let summary = base_summary();
+        full_game_balanced_expectation(&summary).expect("balanced ok");
+        full_game_conservative_expectation(&summary).expect("conservative ok");
+        full_game_aggressive_expectation(&summary).expect("aggressive ok");
+        full_game_resource_manager_expectation(&summary).expect("resource manager ok");
+    }
+
+    #[test]
+    fn full_game_expectations_reject_empty_turns() {
+        let mut summary = base_summary();
+        summary.turns.clear();
+        let err = full_game_balanced_expectation(&summary).expect_err("should fail");
+        assert!(err.to_string().contains("Simulation produced no turns"));
+    }
+
+    #[test]
+    fn full_game_aggressive_rejects_excess_encounters() {
+        let mut summary = base_summary();
+        summary.metrics.encounters_faced = 5;
+        let err = full_game_aggressive_expectation(&summary).expect_err("should fail");
+        assert!(
+            err.to_string()
+                .contains("Encounter count exceeds turn count")
+        );
+    }
+
+    #[test]
+    fn full_game_scenarios_build_logic_plans() {
+        let conservative = full_game_conservative_scenario();
+        let conservative_logic = conservative.as_logic_scenario().expect("logic scenario");
+        assert!(conservative_logic.name.contains("Conservative"));
+
+        let aggressive = full_game_aggressive_scenario();
+        let aggressive_logic = aggressive.as_logic_scenario().expect("logic scenario");
+        assert!(aggressive_logic.name.contains("Aggressive"));
+
+        let balanced = full_game_balanced_scenario();
+        let balanced_logic = balanced.as_logic_scenario().expect("logic scenario");
+        assert!(balanced_logic.name.contains("Balanced"));
+    }
+}

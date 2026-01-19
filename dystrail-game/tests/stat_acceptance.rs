@@ -163,6 +163,7 @@ fn endgame_breakdown_scale_reduces_breaks() {
         policy: Some(PolicyKind::Balanced),
         ..GameState::default()
     };
+    controller.configure_state(&mut state);
     let _ = controller.tick_day(&mut state);
     state.endgame.active = true;
     state.endgame.breakdown_scale = 0.2;

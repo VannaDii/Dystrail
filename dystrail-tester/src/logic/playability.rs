@@ -916,13 +916,17 @@ fn add_expectations(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::logic::game_tester::FailureFamily;
     use crate::logic::reports::generate_csv_report;
     use crate::logic::seeds::SeedInfo;
     use crate::logic::{GameTester, TesterAssets, run_playability_analysis};
-    use dystrail_game::GameMode;
     use dystrail_game::data::EncounterData;
+    use dystrail_game::state::Season;
+    use dystrail_game::{
+        CrossingKind, CrossingOutcomeTelemetry, CrossingTelemetry, GameMode, Region,
+    };
     use sha2::{Digest, Sha256};
-    use std::collections::HashSet;
+    use std::collections::{BTreeMap, HashSet};
     use std::path::PathBuf;
     use std::sync::Arc;
 
@@ -1039,6 +1043,179 @@ mod tests {
         let epsilon = 1e-6;
         assert!((agg.boss_reach_pct - reach_ratio).abs() < epsilon);
         assert!((agg.boss_win_pct - win_ratio).abs() < epsilon);
+    }
+
+    #[test]
+    fn emit_record_warnings_covers_deep_conservative() {
+        let mut warn_counts = BTreeMap::new();
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.milestones.reached_2000_by_day150 = false;
+        metrics.final_pants = 120;
+        metrics.unique_per_20_days = 1.0;
+        let record = PlayabilityRecord {
+            scenario_name: "Deep - Conservative".to_string(),
+            mode: GameMode::Deep,
+            strategy: GameplayStrategy::Conservative,
+            seed_code: "DP-TEST01".to_string(),
+            seed_value: 1,
+            metrics,
+        };
+        emit_record_warnings(&record, &mut warn_counts);
+        assert!(!warn_counts.is_empty());
+    }
+
+    #[test]
+    fn emit_record_warnings_covers_deep_aggressive() {
+        let mut warn_counts = BTreeMap::new();
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.boss.reached = false;
+        let record = PlayabilityRecord {
+            scenario_name: "Deep - Aggressive".to_string(),
+            mode: GameMode::Deep,
+            strategy: GameplayStrategy::Aggressive,
+            seed_code: "DP-TEST02".to_string(),
+            seed_value: 2,
+            metrics,
+        };
+        emit_record_warnings(&record, &mut warn_counts);
+
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.boss.reached = true;
+        metrics.boss.won = false;
+        let record = PlayabilityRecord {
+            scenario_name: "Deep - Aggressive".to_string(),
+            mode: GameMode::Deep,
+            strategy: GameplayStrategy::Aggressive,
+            seed_code: "DP-TEST03".to_string(),
+            seed_value: 3,
+            metrics,
+        };
+        emit_record_warnings(&record, &mut warn_counts);
+        assert!(warn_counts.len() >= 2);
+    }
+
+    #[test]
+    fn emit_record_warnings_covers_crossing_anomalies() {
+        let mut warn_counts = BTreeMap::new();
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.crossing_events = vec![
+            CrossingTelemetry {
+                day: 1,
+                region: Region::Heartland,
+                season: Season::Winter,
+                kind: CrossingKind::Checkpoint,
+                permit_used: false,
+                bribe_attempted: true,
+                bribe_success: None,
+                bribe_cost_cents: 0,
+                bribe_chance: None,
+                bribe_roll: None,
+                detour_taken: true,
+                detour_days: None,
+                detour_base_supplies_delta: None,
+                detour_extra_supplies_loss: None,
+                detour_pants_delta: None,
+                terminal_threshold: 0.0,
+                terminal_roll: None,
+                outcome: CrossingOutcomeTelemetry::Passed,
+            },
+            CrossingTelemetry {
+                day: 2,
+                region: Region::Heartland,
+                season: Season::Winter,
+                kind: CrossingKind::Checkpoint,
+                permit_used: false,
+                bribe_attempted: false,
+                bribe_success: Some(true),
+                bribe_cost_cents: 0,
+                bribe_chance: None,
+                bribe_roll: None,
+                detour_taken: false,
+                detour_days: None,
+                detour_base_supplies_delta: None,
+                detour_extra_supplies_loss: None,
+                detour_pants_delta: None,
+                terminal_threshold: 0.0,
+                terminal_roll: None,
+                outcome: CrossingOutcomeTelemetry::Detoured,
+            },
+            CrossingTelemetry {
+                day: 3,
+                region: Region::Heartland,
+                season: Season::Winter,
+                kind: CrossingKind::Checkpoint,
+                permit_used: false,
+                bribe_attempted: false,
+                bribe_success: None,
+                bribe_cost_cents: 0,
+                bribe_chance: None,
+                bribe_roll: None,
+                detour_taken: true,
+                detour_days: None,
+                detour_base_supplies_delta: None,
+                detour_extra_supplies_loss: None,
+                detour_pants_delta: None,
+                terminal_threshold: 0.0,
+                terminal_roll: None,
+                outcome: CrossingOutcomeTelemetry::Failed,
+            },
+        ];
+        let record = PlayabilityRecord {
+            scenario_name: "Classic - Balanced".to_string(),
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            seed_code: "CL-TEST01".to_string(),
+            seed_value: 4,
+            metrics,
+        };
+        emit_record_warnings(&record, &mut warn_counts);
+        assert!(!warn_counts.is_empty());
+    }
+
+    #[test]
+    fn emit_aggregate_warnings_covers_thresholds() {
+        let aggregate = PlayabilityAggregate {
+            scenario_name: "Deep - Aggressive".to_string(),
+            mode: GameMode::Deep,
+            strategy: GameplayStrategy::Aggressive,
+            iterations: 10,
+            mean_days: 40.0,
+            std_days: 0.0,
+            mean_miles: 1800.0,
+            std_miles: 0.0,
+            mean_avg_mpd: 12.0,
+            boss_reach_pct: 0.1,
+            boss_win_pct: 0.05,
+            pants_failure_pct: 0.1,
+            mean_travel_ratio: 0.7,
+            mean_unique_per_20: 0.8,
+            mean_rotation_events: 1.0,
+            pct_reached_2k_by_150: 0.1,
+            min_unique_per_20: 0.5,
+            min_travel_ratio: 0.6,
+            mean_crossing_events: 2.0,
+            crossing_permit_rate: 0.4,
+            mean_crossing_bribes: 1.0,
+            crossing_bribe_success_rate: 0.6,
+            mean_crossing_detours: 0.5,
+            crossing_failure_rate: 0.2,
+            mean_stop_cap_conversions: 2.0,
+            endgame_activation_rate: 0.0,
+            endgame_field_repair_rate: 0.0,
+            mean_endgame_cooldown: 1.0,
+            survival_rate: 0.8,
+            failure_vehicle_pct: 0.0,
+            failure_sanity_pct: 0.0,
+            failure_exposure_pct: 0.0,
+            failure_crossing_pct: 0.0,
+        };
+        emit_aggregate_warnings(&[aggregate]);
+    }
+
+    #[test]
+    fn find_aggregate_returns_error_for_missing_name() {
+        let err = find_aggregate(&[], "Missing").expect_err("should fail");
+        assert!(err.to_string().contains("missing playability summary"));
     }
 
     #[test]
@@ -1368,6 +1545,180 @@ mod tests {
         let mut bytes = [0_u8; 32];
         bytes.copy_from_slice(&digest);
         bytes
+    }
+
+    #[test]
+    fn validate_record_metrics_rejects_low_travel_ratio() {
+        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        record.metrics.travel_ratio = 0.5;
+        let err = validate_record_metrics(&[record]).expect_err("should fail");
+        assert!(err.to_string().contains("Travel ratio"));
+    }
+
+    #[test]
+    fn validate_record_metrics_rejects_vehicle_failure_before_1950() {
+        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        record.metrics.ending_type = "Vehicle breakdown".to_string();
+        record.metrics.miles_traveled = 1900.0;
+        let err = validate_record_metrics(&[record]).expect_err("should fail");
+        assert!(err.to_string().contains("Vehicle failure"));
+    }
+
+    #[test]
+    fn validate_scenario_aggregates_rejects_resource_manager_pants_failure() {
+        let (mut aggregates, _) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Classic),
+            GameplayStrategy::ResourceManager
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.pants_failure_pct = 0.4;
+        let err = validate_scenario_aggregates(&aggregates).expect_err("should fail");
+        assert!(err.to_string().contains("pants failure"));
+    }
+
+    #[test]
+    fn validate_global_aggregates_rejects_low_bribe_success() {
+        let mut agg = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        agg.mean_crossing_events = 2.0;
+        agg.mean_crossing_bribes = 1.0;
+        agg.crossing_bribe_success_rate = 0.5;
+        let err = validate_global_aggregates(&[agg]).expect_err("should fail");
+        assert!(err.to_string().contains("bribe success"));
+    }
+
+    #[test]
+    fn validate_global_aggregates_rejects_low_min_travel_ratio() {
+        let mut agg = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        agg.min_travel_ratio = 0.5;
+        let err = validate_global_aggregates(&[agg]).expect_err("should fail");
+        assert!(err.to_string().contains("minimum travel ratio"));
+    }
+
+    #[test]
+    fn emit_classic_strategy_warnings_emits_for_thresholds() {
+        let classic_balanced = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        let mut aggressive = base_aggregate(GameMode::Classic, GameplayStrategy::Aggressive);
+        aggressive.survival_rate = 0.95;
+        aggressive.boss_win_pct = 0.5;
+        let mut conservative = base_aggregate(GameMode::Classic, GameplayStrategy::Conservative);
+        conservative.boss_win_pct = 0.5;
+
+        emit_classic_strategy_warnings(
+            &[classic_balanced.clone(), aggressive, conservative],
+            &classic_balanced,
+        );
+    }
+
+    #[test]
+    fn warn_deep_boss_rates_emits_for_low_and_high() {
+        let mut low = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        low.boss_reach_pct = 0.1;
+        low.boss_win_pct = 0.05;
+        warn_deep_boss_rates(&low);
+
+        let mut high = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        high.boss_reach_pct = 0.8;
+        high.boss_win_pct = 0.6;
+        warn_deep_boss_rates(&high);
+    }
+
+    #[test]
+    fn validate_crossing_determinism_rejects_failed_bribe_success() {
+        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        record.metrics.crossing_events = vec![CrossingTelemetry {
+            day: 1,
+            region: Region::Heartland,
+            season: Season::Summer,
+            kind: CrossingKind::Checkpoint,
+            permit_used: false,
+            bribe_attempted: true,
+            bribe_success: Some(true),
+            bribe_cost_cents: 0,
+            bribe_chance: None,
+            bribe_roll: None,
+            detour_taken: false,
+            detour_days: None,
+            detour_base_supplies_delta: None,
+            detour_extra_supplies_loss: None,
+            detour_pants_delta: None,
+            terminal_threshold: 0.0,
+            terminal_roll: None,
+            outcome: CrossingOutcomeTelemetry::Failed,
+        }];
+        let err = validate_crossing_determinism(&[record]).expect_err("should fail");
+        assert!(err.to_string().contains("Crossing determinism violated"));
+    }
+
+    #[test]
+    fn ensure_crossing_consistency_rejects_mixed_outcomes() {
+        let mut first = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        let mut second = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        first.seed_value = 42;
+        second.seed_value = 42;
+        first.metrics.crossing_events = vec![CrossingTelemetry {
+            day: 1,
+            region: Region::Heartland,
+            season: Season::Summer,
+            kind: CrossingKind::Checkpoint,
+            permit_used: false,
+            bribe_attempted: false,
+            bribe_success: None,
+            bribe_cost_cents: 0,
+            bribe_chance: None,
+            bribe_roll: None,
+            detour_taken: false,
+            detour_days: None,
+            detour_base_supplies_delta: None,
+            detour_extra_supplies_loss: None,
+            detour_pants_delta: None,
+            terminal_threshold: 0.0,
+            terminal_roll: None,
+            outcome: CrossingOutcomeTelemetry::Failed,
+        }];
+        second.metrics.crossing_events = vec![CrossingTelemetry {
+            day: 1,
+            region: Region::Heartland,
+            season: Season::Summer,
+            kind: CrossingKind::Checkpoint,
+            permit_used: false,
+            bribe_attempted: false,
+            bribe_success: None,
+            bribe_cost_cents: 0,
+            bribe_chance: None,
+            bribe_roll: None,
+            detour_taken: false,
+            detour_days: None,
+            detour_base_supplies_delta: None,
+            detour_extra_supplies_loss: None,
+            detour_pants_delta: None,
+            terminal_threshold: 0.0,
+            terminal_roll: None,
+            outcome: CrossingOutcomeTelemetry::Detoured,
+        }];
+
+        let err = ensure_crossing_consistency(&[first, second]).expect_err("should fail");
+        assert!(err.to_string().contains("mixed outcomes"));
+    }
+
+    #[test]
+    fn aggregate_playability_tracks_exposure_failure() {
+        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        record.metrics.failure_family = Some(FailureFamily::Exposure);
+        let aggregates = aggregate_playability(&[record]);
+        let aggregate = aggregates
+            .iter()
+            .find(|agg| agg.scenario_name == "Classic - Balanced")
+            .expect("aggregate");
+        assert!(aggregate.failure_exposure_pct > 0.0);
+    }
+
+    #[test]
+    fn running_stats_variance_handles_single_sample() {
+        let mut stats = RunningStats::default();
+        stats.add(10.0);
+        assert!(stats.variance().abs() <= f64::EPSILON);
     }
 }
 

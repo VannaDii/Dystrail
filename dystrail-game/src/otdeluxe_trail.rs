@@ -222,4 +222,84 @@ mod tests {
         assert!(is_mountain_node(trail, BLUE_MOUNTAINS_NODE_INDEX));
         assert!(!is_mountain_node(trail, 0));
     }
+
+    #[test]
+    fn mile_marker_handles_bounds() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        assert_eq!(
+            mile_marker_for_node(trail, OtDeluxeTrailVariant::Main, 0),
+            Some(0)
+        );
+        assert_eq!(
+            mile_marker_for_node(trail, OtDeluxeTrailVariant::Main, 30),
+            None
+        );
+    }
+
+    #[test]
+    fn next_node_index_skips_missing_markers() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        let trail = &mut policy.trail;
+        trail.mile_markers_main = [0; 17];
+        trail.mile_markers_main[0] = 100;
+        trail.mile_markers_main[2] = 200;
+
+        let next = next_node_index(trail, OtDeluxeTrailVariant::Main, 1);
+        assert_eq!(next, Some(3));
+    }
+
+    #[test]
+    fn total_miles_uses_fallback_when_markers_missing() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        let trail = &mut policy.trail;
+        trail.total_miles_main = 999;
+        trail.mile_markers_main = [0; 17];
+
+        let total = total_miles_for_variant(trail, OtDeluxeTrailVariant::Main);
+        assert_eq!(total, 999);
+    }
+
+    #[test]
+    fn price_multiplier_clamps_to_last_stage() {
+        let policy = OtDeluxe90sPolicy::default();
+        let store = &policy.store;
+        let expected = store.price_mult_pct_by_node[18];
+        assert_eq!(price_multiplier_pct_for_stage(store, 99), expected);
+    }
+
+    #[test]
+    fn store_availability_respects_buy_only_setting() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        policy.store.buy_only_at_forts = false;
+
+        assert!(store_available_at_node(
+            trail,
+            &policy.store,
+            OtDeluxeTrailVariant::Main,
+            1
+        ));
+    }
+
+    #[test]
+    fn store_availability_requires_store_nodes_when_buy_only() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        let store = &policy.store;
+
+        assert!(!store_available_at_node(
+            trail,
+            store,
+            OtDeluxeTrailVariant::Main,
+            2
+        ));
+    }
+
+    #[test]
+    fn mountain_nodes_return_false_for_out_of_range_index() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        assert!(!is_mountain_node(trail, 99));
+    }
 }

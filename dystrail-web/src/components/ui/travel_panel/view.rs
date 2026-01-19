@@ -145,25 +145,39 @@ pub fn travel_panel(p: &Props) -> Html {
 
     let on_keydown = {
         let intents_enabled = show_otdeluxe_intents;
-        Callback::from(move |e: KeyboardEvent| match e.key().as_str() {
-            "Enter" | " " => {
-                trigger_travel.emit(());
-                e.prevent_default();
-            }
-            "p" | "P" => {
-                show_pace_diet.set(true);
-                e.prevent_default();
-            }
-            "t" | "T" if intents_enabled => {
-                trigger_trade.emit(());
-                e.prevent_default();
-            }
-            "h" | "H" if intents_enabled => {
-                trigger_hunt.emit(());
-                e.prevent_default();
-            }
-            _ => {}
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: KeyboardEvent| match e.key().as_str() {
+                "Enter" | " " => {
+                    trigger_travel.emit(());
+                    e.prevent_default();
+                }
+                "p" | "P" => {
+                    show_pace_diet.set(true);
+                    e.prevent_default();
+                }
+                "t" | "T" if intents_enabled => {
+                    trigger_trade.emit(());
+                    e.prevent_default();
+                }
+                "h" | "H" if intents_enabled => {
+                    trigger_hunt.emit(());
+                    e.prevent_default();
+                }
+                _ => {}
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (
+                trigger_travel,
+                trigger_trade,
+                trigger_hunt,
+                show_pace_diet,
+                intents_enabled,
+            );
+            Callback::from(|_e: KeyboardEvent| {})
+        }
     };
 
     html! {

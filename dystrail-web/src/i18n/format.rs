@@ -105,3 +105,27 @@ pub fn fmt_currency(cents: i64) -> String {
         amount.map_or_else(|| fallback_usd(cents), |a| format!("{a:.2}"))
     }
 }
+
+#[cfg(all(test, not(target_arch = "wasm32")))]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn number_and_pct_formatters_use_host_fallback() {
+        assert_eq!(fmt_number(12.5), "12.5");
+        assert_eq!(fmt_pct(45), "45");
+    }
+
+    #[test]
+    fn date_formatter_returns_input_on_host() {
+        assert_eq!(fmt_date_iso("2020-01-01"), "2020-01-01");
+    }
+
+    #[test]
+    fn currency_formatter_handles_bounds() {
+        assert_eq!(fmt_currency(12345), "123.45");
+        assert_eq!(fmt_currency(-99), "-0.99");
+        let too_large = i64::from(i32::MAX) + 1;
+        assert_eq!(fmt_currency(too_large), "$21474836.48");
+    }
+}

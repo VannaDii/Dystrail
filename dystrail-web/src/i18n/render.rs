@@ -130,6 +130,7 @@ mod tests {
     fn plural_selection_defaults() {
         let mut map = serde_json::Map::new();
         map.insert("one".into(), Value::String("one cat".into()));
+        map.insert("zero".into(), Value::String("zero cats".into()));
         map.insert("other".into(), Value::String("{count} cats".into()));
         let value = Value::Object(map);
         let mut args = BTreeMap::new();
@@ -139,6 +140,9 @@ mod tests {
         args.insert("count", "3");
         let many = render_value(&value, "en", Some(&args)).unwrap();
         assert_eq!(many, "3 cats");
+        args.insert("count", "0");
+        let zero = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(zero, "zero cats");
     }
 
     #[test]
@@ -148,5 +152,53 @@ mod tests {
         args.insert("name", "Tester");
         let resolved = render_value(&value, "en", Some(&args)).unwrap();
         assert_eq!(resolved, "Hello, Tester! Tester!");
+    }
+
+    #[test]
+    fn render_value_uses_default_for_invalid_count() {
+        let mut map = serde_json::Map::new();
+        map.insert("_".into(), Value::String("fallback".into()));
+        let value = Value::Object(map);
+        let mut args = BTreeMap::new();
+        args.insert("count", "oops");
+        let resolved = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(resolved, "fallback");
+    }
+
+    #[test]
+    fn render_value_returns_none_for_non_string_object() {
+        let value = Value::Bool(true);
+        assert!(render_value(&value, "en", None).is_none());
+    }
+
+    #[test]
+    fn render_value_uses_default_for_missing_plural_key() {
+        let mut map = serde_json::Map::new();
+        map.insert("_".into(), Value::String("fallback".into()));
+        let value = Value::Object(map);
+        let mut args = BTreeMap::new();
+        args.insert("count", "2");
+        let resolved = render_value(&value, "en", Some(&args)).unwrap();
+        assert_eq!(resolved, "fallback");
+    }
+
+    #[test]
+    fn render_value_returns_none_without_default() {
+        let mut map = serde_json::Map::new();
+        map.insert("one".into(), Value::String("one cat".into()));
+        let value = Value::Object(map);
+        let mut args = BTreeMap::new();
+        args.insert("count", "2");
+        assert!(render_value(&value, "en", Some(&args)).is_none());
+        assert!(render_value(&value, "en", None).is_none());
+    }
+
+    #[test]
+    fn render_value_uses_default_when_no_count_is_provided() {
+        let mut map = serde_json::Map::new();
+        map.insert("_".into(), Value::String("fallback".into()));
+        let value = Value::Object(map);
+        let resolved = render_value(&value, "en", None).unwrap();
+        assert_eq!(resolved, "fallback");
     }
 }

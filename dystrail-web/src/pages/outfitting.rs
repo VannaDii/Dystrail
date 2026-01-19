@@ -25,3 +25,43 @@ pub fn outfitting_page(props: &OutfittingPageProps) -> Html {
         </section>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::OutfittingPageProps;
+    use crate::game::GameState;
+    use yew::Callback;
+
+    #[test]
+    fn props_eq_compares_budget_and_persona() {
+        let state = GameState {
+            budget_cents: 1200,
+            persona_id: Some("organizer".to_string()),
+            ..GameState::default()
+        };
+        let props_a = OutfittingPageProps {
+            game_state: state.clone(),
+            on_continue: Callback::noop(),
+        };
+
+        let other = GameState {
+            day: state.day + 1,
+            ..state.clone()
+        };
+        let props_b = OutfittingPageProps {
+            game_state: other,
+            on_continue: Callback::noop(),
+        };
+        assert!(props_a == props_b);
+
+        let changed = GameState {
+            budget_cents: 999,
+            ..state
+        };
+        let props_c = OutfittingPageProps {
+            game_state: changed,
+            on_continue: Callback::noop(),
+        };
+        assert!(props_a != props_c);
+    }
+}

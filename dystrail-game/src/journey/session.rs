@@ -43,7 +43,7 @@ impl JourneySession {
         let state = GameState::default().with_seed(seed, mode, data);
         let controller = Self::build_controller(mechanics, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
-        session.reset_state_policy(strategy);
+        session.reset_state_policy();
         session.state.queue_otdeluxe_store_if_available();
         session
     }
@@ -60,7 +60,7 @@ impl JourneySession {
         let controller =
             Self::build_controller(state.mechanical_policy, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
-        session.reset_state_policy(strategy);
+        session.reset_state_policy();
         session
     }
 
@@ -77,16 +77,14 @@ impl JourneySession {
         controller
     }
 
-    fn reset_state_policy(&mut self, strategy: StrategyId) {
-        self.state.mechanical_policy = self.controller.mechanics();
-        self.state.policy = Some(strategy.into());
+    fn reset_state_policy(&mut self) {
         let rng_bundle = self
             .state
             .rng_bundle
             .clone()
             .unwrap_or_else(|| self.controller.rng_bundle());
-        self.controller.set_rng_bundle(rng_bundle.clone());
-        self.state.attach_rng_bundle(rng_bundle);
+        self.controller.set_rng_bundle(rng_bundle);
+        self.controller.configure_state(&mut self.state);
     }
 
     /// Advance the simulation by one day, returning the resulting outcome.
@@ -204,5 +202,17 @@ mod tests {
             session.state().mechanical_policy,
             MechanicalPolicyId::OtDeluxe90s
         );
+    }
+
+    #[test]
+    fn session_accessors_expose_state_and_controller() {
+        let data = EncounterData::empty();
+        let endgame = EndgameTravelCfg::default_config();
+        let mut session =
+            JourneySession::new(GameMode::Classic, StrategyId::Balanced, 11, data, &endgame);
+
+        session.state_mut().day = 2;
+        assert_eq!(session.state().day, 2);
+        assert_eq!(session.controller().strategy(), StrategyId::Balanced);
     }
 }

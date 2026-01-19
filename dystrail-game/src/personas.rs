@@ -167,4 +167,72 @@ mod tests {
         assert_eq!(journalist.start.supplies, 8);
         assert_eq!(journalist.mods.receipt_find_pct, 15);
     }
+
+    #[test]
+    fn persona_list_orders_and_filters_entries() {
+        let json = r#"{
+            "satirist": {
+                "name": "Satirist",
+                "desc": "Satirical persona",
+                "score_mult": 1.0,
+                "start": {}
+            },
+            "journalist": {
+                "name": "Journalist",
+                "desc": "First persona",
+                "score_mult": 1.0,
+                "start": {}
+            },
+            "unknown": {
+                "name": "Unknown",
+                "desc": "Ignored persona",
+                "score_mult": 1.0,
+                "start": {}
+            }
+        }"#;
+
+        let personas = PersonasList::from_json(json).unwrap();
+        assert_eq!(personas.len(), 2);
+        let ids: Vec<_> = personas.iter().map(|p| p.id.as_str()).collect();
+        assert_eq!(ids, vec!["journalist", "satirist"]);
+        assert!(personas.get_by_id("unknown").is_none());
+    }
+
+    #[test]
+    fn persona_list_empty_helpers_are_consistent() {
+        let empty = PersonasList::empty();
+        assert!(empty.is_empty());
+        assert_eq!(empty.len(), 0);
+        assert!(empty.get_by_id("journalist").is_none());
+        assert_eq!(empty.iter().count(), 0);
+    }
+
+    #[test]
+    fn persona_list_load_returns_empty() {
+        let personas = PersonasList::load();
+        assert!(personas.is_empty());
+    }
+
+    #[test]
+    fn persona_list_into_iter_matches_iter() {
+        let json = r#"{
+            "journalist": {
+                "name": "Journalist",
+                "desc": "Persona",
+                "score_mult": 1.0,
+                "start": {}
+            },
+            "satirist": {
+                "name": "Satirist",
+                "desc": "Persona",
+                "score_mult": 1.0,
+                "start": {}
+            }
+        }"#;
+
+        let personas = PersonasList::from_json(json).unwrap();
+        let iter_ids: Vec<_> = personas.iter().map(|p| p.id.as_str()).collect();
+        let into_ids: Vec<_> = (&personas).into_iter().map(|p| p.id.as_str()).collect();
+        assert_eq!(iter_ids, into_ids);
+    }
 }

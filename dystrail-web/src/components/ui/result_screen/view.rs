@@ -1,7 +1,11 @@
 use super::layout::render_body;
+#[cfg(target_arch = "wasm32")]
 use super::menu::handle_keyboard;
-use super::share::{self, resolved_headline_key, summary};
-use crate::game::{GameState, ResultConfig, ResultSummary};
+use super::share;
+#[cfg(target_arch = "wasm32")]
+use crate::game::ResultSummary;
+use crate::game::{GameState, ResultConfig};
+#[cfg(target_arch = "wasm32")]
 use crate::i18n;
 use yew::prelude::*;
 
@@ -31,11 +35,13 @@ pub enum Msg {
 }
 
 /// The result screen component state
+#[cfg(target_arch = "wasm32")]
 pub struct ResultScreen {
     current_focus: u8,
     announcement: String,
 }
 
+#[cfg(target_arch = "wasm32")]
 impl Component for ResultScreen {
     type Message = Msg;
     type Properties = Props;
@@ -67,7 +73,7 @@ impl Component for ResultScreen {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let props = ctx.props();
-        let summary = match summary(props) {
+        let summary = match share::summary(props) {
             Ok(s) => s,
             Err(e) => {
                 log::error!("Failed to generate result summary: {e}");
@@ -94,10 +100,11 @@ impl Component for ResultScreen {
     }
 }
 
+#[cfg(target_arch = "wasm32")]
 impl ResultScreen {
     fn handle_menu_action(ctx: &Context<Self>, action: u8) {
         let props = ctx.props();
-        let summary = match summary(props) {
+        let summary = match share::summary(props) {
             Ok(s) => s,
             Err(e) => {
                 Self::announce(ctx, &format!("Error: {e}"));
@@ -117,7 +124,7 @@ impl ResultScreen {
     }
 
     fn copy_share_text(ctx: &Context<Self>, summary: &ResultSummary) {
-        let headline_key = resolved_headline_key(summary, ctx.props());
+        let headline_key = share::resolved_headline_key(summary, ctx.props());
         let headline_text = i18n::t(&headline_key);
         let template = i18n::t("result.share.template");
         let share_text = share::interpolate_template(&template, summary, &headline_text);
@@ -138,6 +145,51 @@ impl ResultScreen {
     fn announce(ctx: &Context<Self>, message: &str) {
         ctx.link()
             .send_message(Msg::AnnouncementChange(message.to_string()));
+    }
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub struct ResultScreen;
+
+#[cfg(not(target_arch = "wasm32"))]
+impl Component for ResultScreen {
+    type Message = Msg;
+    type Properties = Props;
+
+    fn create(_ctx: &Context<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _ctx: &Context<Self>, _msg: Self::Message) -> bool {
+        false
+    }
+
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        let props = ctx.props();
+        let summary = match share::summary(props) {
+            Ok(s) => s,
+            Err(e) => {
+                log::error!("Failed to generate result summary: {e}");
+                return html! {
+                    <main role="main" class="error">
+                        <h1>{ "Error generating result" }</h1>
+                        <p>{ e }</p>
+                    </main>
+                };
+            }
+        };
+
+        let on_keydown = Callback::from(|_e: KeyboardEvent| {});
+        let on_menu_action = Callback::from(|_action: u8| {});
+
+        render_body(
+            props,
+            &summary,
+            1,
+            String::new(),
+            on_keydown,
+            &on_menu_action,
+        )
     }
 }
 

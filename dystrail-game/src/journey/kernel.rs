@@ -629,18 +629,23 @@ fn default_pacing_config() -> &'static PacingConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{LOG_BOSS_AWAIT, LOG_STORE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED};
-    use crate::crossings::CrossingKind;
+    use crate::constants::{
+        CROSSING_MILESTONES, LOG_BOSS_AWAIT, LOG_STORE, LOG_TRAVEL_BLOCKED, LOG_TRAVELED,
+    };
+    use crate::crossings::{CrossingChoice, CrossingKind};
     use crate::exec_orders::ExecOrder;
     use crate::journey::{
         DailyChannelConfig, DailyTickConfig, EventKind, HealthTickConfig, JourneyCfg,
         MechanicalPolicyId, RngBundle,
     };
     use crate::numbers::round_f32_to_i32;
-    use crate::otdeluxe_state::OtDeluxeRoutePrompt;
-    use crate::otdeluxe_state::OtDeluxeWagonState;
+    use crate::otdeluxe_state::{
+        OtDeluxeCrossingMethod, OtDeluxePartyMember, OtDeluxeRiver, OtDeluxeRiverBed,
+        OtDeluxeRiverState, OtDeluxeRouteDecision, OtDeluxeRoutePrompt, OtDeluxeWagonState,
+    };
     use crate::otdeluxe_store::{OtDeluxeStoreItem, OtDeluxeStoreLineItem};
-    use crate::state::{DayIntent, GameState, PendingCrossing, Region, Stats};
+    use crate::state::{DayIntent, GameState, PendingCrossing, Region, Spares, Stats};
+    use crate::vehicle::{Breakdown, Part};
     use crate::weather::{Weather, WeatherConfig, WeatherState, select_weather_for_today};
     use std::rc::Rc;
 
@@ -909,6 +914,37 @@ mod tests {
     }
 
     #[test]
+    fn daily_physics_runs_otdeluxe_supplies_and_health() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.food_lbs = 200;
+        state.ot_deluxe.party.members = vec![OtDeluxePartyMember::new("Ada")];
+        state.ot_deluxe.oxen.healthy = 4;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(33)));
+
+        kernel.apply_daily_physics(&mut state);
+
+        assert!(
+            state
+                .events_today
+                .iter()
+                .any(|event| event.kind == EventKind::DailyConsumptionApplied)
+        );
+        assert!(
+            state
+                .events_today
+                .iter()
+                .any(|event| event.kind == EventKind::HealthTickApplied)
+        );
+    }
+
+    #[test]
     fn tick_day_emits_new_logs_as_events() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -999,6 +1035,88 @@ mod tests {
     }
 
     #[test]
+    fn pending_otdeluxe_crossing_choice_resolves_with_method() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.inventory.cash_cents = 10_000;
+        state.ot_deluxe.party.members = vec![
+            OtDeluxePartyMember::new("Ada"),
+            OtDeluxePartyMember::new("Bea"),
+        ];
+        state.ot_deluxe.crossing.choice_pending = true;
+        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ferry);
+        state.ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        state.ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            width_ft: 200.0,
+            depth_ft: 2.5,
+            swiftness: 1.2,
+            bed: OtDeluxeRiverBed::Muddy,
+        });
+        state.ot_deluxe.crossing.computed_miles_today = 6.0;
+
+        let outcome =
+            DailyTickKernel::resolve_pending_crossing(&mut state).expect("expected outcome");
+
+        assert!(outcome.day_consumed);
+        assert!(!state.ot_deluxe.crossing.choice_pending);
+    }
+
+    #[test]
+    fn pending_otdeluxe_crossing_without_method_blocks() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.crossing.choice_pending = true;
+
+        let outcome =
+            DailyTickKernel::resolve_pending_crossing(&mut state).expect("expected outcome");
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_crossing_choice_invalid_blocks() {
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 0.0,
+            }),
+            pending_crossing_choice: Some(crate::crossings::CrossingChoice::Permit),
+            ..GameState::default()
+        };
+
+        let outcome =
+            DailyTickKernel::resolve_pending_crossing(&mut state).expect("expected outcome");
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_crossing_choice_pass_resolves() {
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 5.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Detour),
+            ..GameState::default()
+        };
+
+        let outcome =
+            DailyTickKernel::resolve_pending_crossing(&mut state).expect("expected outcome");
+
+        assert!(outcome.day_consumed);
+        assert!(state.pending_crossing.is_none());
+        assert!(state.pending_crossing_choice.is_none());
+    }
+
+    #[test]
     fn pending_route_prompt_blocks_without_consuming_day() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1019,6 +1137,34 @@ mod tests {
     }
 
     #[test]
+    fn pending_route_prompt_clears_choice_when_prompt_missing() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.pending_route_choice = Some(OtDeluxeRouteDecision::SubletteCutoff);
+        state.ot_deluxe.route.pending_prompt = None;
+
+        let outcome = DailyTickKernel::resolve_pending_route_prompt(&mut state);
+
+        assert!(outcome.is_none());
+        assert!(state.pending_route_choice.is_none());
+    }
+
+    #[test]
+    fn pending_route_prompt_clears_choice_for_non_otdeluxe() {
+        let mut state = GameState {
+            pending_route_choice: Some(OtDeluxeRouteDecision::SubletteCutoff),
+            ..GameState::default()
+        };
+
+        let outcome = DailyTickKernel::resolve_pending_route_prompt(&mut state);
+
+        assert!(outcome.is_none());
+        assert!(state.pending_route_choice.is_none());
+    }
+
+    #[test]
     fn wait_gate_consumes_non_travel_day_and_decrements_counter() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1035,6 +1181,30 @@ mod tests {
         let record = outcome.record.expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "wait_ferry"));
+    }
+
+    #[test]
+    fn wait_gate_tracks_drying_days() {
+        let mut state = GameState::default();
+        state.wait.drying_days_remaining = 1;
+
+        let outcome = DailyTickKernel::run_wait_gate(&mut state);
+
+        assert!(outcome.is_some());
+        assert_eq!(state.wait.drying_days_remaining, 0);
+        let record = state.day_records.last().expect("expected day record");
+        assert!(record.tags.iter().any(|tag| tag.0 == "wait_drying"));
+    }
+
+    #[test]
+    fn record_gate_day_appends_reason_when_day_recorded() {
+        let mut state = GameState::default();
+        state.record_travel_day(TravelDayKind::Travel, 8.0, "");
+
+        DailyTickKernel::record_gate_day(&mut state, "gate_reason");
+
+        let record = state.day_records.last().expect("expected day record");
+        assert!(record.tags.iter().any(|tag| tag.0 == "gate_reason"));
     }
 
     #[test]
@@ -1111,6 +1281,44 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_store_purchase_error_keeps_pending_node() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.cash_cents = 0;
+        state.ot_deluxe.store.pending_node = Some(0);
+        state.ot_deluxe.store.pending_purchase = Some(vec![OtDeluxeStoreLineItem {
+            item: OtDeluxeStoreItem::Oxen,
+            quantity: 1,
+        }]);
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(!outcome.day_consumed);
+        assert_eq!(state.ot_deluxe.store.pending_node, Some(0));
+        assert!(state.ot_deluxe.store.pending_purchase.is_none());
+    }
+
+    #[test]
+    fn pending_store_is_cleared_for_non_otdeluxe() {
+        let mut state = GameState::default();
+        state.ot_deluxe.store.pending_node = Some(2);
+        state.ot_deluxe.store.pending_purchase = Some(Vec::new());
+
+        let outcome = DailyTickKernel::resolve_pending_store(&mut state);
+
+        assert!(outcome.is_none());
+        assert!(state.ot_deluxe.store.pending_node.is_none());
+        assert!(state.ot_deluxe.store.pending_purchase.is_none());
+    }
+
+    #[test]
     fn otdeluxe_no_oxen_blocks_travel() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1133,6 +1341,49 @@ mod tests {
             state.ot_deluxe.travel.wagon_state,
             OtDeluxeWagonState::Blocked
         ));
+    }
+
+    #[test]
+    fn tick_non_travel_day_with_existing_record_preserves_miles() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            trail_distance: 500.0,
+            ..GameState::default()
+        };
+
+        let credited = kernel.tick_non_travel_day_with_hook(
+            &mut state,
+            TravelDayKind::NonTravel,
+            0.0,
+            "gate",
+            |state| {
+                state.record_travel_day(TravelDayKind::Travel, 12.0, "");
+            },
+        );
+
+        assert!((credited - 12.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn tick_non_travel_day_clears_distance_for_otdeluxe() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.distance_today = 12.0;
+        state.distance_today_raw = 12.0;
+
+        kernel.tick_non_travel_day(&mut state, TravelDayKind::NonTravel, 0.0, "gate");
+
+        assert!(state.distance_today.abs() <= f32::EPSILON);
+        assert!(state.distance_today_raw.abs() <= f32::EPSILON);
     }
 
     #[test]
@@ -1165,6 +1416,38 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_navigation_blocked_days_consume_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.travel.blocked_days_remaining = 1;
+        state.vehicle.breakdown_cooldown = 2;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(outcome.day_consumed);
+        let record = outcome.record.expect("expected day record");
+        assert!(
+            record
+                .tags
+                .iter()
+                .any(|tag| tag.0 == "otdeluxe.nav_blocked")
+        );
+        assert_eq!(state.ot_deluxe.travel.blocked_days_remaining, 0);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Moving
+        ));
+    }
+
+    #[test]
     fn otdeluxe_travel_flow_reaches_navigation_roll() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1189,6 +1472,42 @@ mod tests {
             TravelDayKind::Travel | TravelDayKind::Partial
         ));
         assert!(state.distance_today > 0.0);
+    }
+
+    #[test]
+    fn travel_flow_blocks_on_crossing_event() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            miles_traveled_actual: CROSSING_MILESTONES[0],
+            encounter_chance_today: 0.0,
+            ..GameState::default()
+        };
+        state.vehicle.breakdown_cooldown = 2;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(42)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+        assert!(state.pending_crossing.is_some());
+    }
+
+    #[test]
+    fn intent_gate_crossing_choice_pending_blocks_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::CrossingChoicePending;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVELED);
+        assert!(!outcome.day_consumed);
     }
 
     #[test]
@@ -1249,6 +1568,27 @@ mod tests {
     }
 
     #[test]
+    fn trade_intent_consumes_day_without_rng() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::Trade;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(outcome.day_consumed);
+        assert!(
+            outcome
+                .events
+                .iter()
+                .any(|event| event.kind == EventKind::TradeResolved),
+            "expected trade resolved event"
+        );
+    }
+
+    #[test]
     fn hunt_intent_consumes_day_and_spends_bullets() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1276,5 +1616,270 @@ mod tests {
         let record = outcome.record.expect("expected hunt record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "intent_hunt"));
+    }
+
+    #[test]
+    fn hunt_intent_consumes_day_without_rng() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.intent.pending = DayIntent::Hunt;
+        state.ot_deluxe.party.members = vec![OtDeluxePartyMember::new("Ada")];
+        state.ot_deluxe.inventory.bullets = 5;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(outcome.day_consumed);
+        assert!(
+            outcome
+                .events
+                .iter()
+                .any(|event| event.kind == EventKind::HuntResolved),
+            "expected hunt resolved event"
+        );
+    }
+    #[test]
+    fn route_prompt_choice_resolves_and_blocks_day() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
+        state.pending_route_choice = Some(OtDeluxeRouteDecision::SubletteCutoff);
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+        assert!(state.ot_deluxe.route.pending_prompt.is_none());
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Moving
+        ));
+    }
+
+    #[test]
+    fn pending_otdeluxe_crossing_choice_resolves() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party.members = vec![OtDeluxePartyMember::new("A")];
+        state.ot_deluxe.crossing.choice_pending = true;
+        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
+        state.ot_deluxe.crossing.river = Some(OtDeluxeRiverState::default());
+        state.ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        state.ot_deluxe.crossing.computed_miles_today = 5.0;
+        state.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert!(outcome.day_consumed);
+        assert!(!state.ot_deluxe.crossing.choice_pending);
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Moving | OtDeluxeWagonState::Delayed
+        ));
+    }
+
+    #[test]
+    fn pending_store_without_purchase_blocks_until_confirmed() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.store.pending_node = Some(0);
+        state.ot_deluxe.store.pending_purchase = None;
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(!outcome.day_consumed);
+        assert!(state.ot_deluxe.store.pending_node.is_some());
+    }
+
+    #[test]
+    fn travel_flow_blocks_on_breakdown() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.breakdown = Some(Breakdown {
+            part: Part::Tire,
+            day_started: i32::try_from(state.day).unwrap_or(0),
+        });
+        state.budget_cents = 0;
+        state.inventory.spares = Spares::default();
+        state.vehicle.breakdown_cooldown = 0;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(13)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(outcome.day_consumed);
+        let record = outcome.record.expect("expected record");
+        assert!(record.tags.iter().any(|tag| tag.0 == "repair"));
+    }
+
+    #[test]
+    fn non_travel_partial_uses_partial_day_miles() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        let credited = kernel.tick_non_travel_day_with_hook(
+            &mut state,
+            TravelDayKind::Partial,
+            0.0,
+            "pause",
+            |state| {
+                state.distance_today = 10.0;
+            },
+        );
+
+        assert!(credited > 0.0);
+        let record = state.day_records.last().expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::Partial));
+    }
+
+    #[test]
+    fn build_outcome_prefers_terminal_log_key() {
+        let mut state = GameState {
+            terminal_log_key: Some(String::from("log.terminal")),
+            ..GameState::default()
+        };
+        state.logs.push(String::from("log.extra"));
+
+        let outcome =
+            DailyTickKernel::build_outcome(&mut state, false, String::from("log.fallback"), false);
+
+        assert_eq!(outcome.log_key, "log.terminal");
+        assert!(!outcome.day_consumed);
+        assert!(outcome.record.is_none());
+        assert!(
+            outcome
+                .events
+                .iter()
+                .any(|event| event.ui_key.as_deref() == Some("log.terminal"))
+        );
+    }
+
+    #[test]
+    fn build_outcome_skips_duplicate_log_entries() {
+        let mut state = GameState::default();
+        state.logs.push(String::from(LOG_TRAVELED));
+
+        let outcome =
+            DailyTickKernel::build_outcome(&mut state, false, String::from(LOG_TRAVELED), false);
+
+        let logged = outcome
+            .events
+            .iter()
+            .filter(|event| event.ui_key.as_deref() == Some(LOG_TRAVELED))
+            .count();
+        assert_eq!(logged, 1);
+    }
+
+    #[test]
+    fn travel_flow_records_travel_day_without_crossing() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState::default();
+        state.vehicle.breakdown_cooldown = 2;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(5)));
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |state| {
+            state.encounter_chance_today = 0.0;
+        });
+
+        assert_eq!(outcome.log_key, LOG_TRAVELED);
+        assert!(outcome.day_consumed);
+        assert!(state.current_day_miles >= 0.0);
+        assert!(state.day_records.last().is_some());
+    }
+
+    #[test]
+    fn resolve_pending_store_applies_purchase_and_clears_pending() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.store.pending_node = Some(0);
+        state.ot_deluxe.inventory.cash_cents = 10_000;
+        state.ot_deluxe.store.pending_purchase = Some(vec![OtDeluxeStoreLineItem {
+            item: OtDeluxeStoreItem::FoodLb,
+            quantity: 10,
+        }]);
+
+        let outcome = DailyTickKernel::resolve_pending_store(&mut state).expect("outcome");
+
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(state.ot_deluxe.store.pending_node.is_none());
+        assert!(state.ot_deluxe.store.pending_purchase.is_none());
+    }
+
+    #[test]
+    fn resolve_pending_route_prompt_consumes_choice() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
+        state.pending_route_choice = Some(OtDeluxeRouteDecision::SubletteCutoff);
+
+        let outcome = DailyTickKernel::resolve_pending_route_prompt(&mut state).expect("outcome");
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(state.pending_route_choice.is_none());
+    }
+
+    #[test]
+    fn resolve_pending_crossing_detour_applies_outcome() {
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 5.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Detour),
+            ..GameState::default()
+        };
+
+        let outcome = DailyTickKernel::resolve_pending_crossing(&mut state).expect("outcome");
+
+        assert_eq!(outcome.log_key, crate::constants::LOG_CROSSING_DETOUR);
+        assert!(state.pending_crossing.is_none());
+    }
+
+    #[test]
+    fn resolve_pending_otdeluxe_crossing_blocks_without_context() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.crossing.choice_pending = true;
+        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
+
+        let outcome = DailyTickKernel::resolve_pending_crossing(&mut state).expect("outcome");
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
     }
 }

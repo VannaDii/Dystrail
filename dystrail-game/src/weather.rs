@@ -238,7 +238,11 @@ impl WeatherConfig {
         serde_json::from_str(include_str!(
             "../../dystrail-web/static/assets/data/weather.json"
         ))
-        .unwrap_or_else(|_| Self {
+        .unwrap_or_else(|_| Self::fallback_config())
+    }
+
+    fn fallback_config() -> Self {
+        Self {
             limits: WeatherLimits {
                 max_extreme_streak: 2,
                 encounter_cap: 0.35,
@@ -249,7 +253,7 @@ impl WeatherConfig {
             mitigation: HashMap::new(),
             weights: HashMap::new(),
             exec_mods: HashMap::new(),
-        })
+        }
     }
 }
 
@@ -662,4 +666,502 @@ pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig, rngs: Opti
 
     // Apply effects
     let _ = apply_weather_effects(gs, cfg);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::journey::RngBundle;
+    use crate::state::{GameMode, Season, Stats};
+    use rand::RngCore;
+    use std::collections::HashSet;
+
+    struct FixedRng {
+        value: u32,
+    }
+
+    impl FixedRng {
+        const fn new(value: u32) -> Self {
+            Self { value }
+        }
+    }
+
+    impl RngCore for FixedRng {
+        fn next_u32(&mut self) -> u32 {
+            self.value
+        }
+
+        fn next_u64(&mut self) -> u64 {
+            u64::from(self.next_u32())
+        }
+
+        fn fill_bytes(&mut self, dest: &mut [u8]) {
+            let value = self.next_u32().to_le_bytes();
+            for (idx, byte) in dest.iter_mut().enumerate() {
+                *byte = value[idx % value.len()];
+            }
+        }
+
+        fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), rand::Error> {
+            self.fill_bytes(dest);
+            Ok(())
+        }
+    }
+
+    fn base_config(weights: HashMap<Region, HashMap<Weather, u32>>) -> WeatherConfig {
+        WeatherConfig {
+            limits: WeatherLimits {
+                max_extreme_streak: 1,
+                encounter_cap: 0.4,
+                pants_floor: 0,
+                pants_ceiling: 100,
+            },
+            effects: HashMap::new(),
+            mitigation: HashMap::new(),
+            weights,
+            exec_mods: HashMap::new(),
+        }
+    }
+
+    #[test]
+    fn weather_keys_and_extremes_are_stable() {
+        assert!(Weather::Storm.is_extreme());
+        assert!(!Weather::ColdSnap.is_extreme());
+        assert_eq!(Weather::HeatWave.i18n_key(), "weather.states.HeatWave");
+    }
+
+    #[test]
+    fn weather_i18n_keys_cover_all_variants() {
+        assert_eq!(Weather::Clear.i18n_key(), "weather.states.Clear");
+        assert_eq!(Weather::Storm.i18n_key(), "weather.states.Storm");
+        assert_eq!(Weather::ColdSnap.i18n_key(), "weather.states.ColdSnap");
+        assert_eq!(Weather::Smoke.i18n_key(), "weather.states.Smoke");
+    }
+
+    #[test]
+    fn seasonal_override_applies_when_rng_is_low() {
+        let mut rng = FixedRng::new(0);
+        assert_eq!(
+            seasonal_override(Season::Winter, Weather::Clear, &mut rng),
+            Weather::ColdSnap
+        );
+        assert_eq!(
+            seasonal_override(Season::Summer, Weather::Clear, &mut rng),
+            Weather::HeatWave
+        );
+        assert_eq!(
+            seasonal_override(Season::Fall, Weather::Clear, &mut rng),
+            Weather::Storm
+        );
+        assert_eq!(
+            seasonal_override(Season::Spring, Weather::Clear, &mut rng),
+            Weather::Smoke
+        );
+    }
+
+    #[test]
+    fn seasonal_override_keeps_current_when_rng_is_high() {
+        let mut rng = FixedRng::new(u32::MAX);
+        assert_eq!(
+            seasonal_override(Season::Winter, Weather::Storm, &mut rng),
+            Weather::Storm
+        );
+    }
+
+    #[test]
+    fn pick_neutral_weather_prefers_weighted_choice() {
+        let weights = HashMap::from([(Weather::Clear, 0_u32), (Weather::Smoke, 5_u32)]);
+        let mut rng = FixedRng::new(0);
+        assert_eq!(pick_neutral_weather(&weights, &mut rng), Weather::Smoke);
+    }
+
+    #[test]
+    fn pick_neutral_weather_returns_clear_when_smoke_weight_zero() {
+        let weights = HashMap::from([(Weather::Clear, 4_u32), (Weather::Smoke, 0_u32)]);
+        let mut rng = FixedRng::new(0);
+        let weather = pick_neutral_weather(&weights, &mut rng);
+        assert_eq!(weather, Weather::Clear);
+    }
+
+    #[test]
+    fn apply_neutral_buffer_sets_length() {
+        let weights = HashMap::from([(Weather::Clear, 5_u32), (Weather::Smoke, 0_u32)]);
+        let mut rng = FixedRng::new(0);
+        let mut buffer = 0_u8;
+        let weather = apply_neutral_buffer(&mut buffer, &weights, &mut rng);
+        assert!(matches!(weather, Weather::Clear | Weather::Smoke));
+        assert!(buffer <= NEUTRAL_BUFFER_MAX.saturating_sub(1));
+    }
+
+    #[test]
+    fn apply_weather_effects_returns_default_when_missing_effect() {
+        let cfg = WeatherConfig {
+            limits: WeatherLimits {
+                max_extreme_streak: 1,
+                encounter_cap: 0.3,
+                pants_floor: 0,
+                pants_ceiling: 100,
+            },
+            effects: HashMap::new(),
+            mitigation: HashMap::new(),
+            weights: HashMap::new(),
+            exec_mods: HashMap::new(),
+        };
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::Storm;
+
+        let effects = apply_weather_effects(&mut state, &cfg);
+
+        assert!((effects.travel_mult - 1.0).abs() <= f32::EPSILON);
+        assert!((state.weather_travel_multiplier - effects.travel_mult).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn apply_weather_effects_caps_encounter_when_limit_zero() {
+        let mut effects_map = HashMap::new();
+        effects_map.insert(
+            Weather::Clear,
+            WeatherEffect {
+                supplies: 0,
+                sanity: 0,
+                pants: 0,
+                enc_delta: 0.0,
+                travel_mult: 1.0,
+                rain_delta: 0.0,
+                snow_delta: 0.0,
+            },
+        );
+        let cfg = WeatherConfig {
+            limits: WeatherLimits {
+                max_extreme_streak: 1,
+                encounter_cap: 0.0,
+                pants_floor: 0,
+                pants_ceiling: 100,
+            },
+            effects: effects_map,
+            mitigation: HashMap::new(),
+            weights: HashMap::new(),
+            exec_mods: HashMap::new(),
+        };
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::Clear;
+
+        let effects = apply_weather_effects(&mut state, &cfg);
+        assert!((effects.encounter_cap - 1.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn selection_avoids_extreme_when_streak_limit_reached() {
+        let mut region_weights = HashMap::new();
+        region_weights.insert(Weather::Storm, 10);
+        region_weights.insert(Weather::Clear, 5);
+        region_weights.insert(Weather::ColdSnap, 5);
+        let mut weights = HashMap::new();
+        weights.insert(Region::Heartland, region_weights);
+        let cfg = WeatherConfig {
+            limits: WeatherLimits {
+                max_extreme_streak: 0,
+                encounter_cap: 0.3,
+                pants_floor: 0,
+                pants_ceiling: 100,
+            },
+            effects: HashMap::new(),
+            mitigation: HashMap::new(),
+            weights,
+            exec_mods: HashMap::new(),
+        };
+
+        let rngs = RngBundle::from_user_seed(42);
+        let mut state = GameState {
+            region: Region::Heartland,
+            weather_state: WeatherState {
+                extreme_streak: 2,
+                ..WeatherState::default()
+            },
+            ..GameState::default()
+        };
+
+        let selected = select_weather_for_today(&mut state, &cfg, &rngs).expect("select weather");
+        assert!(!selected.is_extreme(), "should avoid extremes when capped");
+    }
+
+    #[test]
+    fn selection_applies_neutral_buffer_when_heatwave_streak_hits_limit() {
+        let mut region_weights = HashMap::new();
+        region_weights.insert(Weather::Clear, 0);
+        region_weights.insert(Weather::Storm, 0);
+        region_weights.insert(Weather::HeatWave, 10);
+        region_weights.insert(Weather::ColdSnap, 0);
+        region_weights.insert(Weather::Smoke, 0);
+        let weights = HashMap::from([(Region::Heartland, region_weights)]);
+        let mut cfg = base_config(weights);
+        cfg.limits.max_extreme_streak = 10;
+
+        let rngs = RngBundle::from_user_seed(12);
+        let mut state = GameState {
+            region: Region::Heartland,
+            season: Season::Summer,
+            weather_state: WeatherState {
+                heatwave_streak: HEATWAVE_MAX_STREAK,
+                ..WeatherState::default()
+            },
+            ..GameState::default()
+        };
+
+        let weather = select_weather_for_today(&mut state, &cfg, &rngs).unwrap();
+        assert_eq!(weather, Weather::Clear);
+        assert!(state.weather_state.neutral_buffer > 0);
+    }
+
+    #[test]
+    fn apply_weather_effects_uses_mitigation_and_updates_accumulators() {
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::Storm;
+        state.inventory.tags = HashSet::from([String::from("rain_gear")]);
+        state.stats = Stats {
+            supplies: 10,
+            sanity: 10,
+            pants: 10,
+            ..Stats::default()
+        };
+
+        let mut effects = HashMap::new();
+        effects.insert(
+            Weather::Storm,
+            WeatherEffect {
+                supplies: -2,
+                sanity: -3,
+                pants: -4,
+                enc_delta: 0.2,
+                travel_mult: 0.8,
+                rain_delta: 1.5,
+                snow_delta: 0.0,
+            },
+        );
+        let mut mitigation = HashMap::new();
+        mitigation.insert(
+            Weather::Storm,
+            WeatherMitigation {
+                tag: "rain_gear".into(),
+                sanity: Some(-1),
+                pants: Some(-2),
+            },
+        );
+
+        let mut weights = HashMap::new();
+        weights.insert(Region::Heartland, HashMap::new());
+        let mut cfg = base_config(weights);
+        cfg.effects = effects;
+        cfg.mitigation = mitigation;
+
+        let output = apply_weather_effects(&mut state, &cfg);
+        assert_eq!(output.supplies_delta, -2);
+        assert_eq!(output.sanity_delta, -1);
+        assert_eq!(output.pants_delta, -2);
+        assert!(state.weather_state.rain_accum > 0.0);
+    }
+
+    #[test]
+    fn exposure_basic_and_streak_lockout_apply_damage() {
+        let mut base_weights = HashMap::new();
+        base_weights.insert(Region::Heartland, HashMap::new());
+        let mut cfg = base_config(base_weights);
+        cfg.effects.insert(
+            Weather::HeatWave,
+            WeatherEffect {
+                supplies: 0,
+                sanity: 0,
+                pants: 0,
+                enc_delta: 0.0,
+                travel_mult: 1.0,
+                rain_delta: 0.0,
+                snow_delta: 0.0,
+            },
+        );
+        cfg.effects.insert(
+            Weather::ColdSnap,
+            WeatherEffect {
+                supplies: 0,
+                sanity: 0,
+                pants: 0,
+                enc_delta: 0.0,
+                travel_mult: 1.0,
+                rain_delta: 0.0,
+                snow_delta: 0.0,
+            },
+        );
+
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::HeatWave;
+        state.features.exposure_streaks = false;
+        state.exposure_streak_heat = 2;
+        state.stats.hp = 3;
+        state.stats.sanity = 5;
+        apply_weather_effects(&mut state, &cfg);
+        assert!(state.stats.hp < 3);
+        assert!(state.logs.contains(&String::from(LOG_WEATHER_HEATSTROKE)));
+
+        state.weather_state.today = Weather::ColdSnap;
+        state.features.exposure_streaks = true;
+        state.exposure_streak_cold = 2;
+        state.stats.hp = 3;
+        state.logs.clear();
+        apply_weather_effects(&mut state, &cfg);
+        assert!(state.stats.hp < 3);
+        assert!(state.logs.contains(&String::from(LOG_WEATHER_EXPOSURE)));
+    }
+
+    #[test]
+    fn exposure_lockout_resets_when_no_damage() {
+        let mut state = GameState::default();
+        state.features.exposure_streaks = true;
+        state.guards.exposure_damage_lockout = true;
+        let (damage, _) = apply_exposure_with_streak_lockout(&mut state, false, false);
+        assert_eq!(damage, 0);
+        assert!(!state.guards.exposure_damage_lockout);
+    }
+
+    #[test]
+    fn process_daily_weather_updates_yesterday_and_today() {
+        let mut state = GameState {
+            mode: GameMode::Classic,
+            season: Season::Spring,
+            weather_state: WeatherState {
+                today: Weather::Clear,
+                ..WeatherState::default()
+            },
+            ..GameState::default()
+        };
+
+        let cfg = WeatherConfig::default_config();
+        let rngs = RngBundle::from_user_seed(7);
+        process_daily_weather(&mut state, &cfg, Some(&rngs));
+
+        assert_eq!(state.weather_state.yesterday, Weather::Clear);
+    }
+
+    #[test]
+    fn weather_weight_returns_zero_for_missing_key() {
+        let weights = HashMap::from([(Weather::Clear, 3_u32)]);
+        assert_eq!(weather_weight(&weights, Weather::Storm), 0);
+    }
+
+    #[test]
+    fn select_weather_errors_when_region_missing() {
+        let mut cfg = WeatherConfig::default_config();
+        cfg.weights.clear();
+        let rngs = RngBundle::from_user_seed(12);
+        let mut state = GameState {
+            region: Region::Beltway,
+            ..GameState::default()
+        };
+        let err = select_weather_for_today(&mut state, &cfg, &rngs).unwrap_err();
+        assert!(err.contains("Weather weights must exist"));
+    }
+
+    #[test]
+    fn weather_config_from_json_detects_missing_effects() {
+        let json = serde_json::json!({
+            "limits": {
+                "max_extreme_streak": 1,
+                "encounter_cap": 0.3,
+                "pants_floor": 0,
+                "pants_ceiling": 100
+            },
+            "effects": {
+                "Clear": {
+                    "supplies": 0,
+                    "sanity": 0,
+                    "pants": 0,
+                    "enc_delta": 0.0
+                }
+            },
+            "mitigation": {},
+            "weights": {
+                "Heartland": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1},
+                "RustBelt": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1},
+                "Beltway": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1}
+            },
+            "exec_mods": {}
+        })
+        .to_string();
+
+        let err = WeatherConfig::from_json(&json).unwrap_err();
+        assert!(err.contains("Missing effect for weather"));
+    }
+
+    #[test]
+    fn weather_config_from_json_parses_defaults() {
+        let json = include_str!("../../dystrail-web/static/assets/data/weather.json");
+        let cfg = WeatherConfig::from_json(json).expect("expected valid weather config");
+        assert!(cfg.effects.contains_key(&Weather::Clear));
+        assert!(cfg.weights.contains_key(&Region::Heartland));
+    }
+
+    #[test]
+    fn weather_config_from_json_detects_missing_weight() {
+        let json = serde_json::json!({
+            "limits": {
+                "max_extreme_streak": 1,
+                "encounter_cap": 0.3,
+                "pants_floor": 0,
+                "pants_ceiling": 100
+            },
+            "effects": {
+                "Clear": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "Storm": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "HeatWave": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "ColdSnap": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "Smoke": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0}
+            },
+            "mitigation": {},
+            "weights": {
+                "Heartland": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1},
+                "RustBelt": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1},
+                "Beltway": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1}
+            },
+            "exec_mods": {}
+        })
+        .to_string();
+
+        let err = WeatherConfig::from_json(&json).unwrap_err();
+        assert!(err.contains("Missing weight for"));
+    }
+
+    #[test]
+    fn weather_config_from_json_detects_missing_region_weights() {
+        let json = serde_json::json!({
+            "limits": {
+                "max_extreme_streak": 1,
+                "encounter_cap": 0.3,
+                "pants_floor": 0,
+                "pants_ceiling": 100
+            },
+            "effects": {
+                "Clear": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "Storm": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "HeatWave": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "ColdSnap": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0},
+                "Smoke": {"supplies": 0, "sanity": 0, "pants": 0, "enc_delta": 0.0}
+            },
+            "mitigation": {},
+            "weights": {
+                "Heartland": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1},
+                "RustBelt": {"Clear": 1, "Storm": 1, "HeatWave": 1, "ColdSnap": 1, "Smoke": 1}
+            },
+            "exec_mods": {}
+        })
+        .to_string();
+
+        let err = WeatherConfig::from_json(&json).unwrap_err();
+        assert!(err.contains("Missing weights for region"));
+    }
+
+    #[test]
+    fn fallback_weather_config_is_empty() {
+        let cfg = WeatherConfig::fallback_config();
+        assert!(cfg.effects.is_empty());
+        assert!(cfg.weights.is_empty());
+        assert!((cfg.limits.encounter_cap - 0.35).abs() <= f32::EPSILON);
+    }
 }

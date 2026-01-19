@@ -308,3 +308,54 @@ fn game_mode_expectation(_summary: &SimulationSummary) -> Result<()> {
     anyhow::ensure!(state.mode.is_deep(), "Deep mode should be deep");
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::PlayabilityMetrics;
+
+    fn summary() -> SimulationSummary {
+        SimulationSummary {
+            seed: 0,
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            turns: Vec::new(),
+            metrics: PlayabilityMetrics::default(),
+            final_state: GameState::default(),
+            ending_message: String::from("ok"),
+            game_ended: false,
+        }
+    }
+
+    #[test]
+    fn catalog_lists_expected_entries() {
+        let scenarios = catalog_scenarios();
+        assert!(scenarios.len() >= 10);
+        assert!(
+            scenarios
+                .iter()
+                .any(|scenario| scenario.name() == "Basic Game State Creation")
+        );
+    }
+
+    #[test]
+    fn catalog_expectations_run_without_error() {
+        let summary = summary();
+        for scenario in catalog_scenarios() {
+            for expectation in scenario.plan.expectations {
+                expectation.evaluate(&summary).expect("expectation ok");
+            }
+        }
+    }
+
+    #[test]
+    fn find_catalog_scenario_returns_none_for_unknown() {
+        assert!(find_catalog_scenario("Missing Scenario").is_none());
+    }
+
+    #[test]
+    fn find_catalog_scenario_returns_match_for_known() {
+        let scenario = find_catalog_scenario("Weather System Effects").expect("scenario");
+        assert_eq!(scenario.name(), "Weather System Effects");
+    }
+}

@@ -105,3 +105,25 @@ pub fn current_lang() -> String {
 pub fn is_rtl() -> bool {
     with_bundle(|bundle| bundle.rtl)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn build_bundle_loads_requested_locale() {
+        let bundle = build_bundle("ar").expect("bundle should load");
+        assert_eq!(bundle.lang, "ar");
+        assert!(bundle.rtl);
+        assert!(bundle.translations.is_object());
+        assert!(bundle.fallback.is_object());
+    }
+
+    #[test]
+    fn fallback_bundle_defaults_to_en() {
+        let bundle = fallback_bundle();
+        assert_eq!(bundle.lang, "en");
+        assert!(!bundle.rtl);
+        assert!(bundle.translations.is_object());
+    }
+}

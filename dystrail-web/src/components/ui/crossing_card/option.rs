@@ -43,3 +43,45 @@ pub fn crossing_option(p: &CrossingOptionProps) -> Html {
         </li>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn crossing_option_renders_disabled_state() {
+        let props = CrossingOptionProps {
+            index: 2,
+            label: AttrValue::from("Bribe"),
+            desc: AttrValue::from("Desc"),
+            focused: false,
+            disabled: true,
+            posinset: 2,
+            setsize: 4,
+            on_activate: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<CrossingOption>::with_props(props).render());
+        assert!(html.contains("aria-disabled=\"true\""));
+        assert!(html.contains("tabindex=\"-1\""));
+        assert!(html.contains("disabled"));
+    }
+
+    #[test]
+    fn crossing_option_renders_focused_state() {
+        let props = CrossingOptionProps {
+            index: 1,
+            label: AttrValue::from("Detour"),
+            desc: AttrValue::from("Desc"),
+            focused: true,
+            disabled: false,
+            posinset: 1,
+            setsize: 4,
+            on_activate: Callback::noop(),
+        };
+        let html = block_on(LocalServerRenderer::<CrossingOption>::with_props(props).render());
+        assert!(html.contains("aria-disabled=\"false\""));
+        assert!(html.contains("tabindex=\"0\""));
+    }
+}

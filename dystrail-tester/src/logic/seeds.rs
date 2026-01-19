@@ -170,4 +170,36 @@ mod tests {
         assert_eq!(seeds.len(), expected);
         assert!(seeds.iter().all(|s| s.code.is_some()));
     }
+
+    #[test]
+    fn seed_info_matches_mode_accepts_unspecified() {
+        let info = SeedInfo::from_numeric(42);
+        assert!(info.matches_mode(GameMode::Classic));
+    }
+
+    #[test]
+    fn resolve_seed_inputs_rejects_unrecognized_token() {
+        let raw = vec!["not-a-seed".to_string()];
+        let err = resolve_seed_inputs(&raw).expect_err("invalid token should fail");
+        assert!(err.to_string().contains("Unrecognized seed token"));
+    }
+
+    #[test]
+    fn resolve_seed_inputs_defaults_when_empty() {
+        let seeds = resolve_seed_inputs(&[]).expect("default seed");
+        assert!(seeds.iter().any(|s| s.seed == 1337));
+    }
+
+    #[test]
+    fn resolve_seed_inputs_dedupes_duplicate_tokens() {
+        let seeds = resolve_seed_inputs(&["42".to_string(), "42".to_string()]).unwrap();
+        assert_eq!(seeds.iter().filter(|info| info.seed == 42).count(), 1);
+    }
+
+    #[test]
+    fn resolve_seed_inputs_accepts_large_u64() {
+        let expected = i64::MAX as u64 + 1;
+        let seeds = resolve_seed_inputs(&[expected.to_string()]).expect("seed should parse");
+        assert!(seeds.iter().any(|info| info.seed == expected));
+    }
 }

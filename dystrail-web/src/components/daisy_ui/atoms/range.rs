@@ -1,4 +1,5 @@
 use crate::components::daisy_ui::foundation as f;
+#[cfg(target_arch = "wasm32")]
 use f::TargetCast;
 
 #[derive(f::Properties, PartialEq, Clone)]
@@ -21,10 +22,17 @@ pub fn range(props: &RangeProps) -> f::Html {
     let on_change = {
         let cb = props.on_change.clone();
         f::Callback::from(move |e: f::InputEvent| {
-            if let Some(input) = e.target_dyn_into::<f::HtmlInputElement>()
-                && let Ok(val) = input.value().parse::<f64>()
+            #[cfg(target_arch = "wasm32")]
             {
-                cb.emit(val);
+                if let Some(input) = e.target_dyn_into::<f::HtmlInputElement>()
+                    && let Ok(val) = input.value().parse::<f64>()
+                {
+                    cb.emit(val);
+                }
+            }
+            #[cfg(not(target_arch = "wasm32"))]
+            {
+                let _ = (&e, &cb);
             }
         })
     };

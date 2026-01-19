@@ -218,3 +218,118 @@ pub fn list_scenarios() -> Vec<(&'static str, &'static str)> {
         ("game-mode-variations", "Game Mode Variations"),
     ]
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::{PlayabilityMetrics, SimulationSummary};
+    use crate::logic::{GameTester, TesterAssets};
+    use std::sync::Arc;
+
+    fn base_summary(days: i32, ending: &str) -> SimulationSummary {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = days;
+        metrics.ending_type = ending.to_string();
+        SimulationSummary {
+            seed: 1,
+            mode: GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            turns: Vec::new(),
+            metrics,
+            final_state: dystrail_game::GameState::default(),
+            ending_message: "ok".to_string(),
+            game_ended: false,
+        }
+    }
+
+    #[test]
+    fn scenario_listing_includes_smoke() {
+        let scenarios = list_scenarios();
+        assert!(scenarios.iter().any(|(name, _)| *name == "smoke"));
+    }
+
+    #[test]
+    fn can_fetch_smoke_scenario() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let scenario = get_scenario("smoke", &tester);
+        assert!(scenario.is_some());
+        let logic = scenario.unwrap().as_logic_scenario();
+        assert!(logic.is_some());
+    }
+
+    #[test]
+    fn simulation_scenario_exposes_logic_plan() {
+        let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced);
+        let scenario = SimulationScenario::new("demo", plan);
+        assert_eq!(scenario.name(), "demo");
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert_eq!(logic.name, "demo");
+    }
+
+    #[test]
+    fn get_scenario_unknown_returns_none() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        assert!(get_scenario("nope", &tester).is_none());
+    }
+
+    #[test]
+    fn survival_expectation_requires_days() {
+        let err = survival_expectation(&base_summary(0, "OK")).expect_err("should fail");
+        assert!(err.to_string().contains("survive"));
+        survival_expectation(&base_summary(2, "OK")).expect("should pass");
+    }
+
+    #[test]
+    fn real_game_expectation_rejects_error_endings() {
+        let err = real_game_expectation(&base_summary(2, "Error: bad")).expect_err("should fail");
+        assert!(err.to_string().contains("error"));
+    }
+
+    #[test]
+    fn get_scenario_resolves_strategy_variants() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        assert!(get_scenario("conservative", &tester).is_some());
+        assert!(get_scenario("aggressive", &tester).is_some());
+        assert!(get_scenario("resource-manager", &tester).is_some());
+        assert!(get_scenario("real", &tester).is_some());
+    }
+
+    #[test]
+    fn get_scenario_resolves_catalog_variants() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let names = [
+            "full-game-balanced",
+            "resource-stress",
+            "deterministic",
+            "edge",
+            "basic-game-creation",
+            "share-code-consistency",
+            "deterministic-gameplay",
+            "encounter-choices",
+            "vehicle-system",
+            "weather-effects",
+            "resource-management",
+            "stats-boundaries",
+            "inventory-operations",
+            "game-mode-variations",
+        ];
+        for name in names {
+            assert!(
+                get_scenario(name, &tester).is_some(),
+                "{name} should resolve"
+            );
+        }
+    }
+
+    #[test]
+    fn strategy_scenario_sets_max_days_and_setup() {
+        let scenario = strategy_scenario("Demo", GameplayStrategy::Balanced);
+        let logic = scenario.as_logic_scenario().expect("logic scenario");
+        assert_eq!(logic.plan.max_days, Some(DEFAULT_POLICY_SIM_DAYS));
+        assert!(logic.plan.setup.is_some());
+    }
+}

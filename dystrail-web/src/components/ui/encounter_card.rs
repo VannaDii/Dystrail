@@ -148,4 +148,36 @@ mod tests {
             "effects preview should show sanity delta: {html}"
         );
     }
+
+    #[test]
+    fn format_effects_includes_all_non_zero_fields() {
+        crate::i18n::set_lang("en");
+        let effects = Effects {
+            supplies: 2,
+            hp: -1,
+            sanity: 3,
+            credibility: -2,
+            morale: 4,
+            allies: 1,
+            pants: -5,
+            add_receipt: Some(String::from("receipt")),
+            ..Effects::default()
+        };
+        let lines = format_effects(&effects);
+        let joined = lines.join(" | ");
+        assert!(joined.contains("Sup"));
+        assert!(joined.contains("HP") || joined.contains("Hp"));
+        assert!(joined.contains("San"));
+        assert!(joined.contains("Cred"));
+        assert!(joined.contains("Mor"));
+        assert!(joined.contains("Allies"));
+        assert!(joined.contains("Pants -"));
+        assert!(joined.contains("Receipts +1"));
+    }
+
+    #[test]
+    fn format_effects_skips_empty_values() {
+        let lines = format_effects(&Effects::default());
+        assert!(lines.is_empty());
+    }
 }

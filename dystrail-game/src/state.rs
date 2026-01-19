@@ -786,19 +786,31 @@ const fn otdeluxe_mobility_failure_mult(
 mod tests {
     use super::*;
     use crate::constants::{
-        CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE, EXEC_ORDER_DAILY_CHANCE,
-        LOG_TRAVELED,
+        CLASSIC_BALANCED_TRAVEL_NUDGE, CROSSING_MILESTONES, DEEP_BALANCED_TRAVEL_NUDGE,
+        EXEC_ORDER_DAILY_CHANCE, LOG_CROSSING_DECISION_PERMIT, LOG_CROSSING_DETOUR,
+        LOG_CROSSING_FAILURE, LOG_CROSSING_PASSED, LOG_TRAVEL_BLOCKED, LOG_TRAVEL_DELAY_CREDIT,
+        LOG_TRAVEL_PARTIAL, LOG_TRAVELED, PERMIT_REQUIRED_TAGS,
     };
-    use crate::data::{Choice, Effects, Encounter};
+    use crate::crossings::{CrossingChoice, CrossingKind};
+    use crate::data::{Choice, Effects, Encounter, EncounterData};
     use crate::endgame::EndgameTravelCfg;
     use crate::journey::{
-        CountingRng, DailyTickKernel, DayOutcome, JourneyCfg, RngBundle, StrainConfig,
-        StrainLabelBounds, StrainWeights,
+        CountingRng, CrossingPolicy, DailyTickKernel, DayOutcome, DetourPolicy, JourneyCfg,
+        RngBundle, StrainConfig, StrainLabelBounds, StrainWeights,
     };
-    use crate::mechanics::otdeluxe90s::OtDeluxeOccupation;
+    use crate::mechanics::otdeluxe90s::{OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations};
+    use crate::otdeluxe_state::{
+        OtDeluxeCrossingMethod, OtDeluxeDallesChoice, OtDeluxeInventory, OtDeluxePartyMember,
+        OtDeluxeRiverBed, OtDeluxeRouteDecision, OtDeluxeRoutePrompt, OtDeluxeState,
+        OtDeluxeWagonState,
+    };
     use crate::pacing::{PaceCfg, PacingLimits};
+    use crate::personas::{Persona, PersonaMods, PersonaStart};
+    use crate::store::Grants;
     use crate::weather::Weather;
     use rand::Rng;
+    use rand::SeedableRng;
+    use rand::rngs::SmallRng;
     use std::cell::RefMut;
     use std::collections::{HashMap, VecDeque};
     use std::rc::Rc;
@@ -2604,6 +2616,753 @@ mod tests {
             state.ot_deluxe.route.variant,
             OtDeluxeTrailVariant::SubletteCutoff
         );
+    }
+
+    #[test]
+    fn apply_persona_updates_stats_and_logs() {
+        let persona = Persona {
+            id: "organizer".to_string(),
+            name: "Organizer".to_string(),
+            desc: "Test persona".to_string(),
+            score_mult: 1.25,
+            start: PersonaStart {
+                supplies: 5,
+                credibility: 7,
+                sanity: 3,
+                morale: 4,
+                allies: 2,
+                budget: 15,
+            },
+            mods: PersonaMods {
+                pants_relief: 2,
+                pants_relief_threshold: 10,
+                ..PersonaMods::default()
+            },
+        };
+        let mut state = GameState::default();
+        state.apply_persona(&persona);
+
+        assert_eq!(state.persona_id.as_deref(), Some("organizer"));
+        assert!((state.score_mult - 1.25).abs() <= f32::EPSILON);
+        assert_eq!(state.stats.supplies, 5);
+        assert_eq!(state.stats.credibility, 7);
+        assert_eq!(state.stats.sanity, 3);
+        assert_eq!(state.stats.morale, 4);
+        assert_eq!(state.stats.allies, 2);
+        assert_eq!(state.budget, 15);
+        assert_eq!(state.budget_cents, 1500);
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|log| log == "log.persona.selected.organizer")
+        );
+    }
+
+    #[test]
+    fn set_party_fills_companion_slots() {
+        let mut state = GameState::default();
+        state.set_party("Leader", vec!["Alice", "Bob"]);
+        assert_eq!(state.party.leader, "Leader");
+        assert_eq!(state.party.companions.len(), 4);
+        assert_eq!(state.party.companions[0], "Alice");
+        assert_eq!(state.party.companions[1], "Bob");
+        assert!(state.party.companions[2].starts_with("Traveler"));
+        assert!(state.party.companions[3].starts_with("Traveler"));
+        assert!(state.logs.iter().any(|log| log == "log.party.updated"));
+    }
+
+    #[test]
+    fn apply_store_purchase_updates_budget_and_grants() {
+        let mut state = GameState {
+            budget_cents: 1500,
+            budget: 15,
+            ..GameState::default()
+        };
+        state.stats = Stats {
+            supplies: 0,
+            credibility: 0,
+            ..Stats::default()
+        };
+        let grants = Grants {
+            supplies: 2,
+            credibility: 3,
+            spare_tire: 1,
+            spare_battery: 2,
+            spare_alt: 1,
+            spare_pump: 1,
+            enabled: true,
+        };
+        let tags = vec![String::from("safety"), String::from("comfort")];
+        state.apply_store_purchase(500, &grants, &tags);
+
+        assert_eq!(state.budget_cents, 1000);
+        assert_eq!(state.budget, 10);
+        assert_eq!(state.stats.supplies, 2);
+        assert_eq!(state.stats.credibility, 3);
+        assert_eq!(state.inventory.spares.tire, 1);
+        assert_eq!(state.inventory.spares.battery, 2);
+        assert_eq!(state.inventory.spares.alt, 1);
+        assert_eq!(state.inventory.spares.pump, 1);
+        assert!(state.inventory.tags.contains("safety"));
+        assert!(state.inventory.tags.contains("comfort"));
+    }
+
+    #[test]
+    fn otdeluxe_store_pending_flow_updates_state() {
+        let mut state = GameState::default();
+        let lines = vec![OtDeluxeStoreLineItem {
+            item: crate::otdeluxe_store::OtDeluxeStoreItem::FoodLb,
+            quantity: 10,
+        }];
+        assert!(!state.set_otdeluxe_store_purchase(lines.clone()));
+
+        state.mechanical_policy = MechanicalPolicyId::OtDeluxe90s;
+        assert!(!state.set_otdeluxe_store_purchase(lines.clone()));
+
+        state.ot_deluxe.store.pending_node = Some(0);
+        assert!(state.set_otdeluxe_store_purchase(lines));
+        assert!(state.ot_deluxe.store.pending_purchase.is_some());
+
+        state.clear_otdeluxe_store_pending();
+        assert!(state.ot_deluxe.store.pending_node.is_none());
+        assert_eq!(state.ot_deluxe.store.last_node, Some(0));
+        assert!(state.ot_deluxe.store.pending_purchase.is_none());
+
+        state.ot_deluxe.store.last_node = None;
+        state.ot_deluxe.route.current_node_index = 0;
+        state.queue_otdeluxe_store_if_available();
+        assert_eq!(state.ot_deluxe.store.pending_node, Some(0));
+    }
+
+    #[test]
+    fn apply_otdeluxe_store_purchase_updates_inventory() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                inventory: OtDeluxeInventory {
+                    cash_cents: 5000,
+                    ..OtDeluxeInventory::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+
+        let lines = [OtDeluxeStoreLineItem {
+            item: crate::otdeluxe_store::OtDeluxeStoreItem::AmmoBox,
+            quantity: 1,
+        }];
+        let receipt = state
+            .apply_otdeluxe_store_purchase(0, &lines)
+            .expect("purchase succeeds");
+        assert!(receipt.total_cost_cents > 0);
+        assert_eq!(state.ot_deluxe.inventory.bullets, 20);
+    }
+
+    #[test]
+    fn advance_days_with_credit_noops_on_zero() {
+        let mut state = GameState::default();
+        let day_before = state.day;
+        state.advance_days_with_credit(0, TravelDayKind::NonTravel, 0.0, "idle");
+        assert_eq!(state.day, day_before);
+    }
+
+    #[test]
+    fn rehydrate_backfills_records_and_otdeluxe_state() {
+        let mut state = GameState {
+            state_version: 3,
+            day: 7,
+            travel_days: 2,
+            partial_travel_days: 1,
+            miles_traveled_actual: 123.0,
+            journey_partial_ratio: 1.5,
+            pace: PaceId::Blitz,
+            diet: DietId::Doom,
+            budget_cents: 9000,
+            pending_crossing_choice: Some(CrossingChoice::Detour),
+            pending_route_choice: Some(OtDeluxeRouteDecision::StayOnTrail),
+            rng_bundle: None,
+            ..GameState::default()
+        };
+        state.party.leader = String::from("Leader");
+        state.party.companions = vec![
+            String::from("Comp 1"),
+            String::from("Comp 2"),
+            String::from("Comp 3"),
+            String::from("Comp 4"),
+            String::from("Comp 5"),
+            String::from("Comp 6"),
+        ];
+        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
+
+        let rehydrated = state.rehydrate(EncounterData::empty());
+
+        assert_eq!(rehydrated.state_version, GameState::current_version());
+        assert!(rehydrated.rng_bundle.is_some());
+        assert!(rehydrated.journey_partial_ratio <= 0.95);
+        assert_eq!(rehydrated.day_records.len(), 1);
+        let record = &rehydrated.day_records[0];
+        assert!(matches!(record.kind, TravelDayKind::Travel));
+        assert_eq!(rehydrated.ot_deluxe.party.members.len(), 5);
+        assert_eq!(rehydrated.ot_deluxe.party.members[0].name, "Leader");
+        assert!(
+            rehydrated
+                .ot_deluxe
+                .party
+                .members
+                .iter()
+                .all(|member| !member.name.trim().is_empty())
+        );
+        assert_eq!(rehydrated.ot_deluxe.pace, OtDeluxePace::Grueling);
+        assert_eq!(rehydrated.ot_deluxe.rations, OtDeluxeRations::BareBones);
+        assert_eq!(rehydrated.ot_deluxe.inventory.cash_cents, 9000);
+        assert!(rehydrated.pending_crossing_choice.is_none());
+        assert!(rehydrated.pending_route_choice.is_none());
+        assert!(rehydrated.ot_deluxe.crossing.chosen_method.is_none());
+    }
+
+    #[test]
+    fn build_otdeluxe_state_fills_missing_names() {
+        let mut state = GameState::default();
+        state.party.leader = String::new();
+        state.party.companions = Vec::new();
+        let ot_state = state.build_ot_deluxe_state_from_legacy();
+        assert_eq!(ot_state.party.members.len(), 5);
+        assert!(ot_state.party.members[0].name.starts_with("Traveler"));
+    }
+
+    #[test]
+    fn sync_otdeluxe_trail_distance_and_prompt_marker() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            miles_traveled_actual: 0.0,
+            ..GameState::default()
+        };
+
+        state.sync_otdeluxe_trail_distance();
+        let policy = default_otdeluxe_policy();
+        let expected =
+            otdeluxe_trail::total_miles_for_variant(&policy.trail, state.ot_deluxe.route.variant);
+        let expected_distance = f32::from(expected).max(1.0);
+        assert!((state.trail_distance - expected_distance).abs() <= f32::EPSILON);
+
+        let (prompt, marker) = state.otdeluxe_next_prompt_marker().expect("next prompt");
+        assert_eq!(prompt, OtDeluxeRoutePrompt::SubletteCutoff);
+        let expected_marker = otdeluxe_trail::mile_marker_for_node(
+            &policy.trail,
+            state.ot_deluxe.route.variant,
+            otdeluxe_trail::SOUTH_PASS_NODE_INDEX,
+        )
+        .expect("south pass marker");
+        assert_eq!(marker, expected_marker);
+
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesShortcut);
+        assert!(state.otdeluxe_next_prompt_marker().is_none());
+    }
+
+    #[test]
+    fn pre_travel_checks_block_on_pending_prompt() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            distance_today: 12.0,
+            distance_today_raw: 9.0,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesShortcut);
+
+        let result = state.pre_travel_checks();
+
+        assert!(matches!(result, Some((false, key, false)) if key == LOG_TRAVEL_BLOCKED));
+        assert!(matches!(
+            state.ot_deluxe.travel.wagon_state,
+            OtDeluxeWagonState::Stopped
+        ));
+        assert!(state.distance_today.abs() <= f32::EPSILON);
+        assert!(state.distance_today_raw.abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn handle_travel_block_dystrail_applies_delay_credit() {
+        let mut state = GameState::default();
+        state.day_state.travel.travel_blocked = true;
+
+        let result = state.handle_travel_block(false);
+
+        assert!(result.is_some());
+        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_DELAY_CREDIT));
+        let record = state.day_records.last().expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::Partial));
+        assert!(record.tags.iter().any(|tag| tag.0 == "repair"));
+    }
+
+    #[test]
+    fn handle_travel_block_otdeluxe_records_repair() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.day_state.travel.travel_blocked = true;
+        state.distance_today = 10.0;
+        state.distance_today_raw = 10.0;
+
+        let result = state.handle_travel_block(false);
+
+        assert!(result.is_some());
+        let record = state.day_records.last().expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::NonTravel));
+        assert!(record.tags.iter().any(|tag| tag.0 == "repair"));
+        assert!(state.distance_today.abs() <= f32::EPSILON);
+        assert!(state.distance_today_raw.abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn pending_crossing_choice_permit_resolves_pass() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 12.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Permit),
+            ..GameState::default()
+        };
+        state
+            .inventory
+            .tags
+            .insert(PERMIT_REQUIRED_TAGS[0].to_string());
+        state.journey_crossing = CrossingPolicy {
+            pass: 1.0,
+            detour: 0.0,
+            terminal: 0.0,
+            ..CrossingPolicy::default()
+        };
+        state.journey_crossing.permit.disable_terminal = true;
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(21)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_CROSSING_PASSED);
+        assert!(outcome.day_consumed);
+        assert!(state.crossings_completed >= 1);
+        assert!(
+            state
+                .logs
+                .iter()
+                .any(|log| log == LOG_CROSSING_DECISION_PERMIT)
+        );
+    }
+
+    #[test]
+    fn pending_crossing_choice_detour_advances_days() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 8.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Detour),
+            ..GameState::default()
+        };
+        state.journey_crossing.detour_days = DetourPolicy { min: 2, max: 2 };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(31)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_CROSSING_DETOUR);
+        assert!(state.crossing_detours_taken > 0);
+        assert!(state.day >= 3);
+    }
+
+    #[test]
+    fn pending_crossing_choice_bribe_can_fail_terminally() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::BridgeOut,
+                computed_miles_today: 6.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Bribe),
+            budget_cents: 2000,
+            journey_crossing: CrossingPolicy {
+                pass: 0.0,
+                detour: 0.0,
+                terminal: 1.0,
+                ..CrossingPolicy::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(17)));
+
+        let outcome = kernel.tick_day(&mut state);
+
+        assert_eq!(outcome.log_key, LOG_CROSSING_FAILURE);
+        assert!(state.ending.is_some());
+        assert!(state.crossing_bribe_attempts > 0);
+    }
+
+    #[test]
+    fn pending_crossing_choice_rejects_unavailable_permit() {
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::Checkpoint,
+                computed_miles_today: 5.0,
+            }),
+            pending_crossing_choice: Some(CrossingChoice::Permit),
+            ..GameState::default()
+        };
+
+        let outcome = state.resolve_pending_crossing_choice(CrossingChoice::Permit);
+
+        assert!(outcome.is_none());
+        assert!(state.pending_crossing.is_some());
+        assert!(state.pending_crossing_choice.is_none());
+    }
+
+    #[test]
+    fn handle_crossing_event_sets_pending_choice() {
+        let mut state = GameState {
+            miles_traveled_actual: CROSSING_MILESTONES[0],
+            ..GameState::default()
+        };
+
+        let result = state.handle_crossing_event(0.0);
+
+        assert!(matches!(result, Some((false, key)) if key == LOG_TRAVEL_BLOCKED));
+        assert!(state.pending_crossing.is_some());
+        assert!(state.pending_crossing_choice.is_none());
+    }
+
+    #[test]
+    fn process_encounter_flow_records_partial_travel() {
+        let encounter = Encounter {
+            id: String::from("sample"),
+            name: String::from("Sample"),
+            desc: String::new(),
+            weight: 5,
+            regions: vec![String::from("heartland")],
+            modes: vec![String::from("classic")],
+            choices: Vec::new(),
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        };
+        let data = EncounterData::from_encounters(vec![encounter]);
+        let bundle = Rc::new(RngBundle::from_user_seed(41));
+
+        let mut state = GameState {
+            data: Some(data),
+            region: Region::Heartland,
+            encounter_chance_today: 1.0,
+            distance_today: 20.0,
+            features: FeatureFlags {
+                travel_v2: true,
+                ..FeatureFlags::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(bundle.clone());
+
+        let outcome = state.process_encounter_flow(Some(&bundle), false);
+
+        assert!(outcome.is_some());
+        assert!(state.current_encounter.is_some());
+        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_PARTIAL));
+        let record = state
+            .current_day_record
+            .as_ref()
+            .expect("expected day record");
+        assert!(matches!(record.kind, TravelDayKind::Partial));
+    }
+
+    #[test]
+    fn otdeluxe_crossing_costs_losses_and_drownings() {
+        let mut state = GameState::default();
+        state.ot_deluxe.inventory.cash_cents = 600;
+        state.ot_deluxe.inventory.clothes_sets = 5;
+        state.ot_deluxe.inventory.food_lbs = 100;
+        state.ot_deluxe.inventory.bullets = 50;
+        state.ot_deluxe.inventory.spares_wheels = 2;
+        state.ot_deluxe.inventory.spares_axles = 2;
+        state.ot_deluxe.inventory.spares_tongues = 2;
+        let policy = default_otdeluxe_policy();
+
+        state.apply_otdeluxe_crossing_costs(policy, OtDeluxeCrossingMethod::Ferry);
+        assert_eq!(state.ot_deluxe.inventory.cash_cents, 100);
+
+        state.apply_otdeluxe_crossing_costs(policy, OtDeluxeCrossingMethod::Guide);
+        assert_eq!(state.ot_deluxe.inventory.clothes_sets, 2);
+
+        let losses = state.apply_otdeluxe_crossing_losses(0.5);
+        assert!(losses.food_lbs > 0);
+        assert!(losses.bullets > 0);
+
+        state.ot_deluxe.party.members = vec![
+            OtDeluxePartyMember::new("A"),
+            OtDeluxePartyMember::new("B"),
+            OtDeluxePartyMember::new("C"),
+        ];
+        let drowned = state.apply_otdeluxe_drownings(&[1, 2]);
+        assert_eq!(drowned, 2);
+        assert!(!state.ot_deluxe.party.members[1].alive);
+        assert!(!state.ot_deluxe.party.members[2].alive);
+    }
+
+    #[test]
+    fn select_drowning_indices_handles_empty_and_counts() {
+        let mut rng = SmallRng::seed_from_u64(9);
+        let empty = GameState::select_drowning_indices(&mut rng, &[], 2);
+        assert!(empty.is_empty());
+
+        let alive = vec![0, 1, 2, 3];
+        let selected = GameState::select_drowning_indices(&mut rng, &alive, 2);
+        assert_eq!(selected.len(), 2);
+    }
+
+    #[test]
+    fn region_by_miles_maps_thresholds() {
+        assert_eq!(GameState::region_by_miles(0.0), Region::Heartland);
+        assert_eq!(GameState::region_by_miles(700.0), Region::RustBelt);
+        assert_eq!(GameState::region_by_miles(1500.0), Region::Beltway);
+    }
+
+    #[test]
+    fn pace_diet_and_policy_parse_roundtrip() {
+        assert_eq!(PaceId::from_str("steady"), Ok(PaceId::Steady));
+        assert!(PaceId::from_str("unknown").is_err());
+        assert_eq!(PaceId::Steady.to_string(), "steady");
+
+        assert_eq!(DietId::from_str("mixed"), Ok(DietId::Mixed));
+        assert!(DietId::from_str("unknown").is_err());
+        assert_eq!(DietId::Mixed.to_string(), "mixed");
+
+        assert_eq!(PolicyKind::from_str("balanced"), Ok(PolicyKind::Balanced));
+        assert!(PolicyKind::from_str("unknown").is_err());
+        assert_eq!(PolicyKind::Balanced.to_string(), "balanced");
+    }
+
+    #[test]
+    fn set_ending_does_not_override_existing() {
+        let mut state = GameState::default();
+        state.set_ending(Ending::BossVictory);
+        state.set_ending(Ending::SanityLoss);
+        assert_eq!(state.ending, Some(Ending::BossVictory));
+    }
+
+    #[test]
+    fn journey_score_sums_expected_components() {
+        let state = GameState {
+            stats: Stats {
+                supplies: 3,
+                hp: 4,
+                morale: 2,
+                credibility: 1,
+                allies: 1,
+                ..Stats::default()
+            },
+            day: 5,
+            encounters_resolved: 2,
+            receipts: vec![String::from("a"), String::from("b")],
+            vehicle_breakdowns: 1,
+            ..GameState::default()
+        };
+
+        let expected = 3 * 10 + 4 * 50 + 2 * 25 + 15 + 5 + 4 * 4 + 2 * 6 + 2 * 8 - 12;
+        assert_eq!(state.journey_score(), expected);
+    }
+
+    #[test]
+    fn encounter_unique_ratio_handles_empty_and_recent() {
+        let mut state = GameState::default();
+        assert!((state.encounter_unique_ratio(0) - 1.0).abs() <= f32::EPSILON);
+
+        state.recent_encounters.push_back(RecentEncounter::new(
+            String::from("alpha"),
+            state.day,
+            Region::Heartland,
+        ));
+        state.recent_encounters.push_back(RecentEncounter::new(
+            String::from("alpha"),
+            state.day,
+            Region::Heartland,
+        ));
+        let ratio = state.encounter_unique_ratio(10);
+        assert!(ratio < 1.0);
+    }
+
+    #[test]
+    fn mark_damage_sets_last_damage() {
+        let mut state = GameState::default();
+        state.mark_damage(DamageCause::ExposureHeat);
+        assert_eq!(state.last_damage, Some(DamageCause::ExposureHeat));
+    }
+
+    #[test]
+    fn add_day_reason_tag_tracks_camp_and_repair() {
+        let mut state = GameState::default();
+        state.start_of_day();
+        state.add_day_reason_tag("camp");
+        state.add_day_reason_tag("repair");
+        state.add_day_reason_tag("camp");
+
+        assert_eq!(state.days_with_camp, 1);
+        assert_eq!(state.days_with_repair, 1);
+        assert!(
+            state
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "camp")
+        );
+        assert!(
+            state
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "repair")
+        );
+    }
+
+    #[test]
+    fn apply_travel_progress_sets_boss_ready_on_finish() {
+        let mut state = GameState {
+            trail_distance: 10.0,
+            miles_traveled_actual: 9.0,
+            miles_traveled: 9.0,
+            ..GameState::default()
+        };
+
+        let credited = state.apply_travel_progress(5.0, TravelProgressKind::Full);
+
+        assert!(credited > 0.0);
+        assert!(state.boss.readiness.ready);
+        assert!(state.boss.readiness.reached);
+    }
+
+    #[test]
+    fn otdeluxe_route_prompt_handles_decisions() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
+        assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::SubletteCutoff));
+        assert_eq!(
+            state.ot_deluxe.route.variant,
+            OtDeluxeTrailVariant::SubletteCutoff
+        );
+
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesShortcut);
+        assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::DallesShortcut));
+        assert_eq!(
+            state.ot_deluxe.route.variant,
+            OtDeluxeTrailVariant::SubletteAndDallesShortcut
+        );
+
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::RaftColumbia));
+        assert_eq!(
+            state.ot_deluxe.route.dalles_choice,
+            Some(OtDeluxeDallesChoice::Raft)
+        );
+    }
+
+    #[test]
+    fn otdeluxe_crossing_context_rejects_unavailable_method() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.crossing.choice_pending = true;
+        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Guide);
+        state.ot_deluxe.crossing.river_kind = Some(OtDeluxeRiver::Kansas);
+        state.ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            width_ft: 200.0,
+            depth_ft: 3.0,
+            swiftness: 1.1,
+            bed: OtDeluxeRiverBed::Muddy,
+        });
+        state.ot_deluxe.inventory.clothes_sets = 0;
+
+        let ctx = state.otdeluxe_crossing_context(OtDeluxeCrossingMethod::Guide);
+
+        assert!(ctx.is_none());
+        assert!(state.ot_deluxe.crossing.chosen_method.is_none());
+    }
+
+    #[test]
+    fn build_otdeluxe_state_truncates_extra_names() {
+        let mut state = GameState::default();
+        state.party.leader = String::from("Leader");
+        state.party.companions = vec![
+            String::from("A"),
+            String::from("B"),
+            String::from("C"),
+            String::from("D"),
+            String::from("E"),
+        ];
+
+        let ot_state = state.build_ot_deluxe_state_from_legacy();
+
+        assert_eq!(ot_state.party.members.len(), 5);
+        assert_eq!(ot_state.party.members[0].name, "Leader");
+        assert_eq!(ot_state.party.members[4].name, "D");
+    }
+
+    #[test]
+    fn rng_accessors_return_none_without_bundle() {
+        let mut state = GameState::default();
+        assert!(state.events_rng().is_none());
+        assert!(state.breakdown_rng().is_none());
+        assert!(state.crossing_rng().is_none());
+        assert!(state.boss_rng().is_none());
+
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(5)));
+        assert!(state.events_rng().is_some());
+        assert!(state.breakdown_rng().is_some());
+        assert!(state.crossing_rng().is_some());
+        assert!(state.boss_rng().is_some());
+    }
+
+    #[test]
+    fn journey_factors_apply_defaults() {
+        let mut state = GameState::default();
+        state.journey_breakdown.pace_factor.clear();
+        state.weather_effects.breakdown_mult = -1.0;
+        state.journey_wear.fatigue_k = 0.0;
+
+        assert!((state.journey_pace_factor() - 1.0).abs() <= f32::EPSILON);
+        assert!((state.journey_weather_factor() - 1.0).abs() <= f32::EPSILON);
+        assert!((state.journey_fatigue_multiplier() - 1.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn with_seed_resets_state_fields() {
+        let mut state = GameState {
+            day: 10,
+            ..GameState::default()
+        };
+        state.intent.pending = DayIntent::Rest;
+        state
+            .day_records
+            .push(DayRecord::new(1, TravelDayKind::Travel, 12.0));
+        let data = EncounterData::from_encounters(Vec::new());
+
+        let seeded = state.with_seed(42, GameMode::Classic, data);
+
+        assert_eq!(seeded.day_records.len(), 0);
+        assert_eq!(seeded.seed, 42);
+        assert!(matches!(seeded.intent.pending, DayIntent::Continue));
+        assert!(seeded.logs.iter().any(|log| log == "log.seed-set"));
+        assert!(seeded.data.is_some());
     }
 }
 

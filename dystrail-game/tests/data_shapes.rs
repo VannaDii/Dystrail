@@ -56,6 +56,7 @@ fn game_state_serialization_preserves_day_records() {
         StrategyId::Balanced,
         0xFACE_B00C,
     );
+    controller.configure_state(&mut state);
     for _ in 0..3 {
         let outcome = controller.tick_day(&mut state);
         assert!(outcome.record.is_some(), "expected day record");

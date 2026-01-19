@@ -106,3 +106,45 @@ pub fn otdeluxe_crossing_card(props: &OtDeluxeCrossingCardProps) -> Html {
         </section>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::otdeluxe_state::OtDeluxeRiverState;
+    use futures::executor::block_on;
+    use std::rc::Rc;
+    use yew::LocalServerRenderer;
+
+    #[test]
+    fn otdeluxe_crossing_card_renders_error_when_missing_river() {
+        crate::i18n::set_lang("en");
+        let props = OtDeluxeCrossingCardProps {
+            game_state: Rc::new(GameState::default()),
+            on_choice: Callback::noop(),
+        };
+        let html =
+            block_on(LocalServerRenderer::<OtDeluxeCrossingCard>::with_props(props).render());
+        assert!(html.contains("Configuration Error"));
+    }
+
+    #[test]
+    fn otdeluxe_crossing_card_renders_stats() {
+        crate::i18n::set_lang("en");
+        let mut gs = GameState::default();
+        gs.ot_deluxe.crossing.river_kind = Some(crate::game::OtDeluxeRiver::Snake);
+        gs.ot_deluxe.crossing.river = Some(OtDeluxeRiverState {
+            width_ft: 612.4,
+            depth_ft: 3.6,
+            swiftness: 0.42,
+            bed: crate::game::OtDeluxeRiverBed::Muddy,
+        });
+        let props = OtDeluxeCrossingCardProps {
+            game_state: Rc::new(gs),
+            on_choice: Callback::noop(),
+        };
+        let html =
+            block_on(LocalServerRenderer::<OtDeluxeCrossingCard>::with_props(props).render());
+        assert!(html.contains(&crate::i18n::t("ot_cross.title")));
+        assert!(html.contains(&crate::i18n::t("ot_cross.bed.muddy")));
+    }
+}

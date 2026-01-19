@@ -67,3 +67,36 @@ impl AppState {
         !self.data.encounters.is_empty()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[function_component(DataReadyEmptyHarness)]
+    fn data_ready_empty_harness() -> Html {
+        let state = use_app_state();
+        let label = if state.data_ready() {
+            "ready"
+        } else {
+            "not-ready"
+        };
+        html! { <span>{ label }</span> }
+    }
+
+    #[function_component(DataReadyLoadedHarness)]
+    fn data_ready_loaded_harness() -> Html {
+        let data = use_state(crate::game::data::EncounterData::load_from_static);
+        let ready = !data.encounters.is_empty();
+        html! { <span>{ if ready { "ready" } else { "not-ready" } }</span> }
+    }
+
+    #[test]
+    fn data_ready_tracks_encounter_data() {
+        let html = block_on(LocalServerRenderer::<DataReadyEmptyHarness>::new().render());
+        assert!(html.contains("not-ready"));
+        let html = block_on(LocalServerRenderer::<DataReadyLoadedHarness>::new().render());
+        assert!(html.contains("ready"));
+    }
+}

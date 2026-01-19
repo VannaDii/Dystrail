@@ -49,10 +49,18 @@ pub fn build_export_state(state: &AppState) -> Callback<()> {
         let Ok(text) = serde_json::to_string(sess.state()) else {
             return;
         };
-        if let Some(win) = web_sys::window() {
-            let nav = win.navigator();
-            let cb = nav.clipboard();
-            let _ = cb.write_text(&text);
+        #[cfg(target_arch = "wasm32")]
+        {
+            if let Some(win) = web_sys::window() {
+                let nav = win.navigator();
+                let cb = nav.clipboard();
+                let _ = cb.write_text(&text);
+            }
+        }
+
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = text;
         }
     })
 }

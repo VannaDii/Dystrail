@@ -1,3 +1,4 @@
+#[cfg(target_arch = "wasm32")]
 use crate::a11y::{restore_focus, trap_focus_in};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use yew::prelude::*;
@@ -34,6 +35,7 @@ pub fn modal(props: &Props) -> Html {
     let container_ref = use_node_ref();
     let prev_open = use_mut_ref(|| props.open);
 
+    #[cfg(target_arch = "wasm32")]
     {
         let container_ref = container_ref.clone();
         let container_id = container_id.clone();
@@ -57,6 +59,16 @@ pub fn modal(props: &Props) -> Html {
             },
         );
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = (
+            &container_ref,
+            &container_id,
+            props.open,
+            props.return_focus_id.as_ref(),
+        );
+        let _ = &prev_open;
+    }
 
     let on_close = {
         let cb = props.on_close.clone();
@@ -65,15 +77,23 @@ pub fn modal(props: &Props) -> Html {
     let on_keydown = {
         let cb = props.on_close.clone();
         let return_focus_id = props.return_focus_id.clone();
-        Callback::from(move |e: KeyboardEvent| {
-            if e.key() == "Escape" {
-                e.prevent_default();
-                cb.emit(());
-                if let Some(id) = return_focus_id.as_ref() {
-                    restore_focus(id);
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: KeyboardEvent| {
+                if e.key() == "Escape" {
+                    e.prevent_default();
+                    cb.emit(());
+                    if let Some(id) = return_focus_id.as_ref() {
+                        restore_focus(id);
+                    }
                 }
-            }
-        })
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (cb, return_focus_id);
+            Callback::from(|_e: KeyboardEvent| {})
+        }
     };
 
     html! {

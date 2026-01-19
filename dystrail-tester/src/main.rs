@@ -214,6 +214,33 @@ fn expand_scenarios(scenarios_arg: &str) -> Vec<String> {
     scenarios
 }
 
+fn parse_browser_kind(name: &str) -> Option<BrowserKind> {
+    match name {
+        "chrome" => Some(BrowserKind::Chrome),
+        "edge" => Some(BrowserKind::Edge),
+        "firefox" => Some(BrowserKind::Firefox),
+        "safari" => Some(BrowserKind::Safari),
+        _ => None,
+    }
+}
+
+fn build_browser_config(args: &Args) -> BrowserConfig {
+    BrowserConfig {
+        headless: args.headless.is_headless(),
+        implicit_wait_secs: 3,
+        remote_hub: args.hub.clone(),
+    }
+}
+
+fn browser_label(kind: BrowserKind) -> String {
+    format!("{kind:?}").to_lowercase()
+}
+
+fn scenario_artifacts_dir(args: &Args, kind: BrowserKind, scenario: &str, seed: u64) -> String {
+    let label = browser_label(kind);
+    artifacts_dir(&args.artifacts_dir, &label, scenario, seed)
+}
+
 fn run_logic_scenarios(
     args: &Args,
     scenarios: &[String],
@@ -266,22 +293,12 @@ async fn run_browser_scenarios(
     let browsers = split_csv(&args.browsers);
 
     for browser_name in browsers {
-        let kind = match browser_name.as_str() {
-            "chrome" => BrowserKind::Chrome,
-            "edge" => BrowserKind::Edge,
-            "firefox" => BrowserKind::Firefox,
-            "safari" => BrowserKind::Safari,
-            other => {
-                eprintln!("⚠️  Unknown browser: {}", other.yellow());
-                continue;
-            }
+        let Some(kind) = parse_browser_kind(&browser_name) else {
+            eprintln!("⚠️  Unknown browser: {}", browser_name.yellow());
+            continue;
         };
 
-        let cfg = BrowserConfig {
-            headless: args.headless.is_headless(),
-            implicit_wait_secs: 3,
-            remote_hub: args.hub.clone(),
-        };
+        let cfg = build_browser_config(args);
 
         let driver = match new_session(kind, &cfg).await {
             Ok(d) => d,
@@ -318,8 +335,8 @@ async fn run_browser_scenarios_for_driver(
                     verbose: args.verbose,
                 };
 
-                let label = format!("{kind:?}").to_lowercase();
-                let dir = artifacts_dir(&args.artifacts_dir, &label, scenario_name, seed_info.seed);
+                let label = browser_label(kind);
+                let dir = scenario_artifacts_dir(args, kind, scenario_name, seed_info.seed);
 
                 let scenario_start = Instant::now();
                 match scenario.run_browser(driver, &ctx).await {
@@ -472,5 +489,388 @@ impl Write for OutputTarget {
 
     fn flush(&mut self) -> std::io::Result<()> {
         self.flush_inner()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::{
+        BossOutcomeFlags, EndgameStatus, PlayabilityMetrics, RunMilestones,
+    };
+    use crate::logic::{
+        GameTester, GameplayStrategy, PlayabilityAggregate, PlayabilityRecord, ScenarioResult,
+        SeedInfo, TesterAssets,
+    };
+    use std::io::Write;
+    use std::sync::Arc;
+    use std::time::Duration;
+
+    fn base_args() -> Args {
+        Args {
+            mode: TestMode::Logic,
+            scenarios: "smoke".to_string(),
+            list_scenarios: false,
+            seeds: "1337".to_string(),
+            iterations: 1,
+            acceptance: false,
+            report: "json".to_string(),
+            verbose: false,
+            output: None,
+            browsers: "chrome".to_string(),
+            base_url: "http://localhost:5173/?test=1".to_string(),
+            artifacts_dir: "target/test-artifacts".to_string(),
+            hub: None,
+            headless: HeadlessMode::Headless,
+        }
+    }
+
+    fn sample_metrics() -> PlayabilityMetrics {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 5;
+        metrics.ending_type = "Victory".to_string();
+        metrics.ending_cause = "None".to_string();
+        metrics.miles_traveled = 120.0;
+        metrics.avg_miles_per_day = 12.0;
+        metrics.travel_ratio = 0.8;
+        metrics.unique_per_20_days = 1.2;
+        metrics.rotation_events = 2;
+        metrics.milestones = RunMilestones {
+            reached_2000_by_day150: true,
+            survived: true,
+        };
+        metrics.boss = BossOutcomeFlags {
+            reached: true,
+            won: false,
+        };
+        metrics.endgame = EndgameStatus {
+            active: true,
+            field_repair_used: false,
+        };
+        metrics
+    }
+
+    fn sample_record() -> PlayabilityRecord {
+        PlayabilityRecord {
+            scenario_name: "Smoke".to_string(),
+            mode: dystrail_game::GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            seed_code: "CL-ORANGE42".to_string(),
+            seed_value: 42,
+            metrics: sample_metrics(),
+        }
+    }
+
+    fn sample_aggregate() -> PlayabilityAggregate {
+        PlayabilityAggregate {
+            scenario_name: "Smoke".to_string(),
+            mode: dystrail_game::GameMode::Classic,
+            strategy: GameplayStrategy::Balanced,
+            iterations: 1,
+            mean_days: 5.0,
+            std_days: 0.0,
+            mean_miles: 120.0,
+            std_miles: 0.0,
+            mean_avg_mpd: 12.0,
+            boss_reach_pct: 0.4,
+            boss_win_pct: 0.2,
+            pants_failure_pct: 0.1,
+            mean_travel_ratio: 0.8,
+            mean_unique_per_20: 1.2,
+            mean_rotation_events: 2.0,
+            pct_reached_2k_by_150: 0.5,
+            min_unique_per_20: 0.8,
+            min_travel_ratio: 0.7,
+            mean_crossing_events: 1.0,
+            crossing_permit_rate: 0.6,
+            mean_crossing_bribes: 0.1,
+            crossing_bribe_success_rate: 0.2,
+            mean_crossing_detours: 0.0,
+            crossing_failure_rate: 0.05,
+            mean_stop_cap_conversions: 0.0,
+            endgame_activation_rate: 0.3,
+            endgame_field_repair_rate: 0.1,
+            mean_endgame_cooldown: 2.0,
+            survival_rate: 0.9,
+            failure_vehicle_pct: 0.0,
+            failure_sanity_pct: 0.0,
+            failure_exposure_pct: 0.0,
+            failure_crossing_pct: 0.0,
+        }
+    }
+
+    fn sample_result(passed: bool) -> ScenarioResult {
+        ScenarioResult {
+            scenario_name: "Smoke".to_string(),
+            passed,
+            iterations_run: 3,
+            successful_iterations: if passed { 3 } else { 2 },
+            failures: if passed {
+                Vec::new()
+            } else {
+                vec!["failure".to_string()]
+            },
+            average_duration: Duration::from_millis(10),
+            performance_data: vec![Duration::from_millis(10)],
+        }
+    }
+
+    #[test]
+    fn computes_playability_iterations_for_acceptance() {
+        let mut args = base_args();
+        args.acceptance = true;
+        args.iterations = 10;
+        assert_eq!(compute_playability_iterations(&args), 100);
+        args.iterations = 150;
+        assert_eq!(compute_playability_iterations(&args), 150);
+    }
+
+    #[test]
+    fn expands_all_scenarios_keyword() {
+        let expanded = expand_scenarios("all,smoke");
+        assert!(expanded.contains(&"smoke".to_string()));
+        assert!(expanded.contains(&"vehicle-system".to_string()));
+    }
+
+    #[test]
+    fn expand_scenarios_without_all_preserves_order() {
+        let expanded = expand_scenarios("smoke,real-game");
+        assert_eq!(expanded, vec!["smoke".to_string(), "real-game".to_string()]);
+    }
+
+    #[test]
+    fn compute_playability_iterations_returns_default_when_disabled() {
+        let args = base_args();
+        assert_eq!(compute_playability_iterations(&args), 1);
+    }
+
+    #[test]
+    fn run_logic_scenarios_skips_when_not_enabled() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Browser,
+            ..base_args()
+        };
+        let results = run_logic_scenarios(&args, &["smoke".to_string()], &[42], &tester);
+        assert!(results.is_empty());
+    }
+
+    #[test]
+    fn gather_playability_returns_none_when_disabled() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Browser,
+            report: "json".to_string(),
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        let (records, aggregates) = gather_playability(&args, &tester, &seeds, 1).unwrap();
+        assert!(records.is_none());
+        assert!(aggregates.is_none());
+    }
+
+    #[test]
+    fn write_reports_emits_json_output() {
+        let args = Args {
+            report: "json".to_string(),
+            ..base_args()
+        };
+        let results = vec![];
+        let start = Instant::now();
+        let temp = std::env::temp_dir().join("dystrail-test-report.json");
+        let args = Args {
+            output: Some(temp.clone()),
+            ..args
+        };
+        write_reports(&args, &results, None, None, start).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("[]"));
+    }
+
+    #[test]
+    fn maybe_list_scenarios_writes_output() {
+        let temp = std::env::temp_dir().join("dystrail-scenarios.txt");
+        let args = Args {
+            list_scenarios: true,
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        assert!(maybe_list_scenarios(&args).unwrap());
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("Available scenarios"));
+    }
+
+    #[test]
+    fn maybe_list_scenarios_returns_false_when_disabled() {
+        let args = base_args();
+        assert!(!maybe_list_scenarios(&args).unwrap());
+    }
+
+    #[test]
+    fn write_reports_markdown_empty_results() {
+        let temp = std::env::temp_dir().join("dystrail-report.md");
+        let args = Args {
+            report: "markdown".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        write_reports(&args, &[], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("No scenarios executed"));
+    }
+
+    #[test]
+    fn write_reports_emits_markdown_report() {
+        let temp = std::env::temp_dir().join("dystrail-report-full.md");
+        let args = Args {
+            report: "markdown".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        write_reports(&args, &[sample_result(true)], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("# Dystrail Logic Test Results"));
+        assert!(content.contains("Smoke"));
+    }
+
+    #[test]
+    fn write_reports_emits_json_for_results() {
+        let temp = std::env::temp_dir().join("dystrail-report-full.json");
+        let args = Args {
+            report: "json".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        write_reports(&args, &[sample_result(true)], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("scenario_name"));
+    }
+
+    #[test]
+    fn write_reports_emits_csv_report() {
+        let temp = std::env::temp_dir().join("dystrail-report.csv");
+        let args = Args {
+            report: "csv".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        let record = sample_record();
+        write_reports(&args, &[], Some(&[record]), None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("scenario,mode,strategy"));
+        assert!(content.contains("Smoke"));
+    }
+
+    #[test]
+    fn write_reports_emits_console_report_with_playability() {
+        let temp = std::env::temp_dir().join("dystrail-report-console.txt");
+        let args = Args {
+            report: "console".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        let result = sample_result(true);
+        let aggregate = sample_aggregate();
+        write_reports(&args, &[result], None, Some(&[aggregate]), Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("Playability Summary"));
+    }
+
+    #[test]
+    fn write_reports_console_without_playability() {
+        let temp = std::env::temp_dir().join("dystrail-report.txt");
+        let args = Args {
+            report: "console".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        let result = logic::ScenarioResult {
+            scenario_name: "smoke".to_string(),
+            passed: true,
+            iterations_run: 1,
+            successful_iterations: 1,
+            failures: Vec::new(),
+            average_duration: Duration::ZERO,
+            performance_data: Vec::new(),
+        };
+        write_reports(&args, &[result], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("Playability data unavailable"));
+    }
+
+    #[test]
+    fn output_target_stdout_writes() {
+        let mut target = OutputTarget::new(None).unwrap();
+        target.write_all(b"ok").unwrap();
+        target.flush().unwrap();
+    }
+
+    #[test]
+    fn parse_browser_kind_handles_known_and_unknown() {
+        assert!(matches!(
+            parse_browser_kind("chrome"),
+            Some(BrowserKind::Chrome)
+        ));
+        assert!(matches!(
+            parse_browser_kind("edge"),
+            Some(BrowserKind::Edge)
+        ));
+        assert!(parse_browser_kind("unknown").is_none());
+    }
+
+    #[test]
+    fn build_browser_config_respects_headless_and_hub() {
+        let mut args = base_args();
+        args.headless = HeadlessMode::Windowed;
+        args.hub = Some("http://remote.example".to_string());
+        let cfg = build_browser_config(&args);
+        assert!(!cfg.headless);
+        assert_eq!(cfg.remote_hub.as_deref(), Some("http://remote.example"));
+    }
+
+    #[test]
+    fn scenario_artifacts_dir_includes_seed() {
+        let args = base_args();
+        let dir = scenario_artifacts_dir(&args, BrowserKind::Chrome, "smoke", 42);
+        assert!(dir.contains("smoke/seed-42"));
+    }
+
+    #[test]
+    fn run_browser_scenarios_skips_when_not_enabled() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Logic,
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        tokio_test::block_on(run_browser_scenarios(
+            &args,
+            &["smoke".to_string()],
+            &seeds,
+            &tester,
+        ))
+        .expect("browser scenarios should skip");
+    }
+
+    #[test]
+    fn run_browser_scenarios_ignores_unknown_browser() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Browser,
+            browsers: "unknown".to_string(),
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        tokio_test::block_on(run_browser_scenarios(
+            &args,
+            &["smoke".to_string()],
+            &seeds,
+            &tester,
+        ))
+        .expect("unknown browser should be skipped");
     }
 }

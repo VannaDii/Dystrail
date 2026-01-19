@@ -126,3 +126,40 @@ pub fn build_crossing_viewmodel(
 fn format_currency(cents: i64) -> String {
     crate::i18n::fmt_currency(cents)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::exec_orders::ExecOrder;
+    use crate::game::weather::Weather;
+
+    #[test]
+    fn build_crossing_viewmodel_reports_missing_type() {
+        crate::i18n::set_lang("en");
+        let mut cfg = CrossingConfig::default();
+        cfg.types.clear();
+        let gs = GameState::default();
+        let err = build_crossing_viewmodel(&gs, &cfg, CrossingKind::Checkpoint)
+            .expect_err("missing type should error");
+        assert!(err.contains("Unknown crossing type"));
+    }
+
+    #[test]
+    fn build_crossing_viewmodel_applies_mods_and_availability() {
+        crate::i18n::set_lang("en");
+        let mut gs = GameState::default();
+        gs.weather_state.today = Weather::Storm;
+        gs.current_order = Some(ExecOrder::Shutdown);
+        gs.inventory.tags.insert(String::from("permit"));
+        gs.budget_cents = 10_000;
+
+        let cfg = CrossingConfig::default();
+        let vm = build_crossing_viewmodel(&gs, &cfg, CrossingKind::Checkpoint)
+            .expect("view model should build");
+
+        assert!(vm.permit_available);
+        assert!(vm.bribe_available);
+        assert!(vm.shutdown_notice.is_some());
+        assert!(vm.detour_label.contains('+'));
+    }
+}
