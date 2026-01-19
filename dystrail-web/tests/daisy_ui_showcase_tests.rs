@@ -59,6 +59,7 @@ fn atoms_showcase() -> Html {
                 <span>{"Masked"}</span>
             </Mask>
             <Progress value={42.0} max={100.0} />
+            <Progress value={88.0} max={100.0} variant={Some(DaisyColor::Primary)} />
             <Progress value={70.0} max={100.0} label={Some(AttrValue::from("70%"))} />
             <RadialProgress value={75.0} label={Some(AttrValue::from("Charge"))} />
             <Radio name={AttrValue::from("group")} value={AttrValue::from("a")} label={Some(AttrValue::from("Option A"))} checked={true} />
@@ -287,6 +288,9 @@ fn organisms_variants() -> Html {
             <Modal open={false} title={AttrValue::from("Hidden")}>
                 <p>{"Hidden content"}</p>
             </Modal>
+            <Drawer open={false} side={html! { <span>{"Drawer side"}</span> }}>
+                <div>{"Drawer body"}</div>
+            </Drawer>
             <Carousel show_controls={false} show_indicators={false}>
                 <div>{"Only slide"}</div>
             </Carousel>
