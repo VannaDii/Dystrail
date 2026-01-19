@@ -236,7 +236,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 1) Architecture: Single Source of Truth for “One Day” (Kernel owns the day)
 
-- [ ] ARCH-001 (P0) Introduce `DailyTickKernel` as the only day orchestrator
+- [x] ARCH-001 (P0) Introduce `DailyTickKernel` as the only day orchestrator
   - Requirement:
     - Implement a single kernel entrypoint that executes the normative phase order and returns a structured `DayOutcome`.
     - All callers (web UI, tester/sim harness, any CLI) must invoke this kernel; there must be no alternate “partial day” stacks.
@@ -280,7 +280,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - clamp stats as a “physics” step
     - All those actions occur in their dedicated kernel phases.
 
-- [ ] ARCH-003 (P0) Eliminate “out-of-kernel daily physics” calls
+- [x] ARCH-003 (P0) Eliminate “out-of-kernel daily physics” calls
   - Requirement:
     - Remove or hard-wall any code paths where day physics are applied outside the kernel, including:
       - UI calling helpers that internally call `start_of_day()` + compute miles/encounter chance
@@ -317,7 +317,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - There is no “grab &mut GameState and tweak anything” inside a phase; phases receive only the state they own.
     - Tests in `TEST-001` can be narrow (focused) because the architecture prevents most ownership violations by construction.
 
-- [ ] ARCH-005 (P0) Refactor `GameState::travel_next_leg()` into a thin kernel wrapper (or delete it)
+- [x] ARCH-005 (P0) Refactor `GameState::travel_next_leg()` into a thin kernel wrapper (or delete it)
   - Requirement:
     - `dystrail-game/src/state.rs::GameState::travel_next_leg` currently orchestrates the day; it MUST be replaced by the kernel phase pipeline.
     - Post-refactor, `travel_next_leg()` must either:
@@ -422,7 +422,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - The OTDeluxe90s state can be serialized, replayed, and used for scoring without referencing Dystrail-only abstractions.
 
-- [ ] STATE-002 (P0) Implement party member condition state (per-person sickness/injury + death)
+- [x] STATE-002 (P0) Implement party member condition state (per-person sickness/injury + death)
   - Requirement:
     - Represent party members and per-member health status at least at the granularity needed for Deluxe:
       - alive/dead
@@ -1700,7 +1700,7 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [ ] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
 
 - [x] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
-- [ ] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
+- [x] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
 - [ ] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
 - [x] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.
 - [x] AUDIT-016 Route-variant prompts occur at South Pass and Blue Mountains; taking a shortcut cannot visit skipped nodes or apply their store multipliers.

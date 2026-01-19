@@ -1443,6 +1443,7 @@ mod tests {
             ]),
             ..GameState::default()
         };
+        state.start_of_day();
         state.enforce_aggressive_delay_cap(0.0);
         state.apply_partial_travel_credit(3.0, LOG_TRAVEL_PARTIAL, "misc");
         state.apply_delay_travel_credit("delay_test");
@@ -1582,6 +1583,7 @@ mod tests {
             ..GameState::default()
         };
 
+        state.start_of_day();
         state.enforce_aggressive_delay_cap(20.0);
 
         assert!(
@@ -1615,6 +1617,7 @@ mod tests {
             ..GameState::default()
         };
 
+        state.start_of_day();
         state.apply_deep_aggressive_sanity_guard();
 
         assert!(state.guards.deep_aggressive_sanity_guard_used);
@@ -1769,6 +1772,7 @@ mod tests {
             },
             ..GameState::default()
         };
+        state.start_of_day();
         state.apply_partial_travel_credit(5.0, "log.partial", "reason");
         assert!(state.logs.iter().any(|log| log == "log.partial"));
     }
@@ -1782,6 +1786,7 @@ mod tests {
             },
             ..GameState::default()
         };
+        state.start_of_day();
         state.apply_rest_travel_credit();
         assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_REST_CREDIT));
     }
@@ -1797,6 +1802,7 @@ mod tests {
             partial_distance_today: 0.0,
             ..GameState::default()
         };
+        state.start_of_day();
         state.apply_classic_field_repair_guard();
         assert!(
             state
@@ -1828,6 +1834,7 @@ mod tests {
             ..GameState::default()
         };
         state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.1));
+        state.start_of_day();
 
         state.mode = GameMode::Deep;
         state.policy = Some(PolicyKind::Aggressive);
@@ -1873,6 +1880,7 @@ mod tests {
             ..GameState::default()
         };
 
+        state.start_of_day();
         state.apply_deep_aggressive_sanity_guard();
         assert!(state.guards.deep_aggressive_sanity_guard_used);
         assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE));
@@ -2011,6 +2019,10 @@ mod tests {
                     partial_traveled_today: false,
                     ..TravelDayState::default()
                 },
+                lifecycle: LifecycleState {
+                    day_initialized: true,
+                    ..LifecycleState::default()
+                },
                 ..DayState::default()
             },
             current_day_kind: Some(TravelDayKind::NonTravel),
@@ -2038,6 +2050,10 @@ mod tests {
                 travel: TravelDayState {
                     traveled_today: true,
                     ..TravelDayState::default()
+                },
+                lifecycle: LifecycleState {
+                    day_initialized: true,
+                    ..LifecycleState::default()
                 },
                 ..DayState::default()
             },
@@ -2067,6 +2083,10 @@ mod tests {
                 travel: TravelDayState {
                     traveled_today: true,
                     ..TravelDayState::default()
+                },
+                lifecycle: LifecycleState {
+                    day_initialized: true,
+                    ..LifecycleState::default()
                 },
                 ..DayState::default()
             },
@@ -2113,6 +2133,7 @@ mod tests {
         state.revert_current_day_record();
         assert!(state.current_day_reason_tags.is_empty());
 
+        state.start_of_day();
         let _ = state.apply_travel_progress(5.0, TravelProgressKind::Partial);
         assert!(state.day_state.travel.partial_traveled_today);
 
@@ -2153,6 +2174,7 @@ mod tests {
             },
             ..GameState::default()
         };
+        state.start_of_day();
         state.apply_classic_field_repair_guard();
         assert!(!state.day_state.travel.travel_blocked);
 
@@ -2231,6 +2253,7 @@ mod tests {
         state.budget_cents = DEEP_AGGRESSIVE_SANITY_COST + 1_000;
         state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
         state.guards.deep_aggressive_sanity_guard_used = false;
+        state.start_of_day();
         state.apply_deep_aggressive_sanity_guard();
         assert!(state.guards.deep_aggressive_sanity_guard_used);
 
@@ -2413,6 +2436,7 @@ mod tests {
             ..GameState::default()
         };
 
+        state.start_of_day();
         state.apply_otdeluxe_navigation_hard_stop(OtDeluxeNavigationEvent::LostTrail, 2);
 
         assert_eq!(state.ot_deluxe.travel.delay_days_remaining, 1);
@@ -2437,6 +2461,7 @@ mod tests {
         state.ot_deluxe.travel.delay_days_remaining = 2;
         state.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Delayed;
 
+        state.start_of_day();
         assert!(state.consume_otdeluxe_navigation_delay_day());
 
         assert_eq!(state.ot_deluxe.travel.delay_days_remaining, 1);
@@ -2887,6 +2912,7 @@ mod tests {
         let mut state = GameState::default();
         state.day_state.travel.travel_blocked = true;
 
+        state.start_of_day();
         let result = state.handle_travel_block(false);
 
         assert!(result.is_some());
@@ -2906,6 +2932,7 @@ mod tests {
         state.distance_today = 10.0;
         state.distance_today_raw = 10.0;
 
+        state.start_of_day();
         let result = state.handle_travel_block(false);
 
         assert!(result.is_some());
@@ -3063,7 +3090,6 @@ mod tests {
             data: Some(data),
             region: Region::Heartland,
             encounter_chance_today: 1.0,
-            distance_today: 20.0,
             features: FeatureFlags {
                 travel_v2: true,
                 ..FeatureFlags::default()
@@ -3071,6 +3097,10 @@ mod tests {
             ..GameState::default()
         };
         state.attach_rng_bundle(bundle.clone());
+        state.start_of_day();
+        state.distance_today = 20.0;
+        state.distance_today_raw = 20.0;
+        state.partial_distance_today = 2.0;
 
         let outcome = state.process_encounter_flow(Some(&bundle), false);
 

@@ -6,7 +6,6 @@ use dystrail_game::crossings::{
     apply_permit, resolve_crossing,
 };
 use dystrail_game::data::EncounterData;
-use dystrail_game::day_accounting::record_travel_day;
 use dystrail_game::endgame::{
     self, EndgamePolicyCfg, EndgameState, EndgameTravelCfg, ResourceKind,
 };
@@ -681,6 +680,7 @@ fn endgame_controller_and_failure_guard() {
         },
     );
     state.vehicle.set_breakdown_cooldown(2);
+    state.day_state.lifecycle.day_initialized = true;
     endgame::run_endgame_controller(&mut state, 100.0, true, &cfg);
     assert!((state.endgame.partial_ratio - 0.42).abs() < f32::EPSILON);
     let _ = endgame::enforce_failure_guard(&mut state);
@@ -832,27 +832,6 @@ fn crossing_resolution_covers_branches() {
     assert_eq!(detour_msg, "crossing.result.detour.success");
     let permit_msg = apply_permit(&mut gs, &cfg, CrossingKind::BridgeOut);
     assert_eq!(permit_msg, "crossing.result.permit.success");
-}
-
-#[test]
-fn day_accounting_ratio_and_sanitize() {
-    let mut state = empty_state();
-    state.mode = GameMode::Deep;
-    state.policy = Some(PolicyKind::Conservative);
-    state.recent_travel_days =
-        VecDeque::from(vec![TravelDayKind::NonTravel, TravelDayKind::NonTravel]);
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::NAN);
-    assert_eq!(kind, TravelDayKind::Partial);
-    assert!(
-        state
-            .current_day_reason_tags
-            .iter()
-            .any(|tag| tag == "stop_cap")
-    );
-
-    state.day_state.lifecycle.suppress_stop_ratio = true;
-    let (result, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::INFINITY);
-    assert_eq!(result, TravelDayKind::NonTravel);
 }
 
 #[test]

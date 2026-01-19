@@ -484,6 +484,7 @@ mod tests {
             },
             ..GameState::default()
         };
+        state.start_of_day();
         run_field_repair(&mut state, &cfg, 12.0);
         assert!(state.breakdown.is_none());
         assert!(state.endgame.field_repair_used);
@@ -502,6 +503,7 @@ mod tests {
             },
             ..GameState::default()
         };
+        state.start_of_day();
 
         let mut cfg = EndgameTravelCfg::default_config();
         let entry = cfg

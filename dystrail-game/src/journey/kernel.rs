@@ -84,6 +84,7 @@ impl<'a> DailyTickKernel<'a> {
                 return None;
             }
             if let Some(method) = state.ot_deluxe.crossing.chosen_method.take() {
+                state.start_of_day();
                 let _guard = rng_bundle
                     .as_ref()
                     .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
@@ -103,6 +104,7 @@ impl<'a> DailyTickKernel<'a> {
 
         state.pending_crossing?;
         if let Some(choice) = state.pending_crossing_choice.take() {
+            state.start_of_day();
             let _guard = rng_bundle
                 .as_ref()
                 .map(|bundle| bundle.phase_guard_for(RngPhase::CrossingTick));
@@ -422,6 +424,7 @@ impl<'a> DailyTickKernel<'a> {
     }
 
     fn record_gate_day(state: &mut GameState, reason_tag: &str) {
+        state.start_of_day();
         if state.current_day_kind.is_none() {
             state.day_state.lifecycle.suppress_stop_ratio = true;
             state.record_travel_day(TravelDayKind::NonTravel, 0.0, reason_tag);
@@ -1199,6 +1202,7 @@ mod tests {
     #[test]
     fn record_gate_day_appends_reason_when_day_recorded() {
         let mut state = GameState::default();
+        state.start_of_day();
         state.record_travel_day(TravelDayKind::Travel, 8.0, "");
 
         DailyTickKernel::record_gate_day(&mut state, "gate_reason");

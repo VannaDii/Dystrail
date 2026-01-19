@@ -219,6 +219,7 @@ fn exercise_post_loop_systems(mut end_cfg: EndgameTravelCfg) {
     state.policy = Some(PolicyKind::Aggressive);
     state.miles_traveled_actual = 1_960.0;
     state.vehicle.health = 5.0;
+    state.day_state.lifecycle.day_initialized = true;
     run_endgame_controller(&mut state, 12.0, true, &end_cfg);
 
     state.endgame.active = true;

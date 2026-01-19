@@ -3,7 +3,7 @@ use std::hash::Hasher;
 
 use dystrail_game::data::EncounterData;
 use dystrail_game::{
-    GameMode, GameState, JourneyController, MechanicalPolicyId, PolicyId, StrategyId, TravelDayKind,
+    GameMode, GameState, JourneyController, MechanicalPolicyId, PolicyId, StrategyId,
 };
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
@@ -81,12 +81,8 @@ fn game_state_serialization_preserves_day_records() {
     assert_eq!(restored.day_records, state.day_records);
     assert_eq!(restored.endgame.active, state.endgame.active);
     // ensure ledger recompute still works
-    let (kind, _) = dystrail_game::day_accounting::record_travel_day(
-        &mut state.clone(),
-        TravelDayKind::Travel,
-        10.0,
-    );
-    assert!(kind.counts_toward_ratio());
+    let metrics = dystrail_game::compute_day_ledger_metrics(&state.day_records);
+    assert!(metrics.total_days > 0);
 }
 
 fn canonicalize_value(value: Value) -> Value {

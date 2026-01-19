@@ -136,8 +136,12 @@ impl SimulationSession {
         if let Some(outcome) = self.try_resolve_store() {
             return outcome;
         }
-        self.queue_boss_rest();
+        if let Some(decision) = self.resolve_encounter_choice(policy) {
+            let outcome = self.session.tick_day();
+            return self.finalize_outcome(outcome, Some(decision));
+        }
 
+        self.queue_boss_rest();
         if let Some(outcome) = self.try_forage_day() {
             return outcome;
         }
@@ -146,10 +150,9 @@ impl SimulationSession {
         }
 
         self.adjust_daily_pace();
-        let decision = self.resolve_encounter_choice(policy);
 
         let outcome = self.session.tick_day();
-        self.finalize_outcome(outcome, decision)
+        self.finalize_outcome(outcome, None)
     }
 
     const fn queue_boss_rest(&mut self) {

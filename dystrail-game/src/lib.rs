@@ -43,7 +43,7 @@ pub use crossings::{
     apply_detour, apply_permit, calculate_bribe_cost, can_afford_bribe, can_use_permit,
 };
 pub use data::{Choice, Effects, Encounter, EncounterData};
-pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics, record_travel_day};
+pub use day_accounting::{DayLedgerMetrics, compute_day_ledger_metrics};
 pub use disease::{
     DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind, FatalityModel, FatalityModifier,
 };
@@ -54,7 +54,6 @@ pub use journey::{
     DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, Event, EventDecisionTrace, EventId,
     EventKind, EventSeverity, JourneyCfg, JourneyController, JourneySession, MechanicalPolicyId,
     PermitPolicy, PolicyId, RngBundle, StrategyId, TravelDayKind, UiSurfaceHint,
-    apply_daily_effect,
 };
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,

@@ -21,7 +21,7 @@ pub mod daily;
 pub mod event;
 pub mod kernel;
 pub mod session;
-pub use daily::{DailyTickOutcome, apply_daily_effect};
+pub use daily::DailyTickOutcome;
 pub use event::{
     Event, EventDecisionTrace, EventId, EventKind, EventSeverity, RollValue, UiSurfaceHint,
     WeightFactor, WeightedCandidate,

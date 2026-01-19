@@ -1,6 +1,6 @@
 use crate::Stats;
 use crate::exec_orders::ExecOrder;
-use crate::journey::{DailyChannelConfig, DailyTickConfig, HealthTickConfig, RngPhase};
+use crate::journey::{DailyChannelConfig, DailyTickConfig, HealthTickConfig};
 use crate::numbers::round_f32_to_i32;
 use crate::state::{DietId, GameState, PaceId};
 use crate::weather::Weather;
@@ -21,19 +21,6 @@ impl DailyTickOutcome {
             sanity_delta: 0,
             health_delta: 0,
         }
-    }
-}
-
-/// Apply policy-driven daily effects to the provided game state.
-pub fn apply_daily_effect(cfg: &DailyTickConfig, state: &mut GameState) -> DailyTickOutcome {
-    let supply_outcome = apply_daily_supplies_sanity(cfg, state);
-    let health_delta = apply_daily_health(cfg, state);
-    finalize_daily_effects(state);
-
-    DailyTickOutcome {
-        supplies_delta: supply_outcome.supplies_delta,
-        sanity_delta: supply_outcome.sanity_delta,
-        health_delta,
     }
 }
 
@@ -67,17 +54,6 @@ pub(crate) fn apply_daily_health(cfg: &DailyTickConfig, state: &mut GameState) -
     let health_delta = health_change(&cfg.health, state, weather, exec_key);
     apply_health_delta(state, health_delta);
     health_delta
-}
-
-pub(crate) fn finalize_daily_effects(state: &mut GameState) {
-    let rng_bundle = state.rng_bundle.clone();
-    {
-        let _guard = rng_bundle
-            .as_ref()
-            .map(|bundle| bundle.phase_guard_for(RngPhase::HealthTick));
-        state.tick_ally_attrition();
-    }
-    state.stats.clamp();
 }
 
 fn channel_value(
@@ -226,17 +202,21 @@ mod tests {
         let initial_supplies = state.stats.supplies;
         let initial_sanity = state.stats.sanity;
 
-        let outcome = apply_daily_effect(&cfg, &mut state);
-        assert_eq!(outcome.supplies_delta, -rounded_i32(expected_supplies));
-        assert_eq!(outcome.sanity_delta, -rounded_i32(expected_sanity));
-        assert_eq!(outcome.health_delta, 0);
+        let supply_outcome = apply_daily_supplies_sanity(&cfg, &mut state);
+        let health_delta = apply_daily_health(&cfg, &mut state);
+        assert_eq!(
+            supply_outcome.supplies_delta,
+            -rounded_i32(expected_supplies)
+        );
+        assert_eq!(supply_outcome.sanity_delta, -rounded_i32(expected_sanity));
+        assert_eq!(health_delta, 0);
         assert_eq!(
             state.stats.supplies,
-            (initial_supplies + outcome.supplies_delta).max(0)
+            (initial_supplies + supply_outcome.supplies_delta).max(0)
         );
         assert_eq!(
             state.stats.sanity,
-            (initial_sanity + outcome.sanity_delta).clamp(0, Stats::default().sanity)
+            (initial_sanity + supply_outcome.sanity_delta).clamp(0, Stats::default().sanity)
         );
     }
 
@@ -264,11 +244,11 @@ mod tests {
         let expected_delta =
             health_change(&cfg.health, &state, state.weather_state.today, exec_key);
         let initial_hp = state.stats.hp;
-        let outcome = apply_daily_effect(&cfg, &mut state);
-        assert_eq!(outcome.health_delta, expected_delta);
+        let health_delta = apply_daily_health(&cfg, &mut state);
+        assert_eq!(health_delta, expected_delta);
         assert_eq!(
             state.stats.hp,
-            (initial_hp + outcome.health_delta).clamp(0, Stats::default().hp)
+            (initial_hp + health_delta).clamp(0, Stats::default().hp)
         );
     }
 
