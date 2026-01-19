@@ -1,5 +1,6 @@
 use crate::endgame::EndgameTravelCfg;
 use crate::journey::{JourneyController, MechanicalPolicyId, PolicyId, StrategyId};
+use crate::mechanics::OtDeluxeOccupation;
 use crate::state::GameState;
 use crate::{DayOutcome, EncounterData, GameMode};
 
@@ -27,6 +28,7 @@ impl JourneySession {
             seed,
             data,
             endgame_cfg,
+            None,
         )
     }
 
@@ -39,11 +41,16 @@ impl JourneySession {
         seed: u64,
         data: EncounterData,
         endgame_cfg: &EndgameTravelCfg,
+        otdeluxe_occupation: Option<OtDeluxeOccupation>,
     ) -> Self {
         let state = GameState::default().with_seed(seed, mode, data);
         let controller = Self::build_controller(mechanics, mode, strategy, seed, endgame_cfg);
         let mut session = Self { controller, state };
         session.reset_state_policy();
+        if mechanics == MechanicalPolicyId::OtDeluxe90s {
+            let occupation = otdeluxe_occupation.unwrap_or(OtDeluxeOccupation::Banker);
+            session.state.apply_otdeluxe_start_config(occupation);
+        }
         session.state.queue_otdeluxe_store_if_available();
         session
     }
@@ -143,6 +150,7 @@ impl JourneySession {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::mechanics::OtDeluxeOccupation;
     use crate::state::PolicyKind;
 
     #[test]
@@ -197,11 +205,17 @@ mod tests {
             7,
             data,
             &endgame,
+            Some(OtDeluxeOccupation::Doctor),
         );
         assert_eq!(
             session.state().mechanical_policy,
             MechanicalPolicyId::OtDeluxe90s
         );
+        assert_eq!(
+            session.state().ot_deluxe.mods.occupation,
+            Some(OtDeluxeOccupation::Doctor)
+        );
+        assert_eq!(session.state().ot_deluxe.inventory.cash_cents, 120_000);
     }
 
     #[test]

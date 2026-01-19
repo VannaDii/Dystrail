@@ -262,6 +262,15 @@ fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
 }
 
+fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDeluxe90sPolicy) -> u32 {
+    let dollars = policy
+        .occupations
+        .iter()
+        .find(|spec| spec.occupation == occupation)
+        .map_or(0, |spec| spec.starting_cash_dollars);
+    u32::from(dollars).saturating_mul(100)
+}
+
 fn default_pacing_config() -> &'static PacingConfig {
     static CONFIG: OnceLock<PacingConfig> = OnceLock::new();
     CONFIG.get_or_init(PacingConfig::default_config)
@@ -2858,6 +2867,22 @@ mod tests {
     }
 
     #[test]
+    fn apply_otdeluxe_start_config_sets_occupation_and_cash() {
+        let encounters = EncounterData::empty();
+        let mut state = GameState::default().with_seed(7, GameMode::Classic, encounters);
+        state.mechanical_policy = MechanicalPolicyId::OtDeluxe90s;
+
+        state.apply_otdeluxe_start_config(OtDeluxeOccupation::Doctor);
+
+        assert_eq!(
+            state.ot_deluxe.mods.occupation,
+            Some(OtDeluxeOccupation::Doctor)
+        );
+        assert_eq!(state.ot_deluxe.inventory.cash_cents, 120_000);
+        assert_eq!(state.ot_deluxe.party.members.len(), 5);
+    }
+
+    #[test]
     fn sync_otdeluxe_trail_distance_and_prompt_marker() {
         let mut state = GameState {
             mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
@@ -4318,6 +4343,21 @@ impl GameState {
             ot_state.miles_traveled,
         );
         ot_state
+    }
+
+    pub fn apply_otdeluxe_start_config(&mut self, occupation: OtDeluxeOccupation) {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        if self.ot_deluxe.party.members.is_empty() {
+            self.ot_deluxe = self.build_ot_deluxe_state_from_legacy();
+        }
+        self.ot_deluxe.mods.occupation = Some(occupation);
+        if self.day <= 1 && self.day_records.is_empty() {
+            let policy = default_otdeluxe_policy();
+            self.ot_deluxe.inventory.cash_cents = otdeluxe_starting_cash_cents(occupation, policy);
+        }
+        self.sync_otdeluxe_trail_distance();
     }
 
     fn sync_otdeluxe_trail_distance(&mut self) {

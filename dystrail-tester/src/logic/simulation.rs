@@ -541,6 +541,7 @@ mod tests {
             seed,
             encounters,
             &endgame_config,
+            None,
         );
         SimulationSession {
             session,

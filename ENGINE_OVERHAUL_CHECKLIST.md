@@ -496,7 +496,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - It is impossible for rations to change consumption without also potentially affecting health.
 
-- [ ] OCC-001 (P0) Implement Deluxe occupations as first-class run configuration (not Dystrail personas)
+- [x] OCC-001 (P0) Implement Deluxe occupations as first-class run configuration (not Dystrail personas)
   - Requirement:
     - Implement the Deluxe occupation set as a first-class enum/config under OTDeluxe90sPolicy:
       - `banker`, `doctor`, `merchant`, `blacksmith`, `carpenter`, `saddlemaker`, `farmer`, `teacher`
@@ -1577,7 +1577,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 16) UI & UX Requirements (to support phase gates; satire remains presentation-only)
 
-- [ ] UI-001 (P0) Add UI phases for “needs choice” states (Crossing, The Dalles, Store, Trade, Hunt)
+- [x] UI-001 (P0) Add UI phases for “needs choice” states (Crossing, The Dalles, Store, Trade, Hunt)
   - Requirement:
     - Any kernel outcome that blocks travel pending a choice must have a UI surface.
     - UI must not advance the day without providing the required choice back to the kernel.
@@ -1591,7 +1591,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - The player can resolve crossings and route choices without implicit auto-resolve.
 
-- [ ] UI-002 (P1) Render logs from events (not vice versa)
+- [x] UI-002 (P1) Render logs from events (not vice versa)
   - Requirement:
     - UI rendering consumes `events[]` and translates them to localized satire copy keys.
   - Spec refs:
@@ -1603,7 +1603,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 17) Tests, Determinism, and Migration
 
-- [ ] TEST-001 (P0) Add phase-order tests for kernel pipeline
+- [x] TEST-001 (P0) Add phase-order tests for kernel pipeline
   - Requirement:
     - Tests must assert the kernel executes phases in the exact order required by §14 and that phases mutate only their owned state slices.
   - Spec refs:
@@ -1611,7 +1611,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A regression test fails if, e.g., WeatherTick is moved after HealthTick.
 
-- [ ] TEST-002 (P0) Add RNG-scope tests (streams + draw counts)
+- [x] TEST-002 (P0) Add RNG-scope tests (streams + draw counts)
   - Requirement:
     - Tests must detect if weather consumes travel RNG, etc.
   - Spec refs:
@@ -1695,7 +1695,7 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [ ] AUDIT-006 All “policy-defined” values are explicit in OTDeluxe90sPolicy config and not hard-coded.
 - [x] AUDIT-007 TrailGraph uses Deluxe mile markers + route variants; `0` sentinels are skipped in derivations.
 - [x] AUDIT-008 The Dalles gate blocks travel beyond node 16 until resolved.
-- [ ] AUDIT-009 Crossing choices are interactive under OTDeluxe90sPolicy; outcomes include the required families.
+- [x] AUDIT-009 Crossing choices are interactive under OTDeluxe90sPolicy; outcomes include the required families.
 - [x] AUDIT-010 Scoring under OTDeluxe90sPolicy matches the spec exactly (including occupation multiplier).
 - [ ] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
 
