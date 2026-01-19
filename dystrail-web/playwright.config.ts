@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 const PORT = 8080;
 const PUBLIC_URL = 'http://localhost:8080/play/';
+const isCi = Boolean(process.env.CI);
 
 export default defineConfig({
   testDir: './tests-e2e',
@@ -9,7 +10,8 @@ export default defineConfig({
   reporter: 'list',
   use: {
     baseURL: PUBLIC_URL,
-    trace: 'on-first-retry',
+    trace: isCi ? 'on' : 'on-first-retry',
+    video: isCi ? 'on' : 'retain-on-failure',
     headless: true,
   },
   projects: [

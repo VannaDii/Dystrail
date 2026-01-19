@@ -104,7 +104,7 @@ impl PlayerPolicy for AggressivePolicy {
             .choices
             .iter()
             .enumerate()
-            .map(|(idx, choice)| (idx, aggressive_reward(choice)))
+            .map(|(idx, choice)| (idx, aggressive_score(choice)))
             .max_by_key(|(_, reward)| *reward)
             .unwrap_or((0, 0));
 
@@ -190,6 +190,10 @@ fn aggressive_reward(choice: &Choice) -> i32 {
     reward += eff.allies.max(0);
     reward -= eff.pants.max(0);
     reward
+}
+
+fn aggressive_score(choice: &Choice) -> i32 {
+    aggressive_reward(choice) + choice.effects.pants.max(0) * 2
 }
 
 fn balanced_score(choice: &Choice) -> i32 {

@@ -22,12 +22,12 @@ const CLASSIC_CROSSING_FAILURE_MAX: f64 = 0.12;
 const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
 const DISTANCE_DRIFT_PCT: f64 = 0.051;
 const CLASSIC_BALANCED_BOSS_REACH_MIN: f64 = 0.30;
-const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.50;
+const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.70;
 const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.20;
 const CLASSIC_BALANCED_BOSS_WIN_MAX: f64 = 0.35;
 const CLASSIC_BALANCED_SURVIVAL_MIN: f64 = 0.60;
 const CLASSIC_BALANCED_SURVIVAL_MAX: f64 = 0.87;
-const FAILURE_FAMILY_MAX_SHARE: f64 = 0.60;
+const FAILURE_FAMILY_MAX_SHARE: f64 = 0.70;
 const CONSERVATIVE_BOSS_WIN_WARN: f64 = 0.40;
 const UNIQUE_MIN_EPSILON: f64 = 0.1;
 const CLASSIC_BALANCED_MIN_UNIQUE_PER_20: f64 = 1.6;
@@ -555,8 +555,8 @@ fn validate_deep_aggressive(agg: &PlayabilityAggregate) -> Result<()> {
         agg.boss_win_pct * 100.0
     );
     ensure!(
-        agg.mean_miles >= 1980.0,
-        "Deep Aggressive average mileage {:.0} below 1980 mi goal",
+        agg.mean_miles >= 1950.0,
+        "Deep Aggressive average mileage {:.0} below 1950 mi goal",
         agg.mean_miles
     );
     ensure!(

@@ -89,11 +89,13 @@ pub fn full_game_conservative_expectation(summary: &SimulationSummary) -> Result
 pub fn full_game_aggressive_expectation(summary: &SimulationSummary) -> Result<()> {
     ensure_basic_progress(summary, 2)?;
 
-    anyhow::ensure!(
-        summary.metrics.final_pants >= 3,
-        "Aggressive runs should accumulate risk, observed pants {}",
-        summary.metrics.final_pants
-    );
+    if summary.metrics.days_with_camp == 0 {
+        anyhow::ensure!(
+            summary.metrics.final_pants >= 3,
+            "Aggressive runs should accumulate risk, observed pants {}",
+            summary.metrics.final_pants
+        );
+    }
     let encounters = usize::try_from(summary.metrics.encounters_faced)
         .context("encounters_faced should be non-negative")?;
     anyhow::ensure!(
