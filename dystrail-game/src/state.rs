@@ -920,7 +920,10 @@ mod tests {
         state.pace = PaceId::Steady;
         state.weather_state.today = Weather::Clear;
         state.miles_traveled_actual = 0.0;
-        state.apply_travel_wear();
+        state.current_day_miles = 10.0;
+        state.distance_today = 10.0;
+        state.distance_today_raw = 10.0;
+        state.apply_travel_wear_for_day(10.0);
         let steady_clear = state.vehicle.wear;
 
         state.vehicle.wear = 0.0;
@@ -928,7 +931,10 @@ mod tests {
         state.pace = PaceId::Blitz;
         state.weather_state.today = Weather::Storm;
         state.miles_traveled_actual = 800.0;
-        state.apply_travel_wear();
+        state.current_day_miles = 10.0;
+        state.distance_today = 10.0;
+        state.distance_today_raw = 10.0;
+        state.apply_travel_wear_for_day(10.0);
         let blitz_storm = state.vehicle.wear;
 
         assert!(blitz_storm > steady_clear);
@@ -3598,6 +3604,49 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_crossing_state_persists_until_resolved() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        let policy = default_otdeluxe_policy();
+        let river = otdeluxe_crossings::river_for_index(0).expect("expected river");
+        let node_index = otdeluxe_crossings::node_index_for_river(river);
+        let marker = otdeluxe_trail::mile_marker_for_node(
+            &policy.trail,
+            state.ot_deluxe.route.variant,
+            node_index,
+        )
+        .expect("expected mile marker");
+        let marker_miles = f32::from(marker);
+        state.miles_traveled_actual = (marker_miles - 1.0).max(0.0);
+
+        let first = state.handle_otdeluxe_crossing_event(2.0);
+        assert!(matches!(
+            first,
+            Some((false, ref log)) if log == LOG_TRAVEL_BLOCKED
+        ));
+        let river_state = state
+            .ot_deluxe
+            .crossing
+            .river
+            .clone()
+            .expect("expected river state");
+
+        state.ot_deluxe.weather.rain_accum = 999.0;
+        state.ot_deluxe.season = Season::Winter;
+
+        let second = state.handle_otdeluxe_crossing_event(2.0);
+        assert!(matches!(
+            second,
+            Some((false, ref log)) if log == LOG_TRAVEL_BLOCKED
+        ));
+        assert!(state.ot_deluxe.crossing.choice_pending);
+        assert_eq!(state.ot_deluxe.crossing.river_kind, Some(river));
+        assert_eq!(state.ot_deluxe.crossing.river.as_ref(), Some(&river_state));
+    }
+
+    #[test]
     fn build_otdeluxe_state_truncates_extra_names() {
         let mut state = GameState::default();
         state.party.leader = String::from("Leader");
@@ -5281,8 +5330,23 @@ impl GameState {
         self.vehicle.apply_scaled_wear(wear_delta);
     }
 
-    pub(crate) fn apply_travel_wear(&mut self) {
-        self.apply_travel_wear_scaled(1.0);
+    pub(crate) fn apply_travel_wear_for_day(&mut self, baseline_miles: f32) {
+        if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        if self.current_day_miles <= 0.0 {
+            return;
+        }
+        let baseline = if baseline_miles > 0.0 {
+            baseline_miles
+        } else {
+            self.distance_today.max(self.distance_today_raw)
+        };
+        if baseline <= 0.0 {
+            return;
+        }
+        let scale = (self.current_day_miles / baseline).clamp(0.0, 1.0);
+        self.apply_travel_wear_scaled(scale);
     }
 
     fn revert_current_day_record(&mut self) {

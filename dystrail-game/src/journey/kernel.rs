@@ -314,7 +314,6 @@ impl<'a> DailyTickKernel<'a> {
         } else {
             state.distance_today.max(state.distance_today_raw)
         };
-        state.apply_travel_wear();
         self.run_endgame_tick(state, computed_miles_today, breakdown_started);
         if let Some((ended, log)) = {
             let _guard = rng_bundle
@@ -334,6 +333,7 @@ impl<'a> DailyTickKernel<'a> {
 
         let additional_miles = (state.distance_today - state.current_day_miles).max(0.0);
         state.record_travel_day(TravelDayKind::Travel, additional_miles, "");
+        state.apply_travel_wear_for_day(computed_miles_today);
         state.log_travel_debug();
         if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
             state.queue_otdeluxe_store_if_available();

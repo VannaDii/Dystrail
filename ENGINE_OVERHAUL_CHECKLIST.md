@@ -447,7 +447,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A run with 0 effective oxen hard-blocks travel until corrected (Deluxe string semantics).
 
-- [ ] STATE-004 (P1) Implement river state persistence (depth/width/swiftness/bed type)
+- [x] STATE-004 (P1) Implement river state persistence (depth/width/swiftness/bed type)
   - Requirement:
     - When arriving at a river node, compute and persist a `river_state` snapshot used by the crossing UI.
     - River state derivation must be deterministic and depend on:
@@ -1220,7 +1220,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Progress:
     - [x] TRAVEL-009A Defer OTDeluxe pace/rations + miles computation into the travel flow after block checks.
 
-- [ ] TRAVEL-010 (P1) Implement `TravelWearTick` as an explicit phase driven by “actual travel miles”
+- [x] TRAVEL-010 (P1) Implement `TravelWearTick` as an explicit phase driven by “actual travel miles”
   - Requirement:
     - TravelWearTick must:
       - apply wear only after ComputeMilesToday has determined the day’s actual miles
