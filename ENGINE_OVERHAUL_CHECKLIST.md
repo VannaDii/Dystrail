@@ -1217,6 +1217,8 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A day with a navigation hard-stop cannot update `miles_traveled` and cannot leak miles via `distance_today_raw`.
     - Draw ordering is documented and tested (RNG-006 + TEST-002).
+  - Progress:
+    - [x] TRAVEL-009A Defer OTDeluxe pace/rations + miles computation into the travel flow after block checks.
 
 - [ ] TRAVEL-010 (P1) Implement `TravelWearTick` as an explicit phase driven by “actual travel miles”
   - Requirement:
@@ -1495,7 +1497,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Buying ammo changes bullets deterministically; hunting gating “no bullets” works.
 
-- [ ] STORE-005 (P2) Surface Deluxe store help recommendations as non-binding UI copy (parity flavor)
+- [x] STORE-005 (P2) Surface Deluxe store help recommendations as non-binding UI copy (parity flavor)
   - Requirement:
     - Display Deluxe-authored guidance (non-mechanical) under OTDeluxe90sPolicy:
       - at least six oxen

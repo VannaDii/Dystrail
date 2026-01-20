@@ -688,6 +688,13 @@
           "name": "Tongue",
           "desc": "Spare wagon tongue."
         }
+      },
+      "recommendations": {
+        "title": "Recommendations",
+        "oxen": "At least six oxen.",
+        "food": "At least 200 lbs of food per person.",
+        "clothes": "At least 2 sets of clothes per person.",
+        "spares": "Bring spare wagon parts."
       }
     }
   }

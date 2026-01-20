@@ -54,9 +54,7 @@ impl<'a> DailyTickKernel<'a> {
             return outcome;
         }
         self.apply_daily_physics(state);
-        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
-            state.apply_otdeluxe_pace_and_rations();
-        } else {
+        if state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
             state.apply_pace_and_diet(default_pacing_config());
         }
         hook(state);
@@ -305,6 +303,7 @@ impl<'a> DailyTickKernel<'a> {
             let _guard = rng_bundle
                 .as_ref()
                 .map(|bundle| bundle.phase_guard_for(RngPhase::TravelTick));
+            state.apply_otdeluxe_pace_and_rations();
             if state.apply_otdeluxe_navigation_event() {
                 return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
             }

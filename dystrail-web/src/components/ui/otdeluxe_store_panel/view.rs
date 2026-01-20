@@ -114,6 +114,12 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
     let cash_label = render_amount("otdeluxe.store.cash", &cash_str);
     let total_label = render_amount("otdeluxe.store.total", &total_str);
     let remaining_label = render_amount("otdeluxe.store.remaining", &remaining_str);
+    let recommendation_keys = [
+        "otdeluxe.store.recommendations.oxen",
+        "otdeluxe.store.recommendations.food",
+        "otdeluxe.store.recommendations.clothes",
+        "otdeluxe.store.recommendations.spares",
+    ];
 
     let on_leave = {
         let on_leave = props.on_leave.clone();
@@ -156,6 +162,16 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
                     <span>{ &total_label }</span>
                     <span class="value">{ &remaining_label }</span>
                 </div>
+                <aside class="store-recommendations" aria-labelledby="otdeluxe-store-recommend-title">
+                    <h2 id="otdeluxe-store-recommend-title">
+                        { i18n::t("otdeluxe.store.recommendations.title") }
+                    </h2>
+                    <ul>
+                        { for recommendation_keys.iter().map(|key| html! {
+                            <li>{ i18n::t(key) }</li>
+                        }) }
+                    </ul>
+                </aside>
                 <div class="store-item-grid">
                     { for STORE_ITEMS.iter().enumerate().map(|(idx, item)| {
                         render_item_card(idx, item, &ctx)
