@@ -548,7 +548,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Disease/affliction outcomes are identical even if travel RNG draw counts change.
 
-- [ ] RNG-004 (P0) Introduce `rng.events()` and fix draw order for navigation + non-navigation events
+- [x] RNG-004 (P0) Introduce `rng.events()` and fix draw order for navigation + non-navigation events
   - Requirement:
     - Navigation hard-stops are applied in ComputeMilesToday using `rng.events()` in a fixed, documented order.
     - RandomEventTick uses `rng.events()` (same stream, but separate phase with fixed draw ordering).
@@ -567,7 +567,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - Acceptance criteria:
         - `dystrail-game/src/state.rs::GameState::tick_exec_order_state` uses `events_rng()`.
         - `dystrail-game/src/state.rs::GameState::tick_ally_attrition` uses `events_rng()`.
-    - [ ] RNG-004B Route navigation hard-stops + RandomEventTick to `rng.events()` with fixed draw ordering
+    - [x] RNG-004B Route navigation hard-stops + RandomEventTick to `rng.events()` with fixed draw ordering
 
 - [x] RNG-005 (P1) Add optional runtime “Phase RNG Guard”
   - Requirement:

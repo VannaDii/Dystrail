@@ -1729,7 +1729,7 @@ mod tests {
             },
             ..GameState::default()
         };
-        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.stats.allies <= 1);
 
@@ -2249,7 +2249,7 @@ mod tests {
 
         state.stats.allies = 2;
         state.logs.clear();
-        state.attach_rng_bundle(health_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
+        state.attach_rng_bundle(events_bundle_with_roll_below(ALLY_ATTRITION_CHANCE * 0.5));
         state.tick_ally_attrition();
         assert!(state.logs.iter().any(|entry| entry == LOG_ALLY_LOST));
 
@@ -2442,6 +2442,54 @@ mod tests {
         let (event, trace) = roll_otdeluxe_navigation_event_with_trace(&policy, 6.0, &mut rng);
         assert!(matches!(event, Some(OtDeluxeNavigationEvent::Snowbound)));
         assert!(trace.is_some());
+    }
+
+    #[test]
+    fn otdeluxe_navigation_event_uses_events_rng_with_fixed_policy() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.start_of_day();
+        state.distance_today = 10.0;
+        state.distance_today_raw = 10.0;
+        state.partial_distance_today = 2.0;
+        state.ot_deluxe.oxen.healthy = 4;
+        let bundle = Rc::new(RngBundle::from_user_seed(77));
+        state.attach_rng_bundle(bundle.clone());
+
+        let policy = OtDeluxeNavigationPolicy {
+            chance_per_day: 1.0,
+            lost_weight: 1,
+            wrong_weight: 0,
+            impassable_weight: 0,
+            snowbound_weight: 0,
+            lost_delay: OtDeluxeNavigationDelay {
+                min_days: 1,
+                max_days: 1,
+            },
+            wrong_delay: OtDeluxeNavigationDelay {
+                min_days: 1,
+                max_days: 1,
+            },
+            impassable_delay: OtDeluxeNavigationDelay {
+                min_days: 1,
+                max_days: 1,
+            },
+            snowbound_delay: OtDeluxeNavigationDelay {
+                min_days: 1,
+                max_days: 1,
+            },
+            snowbound_min_depth_in: 0.0,
+        };
+
+        let draws_before = bundle.events().draws();
+        let applied = state.apply_otdeluxe_navigation_event_with_policy(&policy);
+        let draws_after = bundle.events().draws();
+
+        assert!(applied);
+        assert!(draws_after > draws_before);
+        assert!(state.day_state.lifecycle.did_end_of_day);
     }
 
     #[test]
@@ -6121,7 +6169,7 @@ impl GameState {
             return;
         }
         let trigger = self
-            .health_rng()
+            .events_rng()
             .is_some_and(|mut rng| rng.r#gen::<f32>() <= ALLY_ATTRITION_CHANCE);
         if trigger {
             self.stats.allies -= 1;
@@ -7395,6 +7443,14 @@ impl GameState {
     }
 
     pub(crate) fn apply_otdeluxe_navigation_event(&mut self) -> bool {
+        let policy = default_otdeluxe_policy();
+        self.apply_otdeluxe_navigation_event_with_policy(&policy.navigation)
+    }
+
+    pub(crate) fn apply_otdeluxe_navigation_event_with_policy(
+        &mut self,
+        policy: &OtDeluxeNavigationPolicy,
+    ) -> bool {
         if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
             return false;
         }
@@ -7407,16 +7463,15 @@ impl GameState {
             return false;
         }
 
-        let policy = default_otdeluxe_policy();
         let Some((event, delay_days, trace)) = (|| {
             let mut rng = self.events_rng()?;
             let (event, trace) = roll_otdeluxe_navigation_event_with_trace(
-                &policy.navigation,
+                policy,
                 self.ot_deluxe.weather.snow_depth,
                 &mut *rng,
             );
             let event = event?;
-            let delay = otdeluxe_navigation_delay_for(event, &policy.navigation);
+            let delay = otdeluxe_navigation_delay_for(event, policy);
             let delay_days = roll_otdeluxe_navigation_delay_days(delay, &mut *rng);
             Some((event, delay_days, trace))
         })() else {
