@@ -1511,7 +1511,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 15) Scoring (OTDeluxe) + Endings
 
-- [ ] ENDGAME-001 (P0) Implement `EndgameTick` as a bounded phase (no core-physics mutation)
+- [x] ENDGAME-001 (P0) Implement `EndgameTick` as a bounded phase (no core-physics mutation)
   - Requirement:
     - Implement the kernel’s EndgameTick (phase 12) as a *consumer* of the day’s resolved outcomes:
       - inputs: `computed_miles_today`, whether a breakdown started today, current progress, and policy toggles

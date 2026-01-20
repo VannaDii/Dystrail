@@ -314,12 +314,7 @@ impl<'a> DailyTickKernel<'a> {
             state.distance_today.max(state.distance_today_raw)
         };
         state.apply_travel_wear();
-        endgame::run_endgame_controller(
-            state,
-            computed_miles_today,
-            breakdown_started,
-            self.endgame_cfg,
-        );
+        self.run_endgame_tick(state, computed_miles_today, breakdown_started);
         if let Some((ended, log)) = {
             let _guard = rng_bundle
                 .as_ref()
@@ -338,6 +333,20 @@ impl<'a> DailyTickKernel<'a> {
 
         state.end_of_day();
         (false, String::from(LOG_TRAVELED), breakdown_started)
+    }
+
+    fn run_endgame_tick(
+        &self,
+        state: &mut GameState,
+        computed_miles_today: f32,
+        breakdown_started: bool,
+    ) {
+        endgame::run_endgame_controller(
+            state,
+            computed_miles_today,
+            breakdown_started,
+            self.endgame_cfg,
+        );
     }
 
     fn run_wait_gate(state: &mut GameState) -> Option<(bool, String, bool)> {
