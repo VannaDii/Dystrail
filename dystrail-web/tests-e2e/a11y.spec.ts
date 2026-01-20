@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Dystrail a11y + i18n smoke', () => {
   test('loads home, supports skip link, lang/dir toggle, and high contrast', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('./');
 
     // Main landmarks and skip link exist
     await expect(page.locator('a[href="#main"]')).toHaveCount(1);
@@ -21,7 +21,7 @@ test.describe('Dystrail a11y + i18n smoke', () => {
     await expect(html).toHaveAttribute('dir', 'ltr');
 
     // High-contrast toggle adds class on html
-    const hcToggle = page.getByRole('button', { name: /HC/i });
+    const hcToggle = page.getByRole('button', { name: /high contrast/i });
     await hcToggle.click();
     await expect(html).toHaveClass(/hc/);
   });
