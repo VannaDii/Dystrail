@@ -88,6 +88,9 @@ use crate::mechanics::otdeluxe90s::{
 };
 use crate::numbers::round_f32_to_i32;
 use crate::otdeluxe_crossings;
+use crate::otdeluxe_random_events::{
+    self, OtDeluxeRandomEventContext, OtDeluxeRandomEventSelection,
+};
 #[cfg(test)]
 use crate::otdeluxe_state::OtDeluxeTravelState;
 use crate::otdeluxe_state::{
@@ -2459,6 +2462,241 @@ mod tests {
         let record = state.day_records.last().expect("expected day record");
         assert!(matches!(record.kind, TravelDayKind::NonTravel));
         assert!(record.tags.iter().any(|tag| tag.0 == "otdeluxe.nav_lost"));
+    }
+
+    #[test]
+    fn otdeluxe_random_event_uses_events_rng() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.food_lbs = 200;
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["Ada"]);
+
+        let bundle = events_bundle_with_roll_below(0.2);
+        state.attach_rng_bundle(bundle.clone());
+
+        let before_events = bundle.events().draws();
+        let before_health = bundle.health().draws();
+
+        let _ = state.apply_otdeluxe_random_event();
+
+        let after_events = bundle.events().draws();
+        let after_health = bundle.health().draws();
+        assert!(after_events > before_events);
+        assert_eq!(after_health, before_health);
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_resource_change() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.food_lbs = 10;
+        state.ot_deluxe.inventory.bullets = 0;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("resource_change"),
+            variant_id: Some(String::from("wild_fruit")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(7);
+        let (log_key, severity, _payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert_eq!(
+            log_key,
+            "log.otdeluxe.random_event.resource_change.wild_fruit"
+        );
+        assert!(matches!(severity, EventSeverity::Info));
+        assert!(state.ot_deluxe.inventory.food_lbs > 10);
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_weather_catastrophe() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.food_lbs = 100;
+        state.ot_deluxe.health_general = 50;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("weather_catastrophe"),
+            variant_id: Some(String::from("blizzard")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(11);
+        let (log_key, severity, payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert_eq!(
+            log_key,
+            "log.otdeluxe.random_event.weather_catastrophe.blizzard"
+        );
+        assert!(matches!(severity, EventSeverity::Warning));
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 90);
+        assert_eq!(state.ot_deluxe.health_general, 55);
+        assert!(payload.get("deltas").is_some());
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_resource_shortage_bad_water() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["Ada"]);
+        state.ot_deluxe.health_general = 10;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("resource_shortage"),
+            variant_id: Some(String::from("bad_water")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(23);
+        let (_log_key, severity, payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Warning));
+        assert!(state.ot_deluxe.health_general > 10);
+        assert!(payload.get("affliction").is_some());
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_resource_shortage_no_grass() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 1;
+        state.ot_deluxe.oxen.sick = 0;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("resource_shortage"),
+            variant_id: Some(String::from("no_grass")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(31);
+        let (_log_key, severity, _payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Warning));
+        assert_eq!(state.ot_deluxe.oxen.healthy, 0);
+        assert_eq!(state.ot_deluxe.oxen.sick, 1);
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_party_incident_lost_member() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["Ada", "Ben"]);
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("party_incident"),
+            variant_id: Some(String::from("lost_member")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(41);
+        let (_log_key, severity, payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Critical));
+        assert_eq!(state.ot_deluxe.party.alive_count(), 1);
+        assert!(payload.get("lost_members").is_some());
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_oxen_incident() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.oxen.healthy = 1;
+        state.ot_deluxe.oxen.sick = 0;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("oxen_incident"),
+            variant_id: Some(String::from("ox_sickness")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(43);
+        let (_log_key, severity, _payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Warning));
+        assert_eq!(state.ot_deluxe.oxen.healthy, 0);
+        assert_eq!(state.ot_deluxe.oxen.sick, 1);
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_wagon_part_break_without_spares() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.spares_wheels = 0;
+        state.ot_deluxe.inventory.spares_axles = 0;
+        state.ot_deluxe.inventory.spares_tongues = 0;
+        state.ot_deluxe.inventory.food_lbs = 50;
+        state.ot_deluxe.inventory.clothes_sets = 2;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("wagon_part_break"),
+            variant_id: Some(String::from("unrepairable")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(53);
+        let (_log_key, severity, payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Critical));
+        assert!(state.ot_deluxe.inventory.food_lbs < 50);
+        assert!(state.ot_deluxe.inventory.clothes_sets < 2);
+        assert!(payload.get("spare_lost").is_some());
+    }
+
+    #[test]
+    fn otdeluxe_random_event_applies_travel_hazard() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.inventory.food_lbs = 40;
+        state.ot_deluxe.health_general = 20;
+
+        let selection = OtDeluxeRandomEventSelection {
+            event_id: String::from("travel_hazard"),
+            variant_id: Some(String::from("rough_trail")),
+            chance_roll: 0.0,
+            chance_threshold: 1.0,
+        };
+        let mut rng = SmallRng::seed_from_u64(61);
+        let (_log_key, severity, _payload) = state
+            .apply_otdeluxe_random_event_selection(&selection, &mut rng)
+            .expect("expected outcome");
+
+        assert!(matches!(severity, EventSeverity::Warning));
+        assert_eq!(state.ot_deluxe.inventory.food_lbs, 35);
+        assert_eq!(state.ot_deluxe.health_general, 22);
     }
 
     #[test]
@@ -7175,6 +7413,529 @@ impl GameState {
             self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
         }
         self.end_of_day();
+    }
+
+    pub(crate) fn apply_otdeluxe_random_event(&mut self) -> Option<()> {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return None;
+        }
+        let spares_total = u16::from(self.ot_deluxe.inventory.spares_wheels)
+            + u16::from(self.ot_deluxe.inventory.spares_axles)
+            + u16::from(self.ot_deluxe.inventory.spares_tongues);
+        let ctx = OtDeluxeRandomEventContext {
+            season: self.ot_deluxe.season,
+            food_lbs: self.ot_deluxe.inventory.food_lbs,
+            oxen_total: self.ot_deluxe.oxen.total(),
+            party_alive: self.ot_deluxe.party.alive_count(),
+            health_general: self.ot_deluxe.health_general,
+            spares_total,
+        };
+        let bundle = self.rng_bundle.take()?;
+        let result = {
+            let mut rng = bundle.events();
+            let pick = otdeluxe_random_events::pick_random_event_with_trace(
+                otdeluxe_random_events::catalog(),
+                &ctx,
+                &mut *rng,
+            )?;
+            let (log_key, severity, payload) =
+                self.apply_otdeluxe_random_event_selection(&pick.selection, &mut *rng)?;
+            Some((pick, log_key, severity, payload))
+        };
+        self.rng_bundle = Some(bundle);
+        let (pick, log_key, severity, payload) = result?;
+        self.decision_traces_today.push(pick.decision_trace);
+        if let Some(trace) = pick.variant_trace {
+            self.decision_traces_today.push(trace);
+        }
+        self.logs.push(log_key.clone());
+        self.push_event(
+            EventKind::RandomEventResolved,
+            severity,
+            DayTagSet::new(),
+            None,
+            Some(log_key),
+            payload,
+        );
+        Some(())
+    }
+
+    fn apply_otdeluxe_random_event_selection<R: Rng + ?Sized>(
+        &mut self,
+        selection: &OtDeluxeRandomEventSelection,
+        rng: &mut R,
+    ) -> Option<(String, EventSeverity, serde_json::Value)> {
+        let event_id = selection.event_id.as_str();
+        let variant = selection.variant_id.as_deref()?;
+        let log_key = format!("log.otdeluxe.random_event.{event_id}.{variant}");
+        let chance_roll = selection.chance_roll;
+        let chance_threshold = selection.chance_threshold;
+
+        let (severity, payload) = match event_id {
+            "weather_catastrophe" => self.apply_otdeluxe_random_weather_catastrophe(
+                variant,
+                chance_roll,
+                chance_threshold,
+            )?,
+            "resource_shortage" => self.apply_otdeluxe_random_resource_shortage(
+                variant,
+                chance_roll,
+                chance_threshold,
+                rng,
+            )?,
+            "party_incident" => self.apply_otdeluxe_random_party_incident(
+                variant,
+                chance_roll,
+                chance_threshold,
+                rng,
+            )?,
+            "oxen_incident" => {
+                self.apply_otdeluxe_random_oxen_incident(variant, chance_roll, chance_threshold)?
+            }
+            "resource_change" => {
+                self.apply_otdeluxe_random_resource_change(variant, chance_roll, chance_threshold)?
+            }
+            "wagon_part_break" => self.apply_otdeluxe_random_wagon_part_break(
+                variant,
+                chance_roll,
+                chance_threshold,
+                rng,
+            )?,
+            "travel_hazard" => {
+                self.apply_otdeluxe_random_travel_hazard(variant, chance_roll, chance_threshold)?
+            }
+            _ => return None,
+        };
+
+        Some((log_key, severity, payload))
+    }
+
+    fn apply_otdeluxe_random_weather_catastrophe(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let (health_delta, food_delta, severity) = match variant {
+            "blizzard" => (5, -10, EventSeverity::Warning),
+            "hailstorm" => (3, -5, EventSeverity::Warning),
+            "thunderstorm" => (2, 0, EventSeverity::Info),
+            "heavy_fog" | "strong_winds" => (1, 0, EventSeverity::Info),
+            _ => return None,
+        };
+        let applied_health = self.apply_otdeluxe_health_delta(health_delta);
+        let applied_food = self.apply_otdeluxe_food_delta(food_delta);
+        let payload = serde_json::json!({
+            "event": "weather_catastrophe",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "deltas": {
+                "health_general": applied_health,
+                "food_lbs": applied_food
+            }
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_resource_shortage<R: Rng + ?Sized>(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+        rng: &mut R,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let mut affliction_payload = None;
+        let (health_delta, oxen_delta, severity) = match variant {
+            "bad_water" => {
+                let outcome =
+                    self.apply_otdeluxe_random_affliction(rng, OtDeluxeAfflictionKind::Illness);
+                affliction_payload = outcome.as_ref().map(Self::otdeluxe_affliction_payload);
+                (2, (0_i16, 0_i16), EventSeverity::Warning)
+            }
+            "no_water" => (4, (0_i16, 0_i16), EventSeverity::Warning),
+            "no_grass" => {
+                let (healthy_delta, sick_delta) = self.apply_otdeluxe_no_grass_loss();
+                (0, (healthy_delta, sick_delta), EventSeverity::Warning)
+            }
+            _ => return None,
+        };
+        let applied_health = if health_delta != 0 {
+            self.apply_otdeluxe_health_delta(health_delta)
+        } else {
+            0
+        };
+        let (oxen_healthy_delta, oxen_sick_delta) = oxen_delta;
+        let payload = serde_json::json!({
+            "event": "resource_shortage",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "deltas": {
+                "health_general": applied_health,
+                "oxen_healthy": oxen_healthy_delta,
+                "oxen_sick": oxen_sick_delta
+            },
+            "affliction": affliction_payload
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_party_incident<R: Rng + ?Sized>(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+        rng: &mut R,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let mut affliction_payload = None;
+        let lost_members = match variant {
+            "lost_member" => self.lose_random_party_members(rng, 1),
+            "snakebite" => {
+                let outcome =
+                    self.apply_otdeluxe_random_affliction(rng, OtDeluxeAfflictionKind::Injury);
+                affliction_payload = outcome.as_ref().map(Self::otdeluxe_affliction_payload);
+                Vec::new()
+            }
+            _ => return None,
+        };
+        let severity = if variant == "lost_member" {
+            EventSeverity::Critical
+        } else {
+            EventSeverity::Warning
+        };
+        let payload = serde_json::json!({
+            "event": "party_incident",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "lost_members": lost_members,
+            "affliction": affliction_payload
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_oxen_incident(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let (healthy_delta, sick_delta) = match variant {
+            "ox_wandered_off" => self.apply_otdeluxe_oxen_wander(),
+            "ox_sickness" => self.apply_otdeluxe_oxen_sickness(),
+            _ => return None,
+        };
+        let payload = serde_json::json!({
+            "event": "oxen_incident",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "deltas": {
+                "oxen_healthy": healthy_delta,
+                "oxen_sick": sick_delta
+            }
+        });
+        Some((EventSeverity::Warning, payload))
+    }
+
+    fn apply_otdeluxe_random_resource_change(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let (food_delta, bullets_delta, clothes_delta, spares_delta, severity) = match variant {
+            "abandoned_wagon_empty" => (0, 0, 0, (0_i16, 0_i16, 0_i16), EventSeverity::Info),
+            "abandoned_wagon_supplies" => (25, 10, 1, (0_i16, 0_i16, 0_i16), EventSeverity::Info),
+            "thief" => (-30, -10, 0, (0_i16, 0_i16, 0_i16), EventSeverity::Warning),
+            "wild_fruit" => (15, 0, 0, (0_i16, 0_i16, 0_i16), EventSeverity::Info),
+            "mutual_aid_food" => (25, 0, 0, (0_i16, 0_i16, 0_i16), EventSeverity::Info),
+            "gravesite" => (0, 5, 1, (0_i16, 0_i16, 0_i16), EventSeverity::Info),
+            "fire" => (
+                -40,
+                -20,
+                -1,
+                (-1_i16, -1_i16, -1_i16),
+                EventSeverity::Critical,
+            ),
+            _ => return None,
+        };
+        let applied_food = self.apply_otdeluxe_food_delta(food_delta);
+        let applied_bullets = self.apply_otdeluxe_bullets_delta(bullets_delta);
+        let applied_clothes = self.apply_otdeluxe_clothes_delta(clothes_delta);
+        let (wheels_delta, axles_delta, tongues_delta) =
+            self.apply_otdeluxe_spares_delta(spares_delta.0, spares_delta.1, spares_delta.2);
+        let payload = serde_json::json!({
+            "event": "resource_change",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "deltas": {
+                "food_lbs": applied_food,
+                "bullets": applied_bullets,
+                "clothes_sets": applied_clothes,
+                "spares_wheels": wheels_delta,
+                "spares_axles": axles_delta,
+                "spares_tongues": tongues_delta
+            }
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_wagon_part_break<R: Rng + ?Sized>(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+        rng: &mut R,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let (fallback_food, fallback_clothes, severity) = match variant {
+            "repairable" => (5, 0, EventSeverity::Warning),
+            "replaceable" => (10, 0, EventSeverity::Warning),
+            "unrepairable" => (15, 1, EventSeverity::Critical),
+            _ => return None,
+        };
+        let spare_lost = self.lose_random_spare(rng);
+        let mut applied_food = 0;
+        let mut applied_clothes = 0;
+        if spare_lost.is_none() {
+            applied_food = self.apply_otdeluxe_food_delta(-fallback_food);
+            if fallback_clothes != 0 {
+                applied_clothes = self.apply_otdeluxe_clothes_delta(-fallback_clothes);
+            }
+        }
+        let payload = serde_json::json!({
+            "event": "wagon_part_break",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "spare_lost": spare_lost,
+            "deltas": {
+                "food_lbs": applied_food,
+                "clothes_sets": applied_clothes
+            }
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_travel_hazard(
+        &mut self,
+        variant: &str,
+        chance_roll: f32,
+        chance_threshold: f32,
+    ) -> Option<(EventSeverity, serde_json::Value)> {
+        let (health_delta, food_delta, severity) = match variant {
+            "rough_trail" => (2, -5, EventSeverity::Warning),
+            _ => return None,
+        };
+        let applied_health = self.apply_otdeluxe_health_delta(health_delta);
+        let applied_food = self.apply_otdeluxe_food_delta(food_delta);
+        let payload = serde_json::json!({
+            "event": "travel_hazard",
+            "variant": variant,
+            "chance_roll": chance_roll,
+            "chance_threshold": chance_threshold,
+            "deltas": {
+                "health_general": applied_health,
+                "food_lbs": applied_food
+            }
+        });
+        Some((severity, payload))
+    }
+
+    fn apply_otdeluxe_random_affliction<R: Rng + ?Sized>(
+        &mut self,
+        rng: &mut R,
+        kind: OtDeluxeAfflictionKind,
+    ) -> Option<OtDeluxeAfflictionOutcome> {
+        let policy = default_otdeluxe_policy();
+        let catalog = DiseaseCatalog::default_catalog();
+        let disease_kind = match kind {
+            OtDeluxeAfflictionKind::Illness => DiseaseKind::Illness,
+            OtDeluxeAfflictionKind::Injury => DiseaseKind::Injury,
+        };
+        let (disease, trace) = catalog.pick_by_kind_with_trace(disease_kind, rng);
+        if let Some(trace) = trace {
+            self.decision_traces_today.push(trace);
+        }
+        let duration = disease.map_or_else(
+            || match kind {
+                OtDeluxeAfflictionKind::Illness => policy.affliction.illness_duration_days,
+                OtDeluxeAfflictionKind::Injury => policy.affliction.injury_duration_days,
+            },
+            |selected| selected.duration_for(&policy.affliction),
+        );
+        let disease_id = disease.map(|selected| selected.id.as_str());
+        let mut outcome = self
+            .ot_deluxe
+            .party
+            .apply_affliction_random(rng, kind, duration, disease_id);
+        if let (Some(selected), Some(ref mut result)) = (disease, outcome.as_mut()) {
+            if result.disease_id.is_none() {
+                result.disease_id = Some(selected.id.clone());
+            }
+            result.display_key = Some(selected.display_key.clone());
+            let onset_mult = self.apply_otdeluxe_disease_onset(selected);
+            self.ot_deluxe.travel.disease_speed_mult =
+                sanitize_disease_multiplier(self.ot_deluxe.travel.disease_speed_mult * onset_mult);
+        }
+        outcome
+    }
+
+    fn otdeluxe_affliction_payload(outcome: &OtDeluxeAfflictionOutcome) -> serde_json::Value {
+        serde_json::json!({
+            "member_index": outcome.member_index,
+            "died": outcome.died,
+            "kind": Self::otdeluxe_affliction_kind_key(outcome.kind),
+            "disease_id": outcome.disease_id,
+            "display_key": outcome.display_key
+        })
+    }
+
+    const fn otdeluxe_affliction_kind_key(kind: OtDeluxeAfflictionKind) -> &'static str {
+        match kind {
+            OtDeluxeAfflictionKind::Illness => "illness",
+            OtDeluxeAfflictionKind::Injury => "injury",
+        }
+    }
+
+    fn lose_random_party_members<R: Rng + ?Sized>(&mut self, rng: &mut R, count: u8) -> Vec<usize> {
+        let mut alive_indices: Vec<usize> = self
+            .ot_deluxe
+            .party
+            .members
+            .iter()
+            .enumerate()
+            .filter_map(|(idx, member)| member.alive.then_some(idx))
+            .collect();
+        let mut lost = Vec::new();
+        for _ in 0..count {
+            if alive_indices.is_empty() {
+                break;
+            }
+            let idx = rng.gen_range(0..alive_indices.len());
+            let member_idx = alive_indices.swap_remove(idx);
+            if let Some(member) = self.ot_deluxe.party.members.get_mut(member_idx) {
+                member.alive = false;
+                lost.push(member_idx);
+            }
+        }
+        lost
+    }
+
+    fn lose_random_spare<R: Rng + ?Sized>(&mut self, rng: &mut R) -> Option<&'static str> {
+        let wheels = self.ot_deluxe.inventory.spares_wheels;
+        let axles = self.ot_deluxe.inventory.spares_axles;
+        let tongues = self.ot_deluxe.inventory.spares_tongues;
+        let total = u32::from(wheels) + u32::from(axles) + u32::from(tongues);
+        if total == 0 {
+            return None;
+        }
+        let roll = rng.gen_range(0..total);
+        let mut cursor = u32::from(wheels);
+        if roll < cursor {
+            self.ot_deluxe.inventory.spares_wheels =
+                self.ot_deluxe.inventory.spares_wheels.saturating_sub(1);
+            return Some("wheel");
+        }
+        cursor = cursor.saturating_add(u32::from(axles));
+        if roll < cursor {
+            self.ot_deluxe.inventory.spares_axles =
+                self.ot_deluxe.inventory.spares_axles.saturating_sub(1);
+            return Some("axle");
+        }
+        self.ot_deluxe.inventory.spares_tongues =
+            self.ot_deluxe.inventory.spares_tongues.saturating_sub(1);
+        Some("tongue")
+    }
+
+    fn apply_otdeluxe_health_delta(&mut self, delta: i32) -> i32 {
+        Self::apply_u16_delta(&mut self.ot_deluxe.health_general, delta)
+    }
+
+    fn apply_otdeluxe_food_delta(&mut self, delta: i32) -> i32 {
+        Self::apply_u16_delta(&mut self.ot_deluxe.inventory.food_lbs, delta)
+    }
+
+    fn apply_otdeluxe_bullets_delta(&mut self, delta: i32) -> i32 {
+        Self::apply_u16_delta(&mut self.ot_deluxe.inventory.bullets, delta)
+    }
+
+    fn apply_otdeluxe_clothes_delta(&mut self, delta: i32) -> i32 {
+        Self::apply_u16_delta(&mut self.ot_deluxe.inventory.clothes_sets, delta)
+    }
+
+    fn apply_otdeluxe_spares_delta(
+        &mut self,
+        wheels: i16,
+        axles: i16,
+        tongues: i16,
+    ) -> (i16, i16, i16) {
+        let wheels_delta =
+            Self::apply_u8_delta(&mut self.ot_deluxe.inventory.spares_wheels, wheels);
+        let axles_delta = Self::apply_u8_delta(&mut self.ot_deluxe.inventory.spares_axles, axles);
+        let tongues_delta =
+            Self::apply_u8_delta(&mut self.ot_deluxe.inventory.spares_tongues, tongues);
+        (wheels_delta, axles_delta, tongues_delta)
+    }
+
+    const fn apply_otdeluxe_no_grass_loss(&mut self) -> (i16, i16) {
+        if self.ot_deluxe.oxen.healthy > 0 {
+            self.ot_deluxe.oxen.healthy = self.ot_deluxe.oxen.healthy.saturating_sub(1);
+            self.ot_deluxe.oxen.sick = self.ot_deluxe.oxen.sick.saturating_add(1);
+            (-1, 1)
+        } else if self.ot_deluxe.oxen.sick > 0 {
+            self.ot_deluxe.oxen.sick = self.ot_deluxe.oxen.sick.saturating_sub(1);
+            (0, -1)
+        } else {
+            (0, 0)
+        }
+    }
+
+    const fn apply_otdeluxe_oxen_wander(&mut self) -> (i16, i16) {
+        if self.ot_deluxe.oxen.healthy > 0 {
+            self.ot_deluxe.oxen.healthy = self.ot_deluxe.oxen.healthy.saturating_sub(1);
+            (-1, 0)
+        } else if self.ot_deluxe.oxen.sick > 0 {
+            self.ot_deluxe.oxen.sick = self.ot_deluxe.oxen.sick.saturating_sub(1);
+            (0, -1)
+        } else {
+            (0, 0)
+        }
+    }
+
+    const fn apply_otdeluxe_oxen_sickness(&mut self) -> (i16, i16) {
+        if self.ot_deluxe.oxen.healthy > 0 {
+            self.ot_deluxe.oxen.healthy = self.ot_deluxe.oxen.healthy.saturating_sub(1);
+            self.ot_deluxe.oxen.sick = self.ot_deluxe.oxen.sick.saturating_add(1);
+            (-1, 1)
+        } else if self.ot_deluxe.oxen.sick > 0 {
+            self.ot_deluxe.oxen.sick = self.ot_deluxe.oxen.sick.saturating_sub(1);
+            (0, -1)
+        } else {
+            (0, 0)
+        }
+    }
+
+    fn apply_u16_delta(value: &mut u16, delta: i32) -> i32 {
+        if delta == 0 {
+            return 0;
+        }
+        let current = i32::from(*value);
+        let next = (current + delta).clamp(0, i32::from(u16::MAX));
+        *value = u16::try_from(next).unwrap_or(u16::MAX);
+        next - current
+    }
+
+    fn apply_u8_delta(value: &mut u8, delta: i16) -> i16 {
+        if delta == 0 {
+            return 0;
+        }
+        let current = i16::from(*value);
+        let next = (current + delta).clamp(0, i16::from(u8::MAX));
+        *value = u8::try_from(next).unwrap_or(u8::MAX);
+        next - current
     }
 
     pub(crate) fn handle_vehicle_state(

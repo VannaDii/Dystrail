@@ -18,6 +18,7 @@ pub mod journey;
 pub mod mechanics;
 pub mod numbers;
 pub mod otdeluxe_crossings;
+pub mod otdeluxe_random_events;
 pub mod otdeluxe_score;
 pub mod otdeluxe_state;
 pub mod otdeluxe_store;

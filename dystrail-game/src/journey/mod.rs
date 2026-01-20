@@ -1745,6 +1745,7 @@ pub(crate) enum RngPhase {
     EncounterTick,
     TravelTick,
     CrossingTick,
+    RandomEventTick,
     BossTick,
     TradeTick,
     HuntTick,
@@ -1753,7 +1754,9 @@ pub(crate) enum RngPhase {
 impl RngPhase {
     pub(crate) const fn allowed_streams(self) -> RngStreamMask {
         match self {
-            Self::DailyEffects | Self::ExecOrders => RngStreamMask::single(RngStream::Events),
+            Self::DailyEffects | Self::ExecOrders | Self::RandomEventTick => {
+                RngStreamMask::single(RngStream::Events)
+            }
             Self::HealthTick => RngStreamMask::single(RngStream::Health),
             Self::WeatherTick => RngStreamMask::single(RngStream::Weather),
             Self::VehicleBreakdown => RngStreamMask::single(RngStream::Breakdown),
@@ -2565,6 +2568,10 @@ mod tests {
         assert_eq!(
             RngPhase::CrossingTick.allowed_streams(),
             RngStreamMask::single(RngStream::Crossing)
+        );
+        assert_eq!(
+            RngPhase::RandomEventTick.allowed_streams(),
+            RngStreamMask::single(RngStream::Events)
         );
         assert_eq!(
             RngPhase::BossTick.allowed_streams(),

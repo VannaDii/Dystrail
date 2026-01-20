@@ -1,0 +1,70 @@
+{
+  "chance_per_day": 0.2,
+  "events": [
+    {
+      "id": "weather_catastrophe",
+      "weight": 3,
+      "variants": [
+        { "id": "blizzard", "weight": 1 },
+        { "id": "hailstorm", "weight": 1 },
+        { "id": "thunderstorm", "weight": 1 },
+        { "id": "heavy_fog", "weight": 1 },
+        { "id": "strong_winds", "weight": 1 }
+      ]
+    },
+    {
+      "id": "resource_shortage",
+      "weight": 3,
+      "variants": [
+        { "id": "bad_water", "weight": 1 },
+        { "id": "no_water", "weight": 1 },
+        { "id": "no_grass", "weight": 1 }
+      ]
+    },
+    {
+      "id": "party_incident",
+      "weight": 2,
+      "variants": [
+        { "id": "lost_member", "weight": 1 },
+        { "id": "snakebite", "weight": 1 }
+      ]
+    },
+    {
+      "id": "oxen_incident",
+      "weight": 2,
+      "variants": [
+        { "id": "ox_wandered_off", "weight": 1 },
+        { "id": "ox_sickness", "weight": 1 }
+      ]
+    },
+    {
+      "id": "resource_change",
+      "weight": 4,
+      "variants": [
+        { "id": "abandoned_wagon_empty", "weight": 2 },
+        { "id": "abandoned_wagon_supplies", "weight": 1 },
+        { "id": "thief", "weight": 1 },
+        { "id": "wild_fruit", "weight": 1 },
+        { "id": "mutual_aid_food", "weight": 1 },
+        { "id": "gravesite", "weight": 1 },
+        { "id": "fire", "weight": 1 }
+      ]
+    },
+    {
+      "id": "wagon_part_break",
+      "weight": 2,
+      "variants": [
+        { "id": "repairable", "weight": 1 },
+        { "id": "replaceable", "weight": 1 },
+        { "id": "unrepairable", "weight": 1 }
+      ]
+    },
+    {
+      "id": "travel_hazard",
+      "weight": 2,
+      "variants": [
+        { "id": "rough_trail", "weight": 1 }
+      ]
+    }
+  ]
+}

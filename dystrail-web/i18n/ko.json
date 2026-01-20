@@ -161,6 +161,47 @@
         "drowned": "Tragedy at the crossing."
       }
     },
+    "otdeluxe": {
+      "random_event": {
+        "weather_catastrophe": {
+          "blizzard": "Blizzard lashes the trail.",
+          "hailstorm": "Hailstorm pelts the wagon.",
+          "thunderstorm": "Severe storm batters the trail.",
+          "heavy_fog": "Heavy fog slows the caravan.",
+          "strong_winds": "Strong winds wear you down."
+        },
+        "resource_shortage": {
+          "bad_water": "Bad water makes the party ill.",
+          "no_water": "No water to be found today.",
+          "no_grass": "No grass for the oxen."
+        },
+        "party_incident": {
+          "lost_member": "A party member is lost.",
+          "snakebite": "Snakebite! Someone is injured."
+        },
+        "oxen_incident": {
+          "ox_wandered_off": "An ox wandered off during the night.",
+          "ox_sickness": "An ox has fallen ill."
+        },
+        "resource_change": {
+          "abandoned_wagon_empty": "An abandoned wagon yields nothing.",
+          "abandoned_wagon_supplies": "An abandoned wagon holds useful supplies.",
+          "thief": "A thief stole supplies.",
+          "wild_fruit": "You find wild fruit along the trail.",
+          "mutual_aid_food": "Friendly travelers share food.",
+          "gravesite": "A gravesite offers a few supplies.",
+          "fire": "A fire destroys supplies."
+        },
+        "wagon_part_break": {
+          "repairable": "A wagon part breaks but can be repaired.",
+          "replaceable": "A wagon part breaks and must be replaced.",
+          "unrepairable": "A wagon part breaks beyond repair."
+        },
+        "travel_hazard": {
+          "rough_trail": "Rough trail slows your progress."
+        }
+      }
+    },
     "store": "Store"
   },
   "menu": {

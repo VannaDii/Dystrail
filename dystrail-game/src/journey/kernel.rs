@@ -291,12 +291,14 @@ impl<'a> DailyTickKernel<'a> {
             return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
         }
 
-        if let Some(result) = {
-            let _guard = rng_bundle
-                .as_ref()
-                .map(|bundle| bundle.phase_guard_for(RngPhase::EncounterTick));
-            state.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
-        } {
+        if state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s
+            && let Some(result) = {
+                let _guard = rng_bundle
+                    .as_ref()
+                    .map(|bundle| bundle.phase_guard_for(RngPhase::EncounterTick));
+                state.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
+            }
+        {
             return result;
         }
         if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
@@ -322,6 +324,13 @@ impl<'a> DailyTickKernel<'a> {
             state.handle_crossing_event(computed_miles_today)
         } {
             return (ended, log, breakdown_started);
+        }
+
+        if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::RandomEventTick));
+            state.apply_otdeluxe_random_event();
         }
 
         let additional_miles = (state.distance_today - state.current_day_miles).max(0.0);

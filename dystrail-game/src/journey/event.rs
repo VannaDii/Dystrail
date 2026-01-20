@@ -47,6 +47,8 @@ pub enum EventKind {
     BreakdownResolved,
     /// Encounter selected for the day.
     EncounterTriggered,
+    /// Random non-navigation event resolved for the day.
+    RandomEventResolved,
     /// Trade intent resolved with an offer or rejection.
     TradeResolved,
     /// Hunt intent resolved with success or block reason.
@@ -148,6 +150,7 @@ pub struct WeightedCandidate {
 pub enum RollValue {
     U32(u32),
     F32(f32),
+    F64(f64),
 }
 
 /// Single multiplicative weight factor used in an event selection trace.
@@ -199,6 +202,20 @@ mod tests {
                 ],
                 final_weight: 1.0,
             }],
+            chosen_id: String::from("candidate-a"),
+        };
+
+        let json = serde_json::to_string(&trace).expect("serialize");
+        let restored: EventDecisionTrace = serde_json::from_str(&json).expect("deserialize");
+        assert_eq!(restored, trace);
+    }
+
+    #[test]
+    fn decision_trace_roundtrips_with_f64_roll() {
+        let trace = EventDecisionTrace {
+            pool_id: String::from("example.pool"),
+            roll: RollValue::F64(12.5),
+            candidates: Vec::new(),
             chosen_id: String::from("candidate-a"),
         };
 

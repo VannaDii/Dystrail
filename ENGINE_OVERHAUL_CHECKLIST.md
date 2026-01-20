@@ -1233,7 +1233,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 11) Encounters + Random Events
 
-- [ ] ENCOUNTER-001 (P0) Derive encounter chance exactly once per day from a single function
+- [x] ENCOUNTER-001 (P0) Derive encounter chance exactly once per day from a single function
   - Requirement:
     - Compute:
       - `encounter_base(region, mode, policy)`
@@ -1247,7 +1247,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Weather does not mutate encounter chance directly outside the derivation function.
     - UI helpers do not “precompute” encounter chance by mutating state.
 
-- [ ] ENCOUNTER-002 (P0) Separate “navigation hard-stop events” from “non-navigation random events”
+- [x] ENCOUNTER-002 (P0) Separate “navigation hard-stop events” from “non-navigation random events”
   - Requirement:
     - Navigation events that can hard-stop travel occur in ComputeMilesToday.
     - Non-navigation events occur in RandomEventTick and must not hard-stop travel (unless explicitly defined as hard-stop family).
@@ -1256,7 +1256,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Event taxonomy is explicit and prevents accidental hard-stops in the wrong phase.
 
-- [ ] ENCOUNTER-003 (P1) Implement event pools and context multipliers as data-driven tables
+- [x] ENCOUNTER-003 (P1) Implement event pools and context multipliers as data-driven tables
   - Requirement:
     - Random event selection must be:
       - base weights (data)
@@ -1266,7 +1266,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Changing event weights does not require code changes.
 
-- [ ] ENCOUNTER-004 (P0) Ensure Deluxe random-event families are covered (by events/encounters/vehicle/weather/exec orders)
+- [x] ENCOUNTER-004 (P0) Ensure Deluxe random-event families are covered (by events/encounters/vehicle/weather/exec orders)
   - Requirement:
     - The engine’s combined “event surface area” MUST cover the Deluxe families listed in the systems spec:
       - weather catastrophes (blizzard/hail/thunderstorm/fog/strong winds)
@@ -1285,7 +1285,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A coverage test can enumerate the event catalog and confirm every required family is represented.
 
-- [ ] ENCOUNTER-005 (P0) Implement `RandomEventTick` (phase 14) as the sole applicator of non-navigation random events
+- [x] ENCOUNTER-005 (P0) Implement `RandomEventTick` (phase 14) as the sole applicator of non-navigation random events
   - Requirement:
     - Implement a distinct RandomEventTick phase that:
       - selects non-navigation events from the policy-defined pool
@@ -1376,7 +1376,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 13) Crossings (Dystrail crossings + OT river crossings)
 
-- [ ] CROSSING-001 (P0) Make CrossingTick a stop-and-choose gate (no auto-resolution in parity mode)
+- [x] CROSSING-001 (P0) Make CrossingTick a stop-and-choose gate (no auto-resolution in parity mode)
   - Requirement:
     - If a crossing is reached, travel must stop and the day must end in a “needs choice” UI state.
     - Miles must not advance beyond the crossing until choice is resolved.
@@ -1391,7 +1391,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - UI has an explicit crossing phase; engine preserves pending crossing state.
 
-- [ ] CROSSING-002 (P0) Implement OT river crossings under OTDeluxe90sPolicy (ford/caulk-float/ferry/guide)
+- [x] CROSSING-002 (P0) Implement OT river crossings under OTDeluxe90sPolicy (ford/caulk-float/ferry/guide)
   - Requirement:
     - OTDeluxe rivers and special endgame river:
       - River crossings modeled: Kansas, Big Blue, Green, Snake
@@ -1426,7 +1426,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Crossing outcomes are policy-driven and emit structured events.
     - Ferry wait days are modeled as day-advancing non-travel days that still run root-cause ticks.
 
-- [ ] CROSSING-003 (P1) Keep existing Dystrail crossing model under DystrailLegacyPolicy
+- [x] CROSSING-003 (P1) Keep existing Dystrail crossing model under DystrailLegacyPolicy
   - Requirement:
     - Maintain current checkpoint/bridge-out system as a separate crossing model.
     - Ensure it does not contaminate OTDeluxe90sPolicy behavior (no shared constants, no auto-bribe in parity mode).
@@ -1531,7 +1531,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - EndgameTick can be removed/disabled without changing core day physics (it is not entangled with weather/health/travel).
 
-- [ ] RECORD-001 (P0) Implement `RecordDay + TerminalChecks + EndOfDay` as the finalizing phase for every tick
+- [x] RECORD-001 (P0) Implement `RecordDay + TerminalChecks + EndOfDay` as the finalizing phase for every tick
   - Requirement:
     - The final kernel phase must:
       - finalize the `DayRecord` (kind, miles, tags, and audit snapshot)
@@ -1698,7 +1698,7 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 
 - [x] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
 - [x] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
-- [ ] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
+- [x] AUDIT-014 Deluxe random-event families are all represented by the engine’s event catalog.
 - [x] AUDIT-015 Store availability is derived from `STORE_NODE_INDICES` (including the start store) and respects skipped nodes via `0` sentinels.
 - [x] AUDIT-016 Route-variant prompts occur at South Pass and Blue Mountains; taking a shortcut cannot visit skipped nodes or apply their store multipliers.
 
