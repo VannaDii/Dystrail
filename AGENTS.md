@@ -1,4 +1,4 @@
-# AGENT.md — Codex Operating Instructions (Rust + Yew, A11y + i18n Required)
+# Codex Operating Instructions (Rust + Yew, A11y + i18n Required)
 
 IMPORTANT: NEVER TAKE SHORT CUTS! Document and run the required CLI workflows for every change.
 
