@@ -720,7 +720,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Under OTDeluxe90sPolicy, a day’s outcomes depend only on OTDeluxe policy parameters + kernel phases, not hidden Dystrail-only assists.
     - Under DystrailLegacyPolicy, existing behaviors remain available and deterministic.
 
-- [ ] EXEC-001 (P1) Integrate exec orders as deterministic, phase-scoped modifiers (Dystrail extension)
+- [x] EXEC-001 (P1) Integrate exec orders as deterministic, phase-scoped modifiers (Dystrail extension)
   - Requirement:
     - Exec orders must be modeled as:
       - a deterministic state machine (active order + remaining duration + cooldown)
@@ -734,11 +734,8 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - strain
   - Spec refs:
     - Systems spec §13.2 (exec orders and policies), §14 (phase ownership boundaries).
-  - Current code notes (must change for parity):
-    - `dystrail-game/src/state.rs::GameState::tick_exec_order_state` currently:
-      - runs in `start_of_day()`
-      - consumes `rng.events()` for selection/duration (fixed), but is still not owned by an explicit RandomEventTick phase
-      - directly mutates stats and multipliers outside an explicit derived-effects boundary.
+  - Current code notes (completed):
+    - `tick_exec_order_state` now populates `ExecOrderEffects` and downstream phases consume effects without direct stat mutation.
   - Acceptance criteria:
     - Exec orders do not mutate downstream state directly outside their owning phase; they produce derived effects.
     - Removing exec orders does not change RNG consumption in unrelated phases.

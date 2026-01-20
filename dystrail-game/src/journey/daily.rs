@@ -35,11 +35,13 @@ pub(crate) fn apply_daily_supplies_sanity(
 
     let supplies_loss = channel_value(&cfg.supplies, pace, diet, weather, exec_key);
     let sanity_loss = channel_value(&cfg.sanity, pace, diet, weather, exec_key);
+    let exec_effects = state.exec_effects;
 
-    let supplies_delta = -rounded_i32(supplies_loss);
-    let sanity_delta = -rounded_i32(sanity_loss);
+    let supplies_delta = -rounded_i32(supplies_loss) + exec_effects.supplies_delta;
+    let sanity_delta = -rounded_i32(sanity_loss) + exec_effects.sanity_delta;
     apply_supplies_delta(state, supplies_delta);
     apply_sanity_delta(state, sanity_delta);
+    apply_morale_delta(state, exec_effects.morale_delta);
 
     DailyTickOutcome {
         supplies_delta,
@@ -120,6 +122,15 @@ fn apply_sanity_delta(state: &mut GameState, delta: i32) {
     let max_sanity = Stats::default().sanity;
     let sanity = state.stats.sanity + delta;
     state.stats.sanity = sanity.clamp(0, max_sanity);
+}
+
+fn apply_morale_delta(state: &mut GameState, delta: i32) {
+    if delta == 0 {
+        return;
+    }
+    let max_morale = Stats::default().morale;
+    let morale = state.stats.morale + delta;
+    state.stats.morale = morale.clamp(0, max_morale);
 }
 
 fn apply_health_delta(state: &mut GameState, delta: i32) {

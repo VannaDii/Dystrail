@@ -74,7 +74,7 @@ use crate::disease::{
 };
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState};
-use crate::exec_orders::ExecOrder;
+use crate::exec_orders::{ExecOrder, ExecOrderEffects};
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, DayTagSet, Event,
     EventDecisionTrace, EventId, EventKind, EventSeverity, JourneyCfg, MechanicalPolicyId,
@@ -1748,8 +1748,8 @@ mod tests {
     fn exec_order_effects_cover_all_variants() {
         let mut state = GameState::default();
         for &order in ExecOrder::ALL {
-            state.exec_travel_multiplier = 10.0;
-            state.exec_breakdown_bonus = 10.0;
+            state.exec_effects.travel_multiplier = 10.0;
+            state.exec_effects.breakdown_bonus = 10.0;
             state.inventory.tags.clear();
             state.apply_exec_order_effects(order);
         }
@@ -2514,7 +2514,13 @@ mod tests {
         let cfg = default_pacing_config();
         let (weather_delta, weather_cap) = state.encounter_weather_adjustment();
         let mut expected_state = state.clone();
-        expected_state.apply_encounter_chance_today(0.0, weather_delta, weather_cap, &cfg.limits);
+        expected_state.apply_encounter_chance_today(
+            0.0,
+            weather_delta,
+            0.0,
+            weather_cap,
+            &cfg.limits,
+        );
         let expected = expected_state.encounter_chance_today;
 
         state.apply_otdeluxe_pace_and_rations();
@@ -3987,9 +3993,7 @@ pub struct GameState {
     #[serde(default)]
     pub exec_order_cooldown: u8,
     #[serde(default)]
-    pub exec_travel_multiplier: f32,
-    #[serde(default)]
-    pub exec_breakdown_bonus: f32,
+    pub exec_effects: ExecOrderEffects,
     #[serde(default)]
     pub weather_travel_multiplier: f32,
     #[serde(default)]
@@ -4131,8 +4135,7 @@ macro_rules! game_state_defaults {
             current_order: None,
             exec_order_days_remaining: 0,
             exec_order_cooldown: 0,
-            exec_travel_multiplier: 1.0,
-            exec_breakdown_bonus: 0.0,
+            exec_effects: ExecOrderEffects::default(),
             weather_travel_multiplier: 1.0,
             illness_travel_penalty: 1.0,
             illness_days_remaining: 0,
@@ -4522,6 +4525,7 @@ impl GameState {
             .and_then(|order| cfg.exec_order_bonus.get(order.key()).copied())
             .unwrap_or(0.0)
             .max(0.0);
+        self.exec_effects.strain_bonus = exec_bonus;
 
         let weights = &cfg.weights;
         let mut strain = weights.hp.mul_add(hp_gap, weights.sanity * sanity_gap);
@@ -4585,8 +4589,7 @@ impl GameState {
         self.terminal_log_key = None;
         self.day_state.lifecycle.log_cursor = u32::try_from(self.logs.len()).unwrap_or(u32::MAX);
         self.day_state.lifecycle.event_seq = 0;
-        self.exec_travel_multiplier = 1.0;
-        self.exec_breakdown_bonus = 0.0;
+        self.exec_effects = ExecOrderEffects::default();
         self.weather_travel_multiplier = 1.0;
         self.distance_today = 0.0;
         self.distance_today_raw = 0.0;
@@ -4728,40 +4731,41 @@ impl GameState {
     fn apply_exec_order_effects(&mut self, order: ExecOrder) {
         match order {
             ExecOrder::Shutdown => {
-                self.stats.morale -= 1;
-                self.stats.supplies = (self.stats.supplies - 1).max(0);
+                self.exec_effects.morale_delta -= 1;
+                self.exec_effects.supplies_delta -= 1;
             }
             ExecOrder::TravelBanLite => {
-                self.stats.sanity -= 1;
-                self.exec_travel_multiplier *= EXEC_ORDER_SPEED_BONUS;
+                self.exec_effects.sanity_delta -= 1;
+                self.exec_effects.travel_multiplier *= EXEC_ORDER_SPEED_BONUS;
             }
             ExecOrder::BookPanic => {
                 if self.stats.morale < 7 {
-                    self.stats.sanity -= 1;
+                    self.exec_effects.sanity_delta -= 1;
                 }
             }
             ExecOrder::TariffTsunami => {
                 if !self.inventory.has_tag("legal_fund") {
-                    self.stats.supplies = (self.stats.supplies - 1).max(0);
+                    self.exec_effects.supplies_delta -= 1;
                 }
             }
             ExecOrder::DoEEliminated => {
-                self.stats.morale -= 1;
+                self.exec_effects.morale_delta -= 1;
             }
             ExecOrder::WarDeptReorg => {
-                self.exec_breakdown_bonus += EXEC_ORDER_BREAKDOWN_BONUS;
+                self.exec_effects.breakdown_bonus += EXEC_ORDER_BREAKDOWN_BONUS;
             }
         }
         self.cap_exec_order_effects();
-        self.stats.clamp();
     }
 
     const fn cap_exec_order_effects(&mut self) {
-        self.exec_travel_multiplier = self
-            .exec_travel_multiplier
+        self.exec_effects.travel_multiplier = self
+            .exec_effects
+            .travel_multiplier
             .clamp(EXEC_TRAVEL_MULTIPLIER_CLAMP_MIN, WEATHER_DEFAULT_SPEED);
-        self.exec_breakdown_bonus = self
-            .exec_breakdown_bonus
+        self.exec_effects.breakdown_bonus = self
+            .exec_effects
+            .breakdown_bonus
             .clamp(PROBABILITY_FLOOR, EXEC_BREAKDOWN_BONUS_CLAMP_MAX);
     }
 
@@ -5978,8 +5982,8 @@ impl GameState {
         distance *= stamina_penalty;
         partial_distance *= stamina_penalty;
 
-        distance *= self.exec_travel_multiplier;
-        partial_distance *= self.exec_travel_multiplier;
+        distance *= self.exec_effects.travel_multiplier;
+        partial_distance *= self.exec_effects.travel_multiplier;
         let illness_penalty = self.illness_travel_penalty.max(0.0);
         distance *= illness_penalty;
         partial_distance *= illness_penalty;
@@ -6920,6 +6924,7 @@ impl GameState {
         self.intent = IntentState::default();
         self.wait = WaitState::default();
         self.ot_deluxe = OtDeluxeState::default();
+        self.exec_effects = ExecOrderEffects::default();
         self.events_today.clear();
         self.decision_traces_today.clear();
         self.weather_effects = WeatherEffects::default();
@@ -6967,6 +6972,7 @@ impl GameState {
         self.recompute_day_counters();
         self.events_today.clear();
         self.decision_traces_today.clear();
+        self.exec_effects = ExecOrderEffects::default();
         self.weather_effects = WeatherEffects::default();
         self.pending_crossing_choice = None;
         self.pending_route_choice = None;
@@ -7465,7 +7471,7 @@ impl GameState {
             * self.journey_breakdown.beta.mul_add(wear_level, 1.0)
             * self.journey_pace_factor()
             * self.journey_weather_factor();
-        breakdown_chance = (breakdown_chance + self.exec_breakdown_bonus)
+        breakdown_chance = (breakdown_chance + self.exec_effects.breakdown_bonus)
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
 
         if self.endgame.active && (0.0..1.0).contains(&self.endgame.breakdown_scale) {
@@ -7785,7 +7791,8 @@ impl GameState {
             return false;
         }
         self.vehicle.repair(VEHICLE_JURY_RIG_HEAL);
-        self.exec_travel_multiplier = (self.exec_travel_multiplier * VEHICLE_EXEC_MULTIPLIER_DECAY)
+        self.exec_effects.travel_multiplier = (self.exec_effects.travel_multiplier
+            * VEHICLE_EXEC_MULTIPLIER_DECAY)
             .max(VEHICLE_EXEC_MULTIPLIER_FLOOR);
         self.logs.push(String::from(LOG_VEHICLE_REPAIR_SPARE));
         true
@@ -7805,7 +7812,8 @@ impl GameState {
             repair_amount = repair_amount.max(boost);
         }
         self.vehicle.repair(repair_amount);
-        self.exec_travel_multiplier = (self.exec_travel_multiplier * VEHICLE_EXEC_MULTIPLIER_DECAY)
+        self.exec_effects.travel_multiplier = (self.exec_effects.travel_multiplier
+            * VEHICLE_EXEC_MULTIPLIER_DECAY)
             .max(VEHICLE_EXEC_MULTIPLIER_FLOOR);
         self.logs.push(String::from(log_key));
     }
@@ -7837,6 +7845,7 @@ impl GameState {
         &mut self,
         pace_delta: f32,
         weather_delta: f32,
+        exec_delta: f32,
         weather_cap: f32,
         limits: &PacingLimits,
     ) {
@@ -7852,7 +7861,7 @@ impl GameState {
             limits.encounter_ceiling
         };
         let encounter_ceiling = base_ceiling.min(weather_cap);
-        let mut encounter = encounter_base + pace_delta + weather_delta;
+        let mut encounter = encounter_base + pace_delta + weather_delta + exec_delta;
 
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             encounter = (encounter + ENCOUNTER_CRITICAL_VEHICLE_BONUS)
@@ -7884,9 +7893,11 @@ impl GameState {
 
         let _ = self.compute_miles_for_today(&pace_cfg, limits);
         let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
+        let exec_delta = self.exec_effects.encounter_delta;
         self.apply_encounter_chance_today(
             pace_cfg.encounter_chance_delta,
             weather_delta,
+            exec_delta,
             weather_cap,
             limits,
         );
@@ -7926,7 +7937,7 @@ impl GameState {
         let _ = self.compute_otdeluxe_miles_for_today(policy);
         let cfg = default_pacing_config();
         let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
-        self.apply_encounter_chance_today(0.0, weather_delta, weather_cap, &cfg.limits);
+        self.apply_encounter_chance_today(0.0, weather_delta, 0.0, weather_cap, &cfg.limits);
     }
 
     const fn encounter_weather_adjustment(&self) -> (f32, f32) {

@@ -11,6 +11,31 @@ pub enum ExecOrder {
     WarDeptReorg,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct ExecOrderEffects {
+    pub travel_multiplier: f32,
+    pub breakdown_bonus: f32,
+    pub encounter_delta: f32,
+    pub strain_bonus: f32,
+    pub supplies_delta: i32,
+    pub sanity_delta: i32,
+    pub morale_delta: i32,
+}
+
+impl Default for ExecOrderEffects {
+    fn default() -> Self {
+        Self {
+            travel_multiplier: 1.0,
+            breakdown_bonus: 0.0,
+            encounter_delta: 0.0,
+            strain_bonus: 0.0,
+            supplies_delta: 0,
+            sanity_delta: 0,
+            morale_delta: 0,
+        }
+    }
+}
+
 impl ExecOrder {
     pub const ALL: &'static [Self] = &[
         Self::Shutdown,
