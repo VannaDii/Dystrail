@@ -297,6 +297,11 @@ impl<'a> DailyTickKernel<'a> {
                 state.process_encounter_flow(rng_bundle.as_ref(), breakdown_started)
             }
         {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::TravelTick));
+            state.compute_travel_distance_today(default_pacing_config());
+            state.apply_encounter_partial_travel();
             return result;
         }
         if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
@@ -304,9 +309,15 @@ impl<'a> DailyTickKernel<'a> {
                 .as_ref()
                 .map(|bundle| bundle.phase_guard_for(RngPhase::TravelTick));
             state.apply_otdeluxe_pace_and_rations();
+            state.compute_otdeluxe_travel_distance_today();
             if state.apply_otdeluxe_navigation_event() {
                 return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
             }
+        } else {
+            let _guard = rng_bundle
+                .as_ref()
+                .map(|bundle| bundle.phase_guard_for(RngPhase::TravelTick));
+            state.compute_travel_distance_today(default_pacing_config());
         }
 
         let computed_miles_today = if state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {

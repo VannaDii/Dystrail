@@ -2388,7 +2388,7 @@ mod tests {
         state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
         state.ot_deluxe.party.members[0].sick_days_remaining = 1;
 
-        state.apply_otdeluxe_pace_and_rations();
+        state.compute_otdeluxe_travel_distance_today();
 
         assert!((state.distance_today - 9.0).abs() <= 1e-6);
         assert!((state.distance_today_raw - 9.0).abs() <= 1e-6);
@@ -3426,6 +3426,7 @@ mod tests {
         state.partial_distance_today = 2.0;
 
         let outcome = state.process_encounter_flow(Some(&bundle), false);
+        state.apply_encounter_partial_travel();
 
         assert!(outcome.is_some());
         assert!(state.current_encounter.is_some());
@@ -8162,26 +8163,6 @@ impl GameState {
             let is_hard_stop = enc.hard_stop;
             let is_major_repair = enc.major_repair;
             let is_chainable = enc.chainable;
-            if self.features.travel_v2
-                && self.distance_today > 0.0
-                && !(is_hard_stop || is_major_repair)
-            {
-                let mut partial = if self.partial_distance_today > 0.0 {
-                    self.partial_distance_today
-                } else {
-                    self.distance_today * TRAVEL_PARTIAL_RECOVERY_RATIO
-                };
-                partial = partial.min(self.distance_today);
-                let wear_scale = if self.distance_today > 0.0 {
-                    (partial / self.distance_today)
-                        .clamp(TRAVEL_PARTIAL_CLAMP_LOW, TRAVEL_PARTIAL_CLAMP_HIGH)
-                } else {
-                    TRAVEL_PARTIAL_DEFAULT_WEAR
-                };
-                self.record_travel_day(TravelDayKind::Partial, partial, "");
-                self.apply_travel_wear_scaled(wear_scale);
-                self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
-            }
             if is_major_repair {
                 self.record_travel_day(TravelDayKind::NonTravel, 0.0, "repair");
             }
@@ -8206,6 +8187,36 @@ impl GameState {
         }
 
         None
+    }
+
+    pub(crate) fn apply_encounter_partial_travel(&mut self) {
+        if !self.features.travel_v2 || !self.encounters.occurred_today {
+            return;
+        }
+        let Some(encounter) = self.current_encounter.as_ref() else {
+            return;
+        };
+        if encounter.hard_stop || encounter.major_repair {
+            return;
+        }
+        if self.distance_today <= 0.0 {
+            return;
+        }
+        let mut partial = if self.partial_distance_today > 0.0 {
+            self.partial_distance_today
+        } else {
+            self.distance_today * TRAVEL_PARTIAL_RECOVERY_RATIO
+        };
+        partial = partial.min(self.distance_today);
+        let wear_scale = if self.distance_today > 0.0 {
+            (partial / self.distance_today)
+                .clamp(TRAVEL_PARTIAL_CLAMP_LOW, TRAVEL_PARTIAL_CLAMP_HIGH)
+        } else {
+            TRAVEL_PARTIAL_DEFAULT_WEAR
+        };
+        self.record_travel_day(TravelDayKind::Partial, partial, "");
+        self.apply_travel_wear_scaled(wear_scale);
+        self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
     }
 
     fn should_trigger_encounter(&self, rng_bundle: Option<&Rc<RngBundle>>) -> bool {
@@ -8771,7 +8782,6 @@ impl GameState {
         let diet_cfg = cfg.get_diet_safe(self.diet.as_str());
         let limits = &cfg.limits;
 
-        let _ = self.compute_miles_for_today(&pace_cfg, limits);
         let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
         let exec_delta = self.exec_effects.encounter_delta;
         self.apply_encounter_chance_today(
@@ -8812,12 +8822,21 @@ impl GameState {
         self.receipt_bonus_pct = self.receipt_bonus_pct.clamp(-100, 100);
     }
 
+    pub fn compute_travel_distance_today(&mut self, cfg: &crate::pacing::PacingConfig) -> f32 {
+        let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
+        let limits = &cfg.limits;
+        self.compute_miles_for_today(&pace_cfg, limits)
+    }
+
     pub fn apply_otdeluxe_pace_and_rations(&mut self) {
-        let policy = default_otdeluxe_policy();
-        let _ = self.compute_otdeluxe_miles_for_today(policy);
         let cfg = default_pacing_config();
         let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
         self.apply_encounter_chance_today(0.0, weather_delta, 0.0, weather_cap, &cfg.limits);
+    }
+
+    pub(crate) fn compute_otdeluxe_travel_distance_today(&mut self) -> f32 {
+        let policy = default_otdeluxe_policy();
+        self.compute_otdeluxe_miles_for_today(policy)
     }
 
     const fn encounter_weather_adjustment(&self) -> (f32, f32) {

@@ -1110,7 +1110,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 10) Travel / Progress + Hard-Stops
 
-- [ ] TRAVEL-001 (P0) Implement the normative travel phase order (VehicleTick → TravelBlockTick → EncounterTick → ComputeMilesToday → TravelWearTick)
+- [x] TRAVEL-001 (P0) Implement the normative travel phase order (VehicleTick → TravelBlockTick → EncounterTick → ComputeMilesToday → TravelWearTick)
   - Requirement:
     - Travel cannot occur until after Weather/Supplies/Health + boss gate + intent resolution.
   - Spec refs:
@@ -1203,7 +1203,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - The terrain multiplier is applied only where appropriate, deterministically.
 
-- [ ] TRAVEL-009 (P0) Implement `ComputeMilesToday` as an explicit phase (distance fields + progress update + nav hard-stops)
+- [x] TRAVEL-009 (P0) Implement `ComputeMilesToday` as an explicit phase (distance fields + progress update + nav hard-stops)
   - Requirement:
     - ComputeMilesToday must:
       - compute `distance_today_raw` and `distance_today` for the day using the active policy model

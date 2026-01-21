@@ -65,6 +65,7 @@ fn test_pace_diet_effects() {
     // Apply pace and diet effects
     game_state.start_of_day();
     game_state.apply_pace_and_diet(&config);
+    game_state.compute_travel_distance_today(&config);
 
     // Check that effects were applied
     assert_eq!(game_state.stats.sanity, initial_sanity + 2 + 3); // heated + doom
@@ -87,6 +88,7 @@ fn test_default_pace_diet() {
     // Test default values work
     game_state.start_of_day();
     game_state.apply_pace_and_diet(&config);
+    game_state.compute_travel_distance_today(&config);
 
     // Should not crash and should have reasonable defaults
     assert!(game_state.distance_today >= 0);
