@@ -304,7 +304,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Kernel returns a `DayOutcome` containing these artifacts (directly or via fields).
     - Replay/audit can reconstruct day outcomes without reading UI logs.
 
-- [ ] ARCH-004B (P0) Enforce phase ownership boundaries structurally (compile-time preferred)
+- [x] ARCH-004B (P0) Enforce phase ownership boundaries structurally (compile-time preferred)
   - Requirement:
     - The systems spec defines strict phase ownership (WeatherTick owns weather/accumulators/effects; HealthTick owns health/afflictions/strain; etc.).
     - Implementation must enforce this beyond convention by structuring code so phases cannot easily mutate foreign slices:

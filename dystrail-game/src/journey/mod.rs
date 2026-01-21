@@ -20,6 +20,7 @@ use crate::weather::Weather;
 pub mod daily;
 pub mod event;
 pub mod kernel;
+pub(crate) mod phase;
 pub mod session;
 pub use daily::DailyTickOutcome;
 pub use event::{
