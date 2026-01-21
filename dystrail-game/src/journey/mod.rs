@@ -13,7 +13,7 @@ use std::time::Instant;
 use thiserror::Error;
 
 use crate::endgame::EndgameTravelCfg;
-use crate::state::{DietId, GameMode, PaceId, PolicyKind};
+use crate::state::{DayIntent, DietId, GameMode, PaceId, PolicyKind, Region, Season};
 use crate::vehicle::PartWeights;
 use crate::weather::Weather;
 
@@ -106,6 +106,45 @@ impl DayRecord {
         self.tags.push(tag);
     }
 }
+
+/// Canonical inputs that describe a single simulated day.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DayInputs {
+    pub day: u32,
+    pub intent: DayIntent,
+    pub pace: PaceId,
+    pub diet: DietId,
+    pub region: Region,
+    pub season: Season,
+    pub mode: GameMode,
+    pub mechanical_policy: MechanicalPolicyId,
+    pub weather: Weather,
+}
+
+/// Delta for each stat field applied during a day.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct StatsDelta {
+    pub supplies: i32,
+    pub hp: i32,
+    pub sanity: i32,
+    pub credibility: i32,
+    pub morale: i32,
+    pub allies: i32,
+    pub pants: i32,
+}
+
+/// Aggregate resource, health, and progress deltas for a day.
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
+pub struct DayEffects {
+    pub stats: StatsDelta,
+    pub budget_delta: i32,
+    pub budget_cents_delta: i64,
+    pub miles_traveled_delta: f32,
+    pub miles_traveled_actual_delta: f32,
+}
+
+/// Structured event output for a single simulated day.
+pub type DayEvents = Vec<Event>;
 
 /// Mechanical ruleset selection for the simulation kernel.
 ///
@@ -1679,8 +1718,10 @@ pub struct DayOutcome {
     pub log_key: String,
     pub breakdown_started: bool,
     pub day_consumed: bool,
+    pub inputs: DayInputs,
+    pub effects: DayEffects,
     pub record: Option<DayRecord>,
-    pub events: Vec<Event>,
+    pub events: DayEvents,
     pub decision_traces: Vec<EventDecisionTrace>,
 }
 

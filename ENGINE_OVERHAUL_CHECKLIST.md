@@ -291,7 +291,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - `JourneySession::tick_day()` and all UI entrypoints do not call “daily physics” functions outside the kernel.
     - Any “preview” computations (for UI) are pure functions that do not mutate state or consume RNG.
 
-- [ ] ARCH-004 (P1) Define explicit “DayInputs / DayEffects / DayEvents / DayRecord”
+- [x] ARCH-004 (P1) Define explicit “DayInputs / DayEffects / DayEvents / DayRecord”
   - Requirement:
     - Each day must produce:
       - `DayInputs` (player intent + derived conditions)

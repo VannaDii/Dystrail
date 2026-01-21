@@ -52,9 +52,10 @@ pub use endgame::{EndgameState, EndgameTravelCfg};
 pub use hunt::{HuntBlockReason, HuntOutcome, resolve_hunt, resolve_hunt_with_rng};
 pub use journey::{
     AcceptanceGuards, BribePolicy, CrossingPolicy, CrossingPolicyOverlay, DailyTickOutcome,
-    DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy, Event, EventDecisionTrace, EventId,
-    EventKind, EventSeverity, JourneyCfg, JourneyController, JourneySession, MechanicalPolicyId,
-    PermitPolicy, PolicyId, RngBundle, StrategyId, TravelDayKind, UiSurfaceHint,
+    DayEffects, DayEvents, DayInputs, DayOutcome, DayRecord, DayTag, DayTagSet, DetourPolicy,
+    Event, EventDecisionTrace, EventId, EventKind, EventSeverity, JourneyCfg, JourneyController,
+    JourneySession, MechanicalPolicyId, PermitPolicy, PolicyId, RngBundle, StatsDelta, StrategyId,
+    TravelDayKind, UiSurfaceHint,
 };
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,

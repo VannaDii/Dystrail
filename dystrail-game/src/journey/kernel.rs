@@ -6,8 +6,67 @@ use crate::journey::phase::{
     BossPhase, ExecOrderPhase, HealthPhase, IntentPhase, PacingPhase, PendingPhase, SuppliesPhase,
     TravelPhase, WaitPhase, WeatherPhase,
 };
-use crate::journey::{DayOutcome, Event, EventId, JourneyCfg, MechanicalPolicyId, TravelDayKind};
-use crate::state::GameState;
+use crate::journey::{
+    DayEffects, DayInputs, DayOutcome, Event, EventId, JourneyCfg, MechanicalPolicyId, StatsDelta,
+    TravelDayKind,
+};
+use crate::state::{DayIntent, DietId, GameMode, GameState, PaceId, Region, Season};
+
+#[derive(Debug, Clone, Copy)]
+struct StatsSnapshot {
+    supplies: i32,
+    hp: i32,
+    sanity: i32,
+    credibility: i32,
+    morale: i32,
+    allies: i32,
+    pants: i32,
+}
+
+#[derive(Debug, Clone, Copy)]
+struct DaySnapshot {
+    day: u32,
+    intent: DayIntent,
+    pace: PaceId,
+    diet: DietId,
+    region: Region,
+    season: Season,
+    mode: GameMode,
+    mechanical_policy: MechanicalPolicyId,
+    stats: StatsSnapshot,
+    budget: i32,
+    budget_cents: i64,
+    miles_traveled: f32,
+    miles_traveled_actual: f32,
+}
+
+impl DaySnapshot {
+    const fn capture(state: &GameState) -> Self {
+        Self {
+            day: state.day,
+            intent: state.intent.pending,
+            pace: state.pace,
+            diet: state.diet,
+            region: state.region,
+            season: state.season,
+            mode: state.mode,
+            mechanical_policy: state.mechanical_policy,
+            stats: StatsSnapshot {
+                supplies: state.stats.supplies,
+                hp: state.stats.hp,
+                sanity: state.stats.sanity,
+                credibility: state.stats.credibility,
+                morale: state.stats.morale,
+                allies: state.stats.allies,
+                pants: state.stats.pants,
+            },
+            budget: state.budget,
+            budget_cents: state.budget_cents,
+            miles_traveled: state.miles_traveled,
+            miles_traveled_actual: state.miles_traveled_actual,
+        }
+    }
+}
 
 pub(crate) struct DailyTickKernel<'a> {
     cfg: &'a JourneyCfg,
@@ -50,20 +109,21 @@ impl<'a> DailyTickKernel<'a> {
     where
         F: FnOnce(&mut GameState),
     {
+        let snapshot = DaySnapshot::capture(state);
         if let Some((ended, log_key, breakdown_started)) =
             PendingPhase::new(state).resolve_pending_route_prompt()
         {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
         if let Some((ended, log_key, breakdown_started)) =
             PendingPhase::new(state).resolve_pending_crossing()
         {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
         if let Some((ended, log_key, breakdown_started)) =
             PendingPhase::new(state).resolve_pending_store()
         {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
         self.apply_daily_physics(state);
         {
@@ -73,23 +133,24 @@ impl<'a> DailyTickKernel<'a> {
         hook(state);
 
         if let Some((ended, log_key, breakdown_started)) = BossPhase::new(state).run() {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
 
         if let Some((ended, log_key, breakdown_started)) = WaitPhase::new(state).run() {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
 
         if let Some((ended, log_key, breakdown_started)) = IntentPhase::new(state).run() {
-            return Self::build_outcome(state, ended, log_key, breakdown_started);
+            return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
 
         let (ended, log_key, breakdown_started) = TravelPhase::new(state).run(self.endgame_cfg);
-        Self::build_outcome(state, ended, log_key, breakdown_started)
+        Self::build_outcome(state, snapshot, ended, log_key, breakdown_started)
     }
 
     fn build_outcome(
         state: &mut GameState,
+        snapshot: DaySnapshot,
         ended: bool,
         log_key: String,
         breakdown_started: bool,
@@ -134,11 +195,41 @@ impl<'a> DailyTickKernel<'a> {
         state.day_state.lifecycle.log_cursor = u32::try_from(log_end).unwrap_or(u32::MAX);
         state.day_state.lifecycle.event_seq = seq;
         let decision_traces = std::mem::take(&mut state.decision_traces_today);
+        let inputs = DayInputs {
+            day: snapshot.day,
+            intent: snapshot.intent,
+            pace: snapshot.pace,
+            diet: snapshot.diet,
+            region: snapshot.region,
+            season: snapshot.season,
+            mode: snapshot.mode,
+            mechanical_policy: snapshot.mechanical_policy,
+            weather: state.weather_state.today,
+        };
+        let stats_delta = StatsDelta {
+            supplies: state.stats.supplies - snapshot.stats.supplies,
+            hp: state.stats.hp - snapshot.stats.hp,
+            sanity: state.stats.sanity - snapshot.stats.sanity,
+            credibility: state.stats.credibility - snapshot.stats.credibility,
+            morale: state.stats.morale - snapshot.stats.morale,
+            allies: state.stats.allies - snapshot.stats.allies,
+            pants: state.stats.pants - snapshot.stats.pants,
+        };
+        let effects = DayEffects {
+            stats: stats_delta,
+            budget_delta: state.budget - snapshot.budget,
+            budget_cents_delta: state.budget_cents - snapshot.budget_cents,
+            miles_traveled_delta: state.miles_traveled - snapshot.miles_traveled,
+            miles_traveled_actual_delta: state.miles_traveled_actual
+                - snapshot.miles_traveled_actual,
+        };
         DayOutcome {
             ended: resolved_ended,
             log_key: resolved_log_key,
             breakdown_started,
             day_consumed,
+            inputs,
+            effects,
             record,
             events,
             decision_traces,
@@ -618,10 +709,17 @@ mod tests {
         });
         state.ot_deluxe.crossing.computed_miles_today = 6.0;
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("expected outcome");
 
@@ -637,10 +735,17 @@ mod tests {
         };
         state.ot_deluxe.crossing.choice_pending = true;
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("expected outcome");
 
@@ -659,10 +764,17 @@ mod tests {
             ..GameState::default()
         };
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("expected outcome");
 
@@ -681,10 +793,17 @@ mod tests {
             ..GameState::default()
         };
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("expected outcome");
 
@@ -1345,8 +1464,14 @@ mod tests {
         };
         state.logs.push(String::from("log.extra"));
 
-        let outcome =
-            DailyTickKernel::build_outcome(&mut state, false, String::from("log.fallback"), false);
+        let snapshot = DaySnapshot::capture(&state);
+        let outcome = DailyTickKernel::build_outcome(
+            &mut state,
+            snapshot,
+            false,
+            String::from("log.fallback"),
+            false,
+        );
 
         assert_eq!(outcome.log_key, "log.terminal");
         assert!(!outcome.day_consumed);
@@ -1364,8 +1489,14 @@ mod tests {
         let mut state = GameState::default();
         state.logs.push(String::from(LOG_TRAVELED));
 
-        let outcome =
-            DailyTickKernel::build_outcome(&mut state, false, String::from(LOG_TRAVELED), false);
+        let snapshot = DaySnapshot::capture(&state);
+        let outcome = DailyTickKernel::build_outcome(
+            &mut state,
+            snapshot,
+            false,
+            String::from(LOG_TRAVELED),
+            false,
+        );
 
         let logged = outcome
             .events
@@ -1408,10 +1539,17 @@ mod tests {
             quantity: 10,
         }]);
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_store();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("outcome");
 
@@ -1429,10 +1567,17 @@ mod tests {
         state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::SubletteCutoff);
         state.pending_route_choice = Some(OtDeluxeRouteDecision::SubletteCutoff);
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_route_prompt();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("outcome");
 
@@ -1451,10 +1596,17 @@ mod tests {
             ..GameState::default()
         };
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("outcome");
 
@@ -1471,10 +1623,17 @@ mod tests {
         state.ot_deluxe.crossing.choice_pending = true;
         state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
 
+        let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
         let outcome = pending
             .map(|(ended, log_key, breakdown_started)| {
-                DailyTickKernel::build_outcome(&mut state, ended, log_key, breakdown_started)
+                DailyTickKernel::build_outcome(
+                    &mut state,
+                    snapshot,
+                    ended,
+                    log_key,
+                    breakdown_started,
+                )
             })
             .expect("outcome");
 
