@@ -1178,7 +1178,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - These gates are enforced before any miles are credited.
 
-- [ ] TRAVEL-007 (P0) Implement the Deluxe travel formula and multipliers (BASE_MPD=20 model)
+- [x] TRAVEL-007 (P0) Implement the Deluxe travel formula and multipliers (BASE_MPD=20 model)
   - Requirement:
     - Compute daily miles using the normative Deluxe-lineage formula:
       - base = `BASE_MPD_PLAINS_STEADY_GOOD` (20)
