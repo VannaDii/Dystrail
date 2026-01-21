@@ -1952,6 +1952,18 @@ mod tests {
     }
 
     #[test]
+    fn mobility_readiness_tracks_vehicle_health() {
+        let mut state = GameState::default();
+        state.vehicle.health = VEHICLE_HEALTH_MAX;
+        let ready_full = state.mobility_readiness();
+        assert!((ready_full - 1.0).abs() <= f32::EPSILON);
+
+        state.vehicle.health = VEHICLE_CRITICAL_THRESHOLD;
+        let ready_critical = state.mobility_readiness();
+        assert!((ready_critical - VEHICLE_CRITICAL_SPEED_FACTOR).abs() <= f32::EPSILON);
+    }
+
+    #[test]
     fn enumeration_roundtrips_cover_branches() {
         use std::str::FromStr;
 
@@ -6329,7 +6341,8 @@ impl GameState {
             partial_distance *= travel_boost;
         }
 
-        let stamina_penalty = self.vehicle_penalty() * self.malnutrition_penalty();
+        let mobility_readiness = self.mobility_readiness();
+        let stamina_penalty = mobility_readiness * self.malnutrition_penalty();
         distance *= stamina_penalty;
         partial_distance *= stamina_penalty;
 
@@ -6474,7 +6487,7 @@ impl GameState {
         self.deep_conservative_travel_boost() * self.deep_aggressive_reach_boost()
     }
 
-    fn vehicle_penalty(&self) -> f32 {
+    fn mobility_readiness(&self) -> f32 {
         if self.vehicle.health <= VEHICLE_CRITICAL_THRESHOLD {
             VEHICLE_CRITICAL_SPEED_FACTOR
         } else {

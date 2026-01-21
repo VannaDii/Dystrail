@@ -199,7 +199,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 0) Non-Negotiable Global Requirements (applies to every item)
 
-- [ ] GLOBAL-001 (P0) Preserve determinism and replayability
+- [x] GLOBAL-001 (P0) Preserve determinism and replayability
   - Requirement:
     - The simulation must be deterministic given the same initial state, policy selection, and seed.
     - RNG usage must be phase-scoped and stable across refactors.
@@ -209,7 +209,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - For a fixed seed, a full run produces identical `DayRecord` sequences and identical event streams.
     - Tests that assert “deterministic digest” are updated only when intentional behavior changes are approved.
 
-- [ ] GLOBAL-002 (P0) Enforce satire as a presentation-only contract
+- [x] GLOBAL-002 (P0) Enforce satire as a presentation-only contract
   - Requirement:
     - All satire/narrative copy must be data-addressed (i18n keys).
     - Satire MUST NOT introduce RNG draws, hidden modifiers, timing changes, or phase reordering.
@@ -224,7 +224,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Engine layer emits mechanical events with deterministic payloads.
     - UI layer chooses satire text without reading RNG or mutating state.
 
-- [ ] GLOBAL-003 (P0) No piecemeal policy mixing
+- [x] GLOBAL-003 (P0) No piecemeal policy mixing
   - Requirement:
     - Any divergence from OTDeluxe behavior must be a named overlay (e.g., `DystrailLegacyPolicy`) and must not be mixed ad hoc.
   - Spec refs:
@@ -590,7 +590,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 4) Mechanical Policy Layer: `OTDeluxe90sPolicy` (separate from Dystrail strategies)
 
-- [ ] POLICY-001 (P0) Implement a first-class mechanical policy selection system
+- [x] POLICY-001 (P0) Implement a first-class mechanical policy selection system
   - Requirement:
     - Add a dedicated mechanical policy layer with explicit selection (e.g., `OTDeluxe90sPolicy` vs `DystrailLegacyPolicy`).
     - This must be distinct from existing difficulty/strategy overlays (Balanced/Aggressive/Conservative/ResourceManager).
@@ -613,7 +613,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - Acceptance criteria:
         - Under `OtDeluxe90s`, all parity-critical constants/curves come from `OTDeluxe90sPolicy` (not legacy config).
 
-- [ ] POLICY-002 (P0) Represent every “policy-defined” value as an explicit parameter (no hidden constants)
+- [x] POLICY-002 (P0) Represent every “policy-defined” value as an explicit parameter (no hidden constants)
   - Requirement:
     - All items marked “policy-defined”, “must be set”, or “still open” in the systems spec must exist as explicit fields in policy config.
   - Spec refs:
@@ -646,7 +646,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - A single policy can define “same rule, different region/season values” without branching logic in the kernel.
 
-- [ ] POLICY-003 (P0) Embed the extracted Deluxe constants into OTDeluxe90sPolicy
+- [x] POLICY-003 (P0) Embed the extracted Deluxe constants into OTDeluxe90sPolicy
   - Requirement:
     - Policy must include (at minimum) the EXE-extracted and locked decisions:
       - Store base prices (cents), caps, price multipliers, store node indices
@@ -670,7 +670,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
           - `FERRY_COST_CENTS` and `GUIDE_COST_CLOTHES`
         - A future OTDeluxe kernel can consume these constants without any additional extraction step.
 
-- [ ] POLICY-004 (P0) Policy must define the affliction odds curve and odds driver
+- [x] POLICY-004 (P0) Policy must define the affliction odds curve and odds driver
   - Requirement:
     - `OTDeluxe90sPolicy` uses `health_general` via `AFFLICTION_CURVE_PWL` (clamped to `P_AFFLICTION_MAX`).
     - Dystrail overlays may use `general_strain` with a separate `f_strain_to_prob` mapping.
@@ -679,7 +679,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Odds driver is chosen explicitly by policy; cannot drift due to incidental code paths.
 
-- [ ] POLICY-005 (P1) Policy must own “Deluxe-unknown but parity-critical” knobs (instrumented for later fitting)
+- [x] POLICY-005 (P1) Policy must own “Deluxe-unknown but parity-critical” knobs (instrumented for later fitting)
   - Requirement:
     - Define policy placeholders + logging for later empirical fit/extraction:
       - ferry wait distribution (default uniform 0..6)
@@ -692,7 +692,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Debug telemetry records sampled values so they can be fit later without changing kernel logic.
 
-- [ ] POLICY-006 (P0) Audit and fence off Dystrail-only “guardrails” and meta-modifiers from OTDeluxe90sPolicy
+- [x] POLICY-006 (P0) Audit and fence off Dystrail-only “guardrails” and meta-modifiers from OTDeluxe90sPolicy
   - Requirement:
     - The current engine contains multiple Dystrail-only mechanics that would violate Deluxe parity if they remain active under OTDeluxe90sPolicy.
     - Implementation MUST inventory all such mechanics and ensure they are:
@@ -744,7 +744,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 5) Event Bus + Day Records (Event-Sourced Simulation)
 
-- [ ] EVENT-001 (P0) Implement structured `Event` and emit events for all state changes
+- [x] EVENT-001 (P0) Implement structured `Event` and emit events for all state changes
   - Requirement:
     - Replace “log key as truth” with structured events.
     - Logs/UI strings are derived from events, not driving logic.
@@ -761,7 +761,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
         - `dystrail-web/src/app/view/handlers/travel.rs` renders day output from `outcome.events` (with a fallback to `log_key` during transition).
     - [ ] EVENT-001B Emit structured events for all state changes (retire `log_key` as the only truth)
 
-- [ ] EVENT-002 (P0) Implement “explainable event selection telemetry” (`EventDecisionTrace`)
+- [x] EVENT-002 (P0) Implement “explainable event selection telemetry” (`EventDecisionTrace`)
   - Requirement:
     - Whenever a random event/encounter is selected, capture “why” (base weight, multipliers, context inputs).
   - Spec refs:
@@ -775,7 +775,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
         - Encounter selection now emits traces and `JourneyController::tick_day()` surfaces them via `DayOutcome.decision_traces`.
         - Remaining: RandomEventTick + any other weighted pools must emit traces too (with fixed draw ordering).
 
-- [ ] EVENT-003 (P1) Provide stable event IDs and tags
+- [x] EVENT-003 (P1) Provide stable event IDs and tags
   - Requirement:
     - Events must include stable identifiers for replay and log correlation.
   - Acceptance criteria:
@@ -788,7 +788,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 6) Weather System (Deluxe causality, Dystrail generator)
 
-- [ ] WEATHER-001 (P0) Make WeatherTick the root cause of the day (phase order)
+- [x] WEATHER-001 (P0) Make WeatherTick the root cause of the day (phase order)
   - Requirement:
     - Weather selection happens before supplies burn, health, breakdown roll, encounters, and crossings.
   - Spec refs:
@@ -799,7 +799,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Kernel phase order enforces this; no other phase selects or mutates `weather_state.today`.
 
-- [ ] WEATHER-002 (P0) Introduce `WeatherEffects` fan-out struct and ensure downstream phases read it
+- [x] WEATHER-002 (P0) Introduce `WeatherEffects` fan-out struct and ensure downstream phases read it
   - Requirement:
     - Weather must produce a single “fan-out” object that covers the full causal footprint:
       - travel speed/progress deltas
@@ -813,7 +813,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Encounter chance and breakdown chance are influenced through `WeatherEffects`, not ad hoc additions.
 
-- [ ] WEATHER-003 (P0) Add precipitation accumulators (`rain_accum`, `snow_depth`) and hooks for snow slowdown
+- [x] WEATHER-003 (P0) Add precipitation accumulators (`rain_accum`, `snow_depth`) and hooks for snow slowdown
   - Requirement:
     - State must carry `snow_depth` and the slowdown hook `M_snow(snow_depth)` even if snow is dormant in v1.
   - Spec refs:
@@ -862,7 +862,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
 
 ## 7) Supplies Burn (“Eat”) + Starvation
 
-- [ ] SUPPLIES-001 (P0) Implement explicit SuppliesBurnTick (phase 3)
+- [x] SUPPLIES-001 (P0) Implement explicit SuppliesBurnTick (phase 3)
   - Requirement:
     - Apply daily consumption exactly once per day, after WeatherTick and before HealthTick.
     - Must run even on Rest/Trade/Hunt days.
@@ -871,7 +871,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - There is no way to skip supplies burn by resting/hunting/trading.
 
-- [ ] SUPPLIES-002 (P0) Move starvation mechanics out of StartOfDay and make them a post-burn consequence
+- [x] SUPPLIES-002 (P0) Move starvation mechanics out of StartOfDay and make them a post-burn consequence
   - Requirement:
     - Starvation effects/timers must be advanced as part of the supplies burn/health flow, not in `start_of_day()`.
   - Spec refs:
@@ -881,7 +881,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Starvation tick occurs in SuppliesBurnTick and/or HealthTick only.
 
-- [ ] SUPPLIES-003 (P1) Align Dystrail “supplies” vs OT “food_lbs” semantics under policy
+- [x] SUPPLIES-003 (P1) Align Dystrail “supplies” vs OT “food_lbs” semantics under policy
   - Requirement:
     - OTDeluxe90sPolicy requires itemized food (lbs) for store, hunting carry cap, and scoring.
     - DystrailLegacy may keep umbrella “supplies”.
@@ -891,7 +891,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Under OTDeluxe90sPolicy, `food_lbs` exists and is used for: consumption, hunting, store, scoring.
     - Under non-OT policies, existing “supplies” may remain primary.
 
-- [ ] SUPPLIES-004 (P0) Implement the normative supplies-burn formula (pace/diet/weather/vehicle/exec)
+- [x] SUPPLIES-004 (P0) Implement the normative supplies-burn formula (pace/diet/weather/vehicle/exec)
   - Requirement:
     - Supplies burn must be computed as:
       - `base_supplies_burn(region)`
@@ -1152,7 +1152,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Under OTDeluxe90sPolicy, blocked days do not advance mileage.
 
-- [ ] TRAVEL-005 (P1) Vehicle system integration as the OT “oxen mobility analogue”
+- [x] TRAVEL-005 (P1) Vehicle system integration as the OT “oxen mobility analogue”
   - Requirement:
     - OTDeluxe “oxen” scaling must be mapped to a Dystrail mobility readiness function under policy:
       - readiness ∈ [0..1]
@@ -1691,12 +1691,12 @@ Use this section as a pre-implementation sanity pass. Every item must be true in
 - [x] AUDIT-003 Supplies burn runs exactly once per day and is always before HealthTick.
 - [x] AUDIT-004 Encounter chance is derived once per day from a single function; weather does not mutate it ad hoc.
 - [x] AUDIT-005 OTDeluxe hard-stops always produce `computed_miles_today = 0`; no “delay travel credit” leaks.
-- [ ] AUDIT-006 All “policy-defined” values are explicit in OTDeluxe90sPolicy config and not hard-coded.
+- [x] AUDIT-006 All “policy-defined” values are explicit in OTDeluxe90sPolicy config and not hard-coded.
 - [x] AUDIT-007 TrailGraph uses Deluxe mile markers + route variants; `0` sentinels are skipped in derivations.
 - [x] AUDIT-008 The Dalles gate blocks travel beyond node 16 until resolved.
 - [x] AUDIT-009 Crossing choices are interactive under OTDeluxe90sPolicy; outcomes include the required families.
 - [x] AUDIT-010 Scoring under OTDeluxe90sPolicy matches the spec exactly (including occupation multiplier).
-- [ ] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
+- [x] AUDIT-011 Satire only affects presentation; it never changes RNG/phase order/numbers.
 
 - [x] AUDIT-012 OTDeluxe pace + rations affect both consumption and health (not one or the other).
 - [x] AUDIT-013 Party/oxen state exists and feeds travel viability, hunting carry cap, and scoring.
