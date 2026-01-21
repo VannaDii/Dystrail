@@ -285,7 +285,7 @@ pub fn run_endgame_controller(
             .endgame
             .configure(policy_key.unwrap_or_default(), policy_cfg);
         state.add_day_reason_tag("endgame_activate");
-        state.logs.push(String::from(LOG_ENDGAME_ACTIVATE));
+        state.push_log(LOG_ENDGAME_ACTIVATE);
     }
 
     if !state.endgame.active {
@@ -309,7 +309,7 @@ pub fn run_endgame_controller(
     {
         apply_vehicle_stabilizers(state, 0.0, policy_cfg.wear_reset);
         state.endgame.wear_reset_used = true;
-        state.logs.push(String::from("log.endgame.wear_reset"));
+        state.push_log("log.endgame.wear_reset");
     }
 }
 
@@ -339,7 +339,7 @@ pub fn enforce_failure_guard(state: &mut GameState) -> bool {
             .vehicle
             .set_wear_multiplier(state.endgame.wear_multiplier);
     }
-    state.logs.push(String::from(LOG_ENDGAME_FAILURE_GUARD));
+    state.push_log(LOG_ENDGAME_FAILURE_GUARD);
     state.add_day_reason_tag("endgame_guard");
     state.day_state.rest.rest_requested = true;
     true
@@ -399,7 +399,7 @@ fn run_field_repair(
     state.last_breakdown_part = None;
     state.endgame.field_repair_used = true;
     state.add_day_reason_tag("field_repair");
-    state.logs.push(String::from(LOG_ENDGAME_FIELD_REPAIR));
+    state.push_log(LOG_ENDGAME_FIELD_REPAIR);
 
     let ratio = state.endgame.partial_ratio.clamp(0.0, 1.0);
     let mut partial = (computed_miles_today * ratio).clamp(0.0, computed_miles_today);

@@ -13,7 +13,7 @@ use crate::journey::{
 };
 use crate::pacing::PacingConfig;
 use crate::state::{DayIntent, GameState};
-use crate::weather::WeatherConfig;
+use crate::weather::DystrailRegionalWeather;
 use crate::{hunt, trade};
 
 pub(super) struct WeatherPhase<'a> {
@@ -26,14 +26,20 @@ impl<'a> WeatherPhase<'a> {
     }
 
     pub(super) fn run(&mut self) {
-        let weather_cfg = WeatherConfig::default_config();
+        let weather_model = DystrailRegionalWeather::default();
         let previous = self.state.weather_state.today;
         let stats_before = self.state.stats.clone();
         let rng_bundle = self.state.rng_bundle.clone();
         let _guard = rng_bundle
             .as_ref()
             .map(|bundle| bundle.phase_guard_for(RngPhase::WeatherTick));
-        crate::weather::process_daily_weather(self.state, &weather_cfg, rng_bundle.as_deref());
+        crate::weather::process_daily_weather(self.state, &weather_model, rng_bundle.as_deref());
+        if self.state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            let overrides = self.state.otdeluxe_policy_overrides();
+            overrides
+                .weather_effects
+                .apply(&mut self.state.weather_effects);
+        }
         let stats_after = self.state.stats.clone();
         let supplies_delta = stats_after.supplies - stats_before.supplies;
         let sanity_delta = stats_after.sanity - stats_before.sanity;

@@ -3,8 +3,8 @@ use dystrail_game::state::{Season, Stats};
 use dystrail_game::store::StoreCategory;
 use dystrail_game::vehicle::{PartWeights, process_daily_breakdown, weighted_pick};
 use dystrail_game::weather::{
-    Weather, WeatherConfig, WeatherState, apply_weather_effects, process_daily_weather,
-    select_weather_for_today,
+    DystrailRegionalWeather, Weather, WeatherConfig, WeatherModel, WeatherState,
+    apply_weather_effects, process_daily_weather, select_weather_for_today,
 };
 use dystrail_game::{
     BossConfig, Breakdown, CampConfig, Cart, GameMode, GameState, Grants, PaceCfg, PacingConfig,
@@ -381,6 +381,7 @@ fn pacing_accessors_are_resilient() {
 fn weather_effects_and_selection() {
     let mut cfg = WeatherConfig::default_config();
     cfg.limits.max_extreme_streak = 1;
+    let model = DystrailRegionalWeather::new(cfg.clone());
 
     let mut state = GameState {
         region: Region::Heartland,
@@ -402,7 +403,8 @@ fn weather_effects_and_selection() {
     state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(2)));
     state.inventory.tags.clear();
 
-    apply_weather_effects(&mut state, &cfg);
+    let sample = model.sample_from_weather(&state, state.weather_state.today);
+    apply_weather_effects(&mut state, &cfg, sample);
     assert!(
         state
             .logs
@@ -415,7 +417,8 @@ fn weather_effects_and_selection() {
     state.weather_state.today = Weather::ColdSnap;
     state.weather_state.yesterday = Weather::ColdSnap;
     state.exposure_streak_cold = 2;
-    apply_weather_effects(&mut state, &cfg);
+    let sample = model.sample_from_weather(&state, state.weather_state.today);
+    apply_weather_effects(&mut state, &cfg, sample);
     assert!(
         state.logs.iter().any(|line| line == "log.weather.exposure"),
         "cold streak without mitigation should log exposure"
@@ -431,7 +434,7 @@ fn weather_effects_and_selection() {
     assert!(cfg.effects.contains_key(&selected));
 
     let prior_today = state.weather_state.today;
-    process_daily_weather(&mut state, &cfg, Some(weather_rng.as_ref()));
+    process_daily_weather(&mut state, &model, Some(weather_rng.as_ref()));
     assert_eq!(state.weather_state.yesterday, prior_today);
 }
 

@@ -7,9 +7,13 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+use crate::constants::{
+    PACE_BREAKDOWN_BLITZ, PACE_BREAKDOWN_HEATED, PACE_BREAKDOWN_STEADY,
+    VEHICLE_BREAKDOWN_BASE_CHANCE, VEHICLE_BREAKDOWN_WEAR_COEFFICIENT,
+};
 use crate::otdeluxe_state::{OtDeluxeRiver, OtDeluxeRiverBed};
-use crate::state::Season;
-use crate::weather::Weather;
+use crate::state::{Region, Season};
+use crate::weather::{Weather, WeatherEffects};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -503,6 +507,8 @@ pub struct OtDeluxeTravelPolicy {
     pub snow_speed_penalty_per_in: f32,
     #[serde(default)]
     pub snow_speed_floor: f32,
+    #[serde(default = "OtDeluxeTravelPolicy::default_partial_ratio")]
+    pub partial_ratio: f32,
 }
 
 impl Default for OtDeluxeTravelPolicy {
@@ -513,6 +519,47 @@ impl Default for OtDeluxeTravelPolicy {
             sick_member_speed_penalty: 0.10,
             snow_speed_penalty_per_in: 0.0,
             snow_speed_floor: 0.0,
+            partial_ratio: Self::default_partial_ratio(),
+        }
+    }
+}
+
+impl OtDeluxeTravelPolicy {
+    const fn default_partial_ratio() -> f32 {
+        0.5
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeBreakdownPolicy {
+    pub base: f32,
+    pub beta: f32,
+    pub pace_mult_steady: f32,
+    pub pace_mult_strenuous: f32,
+    pub pace_mult_grueling: f32,
+    pub max_chance: f32,
+}
+
+impl OtDeluxeBreakdownPolicy {
+    #[must_use]
+    pub const fn pace_multiplier(&self, pace: OtDeluxePace) -> f32 {
+        match pace {
+            OtDeluxePace::Steady => self.pace_mult_steady,
+            OtDeluxePace::Strenuous => self.pace_mult_strenuous,
+            OtDeluxePace::Grueling => self.pace_mult_grueling,
+        }
+    }
+}
+
+impl Default for OtDeluxeBreakdownPolicy {
+    fn default() -> Self {
+        Self {
+            base: VEHICLE_BREAKDOWN_BASE_CHANCE,
+            beta: VEHICLE_BREAKDOWN_WEAR_COEFFICIENT,
+            pace_mult_steady: PACE_BREAKDOWN_STEADY,
+            pace_mult_strenuous: PACE_BREAKDOWN_HEATED,
+            pace_mult_grueling: PACE_BREAKDOWN_BLITZ,
+            max_chance: 0.35,
         }
     }
 }
@@ -534,6 +581,126 @@ impl Default for OtDeluxeOxenPolicy {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize, Default)]
+pub struct OtDeluxeWeatherEffectsOverride {
+    pub travel_mult: Option<f32>,
+    pub supplies_delta: Option<i32>,
+    pub sanity_delta: Option<i32>,
+    pub pants_delta: Option<i32>,
+    pub encounter_delta: Option<f32>,
+    pub encounter_cap: Option<f32>,
+    pub breakdown_mult: Option<f32>,
+    pub rain_accum_delta: Option<f32>,
+    pub snow_depth_delta: Option<f32>,
+}
+
+impl OtDeluxeWeatherEffectsOverride {
+    pub const fn merge_from(&mut self, other: &Self) {
+        if other.travel_mult.is_some() {
+            self.travel_mult = other.travel_mult;
+        }
+        if other.supplies_delta.is_some() {
+            self.supplies_delta = other.supplies_delta;
+        }
+        if other.sanity_delta.is_some() {
+            self.sanity_delta = other.sanity_delta;
+        }
+        if other.pants_delta.is_some() {
+            self.pants_delta = other.pants_delta;
+        }
+        if other.encounter_delta.is_some() {
+            self.encounter_delta = other.encounter_delta;
+        }
+        if other.encounter_cap.is_some() {
+            self.encounter_cap = other.encounter_cap;
+        }
+        if other.breakdown_mult.is_some() {
+            self.breakdown_mult = other.breakdown_mult;
+        }
+        if other.rain_accum_delta.is_some() {
+            self.rain_accum_delta = other.rain_accum_delta;
+        }
+        if other.snow_depth_delta.is_some() {
+            self.snow_depth_delta = other.snow_depth_delta;
+        }
+    }
+
+    pub const fn apply(&self, effects: &mut WeatherEffects) {
+        if let Some(value) = self.travel_mult {
+            effects.travel_mult = value;
+        }
+        if let Some(value) = self.supplies_delta {
+            effects.supplies_delta = value;
+        }
+        if let Some(value) = self.sanity_delta {
+            effects.sanity_delta = value;
+        }
+        if let Some(value) = self.pants_delta {
+            effects.pants_delta = value;
+        }
+        if let Some(value) = self.encounter_delta {
+            effects.encounter_delta = value;
+        }
+        if let Some(value) = self.encounter_cap {
+            effects.encounter_cap = value;
+        }
+        if let Some(value) = self.breakdown_mult {
+            effects.breakdown_mult = value;
+        }
+        if let Some(value) = self.rain_accum_delta {
+            effects.rain_accum_delta = value;
+        }
+        if let Some(value) = self.snow_depth_delta {
+            effects.snow_depth_delta = value;
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+pub struct OtDeluxeAfflictionWeightOverride {
+    pub illness: Option<u16>,
+    pub injury: Option<u16>,
+}
+
+impl OtDeluxeAfflictionWeightOverride {
+    pub const fn merge_from(&mut self, other: &Self) {
+        if other.illness.is_some() {
+            self.illness = other.illness;
+        }
+        if other.injury.is_some() {
+            self.injury = other.injury;
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+pub struct OtDeluxePolicyOverride {
+    pub travel_multiplier: Option<f32>,
+    pub event_weight_mult: Option<f32>,
+    pub event_weight_cap: Option<f32>,
+    #[serde(default)]
+    pub weather_effects: OtDeluxeWeatherEffectsOverride,
+    #[serde(default)]
+    pub affliction_weights: OtDeluxeAfflictionWeightOverride,
+}
+
+impl OtDeluxePolicyOverride {
+    pub const fn merge_from(&mut self, other: &Self) {
+        if other.travel_multiplier.is_some() {
+            self.travel_multiplier = other.travel_multiplier;
+        }
+        if other.event_weight_mult.is_some() {
+            self.event_weight_mult = other.event_weight_mult;
+        }
+        if other.event_weight_cap.is_some() {
+            self.event_weight_cap = other.event_weight_cap;
+        }
+        self.weather_effects.merge_from(&other.weather_effects);
+        self.affliction_weights
+            .merge_from(&other.affliction_weights);
+    }
+}
+
 /// Parity-oriented policy for Oregon Trail Deluxe (DOS v3.0 lineage).
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct OtDeluxe90sPolicy {
@@ -550,6 +717,8 @@ pub struct OtDeluxe90sPolicy {
     pub occupation_advantages: OtDeluxeOccupationAdvantages,
     pub oxen: OtDeluxeOxenPolicy,
     pub travel: OtDeluxeTravelPolicy,
+    #[serde(default)]
+    pub breakdown: OtDeluxeBreakdownPolicy,
     pub navigation: OtDeluxeNavigationPolicy,
     pub health: OtDeluxeHealthPolicy,
     pub affliction: OtDeluxeAfflictionPolicy,
@@ -558,6 +727,10 @@ pub struct OtDeluxe90sPolicy {
     pub hunt: OtDeluxeHuntPolicy,
     pub trail: OtDeluxeTrailPolicy,
     pub score: OtDeluxeScorePolicy,
+    #[serde(default)]
+    pub per_region_overrides: HashMap<Region, OtDeluxePolicyOverride>,
+    #[serde(default)]
+    pub per_season_overrides: HashMap<Season, OtDeluxePolicyOverride>,
 }
 
 const DEFAULT_RATIONS_ENUM: [OtDeluxeRations; 3] = [
@@ -849,6 +1022,7 @@ impl Default for OtDeluxe90sPolicy {
             occupation_advantages: OtDeluxeOccupationAdvantages::default(),
             oxen: OtDeluxeOxenPolicy::default(),
             travel: OtDeluxeTravelPolicy::default(),
+            breakdown: OtDeluxeBreakdownPolicy::default(),
             navigation: OtDeluxeNavigationPolicy::default(),
             health: OtDeluxeHealthPolicy::default(),
             affliction: OtDeluxeAfflictionPolicy::default(),
@@ -857,14 +1031,31 @@ impl Default for OtDeluxe90sPolicy {
             hunt: OtDeluxeHuntPolicy::default(),
             trail: OtDeluxeTrailPolicy::default(),
             score: OtDeluxeScorePolicy::default(),
+            per_region_overrides: HashMap::new(),
+            per_season_overrides: HashMap::new(),
         }
+    }
+}
+
+impl OtDeluxe90sPolicy {
+    #[must_use]
+    pub fn overrides_for(&self, region: Region, season: Season) -> OtDeluxePolicyOverride {
+        let mut combined = OtDeluxePolicyOverride::default();
+        if let Some(region_override) = self.per_region_overrides.get(&region) {
+            combined.merge_from(region_override);
+        }
+        if let Some(season_override) = self.per_season_overrides.get(&season) {
+            combined.merge_from(season_override);
+        }
+        combined
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::state::Season;
+    use crate::state::{Region, Season};
+    use crate::weather::WeatherEffects;
 
     fn assert_f32_eq(a: f32, b: f32) {
         let epsilon = 1e-6_f32;
@@ -969,5 +1160,62 @@ mod tests {
         assert_f32_eq(factors.for_season(Season::Summer), 2.0);
         assert_f32_eq(factors.for_season(Season::Fall), 3.0);
         assert_f32_eq(factors.for_season(Season::Winter), 4.0);
+    }
+
+    #[test]
+    fn policy_overrides_merge_region_then_season() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        let region_override = OtDeluxePolicyOverride {
+            travel_multiplier: Some(0.8),
+            weather_effects: OtDeluxeWeatherEffectsOverride {
+                travel_mult: Some(0.9),
+                ..OtDeluxeWeatherEffectsOverride::default()
+            },
+            ..OtDeluxePolicyOverride::default()
+        };
+        policy
+            .per_region_overrides
+            .insert(Region::RustBelt, region_override);
+
+        let season_override = OtDeluxePolicyOverride {
+            travel_multiplier: Some(1.2),
+            affliction_weights: OtDeluxeAfflictionWeightOverride {
+                illness: Some(3),
+                ..OtDeluxeAfflictionWeightOverride::default()
+            },
+            ..OtDeluxePolicyOverride::default()
+        };
+        policy
+            .per_season_overrides
+            .insert(Season::Winter, season_override);
+
+        let combined = policy.overrides_for(Region::RustBelt, Season::Winter);
+        assert_eq!(combined.travel_multiplier, Some(1.2));
+        assert_eq!(combined.weather_effects.travel_mult, Some(0.9));
+        assert_eq!(combined.affliction_weights.illness, Some(3));
+    }
+
+    #[test]
+    fn weather_effect_overrides_apply_to_effects() {
+        let overrides = OtDeluxeWeatherEffectsOverride {
+            travel_mult: Some(0.7),
+            supplies_delta: Some(-2),
+            sanity_delta: None,
+            pants_delta: Some(1),
+            encounter_delta: None,
+            encounter_cap: Some(0.6),
+            breakdown_mult: Some(1.3),
+            rain_accum_delta: Some(0.5),
+            snow_depth_delta: None,
+        };
+        let mut effects = WeatherEffects::default();
+        overrides.apply(&mut effects);
+
+        assert_f32_eq(effects.travel_mult, 0.7);
+        assert_eq!(effects.supplies_delta, -2);
+        assert_eq!(effects.pants_delta, 1);
+        assert_f32_eq(effects.encounter_cap, 0.6);
+        assert_f32_eq(effects.breakdown_mult, 1.3);
+        assert_f32_eq(effects.rain_accum_delta, 0.5);
     }
 }

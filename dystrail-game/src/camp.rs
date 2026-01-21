@@ -146,7 +146,7 @@ pub fn camp_rest_with_endgame(
     gs.camp.rest_cooldown = rest_cfg.cooldown_days;
     gs.clear_illness_penalty();
     gs.day_state.rest.rest_requested = false;
-    gs.logs.push(String::from("log.camp.rest"));
+    gs.push_log("log.camp.rest");
     CampOutcome {
         message: String::from("log.camp.rest"),
         rested: true,
@@ -209,7 +209,7 @@ pub fn camp_forage_with_endgame(
         });
     }
     gs.camp.forage_cooldown = forage_cfg.cooldown_days;
-    gs.logs.push(String::from("log.camp.forage"));
+    gs.push_log("log.camp.forage");
 
     CampOutcome {
         message: String::from("log.camp.forage"),

@@ -84,7 +84,8 @@ use crate::journey::{
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationDelay,
     OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePaceHealthPolicy,
-    OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
+    OtDeluxePolicyOverride, OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant,
+    OtDeluxeTravelPolicy,
 };
 use crate::numbers::round_f32_to_i32;
 use crate::otdeluxe_crossings;
@@ -100,7 +101,7 @@ use crate::otdeluxe_state::{
 };
 use crate::otdeluxe_store::{OtDeluxeStoreError, OtDeluxeStoreLineItem, OtDeluxeStoreReceipt};
 use crate::otdeluxe_trail;
-use crate::pacing::{PacingConfig, PacingLimits};
+use crate::pacing::PacingLimits;
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle};
 use crate::weather::{Weather, WeatherEffects, WeatherState};
@@ -274,11 +275,6 @@ fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDelux
     u32::from(dollars).saturating_mul(100)
 }
 
-fn default_pacing_config() -> &'static PacingConfig {
-    static CONFIG: OnceLock<PacingConfig> = OnceLock::new();
-    CONFIG.get_or_init(PacingConfig::default_config)
-}
-
 fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflictionPolicy) -> f32 {
     let mut probability = policy.curve_pwl[0].probability;
     if health_general <= policy.curve_pwl[0].health {
@@ -307,17 +303,26 @@ fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflict
 
 fn roll_otdeluxe_affliction_kind<R>(
     policy: &OtDeluxeAfflictionPolicy,
+    overrides: &OtDeluxePolicyOverride,
     rng: &mut R,
 ) -> (OtDeluxeAfflictionKind, Option<EventDecisionTrace>)
 where
     R: rand::Rng + ?Sized,
 {
-    let total = u32::from(policy.weight_illness) + u32::from(policy.weight_injury);
+    let illness_weight = overrides
+        .affliction_weights
+        .illness
+        .unwrap_or(policy.weight_illness);
+    let injury_weight = overrides
+        .affliction_weights
+        .injury
+        .unwrap_or(policy.weight_injury);
+    let total = u32::from(illness_weight) + u32::from(injury_weight);
     if total == 0 {
         return (OtDeluxeAfflictionKind::Illness, None);
     }
     let roll = rng.gen_range(0..total);
-    let kind = if roll < u32::from(policy.weight_illness) {
+    let kind = if roll < u32::from(illness_weight) {
         OtDeluxeAfflictionKind::Illness
     } else {
         OtDeluxeAfflictionKind::Injury
@@ -325,15 +330,15 @@ where
     let candidates = vec![
         WeightedCandidate {
             id: String::from("illness"),
-            base_weight: f64::from(policy.weight_illness),
+            base_weight: f64::from(illness_weight),
             multipliers: Vec::new(),
-            final_weight: f64::from(policy.weight_illness),
+            final_weight: f64::from(illness_weight),
         },
         WeightedCandidate {
             id: String::from("injury"),
-            base_weight: f64::from(policy.weight_injury),
+            base_weight: f64::from(injury_weight),
             multipliers: Vec::new(),
-            final_weight: f64::from(policy.weight_injury),
+            final_weight: f64::from(injury_weight),
         },
     ];
     let chosen_id = match kind {
@@ -2393,6 +2398,26 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_affliction_override_weights_prefer_injury() {
+        let policy = OtDeluxe90sPolicy::default();
+        let mut overrides = OtDeluxePolicyOverride::default();
+        overrides.affliction_weights.illness = Some(0);
+        overrides.affliction_weights.injury = Some(5);
+
+        let mut rng = SmallRng::seed_from_u64(1);
+        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        assert!(matches!(kind, OtDeluxeAfflictionKind::Injury));
+
+        let trace = trace.expect("expected decision trace");
+        let illness = trace
+            .candidates
+            .iter()
+            .find(|candidate| candidate.id == "illness")
+            .expect("illness candidate");
+        assert!(illness.final_weight.abs() <= f64::EPSILON);
+    }
+
+    #[test]
     fn otdeluxe_travel_scales_with_oxen_and_sick_party() {
         let mut state = GameState::default();
         state.ot_deluxe.oxen.healthy = 2;
@@ -2810,31 +2835,14 @@ mod tests {
     }
 
     #[test]
-    fn otdeluxe_pace_updates_encounter_chance_from_single_source() {
+    fn otdeluxe_pace_clears_encounter_chance() {
         let mut state = GameState::default();
         state.weather_state.today = Weather::Clear;
-        state.encounter_chance_today = 0.0;
-
-        let cfg = default_pacing_config();
-        let (weather_delta, weather_cap) = state.encounter_weather_adjustment();
-        let mut expected_state = state.clone();
-        expected_state.apply_encounter_chance_today(
-            0.0,
-            weather_delta,
-            0.0,
-            weather_cap,
-            &cfg.limits,
-        );
-        let expected = expected_state.encounter_chance_today;
+        state.encounter_chance_today = 0.7;
 
         state.apply_otdeluxe_pace_and_rations();
 
-        let epsilon = f32::EPSILON;
-        assert!(
-            (state.encounter_chance_today - expected).abs() < epsilon,
-            "expected encounter chance {expected}, got {}",
-            state.encounter_chance_today
-        );
+        assert!(state.encounter_chance_today.abs() < f32::EPSILON);
     }
 
     #[test]
@@ -3613,6 +3621,27 @@ mod tests {
     }
 
     #[test]
+    fn apply_travel_progress_sets_otdeluxe_ending_on_finish() {
+        let policy = default_otdeluxe_policy();
+        let total = crate::otdeluxe_trail::total_miles_for_variant(
+            &policy.trail,
+            OtDeluxeTrailVariant::Main,
+        );
+        let near_end = f32::from(total.saturating_sub(1));
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            miles_traveled_actual: near_end,
+            miles_traveled: near_end,
+            ..GameState::default()
+        };
+
+        let credited = state.apply_travel_progress(5.0, TravelProgressKind::Full);
+
+        assert!(credited > 0.0);
+        assert_eq!(state.ending, Some(Ending::BossVictory));
+    }
+
+    #[test]
     fn otdeluxe_route_prompt_handles_decisions() {
         let mut state = GameState {
             mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
@@ -3819,7 +3848,7 @@ impl Region {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 #[serde(rename_all = "lowercase")]
 pub enum Season {
     #[default]
@@ -4636,6 +4665,13 @@ impl GameState {
         self.journey_wear.fatigue_k.mul_add(excess / 400.0, 1.0)
     }
 
+    pub(crate) fn otdeluxe_policy_overrides(&self) -> OtDeluxePolicyOverride {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return OtDeluxePolicyOverride::default();
+        }
+        default_otdeluxe_policy().overrides_for(self.region, self.ot_deluxe.season)
+    }
+
     const fn current_version() -> u16 {
         4
     }
@@ -4987,6 +5023,19 @@ impl GameState {
             ui_key,
             payload,
         });
+    }
+
+    pub(crate) fn push_log(&mut self, log_key: impl Into<String>) {
+        let key = log_key.into();
+        self.logs.push(key.clone());
+        self.push_event(
+            EventKind::LegacyLogKey,
+            EventSeverity::Info,
+            DayTagSet::new(),
+            Some(UiSurfaceHint::Log),
+            Some(key),
+            serde_json::Value::Null,
+        );
     }
 
     pub(crate) fn tick_exec_order_state(&mut self) {
@@ -5467,12 +5516,16 @@ impl GameState {
                 TravelProgressKind::Full => self.day_state.travel.traveled_today = true,
                 TravelProgressKind::Partial => self.day_state.travel.partial_traveled_today = true,
             }
-            if self.ending.is_none()
-                && self.miles_traveled_actual >= self.trail_distance
-                && self.mechanical_policy == MechanicalPolicyId::DystrailLegacy
-            {
-                self.boss.readiness.ready = true;
-                self.boss.readiness.reached = true;
+            if self.ending.is_none() && self.miles_traveled_actual >= self.trail_distance {
+                match self.mechanical_policy {
+                    MechanicalPolicyId::DystrailLegacy => {
+                        self.boss.readiness.ready = true;
+                        self.boss.readiness.reached = true;
+                    }
+                    MechanicalPolicyId::OtDeluxe90s => {
+                        self.set_ending(Ending::BossVictory);
+                    }
+                }
             }
         }
         if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
@@ -5584,7 +5637,7 @@ impl GameState {
         self.day_state.travel.traveled_today = false;
         let new_wear = (self.vehicle.wear - self.journey_wear.base).max(0.0);
         self.vehicle.set_wear(new_wear);
-        self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
+        self.push_log(LOG_TRAVEL_PARTIAL);
     }
 
     #[must_use]
@@ -5631,7 +5684,7 @@ impl GameState {
         self.distance_today_raw += distance;
         self.partial_distance_today = self.partial_distance_today.max(distance);
         self.record_travel_day(TravelDayKind::Partial, distance, reason_tag);
-        self.logs.push(String::from(log_key));
+        self.push_log(log_key);
     }
 
     pub(crate) fn apply_rest_travel_credit(&mut self) {
@@ -5662,7 +5715,7 @@ impl GameState {
             );
         } else {
             self.record_travel_day(TravelDayKind::Partial, 0.0, "field_repair_guard");
-            self.logs.push(String::from(LOG_VEHICLE_FIELD_REPAIR_GUARD));
+            self.push_log(LOG_VEHICLE_FIELD_REPAIR_GUARD);
         }
         self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
         self.vehicle.wear = (self.vehicle.wear - CLASSIC_FIELD_REPAIR_WEAR_REDUCTION).max(0.0);
@@ -5695,7 +5748,7 @@ impl GameState {
             self.apply_partial_travel_credit(partial, LOG_VEHICLE_EMERGENCY_LIMP, "emergency_limp");
         } else {
             self.record_travel_day(TravelDayKind::Partial, 0.0, "emergency_limp");
-            self.logs.push(String::from(LOG_VEHICLE_EMERGENCY_LIMP));
+            self.push_log(LOG_VEHICLE_EMERGENCY_LIMP);
         }
         self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
         self.vehicle.wear = (self.vehicle.wear - EMERGENCY_LIMP_WEAR_REDUCTION).max(0.0);
@@ -5890,7 +5943,7 @@ impl GameState {
     pub(crate) fn apply_starvation_tick(&mut self) {
         if self.stats.supplies > 0 {
             if self.starvation_days > 0 {
-                self.logs.push(String::from(LOG_STARVATION_RELIEF));
+                self.push_log(LOG_STARVATION_RELIEF);
             }
             self.starvation_days = 0;
             self.malnutrition_level = 0;
@@ -5910,13 +5963,13 @@ impl GameState {
         self.stats.sanity -= STARVATION_SANITY_LOSS;
         self.stats.pants = (self.stats.pants + STARVATION_PANTS_GAIN).clamp(0, 100);
         self.mark_damage(DamageCause::Starvation);
-        self.logs.push(String::from(LOG_STARVATION_TICK));
+        self.push_log(LOG_STARVATION_TICK);
         if self.stats.hp <= 0 {
             if !self.guards.starvation_backstop_used {
                 self.guards.starvation_backstop_used = true;
                 self.stats.hp = 1;
                 self.day_state.rest.rest_requested = true;
-                self.logs.push(String::from(LOG_STARVATION_BACKSTOP));
+                self.push_log(LOG_STARVATION_BACKSTOP);
                 return;
             }
             self.set_ending(Ending::Collapse {
@@ -5937,7 +5990,7 @@ impl GameState {
             self.stats.supplies = (self.stats.supplies - DISEASE_SUPPLY_PENALTY).max(0);
             self.day_state.rest.rest_requested = true;
             self.mark_damage(DamageCause::Disease);
-            self.logs.push(String::from(LOG_DISEASE_TICK));
+            self.push_log(LOG_DISEASE_TICK);
             let recovering = self.illness_days_remaining <= 1;
             self.illness_days_remaining = self.illness_days_remaining.saturating_sub(1);
             if recovering {
@@ -5984,7 +6037,7 @@ impl GameState {
         self.day_state.rest.rest_requested = true;
         self.illness_travel_penalty = ILLNESS_TRAVEL_PENALTY;
         self.mark_damage(DamageCause::Disease);
-        self.logs.push(String::from(LOG_DISEASE_HIT));
+        self.push_log(LOG_DISEASE_HIT);
     }
 
     pub(crate) fn tick_otdeluxe_afflictions(&mut self) -> Option<OtDeluxeAfflictionOutcome> {
@@ -6106,7 +6159,8 @@ impl GameState {
         if roll >= probability {
             return None;
         }
-        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, rng);
+        let overrides = policy.overrides_for(self.region, self.ot_deluxe.season);
+        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, rng);
         if let Some(trace) = trace {
             self.decision_traces_today.push(trace);
         }
@@ -6187,10 +6241,10 @@ impl GameState {
         if trigger {
             self.stats.allies -= 1;
             self.stats.morale -= 1;
-            self.logs.push(String::from(LOG_ALLY_LOST));
+            self.push_log(LOG_ALLY_LOST);
             if self.stats.allies == 0 {
                 self.stats.sanity -= 2;
-                self.logs.push(String::from(LOG_ALLIES_GONE));
+                self.push_log(LOG_ALLIES_GONE);
             }
         }
     }
@@ -6271,8 +6325,8 @@ impl GameState {
             self.add_day_reason_tag("da_sanity_guard");
         }
         self.guards.deep_aggressive_sanity_guard_used = true;
-        self.logs.push(String::from(LOG_BOSS_COMPOSE_FUNDS));
-        self.logs.push(String::from(LOG_BOSS_COMPOSE));
+        self.push_log(LOG_BOSS_COMPOSE_FUNDS);
+        self.push_log(LOG_BOSS_COMPOSE);
     }
 
     pub(crate) fn apply_deep_aggressive_compose(&mut self) -> bool {
@@ -6285,20 +6339,20 @@ impl GameState {
             self.stats.supplies -= BOSS_COMPOSE_SUPPLY_COST;
             self.stats.sanity += SANITY_POINT_REWARD;
             self.stats.pants = (self.stats.pants - BOSS_COMPOSE_PANTS_SUPPLY).max(0);
-            self.logs.push(String::from(LOG_BOSS_COMPOSE_SUPPLIES));
+            self.push_log(LOG_BOSS_COMPOSE_SUPPLIES);
             applied = true;
         } else if self.budget_cents >= BOSS_COMPOSE_FUNDS_COST {
             self.budget_cents -= BOSS_COMPOSE_FUNDS_COST;
             self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
             self.stats.sanity += SANITY_POINT_REWARD;
             self.stats.pants = (self.stats.pants - BOSS_COMPOSE_FUNDS_PANTS).max(0);
-            self.logs.push(String::from(LOG_BOSS_COMPOSE_FUNDS));
+            self.push_log(LOG_BOSS_COMPOSE_FUNDS);
             applied = true;
         }
 
         if applied {
             self.stats.clamp();
-            self.logs.push(String::from(LOG_BOSS_COMPOSE));
+            self.push_log(LOG_BOSS_COMPOSE);
         }
         applied
     }
@@ -6415,10 +6469,23 @@ impl GameState {
             .max(0.0);
         let disease_mult = self.ot_deluxe.travel.disease_speed_mult.max(0.0);
         let snow_mult = otdeluxe_snow_speed_mult(self.ot_deluxe.weather.snow_depth, &policy.travel);
-        let miles =
-            (base * pace_mult * terrain_mult * oxen_mult * sick_penalty * disease_mult * snow_mult)
-                .max(0.0);
-        let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
+        let overrides = policy.overrides_for(self.region, self.ot_deluxe.season);
+        let travel_override = overrides.travel_multiplier.unwrap_or(1.0);
+        let travel_override = if travel_override.is_finite() && travel_override >= 0.0 {
+            travel_override
+        } else {
+            1.0
+        };
+        let miles = (base
+            * pace_mult
+            * terrain_mult
+            * oxen_mult
+            * sick_penalty
+            * disease_mult
+            * snow_mult
+            * travel_override)
+            .max(0.0);
+        let ratio = policy.travel.partial_ratio.clamp(0.0, 1.0);
         let partial = (miles * ratio).clamp(0.0, miles);
         self.distance_today_raw = miles;
         self.distance_today = miles;
@@ -6595,7 +6662,7 @@ impl GameState {
             self.set_ending(Ending::VehicleFailure {
                 cause: VehicleFailureCause::Destroyed,
             });
-            self.logs.push(String::from(LOG_VEHICLE_FAILURE));
+            self.push_log(LOG_VEHICLE_FAILURE);
             return true;
         }
         false
@@ -6816,7 +6883,7 @@ impl GameState {
         let drown_count = self.apply_otdeluxe_drownings(&drowned_indices);
 
         let (log_key, severity) = Self::otdeluxe_crossing_log_and_severity(resolution.outcome);
-        self.logs.push(String::from(log_key));
+        self.push_log(log_key);
         self.emit_otdeluxe_crossing_event(
             river_kind,
             method,
@@ -7187,14 +7254,14 @@ impl GameState {
         telemetry: &mut CrossingTelemetry,
     ) {
         if resolved.used_permit {
-            self.logs.push(String::from(LOG_CROSSING_DECISION_PERMIT));
+            self.push_log(LOG_CROSSING_DECISION_PERMIT);
             let permit_log = crossings::apply_permit(self, cfg, kind);
-            self.logs.push(permit_log);
+            self.push_log(permit_log);
             self.crossing_permit_uses = self.crossing_permit_uses.saturating_add(1);
         }
 
         if resolved.bribe_attempted {
-            self.logs.push(String::from(LOG_CROSSING_DECISION_BRIBE));
+            self.push_log(LOG_CROSSING_DECISION_BRIBE);
             let _ = crossings::apply_bribe(self, cfg, kind);
             self.crossing_bribe_attempts = self.crossing_bribe_attempts.saturating_add(1);
             if resolved.bribe_succeeded {
@@ -7206,7 +7273,7 @@ impl GameState {
             } else {
                 "crossing.result.bribe.fail"
             };
-            self.logs.push(log_key.to_string());
+            self.push_log(log_key);
         }
     }
 
@@ -7219,7 +7286,7 @@ impl GameState {
         match resolved.result {
             crossings::CrossingResult::Pass => {
                 telemetry.outcome = CrossingOutcomeTelemetry::Passed;
-                self.logs.push(String::from(LOG_CROSSING_PASSED));
+                self.push_log(LOG_CROSSING_PASSED);
                 self.crossings_completed = self.crossings_completed.saturating_add(1);
                 let target_miles = day_accounting::partial_day_miles(self, computed_miles_today);
                 self.apply_target_travel(TravelDayKind::Partial, target_miles, "crossing_pass");
@@ -7235,7 +7302,7 @@ impl GameState {
                 telemetry.outcome = CrossingOutcomeTelemetry::Detoured;
                 self.crossing_detours_taken = self.crossing_detours_taken.saturating_add(1);
                 let per_day_miles = day_accounting::partial_day_miles(self, computed_miles_today);
-                self.logs.push(String::from(LOG_CROSSING_DETOUR));
+                self.push_log(LOG_CROSSING_DETOUR);
                 self.apply_target_travel(TravelDayKind::Partial, per_day_miles, "detour");
                 self.stats.clamp();
                 self.crossing_events.push(telemetry);
@@ -7255,7 +7322,7 @@ impl GameState {
                 telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
                 telemetry.outcome = CrossingOutcomeTelemetry::Failed;
                 self.crossing_failures = self.crossing_failures.saturating_add(1);
-                self.logs.push(String::from(LOG_CROSSING_FAILURE));
+                self.push_log(LOG_CROSSING_FAILURE);
                 self.reset_today_progress();
                 self.record_travel_day(TravelDayKind::NonTravel, 0.0, "crossing_fail");
                 self.stats.clamp();
@@ -7295,7 +7362,7 @@ impl GameState {
         self.pending_crossing = None;
         self.pending_crossing_choice = None;
         self.pending_route_choice = None;
-        self.logs.push(String::from("log.seed-set"));
+        self.push_log("log.seed-set");
         self.data = Some(data);
         self.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(seed)));
         self
@@ -7555,6 +7622,17 @@ impl GameState {
         let spares_total = u16::from(self.ot_deluxe.inventory.spares_wheels)
             + u16::from(self.ot_deluxe.inventory.spares_axles)
             + u16::from(self.ot_deluxe.inventory.spares_tongues);
+        let policy = default_otdeluxe_policy();
+        let overrides = policy.overrides_for(self.region, self.ot_deluxe.season);
+        let weight_mult = overrides.event_weight_mult.unwrap_or(1.0);
+        let weight_mult = if weight_mult.is_finite() && weight_mult >= 0.0 {
+            weight_mult
+        } else {
+            1.0
+        };
+        let weight_cap = overrides
+            .event_weight_cap
+            .and_then(|cap| (cap.is_finite() && cap >= 0.0).then_some(f64::from(cap)));
         let ctx = OtDeluxeRandomEventContext {
             season: self.ot_deluxe.season,
             food_lbs: self.ot_deluxe.inventory.food_lbs,
@@ -7562,6 +7640,8 @@ impl GameState {
             party_alive: self.ot_deluxe.party.alive_count(),
             health_general: self.ot_deluxe.health_general,
             spares_total,
+            weight_mult: f64::from(weight_mult),
+            weight_cap,
         };
         let bundle = self.rng_bundle.take()?;
         let result = {
@@ -7581,13 +7661,13 @@ impl GameState {
         if let Some(trace) = pick.variant_trace {
             self.decision_traces_today.push(trace);
         }
-        self.logs.push(log_key.clone());
+        self.push_log(log_key);
         self.push_event(
             EventKind::RandomEventResolved,
             severity,
             DayTagSet::new(),
             None,
-            Some(log_key),
+            None,
             payload,
         );
         Some(())
@@ -8170,7 +8250,7 @@ impl GameState {
         let encounter =
             self.maybe_reroll_encounter(rng_bundle, &recent_snapshot, rotation_backlog, encounter);
         if rotation_logged {
-            self.logs.push(String::from(LOG_ENCOUNTER_ROTATION));
+            self.push_log(LOG_ENCOUNTER_ROTATION);
         }
         if let Some(enc) = encounter {
             let is_hard_stop = enc.hard_stop;
@@ -8229,7 +8309,7 @@ impl GameState {
         };
         self.record_travel_day(TravelDayKind::Partial, partial, "");
         self.apply_travel_wear_scaled(wear_scale);
-        self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
+        self.push_log(LOG_TRAVEL_PARTIAL);
     }
 
     fn should_trigger_encounter(&self, rng_bundle: Option<&Rc<RngBundle>>) -> bool {
@@ -8371,30 +8451,52 @@ impl GameState {
         }
 
         let wear_level = self.vehicle.wear.max(0.0);
-        let mut breakdown_chance = self.journey_breakdown.base
-            * self.journey_breakdown.beta.mul_add(wear_level, 1.0)
-            * self.journey_pace_factor()
-            * self.journey_weather_factor();
+        let (base, beta, pace_factor, max_chance) =
+            if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+                let policy = default_otdeluxe_policy();
+                (
+                    policy.breakdown.base,
+                    policy.breakdown.beta,
+                    policy.breakdown.pace_multiplier(self.ot_deluxe.pace),
+                    policy.breakdown.max_chance,
+                )
+            } else {
+                (
+                    self.journey_breakdown.base,
+                    self.journey_breakdown.beta,
+                    self.journey_pace_factor(),
+                    0.35,
+                )
+            };
+        let mut breakdown_chance =
+            base * beta.mul_add(wear_level, 1.0) * pace_factor * self.journey_weather_factor();
         breakdown_chance = (breakdown_chance + self.exec_effects.breakdown_bonus)
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX);
 
         if self.endgame.active && (0.0..1.0).contains(&self.endgame.breakdown_scale) {
             breakdown_chance *= self.endgame.breakdown_scale;
         }
-        if matches!(self.policy, Some(PolicyKind::Aggressive)) {
-            breakdown_chance = breakdown_chance.max(0.01);
-        }
-        if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive)) {
-            breakdown_chance *= 0.7;
+        if self.mechanical_policy == MechanicalPolicyId::DystrailLegacy {
+            if matches!(self.policy, Some(PolicyKind::Aggressive)) {
+                breakdown_chance = breakdown_chance.max(0.01);
+            }
+            if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive)) {
+                breakdown_chance *= 0.7;
+            }
         }
         if self.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
             let policy = default_otdeluxe_policy();
             breakdown_chance *=
                 otdeluxe_mobility_failure_mult(self.ot_deluxe.mods.occupation, policy);
         }
+        let max_chance = if max_chance.is_finite() && max_chance > 0.0 {
+            max_chance
+        } else {
+            PROBABILITY_MAX
+        };
         breakdown_chance = breakdown_chance
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX)
-            .min(0.35);
+            .min(max_chance);
 
         let roll = self
             .breakdown_rng()
@@ -8478,7 +8580,7 @@ impl GameState {
                 let _ = self.receipts.pop();
             }
             if let Some(log) = &eff.log {
-                self.logs.push(log.clone());
+                self.push_log(log.clone());
             }
 
             #[cfg(debug_assertions)]
@@ -8508,7 +8610,7 @@ impl GameState {
             }
             if eff.rest {
                 if !self.day_state.rest.rest_requested {
-                    self.logs.push(String::from(LOG_REST_REQUESTED_ENCOUNTER));
+                    self.push_log(LOG_REST_REQUESTED_ENCOUNTER);
                 }
                 self.request_rest();
             }
@@ -8543,7 +8645,7 @@ impl GameState {
                         self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Moving;
                     }
                     self.last_breakdown_part = None;
-                    self.logs.push(String::from("log.breakdown-repaired"));
+                    self.push_log("log.breakdown-repaired");
                     self.push_event(
                         EventKind::BreakdownResolved,
                         EventSeverity::Info,
@@ -8570,7 +8672,7 @@ impl GameState {
                 self.breakdown = None;
                 self.day_state.travel.travel_blocked = false;
                 self.last_breakdown_part = None;
-                self.logs.push(String::from("log.breakdown-repaired"));
+                self.push_log("log.breakdown-repaired");
                 self.push_event(
                     EventKind::BreakdownResolved,
                     EventSeverity::Info,
@@ -8612,7 +8714,7 @@ impl GameState {
                 self.breakdown = None;
                 self.day_state.travel.travel_blocked = false;
                 self.last_breakdown_part = None;
-                self.logs.push(String::from("log.breakdown-jury-rigged"));
+                self.push_log("log.breakdown-jury-rigged");
                 self.push_event(
                     EventKind::BreakdownResolved,
                     EventSeverity::Info,
@@ -8698,7 +8800,7 @@ impl GameState {
         self.exec_effects.travel_multiplier = (self.exec_effects.travel_multiplier
             * VEHICLE_EXEC_MULTIPLIER_DECAY)
             .max(VEHICLE_EXEC_MULTIPLIER_FLOOR);
-        self.logs.push(String::from(LOG_VEHICLE_REPAIR_SPARE));
+        self.push_log(LOG_VEHICLE_REPAIR_SPARE);
         true
     }
 
@@ -8719,7 +8821,7 @@ impl GameState {
         self.exec_effects.travel_multiplier = (self.exec_effects.travel_multiplier
             * VEHICLE_EXEC_MULTIPLIER_DECAY)
             .max(VEHICLE_EXEC_MULTIPLIER_FLOOR);
-        self.logs.push(String::from(log_key));
+        self.push_log(log_key);
     }
 
     pub fn next_u32(&mut self) -> u32 {
@@ -8740,7 +8842,7 @@ impl GameState {
         self.illness_days_remaining = 0;
         self.illness_travel_penalty = 1.0;
         if was_ill {
-            self.logs.push(String::from(LOG_DISEASE_RECOVER));
+            self.push_log(LOG_DISEASE_RECOVER);
             self.disease_cooldown = self.disease_cooldown.max(DISEASE_COOLDOWN_DAYS);
         }
     }
@@ -8841,10 +8943,8 @@ impl GameState {
         self.compute_miles_for_today(&pace_cfg, limits)
     }
 
-    pub fn apply_otdeluxe_pace_and_rations(&mut self) {
-        let cfg = default_pacing_config();
-        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
-        self.apply_encounter_chance_today(0.0, weather_delta, 0.0, weather_cap, &cfg.limits);
+    pub const fn apply_otdeluxe_pace_and_rations(&mut self) {
+        self.encounter_chance_today = 0.0;
     }
 
     pub(crate) fn compute_otdeluxe_travel_distance_today(&mut self) -> f32 {
@@ -8915,7 +9015,7 @@ impl GameState {
             let idx = self.party.companions.len() + 2;
             self.party.companions.push(format!("Traveler {idx}"));
         }
-        self.logs.push(String::from("log.party.updated"));
+        self.push_log("log.party.updated");
     }
 
     pub const fn request_rest(&mut self) {

@@ -1343,7 +1343,9 @@ mod tests {
     use super::*;
     use dystrail_game::personas::{Persona, PersonaMods, PersonaStart, PersonasList};
     use dystrail_game::store::{Grants, Store, StoreItem};
-    use dystrail_game::weather::{Weather, WeatherConfig, WeatherLimits};
+    use dystrail_game::weather::{
+        Weather, WeatherAccumulationConfig, WeatherConfig, WeatherLimits, WeatherReportConfig,
+    };
     use dystrail_game::{BossProgress, BossReadiness, BossResolution};
     use std::collections::HashMap;
     use std::sync::Arc;
@@ -1364,6 +1366,8 @@ mod tests {
             mitigation: HashMap::new(),
             weights,
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
         }
     }
 

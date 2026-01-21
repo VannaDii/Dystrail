@@ -18,7 +18,8 @@
       "sanity": -1,
       "pants": 2,
       "enc_delta": 0.05,
-      "travel_mult": 0.9
+      "travel_mult": 0.9,
+      "rain_delta": 0.4
     },
     "HeatWave": {
       "supplies": 1,

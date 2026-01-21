@@ -607,7 +607,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - Acceptance criteria:
         - `JourneySession::from_state` uses the saved mechanical policy when rebuilding the controller.
         - Existing Dystrail behavior remains unchanged under `DystrailLegacy`.
-    - [ ] POLICY-001B Route parity-critical mechanics through the selected overlay
+    - [x] POLICY-001B Route parity-critical mechanics through the selected overlay
       - Requirements:
         - OTDeluxe and Dystrail mechanics must be cleanly separated; no cross-reading legacy constants.
       - Acceptance criteria:
@@ -628,9 +628,9 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
       - Acceptance criteria:
         - `dystrail-game/src/mechanics/otdeluxe90s.rs` provides `OtDeluxe90sPolicy::default()` without reading any runtime state.
         - Types for OTDeluxe enums (pace/rations/occupations/trail variants) exist and are serializable.
-    - [ ] POLICY-002B Route parity-critical computations through `OtDeluxe90sPolicy` (no legacy constants)
+    - [x] POLICY-002B Route parity-critical computations through `OtDeluxe90sPolicy` (no legacy constants)
 
-- [ ] POLICY-002C (P1) Support per-region and per-season overrides inside the mechanical policy
+- [x] POLICY-002C (P1) Support per-region and per-season overrides inside the mechanical policy
   - Requirement:
     - The policy layer must support overrides keyed by:
       - region/terrain band
@@ -759,7 +759,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
         - `dystrail-game/src/journey/event.rs` defines `Event`, `EventId`, `EventKind`, and `UiSurfaceHint`.
         - `dystrail-game/src/journey/mod.rs::DayOutcome` includes `events: Vec<Event>`.
         - `dystrail-web/src/app/view/handlers/travel.rs` renders day output from `outcome.events` (with a fallback to `log_key` during transition).
-    - [ ] EVENT-001B Emit structured events for all state changes (retire `log_key` as the only truth)
+    - [x] EVENT-001B Emit structured events for all state changes (retire `log_key` as the only truth)
 
 - [x] EVENT-002 (P0) Implement “explainable event selection telemetry” (`EventDecisionTrace`)
   - Requirement:
@@ -770,7 +770,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Telemetry is available in debug builds/tests and can be optionally recorded in `DayRecord`.
   - Progress:
     - [x] EVENT-002A Add `EventDecisionTrace` data type (no emit sites yet)
-    - [ ] EVENT-002B Populate traces from encounter/event selection and store them in `DayOutcome` (and optionally `DayRecord`)
+    - [x] EVENT-002B Populate traces from encounter/event selection and store them in `DayOutcome` (and optionally `DayRecord`)
       - Progress:
         - Encounter selection now emits traces and `JourneyController::tick_day()` surfaces them via `DayOutcome.decision_traces`.
         - Remaining: RandomEventTick + any other weighted pools must emit traces too (with fixed draw ordering).
@@ -782,7 +782,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - A replay can compare event streams for equality (including IDs) when desired.
   - Progress:
     - [x] EVENT-003A Add `EventId { day, seq }` and `tags: DayTagSet` on `Event` (deterministic, non-RNG)
-    - [ ] EVENT-003B Ensure all event emit sites assign stable `seq` ordering per day and preserve ordering across refactors
+    - [x] EVENT-003B Ensure all event emit sites assign stable `seq` ordering per day and preserve ordering across refactors
 
 ---
 
@@ -821,7 +821,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - WeatherTick updates accumulators; TravelTick can consult `snow_depth` via policy when enabled.
 
-- [ ] WEATHER-004 (P1) Add WeatherModel interface with `DystrailRegionalWeather` default; keep `OTDeluxeStationsWeather` optional
+- [x] WEATHER-004 (P1) Add WeatherModel interface with `DystrailRegionalWeather` default; keep `OTDeluxeStationsWeather` optional
   - Requirement:
     - Implement `WeatherModel` with at least:
       - `generate_weather_today(ctx, rng.weather())`
@@ -835,7 +835,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - Kernel does not depend on hardcoded weather logic; it calls the WeatherModel.
     - Optional station model can be wired later without touching kernel.
 
-- [ ] WEATHER-005 (P1) Implement MECC/Deluxe weather report labels (precip-first; otherwise temperature bands)
+- [x] WEATHER-005 (P1) Implement MECC/Deluxe weather report labels (precip-first; otherwise temperature bands)
   - Requirement:
     - Given a sampled daily weather (temp + precip), derive a label deterministically:
       - If precipitation present: rainy / snowy / very rainy / very snowy (thresholds policy-defined if not emitted directly)
@@ -846,7 +846,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Labels are derived without additional RNG draws and are stable for replay/audit.
 
-- [ ] WEATHER-006 (P1) Implement rain/snow accumulation + evaporation/melt hooks (policy-defined rates)
+- [x] WEATHER-006 (P1) Implement rain/snow accumulation + evaporation/melt hooks (policy-defined rates)
   - Requirement:
     - Daily precipitation updates:
       - `rain_accum` and `snow_depth`
@@ -1563,7 +1563,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - Score breakdown is reproducible and matches spec for a known test state.
 
-- [ ] SCORE-002 (P1) Define and document how OTDeluxe victory/end state integrates with Dystrail boss gate
+- [x] SCORE-002 (P1) Define and document how OTDeluxe victory/end state integrates with Dystrail boss gate
   - Requirement:
     - OTDeluxe progression ends at Willamette Valley; Dystrail currently has a boss gate.
     - Policy selection must determine which “end condition” is authoritative for the run.

@@ -23,7 +23,8 @@ use dystrail_game::state::{
 use dystrail_game::store::{Cart, Grants, StoreItem};
 use dystrail_game::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use dystrail_game::weather::{
-    Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
+    DystrailRegionalWeather, Weather, WeatherConfig, WeatherModel, apply_weather_effects,
+    process_daily_weather, select_weather_for_today,
 };
 use dystrail_game::{DataLoader, GameEngine, GameStorage};
 use dystrail_game::{
@@ -633,14 +634,16 @@ fn vehicle_and_weather_paths() {
     state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(0xDEAD)));
 
     let cfg = WeatherConfig::load_from_static();
+    let model = DystrailRegionalWeather::new(cfg.clone());
     let rng_shared = state
         .rng_bundle
         .as_ref()
         .map(Rc::clone)
         .expect("rng attached for weather");
     let _today = select_weather_for_today(&mut state, &cfg, rng_shared.as_ref());
-    apply_weather_effects(&mut state, &cfg);
-    process_daily_weather(&mut state, &cfg, Some(rng_shared.as_ref()));
+    let sample = model.sample_from_weather(&state, state.weather_state.today);
+    apply_weather_effects(&mut state, &cfg, sample);
+    process_daily_weather(&mut state, &model, Some(rng_shared.as_ref()));
 }
 
 #[test]
@@ -921,6 +924,7 @@ fn store_pricing_variants() {
 #[test]
 fn weather_variants_cover_branches() {
     let cfg = WeatherConfig::default_config();
+    let model = DystrailRegionalWeather::new(cfg.clone());
     let mut state = empty_state();
     state.stats.hp = 3;
     state.stats.sanity = 3;
@@ -938,7 +942,8 @@ fn weather_variants_cover_branches() {
         state.weather_state.yesterday = Weather::Clear;
         state.weather_state.extreme_streak = 3;
         state.weather_state.neutral_buffer = 0;
-        apply_weather_effects(&mut state, &cfg);
+        let sample = model.sample_from_weather(&state, weather);
+        apply_weather_effects(&mut state, &cfg, sample);
         state.weather_state.yesterday = weather;
     }
 

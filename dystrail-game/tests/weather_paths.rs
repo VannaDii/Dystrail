@@ -6,13 +6,15 @@ use dystrail_game::journey::RngBundle;
 use dystrail_game::state::Region;
 use dystrail_game::weather::WeatherState;
 use dystrail_game::weather::{
-    Weather, WeatherConfig, apply_weather_effects, process_daily_weather, select_weather_for_today,
+    DystrailRegionalWeather, Weather, WeatherConfig, WeatherModel, apply_weather_effects,
+    process_daily_weather, select_weather_for_today,
 };
 
 #[test]
 fn weather_selection_and_effects_cover_branches() {
     let mut cfg = WeatherConfig::default_config();
     cfg.limits.max_extreme_streak = 1;
+    let model = DystrailRegionalWeather::new(cfg.clone());
 
     let rng = Rc::new(RngBundle::from_user_seed(1));
     let mut gs = GameState {
@@ -29,8 +31,9 @@ fn weather_selection_and_effects_cover_branches() {
 
     let picked = select_weather_for_today(&mut gs, &cfg, rng.as_ref()).unwrap();
     gs.weather_state.today = picked;
-    apply_weather_effects(&mut gs, &cfg);
-    process_daily_weather(&mut gs, &cfg, Some(rng.as_ref()));
+    let sample = model.sample_from_weather(&gs, picked);
+    apply_weather_effects(&mut gs, &cfg, sample);
+    process_daily_weather(&mut gs, &model, Some(rng.as_ref()));
     assert!(
         gs.weather_state.today != dystrail_game::weather::Weather::Storm
             || gs.weather_state.extreme_streak <= cfg.limits.max_extreme_streak

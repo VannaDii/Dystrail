@@ -160,10 +160,10 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     let roll = f64::from(state.next_pct()) / 100.0;
     if roll < win_prob {
         state.boss.outcome.victory = true;
-        state.logs.push(String::from("log.boss.victory"));
+        state.push_log("log.boss.victory");
         BossOutcome::PassedCloture
     } else {
-        state.logs.push(String::from("log.boss.failure"));
+        state.push_log("log.boss.failure");
         BossOutcome::SurvivedFlood
     }
 }

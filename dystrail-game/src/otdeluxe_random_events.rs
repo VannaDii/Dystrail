@@ -60,6 +60,8 @@ pub struct OtDeluxeRandomEventContext {
     pub party_alive: u16,
     pub health_general: u16,
     pub spares_total: u16,
+    pub weight_mult: f64,
+    pub weight_cap: Option<f64>,
 }
 
 #[derive(Debug, Clone)]
@@ -237,6 +239,27 @@ fn event_weight_for_context(
             }
         }
         _ => {}
+    }
+
+    if ctx.weight_mult.is_finite()
+        && ctx.weight_mult >= 0.0
+        && (ctx.weight_mult - 1.0).abs() > f64::EPSILON
+    {
+        apply_factor(
+            &mut weight,
+            &mut factors,
+            "policy_event_weight_mult",
+            ctx.weight_mult,
+        );
+    }
+    if let Some(cap) = ctx.weight_cap
+        && cap.is_finite()
+        && cap >= 0.0
+        && weight > cap
+        && weight > 0.0
+    {
+        let factor = cap / weight;
+        apply_factor(&mut weight, &mut factors, "policy_event_weight_cap", factor);
     }
 
     (weight, factors)
@@ -429,6 +452,8 @@ mod tests {
             party_alive: 0,
             health_general: 120,
             spares_total: 0,
+            weight_mult: 1.0,
+            weight_cap: None,
         };
         let spring_ctx = OtDeluxeRandomEventContext {
             season: Season::Spring,
@@ -437,6 +462,8 @@ mod tests {
             party_alive: 1,
             health_general: 120,
             spares_total: 2,
+            weight_mult: 1.0,
+            weight_cap: None,
         };
         let weather = OtDeluxeRandomEventDef {
             id: String::from("weather_catastrophe"),
@@ -513,6 +540,38 @@ mod tests {
     }
 
     #[test]
+    fn random_event_weight_overrides_apply() {
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Fall,
+            food_lbs: 200,
+            oxen_total: 4,
+            party_alive: 4,
+            health_general: 80,
+            spares_total: 1,
+            weight_mult: 0.5,
+            weight_cap: Some(3.0),
+        };
+        let event = OtDeluxeRandomEventDef {
+            id: String::from("resource_change"),
+            weight: 10,
+            variants: Vec::new(),
+        };
+        let (weight, factors) = event_weight_for_context(&event, &ctx);
+
+        assert!((weight - 3.0).abs() < 1e-6);
+        assert!(
+            factors
+                .iter()
+                .any(|factor| factor.label == "policy_event_weight_mult")
+        );
+        assert!(
+            factors
+                .iter()
+                .any(|factor| factor.label == "policy_event_weight_cap")
+        );
+    }
+
+    #[test]
     fn pick_variant_with_trace_handles_empty_and_zero_weights() {
         let mut rng = SmallRng::seed_from_u64(42);
         let (variant_id, trace) = pick_variant_with_trace("empty", &[], &mut rng);
@@ -564,6 +623,8 @@ mod tests {
             party_alive: 4,
             health_general: 80,
             spares_total: 1,
+            weight_mult: 1.0,
+            weight_cap: None,
         };
         let mut rng = SmallRng::seed_from_u64(7);
         let pick = pick_random_event_with_trace(&catalog, &ctx, &mut rng).expect("expected pick");

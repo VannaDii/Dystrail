@@ -11,6 +11,7 @@ use crate::journey::{
     TravelDayKind,
 };
 use crate::state::{DayIntent, DietId, GameMode, GameState, PaceId, Region, Season};
+use std::collections::HashSet;
 
 #[derive(Debug, Clone, Copy)]
 struct StatsSnapshot {
@@ -171,18 +172,27 @@ impl<'a> DailyTickKernel<'a> {
         let resolved_ended = ended || state.ending.is_some();
         let mut events = std::mem::take(&mut state.events_today);
         let mut seq = state.day_state.lifecycle.event_seq;
-        events.push(Event::legacy_log_key(
-            EventId::new(event_day, seq),
-            event_day,
-            resolved_log_key.clone(),
-        ));
-        seq = seq.saturating_add(1);
+        let mut seen_keys = HashSet::new();
+        for event in &events {
+            if let Some(key) = event.ui_key.as_deref() {
+                seen_keys.insert(key.to_string());
+            }
+        }
+        if !seen_keys.contains(&resolved_log_key) {
+            events.push(Event::legacy_log_key(
+                EventId::new(event_day, seq),
+                event_day,
+                resolved_log_key.clone(),
+            ));
+            seen_keys.insert(resolved_log_key.clone());
+            seq = seq.saturating_add(1);
+        }
 
         let log_start = usize::try_from(state.day_state.lifecycle.log_cursor).unwrap_or(0);
         let log_end = state.logs.len();
         let log_start = log_start.min(log_end);
         for log in &state.logs[log_start..log_end] {
-            if log == &resolved_log_key {
+            if log == &resolved_log_key || seen_keys.contains(log) {
                 continue;
             }
             events.push(Event::legacy_log_key(
@@ -190,6 +200,7 @@ impl<'a> DailyTickKernel<'a> {
                 event_day,
                 log.clone(),
             ));
+            seen_keys.insert(log.clone());
             seq = seq.saturating_add(1);
         }
         state.day_state.lifecycle.log_cursor = u32::try_from(log_end).unwrap_or(u32::MAX);
@@ -625,6 +636,34 @@ mod tests {
         assert!(keys.contains(&outcome.log_key.as_str()));
         assert!(keys.contains(&"log.hook"));
         assert!(!keys.contains(&"log.previous"));
+    }
+
+    #[test]
+    fn tick_day_assigns_sequential_event_ids() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+
+        let mut state = GameState {
+            stats: Stats {
+                supplies: 20,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(45)));
+        state.push_log("log.test.pre");
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |state| {
+            state.push_log("log.test.hook");
+        });
+
+        let mut expected = 0u16;
+        for event in &outcome.events {
+            assert_eq!(event.id.seq, expected);
+            assert_eq!(event.id.day, event.day);
+            expected = expected.saturating_add(1);
+        }
     }
 
     #[test]

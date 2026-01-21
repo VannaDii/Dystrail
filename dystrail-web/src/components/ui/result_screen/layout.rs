@@ -1,6 +1,7 @@
 use super::Props;
 use super::menu::render_menu_item;
 use super::share::{resolved_epilogue_key, resolved_headline_key};
+use crate::game::MechanicalPolicyId;
 use crate::game::ResultSummary;
 use crate::i18n;
 use yew::prelude::*;
@@ -17,6 +18,7 @@ pub fn render_body(
     let epilogue_key = resolved_epilogue_key(summary, props);
     let headline_text = i18n::t(&headline_key);
     let epilogue_text = i18n::t(&epilogue_key);
+    let show_thresholds = props.game_state.mechanical_policy == MechanicalPolicyId::DystrailLegacy;
 
     html! {
         <main role="main" aria-labelledby="result-title" onkeydown={on_keydown} tabindex="0" class="result-screen">
@@ -29,7 +31,7 @@ pub fn render_body(
 
             <section class="stats-section" aria-labelledby="stats-heading">
                 <h2 id="stats-heading">{ i18n::t("result.labels.stats") }</h2>
-                { render_stats(summary) }
+                { render_stats(summary, show_thresholds) }
             </section>
 
             <section class="epilogue-section">
@@ -76,7 +78,7 @@ fn render_metadata(summary: &ResultSummary) -> Html {
     }
 }
 
-fn render_stats(summary: &ResultSummary) -> Html {
+fn render_stats(summary: &ResultSummary, show_thresholds: bool) -> Html {
     html! {
         <dl class="stats-grid">
             <dt>{ i18n::t("result.labels.days") }</dt>
@@ -97,10 +99,18 @@ fn render_stats(summary: &ResultSummary) -> Html {
             <dd>{ summary.vehicle_breakdowns }</dd>
             <dt>{ i18n::t("result.labels.miles") }</dt>
             <dd>{ crate::i18n::fmt_number(f64::from(summary.miles_traveled).round()) }</dd>
-            <dt>{ i18n::t("result.labels.score_threshold") }</dt>
-            <dd>{ crate::i18n::fmt_number(f64::from(summary.score_threshold)) }</dd>
-            <dt>{ i18n::t("result.labels.passed_threshold") }</dt>
-            <dd>{ if summary.passed_threshold { i18n::t("result.badges.success") } else { i18n::t("result.badges.fail") } }</dd>
+            { if show_thresholds {
+                html! {
+                    <>
+                        <dt>{ i18n::t("result.labels.score_threshold") }</dt>
+                        <dd>{ crate::i18n::fmt_number(f64::from(summary.score_threshold)) }</dd>
+                        <dt>{ i18n::t("result.labels.passed_threshold") }</dt>
+                        <dd>{ if summary.passed_threshold { i18n::t("result.badges.success") } else { i18n::t("result.badges.fail") } }</dd>
+                    </>
+                }
+            } else {
+                html! {}
+            }}
             <dt>{ i18n::t("result.labels.malnutrition") }</dt>
             <dd>{ summary.malnutrition_days }</dd>
         </dl>

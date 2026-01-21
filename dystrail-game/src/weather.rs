@@ -12,6 +12,39 @@ const HEATWAVE_MAX_STREAK: i32 = 4;
 const COLDSNAP_MAX_STREAK: i32 = 4;
 const NEUTRAL_BUFFER_MIN: u8 = 2;
 const NEUTRAL_BUFFER_MAX: u8 = 3;
+const fn default_very_hot_min_f() -> i16 {
+    91
+}
+const fn default_hot_min_f() -> i16 {
+    70
+}
+const fn default_warm_min_f() -> i16 {
+    50
+}
+const fn default_cool_min_f() -> i16 {
+    30
+}
+const fn default_cold_min_f() -> i16 {
+    10
+}
+const fn default_heavy_precip_in() -> f32 {
+    0.5
+}
+const fn default_snow_temp_f() -> i16 {
+    32
+}
+const fn default_rain_evap_rate() -> f32 {
+    0.15
+}
+const fn default_snow_evap_rate() -> f32 {
+    0.05
+}
+const fn default_snow_melt_rate() -> f32 {
+    0.25
+}
+const fn default_melt_temp_f() -> i16 {
+    40
+}
 
 /// Weather conditions that affect daily gameplay
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
@@ -41,6 +74,25 @@ impl Weather {
             Self::ColdSnap => "weather.states.ColdSnap",
             Self::Smoke => "weather.states.Smoke",
         }
+    }
+}
+
+const fn base_temperature_f(season: Season) -> i16 {
+    match season {
+        Season::Winter => 25,
+        Season::Spring => 55,
+        Season::Summer => 80,
+        Season::Fall => 50,
+    }
+}
+
+const fn weather_temperature_delta_f(weather: Weather) -> i16 {
+    match weather {
+        Weather::Clear => 0,
+        Weather::Storm => -8,
+        Weather::HeatWave => 15,
+        Weather::ColdSnap => -25,
+        Weather::Smoke => 5,
     }
 }
 
@@ -108,6 +160,231 @@ pub struct WeatherConfig {
     pub mitigation: HashMap<Weather, WeatherMitigation>,
     pub weights: HashMap<Region, HashMap<Weather, u32>>,
     pub exec_mods: HashMap<String, ExecWeatherMod>,
+    #[serde(default)]
+    pub report: WeatherReportConfig,
+    #[serde(default)]
+    pub accumulation: WeatherAccumulationConfig,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum WeatherReportLabel {
+    VeryHot,
+    Hot,
+    Warm,
+    Cool,
+    Cold,
+    VeryCold,
+    Rainy,
+    VeryRainy,
+    Snowy,
+    VerySnowy,
+}
+
+impl WeatherReportLabel {
+    #[must_use]
+    pub const fn as_key(self) -> &'static str {
+        match self {
+            Self::VeryHot => "weather.report.very_hot",
+            Self::Hot => "weather.report.hot",
+            Self::Warm => "weather.report.warm",
+            Self::Cool => "weather.report.cool",
+            Self::Cold => "weather.report.cold",
+            Self::VeryCold => "weather.report.very_cold",
+            Self::Rainy => "weather.report.rainy",
+            Self::VeryRainy => "weather.report.very_rainy",
+            Self::Snowy => "weather.report.snowy",
+            Self::VerySnowy => "weather.report.very_snowy",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct WeatherTempBands {
+    #[serde(default = "default_very_hot_min_f")]
+    pub very_hot_min_f: i16,
+    #[serde(default = "default_hot_min_f")]
+    pub hot_min_f: i16,
+    #[serde(default = "default_warm_min_f")]
+    pub warm_min_f: i16,
+    #[serde(default = "default_cool_min_f")]
+    pub cool_min_f: i16,
+    #[serde(default = "default_cold_min_f")]
+    pub cold_min_f: i16,
+}
+
+impl Default for WeatherTempBands {
+    fn default() -> Self {
+        Self {
+            very_hot_min_f: default_very_hot_min_f(),
+            hot_min_f: default_hot_min_f(),
+            warm_min_f: default_warm_min_f(),
+            cool_min_f: default_cool_min_f(),
+            cold_min_f: default_cold_min_f(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WeatherReportConfig {
+    #[serde(default = "default_heavy_precip_in")]
+    pub heavy_precip_in: f32,
+    #[serde(default = "default_snow_temp_f")]
+    pub snow_temp_f: i16,
+    #[serde(default)]
+    pub temp_bands: WeatherTempBands,
+}
+
+impl Default for WeatherReportConfig {
+    fn default() -> Self {
+        Self {
+            heavy_precip_in: default_heavy_precip_in(),
+            snow_temp_f: default_snow_temp_f(),
+            temp_bands: WeatherTempBands::default(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WeatherAccumulationConfig {
+    #[serde(default = "default_rain_evap_rate")]
+    pub rain_evap_rate: f32,
+    #[serde(default = "default_snow_evap_rate")]
+    pub snow_evap_rate: f32,
+    #[serde(default = "default_snow_melt_rate")]
+    pub snow_melt_rate: f32,
+    #[serde(default = "default_melt_temp_f")]
+    pub melt_temp_f: i16,
+}
+
+impl Default for WeatherAccumulationConfig {
+    fn default() -> Self {
+        Self {
+            rain_evap_rate: default_rain_evap_rate(),
+            snow_evap_rate: default_snow_evap_rate(),
+            snow_melt_rate: default_snow_melt_rate(),
+            melt_temp_f: default_melt_temp_f(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct WeatherSample {
+    pub weather: Weather,
+    pub temperature_f: i16,
+    pub precip_in: f32,
+}
+
+pub trait WeatherModel {
+    /// Generate weather for the current day.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if required configuration for the current context is missing.
+    fn generate_weather_today(
+        &self,
+        gs: &mut GameState,
+        rngs: &RngBundle,
+    ) -> Result<WeatherSample, String>;
+    fn apply_weather_effects(&self, gs: &mut GameState, sample: WeatherSample) -> WeatherEffects;
+    fn sample_from_weather(&self, gs: &GameState, weather: Weather) -> WeatherSample;
+}
+
+#[derive(Debug, Clone)]
+pub struct DystrailRegionalWeather {
+    config: WeatherConfig,
+}
+
+impl DystrailRegionalWeather {
+    #[must_use]
+    pub const fn new(config: WeatherConfig) -> Self {
+        Self { config }
+    }
+
+    #[must_use]
+    pub const fn config(&self) -> &WeatherConfig {
+        &self.config
+    }
+}
+
+impl Default for DystrailRegionalWeather {
+    fn default() -> Self {
+        Self::new(WeatherConfig::default_config())
+    }
+}
+
+impl WeatherModel for DystrailRegionalWeather {
+    fn generate_weather_today(
+        &self,
+        gs: &mut GameState,
+        rngs: &RngBundle,
+    ) -> Result<WeatherSample, String> {
+        let weather = select_weather_for_today(gs, &self.config, rngs)?;
+        Ok(self.sample_from_weather(gs, weather))
+    }
+
+    fn apply_weather_effects(&self, gs: &mut GameState, sample: WeatherSample) -> WeatherEffects {
+        apply_weather_effects(gs, &self.config, sample)
+    }
+
+    fn sample_from_weather(&self, gs: &GameState, weather: Weather) -> WeatherSample {
+        let base_temp = base_temperature_f(gs.season);
+        let delta = weather_temperature_delta_f(weather);
+        let temp_f = base_temp.saturating_add(delta);
+        let (rain, snow) = self
+            .config
+            .effects
+            .get(&weather)
+            .map_or((0.0, 0.0), |effect| (effect.rain_delta, effect.snow_delta));
+        let mut precip = rain + snow;
+        if !precip.is_finite() {
+            precip = 0.0;
+        }
+        let precip = precip.max(0.0);
+        WeatherSample {
+            weather,
+            temperature_f: temp_f,
+            precip_in: precip,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct OtDeluxeStationsWeather {
+    report: WeatherReportConfig,
+    accumulation: WeatherAccumulationConfig,
+}
+
+impl WeatherModel for OtDeluxeStationsWeather {
+    fn generate_weather_today(
+        &self,
+        gs: &mut GameState,
+        _rngs: &RngBundle,
+    ) -> Result<WeatherSample, String> {
+        Ok(WeatherSample {
+            weather: Weather::Clear,
+            temperature_f: base_temperature_f(gs.season),
+            precip_in: 0.0,
+        })
+    }
+
+    fn apply_weather_effects(&self, gs: &mut GameState, sample: WeatherSample) -> WeatherEffects {
+        apply_weather_report(gs, sample, &self.report);
+        let mut effects = WeatherEffects::default();
+        let (rain_delta, snow_delta) =
+            update_precip_accumulators(gs, sample, &self.report, &self.accumulation);
+        effects.rain_accum_delta = rain_delta;
+        effects.snow_depth_delta = snow_delta;
+        gs.weather_effects = effects;
+        effects
+    }
+
+    fn sample_from_weather(&self, gs: &GameState, _weather: Weather) -> WeatherSample {
+        WeatherSample {
+            weather: Weather::Clear,
+            temperature_f: base_temperature_f(gs.season),
+            precip_in: 0.0,
+        }
+    }
 }
 
 /// Weather state tracking for streaks and history
@@ -222,6 +499,33 @@ impl WeatherConfig {
             }
         }
 
+        if !self.report.heavy_precip_in.is_finite() || self.report.heavy_precip_in < 0.0 {
+            return Err(String::from("Report heavy_precip_in must be non-negative"));
+        }
+        if !self.accumulation.rain_evap_rate.is_finite() || self.accumulation.rain_evap_rate < 0.0 {
+            return Err(String::from(
+                "Accumulation rain_evap_rate must be non-negative",
+            ));
+        }
+        if !self.accumulation.snow_evap_rate.is_finite() || self.accumulation.snow_evap_rate < 0.0 {
+            return Err(String::from(
+                "Accumulation snow_evap_rate must be non-negative",
+            ));
+        }
+        if !self.accumulation.snow_melt_rate.is_finite() || self.accumulation.snow_melt_rate < 0.0 {
+            return Err(String::from(
+                "Accumulation snow_melt_rate must be non-negative",
+            ));
+        }
+        let bands = &self.report.temp_bands;
+        if bands.cold_min_f > bands.cool_min_f
+            || bands.cool_min_f > bands.warm_min_f
+            || bands.warm_min_f > bands.hot_min_f
+            || bands.hot_min_f > bands.very_hot_min_f
+        {
+            return Err(String::from("Report temperature bands must be ascending"));
+        }
+
         Ok(())
     }
 
@@ -253,6 +557,8 @@ impl WeatherConfig {
             mitigation: HashMap::new(),
             weights: HashMap::new(),
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
         }
     }
 }
@@ -426,9 +732,15 @@ fn apply_neutral_buffer<R: Rng>(
 }
 
 /// Apply weather effects to game state
-pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) -> WeatherEffects {
+pub fn apply_weather_effects(
+    gs: &mut GameState,
+    cfg: &WeatherConfig,
+    sample: WeatherSample,
+) -> WeatherEffects {
     let today = gs.weather_state.today;
     update_weather_streaks(&mut gs.weather_state, today);
+
+    apply_weather_report(gs, sample, &cfg.report);
 
     let Some(effect) = cfg.effects.get(&today) else {
         gs.weather_effects = WeatherEffects::default();
@@ -448,6 +760,8 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) -> Weather
         .get(&today)
         .copied()
         .unwrap_or(1.0);
+    let (rain_accum_delta, snow_depth_delta) =
+        update_precip_accumulators(gs, sample, &cfg.report, &cfg.accumulation);
     let effects = WeatherEffects {
         travel_mult: effect.travel_mult.max(0.1),
         supplies_delta: delta_sup,
@@ -456,8 +770,8 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) -> Weather
         encounter_delta: effect.enc_delta,
         encounter_cap,
         breakdown_mult,
-        rain_accum_delta: effect.rain_delta,
-        snow_depth_delta: effect.snow_delta,
+        rain_accum_delta,
+        snow_depth_delta,
     };
 
     gs.weather_travel_multiplier = effects.travel_mult;
@@ -468,7 +782,6 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) -> Weather
         effects.sanity_delta,
         effects.pants_delta,
     );
-    update_precip_accumulators(gs, effects);
     apply_exposure(gs, today);
     gs.weather_effects = effects;
     effects
@@ -509,13 +822,85 @@ fn apply_mitigation(
     (effect.supplies, delta_san, delta_pants)
 }
 
-fn update_precip_accumulators(gs: &mut GameState, effects: WeatherEffects) {
-    let rain = gs.weather_state.rain_accum + effects.rain_accum_delta;
-    let snow = gs.weather_state.snow_depth + effects.snow_depth_delta;
-    gs.weather_state.rain_accum = rain.max(0.0);
-    gs.weather_state.snow_depth = snow.max(0.0);
-    gs.ot_deluxe.weather.rain_accum = gs.weather_state.rain_accum;
-    gs.ot_deluxe.weather.snow_depth = gs.weather_state.snow_depth;
+fn apply_weather_report(gs: &mut GameState, sample: WeatherSample, report: &WeatherReportConfig) {
+    let label = derive_weather_report_label(sample, report);
+    gs.ot_deluxe.weather.today.temperature_f = sample.temperature_f;
+    gs.ot_deluxe.weather.today.precip_in = sample.precip_in;
+    gs.ot_deluxe.weather.today.label = label.as_key().to_string();
+}
+
+fn derive_weather_report_label(
+    sample: WeatherSample,
+    report: &WeatherReportConfig,
+) -> WeatherReportLabel {
+    let precip = if sample.precip_in.is_finite() {
+        sample.precip_in.max(0.0)
+    } else {
+        0.0
+    };
+    if precip > 0.0 {
+        let heavy = precip >= report.heavy_precip_in;
+        let snow = sample.temperature_f <= report.snow_temp_f;
+        return match (snow, heavy) {
+            (true, true) => WeatherReportLabel::VerySnowy,
+            (true, false) => WeatherReportLabel::Snowy,
+            (false, true) => WeatherReportLabel::VeryRainy,
+            (false, false) => WeatherReportLabel::Rainy,
+        };
+    }
+
+    let bands = &report.temp_bands;
+    let temp_f = sample.temperature_f;
+    if temp_f > bands.very_hot_min_f {
+        WeatherReportLabel::VeryHot
+    } else if temp_f >= bands.hot_min_f {
+        WeatherReportLabel::Hot
+    } else if temp_f >= bands.warm_min_f {
+        WeatherReportLabel::Warm
+    } else if temp_f >= bands.cool_min_f {
+        WeatherReportLabel::Cool
+    } else if temp_f >= bands.cold_min_f {
+        WeatherReportLabel::Cold
+    } else {
+        WeatherReportLabel::VeryCold
+    }
+}
+
+fn update_precip_accumulators(
+    gs: &mut GameState,
+    sample: WeatherSample,
+    report: &WeatherReportConfig,
+    accumulation: &WeatherAccumulationConfig,
+) -> (f32, f32) {
+    let rain_before = gs.weather_state.rain_accum;
+    let snow_before = gs.weather_state.snow_depth;
+    let mut rain_accum = rain_before;
+    let mut snow_depth = snow_before;
+    let precip = sample.precip_in.max(0.0);
+
+    if precip > 0.0 {
+        if sample.temperature_f <= report.snow_temp_f {
+            snow_depth += precip;
+        } else {
+            rain_accum += precip;
+        }
+    }
+
+    if sample.temperature_f >= accumulation.melt_temp_f && snow_depth > 0.0 {
+        let melt_amount = accumulation.snow_melt_rate.min(snow_depth);
+        snow_depth -= melt_amount;
+        rain_accum += melt_amount;
+    }
+
+    rain_accum = (rain_accum - accumulation.rain_evap_rate).max(0.0);
+    snow_depth = (snow_depth - accumulation.snow_evap_rate).max(0.0);
+
+    gs.weather_state.rain_accum = rain_accum;
+    gs.weather_state.snow_depth = snow_depth;
+    gs.ot_deluxe.weather.rain_accum = rain_accum;
+    gs.ot_deluxe.weather.snow_depth = snow_depth;
+
+    (rain_accum - rain_before, snow_depth - snow_before)
 }
 
 fn apply_exposure(gs: &mut GameState, today: Weather) {
@@ -562,7 +947,7 @@ fn apply_exposure_with_streak_lockout(
     if cold_trigger {
         hp_damage = 1;
         gs.mark_damage(DamageCause::ExposureCold);
-        gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+        gs.push_log(LOG_WEATHER_EXPOSURE);
         exposure_kind = Some(ExposureKind::Cold);
     }
 
@@ -575,7 +960,7 @@ fn apply_exposure_with_streak_lockout(
     if heat_trigger {
         hp_damage = 1;
         gs.mark_damage(DamageCause::ExposureHeat);
-        gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+        gs.push_log(LOG_WEATHER_HEATSTROKE);
         exposure_kind = Some(ExposureKind::Heat);
     }
 
@@ -601,7 +986,7 @@ fn apply_exposure_basic(
         if gs.exposure_streak_cold >= 3 {
             hp_damage += 1;
             gs.mark_damage(DamageCause::ExposureCold);
-            gs.logs.push(String::from(LOG_WEATHER_EXPOSURE));
+            gs.push_log(LOG_WEATHER_EXPOSURE);
             exposure_kind = Some(ExposureKind::Cold);
         }
     } else {
@@ -614,7 +999,7 @@ fn apply_exposure_basic(
         if gs.exposure_streak_heat >= 3 {
             hp_damage += 1;
             gs.mark_damage(DamageCause::ExposureHeat);
-            gs.logs.push(String::from(LOG_WEATHER_HEATSTROKE));
+            gs.push_log(LOG_WEATHER_HEATSTROKE);
             exposure_kind = Some(ExposureKind::Heat);
         }
     } else {
@@ -652,20 +1037,24 @@ fn update_weather_streaks(state: &mut WeatherState, today: Weather) {
 }
 
 /// Process daily weather step in game tick
-pub fn process_daily_weather(gs: &mut GameState, cfg: &WeatherConfig, rngs: Option<&RngBundle>) {
+pub fn process_daily_weather(
+    gs: &mut GameState,
+    model: &impl WeatherModel,
+    rngs: Option<&RngBundle>,
+) {
     // Move today to yesterday
     gs.weather_state.yesterday = gs.weather_state.today;
 
-    // Select new weather for today
-    if let Some(rngs) = rngs
-        && let Ok(weather) = select_weather_for_today(gs, cfg, rngs)
+    let sample = if let Some(rngs) = rngs
+        && let Ok(new_sample) = model.generate_weather_today(gs, rngs)
     {
-        gs.weather_state.today = weather;
-    }
-    // If weather selection fails, keep previous weather
+        gs.weather_state.today = new_sample.weather;
+        new_sample
+    } else {
+        model.sample_from_weather(gs, gs.weather_state.today)
+    };
 
-    // Apply effects
-    let _ = apply_weather_effects(gs, cfg);
+    let _ = model.apply_weather_effects(gs, sample);
 }
 
 #[cfg(test)]
@@ -720,6 +1109,16 @@ mod tests {
             mitigation: HashMap::new(),
             weights,
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
+        }
+    }
+
+    fn sample_with_temp(weather: Weather, temp_f: i16, precip_in: f32) -> WeatherSample {
+        WeatherSample {
+            weather,
+            temperature_f: temp_f,
+            precip_in,
         }
     }
 
@@ -806,11 +1205,14 @@ mod tests {
             mitigation: HashMap::new(),
             weights: HashMap::new(),
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
         };
         let mut state = GameState::default();
         state.weather_state.today = Weather::Storm;
 
-        let effects = apply_weather_effects(&mut state, &cfg);
+        let sample = sample_with_temp(Weather::Storm, base_temperature_f(state.season), 0.0);
+        let effects = apply_weather_effects(&mut state, &cfg, sample);
 
         assert!((effects.travel_mult - 1.0).abs() <= f32::EPSILON);
         assert!((state.weather_travel_multiplier - effects.travel_mult).abs() <= f32::EPSILON);
@@ -842,11 +1244,14 @@ mod tests {
             mitigation: HashMap::new(),
             weights: HashMap::new(),
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
         };
         let mut state = GameState::default();
         state.weather_state.today = Weather::Clear;
 
-        let effects = apply_weather_effects(&mut state, &cfg);
+        let sample = sample_with_temp(Weather::Clear, base_temperature_f(state.season), 0.0);
+        let effects = apply_weather_effects(&mut state, &cfg, sample);
         assert!((effects.encounter_cap - 1.0).abs() <= f32::EPSILON);
     }
 
@@ -869,6 +1274,8 @@ mod tests {
             mitigation: HashMap::new(),
             weights,
             exec_mods: HashMap::new(),
+            report: WeatherReportConfig::default(),
+            accumulation: WeatherAccumulationConfig::default(),
         };
 
         let rngs = RngBundle::from_user_seed(42);
@@ -954,11 +1361,98 @@ mod tests {
         cfg.effects = effects;
         cfg.mitigation = mitigation;
 
-        let output = apply_weather_effects(&mut state, &cfg);
+        let sample = sample_with_temp(Weather::Storm, 60, 1.5);
+        let output = apply_weather_effects(&mut state, &cfg, sample);
         assert_eq!(output.supplies_delta, -2);
         assert_eq!(output.sanity_delta, -1);
         assert_eq!(output.pants_delta, -2);
         assert!(state.weather_state.rain_accum > 0.0);
+        assert_eq!(
+            state.ot_deluxe.weather.today.label,
+            WeatherReportLabel::VeryRainy.as_key()
+        );
+    }
+
+    #[test]
+    fn weather_report_label_prefers_precip_over_temp() {
+        let report = WeatherReportConfig {
+            heavy_precip_in: 0.5,
+            snow_temp_f: 32,
+            temp_bands: WeatherTempBands::default(),
+        };
+
+        let rainy = derive_weather_report_label(sample_with_temp(Weather::Storm, 60, 0.4), &report);
+        assert_eq!(rainy, WeatherReportLabel::Rainy);
+
+        let very_rainy =
+            derive_weather_report_label(sample_with_temp(Weather::Storm, 60, 0.6), &report);
+        assert_eq!(very_rainy, WeatherReportLabel::VeryRainy);
+
+        let snowy = derive_weather_report_label(sample_with_temp(Weather::Storm, 30, 0.4), &report);
+        assert_eq!(snowy, WeatherReportLabel::Snowy);
+
+        let very_snowy =
+            derive_weather_report_label(sample_with_temp(Weather::Storm, 30, 0.6), &report);
+        assert_eq!(very_snowy, WeatherReportLabel::VerySnowy);
+    }
+
+    #[test]
+    fn weather_report_label_uses_temp_bands() {
+        let report = WeatherReportConfig::default();
+
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 95, 0.0), &report),
+            WeatherReportLabel::VeryHot
+        );
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 80, 0.0), &report),
+            WeatherReportLabel::Hot
+        );
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 60, 0.0), &report),
+            WeatherReportLabel::Warm
+        );
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 45, 0.0), &report),
+            WeatherReportLabel::Cool
+        );
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 20, 0.0), &report),
+            WeatherReportLabel::Cold
+        );
+        assert_eq!(
+            derive_weather_report_label(sample_with_temp(Weather::Clear, 5, 0.0), &report),
+            WeatherReportLabel::VeryCold
+        );
+    }
+
+    #[test]
+    fn precip_accumulators_apply_melt_and_evap() {
+        let report = WeatherReportConfig {
+            heavy_precip_in: 0.5,
+            snow_temp_f: 32,
+            temp_bands: WeatherTempBands::default(),
+        };
+        let accumulation = WeatherAccumulationConfig {
+            rain_evap_rate: 0.2,
+            snow_evap_rate: 0.1,
+            snow_melt_rate: 0.5,
+            melt_temp_f: 40,
+        };
+        let mut state = GameState::default();
+        state.weather_state.rain_accum = 1.0;
+        state.weather_state.snow_depth = 1.0;
+
+        let sample = sample_with_temp(Weather::Storm, 50, 0.4);
+        let (rain_delta, snow_delta) =
+            update_precip_accumulators(&mut state, sample, &report, &accumulation);
+
+        assert!((state.weather_state.rain_accum - 1.7).abs() < 0.01);
+        assert!((state.weather_state.snow_depth - 0.4).abs() < 0.01);
+        assert!((rain_delta - 0.7).abs() < 0.01);
+        assert!((snow_delta + 0.6).abs() < 0.01);
+        assert!((state.ot_deluxe.weather.rain_accum - state.weather_state.rain_accum).abs() < 0.01);
+        assert!((state.ot_deluxe.weather.snow_depth - state.weather_state.snow_depth).abs() < 0.01);
     }
 
     #[test]
@@ -997,7 +1491,8 @@ mod tests {
         state.exposure_streak_heat = 2;
         state.stats.hp = 3;
         state.stats.sanity = 5;
-        apply_weather_effects(&mut state, &cfg);
+        let sample = sample_with_temp(Weather::HeatWave, 96, 0.0);
+        apply_weather_effects(&mut state, &cfg, sample);
         assert!(state.stats.hp < 3);
         assert!(state.logs.contains(&String::from(LOG_WEATHER_HEATSTROKE)));
 
@@ -1006,7 +1501,8 @@ mod tests {
         state.exposure_streak_cold = 2;
         state.stats.hp = 3;
         state.logs.clear();
-        apply_weather_effects(&mut state, &cfg);
+        let sample = sample_with_temp(Weather::ColdSnap, 5, 0.0);
+        apply_weather_effects(&mut state, &cfg, sample);
         assert!(state.stats.hp < 3);
         assert!(state.logs.contains(&String::from(LOG_WEATHER_EXPOSURE)));
     }
@@ -1033,9 +1529,9 @@ mod tests {
             ..GameState::default()
         };
 
-        let cfg = WeatherConfig::default_config();
+        let model = DystrailRegionalWeather::default();
         let rngs = RngBundle::from_user_seed(7);
-        process_daily_weather(&mut state, &cfg, Some(&rngs));
+        process_daily_weather(&mut state, &model, Some(&rngs));
 
         assert_eq!(state.weather_state.yesterday, Weather::Clear);
     }
@@ -1091,11 +1587,22 @@ mod tests {
     }
 
     #[test]
+    fn weather_config_validation_rejects_bad_temp_bands() {
+        let mut cfg = WeatherConfig::default_config();
+        cfg.report.temp_bands.cold_min_f = 40;
+        cfg.report.temp_bands.cool_min_f = 30;
+        let err = cfg.validate().unwrap_err();
+        assert!(err.contains("temperature bands"));
+    }
+
+    #[test]
     fn weather_config_from_json_parses_defaults() {
         let json = include_str!("../../dystrail-web/static/assets/data/weather.json");
         let cfg = WeatherConfig::from_json(json).expect("expected valid weather config");
         assert!(cfg.effects.contains_key(&Weather::Clear));
         assert!(cfg.weights.contains_key(&Region::Heartland));
+        let storm = cfg.effects.get(&Weather::Storm).expect("storm effect");
+        assert!((storm.rain_delta - 0.4).abs() < 0.01);
     }
 
     #[test]

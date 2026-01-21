@@ -58,7 +58,9 @@ pub use journey::{
     TravelDayKind, UiSurfaceHint,
 };
 pub use mechanics::{
-    OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionWeightOverride, OtDeluxeBreakdownPolicy,
+    OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride, OtDeluxeRations,
+    OtDeluxeTrailVariant, OtDeluxeWeatherEffectsOverride,
 };
 pub use otdeluxe_crossings::{
     OtDeluxeCrossingOptions, OtDeluxeCrossingOutcome, OtDeluxeCrossingResolution,
@@ -104,7 +106,11 @@ pub use trade::{
     resolve_trade_with_rng,
 };
 pub use vehicle::{Breakdown, Part, Vehicle, VehicleConfig};
-pub use weather::{Weather, WeatherConfig, WeatherEffect, WeatherMitigation, WeatherState};
+pub use weather::{
+    DystrailRegionalWeather, OtDeluxeStationsWeather, Weather, WeatherAccumulationConfig,
+    WeatherConfig, WeatherEffect, WeatherMitigation, WeatherModel, WeatherReportConfig,
+    WeatherReportLabel, WeatherSample, WeatherState, WeatherTempBands,
+};
 
 /// Trait for abstracting data loading operations
 /// Platform-specific implementations should provide this

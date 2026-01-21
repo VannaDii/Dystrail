@@ -7,5 +7,7 @@
 pub mod otdeluxe90s;
 
 pub use otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxeRations, OtDeluxeTrailVariant,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionWeightOverride, OtDeluxeBreakdownPolicy,
+    OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride, OtDeluxeRations,
+    OtDeluxeTrailVariant, OtDeluxeWeatherEffectsOverride,
 };

@@ -1,5 +1,5 @@
 use super::{Props, ResultScreenWrapper, menu, share};
-use dystrail_game::{Ending, GameState, ResultConfig, ResultSummary};
+use dystrail_game::{Ending, GameState, MechanicalPolicyId, ResultConfig, ResultSummary};
 use futures::executor::block_on;
 use yew::Callback;
 use yew::LocalServerRenderer;
@@ -85,6 +85,16 @@ fn result_screen_renders_summary() {
     let html = block_on(LocalServerRenderer::<ResultScreenWrapper>::with_props(props).render());
     assert!(html.contains("result-screen"));
     assert!(html.contains("Result"));
+}
+
+#[test]
+fn result_screen_hides_thresholds_for_otdeluxe() {
+    crate::i18n::set_lang("en");
+    let mut props = baseline_props();
+    props.game_state.mechanical_policy = MechanicalPolicyId::OtDeluxe90s;
+    let html = block_on(LocalServerRenderer::<ResultScreenWrapper>::with_props(props).render());
+    assert!(!html.contains("Score Threshold"));
+    assert!(!html.contains("Boss Vote Ready"));
 }
 
 #[test]
