@@ -7296,7 +7296,9 @@ impl GameState {
                 (false, String::from(LOG_CROSSING_PASSED))
             }
             crossings::CrossingResult::Detour(days) => {
-                telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
+                if telemetry.bribe_attempted {
+                    telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
+                }
                 telemetry.detour_taken = true;
                 telemetry.detour_days = Some(u32::from(days));
                 telemetry.outcome = CrossingOutcomeTelemetry::Detoured;
@@ -7319,7 +7321,9 @@ impl GameState {
                 (false, String::from(LOG_CROSSING_DETOUR))
             }
             crossings::CrossingResult::TerminalFail => {
-                telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
+                if telemetry.bribe_attempted {
+                    telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
+                }
                 telemetry.outcome = CrossingOutcomeTelemetry::Failed;
                 self.crossing_failures = self.crossing_failures.saturating_add(1);
                 self.push_log(LOG_CROSSING_FAILURE);
