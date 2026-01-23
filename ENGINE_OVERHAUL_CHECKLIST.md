@@ -1719,21 +1719,25 @@ However, there are two implementation-scope clarifications that must be made exp
      - (A) a distinct “OTDeluxe campaign” mode, or
      - (B) the default mechanics for the main campaign.
    - The checklist assumes (A) because it avoids breaking existing Dystrail runs, but either can satisfy the spec if policy selection is explicit.
+   - Decision (implemented): (A) OTDeluxe90sPolicy is a distinct mechanical mode gated by `MechanicalPolicyId::OtDeluxe90s`; DystrailLegacy remains the default campaign.
 
 2) **Mapping OT itemized inventory into Dystrail UI affordances**
    - OTDeluxe requires itemized oxen/food/bullets/clothes/spares; Dystrail currently uses umbrella supplies + tags/spares.
    - Implementation must decide whether the UI shows OT inventory directly (recommended for parity) or shows a Dystrail-styled abstraction that still preserves the exact mechanics and score components.
+   - Decision (implemented): OTDeluxe uses a dedicated itemized UI (`otdeluxe_store_panel`) showing OT inventory directly; Dystrail UI remains separate.
 
 3) **Route-variant prompt day semantics (South Pass / Blue Mountains)**
    - The spec defines *where* the prompts occur and how they change mile-marker tables, but does not state whether choosing a route variant:
      - (A) is purely an immediate choice at arrival with no special day-record implications, or
      - (B) behaves like other “StoppedNeedsChoice” gates (the day ends at the landmark; choice is resolved in UI; next tick continues with the selected route variant).
    - The checklist currently assumes (B) for determinism symmetry with crossings/Dalles, but if Deluxe UX implies (A), we should lock that.
+   - Decision (implemented): (A) route prompts block without consuming a day; the choice is applied and the next tick resumes on the selected variant.
 
 4) **Boss gate “consumes a day” semantics (DystrailLegacyPolicy only)**
    - OTDeluxe90sPolicy disables boss gating unless explicitly opted in, but DystrailLegacyPolicy still needs a clear rule:
      - Does boss gating pause the day (no day record finalized until the boss is resolved), or
      - does it record a NonTravel day and advance time?
    - This affects replay determinism and UX (re-rolling weather/supplies/health while “awaiting boss” is disallowed).
+   - Decision (implemented): boss gating records a NonTravel day (via `record_gate_day`) and advances time.
 
-If you want any of these constrained more tightly (A vs B; UI representation choice), answer here and we’ll lock it as an additional implementation-binding decision.
+If you want any of these constrained differently, we can update the implementation and lock the revised choice.
