@@ -1626,7 +1626,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
   - Acceptance criteria:
     - New baselines are checked in only with explicit sign-off that the kernel refactor is correct.
 
-- [ ] LOCK-001 (P1) Add a reproducible `OREGON.EXE` extraction pipeline for remaining Deluxe-unknown parameters
+- [x] LOCK-001 (P1) Add a reproducible `OREGON.EXE` extraction pipeline for remaining Deluxe-unknown parameters
   - Requirement:
     - The systems spec intentionally keeps some knobs “policy-defined” pending extraction/fit.
     - To reduce long-term ambiguity, implement an explicit extraction pipeline that:
@@ -1650,7 +1650,7 @@ This section is a “nothing fell through the cracks” map: every `MUST` in the
     - The repo can regenerate the extracted policy artifact from a known EXE (or a fixture) and compare it to the committed artifact.
     - Any extracted value that differs from the spec triggers a deliberate review/update (no silent drift).
 
-- [ ] LOCK-002 (P1) Add an empirical sampling harness to fit remaining distributions (when EXE extraction is infeasible)
+- [x] LOCK-002 (P1) Add an empirical sampling harness to fit remaining distributions (when EXE extraction is infeasible)
   - Requirement:
     - Some behaviors may be data-driven at runtime or difficult to extract statically; for those, implement a sampling harness that:
       - runs controlled Deluxe scenarios (save-state or deterministic setup)
