@@ -1,7 +1,11 @@
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::app::state::AppState;
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::game::load_result_config;
+#[cfg(any(target_arch = "wasm32", test))]
 use yew::prelude::*;
 
+#[cfg(any(target_arch = "wasm32", test))]
 #[derive(Clone)]
 struct BootstrapHandles {
     data: UseStateHandle<crate::game::data::EncounterData>,
@@ -15,6 +19,7 @@ struct BootstrapHandles {
     boot_ready: UseStateHandle<bool>,
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 fn handles_from_state(app_state: &AppState) -> BootstrapHandles {
     BootstrapHandles {
         data: app_state.data.clone(),
@@ -29,6 +34,7 @@ fn handles_from_state(app_state: &AppState) -> BootstrapHandles {
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 fn bootstrap_load(handles: &BootstrapHandles) {
     let mut progress = 0_u8;
     let mut bump = |p: &UseStateHandle<u8>| {
@@ -79,21 +85,15 @@ fn bootstrap_load(handles: &BootstrapHandles) {
     handles.boot_ready.set(true);
 }
 
+#[cfg(target_arch = "wasm32")]
 #[hook]
 pub fn use_bootstrap(app_state: &AppState) {
     let handles = handles_from_state(app_state);
 
     use_effect_with((), move |()| {
-        #[cfg(not(test))]
-        {
-            wasm_bindgen_futures::spawn_local(async move {
-                bootstrap_load(&handles);
-            });
-        }
-        #[cfg(test)]
-        {
+        wasm_bindgen_futures::spawn_local(async move {
             bootstrap_load(&handles);
-        }
+        });
         || {}
     });
 }

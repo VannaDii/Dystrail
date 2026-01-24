@@ -288,6 +288,12 @@ mod tests {
     }
 
     #[test]
+    fn real_game_expectation_accepts_non_error_endings() {
+        let summary = base_summary(2, "Victory");
+        real_game_expectation(&summary).expect("should pass");
+    }
+
+    #[test]
     fn get_scenario_resolves_strategy_variants() {
         let assets = Arc::new(TesterAssets::load_default());
         let tester = GameTester::new(assets, false);

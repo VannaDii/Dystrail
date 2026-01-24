@@ -12,13 +12,16 @@ pub use state::OutfittingStoreProps;
 use self::handlers::navigation::{
     get_max_menu_index, handle_back_navigation, handle_menu_selection,
 };
-use self::state::{StoreScreen, StoreState, load_store_data};
-#[cfg(any(target_arch = "wasm32", test))]
+#[cfg(target_arch = "wasm32")]
+use self::state::load_store_data;
+use self::state::{StoreScreen, StoreState};
 use self::view::quantity::render_quantity_screen;
 use self::view::{
     cart::render_cart_screen, category::render_category_screen, home::render_home_screen,
 };
+#[cfg(target_arch = "wasm32")]
 use crate::dom;
+#[cfg(target_arch = "wasm32")]
 use crate::game::store::calculate_cart_total;
 #[cfg(target_arch = "wasm32")]
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
@@ -26,6 +29,37 @@ use crate::input::{numeric_code_to_index, numeric_key_to_index};
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
+
+fn render_store_screen(
+    screen: &StoreScreen,
+    store_state: &UseStateHandle<StoreState>,
+    props: &OutfittingStoreProps,
+    list_ref: &NodeRef,
+    on_keydown: &Callback<KeyboardEvent>,
+) -> Html {
+    match screen {
+        StoreScreen::Home => {
+            render_home_screen(store_state, &props.game_state, list_ref, on_keydown)
+        }
+        StoreScreen::Category(category_id) => render_category_screen(
+            category_id,
+            store_state,
+            &props.game_state,
+            list_ref,
+            on_keydown,
+        ),
+        StoreScreen::QuantityPrompt(item_id) => render_quantity_screen(
+            item_id,
+            store_state,
+            &props.game_state,
+            list_ref,
+            on_keydown,
+        ),
+        StoreScreen::Cart => {
+            render_cart_screen(store_state, &props.game_state, list_ref, on_keydown, props)
+        }
+    }
+}
 
 #[function_component(OutfittingStore)]
 pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
@@ -35,6 +69,7 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
 
     let discount_pct = f64::from(props.game_state.mods.store_discount_pct);
 
+    #[cfg(target_arch = "wasm32")]
     {
         let store_state = store_state.clone();
         use_effect_with((), move |()| match load_store_data() {
@@ -51,7 +86,12 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
             }
         });
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = discount_pct;
+    }
 
+    #[cfg(target_arch = "wasm32")]
     {
         let store_state = store_state.clone();
         use_effect_with(store_state.cart.clone(), move |cart| {
@@ -60,6 +100,10 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
                 calculate_cart_total(cart, &state.store_data, state.discount_pct);
             store_state.set(state);
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = store_state.cart.clone();
     }
 
     let on_keydown = {
@@ -146,42 +190,19 @@ pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
         }
     }
 
-    match &store_state.current_screen {
-        StoreScreen::Home => {
-            render_home_screen(&store_state, &props.game_state, &list_ref, &on_keydown)
-        }
-        StoreScreen::Category(category_id) => render_category_screen(
-            category_id,
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-        ),
-        #[cfg(any(target_arch = "wasm32", test))]
-        StoreScreen::QuantityPrompt(item_id) => render_quantity_screen(
-            item_id,
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-        ),
-        StoreScreen::Cart => render_cart_screen(
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-            props,
-        ),
-    }
+    render_store_screen(
+        &store_state.current_screen,
+        &store_state,
+        props,
+        &list_ref,
+        &on_keydown,
+    )
 }
 
 #[cfg(test)]
 mod tests {
+    use super::render_store_screen;
     use super::state::{StoreScreen, StoreState, load_store_data};
-    use super::view::{
-        cart::render_cart_screen, category::render_category_screen, home::render_home_screen,
-        quantity::render_quantity_screen,
-    };
     use crate::game::GameState;
     use crate::game::store::{Cart, calculate_cart_total};
     use futures::executor::block_on;
@@ -243,32 +264,17 @@ mod tests {
         let on_continue: Callback<(GameState, crate::game::store::Grants, Vec<String>)> =
             Callback::noop();
         let store_props = super::state::OutfittingStoreProps {
-            game_state: game_state.clone(),
+            game_state,
             on_continue,
         };
 
-        match &props.screen {
-            StoreScreen::Home => {
-                render_home_screen(&store_state, &game_state, &list_ref, &on_keydown)
-            }
-            StoreScreen::Category(category_id) => render_category_screen(
-                category_id,
-                &store_state,
-                &game_state,
-                &list_ref,
-                &on_keydown,
-            ),
-            StoreScreen::QuantityPrompt(item_id) => {
-                render_quantity_screen(item_id, &store_state, &game_state, &list_ref, &on_keydown)
-            }
-            StoreScreen::Cart => render_cart_screen(
-                &store_state,
-                &game_state,
-                &list_ref,
-                &on_keydown,
-                &store_props,
-            ),
-        }
+        render_store_screen(
+            &props.screen,
+            &store_state,
+            &store_props,
+            &list_ref,
+            &on_keydown,
+        )
     }
 
     #[test]

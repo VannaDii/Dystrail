@@ -81,7 +81,11 @@ impl TesterAssets {
     fn load_encounters_from_assets() -> Option<EncounterData> {
         let base = Self::assets_data_root();
         let json = fs::read_to_string(base.join("game.json")).ok()?;
-        let data = EncounterData::from_json(&json).ok()?;
+        Self::load_encounters_from_json(&json)
+    }
+
+    fn load_encounters_from_json(json: &str) -> Option<EncounterData> {
+        let data = EncounterData::from_json(json).ok()?;
         if data.encounters.is_empty() {
             None
         } else {
@@ -98,7 +102,11 @@ impl TesterAssets {
     fn load_store_from_assets() -> Option<Store> {
         let base = Self::assets_data_root();
         let json = fs::read_to_string(base.join("store.json")).ok()?;
-        match serde_json::from_str(&json) {
+        Self::load_store_from_json(&json)
+    }
+
+    fn load_store_from_json(json: &str) -> Option<Store> {
+        match serde_json::from_str(json) {
             Ok(store) => Some(store),
             Err(err) => {
                 eprintln!("⚠️ Failed to parse store.json: {err}");
@@ -648,7 +656,11 @@ impl GameTester {
             ],
         };
 
-        let mut names: Vec<String> = base.into_iter().map(String::from).collect();
+        let names: Vec<String> = base.into_iter().map(String::from).collect();
+        Self::party_roster_from_names(names, seed)
+    }
+
+    fn party_roster_from_names(mut names: Vec<String>, seed: u64) -> (String, Vec<String>) {
         match u64::try_from(names.len()) {
             Ok(len_u64) if len_u64 > 0 => {
                 let offset = usize::try_from(seed % len_u64).unwrap_or(0);
@@ -1341,7 +1353,13 @@ fn humanize_log_message(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use dystrail_game::crossings::CrossingKind;
+    use dystrail_game::journey::{DayRecord, DayTag, TravelDayKind};
     use dystrail_game::personas::{Persona, PersonaMods, PersonaStart, PersonasList};
+    use dystrail_game::state::{
+        CollapseCause, CrossingOutcomeTelemetry, CrossingTelemetry, Ending, ExposureKind, Region,
+        Season, Stats, VehicleFailureCause,
+    };
     use dystrail_game::store::{Grants, Store, StoreItem};
     use dystrail_game::weather::{
         Weather, WeatherAccumulationConfig, WeatherConfig, WeatherLimits, WeatherReportConfig,
@@ -1666,6 +1684,385 @@ mod tests {
                 .iter()
                 .any(|log| log.contains("log.store.purchase.water"))
         );
+    }
+
+    #[test]
+    fn load_encounters_from_json_filters_empty() {
+        let empty_json = serde_json::to_string(&EncounterData::empty()).expect("json");
+        assert!(TesterAssets::load_encounters_from_json(&empty_json).is_none());
+        let data_json =
+            serde_json::to_string(&TesterAssets::fallback_encounter_data()).expect("json");
+        assert!(TesterAssets::load_encounters_from_json(&data_json).is_some());
+    }
+
+    #[test]
+    fn load_store_from_json_rejects_invalid() {
+        assert!(TesterAssets::load_store_from_json("not-json").is_none());
+    }
+
+    #[test]
+    fn fallback_store_data_includes_items() {
+        let store = TesterAssets::fallback_store_data();
+        assert!(!store.items.is_empty());
+    }
+
+    #[test]
+    fn simulation_expectation_debug_formats() {
+        let expectation = SimulationExpectation::new(|_| Ok(()));
+        let formatted = format!("{expectation:?}");
+        assert!(formatted.contains("SimulationExpectation"));
+    }
+
+    #[test]
+    fn apply_persona_choice_handles_missing_personas() {
+        let weather_config = make_weather_config(HashMap::new());
+        let store = Store {
+            categories: Vec::new(),
+            items: Vec::new(),
+        };
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, PersonasList::empty())),
+            true,
+        );
+        let mut state = GameState::default();
+        tester.apply_persona_choice(&mut state, GameplayStrategy::Balanced);
+        assert!(state.persona_id.is_none());
+    }
+
+    #[test]
+    fn heatwave_and_coldsnap_risk_ignore_zero_weights() {
+        let mut weights = HashMap::new();
+        let mut region_weights = HashMap::new();
+        region_weights.insert(Weather::HeatWave, 0);
+        region_weights.insert(Weather::ColdSnap, 0);
+        weights.insert(Region::Heartland, region_weights);
+        let weather_config = make_weather_config(weights);
+        let store = Store {
+            categories: Vec::new(),
+            items: Vec::new(),
+        };
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, PersonasList::empty())),
+            false,
+        );
+        assert!((tester.heatwave_risk() - 0.0).abs() <= f64::EPSILON);
+        assert!((tester.coldsnap_risk() - 0.0).abs() <= f64::EPSILON);
+    }
+
+    #[test]
+    fn planned_purchases_adjusts_for_conservative_risks() {
+        let mut weights = HashMap::new();
+        let mut region_weights = HashMap::new();
+        region_weights.insert(Weather::HeatWave, 100);
+        region_weights.insert(Weather::ColdSnap, 100);
+        weights.insert(Region::Heartland, region_weights);
+        let weather_config = make_weather_config(weights);
+        let store = Store {
+            categories: Vec::new(),
+            items: Vec::new(),
+        };
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, PersonasList::empty())),
+            false,
+        );
+        let state = GameState {
+            season: Season::Winter,
+            mode: GameMode::Classic,
+            ..GameState::default()
+        };
+        let plan = tester.planned_purchases(&state, GameplayStrategy::Conservative, 1);
+        assert!(plan.iter().any(|(id, _)| *id == "water"));
+        assert!(plan.iter().any(|(id, _)| *id == "coats"));
+    }
+
+    #[test]
+    fn dynamic_price_multiplier_handles_seasons_and_breakdowns() {
+        let coat_state = GameState {
+            season: Season::Spring,
+            region: Region::Beltway,
+            ..GameState::default()
+        };
+        let coat = StoreItem {
+            id: "coats".to_string(),
+            name: "Coats".to_string(),
+            desc: "Warm".to_string(),
+            price_cents: 100,
+            unique: false,
+            max_qty: 1,
+            grants: Grants::default(),
+            tags: vec!["warm_coat".to_string()],
+            category: String::new(),
+        };
+        assert!(GameTester::dynamic_price_multiplier(&coat_state, &coat) > 100);
+
+        let water_state = GameState {
+            season: Season::Summer,
+            region: Region::Heartland,
+            ..GameState::default()
+        };
+        let water = StoreItem {
+            id: "water".to_string(),
+            name: "Water".to_string(),
+            desc: "Hydration".to_string(),
+            price_cents: 100,
+            unique: false,
+            max_qty: 1,
+            grants: Grants::default(),
+            tags: vec!["water_jugs".to_string()],
+            category: String::new(),
+        };
+        assert!(GameTester::dynamic_price_multiplier(&water_state, &water) > 100);
+
+        let spare_state = GameState {
+            vehicle_breakdowns: 4,
+            ..GameState::default()
+        };
+        let spare = StoreItem {
+            id: "spare_tire".to_string(),
+            name: "Spare Tire".to_string(),
+            desc: "Spare".to_string(),
+            price_cents: 100,
+            unique: false,
+            max_qty: 1,
+            grants: Grants::default(),
+            tags: Vec::new(),
+            category: String::new(),
+        };
+        assert!(GameTester::dynamic_price_multiplier(&spare_state, &spare) > 100);
+        let spare_state = GameState {
+            vehicle_breakdowns: 2,
+            ..GameState::default()
+        };
+        assert!(GameTester::dynamic_price_multiplier(&spare_state, &spare) > 100);
+    }
+
+    #[test]
+    fn trim_noncritical_spare_removes_battery() {
+        let mut plan = vec![("spare_tire", 1), ("battery", 1)];
+        GameTester::trim_noncritical_spare(&mut plan);
+        assert!(!plan.iter().any(|(id, _)| *id == "battery"));
+    }
+
+    #[test]
+    fn prioritize_coat_inserts_when_no_spares() {
+        let mut plan = Vec::new();
+        GameTester::prioritize_coat(&mut plan, GameplayStrategy::Balanced);
+        assert!(plan.iter().any(|(id, _)| *id == "coats"));
+    }
+
+    #[test]
+    fn party_roster_fills_missing_names() {
+        let (leader, companions) = GameTester::party_roster_from_names(vec!["Solo".to_string()], 0);
+        assert_eq!(leader, "Solo");
+        assert_eq!(companions.len(), 4);
+    }
+
+    #[test]
+    fn execute_purchase_handles_unique_negative_price() {
+        let item = StoreItem {
+            id: "coupon".to_string(),
+            name: "Coupon".to_string(),
+            desc: "Discount".to_string(),
+            price_cents: -100,
+            unique: true,
+            max_qty: 1,
+            grants: Grants::default(),
+            tags: Vec::new(),
+            category: String::new(),
+        };
+        let store = Store {
+            categories: Vec::new(),
+            items: vec![item],
+        };
+        let weather_config = make_weather_config(HashMap::new());
+        let tester = GameTester::new(
+            Arc::new(build_assets(weather_config, store, PersonasList::empty())),
+            false,
+        );
+        let mut state = GameState {
+            budget_cents: 10_000,
+            ..GameState::default()
+        };
+        tester.execute_purchase(&mut state, "coupon", 2);
+        assert_eq!(state.budget_cents, 10_000);
+    }
+
+    #[test]
+    fn summarize_day_records_tracks_stop_cap() {
+        let mut record = DayRecord::new(0, TravelDayKind::Travel, 20.0);
+        record.push_tag(DayTag::new("stop_cap"));
+        let state = GameState {
+            day_records: vec![record],
+            ..GameState::default()
+        };
+        let summary = PlayabilityMetrics::summarize_day_records(&state);
+        assert_eq!(summary.stop_cap_conversions, 1);
+    }
+
+    #[test]
+    fn capture_crossing_telemetry_counts_permits() {
+        let state = GameState {
+            crossing_events: vec![CrossingTelemetry {
+                day: 1,
+                region: Region::Heartland,
+                season: Season::Summer,
+                kind: CrossingKind::Checkpoint,
+                permit_used: true,
+                bribe_attempted: false,
+                bribe_success: None,
+                bribe_cost_cents: 0,
+                bribe_chance: None,
+                bribe_roll: None,
+                detour_taken: false,
+                detour_days: None,
+                detour_base_supplies_delta: None,
+                detour_extra_supplies_loss: None,
+                detour_pants_delta: None,
+                terminal_threshold: 0.0,
+                terminal_roll: None,
+                outcome: CrossingOutcomeTelemetry::Passed,
+            }],
+            ..GameState::default()
+        };
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.capture_crossing_telemetry(&state);
+        assert_eq!(metrics.crossing_permit_uses, 1);
+    }
+
+    #[test]
+    fn finalize_without_turn_calculates_ratios_and_milestones() {
+        let state = GameState {
+            day: 100,
+            miles_traveled_actual: 2_000.0,
+            day_records: vec![DayRecord::new(0, TravelDayKind::Travel, 20.0)],
+            ..GameState::default()
+        };
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.finalize_without_turn(&state);
+        assert!(metrics.avg_miles_per_day > 0.0);
+        assert!(metrics.travel_ratio > 0.0);
+        assert!(metrics.milestones.reached_2000_by_day150);
+    }
+
+    #[test]
+    fn classify_failure_family_handles_exposure_and_collapse() {
+        let exposure_state = GameState {
+            ending: Some(Ending::Exposure {
+                kind: ExposureKind::Cold,
+            }),
+            ..GameState::default()
+        };
+        assert_eq!(
+            classify_failure_family(&exposure_state),
+            Some(FailureFamily::Exposure)
+        );
+
+        let vehicle_state = GameState {
+            ending: Some(Ending::Collapse {
+                cause: CollapseCause::Vehicle,
+            }),
+            ..GameState::default()
+        };
+        assert_eq!(
+            classify_failure_family(&vehicle_state),
+            Some(FailureFamily::Vehicle)
+        );
+
+        let weather_state = GameState {
+            ending: Some(Ending::Collapse {
+                cause: CollapseCause::Weather,
+            }),
+            ..GameState::default()
+        };
+        assert_eq!(
+            classify_failure_family(&weather_state),
+            Some(FailureFamily::Exposure)
+        );
+    }
+
+    #[test]
+    fn describe_ending_covers_terminal_states() {
+        let base_outcome = |state: &GameState| crate::logic::simulation::TurnOutcome {
+            day: state.day,
+            travel_message: "ok".to_string(),
+            breakdown_started: false,
+            game_ended: false,
+            decision: None,
+            miles_traveled_actual: state.miles_traveled_actual,
+        };
+
+        let state = GameState {
+            ending: Some(Ending::BossVictory),
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert_eq!(key, "boss.victory");
+
+        let state = GameState {
+            ending: Some(Ending::BossVoteFailed),
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert_eq!(key, "boss_vote_failed");
+
+        let state = GameState {
+            ending: Some(Ending::VehicleFailure {
+                cause: VehicleFailureCause::Destroyed,
+            }),
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert!(key.contains("vehicle_failure"));
+
+        let state = GameState {
+            ending: Some(Ending::Exposure {
+                kind: ExposureKind::Cold,
+            }),
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert!(key.contains("exposure"));
+
+        let state = GameState {
+            ending: Some(Ending::Collapse {
+                cause: CollapseCause::Crossing,
+            }),
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert!(key.contains("collapse"));
+
+        let state = GameState {
+            stats: Stats {
+                pants: 100,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert_eq!(key, "pants");
+
+        let state = GameState {
+            stats: Stats {
+                pants: 0,
+                hp: 0,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert_eq!(key, "health");
+
+        let state = GameState {
+            stats: Stats {
+                hp: 10,
+                supplies: 0,
+                ..Stats::default()
+            },
+            ..GameState::default()
+        };
+        let (_, key) = describe_ending(&state, &base_outcome(&state));
+        assert_eq!(key, "supplies");
     }
 
     #[test]

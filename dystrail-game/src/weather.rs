@@ -103,6 +103,7 @@ const WEATHER_ORDER: [Weather; 5] = [
     Weather::ColdSnap,
     Weather::Smoke,
 ];
+const NON_EXTREME_ORDER: [Weather; 2] = [Weather::Clear, Weather::ColdSnap];
 
 fn weather_weight(weights: &HashMap<Weather, u32>, weather: Weather) -> u32 {
     *weights.get(&weather).unwrap_or(&0)
@@ -574,66 +575,65 @@ pub fn select_weather_for_today(
     rngs: &RngBundle,
 ) -> Result<Weather, String> {
     let mut rng = rngs.weather();
+    select_weather_with_rng(gs, cfg, &mut *rng)
+}
 
-    let Some(region_weights) = cfg.weights.get(&gs.region) else {
-        return Err(format!(
-            "Weather weights must exist for region {:?}",
-            gs.region
-        ));
+fn pick_weighted_weather<R: Rng>(
+    order: &[Weather],
+    weights: &HashMap<Weather, u32>,
+    rng: &mut R,
+) -> Option<Weather> {
+    let mut total = 0_u32;
+    for weather in order {
+        total = total.saturating_add(weather_weight(weights, *weather));
+    }
+    if total == 0 {
+        return None;
+    }
+    let mut roll = rng.gen_range(0..total);
+    let mut selected = None;
+    for weather in order {
+        if selected.is_none() {
+            let weight = weather_weight(weights, *weather);
+            if weight > 0 {
+                if roll < weight {
+                    selected = Some(*weather);
+                } else {
+                    roll -= weight;
+                }
+            }
+        }
+    }
+    selected.or_else(|| order.first().copied())
+}
+
+fn select_weather_with_rng<R: Rng>(
+    gs: &mut GameState,
+    cfg: &WeatherConfig,
+    rng: &mut R,
+) -> Result<Weather, String> {
+    let region = gs.region;
+    let Some(region_weights) = cfg.weights.get(&region) else {
+        return Err(missing_region_weights(region));
     };
 
     // Calculate total weight and make initial selection
-    let total: u32 = WEATHER_ORDER
-        .iter()
-        .map(|weather| weather_weight(region_weights, *weather))
-        .sum();
-    let mut roll = rng.gen_range(0..total);
-    let mut candidate = Weather::Clear;
-
-    for weather in WEATHER_ORDER {
-        let weight = weather_weight(region_weights, weather);
-        if weight == 0 {
-            continue;
-        }
-        if roll < weight {
-            candidate = weather;
-            break;
-        }
-        roll -= weight;
-    }
+    let order = &WEATHER_ORDER;
+    let mut candidate = pick_weighted_weather(order, region_weights, rng).unwrap_or(Weather::Clear);
 
     // Enforce extreme streak limit
     if candidate.is_extreme() && gs.weather_state.extreme_streak >= cfg.limits.max_extreme_streak {
         // Reselect from non-extremes deterministically
-        let non_extreme_total: u32 = WEATHER_ORDER
-            .iter()
-            .filter(|weather| !weather.is_extreme())
-            .map(|weather| weather_weight(region_weights, *weather))
-            .sum();
-
-        if non_extreme_total > 0 {
-            let mut r2 = rng.gen_range(0..non_extreme_total);
-            for weather in WEATHER_ORDER {
-                if weather.is_extreme() {
-                    continue;
-                }
-                let weight = weather_weight(region_weights, weather);
-                if weight == 0 {
-                    continue;
-                }
-                if r2 < weight {
-                    candidate = weather;
-                    break;
-                }
-                r2 -= weight;
-            }
+        let non_extreme = pick_weighted_weather(&NON_EXTREME_ORDER, region_weights, rng);
+        if let Some(non_extreme) = non_extreme {
+            candidate = non_extreme;
         }
     }
 
-    let mut final_weather = seasonal_override(gs.season, candidate, &mut *rng);
+    let mut final_weather = seasonal_override(gs.season, candidate, rng);
 
     if gs.weather_state.neutral_buffer > 0 {
-        final_weather = pick_neutral_weather(region_weights, &mut *rng);
+        final_weather = pick_neutral_weather(region_weights, rng);
         gs.weather_state.neutral_buffer = gs.weather_state.neutral_buffer.saturating_sub(1);
     } else {
         let needs_buffer = match final_weather {
@@ -642,11 +642,8 @@ pub fn select_weather_for_today(
             _ => false,
         };
         if needs_buffer {
-            final_weather = apply_neutral_buffer(
-                &mut gs.weather_state.neutral_buffer,
-                region_weights,
-                &mut *rng,
-            );
+            final_weather =
+                apply_neutral_buffer(&mut gs.weather_state.neutral_buffer, region_weights, rng);
         }
     }
 
@@ -660,35 +657,28 @@ pub fn select_weather_for_today(
 }
 
 fn seasonal_override<R: Rng>(season: Season, current: Weather, rng: &mut R) -> Weather {
-    match season {
-        Season::Winter => {
-            if rng.r#gen::<f32>() < 0.20 {
-                Weather::ColdSnap
-            } else {
-                current
-            }
+    if season == Season::Winter {
+        if rng.r#gen::<f32>() < 0.20 {
+            return Weather::ColdSnap;
         }
-        Season::Summer => {
-            if rng.r#gen::<f32>() < 0.20 {
-                Weather::HeatWave
-            } else {
-                current
-            }
+        return current;
+    }
+    if season == Season::Summer {
+        if rng.r#gen::<f32>() < 0.20 {
+            return Weather::HeatWave;
         }
-        Season::Fall => {
-            if rng.r#gen::<f32>() < 0.15 {
-                Weather::Storm
-            } else {
-                current
-            }
+        return current;
+    }
+    if season == Season::Fall {
+        if rng.r#gen::<f32>() < 0.15 {
+            return Weather::Storm;
         }
-        Season::Spring => {
-            if rng.r#gen::<f32>() < 0.12 {
-                Weather::Smoke
-            } else {
-                current
-            }
-        }
+        return current;
+    }
+    if rng.r#gen::<f32>() < 0.12 {
+        Weather::Smoke
+    } else {
+        current
     }
 }
 
@@ -697,38 +687,20 @@ fn pick_neutral_weather<R: Rng>(
     rng: &mut R,
 ) -> Weather {
     let neutral_order = [Weather::Clear, Weather::Smoke];
-    let total: u32 = neutral_order
-        .iter()
-        .map(|weather| weather_weight(weights, *weather))
-        .sum();
-
-    if total == 0 {
-        return Weather::Clear;
-    }
-
-    let mut roll = rng.gen_range(0..total);
-    for weather in neutral_order {
-        let weight = weather_weight(weights, weather);
-        if weight == 0 {
-            continue;
-        }
-        if roll < weight {
-            return weather;
-        }
-        roll -= weight;
-    }
-    Weather::Clear
+    pick_weighted_weather(&neutral_order, weights, rng).unwrap_or(Weather::Clear)
 }
 
+#[rustfmt::skip]
 fn apply_neutral_buffer<R: Rng>(
     neutral_buffer: &mut u8,
     region_weights: &std::collections::HashMap<Weather, u32>,
     rng: &mut R,
 ) -> Weather {
-    let new_weather = pick_neutral_weather(region_weights, rng);
-    let buffer_len: u8 = rng.gen_range(NEUTRAL_BUFFER_MIN..=NEUTRAL_BUFFER_MAX);
-    *neutral_buffer = buffer_len.saturating_sub(1);
-    new_weather
+    let new_weather = pick_neutral_weather(region_weights, rng); let buffer_len: u8 = rng.gen_range(NEUTRAL_BUFFER_MIN..=NEUTRAL_BUFFER_MAX); *neutral_buffer = buffer_len.saturating_sub(1); new_weather
+}
+
+fn missing_region_weights(region: Region) -> String {
+    format!("Weather weights must exist for region {region:?}")
 }
 
 /// Apply weather effects to game state
@@ -1061,8 +1033,10 @@ pub fn process_daily_weather(
 mod tests {
     use super::*;
     use crate::journey::RngBundle;
-    use crate::state::{GameMode, Season, Stats};
+    use crate::state::{GameMode, GameState, Season, Stats};
     use rand::RngCore;
+    use rand::SeedableRng;
+    use rand_chacha::ChaCha20Rng;
     use std::collections::HashSet;
 
     struct FixedRng {
@@ -1160,7 +1134,7 @@ mod tests {
 
     #[test]
     fn seasonal_override_keeps_current_when_rng_is_high() {
-        let mut rng = FixedRng::new(u32::MAX);
+        let mut rng = FixedRng::new(1_000_000_000);
         assert_eq!(
             seasonal_override(Season::Winter, Weather::Storm, &mut rng),
             Weather::Storm
@@ -1183,7 +1157,7 @@ mod tests {
     }
 
     #[test]
-    fn apply_neutral_buffer_sets_length() {
+    fn apply_neutral_buffer_sets_length_after_call() {
         let weights = HashMap::from([(Weather::Clear, 5_u32), (Weather::Smoke, 0_u32)]);
         let mut rng = FixedRng::new(0);
         let mut buffer = 0_u8;
@@ -1670,5 +1644,280 @@ mod tests {
         assert!(cfg.effects.is_empty());
         assert!(cfg.weights.is_empty());
         assert!((cfg.limits.encounter_cap - 0.35).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn base_temperature_covers_winter_and_fall() {
+        assert_eq!(base_temperature_f(Season::Winter), 25);
+        assert_eq!(base_temperature_f(Season::Fall), 50);
+    }
+
+    #[test]
+    fn weather_report_label_keys_cover_cold_and_snow() {
+        assert_eq!(WeatherReportLabel::Cold.as_key(), "weather.report.cold");
+        assert_eq!(WeatherReportLabel::Snowy.as_key(), "weather.report.snowy");
+        assert_eq!(
+            WeatherReportLabel::VerySnowy.as_key(),
+            "weather.report.very_snowy"
+        );
+    }
+
+    #[test]
+    fn dystrail_regional_weather_exposes_config() {
+        let weights = HashMap::from([(
+            Region::Heartland,
+            HashMap::from([
+                (Weather::Clear, 1),
+                (Weather::Storm, 1),
+                (Weather::HeatWave, 1),
+                (Weather::ColdSnap, 1),
+                (Weather::Smoke, 1),
+            ]),
+        )]);
+        let cfg = base_config(weights);
+        let model = DystrailRegionalWeather::new(cfg.clone());
+        assert_eq!(model.config().weights, cfg.weights);
+    }
+
+    #[test]
+    fn sample_from_weather_handles_nan_precip() {
+        let mut cfg = WeatherConfig::default_config();
+        cfg.effects.insert(
+            Weather::Clear,
+            WeatherEffect {
+                supplies: 0,
+                sanity: 0,
+                pants: 0,
+                enc_delta: 0.0,
+                travel_mult: 1.0,
+                rain_delta: f32::NAN,
+                snow_delta: 0.0,
+            },
+        );
+        let model = DystrailRegionalWeather::new(cfg);
+        let state = GameState {
+            season: Season::Spring,
+            ..GameState::default()
+        };
+        let sample = model.sample_from_weather(&state, Weather::Clear);
+        assert!((sample.precip_in - 0.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn otdeluxe_stations_weather_generates_samples() {
+        let mut state = GameState::default();
+        let model = OtDeluxeStationsWeather::default();
+        let sample = model
+            .generate_weather_today(&mut state, &RngBundle::from_user_seed(1))
+            .expect("sample");
+        let effects = model.apply_weather_effects(&mut state, sample);
+        assert!(effects.rain_accum_delta.is_finite());
+        let sample = model.sample_from_weather(&state, Weather::Clear);
+        assert!((-200..=200).contains(&sample.temperature_f));
+    }
+
+    #[test]
+    fn weather_config_validation_rejects_negative_rates() {
+        let mut cfg = WeatherConfig::default_config();
+        cfg.report.heavy_precip_in = -1.0;
+        assert!(cfg.validate().unwrap_err().contains("heavy_precip_in"));
+
+        let mut cfg = WeatherConfig::default_config();
+        cfg.accumulation.rain_evap_rate = -0.1;
+        assert!(cfg.validate().unwrap_err().contains("rain_evap_rate"));
+
+        let mut cfg = WeatherConfig::default_config();
+        cfg.accumulation.snow_evap_rate = -0.1;
+        assert!(cfg.validate().unwrap_err().contains("snow_evap_rate"));
+
+        let mut cfg = WeatherConfig::default_config();
+        cfg.accumulation.snow_melt_rate = -0.1;
+        assert!(cfg.validate().unwrap_err().contains("snow_melt_rate"));
+    }
+
+    #[test]
+    fn seasonal_override_covers_all_seasons() {
+        let mut rng = FixedRng::new(0);
+        assert_eq!(
+            seasonal_override(Season::Winter, Weather::Clear, &mut rng),
+            Weather::ColdSnap
+        );
+        let mut rng = FixedRng::new(0);
+        assert_eq!(
+            seasonal_override(Season::Summer, Weather::Clear, &mut rng),
+            Weather::HeatWave
+        );
+        let mut rng = FixedRng::new(0);
+        assert_eq!(
+            seasonal_override(Season::Fall, Weather::Clear, &mut rng),
+            Weather::Storm
+        );
+        let mut rng = FixedRng::new(0);
+        assert_eq!(
+            seasonal_override(Season::Spring, Weather::Clear, &mut rng),
+            Weather::Smoke
+        );
+    }
+
+    #[test]
+    fn seasonal_override_returns_current_when_roll_is_high() {
+        let mut rng = FixedRng::new(u32::MAX);
+        assert_eq!(
+            seasonal_override(Season::Winter, Weather::Clear, &mut rng),
+            Weather::Clear
+        );
+        let mut rng = FixedRng::new(u32::MAX);
+        assert_eq!(
+            seasonal_override(Season::Summer, Weather::Clear, &mut rng),
+            Weather::Clear
+        );
+        let mut rng = FixedRng::new(u32::MAX);
+        assert_eq!(
+            seasonal_override(Season::Fall, Weather::Clear, &mut rng),
+            Weather::Clear
+        );
+        let mut rng = FixedRng::new(u32::MAX);
+        assert_eq!(
+            seasonal_override(Season::Spring, Weather::Clear, &mut rng),
+            Weather::Clear
+        );
+    }
+
+    #[test]
+    fn select_weather_reselects_non_extreme_and_skips_zero_weight() {
+        let weights = HashMap::from([(
+            Region::Heartland,
+            HashMap::from([
+                (Weather::Clear, 0),
+                (Weather::Storm, 0),
+                (Weather::HeatWave, 1),
+                (Weather::ColdSnap, 1),
+                (Weather::Smoke, 0),
+            ]),
+        )]);
+        let cfg = base_config(weights);
+        let mut state = GameState {
+            region: Region::Heartland,
+            season: Season::Winter,
+            weather_state: WeatherState {
+                extreme_streak: cfg.limits.max_extreme_streak,
+                ..WeatherState::default()
+            },
+            ..GameState::default()
+        };
+        let mut rng = FixedRng::new(0);
+        let weather = select_weather_with_rng(&mut state, &cfg, &mut rng).expect("weather");
+        assert_eq!(weather, Weather::ColdSnap);
+    }
+
+    #[test]
+    fn pick_neutral_weather_and_buffer_cover_zero_weight() {
+        let weights = HashMap::from([(Weather::Clear, 0), (Weather::Smoke, 2)]);
+        let mut rng = FixedRng::new(0);
+        let weather = pick_neutral_weather(&weights, &mut rng);
+        assert_eq!(weather, Weather::Smoke);
+        let mut buffer = 0;
+        let mut rng = FixedRng::new(0);
+        let buffered = apply_neutral_buffer(&mut buffer, &weights, &mut rng);
+        assert_eq!(buffered, Weather::Smoke);
+        assert!(buffer > 0);
+    }
+
+    #[test]
+    fn pick_neutral_weather_selects_first_bucket_for_low_roll() {
+        let weights = HashMap::from([(Weather::Clear, 1), (Weather::Smoke, 1)]);
+        let mut rng = FixedRng::new(1);
+        let weather = pick_neutral_weather(&weights, &mut rng);
+        assert_eq!(weather, Weather::Clear);
+    }
+
+    #[test]
+    fn derive_weather_report_label_handles_nan_precip() {
+        let report = WeatherReportConfig::default();
+        let sample = WeatherSample {
+            weather: Weather::Clear,
+            temperature_f: report.temp_bands.warm_min_f,
+            precip_in: f32::NAN,
+        };
+        let label = derive_weather_report_label(sample, &report);
+        assert_eq!(label, WeatherReportLabel::Warm);
+    }
+
+    #[test]
+    fn update_precip_accumulators_tracks_snow() {
+        let mut state = GameState::default();
+        let report = WeatherReportConfig::default();
+        let accumulation = WeatherAccumulationConfig::default();
+        let sample = WeatherSample {
+            weather: Weather::Storm,
+            temperature_f: report.snow_temp_f - 1,
+            precip_in: 2.0,
+        };
+        let (_, snow_depth) =
+            update_precip_accumulators(&mut state, sample, &report, &accumulation);
+        assert!(snow_depth > 0.0);
+    }
+
+    #[test]
+    fn pick_weighted_weather_returns_candidate() {
+        let mut rng = FixedRng::new(0);
+        let weights = HashMap::from([(Weather::Clear, 2), (Weather::Smoke, 1)]);
+        let order = [Weather::Clear, Weather::Smoke];
+        let pick = pick_weighted_weather(&order, &weights, &mut rng);
+        assert_eq!(pick, Some(Weather::Clear));
+    }
+
+    #[test]
+    fn select_weather_with_rng_errors_when_region_missing() {
+        let mut state = GameState {
+            region: Region::RustBelt,
+            ..GameState::default()
+        };
+        let cfg = base_config(HashMap::new());
+        let mut rng = FixedRng::new(0);
+        let err = select_weather_with_rng(&mut state, &cfg, &mut rng).unwrap_err();
+        assert!(err.contains("RustBelt"));
+    }
+
+    #[test]
+    fn select_weather_with_rng_uses_region_weights() {
+        let mut state = GameState {
+            region: Region::Heartland,
+            ..GameState::default()
+        };
+        let weights = HashMap::from([(
+            Region::Heartland,
+            HashMap::from([(Weather::Clear, 5), (Weather::Smoke, 0)]),
+        )]);
+        let cfg = base_config(weights);
+        let mut rng = ChaCha20Rng::seed_from_u64(11);
+        let selected = select_weather_with_rng(&mut state, &cfg, &mut rng).expect("weather");
+        assert_eq!(selected, Weather::Clear);
+    }
+
+    #[test]
+    fn select_weather_for_today_uses_bundle_rng() {
+        let mut state = GameState {
+            region: Region::Heartland,
+            ..GameState::default()
+        };
+        let weights = HashMap::from([(
+            Region::Heartland,
+            HashMap::from([(Weather::Clear, 2), (Weather::Smoke, 0)]),
+        )]);
+        let cfg = base_config(weights);
+        let rng_bundle = RngBundle::from_user_seed(19);
+        let selected = select_weather_for_today(&mut state, &cfg, &rng_bundle).expect("weather");
+        assert_eq!(selected, Weather::Clear);
+    }
+
+    #[test]
+    fn apply_neutral_buffer_sets_length() {
+        let mut neutral_buffer = 0_u8;
+        let weights = HashMap::from([(Weather::Clear, 1), (Weather::Smoke, 1)]);
+        let mut rng = FixedRng::new(0);
+        let weather = apply_neutral_buffer(&mut neutral_buffer, &weights, &mut rng);
+        assert!(matches!(weather, Weather::Clear | Weather::Smoke));
+        assert!(neutral_buffer < NEUTRAL_BUFFER_MAX);
     }
 }

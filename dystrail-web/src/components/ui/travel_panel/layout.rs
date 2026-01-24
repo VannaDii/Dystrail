@@ -4,7 +4,7 @@ use crate::i18n;
 use web_sys::MouseEvent;
 use yew::prelude::*;
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PanelMode {
     Main,
     WeatherDetails,

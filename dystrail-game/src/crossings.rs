@@ -166,7 +166,7 @@ impl ThresholdTable {
             }
         }
 
-        const DEFAULTS: &[(Region, Season, ThresholdEntry)] = &[
+        let defaults = [
             (Region::Heartland, Season::Spring, entry(103, 0.0, 0.005)),
             (Region::Heartland, Season::Summer, entry(113, -0.035, 0.04)),
             (Region::Heartland, Season::Fall, entry(115, -0.04, 0.045)),
@@ -185,7 +185,7 @@ impl ThresholdTable {
             regions: HashMap::new(),
         };
 
-        for &(region, season, entry) in DEFAULTS {
+        for &(region, season, entry) in &defaults {
             table
                 .regions
                 .entry(region.asset_key().to_string())

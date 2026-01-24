@@ -18,6 +18,17 @@ pub struct PersonaSelectProps {
     pub on_continue: Option<Callback<()>>,
 }
 
+fn build_selection_callback(
+    personas: UseStateHandle<Vec<Persona>>,
+    selected: UseStateHandle<Option<usize>>,
+    live_msg: UseStateHandle<String>,
+    on_selected: Option<Callback<Persona>>,
+) -> Callback<usize> {
+    Callback::from(move |idx: usize| {
+        apply_selection_to_state(&personas, idx, &selected, &live_msg, on_selected.as_ref());
+    })
+}
+
 #[function_component(PersonaSelect)]
 pub fn persona_select(p: &PersonaSelectProps) -> Html {
     let personas = use_state(initial_personas);
@@ -36,21 +47,12 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         });
     }
 
-    let select_idx = {
-        let selected = selected.clone();
-        let personas_state = personas.clone();
-        let on_selected = p.on_selected.clone();
-        let live_msg = live_msg.clone();
-        Callback::from(move |idx: usize| {
-            if let Some((persona, message)) = apply_selection(&personas_state, idx) {
-                selected.set(Some(idx));
-                live_msg.set(message);
-                if let Some(cb) = on_selected.clone() {
-                    cb.emit(persona);
-                }
-            }
-        })
-    };
+    let select_idx = build_selection_callback(
+        personas.clone(),
+        selected.clone(),
+        live_msg.clone(),
+        p.on_selected.clone(),
+    );
 
     #[cfg(target_arch = "wasm32")]
     {
@@ -176,6 +178,22 @@ fn apply_selection(personas: &[Persona], idx: usize) -> Option<(Persona, String)
     Some((persona.clone(), selection_message(persona)))
 }
 
+fn apply_selection_to_state(
+    personas: &UseStateHandle<Vec<Persona>>,
+    idx: usize,
+    selected: &UseStateHandle<Option<usize>>,
+    live_msg: &UseStateHandle<String>,
+    on_selected: Option<&Callback<Persona>>,
+) {
+    if let Some((persona, message)) = apply_selection(personas, idx) {
+        selected.set(Some(idx));
+        live_msg.set(message);
+        if let Some(cb) = on_selected {
+            cb.emit(persona);
+        }
+    }
+}
+
 fn selection_message(persona: &Persona) -> String {
     format!(
         "{} {}. {} ${}",
@@ -281,5 +299,80 @@ mod tests {
         let message = selection_message(&persona);
         assert!(message.contains(&persona.name));
         assert!(message.contains(&persona.start.budget.to_string()));
+    }
+
+    #[test]
+    fn apply_selection_to_state_updates_selection_and_message() {
+        #[function_component(SelectionHarness)]
+        fn selection_harness() -> Html {
+            crate::i18n::set_lang("en");
+            let persona = sample_persona();
+            let personas = use_state(|| vec![persona.clone()]);
+            let selected = use_state(|| None::<usize>);
+            let live_msg = use_state(String::new);
+            let captured = use_mut_ref(|| None::<String>);
+            let on_selected = {
+                let captured = captured.clone();
+                Some(Callback::from(move |p: Persona| {
+                    *captured.borrow_mut() = Some(p.name);
+                }))
+            };
+
+            let invoked = use_mut_ref(|| false);
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                apply_selection_to_state(&personas, 0, &selected, &live_msg, on_selected.as_ref());
+            }
+
+            let selected_label = (*selected).map_or_else(|| "none".to_string(), |v| v.to_string());
+            let persona_label = captured
+                .borrow()
+                .clone()
+                .unwrap_or_else(|| "none".to_string());
+            html! {
+                <div
+                    data-selected={selected_label}
+                    data-message={(*live_msg).clone()}
+                    data-persona={persona_label}
+                />
+            }
+        }
+
+        let html = block_on(LocalServerRenderer::<SelectionHarness>::new().render());
+        assert!(html.contains("data-persona=\""));
+        assert!(!html.contains("data-persona=\"none\""));
+    }
+
+    #[test]
+    fn selection_callback_emits_persona() {
+        #[function_component(CallbackHarness)]
+        fn callback_harness() -> Html {
+            crate::i18n::set_lang("en");
+            let persona = sample_persona();
+            let personas = use_state(|| vec![persona.clone()]);
+            let selected = use_state(|| None::<usize>);
+            let live_msg = use_state(String::new);
+            let captured = use_mut_ref(|| None::<String>);
+            let on_selected = {
+                let captured = captured.clone();
+                Some(Callback::from(move |p: Persona| {
+                    *captured.borrow_mut() = Some(p.name);
+                }))
+            };
+            let invoked = use_mut_ref(|| false);
+            let select_cb = build_selection_callback(personas, selected, live_msg, on_selected);
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                select_cb.emit(0);
+            }
+            let persona_label = captured
+                .borrow()
+                .clone()
+                .unwrap_or_else(|| "none".to_string());
+            html! { <div data-persona={persona_label} /> }
+        }
+
+        let html = block_on(LocalServerRenderer::<CallbackHarness>::new().render());
+        assert!(!html.contains("data-persona=\"none\""));
     }
 }

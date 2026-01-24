@@ -235,6 +235,9 @@ mod tests {
             handlers.store_purchase.emit(Vec::new());
             handlers.store_leave.emit(());
             handlers.otdeluxe_crossing_choice.emit(1);
+            handlers.otdeluxe_crossing_choice.emit(2);
+            handlers.otdeluxe_crossing_choice.emit(3);
+            handlers.otdeluxe_crossing_choice.emit(4);
             handlers.otdeluxe_crossing_choice.emit(0);
             handlers
                 .route_prompt_choice

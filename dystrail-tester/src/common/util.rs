@@ -67,7 +67,12 @@ pub fn split_csv(s: &str) -> Vec<String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::browser::{BrowserConfig, BrowserKind, new_session};
+    use hyper::body::to_bytes;
+    use hyper::service::{make_service_fn, service_fn};
+    use hyper::{Body, Method, Request, Response, Server, StatusCode};
     use serde_json::json;
+    use tokio::sync::oneshot;
 
     #[test]
     fn split_csv_trims_and_filters() {
@@ -104,5 +109,124 @@ mod tests {
         assert!(base.join("dom.html").exists());
         assert!(base.join("state.json").exists());
         assert!(base.join("error.txt").exists());
+    }
+
+    fn response_with_value(value: &serde_json::Value) -> Response<Body> {
+        let payload = serde_json::json!({ "value": value });
+        let body = serde_json::to_vec(&payload).unwrap_or_default();
+        Response::builder()
+            .status(StatusCode::OK)
+            .header("content-type", "application/json")
+            .body(Body::from(body))
+            .unwrap_or_else(|_| Response::new(Body::from("{}")))
+    }
+
+    async fn handle_request(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
+        let method = req.method().clone();
+        let path = req.uri().path().to_string();
+
+        if method == Method::POST && path == "/session" {
+            let payload = json!({
+                "value": {
+                    "sessionId": "mock-session",
+                    "capabilities": { "browserName": "mock" }
+                }
+            });
+            let body = serde_json::to_vec(&payload).unwrap_or_default();
+            return Ok(Response::builder()
+                .status(StatusCode::OK)
+                .header("content-type", "application/json")
+                .body(Body::from(body))
+                .unwrap_or_else(|_| Response::new(Body::from("{}"))));
+        }
+
+        if method == Method::POST && path.ends_with("/timeouts") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        if method == Method::POST && path.ends_with("/execute/sync") {
+            let body = to_bytes(req.into_body()).await?;
+            let payload: serde_json::Value = serde_json::from_slice(&body).unwrap_or_default();
+            let script = payload.get("script").and_then(|v| v.as_str()).unwrap_or("");
+            let value = if script.contains("__dystrailTest.state") {
+                json!({
+                    "screen": "travel",
+                    "hp": 9,
+                    "day": 2,
+                    "pos": { "x": 1 }
+                })
+            } else {
+                serde_json::Value::Null
+            };
+            return Ok(response_with_value(&value));
+        }
+
+        if method == Method::GET && path.ends_with("/source") {
+            return Ok(response_with_value(&json!("<html></html>")));
+        }
+
+        if method == Method::GET && path.ends_with("/screenshot") {
+            return Ok(response_with_value(&json!("AA==")));
+        }
+
+        if method == Method::DELETE && path.starts_with("/session/") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        Ok(Response::builder()
+            .status(StatusCode::NOT_FOUND)
+            .body(Body::from("not found"))
+            .unwrap_or_else(|_| Response::new(Body::from("not found"))))
+    }
+
+    fn spawn_mock_webdriver() -> (String, oneshot::Sender<()>) {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").expect("bind listener");
+        let addr = listener.local_addr().expect("local addr");
+        let (shutdown_tx, shutdown_rx) = oneshot::channel::<()>();
+
+        let service =
+            make_service_fn(|_| async { Ok::<_, hyper::Error>(service_fn(handle_request)) });
+        let server = Server::from_tcp(listener)
+            .expect("server")
+            .serve(service)
+            .with_graceful_shutdown(async {
+                let _ = shutdown_rx.await;
+            });
+        tokio::spawn(server);
+
+        (format!("http://{addr}"), shutdown_tx)
+    }
+
+    #[tokio::test]
+    async fn capture_artifacts_writes_from_mock_driver() {
+        let (hub, shutdown) = spawn_mock_webdriver();
+        let cfg = BrowserConfig {
+            headless: true,
+            implicit_wait_secs: 0,
+            remote_hub: Some(hub),
+        };
+        let driver = new_session(BrowserKind::Chrome, &cfg)
+            .await
+            .expect("driver");
+        let dir = std::env::temp_dir().join(format!(
+            "dystrail-capture-{}",
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap_or_default()
+                .as_nanos()
+        ));
+
+        let err = anyhow::anyhow!("kaboom");
+        capture_artifacts(&driver, dir.to_str().unwrap_or_default(), &err)
+            .await
+            .expect("capture artifacts");
+
+        assert!(dir.join("screenshot.png").exists());
+        assert!(dir.join("dom.html").exists());
+        assert!(dir.join("state.json").exists());
+        assert!(dir.join("error.txt").exists());
+
+        driver.quit().await.expect("quit");
+        let _ = shutdown.send(());
     }
 }

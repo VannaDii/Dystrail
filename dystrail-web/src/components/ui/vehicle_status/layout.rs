@@ -227,6 +227,34 @@ mod tests {
         assert!(!msg.is_empty());
     }
 
+    #[test]
+    fn status_message_includes_part() {
+        crate::i18n::set_lang("en");
+        let msg = status_message(Some(Part::FuelPump));
+        let part_name = i18n::t(Part::FuelPump.key());
+        assert!(msg.contains(&part_name));
+    }
+
+    #[test]
+    fn menu_items_cover_all_spares() {
+        crate::i18n::set_lang("en");
+        let items = menu_items(Some(Part::Battery), Some((0, 2, 0, 0)));
+        let battery = items.iter().find(|(idx, _)| *idx == 2).unwrap();
+        assert!(battery.1.1);
+        let tire = items.iter().find(|(idx, _)| *idx == 1).unwrap();
+        assert!(!tire.1.1);
+    }
+
+    #[test]
+    fn menu_items_disable_actions_without_breakdown() {
+        crate::i18n::set_lang("en");
+        let items = menu_items(None, Some((1, 1, 1, 1)));
+        let hack = items.iter().find(|(idx, _)| *idx == 5).unwrap();
+        assert!(!hack.1.1);
+        let back = items.iter().find(|(idx, _)| *idx == 0).unwrap();
+        assert!(back.1.1);
+    }
+
     #[function_component(TestMenu)]
     fn test_menu() -> Html {
         let items = menu_items(Some(Part::Tire), Some((1, 0, 0, 0)));
@@ -234,11 +262,26 @@ mod tests {
         html! { <ul>{ render_menu(&items, 1, 6, &activate) }</ul> }
     }
 
+    #[function_component(TestFocusKeydown)]
+    fn test_focus_keydown() -> Html {
+        let focus_idx = use_state(|| 1_u8);
+        let list_ref = use_node_ref();
+        focus_effect(list_ref.clone(), &focus_idx);
+        let _handler = keydown_handler(Callback::from(|_| ()), focus_idx);
+        html! { <div ref={list_ref}></div> }
+    }
+
     #[test]
     fn render_menu_outputs_items() {
         crate::i18n::set_lang("en");
         let html = block_on(LocalServerRenderer::<TestMenu>::new().render());
         assert!(html.contains("ot-menuitem"));
+    }
+
+    #[test]
+    fn focus_and_keydown_handlers_render() {
+        let html = block_on(LocalServerRenderer::<TestFocusKeydown>::new().render());
+        assert!(html.contains("<div"));
     }
 
     #[test]
@@ -264,5 +307,45 @@ mod tests {
 
         callback.emit(0);
         assert!(*back_hit.borrow());
+    }
+
+    #[test]
+    fn resolve_selection_emits_message_only() {
+        crate::i18n::set_lang("en");
+        let action_slot: Rc<RefCell<Option<VehicleAction>>> = Rc::new(RefCell::new(None));
+        let action_slot_clone = action_slot.clone();
+        let back_hit = Rc::new(RefCell::new(false));
+        let back_hit_clone = back_hit.clone();
+        let on_back = Callback::from(move |()| {
+            *back_hit_clone.borrow_mut() = true;
+        });
+        let on_repair = Callback::from(move |action| {
+            *action_slot_clone.borrow_mut() = Some(action);
+        });
+
+        let callback = resolve_selection(on_back, on_repair, Some(Part::Tire), Some((0, 0, 0, 0)));
+        callback.emit(1);
+        assert!(action_slot.borrow().is_none());
+        assert!(!*back_hit.borrow());
+    }
+
+    #[test]
+    fn resolve_selection_ignores_unknown_index() {
+        crate::i18n::set_lang("en");
+        let action_slot: Rc<RefCell<Option<VehicleAction>>> = Rc::new(RefCell::new(None));
+        let action_slot_clone = action_slot.clone();
+        let back_hit = Rc::new(RefCell::new(false));
+        let back_hit_clone = back_hit.clone();
+        let on_back = Callback::from(move |()| {
+            *back_hit_clone.borrow_mut() = true;
+        });
+        let on_repair = Callback::from(move |action| {
+            *action_slot_clone.borrow_mut() = Some(action);
+        });
+
+        let callback = resolve_selection(on_back, on_repair, None, None);
+        callback.emit(9);
+        assert!(action_slot.borrow().is_none());
+        assert!(!*back_hit.borrow());
     }
 }

@@ -99,20 +99,16 @@ fn share_code_expectation(_summary: &SimulationSummary) -> Result<()> {
         let (is_deep, decoded_seed) = decode_to_seed(&deep_code)
             .ok_or_else(|| anyhow!("Failed to decode deep share code: {deep_code}"))?;
         anyhow::ensure!(is_deep, "Deep code should decode as deep");
-        anyhow::ensure!(
-            encode_friendly(true, decoded_seed) == deep_code,
-            "Deep round-trip failed: {deep_code}"
-        );
+        #[rustfmt::skip]
+        anyhow::ensure!(encode_friendly(true, decoded_seed) == deep_code, "Deep round-trip failed: {deep_code}");
     }
 
     let known_codes = ["CL-ORANGE42", "DP-ORANGE42", "CL-PANTS99", "DP-CHEETO00"];
     for code in known_codes {
         let (is_deep, decoded_seed) = decode_to_seed(code)
             .ok_or_else(|| anyhow!("Failed to decode known share code: {code}"))?;
-        anyhow::ensure!(
-            encode_friendly(is_deep, decoded_seed) == code,
-            "Known code round-trip failed: {code}"
-        );
+        #[rustfmt::skip]
+        anyhow::ensure!(encode_friendly(is_deep, decoded_seed) == code, "Known code round-trip failed: {code}");
     }
 
     Ok(())

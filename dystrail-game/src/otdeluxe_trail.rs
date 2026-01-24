@@ -5,7 +5,6 @@ use crate::mechanics::otdeluxe90s::{
 };
 
 const OTDELUXE_TRAIL_NODE_COUNT: u8 = 18;
-const OTDELUXE_TRAIL_MARKER_COUNT: u8 = 17;
 pub const SOUTH_PASS_NODE_INDEX: u8 = 7;
 pub const BLUE_MOUNTAINS_NODE_INDEX: u8 = 14;
 pub const DALLES_NODE_INDEX: u8 = 16;
@@ -39,10 +38,7 @@ pub fn mile_marker_for_node(
     }
     let markers = markers_for_variant(policy, variant);
     let marker_index = usize::from(node_index.saturating_sub(1));
-    if marker_index >= usize::from(OTDELUXE_TRAIL_MARKER_COUNT) {
-        return None;
-    }
-    let marker = markers[marker_index];
+    let marker = *markers.get(marker_index).unwrap_or(&0);
     if marker == 0 { None } else { Some(marker) }
 }
 
@@ -193,6 +189,14 @@ mod tests {
             node_index_for_miles(trail, OtDeluxeTrailVariant::Main, 304.0),
             3
         );
+    }
+
+    #[test]
+    fn node_index_skips_zero_markers() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        let index = node_index_for_miles(trail, OtDeluxeTrailVariant::SubletteCutoff, 900.0);
+        assert!(index > 0);
     }
 
     #[test]

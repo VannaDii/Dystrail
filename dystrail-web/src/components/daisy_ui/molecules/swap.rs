@@ -17,6 +17,7 @@ pub struct SwapProps {
 #[f::function_component(Swap)]
 pub fn swap(props: &SwapProps) -> f::Html {
     let active = f::use_state(|| props.active);
+    #[cfg(target_arch = "wasm32")]
     {
         let active = active.clone();
         let external = props.active;
@@ -25,14 +26,26 @@ pub fn swap(props: &SwapProps) -> f::Html {
             || {}
         });
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.active;
+    }
     let toggle = {
         let active = active.clone();
         let on_toggle = props.on_toggle.clone();
-        f::Callback::from(move |_| {
-            let next = !*active;
-            active.set(next);
-            on_toggle.emit(next);
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            f::Callback::from(move |_| {
+                let next = !*active;
+                active.set(next);
+                on_toggle.emit(next);
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (active, on_toggle);
+            f::Callback::from(|_| {})
+        }
     };
     let class = f::class_list(&["swap"], &props.class);
     f::html! {

@@ -1,13 +1,8 @@
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::a11y::set_status;
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::game::store::StoreItem;
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::i18n;
-#[cfg(any(target_arch = "wasm32", test))]
 use std::collections::BTreeMap;
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn announce_quantity_change(
     item: &StoreItem,
     qty: i32,
@@ -52,7 +47,6 @@ pub fn announce_quantity_change(
     set_status(&message);
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn announce_cannot_add(item: &StoreItem) {
     let item_name = i18n::t(&format!("store.items.{}.name", item.id));
     let message = if item.unique {

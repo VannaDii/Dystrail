@@ -195,14 +195,17 @@ where
     let roll = rng.gen_range(0..total_weight);
     let mut current_weight = 0;
 
+    let mut selected = None;
     for (item, weight) in options {
-        current_weight += weight;
-        if roll < current_weight {
-            return Some(item.clone());
+        if selected.is_none() {
+            current_weight += weight;
+            if roll < current_weight {
+                selected = Some(item.clone());
+            }
         }
     }
 
-    options.first().map(|(item, _)| item.clone())
+    selected.or_else(|| options.first().map(|(item, _)| item.clone()))
 }
 
 /// Roll for vehicle breakdown
@@ -223,10 +226,9 @@ pub fn process_daily_breakdown<R: Rng>(game_state: &mut crate::state::GameState,
         ];
 
         if let Some(part) = weighted_pick(&options, rng) {
-            game_state.breakdown = Some(Breakdown {
-                part,
-                day_started: i32::try_from(game_state.day).unwrap_or(0),
-            });
+            let day_started = i32::try_from(game_state.day).unwrap_or(0);
+            let breakdown = Breakdown { part, day_started };
+            game_state.breakdown = Some(breakdown);
             game_state.day_state.travel.travel_blocked = true;
         }
     }
@@ -269,6 +271,17 @@ mod tests {
     }
 
     #[test]
+    fn non_positive_damage_and_repairs_do_not_change_state() {
+        let mut vehicle = Vehicle::default();
+        vehicle.apply_damage(0.0);
+        assert!((vehicle.health - 100.0).abs() <= f32::EPSILON);
+        vehicle.repair(-1.0);
+        assert!((vehicle.health - 100.0).abs() <= f32::EPSILON);
+        vehicle.ensure_health_floor(0.0);
+        assert!((vehicle.health - 100.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
     fn process_daily_breakdown_sets_breakdown_and_blocks_travel() {
         let mut state = GameState::default();
         let mut rng = StepRng::new(0, 0);
@@ -278,5 +291,13 @@ mod tests {
         let breakdown = state.breakdown.expect("expected breakdown to be set");
         assert_eq!(breakdown.part, Part::Tire);
         assert!(state.day_state.travel.travel_blocked);
+    }
+
+    #[test]
+    fn weighted_pick_breaks_on_match() {
+        let options = vec![(Part::Tire, 2), (Part::Battery, 1)];
+        let mut rng = StepRng::new(0, 0);
+        let pick = weighted_pick(&options, &mut rng);
+        assert_eq!(pick, Some(Part::Tire));
     }
 }

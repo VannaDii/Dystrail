@@ -16,19 +16,17 @@ pub struct MenuPageProps {
     pub on_action: Callback<MenuAction>,
 }
 
+fn menu_action_callback(on_action: Callback<MenuAction>) -> Callback<u8> {
+    Callback::from(move |idx: u8| {
+        if let Some(action) = menu_action_for_index(idx) {
+            on_action.emit(action);
+        }
+    })
+}
+
 #[function_component(MenuPage)]
 pub fn menu_page(props: &MenuPageProps) -> Html {
-    let on_select = {
-        let on_action = props.on_action.clone();
-        Callback::from(move |idx: u8| match idx {
-            1 => on_action.emit(MenuAction::StartRun),
-            2 => on_action.emit(MenuAction::CampPreview),
-            7 => on_action.emit(MenuAction::OpenSave),
-            8 => on_action.emit(MenuAction::OpenSettings),
-            0 => on_action.emit(MenuAction::Reset),
-            _ => {}
-        })
-    };
+    let on_select = menu_action_callback(props.on_action.clone());
 
     html! {
             <section class="panel retro-menu">
@@ -49,4 +47,60 @@ pub fn menu_page(props: &MenuPageProps) -> Html {
                 <crate::components::ui::main_menu::MainMenu seed_text={Some(props.code.to_string())} on_select={Some(on_select)} />
             </section>
         }
+}
+
+const fn menu_action_for_index(idx: u8) -> Option<MenuAction> {
+    match idx {
+        1 => Some(MenuAction::StartRun),
+        2 => Some(MenuAction::CampPreview),
+        7 => Some(MenuAction::OpenSave),
+        8 => Some(MenuAction::OpenSettings),
+        0 => Some(MenuAction::Reset),
+        _ => None,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{MenuAction, menu_action_callback, menu_action_for_index};
+    use std::cell::RefCell;
+    use std::rc::Rc;
+    use yew::prelude::Callback;
+
+    #[test]
+    fn menu_action_mapping_covers_expected_indices() {
+        assert!(matches!(
+            menu_action_for_index(1),
+            Some(MenuAction::StartRun)
+        ));
+        assert!(matches!(
+            menu_action_for_index(2),
+            Some(MenuAction::CampPreview)
+        ));
+        assert!(matches!(
+            menu_action_for_index(7),
+            Some(MenuAction::OpenSave)
+        ));
+        assert!(matches!(
+            menu_action_for_index(8),
+            Some(MenuAction::OpenSettings)
+        ));
+        assert!(matches!(menu_action_for_index(0), Some(MenuAction::Reset)));
+        assert!(menu_action_for_index(9).is_none());
+    }
+
+    #[test]
+    fn menu_action_callback_emits_for_known_index() {
+        let captured = Rc::new(RefCell::new(Vec::new()));
+        let captured_ref = captured.clone();
+        let on_action = Callback::from(move |action| {
+            captured_ref.borrow_mut().push(action);
+        });
+        let on_select = menu_action_callback(on_action);
+        on_select.emit(1);
+        on_select.emit(9);
+        let captured = captured.borrow();
+        assert_eq!(captured.len(), 1);
+        assert!(matches!(captured[0], MenuAction::StartRun));
+    }
 }

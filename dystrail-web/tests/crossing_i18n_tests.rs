@@ -1,4 +1,4 @@
-use serde_json::Value;
+use serde_json::{Value, json};
 
 /// Test that all crossing i18n keys exist in all locales
 #[test]
@@ -145,4 +145,10 @@ fn key_exists_in_json(json: &Value, key: &str) -> bool {
     }
 
     current.is_string()
+}
+
+#[test]
+fn key_exists_in_json_returns_false_for_missing_key() {
+    let sample = json!({ "cross": { "desc": { "present": "ok" } } });
+    assert!(!key_exists_in_json(&sample, "cross.desc.missing"));
 }

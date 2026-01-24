@@ -40,9 +40,7 @@ check:
     just validate
 
 coverage:
-    cargo tarpaulin --workspace --packages dystrail-game --exclude dystrail-tester dystrail-web --include-files '*dystrail-game*' --fail-under 90
-    cargo tarpaulin --workspace --packages dystrail-tester --exclude dystrail-game dystrail-web --include-files '*dystrail-tester*' --fail-under 90
-    cargo tarpaulin --workspace --packages dystrail-web --exclude dystrail-game dystrail-tester --include-files '*dystrail-web*' --fail-under 90
+    cargo tarpaulin --workspace --follow-exec --fail-under 100
 
 # Docs
 docs-build:

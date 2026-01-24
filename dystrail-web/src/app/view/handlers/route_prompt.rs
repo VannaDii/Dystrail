@@ -1,4 +1,4 @@
-use crate::app::phase::phase_for_state;
+use super::outcome::commit_outcome;
 use crate::app::state::AppState;
 use crate::game::{MechanicalPolicyId, OtDeluxeRouteDecision};
 use yew::prelude::*;
@@ -21,22 +21,6 @@ pub fn build_route_prompt_choice(state: &AppState) -> Callback<OtDeluxeRouteDeci
 
         sess.with_state_mut(|gs| gs.set_route_prompt_choice(decision));
         let outcome = sess.tick_day();
-
-        let mut lg = (*logs).clone();
-        if outcome.events.is_empty() {
-            lg.push(crate::i18n::t(&outcome.log_key));
-        } else {
-            for event in &outcome.events {
-                if let Some(key) = event.ui_key.as_deref() {
-                    lg.push(crate::i18n::t(key));
-                }
-            }
-        }
-
-        let state_ref = sess.state();
-        phase.set(phase_for_state(state_ref));
-
-        logs.set(lg);
-        session_handle.set(Some(sess));
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
     })
 }

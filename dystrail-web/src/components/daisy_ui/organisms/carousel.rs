@@ -21,6 +21,7 @@ pub fn carousel(props: &CarouselProps) -> f::Html {
     let slides: Vec<f::Html> = props.children.iter().collect();
     let len = slides.len();
     let active = f::use_state(|| props.initial_index.min(len.saturating_sub(1)));
+    #[cfg(target_arch = "wasm32")]
     {
         let active = active.clone();
         let external = props.initial_index.min(len.saturating_sub(1));
@@ -29,17 +30,33 @@ pub fn carousel(props: &CarouselProps) -> f::Html {
             || {}
         });
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.initial_index;
+    }
     let on_change = props.on_change.clone();
-    let change_to = |next: usize| {
-        if len == 0 {
-            return f::Callback::noop();
+    let change_to = {
+        #[cfg(target_arch = "wasm32")]
+        {
+            let active = active.clone();
+            let on_change = on_change.clone();
+            move |next: usize| {
+                if len == 0 {
+                    return f::Callback::noop();
+                }
+                let active = active.clone();
+                let on_change = on_change.clone();
+                f::Callback::from(move |_| {
+                    active.set(next % len);
+                    on_change.emit(next % len);
+                })
+            }
         }
-        let active = active.clone();
-        let on_change = on_change.clone();
-        f::Callback::from(move |_| {
-            active.set(next % len);
-            on_change.emit(next % len);
-        })
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (&active, &on_change, len);
+            move |_next: usize| f::Callback::noop()
+        }
     };
     let class = f::class_list(&["carousel", "relative"], &props.class);
     f::html! {

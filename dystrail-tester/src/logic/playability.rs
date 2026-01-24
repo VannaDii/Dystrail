@@ -420,10 +420,9 @@ fn find_aggregate<'a>(
     aggregates: &'a [PlayabilityAggregate],
     name: &str,
 ) -> Result<&'a PlayabilityAggregate> {
-    aggregates
-        .iter()
-        .find(|agg| agg.scenario_name == name)
-        .with_context(|| format!("missing playability summary for {name}"))
+    #[rustfmt::skip]
+    let aggregate = aggregates.iter().find(|agg| agg.scenario_name == name).with_context(|| format!("missing playability summary for {name}"))?;
+    Ok(aggregate)
 }
 
 fn get_aggregate<'a>(
@@ -649,6 +648,20 @@ pub fn run_playability_analysis(
     seeds: &[SeedInfo],
     iterations: usize,
 ) -> Result<Vec<PlayabilityRecord>> {
+    run_playability_analysis_with(tester, seeds, iterations, |mode, strategy| {
+        add_expectations(full_game_plan(mode, strategy), strategy)
+    })
+}
+
+fn run_playability_analysis_with<F>(
+    tester: &GameTester,
+    seeds: &[SeedInfo],
+    iterations: usize,
+    mut plan_builder: F,
+) -> Result<Vec<PlayabilityRecord>>
+where
+    F: FnMut(GameMode, GameplayStrategy) -> crate::logic::SimulationPlan,
+{
     let iterations = iterations.max(1);
     let mut records = Vec::with_capacity(seeds.len() * PLAYABILITY_SCENARIOS.len() * iterations);
 
@@ -657,29 +670,23 @@ pub fn run_playability_analysis(
             for iteration in 0..iterations {
                 let iteration_offset = u64::try_from(iteration).unwrap_or(0);
                 let iteration_seed = seed.seed.wrapping_add(iteration_offset);
-                let plan = add_expectations(full_game_plan(mode, strategy), strategy);
+                let plan = plan_builder(mode, strategy);
                 let summary = tester.run_plan(&plan, iteration_seed);
+                #[rustfmt::skip]
+                let context = format!("Playability expectation failed for mode {:?}, strategy {}, seed {} (iteration {})", mode, strategy, seed.seed, iteration + 1);
                 for expectation in &plan.expectations {
-                    expectation.evaluate(&summary).with_context(|| {
-                        format!(
-                            "Playability expectation failed for mode {:?}, strategy {}, seed {} (iteration {})",
-                            mode, strategy, seed.seed, iteration + 1
-                        )
-                    })?;
+                    expectation
+                        .evaluate(&summary)
+                        .with_context(|| context.clone())?;
                 }
 
                 let metrics = summary.metrics.clone();
                 let scenario_name = format!("{} - {}", mode_label(mode), strategy);
                 let seed_code = dystrail_game::encode_friendly(mode.is_deep(), iteration_seed);
 
-                records.push(PlayabilityRecord {
-                    scenario_name,
-                    mode,
-                    strategy,
-                    seed_code,
-                    seed_value: iteration_seed,
-                    metrics,
-                });
+                #[rustfmt::skip]
+                let record = PlayabilityRecord { scenario_name, mode, strategy, seed_code, seed_value: iteration_seed, metrics };
+                records.push(record);
             }
         }
     }
@@ -805,14 +812,6 @@ fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()>
             );
         }
         if agg.mean_crossing_events > 0.0 {
-            let failure_cap = failure_cap_for_mode(agg.mode);
-            ensure!(
-                agg.crossing_failure_rate <= failure_cap,
-                "{} terminal crossing rate {:.1}% exceeds {:.0}% cap",
-                agg.scenario_name,
-                agg.crossing_failure_rate * 100.0,
-                failure_cap * 100.0
-            );
             if agg.mode == GameMode::Deep {
                 if agg.crossing_failure_rate < DEEP_CROSSING_WARN_MIN {
                     println!(
@@ -830,6 +829,14 @@ fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()>
                     );
                 }
             }
+            let failure_cap = failure_cap_for_mode(agg.mode);
+            ensure!(
+                agg.crossing_failure_rate <= failure_cap,
+                "{} terminal crossing rate {:.1}% exceeds {:.0}% cap",
+                agg.scenario_name,
+                agg.crossing_failure_rate * 100.0,
+                failure_cap * 100.0
+            );
         }
         ensure!(
             agg.min_travel_ratio >= 0.90,
@@ -916,10 +923,10 @@ fn add_expectations(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::logic::game_tester::FailureFamily;
+    use crate::logic::game_tester::{FailureFamily, SimulationSummary};
     use crate::logic::reports::generate_csv_report;
     use crate::logic::seeds::SeedInfo;
-    use crate::logic::{GameTester, TesterAssets, run_playability_analysis};
+    use crate::logic::{GameTester, SimulationPlan, TesterAssets, run_playability_analysis};
     use dystrail_game::data::EncounterData;
     use dystrail_game::state::Season;
     use dystrail_game::{
@@ -1389,6 +1396,10 @@ mod tests {
         }
     }
 
+    fn fail_expectation(_: &SimulationSummary) -> Result<()> {
+        anyhow::bail!("boom")
+    }
+
     fn base_metrics(mode: GameMode) -> PlayabilityMetrics {
         let mut metrics = PlayabilityMetrics::default();
         metrics.days_survived = 120;
@@ -1579,6 +1590,20 @@ mod tests {
     }
 
     #[test]
+    fn validate_scenario_aggregates_rejects_resource_manager_low_2k() {
+        let (mut aggregates, _) = satisfied_data();
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Classic),
+            GameplayStrategy::ResourceManager
+        );
+        let target = find_mut_aggregate(&mut aggregates, &scenario);
+        target.pct_reached_2k_by_150 = 0.5;
+        let err = validate_scenario_aggregates(&aggregates).expect_err("should fail");
+        assert!(err.to_string().contains("2,000 miles"));
+    }
+
+    #[test]
     fn validate_global_aggregates_rejects_low_bribe_success() {
         let mut agg = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
         agg.mean_crossing_events = 2.0;
@@ -1712,6 +1737,218 @@ mod tests {
             .find(|agg| agg.scenario_name == "Classic - Balanced")
             .expect("aggregate");
         assert!(aggregate.failure_exposure_pct > 0.0);
+    }
+
+    #[test]
+    fn enforce_acceptance_guards_accepts_targets() {
+        let guard = scenario_guards(GameMode::Classic, GameplayStrategy::Balanced);
+        let (dist_min, dist_max) = guard_distance_window(&guard);
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.mean_travel_ratio = f64::from(guard.min_travel_ratio) + 0.01;
+        aggregate.mean_miles = f64::midpoint(dist_min, dist_max);
+        aggregate.mean_days = f64::midpoint(
+            f64::from(guard.target_days_min),
+            f64::from(guard.target_days_max),
+        );
+        enforce_acceptance_guards(&aggregate, &guard).expect("guards should pass");
+    }
+
+    #[test]
+    fn enforce_acceptance_guards_rejects_low_ratio() {
+        let guard = scenario_guards(GameMode::Classic, GameplayStrategy::Balanced);
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.mean_travel_ratio = f64::from(guard.min_travel_ratio) - 0.1;
+        let err = enforce_acceptance_guards(&aggregate, &guard).expect_err("should fail");
+        assert!(err.to_string().contains("travel ratio"));
+    }
+
+    #[test]
+    fn find_aggregate_locates_match() {
+        let aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        let aggregates = [aggregate];
+        let found = find_aggregate(&aggregates, "Classic - Balanced").expect("found");
+        assert_eq!(found.scenario_name, "Classic - Balanced");
+    }
+
+    #[test]
+    fn validate_deep_conservative_passes_thresholds() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
+        aggregate.mean_travel_ratio = 0.95;
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.pants_failure_pct = 0.0;
+        validate_deep_conservative(&aggregate).expect("deep conservative should pass");
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_low_2k_rate() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.1;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("2,000 miles"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_low_boss_win() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.boss_win_pct = CLASSIC_BALANCED_BOSS_WIN_MIN - 0.01;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss win"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_high_boss_win() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.boss_win_pct = CLASSIC_BALANCED_BOSS_WIN_MAX + 0.01;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss win"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_high_boss_reach() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.boss_reach_pct = CLASSIC_BALANCED_BOSS_REACH_MAX + 0.05;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss reach"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_low_boss_reach() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.boss_reach_pct = CLASSIC_BALANCED_BOSS_REACH_MIN - 0.01;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss reach"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_failure_mix() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.failure_vehicle_pct = FAILURE_FAMILY_MAX_SHARE + 0.1;
+        aggregate.failure_sanity_pct = 0.0;
+        aggregate.failure_exposure_pct = 0.0;
+        aggregate.failure_crossing_pct = 0.0;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("failure mix"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_high_survival() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.survival_rate = CLASSIC_BALANCED_SURVIVAL_MAX + 0.05;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("survival"));
+    }
+
+    #[test]
+    fn validate_classic_balanced_rejects_low_survival() {
+        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.survival_rate = CLASSIC_BALANCED_SURVIVAL_MIN - 0.05;
+        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("survival"));
+    }
+
+    #[test]
+    fn validate_deep_balanced_rejects_low_2k_rate() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        aggregate.pct_reached_2k_by_150 = 0.1;
+        let err = validate_deep_balanced(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("2,000 miles"));
+    }
+
+    #[test]
+    fn validate_deep_conservative_rejects_pants_failure() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.pants_failure_pct = 0.5;
+        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("pants failure"));
+    }
+
+    #[test]
+    fn validate_deep_conservative_rejects_low_2k_rate() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
+        aggregate.pct_reached_2k_by_150 = 0.1;
+        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("2k@150"));
+    }
+
+    #[test]
+    fn validate_deep_conservative_rejects_low_travel_ratio() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
+        aggregate.pct_reached_2k_by_150 = 0.3;
+        aggregate.pants_failure_pct = 0.0;
+        aggregate.mean_travel_ratio = 0.85;
+        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("travel ratio"));
+    }
+
+    #[test]
+    fn validate_deep_aggressive_rejects_low_boss_reach() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
+        aggregate.boss_reach_pct = 0.6;
+        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss reach"));
+    }
+
+    #[test]
+    fn validate_deep_aggressive_rejects_low_boss_win() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
+        aggregate.boss_win_pct = 0.01;
+        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("boss win"));
+    }
+
+    #[test]
+    fn validate_deep_aggressive_rejects_low_2k_rate() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
+        aggregate.pct_reached_2k_by_150 = 0.5;
+        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
+        assert!(err.to_string().contains("2k@150"));
+    }
+
+    #[test]
+    fn warn_deep_boss_rates_handles_high_reach() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        aggregate.boss_reach_pct = DEEP_BOSS_REACH_WARN_MAX + 0.05;
+        warn_deep_boss_rates(&aggregate);
+    }
+
+    #[test]
+    fn validate_global_aggregates_warns_on_high_crossing_failure() {
+        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
+        aggregate.mean_crossing_events = 1.0;
+        aggregate.crossing_failure_rate = DEEP_CROSSING_WARN_MAX + 0.05;
+        let err = validate_global_aggregates(&[aggregate]).expect_err("should fail");
+        assert!(err.to_string().contains("crossing rate"));
+    }
+
+    #[test]
+    fn run_playability_analysis_reports_expectation_failures() {
+        let seeds = vec![SeedInfo::from_numeric(1337)];
+        let err = run_playability_analysis_with(&tester(false), &seeds, 1, |mode, strategy| {
+            SimulationPlan::new(mode, strategy)
+                .with_max_days(0)
+                .with_expectation(fail_expectation)
+        })
+        .expect_err("expectation should fail");
+        assert!(err.to_string().contains("Playability expectation failed"));
+    }
+
+    #[test]
+    fn aggregate_builder_tracks_field_repair_runs() {
+        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
+        record.metrics.endgame.active = true;
+        record.metrics.endgame.field_repair_used = true;
+        let mut builder = AggregateBuilder::new(&record);
+        builder.ingest(&record.metrics);
+        let aggregate = builder.finish();
+        assert!(aggregate.endgame_field_repair_rate > 0.0);
     }
 
     #[test]

@@ -1,7 +1,7 @@
 use dystrail_game::{
     CampConfig, Cart, CartLine, CrossingConfig, CrossingKind, EncounterData, EndgameTravelCfg,
-    GameMode, GameState, JourneyController, MechanicalPolicyId, PersonasList, PolicyId, PolicyKind,
-    ResultConfig, Store, StrategyId, Weather, apply_bribe, apply_detour, apply_permit,
+    Ending, GameMode, GameState, JourneyController, MechanicalPolicyId, PersonasList, PolicyId,
+    PolicyKind, ResultConfig, Store, StrategyId, Weather, apply_bribe, apply_detour, apply_permit,
     calculate_bribe_cost, calculate_effective_price, camp_forage, camp_rest, camp_therapy,
     can_afford_bribe, can_use_permit,
     endgame::{enforce_failure_guard, run_endgame_controller},
@@ -72,10 +72,25 @@ fn run_campaign_setup_and_loop() -> (
     EndgameTravelCfg,
     HashSet<Weather>,
 ) {
+    run_campaign_setup_and_loop_with_end(false)
+}
+
+fn run_campaign_setup_and_loop_with_end(
+    force_end: bool,
+) -> (
+    GameState,
+    dystrail_game::BossConfig,
+    ResultConfig,
+    EndgameTravelCfg,
+    HashSet<Weather>,
+) {
     let camp_cfg = CampConfig::load_from_static();
     let boss_cfg = dystrail_game::BossConfig::load_from_static();
     let result_cfg = load_result_config().unwrap_or_else(|_| ResultConfig::default());
     let mut state = configure_state(0xDEAD_BEEF);
+    if force_end {
+        state.ending = Some(Ending::BossVictory);
+    }
     let endgame_cfg = EndgameTravelCfg::default_config();
     let strategy: StrategyId = state.policy.unwrap_or(PolicyKind::Balanced).into();
     let mut controller = JourneyController::new(
@@ -137,6 +152,11 @@ fn run_campaign_setup_and_loop() -> (
     }
 
     (state, boss_cfg, result_cfg, endgame_cfg, weather_seen)
+}
+
+#[test]
+fn full_campaign_breaks_on_ended_state() {
+    let _ = run_campaign_setup_and_loop_with_end(true);
 }
 
 fn validate_end_state(

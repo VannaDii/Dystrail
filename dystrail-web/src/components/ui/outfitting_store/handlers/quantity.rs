@@ -1,16 +1,13 @@
 #[cfg(target_arch = "wasm32")]
 use super::super::state::OutfittingStoreProps;
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::state::{StoreScreen, StoreState};
 #[cfg(target_arch = "wasm32")]
 use super::announce::{announce_cannot_add, announce_quantity_change};
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::game::store::calculate_cart_total;
 use crate::game::store::{Cart, StoreItem, calculate_effective_price};
 #[cfg(target_arch = "wasm32")]
 use yew::prelude::*;
 
-#[cfg(any(target_arch = "wasm32", test))]
 /// Outcome of applying a quantity selection to store state.
 pub enum QuantitySelectionOutcome {
     Noop,
@@ -23,7 +20,6 @@ pub enum QuantitySelectionOutcome {
     },
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 /// Announcement metadata for quantity changes.
 pub enum QuantityAnnouncement {
     Change {
@@ -33,7 +29,6 @@ pub enum QuantityAnnouncement {
     },
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 /// Compute the next store state for a quantity selection without UI side effects.
 pub fn quantity_selection_outcome(
     index: u8,
@@ -293,6 +288,13 @@ mod tests {
     fn handle_quantity_selection_blocks_when_over_budget() {
         let (state, item) = store_state_with_item(0);
         let outcome = quantity_selection_outcome(1, &item.id, &state, 0);
+        assert!(matches!(outcome, QuantitySelectionOutcome::Blocked { .. }));
+    }
+
+    #[test]
+    fn handle_quantity_selection_blocks_bulk_add_when_over_budget() {
+        let (state, item) = store_state_with_item(0);
+        let outcome = quantity_selection_outcome(2, &item.id, &state, 0);
         assert!(matches!(outcome, QuantitySelectionOutcome::Blocked { .. }));
     }
 

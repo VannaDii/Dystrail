@@ -1,8 +1,13 @@
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::app::phase::Phase;
+#[cfg(any(target_arch = "wasm32", test))]
 use crate::router::Route;
+#[cfg(target_arch = "wasm32")]
 use yew::prelude::*;
+#[cfg(target_arch = "wasm32")]
 use yew_router::prelude::Navigator;
 
+#[cfg(any(target_arch = "wasm32", test))]
 fn next_route_for_phase(phase: Phase, current_route: Option<&Route>) -> Option<Route> {
     let new_route = Route::from_phase(&phase);
     if Some(&new_route) == current_route {
@@ -12,6 +17,7 @@ fn next_route_for_phase(phase: Phase, current_route: Option<&Route>) -> Option<R
     }
 }
 
+#[cfg(any(target_arch = "wasm32", test))]
 fn next_phase_for_route(current_phase: Phase, route: Option<Route>) -> Option<Phase> {
     if current_phase == Phase::Boot {
         return None;
@@ -22,6 +28,7 @@ fn next_phase_for_route(current_phase: Phase, route: Option<Route>) -> Option<Ph
         .filter(|new_phase| *new_phase != current_phase)
 }
 
+#[cfg(target_arch = "wasm32")]
 #[hook]
 pub fn use_sync_route_with_phase(
     phase: &UseStateHandle<Phase>,
@@ -39,6 +46,7 @@ pub fn use_sync_route_with_phase(
     });
 }
 
+#[cfg(target_arch = "wasm32")]
 #[hook]
 pub fn use_sync_phase_with_route(phase: &UseStateHandle<Phase>, route: Option<Route>) {
     let phase = phase.clone();

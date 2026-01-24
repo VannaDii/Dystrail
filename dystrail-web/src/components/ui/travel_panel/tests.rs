@@ -1,5 +1,9 @@
 use super::layout::{IntentActions, PanelContext, PanelMode, render_panel};
 use super::pace::{diet_code, diet_preview, pace_code, pace_preview};
+use super::view::{
+    build_pace_diet_panel, build_weather_details, compute_panel_mode, next_flag_state,
+    next_flag_toggle, show_flag_action, toggle_flag_action,
+};
 use super::weather::{
     format_delta, format_percent, format_weather_announcement, render_weather_details,
     render_weather_info,
@@ -97,6 +101,22 @@ fn helpers_format_readable_effects() {
         announcement.contains("Weather: Storm"),
         "Announcement should mention current weather: {announcement}"
     );
+}
+
+#[test]
+fn render_weather_info_uses_beltway_label() {
+    #[function_component(WeatherInfoHarness)]
+    fn weather_info_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let state = GameState {
+            region: Region::Beltway,
+            ..GameState::default()
+        };
+        render_weather_info(&state)
+    }
+
+    let html = block_on(LocalServerRenderer::<WeatherInfoHarness>::new().render());
+    assert!(html.contains("Beltway"));
 }
 
 #[derive(Properties, Clone, PartialEq)]
@@ -202,6 +222,112 @@ fn render_panel_main_without_state_skips_settings() {
         .render(),
     );
     assert!(!html.contains("current-settings"));
+}
+
+#[test]
+fn show_flag_action_sets_state() {
+    #[function_component(ShowFlagHarness)]
+    fn show_flag_harness() -> Html {
+        let flag = use_state(|| false);
+        let invoked = use_mut_ref(|| false);
+        if !*invoked.borrow() {
+            *invoked.borrow_mut() = true;
+            let action = show_flag_action(flag, true);
+            action.emit(());
+        }
+        let called = if *invoked.borrow() { "true" } else { "false" };
+        html! { <div data-called={called} /> }
+    }
+    let html = block_on(LocalServerRenderer::<ShowFlagHarness>::new().render());
+    assert!(html.contains("data-called=\"true\""));
+}
+
+#[test]
+fn toggle_flag_action_flips_state() {
+    #[function_component(ToggleFlagHarness)]
+    fn toggle_flag_harness() -> Html {
+        let flag = use_state(|| false);
+        let invoked = use_mut_ref(|| false);
+        if !*invoked.borrow() {
+            *invoked.borrow_mut() = true;
+            let action = toggle_flag_action(flag);
+            action.emit(());
+        }
+        let called = if *invoked.borrow() { "true" } else { "false" };
+        html! { <div data-called={called} /> }
+    }
+    let html = block_on(LocalServerRenderer::<ToggleFlagHarness>::new().render());
+    assert!(html.contains("data-called=\"true\""));
+}
+
+#[test]
+fn flag_helpers_return_expected_values() {
+    assert!(next_flag_state(false, true));
+    assert!(!next_flag_state(true, false));
+    assert!(next_flag_toggle(false));
+    assert!(!next_flag_toggle(true));
+}
+
+#[test]
+fn compute_panel_mode_prioritizes_weather_details() {
+    assert_eq!(compute_panel_mode(true, true), PanelMode::WeatherDetails);
+    assert_eq!(compute_panel_mode(false, true), PanelMode::PaceDiet);
+    assert_eq!(compute_panel_mode(false, false), PanelMode::Main);
+}
+
+#[test]
+fn build_weather_details_renders_card_when_enabled() {
+    #[function_component(WeatherDetailsHarness)]
+    fn weather_details_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let state = sample_game_state();
+        let on_toggle = Callback::noop();
+        build_weather_details(true, Some(state.as_ref()), &on_toggle)
+    }
+
+    let html = block_on(LocalServerRenderer::<WeatherDetailsHarness>::new().render());
+    assert!(html.contains("weather-details-card"));
+}
+
+#[test]
+fn build_pace_diet_panel_reports_missing_state() {
+    #[function_component(PaceDietMissingHarness)]
+    fn pace_diet_missing_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let on_back = Callback::noop();
+        build_pace_diet_panel(
+            true,
+            None,
+            Rc::new(PacingConfig::default_config()),
+            Callback::noop(),
+            Callback::noop(),
+            &on_back,
+        )
+    }
+
+    let html = block_on(LocalServerRenderer::<PaceDietMissingHarness>::new().render());
+    assert!(html.contains("Game state unavailable"));
+}
+
+#[test]
+fn build_pace_diet_panel_renders_panel_with_state() {
+    #[function_component(PaceDietHarness)]
+    fn pace_diet_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let state = sample_game_state();
+        let on_back = Callback::noop();
+        build_pace_diet_panel(
+            true,
+            Some(state),
+            Rc::new(PacingConfig::default_config()),
+            Callback::noop(),
+            Callback::noop(),
+            &on_back,
+        )
+    }
+
+    let html = block_on(LocalServerRenderer::<PaceDietHarness>::new().render());
+    assert!(html.contains("pace-diet-panel"));
 }
 
 #[test]

@@ -12,17 +12,19 @@ pub struct RoutePromptOptionProps {
     pub on_activate: Callback<u8>,
 }
 
+fn activate_option(disabled: bool, idx: u8, on_activate: &Callback<u8>) {
+    if !disabled {
+        on_activate.emit(idx);
+    }
+}
+
 #[function_component(RoutePromptOption)]
 pub fn route_prompt_option(p: &RoutePromptOptionProps) -> Html {
     let idx = p.index;
     let on_click = {
         let on = p.on_activate.clone();
         let disabled = p.disabled;
-        Callback::from(move |_| {
-            if !disabled {
-                on.emit(idx);
-            }
-        })
+        Callback::from(move |_| activate_option(disabled, idx, &on))
     };
 
     let desc_id = format!("route-desc-{idx}");
@@ -41,5 +43,21 @@ pub fn route_prompt_option(p: &RoutePromptOptionProps) -> Html {
             <span class="label">{ p.label.clone() }</span>
             <small id={desc_id} class="muted desc">{ p.desc.clone() }</small>
         </li>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::cell::Cell;
+    use std::rc::Rc;
+
+    #[test]
+    fn route_prompt_option_activate_emits_when_enabled() {
+        let called = Rc::new(Cell::new(None::<u8>));
+        let called_ref = called.clone();
+        let on_activate = Callback::from(move |idx| called_ref.set(Some(idx)));
+        activate_option(false, 2, &on_activate);
+        assert_eq!(called.get(), Some(2));
     }
 }

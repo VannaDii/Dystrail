@@ -27,6 +27,7 @@ pub fn tab(props: &TabProps) -> f::Html {
         .map(|tab| tab.id.clone())
         .unwrap_or_default();
     let active = f::use_state(|| props.active_id.clone().unwrap_or(fallback));
+    #[cfg(target_arch = "wasm32")]
     {
         let active = active.clone();
         let external = props.active_id.clone();
@@ -36,6 +37,10 @@ pub fn tab(props: &TabProps) -> f::Html {
             }
             || {}
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.active_id.clone();
     }
     let class = f::class_list(&["tabs", "tabs-box"], &props.class);
     let on_change = props.on_change.clone();

@@ -12,7 +12,7 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use browser::{BrowserConfig, BrowserKind, TestBridge, new_session};
-use common::scenario::{ScenarioCtx, get_scenario, list_scenarios};
+use common::scenario::{CombinedScenario, ScenarioCtx, get_scenario, list_scenarios};
 use common::{artifacts_dir, capture_artifacts, split_csv};
 use logic::{
     GameTester, LogicTester, PlayabilityAggregate, PlayabilityRecord, SeedInfo, TesterAssets,
@@ -144,14 +144,11 @@ async fn main() -> Result<()> {
         start_time,
     )?;
 
-    if let Some(aggregates) = playability_aggregates.as_ref() {
-        let record_slice = playability_records.as_deref().unwrap_or(&[]);
-        validate_playability_targets(aggregates, record_slice)?;
-    }
-
-    if all_results.iter().any(|r| !r.passed) {
-        std::process::exit(1);
-    }
+    finalize_run(
+        &all_results,
+        playability_records.as_deref(),
+        playability_aggregates.as_deref(),
+    )?;
 
     Ok(())
 }
@@ -247,6 +244,21 @@ fn run_logic_scenarios(
     logic_seeds: &[u64],
     game_tester: &GameTester,
 ) -> Vec<logic::ScenarioResult> {
+    run_logic_scenarios_with(args, scenarios, logic_seeds, game_tester, |name, tester| {
+        get_scenario(name, tester)
+    })
+}
+
+fn run_logic_scenarios_with<F>(
+    args: &Args,
+    scenarios: &[String],
+    logic_seeds: &[u64],
+    game_tester: &GameTester,
+    mut resolve: F,
+) -> Vec<logic::ScenarioResult>
+where
+    F: FnMut(&str, &GameTester) -> Option<Box<dyn CombinedScenario + Send + Sync>>,
+{
     let mut results: Vec<logic::ScenarioResult> = Vec::new();
     if !matches!(args.mode, TestMode::Logic | TestMode::Both) {
         return results;
@@ -258,16 +270,15 @@ fn run_logic_scenarios(
     let logic_tester = LogicTester::new(game_tester.clone());
 
     for scenario_name in scenarios {
-        if let Some(combined_scenario) = get_scenario(scenario_name, game_tester) {
+        if let Some(combined_scenario) = resolve(scenario_name, game_tester) {
             if let Some(logic_scenario) = combined_scenario.as_logic_scenario() {
-                let scenario_results =
-                    logic_tester.run_scenario(&logic_scenario, logic_seeds, args.iterations);
+                #[rustfmt::skip]
+                let scenario_results = logic_tester.run_scenario(&logic_scenario, logic_seeds, args.iterations);
                 results.extend(scenario_results);
             } else {
-                eprintln!(
-                    "⚠️  Scenario {} has no logic test implementation",
-                    scenario_name.yellow()
-                );
+                #[rustfmt::skip]
+                let message = format!("⚠️  Scenario {} has no logic test implementation", scenario_name.yellow());
+                eprintln!("{message}");
             }
         } else {
             eprintln!("⚠️  Unknown scenario: {}", scenario_name.yellow());
@@ -337,6 +348,7 @@ async fn run_browser_scenarios_for_driver(
 
                 let label = browser_label(kind);
                 let dir = scenario_artifacts_dir(args, kind, scenario_name, seed_info.seed);
+                let seed_label = seed_info.label();
 
                 let scenario_start = Instant::now();
                 match scenario.run_browser(driver, &ctx).await {
@@ -345,7 +357,7 @@ async fn run_browser_scenarios_for_driver(
                         println!(
                             "✅ [{} seed {}] {} - {:?}",
                             label.green(),
-                            seed_info.seed,
+                            seed_label,
                             scenario_name,
                             duration
                         );
@@ -355,7 +367,7 @@ async fn run_browser_scenarios_for_driver(
                         eprintln!(
                             "❌ [{} seed {}] {} - {:?}: {:#}",
                             label.red(),
-                            seed_info.seed,
+                            seed_label,
                             scenario_name,
                             duration,
                             e
@@ -392,6 +404,23 @@ fn gather_playability(
     }
 
     Ok((playability_records, playability_aggregates))
+}
+
+fn finalize_run(
+    results: &[logic::ScenarioResult],
+    playability_records: Option<&[PlayabilityRecord]>,
+    playability_aggregates: Option<&[PlayabilityAggregate]>,
+) -> Result<()> {
+    if let Some(aggregates) = playability_aggregates {
+        let record_slice = playability_records.unwrap_or(&[]);
+        validate_playability_targets(aggregates, record_slice)?;
+    }
+
+    if results.iter().any(|r| !r.passed) {
+        anyhow::bail!("One or more scenarios failed");
+    }
+
+    Ok(())
 }
 
 fn write_reports(
@@ -500,11 +529,17 @@ mod tests {
     };
     use crate::logic::{
         GameTester, GameplayStrategy, PlayabilityAggregate, PlayabilityRecord, ScenarioResult,
-        SeedInfo, TesterAssets,
+        SeedInfo, SimulationPlan, TesterAssets,
     };
+    use dystrail_game::GameMode;
+    use hyper::body::to_bytes;
+    use hyper::service::{make_service_fn, service_fn};
+    use hyper::{Body, Method, Request, Response, Server, StatusCode};
+    use serde_json::json;
     use std::io::Write;
     use std::sync::Arc;
     use std::time::Duration;
+    use tokio::sync::oneshot;
 
     fn base_args() -> Args {
         Args {
@@ -872,5 +907,450 @@ mod tests {
             &tester,
         ))
         .expect("unknown browser should be skipped");
+    }
+
+    #[test]
+    fn headless_mode_reports_state() {
+        assert!(HeadlessMode::Headless.is_headless());
+        assert!(!HeadlessMode::Windowed.is_headless());
+    }
+
+    #[test]
+    fn announce_banner_runs() {
+        announce_banner();
+    }
+
+    #[test]
+    fn run_logic_scenarios_warns_on_unknown() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Logic,
+            ..base_args()
+        };
+        let results = run_logic_scenarios(&args, &["unknown".to_string()], &[42], &tester);
+        assert!(results.is_empty());
+    }
+
+    #[test]
+    fn run_logic_scenarios_warns_when_logic_missing() {
+        struct BrowserOnlyScenario;
+
+        #[async_trait::async_trait]
+        impl crate::common::scenario::BrowserScenario for BrowserOnlyScenario {
+            async fn run_browser(
+                &self,
+                _driver: &thirtyfour::WebDriver,
+                _ctx: &ScenarioCtx<'_>,
+            ) -> Result<()> {
+                Ok(())
+            }
+        }
+
+        impl CombinedScenario for BrowserOnlyScenario {
+            fn as_logic_scenario(&self) -> Option<crate::common::scenario::TestScenario> {
+                None
+            }
+        }
+
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Logic,
+            ..base_args()
+        };
+        let results = run_logic_scenarios_with(
+            &args,
+            &["browser-only".to_string()],
+            &[42],
+            &tester,
+            |name, _| {
+                if name == "browser-only" {
+                    Some(Box::new(BrowserOnlyScenario))
+                } else {
+                    None
+                }
+            },
+        );
+        assert!(results.is_empty());
+    }
+
+    #[test]
+    fn run_logic_scenarios_runs_logic_plan() {
+        struct LogicScenario;
+
+        #[async_trait::async_trait]
+        impl crate::common::scenario::BrowserScenario for LogicScenario {
+            async fn run_browser(
+                &self,
+                _driver: &thirtyfour::WebDriver,
+                _ctx: &ScenarioCtx<'_>,
+            ) -> Result<()> {
+                Ok(())
+            }
+        }
+
+        impl CombinedScenario for LogicScenario {
+            fn as_logic_scenario(&self) -> Option<crate::common::scenario::TestScenario> {
+                let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
+                    .with_max_days(0);
+                Some(crate::common::scenario::TestScenario::simulation(
+                    "logic", plan,
+                ))
+            }
+        }
+
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Logic,
+            ..base_args()
+        };
+        let results =
+            run_logic_scenarios_with(&args, &["logic".to_string()], &[42], &tester, |name, _| {
+                if name == "logic" {
+                    Some(Box::new(LogicScenario))
+                } else {
+                    None
+                }
+            });
+        assert!(!results.is_empty());
+    }
+
+    #[test]
+    fn gather_playability_returns_records_when_required() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Logic,
+            report: "console".to_string(),
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        let (records, aggregates) = gather_playability(&args, &tester, &seeds, 1).unwrap();
+        assert!(records.as_ref().is_some_and(|items| !items.is_empty()));
+        assert!(aggregates.as_ref().is_some_and(|items| !items.is_empty()));
+    }
+
+    #[test]
+    fn write_reports_emits_csv_placeholder_when_missing_records() {
+        let temp = std::env::temp_dir().join("dystrail-report-empty.csv");
+        let args = Args {
+            report: "csv".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        write_reports(&args, &[], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("[]"));
+    }
+
+    #[test]
+    fn write_reports_console_empty_results() {
+        let temp = std::env::temp_dir().join("dystrail-report-empty.txt");
+        let args = Args {
+            report: "console".to_string(),
+            output: Some(temp.clone()),
+            ..base_args()
+        };
+        write_reports(&args, &[], None, None, Instant::now()).unwrap();
+        let content = std::fs::read_to_string(temp).unwrap();
+        assert!(content.contains("No logic scenarios executed"));
+    }
+
+    #[test]
+    fn finalize_run_reports_failures() {
+        let result = sample_result(false);
+        let err = finalize_run(&[result], None, None).expect_err("should fail");
+        assert!(err.to_string().contains("scenarios failed"));
+    }
+
+    #[test]
+    fn finalize_run_validates_playability_targets() {
+        let result = sample_result(true);
+        let aggregates = vec![sample_aggregate()];
+        let err = finalize_run(&[result], Some(&[]), Some(&aggregates)).expect_err("should fail");
+        assert!(err.to_string().contains("playability summary"));
+    }
+
+    fn response_with_value(value: &serde_json::Value) -> Response<Body> {
+        let payload = serde_json::json!({ "value": value });
+        let body = serde_json::to_vec(&payload).unwrap_or_default();
+        Response::builder()
+            .status(StatusCode::OK)
+            .header("content-type", "application/json")
+            .body(Body::from(body))
+            .unwrap_or_else(|_| Response::new(Body::from("{}")))
+    }
+
+    fn response_error(status: StatusCode, message: &str) -> Response<Body> {
+        let payload = json!({
+            "value": {
+                "error": "no such element",
+                "message": message,
+                "stacktrace": ""
+            }
+        });
+        let body = serde_json::to_vec(&payload).unwrap_or_default();
+        Response::builder()
+            .status(status)
+            .header("content-type", "application/json")
+            .body(Body::from(body))
+            .unwrap_or_else(|_| Response::new(Body::from("{}")))
+    }
+
+    async fn handle_request(
+        req: Request<Body>,
+        button_found: bool,
+    ) -> Result<Response<Body>, hyper::Error> {
+        let method = req.method().clone();
+        let path = req.uri().path().to_string();
+
+        if method == Method::POST && path == "/session" {
+            let payload = json!({
+                "value": {
+                    "sessionId": "mock-session",
+                    "capabilities": { "browserName": "mock" }
+                }
+            });
+            let body = serde_json::to_vec(&payload).unwrap_or_default();
+            return Ok(Response::builder()
+                .status(StatusCode::OK)
+                .header("content-type", "application/json")
+                .body(Body::from(body))
+                .unwrap_or_else(|_| Response::new(Body::from("{}"))));
+        }
+
+        if method == Method::POST && path.ends_with("/timeouts") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        if method == Method::POST && path.ends_with("/url") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        if method == Method::POST && path.ends_with("/element") {
+            let body = to_bytes(req.into_body()).await?;
+            let payload: serde_json::Value = serde_json::from_slice(&body).unwrap_or_default();
+            let selector = payload.get("value").and_then(|v| v.as_str()).unwrap_or("");
+            if (selector.contains("button.start") || selector.contains("data-action"))
+                && !button_found
+            {
+                return Ok(response_error(StatusCode::NOT_FOUND, "button missing"));
+            }
+            let element = json!({ "element-6066-11e4-a52e-4f735466cecf": "element-1" });
+            return Ok(response_with_value(&element));
+        }
+
+        if method == Method::POST && path.contains("/element/") && path.ends_with("/click") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        if method == Method::POST && path.ends_with("/execute/sync") {
+            let body = to_bytes(req.into_body()).await?;
+            let payload: serde_json::Value = serde_json::from_slice(&body).unwrap_or_default();
+            let script = payload.get("script").and_then(|v| v.as_str()).unwrap_or("");
+            let value = if script.contains("return !!window.__dystrailTest") {
+                json!(true)
+            } else if script.contains("__dystrailTest.state") {
+                json!({
+                    "screen": "travel",
+                    "hp": 9,
+                    "day": 2,
+                    "pos": { "x": 1 }
+                })
+            } else {
+                serde_json::Value::Null
+            };
+            return Ok(response_with_value(&value));
+        }
+
+        if method == Method::GET && path.ends_with("/source") {
+            return Ok(response_with_value(&json!("<html></html>")));
+        }
+
+        if method == Method::GET && path.ends_with("/screenshot") {
+            return Ok(response_with_value(&json!("AA==")));
+        }
+
+        if method == Method::DELETE && path.starts_with("/session/") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        Ok(Response::builder()
+            .status(StatusCode::NOT_FOUND)
+            .body(Body::from("not found"))
+            .unwrap_or_else(|_| Response::new(Body::from("not found"))))
+    }
+
+    fn spawn_mock_webdriver(button_found: bool) -> (String, oneshot::Sender<()>) {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").expect("bind listener");
+        let addr = listener.local_addr().expect("local addr");
+        let (shutdown_tx, shutdown_rx) = oneshot::channel::<()>();
+
+        let service = make_service_fn(move |_| {
+            let button_found = button_found;
+            async move {
+                Ok::<_, hyper::Error>(service_fn(move |req| handle_request(req, button_found)))
+            }
+        });
+        let server = Server::from_tcp(listener)
+            .expect("server")
+            .serve(service)
+            .with_graceful_shutdown(async {
+                let _ = shutdown_rx.await;
+            });
+        tokio::spawn(server);
+
+        (format!("http://{addr}"), shutdown_tx)
+    }
+
+    #[tokio::test]
+    async fn run_browser_scenarios_for_driver_handles_success_path() {
+        let (hub, shutdown) = spawn_mock_webdriver(true);
+        let cfg = BrowserConfig {
+            headless: true,
+            implicit_wait_secs: 0,
+            remote_hub: Some(hub),
+        };
+        let driver = new_session(BrowserKind::Chrome, &cfg)
+            .await
+            .expect("driver");
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let seed_infos = vec![SeedInfo::from_numeric(42)];
+        let args = Args {
+            mode: TestMode::Browser,
+            base_url: "http://example.test/".to_string(),
+            verbose: true,
+            ..base_args()
+        };
+
+        run_browser_scenarios_for_driver(
+            &args,
+            &["smoke".to_string()],
+            &seed_infos,
+            &tester,
+            BrowserKind::Chrome,
+            &driver,
+        )
+        .await;
+
+        driver.quit().await.expect("quit");
+        let _ = shutdown.send(());
+    }
+
+    #[tokio::test]
+    async fn run_browser_scenarios_for_driver_handles_missing_button() {
+        let (hub, shutdown) = spawn_mock_webdriver(false);
+        let cfg = BrowserConfig {
+            headless: true,
+            implicit_wait_secs: 0,
+            remote_hub: Some(hub),
+        };
+        let driver = new_session(BrowserKind::Chrome, &cfg)
+            .await
+            .expect("driver");
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let seed_infos = vec![SeedInfo::from_numeric(42)];
+        let args = Args {
+            mode: TestMode::Browser,
+            base_url: "http://example.test/".to_string(),
+            verbose: true,
+            ..base_args()
+        };
+
+        run_browser_scenarios_for_driver(
+            &args,
+            &["smoke".to_string()],
+            &seed_infos,
+            &tester,
+            BrowserKind::Chrome,
+            &driver,
+        )
+        .await;
+
+        driver.quit().await.expect("quit");
+        let _ = shutdown.send(());
+    }
+
+    #[tokio::test]
+    async fn run_browser_scenarios_for_driver_captures_artifacts_on_error() {
+        let (hub, shutdown) = spawn_mock_webdriver(true);
+        let cfg = BrowserConfig {
+            headless: true,
+            implicit_wait_secs: 0,
+            remote_hub: Some(hub),
+        };
+        let driver = new_session(BrowserKind::Chrome, &cfg)
+            .await
+            .expect("driver");
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let seed_infos = vec![SeedInfo::from_numeric(42)];
+        let args = Args {
+            mode: TestMode::Browser,
+            base_url: "http://example.test/".to_string(),
+            artifacts_dir: std::env::temp_dir()
+                .join(format!(
+                    "dystrail-browser-{}",
+                    std::time::SystemTime::now()
+                        .duration_since(std::time::UNIX_EPOCH)
+                        .unwrap_or_default()
+                        .as_nanos()
+                ))
+                .to_string_lossy()
+                .to_string(),
+            ..base_args()
+        };
+
+        run_browser_scenarios_for_driver(
+            &args,
+            &["basic-game-creation".to_string()],
+            &seed_infos,
+            &tester,
+            BrowserKind::Chrome,
+            &driver,
+        )
+        .await;
+
+        driver.quit().await.expect("quit");
+        let _ = shutdown.send(());
+    }
+
+    #[tokio::test]
+    async fn run_browser_scenarios_handles_session_failure() {
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Browser,
+            browsers: "chrome".to_string(),
+            hub: Some("http://127.0.0.1:1".to_string()),
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        run_browser_scenarios(&args, &["basic-game-creation".to_string()], &seeds, &tester)
+            .await
+            .expect("session failure handled");
+    }
+
+    #[tokio::test]
+    async fn run_browser_scenarios_runs_successfully() {
+        let (hub, shutdown) = spawn_mock_webdriver(true);
+        let assets = Arc::new(TesterAssets::load_default());
+        let tester = GameTester::new(assets, false);
+        let args = Args {
+            mode: TestMode::Browser,
+            browsers: "chrome".to_string(),
+            hub: Some(hub),
+            base_url: "http://example.test/".to_string(),
+            ..base_args()
+        };
+        let seeds = vec![SeedInfo::from_numeric(42)];
+        run_browser_scenarios(&args, &["smoke".to_string()], &seeds, &tester)
+            .await
+            .expect("browser scenarios should run");
+        let _ = shutdown.send(());
     }
 }

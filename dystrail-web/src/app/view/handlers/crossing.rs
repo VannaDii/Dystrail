@@ -1,4 +1,5 @@
-use crate::app::phase::{Phase, phase_for_state};
+use super::outcome::commit_outcome;
+use crate::app::phase::Phase;
 use crate::app::state::AppState;
 use crate::game::{
     CrossingChoice, MechanicalPolicyId, OtDeluxe90sPolicy, OtDeluxeCrossingMethod,
@@ -44,23 +45,7 @@ pub fn build_crossing_choice(state: &AppState) -> Callback<u8> {
 
         sess.with_state_mut(|gs| gs.set_crossing_choice(choice));
         let outcome = sess.tick_day();
-
-        let mut lg = (*logs).clone();
-        if outcome.events.is_empty() {
-            lg.push(crate::i18n::t(&outcome.log_key));
-        } else {
-            for event in &outcome.events {
-                if let Some(key) = event.ui_key.as_deref() {
-                    lg.push(crate::i18n::t(key));
-                }
-            }
-        }
-
-        let state_ref = sess.state();
-        phase.set(phase_for_state(state_ref));
-
-        logs.set(lg);
-        session_handle.set(Some(sess));
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
     })
 }
 
@@ -108,22 +93,6 @@ pub fn build_otdeluxe_crossing_choice(state: &AppState) -> Callback<u8> {
 
         sess.with_state_mut(|gs| gs.set_otdeluxe_crossing_choice(method));
         let outcome = sess.tick_day();
-
-        let mut lg = (*logs).clone();
-        if outcome.events.is_empty() {
-            lg.push(crate::i18n::t(&outcome.log_key));
-        } else {
-            for event in &outcome.events {
-                if let Some(key) = event.ui_key.as_deref() {
-                    lg.push(crate::i18n::t(key));
-                }
-            }
-        }
-
-        let state_ref = sess.state();
-        phase.set(phase_for_state(state_ref));
-
-        logs.set(lg);
-        session_handle.set(Some(sess));
+        commit_outcome(sess, &outcome, &logs, &phase, &session_handle);
     })
 }

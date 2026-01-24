@@ -2,4 +2,4 @@
 mod tests;
 mod view;
 
-pub use view::OtDeluxeStorePanel;
+pub use view::{OtDeluxeStorePanel, OtDeluxeStorePanelProps};

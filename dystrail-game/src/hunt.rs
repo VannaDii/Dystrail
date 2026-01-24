@@ -158,6 +158,15 @@ mod tests {
     }
 
     #[test]
+    fn hunt_with_rng_blocks_without_bullets() {
+        let mut state = base_state();
+        state.ot_deluxe.inventory.bullets = 0;
+        let mut rng = rand::rngs::SmallRng::from_seed([2_u8; 32]);
+        let outcome = resolve_hunt_with_rng(&mut state, &mut rng);
+        assert_eq!(outcome, HuntOutcome::Blocked(HuntBlockReason::NoBullets));
+    }
+
+    #[test]
     fn hunt_with_rng_consumes_bullets_and_adds_food() {
         let mut state = base_state();
         state.ot_deluxe.inventory.bullets = 10;

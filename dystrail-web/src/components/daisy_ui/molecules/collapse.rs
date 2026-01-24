@@ -16,6 +16,7 @@ pub struct CollapseProps {
 #[f::function_component(Collapse)]
 pub fn collapse(props: &CollapseProps) -> f::Html {
     let open_state = f::use_state(|| props.open);
+    #[cfg(target_arch = "wasm32")]
     {
         let open_state = open_state.clone();
         let external_open = props.open;
@@ -24,14 +25,26 @@ pub fn collapse(props: &CollapseProps) -> f::Html {
             || {}
         });
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.open;
+    }
     let toggle = {
         let open_state = open_state.clone();
         let on_toggle = props.on_toggle.clone();
-        f::Callback::from(move |_| {
-            let next = !*open_state;
-            open_state.set(next);
-            on_toggle.emit(next);
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            f::Callback::from(move |_| {
+                let next = !*open_state;
+                open_state.set(next);
+                on_toggle.emit(next);
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (open_state, on_toggle);
+            f::Callback::from(|_| {})
+        }
     };
     let class = f::class_list(&["collapse", "collapse-plus"], &props.class);
     f::html! {

@@ -6,6 +6,94 @@ use std::rc::Rc;
 use web_sys::MouseEvent;
 use yew::prelude::*;
 
+pub(super) const fn next_flag_state(_current: bool, value: bool) -> bool {
+    value
+}
+
+pub(super) const fn next_flag_toggle(current: bool) -> bool {
+    !current
+}
+
+pub(super) fn show_flag_action(flag: UseStateHandle<bool>, value: bool) -> Callback<()> {
+    Callback::from(move |()| flag.set(next_flag_state(*flag, value)))
+}
+
+pub(super) fn toggle_flag_action(flag: UseStateHandle<bool>) -> Callback<()> {
+    Callback::from(move |()| flag.set(next_flag_toggle(*flag)))
+}
+
+pub(super) const fn compute_panel_mode(
+    show_weather_details: bool,
+    show_pace_diet: bool,
+) -> PanelMode {
+    if show_weather_details {
+        PanelMode::WeatherDetails
+    } else if show_pace_diet {
+        PanelMode::PaceDiet
+    } else {
+        PanelMode::Main
+    }
+}
+
+pub(super) fn build_weather_details(
+    show_weather_details: bool,
+    game_state: Option<&GameState>,
+    on_toggle: &Callback<()>,
+) -> Html {
+    if show_weather_details {
+        game_state.map_or_else(Html::default, |state| {
+            let on_click = on_toggle.reform(|_e: MouseEvent| ());
+            html! {
+                <div class="weather-details-card" role="dialog" aria-labelledby="weather-details-header">
+                    <h3 id="weather-details-header">{ i18n::t("weather.details.header") }</h3>
+                    { render_weather_details(state) }
+                    <button onclick={on_click} class="retro-btn-secondary weather-back-btn">
+                        { i18n::t("weather.details.back") }
+                    </button>
+                </div>
+            }
+        })
+    } else {
+        Html::default()
+    }
+}
+
+pub(super) fn build_pace_diet_panel(
+    show_pace_diet: bool,
+    game_state: Option<Rc<GameState>>,
+    pacing_config: Rc<PacingConfig>,
+    on_pace_change: Callback<PaceId>,
+    on_diet_change: Callback<DietId>,
+    on_back: &Callback<()>,
+) -> Html {
+    if show_pace_diet {
+        game_state.map_or_else(
+            || html! { <div class="error">{ "Game state unavailable" }</div> },
+            |game_state| {
+                render_pace_diet_panel(
+                    game_state,
+                    pacing_config,
+                    on_pace_change,
+                    on_diet_change,
+                    on_back,
+                )
+            },
+        )
+    } else {
+        Html::default()
+    }
+}
+
+fn render_pace_diet_panel(
+    game_state: Rc<GameState>,
+    pacing_config: Rc<PacingConfig>,
+    on_pace_change: Callback<PaceId>,
+    on_diet_change: Callback<DietId>,
+    on_back: &Callback<()>,
+) -> Html {
+    html! { <crate::components::ui::pace_diet_panel::PaceDietPanel game_state={game_state} pacing_config={pacing_config} on_pace_change={on_pace_change} on_diet_change={on_diet_change} on_back={on_back.clone()} /> }
+}
+
 #[derive(Properties, Clone)]
 pub struct Props {
     pub on_travel: Callback<()>,
@@ -48,26 +136,13 @@ pub fn travel_panel(p: &Props) -> Html {
         Callback::from(move |_| cb.emit(()))
     };
 
-    let on_show_pace_diet: Callback<MouseEvent> = {
-        let show_pace_diet = show_pace_diet.clone();
-        Callback::from(move |_| {
-            show_pace_diet.set(true);
-        })
-    };
+    let on_show_pace_diet_action = show_flag_action(show_pace_diet.clone(), true);
+    let on_show_pace_diet = on_show_pace_diet_action.reform(|_e: MouseEvent| ());
 
-    let on_hide_pace_diet = {
-        let show_pace_diet = show_pace_diet.clone();
-        Callback::from(move |()| {
-            show_pace_diet.set(false);
-        })
-    };
+    let on_hide_pace_diet = show_flag_action(show_pace_diet.clone(), false);
 
-    let on_toggle_weather_details: Callback<MouseEvent> = {
-        let show_weather_details = show_weather_details.clone();
-        Callback::from(move |_| {
-            show_weather_details.set(!*show_weather_details);
-        })
-    };
+    let on_toggle_weather_details_action = toggle_flag_action(show_weather_details.clone());
+    let on_toggle_weather_details = on_toggle_weather_details_action.reform(|_e: MouseEvent| ());
 
     let travel_blocked = p
         .game_state
@@ -89,59 +164,30 @@ pub fn travel_panel(p: &Props) -> Html {
 
     let weather_info = p
         .game_state
-        .as_ref()
-        .map_or_else(|| html! {}, |gs| render_weather_info(gs.as_ref()));
+        .as_deref()
+        .map_or_else(|| html! {}, render_weather_info);
 
-    let weather_details = if *show_weather_details {
-        p.game_state.as_ref().map_or_else(
-            Html::default,
-            |game_state| {
-                html! {
-                    <div class="weather-details-card" role="dialog" aria-labelledby="weather-details-header">
-                        <h3 id="weather-details-header">{ i18n::t("weather.details.header") }</h3>
-                        { render_weather_details(game_state.as_ref()) }
-                        <button onclick={on_toggle_weather_details.clone()} class="retro-btn-secondary weather-back-btn">
-                            { i18n::t("weather.details.back") }
-                        </button>
-                    </div>
-                }
-            },
-        )
-    } else {
-        Html::default()
-    };
+    let weather_details = build_weather_details(
+        *show_weather_details,
+        p.game_state.as_deref(),
+        &on_toggle_weather_details_action,
+    );
 
-    let panel_mode = if *show_weather_details {
-        PanelMode::WeatherDetails
-    } else if *show_pace_diet {
-        PanelMode::PaceDiet
-    } else {
-        PanelMode::Main
-    };
+    let panel_mode = compute_panel_mode(*show_weather_details, *show_pace_diet);
 
     let intent_actions = show_otdeluxe_intents.then_some(IntentActions {
         on_trade: &on_trade_click,
         on_hunt: &on_hunt_click,
     });
 
-    let pace_diet_panel = if *show_pace_diet {
-        p.game_state.as_ref().map_or_else(
-            || html! { <div class="error">{"Game state unavailable"}</div> },
-            |game_state| {
-                html! {
-                    <crate::components::ui::pace_diet_panel::PaceDietPanel
-                        game_state={game_state.clone()}
-                        pacing_config={p.pacing_config.clone()}
-                        on_pace_change={p.on_pace_change.clone()}
-                        on_diet_change={p.on_diet_change.clone()}
-                        on_back={on_hide_pace_diet.clone()}
-                    />
-                }
-            },
-        )
-    } else {
-        Html::default()
-    };
+    let pace_diet_panel = build_pace_diet_panel(
+        *show_pace_diet,
+        p.game_state.clone(),
+        p.pacing_config.clone(),
+        p.on_pace_change.clone(),
+        p.on_diet_change.clone(),
+        &on_hide_pace_diet,
+    );
 
     let on_keydown = {
         let intents_enabled = show_otdeluxe_intents;

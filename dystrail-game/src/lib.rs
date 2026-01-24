@@ -207,13 +207,8 @@ where
     ) -> Result<JourneySession, L::Error> {
         let data = self.data_loader.load_encounter_data()?;
         let endgame_cfg = EndgameTravelCfg::default_config();
-        Ok(JourneySession::new(
-            mode,
-            strategy,
-            seed,
-            data,
-            &endgame_cfg,
-        ))
+        let session = JourneySession::new(mode, strategy, seed, data, &endgame_cfg);
+        Ok(session)
     }
 
     /// Save a game state

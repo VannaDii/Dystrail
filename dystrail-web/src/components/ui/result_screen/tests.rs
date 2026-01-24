@@ -1,8 +1,12 @@
-use super::{Props, ResultScreenWrapper, menu, share};
+use super::{
+    Props, ResultScreenWrapper, menu, share,
+    view::{render_result_body, resolve_summary},
+};
 use dystrail_game::{Ending, GameState, MechanicalPolicyId, ResultConfig, ResultSummary};
 use futures::executor::block_on;
 use yew::Callback;
 use yew::LocalServerRenderer;
+use yew::prelude::*;
 
 fn baseline_summary() -> ResultSummary {
     ResultSummary {
@@ -76,6 +80,42 @@ fn parse_numeric_key_identifies_digits() {
     assert_eq!(menu::parse_numeric_key("3"), Some(3));
     assert_eq!(menu::parse_numeric_key("0"), Some(0));
     assert_eq!(menu::parse_numeric_key("A"), None);
+}
+
+#[test]
+fn resolve_summary_reports_error_html() {
+    #[function_component(ResolveHarness)]
+    fn resolve_harness() -> Html {
+        let props = baseline_props();
+        match resolve_summary(&props, Err("boom".to_string())) {
+            Ok(_) => html! { <div>{ "ok" }</div> },
+            Err(view) => view,
+        }
+    }
+    let html = block_on(LocalServerRenderer::<ResolveHarness>::new().render());
+    assert!(html.contains("Error generating result"));
+    assert!(html.contains("boom"));
+}
+
+#[test]
+fn render_result_body_reports_error_html() {
+    #[function_component(RenderBodyHarness)]
+    fn render_body_harness() -> Html {
+        let props = baseline_props();
+        let on_keydown = Callback::from(|_e: KeyboardEvent| {});
+        let on_menu_action = Callback::from(|_action: u8| {});
+        render_result_body(
+            &props,
+            Err("boom".to_string()),
+            1,
+            String::new(),
+            on_keydown,
+            &on_menu_action,
+        )
+    }
+    let html = block_on(LocalServerRenderer::<RenderBodyHarness>::new().render());
+    assert!(html.contains("Error generating result"));
+    assert!(html.contains("boom"));
 }
 
 #[test]

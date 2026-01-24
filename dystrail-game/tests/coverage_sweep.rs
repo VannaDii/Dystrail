@@ -5,11 +5,17 @@ use dystrail_game::crossings::{
     CrossingConfig, CrossingContext, CrossingKind, CrossingResult, apply_bribe, apply_detour,
     apply_permit, resolve_crossing,
 };
-use dystrail_game::data::EncounterData;
+use dystrail_game::data::{Encounter as EncounterDef, EncounterData};
+use dystrail_game::disease::{DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind};
+use dystrail_game::encounters::{EncounterRequest, pick_encounter};
 use dystrail_game::endgame::{
     self, EndgamePolicyCfg, EndgameState, EndgameTravelCfg, ResourceKind,
 };
-use dystrail_game::journey::RngBundle;
+use dystrail_game::journey::{Event, EventId, RngBundle, UiSurfaceHint};
+use dystrail_game::otdeluxe_random_events::{
+    OtDeluxeRandomEventCatalog, OtDeluxeRandomEventContext, OtDeluxeRandomEventDef,
+    OtDeluxeRandomEventVariant, pick_random_event_with_trace,
+};
 use dystrail_game::otdeluxe_state::{OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxePartyState};
 use dystrail_game::pacing::PacingConfig;
 use dystrail_game::personas::PersonasList;
@@ -18,7 +24,7 @@ use dystrail_game::seed::{
     decode_to_seed, encode_friendly, generate_code_from_entropy, parse_share_code,
 };
 use dystrail_game::state::{
-    CollapseCause, Ending, GameMode, GameState, PaceId, PolicyKind, Region, Season,
+    CollapseCause, Ending, GameMode, GameState, PaceId, PolicyKind, RecentEncounter, Region, Season,
 };
 use dystrail_game::store::{Cart, Grants, StoreItem};
 use dystrail_game::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
@@ -87,6 +93,21 @@ fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
     JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy_id, strategy, 0)
         .config()
         .clone()
+}
+
+fn encounter_def(id: &str, regions: &[&str]) -> EncounterDef {
+    EncounterDef {
+        id: id.to_string(),
+        name: format!("Encounter {id}"),
+        desc: String::new(),
+        weight: 1,
+        regions: regions.iter().map(|region| (*region).to_string()).collect(),
+        modes: vec![String::from("classic")],
+        choices: Vec::new(),
+        hard_stop: false,
+        major_repair: false,
+        chainable: false,
+    }
 }
 
 #[test]
@@ -473,16 +494,18 @@ impl dystrail_game::DataLoader for TestLoader {
     where
         T: serde::de::DeserializeOwned,
     {
-        let json = self
-            .configs
-            .get(config_name)
-            .cloned()
-            .unwrap_or_else(|| "{}".to_string());
+        let configs = &self.configs;
+        let json = configs.get(config_name).cloned();
+        let json = json.unwrap_or_else(empty_json_string);
         serde_json::from_str(&json).map_or_else(
             |_| Ok(serde_json::from_str("{}").unwrap()),
             |parsed| Ok(parsed),
         )
     }
+}
+
+fn empty_json_string() -> String {
+    String::from("{}")
 }
 
 #[derive(Default)]
@@ -514,6 +537,12 @@ fn game_engine_smoke_and_storage_paths() {
     let _ = loader
         .load_config::<CampConfig>("missing")
         .expect("missing config");
+    loader
+        .configs
+        .insert(String::from("bad"), String::from("{"));
+    let _ = loader
+        .load_config::<CampConfig>("bad")
+        .expect("bad config fallback");
     let config_json = serde_json::to_string(&CampConfig::default()).expect("config json");
     loader.configs.insert(String::from("camp"), config_json);
     loader
@@ -538,6 +567,12 @@ fn game_engine_smoke_and_storage_paths() {
     let restored = engine.load_game("slot1").unwrap();
     assert!(restored.is_some());
     assert!(engine.load_game("slot1").unwrap().is_some());
+}
+
+#[test]
+fn legacy_log_event_includes_ui_surface() {
+    let event = Event::legacy_log_key(EventId::new(1, 1), 1, "log.test");
+    assert_eq!(event.ui_surface_hint, Some(UiSurfaceHint::Log));
 }
 
 #[test]
@@ -1218,4 +1253,191 @@ fn otdeluxe_calendar_normalizes_and_handles_leap_years() {
     leap.advance_days(1);
     assert_eq!(leap.month, 2);
     assert_eq!(leap.day_in_month, 29);
+}
+
+#[test]
+fn test_loader_config_lookup_handles_missing_and_present_entries() {
+    let mut loader = TestLoader::default();
+    loader
+        .configs
+        .insert("camp".into(), "{\"enabled\": true}".into());
+
+    let present: CampConfig = loader.load_config("camp").expect("config loads");
+    assert!(present.enabled);
+
+    let missing: CampConfig = loader.load_config("missing").expect("fallback config");
+    assert!(!missing.enabled);
+    assert_eq!(missing.rest.day, 0);
+    assert_eq!(missing.forage.day, 0);
+}
+
+#[test]
+fn disease_uniform_fallback_trace_records_weights() {
+    let catalog = DiseaseCatalog {
+        diseases: vec![
+            DiseaseDef {
+                id: "d1".into(),
+                kind: DiseaseKind::Illness,
+                display_key: "disease.d1".into(),
+                weight: 0,
+                duration_days: None,
+                onset_effects: DiseaseEffects::default(),
+                daily_tick_effects: DiseaseEffects::default(),
+                fatality_model: None,
+                tags: Vec::new(),
+            },
+            DiseaseDef {
+                id: "d2".into(),
+                kind: DiseaseKind::Illness,
+                display_key: "disease.d2".into(),
+                weight: 0,
+                duration_days: None,
+                onset_effects: DiseaseEffects::default(),
+                daily_tick_effects: DiseaseEffects::default(),
+                fatality_model: None,
+                tags: Vec::new(),
+            },
+        ],
+    };
+    let mut rng = SmallRng::seed_from_u64(42);
+    let (_, trace) = catalog.pick_by_kind_with_trace(DiseaseKind::Illness, &mut rng);
+    let trace = trace.expect("trace");
+    for candidate in &trace.candidates {
+        assert_eq!(candidate.multipliers.len(), 1);
+        assert_eq!(candidate.multipliers[0].label, "uniform_fallback");
+        assert!((candidate.final_weight - 1.0).abs() <= f64::EPSILON);
+    }
+}
+
+#[test]
+fn pick_encounter_returns_ready_rotation_candidate() {
+    let data = EncounterData::from_encounters(vec![encounter_def("alpha", &["Heartland"])]);
+    let request = EncounterRequest {
+        region: Region::Heartland,
+        is_deep: false,
+        malnutrition_level: 0,
+        starving: false,
+        data: &data,
+        recent: &[],
+        current_day: 10,
+        policy: None,
+        force_rotation: false,
+    };
+    let mut queue = VecDeque::from([String::from("alpha")]);
+    let mut rng = ChaCha20Rng::seed_from_u64(1);
+    let pick = pick_encounter(&request, &mut queue, &mut rng);
+    assert!(pick.rotation_satisfied);
+    assert!(pick.encounter.is_some());
+}
+
+#[test]
+fn pick_encounter_returns_forced_rotation_candidate() {
+    let data = EncounterData::from_encounters(vec![encounter_def("alpha", &["Heartland"])]);
+    let recent = [RecentEncounter::new(
+        String::from("alpha"),
+        10,
+        Region::Heartland,
+    )];
+    let request = EncounterRequest {
+        region: Region::Heartland,
+        is_deep: false,
+        malnutrition_level: 0,
+        starving: false,
+        data: &data,
+        recent: &recent,
+        current_day: 10,
+        policy: None,
+        force_rotation: true,
+    };
+    let mut queue = VecDeque::from([String::from("alpha")]);
+    let mut rng = ChaCha20Rng::seed_from_u64(2);
+    let pick = pick_encounter(&request, &mut queue, &mut rng);
+    assert!(pick.rotation_satisfied);
+    assert!(pick.encounter.is_some());
+}
+
+#[test]
+fn pick_encounter_weighted_selection_records_trace() {
+    let data = EncounterData::from_encounters(vec![
+        encounter_def("alpha", &["Heartland"]),
+        encounter_def("beta", &["Heartland"]),
+    ]);
+    let recent = [
+        RecentEncounter::new(String::from("alpha"), 10, Region::Heartland),
+        RecentEncounter::new(String::from("beta"), 10, Region::Heartland),
+    ];
+    let request = EncounterRequest {
+        region: Region::Heartland,
+        is_deep: false,
+        malnutrition_level: 0,
+        starving: false,
+        data: &data,
+        recent: &recent,
+        current_day: 10,
+        policy: None,
+        force_rotation: false,
+    };
+    let mut queue = VecDeque::new();
+    let mut rng = ChaCha20Rng::seed_from_u64(3);
+    let pick = pick_encounter(&request, &mut queue, &mut rng);
+    assert!(pick.encounter.is_some());
+    assert!(pick.decision_trace.is_some());
+}
+
+#[test]
+fn pick_random_event_with_variant_emits_trace() {
+    let catalog = OtDeluxeRandomEventCatalog {
+        chance_per_day: 1.0,
+        events: vec![OtDeluxeRandomEventDef {
+            id: "resource_shortage".into(),
+            weight: 1,
+            variants: vec![OtDeluxeRandomEventVariant {
+                id: "bad_water".into(),
+                weight: 1,
+            }],
+        }],
+    };
+    let ctx = OtDeluxeRandomEventContext {
+        season: Season::Spring,
+        food_lbs: 200,
+        oxen_total: 4,
+        party_alive: 4,
+        health_general: 100,
+        spares_total: 1,
+        weight_mult: 1.0,
+        weight_cap: None,
+    };
+    let mut rng = StepRng::new(0, 0);
+    let pick = pick_random_event_with_trace(&catalog, &ctx, &mut rng).expect("pick");
+    assert!(pick.selection.variant_id.is_some());
+    assert!(pick.variant_trace.is_some());
+}
+
+#[test]
+fn select_weather_for_today_errors_when_region_missing_in_config() {
+    let mut state = GameState {
+        region: Region::RustBelt,
+        ..GameState::default()
+    };
+    let mut cfg = WeatherConfig::default_config();
+    cfg.weights.clear();
+    let rng_bundle = RngBundle::from_user_seed(11);
+    let err = select_weather_for_today(&mut state, &cfg, &rng_bundle).unwrap_err();
+    assert!(err.contains("RustBelt"));
+}
+
+#[test]
+fn select_weather_for_today_applies_neutral_buffer_on_heatwave_streak() {
+    let mut state = GameState {
+        region: Region::Heartland,
+        ..GameState::default()
+    };
+    state.weather_state.heatwave_streak = 99;
+    let mut cfg = WeatherConfig::default_config();
+    cfg.weights
+        .insert(Region::Heartland, HashMap::from([(Weather::HeatWave, 5)]));
+    let rng_bundle = RngBundle::from_user_seed(12);
+    let selected = select_weather_for_today(&mut state, &cfg, &rng_bundle).expect("weather");
+    assert!(state.weather_state.neutral_buffer > 0);
+    assert_ne!(selected, Weather::HeatWave);
 }

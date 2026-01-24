@@ -114,3 +114,22 @@ pub fn boss_page(props: &BossPageProps) -> Html {
         </>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn boss_stats_text_omits_optional_lines_when_zero() {
+        crate::i18n::set_lang("en");
+        let cfg = BossConfig {
+            sanity_loss_per_round: 0,
+            pants_gain_per_round: 0,
+            ..BossConfig::default()
+        };
+        let gs = GameState::default();
+        let (_rounds, _chance, sanity, pants) = boss_stats_text(&cfg, &gs);
+        assert!(sanity.is_none());
+        assert!(pants.is_none());
+    }
+}

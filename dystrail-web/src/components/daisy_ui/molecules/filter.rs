@@ -20,6 +20,7 @@ pub struct FilterProps {
 #[f::function_component(Filter)]
 pub fn filter(props: &FilterProps) -> f::Html {
     let state = f::use_state(|| props.selected.clone());
+    #[cfg(target_arch = "wasm32")]
     {
         let state = state.clone();
         let selected = props.selected.clone();
@@ -27,6 +28,10 @@ pub fn filter(props: &FilterProps) -> f::Html {
             state.set(sel.clone());
             || {}
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.selected.clone();
     }
     let on_change = props.on_change.clone();
     let class = f::class_list(&["filter", "flex", "gap-2", "flex-wrap"], &props.class);

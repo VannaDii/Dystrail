@@ -20,6 +20,7 @@ pub fn text_rotate(props: &TextRotateProps) -> f::Html {
         return f::Html::default();
     }
     let active = f::use_state(|| props.active_index.unwrap_or(0).min(item_count - 1));
+    #[cfg(target_arch = "wasm32")]
     {
         let active = active.clone();
         let external = props.active_index;
@@ -29,6 +30,10 @@ pub fn text_rotate(props: &TextRotateProps) -> f::Html {
             }
             || {}
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.active_index;
     }
     #[cfg(target_arch = "wasm32")]
     {

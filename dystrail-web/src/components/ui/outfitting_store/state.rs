@@ -2,6 +2,7 @@ use crate::game::{
     GameState,
     store::{Cart, Grants, Store},
 };
+#[cfg(any(test, target_arch = "wasm32"))]
 use thiserror::Error;
 use yew::prelude::*;
 
@@ -13,7 +14,6 @@ pub enum StoreScreen {
     /// Category view showing items in a category
     Category(String),
     /// Quantity selection for a specific item
-    #[cfg(any(target_arch = "wasm32", test))]
     QuantityPrompt(String),
     /// Cart/checkout view
     Cart,
@@ -60,18 +60,14 @@ impl PartialEq for OutfittingStoreProps {
     }
 }
 
-pub(super) fn set_screen(state: &UseStateHandle<StoreState>, screen: StoreScreen) {
-    let new_state = screen_state(state, screen);
-    state.set(new_state);
-}
-
-fn screen_state(state: &StoreState, screen: StoreScreen) -> StoreState {
+pub(super) fn screen_state(state: &StoreState, screen: StoreScreen) -> StoreState {
     let mut new_state = state.clone();
     new_state.current_screen = screen;
     new_state.focus_idx = 1;
     new_state
 }
 
+#[cfg(any(test, target_arch = "wasm32"))]
 #[derive(Debug, Error)]
 pub(super) enum StoreLoadError {
     #[error("JSON parsing error: {0}")]
@@ -79,6 +75,7 @@ pub(super) enum StoreLoadError {
 }
 
 /// Load store data from embedded JSON.
+#[cfg(any(test, target_arch = "wasm32"))]
 pub(super) fn load_store_data() -> Result<Store, StoreLoadError> {
     let text = include_str!("../../../../static/assets/data/store.json");
     let store: Store = serde_json::from_str(text)?;

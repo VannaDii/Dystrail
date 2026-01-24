@@ -30,9 +30,7 @@ pub fn build_settings_hc_change(state: &AppState) -> Callback<bool> {
 pub fn build_go_home(state: &AppState, navigator: Option<Navigator>) -> Callback<()> {
     let phase = state.phase.clone();
     Callback::from(move |()| {
-        if let Some(nav) = navigator.as_ref() {
-            nav.push(&Route::Home);
-        }
+        let _ = navigator.as_ref().map(|nav| nav.push(&Route::Home));
         phase.set(Phase::Menu);
     })
 }

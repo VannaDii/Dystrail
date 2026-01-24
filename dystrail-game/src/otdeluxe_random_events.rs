@@ -85,6 +85,11 @@ pub fn catalog() -> &'static OtDeluxeRandomEventCatalog {
     CATALOG.get_or_init(OtDeluxeRandomEventCatalog::load_from_static)
 }
 
+/// Selects an `OTDeluxe` random event and returns the decision traces.
+///
+/// # Panics
+///
+/// Panics if the catalog has no events when a selection is required.
 pub fn pick_random_event_with_trace<R>(
     catalog: &OtDeluxeRandomEventCatalog,
     ctx: &OtDeluxeRandomEventContext,
@@ -137,17 +142,19 @@ where
 
     let roll_f64 = rng.r#gen::<f64>() * total_weight;
     let mut remaining = roll_f64;
-    let mut selected = catalog.events.first()?;
-    for (event, candidate) in &weights {
-        if candidate.final_weight <= 0.0 {
-            continue;
-        }
-        if remaining < candidate.final_weight {
-            selected = event;
-            break;
-        }
-        remaining -= candidate.final_weight;
-    }
+    let selected = weights
+        .iter()
+        .find_map(|(event, candidate)| {
+            if candidate.final_weight <= 0.0 {
+                return None;
+            }
+            if remaining < candidate.final_weight {
+                return Some(*event);
+            }
+            remaining -= candidate.final_weight;
+            None
+        })
+        .unwrap_or_else(|| catalog.events.first().expect("catalog has events"));
 
     let candidates = weights
         .iter()
@@ -160,8 +167,9 @@ where
         chosen_id: selected.id.clone(),
     };
 
-    let (variant_id, variant_trace) =
-        pick_variant_with_trace(&selected.id, &selected.variants, rng);
+    let event_id = &selected.id;
+    let variants = &selected.variants;
+    let (variant_id, variant_trace) = pick_variant_with_trace(event_id, variants, rng);
     let selection = OtDeluxeRandomEventSelection {
         event_id: selected.id.clone(),
         variant_id,
@@ -169,11 +177,12 @@ where
         chance_threshold: chance,
     };
 
-    Some(OtDeluxeRandomEventPick {
+    let pick = OtDeluxeRandomEventPick {
         selection,
         decision_trace,
         variant_trace,
-    })
+    };
+    Some(pick)
 }
 
 fn event_weight_for_context(
@@ -289,15 +298,14 @@ fn pick_variant_with_trace<R: Rng + ?Sized>(
     } else {
         let roll = rng.gen_range(0..total_weight);
         let mut cursor = 0_u32;
-        let mut selected = 0;
+        let mut selected = None;
         for (idx, variant) in variants.iter().enumerate() {
             cursor = cursor.saturating_add(variant.weight);
-            if roll < cursor {
-                selected = idx;
-                break;
+            if selected.is_none() && roll < cursor {
+                selected = Some(idx);
             }
         }
-        (selected, roll)
+        (selected.unwrap_or(0), roll)
     };
 
     let candidates = variants
@@ -323,7 +331,7 @@ fn pick_variant_with_trace<R: Rng + ?Sized>(
 mod tests {
     use super::*;
     use rand::SeedableRng;
-    use rand::rngs::SmallRng;
+    use rand::rngs::{SmallRng, mock::StepRng};
 
     fn find_event<'a>(
         catalog: &'a OtDeluxeRandomEventCatalog,
@@ -594,6 +602,24 @@ mod tests {
     }
 
     #[test]
+    fn pick_variant_with_trace_selects_weighted_variant() {
+        let variants = vec![
+            OtDeluxeRandomEventVariant {
+                id: String::from("a"),
+                weight: 1,
+            },
+            OtDeluxeRandomEventVariant {
+                id: String::from("b"),
+                weight: 3,
+            },
+        ];
+        let mut rng = SmallRng::seed_from_u64(8);
+        let (variant_id, trace) = pick_variant_with_trace("weighted", &variants, &mut rng);
+        assert!(variant_id.is_some());
+        assert!(trace.is_some());
+    }
+
+    #[test]
     fn pick_random_event_emits_decision_trace() {
         let catalog = OtDeluxeRandomEventCatalog {
             chance_per_day: 1.0,
@@ -632,5 +658,275 @@ mod tests {
         assert!(matches!(pick.decision_trace.roll, RollValue::F64(_)));
         assert!(pick.decision_trace.candidates.len() >= 2);
         assert!(pick.selection.variant_id.is_some());
+    }
+
+    #[test]
+    fn pick_random_event_returns_none_when_chance_zero() {
+        let catalog = OtDeluxeRandomEventCatalog {
+            chance_per_day: 0.0,
+            events: vec![OtDeluxeRandomEventDef {
+                id: String::from("weather_catastrophe"),
+                weight: 1,
+                variants: vec![],
+            }],
+        };
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Winter,
+            food_lbs: 100,
+            oxen_total: 2,
+            party_alive: 3,
+            health_general: 80,
+            spares_total: 0,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let mut rng = StepRng::new(0, 0);
+        assert!(pick_random_event_with_trace(&catalog, &ctx, &mut rng).is_none());
+    }
+
+    #[test]
+    fn pick_random_event_applies_seasonal_chance_adjustments() {
+        let catalog = OtDeluxeRandomEventCatalog {
+            chance_per_day: 1.0,
+            events: vec![OtDeluxeRandomEventDef {
+                id: String::from("resource_change"),
+                weight: 1,
+                variants: vec![OtDeluxeRandomEventVariant {
+                    id: String::from("wild_fruit"),
+                    weight: 1,
+                }],
+            }],
+        };
+        let mut rng = StepRng::new(0, 0);
+        let winter_ctx = OtDeluxeRandomEventContext {
+            season: Season::Winter,
+            food_lbs: 100,
+            oxen_total: 3,
+            party_alive: 3,
+            health_general: 80,
+            spares_total: 1,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        assert!(pick_random_event_with_trace(&catalog, &winter_ctx, &mut rng).is_some());
+
+        let mut rng = StepRng::new(0, 0);
+        let summer_ctx = OtDeluxeRandomEventContext {
+            season: Season::Summer,
+            ..winter_ctx
+        };
+        assert!(pick_random_event_with_trace(&catalog, &summer_ctx, &mut rng).is_some());
+    }
+
+    #[test]
+    fn pick_random_event_handles_zero_weight_pool() {
+        let catalog = OtDeluxeRandomEventCatalog {
+            chance_per_day: 1.0,
+            events: vec![OtDeluxeRandomEventDef {
+                id: String::from("weather_catastrophe"),
+                weight: 0,
+                variants: vec![],
+            }],
+        };
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Spring,
+            food_lbs: 200,
+            oxen_total: 4,
+            party_alive: 4,
+            health_general: 80,
+            spares_total: 0,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let mut rng = StepRng::new(0, 0);
+        assert!(pick_random_event_with_trace(&catalog, &ctx, &mut rng).is_none());
+    }
+
+    #[test]
+    fn pick_random_event_skips_zero_weight_candidates() {
+        let catalog = OtDeluxeRandomEventCatalog {
+            chance_per_day: 1.0,
+            events: vec![
+                OtDeluxeRandomEventDef {
+                    id: String::from("weather_catastrophe"),
+                    weight: 0,
+                    variants: vec![],
+                },
+                OtDeluxeRandomEventDef {
+                    id: String::from("resource_change"),
+                    weight: 1,
+                    variants: vec![OtDeluxeRandomEventVariant {
+                        id: String::from("wild_fruit"),
+                        weight: 1,
+                    }],
+                },
+            ],
+        };
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Spring,
+            food_lbs: 200,
+            oxen_total: 4,
+            party_alive: 4,
+            health_general: 80,
+            spares_total: 1,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let mut rng = StepRng::new(0, 0);
+        let pick = pick_random_event_with_trace(&catalog, &ctx, &mut rng).expect("pick");
+        assert_eq!(pick.selection.event_id, "resource_change");
+    }
+
+    #[test]
+    fn pick_random_event_records_variant_trace() {
+        let catalog = OtDeluxeRandomEventCatalog {
+            chance_per_day: 1.0,
+            events: vec![OtDeluxeRandomEventDef {
+                id: String::from("resource_change"),
+                weight: 1,
+                variants: vec![
+                    OtDeluxeRandomEventVariant {
+                        id: String::from("wild_fruit"),
+                        weight: 1,
+                    },
+                    OtDeluxeRandomEventVariant {
+                        id: String::from("mutual_aid_food"),
+                        weight: 1,
+                    },
+                ],
+            }],
+        };
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Spring,
+            food_lbs: 200,
+            oxen_total: 4,
+            party_alive: 4,
+            health_general: 80,
+            spares_total: 1,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let mut rng = SmallRng::seed_from_u64(9);
+        let pick = pick_random_event_with_trace(&catalog, &ctx, &mut rng).expect("pick");
+        assert_eq!(pick.selection.event_id, "resource_change");
+        assert!(pick.selection.variant_id.is_some());
+        assert!(pick.variant_trace.is_some());
+    }
+
+    #[test]
+    fn pick_variant_with_trace_uses_weighted_roll() {
+        let variants = vec![
+            OtDeluxeRandomEventVariant {
+                id: String::from("a"),
+                weight: 1,
+            },
+            OtDeluxeRandomEventVariant {
+                id: String::from("b"),
+                weight: 2,
+            },
+        ];
+        let mut rng = StepRng::new(1, 0);
+        let (variant_id, trace) = pick_variant_with_trace("resource_change", &variants, &mut rng);
+        assert!(variant_id.is_some());
+        assert!(trace.is_some());
+    }
+
+    #[test]
+    fn event_weight_for_context_covers_branches() {
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Summer,
+            food_lbs: 100,
+            oxen_total: 2,
+            party_alive: 2,
+            health_general: 120,
+            spares_total: 2,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let weather = OtDeluxeRandomEventDef {
+            id: String::from("weather_catastrophe"),
+            weight: 1,
+            variants: vec![],
+        };
+        let party = OtDeluxeRandomEventDef {
+            id: String::from("party_incident"),
+            weight: 1,
+            variants: vec![],
+        };
+        let oxen = OtDeluxeRandomEventDef {
+            id: String::from("oxen_incident"),
+            weight: 1,
+            variants: vec![],
+        };
+        let wagon = OtDeluxeRandomEventDef {
+            id: String::from("wagon_part_break"),
+            weight: 1,
+            variants: vec![],
+        };
+
+        let (_, weather_factors) = event_weight_for_context(&weather, &ctx);
+        assert!(
+            weather_factors
+                .iter()
+                .any(|factor| factor.label == "season_summer")
+        );
+        let (_, party_factors) = event_weight_for_context(&party, &ctx);
+        assert!(
+            party_factors
+                .iter()
+                .any(|factor| factor.label == "frail_party")
+        );
+        let (_, oxen_factors) = event_weight_for_context(&oxen, &ctx);
+        assert!(oxen_factors.iter().any(|factor| factor.label == "low_oxen"));
+        let (_, wagon_factors) = event_weight_for_context(&wagon, &ctx);
+        assert!(
+            wagon_factors
+                .iter()
+                .any(|factor| factor.label == "has_spares")
+        );
+    }
+
+    #[test]
+    fn event_weight_for_context_returns_zero_on_base_weight() {
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Fall,
+            food_lbs: 200,
+            oxen_total: 4,
+            party_alive: 4,
+            health_general: 80,
+            spares_total: 1,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let event = OtDeluxeRandomEventDef {
+            id: String::from("resource_shortage"),
+            weight: 0,
+            variants: vec![],
+        };
+        let (weight, factors) = event_weight_for_context(&event, &ctx);
+        assert!((weight - 0.0).abs() <= f64::EPSILON);
+        assert!(factors.iter().any(|factor| factor.label == "base_zero"));
+    }
+
+    #[test]
+    fn event_weight_for_context_handles_unknown_event() {
+        let ctx = OtDeluxeRandomEventContext {
+            season: Season::Winter,
+            food_lbs: 100,
+            oxen_total: 2,
+            party_alive: 2,
+            health_general: 80,
+            spares_total: 0,
+            weight_mult: 1.0,
+            weight_cap: None,
+        };
+        let event = OtDeluxeRandomEventDef {
+            id: String::from("mystery_event"),
+            weight: 1,
+            variants: vec![],
+        };
+        let (weight, factors) = event_weight_for_context(&event, &ctx);
+        assert!(weight > 0.0);
+        assert!(factors.is_empty());
     }
 }

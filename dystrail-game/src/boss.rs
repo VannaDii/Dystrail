@@ -77,7 +77,17 @@ pub struct BossConfig {
 
 impl Default for BossConfig {
     fn default() -> Self {
-        serde_json::from_str(DEFAULT_BOSS_DATA).unwrap_or_else(|_| Self {
+        Self::from_json_or_default(DEFAULT_BOSS_DATA)
+    }
+}
+
+impl BossConfig {
+    fn from_json_or_default(payload: &str) -> Self {
+        serde_json::from_str(payload).unwrap_or_else(|_| Self::fallback_defaults())
+    }
+
+    fn fallback_defaults() -> Self {
+        Self {
             distance_required: ROUTE_LEN_MILES,
             rounds: 3,
             passes_required: 2,
@@ -92,11 +102,9 @@ impl Default for BossConfig {
             min_chance: 0.25,
             max_chance: 0.88,
             balanced: BalancedBossBias::default(),
-        })
+        }
     }
-}
 
-impl BossConfig {
     #[must_use]
     pub fn load_from_static() -> Self {
         Self::default()
@@ -252,6 +260,14 @@ mod tests {
         let cfg = BossConfig::default();
         assert!(cfg.rounds >= 1);
         assert!(cfg.passes_required >= 1);
+        assert_eq!(cfg.balanced, BalancedBossBias::default());
+    }
+
+    #[test]
+    fn fallback_defaults_used_when_json_invalid() {
+        let cfg = BossConfig::from_json_or_default("{invalid}");
+        assert_eq!(cfg.rounds, 3);
+        assert_eq!(cfg.passes_required, 2);
         assert_eq!(cfg.balanced, BalancedBossBias::default());
     }
 

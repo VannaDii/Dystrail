@@ -188,4 +188,48 @@ mod tests {
         assert!(html.contains("data-selected=\"none\""));
         assert!(html.contains("data-resolved=\"false\""));
     }
+
+    #[test]
+    fn activate_handler_accepts_back_option() {
+        let props = ActivateHarnessProps {
+            options: OtDeluxeCrossingOptions::empty(),
+            attempt: 0,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"0\""));
+        assert!(html.contains("data-resolved=\"true\""));
+    }
+
+    #[test]
+    fn activate_handler_accepts_caulk_float_option() {
+        let props = ActivateHarnessProps {
+            options: OtDeluxeCrossingOptions::empty().with_caulk_float(),
+            attempt: 2,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"2\""));
+        assert!(html.contains("data-resolved=\"true\""));
+    }
+
+    #[test]
+    fn activate_handler_accepts_ferry_option() {
+        let props = ActivateHarnessProps {
+            options: OtDeluxeCrossingOptions::empty().with_ferry(),
+            attempt: 3,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"3\""));
+        assert!(html.contains("data-resolved=\"true\""));
+    }
+
+    #[test]
+    fn activate_handler_rejects_unknown_option() {
+        let props = ActivateHarnessProps {
+            options: OtDeluxeCrossingOptions::empty(),
+            attempt: 9,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"none\""));
+        assert!(html.contains("data-resolved=\"false\""));
+    }
 }

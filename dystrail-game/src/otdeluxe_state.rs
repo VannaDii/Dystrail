@@ -222,10 +222,10 @@ impl OtDeluxePartyState {
         I: IntoIterator<Item = S>,
         S: Into<String>,
     {
-        let members = names
-            .into_iter()
-            .map(|name| OtDeluxePartyMember::new(name.into()))
-            .collect();
+        let mut members = Vec::new();
+        for name in names {
+            members.push(OtDeluxePartyMember::new(name.into()));
+        }
         Self { members }
     }
 
@@ -266,21 +266,23 @@ impl OtDeluxePartyState {
     where
         R: rand::Rng + ?Sized,
     {
-        let alive_indices: Vec<usize> = self
-            .members
-            .iter()
-            .enumerate()
-            .filter_map(|(idx, member)| member.alive.then_some(idx))
-            .collect();
+        let mut alive_indices = Vec::new();
+        for (idx, member) in self.members.iter().enumerate() {
+            if member.alive {
+                alive_indices.push(idx);
+            }
+        }
         let &member_index = alive_indices.choose(rng)?;
         let died = self.members[member_index].apply_affliction(kind, days, disease_id);
-        Some(OtDeluxeAfflictionOutcome {
+        let disease_id = disease_id.map(str::to_string);
+        let outcome = OtDeluxeAfflictionOutcome {
             member_index,
             died,
             kind,
-            disease_id: disease_id.map(str::to_string),
+            disease_id,
             display_key: None,
-        })
+        };
+        Some(outcome)
     }
 
     pub fn tick_afflictions(&mut self) {
@@ -637,6 +639,15 @@ mod tests {
     }
 
     #[test]
+    fn apply_affliction_random_targets_alive_member() {
+        let mut party = OtDeluxePartyState::from_names(["Ada", "Bob"]);
+        let mut rng = SmallRng::seed_from_u64(4);
+        let outcome =
+            party.apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Illness, 2, None);
+        assert!(outcome.is_some());
+    }
+
+    #[test]
     fn random_affliction_targets_alive_member() {
         let mut party = OtDeluxePartyState::from_names(["A", "B"]);
         party.members[0].alive = false;
@@ -699,6 +710,27 @@ mod tests {
     }
 
     #[test]
+    fn party_from_names_builds_members() {
+        let party = OtDeluxePartyState::from_names(["A", "B", "C"]);
+        let names: Vec<_> = party
+            .members
+            .iter()
+            .map(|member| member.name.as_str())
+            .collect();
+        assert_eq!(names, vec!["A", "B", "C"]);
+    }
+
+    #[test]
+    fn random_affliction_sets_outcome_for_alive_member() {
+        let mut party = OtDeluxePartyState::from_names(["A"]);
+        let mut rng = SmallRng::seed_from_u64(5);
+        let outcome =
+            party.apply_affliction_random(&mut rng, OtDeluxeAfflictionKind::Injury, 2, None);
+        assert!(outcome.is_some());
+        assert!(party.members[0].is_injured());
+    }
+
+    #[test]
     fn oxen_effective_uses_healthy_when_weight_zero() {
         let oxen = OtDeluxeOxenState {
             healthy: 4,
@@ -712,5 +744,37 @@ mod tests {
         let calendar = OtDeluxeCalendar::from_day_index(32);
         assert_eq!(calendar.month, 4);
         assert_eq!(calendar.day_in_month, 1);
+    }
+
+    #[test]
+    fn tick_afflictions_skips_dead_members() {
+        let mut party = OtDeluxePartyState::from_names(["A", "B"]);
+        party.members[0].alive = false;
+        party.members[1].sick_days_remaining = 2;
+        party.tick_afflictions();
+        assert_eq!(party.members[1].sick_days_remaining, 1);
+    }
+
+    #[test]
+    fn calendar_advance_days_noops_on_zero() {
+        let mut calendar = OtDeluxeCalendar {
+            month: 5,
+            day_in_month: 10,
+            year: 1848,
+        };
+        calendar.advance_days(0);
+        assert_eq!(calendar.month, 5);
+        assert_eq!(calendar.day_in_month, 10);
+        assert_eq!(calendar.year, 1848);
+    }
+
+    #[test]
+    fn state_advance_days_noops_on_zero() {
+        let mut state = OtDeluxeState::default();
+        let day_before = state.day;
+        let month_before = state.calendar.month;
+        state.advance_days(0);
+        assert_eq!(state.day, day_before);
+        assert_eq!(state.calendar.month, month_before);
     }
 }

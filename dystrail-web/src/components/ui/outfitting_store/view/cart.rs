@@ -1,5 +1,4 @@
 use super::super::handlers::announce::format_currency;
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::handlers::navigation::{handle_back_navigation, handle_cart_selection};
 use super::super::state::{OutfittingStoreProps, StoreState};
 use crate::i18n;
@@ -91,8 +90,6 @@ pub fn render_cart_screen(
     on_keydown: &Callback<web_sys::KeyboardEvent>,
     props: &OutfittingStoreProps,
 ) -> Html {
-    #[cfg(not(any(target_arch = "wasm32", test)))]
-    let _ = props;
     let total_str = format_currency(state.cart.total_cents);
     let remaining = game_state.budget_cents - state.cart.total_cents;
     let remaining_str = format_currency(remaining);
@@ -101,30 +98,14 @@ pub fn render_cart_screen(
     let cart_lines = build_cart_lines(state);
 
     let on_checkout = {
-        #[cfg(any(target_arch = "wasm32", test))]
-        {
-            let st = state.clone();
-            let props = props.clone();
-            Callback::from(move |_| {
-                handle_cart_selection(0, &st, &st, &props);
-            })
-        }
-        #[cfg(not(any(target_arch = "wasm32", test)))]
-        {
-            Callback::from(|_| {})
-        }
+        let st = state.clone();
+        let props = props.clone();
+        Callback::from(move |_| handle_cart_selection(0, &st, &st, &props))
     };
 
     let on_back = {
-        #[cfg(any(target_arch = "wasm32", test))]
-        {
-            let st = state.clone();
-            Callback::from(move |_| handle_back_navigation(&st, &st))
-        }
-        #[cfg(not(any(target_arch = "wasm32", test)))]
-        {
-            Callback::from(|_| {})
-        }
+        let st = state.clone();
+        Callback::from(move |_| handle_back_navigation(&st, &st))
     };
 
     html! {

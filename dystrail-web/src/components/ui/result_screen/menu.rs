@@ -10,9 +10,7 @@ pub(super) fn render_menu_item(
     let tabindex = if is_focused { "0" } else { "-1" };
     let action_callback = {
         let on_action = on_action.clone();
-        Callback::from(move |_: MouseEvent| {
-            on_action.emit(index);
-        })
+        Callback::from(move |_: MouseEvent| emit_menu_action(&on_action, index))
     };
 
     let display_index = if index == 0 { "0" } else { &index.to_string() };
@@ -29,6 +27,10 @@ pub(super) fn render_menu_item(
             { format!("{display_index}) {label}") }
         </li>
     }
+}
+
+fn emit_menu_action(on_action: &Callback<u8>, index: u8) {
+    on_action.emit(index);
 }
 
 #[cfg(target_arch = "wasm32")]
@@ -103,6 +105,8 @@ const fn navigate_down_index(idx: u8) -> u8 {
 mod tests {
     use super::*;
     use futures::executor::block_on;
+    use std::cell::Cell;
+    use std::rc::Rc;
     use yew::LocalServerRenderer;
 
     #[function_component(MenuItemHarness)]
@@ -147,5 +151,14 @@ mod tests {
         assert_eq!(parse_numeric_key("5"), Some(5));
         assert_eq!(parse_numeric_key("Digit0"), Some(0));
         assert_eq!(parse_numeric_key("X"), None);
+    }
+
+    #[test]
+    fn emit_menu_action_emits_index() {
+        let called = Rc::new(Cell::new(None::<u8>));
+        let called_ref = called.clone();
+        let on_action = Callback::from(move |idx| called_ref.set(Some(idx)));
+        emit_menu_action(&on_action, 4);
+        assert_eq!(called.get(), Some(4));
     }
 }

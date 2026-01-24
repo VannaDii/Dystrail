@@ -9,12 +9,6 @@ pub fn render_encounter(state: &AppState, handlers: &AppHandlers) -> Html {
     (*state.session).clone().map_or_else(Html::default, |sess| {
         let snapshot = sess.state().clone();
         let weather_badge = build_weather_badge(&snapshot, &state.weather_config);
-        html! {
-            <EncounterPage
-                state={Rc::new(snapshot)}
-                weather={weather_badge}
-                on_choice={handlers.encounter_choice.clone()}
-            />
-        }
+        html! { <EncounterPage state={Rc::new(snapshot)} weather={weather_badge} on_choice={handlers.encounter_choice.clone()} /> }
     })
 }

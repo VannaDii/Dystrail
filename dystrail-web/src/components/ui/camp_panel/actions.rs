@@ -8,6 +8,7 @@ use crate::i18n;
 use std::rc::Rc;
 use yew::prelude::*;
 
+#[must_use]
 pub fn build_on_action(
     game_state: Rc<GameState>,
     camp_config: Rc<CampConfig>,

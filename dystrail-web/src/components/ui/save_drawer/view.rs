@@ -22,12 +22,22 @@ pub fn save_drawer(p: &Props) -> Html {
 
     let import_text = use_state(|| AttrValue::from(""));
     let on_input = {
-        let st = import_text.clone();
-        Callback::from(move |e: InputEvent| {
-            if let Some(input) = e.target_dyn_into::<web_sys::HtmlTextAreaElement>() {
-                st.set(input.value().into());
-            }
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            let on_input_value = {
+                let st = import_text.clone();
+                Callback::from(move |value: AttrValue| st.set(value))
+            };
+            Callback::from(move |e: InputEvent| {
+                if let Some(input) = e.target_dyn_into::<web_sys::HtmlTextAreaElement>() {
+                    on_input_value.emit(input.value().into());
+                }
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            Callback::from(|_e: InputEvent| {})
+        }
     };
     let close = {
         let cb = p.on_close.clone();

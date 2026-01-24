@@ -18,6 +18,7 @@ pub struct DropdownProps {
 #[f::function_component(Dropdown)]
 pub fn dropdown(props: &DropdownProps) -> f::Html {
     let open_state = f::use_state(|| props.open.unwrap_or(false));
+    #[cfg(target_arch = "wasm32")]
     {
         let open_state = open_state.clone();
         let external = props.open;
@@ -28,14 +29,26 @@ pub fn dropdown(props: &DropdownProps) -> f::Html {
             || {}
         });
     }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = props.open;
+    }
     let toggle = {
         let open_state = open_state.clone();
         let on_toggle = props.on_toggle.clone();
-        f::Callback::from(move |_| {
-            let next = !*open_state;
-            open_state.set(next);
-            on_toggle.emit(next);
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            f::Callback::from(move |_| {
+                let next = !*open_state;
+                open_state.set(next);
+                on_toggle.emit(next);
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (open_state, on_toggle);
+            f::Callback::from(|_| {})
+        }
     };
     let mut class = f::class_list(&["dropdown"], &props.class);
     if props.align_end {

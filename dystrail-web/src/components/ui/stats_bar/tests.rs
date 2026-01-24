@@ -70,6 +70,38 @@ fn stats_bar_announces_exec_order() {
 }
 
 #[test]
+fn stats_bar_pants_classes_cover_warning_and_critical() {
+    crate::i18n::set_lang("en");
+    let critical_props = Props {
+        stats: Stats {
+            pants: 95,
+            ..Stats::default()
+        },
+        day: 1,
+        region: Region::Heartland,
+        exec_order: None,
+        persona_id: None,
+        weather: None,
+    };
+    let html = block_on(LocalServerRenderer::<StatsBar>::with_props(critical_props).render());
+    assert!(html.contains("pants-critical"));
+
+    let warn_props = Props {
+        stats: Stats {
+            pants: 75,
+            ..Stats::default()
+        },
+        day: 2,
+        region: Region::Heartland,
+        exec_order: None,
+        persona_id: None,
+        weather: None,
+    };
+    let html = block_on(LocalServerRenderer::<StatsBar>::with_props(warn_props).render());
+    assert!(html.contains("pants-warn"));
+}
+
+#[test]
 fn helper_functions_cover_persona_and_icons() {
     crate::i18n::set_lang("en");
     let unknown = helpers::persona_name_for("mystery");

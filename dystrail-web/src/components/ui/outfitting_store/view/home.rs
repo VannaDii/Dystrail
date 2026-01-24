@@ -1,9 +1,15 @@
 use super::super::handlers::announce::format_currency;
-use super::super::state::set_screen;
-use super::super::state::{StoreScreen, StoreState};
+use super::super::state::{StoreScreen, StoreState, screen_state};
 use crate::i18n;
 use std::collections::BTreeMap;
 use yew::prelude::*;
+
+fn select_category(state: &UseStateHandle<StoreState>, category_id: &str) {
+    state.set(screen_state(
+        state,
+        StoreScreen::Category(category_id.to_string()),
+    ));
+}
 
 pub fn render_home_screen(
     state: &UseStateHandle<StoreState>,
@@ -41,9 +47,7 @@ pub fn render_home_screen(
     let on_tab = |category_id: &str| {
         let state = state.clone();
         let cat_id = category_id.to_string();
-        Callback::from(move |_| {
-            set_screen(&state, StoreScreen::Category(cat_id.clone()));
-        })
+        Callback::from(move |_| select_category(&state, &cat_id))
     };
 
     html! {
@@ -99,5 +103,86 @@ pub fn render_home_screen(
                 <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
             </section>
         </main>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::super::super::state::load_store_data;
+    use super::*;
+    use crate::game::GameState;
+    use crate::game::store::Cart;
+    use futures::executor::block_on;
+    use yew::LocalServerRenderer;
+
+    #[function_component(NegativeBudgetHarness)]
+    fn negative_budget_harness() -> Html {
+        let store_data = load_store_data().expect("store data should load");
+        let mut state = StoreState {
+            store_data,
+            cart: Cart::new(),
+            current_screen: StoreScreen::Home,
+            focus_idx: 1,
+            discount_pct: 0.0,
+        };
+        state.cart.total_cents = 1500;
+        let state = use_state(|| state);
+        let game_state = GameState {
+            budget_cents: 1000,
+            ..GameState::default()
+        };
+        let list_ref = NodeRef::default();
+        let on_keydown: Callback<web_sys::KeyboardEvent> = Callback::noop();
+        render_home_screen(&state, &game_state, &list_ref, &on_keydown)
+    }
+
+    #[test]
+    fn render_home_screen_flags_over_budget() {
+        let html = block_on(LocalServerRenderer::<NegativeBudgetHarness>::new().render());
+        assert!(html.contains("budget over"));
+    }
+
+    #[test]
+    fn select_category_sets_screen_and_focus() {
+        let store_data = load_store_data().expect("store data should load");
+        let base_state = StoreState {
+            store_data,
+            cart: Cart::new(),
+            current_screen: StoreScreen::Home,
+            focus_idx: 2,
+            discount_pct: 0.0,
+        };
+        let next = screen_state(
+            &base_state,
+            StoreScreen::Category(String::from("fuel_food")),
+        );
+        assert!(matches!(next.current_screen, StoreScreen::Category(id) if id == "fuel_food"));
+        assert_eq!(next.focus_idx, 1);
+    }
+
+    #[test]
+    fn select_category_executes_state_update() {
+        #[function_component(SelectCategoryHarness)]
+        fn select_category_harness() -> Html {
+            let store_data = load_store_data().expect("store data should load");
+            let base_state = StoreState {
+                store_data,
+                cart: Cart::new(),
+                current_screen: StoreScreen::Home,
+                focus_idx: 2,
+                discount_pct: 0.0,
+            };
+            let state = use_state(|| base_state);
+            let invoked = use_mut_ref(|| false);
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                select_category(&state, "fuel_food");
+            }
+            let called = if *invoked.borrow() { "true" } else { "false" };
+            html! { <div data-called={called} /> }
+        }
+
+        let html = block_on(LocalServerRenderer::<SelectCategoryHarness>::new().render());
+        assert!(html.contains("data-called=\"true\""));
     }
 }

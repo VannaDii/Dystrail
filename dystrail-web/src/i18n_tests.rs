@@ -135,6 +135,12 @@ fn required_feature_keys_exist() {
 }
 
 #[test]
+fn find_nested_key_returns_false_for_missing_path() {
+    let (_, json) = load_locale("en");
+    assert!(!find_nested_key(&json, "this.key.does.not.exist"));
+}
+
+#[test]
 fn locales_have_balanced_templates() {
     for locale in locale_codes() {
         let (content, _json) = load_locale(&locale);

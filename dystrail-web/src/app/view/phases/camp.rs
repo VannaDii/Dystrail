@@ -21,28 +21,6 @@ pub fn render_camp(state: &AppState) -> Html {
         let camp_state = Rc::new(snapshot);
         let camp_config_rc = Rc::new((*state.camp_config).clone());
         let endgame_config_rc = Rc::new((*state.endgame_config).clone());
-        html! {
-            <CampPage
-                state={camp_state}
-                camp_config={camp_config_rc}
-                endgame_config={endgame_config_rc}
-                weather={weather_badge}
-                on_state_change={{
-                    let session_handle = state.session.clone();
-                    let pending_state = state.pending_state.clone();
-                    let endgame_cfg = (*state.endgame_config).clone();
-                    Callback::from(move |new_state: GameState| {
-                        let snapshot = new_state.clone();
-                        let updated = session_from_state(new_state, &endgame_cfg);
-                        pending_state.set(Some(snapshot));
-                        session_handle.set(Some(updated));
-                    })
-                }}
-                on_close={{
-                    let phase_handle = state.phase.clone();
-                    Callback::from(move |()| phase_handle.set(crate::app::phase::Phase::Menu))
-                }}
-            />
-        }
+        html! { <CampPage state={camp_state} camp_config={camp_config_rc} endgame_config={endgame_config_rc} weather={weather_badge} on_state_change={{ let session_handle = state.session.clone(); let pending_state = state.pending_state.clone(); let endgame_cfg = (*state.endgame_config).clone(); Callback::from(move |new_state: GameState| { let snapshot = new_state.clone(); let updated = session_from_state(new_state, &endgame_cfg); pending_state.set(Some(snapshot)); session_handle.set(Some(updated)); }) }} on_close={{ let phase_handle = state.phase.clone(); Callback::from(move |()| phase_handle.set(crate::app::phase::Phase::Menu)) }} /> }
     })
 }

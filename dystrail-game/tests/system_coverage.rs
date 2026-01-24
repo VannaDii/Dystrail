@@ -17,15 +17,14 @@ use rand::rngs::mock::StepRng;
 use std::rc::Rc;
 
 fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
-    for seed in 0..50_000u64 {
-        let probe = RngBundle::from_user_seed(seed);
-        let mut rng = probe.encounter();
-        let value = (rng.r#gen::<u32>() % 100) as u8;
-        if predicate(value) {
-            return seed;
-        }
-    }
-    panic!("unable to locate encounter seed satisfying predicate");
+    (0..50_000u64)
+        .find(|seed| {
+            let probe = RngBundle::from_user_seed(*seed);
+            let mut rng = probe.encounter();
+            let value = (rng.r#gen::<u32>() % 100) as u8;
+            predicate(value)
+        })
+        .unwrap_or_else(|| panic!("unable to locate encounter seed satisfying predicate"))
 }
 
 #[test]

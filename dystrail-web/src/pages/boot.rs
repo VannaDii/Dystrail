@@ -8,27 +8,39 @@ pub struct BootPageProps {
     pub on_begin: Callback<()>,
 }
 
+fn boot_begin_action(on_begin: Callback<()>, ready: bool) -> Callback<()> {
+    Callback::from(move |()| {
+        if ready {
+            on_begin.emit(());
+        }
+    })
+}
+
+fn boot_keydown_action(on_begin: Callback<()>, ready: bool) -> Callback<()> {
+    boot_begin_action(on_begin, ready)
+}
+
 #[function_component(BootPage)]
 pub fn boot_page(props: &BootPageProps) -> Html {
-    let on_click = {
-        let on_begin = props.on_begin.clone();
-        let ready = props.ready;
-        Callback::from(move |_| {
-            if ready {
-                on_begin.emit(());
-            }
-        })
-    };
-
+    let on_click =
+        boot_begin_action(props.on_begin.clone(), props.ready).reform(|_e: MouseEvent| ());
     let on_keydown = {
-        let on_begin = props.on_begin.clone();
+        let on_keydown_action = boot_keydown_action(props.on_begin.clone(), props.ready);
         let ready = props.ready;
-        Callback::from(move |e: web_sys::KeyboardEvent| {
-            if ready {
-                e.prevent_default();
-                on_begin.emit(());
-            }
-        })
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: web_sys::KeyboardEvent| {
+                if ready {
+                    e.prevent_default();
+                }
+                on_keydown_action.emit(());
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = (on_keydown_action, ready);
+            Callback::from(|_e: web_sys::KeyboardEvent| {})
+        }
     };
 
     html! {
@@ -93,5 +105,32 @@ pub fn boot_page(props: &BootPageProps) -> Html {
                 </div>
             </div>
         </div>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::cell::Cell;
+    use std::rc::Rc;
+
+    #[test]
+    fn boot_begin_action_emits_when_ready() {
+        let called = Rc::new(Cell::new(false));
+        let called_ref = called.clone();
+        let on_begin = Callback::from(move |()| called_ref.set(true));
+        let on_click = boot_begin_action(on_begin, true);
+        on_click.emit(());
+        assert!(called.get());
+    }
+
+    #[test]
+    fn boot_keydown_action_emits_when_ready() {
+        let called = Rc::new(Cell::new(false));
+        let called_ref = called.clone();
+        let on_begin = Callback::from(move |()| called_ref.set(true));
+        let on_keydown = boot_keydown_action(on_begin, true);
+        on_keydown.emit(());
+        assert!(called.get());
     }
 }

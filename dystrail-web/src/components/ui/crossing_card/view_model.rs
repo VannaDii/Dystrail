@@ -162,4 +162,22 @@ mod tests {
         assert!(vm.shutdown_notice.is_some());
         assert!(vm.detour_label.contains('+'));
     }
+
+    #[test]
+    fn build_crossing_viewmodel_formats_negative_detour_values() {
+        crate::i18n::set_lang("en");
+        let gs = GameState::default();
+        let mut cfg = CrossingConfig::default();
+        if let Some(kind_cfg) = cfg.types.get_mut(&CrossingKind::BridgeOut) {
+            kind_cfg.detour.days = -1;
+            kind_cfg.detour.supplies = 3;
+            kind_cfg.detour.pants = -2;
+        }
+
+        let vm = build_crossing_viewmodel(&gs, &cfg, CrossingKind::BridgeOut)
+            .expect("view model should build");
+        assert!(vm.detour_label.contains("-1"));
+        assert!(vm.detour_label.contains("+3"));
+        assert!(vm.detour_label.contains("-2"));
+    }
 }

@@ -127,7 +127,6 @@ pub(crate) const TRAVEL_PARTIAL_RATIO: f32 = 0.45;
 pub(crate) const TRAVEL_PARTIAL_CLAMP_LOW: f32 = 0.55;
 pub(crate) const TRAVEL_PARTIAL_CLAMP_HIGH: f32 = 0.99;
 pub(crate) const TRAVEL_PARTIAL_RECOVERY_RATIO: f32 = 0.92;
-pub(crate) const TRAVEL_PARTIAL_DEFAULT_WEAR: f32 = 0.85;
 pub(crate) const TRAVEL_RATIO_DEFAULT: f32 = 0.9;
 pub(crate) const WEATHER_PACE_MULTIPLIER_FLOOR: f32 = 0.90;
 pub(crate) const BEHIND_SCHEDULE_MILES_PER_DAY: f32 = 26.5;

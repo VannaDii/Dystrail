@@ -13,30 +13,11 @@ pub fn render_crossing(state: &AppState, handlers: &AppHandlers) -> Html {
         let weather_badge = build_weather_badge(&snapshot, &state.weather_config);
         let state_rc = Rc::new(snapshot);
         if state_rc.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
-            if state_rc.ot_deluxe.crossing.choice_pending {
-                return html! {
-                    <OtDeluxeCrossingPage
-                        state={state_rc}
-                        weather={weather_badge}
-                        on_choice={handlers.otdeluxe_crossing_choice.clone()}
-                    />
-                };
-            }
-            return Html::default();
+            return if state_rc.ot_deluxe.crossing.choice_pending { html! { <OtDeluxeCrossingPage state={state_rc} weather={weather_badge} on_choice={handlers.otdeluxe_crossing_choice.clone()} /> } } else { Html::default() };
         }
 
         let pending = state_rc.pending_crossing;
         let config_rc = Rc::new((*state.crossing_config).clone());
-        pending.map_or_else(Html::default, |pending| {
-            html! {
-                <CrossingPage
-                    state={state_rc.clone()}
-                    config={config_rc}
-                    kind={pending.kind}
-                    weather={weather_badge}
-                    on_choice={handlers.crossing_choice.clone()}
-                />
-            }
-        })
+        pending.map_or_else(Html::default, |pending| html! { <CrossingPage state={state_rc.clone()} config={config_rc} kind={pending.kind} weather={weather_badge} on_choice={handlers.crossing_choice.clone()} /> })
     })
 }

@@ -12,17 +12,19 @@ pub struct OtDeluxeCrossingOptionProps {
     pub on_activate: Callback<u8>,
 }
 
+fn activate_option(disabled: bool, idx: u8, on_activate: &Callback<u8>) {
+    if !disabled {
+        on_activate.emit(idx);
+    }
+}
+
 #[function_component(OtDeluxeCrossingOption)]
 pub fn otdeluxe_crossing_option(props: &OtDeluxeCrossingOptionProps) -> Html {
     let idx = props.index;
     let on_click = {
         let on = props.on_activate.clone();
         let disabled = props.disabled;
-        Callback::from(move |_| {
-            if !disabled {
-                on.emit(idx);
-            }
-        })
+        Callback::from(move |_| activate_option(disabled, idx, &on))
     };
 
     let desc_id = format!("otdeluxe-desc-{idx}");
@@ -48,6 +50,8 @@ pub fn otdeluxe_crossing_option(props: &OtDeluxeCrossingOptionProps) -> Html {
 mod tests {
     use super::*;
     use futures::executor::block_on;
+    use std::cell::Cell;
+    use std::rc::Rc;
     use yew::LocalServerRenderer;
 
     #[test]
@@ -84,5 +88,14 @@ mod tests {
             block_on(LocalServerRenderer::<OtDeluxeCrossingOption>::with_props(props).render());
         assert!(html.contains("aria-disabled=\"false\""));
         assert!(html.contains("tabindex=\"0\""));
+    }
+
+    #[test]
+    fn otdeluxe_option_activate_emits_when_enabled() {
+        let called = Rc::new(Cell::new(None::<u8>));
+        let called_ref = called.clone();
+        let on_activate = Callback::from(move |idx| called_ref.set(Some(idx)));
+        activate_option(false, 3, &on_activate);
+        assert_eq!(called.get(), Some(3));
     }
 }

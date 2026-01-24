@@ -36,22 +36,24 @@ impl DataLoader for WebDataLoader {
         T: DeserializeOwned,
     {
         // Load config from static assets - placeholder implementation
-        let json = match config_name {
-            "personas" => include_str!("../static/assets/data/personas.json"),
-            "store" => include_str!("../static/assets/data/store.json"),
-            "vehicle" => include_str!("../static/assets/data/vehicle.json"),
-            "weather" => include_str!("../static/assets/data/weather.json"),
-            "pacing" => include_str!("../static/assets/data/pacing.json"),
-            "camp" => include_str!("../static/assets/data/camp.json"),
-            "crossings" => include_str!("../static/assets/data/crossings.json"),
-            "result" => include_str!("../static/assets/data/result.json"),
-            _ => {
-                return Err(WebDataError::Network(format!(
-                    "Unknown config: {config_name}"
-                )));
-            }
-        };
+        let json = config_json(config_name)?;
         serde_json::from_str(json).map_err(WebDataError::Json)
+    }
+}
+
+fn config_json(config_name: &str) -> Result<&'static str, WebDataError> {
+    match config_name {
+        "personas" => Ok(include_str!("../static/assets/data/personas.json")),
+        "store" => Ok(include_str!("../static/assets/data/store.json")),
+        "vehicle" => Ok(include_str!("../static/assets/data/vehicle.json")),
+        "weather" => Ok(include_str!("../static/assets/data/weather.json")),
+        "pacing" => Ok(include_str!("../static/assets/data/pacing.json")),
+        "camp" => Ok(include_str!("../static/assets/data/camp.json")),
+        "crossings" => Ok(include_str!("../static/assets/data/crossings.json")),
+        "result" => Ok(include_str!("../static/assets/data/result.json")),
+        _ => Err(WebDataError::Network(format!(
+            "Unknown config: {config_name}"
+        ))),
     }
 }
 
@@ -216,6 +218,25 @@ mod tests {
     fn web_data_loader_reports_unknown_config() {
         let loader = WebDataLoader;
         let err = loader.load_config::<serde_json::Value>("unknown-key");
+        match err {
+            Err(WebDataError::Network(msg)) => {
+                assert!(msg.contains("Unknown config"));
+            }
+            other => panic!("Expected network error, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn config_json_maps_known_keys() {
+        let json = config_json("personas").expect("personas config should exist");
+        assert!(json.contains("\"journalist\""));
+        let json = config_json("store").expect("store config should exist");
+        assert!(json.contains("\"categories\""));
+    }
+
+    #[test]
+    fn config_json_reports_unknown_key() {
+        let err = config_json("unknown-key");
         match err {
             Err(WebDataError::Network(msg)) => {
                 assert!(msg.contains("Unknown config"));

@@ -1218,4 +1218,80 @@ mod tests {
         assert_f32_eq(effects.breakdown_mult, 1.3);
         assert_f32_eq(effects.rain_accum_delta, 0.5);
     }
+
+    #[test]
+    fn breakdown_policy_pace_multiplier_covers_variants() {
+        let policy = OtDeluxeBreakdownPolicy::default();
+        assert_f32_eq(
+            policy.pace_multiplier(OtDeluxePace::Strenuous),
+            PACE_BREAKDOWN_HEATED,
+        );
+        assert_f32_eq(
+            policy.pace_multiplier(OtDeluxePace::Grueling),
+            PACE_BREAKDOWN_BLITZ,
+        );
+    }
+
+    #[test]
+    fn weather_effect_overrides_merge_and_apply() {
+        let mut base = OtDeluxeWeatherEffectsOverride::default();
+        let overlay = OtDeluxeWeatherEffectsOverride {
+            travel_mult: Some(0.8),
+            supplies_delta: Some(-2),
+            sanity_delta: Some(-1),
+            pants_delta: Some(-3),
+            encounter_delta: Some(0.2),
+            encounter_cap: Some(0.5),
+            breakdown_mult: Some(1.5),
+            rain_accum_delta: Some(0.3),
+            snow_depth_delta: Some(0.4),
+        };
+        base.merge_from(&overlay);
+        assert_eq!(base.travel_mult, Some(0.8));
+        assert_eq!(base.supplies_delta, Some(-2));
+        assert_eq!(base.sanity_delta, Some(-1));
+        assert_eq!(base.pants_delta, Some(-3));
+        assert_eq!(base.encounter_delta, Some(0.2));
+        assert_eq!(base.encounter_cap, Some(0.5));
+        assert_eq!(base.breakdown_mult, Some(1.5));
+        assert_eq!(base.rain_accum_delta, Some(0.3));
+        assert_eq!(base.snow_depth_delta, Some(0.4));
+
+        let mut effects = WeatherEffects::default();
+        base.apply(&mut effects);
+        assert_f32_eq(effects.travel_mult, 0.8);
+        assert_eq!(effects.supplies_delta, -2);
+        assert_eq!(effects.sanity_delta, -1);
+        assert_eq!(effects.pants_delta, -3);
+        assert_f32_eq(effects.encounter_delta, 0.2);
+        assert_f32_eq(effects.encounter_cap, 0.5);
+        assert_f32_eq(effects.breakdown_mult, 1.5);
+        assert_f32_eq(effects.rain_accum_delta, 0.3);
+        assert_f32_eq(effects.snow_depth_delta, 0.4);
+    }
+
+    #[test]
+    fn policy_override_merge_updates_fields() {
+        let mut base = OtDeluxePolicyOverride::default();
+        let overlay = OtDeluxePolicyOverride {
+            travel_multiplier: Some(0.9),
+            event_weight_mult: Some(1.1),
+            event_weight_cap: Some(2.0),
+            weather_effects: OtDeluxeWeatherEffectsOverride {
+                travel_mult: Some(0.7),
+                ..OtDeluxeWeatherEffectsOverride::default()
+            },
+            affliction_weights: OtDeluxeAfflictionWeightOverride {
+                illness: Some(2),
+                injury: Some(3),
+            },
+        };
+        base.merge_from(&overlay);
+        assert_eq!(base.travel_multiplier, Some(0.9));
+        assert_eq!(base.event_weight_mult, Some(1.1));
+        assert_eq!(base.event_weight_cap, Some(2.0));
+        assert_eq!(base.weather_effects.travel_mult, Some(0.7));
+        assert_eq!(base.affliction_weights.illness, Some(2));
+        assert_eq!(base.affliction_weights.injury, Some(3));
+    }
 }

@@ -111,19 +111,16 @@ impl<'a> DailyTickKernel<'a> {
         F: FnOnce(&mut GameState),
     {
         let snapshot = DaySnapshot::capture(state);
-        if let Some((ended, log_key, breakdown_started)) =
-            PendingPhase::new(state).resolve_pending_route_prompt()
-        {
+        let pending_route = PendingPhase::new(state).resolve_pending_route_prompt();
+        if let Some((ended, log_key, breakdown_started)) = pending_route {
             return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
-        if let Some((ended, log_key, breakdown_started)) =
-            PendingPhase::new(state).resolve_pending_crossing()
-        {
+        let pending_crossing = PendingPhase::new(state).resolve_pending_crossing();
+        if let Some((ended, log_key, breakdown_started)) = pending_crossing {
             return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
-        if let Some((ended, log_key, breakdown_started)) =
-            PendingPhase::new(state).resolve_pending_store()
-        {
+        let pending_store = PendingPhase::new(state).resolve_pending_store();
+        if let Some((ended, log_key, breakdown_started)) = pending_store {
             return Self::build_outcome(state, snapshot, ended, log_key, breakdown_started);
         }
         self.apply_daily_physics(state);
@@ -192,16 +189,15 @@ impl<'a> DailyTickKernel<'a> {
         let log_end = state.logs.len();
         let log_start = log_start.min(log_end);
         for log in &state.logs[log_start..log_end] {
-            if log == &resolved_log_key || seen_keys.contains(log) {
-                continue;
+            if log != &resolved_log_key && !seen_keys.contains(log) {
+                events.push(Event::legacy_log_key(
+                    EventId::new(event_day, seq),
+                    event_day,
+                    log.clone(),
+                ));
+                seen_keys.insert(log.clone());
+                seq = seq.saturating_add(1);
             }
-            events.push(Event::legacy_log_key(
-                EventId::new(event_day, seq),
-                event_day,
-                log.clone(),
-            ));
-            seen_keys.insert(log.clone());
-            seq = seq.saturating_add(1);
         }
         state.day_state.lifecycle.log_cursor = u32::try_from(log_end).unwrap_or(u32::MAX);
         state.day_state.lifecycle.event_seq = seq;
@@ -303,8 +299,10 @@ mod tests {
     };
     use crate::numbers::round_f32_to_i32;
     use crate::otdeluxe_state::{
-        OtDeluxeCrossingMethod, OtDeluxePartyMember, OtDeluxeRiver, OtDeluxeRiverBed,
-        OtDeluxeRiverState, OtDeluxeRouteDecision, OtDeluxeRoutePrompt, OtDeluxeWagonState,
+        OtDeluxeCrossingMethod, OtDeluxeCrossingState, OtDeluxeInventory, OtDeluxePartyMember,
+        OtDeluxeRiver, OtDeluxeRiverBed, OtDeluxeRiverState, OtDeluxeRouteDecision,
+        OtDeluxeRoutePrompt, OtDeluxeRouteState, OtDeluxeState, OtDeluxeStoreState,
+        OtDeluxeWagonState,
     };
     use crate::otdeluxe_store::{OtDeluxeStoreItem, OtDeluxeStoreLineItem};
     use crate::state::{DayIntent, GameState, PendingCrossing, Region, Spares, Stats};
@@ -1546,6 +1544,115 @@ mod tests {
     }
 
     #[test]
+    fn pending_crossing_short_circuits_tick() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::BridgeOut,
+                computed_miles_today: 0.0,
+            }),
+            ..GameState::default()
+        };
+        let outcome = kernel.tick_day(&mut state);
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_store_short_circuits_tick() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                store: OtDeluxeStoreState {
+                    pending_node: Some(0),
+                    ..OtDeluxeStoreState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+        let outcome = kernel.tick_day(&mut state);
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_route_prompt_short_circuits_tick() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                route: OtDeluxeRouteState {
+                    pending_prompt: Some(OtDeluxeRoutePrompt::SubletteCutoff),
+                    ..OtDeluxeRouteState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+        let outcome = kernel.tick_day(&mut state);
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_otdeluxe_crossing_choice_short_circuits_tick() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                crossing: OtDeluxeCrossingState {
+                    choice_pending: true,
+                    ..OtDeluxeCrossingState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+        let outcome = kernel.tick_day(&mut state);
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn pending_store_purchase_short_circuits_tick() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                store: OtDeluxeStoreState {
+                    pending_node: Some(0),
+                    pending_purchase: Some(vec![OtDeluxeStoreLineItem {
+                        item: OtDeluxeStoreItem::FoodLb,
+                        quantity: 10,
+                    }]),
+                    ..OtDeluxeStoreState::default()
+                },
+                inventory: OtDeluxeInventory {
+                    cash_cents: 2_000,
+                    ..OtDeluxeInventory::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+        let outcome = kernel.tick_day(&mut state);
+        assert_eq!(outcome.log_key, LOG_STORE);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
     fn travel_flow_records_travel_day_without_crossing() {
         let cfg = JourneyCfg::default();
         let endgame_cfg = EndgameTravelCfg::default_config();
@@ -1657,10 +1764,16 @@ mod tests {
     fn resolve_pending_otdeluxe_crossing_blocks_without_context() {
         let mut state = GameState {
             mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                crossing: OtDeluxeCrossingState {
+                    choice_pending: true,
+                    chosen_method: Some(OtDeluxeCrossingMethod::Ford),
+                    ..OtDeluxeCrossingState::default()
+                },
+                ..OtDeluxeState::default()
+            },
             ..GameState::default()
         };
-        state.ot_deluxe.crossing.choice_pending = true;
-        state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
 
         let snapshot = DaySnapshot::capture(&state);
         let pending = PendingPhase::new(&mut state).resolve_pending_crossing();
@@ -1677,6 +1790,71 @@ mod tests {
             .expect("outcome");
 
         assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn tick_day_with_hook_resolves_pending_route_prompt() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                route: OtDeluxeRouteState {
+                    pending_prompt: Some(OtDeluxeRoutePrompt::SubletteCutoff),
+                    ..OtDeluxeRouteState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |_| {});
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn tick_day_with_hook_resolves_pending_crossing() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            pending_crossing: Some(PendingCrossing {
+                kind: CrossingKind::BridgeOut,
+                computed_miles_today: 0.0,
+            }),
+            ..GameState::default()
+        };
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |_| {});
+
+        assert_eq!(outcome.log_key, LOG_TRAVEL_BLOCKED);
+        assert!(!outcome.day_consumed);
+    }
+
+    #[test]
+    fn tick_day_with_hook_resolves_pending_store() {
+        let cfg = JourneyCfg::default();
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let kernel = DailyTickKernel::new(&cfg, &endgame_cfg);
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ot_deluxe: OtDeluxeState {
+                store: OtDeluxeStoreState {
+                    pending_node: Some(0),
+                    ..OtDeluxeStoreState::default()
+                },
+                ..OtDeluxeState::default()
+            },
+            ..GameState::default()
+        };
+
+        let outcome = kernel.tick_day_with_hook(&mut state, |_| {});
+
+        assert_eq!(outcome.log_key, LOG_STORE);
         assert!(!outcome.day_consumed);
     }
 }

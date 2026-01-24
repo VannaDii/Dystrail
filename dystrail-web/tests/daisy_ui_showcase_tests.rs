@@ -149,6 +149,7 @@ fn molecules_showcase() -> Html {
                 <p>{"Card body"}</p>
             </Card>
             <Chat author={AttrValue::from("Operator")} message={AttrValue::from("Ping")} timestamp={Some(AttrValue::from("10:12"))} />
+            <Chat author={AttrValue::from("Responder")} message={AttrValue::from("Pong")} position={ChatPosition::End} />
             <Collapse title={AttrValue::from("More")} open={true}>
                 <p>{"Collapse body"}</p>
             </Collapse>
@@ -168,6 +169,10 @@ fn molecules_showcase() -> Html {
                 <Button label={Some(AttrValue::from("Left"))} />
                 <Button label={Some(AttrValue::from("Right"))} />
             </Join>
+            <Join vertical={true}>
+                <Button label={Some(AttrValue::from("Top"))} />
+                <Button label={Some(AttrValue::from("Bottom"))} />
+            </Join>
             <List items={vec![AttrValue::from("Alpha"), AttrValue::from("Beta")]} />
             <List>
                 <li>{"Child list item"}</li>
@@ -180,8 +185,14 @@ fn molecules_showcase() -> Html {
                 <div class="card">{"Stacked 1"}</div>
                 <div class="card">{"Stacked 2"}</div>
             </Stack>
-            <Stat items={stat_items} />
+            <Stack align_start={true}>
+                <div class="card">{"Aligned 1"}</div>
+                <div class="card">{"Aligned 2"}</div>
+            </Stack>
+            <Stat items={stat_items.clone()} />
+            <Stat items={stat_items} vertical={true} />
             <Steps steps={vec![AttrValue::from("One"), AttrValue::from("Two"), AttrValue::from("Three")]} current={1} horizontal={true} />
+            <Steps steps={vec![AttrValue::from("One"), AttrValue::from("Two")]} current={0} horizontal={false} />
             <Swap on={html!{"On"}} off={html!{"Off"}} indeterminate={Some(html!{"Maybe"})} />
             <Tab tabs={tabs} active_id={Some(AttrValue::from("tab-b"))} />
             <TextRotate items={vec![AttrValue::from("Alpha"), AttrValue::from("Beta")]} active_index={Some(1)} />
@@ -189,8 +200,14 @@ fn molecules_showcase() -> Html {
             <Tooltip text={AttrValue::from("Tooltip")}>
                 <span>{"Hover me"}</span>
             </Tooltip>
+            <Tooltip text={AttrValue::from("Right")} position={Some(AttrValue::from("tooltip-right"))}>
+                <span>{"Hover right"}</span>
+            </Tooltip>
             <Validator state={Some(ValidationState::Success)} message={Some(AttrValue::from("Looks good"))}>
                 <Input value={AttrValue::from("ok")} />
+            </Validator>
+            <Validator state={Some(ValidationState::Error)} message={Some(AttrValue::from("Problem"))}>
+                <Input value={AttrValue::from("bad")} />
             </Validator>
         </div>
     }
@@ -268,7 +285,8 @@ fn organisms_showcase() -> Html {
             <Pagination total_pages={3} current_page={1} />
             <Table headers={table_headers} rows={table_rows} />
             <ThemeController themes={vec![AttrValue::from("light"), AttrValue::from("dark")]} value={Some(AttrValue::from("light"))} />
-            <Timeline items={timeline_items} horizontal={true} />
+            <Timeline items={timeline_items.clone()} horizontal={true} />
+            <Timeline items={timeline_items} horizontal={false} />
             <Toast toasts={toast_items} on_dismiss={Some(Callback::from(|_id: AttrValue| {}))} />
             <Dock>
                 <a href="#home">{"Home"}</a>

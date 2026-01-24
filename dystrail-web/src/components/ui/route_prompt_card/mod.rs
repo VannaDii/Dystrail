@@ -109,4 +109,29 @@ mod tests {
         assert!(html.contains("data-resolved=\"true\""));
         assert!(html.contains("data-choice=\"none\""));
     }
+
+    #[test]
+    fn activate_handler_accepts_primary_choice() {
+        let html = block_on(
+            LocalServerRenderer::<ActivateHarness>::with_props(ActivateHarnessProps {
+                idx: 1,
+                start_resolved: false,
+            })
+            .render(),
+        );
+        assert!(html.contains("StayOnTrail"));
+    }
+
+    #[test]
+    fn activate_handler_rejects_invalid_choice() {
+        let html = block_on(
+            LocalServerRenderer::<ActivateHarness>::with_props(ActivateHarnessProps {
+                idx: 9,
+                start_resolved: false,
+            })
+            .render(),
+        );
+        assert!(html.contains("data-choice=\"none\""));
+        assert!(html.contains("data-resolved=\"false\""));
+    }
 }

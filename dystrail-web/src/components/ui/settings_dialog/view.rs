@@ -9,6 +9,13 @@ pub struct Props {
     pub on_hc_changed: Callback<bool>,
 }
 
+pub(super) fn toggle_high_contrast(hc: &UseStateHandle<bool>, hc_cb: &Callback<bool>) {
+    let next = !**hc;
+    hc.set(next);
+    crate::a11y::set_high_contrast(next);
+    hc_cb.emit(next);
+}
+
 #[function_component(SettingsDialog)]
 pub fn settings_dialog(p: &Props) -> Html {
     let ref_node = use_node_ref();
@@ -29,12 +36,7 @@ pub fn settings_dialog(p: &Props) -> Html {
     let on_toggle_hc = {
         let hc = hc.clone();
         let hc_cb = p.on_hc_changed.clone();
-        Callback::from(move |_| {
-            let next = !*hc;
-            hc.set(next);
-            crate::a11y::set_high_contrast(next);
-            hc_cb.emit(next);
-        })
+        Callback::from(move |_| toggle_high_contrast(&hc, &hc_cb))
     };
 
     html! {

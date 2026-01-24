@@ -190,4 +190,40 @@ mod tests {
         assert!(html.contains("data-selected=\"none\""));
         assert!(html.contains("data-resolved=\"false\""));
     }
+
+    #[test]
+    fn activate_handler_accepts_back_choice() {
+        let props = ActivateHarnessProps {
+            bribe_available: false,
+            permit_available: false,
+            attempt: 1,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"1\""));
+        assert!(html.contains("data-resolved=\"true\""));
+    }
+
+    #[test]
+    fn activate_handler_accepts_permit_choice() {
+        let props = ActivateHarnessProps {
+            bribe_available: false,
+            permit_available: true,
+            attempt: 3,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"3\""));
+        assert!(html.contains("data-resolved=\"true\""));
+    }
+
+    #[test]
+    fn activate_handler_rejects_unknown_choice() {
+        let props = ActivateHarnessProps {
+            bribe_available: false,
+            permit_available: false,
+            attempt: 9,
+        };
+        let html = block_on(LocalServerRenderer::<ActivateHarness>::with_props(props).render());
+        assert!(html.contains("data-selected=\"none\""));
+        assert!(html.contains("data-resolved=\"false\""));
+    }
 }

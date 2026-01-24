@@ -47,8 +47,7 @@ pub struct CrossingContext<'a> {
 
 #[must_use]
 pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> CrossingOutcome {
-    let (outcome, _) = resolve_crossing_with_trace(ctx, rng);
-    outcome
+    resolve_crossing_with_trace(ctx, rng).0
 }
 
 #[must_use]

@@ -29,23 +29,9 @@ pub fn encounter_page(props: &EncounterPageProps) -> Html {
         || {
             html! { <p class="muted" role="status">{ crate::i18n::t("ui.loading_encounters") }</p> }
         },
-        |enc| {
-            html! {
-                <>
-                    <crate::components::ui::stats_bar::StatsBar
-                        {stats}
-                        {day}
-                        {region}
-                        exec_order={exec_order}
-                        persona_id={persona_id}
-                        weather={Some(props.weather.clone())}
-                    />
-                    <crate::components::ui::encounter_card::EncounterCard
-                        encounter={enc}
-                        on_choice={props.on_choice.clone()}
-                    />
-                </>
-            }
-        },
+        |enc| html! { <>
+            <crate::components::ui::stats_bar::StatsBar {stats} {day} {region} exec_order={exec_order} persona_id={persona_id} weather={Some(props.weather.clone())} />
+            <crate::components::ui::encounter_card::EncounterCard encounter={enc} on_choice={props.on_choice.clone()} />
+        </> },
     )
 }

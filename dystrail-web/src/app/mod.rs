@@ -1,5 +1,8 @@
+#[cfg(target_arch = "wasm32")]
 use crate::router::Route;
+#[cfg(target_arch = "wasm32")]
 use yew::prelude::*;
+#[cfg(target_arch = "wasm32")]
 use yew_router::prelude::*;
 
 pub mod bootstrap;
@@ -10,6 +13,7 @@ pub mod view;
 
 pub use phase::Phase;
 
+#[cfg(target_arch = "wasm32")]
 #[function_component(App)]
 pub fn app() -> Html {
     let router_base = crate::paths::router_base().map(AttrValue::from);
@@ -20,6 +24,7 @@ pub fn app() -> Html {
     }
 }
 
+#[cfg(target_arch = "wasm32")]
 #[function_component(AppInner)]
 pub fn app_inner() -> Html {
     let app_state = state::use_app_state();

@@ -124,3 +124,18 @@ const fn default_pants_ceiling() -> i32 {
 const fn default_passive_threshold() -> i32 {
     0
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn default_helpers_are_stable() {
+        assert!((default_one_f32() - 1.0).abs() <= f32::EPSILON);
+        assert!(default_zero_f32().abs() <= f32::EPSILON);
+        assert_eq!(default_zero_i32(), 0);
+        assert!((default_distance_penalty_floor() - 0.6).abs() <= f32::EPSILON);
+        assert_eq!(default_pants_ceiling(), 100);
+        assert_eq!(default_passive_threshold(), 0);
+    }
+}

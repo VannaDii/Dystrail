@@ -5,9 +5,19 @@
 /// fall back to root-anchored paths.
 #[must_use]
 pub fn asset_path(relative: &str) -> String {
-    let base = option_env!("PUBLIC_URL")
-        .unwrap_or("")
-        .trim_end_matches('/');
+    asset_path_with_base(relative, option_env!("PUBLIC_URL").unwrap_or(""))
+}
+
+/// Base path for the router (e.g., `/play` when hosted under a subdirectory).
+///
+/// Returns `None` when no base path is configured so the router falls back to root.
+#[must_use]
+pub fn router_base() -> Option<String> {
+    router_base_with_base(option_env!("PUBLIC_URL").unwrap_or(""))
+}
+
+fn asset_path_with_base(relative: &str, base: &str) -> String {
+    let base = base.trim_end_matches('/');
     let rel = relative.trim_start_matches('/');
 
     if base.is_empty() {
@@ -17,16 +27,8 @@ pub fn asset_path(relative: &str) -> String {
     }
 }
 
-/// Base path for the router (e.g., `/play` when hosted under a subdirectory).
-///
-/// Returns `None` when no base path is configured so the router falls back to root.
-#[must_use]
-pub fn router_base() -> Option<String> {
-    let base = option_env!("PUBLIC_URL")
-        .unwrap_or("")
-        .trim_end_matches('/')
-        .trim();
-
+fn router_base_with_base(base: &str) -> Option<String> {
+    let base = base.trim_end_matches('/').trim();
     if base.is_empty() {
         None
     } else {
@@ -45,7 +47,27 @@ mod tests {
     }
 
     #[test]
+    fn builds_paths_with_public_base() {
+        assert_eq!(
+            super::asset_path_with_base("static/img/logo.png", "/play"),
+            "/play/static/img/logo.png"
+        );
+        assert_eq!(
+            super::asset_path_with_base("/static/img/logo.png", "/play/"),
+            "/play/static/img/logo.png"
+        );
+    }
+
+    #[test]
     fn router_base_is_none_by_default() {
         assert_eq!(router_base(), None);
+    }
+
+    #[test]
+    fn router_base_returns_trimmed_value() {
+        assert_eq!(
+            super::router_base_with_base("/play/"),
+            Some(String::from("/play"))
+        );
     }
 }

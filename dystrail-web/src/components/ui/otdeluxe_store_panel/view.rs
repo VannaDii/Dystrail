@@ -6,6 +6,7 @@ use crate::i18n;
 use crate::i18n::fmt_currency;
 use std::collections::BTreeMap;
 use std::rc::Rc;
+use web_sys::MouseEvent;
 use yew::prelude::*;
 
 #[derive(Clone, Copy)]
@@ -22,6 +23,14 @@ struct StoreCardContext<'a> {
     inventory: &'a OtDeluxeInventory,
     oxen: OtDeluxeOxenState,
     available_cash: u64,
+}
+
+const fn remaining_cash(available_cash: u64, total_cost_cents: u64) -> u64 {
+    if total_cost_cents <= available_cash {
+        available_cash.saturating_sub(total_cost_cents)
+    } else {
+        0
+    }
 }
 
 const STORE_ITEMS: [StoreItemDef; 7] = [
@@ -80,12 +89,17 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
     let cart = use_state(|| vec![0_u16; STORE_ITEMS.len()]);
     let pending_node = props.state.ot_deluxe.store.pending_node;
 
+    #[cfg(target_arch = "wasm32")]
     {
         let cart = cart.clone();
         use_effect_with(pending_node, move |_| {
             cart.set(vec![0_u16; STORE_ITEMS.len()]);
             || ()
         });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = pending_node;
     }
 
     let store_policy = OtDeluxe90sPolicy::default().store;
@@ -101,11 +115,7 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
     let total_cost_cents = cart_total_cents(cart.as_ref(), &store_policy, node_index);
     let available_cash = u64::from(inventory.cash_cents);
     let can_afford = total_cost_cents <= available_cash;
-    let cash_left = if can_afford {
-        available_cash.saturating_sub(total_cost_cents)
-    } else {
-        0
-    };
+    let cash_left = remaining_cash(available_cash, total_cost_cents);
 
     let cash_str = fmt_currency(i64::from(inventory.cash_cents));
     let total_str = fmt_currency(u64_to_i64(total_cost_cents));
@@ -129,10 +139,7 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
     let on_checkout = {
         let cart = cart.clone();
         let on_purchase = props.on_purchase.clone();
-        Callback::from(move |_| {
-            let lines = build_purchase_lines(cart.as_ref());
-            on_purchase.emit(lines);
-        })
+        Callback::from(move |_| emit_purchase_lines(cart.as_ref(), &on_purchase))
     };
 
     let can_checkout = can_afford && total_cost_cents > 0;
@@ -193,11 +200,18 @@ pub fn otdeluxe_store_panel(props: &OtDeluxeStorePanelProps) -> Html {
     }
 }
 
+fn emit_purchase_lines(cart: &[u16], on_purchase: &Callback<Vec<OtDeluxeStoreLineItem>>) {
+    let lines = build_purchase_lines(cart);
+    on_purchase.emit(lines);
+}
+
 fn render_item_card(idx: usize, def: &StoreItemDef, ctx: &StoreCardContext<'_>) -> Html {
     let name = i18n::t(def.name_key);
     let desc = i18n::t(def.desc_key);
-    let price = otdeluxe_store::price_cents_at_node(ctx.store_policy, def.item, ctx.node_index);
-    let price_str = fmt_currency(i64::from(price));
+    let price_cents =
+        otdeluxe_store::price_cents_at_node(ctx.store_policy, def.item, ctx.node_index);
+    let price = u64::from(price_cents);
+    let price_str = fmt_currency(i64::from(price_cents));
 
     let bullets_per_box = ctx.store_policy.bullets_per_box;
     let owned = current_quantity(def.item, ctx.inventory, ctx.oxen, bullets_per_box);
@@ -206,8 +220,7 @@ fn render_item_card(idx: usize, def: &StoreItemDef, ctx: &StoreCardContext<'_>) 
 
     let qty_in_cart = ctx.cart.get(idx).copied().unwrap_or(0);
     let total_cost = cart_total_cents(ctx.cart.as_ref(), ctx.store_policy, ctx.node_index);
-    let can_add = qty_in_cart < remaining
-        && total_cost.saturating_add(u64::from(price)) <= ctx.available_cash;
+    let can_add = qty_in_cart < remaining && total_cost.saturating_add(price) <= ctx.available_cash;
 
     let initials = name
         .chars()
@@ -221,37 +234,20 @@ fn render_item_card(idx: usize, def: &StoreItemDef, ctx: &StoreCardContext<'_>) 
     cap_map.insert("cap", cap_str.as_str());
     let cap_line = i18n::tr("otdeluxe.store.owned_cap", Some(&cap_map));
 
-    let on_add = {
-        let cart = ctx.cart.clone();
-        let store_policy = ctx.store_policy.clone();
-        let node_index = ctx.node_index;
-        let available_cash = ctx.available_cash;
-        Callback::from(move |_| {
-            let mut next = (*cart).clone();
-            let current = next.get(idx).copied().unwrap_or(0);
-            if current >= remaining {
-                return;
-            }
-            let total = cart_total_cents(&next, &store_policy, node_index);
-            if total.saturating_add(u64::from(price)) > available_cash {
-                return;
-            }
-            if let Some(entry) = next.get_mut(idx) {
-                *entry = entry.saturating_add(1);
-            }
-            cart.set(next);
-        })
-    };
+    let on_add = build_add_action(
+        ctx.cart.clone(),
+        idx,
+        remaining,
+        price,
+        ctx.available_cash,
+        (*ctx.store_policy).clone(),
+        ctx.node_index,
+    )
+    .reform(|_e: MouseEvent| ());
 
     let on_remove = {
         let cart = ctx.cart.clone();
-        Callback::from(move |_| {
-            let mut next = (*cart).clone();
-            if let Some(entry) = next.get_mut(idx) {
-                *entry = entry.saturating_sub(1);
-            }
-            cart.set(next);
-        })
+        Callback::from(move |_| apply_cart_remove(&cart, idx))
     };
 
     let title_id = format!("otdeluxe-store-item-{idx}");
@@ -296,6 +292,87 @@ fn render_item_card(idx: usize, def: &StoreItemDef, ctx: &StoreCardContext<'_>) 
             </div>
         </article>
     }
+}
+
+fn apply_cart_add(
+    cart: &UseStateHandle<Vec<u16>>,
+    idx: usize,
+    remaining: u16,
+    price: u64,
+    available_cash: u64,
+    store_policy: &OtDeluxeStorePolicy,
+    node_index: u8,
+) {
+    if let Some(next) = next_cart_add(
+        cart,
+        idx,
+        remaining,
+        price,
+        available_cash,
+        store_policy,
+        node_index,
+    ) {
+        cart.set(next);
+    }
+}
+
+fn build_add_action(
+    cart: UseStateHandle<Vec<u16>>,
+    idx: usize,
+    remaining: u16,
+    price: u64,
+    available_cash: u64,
+    store_policy: OtDeluxeStorePolicy,
+    node_index: u8,
+) -> Callback<()> {
+    Callback::from(move |()| {
+        apply_cart_add(
+            &cart,
+            idx,
+            remaining,
+            price,
+            available_cash,
+            &store_policy,
+            node_index,
+        );
+    })
+}
+
+fn next_cart_add(
+    cart: &[u16],
+    idx: usize,
+    remaining: u16,
+    price: u64,
+    available_cash: u64,
+    store_policy: &OtDeluxeStorePolicy,
+    node_index: u8,
+) -> Option<Vec<u16>> {
+    let current = cart.get(idx).copied().unwrap_or(0);
+    if current >= remaining {
+        return None;
+    }
+    let total = cart_total_cents(cart, store_policy, node_index);
+    if total.saturating_add(price) > available_cash {
+        return None;
+    }
+    let mut next = cart.to_vec();
+    if let Some(entry) = next.get_mut(idx) {
+        *entry = entry.saturating_add(1);
+    }
+    Some(next)
+}
+
+fn apply_cart_remove(cart: &UseStateHandle<Vec<u16>>, idx: usize) {
+    let next = next_cart_remove(cart, idx);
+    cart.set(next);
+}
+
+fn next_cart_remove(cart: &[u16], idx: usize) -> Vec<u16> {
+    let mut next = cart.to_vec();
+    if let Some(entry) = next.get_mut(idx) {
+        *entry = entry.saturating_sub(1);
+    }
+    next
 }
 
 fn cart_total_cents(cart: &[u16], store_policy: &OtDeluxeStorePolicy, node_index: u8) -> u64 {
@@ -365,6 +442,10 @@ fn u64_to_i64(value: u64) -> i64 {
 mod tests {
     use super::*;
     use crate::game::otdeluxe_state::{OtDeluxeInventory, OtDeluxeOxenState};
+    use futures::executor::block_on;
+    use std::cell::RefCell;
+    use std::rc::Rc;
+    use yew::LocalServerRenderer;
 
     #[test]
     fn current_quantity_covers_inventory_branches() {
@@ -430,5 +511,99 @@ mod tests {
         let text = render_amount("otdeluxe.store.cash", "$5.00");
         assert!(text.contains("$5.00"));
         assert_eq!(u64_to_i64(u64::MAX), i64::MAX);
+    }
+
+    #[test]
+    fn remaining_cash_never_negative() {
+        assert_eq!(remaining_cash(500, 200), 300);
+        assert_eq!(remaining_cash(100, 500), 0);
+    }
+
+    #[test]
+    fn emit_purchase_lines_builds_nonzero_entries() {
+        let mut cart = vec![0_u16; STORE_ITEMS.len()];
+        cart[0] = 1;
+        cart[3] = 2;
+        let captured = Rc::new(RefCell::new(Vec::new()));
+        let on_purchase = {
+            let captured = captured.clone();
+            Callback::from(move |lines| {
+                *captured.borrow_mut() = lines;
+            })
+        };
+
+        emit_purchase_lines(&cart, &on_purchase);
+
+        let lines = captured.borrow();
+        assert_eq!(lines.len(), 2);
+        assert_eq!(lines[0].item, OtDeluxeStoreItem::Oxen);
+        assert_eq!(lines[0].quantity, 1);
+        assert_eq!(lines[1].item, OtDeluxeStoreItem::AmmoBox);
+        assert_eq!(lines[1].quantity, 2);
+    }
+
+    #[test]
+    fn cart_update_helpers_cover_add_remove_branches() {
+        let policy = OtDeluxe90sPolicy::default().store;
+        let price = u64::from(otdeluxe_store::price_cents_at_node(
+            &policy,
+            OtDeluxeStoreItem::Oxen,
+            0,
+        ));
+        let base = vec![0_u16; STORE_ITEMS.len()];
+        let added = next_cart_add(&base, 0, 2, price, 50_000, &policy, 0)
+            .expect("should add when under caps and budget");
+        assert_eq!(added[0], 1);
+        assert!(next_cart_add(&added, 0, 1, price, 50_000, &policy, 0).is_none());
+        assert!(next_cart_add(&base, 0, 2, price, 0, &policy, 0).is_none());
+        let removed = next_cart_remove(&added, 0);
+        assert_eq!(removed[0], 0);
+
+        #[function_component(CartHarness)]
+        fn cart_harness() -> Html {
+            let cart = use_state(|| vec![0_u16; STORE_ITEMS.len()]);
+            let invoked = use_mut_ref(|| false);
+            let policy = OtDeluxe90sPolicy::default().store;
+            let price = u64::from(otdeluxe_store::price_cents_at_node(
+                &policy,
+                OtDeluxeStoreItem::Oxen,
+                0,
+            ));
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                apply_cart_add(&cart, 0, 2, price, 50_000, &policy, 0);
+                apply_cart_remove(&cart, 0);
+            }
+            let called = if *invoked.borrow() { "true" } else { "false" };
+            html! { <div data-called={called} /> }
+        }
+
+        let html = block_on(LocalServerRenderer::<CartHarness>::new().render());
+        assert!(html.contains("data-called=\"true\""));
+    }
+
+    #[test]
+    fn build_add_action_executes_callback() {
+        #[function_component(AddActionHarness)]
+        fn add_action_harness() -> Html {
+            let cart = use_state(|| vec![0_u16; STORE_ITEMS.len()]);
+            let invoked = use_mut_ref(|| false);
+            let policy = OtDeluxe90sPolicy::default().store;
+            let price = u64::from(otdeluxe_store::price_cents_at_node(
+                &policy,
+                OtDeluxeStoreItem::Oxen,
+                0,
+            ));
+            let action = build_add_action(cart, 0, 2, price, 50_000, policy, 0);
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                action.emit(());
+            }
+            let called = if *invoked.borrow() { "true" } else { "false" };
+            html! { <div data-called={called} /> }
+        }
+
+        let html = block_on(LocalServerRenderer::<AddActionHarness>::new().render());
+        assert!(html.contains("data-called=\"true\""));
     }
 }

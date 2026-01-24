@@ -1,15 +1,10 @@
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::state::{OutfittingStoreProps, StoreScreen, StoreState};
-#[cfg(any(target_arch = "wasm32", test))]
 use super::checkout::handle_checkout;
 #[cfg(target_arch = "wasm32")]
 use super::quantity::handle_quantity_selection;
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::i18n;
-#[cfg(any(target_arch = "wasm32", test))]
 use yew::prelude::*;
 
-#[cfg(any(target_arch = "wasm32", test))]
 enum MenuSelectionOutcome {
     Noop,
     Updated {
@@ -22,7 +17,6 @@ enum MenuSelectionOutcome {
     },
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 fn back_navigation_state(state: &StoreState) -> Option<StoreState> {
     let mut new_state = state.clone();
     match &state.current_screen {
@@ -117,7 +111,6 @@ fn apply_category_selection(
     }
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 fn apply_cart_selection(
     index: u8,
     state: &StoreState,
@@ -136,9 +129,10 @@ fn apply_cart_selection(
         let mut new_state = state.clone();
         new_state.current_screen = StoreScreen::QuantityPrompt(cart_line.item_id.clone());
         new_state.focus_idx = 1;
+        let item_name = i18n::t(&format!("store.items.{}.name", cart_line.item_id));
         MenuSelectionOutcome::Updated {
             state: new_state,
-            status: None,
+            status: Some(item_name),
         }
     } else {
         MenuSelectionOutcome::Noop
@@ -208,7 +202,6 @@ fn handle_category_selection(
     }
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn handle_back_navigation(state: &StoreState, store_state: &UseStateHandle<StoreState>) {
     if let Some(new_state) = back_navigation_state(state) {
         store_state.set(new_state);
@@ -239,7 +232,6 @@ pub fn get_max_menu_index(state: &StoreState) -> u8 {
     }
 }
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn handle_cart_selection(
     index: u8,
     state: &StoreState,
@@ -247,8 +239,11 @@ pub fn handle_cart_selection(
     props: &OutfittingStoreProps,
 ) {
     match apply_cart_selection(index, state, props) {
-        MenuSelectionOutcome::Updated { state, .. } => {
+        MenuSelectionOutcome::Updated { state, status } => {
             store_state.set(state);
+            if let Some(status) = status {
+                crate::a11y::set_status(&status);
+            }
         }
         MenuSelectionOutcome::Checkout => handle_checkout(state, props),
         MenuSelectionOutcome::OverBudget { status } => {
@@ -435,7 +430,7 @@ mod tests {
                     state.current_screen,
                     StoreScreen::QuantityPrompt(_)
                 ));
-                assert!(status.is_none());
+                assert!(status.is_some());
             }
             _ => panic!("expected quantity prompt"),
         }

@@ -44,6 +44,11 @@ impl SeedInfo {
         self.source_mode
             .is_none_or(|source_mode| source_mode == mode)
     }
+
+    #[must_use]
+    pub fn label(&self) -> String {
+        self.code.clone().unwrap_or_else(|| self.seed.to_string())
+    }
 }
 
 /// Resolve a list of CLI seed arguments into canonical seed metadata.
@@ -91,17 +96,31 @@ pub fn resolve_seed_inputs(tokens: &[String]) -> Result<Vec<SeedInfo>> {
 
     for info in pending {
         let mode_tag = mode_tag(info.source_mode);
-        if let Some(existing) = index.get(&(info.seed, mode_tag)) {
-            let entry = deduped
-                .get_mut(*existing)
-                .expect("index map points to existing entry");
-            if entry.code.is_none() && info.code.is_some() {
-                *entry = info;
+        if index.contains_key(&(info.seed, mode_tag)) {
+            continue;
+        }
+
+        if mode_tag == 0 {
+            if index.contains_key(&(info.seed, 1)) || index.contains_key(&(info.seed, 2)) {
+                continue;
             }
-        } else {
             index.insert((info.seed, mode_tag), deduped.len());
             deduped.push(info);
+            continue;
         }
+
+        if let Some(existing) = index.remove(&(info.seed, 0)) {
+            let seed = info.seed;
+            let entry = deduped
+                .get_mut(existing)
+                .expect("index map points to existing entry");
+            *entry = info;
+            index.insert((seed, mode_tag), existing);
+            continue;
+        }
+
+        index.insert((info.seed, mode_tag), deduped.len());
+        deduped.push(info);
     }
 
     if deduped.is_empty() {
@@ -194,6 +213,26 @@ mod tests {
     fn resolve_seed_inputs_dedupes_duplicate_tokens() {
         let seeds = resolve_seed_inputs(&["42".to_string(), "42".to_string()]).unwrap();
         assert_eq!(seeds.iter().filter(|info| info.seed == 42).count(), 1);
+    }
+
+    #[test]
+    fn resolve_seed_inputs_prefers_code_for_duplicate_seed() {
+        let code = dystrail_game::seed::encode_friendly(false, 42);
+        let seed = dystrail_game::parse_share_code(&code)
+            .map(|(_, seed)| seed)
+            .expect("seed should decode");
+        let tokens = vec![seed.to_string(), code.clone()];
+        let seeds = resolve_seed_inputs(&tokens).unwrap();
+        assert_eq!(
+            seeds.iter().filter(|info| info.seed == seed).count(),
+            1,
+            "seeds: {seeds:?}"
+        );
+        let entry = seeds
+            .iter()
+            .find(|info| info.seed == seed)
+            .expect("seed entry");
+        assert_eq!(entry.code.as_deref(), Some(code.as_str()));
     }
 
     #[test]

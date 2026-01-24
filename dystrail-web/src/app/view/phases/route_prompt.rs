@@ -12,15 +12,6 @@ pub fn render_route_prompt(state: &AppState, handlers: &AppHandlers) -> Html {
         let pending = snapshot.ot_deluxe.route.pending_prompt;
         let state_rc = Rc::new(snapshot);
 
-        pending.map_or_else(Html::default, |prompt| {
-            html! {
-                <RoutePromptPage
-                    state={state_rc.clone()}
-                    prompt={prompt}
-                    weather={weather_badge}
-                    on_choice={handlers.route_prompt_choice.clone()}
-                />
-            }
-        })
+        pending.map_or_else(Html::default, |prompt| html! { <RoutePromptPage state={state_rc.clone()} prompt={prompt} weather={weather_badge} on_choice={handlers.route_prompt_choice.clone()} /> })
     })
 }

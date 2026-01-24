@@ -22,10 +22,8 @@ impl<'a> TestBridge<'a> {
     }
 
     pub async fn ensure_available(&self) -> Result<()> {
-        let result = self
-            .driver
-            .execute("return !!window.__dystrailTest", vec![])
-            .await?;
+        #[rustfmt::skip]
+        let result = self.driver.execute("return !!window.__dystrailTest", vec![]).await?;
         parse_bridge_available(result.json())
     }
 
@@ -64,10 +62,8 @@ impl<'a> TestBridge<'a> {
     }
 
     pub async fn state(&self) -> Result<GameState> {
-        let result = self
-            .driver
-            .execute("return window.__dystrailTest.state()", vec![])
-            .await?;
+        #[rustfmt::skip]
+        let result = self.driver.execute("return window.__dystrailTest.state()", vec![]).await?;
         parse_game_state(result.json())
     }
 }
@@ -88,7 +84,12 @@ fn parse_game_state(value: &Value) -> Result<GameState> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::browser::{BrowserConfig, BrowserKind, new_session};
+    use hyper::body::to_bytes;
+    use hyper::service::{make_service_fn, service_fn};
+    use hyper::{Body, Method, Request, Response, Server, StatusCode};
     use serde_json::json;
+    use tokio::sync::oneshot;
 
     #[test]
     fn bridge_game_state_defaults_empty() {
@@ -127,5 +128,120 @@ mod tests {
     fn parse_game_state_rejects_invalid_value() {
         let err = parse_game_state(&json!("bad")).expect_err("invalid state should fail");
         assert!(err.to_string().contains("parsing GameState"));
+    }
+
+    fn response_with_value(value: &serde_json::Value) -> Response<Body> {
+        let payload = serde_json::json!({ "value": value });
+        let body = serde_json::to_vec(&payload).unwrap_or_default();
+        Response::builder()
+            .status(StatusCode::OK)
+            .header("content-type", "application/json")
+            .body(Body::from(body))
+            .unwrap_or_else(|_| Response::new(Body::from("{}")))
+    }
+
+    async fn handle_request(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
+        let method = req.method().clone();
+        let path = req.uri().path().to_string();
+
+        if method == Method::POST && path == "/session" {
+            let payload = json!({
+                "value": {
+                    "sessionId": "mock-session",
+                    "capabilities": { "browserName": "mock" }
+                }
+            });
+            let body = serde_json::to_vec(&payload).unwrap_or_default();
+            return Ok(Response::builder()
+                .status(StatusCode::OK)
+                .header("content-type", "application/json")
+                .body(Body::from(body))
+                .unwrap_or_else(|_| Response::new(Body::from("{}"))));
+        }
+
+        if method == Method::POST && path.ends_with("/timeouts") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        if method == Method::POST && path.ends_with("/execute/sync") {
+            let body = to_bytes(req.into_body()).await?;
+            let payload: serde_json::Value = serde_json::from_slice(&body).unwrap_or_default();
+            let script = payload.get("script").and_then(|v| v.as_str()).unwrap_or("");
+            let value = if script.contains("return !!window.__dystrailTest") {
+                json!(true)
+            } else if script.contains("__dystrailTest.state") {
+                json!({
+                    "screen": "travel",
+                    "hp": 9,
+                    "day": 2,
+                    "pos": { "x": 1 }
+                })
+            } else {
+                serde_json::Value::Null
+            };
+            return Ok(response_with_value(&value));
+        }
+
+        if method == Method::GET && path.ends_with("/source") {
+            return Ok(response_with_value(&json!("<html></html>")));
+        }
+
+        if method == Method::GET && path.ends_with("/screenshot") {
+            return Ok(response_with_value(&json!("AA==")));
+        }
+
+        if method == Method::DELETE && path.starts_with("/session/") {
+            return Ok(response_with_value(&serde_json::Value::Null));
+        }
+
+        Ok(Response::builder()
+            .status(StatusCode::NOT_FOUND)
+            .body(Body::from("not found"))
+            .unwrap_or_else(|_| Response::new(Body::from("not found"))))
+    }
+
+    fn spawn_mock_webdriver() -> (String, oneshot::Sender<()>) {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").expect("bind listener");
+        let addr = listener.local_addr().expect("local addr");
+        let (shutdown_tx, shutdown_rx) = oneshot::channel::<()>();
+
+        let service =
+            make_service_fn(|_| async { Ok::<_, hyper::Error>(service_fn(handle_request)) });
+        let server = Server::from_tcp(listener)
+            .expect("server")
+            .serve(service)
+            .with_graceful_shutdown(async {
+                let _ = shutdown_rx.await;
+            });
+        tokio::spawn(server);
+
+        (format!("http://{addr}"), shutdown_tx)
+    }
+
+    #[tokio::test]
+    async fn bridge_executes_commands_against_mock_driver() {
+        let (hub, shutdown) = spawn_mock_webdriver();
+        let cfg = BrowserConfig {
+            headless: true,
+            implicit_wait_secs: 0,
+            remote_hub: Some(hub),
+        };
+        let driver = new_session(BrowserKind::Chrome, &cfg)
+            .await
+            .expect("driver");
+        let bridge = TestBridge::new(&driver);
+
+        bridge.ensure_available().await.expect("bridge available");
+        bridge.seed(42).await.expect("seed ok");
+        bridge.speed(2.0).await.expect("speed ok");
+        bridge.click(10, 12).await.expect("click ok");
+        bridge.key("w").await.expect("key ok");
+        let state = bridge.state().await.expect("state ok");
+        assert_eq!(state.screen.as_deref(), Some("travel"));
+        assert_eq!(state.hp, Some(9));
+        assert_eq!(state.day, Some(2));
+
+        driver.quit().await.expect("quit");
+        let _ = shutdown.send(());
     }
 }

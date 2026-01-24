@@ -1,9 +1,6 @@
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::state::OutfittingStoreProps;
-#[cfg(any(target_arch = "wasm32", test))]
 use crate::game::store::Grants;
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn handle_checkout(
     state: &crate::components::ui::outfitting_store::state::StoreState,
     props: &OutfittingStoreProps,

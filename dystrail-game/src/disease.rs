@@ -56,8 +56,7 @@ impl DiseaseCatalog {
     where
         R: Rng + ?Sized,
     {
-        let (pick, _) = self.pick_by_kind_with_trace(kind, rng);
-        pick
+        self.pick_by_kind_with_trace(kind, rng).0
     }
 
     #[must_use]
@@ -91,15 +90,15 @@ impl DiseaseCatalog {
             let original_roll = roll;
             let first_idx = candidates.first().map_or(0, |(idx, _)| *idx);
             let mut selected = first_idx;
+            let mut chosen = false;
             for (idx, weight) in &candidates {
-                if *weight == 0 {
-                    continue;
+                if *weight != 0 {
+                    if !chosen && roll < *weight {
+                        selected = *idx;
+                        chosen = true;
+                    }
+                    roll = roll.saturating_sub(*weight);
                 }
-                if roll < *weight {
-                    selected = *idx;
-                    break;
-                }
-                roll = roll.saturating_sub(*weight);
             }
             (selected, original_roll)
         };
@@ -115,40 +114,41 @@ impl DiseaseCatalog {
                     f64::from(*weight)
                 };
                 let multipliers = if uniform_fallback {
-                    vec![WeightFactor {
-                        label: String::from("uniform_fallback"),
-                        value: 1.0,
-                    }]
+                    vec![Self::uniform_fallback_factor()]
                 } else {
                     Vec::new()
                 };
-                let final_weight = base;
-                Some(WeightedCandidate {
-                    id: disease.id.clone(),
-                    base_weight: base,
-                    multipliers,
-                    final_weight,
-                })
+                Some(Self::weighted_candidate(&disease.id, base, multipliers))
             })
             .collect();
 
-        let trace = self
-            .diseases
-            .get(chosen_idx)
-            .map(|disease| EventDecisionTrace {
-                pool_id: format!("otdeluxe.affliction_disease.{}", kind.key()),
-                roll: RollValue::U32(roll),
-                candidates: weighted_candidates,
-                chosen_id: disease.id.clone(),
-            });
-
         let chosen = self.diseases.get(chosen_idx);
+        let trace = chosen.map(|disease| EventDecisionTrace {
+            pool_id: format!("otdeluxe.affliction_disease.{}", kind.key()),
+            roll: RollValue::U32(roll),
+            candidates: weighted_candidates,
+            chosen_id: disease.id.clone(),
+        });
         (chosen, trace)
     }
 
     #[must_use]
     pub fn find_by_id(&self, id: &str) -> Option<&DiseaseDef> {
         self.diseases.iter().find(|disease| disease.id == id)
+    }
+
+    #[rustfmt::skip]
+    fn uniform_fallback_factor() -> WeightFactor {
+        WeightFactor { label: String::from("uniform_fallback"), value: 1.0 }
+    }
+
+    #[rustfmt::skip]
+    fn weighted_candidate(
+        id: &str,
+        base: f64,
+        multipliers: Vec<WeightFactor>,
+    ) -> WeightedCandidate {
+        WeightedCandidate { id: id.into(), base_weight: base, multipliers, final_weight: base }
     }
 }
 
@@ -276,6 +276,11 @@ mod tests {
     }
 
     #[test]
+    fn default_weight_is_one() {
+        assert_eq!(default_weight(), 1);
+    }
+
+    #[test]
     fn pick_by_kind_with_uniform_fallback_emits_trace() {
         let catalog = DiseaseCatalog {
             diseases: vec![
@@ -310,6 +315,69 @@ mod tests {
         let trace = trace.expect("trace should be returned");
         assert_eq!(trace.pool_id, "otdeluxe.affliction_disease.illness");
         assert_eq!(trace.candidates.len(), 2);
+    }
+
+    #[test]
+    fn uniform_fallback_trace_marks_candidates() {
+        let catalog = DiseaseCatalog {
+            diseases: vec![DiseaseDef {
+                id: "d1".into(),
+                kind: DiseaseKind::Illness,
+                display_key: "disease.d1".into(),
+                weight: 0,
+                duration_days: None,
+                onset_effects: DiseaseEffects::default(),
+                daily_tick_effects: DiseaseEffects::default(),
+                fatality_model: None,
+                tags: Vec::new(),
+            }],
+        };
+
+        let mut rng = rand::rngs::SmallRng::from_seed([2_u8; 32]);
+        let (_, trace) = catalog.pick_by_kind_with_trace(DiseaseKind::Illness, &mut rng);
+        let trace = trace.expect("trace should be returned");
+        let candidate = &trace.candidates[0];
+        assert_eq!(candidate.multipliers[0].label, "uniform_fallback");
+        assert!((candidate.final_weight - 1.0).abs() <= f64::EPSILON);
+    }
+
+    #[test]
+    fn uniform_fallback_trace_records_base_weights() {
+        let catalog = DiseaseCatalog {
+            diseases: vec![
+                DiseaseDef {
+                    id: "d1".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.d1".into(),
+                    weight: 0,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+                DiseaseDef {
+                    id: "d2".into(),
+                    kind: DiseaseKind::Illness,
+                    display_key: "disease.d2".into(),
+                    weight: 0,
+                    duration_days: None,
+                    onset_effects: DiseaseEffects::default(),
+                    daily_tick_effects: DiseaseEffects::default(),
+                    fatality_model: None,
+                    tags: Vec::new(),
+                },
+            ],
+        };
+
+        let mut rng = rand::rngs::SmallRng::from_seed([3_u8; 32]);
+        let (_, trace) = catalog.pick_by_kind_with_trace(DiseaseKind::Illness, &mut rng);
+        let trace = trace.expect("trace should be returned");
+        for candidate in &trace.candidates {
+            assert!((candidate.base_weight - 1.0).abs() <= f64::EPSILON);
+            assert!((candidate.multipliers[0].value - 1.0).abs() <= f64::EPSILON);
+            assert!((candidate.final_weight - 1.0).abs() <= f64::EPSILON);
+        }
     }
 
     #[test]

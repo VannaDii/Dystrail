@@ -250,17 +250,15 @@ pub fn resolve_crossing_with_trace<R: RngCore>(
     let pool_id = format!("otdeluxe.crossing.{}", method_id(method));
     let trace = build_trace(&pool_id, weights, factor_map, outcome, draw);
 
-    (
-        OtDeluxeCrossingResolution {
-            outcome,
-            crossing_days,
-            wait_days,
-            drying_days,
-            loss_ratio,
-            drownings,
-        },
-        Some(trace),
-    )
+    let resolution = OtDeluxeCrossingResolution {
+        outcome,
+        crossing_days,
+        wait_days,
+        drying_days,
+        loss_ratio,
+        drownings,
+    };
+    (resolution, Some(trace))
 }
 
 #[must_use]
@@ -437,12 +435,12 @@ fn pick_outcome<R: RngCore>(
     weights: &OtDeluxeCrossingOutcomeWeights,
     rng: &mut R,
 ) -> (OtDeluxeCrossingOutcome, f32) {
-    let total = weights.safe
-        + weights.stuck
-        + weights.wet
-        + weights.tipped
-        + weights.sank
-        + weights.drowned;
+    let mut total = weights.safe;
+    total += weights.stuck;
+    total += weights.wet;
+    total += weights.tipped;
+    total += weights.sank;
+    total += weights.drowned;
     if total <= f32::EPSILON {
         return (OtDeluxeCrossingOutcome::Safe, 0.0);
     }
@@ -701,6 +699,22 @@ mod tests {
             self.fill_bytes(dest);
             Ok(())
         }
+    }
+
+    #[test]
+    fn pick_outcome_uses_total_weight() {
+        let weights = OtDeluxeCrossingOutcomeWeights {
+            safe: 1.0,
+            stuck: 0.0,
+            wet: 0.0,
+            tipped: 0.0,
+            sank: 0.0,
+            drowned: 0.0,
+        };
+        let mut rng = FixedRng(0);
+        let (outcome, draw) = pick_outcome(&weights, &mut rng);
+        assert_eq!(outcome, OtDeluxeCrossingOutcome::Safe);
+        assert!(draw >= 0.0);
     }
 
     #[test]
@@ -984,5 +998,152 @@ mod tests {
 
         let wet = factor_map.multipliers_for(OtDeluxeCrossingOutcome::SuppliesWet);
         assert!(wet.iter().any(|factor| factor.label == "depth_wet_goods"));
+    }
+
+    #[test]
+    fn crossing_options_allow_caulk_float() {
+        let options = OtDeluxeCrossingOptions::empty().with_caulk_float();
+        assert!(options.is_allowed(OtDeluxeCrossingMethod::CaulkFloat));
+    }
+
+    #[test]
+    fn derive_river_state_handles_zero_rain_accum_max() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        policy.crossings.rain_accum_max = 0.0;
+        let river_state = derive_river_state(
+            &policy.crossings,
+            OtDeluxeRiver::Kansas,
+            Season::Spring,
+            100.0,
+        );
+        assert!(river_state.depth_ft.is_finite());
+    }
+
+    #[test]
+    fn resolve_crossing_with_trace_covers_drying_and_drownings() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        policy.crossings.drying_cost_days = 2;
+        policy.crossings.outcome_weights.ford = OtDeluxeCrossingOutcomeWeights {
+            safe: 0.0,
+            stuck: 0.0,
+            wet: 1.0,
+            tipped: 0.0,
+            sank: 0.0,
+            drowned: 0.0,
+        };
+        let river_state = OtDeluxeRiverState {
+            depth_ft: 2.8,
+            width_ft: 200.0,
+            swiftness: 0.4,
+            bed: OtDeluxeRiverBed::Muddy,
+        };
+        let mut rng = FixedRng(1);
+        let (resolution, _) = resolve_crossing_with_trace(
+            &policy.crossings,
+            OtDeluxeRiver::Kansas,
+            &river_state,
+            OtDeluxeCrossingMethod::Ford,
+            &mut rng,
+        );
+        assert_eq!(resolution.drying_days, 2);
+
+        policy.crossings.drownings_min = 1;
+        policy.crossings.drownings_max = 1;
+        policy.crossings.outcome_weights.ford = OtDeluxeCrossingOutcomeWeights {
+            safe: 0.0,
+            stuck: 0.0,
+            wet: 0.0,
+            tipped: 0.0,
+            sank: 0.0,
+            drowned: 1.0,
+        };
+        let mut rng = FixedRng(2);
+        let (resolution, _) = resolve_crossing_with_trace(
+            &policy.crossings,
+            OtDeluxeRiver::Kansas,
+            &river_state,
+            OtDeluxeCrossingMethod::Ford,
+            &mut rng,
+        );
+        assert_eq!(resolution.drownings, 1);
+    }
+
+    #[test]
+    fn base_weights_for_method_covers_caulk_float() {
+        let policy = OtDeluxe90sPolicy::default();
+        let weights =
+            base_weights_for_method(&policy.crossings, OtDeluxeCrossingMethod::CaulkFloat);
+        assert_eq!(weights, policy.crossings.outcome_weights.caulk_float);
+    }
+
+    #[test]
+    fn pick_outcome_covers_wet_and_drowned_paths() {
+        let mut rng = FixedRng(0);
+        let wet_weights = OtDeluxeCrossingOutcomeWeights {
+            safe: 0.0,
+            stuck: 0.0,
+            wet: 1.0,
+            tipped: 0.0,
+            sank: 0.0,
+            drowned: 0.0,
+        };
+        let (outcome, _) = pick_outcome(&wet_weights, &mut rng);
+        assert_eq!(outcome, OtDeluxeCrossingOutcome::SuppliesWet);
+
+        let mut rng = FixedRng(0);
+        let drown_weights = OtDeluxeCrossingOutcomeWeights {
+            safe: 0.0,
+            stuck: 0.0,
+            wet: 0.0,
+            tipped: 0.0,
+            sank: 0.0,
+            drowned: 1.0,
+        };
+        let (outcome, _) = pick_outcome(&drown_weights, &mut rng);
+        assert_eq!(outcome, OtDeluxeCrossingOutcome::Drowned);
+    }
+
+    #[test]
+    fn sample_drownings_spans_range() {
+        let mut policy = OtDeluxe90sPolicy::default();
+        policy.crossings.drownings_min = 1;
+        policy.crossings.drownings_max = 3;
+        let mut rng = FixedRng(2);
+        let result = sample_drownings(&policy.crossings, &mut rng);
+        assert!((1..=3).contains(&result));
+    }
+
+    #[test]
+    fn method_id_covers_caulk_float() {
+        assert_eq!(method_id(OtDeluxeCrossingMethod::CaulkFloat), "caulk_float");
+    }
+
+    #[test]
+    fn apply_loss_ratio_rounds_down_to_zero() {
+        assert_eq!(apply_loss_ratio(1, 0.01), 0);
+    }
+
+    #[test]
+    fn pick_outcome_handles_weighted_total() {
+        let mut rng = FixedRng(1);
+        let weights = OtDeluxeCrossingOutcomeWeights {
+            safe: 1.0,
+            stuck: 1.0,
+            wet: 1.0,
+            tipped: 1.0,
+            sank: 1.0,
+            drowned: 1.0,
+        };
+        let (outcome, draw) = pick_outcome(&weights, &mut rng);
+        assert!(draw >= 0.0);
+        assert!(matches!(
+            outcome,
+            OtDeluxeCrossingOutcome::Safe
+                | OtDeluxeCrossingOutcome::StuckInMud
+                | OtDeluxeCrossingOutcome::SuppliesWet
+                | OtDeluxeCrossingOutcome::Tipped
+                | OtDeluxeCrossingOutcome::Sank
+                | OtDeluxeCrossingOutcome::Drowned
+        ));
     }
 }

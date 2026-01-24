@@ -7,7 +7,7 @@ mod tests;
 use crate::game::{CampConfig, EndgameTravelCfg, GameState, can_repair, can_therapy};
 #[cfg(target_arch = "wasm32")]
 use crate::input::{numeric_code_to_index, numeric_key_to_index};
-use actions::build_on_action;
+pub use actions::build_on_action;
 use std::rc::Rc;
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
@@ -31,8 +31,8 @@ impl PartialEq for Props {
     }
 }
 
-#[derive(Clone, Copy, PartialEq)]
-pub(crate) enum CampView {
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum CampView {
     Main,
     Repair,
 }

@@ -42,3 +42,4 @@ async-trait = { workspace = true }
 [dev-dependencies]
 tokio-test = "0.4"
 twox-hash = { workspace = true }
+hyper = { version = "0.14", features = ["full"] }

@@ -194,7 +194,10 @@ const fn sanitize_miles(miles: f32) -> f32 {
 }
 
 fn enforce_ratio_floor(state: &GameState) -> bool {
-    let window = TRAVEL_HISTORY_WINDOW.saturating_sub(1);
+    enforce_ratio_floor_with_window(state, TRAVEL_HISTORY_WINDOW.saturating_sub(1))
+}
+
+fn enforce_ratio_floor_with_window(state: &GameState, window: usize) -> bool {
     if window == 0 {
         return false;
     }
@@ -281,6 +284,31 @@ mod tests {
     }
 
     #[test]
+    #[should_panic(expected = "record_travel_day requires a started day")]
+    fn record_travel_day_requires_initialized_day() {
+        let mut state = fresh_state();
+        let _ = record_travel_day(&mut state, TravelDayKind::Travel, 1.0);
+    }
+
+    #[test]
+    fn apply_endgame_wear_shave_ignores_invalid_ratio() {
+        let mut state = fresh_state();
+        state.endgame.active = true;
+        state.endgame.wear_shave_ratio = 2.0;
+        state.vehicle.wear = 5.0;
+        apply_endgame_wear_shave(&mut state);
+        assert!((state.vehicle.wear - 5.0).abs() <= f32::EPSILON);
+    }
+
+    #[test]
+    fn adjust_counters_for_transition_handles_noop_case() {
+        let mut state = fresh_state();
+        state.rotation_travel_days = 2;
+        adjust_counters_for_transition(&mut state, TravelDayKind::Travel, TravelDayKind::Travel);
+        assert_eq!(state.rotation_travel_days, 2);
+    }
+
+    #[test]
     fn record_travel_day_applies_transitions() {
         let mut state = fresh_state();
         state.start_of_day();
@@ -354,6 +382,29 @@ mod tests {
         state.recent_travel_days =
             VecDeque::from(vec![TravelDayKind::NonTravel; TRAVEL_HISTORY_WINDOW]);
         assert!(enforce_ratio_floor(&state));
+    }
+
+    #[test]
+    fn enforce_ratio_floor_window_zero_returns_false() {
+        let state = fresh_state();
+        assert!(!enforce_ratio_floor_with_window(&state, 0));
+    }
+
+    #[test]
+    fn apply_endgame_wear_shave_clamps_negative() {
+        let mut state = fresh_state();
+        state.vehicle.wear = -5.0;
+        state.endgame.wear_shave_ratio = 0.5;
+        apply_endgame_wear_shave(&mut state);
+        assert!(state.vehicle.wear >= 0.0);
+    }
+
+    #[test]
+    fn adjust_counters_for_transition_decrements_on_nontravel() {
+        let mut state = fresh_state();
+        state.rotation_travel_days = 2;
+        adjust_counters_for_transition(&mut state, TravelDayKind::Travel, TravelDayKind::NonTravel);
+        assert_eq!(state.rotation_travel_days, 1);
     }
 
     #[test]

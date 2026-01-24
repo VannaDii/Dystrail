@@ -1,8 +1,6 @@
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::super::super::handlers::announce::{
     announce_cannot_add, announce_quantity_change,
 };
-#[cfg(any(target_arch = "wasm32", test))]
 use super::super::super::super::handlers::quantity::{
     QuantityAnnouncement, QuantitySelectionOutcome, quantity_selection_outcome,
 };
@@ -10,7 +8,6 @@ use super::super::super::super::state::StoreState;
 use crate::game::store::StoreItem;
 use yew::prelude::*;
 
-#[cfg(any(target_arch = "wasm32", test))]
 pub fn quantity_select_callback(
     item: &StoreItem,
     budget_cents: i64,
@@ -36,16 +33,6 @@ pub fn quantity_select_callback(
             QuantitySelectionOutcome::Noop => {}
         }
     })
-}
-
-#[cfg(not(any(target_arch = "wasm32", test)))]
-pub fn quantity_select_callback(
-    item: &StoreItem,
-    budget_cents: i64,
-    store_state: &UseStateHandle<StoreState>,
-) -> Callback<u8> {
-    let _ = (item, budget_cents, store_state);
-    Callback::from(|_idx: u8| {})
 }
 
 #[cfg(test)]

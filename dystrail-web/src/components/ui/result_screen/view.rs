@@ -2,9 +2,7 @@ use super::layout::render_body;
 #[cfg(target_arch = "wasm32")]
 use super::menu::handle_keyboard;
 use super::share;
-#[cfg(target_arch = "wasm32")]
-use crate::game::ResultSummary;
-use crate::game::{GameState, ResultConfig};
+use crate::game::{GameState, ResultConfig, ResultSummary};
 #[cfg(target_arch = "wasm32")]
 use crate::i18n;
 use yew::prelude::*;
@@ -73,25 +71,12 @@ impl Component for ResultScreen {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let props = ctx.props();
-        let summary = match share::summary(props) {
-            Ok(s) => s,
-            Err(e) => {
-                log::error!("Failed to generate result summary: {e}");
-                return html! {
-                    <main role="main" class="error">
-                        <h1>{ "Error generating result" }</h1>
-                        <p>{ e }</p>
-                    </main>
-                };
-            }
-        };
-
         let on_keydown = ctx.link().callback(Msg::KeyDown);
         let on_menu_action = ctx.link().callback(Msg::MenuAction);
 
-        render_body(
+        render_result_body(
             props,
-            &summary,
+            share::summary(props),
             self.current_focus,
             self.announcement.clone(),
             on_keydown,
@@ -148,49 +133,65 @@ impl ResultScreen {
     }
 }
 
+fn render_error_view(error: &str) -> Html {
+    html! {
+        <main role="main" class="error">
+            <h1>{ "Error generating result" }</h1>
+            <p>{ error }</p>
+        </main>
+    }
+}
+
+pub(super) fn resolve_summary(
+    _props: &Props,
+    summary: Result<ResultSummary, String>,
+) -> Result<ResultSummary, Html> {
+    match summary {
+        Ok(resolved) => Ok(resolved),
+        Err(error) => {
+            log::error!("Failed to generate result summary: {error}");
+            Err(render_error_view(&error))
+        }
+    }
+}
+
+pub(super) fn render_result_body(
+    props: &Props,
+    summary: Result<ResultSummary, String>,
+    current_focus: u8,
+    announcement: String,
+    on_keydown: Callback<KeyboardEvent>,
+    on_menu_action: &Callback<u8>,
+) -> Html {
+    let summary = match resolve_summary(props, summary) {
+        Ok(summary) => summary,
+        Err(error_view) => return error_view,
+    };
+
+    render_body(
+        props,
+        &summary,
+        current_focus,
+        announcement,
+        on_keydown,
+        on_menu_action,
+    )
+}
+
 #[cfg(not(target_arch = "wasm32"))]
-pub struct ResultScreen;
+#[function_component(ResultScreen)]
+pub fn result_screen(props: &Props) -> Html {
+    let on_keydown = Callback::from(|_e: KeyboardEvent| {});
+    let on_menu_action = Callback::from(|_action: u8| {});
 
-#[cfg(not(target_arch = "wasm32"))]
-impl Component for ResultScreen {
-    type Message = Msg;
-    type Properties = Props;
-
-    fn create(_ctx: &Context<Self>) -> Self {
-        Self
-    }
-
-    fn update(&mut self, _ctx: &Context<Self>, _msg: Self::Message) -> bool {
-        false
-    }
-
-    fn view(&self, ctx: &Context<Self>) -> Html {
-        let props = ctx.props();
-        let summary = match share::summary(props) {
-            Ok(s) => s,
-            Err(e) => {
-                log::error!("Failed to generate result summary: {e}");
-                return html! {
-                    <main role="main" class="error">
-                        <h1>{ "Error generating result" }</h1>
-                        <p>{ e }</p>
-                    </main>
-                };
-            }
-        };
-
-        let on_keydown = Callback::from(|_e: KeyboardEvent| {});
-        let on_menu_action = Callback::from(|_action: u8| {});
-
-        render_body(
-            props,
-            &summary,
-            1,
-            String::new(),
-            on_keydown,
-            &on_menu_action,
-        )
-    }
+    render_result_body(
+        props,
+        share::summary(props),
+        1,
+        String::new(),
+        on_keydown,
+        &on_menu_action,
+    )
 }
 
 /// Function component wrapper for the Result Screen

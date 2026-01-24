@@ -106,15 +106,21 @@ pub struct Event {
 impl Event {
     #[must_use]
     pub fn legacy_log_key(id: EventId, day: u32, ui_key: impl Into<String>) -> Self {
+        let kind = EventKind::LegacyLogKey;
+        let severity = EventSeverity::Info;
+        let tags = DayTagSet::new();
+        let ui_surface_hint = Some(UiSurfaceHint::Log);
+        let ui_key = Some(ui_key.into());
+        let payload = serde_json::Value::Null;
         Self {
             id,
             day,
-            kind: EventKind::LegacyLogKey,
-            severity: EventSeverity::Info,
-            tags: DayTagSet::new(),
-            ui_surface_hint: Some(UiSurfaceHint::Log),
-            ui_key: Some(ui_key.into()),
-            payload: serde_json::Value::Null,
+            kind,
+            severity,
+            tags,
+            ui_surface_hint,
+            ui_key,
+            payload,
         }
     }
 }

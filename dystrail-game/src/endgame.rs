@@ -531,6 +531,106 @@ mod tests {
     }
 
     #[test]
+    fn failure_guard_skips_after_guard_miles() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::DystrailLegacy,
+            endgame: EndgameState {
+                active: true,
+                failure_guard_miles: 10.0,
+                ..EndgameState::default()
+            },
+            miles_traveled_actual: 10.0,
+            vehicle: Vehicle {
+                health: 0.0,
+                ..Vehicle::default()
+            },
+            ..GameState::default()
+        };
+        assert!(!enforce_failure_guard(&mut state));
+    }
+
+    #[test]
+    fn field_repair_uses_default_priority_when_empty() {
+        let cfg = EndgamePolicyCfg {
+            resource_priority: Vec::new(),
+            ..EndgamePolicyCfg::default()
+        };
+        let mut state = GameState {
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 1,
+            }),
+            last_breakdown_part: Some(Part::Tire),
+            inventory: Inventory {
+                spares: Spares {
+                    tire: 1,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            budget_cents: 10_000,
+            endgame: EndgameState {
+                partial_ratio: 0.5,
+                ..EndgameState::default()
+            },
+            ..GameState::default()
+        };
+        state.start_of_day();
+        run_field_repair(&mut state, &cfg, 12.0);
+        assert_eq!(state.inventory.spares.tire, 0);
+        assert!(state.endgame.field_repair_used);
+    }
+
+    #[test]
+    fn policy_key_for_mode_covers_remaining_variants() {
+        assert_eq!(
+            policy_key_for_mode(Some(PolicyKind::Conservative)),
+            Some("deep_conservative")
+        );
+        assert_eq!(
+            policy_key_for_mode(Some(PolicyKind::ResourceManager)),
+            Some("deep_resource_manager")
+        );
+    }
+
+    #[test]
+    fn endgame_defaults_cover_stop_cap_limits() {
+        assert_eq!(EndgameState::default_stop_cap_window(), 10);
+        assert_eq!(EndgameState::default_stop_cap_max_full(), 2);
+    }
+
+    #[test]
+    fn field_repair_consumes_any_spare_when_prioritized() {
+        let cfg = EndgamePolicyCfg {
+            resource_priority: vec![ResourceKind::AnySpare],
+            ..EndgamePolicyCfg::default()
+        };
+        let mut state = GameState {
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 1,
+            }),
+            last_breakdown_part: Some(Part::Tire),
+            inventory: Inventory {
+                spares: Spares {
+                    tire: 1,
+                    ..Spares::default()
+                },
+                ..Inventory::default()
+            },
+            endgame: EndgameState {
+                partial_ratio: 0.5,
+                ..EndgameState::default()
+            },
+            ..GameState::default()
+        };
+        state.start_of_day();
+        run_field_repair(&mut state, &cfg, 12.0);
+        assert_eq!(state.inventory.spares.tire, 0);
+        assert!(state.endgame.field_repair_used);
+    }
+
+    #[test]
     fn endgame_skips_otdeluxe_mechanics() {
         let mut state = GameState {
             mode: GameMode::Deep,

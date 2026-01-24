@@ -60,11 +60,21 @@ pub const fn console_error(message: &str) {
 ///
 /// # Errors
 /// Returns an error if the browser window cannot be accessed or `localStorage` is unavailable.
+#[cfg(target_arch = "wasm32")]
 pub fn local_storage() -> Result<Storage, JsValue> {
     window()
         .ok_or_else(|| js_error_value("window unavailable"))?
         .local_storage()?
         .ok_or_else(|| js_error_value("localStorage unavailable"))
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+/// Access the browser `localStorage` handle.
+///
+/// # Errors
+/// Returns an error because `localStorage` is unavailable on non-wasm targets.
+pub const fn local_storage() -> Result<Storage, JsValue> {
+    Err(js_error_value("window unavailable"))
 }
 
 #[cfg(target_arch = "wasm32")]

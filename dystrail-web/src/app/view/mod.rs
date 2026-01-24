@@ -2,6 +2,7 @@ mod handlers;
 mod phases;
 
 pub use handlers::AppHandlers;
+pub use phases::render_crossing;
 
 use crate::app::state::AppState;
 use crate::app::view::handlers::AppHandlers as Handlers;
@@ -9,27 +10,37 @@ use crate::router::Route;
 use yew::prelude::*;
 use yew_router::prelude::Navigator;
 
+fn build_open_save(
+    show_save: UseStateHandle<bool>,
+    focus_target: UseStateHandle<AttrValue>,
+    focus_id: AttrValue,
+) -> Callback<()> {
+    Callback::from(move |()| {
+        focus_target.set(focus_id.clone());
+        show_save.set(true);
+    })
+}
+
 pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Navigator>) -> Html {
     let handlers: Handlers = AppHandlers::new(state, navigator);
     let main_view = phases::render_main_view(state, &handlers, route);
 
     let open_save_header = {
-        let show_save = state.show_save.clone();
-        let focus_target = state.save_focus_target.clone();
-        Callback::from(move |()| {
-            focus_target.set(AttrValue::from("save-open-btn"));
-            show_save.set(true);
-        })
+        build_open_save(
+            state.show_save.clone(),
+            state.save_focus_target.clone(),
+            AttrValue::from("save-open-btn"),
+        )
     };
 
     let open_save_nav = {
         let show_save = state.show_save.clone();
-        Callback::from(move |_| show_save.set(true))
+        Callback::from(move |_event: MouseEvent| show_save.set(true))
     };
 
     let open_settings_nav = {
         let show_settings = state.show_settings.clone();
-        Callback::from(move |_| show_settings.set(true))
+        Callback::from(move |_event: MouseEvent| show_settings.set(true))
     };
 
     let on_close_save = {
@@ -43,16 +54,17 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
     };
 
     let seed_footer = {
-        let focus_target = state.save_focus_target.clone();
         let show_save = state.show_save.clone();
         let open_settings = {
             let show_settings = state.show_settings.clone();
-            Callback::from(move |_| show_settings.set(true))
+            Callback::from(move |_event: MouseEvent| show_settings.set(true))
         };
-        let open_save_footer = Callback::from(move |_| {
-            focus_target.set(AttrValue::from("seed-save-btn"));
-            show_save.set(true);
-        });
+        let open_save_footer = build_open_save(
+            show_save,
+            state.save_focus_target.clone(),
+            AttrValue::from("seed-save-btn"),
+        )
+        .reform(|_event: MouseEvent| ());
         phases::render_seed_footer(state, &open_save_footer, &open_settings)
     };
 
@@ -93,6 +105,8 @@ mod tests {
     use crate::game::state::GameMode;
     use crate::game::{EndgameTravelCfg, JourneySession, StrategyId};
     use futures::executor::block_on;
+    use std::cell::Cell;
+    use std::rc::Rc;
     use yew::LocalServerRenderer;
 
     #[function_component(RenderAppHarness)]
@@ -136,5 +150,32 @@ mod tests {
         let html = block_on(LocalServerRenderer::<RenderAppHarness>::new().render());
         assert!(html.contains("nav-footer"));
         assert!(html.contains("save-open-btn"));
+    }
+
+    #[function_component(OpenSaveHarness)]
+    fn open_save_harness() -> Html {
+        let show_save = use_state(|| false);
+        let focus_target = use_state(|| AttrValue::from("initial"));
+        let invoked = use_mut_ref(|| false);
+        let called = Rc::new(Cell::new(false));
+        let called_ref = called.clone();
+        let open_save = build_open_save(show_save, focus_target, AttrValue::from("focus-target"));
+        let invoke = Callback::from(move |()| {
+            called_ref.set(true);
+            open_save.emit(());
+        });
+
+        if !*invoked.borrow() {
+            *invoked.borrow_mut() = true;
+            invoke.emit(());
+        }
+
+        html! { <div data-called={called.get().to_string()} /> }
+    }
+
+    #[test]
+    fn build_open_save_executes_callback() {
+        let html = block_on(LocalServerRenderer::<OpenSaveHarness>::new().render());
+        assert!(html.contains("data-called=\"true\""));
     }
 }

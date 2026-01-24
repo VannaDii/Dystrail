@@ -642,11 +642,9 @@ impl CrossingPolicy {
         self.detour = (detour / normalized_total).clamp(0.0, 1.0);
         self.terminal = (terminal / normalized_total).clamp(0.0, 1.0);
         let renormalized = self.pass + self.detour + self.terminal;
-        if (renormalized - 1.0).abs() > 1e-6 {
-            self.pass /= renormalized;
-            self.detour /= renormalized;
-            self.terminal /= renormalized;
-        }
+        self.pass /= renormalized;
+        self.detour /= renormalized;
+        self.terminal /= renormalized;
         self.detour_days.sanitize();
         self.bribe.sanitize();
         self.permit.sanitize();
@@ -2060,9 +2058,7 @@ fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
 }
 
 fn phase_guard_enabled() -> bool {
-    static ENABLED: OnceLock<bool> = OnceLock::new();
-    *ENABLED
-        .get_or_init(|| matches!(std::env::var("DYSTRAIL_RNG_PHASE_GUARD"), Ok(val) if val != "0"))
+    matches!(std::env::var("DYSTRAIL_RNG_PHASE_GUARD"), Ok(val) if val != "0")
 }
 
 /// Shell journey controller; later phases will expand its responsibilities.
@@ -2277,6 +2273,32 @@ mod tests {
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
     use std::collections::{HashMap, VecDeque};
+    use std::sync::{Mutex, OnceLock};
+
+    fn with_phase_guard_env<F, T>(f: F) -> T
+    where
+        F: FnOnce() -> T,
+    {
+        static LOCK: OnceLock<Mutex<()>> = OnceLock::new();
+        let _guard = LOCK
+            .get_or_init(|| Mutex::new(()))
+            .lock()
+            .unwrap_or_else(std::sync::PoisonError::into_inner);
+        let previous = std::env::var("DYSTRAIL_RNG_PHASE_GUARD").ok();
+        unsafe {
+            std::env::set_var("DYSTRAIL_RNG_PHASE_GUARD", "1");
+        }
+        let result = f();
+        match previous {
+            Some(value) => unsafe {
+                std::env::set_var("DYSTRAIL_RNG_PHASE_GUARD", value);
+            },
+            None => unsafe {
+                std::env::remove_var("DYSTRAIL_RNG_PHASE_GUARD");
+            },
+        }
+        result
+    }
 
     #[test]
     fn policy_catalog_resolves_family_and_overlay() {
@@ -3327,5 +3349,55 @@ mod tests {
             bounds.validate(),
             Err(JourneyConfigError::RangeViolation { field, .. }) if field == "strain.label_bounds.good_max"
         ));
+    }
+
+    #[test]
+    fn phase_guard_sets_and_restores_state() {
+        with_phase_guard_env(|| {
+            let bundle = RngBundle::from_user_seed(7);
+            {
+                let _guard = bundle.phase_guard_for(RngPhase::WeatherTick);
+                let state = bundle.phase_guard_state.borrow();
+                assert_eq!(state.phase, Some(RngPhase::WeatherTick));
+            }
+            let state = bundle.phase_guard_state.borrow();
+            assert!(state.phase.is_none());
+        });
+    }
+
+    #[test]
+    fn phase_guard_returns_when_phase_missing() {
+        with_phase_guard_env(|| {
+            let bundle = RngBundle::from_user_seed(9);
+            let _ = bundle.weather();
+        });
+    }
+
+    #[test]
+    #[should_panic(expected = "RNG stream")]
+    fn phase_guard_panics_on_disallowed_stream() {
+        with_phase_guard_env(|| {
+            let bundle = RngBundle::from_user_seed(11);
+            let _guard = bundle.phase_guard_for(RngPhase::HealthTick);
+            let _ = bundle.travel();
+        });
+    }
+
+    #[test]
+    fn journey_controller_accessors_expose_config() {
+        let controller = JourneyController::new(
+            MechanicalPolicyId::OtDeluxe90s,
+            PolicyId::Deep,
+            StrategyId::ResourceManager,
+            12,
+        );
+        assert_eq!(controller.mechanics(), MechanicalPolicyId::OtDeluxe90s);
+        assert_eq!(controller.policy(), PolicyId::Deep);
+        assert_eq!(controller.strategy(), StrategyId::ResourceManager);
+    }
+
+    #[test]
+    fn daily_channel_default_base_is_zero() {
+        assert!((DailyChannelConfig::default_base() - 0.0).abs() <= f32::EPSILON);
     }
 }

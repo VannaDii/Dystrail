@@ -1,6 +1,9 @@
 #[cfg(target_arch = "wasm32")]
 use dystrail_web::dom;
 use dystrail_web::i18n;
+use dystrail_web::router::Route;
+use dystrail_web::{app::Phase, game::DataLoader, game::WebDataLoader};
+use serde_json::Value;
 use std::collections::BTreeMap;
 
 #[cfg(target_arch = "wasm32")]
@@ -36,4 +39,19 @@ fn i18n_locales_metadata_is_accessible() {
     assert!(metas.iter().any(|m| m.code == "ar" && m.rtl));
     i18n::set_lang("ar");
     assert!(i18n::is_rtl());
+}
+
+#[test]
+fn route_game_maps_to_menu_phase() {
+    assert_eq!(Route::Game.to_phase(), Some(Phase::Menu));
+}
+
+#[test]
+fn web_data_loader_flags_unknown_config() {
+    let loader = WebDataLoader;
+    let err = loader
+        .load_config::<Value>("missing-config")
+        .expect_err("missing config should error");
+    let msg = format!("{err}");
+    assert!(msg.contains("Unknown config"));
 }
