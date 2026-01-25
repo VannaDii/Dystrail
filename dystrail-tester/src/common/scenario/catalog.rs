@@ -90,10 +90,8 @@ fn share_code_expectation(_summary: &SimulationSummary) -> Result<()> {
         let (is_deep, decoded_seed) = decode_to_seed(&classic_code)
             .ok_or_else(|| anyhow!("Failed to decode classic share code: {classic_code}"))?;
         anyhow::ensure!(!is_deep, "Classic code should decode as not deep");
-        anyhow::ensure!(
-            encode_friendly(false, decoded_seed) == classic_code,
-            "Classic round-trip failed: {classic_code}"
-        );
+        #[rustfmt::skip]
+        anyhow::ensure!(encode_friendly(false, decoded_seed) == classic_code, "Classic round-trip failed: {classic_code}");
 
         let deep_code = encode_friendly(true, seed);
         let (is_deep, decoded_seed) = decode_to_seed(&deep_code)
