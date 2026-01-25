@@ -42,6 +42,15 @@ jobs:
       - name: Install sccache
         uses: mozilla-actions/sccache-action@v0.0.5
 
+      - name: Guard sccache
+        run: |
+          if ! sccache --start-server >/tmp/sccache-start.log 2>&1; then
+            echo "SCCACHE_GHA_ENABLED=false" >> "$GITHUB_ENV"
+            echo "RUSTC_WRAPPER=" >> "$GITHUB_ENV"
+            echo "SCCACHE_NO_DAEMON=1" >> "$GITHUB_ENV"
+            cat /tmp/sccache-start.log >&2
+          fi
+
       - name: Rust cache
         uses: Swatinem/rust-cache@v2
 
