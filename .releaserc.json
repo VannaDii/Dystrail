@@ -1,11 +1,6 @@
 {
-  "branches": [
-    {
-      "name": "main",
-      "prerelease": "dev"
-    }
-  ],
-  "tagFormat": "v${version}",
+  "branches": ["main"],
+  "tagFormat": "v${version}-dev",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
