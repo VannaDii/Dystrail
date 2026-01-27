@@ -20,16 +20,6 @@ impl SeedInfo {
         }
     }
 
-    #[cfg(test)]
-    #[must_use]
-    pub const fn for_mode(seed: u64, mode: GameMode) -> Self {
-        Self {
-            seed,
-            code: None,
-            source_mode: Some(mode),
-        }
-    }
-
     #[must_use]
     pub const fn from_share_code(seed: u64, mode: GameMode, code: String) -> Self {
         Self {

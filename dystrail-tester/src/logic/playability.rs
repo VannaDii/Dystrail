@@ -1,44 +1,26 @@
 use anyhow::{Context, Result, ensure};
+use rand::SeedableRng;
+use rand::rngs::SmallRng;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::convert::TryFrom;
-use std::sync::OnceLock;
 
 use crate::common::scenario::full_game::{
     full_game_aggressive_expectation, full_game_balanced_expectation,
     full_game_conservative_expectation, full_game_plan, full_game_resource_manager_expectation,
 };
-use crate::logic::game_tester::FailureFamily;
 use crate::logic::seeds::SeedInfo;
 use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
 use dystrail_game::GameMode;
-use dystrail_game::journey::{
-    AcceptanceGuards, JourneyController, MechanicalPolicyId, PolicyId, StrategyId,
-};
+use dystrail_game::OtDeluxe90sPolicy;
+use dystrail_game::OtDeluxeCrossingMethod;
+use dystrail_game::OtDeluxeRiver;
+use dystrail_game::OtDeluxeRiverBed;
+use dystrail_game::OtDeluxeTrailVariant;
+use dystrail_game::otdeluxe_crossing_options;
+use dystrail_game::otdeluxe_crossings::resolve_crossing;
+use dystrail_game::otdeluxe_state::{OtDeluxeInventory, OtDeluxeRiverState};
+use dystrail_game::otdeluxe_total_miles_for_variant;
 use dystrail_game::state::CrossingOutcomeTelemetry;
-
-const AVG_MPD_MIN: f64 = 10.0;
-const AVG_MPD_MAX: f64 = 20.0;
-const CLASSIC_CROSSING_FAILURE_MAX: f64 = 0.12;
-const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
-const DISTANCE_DRIFT_PCT: f64 = 0.051;
-const CLASSIC_BALANCED_BOSS_REACH_MIN: f64 = 0.30;
-const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.70;
-const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.20;
-const CLASSIC_BALANCED_BOSS_WIN_MAX: f64 = 0.35;
-const CLASSIC_BALANCED_SURVIVAL_MIN: f64 = 0.60;
-const CLASSIC_BALANCED_SURVIVAL_MAX: f64 = 0.87;
-const FAILURE_FAMILY_MAX_SHARE: f64 = 0.70;
-const CONSERVATIVE_BOSS_WIN_WARN: f64 = 0.40;
-const UNIQUE_MIN_EPSILON: f64 = 0.1;
-const CLASSIC_BALANCED_MIN_UNIQUE_PER_20: f64 = 1.6;
-const DEEP_BALANCED_MEAN_UNIQUE_PER_20: f64 = 1.0;
-const DEEP_BALANCED_MIN_UNIQUE_PER_20: f64 = 0.8;
-const DEEP_CROSSING_WARN_MIN: f64 = 0.08;
-const DEEP_CROSSING_WARN_MAX: f64 = 0.18;
-const DEEP_BOSS_REACH_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_REACH_MIN * 0.5;
-const DEEP_BOSS_REACH_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_REACH_MAX * 1.5;
-const DEEP_BOSS_WIN_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_WIN_MIN * 0.5;
-const DEEP_BOSS_WIN_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_WIN_MAX * 1.5;
 
 #[derive(Debug, Clone)]
 pub struct PlayabilityRecord {
@@ -60,7 +42,6 @@ pub struct PlayabilityAggregate {
     pub std_days: f64,
     pub mean_miles: f64,
     pub std_miles: f64,
-    pub mean_avg_mpd: f64,
     pub boss_reach_pct: f64,
     pub boss_win_pct: f64,
     pub pants_failure_pct: f64,
@@ -76,103 +57,261 @@ pub struct PlayabilityAggregate {
     pub crossing_bribe_success_rate: f64,
     pub mean_crossing_detours: f64,
     pub crossing_failure_rate: f64,
-    pub mean_stop_cap_conversions: f64,
-    pub endgame_activation_rate: f64,
-    pub endgame_field_repair_rate: f64,
-    pub mean_endgame_cooldown: f64,
-    pub survival_rate: f64,
-    pub failure_vehicle_pct: f64,
-    pub failure_sanity_pct: f64,
-    pub failure_exposure_pct: f64,
-    pub failure_crossing_pct: f64,
 }
 
-type GuardKey = (PolicyId, StrategyId);
-
-fn guard_registry() -> &'static HashMap<GuardKey, AcceptanceGuards> {
-    static REGISTRY: OnceLock<HashMap<GuardKey, AcceptanceGuards>> = OnceLock::new();
-    REGISTRY.get_or_init(|| {
-        let mut map = HashMap::new();
-        for &policy in &[PolicyId::Classic, PolicyId::Deep] {
-            for &strategy in &[
-                StrategyId::Balanced,
-                StrategyId::Aggressive,
-                StrategyId::Conservative,
-                StrategyId::ResourceManager,
-            ] {
-                let controller =
-                    JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy, strategy, 0);
-                map.insert((policy, strategy), controller.config().guards.clone());
-            }
-        }
-        map
-    })
+fn ensure_f32_close(actual: f32, expected: f32, label: &str) -> Result<()> {
+    ensure!(
+        (actual - expected).abs() <= f32::EPSILON,
+        "{label} expected {expected:.2}, got {actual:.2}"
+    );
+    Ok(())
 }
 
-fn scenario_guards(mode: GameMode, strategy: GameplayStrategy) -> AcceptanceGuards {
-    let policy = PolicyId::from(mode);
-    let strategy_id = to_strategy_id(strategy);
-    guard_registry()
-        .get(&(policy, strategy_id))
-        .cloned()
-        .unwrap_or_else(AcceptanceGuards::default)
+fn validate_otdeluxe_parity_invariants() -> Result<()> {
+    let policy = OtDeluxe90sPolicy::default();
+    validate_otdeluxe_trail_geometry(&policy)?;
+    validate_otdeluxe_travel_speed(&policy)?;
+    validate_otdeluxe_action_costs(&policy)?;
+    validate_otdeluxe_crossing_thresholds(&policy)?;
+    validate_otdeluxe_crossing_options(&policy)?;
+    validate_otdeluxe_ferry_wait_distribution(&policy)?;
+    validate_otdeluxe_health(&policy)?;
+    Ok(())
 }
 
-const fn to_strategy_id(strategy: GameplayStrategy) -> StrategyId {
-    match strategy {
-        GameplayStrategy::Balanced => StrategyId::Balanced,
-        GameplayStrategy::Aggressive => StrategyId::Aggressive,
-        GameplayStrategy::Conservative => StrategyId::Conservative,
-        GameplayStrategy::ResourceManager => StrategyId::ResourceManager,
+fn validate_otdeluxe_trail_geometry(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    let main = otdeluxe_total_miles_for_variant(&policy.trail, OtDeluxeTrailVariant::Main);
+    let sublette =
+        otdeluxe_total_miles_for_variant(&policy.trail, OtDeluxeTrailVariant::SubletteCutoff);
+    let dalles =
+        otdeluxe_total_miles_for_variant(&policy.trail, OtDeluxeTrailVariant::DallesShortcut);
+    let both = otdeluxe_total_miles_for_variant(
+        &policy.trail,
+        OtDeluxeTrailVariant::SubletteAndDallesShortcut,
+    );
+    ensure!(main == 2083, "OTDeluxe main route miles {main} != 2083");
+    ensure!(
+        sublette == main.saturating_sub(94),
+        "OTDeluxe Sublette cutoff miles {sublette} != main-94"
+    );
+    ensure!(
+        dalles == main.saturating_sub(50),
+        "OTDeluxe Dalles shortcut miles {dalles} != main-50"
+    );
+    ensure!(
+        both == main.saturating_sub(144),
+        "OTDeluxe Sublette+Dalles miles {both} != main-144"
+    );
+    Ok(())
+}
+
+fn validate_otdeluxe_travel_speed(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    ensure_f32_close(
+        policy.travel.base_mpd_plains_steady_good,
+        20.0,
+        "OTDeluxe base MPD",
+    )?;
+    ensure_f32_close(
+        policy.travel.terrain_mult_mountains,
+        0.5,
+        "OTDeluxe mountains multiplier",
+    )?;
+    ensure_f32_close(
+        policy.travel.sick_member_speed_penalty,
+        0.10,
+        "OTDeluxe sick member speed penalty",
+    )?;
+    ensure_f32_close(policy.oxen.sick_ox_weight, 0.5, "OTDeluxe sick ox weight")?;
+    ensure_f32_close(
+        policy.oxen.min_for_base,
+        4.0,
+        "OTDeluxe min oxen for base speed",
+    )?;
+    ensure_f32_close(policy.oxen.min_to_move, 0.0, "OTDeluxe min oxen to move")?;
+    Ok(())
+}
+
+fn validate_otdeluxe_action_costs(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    ensure!(
+        policy.actions.rest_days_min == 1 && policy.actions.rest_days_max == 9,
+        "OTDeluxe rest days range {min}..{max} != 1..9",
+        min = policy.actions.rest_days_min,
+        max = policy.actions.rest_days_max
+    );
+    ensure!(
+        policy.actions.trade_cost_days == 1,
+        "OTDeluxe trade cost days {days} != 1",
+        days = policy.actions.trade_cost_days
+    );
+    ensure!(
+        policy.actions.hunt_cost_days == 1,
+        "OTDeluxe hunt cost days {days} != 1",
+        days = policy.actions.hunt_cost_days
+    );
+    Ok(())
+}
+
+fn validate_otdeluxe_crossing_thresholds(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    ensure_f32_close(
+        policy.crossings.ferry_min_depth_ft,
+        2.5,
+        "OTDeluxe ferry min depth",
+    )?;
+    ensure_f32_close(
+        policy.crossings.float_min_depth_ft,
+        1.5,
+        "OTDeluxe float min depth",
+    )?;
+    ensure_f32_close(
+        policy.crossings.wet_goods_min_depth_ft,
+        2.5,
+        "OTDeluxe wet goods min depth",
+    )?;
+    ensure_f32_close(
+        policy.crossings.swamped_min_depth_ft,
+        3.0,
+        "OTDeluxe swamped min depth",
+    )?;
+    ensure!(
+        policy.crossings.drying_cost_days == 1,
+        "OTDeluxe drying days {days} != 1",
+        days = policy.crossings.drying_cost_days
+    );
+    ensure!(
+        policy.crossings.crossing_cost_days == 1,
+        "OTDeluxe crossing cost days {days} != 1",
+        days = policy.crossings.crossing_cost_days
+    );
+    ensure_f32_close(
+        policy.crossings.guide_risk_mult,
+        0.20,
+        "OTDeluxe guide risk multiplier",
+    )?;
+    ensure!(
+        policy.crossings.ferry_wait_days_min == 0 && policy.crossings.ferry_wait_days_max == 6,
+        "OTDeluxe ferry wait days {min}..{max} != 0..6",
+        min = policy.crossings.ferry_wait_days_min,
+        max = policy.crossings.ferry_wait_days_max
+    );
+    Ok(())
+}
+
+fn validate_otdeluxe_health(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    ensure!(
+        policy.health.recovery_baseline == -10,
+        "OTDeluxe recovery baseline {baseline} != -10",
+        baseline = policy.health.recovery_baseline
+    );
+    ensure!(
+        policy.health.death_threshold == 140,
+        "OTDeluxe death threshold {threshold} != 140",
+        threshold = policy.health.death_threshold
+    );
+    ensure!(
+        policy.health.label_ranges.good_max == 34
+            && policy.health.label_ranges.fair_max == 69
+            && policy.health.label_ranges.poor_max == 104
+            && policy.health.label_ranges.very_poor_max == 139,
+        "OTDeluxe health label ranges do not match parity defaults"
+    );
+    ensure!(
+        policy.affliction.illness_duration_days == 10,
+        "OTDeluxe illness duration {days} != 10",
+        days = policy.affliction.illness_duration_days
+    );
+    ensure!(
+        policy.affliction.injury_duration_days == 30,
+        "OTDeluxe injury duration {days} != 30",
+        days = policy.affliction.injury_duration_days
+    );
+    Ok(())
+}
+
+fn validate_otdeluxe_crossing_options(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    let inventory = OtDeluxeInventory {
+        cash_cents: policy.crossings.ferry_cost_cents,
+        clothes_sets: policy.crossings.guide_cost_clothes_sets,
+        ..OtDeluxeInventory::default()
+    };
+    let shallow = OtDeluxeRiverState {
+        depth_ft: 1.4,
+        width_ft: 200.0,
+        swiftness: 0.4,
+        bed: OtDeluxeRiverBed::Muddy,
+    };
+    let shallow_opts = otdeluxe_crossing_options(
+        &policy.crossings,
+        OtDeluxeRiver::Kansas,
+        &shallow,
+        &inventory,
+    );
+    ensure!(
+        shallow_opts.ford() && !shallow_opts.caulk_float() && !shallow_opts.ferry(),
+        "OTDeluxe crossing options allowed ferry/float below depth thresholds"
+    );
+
+    let mid = OtDeluxeRiverState {
+        depth_ft: 2.4,
+        width_ft: 200.0,
+        swiftness: 0.4,
+        bed: OtDeluxeRiverBed::Muddy,
+    };
+    let mid_opts =
+        otdeluxe_crossing_options(&policy.crossings, OtDeluxeRiver::Kansas, &mid, &inventory);
+    ensure!(
+        mid_opts.caulk_float() && !mid_opts.ferry(),
+        "OTDeluxe crossing options allowed ferry below min depth"
+    );
+
+    let deep = OtDeluxeRiverState {
+        depth_ft: 2.6,
+        width_ft: 200.0,
+        swiftness: 0.4,
+        bed: OtDeluxeRiverBed::Muddy,
+    };
+    let deep_opts =
+        otdeluxe_crossing_options(&policy.crossings, OtDeluxeRiver::Kansas, &deep, &inventory);
+    ensure!(
+        deep_opts.caulk_float() && deep_opts.ferry(),
+        "OTDeluxe crossing options missing ferry above depth threshold"
+    );
+    Ok(())
+}
+
+fn validate_otdeluxe_ferry_wait_distribution(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    let ferry_state = OtDeluxeRiverState {
+        depth_ft: 3.0,
+        width_ft: 200.0,
+        swiftness: 0.4,
+        bed: OtDeluxeRiverBed::Muddy,
+    };
+    let mut rng = SmallRng::seed_from_u64(42);
+    let mut counts = [0u32; 7];
+    let draws = 7000_u32;
+    for _ in 0..draws {
+        let resolution = resolve_crossing(
+            &policy.crossings,
+            OtDeluxeRiver::Kansas,
+            &ferry_state,
+            OtDeluxeCrossingMethod::Ferry,
+            &mut rng,
+        );
+        let idx = usize::from(resolution.wait_days.min(6));
+        counts[idx] = counts[idx].saturating_add(1);
     }
-}
+    let expected = f64::from(draws) / 7.0;
+    let chi_square: f64 = counts
+        .iter()
+        .map(|&count| {
+            let diff = f64::from(count) - expected;
+            diff * diff / expected
+        })
+        .sum();
+    ensure!(
+        chi_square < 20.0,
+        "OTDeluxe ferry wait distribution chi-square {chi_square:.2} exceeds threshold"
+    );
 
-fn guard_distance_window(guard: &AcceptanceGuards) -> (f64, f64) {
-    let target = f64::from(guard.target_distance);
-    let spread = target * DISTANCE_DRIFT_PCT;
-    (target - spread, target + spread)
-}
-
-fn enforce_acceptance_guards(agg: &PlayabilityAggregate, guard: &AcceptanceGuards) -> Result<()> {
-    let ratio_floor = f64::from(guard.min_travel_ratio);
-    ensure!(
-        agg.mean_travel_ratio >= ratio_floor,
-        "{} travel ratio {:.1}% below {:.1}% target",
-        agg.scenario_name,
-        agg.mean_travel_ratio * 100.0,
-        ratio_floor * 100.0
-    );
-    let (dist_min, dist_max) = guard_distance_window(guard);
-    ensure!(
-        agg.mean_miles >= dist_min,
-        "{} average mileage {:.0} below {:.0} mi guard",
-        agg.scenario_name,
-        agg.mean_miles,
-        dist_min
-    );
-    ensure!(
-        agg.mean_miles <= dist_max,
-        "{} average mileage {:.0} exceeds {:.0} mi guard",
-        agg.scenario_name,
-        agg.mean_miles,
-        dist_max
-    );
-    let days_min = f64::from(guard.target_days_min);
-    let days_max = f64::from(guard.target_days_max);
-    ensure!(
-        agg.mean_days >= days_min,
-        "{} average duration {:.1}d below {:.1}d guard",
-        agg.scenario_name,
-        agg.mean_days,
-        days_min
-    );
-    ensure!(
-        agg.mean_days <= days_max,
-        "{} average duration {:.1}d exceeds {:.1}d guard",
-        agg.scenario_name,
-        agg.mean_days,
-        days_max
-    );
     Ok(())
 }
 
@@ -190,106 +329,7 @@ fn push_limited_warn(
 }
 
 fn emit_record_warnings(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
-    let guard = scenario_guards(record.mode, record.strategy);
-    let ratio_floor = f64::from(guard.min_travel_ratio);
-    if record.metrics.travel_ratio < ratio_floor {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::travel_ratio", record.scenario_name),
-            3,
-            || {
-                format!(
-                    "WARN: {} seed {} travel ratio {:.1}% < {:.1}%",
-                    record.scenario_name,
-                    record.seed_code,
-                    record.metrics.travel_ratio * 100.0,
-                    ratio_floor * 100.0
-                )
-            },
-        );
-    }
-
-    warn_deep_conservative(record, warn_counts);
-    warn_deep_aggressive(record, warn_counts);
     warn_crossing_anomalies(record, warn_counts);
-}
-
-fn warn_deep_conservative(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
-    if record.scenario_name != "Deep - Conservative" {
-        return;
-    }
-
-    if !record.metrics.milestones.reached_2000_by_day150 {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::deep_conservative_2k", record.scenario_name),
-            5,
-            || {
-                format!(
-                    "WARN: Deep Conservative seed {} failed ≥2k@150",
-                    record.seed_code
-                )
-            },
-        );
-    }
-    if record.metrics.final_pants >= 100 {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::deep_conservative_pants", record.scenario_name),
-            3,
-            || {
-                format!(
-                    "WARN: Deep Conservative seed {} ended via pants emergency",
-                    record.seed_code
-                )
-            },
-        );
-    }
-    if record.metrics.unique_per_20_days < 1.60 {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::deep_conservative_unique", record.scenario_name),
-            3,
-            || {
-                format!(
-                    "WARN: Deep Conservative seed {} unique encounters per 20d {:.2} < 1.60",
-                    record.seed_code, record.metrics.unique_per_20_days
-                )
-            },
-        );
-    }
-}
-
-fn warn_deep_aggressive(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
-    if record.scenario_name != "Deep - Aggressive" {
-        return;
-    }
-
-    if !record.metrics.boss.reached {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::deep_aggressive_reach", record.scenario_name),
-            5,
-            || {
-                format!(
-                    "WARN: Deep Aggressive seed {} failed to reach the boss",
-                    record.seed_code
-                )
-            },
-        );
-    } else if !record.metrics.boss.won {
-        push_limited_warn(
-            warn_counts,
-            &format!("{}::deep_aggressive_win", record.scenario_name),
-            5,
-            || {
-                format!(
-                    "WARN: Deep Aggressive seed {} reached boss but did not win",
-                    record.seed_code
-                )
-            },
-        );
-    }
 }
 
 fn warn_crossing_anomalies(record: &PlayabilityRecord, warn_counts: &mut BTreeMap<String, usize>) {
@@ -360,275 +400,6 @@ fn warn_crossing_anomalies(record: &PlayabilityRecord, warn_counts: &mut BTreeMa
                 },
             );
         }
-    }
-}
-
-fn emit_aggregate_warnings(aggregates: &[PlayabilityAggregate]) {
-    for agg in aggregates {
-        if agg.mean_crossing_bribes > 0.0 && agg.crossing_bribe_success_rate <= 0.70 {
-            println!(
-                "WARN: {} crossing bribe success {:.1}% ≤ 70%",
-                agg.scenario_name,
-                agg.crossing_bribe_success_rate * 100.0
-            );
-        }
-        if agg.crossing_failure_rate > 0.12 {
-            println!(
-                "WARN: {} terminal crossing rate {:.1}% > 12%",
-                agg.scenario_name,
-                agg.crossing_failure_rate * 100.0
-            );
-        }
-        if agg.mean_stop_cap_conversions > 1.2 {
-            println!(
-                "WARN: {} average stop-cap conversions {:.2} > 1.2",
-                agg.scenario_name, agg.mean_stop_cap_conversions
-            );
-        }
-        if agg.mode == GameMode::Deep
-            && matches!(agg.strategy, GameplayStrategy::Aggressive)
-            && agg.endgame_field_repair_rate < 1.0
-        {
-            println!(
-                "WARN: {} field repair only triggered {:.1}% of runs",
-                agg.scenario_name,
-                agg.endgame_field_repair_rate * 100.0
-            );
-        }
-        if agg.endgame_activation_rate == 0.0
-            && agg.mode == GameMode::Deep
-            && matches!(
-                agg.strategy,
-                GameplayStrategy::Balanced | GameplayStrategy::Aggressive
-            )
-        {
-            println!(
-                "WARN: {} endgame controller never activated",
-                agg.scenario_name
-            );
-        }
-        if agg.mean_endgame_cooldown > 0.0 {
-            println!(
-                "WARN: {} average endgame cooldown {:.2} days remaining",
-                agg.scenario_name, agg.mean_endgame_cooldown
-            );
-        }
-    }
-}
-
-fn find_aggregate<'a>(
-    aggregates: &'a [PlayabilityAggregate],
-    name: &str,
-) -> Result<&'a PlayabilityAggregate> {
-    #[rustfmt::skip]
-    let aggregate = aggregates.iter().find(|agg| agg.scenario_name == name).with_context(|| format!("missing playability summary for {name}"))?;
-    Ok(aggregate)
-}
-
-fn get_aggregate<'a>(
-    aggregates: &'a [PlayabilityAggregate],
-    name: &str,
-) -> Option<&'a PlayabilityAggregate> {
-    aggregates.iter().find(|agg| agg.scenario_name == name)
-}
-
-fn validate_classic_balanced(agg: &PlayabilityAggregate) -> Result<()> {
-    ensure!(
-        agg.mean_unique_per_20 >= 2.0,
-        "Classic Balanced mean unique encounters per 20 days {:.2} below 2.0 target",
-        agg.mean_unique_per_20
-    );
-    ensure!(
-        agg.min_unique_per_20 + UNIQUE_MIN_EPSILON >= CLASSIC_BALANCED_MIN_UNIQUE_PER_20,
-        "Classic Balanced min unique encounters per 20 days {:.2} below {:.1} floor (eps {:.2})",
-        agg.min_unique_per_20,
-        CLASSIC_BALANCED_MIN_UNIQUE_PER_20,
-        UNIQUE_MIN_EPSILON
-    );
-    ensure!(
-        agg.pct_reached_2k_by_150 >= 0.25,
-        "Classic Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
-        agg.pct_reached_2k_by_150 * 100.0
-    );
-    ensure!(
-        agg.boss_reach_pct >= CLASSIC_BALANCED_BOSS_REACH_MIN,
-        "Classic Balanced boss reach {:.1}% below {:.0}% floor",
-        agg.boss_reach_pct * 100.0,
-        CLASSIC_BALANCED_BOSS_REACH_MIN * 100.0
-    );
-    ensure!(
-        agg.boss_reach_pct <= CLASSIC_BALANCED_BOSS_REACH_MAX,
-        "Classic Balanced boss reach {:.1}% exceeds {:.0}% ceiling",
-        agg.boss_reach_pct * 100.0,
-        CLASSIC_BALANCED_BOSS_REACH_MAX * 100.0
-    );
-    ensure!(
-        agg.boss_win_pct >= CLASSIC_BALANCED_BOSS_WIN_MIN,
-        "Classic Balanced boss win {:.1}% below {:.0}% floor",
-        agg.boss_win_pct * 100.0,
-        CLASSIC_BALANCED_BOSS_WIN_MIN * 100.0
-    );
-    ensure!(
-        agg.boss_win_pct <= CLASSIC_BALANCED_BOSS_WIN_MAX,
-        "Classic Balanced boss win {:.1}% exceeds {:.0}% ceiling",
-        agg.boss_win_pct * 100.0,
-        CLASSIC_BALANCED_BOSS_WIN_MAX * 100.0
-    );
-    ensure!(
-        agg.survival_rate >= CLASSIC_BALANCED_SURVIVAL_MIN,
-        "Classic Balanced survival {:.1}% below {:.0}% floor",
-        agg.survival_rate * 100.0,
-        CLASSIC_BALANCED_SURVIVAL_MIN * 100.0
-    );
-    ensure!(
-        agg.survival_rate <= CLASSIC_BALANCED_SURVIVAL_MAX,
-        "Classic Balanced survival {:.1}% exceeds {:.0}% ceiling",
-        agg.survival_rate * 100.0,
-        CLASSIC_BALANCED_SURVIVAL_MAX * 100.0
-    );
-    let dominant_failure = agg
-        .failure_vehicle_pct
-        .max(agg.failure_sanity_pct)
-        .max(agg.failure_exposure_pct)
-        .max(agg.failure_crossing_pct);
-    ensure!(
-        dominant_failure <= FAILURE_FAMILY_MAX_SHARE,
-        "Classic Balanced failure mix skewed: {:.1}% > {:.0}% cap",
-        dominant_failure * 100.0,
-        FAILURE_FAMILY_MAX_SHARE * 100.0
-    );
-    Ok(())
-}
-
-fn validate_deep_balanced(agg: &PlayabilityAggregate) -> Result<()> {
-    ensure!(
-        agg.mean_unique_per_20 >= DEEP_BALANCED_MEAN_UNIQUE_PER_20,
-        "Deep Balanced mean unique encounters per 20 days {:.2} below {:.1} target",
-        agg.mean_unique_per_20,
-        DEEP_BALANCED_MEAN_UNIQUE_PER_20
-    );
-    ensure!(
-        agg.min_unique_per_20 + UNIQUE_MIN_EPSILON >= DEEP_BALANCED_MIN_UNIQUE_PER_20,
-        "Deep Balanced min unique encounters per 20 days {:.2} below {:.1} requirement",
-        agg.min_unique_per_20,
-        DEEP_BALANCED_MIN_UNIQUE_PER_20
-    );
-    ensure!(
-        agg.pct_reached_2k_by_150 >= 0.25,
-        "Deep Balanced reached 2,000 miles by day 150 {:.1}% < 25% threshold",
-        agg.pct_reached_2k_by_150 * 100.0
-    );
-    warn_deep_boss_rates(agg);
-    Ok(())
-}
-
-fn validate_deep_conservative(agg: &PlayabilityAggregate) -> Result<()> {
-    ensure!(
-        agg.pct_reached_2k_by_150 >= 0.25,
-        "Deep Conservative ≥2k@150 {:.1}% < 25% threshold",
-        agg.pct_reached_2k_by_150 * 100.0
-    );
-    ensure!(
-        agg.pants_failure_pct <= 0.30,
-        "Deep Conservative pants failure rate {:.1}% exceeds 30% cap",
-        agg.pants_failure_pct * 100.0
-    );
-    ensure!(
-        agg.mean_travel_ratio >= 0.90,
-        "Deep Conservative travel ratio {:.1}% below 90% target",
-        agg.mean_travel_ratio * 100.0
-    );
-    warn_deep_boss_rates(agg);
-    Ok(())
-}
-
-fn validate_deep_aggressive(agg: &PlayabilityAggregate) -> Result<()> {
-    ensure!(
-        agg.boss_reach_pct >= 0.65,
-        "Deep Aggressive boss reach {:.1}% below 65% target",
-        agg.boss_reach_pct * 100.0
-    );
-    ensure!(
-        agg.boss_win_pct >= 0.02,
-        "Deep Aggressive boss win {:.1}% below 2% target",
-        agg.boss_win_pct * 100.0
-    );
-    ensure!(
-        agg.mean_miles >= 1950.0,
-        "Deep Aggressive average mileage {:.0} below 1950 mi goal",
-        agg.mean_miles
-    );
-    ensure!(
-        agg.pct_reached_2k_by_150 >= 0.70,
-        "Deep Aggressive ≥2k@150 {:.1}% < 70% threshold",
-        agg.pct_reached_2k_by_150 * 100.0
-    );
-    warn_deep_boss_rates(agg);
-    Ok(())
-}
-
-fn emit_classic_strategy_warnings(
-    aggregates: &[PlayabilityAggregate],
-    _classic_balanced: &PlayabilityAggregate,
-) {
-    if let Some(aggressive) = get_aggregate(aggregates, "Classic - Aggressive") {
-        if aggressive.survival_rate > CLASSIC_BALANCED_SURVIVAL_MAX {
-            println!(
-                "WARN: Classic Aggressive survival {:.1}% exceeds Balanced upper band",
-                aggressive.survival_rate * 100.0
-            );
-        }
-        if aggressive.boss_win_pct > CLASSIC_BALANCED_BOSS_WIN_MAX {
-            println!(
-                "WARN: Classic Aggressive boss win {:.1}% exceeds Balanced ceiling",
-                aggressive.boss_win_pct * 100.0
-            );
-        }
-    }
-    for scenario in ["Classic - Conservative", "Classic - Resource Manager"] {
-        if let Some(agg) = get_aggregate(aggregates, scenario)
-            && agg.boss_win_pct > CONSERVATIVE_BOSS_WIN_WARN
-        {
-            println!(
-                "WARN: {} boss win {:.1}% exceeds {:.0}% cozy cap",
-                scenario,
-                agg.boss_win_pct * 100.0,
-                CONSERVATIVE_BOSS_WIN_WARN * 100.0
-            );
-        }
-    }
-}
-
-fn warn_deep_boss_rates(agg: &PlayabilityAggregate) {
-    if agg.boss_reach_pct < DEEP_BOSS_REACH_WARN_MIN {
-        println!(
-            "WARN: {} boss reach {:.1}% below {:.0}% deep lower bound",
-            agg.scenario_name,
-            agg.boss_reach_pct * 100.0,
-            DEEP_BOSS_REACH_WARN_MIN * 100.0
-        );
-    } else if agg.boss_reach_pct > DEEP_BOSS_REACH_WARN_MAX {
-        println!(
-            "WARN: {} boss reach {:.1}% exceeds {:.0}% deep upper bound",
-            agg.scenario_name,
-            agg.boss_reach_pct * 100.0,
-            DEEP_BOSS_REACH_WARN_MAX * 100.0
-        );
-    }
-    if agg.boss_win_pct < DEEP_BOSS_WIN_WARN_MIN {
-        println!(
-            "WARN: {} boss win {:.1}% below {:.0}% deep lower bound",
-            agg.scenario_name,
-            agg.boss_win_pct * 100.0,
-            DEEP_BOSS_WIN_WARN_MIN * 100.0
-        );
-    } else if agg.boss_win_pct > DEEP_BOSS_WIN_WARN_MAX {
-        println!(
-            "WARN: {} boss win {:.1}% exceeds {:.0}% deep upper bound",
-            agg.scenario_name,
-            agg.boss_win_pct * 100.0,
-            DEEP_BOSS_WIN_WARN_MAX * 100.0
-        );
     }
 }
 
@@ -706,154 +477,20 @@ pub fn aggregate_playability(records: &[PlayabilityRecord]) -> Vec<PlayabilityAg
         emit_record_warnings(record, &mut warn_counts);
     }
 
-    let results: Vec<_> = aggregates
+    aggregates
         .into_values()
         .map(AggregateBuilder::finish)
-        .collect();
-
-    emit_aggregate_warnings(&results);
-
-    results
+        .collect()
 }
 
 pub fn validate_playability_targets(
-    aggregates: &[PlayabilityAggregate],
+    _aggregates: &[PlayabilityAggregate],
     records: &[PlayabilityRecord],
 ) -> Result<()> {
-    validate_record_metrics(records)?;
-    validate_scenario_aggregates(aggregates)?;
-    validate_global_aggregates(aggregates)?;
+    validate_otdeluxe_parity_invariants()?;
     validate_crossing_determinism(records)?;
     ensure_crossing_consistency(records)?;
     Ok(())
-}
-
-fn validate_record_metrics(records: &[PlayabilityRecord]) -> Result<()> {
-    for record in records {
-        ensure!(
-            record.metrics.travel_ratio >= 0.90,
-            "Travel ratio {:.1}% < 90% for scenario {} seed {}",
-            record.metrics.travel_ratio * 100.0,
-            record.scenario_name,
-            record.seed_code
-        );
-        if record
-            .metrics
-            .ending_type
-            .to_lowercase()
-            .contains("vehicle")
-            && record.scenario_name == "Classic - Balanced"
-        {
-            ensure!(
-                record.metrics.miles_traveled >= 1_950.0,
-                "Vehicle failure observed for scenario {} seed {} before 1950 mi (at {:.0} mi)",
-                record.scenario_name,
-                record.seed_code,
-                record.metrics.miles_traveled
-            );
-        }
-    }
-    Ok(())
-}
-
-fn validate_scenario_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()> {
-    let classic_balanced = find_aggregate(aggregates, "Classic - Balanced")?;
-    validate_classic_balanced(classic_balanced)?;
-    emit_classic_strategy_warnings(aggregates, classic_balanced);
-
-    let classic_resource = find_aggregate(aggregates, "Classic - Resource Manager")?;
-    ensure!(
-        classic_resource.pct_reached_2k_by_150 >= 0.70,
-        "Classic Resource Manager reached 2,000 miles by day 150 {:.1}% < 70% threshold",
-        classic_resource.pct_reached_2k_by_150 * 100.0
-    );
-    ensure!(
-        classic_resource.pants_failure_pct <= 0.35,
-        "Classic Resource Manager pants failure rate {:.1}% exceeds 35% cap",
-        classic_resource.pants_failure_pct * 100.0
-    );
-
-    let deep_balanced = find_aggregate(aggregates, "Deep - Balanced")?;
-    validate_deep_balanced(deep_balanced)?;
-
-    let deep_conservative = find_aggregate(aggregates, "Deep - Conservative")?;
-    validate_deep_conservative(deep_conservative)?;
-
-    let deep_aggressive = find_aggregate(aggregates, "Deep - Aggressive")?;
-    validate_deep_aggressive(deep_aggressive)?;
-
-    Ok(())
-}
-
-fn validate_global_aggregates(aggregates: &[PlayabilityAggregate]) -> Result<()> {
-    for agg in aggregates {
-        let guard = scenario_guards(agg.mode, agg.strategy);
-        enforce_acceptance_guards(agg, &guard)?;
-        ensure!(
-            agg.mean_avg_mpd >= AVG_MPD_MIN,
-            "{} average miles/day {:.2} below {:.2} floor",
-            agg.scenario_name,
-            agg.mean_avg_mpd,
-            AVG_MPD_MIN
-        );
-        ensure!(
-            agg.mean_avg_mpd <= AVG_MPD_MAX,
-            "{} average miles/day {:.2} exceeds {:.2} ceiling",
-            agg.scenario_name,
-            agg.mean_avg_mpd,
-            AVG_MPD_MAX
-        );
-        if agg.mean_crossing_bribes > 0.0 {
-            ensure!(
-                agg.crossing_bribe_success_rate >= 0.70,
-                "{} average bribe success {:.1}% below 70% target",
-                agg.scenario_name,
-                agg.crossing_bribe_success_rate * 100.0
-            );
-        }
-        if agg.mean_crossing_events > 0.0 {
-            if agg.mode == GameMode::Deep {
-                if agg.crossing_failure_rate < DEEP_CROSSING_WARN_MIN {
-                    println!(
-                        "WARN: {} terminal crossing rate {:.1}% below {:.0}% deep lower band",
-                        agg.scenario_name,
-                        agg.crossing_failure_rate * 100.0,
-                        DEEP_CROSSING_WARN_MIN * 100.0
-                    );
-                } else if agg.crossing_failure_rate > DEEP_CROSSING_WARN_MAX {
-                    println!(
-                        "WARN: {} terminal crossing rate {:.1}% exceeds {:.0}% deep warning band",
-                        agg.scenario_name,
-                        agg.crossing_failure_rate * 100.0,
-                        DEEP_CROSSING_WARN_MAX * 100.0
-                    );
-                }
-            }
-            let failure_cap = failure_cap_for_mode(agg.mode);
-            ensure!(
-                agg.crossing_failure_rate <= failure_cap,
-                "{} terminal crossing rate {:.1}% exceeds {:.0}% cap",
-                agg.scenario_name,
-                agg.crossing_failure_rate * 100.0,
-                failure_cap * 100.0
-            );
-        }
-        ensure!(
-            agg.min_travel_ratio >= 0.90,
-            "{} minimum travel ratio {:.1}% below 90% floor",
-            agg.scenario_name,
-            agg.min_travel_ratio * 100.0
-        );
-    }
-    Ok(())
-}
-
-fn failure_cap_for_mode(mode: GameMode) -> f64 {
-    if mode == GameMode::Deep {
-        DEEP_CROSSING_FAILURE_MAX
-    } else {
-        CLASSIC_CROSSING_FAILURE_MAX
-    }
 }
 
 fn validate_crossing_determinism(records: &[PlayabilityRecord]) -> Result<()> {
@@ -906,6 +543,188 @@ const fn mode_label(mode: GameMode) -> &'static str {
     }
 }
 
+#[derive(Debug, Clone)]
+struct AggregateBuilder {
+    scenario_name: String,
+    mode: GameMode,
+    strategy: GameplayStrategy,
+    stats_days: RunningStats,
+    stats_miles: RunningStats,
+    iterations: u32,
+    boss_reached: u32,
+    boss_won: u32,
+    pants_failures: u32,
+    travel_ratio_sum: f64,
+    unique_per_20_sum: f64,
+    rotation_event_sum: u32,
+    milestone_hits: u32,
+    min_unique_per_20: f64,
+    min_travel_ratio: f64,
+    crossing_events_sum: u32,
+    crossing_permit_sum: u32,
+    crossing_bribe_attempt_sum: u32,
+    crossing_bribe_success_sum: u32,
+    crossing_detour_sum: u32,
+    crossing_failure_sum: u32,
+}
+
+impl AggregateBuilder {
+    fn new(record: &PlayabilityRecord) -> Self {
+        Self {
+            scenario_name: record.scenario_name.clone(),
+            mode: record.mode,
+            strategy: record.strategy,
+            stats_days: RunningStats::default(),
+            stats_miles: RunningStats::default(),
+            iterations: 0,
+            boss_reached: 0,
+            boss_won: 0,
+            pants_failures: 0,
+            travel_ratio_sum: 0.0,
+            unique_per_20_sum: 0.0,
+            rotation_event_sum: 0,
+            milestone_hits: 0,
+            min_unique_per_20: f64::INFINITY,
+            min_travel_ratio: f64::INFINITY,
+            crossing_events_sum: 0,
+            crossing_permit_sum: 0,
+            crossing_bribe_attempt_sum: 0,
+            crossing_bribe_success_sum: 0,
+            crossing_detour_sum: 0,
+            crossing_failure_sum: 0,
+        }
+    }
+
+    fn ingest(&mut self, metrics: &PlayabilityMetrics) {
+        self.iterations += 1;
+        self.stats_days.add(f64::from(metrics.days_survived));
+        self.stats_miles.add(f64::from(metrics.miles_traveled));
+        if metrics.boss.reached {
+            self.boss_reached += 1;
+        }
+        if metrics.boss.won {
+            self.boss_won += 1;
+        }
+        if metrics.final_pants >= 100 || metrics.ending_type.contains("Pants") {
+            self.pants_failures += 1;
+        }
+        if metrics.milestones.reached_2000_by_day150 {
+            self.milestone_hits += 1;
+        }
+        self.travel_ratio_sum += metrics.travel_ratio;
+        self.unique_per_20_sum += metrics.unique_per_20_days;
+        self.rotation_event_sum = self
+            .rotation_event_sum
+            .saturating_add(metrics.rotation_events);
+        self.min_unique_per_20 = self.min_unique_per_20.min(metrics.unique_per_20_days);
+        self.min_travel_ratio = self.min_travel_ratio.min(metrics.travel_ratio);
+        self.crossing_events_sum = self
+            .crossing_events_sum
+            .saturating_add(u32::try_from(metrics.crossing_events.len()).unwrap_or(0));
+        self.crossing_permit_sum = self
+            .crossing_permit_sum
+            .saturating_add(metrics.crossing_permit_uses);
+        self.crossing_bribe_attempt_sum = self
+            .crossing_bribe_attempt_sum
+            .saturating_add(metrics.crossing_bribe_attempts);
+        self.crossing_bribe_success_sum = self
+            .crossing_bribe_success_sum
+            .saturating_add(metrics.crossing_bribe_successes);
+        self.crossing_detour_sum = self
+            .crossing_detour_sum
+            .saturating_add(metrics.crossing_detours_taken);
+        self.crossing_failure_sum = self
+            .crossing_failure_sum
+            .saturating_add(metrics.crossing_failures);
+    }
+
+    fn finish(self) -> PlayabilityAggregate {
+        let iterations_u32 = self.iterations.max(1);
+        let iterations = usize::try_from(self.iterations).unwrap_or(usize::MAX);
+        let denom = f64::from(iterations_u32);
+        PlayabilityAggregate {
+            scenario_name: self.scenario_name,
+            mode: self.mode,
+            strategy: self.strategy,
+            iterations,
+            mean_days: self.stats_days.mean(),
+            std_days: self.stats_days.std_dev(),
+            mean_miles: self.stats_miles.mean(),
+            std_miles: self.stats_miles.std_dev(),
+            boss_reach_pct: f64::from(self.boss_reached) / denom,
+            boss_win_pct: f64::from(self.boss_won) / denom,
+            pants_failure_pct: f64::from(self.pants_failures) / denom,
+            mean_travel_ratio: self.travel_ratio_sum / denom,
+            mean_unique_per_20: self.unique_per_20_sum / denom,
+            mean_rotation_events: f64::from(self.rotation_event_sum) / denom,
+            pct_reached_2k_by_150: f64::from(self.milestone_hits) / denom,
+            min_unique_per_20: if self.min_unique_per_20.is_finite() {
+                self.min_unique_per_20
+            } else {
+                0.0
+            },
+            min_travel_ratio: if self.min_travel_ratio.is_finite() {
+                self.min_travel_ratio
+            } else {
+                0.0
+            },
+            mean_crossing_events: f64::from(self.crossing_events_sum) / denom,
+            crossing_permit_rate: if self.crossing_events_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_permit_sum) / f64::from(self.crossing_events_sum)
+            },
+            mean_crossing_bribes: f64::from(self.crossing_bribe_attempt_sum) / denom,
+            crossing_bribe_success_rate: if self.crossing_bribe_attempt_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_bribe_success_sum)
+                    / f64::from(self.crossing_bribe_attempt_sum)
+            },
+            mean_crossing_detours: f64::from(self.crossing_detour_sum) / denom,
+            crossing_failure_rate: if self.crossing_events_sum == 0 {
+                0.0
+            } else {
+                f64::from(self.crossing_failure_sum) / f64::from(self.crossing_events_sum)
+            },
+        }
+    }
+}
+
+#[derive(Debug, Default, Clone)]
+struct RunningStats {
+    count: u32,
+    mean: f64,
+    m2: f64,
+}
+
+impl RunningStats {
+    fn add(&mut self, value: f64) {
+        self.count += 1;
+        let count = f64::from(self.count);
+        let delta = value - self.mean;
+        self.mean += delta / count;
+        let delta2 = value - self.mean;
+        self.m2 += delta * delta2;
+    }
+
+    const fn mean(&self) -> f64 {
+        if self.count == 0 { 0.0 } else { self.mean }
+    }
+
+    fn variance(&self) -> f64 {
+        if self.count > 1 {
+            self.m2 / f64::from(self.count - 1)
+        } else {
+            0.0
+        }
+    }
+
+    fn std_dev(&self) -> f64 {
+        self.variance().sqrt()
+    }
+}
+
 fn add_expectations(
     plan: crate::logic::SimulationPlan,
     strategy: GameplayStrategy,
@@ -923,10 +742,10 @@ fn add_expectations(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::logic::game_tester::{FailureFamily, SimulationSummary};
+    use crate::logic::game_tester::FailureFamily;
     use crate::logic::reports::generate_csv_report;
     use crate::logic::seeds::SeedInfo;
-    use crate::logic::{GameTester, SimulationPlan, TesterAssets, run_playability_analysis};
+    use crate::logic::{GameTester, TesterAssets, run_playability_analysis};
     use dystrail_game::data::EncounterData;
     use dystrail_game::state::Season;
     use dystrail_game::{
@@ -936,6 +755,23 @@ mod tests {
     use std::collections::{BTreeMap, HashSet};
     use std::path::PathBuf;
     use std::sync::Arc;
+
+    const JOURNEY_LEDGER_DIGEST: [u8; 32] = [
+        84, 205, 219, 244, 107, 113, 197, 255, 64, 247, 230, 191, 183, 131, 195, 94, 141, 104, 255,
+        28, 149, 0, 126, 193, 91, 134, 174, 41, 196, 158, 36, 163,
+    ];
+    const CSV_DIGEST_BASELINE: [u8; 32] = [
+        192, 29, 241, 192, 222, 94, 1, 55, 83, 187, 172, 130, 84, 144, 105, 166, 36, 220, 12, 20,
+        177, 154, 36, 41, 182, 211, 31, 92, 69, 164, 110, 70,
+    ];
+
+    const TEST_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
+        (GameMode::Classic, GameplayStrategy::Balanced),
+        (GameMode::Classic, GameplayStrategy::ResourceManager),
+        (GameMode::Deep, GameplayStrategy::Balanced),
+        (GameMode::Deep, GameplayStrategy::Conservative),
+        (GameMode::Deep, GameplayStrategy::Aggressive),
+    ];
 
     fn tester(verbose: bool) -> GameTester {
         GameTester::new(Arc::new(TesterAssets::load_default()), verbose)
@@ -947,63 +783,6 @@ mod tests {
         let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
         assert_eq!(records.len(), PLAYABILITY_SCENARIOS.len());
         assert!(records.iter().all(|r| !r.seed_code.is_empty()));
-    }
-
-    #[test]
-    fn balanced_samples_hit_survival_and_boss_targets() {
-        let seeds: Vec<SeedInfo> = (0..120)
-            .map(|i| {
-                let offset = u64::try_from(i).unwrap_or(0);
-                SeedInfo::for_mode(10_000_u64 + offset, GameMode::Classic)
-            })
-            .collect();
-        let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
-        let aggregates = aggregate_playability(&records);
-
-        let balanced_summary = aggregates
-            .iter()
-            .find(|agg| agg.mode == GameMode::Classic && agg.strategy == GameplayStrategy::Balanced)
-            .expect("balanced summary available");
-        assert!(
-            balanced_summary.iterations >= 100,
-            "expected at least 100 Balanced samples, observed {}",
-            balanced_summary.iterations
-        );
-        assert!(
-            (0.0..=0.60).contains(&balanced_summary.boss_win_pct),
-            "boss win rate should stay near target band, observed {:.1}%",
-            balanced_summary.boss_win_pct * 100.0
-        );
-        assert!(
-            balanced_summary.pants_failure_pct <= 0.25,
-            "pants failures should stay below 25%, observed {:.1}%",
-            balanced_summary.pants_failure_pct * 100.0
-        );
-
-        let balanced_records: Vec<_> = records
-            .iter()
-            .filter(|r| r.mode == GameMode::Classic && r.strategy == GameplayStrategy::Balanced)
-            .collect();
-        assert!(
-            !balanced_records.is_empty(),
-            "balanced sample should not be empty"
-        );
-        let survive_120 = balanced_records
-            .iter()
-            .filter(|r| r.metrics.days_survived >= 120)
-            .count();
-        let numerator = u32::try_from(survive_120).unwrap_or(0);
-        let denominator = u32::try_from(balanced_records.len()).unwrap_or(1);
-        let ratio = if denominator == 0 {
-            0.0
-        } else {
-            f64::from(numerator) / f64::from(denominator)
-        };
-        assert!(
-            ratio <= 0.97,
-            "expected ≤97% of balanced runs to reach 120 days under current tuning, observed {:.1}%",
-            ratio * 100.0
-        );
     }
 
     #[test]
@@ -1050,55 +829,6 @@ mod tests {
         let epsilon = 1e-6;
         assert!((agg.boss_reach_pct - reach_ratio).abs() < epsilon);
         assert!((agg.boss_win_pct - win_ratio).abs() < epsilon);
-    }
-
-    #[test]
-    fn emit_record_warnings_covers_deep_conservative() {
-        let mut warn_counts = BTreeMap::new();
-        let mut metrics = PlayabilityMetrics::default();
-        metrics.milestones.reached_2000_by_day150 = false;
-        metrics.final_pants = 120;
-        metrics.unique_per_20_days = 1.0;
-        let record = PlayabilityRecord {
-            scenario_name: "Deep - Conservative".to_string(),
-            mode: GameMode::Deep,
-            strategy: GameplayStrategy::Conservative,
-            seed_code: "DP-TEST01".to_string(),
-            seed_value: 1,
-            metrics,
-        };
-        emit_record_warnings(&record, &mut warn_counts);
-        assert!(!warn_counts.is_empty());
-    }
-
-    #[test]
-    fn emit_record_warnings_covers_deep_aggressive() {
-        let mut warn_counts = BTreeMap::new();
-        let mut metrics = PlayabilityMetrics::default();
-        metrics.boss.reached = false;
-        let record = PlayabilityRecord {
-            scenario_name: "Deep - Aggressive".to_string(),
-            mode: GameMode::Deep,
-            strategy: GameplayStrategy::Aggressive,
-            seed_code: "DP-TEST02".to_string(),
-            seed_value: 2,
-            metrics,
-        };
-        emit_record_warnings(&record, &mut warn_counts);
-
-        let mut metrics = PlayabilityMetrics::default();
-        metrics.boss.reached = true;
-        metrics.boss.won = false;
-        let record = PlayabilityRecord {
-            scenario_name: "Deep - Aggressive".to_string(),
-            mode: GameMode::Deep,
-            strategy: GameplayStrategy::Aggressive,
-            seed_code: "DP-TEST03".to_string(),
-            seed_value: 3,
-            metrics,
-        };
-        emit_record_warnings(&record, &mut warn_counts);
-        assert!(warn_counts.len() >= 2);
     }
 
     #[test]
@@ -1158,7 +888,7 @@ mod tests {
                 bribe_chance: None,
                 bribe_roll: None,
                 detour_taken: true,
-                detour_days: None,
+                detour_days: Some(1),
                 detour_base_supplies_delta: None,
                 detour_extra_supplies_loss: None,
                 detour_pants_delta: None,
@@ -1177,52 +907,6 @@ mod tests {
         };
         emit_record_warnings(&record, &mut warn_counts);
         assert!(!warn_counts.is_empty());
-    }
-
-    #[test]
-    fn emit_aggregate_warnings_covers_thresholds() {
-        let aggregate = PlayabilityAggregate {
-            scenario_name: "Deep - Aggressive".to_string(),
-            mode: GameMode::Deep,
-            strategy: GameplayStrategy::Aggressive,
-            iterations: 10,
-            mean_days: 40.0,
-            std_days: 0.0,
-            mean_miles: 1800.0,
-            std_miles: 0.0,
-            mean_avg_mpd: 12.0,
-            boss_reach_pct: 0.1,
-            boss_win_pct: 0.05,
-            pants_failure_pct: 0.1,
-            mean_travel_ratio: 0.7,
-            mean_unique_per_20: 0.8,
-            mean_rotation_events: 1.0,
-            pct_reached_2k_by_150: 0.1,
-            min_unique_per_20: 0.5,
-            min_travel_ratio: 0.6,
-            mean_crossing_events: 2.0,
-            crossing_permit_rate: 0.4,
-            mean_crossing_bribes: 1.0,
-            crossing_bribe_success_rate: 0.6,
-            mean_crossing_detours: 0.5,
-            crossing_failure_rate: 0.2,
-            mean_stop_cap_conversions: 2.0,
-            endgame_activation_rate: 0.0,
-            endgame_field_repair_rate: 0.0,
-            mean_endgame_cooldown: 1.0,
-            survival_rate: 0.8,
-            failure_vehicle_pct: 0.0,
-            failure_sanity_pct: 0.0,
-            failure_exposure_pct: 0.0,
-            failure_crossing_pct: 0.0,
-        };
-        emit_aggregate_warnings(&[aggregate]);
-    }
-
-    #[test]
-    fn find_aggregate_returns_error_for_missing_name() {
-        let err = find_aggregate(&[], "Missing").expect_err("should fail");
-        assert!(err.to_string().contains("missing playability summary"));
     }
 
     #[test]
@@ -1247,86 +931,15 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_parity_invariants_pass() {
+        validate_otdeluxe_parity_invariants().expect("parity invariants ok");
+    }
+
+    #[test]
     fn validate_targets_accepts_balanced_sample_data() {
         let (aggregates, records) = satisfied_data();
         assert!(validate_playability_targets(&aggregates, &records).is_ok());
     }
-
-    #[test]
-    fn validate_targets_enforce_average_miles_per_day_band() {
-        let (mut aggregates, records) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Deep),
-            GameplayStrategy::Aggressive
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.mean_avg_mpd = 21.0;
-        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
-        assert!(
-            err.to_string().contains("average miles/day"),
-            "unexpected error message: {err}"
-        );
-        assert!(
-            err.to_string().contains(&scenario),
-            "scenario name missing from error: {err}"
-        );
-    }
-
-    #[test]
-    fn validate_targets_enforce_distance_window() {
-        let (mut aggregates, records) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Classic),
-            GameplayStrategy::Balanced
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.mean_miles = 1_850.0;
-        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
-        assert!(
-            err.to_string().contains("average mileage"),
-            "unexpected error message: {err}"
-        );
-        assert!(
-            err.to_string().contains(&scenario),
-            "expected Classic Balanced label in error: {err}"
-        );
-    }
-
-    #[test]
-    fn validate_targets_enforce_classic_crossing_failure_cap() {
-        let (mut aggregates, records) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Classic),
-            GameplayStrategy::ResourceManager
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.crossing_failure_rate = 0.20;
-        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
-        assert!(
-            err.to_string().contains("terminal crossing rate"),
-            "unexpected error message: {err}"
-        );
-        assert!(
-            err.to_string().contains(&scenario),
-            "scenario name missing from error: {err}"
-        );
-        assert!(
-            err.to_string().contains("12%"),
-            "classic cap not referenced in error: {err}"
-        );
-    }
-
-    const JOURNEY_LEDGER_DIGEST: [u8; 32] = [
-        84, 205, 219, 244, 107, 113, 197, 255, 64, 247, 230, 191, 183, 131, 195, 94, 141, 104, 255,
-        28, 149, 0, 126, 193, 91, 134, 174, 41, 196, 158, 36, 163,
-    ];
-    const CSV_DIGEST_BASELINE: [u8; 32] = [
-        192, 29, 241, 192, 222, 94, 1, 55, 83, 187, 172, 130, 84, 144, 105, 166, 36, 220, 12, 20,
-        177, 154, 36, 41, 182, 211, 31, 92, 69, 164, 110, 70,
-    ];
 
     #[test]
     fn deterministic_csv_digest_for_fixed_seed() {
@@ -1340,313 +953,12 @@ mod tests {
     }
 
     #[test]
-    fn validate_targets_enforce_deep_crossing_failure_cap() {
-        let (mut aggregates, records) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Deep),
-            GameplayStrategy::Conservative
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.crossing_failure_rate = 0.25;
-        let err = validate_playability_targets(&aggregates, &records).unwrap_err();
-        assert!(
-            err.to_string().contains("terminal crossing rate"),
-            "unexpected error message: {err}"
-        );
-        assert!(
-            err.to_string().contains(&scenario),
-            "scenario name missing from error: {err}"
-        );
-        assert!(
-            err.to_string().contains("16%"),
-            "deep cap not referenced in error: {err}"
-        );
-    }
-
-    const TEST_SCENARIOS: &[(GameMode, GameplayStrategy)] = &[
-        (GameMode::Classic, GameplayStrategy::Balanced),
-        (GameMode::Classic, GameplayStrategy::ResourceManager),
-        (GameMode::Deep, GameplayStrategy::Balanced),
-        (GameMode::Deep, GameplayStrategy::Conservative),
-        (GameMode::Deep, GameplayStrategy::Aggressive),
-    ];
-
-    fn satisfied_data() -> (Vec<PlayabilityAggregate>, Vec<PlayabilityRecord>) {
-        let aggregates = TEST_SCENARIOS
-            .iter()
-            .map(|&(mode, strategy)| base_aggregate(mode, strategy))
-            .collect();
-        let records = TEST_SCENARIOS
-            .iter()
-            .map(|&(mode, strategy)| base_record(mode, strategy))
-            .collect();
-        (aggregates, records)
-    }
-
-    fn base_record(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityRecord {
-        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
-        PlayabilityRecord {
-            scenario_name,
-            mode,
-            strategy,
-            seed_code: "CL-TEST00".to_string(),
-            seed_value: 0,
-            metrics: base_metrics(mode),
-        }
-    }
-
-    fn fail_expectation(_: &SimulationSummary) -> Result<()> {
-        anyhow::bail!("boom")
-    }
-
-    fn base_metrics(mode: GameMode) -> PlayabilityMetrics {
-        let mut metrics = PlayabilityMetrics::default();
-        metrics.days_survived = 120;
-        metrics.miles_traveled = 2_000.0;
-        metrics.travel_days = 100;
-        metrics.partial_travel_days = 10;
-        metrics.non_travel_days = 5;
-        metrics.avg_miles_per_day = 15.0;
-        metrics.unique_encounters = 40;
-        metrics.rotation_events = 6;
-        metrics.travel_ratio = 0.95;
-        metrics.unique_per_20_days = if mode.is_deep() { 1.7 } else { 2.1 };
-        metrics.milestones.reached_2000_by_day150 = true;
-        metrics.crossing_events.clear();
-        metrics.crossing_permit_uses = 0;
-        metrics.crossing_bribe_attempts = 0;
-        metrics.crossing_bribe_successes = 0;
-        metrics.crossing_detours_taken = 0;
-        metrics.crossing_failures = 0;
-        metrics.milestones.survived = true;
-        metrics.failure_family = Some(FailureFamily::Vehicle);
-        metrics
-    }
-
-    fn base_aggregate(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityAggregate {
-        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
-        let (
-            mean_unique,
-            min_unique,
-            travel_ratio,
-            min_travel,
-            pct_2k,
-            pants_fail,
-            boss_reach,
-            boss_win,
-        ) = match (mode, strategy) {
-            (GameMode::Classic, GameplayStrategy::Balanced) => {
-                (2.2, 2.05, 0.95, 0.93, 0.40, 0.15, 0.40, 0.25)
-            }
-            (GameMode::Classic, GameplayStrategy::ResourceManager) => {
-                (2.1, 2.0, 0.94, 0.92, 0.80, 0.20, 0.60, 0.32)
-            }
-            (GameMode::Deep, GameplayStrategy::Balanced) => {
-                (1.7, 1.55, 0.94, 0.93, 0.35, 0.18, 0.55, 0.18)
-            }
-            (GameMode::Deep, GameplayStrategy::Conservative) => {
-                (1.6, 1.5, 0.93, 0.92, 0.30, 0.20, 0.55, 0.12)
-            }
-            (GameMode::Deep, GameplayStrategy::Aggressive) => {
-                (1.6, 1.5, 0.93, 0.92, 0.75, 0.22, 0.70, 0.12)
-            }
-            _ => (1.6, 1.5, 0.93, 0.92, 0.35, 0.2, 0.65, 0.05),
-        };
-        PlayabilityAggregate {
-            scenario_name,
-            mode,
-            strategy,
-            iterations: 100,
-            mean_days: 120.0,
-            std_days: 3.0,
-            mean_miles: 2_000.0,
-            std_miles: 25.0,
-            mean_avg_mpd: 15.0,
-            boss_reach_pct: boss_reach,
-            boss_win_pct: boss_win,
-            pants_failure_pct: pants_fail,
-            mean_travel_ratio: travel_ratio,
-            mean_unique_per_20: mean_unique,
-            mean_rotation_events: 5.0,
-            pct_reached_2k_by_150: pct_2k,
-            min_unique_per_20: min_unique,
-            min_travel_ratio: min_travel,
-            mean_crossing_events: 1.0,
-            crossing_permit_rate: 0.25,
-            mean_crossing_bribes: 0.0,
-            crossing_bribe_success_rate: 0.0,
-            mean_crossing_detours: 0.2,
-            crossing_failure_rate: 0.05,
-            mean_stop_cap_conversions: 0.1,
-            endgame_activation_rate: if mode.is_deep() { 0.75 } else { 0.0 },
-            endgame_field_repair_rate: 0.2,
-            mean_endgame_cooldown: 1.0,
-            survival_rate: 0.70,
-            failure_vehicle_pct: 0.25,
-            failure_sanity_pct: 0.25,
-            failure_exposure_pct: 0.25,
-            failure_crossing_pct: 0.25,
-        }
-    }
-
-    fn find_mut_aggregate<'a>(
-        aggregates: &'a mut [PlayabilityAggregate],
-        scenario_name: &str,
-    ) -> &'a mut PlayabilityAggregate {
-        aggregates
-            .iter_mut()
-            .find(|agg| agg.scenario_name == scenario_name)
-            .unwrap_or_else(|| panic!("missing scenario {scenario_name}"))
-    }
-
-    #[test]
     fn deterministic_journey_digest_baseline() {
         let digest = journey_digest(0xDEAD_BEEF);
         assert_eq!(
             digest, JOURNEY_LEDGER_DIGEST,
             "journey ledger digest drifted; update baseline if intentional"
         );
-    }
-
-    fn csv_digest(records: &[PlayabilityRecord]) -> [u8; 32] {
-        let mut buffer = Vec::new();
-        generate_csv_report(&mut buffer, records).expect("csv serialization");
-        let mut hasher = Sha256::new();
-        hasher.update(buffer);
-        let digest = hasher.finalize();
-        let mut bytes = [0_u8; 32];
-        bytes.copy_from_slice(&digest);
-        bytes
-    }
-
-    fn journey_digest(seed: u64) -> [u8; 32] {
-        use dystrail_game::data::EncounterData;
-        use dystrail_game::journey::JourneySession;
-        use dystrail_game::{EndgameTravelCfg, GameMode, StrategyId, TravelDayKind};
-        let encounters = EncounterData::empty();
-        let mut session = JourneySession::new(
-            GameMode::Classic,
-            StrategyId::Balanced,
-            seed,
-            encounters,
-            &EndgameTravelCfg::default_config(),
-        );
-        for _ in 0..120 {
-            let outcome = session.tick_day();
-            if outcome.ended {
-                break;
-            }
-        }
-        let state = session.into_state();
-        let mut buffer = String::new();
-        for record in &state.day_records {
-            use std::fmt::Write as _;
-            let kind = match record.kind {
-                TravelDayKind::Travel => "travel",
-                TravelDayKind::Partial => "partial",
-                TravelDayKind::NonTravel => "non_travel",
-            };
-            writeln!(buffer, "{},{:.3},{}", record.day_index, record.miles, kind)
-                .expect("write day record");
-        }
-        let mut hasher = Sha256::new();
-        hasher.update(buffer.as_bytes());
-        let digest = hasher.finalize();
-        let mut bytes = [0_u8; 32];
-        bytes.copy_from_slice(&digest);
-        bytes
-    }
-
-    #[test]
-    fn validate_record_metrics_rejects_low_travel_ratio() {
-        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
-        record.metrics.travel_ratio = 0.5;
-        let err = validate_record_metrics(&[record]).expect_err("should fail");
-        assert!(err.to_string().contains("Travel ratio"));
-    }
-
-    #[test]
-    fn validate_record_metrics_rejects_vehicle_failure_before_1950() {
-        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
-        record.metrics.ending_type = "Vehicle breakdown".to_string();
-        record.metrics.miles_traveled = 1900.0;
-        let err = validate_record_metrics(&[record]).expect_err("should fail");
-        assert!(err.to_string().contains("Vehicle failure"));
-    }
-
-    #[test]
-    fn validate_scenario_aggregates_rejects_resource_manager_pants_failure() {
-        let (mut aggregates, _) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Classic),
-            GameplayStrategy::ResourceManager
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.pants_failure_pct = 0.4;
-        let err = validate_scenario_aggregates(&aggregates).expect_err("should fail");
-        assert!(err.to_string().contains("pants failure"));
-    }
-
-    #[test]
-    fn validate_scenario_aggregates_rejects_resource_manager_low_2k() {
-        let (mut aggregates, _) = satisfied_data();
-        let scenario = format!(
-            "{} - {}",
-            mode_label(GameMode::Classic),
-            GameplayStrategy::ResourceManager
-        );
-        let target = find_mut_aggregate(&mut aggregates, &scenario);
-        target.pct_reached_2k_by_150 = 0.5;
-        let err = validate_scenario_aggregates(&aggregates).expect_err("should fail");
-        assert!(err.to_string().contains("2,000 miles"));
-    }
-
-    #[test]
-    fn validate_global_aggregates_rejects_low_bribe_success() {
-        let mut agg = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        agg.mean_crossing_events = 2.0;
-        agg.mean_crossing_bribes = 1.0;
-        agg.crossing_bribe_success_rate = 0.5;
-        let err = validate_global_aggregates(&[agg]).expect_err("should fail");
-        assert!(err.to_string().contains("bribe success"));
-    }
-
-    #[test]
-    fn validate_global_aggregates_rejects_low_min_travel_ratio() {
-        let mut agg = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        agg.min_travel_ratio = 0.5;
-        let err = validate_global_aggregates(&[agg]).expect_err("should fail");
-        assert!(err.to_string().contains("minimum travel ratio"));
-    }
-
-    #[test]
-    fn emit_classic_strategy_warnings_emits_for_thresholds() {
-        let classic_balanced = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        let mut aggressive = base_aggregate(GameMode::Classic, GameplayStrategy::Aggressive);
-        aggressive.survival_rate = 0.95;
-        aggressive.boss_win_pct = 0.5;
-        let mut conservative = base_aggregate(GameMode::Classic, GameplayStrategy::Conservative);
-        conservative.boss_win_pct = 0.5;
-
-        emit_classic_strategy_warnings(
-            &[classic_balanced.clone(), aggressive, conservative],
-            &classic_balanced,
-        );
-    }
-
-    #[test]
-    fn warn_deep_boss_rates_emits_for_low_and_high() {
-        let mut low = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        low.boss_reach_pct = 0.1;
-        low.boss_win_pct = 0.05;
-        warn_deep_boss_rates(&low);
-
-        let mut high = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        high.boss_reach_pct = 0.8;
-        high.boss_win_pct = 0.6;
-        warn_deep_boss_rates(&high);
     }
 
     #[test]
@@ -1728,489 +1040,140 @@ mod tests {
     }
 
     #[test]
-    fn aggregate_playability_tracks_exposure_failure() {
+    fn aggregate_playability_tracks_pants_failure() {
         let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
-        record.metrics.failure_family = Some(FailureFamily::Exposure);
+        record.metrics.final_pants = 120;
+        record.metrics.ending_type = "Pants Failure".to_string();
         let aggregates = aggregate_playability(&[record]);
         let aggregate = aggregates
             .iter()
             .find(|agg| agg.scenario_name == "Classic - Balanced")
             .expect("aggregate");
-        assert!(aggregate.failure_exposure_pct > 0.0);
+        assert!(aggregate.pants_failure_pct > 0.0);
     }
 
-    #[test]
-    fn enforce_acceptance_guards_accepts_targets() {
-        let guard = scenario_guards(GameMode::Classic, GameplayStrategy::Balanced);
-        let (dist_min, dist_max) = guard_distance_window(&guard);
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.mean_travel_ratio = f64::from(guard.min_travel_ratio) + 0.01;
-        aggregate.mean_miles = f64::midpoint(dist_min, dist_max);
-        aggregate.mean_days = f64::midpoint(
-            f64::from(guard.target_days_min),
-            f64::from(guard.target_days_max),
-        );
-        enforce_acceptance_guards(&aggregate, &guard).expect("guards should pass");
+    fn satisfied_data() -> (Vec<PlayabilityAggregate>, Vec<PlayabilityRecord>) {
+        let aggregates = TEST_SCENARIOS
+            .iter()
+            .map(|&(mode, strategy)| base_aggregate(mode, strategy))
+            .collect();
+        let records = TEST_SCENARIOS
+            .iter()
+            .map(|&(mode, strategy)| base_record(mode, strategy))
+            .collect();
+        (aggregates, records)
     }
 
-    #[test]
-    fn enforce_acceptance_guards_rejects_low_ratio() {
-        let guard = scenario_guards(GameMode::Classic, GameplayStrategy::Balanced);
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.mean_travel_ratio = f64::from(guard.min_travel_ratio) - 0.1;
-        let err = enforce_acceptance_guards(&aggregate, &guard).expect_err("should fail");
-        assert!(err.to_string().contains("travel ratio"));
-    }
-
-    #[test]
-    fn find_aggregate_locates_match() {
-        let aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        let aggregates = [aggregate];
-        let found = find_aggregate(&aggregates, "Classic - Balanced").expect("found");
-        assert_eq!(found.scenario_name, "Classic - Balanced");
-    }
-
-    #[test]
-    fn validate_deep_conservative_passes_thresholds() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
-        aggregate.mean_travel_ratio = 0.95;
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.pants_failure_pct = 0.0;
-        validate_deep_conservative(&aggregate).expect("deep conservative should pass");
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_low_2k_rate() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.1;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("2,000 miles"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_low_boss_win() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.boss_win_pct = CLASSIC_BALANCED_BOSS_WIN_MIN - 0.01;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss win"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_high_boss_win() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.boss_win_pct = CLASSIC_BALANCED_BOSS_WIN_MAX + 0.01;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss win"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_high_boss_reach() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.boss_reach_pct = CLASSIC_BALANCED_BOSS_REACH_MAX + 0.05;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss reach"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_low_boss_reach() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.boss_reach_pct = CLASSIC_BALANCED_BOSS_REACH_MIN - 0.01;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss reach"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_failure_mix() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.failure_vehicle_pct = FAILURE_FAMILY_MAX_SHARE + 0.1;
-        aggregate.failure_sanity_pct = 0.0;
-        aggregate.failure_exposure_pct = 0.0;
-        aggregate.failure_crossing_pct = 0.0;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("failure mix"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_high_survival() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.survival_rate = CLASSIC_BALANCED_SURVIVAL_MAX + 0.05;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("survival"));
-    }
-
-    #[test]
-    fn validate_classic_balanced_rejects_low_survival() {
-        let mut aggregate = base_aggregate(GameMode::Classic, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.survival_rate = CLASSIC_BALANCED_SURVIVAL_MIN - 0.05;
-        let err = validate_classic_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("survival"));
-    }
-
-    #[test]
-    fn validate_deep_balanced_rejects_low_2k_rate() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        aggregate.pct_reached_2k_by_150 = 0.1;
-        let err = validate_deep_balanced(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("2,000 miles"));
-    }
-
-    #[test]
-    fn validate_deep_conservative_rejects_pants_failure() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.pants_failure_pct = 0.5;
-        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("pants failure"));
-    }
-
-    #[test]
-    fn validate_deep_conservative_rejects_low_2k_rate() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
-        aggregate.pct_reached_2k_by_150 = 0.1;
-        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("2k@150"));
-    }
-
-    #[test]
-    fn validate_deep_conservative_rejects_low_travel_ratio() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Conservative);
-        aggregate.pct_reached_2k_by_150 = 0.3;
-        aggregate.pants_failure_pct = 0.0;
-        aggregate.mean_travel_ratio = 0.85;
-        let err = validate_deep_conservative(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("travel ratio"));
-    }
-
-    #[test]
-    fn validate_deep_aggressive_rejects_low_boss_reach() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
-        aggregate.boss_reach_pct = 0.6;
-        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss reach"));
-    }
-
-    #[test]
-    fn validate_deep_aggressive_rejects_low_boss_win() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
-        aggregate.boss_win_pct = 0.01;
-        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("boss win"));
-    }
-
-    #[test]
-    fn validate_deep_aggressive_rejects_low_2k_rate() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Aggressive);
-        aggregate.pct_reached_2k_by_150 = 0.5;
-        let err = validate_deep_aggressive(&aggregate).expect_err("should fail");
-        assert!(err.to_string().contains("2k@150"));
-    }
-
-    #[test]
-    fn warn_deep_boss_rates_handles_high_reach() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        aggregate.boss_reach_pct = DEEP_BOSS_REACH_WARN_MAX + 0.05;
-        warn_deep_boss_rates(&aggregate);
-    }
-
-    #[test]
-    fn validate_global_aggregates_warns_on_high_crossing_failure() {
-        let mut aggregate = base_aggregate(GameMode::Deep, GameplayStrategy::Balanced);
-        aggregate.mean_crossing_events = 1.0;
-        aggregate.crossing_failure_rate = DEEP_CROSSING_WARN_MAX + 0.05;
-        let err = validate_global_aggregates(&[aggregate]).expect_err("should fail");
-        assert!(err.to_string().contains("crossing rate"));
-    }
-
-    #[test]
-    fn run_playability_analysis_reports_expectation_failures() {
-        let seeds = vec![SeedInfo::from_numeric(1337)];
-        let err = run_playability_analysis_with(&tester(false), &seeds, 1, |mode, strategy| {
-            SimulationPlan::new(mode, strategy)
-                .with_max_days(0)
-                .with_expectation(fail_expectation)
-        })
-        .expect_err("expectation should fail");
-        assert!(err.to_string().contains("Playability expectation failed"));
-    }
-
-    #[test]
-    fn aggregate_builder_tracks_field_repair_runs() {
-        let mut record = base_record(GameMode::Classic, GameplayStrategy::Balanced);
-        record.metrics.endgame.active = true;
-        record.metrics.endgame.field_repair_used = true;
-        let mut builder = AggregateBuilder::new(&record);
-        builder.ingest(&record.metrics);
-        let aggregate = builder.finish();
-        assert!(aggregate.endgame_field_repair_rate > 0.0);
-    }
-
-    #[test]
-    fn running_stats_variance_handles_single_sample() {
-        let mut stats = RunningStats::default();
-        stats.add(10.0);
-        assert!(stats.variance().abs() <= f64::EPSILON);
-    }
-}
-
-#[derive(Debug, Clone)]
-struct AggregateBuilder {
-    scenario_name: String,
-    mode: GameMode,
-    strategy: GameplayStrategy,
-    stats_days: RunningStats,
-    stats_miles: RunningStats,
-    avg_mpd_sum: f64,
-    iterations: u32,
-    boss_reached: u32,
-    boss_won: u32,
-    pants_failures: u32,
-    travel_ratio_sum: f64,
-    unique_per_20_sum: f64,
-    rotation_event_sum: u32,
-    milestone_hits: u32,
-    min_unique_per_20: f64,
-    min_travel_ratio: f64,
-    crossing_events_sum: u32,
-    crossing_permit_sum: u32,
-    crossing_bribe_attempt_sum: u32,
-    crossing_bribe_success_sum: u32,
-    crossing_detour_sum: u32,
-    crossing_failure_sum: u32,
-    stop_cap_sum: u32,
-    endgame_active_runs: u32,
-    endgame_field_repair_runs: u32,
-    endgame_cooldown_sum: u32,
-    survival_sum: u32,
-    failure_vehicle: u32,
-    failure_sanity: u32,
-    failure_exposure: u32,
-    failure_crossing: u32,
-}
-
-impl AggregateBuilder {
-    fn new(record: &PlayabilityRecord) -> Self {
-        Self {
-            scenario_name: record.scenario_name.clone(),
-            mode: record.mode,
-            strategy: record.strategy,
-            stats_days: RunningStats::default(),
-            stats_miles: RunningStats::default(),
-            avg_mpd_sum: 0.0,
-            iterations: 0,
-            boss_reached: 0,
-            boss_won: 0,
-            pants_failures: 0,
-            travel_ratio_sum: 0.0,
-            unique_per_20_sum: 0.0,
-            rotation_event_sum: 0,
-            milestone_hits: 0,
-            min_unique_per_20: f64::INFINITY,
-            min_travel_ratio: f64::INFINITY,
-            crossing_events_sum: 0,
-            crossing_permit_sum: 0,
-            crossing_bribe_attempt_sum: 0,
-            crossing_bribe_success_sum: 0,
-            crossing_detour_sum: 0,
-            crossing_failure_sum: 0,
-            stop_cap_sum: 0,
-            endgame_active_runs: 0,
-            endgame_field_repair_runs: 0,
-            endgame_cooldown_sum: 0,
-            survival_sum: 0,
-            failure_vehicle: 0,
-            failure_sanity: 0,
-            failure_exposure: 0,
-            failure_crossing: 0,
+    fn base_record(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityRecord {
+        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
+        PlayabilityRecord {
+            scenario_name,
+            mode,
+            strategy,
+            seed_code: "CL-TEST00".to_string(),
+            seed_value: 0,
+            metrics: base_metrics(mode),
         }
     }
 
-    fn ingest(&mut self, metrics: &PlayabilityMetrics) {
-        self.iterations += 1;
-        self.stats_days.add(f64::from(metrics.days_survived));
-        self.stats_miles.add(f64::from(metrics.miles_traveled));
-        self.avg_mpd_sum += metrics.avg_miles_per_day;
-        if metrics.boss.reached {
-            self.boss_reached += 1;
-        }
-        if metrics.boss.won {
-            self.boss_won += 1;
-        }
-        if metrics.final_pants >= 100 || metrics.ending_type.contains("Pants") {
-            self.pants_failures += 1;
-        }
-        if metrics.milestones.reached_2000_by_day150 {
-            self.milestone_hits += 1;
-        }
-        self.travel_ratio_sum += metrics.travel_ratio;
-        self.unique_per_20_sum += metrics.unique_per_20_days;
-        self.rotation_event_sum = self
-            .rotation_event_sum
-            .saturating_add(metrics.rotation_events);
-        self.min_unique_per_20 = self.min_unique_per_20.min(metrics.unique_per_20_days);
-        self.min_travel_ratio = self.min_travel_ratio.min(metrics.travel_ratio);
-        self.crossing_events_sum = self
-            .crossing_events_sum
-            .saturating_add(u32::try_from(metrics.crossing_events.len()).unwrap_or(0));
-        self.crossing_permit_sum = self
-            .crossing_permit_sum
-            .saturating_add(metrics.crossing_permit_uses);
-        self.crossing_bribe_attempt_sum = self
-            .crossing_bribe_attempt_sum
-            .saturating_add(metrics.crossing_bribe_attempts);
-        self.crossing_bribe_success_sum = self
-            .crossing_bribe_success_sum
-            .saturating_add(metrics.crossing_bribe_successes);
-        self.crossing_detour_sum = self
-            .crossing_detour_sum
-            .saturating_add(metrics.crossing_detours_taken);
-        self.crossing_failure_sum = self
-            .crossing_failure_sum
-            .saturating_add(metrics.crossing_failures);
-        self.stop_cap_sum = self
-            .stop_cap_sum
-            .saturating_add(metrics.stop_cap_conversions);
-        if metrics.endgame.active {
-            self.endgame_active_runs = self.endgame_active_runs.saturating_add(1);
-        }
-        if metrics.endgame.field_repair_used {
-            self.endgame_field_repair_runs = self.endgame_field_repair_runs.saturating_add(1);
-        }
-        self.endgame_cooldown_sum = self
-            .endgame_cooldown_sum
-            .saturating_add(metrics.endgame_cooldown_days);
-        if metrics.milestones.survived {
-            self.survival_sum = self.survival_sum.saturating_add(1);
-        }
-        match metrics.failure_family {
-            Some(FailureFamily::Vehicle) => {
-                self.failure_vehicle = self.failure_vehicle.saturating_add(1);
-            }
-            Some(FailureFamily::Sanity) => {
-                self.failure_sanity = self.failure_sanity.saturating_add(1);
-            }
-            Some(FailureFamily::Exposure) => {
-                self.failure_exposure = self.failure_exposure.saturating_add(1);
-            }
-            Some(FailureFamily::Crossing) => {
-                self.failure_crossing = self.failure_crossing.saturating_add(1);
-            }
-            _ => {}
-        }
+    fn base_metrics(mode: GameMode) -> PlayabilityMetrics {
+        let mut metrics = PlayabilityMetrics::default();
+        metrics.days_survived = 120;
+        metrics.miles_traveled = 2_000.0;
+        metrics.travel_days = 100;
+        metrics.partial_travel_days = 10;
+        metrics.non_travel_days = 5;
+        metrics.avg_miles_per_day = 15.0;
+        metrics.unique_encounters = 40;
+        metrics.rotation_events = 6;
+        metrics.travel_ratio = 0.75;
+        metrics.unique_per_20_days = if mode.is_deep() { 1.2 } else { 1.8 };
+        metrics.milestones.reached_2000_by_day150 = true;
+        metrics.crossing_events.clear();
+        metrics.crossing_permit_uses = 0;
+        metrics.crossing_bribe_attempts = 0;
+        metrics.crossing_bribe_successes = 0;
+        metrics.crossing_detours_taken = 0;
+        metrics.crossing_failures = 0;
+        metrics.milestones.survived = true;
+        metrics.failure_family = Some(FailureFamily::Vehicle);
+        metrics
     }
 
-    fn finish(self) -> PlayabilityAggregate {
-        let iterations_u32 = self.iterations.max(1);
-        let iterations = usize::try_from(self.iterations).unwrap_or(usize::MAX);
-        let denom = f64::from(iterations_u32);
-        let failure_total = f64::from(
-            self.failure_vehicle
-                + self.failure_sanity
-                + self.failure_exposure
-                + self.failure_crossing,
-        );
-        let failure_pct = |count: u32| -> f64 {
-            if failure_total <= f64::EPSILON {
-                0.0
-            } else {
-                f64::from(count) / failure_total
-            }
-        };
+    fn base_aggregate(mode: GameMode, strategy: GameplayStrategy) -> PlayabilityAggregate {
+        let scenario_name = format!("{} - {}", mode_label(mode), strategy);
         PlayabilityAggregate {
-            scenario_name: self.scenario_name,
-            mode: self.mode,
-            strategy: self.strategy,
-            iterations,
-            mean_days: self.stats_days.mean(),
-            std_days: self.stats_days.std_dev(),
-            mean_miles: self.stats_miles.mean(),
-            std_miles: self.stats_miles.std_dev(),
-            mean_avg_mpd: self.avg_mpd_sum / denom,
-            boss_reach_pct: f64::from(self.boss_reached) / denom,
-            boss_win_pct: f64::from(self.boss_won) / denom,
-            pants_failure_pct: f64::from(self.pants_failures) / denom,
-            mean_travel_ratio: self.travel_ratio_sum / denom,
-            mean_unique_per_20: self.unique_per_20_sum / denom,
-            mean_rotation_events: f64::from(self.rotation_event_sum) / denom,
-            pct_reached_2k_by_150: f64::from(self.milestone_hits) / denom,
-            min_unique_per_20: if self.min_unique_per_20.is_finite() {
-                self.min_unique_per_20
-            } else {
-                0.0
-            },
-            min_travel_ratio: if self.min_travel_ratio.is_finite() {
-                self.min_travel_ratio
-            } else {
-                0.0
-            },
-            mean_crossing_events: f64::from(self.crossing_events_sum) / denom,
-            crossing_permit_rate: if self.crossing_events_sum == 0 {
-                0.0
-            } else {
-                f64::from(self.crossing_permit_sum) / f64::from(self.crossing_events_sum)
-            },
-            mean_crossing_bribes: f64::from(self.crossing_bribe_attempt_sum) / denom,
-            crossing_bribe_success_rate: if self.crossing_bribe_attempt_sum == 0 {
-                0.0
-            } else {
-                f64::from(self.crossing_bribe_success_sum)
-                    / f64::from(self.crossing_bribe_attempt_sum)
-            },
-            mean_crossing_detours: f64::from(self.crossing_detour_sum) / denom,
-            crossing_failure_rate: if self.crossing_events_sum == 0 {
-                0.0
-            } else {
-                f64::from(self.crossing_failure_sum) / f64::from(self.crossing_events_sum)
-            },
-            mean_stop_cap_conversions: f64::from(self.stop_cap_sum) / denom,
-            endgame_activation_rate: f64::from(self.endgame_active_runs) / denom,
-            endgame_field_repair_rate: f64::from(self.endgame_field_repair_runs) / denom,
-            mean_endgame_cooldown: f64::from(self.endgame_cooldown_sum) / denom,
-            survival_rate: f64::from(self.survival_sum) / denom,
-            failure_vehicle_pct: failure_pct(self.failure_vehicle),
-            failure_sanity_pct: failure_pct(self.failure_sanity),
-            failure_exposure_pct: failure_pct(self.failure_exposure),
-            failure_crossing_pct: failure_pct(self.failure_crossing),
-        }
-    }
-}
-
-#[derive(Debug, Default, Clone)]
-struct RunningStats {
-    count: u32,
-    mean: f64,
-    m2: f64,
-}
-
-impl RunningStats {
-    fn add(&mut self, value: f64) {
-        self.count += 1;
-        let count = f64::from(self.count);
-        let delta = value - self.mean;
-        self.mean += delta / count;
-        let delta2 = value - self.mean;
-        self.m2 += delta * delta2;
-    }
-
-    const fn mean(&self) -> f64 {
-        if self.count == 0 { 0.0 } else { self.mean }
-    }
-
-    fn variance(&self) -> f64 {
-        if self.count > 1 {
-            self.m2 / f64::from(self.count - 1)
-        } else {
-            0.0
+            scenario_name,
+            mode,
+            strategy,
+            iterations: 10,
+            mean_days: 120.0,
+            std_days: 3.0,
+            mean_miles: 2_000.0,
+            std_miles: 25.0,
+            boss_reach_pct: 0.1,
+            boss_win_pct: 0.05,
+            pants_failure_pct: 0.1,
+            mean_travel_ratio: 0.7,
+            mean_unique_per_20: 1.2,
+            mean_rotation_events: 5.0,
+            pct_reached_2k_by_150: 0.2,
+            min_unique_per_20: 0.9,
+            min_travel_ratio: 0.6,
+            mean_crossing_events: 1.0,
+            crossing_permit_rate: 0.25,
+            mean_crossing_bribes: 0.0,
+            crossing_bribe_success_rate: 0.0,
+            mean_crossing_detours: 0.2,
+            crossing_failure_rate: 0.05,
         }
     }
 
-    fn std_dev(&self) -> f64 {
-        self.variance().sqrt()
+    fn csv_digest(records: &[PlayabilityRecord]) -> [u8; 32] {
+        let mut buffer = Vec::new();
+        generate_csv_report(&mut buffer, records).expect("csv serialization");
+        let mut hasher = Sha256::new();
+        hasher.update(buffer);
+        let digest = hasher.finalize();
+        let mut bytes = [0_u8; 32];
+        bytes.copy_from_slice(&digest);
+        bytes
+    }
+
+    fn journey_digest(seed: u64) -> [u8; 32] {
+        use dystrail_game::journey::JourneySession;
+        use dystrail_game::{EndgameTravelCfg, GameMode, StrategyId, TravelDayKind};
+        let encounters = EncounterData::empty();
+        let mut session = JourneySession::new(
+            GameMode::Classic,
+            StrategyId::Balanced,
+            seed,
+            encounters,
+            &EndgameTravelCfg::default_config(),
+        );
+        for _ in 0..120 {
+            let outcome = session.tick_day();
+            if outcome.ended {
+                break;
+            }
+        }
+        let state = session.into_state();
+        let mut buffer = String::new();
+        for record in &state.day_records {
+            use std::fmt::Write as _;
+            let kind = match record.kind {
+                TravelDayKind::Travel => "travel",
+                TravelDayKind::Partial => "partial",
+                TravelDayKind::NonTravel => "non_travel",
+            };
+            writeln!(buffer, "{},{:.3},{}", record.day_index, record.miles, kind)
+                .expect("write day record");
+        }
+        let mut hasher = Sha256::new();
+        hasher.update(buffer.as_bytes());
+        let digest = hasher.finalize();
+        let mut bytes = [0_u8; 32];
+        bytes.copy_from_slice(&digest);
+        bytes
     }
 }

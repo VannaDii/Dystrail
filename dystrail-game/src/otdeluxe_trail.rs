@@ -265,6 +265,21 @@ mod tests {
     }
 
     #[test]
+    fn total_miles_matches_variant_savings() {
+        let policy = OtDeluxe90sPolicy::default();
+        let trail = &policy.trail;
+        let main = total_miles_for_variant(trail, OtDeluxeTrailVariant::Main);
+        let sublette = total_miles_for_variant(trail, OtDeluxeTrailVariant::SubletteCutoff);
+        let dalles = total_miles_for_variant(trail, OtDeluxeTrailVariant::DallesShortcut);
+        let both = total_miles_for_variant(trail, OtDeluxeTrailVariant::SubletteAndDallesShortcut);
+
+        assert_eq!(main, 2083);
+        assert_eq!(sublette, main - 94);
+        assert_eq!(dalles, main - 50);
+        assert_eq!(both, main - 144);
+    }
+
+    #[test]
     fn price_multiplier_clamps_to_last_stage() {
         let policy = OtDeluxe90sPolicy::default();
         let store = &policy.store;

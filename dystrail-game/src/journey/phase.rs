@@ -908,6 +908,31 @@ mod tests {
     }
 
     #[test]
+    fn rest_intent_clamps_days_to_parity_range() {
+        let mut over_state = GameState {
+            intent: IntentState {
+                pending: DayIntent::Rest,
+                rest_days_remaining: 12,
+            },
+            ..GameState::default()
+        };
+        IntentPhase::new(&mut over_state).run();
+        assert!(matches!(over_state.intent.pending, DayIntent::Rest));
+        assert_eq!(over_state.intent.rest_days_remaining, 8);
+
+        let mut zero_state = GameState {
+            intent: IntentState {
+                pending: DayIntent::Rest,
+                rest_days_remaining: 0,
+            },
+            ..GameState::default()
+        };
+        IntentPhase::new(&mut zero_state).run();
+        assert!(matches!(zero_state.intent.pending, DayIntent::Continue));
+        assert_eq!(zero_state.intent.rest_days_remaining, 0);
+    }
+
+    #[test]
     fn intent_phase_handles_crossing_choice_pending() {
         let mut state = state_with_rng(19);
         state.intent.pending = DayIntent::CrossingChoicePending;

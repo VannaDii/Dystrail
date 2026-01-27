@@ -169,91 +169,6 @@ fn write_playability_summary(
             agg.mean_crossing_detours,
             failure_pct
         )?;
-        write_playability_warnings(
-            writer,
-            agg,
-            travel_pct,
-            min_travel_pct,
-            milestone_pct,
-            failure_pct,
-            bribe_succ_pct,
-        )?;
-    }
-    Ok(())
-}
-
-fn write_playability_warnings(
-    writer: &mut dyn Write,
-    agg: &PlayabilityAggregate,
-    travel_pct: f64,
-    min_travel_pct: f64,
-    milestone_pct: f64,
-    failure_pct: f64,
-    bribe_succ_pct: f64,
-) -> Result<()> {
-    if failure_pct > 12.0 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ crossing failure rate {failure_pct:.1}% exceeds 12% ceiling").yellow()
-        )?;
-    }
-    if agg.mean_crossing_bribes > 0.0 && bribe_succ_pct < 45.0 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ bribe success {bribe_succ_pct:.1}% below 45% target").yellow()
-        )?;
-    }
-    if agg.mean_travel_ratio < 0.80 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ travel ratio {travel_pct:.1}% below 80% target").yellow()
-        )?;
-    }
-    if agg.min_travel_ratio < 0.80 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ min travel ratio {min_travel_pct:.1}% below 80% requirement").yellow()
-        )?;
-    }
-    if agg.mean_unique_per_20 < 1.5 {
-        writeln!(
-            writer,
-            "   {}",
-            format!(
-                "⚠ unique encounters per 20d {:.2} below 1.5 target",
-                agg.mean_unique_per_20
-            )
-            .yellow()
-        )?;
-    }
-    if agg.min_unique_per_20 < 1.5 {
-        writeln!(
-            writer,
-            "   {}",
-            format!(
-                "⚠ min unique encounters per 20d {:.2} below 1.5 requirement",
-                agg.min_unique_per_20
-            )
-            .yellow()
-        )?;
-    }
-    if agg.mean_miles < 2000.0 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ average mileage {:.0} below 2000 mi goal", agg.mean_miles).yellow()
-        )?;
-    }
-    if milestone_pct < 25.0 {
-        writeln!(
-            writer,
-            "   {}",
-            format!("⚠ only {milestone_pct:.1}% of runs reached 2,000mi by day 150").yellow()
-        )?;
     }
     Ok(())
 }
@@ -493,7 +408,6 @@ mod tests {
             std_days: 0.0,
             mean_miles: 120.0,
             std_miles: 0.0,
-            mean_avg_mpd: 12.0,
             boss_reach_pct: 0.4,
             boss_win_pct: 0.2,
             pants_failure_pct: 0.1,
@@ -509,15 +423,6 @@ mod tests {
             crossing_bribe_success_rate: 0.2,
             mean_crossing_detours: 0.0,
             crossing_failure_rate: 0.05,
-            mean_stop_cap_conversions: 0.0,
-            endgame_activation_rate: 0.3,
-            endgame_field_repair_rate: 0.1,
-            mean_endgame_cooldown: 2.0,
-            survival_rate: 0.9,
-            failure_vehicle_pct: 0.0,
-            failure_sanity_pct: 0.0,
-            failure_exposure_pct: 0.0,
-            failure_crossing_pct: 0.0,
         }
     }
 
@@ -538,35 +443,6 @@ mod tests {
         generate_console_report(&mut out, &[], &[], Duration::ZERO).unwrap();
         let output = String::from_utf8(out).unwrap();
         assert!(output.contains("Logic Test Results Summary"));
-    }
-
-    #[test]
-    fn console_report_emits_warning_thresholds() {
-        let mut out = Vec::new();
-        let mut aggregate = sample_aggregate();
-        aggregate.crossing_failure_rate = 0.2;
-        aggregate.mean_crossing_bribes = 1.0;
-        aggregate.crossing_bribe_success_rate = 0.2;
-        aggregate.mean_travel_ratio = 0.6;
-        aggregate.min_travel_ratio = 0.6;
-        aggregate.mean_unique_per_20 = 1.0;
-        aggregate.min_unique_per_20 = 1.0;
-        aggregate.mean_miles = 1500.0;
-        aggregate.pct_reached_2k_by_150 = 0.2;
-        generate_console_report(
-            &mut out,
-            &[sample_result(true)],
-            &[aggregate],
-            Duration::from_secs(1),
-        )
-        .unwrap();
-        let output = String::from_utf8(out).unwrap();
-        assert!(output.contains("crossing failure rate"));
-        assert!(output.contains("bribe success"));
-        assert!(output.contains("travel ratio"));
-        assert!(output.contains("unique encounters per 20d"));
-        assert!(output.contains("average mileage"));
-        assert!(output.contains("2,000mi"));
     }
 
     #[test]

@@ -676,6 +676,8 @@ mod tests {
     use crate::mechanics::OtDeluxe90sPolicy;
     use crate::mechanics::otdeluxe90s::OtDeluxeCrossingOutcomeWeights;
     use crate::otdeluxe_state::OtDeluxeInventory;
+    use rand::SeedableRng;
+    use rand::rngs::SmallRng;
 
     struct FixedRng(u32);
 
@@ -814,6 +816,53 @@ mod tests {
             &low_cash,
         );
         assert!(!green_low_cash.ferry());
+    }
+
+    #[test]
+    fn crossing_options_respect_depth_thresholds() {
+        let policy = OtDeluxe90sPolicy::default();
+        let inventory = OtDeluxeInventory {
+            cash_cents: policy.crossings.ferry_cost_cents,
+            clothes_sets: policy.crossings.guide_cost_clothes_sets,
+            ..OtDeluxeInventory::default()
+        };
+
+        let shallow = OtDeluxeRiverState {
+            depth_ft: 1.4,
+            width_ft: 200.0,
+            swiftness: 0.4,
+            bed: OtDeluxeRiverBed::Muddy,
+        };
+        let shallow_opts = crossing_options(
+            &policy.crossings,
+            OtDeluxeRiver::Kansas,
+            &shallow,
+            &inventory,
+        );
+        assert!(shallow_opts.ford());
+        assert!(!shallow_opts.caulk_float());
+        assert!(!shallow_opts.ferry());
+
+        let mid = OtDeluxeRiverState {
+            depth_ft: 2.4,
+            width_ft: 200.0,
+            swiftness: 0.4,
+            bed: OtDeluxeRiverBed::Muddy,
+        };
+        let mid_opts = crossing_options(&policy.crossings, OtDeluxeRiver::Kansas, &mid, &inventory);
+        assert!(mid_opts.caulk_float());
+        assert!(!mid_opts.ferry());
+
+        let deep = OtDeluxeRiverState {
+            depth_ft: 2.6,
+            width_ft: 200.0,
+            swiftness: 0.4,
+            bed: OtDeluxeRiverBed::Muddy,
+        };
+        let deep_opts =
+            crossing_options(&policy.crossings, OtDeluxeRiver::Kansas, &deep, &inventory);
+        assert!(deep_opts.caulk_float());
+        assert!(deep_opts.ferry());
     }
 
     #[test]
@@ -1111,6 +1160,34 @@ mod tests {
         let mut rng = FixedRng(2);
         let result = sample_drownings(&policy.crossings, &mut rng);
         assert!((1..=3).contains(&result));
+    }
+
+    #[test]
+    fn ferry_wait_days_distribution_is_uniformish() {
+        let policy = OtDeluxe90sPolicy::default();
+        let mut rng = SmallRng::seed_from_u64(42);
+        let mut counts = [0u32; 7];
+        let draws = 7000;
+
+        for _ in 0..draws {
+            let sample = sample_wait_days(&policy.crossings, &mut rng);
+            let idx = usize::from(sample);
+            counts[idx] = counts[idx].saturating_add(1);
+        }
+
+        let expected = f64::from(draws) / 7.0;
+        let chi_square: f64 = counts
+            .iter()
+            .map(|&count| {
+                let diff = f64::from(count) - expected;
+                diff * diff / expected
+            })
+            .sum();
+
+        assert!(
+            chi_square < 20.0,
+            "ferry wait days chi-square {chi_square:.2} exceeds threshold"
+        );
     }
 
     #[test]

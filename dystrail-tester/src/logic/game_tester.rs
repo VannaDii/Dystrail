@@ -1978,6 +1978,17 @@ mod tests {
             classify_failure_family(&weather_state),
             Some(FailureFamily::Exposure)
         );
+
+        let other_state = GameState {
+            ending: Some(Ending::Collapse {
+                cause: CollapseCause::Panic,
+            }),
+            ..GameState::default()
+        };
+        assert_eq!(
+            classify_failure_family(&other_state),
+            Some(FailureFamily::Other)
+        );
     }
 
     #[test]

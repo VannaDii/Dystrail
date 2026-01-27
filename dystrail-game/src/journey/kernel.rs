@@ -1063,7 +1063,8 @@ mod tests {
             mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
             ..GameState::default()
         };
-        state.ot_deluxe.oxen.sick = 1;
+        state.ot_deluxe.oxen.healthy = 0;
+        state.ot_deluxe.oxen.sick = 0;
 
         let outcome = kernel.tick_day(&mut state);
 

@@ -820,6 +820,29 @@ mod tests {
     }
 
     #[test]
+    fn advance_prefers_forage_day_when_supplies_low() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Balanced,
+            7,
+        );
+        session.camp_config.forage.day = 1;
+        session.camp_config.forage.supplies = 3;
+        session.camp_config.forage.cooldown_days = 2;
+        session.state_mut().stats.supplies = 0;
+        session.state_mut().stats.hp = 10;
+        session.state_mut().stats.sanity = 10;
+        session.state_mut().camp.forage_cooldown = 0;
+        session.state_mut().current_encounter = None;
+
+        let mut policy = GameplayStrategy::Balanced.create_policy(0);
+        let outcome = session.advance(policy.as_mut());
+
+        assert_eq!(outcome.travel_message, "log.camp.forage");
+        assert_eq!(session.state().camp.forage_cooldown, 2);
+    }
+
+    #[test]
     fn try_resolve_crossing_skips_when_not_pending() {
         let mut session = make_session(
             MechanicalPolicyId::OtDeluxe90s,
@@ -876,6 +899,25 @@ mod tests {
         session.queue_boss_rest();
 
         assert!(session.state().day_state.rest.rest_requested);
+    }
+
+    #[test]
+    fn try_boss_minigame_reports_pants_emergency() {
+        let mut session = make_session(
+            MechanicalPolicyId::DystrailLegacy,
+            GameplayStrategy::Balanced,
+            99,
+        );
+        session.state_mut().boss.readiness.ready = true;
+        session.state_mut().boss.outcome.attempted = false;
+        session.state_mut().stats.pants = 99;
+        session.boss_config.rounds = 1;
+        session.boss_config.pants_gain_per_round = 1;
+        session.boss_config.sanity_loss_per_round = 0;
+
+        let message = session.try_boss_minigame().expect("boss message");
+
+        assert_eq!(message, "log.pants-emergency");
     }
 
     #[test]

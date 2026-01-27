@@ -575,7 +575,7 @@ impl Default for OtDeluxeOxenPolicy {
     fn default() -> Self {
         Self {
             sick_ox_weight: 0.5,
-            min_to_move: 1.0,
+            min_to_move: 0.0,
             min_for_base: 4.0,
         }
     }
@@ -1105,10 +1105,17 @@ mod tests {
 
         assert_eq!(policy.crossings.ferry_cost_cents, 500);
         assert_eq!(policy.crossings.guide_cost_clothes_sets, 3);
+        assert_f32_eq(policy.crossings.ferry_min_depth_ft, 2.5);
+        assert_f32_eq(policy.crossings.float_min_depth_ft, 1.5);
+        assert_f32_eq(policy.crossings.wet_goods_min_depth_ft, 2.5);
+        assert_f32_eq(policy.crossings.swamped_min_depth_ft, 3.0);
+        assert_eq!(policy.crossings.drying_cost_days, 1);
+        assert_eq!(policy.crossings.crossing_cost_days, 1);
+        assert_f32_eq(policy.crossings.guide_risk_mult, 0.20);
         assert_eq!(policy.crossings.ferry_wait_days_min, 0);
         assert_eq!(policy.crossings.ferry_wait_days_max, 6);
         assert_f32_eq(policy.oxen.sick_ox_weight, 0.5);
-        assert_f32_eq(policy.oxen.min_to_move, 1.0);
+        assert_f32_eq(policy.oxen.min_to_move, 0.0);
         assert_f32_eq(policy.oxen.min_for_base, 4.0);
         assert_f32_eq(policy.travel.base_mpd_plains_steady_good, 20.0);
         assert_f32_eq(policy.travel.terrain_mult_mountains, 0.5);
@@ -1122,6 +1129,12 @@ mod tests {
         assert_eq!(policy.affliction.weight_injury, 1);
         assert_eq!(policy.affliction.illness_duration_days, 10);
         assert_eq!(policy.affliction.injury_duration_days, 30);
+        assert_eq!(policy.health.recovery_baseline, -10);
+        assert_eq!(policy.health.death_threshold, 140);
+        assert_eq!(policy.health.label_ranges.good_max, 34);
+        assert_eq!(policy.health.label_ranges.fair_max, 69);
+        assert_eq!(policy.health.label_ranges.poor_max, 104);
+        assert_eq!(policy.health.label_ranges.very_poor_max, 139);
         assert!(policy.health.weather_penalty.is_empty());
         assert_eq!(policy.health.clothing_sets_per_person, 2);
         assert_eq!(policy.health.clothing_penalty_winter, 0);
@@ -1129,6 +1142,10 @@ mod tests {
         assert_eq!(policy.health.affliction_injury_penalty, 0);
         assert_f32_eq(policy.health.drought_threshold, 0.0);
         assert_eq!(policy.health.drought_penalty, 0);
+        assert_eq!(policy.actions.rest_days_min, 1);
+        assert_eq!(policy.actions.rest_days_max, 9);
+        assert_eq!(policy.actions.trade_cost_days, 1);
+        assert_eq!(policy.actions.hunt_cost_days, 1);
         assert_f32_eq(policy.navigation.chance_per_day, 0.0);
         assert_eq!(policy.navigation.lost_weight, 1);
         assert_eq!(policy.navigation.wrong_weight, 1);

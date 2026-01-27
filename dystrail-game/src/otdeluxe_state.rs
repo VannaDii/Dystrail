@@ -567,7 +567,7 @@ impl OtDeluxeState {
 
     #[must_use]
     pub fn travel_blocked_by_oxen(&self, policy: &OtDeluxe90sPolicy) -> bool {
-        self.effective_oxen(policy) < policy.oxen.min_to_move
+        self.effective_oxen(policy) <= policy.oxen.min_to_move
     }
 }
 
@@ -577,6 +577,7 @@ mod tests {
         OtDeluxeAfflictionKind, OtDeluxeCalendar, OtDeluxeOxenState, OtDeluxePartyMember,
         OtDeluxePartyState, OtDeluxeState,
     };
+    use crate::mechanics::otdeluxe90s::OtDeluxe90sPolicy;
     use crate::state::Season;
     use rand::SeedableRng;
     use rand::rngs::SmallRng;
@@ -776,5 +777,17 @@ mod tests {
         state.advance_days(0);
         assert_eq!(state.day, day_before);
         assert_eq!(state.calendar.month, month_before);
+    }
+
+    #[test]
+    fn travel_blocked_by_oxen_only_when_effective_zero() {
+        let policy = OtDeluxe90sPolicy::default();
+        let mut state = OtDeluxeState::default();
+        state.oxen.healthy = 0;
+        state.oxen.sick = 0;
+        assert!(state.travel_blocked_by_oxen(&policy));
+
+        state.oxen.sick = 1;
+        assert!(!state.travel_blocked_by_oxen(&policy));
     }
 }

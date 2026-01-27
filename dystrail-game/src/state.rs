@@ -2742,6 +2742,64 @@ mod tests {
     }
 
     #[test]
+    fn otdeluxe_travel_base_speed_on_plains_is_20() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.pace = OtDeluxePace::Steady;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state.ot_deluxe.miles_traveled = 0.0;
+
+        state.compute_otdeluxe_travel_distance_today();
+
+        assert!((state.distance_today - 20.0).abs() <= 1e-6);
+        assert!((state.distance_today_raw - 20.0).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_travel_mountains_halves_speed() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.pace = OtDeluxePace::Steady;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state.ot_deluxe.miles_traveled = 932.0;
+
+        state.compute_otdeluxe_travel_distance_today();
+
+        assert!((state.distance_today - 10.0).abs() <= 1e-6);
+        assert!((state.distance_today_raw - 10.0).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_travel_sick_member_penalty_reduces_speed() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 4;
+        state.ot_deluxe.pace = OtDeluxePace::Steady;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state.ot_deluxe.party.members[0].sick_days_remaining = 1;
+        state.ot_deluxe.miles_traveled = 0.0;
+
+        state.compute_otdeluxe_travel_distance_today();
+
+        assert!((state.distance_today - 18.0).abs() <= 1e-6);
+        assert!((state.distance_today_raw - 18.0).abs() <= 1e-6);
+    }
+
+    #[test]
+    fn otdeluxe_travel_sick_ox_scales_effective_oxen() {
+        let mut state = GameState::default();
+        state.ot_deluxe.oxen.healthy = 3;
+        state.ot_deluxe.oxen.sick = 1;
+        state.ot_deluxe.pace = OtDeluxePace::Steady;
+        state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+        state.ot_deluxe.miles_traveled = 0.0;
+
+        state.compute_otdeluxe_travel_distance_today();
+
+        assert!((state.distance_today - 17.5).abs() <= 1e-6);
+        assert!((state.distance_today_raw - 17.5).abs() <= 1e-6);
+    }
+
+    #[test]
     fn otdeluxe_travel_applies_snow_multiplier() {
         let mut state = GameState::default();
         let mut policy = OtDeluxe90sPolicy::default();

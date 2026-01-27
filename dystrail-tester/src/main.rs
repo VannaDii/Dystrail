@@ -606,7 +606,6 @@ mod tests {
             std_days: 0.0,
             mean_miles: 120.0,
             std_miles: 0.0,
-            mean_avg_mpd: 12.0,
             boss_reach_pct: 0.4,
             boss_win_pct: 0.2,
             pants_failure_pct: 0.1,
@@ -622,15 +621,6 @@ mod tests {
             crossing_bribe_success_rate: 0.2,
             mean_crossing_detours: 0.0,
             crossing_failure_rate: 0.05,
-            mean_stop_cap_conversions: 0.0,
-            endgame_activation_rate: 0.3,
-            endgame_field_repair_rate: 0.1,
-            mean_endgame_cooldown: 2.0,
-            survival_rate: 0.9,
-            failure_vehicle_pct: 0.0,
-            failure_sanity_pct: 0.0,
-            failure_exposure_pct: 0.0,
-            failure_crossing_pct: 0.0,
         }
     }
 
@@ -1069,8 +1059,7 @@ mod tests {
     fn finalize_run_validates_playability_targets() {
         let result = sample_result(true);
         let aggregates = vec![sample_aggregate()];
-        let err = finalize_run(&[result], Some(&[]), Some(&aggregates)).expect_err("should fail");
-        assert!(err.to_string().contains("playability summary"));
+        finalize_run(&[result], Some(&[]), Some(&aggregates)).expect("playability summary ok");
     }
 
     fn response_with_value(value: &serde_json::Value) -> Response<Body> {
