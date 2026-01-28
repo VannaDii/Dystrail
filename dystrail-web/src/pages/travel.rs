@@ -1,5 +1,5 @@
 use crate::components::ui::stats_bar::WeatherBadge;
-use crate::game::{DietId, GameState, PaceId, PacingConfig};
+use crate::game::{GameState, PacingConfig};
 use std::rc::Rc;
 use yew::prelude::*;
 
@@ -13,8 +13,9 @@ pub struct TravelPageProps {
     pub on_travel: Callback<()>,
     pub on_trade: Callback<()>,
     pub on_hunt: Callback<()>,
-    pub on_pace_change: Callback<PaceId>,
-    pub on_diet_change: Callback<DietId>,
+    pub on_open_inventory: Callback<()>,
+    pub on_open_pace_diet: Callback<()>,
+    pub on_open_map: Callback<()>,
 }
 
 impl PartialEq for TravelPageProps {
@@ -48,11 +49,12 @@ pub fn travel_page(props: &TravelPageProps) -> Html {
                 on_travel={props.on_travel.clone()}
                 on_trade={props.on_trade.clone()}
                 on_hunt={props.on_hunt.clone()}
+                on_open_inventory={props.on_open_inventory.clone()}
+                on_open_pace_diet={props.on_open_pace_diet.clone()}
+                on_open_map={props.on_open_map.clone()}
                 logs={props.logs.clone()}
                 game_state={Some(props.state.clone())}
                 pacing_config={props.pacing_config.clone()}
-                on_pace_change={props.on_pace_change.clone()}
-                on_diet_change={props.on_diet_change.clone()}
             />
         {
             if props.state.current_encounter.is_some() || props.data_ready {

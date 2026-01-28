@@ -5,19 +5,25 @@ use dystrail_web::game::{
     PacingConfig, ResultConfig, Stats,
 };
 use dystrail_web::pages::{
+    about::{AboutPage, AboutPageProps},
     boot::{BootPage, BootPageProps},
     boss::{BossPage, BossPageProps},
     camp::{CampPage, CampPageProps},
     crossing::{CrossingPage, CrossingPageProps},
     encounter::{EncounterPage, EncounterPageProps},
+    inventory::{InventoryPage, InventoryPageProps},
+    map::{MapPage, MapPageProps},
     menu::{MenuPage, MenuPageProps},
+    mode_select::{ModeSelectPage, ModeSelectPageProps},
     not_found::{NotFound, Props as NotFoundProps},
     otdeluxe_crossing::{OtDeluxeCrossingPage, OtDeluxeCrossingPageProps},
     otdeluxe_store::{OtDeluxeStorePage, OtDeluxeStorePageProps},
     outfitting::{OutfittingPage, OutfittingPageProps},
+    pace_diet::{PaceDietPage, PaceDietPageProps},
     persona::{PersonaPage, PersonaPageProps},
     result::{ResultPage, ResultPageProps},
     route_prompt::{RoutePromptPage, RoutePromptPageProps},
+    settings::{SettingsPage, SettingsPageProps},
     travel::{TravelPage, TravelPageProps},
 };
 use futures::executor::block_on;
@@ -57,7 +63,7 @@ fn boot_page_renders_loading_and_ready() {
         on_begin: Callback::noop(),
     };
     let html = block_on(LocalServerRenderer::<BootPage>::with_props(props_loading).render());
-    assert!(html.contains("Loading"));
+    assert!(html.contains(&dystrail_web::i18n::t("boot.loading_label")));
 
     let props_ready = BootPageProps {
         logo_src: "logo.png".into(),
@@ -66,20 +72,56 @@ fn boot_page_renders_loading_and_ready() {
         on_begin: Callback::noop(),
     };
     let html = block_on(LocalServerRenderer::<BootPage>::with_props(props_ready).render());
-    assert!(html.contains("PRESS ANY KEY TO BEGIN"));
+    assert!(html.contains(&dystrail_web::i18n::t("boot.press_any_key")));
 }
 
 #[test]
 fn menu_page_renders_seed_and_menu() {
     dystrail_web::i18n::set_lang("en");
     let props = MenuPageProps {
-        code: "CL-ORANGE42".into(),
         logo_src: "logo.png".into(),
         on_action: Callback::noop(),
     };
     let html = block_on(LocalServerRenderer::<MenuPage>::with_props(props).render());
-    assert!(html.contains("D Y S T R A I L"));
-    assert!(html.contains("CL-ORANGE42"));
+    assert!(html.contains("Dystrail"));
+    assert!(html.contains(&dystrail_web::i18n::t("menu.start_journey")));
+}
+
+#[test]
+fn about_page_renders_copy() {
+    dystrail_web::i18n::set_lang("en");
+    let props = AboutPageProps {
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<AboutPage>::with_props(props).render());
+    assert!(html.contains(&dystrail_web::i18n::t("about.title")));
+}
+
+#[test]
+fn settings_page_renders_controls() {
+    dystrail_web::i18n::set_lang("en");
+    let props = SettingsPageProps {
+        current_lang: "en".to_string(),
+        high_contrast: false,
+        on_lang_change: Callback::noop(),
+        on_toggle_hc: Callback::noop(),
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<SettingsPage>::with_props(props).render());
+    assert!(html.contains(&dystrail_web::i18n::t("settings.title")));
+    assert!(html.contains("settings-language"));
+}
+
+#[test]
+fn mode_select_page_renders_options() {
+    dystrail_web::i18n::set_lang("en");
+    let props = ModeSelectPageProps {
+        on_continue: Callback::noop(),
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<ModeSelectPage>::with_props(props).render());
+    assert!(html.contains(&dystrail_web::i18n::t("mode.title")));
+    assert!(html.contains(&dystrail_web::i18n::t("mode.classic")));
 }
 
 #[test]
@@ -99,6 +141,7 @@ fn outfitting_page_renders_store() {
     let props = OutfittingPageProps {
         game_state: base_state(),
         on_continue: Callback::noop(),
+        on_back: Callback::noop(),
     };
     let html = block_on(LocalServerRenderer::<OutfittingPage>::with_props(props).render());
     assert!(html.contains("outfitting-store"));
@@ -116,12 +159,50 @@ fn travel_page_renders_panel_and_stats() {
         on_travel: Callback::noop(),
         on_trade: Callback::noop(),
         on_hunt: Callback::noop(),
-        on_pace_change: Callback::noop(),
-        on_diet_change: Callback::noop(),
+        on_open_inventory: Callback::noop(),
+        on_open_pace_diet: Callback::noop(),
+        on_open_map: Callback::noop(),
     };
     let html = block_on(LocalServerRenderer::<TravelPage>::with_props(props).render());
     assert!(html.contains("stats-panel"));
     assert!(html.contains("travel-shell"));
+}
+
+#[test]
+fn inventory_page_renders_content() {
+    dystrail_web::i18n::set_lang("en");
+    let props = InventoryPageProps {
+        state: Rc::new(base_state()),
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<InventoryPage>::with_props(props).render());
+    assert!(html.contains(&dystrail_web::i18n::t("inventory.title")));
+}
+
+#[test]
+fn pace_diet_page_renders_panel() {
+    dystrail_web::i18n::set_lang("en");
+    let props = PaceDietPageProps {
+        state: Rc::new(base_state()),
+        pacing_config: Rc::new(PacingConfig::default()),
+        on_pace_change: Callback::noop(),
+        on_diet_change: Callback::noop(),
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<PaceDietPage>::with_props(props).render());
+    assert!(html.contains("pace-diet-panel"));
+}
+
+#[test]
+fn map_page_renders_progress() {
+    dystrail_web::i18n::set_lang("en");
+    let props = MapPageProps {
+        state: Rc::new(base_state()),
+        on_back: Callback::noop(),
+    };
+    let html = block_on(LocalServerRenderer::<MapPage>::with_props(props).render());
+    let expected = dystrail_web::i18n::t("map.title").replace('&', "&amp;");
+    assert!(html.contains(&expected));
 }
 
 #[test]

@@ -8,7 +8,6 @@ use yew::prelude::*;
 pub enum PanelMode {
     Main,
     WeatherDetails,
-    PaceDiet,
 }
 
 pub struct IntentActions<'a> {
@@ -21,13 +20,14 @@ pub struct PanelContext<'a> {
     pub breakdown_msg: Option<&'a str>,
     pub mode: PanelMode,
     pub weather_details: Html,
-    pub pace_diet_panel: Html,
     pub weather_info: Html,
     pub logs: &'a [String],
     pub game_state: Option<&'a GameState>,
     pub pacing_config: &'a PacingConfig,
     pub intent_actions: Option<IntentActions<'a>>,
-    pub on_show_pace_diet: &'a Callback<MouseEvent>,
+    pub on_open_inventory: &'a Callback<MouseEvent>,
+    pub on_open_pace_diet: &'a Callback<MouseEvent>,
+    pub on_open_map: &'a Callback<MouseEvent>,
     pub on_toggle_weather_details: &'a Callback<MouseEvent>,
     pub on_click: &'a Callback<MouseEvent>,
 }
@@ -68,7 +68,6 @@ fn render_breakdown(travel_blocked: bool, breakdown_msg: Option<&str>) -> Html {
 fn render_body(ctx: &PanelContext<'_>) -> Html {
     match ctx.mode {
         PanelMode::WeatherDetails => ctx.weather_details.clone(),
-        PanelMode::PaceDiet => ctx.pace_diet_panel.clone(),
         PanelMode::Main => html! {
             <div class="travel-body">
                 { render_block_notice(ctx.travel_blocked) }
@@ -140,8 +139,14 @@ fn render_footer(ctx: &PanelContext<'_>) -> Html {
     html! {
         <footer class="panel-footer">
             { intent_actions }
-            <button onclick={ctx.on_show_pace_diet.clone()} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
+            <button onclick={ctx.on_open_inventory.clone()} aria-label={i18n::t("menu.inventory")} class="retro-btn-secondary">
+                { i18n::t("menu.inventory") }
+            </button>
+            <button onclick={ctx.on_open_pace_diet.clone()} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
                 { i18n::t("pacediet.title") }
+            </button>
+            <button onclick={ctx.on_open_map.clone()} aria-label={i18n::t("map.title")} class="retro-btn-secondary">
+                { i18n::t("map.title") }
             </button>
             <button
                 onclick={ctx.on_toggle_weather_details.clone()}

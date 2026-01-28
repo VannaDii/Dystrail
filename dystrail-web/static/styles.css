@@ -305,6 +305,60 @@ input:focus, textarea:focus, select:focus {
     inset 0 0 0 2px var(--accent);
 }
 
+/* Shell (Boot/Menu/Meta) overrides */
+.shell-screen {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.shell-card {
+  background-color: var(--panel);
+  border-color: var(--panel-border);
+  color: var(--text);
+}
+
+.shell-btn {
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  box-shadow: none;
+}
+.shell-btn::before {
+  content: none;
+}
+
+.shell-input {
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  box-shadow: none;
+}
+
+.menu-shell {
+  width: 100%;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.mode-options {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.mode-options .selected {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Field layout */
 .field {
   display: flex;

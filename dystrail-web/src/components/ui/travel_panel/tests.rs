@@ -1,8 +1,8 @@
 use super::layout::{IntentActions, PanelContext, PanelMode, render_panel};
 use super::pace::{diet_code, diet_preview, pace_code, pace_preview};
 use super::view::{
-    build_pace_diet_panel, build_weather_details, compute_panel_mode, next_flag_state,
-    next_flag_toggle, show_flag_action, toggle_flag_action,
+    build_weather_details, compute_panel_mode, next_flag_state, next_flag_toggle, show_flag_action,
+    toggle_flag_action,
 };
 use super::weather::{
     format_delta, format_percent, format_weather_announcement, render_weather_details,
@@ -59,11 +59,12 @@ fn travel_panel_render_includes_weather_and_breakdown() {
             on_travel: Callback::noop(),
             on_trade: Callback::noop(),
             on_hunt: Callback::noop(),
+            on_open_inventory: Callback::noop(),
+            on_open_pace_diet: Callback::noop(),
+            on_open_map: Callback::noop(),
             logs: vec!["Welcome back".into()],
             game_state: Some(sample_game_state()),
             pacing_config: Rc::new(PacingConfig::default_config()),
-            on_pace_change: Callback::noop(),
-            on_diet_change: Callback::noop(),
         })
         .render(),
     );
@@ -134,7 +135,9 @@ fn panel_harness(props: &PanelHarnessProps) -> Html {
     let game_state = GameState::default();
     let pacing_config = PacingConfig::default_config();
     let on_click = Callback::from(|_e: MouseEvent| {});
-    let on_show_pace_diet = Callback::from(|_e: MouseEvent| {});
+    let on_open_inventory = Callback::from(|_e: MouseEvent| {});
+    let on_open_pace_diet = Callback::from(|_e: MouseEvent| {});
+    let on_open_map = Callback::from(|_e: MouseEvent| {});
     let on_toggle_weather_details = Callback::from(|_e: MouseEvent| {});
     let on_trade = Callback::from(|_e: MouseEvent| {});
     let on_hunt = Callback::from(|_e: MouseEvent| {});
@@ -148,13 +151,14 @@ fn panel_harness(props: &PanelHarnessProps) -> Html {
         breakdown_msg: None,
         mode: props.mode,
         weather_details: html! { <div class="weather-details-card">{"details"}</div> },
-        pace_diet_panel: html! { <div class="pace-diet-panel">{"pace diet"}</div> },
         weather_info: html! { <div class="weather-info">{"weather"}</div> },
         logs: &props.logs,
         game_state: props.with_game_state.then_some(&game_state),
         pacing_config: &pacing_config,
         intent_actions,
-        on_show_pace_diet: &on_show_pace_diet,
+        on_open_inventory: &on_open_inventory,
+        on_open_pace_diet: &on_open_pace_diet,
+        on_open_map: &on_open_map,
         on_toggle_weather_details: &on_toggle_weather_details,
         on_click: &on_click,
     };
@@ -192,21 +196,6 @@ fn render_panel_weather_details_renders_details_card() {
         .render(),
     );
     assert!(html.contains("weather-details-card"));
-}
-
-#[test]
-fn render_panel_pace_diet_renders_panel() {
-    let html = block_on(
-        LocalServerRenderer::<PanelHarness>::with_props(PanelHarnessProps {
-            mode: PanelMode::PaceDiet,
-            logs: Vec::new(),
-            travel_blocked: false,
-            with_game_state: true,
-            show_intents: false,
-        })
-        .render(),
-    );
-    assert!(html.contains("pace-diet-panel"));
 }
 
 #[test]
@@ -270,9 +259,8 @@ fn flag_helpers_return_expected_values() {
 
 #[test]
 fn compute_panel_mode_prioritizes_weather_details() {
-    assert_eq!(compute_panel_mode(true, true), PanelMode::WeatherDetails);
-    assert_eq!(compute_panel_mode(false, true), PanelMode::PaceDiet);
-    assert_eq!(compute_panel_mode(false, false), PanelMode::Main);
+    assert_eq!(compute_panel_mode(true), PanelMode::WeatherDetails);
+    assert_eq!(compute_panel_mode(false), PanelMode::Main);
 }
 
 #[test]
@@ -287,47 +275,6 @@ fn build_weather_details_renders_card_when_enabled() {
 
     let html = block_on(LocalServerRenderer::<WeatherDetailsHarness>::new().render());
     assert!(html.contains("weather-details-card"));
-}
-
-#[test]
-fn build_pace_diet_panel_reports_missing_state() {
-    #[function_component(PaceDietMissingHarness)]
-    fn pace_diet_missing_harness() -> Html {
-        crate::i18n::set_lang("en");
-        let on_back = Callback::noop();
-        build_pace_diet_panel(
-            true,
-            None,
-            Rc::new(PacingConfig::default_config()),
-            Callback::noop(),
-            Callback::noop(),
-            &on_back,
-        )
-    }
-
-    let html = block_on(LocalServerRenderer::<PaceDietMissingHarness>::new().render());
-    assert!(html.contains("Game state unavailable"));
-}
-
-#[test]
-fn build_pace_diet_panel_renders_panel_with_state() {
-    #[function_component(PaceDietHarness)]
-    fn pace_diet_harness() -> Html {
-        crate::i18n::set_lang("en");
-        let state = sample_game_state();
-        let on_back = Callback::noop();
-        build_pace_diet_panel(
-            true,
-            Some(state),
-            Rc::new(PacingConfig::default_config()),
-            Callback::noop(),
-            Callback::noop(),
-            &on_back,
-        )
-    }
-
-    let html = block_on(LocalServerRenderer::<PaceDietHarness>::new().render());
-    assert!(html.contains("pace-diet-panel"));
 }
 
 #[test]
@@ -418,11 +365,12 @@ fn travel_panel_props_eq_tracks_logs_and_pace_diet() {
             on_travel: Callback::noop(),
             on_trade: Callback::noop(),
             on_hunt: Callback::noop(),
+            on_open_inventory: Callback::noop(),
+            on_open_pace_diet: Callback::noop(),
+            on_open_map: Callback::noop(),
             logs,
             game_state: Some(Rc::new(state)),
             pacing_config: pacing.clone(),
-            on_pace_change: Callback::noop(),
-            on_diet_change: Callback::noop(),
         }
     };
 

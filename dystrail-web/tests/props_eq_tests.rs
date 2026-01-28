@@ -235,8 +235,9 @@ fn page_props_compare_otdeluxe_and_travel() {
         on_travel: Callback::noop(),
         on_trade: Callback::noop(),
         on_hunt: Callback::noop(),
-        on_pace_change: Callback::noop(),
-        on_diet_change: Callback::noop(),
+        on_open_inventory: Callback::noop(),
+        on_open_pace_diet: Callback::noop(),
+        on_open_map: Callback::noop(),
     };
     let travel_b = TravelPageProps {
         state: state_rc,
@@ -247,8 +248,9 @@ fn page_props_compare_otdeluxe_and_travel() {
         on_travel: Callback::noop(),
         on_trade: Callback::noop(),
         on_hunt: Callback::noop(),
-        on_pace_change: Callback::noop(),
-        on_diet_change: Callback::noop(),
+        on_open_inventory: Callback::noop(),
+        on_open_pace_diet: Callback::noop(),
+        on_open_map: Callback::noop(),
     };
     assert!(travel_a == travel_b);
 }

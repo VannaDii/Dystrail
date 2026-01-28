@@ -207,7 +207,7 @@
   "menu": {
     "camp": "Kemah",
     "diet": "Diet informasi",
-    "help": "Pencet 1–8/0 utawa klik item. Wiji: {{seed}}",
+    "help": "Use ↑/↓ to choose. Enter to select.",
     "inventory": "Gunakno inventaris",
     "pace": "Ganti jangkah",
     "quit": "Metu",
@@ -216,11 +216,18 @@
     "share": "Simpen/enggo wiji",
     "status": "Kahanan",
     "title": "Menu Utama",
-    "travel": "Mlaku"
+    "travel": "Mlaku",
+    "subtitle": "Stand at the trailhead.",
+    "footer": "A parody survival game",
+    "start_journey": "Start Journey",
+    "about": "About the Trail",
+    "accessibility": "Accessibility & Settings"
   },
   "mode": {
     "classic": "Klasik",
-    "deep": "Ujung Jero"
+    "deep": "Ujung Jero",
+    "title": "Mode Select",
+    "subtitle": "Choose the run difficulty band."
   },
   "nav": {
     "home": "Omah",
@@ -507,7 +514,8 @@
     "skip_to_content": "Lompat menyang konten",
     "hc_on": "Kontras dhuwur urip",
     "hc_off": "Kontras dhuwur mati",
-    "hc_toggle": "Kontras dhuwur urip"
+    "hc_toggle": "Kontras dhuwur urip",
+    "back": "Back"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "Cuaca"
   },
   "settings": {
-    "title": "Setelan"
+    "title": "Setelan",
+    "subtitle": "Adjust language and contrast.",
+    "language_label": "Language"
   },
   "not_found": {
     "title": "Kaca ora ditemokake",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "A satirical 16-bit trek to DC",
+    "loading": "Dystrail loading",
+    "ready": "Ready. Press any key to begin.",
+    "loading_label": "Loading encounters…",
+    "press_any_key": "Press any key to begin"
+  },
+  "about": {
+    "title": "About the Trail",
+    "subtitle": "A satirical survival trek",
+    "body": "Dystrail blends political parody with classic trail survival."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "supplies": "Supplies",
+    "spare_tire": "Spare tire",
+    "spare_battery": "Spare battery",
+    "spare_alt": "Spare alternator",
+    "spare_pump": "Spare fuel pump",
+    "tags": "Tags",
+    "tags_none": "No tags"
+  },
+  "map": {
+    "title": "Map & Progress",
+    "distance_traveled": "Miles traveled",
+    "distance_today": "Miles today",
+    "region": "Region"
   }
 }

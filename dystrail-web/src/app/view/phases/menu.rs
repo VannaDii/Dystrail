@@ -1,176 +1,124 @@
-use crate::app::phase::{Phase, session_from_state};
+use crate::app::phase::Phase;
 use crate::app::state::AppState;
-use crate::game::seed::{decode_to_seed, generate_code_from_entropy};
-use crate::game::state::{GameMode, GameState};
-use crate::game::{EncounterData, EndgameTravelCfg, JourneySession};
 use crate::pages::menu::{MenuAction, MenuPage};
 use yew::prelude::*;
 
-struct StartRunPlan {
-    code: AttrValue,
-    session: JourneySession,
-    pending_state: GameState,
-    run_seed: u64,
-    logs: Vec<String>,
-    phase: Phase,
-}
-
 #[derive(Clone)]
 struct MenuActionHandlers {
-    start_run: Callback<()>,
-    open_save: Callback<()>,
+    start_journey: Callback<()>,
+    open_about: Callback<()>,
     open_settings: Callback<()>,
-    set_phase: Callback<Phase>,
+    quit: Callback<()>,
 }
 
-#[cfg(target_arch = "wasm32")]
-fn next_entropy() -> u64 {
-    js_sys::Date::now().to_bits()
+trait RunStateTarget {
+    fn set_session(&self, value: Option<crate::game::JourneySession>);
+    fn set_pending_state(&self, value: Option<crate::game::GameState>);
+    fn set_logs(&self, value: Vec<String>);
+    fn set_run_seed(&self, value: u64);
+    fn set_code(&self, value: AttrValue);
+    fn set_show_save(&self, value: bool);
+    fn set_show_settings(&self, value: bool);
 }
 
-#[cfg(not(target_arch = "wasm32"))]
-const fn next_entropy() -> u64 {
-    0
-}
+impl RunStateTarget for AppState {
+    fn set_session(&self, value: Option<crate::game::JourneySession>) {
+        self.session.set(value);
+    }
 
-fn open_save_action(
-    show_save: UseStateHandle<bool>,
-    save_focus: UseStateHandle<AttrValue>,
-) -> Callback<()> {
-    Callback::from(move |()| {
-        save_focus.set(AttrValue::from("save-open-btn"));
-        show_save.set(true);
-    })
-}
+    fn set_pending_state(&self, value: Option<crate::game::GameState>) {
+        self.pending_state.set(value);
+    }
 
-fn apply_start_run_plan(state: &AppState, plan: StartRunPlan) {
-    state.code.set(plan.code);
-    state.logs.set(plan.logs);
-    state.run_seed.set(plan.run_seed);
-    state.pending_state.set(Some(plan.pending_state));
-    state.session.set(Some(plan.session));
-    state.phase.set(plan.phase);
-}
+    fn set_logs(&self, value: Vec<String>) {
+        self.logs.set(value);
+    }
 
-fn build_plan_from_seed(
-    seed: u64,
-    is_deep: bool,
-    pending_state: Option<GameState>,
-    data: &EncounterData,
-    endgame_cfg: &EndgameTravelCfg,
-    code: AttrValue,
-) -> StartRunPlan {
-    let mode = if is_deep {
-        GameMode::Deep
-    } else {
-        GameMode::Classic
-    };
-    let base = pending_state.unwrap_or_default();
-    let gs = base.with_seed(seed, mode, data.clone());
-    let sess = session_from_state(gs, endgame_cfg);
-    let mode_label = if is_deep {
-        crate::i18n::t("mode.deep")
-    } else {
-        crate::i18n::t("mode.classic")
-    };
-    let mut m = std::collections::BTreeMap::new();
-    m.insert("mode", mode_label.as_str());
-    let logs = vec![crate::i18n::tr("log.run_begins", Some(&m))];
-    StartRunPlan {
-        code,
-        pending_state: sess.state().clone(),
-        session: sess,
-        run_seed: seed,
-        logs,
-        phase: Phase::Travel,
+    fn set_run_seed(&self, value: u64) {
+        self.run_seed.set(value);
+    }
+
+    fn set_code(&self, value: AttrValue) {
+        self.code.set(value);
+    }
+
+    fn set_show_save(&self, value: bool) {
+        self.show_save.set(value);
+    }
+
+    fn set_show_settings(&self, value: bool) {
+        self.show_settings.set(value);
     }
 }
 
-fn build_start_run_plan(
-    code: &str,
-    pending_state: Option<GameState>,
-    data: &EncounterData,
-    endgame_cfg: &EndgameTravelCfg,
-    entropy: u64,
-) -> Option<StartRunPlan> {
-    if let Some((is_deep, seed)) = decode_to_seed(code) {
-        return Some(build_plan_from_seed(
-            seed,
-            is_deep,
-            pending_state,
-            data,
-            endgame_cfg,
-            AttrValue::from(code),
-        ));
-    }
-
-    let new_code = generate_code_from_entropy(false, entropy);
-    decode_to_seed(&new_code).map(|(is_deep, seed)| {
-        build_plan_from_seed(
-            seed,
-            is_deep,
-            pending_state,
-            data,
-            endgame_cfg,
-            AttrValue::from(new_code),
-        )
-    })
-}
-
-fn start_with_code_action(state: &AppState) -> Callback<()> {
-    let code_handle = state.code.clone();
-    let pending_handle = state.pending_state.clone();
-    let data_handle = state.data.clone();
-    let endgame_cfg = (*state.endgame_config).clone();
-    let state = state.clone();
-    Callback::from(move |()| {
-        let entropy = next_entropy();
-        if let Some(plan) = build_start_run_plan(
-            code_handle.as_str(),
-            (*pending_handle).clone(),
-            &data_handle,
-            &endgame_cfg,
-            entropy,
-        ) {
-            apply_start_run_plan(&state, plan);
-        }
-    })
+fn reset_run_state<T: RunStateTarget>(state: &T) {
+    state.set_session(None);
+    state.set_pending_state(None);
+    state.set_logs(Vec::new());
+    state.set_run_seed(0);
+    state.set_code(AttrValue::from(""));
+    state.set_show_save(false);
+    state.set_show_settings(false);
 }
 
 fn menu_action_callback(handlers: MenuActionHandlers) -> Callback<MenuAction> {
     Callback::from(move |action: MenuAction| match action {
-        MenuAction::StartRun => handlers.start_run.emit(()),
-        MenuAction::CampPreview => handlers.set_phase.emit(Phase::Camp),
-        MenuAction::OpenSave => handlers.open_save.emit(()),
-        MenuAction::OpenSettings => handlers.open_settings.emit(()),
-        MenuAction::Reset => handlers.set_phase.emit(Phase::Boot),
+        MenuAction::StartJourney => handlers.start_journey.emit(()),
+        MenuAction::About => handlers.open_about.emit(()),
+        MenuAction::Settings => handlers.open_settings.emit(()),
+        MenuAction::Quit => handlers.quit.emit(()),
     })
 }
 
-pub fn render_menu(state: &AppState) -> Html {
-    let start_with_code_action = start_with_code_action(state);
-    let open_save = open_save_action(state.show_save.clone(), state.save_focus_target.clone());
-    let open_settings = {
-        let show_settings = state.show_settings.clone();
-        Callback::from(move |()| show_settings.set(true))
-    };
+fn build_menu_action_handlers(state: &AppState) -> MenuActionHandlers {
     let set_phase = {
         let phase_handle = state.phase.clone();
         Callback::from(move |phase: Phase| phase_handle.set(phase))
     };
-    let on_action = menu_action_callback(MenuActionHandlers {
-        start_run: start_with_code_action,
-        open_save,
-        open_settings,
-        set_phase,
-    });
 
+    let start_journey = {
+        let state = state.clone();
+        let set_phase = set_phase.clone();
+        Callback::from(move |()| {
+            reset_run_state(&state);
+            set_phase.emit(Phase::Persona);
+        })
+    };
+
+    let open_about = {
+        let set_phase = set_phase.clone();
+        Callback::from(move |()| set_phase.emit(Phase::About))
+    };
+
+    let open_settings = {
+        let set_phase = set_phase.clone();
+        Callback::from(move |()| set_phase.emit(Phase::Settings))
+    };
+
+    let quit = {
+        let state = state.clone();
+        let set_phase = set_phase;
+        Callback::from(move |()| {
+            reset_run_state(&state);
+            set_phase.emit(Phase::Boot);
+        })
+    };
+
+    MenuActionHandlers {
+        start_journey,
+        open_about,
+        open_settings,
+        quit,
+    }
+}
+
+pub fn render_menu(state: &AppState) -> Html {
+    let on_action = menu_action_callback(build_menu_action_handlers(state));
     let menu_logo_src: AttrValue = crate::paths::asset_path("static/img/logo.png").into();
     html! {
         <MenuPage
-            code={(*state.code).clone()}
             logo_src={menu_logo_src}
-            {on_action}
+            on_action={on_action}
         />
     }
 }
@@ -179,167 +127,242 @@ pub fn render_menu(state: &AppState) -> Html {
 mod tests {
     use super::*;
     use futures::executor::block_on;
-    use std::cell::{Cell, RefCell};
+    use std::cell::Cell;
+    use std::cell::RefCell;
     use std::rc::Rc;
     use yew::LocalServerRenderer;
 
-    #[test]
-    fn start_run_plan_uses_valid_code() {
-        crate::i18n::set_lang("en");
-        let data = EncounterData::load_from_static();
-        let endgame = EndgameTravelCfg::default_config();
-        let code = "CL-ORANGE42";
-        let plan =
-            build_start_run_plan(code, None, &data, &endgame, 0).expect("plan should be built");
-        assert_eq!(plan.code.as_str(), code);
-        assert_eq!(plan.phase, Phase::Travel);
-        assert_eq!(plan.pending_state.seed, plan.run_seed);
-        assert!(!plan.logs.is_empty());
-    }
-
-    #[test]
-    fn start_run_plan_generates_code_when_invalid() {
-        crate::i18n::set_lang("en");
-        let data = EncounterData::load_from_static();
-        let endgame = EndgameTravelCfg::default_config();
-        let entropy = 123_456_u64;
-        let plan = build_start_run_plan("invalid", None, &data, &endgame, entropy)
-            .expect("plan should be built");
-        let expected_code = generate_code_from_entropy(false, entropy);
-        assert_eq!(plan.code.as_str(), expected_code);
-        assert_eq!(plan.pending_state.seed, plan.run_seed);
-        assert_eq!(plan.pending_state.mode, GameMode::Classic);
-    }
-
-    #[test]
-    fn start_run_plan_builds_deep_mode() {
-        crate::i18n::set_lang("en");
-        let data = EncounterData::load_from_static();
-        let endgame = EndgameTravelCfg::default_config();
-        let plan = build_plan_from_seed(
-            42,
-            true,
-            None,
-            &data,
-            &endgame,
-            AttrValue::from("DP-TEST01"),
-        );
-        assert_eq!(plan.pending_state.mode, GameMode::Deep);
-        assert_eq!(plan.phase, Phase::Travel);
-    }
-
-    #[function_component(StartWithCodeHarness)]
-    fn start_with_code_harness() -> Html {
-        crate::i18n::set_lang("en");
-        let data = EncounterData::load_from_static();
-        let base = crate::game::GameState::default().with_seed(7, GameMode::Classic, data.clone());
-        let state = AppState {
-            phase: use_state(|| Phase::Menu),
-            code: use_state(|| AttrValue::from("CL-ORANGE42")),
-            data: use_state(move || data),
-            pacing_config: use_state(crate::game::pacing::PacingConfig::default_config),
-            endgame_config: use_state(EndgameTravelCfg::default_config),
-            weather_config: use_state(crate::game::weather::WeatherConfig::default_config),
-            camp_config: use_state(crate::game::CampConfig::default_config),
-            crossing_config: use_state(crate::game::CrossingConfig::default),
-            boss_config: use_state(crate::game::boss::BossConfig::load_from_static),
-            result_config: use_state(crate::game::ResultConfig::default),
-            preload_progress: use_state(|| 100_u8),
-            boot_ready: use_state(|| true),
-            high_contrast: use_state(|| false),
-            pending_state: use_state(|| Some(base)),
-            session: use_state(|| None::<JourneySession>),
-            logs: use_state(Vec::<String>::new),
-            run_seed: use_state(|| 7_u64),
-            show_save: use_state(|| false),
-            save_focus_target: use_state(|| AttrValue::from("save-open-btn")),
-            show_settings: use_state(|| false),
-            current_language: use_state(|| String::from("en")),
+    #[function_component(MenuActionHarness)]
+    fn menu_action_harness() -> Html {
+        let called = use_mut_ref(|| 0u8);
+        let handlers = MenuActionHandlers {
+            start_journey: {
+                let called = called.clone();
+                Callback::from(move |()| *called.borrow_mut() = 1)
+            },
+            open_about: {
+                let called = called.clone();
+                Callback::from(move |()| *called.borrow_mut() = 2)
+            },
+            open_settings: {
+                let called = called.clone();
+                Callback::from(move |()| *called.borrow_mut() = 3)
+            },
+            quit: {
+                let called = called.clone();
+                Callback::from(move |()| *called.borrow_mut() = 4)
+            },
         };
+
         let invoked = use_mut_ref(|| false);
-        let called = Rc::new(Cell::new(false));
-        let called_ref = called.clone();
-        let start_action = start_with_code_action(&state);
-        let wrapper = Callback::from(move |()| {
-            called_ref.set(true);
-            start_action.emit(());
-        });
         if !*invoked.borrow() {
             *invoked.borrow_mut() = true;
-            wrapper.emit(());
+            let on_action = menu_action_callback(handlers);
+            on_action.emit(MenuAction::StartJourney);
+            on_action.emit(MenuAction::About);
+            on_action.emit(MenuAction::Settings);
+            on_action.emit(MenuAction::Quit);
         }
-        html! { <div data-called={called.get().to_string()} /> }
-    }
 
-    #[test]
-    fn start_with_code_action_executes() {
-        let html = block_on(LocalServerRenderer::<StartWithCodeHarness>::new().render());
-        assert!(html.contains("data-called=\"true\""));
+        let current = *called.borrow();
+        html! { <div data-called={current.to_string()} /> }
     }
 
     #[test]
     fn menu_action_callback_routes_actions() {
+        let html = block_on(LocalServerRenderer::<MenuActionHarness>::new().render());
+        assert!(html.contains("data-called=\"4\""));
+    }
+
+    #[test]
+    fn reset_run_state_clears_progress() {
+        struct RunStateProbe {
+            session: RefCell<Option<crate::game::JourneySession>>,
+            pending_state: RefCell<Option<crate::game::GameState>>,
+            logs: RefCell<Vec<String>>,
+            run_seed: Cell<u64>,
+            code: RefCell<AttrValue>,
+            show_save: Cell<bool>,
+            show_settings: Cell<bool>,
+        }
+
+        impl RunStateTarget for RunStateProbe {
+            fn set_session(&self, value: Option<crate::game::JourneySession>) {
+                *self.session.borrow_mut() = value;
+            }
+
+            fn set_pending_state(&self, value: Option<crate::game::GameState>) {
+                *self.pending_state.borrow_mut() = value;
+            }
+
+            fn set_logs(&self, value: Vec<String>) {
+                *self.logs.borrow_mut() = value;
+            }
+
+            fn set_run_seed(&self, value: u64) {
+                self.run_seed.set(value);
+            }
+
+            fn set_code(&self, value: AttrValue) {
+                *self.code.borrow_mut() = value;
+            }
+
+            fn set_show_save(&self, value: bool) {
+                self.show_save.set(value);
+            }
+
+            fn set_show_settings(&self, value: bool) {
+                self.show_settings.set(value);
+            }
+        }
+
+        let data = crate::game::data::EncounterData::empty();
+        let endgame_cfg = crate::game::endgame::EndgameTravelCfg::default_config();
+        let session = crate::game::JourneySession::new(
+            crate::game::state::GameMode::Classic,
+            crate::game::StrategyId::Balanced,
+            7,
+            data,
+            &endgame_cfg,
+        );
+        let probe = RunStateProbe {
+            session: RefCell::new(Some(session)),
+            pending_state: RefCell::new(Some(crate::game::GameState::default())),
+            logs: RefCell::new(vec![String::from("log.booting")]),
+            run_seed: Cell::new(99),
+            code: RefCell::new(AttrValue::from("CL-ORANGE42")),
+            show_save: Cell::new(true),
+            show_settings: Cell::new(true),
+        };
+
+        reset_run_state(&probe);
+
+        assert!(probe.session.borrow().is_none());
+        assert!(probe.pending_state.borrow().is_none());
+        assert!(probe.logs.borrow().is_empty());
+        assert_eq!(probe.run_seed.get(), 0);
+        assert!(probe.code.borrow().is_empty());
+        assert!(!probe.show_save.get());
+        assert!(!probe.show_settings.get());
+    }
+
+    #[test]
+    fn reset_run_state_updates_app_state_handles() {
+        #[function_component(ResetHarness)]
+        fn reset_harness() -> Html {
+            let invoked = use_mut_ref(|| false);
+            let state = AppState {
+                phase: use_state(|| Phase::Menu),
+                code: use_state(|| AttrValue::from("CL-ORANGE42")),
+                data: use_state(crate::game::data::EncounterData::empty),
+                pacing_config: use_state(crate::game::pacing::PacingConfig::default_config),
+                endgame_config: use_state(crate::game::endgame::EndgameTravelCfg::default_config),
+                weather_config: use_state(crate::game::weather::WeatherConfig::default_config),
+                camp_config: use_state(crate::game::CampConfig::default_config),
+                crossing_config: use_state(crate::game::CrossingConfig::default),
+                boss_config: use_state(crate::game::boss::BossConfig::load_from_static),
+                result_config: use_state(crate::game::ResultConfig::default),
+                preload_progress: use_state(|| 100_u8),
+                boot_ready: use_state(|| true),
+                high_contrast: use_state(|| false),
+                pending_state: use_state(|| Some(crate::game::GameState::default())),
+                session: use_state(|| None::<crate::game::JourneySession>),
+                logs: use_state(|| vec![String::from("log.booting")]),
+                run_seed: use_state(|| 99_u64),
+                show_save: use_state(|| false),
+                save_focus_target: use_state(|| AttrValue::from("save-open-btn")),
+                show_settings: use_state(|| false),
+                current_language: use_state(|| String::from("en")),
+            };
+
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                reset_run_state(&state);
+            }
+
+            Html::default()
+        }
+
+        let _ = block_on(LocalServerRenderer::<ResetHarness>::new().render());
+    }
+
+    #[test]
+    fn menu_action_callback_routes_actions_directly() {
         let start_called = Rc::new(Cell::new(false));
-        let save_called = Rc::new(Cell::new(false));
+        let about_called = Rc::new(Cell::new(false));
         let settings_called = Rc::new(Cell::new(false));
-        let phase = Rc::new(RefCell::new(None::<Phase>));
+        let quit_called = Rc::new(Cell::new(false));
 
         let handlers = MenuActionHandlers {
-            start_run: {
+            start_journey: {
                 let start_called = start_called.clone();
                 Callback::from(move |()| start_called.set(true))
             },
-            open_save: {
-                let save_called = save_called.clone();
-                Callback::from(move |()| save_called.set(true))
+            open_about: {
+                let about_called = about_called.clone();
+                Callback::from(move |()| about_called.set(true))
             },
             open_settings: {
                 let settings_called = settings_called.clone();
                 Callback::from(move |()| settings_called.set(true))
             },
-            set_phase: {
-                let phase = phase.clone();
-                Callback::from(move |next: Phase| {
-                    *phase.borrow_mut() = Some(next);
-                })
+            quit: {
+                let quit_called = quit_called.clone();
+                Callback::from(move |()| quit_called.set(true))
             },
         };
 
         let on_action = menu_action_callback(handlers);
-        on_action.emit(MenuAction::StartRun);
-        on_action.emit(MenuAction::CampPreview);
-        on_action.emit(MenuAction::OpenSave);
-        on_action.emit(MenuAction::OpenSettings);
-        on_action.emit(MenuAction::Reset);
+        on_action.emit(MenuAction::StartJourney);
+        on_action.emit(MenuAction::About);
+        on_action.emit(MenuAction::Settings);
+        on_action.emit(MenuAction::Quit);
 
         assert!(start_called.get());
-        assert!(save_called.get());
+        assert!(about_called.get());
         assert!(settings_called.get());
-        assert_eq!(*phase.borrow(), Some(Phase::Boot));
-    }
-
-    #[function_component(OpenSaveHarness)]
-    fn open_save_harness() -> Html {
-        let show_save = use_state(|| false);
-        let save_focus = use_state(|| AttrValue::from("initial"));
-        let invoked = use_mut_ref(|| false);
-        let called = Rc::new(Cell::new(false));
-        let called_ref = called.clone();
-        let open_save = open_save_action(show_save, save_focus);
-        let wrapper = Callback::from(move |()| {
-            called_ref.set(true);
-            open_save.emit(());
-        });
-        if !*invoked.borrow() {
-            *invoked.borrow_mut() = true;
-            wrapper.emit(());
-        }
-        html! { <div data-called={called.get().to_string()} /> }
+        assert!(quit_called.get());
     }
 
     #[test]
-    fn open_save_action_executes() {
-        let html = block_on(LocalServerRenderer::<OpenSaveHarness>::new().render());
-        assert!(html.contains("data-called=\"true\""));
+    fn menu_action_handlers_reset_state_on_start_and_quit() {
+        #[function_component(MenuHandlersHarness)]
+        fn menu_handlers_harness() -> Html {
+            let invoked = use_mut_ref(|| false);
+            let state = AppState {
+                phase: use_state(|| Phase::Menu),
+                code: use_state(|| AttrValue::from("CL-ORANGE42")),
+                data: use_state(crate::game::data::EncounterData::empty),
+                pacing_config: use_state(crate::game::pacing::PacingConfig::default_config),
+                endgame_config: use_state(crate::game::endgame::EndgameTravelCfg::default_config),
+                weather_config: use_state(crate::game::weather::WeatherConfig::default_config),
+                camp_config: use_state(crate::game::CampConfig::default_config),
+                crossing_config: use_state(crate::game::CrossingConfig::default),
+                boss_config: use_state(crate::game::boss::BossConfig::load_from_static),
+                result_config: use_state(crate::game::ResultConfig::default),
+                preload_progress: use_state(|| 0_u8),
+                boot_ready: use_state(|| false),
+                high_contrast: use_state(|| false),
+                pending_state: use_state(|| Some(crate::game::GameState::default())),
+                session: use_state(|| None::<crate::game::JourneySession>),
+                logs: use_state(|| vec![String::from("log.booting")]),
+                run_seed: use_state(|| 99_u64),
+                show_save: use_state(|| true),
+                save_focus_target: use_state(|| AttrValue::from("save-open-btn")),
+                show_settings: use_state(|| true),
+                current_language: use_state(|| String::from("en")),
+            };
+            let handlers = build_menu_action_handlers(&state);
+
+            if !*invoked.borrow() {
+                *invoked.borrow_mut() = true;
+                handlers.start_journey.emit(());
+                handlers.quit.emit(());
+            }
+
+            Html::default()
+        }
+
+        let _ = block_on(LocalServerRenderer::<MenuHandlersHarness>::new().render());
     }
 }

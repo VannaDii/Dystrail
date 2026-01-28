@@ -63,7 +63,6 @@ pub fn header(p: &Props) -> Html {
     };
     html! {
         <header role="banner">
-            <a href="#main" class="sr-only">{ t("ui.skip_to_content") }</a>
             <div class="header-content">
                 <nav aria-label={t("nav.language")} class="header-left">
                     <label for="lang-select" class="sr-only">{ t("nav.language") }</label>

@@ -207,7 +207,7 @@
   "menu": {
     "camp": "Acampar",
     "diet": "Dieta Info",
-    "help": "Pulsa 1–8/0 o haz clic en un elemento. Semilla: {{seed}}",
+    "help": "Usa ↑/↓ para elegir. Enter para seleccionar.",
     "inventory": "Usar Inventario",
     "pace": "Cambiar Ritmo",
     "quit": "Salir",
@@ -216,11 +216,18 @@
     "share": "Guardar/Compartir Semilla",
     "status": "Estado",
     "title": "Menú Principal",
-    "travel": "Viajar"
+    "travel": "Viajar",
+    "subtitle": "De pie en la cabecera del camino.",
+    "footer": "Un juego de supervivencia paródico",
+    "start_journey": "Iniciar viaje",
+    "about": "Sobre el sendero",
+    "accessibility": "Accesibilidad y ajustes"
   },
   "mode": {
     "classic": "Clásico",
-    "deep": "Lo Más Hondo"
+    "deep": "Lo Más Hondo",
+    "title": "Selección de modo",
+    "subtitle": "Elige la banda de dificultad."
   },
   "nav": {
     "home": "Inicio",
@@ -507,7 +514,8 @@
     "skip_to_content": "Ir al contenido",
     "hc_on": "Alto contraste activado",
     "hc_off": "Alto contraste desactivado",
-    "hc_toggle": "Alto contraste activado"
+    "hc_toggle": "Alto contraste activado",
+    "back": "Atrás"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "Clima"
   },
   "settings": {
-    "title": "Ajustes"
+    "title": "Ajustes",
+    "subtitle": "Ajusta idioma y contraste.",
+    "language_label": "Idioma"
   },
   "not_found": {
     "title": "Página no encontrada",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "Una travesía satírica de 16 bits hacia DC",
+    "loading": "Cargando Dystrail",
+    "ready": "Listo. Pulsa cualquier tecla para empezar.",
+    "loading_label": "Cargando encuentros…",
+    "press_any_key": "Pulsa cualquier tecla para empezar"
+  },
+  "about": {
+    "title": "Sobre el sendero",
+    "subtitle": "Una travesía de supervivencia satírica",
+    "body": "Dystrail mezcla parodia política con supervivencia clásica."
+  },
+  "inventory": {
+    "title": "Inventario",
+    "supplies": "Suministros",
+    "spare_tire": "Rueda de repuesto",
+    "spare_battery": "Batería de repuesto",
+    "spare_alt": "Alternador de repuesto",
+    "spare_pump": "Bomba de combustible de repuesto",
+    "tags": "Etiquetas",
+    "tags_none": "Sin etiquetas"
+  },
+  "map": {
+    "title": "Mapa y progreso",
+    "distance_traveled": "Millas recorridas",
+    "distance_today": "Millas hoy",
+    "region": "Región"
   }
 }

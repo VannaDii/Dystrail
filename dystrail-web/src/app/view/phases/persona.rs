@@ -17,7 +17,7 @@ pub fn render_persona(state: &AppState) -> Html {
     let on_selected = build_persona_selected(state.pending_state.clone());
     let on_continue = {
         let phase = state.phase.clone();
-        Callback::from(move |()| phase.set(Phase::Outfitting))
+        Callback::from(move |()| phase.set(Phase::ModeSelect))
     };
     html! { <PersonaPage {on_selected} {on_continue} /> }
 }

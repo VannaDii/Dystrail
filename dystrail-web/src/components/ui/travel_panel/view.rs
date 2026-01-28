@@ -1,11 +1,13 @@
 use super::layout::{IntentActions, PanelContext, PanelMode, render_panel};
 use super::weather::{render_weather_details, render_weather_info};
-use crate::game::{DietId, GameState, MechanicalPolicyId, PaceId, PacingConfig};
+use crate::game::{GameState, MechanicalPolicyId, PacingConfig};
 use crate::i18n;
 use std::rc::Rc;
+use web_sys::KeyboardEvent;
 use web_sys::MouseEvent;
 use yew::prelude::*;
 
+#[cfg(test)]
 pub(super) const fn next_flag_state(_current: bool, value: bool) -> bool {
     value
 }
@@ -14,6 +16,7 @@ pub(super) const fn next_flag_toggle(current: bool) -> bool {
     !current
 }
 
+#[cfg(test)]
 pub(super) fn show_flag_action(flag: UseStateHandle<bool>, value: bool) -> Callback<()> {
     Callback::from(move |()| flag.set(next_flag_state(*flag, value)))
 }
@@ -22,14 +25,9 @@ pub(super) fn toggle_flag_action(flag: UseStateHandle<bool>) -> Callback<()> {
     Callback::from(move |()| flag.set(next_flag_toggle(*flag)))
 }
 
-pub(super) const fn compute_panel_mode(
-    show_weather_details: bool,
-    show_pace_diet: bool,
-) -> PanelMode {
+pub(super) const fn compute_panel_mode(show_weather_details: bool) -> PanelMode {
     if show_weather_details {
         PanelMode::WeatherDetails
-    } else if show_pace_diet {
-        PanelMode::PaceDiet
     } else {
         PanelMode::Main
     }
@@ -58,52 +56,17 @@ pub(super) fn build_weather_details(
     }
 }
 
-pub(super) fn build_pace_diet_panel(
-    show_pace_diet: bool,
-    game_state: Option<Rc<GameState>>,
-    pacing_config: Rc<PacingConfig>,
-    on_pace_change: Callback<PaceId>,
-    on_diet_change: Callback<DietId>,
-    on_back: &Callback<()>,
-) -> Html {
-    if show_pace_diet {
-        game_state.map_or_else(
-            || html! { <div class="error">{ "Game state unavailable" }</div> },
-            |game_state| {
-                render_pace_diet_panel(
-                    game_state,
-                    pacing_config,
-                    on_pace_change,
-                    on_diet_change,
-                    on_back,
-                )
-            },
-        )
-    } else {
-        Html::default()
-    }
-}
-
-fn render_pace_diet_panel(
-    game_state: Rc<GameState>,
-    pacing_config: Rc<PacingConfig>,
-    on_pace_change: Callback<PaceId>,
-    on_diet_change: Callback<DietId>,
-    on_back: &Callback<()>,
-) -> Html {
-    html! { <crate::components::ui::pace_diet_panel::PaceDietPanel game_state={game_state} pacing_config={pacing_config} on_pace_change={on_pace_change} on_diet_change={on_diet_change} on_back={on_back.clone()} /> }
-}
-
 #[derive(Properties, Clone)]
 pub struct Props {
     pub on_travel: Callback<()>,
     pub on_trade: Callback<()>,
     pub on_hunt: Callback<()>,
+    pub on_open_inventory: Callback<()>,
+    pub on_open_pace_diet: Callback<()>,
+    pub on_open_map: Callback<()>,
     pub logs: Vec<String>,
     pub game_state: Option<Rc<GameState>>,
     pub pacing_config: Rc<PacingConfig>,
-    pub on_pace_change: Callback<PaceId>,
-    pub on_diet_change: Callback<DietId>,
 }
 
 impl PartialEq for Props {
@@ -117,12 +80,18 @@ impl PartialEq for Props {
 /// Travel panel component displaying current travel status and progress
 #[function_component(TravelPanel)]
 pub fn travel_panel(p: &Props) -> Html {
-    let show_pace_diet = use_state(|| false);
     let show_weather_details = use_state(|| false);
 
     let trigger_travel = p.on_travel.clone();
     let trigger_trade = p.on_trade.clone();
     let trigger_hunt = p.on_hunt.clone();
+    let open_inventory_click = p.on_open_inventory.clone();
+    let open_pace_diet_click = p.on_open_pace_diet.clone();
+    let open_map_click = p.on_open_map.clone();
+    let open_inventory_key = p.on_open_inventory.clone();
+    let open_pace_diet_key = p.on_open_pace_diet.clone();
+    let open_map_key = p.on_open_map.clone();
+
     let on_click: Callback<MouseEvent> = {
         let cb = trigger_travel.clone();
         Callback::from(move |_| cb.emit(()))
@@ -136,10 +105,9 @@ pub fn travel_panel(p: &Props) -> Html {
         Callback::from(move |_| cb.emit(()))
     };
 
-    let on_show_pace_diet_action = show_flag_action(show_pace_diet.clone(), true);
-    let on_show_pace_diet = on_show_pace_diet_action.reform(|_e: MouseEvent| ());
-
-    let on_hide_pace_diet = show_flag_action(show_pace_diet.clone(), false);
+    let on_open_inventory = Callback::from(move |_e: MouseEvent| open_inventory_click.emit(()));
+    let on_open_pace_diet = Callback::from(move |_e: MouseEvent| open_pace_diet_click.emit(()));
+    let on_open_map = Callback::from(move |_e: MouseEvent| open_map_click.emit(()));
 
     let on_toggle_weather_details_action = toggle_flag_action(show_weather_details.clone());
     let on_toggle_weather_details = on_toggle_weather_details_action.reform(|_e: MouseEvent| ());
@@ -173,24 +141,18 @@ pub fn travel_panel(p: &Props) -> Html {
         &on_toggle_weather_details_action,
     );
 
-    let panel_mode = compute_panel_mode(*show_weather_details, *show_pace_diet);
+    let panel_mode = compute_panel_mode(*show_weather_details);
 
     let intent_actions = show_otdeluxe_intents.then_some(IntentActions {
         on_trade: &on_trade_click,
         on_hunt: &on_hunt_click,
     });
 
-    let pace_diet_panel = build_pace_diet_panel(
-        *show_pace_diet,
-        p.game_state.clone(),
-        p.pacing_config.clone(),
-        p.on_pace_change.clone(),
-        p.on_diet_change.clone(),
-        &on_hide_pace_diet,
-    );
-
     let on_keydown = {
         let intents_enabled = show_otdeluxe_intents;
+        let open_inventory = open_inventory_key;
+        let open_pace_diet = open_pace_diet_key;
+        let open_map = open_map_key;
         #[cfg(target_arch = "wasm32")]
         {
             Callback::from(move |e: KeyboardEvent| match e.key().as_str() {
@@ -198,8 +160,16 @@ pub fn travel_panel(p: &Props) -> Html {
                     trigger_travel.emit(());
                     e.prevent_default();
                 }
+                "i" | "I" => {
+                    open_inventory.emit(());
+                    e.prevent_default();
+                }
                 "p" | "P" => {
-                    show_pace_diet.set(true);
+                    open_pace_diet.emit(());
+                    e.prevent_default();
+                }
+                "m" | "M" => {
+                    open_map.emit(());
                     e.prevent_default();
                 }
                 "t" | "T" if intents_enabled => {
@@ -219,7 +189,9 @@ pub fn travel_panel(p: &Props) -> Html {
                 trigger_travel,
                 trigger_trade,
                 trigger_hunt,
-                show_pace_diet,
+                open_inventory,
+                open_pace_diet,
+                open_map,
                 intents_enabled,
             );
             Callback::from(|_e: KeyboardEvent| {})
@@ -233,13 +205,14 @@ pub fn travel_panel(p: &Props) -> Html {
                 breakdown_msg: breakdown_msg.as_deref(),
                 mode: panel_mode,
                 weather_details,
-                pace_diet_panel,
                 weather_info,
                 logs: &p.logs,
                 game_state: p.game_state.as_deref(),
                 pacing_config: &p.pacing_config,
                 intent_actions,
-                on_show_pace_diet: &on_show_pace_diet,
+                on_open_inventory: &on_open_inventory,
+                on_open_pace_diet: &on_open_pace_diet,
+                on_open_map: &on_open_map,
                 on_toggle_weather_details: &on_toggle_weather_details,
                 on_click: &on_click,
             }) }

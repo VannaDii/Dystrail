@@ -52,7 +52,7 @@ pub fn render_home_screen(
 
     html! {
         <main class="outfitting-store">
-            <section role="region" aria-labelledby="store-title" onkeydown={on_keydown} class="store-shell">
+            <section role="region" aria-labelledby="store-title" onkeydown={on_keydown} class="store-shell" tabindex="0" data-testid="outfitting-store">
                 <header class="store-header">
                     <div>
                         <h1 id="store-title">{ title.clone() }</h1>

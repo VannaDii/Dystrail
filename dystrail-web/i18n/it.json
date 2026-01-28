@@ -207,7 +207,7 @@
   "menu": {
     "camp": "Accampa",
     "diet": "Dieta Info",
-    "help": "Premi 1–8/0 o clicca un elemento. Seed: {{seed}}",
+    "help": "Usa ↑/↓ per scegliere. Invio per selezionare.",
     "inventory": "Usa Inventario",
     "pace": "Cambia Andatura",
     "quit": "Esci",
@@ -216,11 +216,18 @@
     "share": "Salva/Condividi Seed",
     "status": "Stato",
     "title": "Menu Principale",
-    "travel": "Viaggia"
+    "travel": "Viaggia",
+    "subtitle": "Alla partenza del sentiero.",
+    "footer": "Un gioco di sopravvivenza parodistico",
+    "start_journey": "Inizia viaggio",
+    "about": "Informazioni sul sentiero",
+    "accessibility": "Accessibilità e impostazioni"
   },
   "mode": {
     "classic": "Classico",
-    "deep": "Oltre il Limite"
+    "deep": "Oltre il Limite",
+    "title": "Selezione modalità",
+    "subtitle": "Scegli la fascia di difficoltà."
   },
   "nav": {
     "home": "Casa",
@@ -507,7 +514,8 @@
     "skip_to_content": "Salta al contenuto",
     "hc_on": "Alto contrasto attivo",
     "hc_off": "Alto contrasto disattivato",
-    "hc_toggle": "Alto contrasto attivo"
+    "hc_toggle": "Alto contrasto attivo",
+    "back": "Indietro"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "Meteo"
   },
   "settings": {
-    "title": "Impostazioni"
+    "title": "Impostazioni",
+    "subtitle": "Regola lingua e contrasto.",
+    "language_label": "Lingua"
   },
   "not_found": {
     "title": "Pagina non trovata",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "Un viaggio satirico a 16 bit verso DC",
+    "loading": "Caricamento di Dystrail",
+    "ready": "Pronto. Premi un tasto per iniziare.",
+    "loading_label": "Caricamento incontri…",
+    "press_any_key": "Premi un tasto per iniziare"
+  },
+  "about": {
+    "title": "Informazioni sul sentiero",
+    "subtitle": "Una traversata satirica di sopravvivenza",
+    "body": "Dystrail unisce parodia politica e sopravvivenza classica."
+  },
+  "inventory": {
+    "title": "Inventario",
+    "supplies": "Scorte",
+    "spare_tire": "Pneumatico di scorta",
+    "spare_battery": "Batteria di scorta",
+    "spare_alt": "Alternatore di scorta",
+    "spare_pump": "Pompa carburante di scorta",
+    "tags": "Tag",
+    "tags_none": "Nessun tag"
+  },
+  "map": {
+    "title": "Mappa e progresso",
+    "distance_traveled": "Miglia percorse",
+    "distance_today": "Miglia di oggi",
+    "region": "Regione"
   }
 }

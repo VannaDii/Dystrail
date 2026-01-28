@@ -9387,6 +9387,14 @@ impl GameState {
         self.distance_today
     }
 
+    /// Compute `OTDeluxe` travel miles for the current day and update travel fields.
+    ///
+    /// This is a deterministic helper for testers to validate travel math.
+    #[must_use]
+    pub fn otdeluxe_miles_for_today(&mut self, policy: &OtDeluxe90sPolicy) -> f32 {
+        self.compute_otdeluxe_miles_for_today(policy)
+    }
+
     fn compute_otdeluxe_miles_for_today(&mut self, policy: &OtDeluxe90sPolicy) -> f32 {
         let base = policy.travel.base_mpd_plains_steady_good.max(0.0);
         let pace_mult = match self.ot_deluxe.pace {

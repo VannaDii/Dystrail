@@ -5,6 +5,7 @@ use yew::prelude::*;
 pub struct OutfittingPageProps {
     pub game_state: GameState,
     pub on_continue: Callback<(GameState, Grants, Vec<String>)>,
+    pub on_back: Callback<()>,
 }
 
 impl PartialEq for OutfittingPageProps {
@@ -16,8 +17,14 @@ impl PartialEq for OutfittingPageProps {
 
 #[function_component(OutfittingPage)]
 pub fn outfitting_page(props: &OutfittingPageProps) -> Html {
+    let on_back = props.on_back.clone();
     html! {
         <section class="panel retro-menu">
+            <div class="controls">
+                <button class="retro-btn-secondary" onclick={Callback::from(move |_| on_back.emit(()))}>
+                    { crate::i18n::t("ui.back") }
+                </button>
+            </div>
             <crate::components::ui::outfitting_store::OutfittingStore
                 game_state={props.game_state.clone()}
                 on_continue={props.on_continue.clone()}
@@ -42,6 +49,7 @@ mod tests {
         let props_a = OutfittingPageProps {
             game_state: state.clone(),
             on_continue: Callback::noop(),
+            on_back: Callback::noop(),
         };
 
         let other = GameState {
@@ -51,6 +59,7 @@ mod tests {
         let props_b = OutfittingPageProps {
             game_state: other,
             on_continue: Callback::noop(),
+            on_back: Callback::noop(),
         };
         assert!(props_a == props_b);
 
@@ -61,6 +70,7 @@ mod tests {
         let props_c = OutfittingPageProps {
             game_state: changed,
             on_continue: Callback::noop(),
+            on_back: Callback::noop(),
         };
         assert!(props_a != props_c);
     }

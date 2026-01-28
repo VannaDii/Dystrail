@@ -109,7 +109,7 @@ pub fn render_cart_screen(
     };
 
     html! {
-        <section class="panel store-cart-panel" role="region" aria-labelledby="cart-title" onkeydown={on_keydown}>
+        <section class="panel store-cart-panel" role="region" aria-labelledby="cart-title" onkeydown={on_keydown} tabindex="0" data-testid="outfitting-store">
             <header class="section-header">
                 <h1 id="cart-title">{ i18n::t("store.cart.title") }</h1>
                 <div class="store-cart-summary" aria-live="polite">

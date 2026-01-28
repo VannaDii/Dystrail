@@ -1,8 +1,6 @@
 use crate::a11y::set_status;
 use crate::i18n;
 #[cfg(target_arch = "wasm32")]
-use crate::input::{numeric_code_to_index, numeric_key_to_index};
-#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 use web_sys::KeyboardEvent;
 use yew::prelude::*;
@@ -10,15 +8,10 @@ use yew::prelude::*;
 pub fn activate_handler(on_select: Option<Callback<u8>>) -> Callback<u8> {
     Callback::from(move |idx: u8| {
         let label_key = match idx {
-            1 => "menu.travel",
-            2 => "menu.camp",
-            3 => "menu.status",
-            4 => "menu.pace",
-            5 => "menu.diet",
-            6 => "menu.inventory",
-            7 => "menu.share",
-            8 => "menu.settings",
-            0 => "menu.quit",
+            1 => "menu.start_journey",
+            2 => "menu.about",
+            3 => "menu.accessibility",
+            4 => "menu.quit",
             _ => "",
         };
         let label = i18n::t(label_key);
@@ -58,32 +51,20 @@ pub fn keydown_handler(
 ) -> Callback<KeyboardEvent> {
     Callback::from(move |e: KeyboardEvent| {
         let key = e.key();
-        if let Some(n) = numeric_key_to_index(&key) {
-            activate.emit(n);
-            e.prevent_default();
-            return;
-        }
-        if let Some(n) = numeric_code_to_index(&e.code()) {
-            activate.emit(n);
-            e.prevent_default();
-            return;
-        }
         if key == "Enter" || key == " " {
             activate.emit(*focus_idx);
             e.prevent_default();
-        } else if key == "Escape" {
-            e.prevent_default();
         } else if key == "ArrowDown" {
             let mut next = *focus_idx + 1;
-            if next > 8 {
-                next = 0;
+            if next > 4 {
+                next = 1;
             }
             focus_idx.set(next);
             e.prevent_default();
         } else if key == "ArrowUp" {
-            let mut prev = if *focus_idx == 0 { 8 } else { *focus_idx - 1 };
-            if prev == 0 {
-                prev = 8;
+            let mut prev = if *focus_idx <= 1 { 4 } else { *focus_idx - 1 };
+            if prev < 1 {
+                prev = 4;
             }
             focus_idx.set(prev);
             e.prevent_default();
@@ -116,9 +97,9 @@ mod tests {
         });
 
         let handler = activate_handler(Some(on_select));
-        handler.emit(3);
+        handler.emit(2);
 
-        assert_eq!(*selected.borrow(), Some(3));
+        assert_eq!(*selected.borrow(), Some(2));
     }
 
     #[test]
@@ -136,8 +117,8 @@ mod tests {
         let handler = activate_handler(Some(Callback::from(move |idx| {
             *selected_handle.borrow_mut() = Some(idx);
         })));
-        handler.emit(0);
-        assert_eq!(*selected.borrow(), Some(0));
+        handler.emit(4);
+        assert_eq!(*selected.borrow(), Some(4));
 
         let handler = activate_handler(None);
         handler.emit(42);
@@ -147,7 +128,7 @@ mod tests {
     fn activate_handler_covers_remaining_labels() {
         crate::i18n::set_lang("en");
         let handler = activate_handler(None);
-        for idx in 2..=8 {
+        for idx in 1..=4 {
             handler.emit(idx);
         }
     }

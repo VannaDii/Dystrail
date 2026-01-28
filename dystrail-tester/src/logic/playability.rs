@@ -13,6 +13,7 @@ use crate::logic::{GameTester, GameplayStrategy, PlayabilityMetrics};
 use dystrail_game::GameMode;
 use dystrail_game::OtDeluxe90sPolicy;
 use dystrail_game::OtDeluxeCrossingMethod;
+use dystrail_game::OtDeluxePace;
 use dystrail_game::OtDeluxeRiver;
 use dystrail_game::OtDeluxeRiverBed;
 use dystrail_game::OtDeluxeTrailVariant;
@@ -128,6 +129,43 @@ fn validate_otdeluxe_travel_speed(policy: &OtDeluxe90sPolicy) -> Result<()> {
         "OTDeluxe min oxen for base speed",
     )?;
     ensure_f32_close(policy.oxen.min_to_move, 0.0, "OTDeluxe min oxen to move")?;
+    validate_otdeluxe_mpd_examples(policy)?;
+    Ok(())
+}
+
+fn validate_otdeluxe_mpd_examples(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    use dystrail_game::GameState;
+    use dystrail_game::otdeluxe_state::OtDeluxePartyState;
+
+    let mut base_state = GameState::default();
+    base_state.ot_deluxe.oxen.healthy = 4;
+    base_state.ot_deluxe.oxen.sick = 0;
+    base_state.ot_deluxe.pace = OtDeluxePace::Steady;
+    base_state.ot_deluxe.party = OtDeluxePartyState::from_names(["A", "B"]);
+    base_state.ot_deluxe.travel.disease_speed_mult = 1.0;
+    base_state.ot_deluxe.weather.snow_depth = 0.0;
+    base_state.ot_deluxe.miles_traveled = 0.0;
+    let miles = base_state.otdeluxe_miles_for_today(policy);
+    ensure_f32_close(miles, 20.0, "OTDeluxe computed plains MPD")?;
+
+    let mut mountain_state = base_state.clone();
+    mountain_state.ot_deluxe.miles_traveled = 932.0;
+    let miles = mountain_state.otdeluxe_miles_for_today(policy);
+    ensure_f32_close(miles, 10.0, "OTDeluxe computed mountain MPD")?;
+
+    let mut sick_state = base_state.clone();
+    if let Some(member) = sick_state.ot_deluxe.party.members.get_mut(0) {
+        member.sick_days_remaining = 1;
+    }
+    let miles = sick_state.otdeluxe_miles_for_today(policy);
+    ensure_f32_close(miles, 18.0, "OTDeluxe sick member MPD")?;
+
+    let mut sick_ox_state = base_state.clone();
+    sick_ox_state.ot_deluxe.oxen.healthy = 3;
+    sick_ox_state.ot_deluxe.oxen.sick = 1;
+    let miles = sick_ox_state.otdeluxe_miles_for_today(policy);
+    ensure_f32_close(miles, 17.5, "OTDeluxe sick ox MPD")?;
+
     Ok(())
 }
 
@@ -197,6 +235,7 @@ fn validate_otdeluxe_crossing_thresholds(policy: &OtDeluxe90sPolicy) -> Result<(
 }
 
 fn validate_otdeluxe_health(policy: &OtDeluxe90sPolicy) -> Result<()> {
+    use dystrail_game::otdeluxe_state::{OtDeluxeAfflictionKind, OtDeluxePartyState};
     ensure!(
         policy.health.recovery_baseline == -10,
         "OTDeluxe recovery baseline {baseline} != -10",
@@ -224,6 +263,11 @@ fn validate_otdeluxe_health(policy: &OtDeluxe90sPolicy) -> Result<()> {
         "OTDeluxe injury duration {days} != 30",
         days = policy.affliction.injury_duration_days
     );
+    let mut party = OtDeluxePartyState::from_names(["A"]);
+    let died = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Illness, 3, None);
+    ensure!(!died, "OTDeluxe first affliction should not be fatal");
+    let died_on_repeat = party.members[0].apply_affliction(OtDeluxeAfflictionKind::Injury, 3, None);
+    ensure!(died_on_repeat, "OTDeluxe repeat affliction should be fatal");
     Ok(())
 }
 

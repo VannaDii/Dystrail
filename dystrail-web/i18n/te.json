@@ -207,7 +207,7 @@
   "menu": {
     "camp": "క్యాంప్",
     "diet": "ఇన్ఫో డైట్",
-    "help": "1–8/0 నొక్కండి లేదా ఐటమ్‌ను క్లిక్ చేయండి. సీడ్: {{seed}}",
+    "help": "Use ↑/↓ to choose. Enter to select.",
     "inventory": "ఇన్వెంటరీ ఉపయోగించు",
     "pace": "వేగాన్ని మార్చు",
     "quit": "నిష్క్రమించు",
@@ -216,11 +216,18 @@
     "share": "సీడ్ సేవ్/షేర్ చేయండి",
     "status": "స్థితి",
     "title": "మెయిన్ మెను",
-    "travel": "ప్రయాణం"
+    "travel": "ప్రయాణం",
+    "subtitle": "Stand at the trailhead.",
+    "footer": "A parody survival game",
+    "start_journey": "Start Journey",
+    "about": "About the Trail",
+    "accessibility": "Accessibility & Settings"
   },
   "mode": {
     "classic": "క్లాసిక్",
-    "deep": "డీప్ ఎండ్"
+    "deep": "డీప్ ఎండ్",
+    "title": "Mode Select",
+    "subtitle": "Choose the run difficulty band."
   },
   "nav": {
     "home": "హోమ్",
@@ -507,7 +514,8 @@
     "skip_to_content": "కంటెంట్‌కు వెళ్లండి",
     "hc_on": "హై కాంట్రాస్ట్ ఆన్",
     "hc_off": "హై కాంట్రాస్ట్ ఆఫ్",
-    "hc_toggle": "హై కాంట్రాస్ట్ ఆన్"
+    "hc_toggle": "హై కాంట్రాస్ట్ ఆన్",
+    "back": "Back"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "వాతావరణం"
   },
   "settings": {
-    "title": "సెట్టింగ్స్"
+    "title": "సెట్టింగ్స్",
+    "subtitle": "Adjust language and contrast.",
+    "language_label": "Language"
   },
   "not_found": {
     "title": "పేజీ కనబడలేదు",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "A satirical 16-bit trek to DC",
+    "loading": "Dystrail loading",
+    "ready": "Ready. Press any key to begin.",
+    "loading_label": "Loading encounters…",
+    "press_any_key": "Press any key to begin"
+  },
+  "about": {
+    "title": "About the Trail",
+    "subtitle": "A satirical survival trek",
+    "body": "Dystrail blends political parody with classic trail survival."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "supplies": "Supplies",
+    "spare_tire": "Spare tire",
+    "spare_battery": "Spare battery",
+    "spare_alt": "Spare alternator",
+    "spare_pump": "Spare fuel pump",
+    "tags": "Tags",
+    "tags_none": "No tags"
+  },
+  "map": {
+    "title": "Map & Progress",
+    "distance_traveled": "Miles traveled",
+    "distance_today": "Miles today",
+    "region": "Region"
   }
 }

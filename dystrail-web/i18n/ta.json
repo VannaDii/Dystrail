@@ -207,7 +207,7 @@
   "menu": {
     "camp": "முகாம்",
     "diet": "தகவல் உணவு",
-    "help": "1–8/0 அழுத்தவும் அல்லது உருப்படியைக் கிளிக் செய்யவும். விதை: {{seed}}",
+    "help": "Use ↑/↓ to choose. Enter to select.",
     "inventory": "சரக்கு பயன்படுத்து",
     "pace": "வேகத்தை மாற்று",
     "quit": "வெளியேறு",
@@ -216,11 +216,18 @@
     "share": "விதை சேமி/பகிர்",
     "status": "நிலை",
     "title": "முக்கிய மெனு",
-    "travel": "பயணம்"
+    "travel": "பயணம்",
+    "subtitle": "Stand at the trailhead.",
+    "footer": "A parody survival game",
+    "start_journey": "Start Journey",
+    "about": "About the Trail",
+    "accessibility": "Accessibility & Settings"
   },
   "mode": {
     "classic": "கிளாசிக்",
-    "deep": "ஆழமான முடிவு"
+    "deep": "ஆழமான முடிவு",
+    "title": "Mode Select",
+    "subtitle": "Choose the run difficulty band."
   },
   "nav": {
     "home": "முகப்பு",
@@ -507,7 +514,8 @@
     "skip_to_content": "உள்ளடக்கத்திற்கு செல்",
     "hc_on": "உயர் கண்டிராஸ்ட் இயக்கப்பட்டது",
     "hc_off": "உயர் கண்டிராஸ்ட் அணைக்கப்பட்டது",
-    "hc_toggle": "உயர் கண்டிராஸ்ட் இயக்கப்பட்டது"
+    "hc_toggle": "உயர் கண்டிராஸ்ட் இயக்கப்பட்டது",
+    "back": "Back"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "வானிலை"
   },
   "settings": {
-    "title": "அமைப்புகள்"
+    "title": "அமைப்புகள்",
+    "subtitle": "Adjust language and contrast.",
+    "language_label": "Language"
   },
   "not_found": {
     "title": "பக்கம் காணப்படவில்லை",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "A satirical 16-bit trek to DC",
+    "loading": "Dystrail loading",
+    "ready": "Ready. Press any key to begin.",
+    "loading_label": "Loading encounters…",
+    "press_any_key": "Press any key to begin"
+  },
+  "about": {
+    "title": "About the Trail",
+    "subtitle": "A satirical survival trek",
+    "body": "Dystrail blends political parody with classic trail survival."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "supplies": "Supplies",
+    "spare_tire": "Spare tire",
+    "spare_battery": "Spare battery",
+    "spare_alt": "Spare alternator",
+    "spare_pump": "Spare fuel pump",
+    "tags": "Tags",
+    "tags_none": "No tags"
+  },
+  "map": {
+    "title": "Map & Progress",
+    "distance_traveled": "Miles traveled",
+    "distance_today": "Miles today",
+    "region": "Region"
   }
 }

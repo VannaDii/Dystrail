@@ -207,7 +207,7 @@
   "menu": {
     "camp": "露营",
     "diet": "饮食信息",
-    "help": "按 1–8/0 或点击项目。种子：{{seed}}",
+    "help": "Use ↑/↓ to choose. Enter to select.",
     "inventory": "使用物品",
     "pace": "改变速度",
     "quit": "退出",
@@ -216,11 +216,18 @@
     "share": "保存/分享种子",
     "status": "状态",
     "title": "主菜单",
-    "travel": "旅行"
+    "travel": "旅行",
+    "subtitle": "Stand at the trailhead.",
+    "footer": "A parody survival game",
+    "start_journey": "Start Journey",
+    "about": "About the Trail",
+    "accessibility": "Accessibility & Settings"
   },
   "mode": {
     "classic": "经典",
-    "deep": "深水区"
+    "deep": "深水区",
+    "title": "Mode Select",
+    "subtitle": "Choose the run difficulty band."
   },
   "nav": {
     "home": "首页",
@@ -516,7 +523,8 @@
     "skip_to_content": "跳到内容",
     "hc_on": "高对比度已开启",
     "hc_off": "高对比度已关闭",
-    "hc_toggle": "高对比度已开启"
+    "hc_toggle": "高对比度已开启",
+    "back": "Back"
   },
   "vehicle": {
     "announce": {
@@ -580,7 +588,9 @@
     "title": "天气"
   },
   "settings": {
-    "title": "设置"
+    "title": "设置",
+    "subtitle": "Adjust language and contrast.",
+    "language_label": "Language"
   },
   "not_found": {
     "title": "页面未找到",
@@ -706,5 +716,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "A satirical 16-bit trek to DC",
+    "loading": "Dystrail loading",
+    "ready": "Ready. Press any key to begin.",
+    "loading_label": "Loading encounters…",
+    "press_any_key": "Press any key to begin"
+  },
+  "about": {
+    "title": "About the Trail",
+    "subtitle": "A satirical survival trek",
+    "body": "Dystrail blends political parody with classic trail survival."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "supplies": "Supplies",
+    "spare_tire": "Spare tire",
+    "spare_battery": "Spare battery",
+    "spare_alt": "Spare alternator",
+    "spare_pump": "Spare fuel pump",
+    "tags": "Tags",
+    "tags_none": "No tags"
+  },
+  "map": {
+    "title": "Map & Progress",
+    "distance_traveled": "Miles traveled",
+    "distance_today": "Miles today",
+    "region": "Region"
   }
 }

@@ -42,8 +42,8 @@ fn i18n_locales_metadata_is_accessible() {
 }
 
 #[test]
-fn route_game_maps_to_menu_phase() {
-    assert_eq!(Route::Game.to_phase(), Some(Phase::Menu));
+fn route_menu_maps_to_menu_phase() {
+    assert_eq!(Route::Menu.to_phase(), Some(Phase::Menu));
 }
 
 #[test]

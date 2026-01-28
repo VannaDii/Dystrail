@@ -44,7 +44,7 @@ pub fn render_category_screen(
 
     html! {
         <main class="outfitting-store">
-            <section role="region" aria-labelledby="category-title" onkeydown={on_keydown} class="store-shell">
+            <section role="region" aria-labelledby="category-title" onkeydown={on_keydown} class="store-shell" tabindex="0" data-testid="outfitting-store">
                 <header class="store-header">
                     <div>
                         <h1 id="category-title">{ title }</h1>

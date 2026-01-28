@@ -207,7 +207,7 @@
   "menu": {
     "camp": "Kemah",
     "diet": "Diet Info",
-    "help": "Tekan 1–8/0 atau klik item. Seed: {{seed}}",
+    "help": "Use ↑/↓ to choose. Enter to select.",
     "inventory": "Gunakan Inventori",
     "pace": "Ubah Kecepatan",
     "quit": "Keluar",
@@ -216,11 +216,18 @@
     "share": "Simpan/Bagikan Seed",
     "status": "Keadaan",
     "title": "Menu Utama",
-    "travel": "Perjalanan"
+    "travel": "Perjalanan",
+    "subtitle": "Stand at the trailhead.",
+    "footer": "A parody survival game",
+    "start_journey": "Start Journey",
+    "about": "About the Trail",
+    "accessibility": "Accessibility & Settings"
   },
   "mode": {
     "classic": "Klasik",
-    "deep": "Ujung Dalam"
+    "deep": "Ujung Dalam",
+    "title": "Mode Select",
+    "subtitle": "Choose the run difficulty band."
   },
   "nav": {
     "home": "Beranda",
@@ -507,7 +514,8 @@
     "skip_to_content": "Lewati ke konten",
     "hc_on": "Kontras tinggi aktif",
     "hc_off": "Kontras tinggi nonaktif",
-    "hc_toggle": "Kontras tinggi aktif"
+    "hc_toggle": "Kontras tinggi aktif",
+    "back": "Back"
   },
   "vehicle": {
     "announce": {
@@ -571,7 +579,9 @@
     "title": "Cuaca"
   },
   "settings": {
-    "title": "Pengaturan"
+    "title": "Pengaturan",
+    "subtitle": "Adjust language and contrast.",
+    "language_label": "Language"
   },
   "not_found": {
     "title": "Halaman tidak ditemukan",
@@ -697,5 +707,33 @@
         "spares": "Bring spare wagon parts."
       }
     }
+  },
+  "boot": {
+    "subtitle": "A satirical 16-bit trek to DC",
+    "loading": "Dystrail loading",
+    "ready": "Ready. Press any key to begin.",
+    "loading_label": "Loading encounters…",
+    "press_any_key": "Press any key to begin"
+  },
+  "about": {
+    "title": "About the Trail",
+    "subtitle": "A satirical survival trek",
+    "body": "Dystrail blends political parody with classic trail survival."
+  },
+  "inventory": {
+    "title": "Inventory",
+    "supplies": "Supplies",
+    "spare_tire": "Spare tire",
+    "spare_battery": "Spare battery",
+    "spare_alt": "Spare alternator",
+    "spare_pump": "Spare fuel pump",
+    "tags": "Tags",
+    "tags_none": "No tags"
+  },
+  "map": {
+    "title": "Map & Progress",
+    "distance_traveled": "Miles traveled",
+    "distance_today": "Miles today",
+    "region": "Region"
   }
 }

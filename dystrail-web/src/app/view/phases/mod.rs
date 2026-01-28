@@ -1,13 +1,19 @@
+mod about;
 mod boss;
 mod camp;
 mod crossing;
 mod encounter;
+mod inventory;
+mod map;
 mod menu;
+mod mode_select;
 mod outfitting;
+mod pace_diet;
 mod persona;
 mod result;
 mod route_prompt;
 mod seed_footer;
+mod settings;
 mod store;
 mod travel;
 
@@ -16,26 +22,57 @@ use crate::app::state::AppState;
 use crate::app::view::handlers::AppHandlers;
 use crate::pages::not_found::NotFound;
 use crate::router::Route;
+use web_sys::KeyboardEvent;
 use yew::prelude::*;
 
+pub use about::render_about;
 pub use boss::render_boss;
 pub use camp::render_camp;
 pub use crossing::render_crossing;
 pub use encounter::render_encounter;
+pub use inventory::render_inventory;
+pub use map::render_map;
 pub use menu::render_menu;
+pub use mode_select::render_mode_select;
 pub use outfitting::render_outfitting;
+pub use pace_diet::render_pace_diet;
 pub use persona::render_persona;
 pub use result::render_result;
 pub use route_prompt::render_route_prompt;
 pub use seed_footer::render_seed_footer;
+pub use settings::render_settings;
 pub use store::render_store;
 pub use travel::render_travel;
+
+#[cfg(any(test, target_arch = "wasm32"))]
+fn apply_escape_to_travel(key: &str, set_phase: &Callback<Phase>, prevent_default: impl FnOnce()) {
+    if key == "Escape" {
+        set_phase.emit(Phase::Travel);
+        prevent_default();
+    }
+}
 
 pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<&Route>) -> Html {
     let not_found = matches!(route, None | Some(Route::NotFound));
     if not_found {
         return html! { <NotFound on_go_home={handlers.go_home.clone()} /> };
     }
+
+    let escape_to_travel = {
+        let phase_handle = state.phase.clone();
+        let set_phase = Callback::from(move |phase: Phase| phase_handle.set(phase));
+        #[cfg(target_arch = "wasm32")]
+        {
+            Callback::from(move |e: KeyboardEvent| {
+                apply_escape_to_travel(&e.key(), &set_phase, || e.prevent_default());
+            })
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let _ = set_phase;
+            Callback::from(|_e: KeyboardEvent| {})
+        }
+    };
 
     match *state.phase {
         Phase::Boot => {
@@ -49,15 +86,35 @@ pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<
                 />
             }
         }
-        Phase::Persona => render_persona(state),
-        Phase::Outfitting => render_outfitting(state),
         Phase::Menu => render_menu(state),
+        Phase::About => render_about(state),
+        Phase::Settings => render_settings(state, handlers),
+        Phase::Persona => render_persona(state),
+        Phase::ModeSelect => render_mode_select(state),
+        Phase::Outfitting => render_outfitting(state),
         Phase::Travel => render_travel(state, handlers),
+        Phase::Inventory => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_inventory(state) }</div> }
+        }
+        Phase::PaceDiet => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_pace_diet(state, handlers) }</div> }
+        }
+        Phase::Map => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_map(state) }</div> }
+        }
         Phase::Store => render_store(state, handlers),
-        Phase::Crossing => render_crossing(state, handlers),
-        Phase::RoutePrompt => render_route_prompt(state, handlers),
-        Phase::Camp => render_camp(state),
-        Phase::Encounter => render_encounter(state, handlers),
+        Phase::Crossing => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_crossing(state, handlers) }</div> }
+        }
+        Phase::RoutePrompt => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_route_prompt(state, handlers) }</div> }
+        }
+        Phase::Camp => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_camp(state) }</div> }
+        }
+        Phase::Encounter => {
+            html! { <div onkeydown={escape_to_travel.clone()}>{ render_encounter(state, handlers) }</div> }
+        }
         Phase::Boss => render_boss(state, handlers),
         Phase::Result => render_result(state),
     }
@@ -167,12 +224,12 @@ mod tests {
     fn render_main_view_handles_boot_and_not_found() {
         let html = render_phase(PhaseHarnessProps {
             phase: Phase::Boot,
-            route: Some(Route::Home),
+            route: Some(Route::Boot),
             session: None,
             pending_state: None,
             data: EncounterData::empty(),
         });
-        assert!(html.contains("boot"));
+        assert!(html.contains("boot-screen"));
 
         let html = render_phase(PhaseHarnessProps {
             phase: Phase::Menu,
@@ -196,6 +253,15 @@ mod tests {
         assert!(html.contains("persona-select"));
 
         let html = render_phase(PhaseHarnessProps {
+            phase: Phase::ModeSelect,
+            route: Some(Route::ModeSelect),
+            session: None,
+            pending_state: None,
+            data: EncounterData::empty(),
+        });
+        assert!(html.contains("mode-select"));
+
+        let html = render_phase(PhaseHarnessProps {
             phase: Phase::Outfitting,
             route: Some(Route::Outfitting),
             session: None,
@@ -206,12 +272,12 @@ mod tests {
 
         let html = render_phase(PhaseHarnessProps {
             phase: Phase::Menu,
-            route: Some(Route::Home),
+            route: Some(Route::Menu),
             session: None,
             pending_state: None,
             data: EncounterData::empty(),
         });
-        assert!(html.contains("menu"));
+        assert!(html.contains("menu-screen"));
     }
 
     #[test]
@@ -226,6 +292,36 @@ mod tests {
             data: data.clone(),
         });
         assert!(html.contains("travel"));
+
+        let session = build_session(base_state(&data));
+        let html = render_phase(PhaseHarnessProps {
+            phase: Phase::Inventory,
+            route: Some(Route::Inventory),
+            session: Some(session),
+            pending_state: None,
+            data: data.clone(),
+        });
+        assert!(html.contains("inventory-screen"));
+
+        let session = build_session(base_state(&data));
+        let html = render_phase(PhaseHarnessProps {
+            phase: Phase::PaceDiet,
+            route: Some(Route::PaceDiet),
+            session: Some(session),
+            pending_state: None,
+            data: data.clone(),
+        });
+        assert!(html.contains("pace-diet-screen"));
+
+        let session = build_session(base_state(&data));
+        let html = render_phase(PhaseHarnessProps {
+            phase: Phase::Map,
+            route: Some(Route::Map),
+            session: Some(session),
+            pending_state: None,
+            data: data.clone(),
+        });
+        assert!(html.contains("map-screen"));
 
         let session = build_session(base_state(&data));
         let html = render_phase(PhaseHarnessProps {
@@ -331,5 +427,38 @@ mod tests {
             data,
         });
         assert!(html.contains("result"));
+    }
+
+    #[test]
+    fn render_main_view_handles_meta_screens() {
+        let html = render_phase(PhaseHarnessProps {
+            phase: Phase::About,
+            route: Some(Route::About),
+            session: None,
+            pending_state: None,
+            data: EncounterData::empty(),
+        });
+        assert!(html.contains("about-screen"));
+
+        let html = render_phase(PhaseHarnessProps {
+            phase: Phase::Settings,
+            route: Some(Route::Settings),
+            session: None,
+            pending_state: None,
+            data: EncounterData::empty(),
+        });
+        assert!(html.contains("settings-screen"));
+    }
+
+    #[test]
+    fn apply_escape_to_travel_updates_phase() {
+        let phase_seen = std::rc::Rc::new(std::cell::Cell::new(None));
+        let phase_seen_ref = phase_seen.clone();
+        let set_phase = Callback::from(move |phase: Phase| phase_seen_ref.set(Some(phase)));
+        let prevented = std::rc::Rc::new(std::cell::Cell::new(false));
+        let prevented_ref = prevented.clone();
+        apply_escape_to_travel("Escape", &set_phase, || prevented_ref.set(true));
+        assert_eq!(phase_seen.get(), Some(Phase::Travel));
+        assert!(prevented.get());
     }
 }

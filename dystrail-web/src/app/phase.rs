@@ -7,10 +7,16 @@ use crate::game::{JourneySession, MechanicalPolicyId, StrategyId};
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Phase {
     Boot,
-    Persona,
-    Outfitting,
     Menu,
+    About,
+    Settings,
+    Persona,
+    ModeSelect,
+    Outfitting,
     Travel,
+    Inventory,
+    PaceDiet,
+    Map,
     Store,
     Crossing,
     RoutePrompt,
