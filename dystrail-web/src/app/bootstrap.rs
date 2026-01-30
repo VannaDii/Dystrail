@@ -41,7 +41,8 @@ fn bootstrap_load(handles: &BootstrapHandles) {
         progress = progress.saturating_add(9);
         p.set(progress.min(99));
     };
-    let loaded_data = crate::game::data::EncounterData::load_from_static();
+    let loaded_data = crate::game::load_encounter_data()
+        .unwrap_or_else(|_| crate::game::data::EncounterData::empty());
     bump(&handles.preload_progress);
     let loaded_pacing = crate::game::pacing::PacingConfig::load_from_static();
     bump(&handles.preload_progress);

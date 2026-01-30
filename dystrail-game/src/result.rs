@@ -275,7 +275,10 @@ fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
 
 fn ending_cause_token(ending: Ending) -> Option<String> {
     match ending {
-        Ending::Collapse { cause } => Some(format!("collapse_{}", cause.key())),
+        Ending::Collapse { cause } => match cause {
+            CollapseCause::Panic => Some("pants".to_string()),
+            _ => Some(format!("collapse_{}", cause.key())),
+        },
         Ending::Exposure { kind } => Some(format!("exposure_{}", kind.key())),
         Ending::VehicleFailure { cause } => Some(format!("vehicle_failure_{}", cause.key())),
         _ => None,

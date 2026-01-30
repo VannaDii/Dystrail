@@ -167,12 +167,16 @@ fn summary_uses_result_config() {
 }
 
 #[test]
-fn props_eq_tracks_result_config_and_boss_only() {
+fn props_eq_tracks_result_config_boss_and_ending() {
     let mut props_a = baseline_props();
     let mut props_b = baseline_props();
     props_b.game_state.day = props_a.game_state.day + 5;
     assert!(props_a == props_b);
 
+    props_b.game_state.ending = Some(Ending::SanityLoss);
+    assert!(props_a != props_b);
+
+    props_b = baseline_props();
     props_b.boss_won = true;
     assert!(props_a != props_b);
 

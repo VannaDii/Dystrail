@@ -9,7 +9,6 @@ use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
 use std::rc::Rc;
 use std::sync::OnceLock;
-use std::time::Instant;
 use thiserror::Error;
 
 use crate::endgame::EndgameTravelCfg;
@@ -1173,8 +1172,7 @@ impl DetourPolicy {
         3
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         if self.min == 0 {
             self.min = 1;
         }
@@ -1211,8 +1209,7 @@ impl BribePolicy {
         0.5
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
         self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
         self.terminal_penalty = self.terminal_penalty.clamp(-0.9, 0.9);
@@ -1608,11 +1605,10 @@ pub struct PolicyCatalog {
 
 impl PolicyCatalog {
     #[must_use]
-    pub fn new(
+    pub const fn new(
         families: HashMap<PolicyId, JourneyCfg>,
         overlays: HashMap<StrategyId, JourneyOverlay>,
     ) -> Self {
-        let _ = Instant::now();
         Self { families, overlays }
     }
 
@@ -1647,14 +1643,12 @@ impl PolicyCatalog {
     }
 
     #[must_use]
-    pub fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
-        let _ = Instant::now();
+    pub const fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
         &self.families
     }
 
     #[must_use]
-    pub fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
-        let _ = Instant::now();
+    pub const fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
         &self.overlays
     }
 }

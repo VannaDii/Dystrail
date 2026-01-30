@@ -17,7 +17,7 @@ impl PartialEq for PersonaPageProps {
 #[function_component(PersonaPage)]
 pub fn persona_page(props: &PersonaPageProps) -> Html {
     html! {
-      <section class="panel retro-menu">
+      <section class="panel retro-menu" data-testid="persona-screen">
         <crate::components::ui::persona_select::PersonaSelect
             on_selected={Some(props.on_selected.clone())}
             on_continue={Some(props.on_continue.clone())}

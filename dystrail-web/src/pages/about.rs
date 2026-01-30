@@ -7,6 +7,7 @@ pub struct AboutPageProps {
 
 #[function_component(AboutPage)]
 pub fn about_page(props: &AboutPageProps) -> Html {
+    let container_ref = use_node_ref();
     let on_back_key = props.on_back.clone();
     let on_back_click = props.on_back.clone();
     let on_keydown = {
@@ -27,8 +28,29 @@ pub fn about_page(props: &AboutPageProps) -> Html {
         }
     };
 
+    #[cfg(target_arch = "wasm32")]
+    {
+        let container_ref = container_ref.clone();
+        use_effect_with((), move |()| {
+            if let Some(el) = container_ref.cast::<web_sys::HtmlElement>() {
+                let _ = el.focus();
+            }
+            || {}
+        });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = &container_ref;
+    }
+
     html! {
-        <div class="min-h-screen flex items-center justify-center bg-base-300 font-sans shell-screen" onkeydown={on_keydown} data-testid="about-screen">
+        <div
+            class="min-h-screen flex items-center justify-center bg-base-300 font-sans shell-screen"
+            onkeydown={on_keydown}
+            tabindex="0"
+            ref={container_ref}
+            data-testid="about-screen"
+        >
             <div class="card border border-base-content bg-base-200 w-[420px] max-w-full rounded-none shadow-none shell-card">
                 <div class="card-body items-center text-center gap-4">
                     <h1 class="text-2xl font-bold">{ crate::i18n::t("about.title") }</h1>

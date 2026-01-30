@@ -66,6 +66,16 @@ impl<'a> TestBridge<'a> {
         let result = self.driver.execute("return window.__dystrailTest.state()", vec![]).await?;
         parse_game_state(result.json())
     }
+
+    pub async fn screen(&self, name: &str) -> Result<()> {
+        self.driver
+            .execute(
+                "window.__dystrailTest.screen(arguments[0])",
+                vec![name.into()],
+            )
+            .await?;
+        Ok(())
+    }
 }
 
 fn parse_bridge_available(value: &Value) -> Result<()> {
@@ -236,6 +246,7 @@ mod tests {
         bridge.speed(2.0).await.expect("speed ok");
         bridge.click(10, 12).await.expect("click ok");
         bridge.key("w").await.expect("key ok");
+        bridge.screen("travel").await.expect("screen ok");
         let state = bridge.state().await.expect("state ok");
         assert_eq!(state.screen.as_deref(), Some("travel"));
         assert_eq!(state.hp, Some(9));

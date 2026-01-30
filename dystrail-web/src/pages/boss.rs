@@ -84,7 +84,7 @@ pub fn boss_page(props: &BossPageProps) -> Html {
                 persona_id={persona_id}
                 weather={Some(props.weather.clone())}
             />
-            <section class="panel boss-phase boss-panel">
+            <section class="panel boss-phase boss-panel" data-testid="boss-screen">
                 <h2>{ crate::i18n::t("boss.title") }</h2>
                 <div class="encounter-desc">
                     <p>{ crate::i18n::t("boss.phases_hint") }</p>

@@ -9,6 +9,8 @@ pub mod bootstrap;
 pub mod phase;
 pub mod routing;
 pub mod state;
+#[cfg(any(test, target_arch = "wasm32"))]
+mod test_bridge;
 pub mod view;
 
 pub use phase::Phase;
@@ -29,6 +31,7 @@ pub fn app() -> Html {
 pub fn app_inner() -> Html {
     let app_state = state::use_app_state();
     bootstrap::use_bootstrap(&app_state);
+    test_bridge::use_test_bridge(&app_state);
 
     let navigator = use_navigator();
     let route = use_route::<Route>();

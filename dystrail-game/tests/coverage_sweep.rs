@@ -925,7 +925,7 @@ fn result_endings_branching() {
         cause: CollapseCause::Panic,
     });
     let collapse = result_summary(&state, &cfg).unwrap();
-    assert_eq!(collapse.ending_cause.as_deref(), Some("collapse_panic"));
+    assert_eq!(collapse.ending_cause.as_deref(), Some("pants"));
 
     state.ending = None;
     state.mode = GameMode::Classic;

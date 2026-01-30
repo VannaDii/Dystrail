@@ -27,7 +27,7 @@ pub fn otdeluxe_store_page(props: &OtDeluxeStorePageProps) -> Html {
     let persona_id = props.state.persona_id.clone();
 
     html! {
-        <>
+        <section data-testid="store-screen">
             <crate::components::ui::stats_bar::StatsBar
                 {stats}
                 {day}
@@ -41,6 +41,6 @@ pub fn otdeluxe_store_page(props: &OtDeluxeStorePageProps) -> Html {
                 on_purchase={props.on_purchase.clone()}
                 on_leave={props.on_leave.clone()}
             />
-        </>
+        </section>
     }
 }

@@ -28,7 +28,7 @@ pub fn route_prompt_page(props: &RoutePromptPageProps) -> Html {
     let persona_id = props.state.persona_id.clone();
 
     html! {
-        <>
+        <section data-testid="route-prompt-screen">
             <crate::components::ui::stats_bar::StatsBar
                 {stats}
                 {day}
@@ -41,6 +41,6 @@ pub fn route_prompt_page(props: &RoutePromptPageProps) -> Html {
                 prompt={props.prompt}
                 on_choice={props.on_choice.clone()}
             />
-        </>
+        </section>
     }
 }

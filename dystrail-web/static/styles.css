@@ -106,6 +106,26 @@ body {
   min-height: 100vh;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  background: var(--panel);
+  color: var(--text-bright);
+  border: 2px solid var(--panel-border);
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease-out;
+  z-index: 2000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 /* Oregon Trail style numbered menu */
 .ot-menu ul[role="menu"] {
   list-style: none;

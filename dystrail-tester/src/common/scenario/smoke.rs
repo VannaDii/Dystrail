@@ -49,6 +49,11 @@ impl BrowserScenario for SmokeScenario {
             }
         }
 
+        ctx.bridge.screen("travel").await?;
+        if ctx.verbose {
+            println!("  🧭 Jumped to travel screen via test bridge");
+        }
+
         ctx.bridge.key("wwaassdd").await?;
         if ctx.verbose {
             println!("  ⌨️  Sent keyboard input: wwaassdd");

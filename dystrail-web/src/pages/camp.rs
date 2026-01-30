@@ -31,7 +31,7 @@ pub fn camp_page(props: &CampPageProps) -> Html {
     let persona_id = props.state.persona_id.clone();
 
     html! {
-        <>
+        <section data-testid="camp-screen">
             <crate::components::ui::stats_bar::StatsBar
                 {stats}
                 {day}
@@ -47,6 +47,6 @@ pub fn camp_page(props: &CampPageProps) -> Html {
                 on_state_change={props.on_state_change.clone()}
                 on_close={props.on_close.clone()}
             />
-        </>
+        </section>
     }
 }

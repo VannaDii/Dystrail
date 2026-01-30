@@ -36,7 +36,7 @@ pub fn travel_page(props: &TravelPageProps) -> Html {
     let persona_id = props.state.persona_id.clone();
 
     html! {
-        <>
+        <section data-testid="travel-screen">
             <crate::components::ui::stats_bar::StatsBar
                 {stats}
                 {day}
@@ -56,13 +56,13 @@ pub fn travel_page(props: &TravelPageProps) -> Html {
                 game_state={Some(props.state.clone())}
                 pacing_config={props.pacing_config.clone()}
             />
-        {
-            if props.state.current_encounter.is_some() || props.data_ready {
-                Html::default()
-            } else {
-                html! { <p class="muted" role="status">{ crate::i18n::t("ui.loading_encounters") }</p> }
+            {
+                if props.state.current_encounter.is_some() || props.data_ready {
+                    Html::default()
+                } else {
+                    html! { <p class="muted" role="status">{ crate::i18n::t("ui.loading_encounters") }</p> }
+                }
             }
-        }
-        </>
+        </section>
     }
 }

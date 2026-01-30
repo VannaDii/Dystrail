@@ -19,7 +19,7 @@ impl PartialEq for OutfittingPageProps {
 pub fn outfitting_page(props: &OutfittingPageProps) -> Html {
     let on_back = props.on_back.clone();
     html! {
-        <section class="panel retro-menu">
+        <section class="panel retro-menu" data-testid="outfitting-screen">
             <div class="controls">
                 <button class="retro-btn-secondary" onclick={Callback::from(move |_| on_back.emit(()))}>
                     { crate::i18n::t("ui.back") }

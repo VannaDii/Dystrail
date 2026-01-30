@@ -57,6 +57,16 @@ fn config_json(config_name: &str) -> Result<&'static str, WebDataError> {
     }
 }
 
+/// Load encounter data from embedded static assets.
+///
+/// # Errors
+///
+/// Returns an error if the bundled JSON cannot be parsed.
+pub fn load_encounter_data() -> Result<dystrail_game::EncounterData, WebDataError> {
+    let json = include_str!("../static/assets/data/game.json");
+    dystrail_game::EncounterData::from_json(json).map_err(WebDataError::Json)
+}
+
 /// Web-specific game storage using localStorage
 pub struct WebGameStorage;
 

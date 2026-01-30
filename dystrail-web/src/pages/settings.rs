@@ -14,6 +14,7 @@ pub struct SettingsPageProps {
 
 #[function_component(SettingsPage)]
 pub fn settings_page(props: &SettingsPageProps) -> Html {
+    let container_ref = use_node_ref();
     let on_back_key = props.on_back.clone();
     let on_back_click = props.on_back.clone();
     let on_keydown = {
@@ -33,6 +34,21 @@ pub fn settings_page(props: &SettingsPageProps) -> Html {
             Callback::from(|_e: web_sys::KeyboardEvent| {})
         }
     };
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        let container_ref = container_ref.clone();
+        use_effect_with((), move |()| {
+            if let Some(el) = container_ref.cast::<web_sys::HtmlElement>() {
+                let _ = el.focus();
+            }
+            || {}
+        });
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = &container_ref;
+    }
 
     let on_change = {
         let cb = props.on_lang_change.clone();
@@ -69,7 +85,13 @@ pub fn settings_page(props: &SettingsPageProps) -> Html {
     };
 
     html! {
-        <div class="min-h-screen flex items-center justify-center bg-base-300 font-sans shell-screen" onkeydown={on_keydown} data-testid="settings-screen">
+        <div
+            class="min-h-screen flex items-center justify-center bg-base-300 font-sans shell-screen"
+            onkeydown={on_keydown}
+            tabindex="0"
+            ref={container_ref}
+            data-testid="settings-screen"
+        >
             <div class="card border border-base-content bg-base-200 w-[420px] max-w-full rounded-none shadow-none shell-card">
                 <div class="card-body items-center text-center gap-4">
                     <h1 class="text-2xl font-bold">{ crate::i18n::t("settings.title") }</h1>

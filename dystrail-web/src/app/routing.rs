@@ -28,50 +28,36 @@ fn next_phase_for_route(current_phase: Phase, route: Option<Route>) -> Option<Ph
 }
 
 #[cfg(any(target_arch = "wasm32", test))]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-enum PhaseDomain {
-    Meta,
-    Setup,
-    Journey,
-    Terminal,
-}
-
-#[cfg(any(target_arch = "wasm32", test))]
-const fn phase_domain(phase: Phase) -> PhaseDomain {
-    match phase {
-        Phase::Boot | Phase::Menu | Phase::About | Phase::Settings => PhaseDomain::Meta,
-        Phase::Persona | Phase::ModeSelect | Phase::Outfitting => PhaseDomain::Setup,
-        Phase::Travel
-        | Phase::Inventory
+const fn is_route_transition_allowed(current: Phase, next: Phase) -> bool {
+    match current {
+        Phase::Menu => matches!(next, Phase::About | Phase::Settings | Phase::Persona),
+        Phase::ModeSelect => matches!(next, Phase::Persona | Phase::Outfitting),
+        Phase::Travel => matches!(
+            next,
+            Phase::Inventory
+                | Phase::PaceDiet
+                | Phase::Map
+                | Phase::Crossing
+                | Phase::RoutePrompt
+                | Phase::Camp
+                | Phase::Encounter
+                | Phase::Store
+                | Phase::Boss
+        ),
+        Phase::Inventory
         | Phase::PaceDiet
         | Phase::Map
-        | Phase::Store
         | Phase::Crossing
         | Phase::RoutePrompt
         | Phase::Camp
         | Phase::Encounter
-        | Phase::Boss => PhaseDomain::Journey,
-        Phase::Result => PhaseDomain::Terminal,
-    }
-}
-
-#[cfg(any(target_arch = "wasm32", test))]
-const fn is_route_transition_allowed(current: Phase, next: Phase) -> bool {
-    match phase_domain(current) {
-        PhaseDomain::Meta => matches!(
-            next,
-            Phase::Boot | Phase::Menu | Phase::About | Phase::Settings | Phase::Persona
-        ),
-        PhaseDomain::Setup => {
-            matches!(next, Phase::Persona | Phase::ModeSelect | Phase::Outfitting)
+        | Phase::Store => matches!(next, Phase::Travel),
+        Phase::Boss => matches!(next, Phase::Result),
+        Phase::Persona => matches!(next, Phase::ModeSelect),
+        Phase::Outfitting => matches!(next, Phase::ModeSelect | Phase::Travel),
+        Phase::Boot | Phase::About | Phase::Settings | Phase::Result => {
+            matches!(next, Phase::Menu)
         }
-        PhaseDomain::Journey => {
-            matches!(
-                phase_domain(next),
-                PhaseDomain::Journey | PhaseDomain::Terminal
-            )
-        }
-        PhaseDomain::Terminal => matches!(next, Phase::Menu),
     }
 }
 
@@ -122,6 +108,7 @@ mod tests {
     fn next_phase_for_route_respects_boot_and_diffs() {
         assert!(next_phase_for_route(Phase::Boot, Some(Route::Travel)).is_none());
         assert!(next_phase_for_route(Phase::Menu, Some(Route::Menu)).is_none());
+        assert!(next_phase_for_route(Phase::Menu, Some(Route::Boot)).is_none());
         assert!(next_phase_for_route(Phase::Menu, Some(Route::Travel)).is_none());
         assert_eq!(
             next_phase_for_route(Phase::Menu, Some(Route::Persona)),
@@ -131,19 +118,34 @@ mod tests {
     }
 
     #[test]
-    fn phase_domain_covers_setup_and_terminal() {
-        assert_eq!(phase_domain(Phase::Outfitting), PhaseDomain::Setup);
-        assert_eq!(phase_domain(Phase::Result), PhaseDomain::Terminal);
+    fn route_transition_rules_cover_meta_and_setup() {
+        assert!(is_route_transition_allowed(Phase::Boot, Phase::Menu));
+        assert!(!is_route_transition_allowed(Phase::Boot, Phase::About));
+        assert!(is_route_transition_allowed(Phase::Menu, Phase::Persona));
+        assert!(!is_route_transition_allowed(Phase::Menu, Phase::Boot));
+        assert!(!is_route_transition_allowed(Phase::Menu, Phase::Travel));
+        assert!(is_route_transition_allowed(Phase::Settings, Phase::Menu));
+        assert!(is_route_transition_allowed(
+            Phase::ModeSelect,
+            Phase::Outfitting
+        ));
+        assert!(is_route_transition_allowed(
+            Phase::Outfitting,
+            Phase::ModeSelect
+        ));
+        assert!(is_route_transition_allowed(
+            Phase::Outfitting,
+            Phase::Travel
+        ));
+        assert!(!is_route_transition_allowed(Phase::Persona, Phase::Menu));
     }
 
     #[test]
-    fn route_transition_rules_cover_setup_and_terminal() {
-        assert!(is_route_transition_allowed(
-            Phase::Persona,
-            Phase::Outfitting
-        ));
-        assert!(!is_route_transition_allowed(Phase::Persona, Phase::Travel));
-        assert!(is_route_transition_allowed(Phase::Travel, Phase::Result));
+    fn route_transition_rules_cover_journey_and_terminal() {
+        assert!(is_route_transition_allowed(Phase::Travel, Phase::Inventory));
+        assert!(is_route_transition_allowed(Phase::Encounter, Phase::Travel));
+        assert!(!is_route_transition_allowed(Phase::Camp, Phase::Menu));
+        assert!(is_route_transition_allowed(Phase::Boss, Phase::Result));
         assert!(is_route_transition_allowed(Phase::Result, Phase::Menu));
         assert!(!is_route_transition_allowed(Phase::Result, Phase::Travel));
     }

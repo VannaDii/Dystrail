@@ -16,6 +16,7 @@ impl PartialEq for ResultPageProps {
     fn eq(&self, other: &Self) -> bool {
         self.state.day == other.state.day
             && self.state.region == other.state.region
+            && self.state.ending == other.state.ending
             && self.boss_won == other.boss_won
     }
 }

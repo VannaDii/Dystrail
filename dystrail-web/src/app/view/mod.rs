@@ -166,6 +166,9 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
 
     html! {
         <>
+            <a class="skip-link" href="#main">
+                { crate::i18n::t("ui.skip_to_content") }
+            </a>
             { render_header_section(show_header, state, &handlers, open_save_header) }
             <main id="main" role="main">
                 <style>{ crate::a11y::visible_focus_css() }</style>

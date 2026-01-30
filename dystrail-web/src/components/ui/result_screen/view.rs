@@ -21,7 +21,9 @@ pub struct Props {
 
 impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
-        self.boss_won == other.boss_won && self.result_config == other.result_config
+        self.boss_won == other.boss_won
+            && self.result_config == other.result_config
+            && self.game_state.ending == other.game_state.ending
     }
 }
 

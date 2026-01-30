@@ -21,7 +21,7 @@ pub fn render_body(
     let show_thresholds = props.game_state.mechanical_policy == MechanicalPolicyId::DystrailLegacy;
 
     html! {
-        <main role="main" aria-labelledby="result-title" onkeydown={on_keydown} tabindex="0" class="result-screen">
+        <main role="main" aria-labelledby="result-title" onkeydown={on_keydown} tabindex="0" class="result-screen" data-testid="result-screen">
             <h1 id="result-title" class="result-headline">{ &headline_text }</h1>
 
             <section class="result-info" aria-labelledby="result-info-heading">

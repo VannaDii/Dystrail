@@ -2,6 +2,18 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Dystrail shell navigation + a11y smoke', () => {
   test('boot/menu flow, settings controls, and setup navigation', async ({ page }) => {
+    page.on('pageerror', (err) => {
+      console.error('pageerror:', err.message);
+    });
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        console.error('console error:', msg.text());
+      }
+    });
+    await page.addInitScript(() => {
+      localStorage.setItem('dystrail.locale', 'en');
+      localStorage.setItem('dystrail.hc', '0');
+    });
     await page.goto('./');
 
     // Boot screen and skip link exist
@@ -64,7 +76,7 @@ test.describe('Dystrail shell navigation + a11y smoke', () => {
     await page.locator('[data-testid="outfitting-store"]').focus();
     await page.keyboard.press('0');
 
-    await expect(page.locator('.travel-shell')).toBeVisible();
+    await expect(page.locator('[data-testid="travel-screen"]')).toBeVisible();
     await expect(page).toHaveURL(/\/travel/);
   });
 });

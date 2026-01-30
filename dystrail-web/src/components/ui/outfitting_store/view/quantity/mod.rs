@@ -119,4 +119,40 @@ mod tests {
         let html = block_on(LocalServerRenderer::<QuantityRenderHarness>::new().render());
         assert!(html.contains("outfitting-store"));
     }
+
+    #[function_component(QuantityWithCartHarness)]
+    fn quantity_with_cart_harness() -> Html {
+        let store_data = load_store_data().expect("store data should load");
+        let item_id = store_data
+            .categories
+            .iter()
+            .find_map(|cat| cat.items.first().map(|item| item.id.clone()))
+            .or_else(|| store_data.items.first().map(|item| item.id.clone()))
+            .expect("store data should include at least one item");
+        let mut cart = Cart::new();
+        let _ = cart.add_item(&item_id, 2);
+        let state = StoreState {
+            store_data,
+            cart,
+            current_screen: StoreScreen::QuantityPrompt(item_id.clone()),
+            focus_idx: 1,
+            discount_pct: 0.0,
+        };
+        let state = use_state(|| state);
+        let list_ref = NodeRef::default();
+        let on_keydown: Callback<web_sys::KeyboardEvent> = Callback::noop();
+        render_quantity_screen(
+            &item_id,
+            &state,
+            &GameState::default(),
+            &list_ref,
+            &on_keydown,
+        )
+    }
+
+    #[test]
+    fn render_quantity_screen_shows_current_qty_when_present() {
+        let html = block_on(LocalServerRenderer::<QuantityWithCartHarness>::new().render());
+        assert!(html.contains("Current in cart: 2"));
+    }
 }
