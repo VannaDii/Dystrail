@@ -1,7 +1,0 @@
-# Example config (future use)
-# You could extend the runner to accept --config and merge values.
-base_url = "http://localhost:5173/?test=1"
-artifacts_dir = "target/play-artifacts"
-headless = true
-browsers = ["chrome", "firefox", "edge", "safari"]
-seeds = [1337, 1338, 31337]
