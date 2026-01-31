@@ -1,0 +1,65 @@
+name: docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Just
+        uses: extractions/setup-just@v2
+
+      - name: Install Doc Tools
+        run: just docs-install
+
+      - name: Build Docs
+        run: just docs-build
+
+      - name: Guardrails
+        run: |
+          ! grep -R --include='*.md' -E '(AKIA[0-9A-Z]{16}|SECRET_KEY|token=|password=|x-api-key)' docs || (echo "Secret-like pattern found" && exit 1)
+          ! git ls-files docs | grep -E '\.(py|ipynb|html)$' && echo "OK" || (echo "Forbidden file type present" && exit 1)
+
+      - name: Link check
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: just docs-link-check
+
+      - name: Prepare Deployment
+        run: |
+          mkdir -p deploy
+          rsync -a docs/book/ deploy/
+          if [ -f docs/CNAME ]; then cp docs/CNAME deploy/CNAME; fi
+          echo "Generated on: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" > deploy/.deployment-info
+          echo "Source commit: ${GITHUB_SHA}" >> deploy/.deployment-info
+          echo "Workflow run: ${GITHUB_RUN_ID}" >> deploy/.deployment-info
+          echo "Trigger: ${GITHUB_EVENT_NAME}" >> deploy/.deployment-info
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          enable_jekyll: false
+          commit_message: |
+            docs: deploy documentation
+
+            Source commit: ${{ github.sha }}
+            Workflow run: ${{ github.run_id }}
+            Generated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+            Trigger: ${{ github.event_name }}

@@ -43,8 +43,19 @@ coverage:
     cargo tarpaulin --workspace --follow-exec --fail-under 100
 
 # Docs
+docs-install:
+    if ! command -v mdbook >/dev/null 2>&1; then \
+        cargo install --locked mdbook; \
+    fi
+
 docs-build:
     cd docs && mdbook build
 
 docs-serve:
     cd docs && mdbook serve --open
+
+docs-link-check:
+    if ! command -v lychee >/dev/null 2>&1; then \
+        cargo install --locked lychee; \
+    fi
+    lychee --verbose --no-progress docs || true

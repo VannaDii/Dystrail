@@ -3,7 +3,8 @@
     {
       "name": "main",
       "prerelease": "dev"
-    }
+    },
+    "gh-pages"
   ],
   "tagFormat": "v${version}",
   "plugins": [
