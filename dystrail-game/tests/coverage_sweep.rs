@@ -1061,11 +1061,7 @@ fn crossing_config_thresholds_cover_branches() {
     detour_policy.detour = 1.0;
     detour_policy.terminal = 0.0;
     detour_policy.sanitize();
-    let sample = if span > 0 {
-        sample_with_remainder(0.9, span, remainder)
-    } else {
-        sample_for(0.9)
-    };
+    let sample = sample_with_remainder(0.9, span, remainder);
     let mut rng = FixedRng::with_value(sample);
     let detour_ctx = CrossingContext {
         policy: &detour_policy,
@@ -1076,10 +1072,7 @@ fn crossing_config_thresholds_cover_branches() {
     };
     let detour_outcome = resolve_crossing(detour_ctx, &mut rng);
     assert!(
-        matches!(
-            detour_outcome.result,
-            CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max
-        ),
+        matches!(detour_outcome.result, CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max),
         "expected detour days to reach configured maximum"
     );
 }
@@ -1125,7 +1118,6 @@ fn sample_with_remainder(draw: f32, span: u32, remainder: u32) -> u32 {
     u32::try_from(candidate.min(u64::from(u32::MAX))).unwrap_or(u32::MAX)
 }
 
-#[derive(Clone)]
 struct FixedRng {
     value: u32,
 }
@@ -1170,6 +1162,8 @@ fn helpers_cover_fixed_rng_and_sampling_edges() {
     assert_eq!(direct, sample_for(0.75));
 
     let mut rng = FixedRng::with_value(0xA5A5_A5A5);
+    let cloned = FixedRng::with_draw(0.5);
+    assert_eq!(cloned.value, sample_for(0.5));
     assert_eq!(rng.next_u64(), 0xA5A5_A5A5_u64);
     let mut bytes = [0_u8; 4];
     rng.fill_bytes(&mut bytes);

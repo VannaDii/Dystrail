@@ -485,6 +485,8 @@ impl<'a> PendingPhase<'a> {
             return None;
         }
         if let Some(choice) = self.state.pending_route_choice.take() {
+            let rng_bundle = self.state.rng_bundle.clone();
+            let _guard = phase_guard(rng_bundle.as_deref(), RngPhase::CrossingTick);
             let _ = self.state.resolve_otdeluxe_route_prompt(choice);
         }
         Some((false, String::from(LOG_TRAVEL_BLOCKED), false))
@@ -576,19 +578,20 @@ impl<'a> TravelPhase<'a> {
             return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
         }
 
-        if self.state.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
-            let encounter_result = with_phase_guard(guard_bundle, RngPhase::EncounterTick, || {
-                self.state
-                    .process_encounter_flow(bundle_ref, breakdown_started)
+        if self.state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
+            self.state.derive_otdeluxe_encounter_chance_today();
+        }
+        let encounter_result = with_phase_guard(guard_bundle, RngPhase::EncounterTick, || {
+            self.state
+                .process_encounter_flow(bundle_ref, breakdown_started)
+        });
+        if let Some(result) = encounter_result {
+            with_phase_guard(guard_bundle, RngPhase::TravelTick, || {
+                let pacing = default_pacing_config();
+                self.state.compute_travel_distance_today(pacing);
+                self.state.apply_encounter_partial_travel();
             });
-            if let Some(result) = encounter_result {
-                with_phase_guard(guard_bundle, RngPhase::TravelTick, || {
-                    let pacing = default_pacing_config();
-                    self.state.compute_travel_distance_today(pacing);
-                    self.state.apply_encounter_partial_travel();
-                });
-                return result;
-            }
+            return result;
         }
         if self.state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
             let _guard = phase_guard(guard_bundle, RngPhase::TravelTick);
@@ -618,6 +621,7 @@ impl<'a> TravelPhase<'a> {
         } else {
             distance.max(raw)
         };
+        self.state.apply_travel_wear_for_day(miles_today);
         endgame::run_endgame_controller(self.state, miles_today, breakdown_started, endgame_cfg);
         let crossing_result = with_phase_guard(guard_bundle, RngPhase::CrossingTick, || {
             self.state.handle_crossing_event(miles_today)
@@ -634,7 +638,6 @@ impl<'a> TravelPhase<'a> {
         let additional_miles = (self.state.distance_today - self.state.current_day_miles).max(0.0);
         self.state
             .record_travel_day(TravelDayKind::Travel, additional_miles, "");
-        self.state.apply_travel_wear_for_day(miles_today);
         self.state.log_travel_debug();
         if self.state.mechanical_policy == MechanicalPolicyId::OtDeluxe90s {
             self.state.queue_otdeluxe_store_if_available();
@@ -1238,6 +1241,18 @@ mod tests {
         state.start_of_day();
         let outcome = TravelPhase::new(&mut state).run(&EndgameTravelCfg::default_config());
         assert_eq!(outcome.1, "log.encounter");
+    }
+
+    #[test]
+    fn travel_phase_otdeluxe_runs_encounter_tick() {
+        let mut state = otdeluxe_state_for_travel(1313);
+        state.data = Some(sample_encounter_data());
+        state.weather_effects.encounter_delta = 1.0;
+
+        let outcome = TravelPhase::new(&mut state).run(&EndgameTravelCfg::default_config());
+
+        assert_eq!(outcome.1, "log.encounter");
+        assert!(state.current_encounter.is_some());
     }
 
     #[test]

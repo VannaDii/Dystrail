@@ -126,7 +126,9 @@ fn bribe_increases_pass_and_reduces_terminal() {
     for _ in 0..SAMPLE_SIZE {
         match dystrail_game::crossings::resolve_crossing(bribe_ctx, &mut rng_bribe).result {
             CrossingResult::Pass => bribe_pass += 1,
-            CrossingResult::TerminalFail => bribe_terminal += 1,
+            CrossingResult::TerminalFail => {
+                bribe_terminal += 1;
+            }
             CrossingResult::Detour(_) => {}
         }
     }

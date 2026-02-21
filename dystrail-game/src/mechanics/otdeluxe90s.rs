@@ -503,6 +503,12 @@ pub struct OtDeluxeTravelPolicy {
     pub base_mpd_plains_steady_good: f32,
     pub terrain_mult_mountains: f32,
     pub sick_member_speed_penalty: f32,
+    #[serde(default = "OtDeluxeTravelPolicy::default_encounter_base_chance")]
+    pub encounter_base_chance: f32,
+    #[serde(default = "OtDeluxeTravelPolicy::default_encounter_floor")]
+    pub encounter_floor: f32,
+    #[serde(default = "OtDeluxeTravelPolicy::default_encounter_ceiling")]
+    pub encounter_ceiling: f32,
     #[serde(default)]
     pub snow_speed_penalty_per_in: f32,
     #[serde(default)]
@@ -517,6 +523,9 @@ impl Default for OtDeluxeTravelPolicy {
             base_mpd_plains_steady_good: 20.0,
             terrain_mult_mountains: 0.5,
             sick_member_speed_penalty: 0.10,
+            encounter_base_chance: Self::default_encounter_base_chance(),
+            encounter_floor: Self::default_encounter_floor(),
+            encounter_ceiling: Self::default_encounter_ceiling(),
             snow_speed_penalty_per_in: 0.0,
             snow_speed_floor: 0.0,
             partial_ratio: Self::default_partial_ratio(),
@@ -527,6 +536,71 @@ impl Default for OtDeluxeTravelPolicy {
 impl OtDeluxeTravelPolicy {
     const fn default_partial_ratio() -> f32 {
         0.5
+    }
+
+    const fn default_encounter_base_chance() -> f32 {
+        0.05
+    }
+
+    const fn default_encounter_floor() -> f32 {
+        0.0
+    }
+
+    const fn default_encounter_ceiling() -> f32 {
+        1.0
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeDallesOutcomeWeights {
+    pub safe: f32,
+    pub loss: f32,
+    pub drown: f32,
+}
+
+impl Default for OtDeluxeDallesOutcomeWeights {
+    fn default() -> Self {
+        Self {
+            safe: 0.65,
+            loss: 0.25,
+            drown: 0.10,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+pub struct OtDeluxeDallesPolicy {
+    pub barlow_toll_road_cost_cents: u32,
+    pub barlow_toll_road_time_days: u8,
+    pub rafting_time_days: u8,
+    #[serde(default)]
+    pub barlow_outcome_weights: OtDeluxeDallesOutcomeWeights,
+    #[serde(default)]
+    pub rafting_outcome_weights: OtDeluxeDallesOutcomeWeights,
+    #[serde(default)]
+    pub loss_ratio: f32,
+    #[serde(default)]
+    pub drownings_min: u8,
+    #[serde(default)]
+    pub drownings_max: u8,
+}
+
+impl Default for OtDeluxeDallesPolicy {
+    fn default() -> Self {
+        Self {
+            barlow_toll_road_cost_cents: 1_000,
+            barlow_toll_road_time_days: 2,
+            rafting_time_days: 2,
+            barlow_outcome_weights: OtDeluxeDallesOutcomeWeights {
+                safe: 0.80,
+                loss: 0.20,
+                drown: 0.00,
+            },
+            rafting_outcome_weights: OtDeluxeDallesOutcomeWeights::default(),
+            loss_ratio: 0.25,
+            drownings_min: 1,
+            drownings_max: 1,
+        }
     }
 }
 
@@ -720,6 +794,8 @@ pub struct OtDeluxe90sPolicy {
     #[serde(default)]
     pub breakdown: OtDeluxeBreakdownPolicy,
     pub navigation: OtDeluxeNavigationPolicy,
+    #[serde(default)]
+    pub dalles: OtDeluxeDallesPolicy,
     pub health: OtDeluxeHealthPolicy,
     pub affliction: OtDeluxeAfflictionPolicy,
     pub crossings: OtDeluxeCrossingPolicy,
@@ -1024,6 +1100,7 @@ impl Default for OtDeluxe90sPolicy {
             travel: OtDeluxeTravelPolicy::default(),
             breakdown: OtDeluxeBreakdownPolicy::default(),
             navigation: OtDeluxeNavigationPolicy::default(),
+            dalles: OtDeluxeDallesPolicy::default(),
             health: OtDeluxeHealthPolicy::default(),
             affliction: OtDeluxeAfflictionPolicy::default(),
             crossings: OtDeluxeCrossingPolicy::default(),
@@ -1120,6 +1197,21 @@ mod tests {
         assert_f32_eq(policy.travel.base_mpd_plains_steady_good, 20.0);
         assert_f32_eq(policy.travel.terrain_mult_mountains, 0.5);
         assert_f32_eq(policy.travel.sick_member_speed_penalty, 0.10);
+        assert_f32_eq(policy.travel.encounter_base_chance, 0.05);
+        assert_f32_eq(policy.travel.encounter_floor, 0.0);
+        assert_f32_eq(policy.travel.encounter_ceiling, 1.0);
+        assert_eq!(policy.dalles.barlow_toll_road_cost_cents, 1_000);
+        assert_eq!(policy.dalles.barlow_toll_road_time_days, 2);
+        assert_eq!(policy.dalles.rafting_time_days, 2);
+        assert_f32_eq(policy.dalles.barlow_outcome_weights.safe, 0.80);
+        assert_f32_eq(policy.dalles.barlow_outcome_weights.loss, 0.20);
+        assert_f32_eq(policy.dalles.barlow_outcome_weights.drown, 0.0);
+        assert_f32_eq(policy.dalles.rafting_outcome_weights.safe, 0.65);
+        assert_f32_eq(policy.dalles.rafting_outcome_weights.loss, 0.25);
+        assert_f32_eq(policy.dalles.rafting_outcome_weights.drown, 0.10);
+        assert_f32_eq(policy.dalles.loss_ratio, 0.25);
+        assert_eq!(policy.dalles.drownings_min, 1);
+        assert_eq!(policy.dalles.drownings_max, 1);
         assert_eq!(policy.pace_health_penalty.steady, 0);
         assert_eq!(policy.pace_health_penalty.strenuous, 5);
         assert_eq!(policy.pace_health_penalty.grueling, 10);

@@ -81,10 +81,10 @@ use crate::journey::{
     WeightedCandidate,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationDelay,
-    OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePaceHealthPolicy,
-    OtDeluxePolicyOverride, OtDeluxeRations, OtDeluxeRationsPolicy, OtDeluxeTrailVariant,
-    OtDeluxeTravelPolicy,
+    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeDallesOutcomeWeights,
+    OtDeluxeHealthPolicy, OtDeluxeNavigationDelay, OtDeluxeNavigationPolicy, OtDeluxeOccupation,
+    OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxePolicyOverride, OtDeluxeRations,
+    OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 use crate::numbers::round_f32_to_i32;
 use crate::otdeluxe_crossings;
@@ -548,6 +548,13 @@ enum OtDeluxeNavigationEvent {
     Snowbound,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum OtDeluxeDallesOutcome {
+    Safe,
+    Loss,
+    Drown,
+}
+
 const fn otdeluxe_spare_for_breakdown(part: Part) -> OtDeluxeSparePart {
     match part {
         Part::Battery => OtDeluxeSparePart::Axle,
@@ -616,6 +623,50 @@ fn roll_otdeluxe_navigation_delay_days<R: Rng>(delay: OtDeluxeNavigationDelay, r
     let min_days = delay.min_days.min(delay.max_days);
     let max_days = delay.max_days.max(delay.min_days);
     rng.gen_range(min_days..=max_days)
+}
+
+fn roll_otdeluxe_dalles_outcome<R: Rng>(
+    weights: &OtDeluxeDallesOutcomeWeights,
+    rng: &mut R,
+) -> OtDeluxeDallesOutcome {
+    let safe = weights.safe.max(0.0);
+    let loss = weights.loss.max(0.0);
+    let drown = weights.drown.max(0.0);
+    let total = safe + loss + drown;
+    if total <= f32::EPSILON {
+        return OtDeluxeDallesOutcome::Safe;
+    }
+    let roll = rng.r#gen::<f32>() * total;
+    if roll < safe {
+        OtDeluxeDallesOutcome::Safe
+    } else if roll < safe + loss {
+        OtDeluxeDallesOutcome::Loss
+    } else {
+        OtDeluxeDallesOutcome::Drown
+    }
+}
+
+fn sample_otdeluxe_dalles_outcome_with_rng<R: Rng>(
+    weights: &OtDeluxeDallesOutcomeWeights,
+    drownings_min: u8,
+    drownings_max: u8,
+    alive_indices: &[usize],
+    rng: &mut R,
+) -> (OtDeluxeDallesOutcome, Vec<usize>) {
+    let outcome = roll_otdeluxe_dalles_outcome(weights, rng);
+    let drowned_indices = if matches!(outcome, OtDeluxeDallesOutcome::Drown) {
+        let min = drownings_min.min(drownings_max);
+        let max = drownings_max.max(drownings_min);
+        let drown_count = if max == 0 {
+            0
+        } else {
+            rng.gen_range(min..=max)
+        };
+        GameState::select_drowning_indices(rng, alive_indices, drown_count)
+    } else {
+        Vec::new()
+    };
+    (outcome, drowned_indices)
 }
 
 fn roll_otdeluxe_navigation_event_with_trace<R: Rng>(
@@ -801,8 +852,9 @@ mod tests {
     };
     use crate::mechanics::otdeluxe90s::{
         OtDeluxe90sPolicy, OtDeluxeAfflictionCurvePoint, OtDeluxeAfflictionPolicy,
-        OtDeluxeAfflictionWeightOverride, OtDeluxeNavigationDelay, OtDeluxeNavigationPolicy,
-        OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride, OtDeluxeRations,
+        OtDeluxeAfflictionWeightOverride, OtDeluxeDallesOutcomeWeights, OtDeluxeNavigationDelay,
+        OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride,
+        OtDeluxeRations,
     };
     use crate::otdeluxe_crossings::{OtDeluxeCrossingOutcome, OtDeluxeCrossingResolution};
     use crate::otdeluxe_random_events::OtDeluxeRandomEventSelection;
@@ -1121,6 +1173,24 @@ mod tests {
         panic!("unable to find deterministic seed at or above {threshold}");
     }
 
+    fn bundle_with_roll_between(
+        min_inclusive: f32,
+        max_exclusive: f32,
+        domain: fn(&RngBundle) -> RefMut<'_, CountingRng<SmallRng>>,
+    ) -> Rc<RngBundle> {
+        for seed in 0..10_000 {
+            let probe = RngBundle::from_user_seed(seed);
+            {
+                let mut rng = domain(&probe);
+                let roll = rng.r#gen::<f32>();
+                if roll >= min_inclusive && roll < max_exclusive {
+                    return Rc::new(RngBundle::from_user_seed(seed));
+                }
+            }
+        }
+        panic!("unable to find deterministic seed between {min_inclusive} and {max_exclusive}");
+    }
+
     fn breakdown_bundle_with_roll_at_or_above(threshold: f32) -> Rc<RngBundle> {
         bundle_with_roll_at_or_above(threshold, RngBundle::breakdown)
     }
@@ -1143,6 +1213,17 @@ mod tests {
             }
         }
         panic!("unable to find deterministic seed at or above {threshold}");
+    }
+
+    fn seed_for_roll_between(min_inclusive: f32, max_exclusive: f32) -> u64 {
+        for seed in 0..10_000 {
+            let mut rng = SmallRng::seed_from_u64(seed);
+            let roll = rng.r#gen::<f32>();
+            if roll >= min_inclusive && roll < max_exclusive {
+                return seed;
+            }
+        }
+        panic!("unable to find deterministic seed between {min_inclusive} and {max_exclusive}");
     }
 
     fn with_debug_env<F, T>(f: F) -> T
@@ -3203,14 +3284,14 @@ mod tests {
     }
 
     #[test]
-    fn otdeluxe_pace_clears_encounter_chance() {
+    fn otdeluxe_pace_and_rations_keeps_encounter_chance_stable() {
         let mut state = GameState::default();
         state.weather_state.today = Weather::Clear;
         state.encounter_chance_today = 0.7;
 
         state.apply_otdeluxe_pace_and_rations();
 
-        assert!(state.encounter_chance_today.abs() < f32::EPSILON);
+        assert!((state.encounter_chance_today - 0.7).abs() < f32::EPSILON);
     }
 
     #[test]
@@ -4031,6 +4112,8 @@ mod tests {
         );
 
         state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        state.ot_deluxe.inventory.cash_cents =
+            default_otdeluxe_policy().dalles.barlow_toll_road_cost_cents;
         assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::RaftColumbia));
         assert_eq!(
             state.ot_deluxe.route.dalles_choice,
@@ -6409,11 +6492,175 @@ mod tests {
         );
 
         state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        state.ot_deluxe.inventory.cash_cents =
+            default_otdeluxe_policy().dalles.barlow_toll_road_cost_cents;
         assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::BarlowRoad));
         assert_eq!(
             state.ot_deluxe.route.dalles_choice,
             Some(OtDeluxeDallesChoice::Barlow)
         );
+    }
+
+    #[test]
+    fn resolve_otdeluxe_dalles_barlow_rejects_when_cash_insufficient() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        state.ot_deluxe.inventory.cash_cents = 0;
+
+        let handled = state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::BarlowRoad);
+
+        assert!(!handled);
+        assert_eq!(
+            state.ot_deluxe.route.pending_prompt,
+            Some(OtDeluxeRoutePrompt::DallesFinal)
+        );
+        assert!(
+            state
+                .events_today
+                .iter()
+                .any(|event| event.kind == EventKind::TravelBlocked)
+        );
+    }
+
+    #[test]
+    fn resolve_otdeluxe_dalles_raft_advances_days_and_emits_event() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party.members = vec![
+            OtDeluxePartyMember::new("Ada"),
+            OtDeluxePartyMember::new("Bert"),
+        ];
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        let start_day = state.day;
+
+        let handled = state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::RaftColumbia);
+
+        assert!(handled);
+        assert!(state.day > start_day);
+        assert_eq!(state.ot_deluxe.route.pending_prompt, None);
+        assert!(
+            state
+                .events_today
+                .iter()
+                .any(|event| event.kind == EventKind::NavigationEvent)
+        );
+    }
+
+    #[test]
+    fn roll_otdeluxe_dalles_outcome_covers_all_branches() {
+        let zero_weights = OtDeluxeDallesOutcomeWeights {
+            safe: 0.0,
+            loss: 0.0,
+            drown: 0.0,
+        };
+        let mut zero_rng = SmallRng::seed_from_u64(1);
+        assert_eq!(
+            roll_otdeluxe_dalles_outcome(&zero_weights, &mut zero_rng),
+            OtDeluxeDallesOutcome::Safe
+        );
+
+        let weights = OtDeluxeDallesOutcomeWeights::default();
+        let mut loss_rng = SmallRng::seed_from_u64(seed_for_roll_between(0.65, 0.90));
+        assert_eq!(
+            roll_otdeluxe_dalles_outcome(&weights, &mut loss_rng),
+            OtDeluxeDallesOutcome::Loss
+        );
+
+        let mut drown_rng = SmallRng::seed_from_u64(seed_for_roll_at_or_above(0.90));
+        assert_eq!(
+            roll_otdeluxe_dalles_outcome(&weights, &mut drown_rng),
+            OtDeluxeDallesOutcome::Drown
+        );
+    }
+
+    #[test]
+    fn sample_otdeluxe_dalles_outcome_handles_drown_ranges() {
+        let weights = OtDeluxeDallesOutcomeWeights {
+            safe: 0.0,
+            loss: 0.0,
+            drown: 1.0,
+        };
+        let alive_indices = vec![0, 1, 2];
+
+        let mut zero_drown_rng = SmallRng::seed_from_u64(3);
+        let (outcome_zero, drowned_zero) = sample_otdeluxe_dalles_outcome_with_rng(
+            &weights,
+            0,
+            0,
+            &alive_indices,
+            &mut zero_drown_rng,
+        );
+        assert_eq!(outcome_zero, OtDeluxeDallesOutcome::Drown);
+        assert!(drowned_zero.is_empty());
+
+        let mut one_drown_rng = SmallRng::seed_from_u64(4);
+        let (outcome_one, drowned_one) = sample_otdeluxe_dalles_outcome_with_rng(
+            &weights,
+            1,
+            1,
+            &alive_indices,
+            &mut one_drown_rng,
+        );
+        assert_eq!(outcome_one, OtDeluxeDallesOutcome::Drown);
+        assert_eq!(drowned_one.len(), 1);
+        assert!(alive_indices.contains(&drowned_one[0]));
+    }
+
+    #[test]
+    fn resolve_otdeluxe_dalles_raft_loss_emits_warning_event() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party.members = vec![
+            OtDeluxePartyMember::new("Ada"),
+            OtDeluxePartyMember::new("Bert"),
+        ];
+        state.ot_deluxe.inventory.food_lbs = 200;
+        state.ot_deluxe.inventory.bullets = 80;
+        state.ot_deluxe.inventory.clothes_sets = 6;
+        state.ot_deluxe.inventory.spares_wheels = 2;
+        state.ot_deluxe.inventory.spares_axles = 2;
+        state.ot_deluxe.inventory.spares_tongues = 2;
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        state.attach_rng_bundle(bundle_with_roll_between(0.65, 0.90, RngBundle::crossing));
+
+        assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::RaftColumbia));
+        let event = state
+            .events_today
+            .iter()
+            .find(|event| event.kind == EventKind::NavigationEvent)
+            .expect("dalles navigation event should exist");
+        assert_eq!(event.severity, EventSeverity::Warning);
+        assert_eq!(event.payload["outcome"], "loss");
+    }
+
+    #[test]
+    fn resolve_otdeluxe_dalles_raft_drown_emits_critical_event() {
+        let mut state = GameState {
+            mechanical_policy: MechanicalPolicyId::OtDeluxe90s,
+            ..GameState::default()
+        };
+        state.ot_deluxe.party.members = vec![
+            OtDeluxePartyMember::new("Ada"),
+            OtDeluxePartyMember::new("Bert"),
+        ];
+        state.ot_deluxe.route.pending_prompt = Some(OtDeluxeRoutePrompt::DallesFinal);
+        state.attach_rng_bundle(bundle_with_roll_at_or_above(0.90, RngBundle::crossing));
+
+        assert!(state.resolve_otdeluxe_route_prompt(OtDeluxeRouteDecision::RaftColumbia));
+        let event = state
+            .events_today
+            .iter()
+            .find(|event| event.kind == EventKind::NavigationEvent)
+            .expect("dalles navigation event should exist");
+        assert_eq!(event.severity, EventSeverity::Critical);
+        assert_eq!(event.payload["outcome"], "drown");
     }
 
     #[test]
@@ -11898,8 +12145,22 @@ impl GameState {
         self.compute_miles_for_today(&pace_cfg, limits)
     }
 
-    pub const fn apply_otdeluxe_pace_and_rations(&mut self) {
-        self.encounter_chance_today = 0.0;
+    pub const fn apply_otdeluxe_pace_and_rations(&mut self) {}
+
+    pub(crate) fn derive_otdeluxe_encounter_chance_today(&mut self) {
+        if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
+            return;
+        }
+        let policy = default_otdeluxe_policy();
+        let limits = PacingLimits {
+            encounter_base: policy.travel.encounter_base_chance,
+            encounter_floor: policy.travel.encounter_floor,
+            encounter_ceiling: policy.travel.encounter_ceiling,
+            ..PacingLimits::default()
+        };
+        let (weather_delta, weather_cap) = self.encounter_weather_adjustment();
+        let exec_delta = self.exec_effects.encounter_delta;
+        self.apply_encounter_chance_today(0.0, weather_delta, exec_delta, weather_cap, &limits);
     }
 
     pub(crate) fn compute_otdeluxe_travel_distance_today(&mut self) -> f32 {
@@ -12215,6 +12476,158 @@ impl GameState {
         )
     }
 
+    fn resolve_otdeluxe_dalles_choice(&mut self, choice: OtDeluxeDallesChoice) -> bool {
+        let policy = default_otdeluxe_policy();
+        if matches!(choice, OtDeluxeDallesChoice::Barlow)
+            && self.ot_deluxe.inventory.cash_cents < policy.dalles.barlow_toll_road_cost_cents
+        {
+            self.emit_otdeluxe_dalles_insufficient_cash(policy.dalles.barlow_toll_road_cost_cents);
+            self.ot_deluxe.travel.wagon_state = OtDeluxeWagonState::Stopped;
+            return false;
+        }
+
+        let (choice_id, delay_days, weights, cash_cost_cents) = match choice {
+            OtDeluxeDallesChoice::Raft => (
+                "raft_down_columbia",
+                policy.dalles.rafting_time_days,
+                policy.dalles.rafting_outcome_weights,
+                0,
+            ),
+            OtDeluxeDallesChoice::Barlow => (
+                "barlow_toll_road",
+                policy.dalles.barlow_toll_road_time_days,
+                policy.dalles.barlow_outcome_weights,
+                policy.dalles.barlow_toll_road_cost_cents,
+            ),
+        };
+
+        if cash_cost_cents > 0 {
+            self.ot_deluxe.inventory.cash_cents = self
+                .ot_deluxe
+                .inventory
+                .cash_cents
+                .saturating_sub(cash_cost_cents);
+        }
+        if delay_days > 0 {
+            self.advance_days_with_reason(u32::from(delay_days), "otdeluxe.dalles.resolve");
+        }
+
+        let alive_indices: Vec<usize> = self
+            .ot_deluxe
+            .party
+            .members
+            .iter()
+            .enumerate()
+            .filter_map(|(idx, member)| member.alive.then_some(idx))
+            .collect();
+        let (outcome, drowned_indices) = if let Some(mut rng) = self.crossing_rng() {
+            sample_otdeluxe_dalles_outcome_with_rng(
+                &weights,
+                policy.dalles.drownings_min,
+                policy.dalles.drownings_max,
+                &alive_indices,
+                &mut *rng,
+            )
+        } else {
+            let choice_salt = match choice {
+                OtDeluxeDallesChoice::Raft => 1_u64,
+                OtDeluxeDallesChoice::Barlow => 2_u64,
+            };
+            let seed_mix = self.seed
+                ^ (u64::from(self.day) << 32)
+                ^ u64::from(self.ot_deluxe.route.current_node_index)
+                ^ choice_salt;
+            let mut fallback = SmallRng::seed_from_u64(seed_mix);
+            sample_otdeluxe_dalles_outcome_with_rng(
+                &weights,
+                policy.dalles.drownings_min,
+                policy.dalles.drownings_max,
+                &alive_indices,
+                &mut fallback,
+            )
+        };
+        let losses = match outcome {
+            OtDeluxeDallesOutcome::Safe => OtDeluxeCrossingLosses::default(),
+            OtDeluxeDallesOutcome::Loss | OtDeluxeDallesOutcome::Drown => {
+                self.apply_otdeluxe_crossing_losses(policy.dalles.loss_ratio)
+            }
+        };
+        let drownings = self.apply_otdeluxe_drownings(&drowned_indices);
+        self.emit_otdeluxe_dalles_resolved(
+            choice_id,
+            outcome,
+            delay_days,
+            cash_cost_cents,
+            losses,
+            drownings,
+        );
+        self.ot_deluxe.route.dalles_choice = Some(choice);
+        true
+    }
+
+    fn emit_otdeluxe_dalles_insufficient_cash(&mut self, required_cash_cents: u32) {
+        self.push_event(
+            EventKind::TravelBlocked,
+            EventSeverity::Warning,
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "reason": "otdeluxe_dalles_insufficient_cash",
+                "choice": "barlow_toll_road",
+                "required_cash_cents": required_cash_cents,
+                "available_cash_cents": self.ot_deluxe.inventory.cash_cents
+            }),
+        );
+    }
+
+    fn emit_otdeluxe_dalles_resolved(
+        &mut self,
+        choice_id: &str,
+        outcome: OtDeluxeDallesOutcome,
+        delay_days: u8,
+        cash_cost_cents: u32,
+        losses: OtDeluxeCrossingLosses,
+        drownings: u8,
+    ) {
+        let outcome_id = match outcome {
+            OtDeluxeDallesOutcome::Safe => "safe",
+            OtDeluxeDallesOutcome::Loss => "loss",
+            OtDeluxeDallesOutcome::Drown => "drown",
+        };
+        self.push_event(
+            EventKind::NavigationEvent,
+            Self::otdeluxe_dalles_severity(outcome),
+            DayTagSet::new(),
+            None,
+            None,
+            serde_json::json!({
+                "event": "dalles_gate_resolved",
+                "choice": choice_id,
+                "outcome": outcome_id,
+                "delay_days": delay_days,
+                "cash_cost_cents": cash_cost_cents,
+                "losses": {
+                    "food_lbs": losses.food_lbs,
+                    "bullets": losses.bullets,
+                    "clothes_sets": losses.clothes_sets,
+                    "spares_wheels": losses.spares_wheels,
+                    "spares_axles": losses.spares_axles,
+                    "spares_tongues": losses.spares_tongues
+                },
+                "drownings": drownings
+            }),
+        );
+    }
+
+    const fn otdeluxe_dalles_severity(outcome: OtDeluxeDallesOutcome) -> EventSeverity {
+        match outcome {
+            OtDeluxeDallesOutcome::Safe => EventSeverity::Info,
+            OtDeluxeDallesOutcome::Loss => EventSeverity::Warning,
+            OtDeluxeDallesOutcome::Drown => EventSeverity::Critical,
+        }
+    }
+
     pub fn resolve_otdeluxe_route_prompt(&mut self, decision: OtDeluxeRouteDecision) -> bool {
         if self.mechanical_policy != MechanicalPolicyId::OtDeluxe90s {
             return false;
@@ -12252,12 +12665,10 @@ impl GameState {
             },
             OtDeluxeRoutePrompt::DallesFinal => match decision {
                 OtDeluxeRouteDecision::RaftColumbia => {
-                    self.ot_deluxe.route.dalles_choice = Some(OtDeluxeDallesChoice::Raft);
-                    handled = true;
+                    handled = self.resolve_otdeluxe_dalles_choice(OtDeluxeDallesChoice::Raft);
                 }
                 OtDeluxeRouteDecision::BarlowRoad => {
-                    self.ot_deluxe.route.dalles_choice = Some(OtDeluxeDallesChoice::Barlow);
-                    handled = true;
+                    handled = self.resolve_otdeluxe_dalles_choice(OtDeluxeDallesChoice::Barlow);
                 }
                 _ => {}
             },

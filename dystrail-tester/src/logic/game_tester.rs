@@ -1361,6 +1361,7 @@ mod tests {
         Season, Stats, VehicleFailureCause,
     };
     use dystrail_game::store::{Grants, Store, StoreItem};
+    use dystrail_game::vehicle::{Breakdown, Part};
     use dystrail_game::weather::{
         Weather, WeatherAccumulationConfig, WeatherConfig, WeatherLimits, WeatherReportConfig,
     };
@@ -2095,5 +2096,36 @@ mod tests {
         tester.apply_store_loadout(&mut state, GameplayStrategy::Balanced, 1);
         assert_eq!(state.budget_cents, 0);
         assert_eq!(state.logs, starting_logs);
+    }
+
+    #[test]
+    fn log_turn_handles_breakdown_with_and_without_part() {
+        let outcome = TurnOutcome {
+            day: 10,
+            travel_message: "log.breakdown".to_string(),
+            breakdown_started: true,
+            game_ended: true,
+            decision: None,
+            miles_traveled_actual: 15.0,
+        };
+
+        let state_with_breakdown = GameState {
+            day: 10,
+            breakdown: Some(Breakdown {
+                part: Part::Tire,
+                day_started: 10,
+            }),
+            ..GameState::default()
+        };
+        log_turn(&outcome, &state_with_breakdown);
+        assert!(state_with_breakdown.breakdown.is_some());
+
+        let state_without_breakdown = GameState {
+            day: 10,
+            breakdown: None,
+            ..GameState::default()
+        };
+        log_turn(&outcome, &state_without_breakdown);
+        assert!(state_without_breakdown.breakdown.is_none());
     }
 }
