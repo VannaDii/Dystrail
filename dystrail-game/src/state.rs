@@ -83,6 +83,10 @@ use crate::journey::{
 use crate::kernel::systems::affliction::{
     otdeluxe_affliction_probability, roll_otdeluxe_affliction_kind_with_trace,
 };
+use crate::kernel::systems::health::{
+    otdeluxe_affliction_health_penalty, otdeluxe_clothing_health_penalty,
+    otdeluxe_drought_health_penalty, otdeluxe_weather_health_penalty,
+};
 use crate::kernel::systems::navigation::{
     OtDeluxeNavigationEvent, otdeluxe_navigation_delay_for, otdeluxe_navigation_delay_tag,
     otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
@@ -284,10 +288,6 @@ fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDelux
     u32::from(dollars).saturating_mul(100)
 }
 
-fn otdeluxe_weather_health_penalty(weather: Weather, policy: &OtDeluxeHealthPolicy) -> i32 {
-    *policy.weather_penalty.get(&weather).unwrap_or(&0)
-}
-
 fn otdeluxe_snow_speed_mult(snow_depth: f32, policy: &OtDeluxeTravelPolicy) -> f32 {
     if !snow_depth.is_finite() {
         return 1.0;
@@ -300,49 +300,6 @@ fn otdeluxe_snow_speed_mult(snow_depth: f32, policy: &OtDeluxeTravelPolicy) -> f
     let depth = snow_depth.max(0.0);
     let mult = 1.0 - depth * penalty_per_in;
     mult.clamp(floor, 1.0)
-}
-
-fn otdeluxe_clothing_health_penalty(
-    season: Season,
-    inventory: &OtDeluxeInventory,
-    alive: u16,
-    policy: &OtDeluxeHealthPolicy,
-) -> i32 {
-    if season != Season::Winter {
-        return 0;
-    }
-    if policy.clothing_penalty_winter == 0 || policy.clothing_sets_per_person == 0 {
-        return 0;
-    }
-    let needed = u32::from(policy.clothing_sets_per_person).saturating_mul(u32::from(alive));
-    if u32::from(inventory.clothes_sets) < needed {
-        policy.clothing_penalty_winter
-    } else {
-        0
-    }
-}
-
-fn otdeluxe_affliction_health_penalty(
-    party: &OtDeluxePartyState,
-    policy: &OtDeluxeHealthPolicy,
-) -> i32 {
-    let sick = i64::from(party.sick_count());
-    let injured = i64::from(party.injured_count());
-    let illness_penalty = i64::from(policy.affliction_illness_penalty);
-    let injury_penalty = i64::from(policy.affliction_injury_penalty);
-    let total = sick.saturating_mul(illness_penalty) + injured.saturating_mul(injury_penalty);
-    i32::try_from(total.clamp(i64::from(i32::MIN), i64::from(i32::MAX))).unwrap_or(0)
-}
-
-fn otdeluxe_drought_health_penalty(rain_accum: f32, policy: &OtDeluxeHealthPolicy) -> i32 {
-    if !rain_accum.is_finite() || policy.drought_threshold <= 0.0 {
-        return 0;
-    }
-    if rain_accum <= policy.drought_threshold {
-        policy.drought_penalty
-    } else {
-        0
-    }
 }
 
 fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
