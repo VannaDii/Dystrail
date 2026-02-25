@@ -39,14 +39,18 @@ This initiative is a single large PR with legacy mechanics removed in the same e
 - Emit stable event codes and structured payloads from kernel.
 
 ## Implementation Order
-1. Add guardrails + freeze event code schema.
-2. Extract kernel types and phase boundaries.
-3. Migrate mechanics out of `state.rs` by phase.
-4. Canonicalize OT systems and remove duplicates.
-5. Rewire crate exports around kernel API.
-6. Move narrative strings fully to `dystrail-web` i18n.
-7. Apply save reset/version bump and remove legacy migration logic.
-8. Run full validation workflow.
+- [x] Add guardrails + freeze event code schema.
+- [x] Extract kernel types and phase boundaries.
+  - [x] `kernel/types.rs` introduced and wired.
+  - [x] `kernel/events/*` introduced and schema frozen.
+  - [x] `kernel/session.rs` extracted from `kernel/mod.rs`.
+  - [x] `kernel/phases/mod.rs` introduced as explicit tick boundary.
+- [ ] Migrate mechanics out of `state.rs` by phase.
+- [ ] Canonicalize OT systems and remove duplicates.
+- [ ] Rewire crate exports around kernel API.
+- [ ] Move narrative strings fully to `dystrail-web` i18n.
+- [ ] Apply save reset/version bump and remove legacy migration logic.
+- [ ] Run full validation workflow.
 
 ## Testing and Acceptance
 - Deterministic seed replay must remain stable.

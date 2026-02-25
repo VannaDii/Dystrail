@@ -4,7 +4,7 @@ use crate::mechanics::OtDeluxeOccupation;
 use crate::state::GameMode;
 use thiserror::Error;
 
-use super::{KernelTickInput, KernelTickOutput};
+use super::{KernelTickInput, KernelTickOutput, phases};
 
 /// Errors constructing or running the `OTDeluxe` kernel facade.
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -62,8 +62,7 @@ impl KernelSession {
 
     /// Advances the simulation one day under the provided intent.
     pub fn tick_day(&mut self, input: KernelTickInput) -> KernelTickOutput {
-        self.inner.state_mut().intent.pending = input.intent;
-        self.inner.tick_day().into()
+        phases::tick_day(&mut self.inner, input)
     }
 
     /// Returns the immutable game state.

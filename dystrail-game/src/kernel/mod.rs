@@ -5,6 +5,7 @@
 //! system modules.
 
 pub mod events;
+pub mod phases;
 pub mod session;
 pub mod types;
 
