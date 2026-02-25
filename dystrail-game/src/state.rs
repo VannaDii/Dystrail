@@ -80,6 +80,9 @@ use crate::journey::{
     RngBundle, RollValue, StrainConfig, TravelConfig, TravelDayKind, UiSurfaceHint, WearConfig,
     WeightedCandidate,
 };
+use crate::kernel::systems::affliction::{
+    otdeluxe_affliction_probability, roll_otdeluxe_affliction_kind_with_trace,
+};
 use crate::kernel::systems::navigation::{
     OtDeluxeNavigationEvent, otdeluxe_navigation_delay_for, otdeluxe_navigation_delay_tag,
     otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
@@ -277,78 +280,6 @@ fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDelux
         .find(|spec| spec.occupation == occupation)
         .map_or(0, |spec| spec.starting_cash_dollars);
     u32::from(dollars).saturating_mul(100)
-}
-
-fn otdeluxe_affliction_probability(health_general: u16, policy: &OtDeluxeAfflictionPolicy) -> f32 {
-    let mut probability = policy.curve_pwl[0].probability;
-    if health_general <= policy.curve_pwl[0].health {
-        return probability.clamp(0.0, policy.probability_max);
-    }
-    for window in policy.curve_pwl.windows(2) {
-        let start = window[0];
-        let end = window[1];
-        if health_general <= end.health {
-            let span = f32::from(end.health.saturating_sub(start.health));
-            if span > 0.0 {
-                let offset = f32::from(health_general.saturating_sub(start.health));
-                let t = (offset / span).clamp(0.0, 1.0);
-                probability = start.probability.mul_add(1.0 - t, end.probability * t);
-            }
-            return probability.clamp(0.0, policy.probability_max);
-        }
-    }
-    if let Some(last) = policy.curve_pwl.last() {
-        probability = last.probability;
-    }
-    probability.clamp(0.0, policy.probability_max)
-}
-
-fn roll_otdeluxe_affliction_kind<R>(
-    policy: &OtDeluxeAfflictionPolicy,
-    overrides: &OtDeluxePolicyOverride,
-    rng: &mut R,
-) -> (OtDeluxeAfflictionKind, Option<EventDecisionTrace>)
-where
-    R: rand::Rng + ?Sized,
-{
-    let weights = &overrides.affliction_weights;
-    let illness_weight = weights.illness.unwrap_or(policy.weight_illness);
-    let injury_weight = weights.injury.unwrap_or(policy.weight_injury);
-    let total = u32::from(illness_weight) + u32::from(injury_weight);
-    if total == 0 {
-        return (OtDeluxeAfflictionKind::Illness, None);
-    }
-    let roll = rng.gen_range(0..total);
-    let kind = if roll < u32::from(illness_weight) {
-        OtDeluxeAfflictionKind::Illness
-    } else {
-        OtDeluxeAfflictionKind::Injury
-    };
-    let candidates = vec![
-        WeightedCandidate {
-            id: String::from("illness"),
-            base_weight: f64::from(illness_weight),
-            multipliers: Vec::new(),
-            final_weight: f64::from(illness_weight),
-        },
-        WeightedCandidate {
-            id: String::from("injury"),
-            base_weight: f64::from(injury_weight),
-            multipliers: Vec::new(),
-            final_weight: f64::from(injury_weight),
-        },
-    ];
-    let chosen_id = match kind {
-        OtDeluxeAfflictionKind::Illness => "illness",
-        OtDeluxeAfflictionKind::Injury => "injury",
-    };
-    let trace = EventDecisionTrace {
-        pool_id: String::from("otdeluxe.affliction_kind"),
-        roll: RollValue::U32(roll),
-        candidates,
-        chosen_id: chosen_id.to_string(),
-    };
-    (kind, Some(trace))
 }
 
 const fn otdeluxe_pace_health_penalty(
@@ -929,7 +860,8 @@ mod tests {
             ..OtDeluxePolicyOverride::default()
         };
         let mut rng = SmallRng::seed_from_u64(3);
-        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        let (kind, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, &mut rng);
         assert_eq!(kind, OtDeluxeAfflictionKind::Illness);
         assert!(trace.is_none());
     }
@@ -945,7 +877,8 @@ mod tests {
             ..OtDeluxePolicyOverride::default()
         };
         let mut rng = SmallRng::seed_from_u64(11);
-        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        let (kind, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, &mut rng);
         assert_eq!(kind, OtDeluxeAfflictionKind::Injury);
         assert!(trace.is_some());
     }
@@ -2680,7 +2613,8 @@ mod tests {
         overrides.affliction_weights.injury = Some(5);
 
         let mut rng = SmallRng::seed_from_u64(1);
-        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        let (kind, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, &mut rng);
         assert!(matches!(kind, OtDeluxeAfflictionKind::Injury));
 
         let trace = trace.expect("expected decision trace");
@@ -6569,7 +6503,8 @@ mod tests {
             ..OtDeluxePolicyOverride::default()
         };
         let mut rng = SmallRng::seed_from_u64(12);
-        let (_, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        let (_, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, &mut rng);
         let trace = trace.expect("trace expected");
         assert_eq!(trace.candidates.len(), 2);
         assert!((trace.candidates[0].base_weight - 2.0).abs() <= f64::EPSILON);
@@ -6823,7 +6758,8 @@ mod tests {
         let policy = OtDeluxe90sPolicy::default();
         let overrides = OtDeluxePolicyOverride::default();
         let mut rng = StepRng::new(0, 0);
-        let (_, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, &mut rng);
+        let (_, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, &mut rng);
         let trace = trace.expect("trace expected");
         assert_eq!(trace.candidates.len(), 2);
         assert!(
@@ -9243,7 +9179,8 @@ impl GameState {
             return None;
         }
         let overrides = policy.overrides_for(self.region, self.ot_deluxe.season);
-        let (kind, trace) = roll_otdeluxe_affliction_kind(&policy.affliction, &overrides, rng);
+        let (kind, trace) =
+            roll_otdeluxe_affliction_kind_with_trace(&policy.affliction, &overrides, rng);
         if let Some(trace) = trace {
             self.decision_traces_today.push(trace);
         }
