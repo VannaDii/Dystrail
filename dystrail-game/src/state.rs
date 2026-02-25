@@ -80,11 +80,16 @@ use crate::journey::{
     RngBundle, RollValue, StrainConfig, TravelConfig, TravelDayKind, UiSurfaceHint, WearConfig,
     WeightedCandidate,
 };
+use crate::kernel::systems::navigation::{
+    OtDeluxeNavigationEvent, otdeluxe_navigation_delay_for, otdeluxe_navigation_delay_tag,
+    otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
+    roll_otdeluxe_navigation_delay_days, roll_otdeluxe_navigation_event_with_trace,
+};
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeDallesOutcomeWeights,
-    OtDeluxeHealthPolicy, OtDeluxeNavigationDelay, OtDeluxeNavigationPolicy, OtDeluxeOccupation,
-    OtDeluxePace, OtDeluxePaceHealthPolicy, OtDeluxePolicyOverride, OtDeluxeRations,
-    OtDeluxeRationsPolicy, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
+    OtDeluxeHealthPolicy, OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace,
+    OtDeluxePaceHealthPolicy, OtDeluxePolicyOverride, OtDeluxeRations, OtDeluxeRationsPolicy,
+    OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 use crate::numbers::round_f32_to_i32;
 use crate::otdeluxe_crossings;
@@ -541,14 +546,6 @@ enum OtDeluxeSparePart {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum OtDeluxeNavigationEvent {
-    LostTrail,
-    WrongTrail,
-    Impassable,
-    Snowbound,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum OtDeluxeDallesOutcome {
     Safe,
     Loss,
@@ -563,66 +560,12 @@ const fn otdeluxe_spare_for_breakdown(part: Part) -> OtDeluxeSparePart {
     }
 }
 
-const fn otdeluxe_navigation_reason_tag(event: OtDeluxeNavigationEvent) -> &'static str {
-    match event {
-        OtDeluxeNavigationEvent::LostTrail => "otdeluxe.nav_lost",
-        OtDeluxeNavigationEvent::WrongTrail => "otdeluxe.nav_wrong",
-        OtDeluxeNavigationEvent::Impassable => "otdeluxe.nav_impassable",
-        OtDeluxeNavigationEvent::Snowbound => "otdeluxe.nav_snowbound",
-    }
-}
-
-const fn otdeluxe_navigation_delay_tag(blocked: bool) -> &'static str {
-    if blocked {
-        "otdeluxe.nav_blocked"
-    } else {
-        "otdeluxe.nav_delay"
-    }
-}
-
-const fn otdeluxe_navigation_event_id(event: OtDeluxeNavigationEvent) -> &'static str {
-    match event {
-        OtDeluxeNavigationEvent::LostTrail => "lost_trail",
-        OtDeluxeNavigationEvent::WrongTrail => "wrong_trail",
-        OtDeluxeNavigationEvent::Impassable => "impassable",
-        OtDeluxeNavigationEvent::Snowbound => "snowbound",
-    }
-}
-
-const fn otdeluxe_navigation_is_blocked(event: OtDeluxeNavigationEvent) -> bool {
-    matches!(
-        event,
-        OtDeluxeNavigationEvent::Impassable | OtDeluxeNavigationEvent::Snowbound
-    )
-}
-
-const fn otdeluxe_navigation_delay_for(
-    event: OtDeluxeNavigationEvent,
-    policy: &OtDeluxeNavigationPolicy,
-) -> OtDeluxeNavigationDelay {
-    match event {
-        OtDeluxeNavigationEvent::LostTrail => policy.lost_delay,
-        OtDeluxeNavigationEvent::WrongTrail => policy.wrong_delay,
-        OtDeluxeNavigationEvent::Impassable => policy.impassable_delay,
-        OtDeluxeNavigationEvent::Snowbound => policy.snowbound_delay,
-    }
-}
-
 fn sanitize_event_weight_mult(weight_mult: f32) -> f32 {
     if weight_mult.is_finite() && weight_mult >= 0.0 {
         weight_mult
     } else {
         1.0
     }
-}
-
-fn roll_otdeluxe_navigation_delay_days<R: Rng>(delay: OtDeluxeNavigationDelay, rng: &mut R) -> u8 {
-    if delay.max_days == 0 {
-        return 0;
-    }
-    let min_days = delay.min_days.min(delay.max_days);
-    let max_days = delay.max_days.max(delay.min_days);
-    rng.gen_range(min_days..=max_days)
 }
 
 fn roll_otdeluxe_dalles_outcome<R: Rng>(
@@ -667,65 +610,6 @@ fn sample_otdeluxe_dalles_outcome_with_rng<R: Rng>(
         Vec::new()
     };
     (outcome, drowned_indices)
-}
-
-fn roll_otdeluxe_navigation_event_with_trace<R: Rng>(
-    policy: &OtDeluxeNavigationPolicy,
-    snow_depth: f32,
-    rng: &mut R,
-) -> (Option<OtDeluxeNavigationEvent>, Option<EventDecisionTrace>) {
-    let chance = policy.chance_per_day.clamp(0.0, 1.0);
-    if chance <= 0.0 {
-        return (None, None);
-    }
-    if rng.r#gen::<f32>() >= chance {
-        return (None, None);
-    }
-
-    let snow_weight = if snow_depth >= policy.snowbound_min_depth_in {
-        policy.snowbound_weight
-    } else {
-        0
-    };
-    let lost_weight = u32::from(policy.lost_weight);
-    let wrong_weight = u32::from(policy.wrong_weight);
-    let impassable_weight = u32::from(policy.impassable_weight);
-    let lost = (OtDeluxeNavigationEvent::LostTrail, lost_weight);
-    let wrong = (OtDeluxeNavigationEvent::WrongTrail, wrong_weight);
-    let impassable = (OtDeluxeNavigationEvent::Impassable, impassable_weight);
-    let snowbound = (OtDeluxeNavigationEvent::Snowbound, u32::from(snow_weight));
-    let options = [lost, wrong, impassable, snowbound];
-    let total_weight: u32 = options.iter().map(|(_, weight)| *weight).sum();
-    if total_weight == 0 {
-        return (None, None);
-    }
-    let roll = rng.gen_range(0..total_weight);
-    let mut current = 0_u32;
-    let mut selected = None;
-    for (event, weight) in &options {
-        current = current.saturating_add(*weight);
-        if selected.is_none() && roll < current {
-            selected = Some(*event);
-        }
-    }
-    let selected = selected.or_else(|| options.first().map(|(event, _)| *event));
-    let total_weight_f64 = f64::from(total_weight);
-    let mut candidates = Vec::new();
-    for (event, weight) in &options {
-        candidates.push(WeightedCandidate {
-            id: otdeluxe_navigation_event_id(*event).to_string(),
-            base_weight: f64::from(*weight),
-            multipliers: Vec::new(),
-            final_weight: f64::from(*weight) / total_weight_f64,
-        });
-    }
-    let trace = selected.map(|event| EventDecisionTrace {
-        pool_id: String::from("otdeluxe.navigation"),
-        roll: RollValue::U32(roll),
-        candidates,
-        chosen_id: otdeluxe_navigation_event_id(event).to_string(),
-    });
-    (selected, trace)
 }
 
 fn apply_otdeluxe_disease_effects(
@@ -8623,10 +8507,6 @@ impl GameState {
 
     fn record_encounter(&mut self, encounter_id: &str) {
         self.encounters_today = self.encounters_today.saturating_add(1);
-        debug_assert!(
-            self.encounters_today <= MAX_ENCOUNTERS_PER_DAY,
-            "Encounter limit exceeded"
-        );
         if let Some(back) = self.encounter_history.back_mut() {
             *back = self.encounters_today;
         }
