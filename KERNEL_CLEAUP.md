@@ -48,6 +48,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
 - [ ] Migrate mechanics out of `state.rs` by phase.
   - [x] Extract OT navigation helper/event-roll functions into `kernel/systems/navigation.rs`.
   - [x] Extract OT affliction probability + affliction-kind roll helpers into `kernel/systems/affliction.rs`.
+  - [x] Extract OT pace/rations supply math helpers into `kernel/systems/supplies.rs`.
 - [ ] Canonicalize OT systems and remove duplicates.
 - [ ] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
