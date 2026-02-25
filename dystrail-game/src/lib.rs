@@ -15,6 +15,7 @@ pub mod endgame;
 pub mod exec_orders;
 pub mod hunt;
 pub mod journey;
+pub mod kernel;
 pub mod mechanics;
 pub mod numbers;
 pub mod otdeluxe_crossings;
@@ -56,6 +57,10 @@ pub use journey::{
     Event, EventDecisionTrace, EventId, EventKind, EventSeverity, JourneyCfg, JourneyController,
     JourneySession, MechanicalPolicyId, PermitPolicy, PolicyId, RngBundle, StatsDelta, StrategyId,
     TravelDayKind, UiSurfaceHint,
+};
+pub use kernel::{
+    KernelEvent, KernelEventCode, KernelSession, KernelSessionError, KernelTickInput,
+    KernelTickOutput,
 };
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionWeightOverride, OtDeluxeBreakdownPolicy,
@@ -211,6 +216,24 @@ where
         Ok(session)
     }
 
+    /// Construct a new `OTDeluxe` kernel session.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if encounter data cannot be loaded.
+    pub fn create_otdeluxe_kernel_session(
+        &self,
+        seed: u64,
+        mode: GameMode,
+        strategy: StrategyId,
+        occupation: Option<OtDeluxeOccupation>,
+    ) -> Result<KernelSession, L::Error> {
+        let data = self.data_loader.load_encounter_data()?;
+        let endgame_cfg = EndgameTravelCfg::default_config();
+        let session = KernelSession::new(mode, strategy, seed, data, &endgame_cfg, occupation);
+        Ok(session)
+    }
+
     /// Save a game state
     ///
     /// # Errors
@@ -320,5 +343,23 @@ mod tests {
         let engine = GameEngine::new(FixtureLoader, MemoryStorage::default());
         let state = engine.create_game(7, GameMode::Classic).unwrap();
         assert_eq!(state.policy, Some(PolicyKind::Balanced));
+    }
+
+    #[test]
+    fn create_otdeluxe_kernel_session_forces_otdeluxe_mechanics() {
+        let engine = GameEngine::new(FixtureLoader, MemoryStorage::default());
+        let session = engine
+            .create_otdeluxe_kernel_session(
+                17,
+                GameMode::Classic,
+                StrategyId::Balanced,
+                Some(OtDeluxeOccupation::Doctor),
+            )
+            .unwrap();
+        assert_eq!(session.mechanics(), MechanicalPolicyId::OtDeluxe90s);
+        assert_eq!(
+            session.state().ot_deluxe.mods.occupation,
+            Some(OtDeluxeOccupation::Doctor)
+        );
     }
 }
