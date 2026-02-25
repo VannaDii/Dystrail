@@ -34,10 +34,9 @@ fn weather_selection_and_effects_cover_branches() {
     let sample = model.sample_from_weather(&gs, picked);
     apply_weather_effects(&mut gs, &cfg, sample);
     process_daily_weather(&mut gs, &model, Some(rng.as_ref()));
-    assert!(
-        gs.weather_state.today != dystrail_game::weather::Weather::Storm
-            || gs.weather_state.extreme_streak <= cfg.limits.max_extreme_streak
-    );
+    let respected_streak_cap = gs.weather_state.today != dystrail_game::weather::Weather::Storm
+        || gs.weather_state.extreme_streak <= cfg.limits.max_extreme_streak;
+    assert!(respected_streak_cap);
 }
 
 #[test]

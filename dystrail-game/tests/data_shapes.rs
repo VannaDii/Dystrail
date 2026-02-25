@@ -44,6 +44,7 @@ fn journey_config_snapshot_stable() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn game_state_serialization_preserves_day_records() {
     let encounters = EncounterData::from_json(include_str!(
         "../../dystrail-web/static/assets/data/game.json"
@@ -66,11 +67,8 @@ fn game_state_serialization_preserves_day_records() {
         state.day = state.day.saturating_add(1);
         state.current_day_record = None;
         state.current_day_kind = None;
-    }
-    assert!(
-        !state.day_records.is_empty(),
-        "simulation should record travel days"
-    );
+    };
+    assert!(!state.day_records.is_empty(), "simulation should record travel days");
 
     let saved = serde_json::to_string(&state).unwrap();
     let restored: GameState = serde_json::from_str(&saved).unwrap();

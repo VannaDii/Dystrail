@@ -159,6 +159,7 @@ fn full_campaign_breaks_on_ended_state() {
     let _ = run_campaign_setup_and_loop_with_end(true);
 }
 
+#[rustfmt::skip]
 fn validate_end_state(
     state: &mut GameState,
     boss_cfg: &dystrail_game::BossConfig,
@@ -205,12 +206,7 @@ fn validate_end_state(
 
     // Vehicle and cart edge cases.
     let mut cart = Cart::default();
-    cart.lines.push(CartLine {
-        item_id: "rope".into(),
-        item_name: "Rope".into(),
-        quantity: 1,
-        qty: 1,
-    });
+    cart.lines.push(CartLine { item_id: "rope".into(), item_name: "Rope".into(), quantity: 1, qty: 1 });
     cart.total_cents = 1200;
     assert!(!cart.is_empty());
 
@@ -231,6 +227,7 @@ fn validate_end_state(
     state.detach_rng_bundle();
 }
 
+#[rustfmt::skip]
 fn exercise_post_loop_systems(mut end_cfg: EndgameTravelCfg) {
     // Endgame routines
     let mut state = configure_state(0xBAD_CAFE);

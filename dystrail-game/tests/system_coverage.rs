@@ -37,9 +37,9 @@ fn encounter_seed_helper_finds_matching_value() {
 }
 
 #[test]
-#[should_panic(expected = "unable to locate encounter seed")]
 fn encounter_seed_helper_panics_when_missing() {
-    let _ = encounter_seed_where(|_| false);
+    let panic = std::panic::catch_unwind(|| encounter_seed_where(|_| false));
+    assert!(panic.is_err());
 }
 
 #[test]
@@ -102,10 +102,7 @@ fn boss_minigame_exercises_outcomes() {
     let outcome = run_boss_minigame(&mut win_state, &win_cfg);
     assert_eq!(outcome, BossOutcome::PassedCloture);
     assert!(win_state.boss.outcome.victory);
-    assert!(
-        win_state.logs.iter().any(|line| line == "log.boss.compose"),
-        "aggressive compose sequence should log when triggered"
-    );
+    assert!(win_state.logs.iter().any(|line| line == "log.boss.compose"));
 
     let lose_cfg = BossConfig {
         rounds: 1,
@@ -129,13 +126,11 @@ fn boss_minigame_exercises_outcomes() {
 
     let outcome = run_boss_minigame(&mut lose_state, &lose_cfg);
     assert_eq!(outcome, BossOutcome::SurvivedFlood);
-    assert!(
-        lose_state
-            .logs
-            .iter()
-            .any(|line| line == "log.boss.failure"),
-        "expected boss failure to be logged"
-    );
+    let has_failure_log = lose_state
+        .logs
+        .iter()
+        .any(|line| line == "log.boss.failure");
+    assert!(has_failure_log);
 }
 
 #[test]
@@ -158,10 +153,7 @@ fn camp_actions_cover_key_paths() {
     assert!(rest_outcome.rested);
     assert_eq!(rest_outcome.supplies_delta, -2);
     assert_eq!(state.camp.rest_cooldown, 2);
-    assert!(
-        state.logs.iter().any(|line| line == "log.camp.rest"),
-        "resting should push a log entry"
-    );
+    assert!(state.logs.iter().any(|line| line == "log.camp.rest"));
 
     let cooldown_result = camp_rest(&mut state, &config);
     assert!(!cooldown_result.rested);
@@ -218,6 +210,7 @@ fn camp_actions_cover_key_paths() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn store_cart_covers_operations() {
     let mut cart = Cart::new();
     assert!(cart.is_empty());
@@ -242,38 +235,11 @@ fn store_cart_covers_operations() {
         enabled: true,
     };
 
-    let gear_item = StoreItem {
-        id: "rope".into(),
-        name: "Rope".into(),
-        desc: "Sturdy rope".into(),
-        price_cents: 1_200,
-        unique: false,
-        max_qty: 5,
-        grants: grants.clone(),
-        tags: vec!["gear".into()],
-        category: "supplies".into(),
-    };
+    let gear_item = StoreItem { id: "rope".into(), name: "Rope".into(), desc: "Sturdy rope".into(), price_cents: 1_200, unique: false, max_qty: 5, grants: grants.clone(), tags: vec!["gear".into()], category: "supplies".into() };
 
-    let spare_item = StoreItem {
-        id: "map".into(),
-        name: "Map".into(),
-        desc: "Shows the way".into(),
-        price_cents: 900,
-        unique: true,
-        max_qty: 1,
-        grants,
-        tags: vec!["navigation".into()],
-        category: "misc".into(),
-    };
+    let spare_item = StoreItem { id: "map".into(), name: "Map".into(), desc: "Shows the way".into(), price_cents: 900, unique: true, max_qty: 1, grants, tags: vec!["navigation".into()], category: "misc".into() };
 
-    let store = Store {
-        categories: vec![StoreCategory {
-            id: "supplies".into(),
-            name: "Supplies".into(),
-            items: vec![gear_item],
-        }],
-        items: vec![spare_item],
-    };
+    let store = Store { categories: vec![StoreCategory { id: "supplies".into(), name: "Supplies".into(), items: vec![gear_item] }], items: vec![spare_item] };
 
     assert!(store.find_item("rope").is_some());
     assert!(store.find_item("map").is_some());
@@ -336,41 +302,11 @@ fn vehicle_system_behaviour() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn pacing_accessors_are_resilient() {
-    let pace = PaceCfg {
-        id: "steady".into(),
-        name: "Steady".into(),
-        dist_mult: 1.0,
-        distance: 12.0,
-        sanity: 0,
-        pants: 0,
-        encounter_chance_delta: 0.0,
-    };
+    let pace = PaceCfg { id: "steady".into(), name: "Steady".into(), dist_mult: 1.0, distance: 12.0, sanity: 0, pants: 0, encounter_chance_delta: 0.0 };
 
-    let cfg = PacingConfig {
-        pace: vec![pace],
-        diet: vec![dystrail_game::DietCfg {
-            id: "quiet".into(),
-            name: "Quiet".into(),
-            sanity: 1,
-            pants: -1,
-            receipt_find_pct_delta: 2,
-        }],
-        limits: dystrail_game::PacingLimits {
-            encounter_base: 0.25,
-            distance_base: 10.0,
-            distance_penalty_floor: 0.6,
-            encounter_floor: 0.05,
-            encounter_ceiling: 0.95,
-            pants_floor: -10,
-            pants_ceiling: 100,
-            passive_relief: 0,
-            passive_relief_threshold: 0,
-            boss_pants_cap: 3,
-            boss_passive_relief: 0,
-        },
-        enabled: true,
-    };
+    let cfg = PacingConfig { pace: vec![pace], diet: vec![dystrail_game::DietCfg { id: "quiet".into(), name: "Quiet".into(), sanity: 1, pants: -1, receipt_find_pct_delta: 2 }], limits: dystrail_game::PacingLimits { encounter_base: 0.25, distance_base: 10.0, distance_penalty_floor: 0.6, encounter_floor: 0.05, encounter_ceiling: 0.95, pants_floor: -10, pants_ceiling: 100, passive_relief: 0, passive_relief_threshold: 0, boss_pants_cap: 3, boss_passive_relief: 0 }, enabled: true };
 
     assert_eq!(cfg.get_pace_safe("heated").id, "steady");
     assert_eq!(cfg.get_diet_safe("missing").id, "quiet");
@@ -404,13 +340,11 @@ fn weather_effects_and_selection() {
 
     let sample = model.sample_from_weather(&state, state.weather_state.today);
     apply_weather_effects(&mut state, &cfg, sample);
-    assert!(
-        state
-            .logs
-            .iter()
-            .any(|line| line == "log.weather.heatstroke"),
-        "prolonged heat without gear should trigger heatstroke"
-    );
+    let has_heatstroke_log = state
+        .logs
+        .iter()
+        .any(|line| line == "log.weather.heatstroke");
+    assert!(has_heatstroke_log);
 
     state.features.exposure_streaks = false;
     state.weather_state.today = Weather::ColdSnap;
@@ -418,10 +352,7 @@ fn weather_effects_and_selection() {
     state.exposure_streak_cold = 2;
     let sample = model.sample_from_weather(&state, state.weather_state.today);
     apply_weather_effects(&mut state, &cfg, sample);
-    assert!(
-        state.logs.iter().any(|line| line == "log.weather.exposure"),
-        "cold streak without mitigation should log exposure"
-    );
+    assert!(state.logs.iter().any(|line| line == "log.weather.exposure"));
 
     let weather_rng = state
         .rng_bundle

@@ -6,8 +6,6 @@ fn test_crossing_i18n_coverage() {
     let locales = [
         "ar", "en", "fr", "it", "pt", "zh", "bn", "es", "hi", "ja", "ru",
     ];
-    let expected_keys = get_expected_crossing_keys();
-
     for locale in &locales {
         let file_path = format!("i18n/{locale}.json");
         let content = std::fs::read_to_string(&file_path)
@@ -16,19 +14,9 @@ fn test_crossing_i18n_coverage() {
         let json: Value = serde_json::from_str(&content)
             .unwrap_or_else(|_| panic!("Failed to parse JSON in {file_path}"));
 
-        let mut missing_keys = Vec::new();
-        for key in &expected_keys {
-            if !key_exists_in_json(&json, key) {
-                missing_keys.push(key.clone());
-            }
-        }
+        let missing_keys = collect_missing_keys(&json, &get_expected_crossing_keys());
 
-        assert!(
-            missing_keys.is_empty(),
-            "Missing i18n keys in {}: {}",
-            file_path,
-            missing_keys.join(", ")
-        );
+        assert!(missing_keys.is_empty());
     }
 }
 
@@ -50,18 +38,9 @@ fn test_crossing_i18n_interpolation_structure() {
         .and_then(|v| v.as_str())
         .expect("Missing detour option");
 
-    assert!(
-        detour_option.contains("{days}"),
-        "detour option should have days placeholder"
-    );
-    assert!(
-        detour_option.contains("{supplies}"),
-        "detour option should have supplies placeholder"
-    );
-    assert!(
-        detour_option.contains("{pants}"),
-        "detour option should have pants placeholder"
-    );
+    assert!(detour_option.contains("{days}"));
+    assert!(detour_option.contains("{supplies}"));
+    assert!(detour_option.contains("{pants}"));
 
     let bribe_option = cross
         .get("options")
@@ -69,10 +48,7 @@ fn test_crossing_i18n_interpolation_structure() {
         .and_then(|v| v.as_str())
         .expect("Missing bribe option");
 
-    assert!(
-        bribe_option.contains("{cost}"),
-        "bribe option should have cost placeholder"
-    );
+    assert!(bribe_option.contains("{cost}"));
 }
 
 /// Test that configuration JSON is valid
@@ -147,8 +123,26 @@ fn key_exists_in_json(json: &Value, key: &str) -> bool {
     current.is_string()
 }
 
+fn collect_missing_keys(json: &Value, expected_keys: &[String]) -> Vec<String> {
+    let mut missing_keys = Vec::new();
+    for key in expected_keys {
+        if !key_exists_in_json(json, key) {
+            missing_keys.push(key.clone());
+        }
+    }
+    missing_keys
+}
+
 #[test]
 fn key_exists_in_json_returns_false_for_missing_key() {
     let sample = json!({ "cross": { "desc": { "present": "ok" } } });
     assert!(!key_exists_in_json(&sample, "cross.desc.missing"));
+}
+
+#[test]
+fn missing_key_collection_pushes_missing_entries() {
+    let sample = json!({ "cross": { "desc": { "present": "ok" } } });
+    let expected = vec!["cross.desc.missing".to_string()];
+    let missing = collect_missing_keys(&sample, &expected);
+    assert_eq!(missing, expected);
 }

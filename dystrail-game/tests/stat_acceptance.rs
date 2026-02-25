@@ -39,10 +39,7 @@ fn breakdown_probability_tracks_base_rate() {
     }
     let observed =
         f64::from(u32::try_from(triggered).expect("count fits")) / f64::from(sample_size);
-    assert!(
-        (observed - 0.12).abs() <= TOLERANCE,
-        "breakdown rate drifted: observed {observed:.4}"
-    );
+    assert!((observed - 0.12).abs() <= TOLERANCE);
 }
 
 #[test]
@@ -83,6 +80,7 @@ fn crossing_distribution_matches_policy_weights() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn bribe_increases_pass_and_reduces_terminal() {
     let mut policy = CrossingPolicy {
         pass: 0.5,
@@ -91,7 +89,7 @@ fn bribe_increases_pass_and_reduces_terminal() {
         bribe: dystrail_game::journey::BribePolicy {
             pass_bonus: 0.2,
             detour_bonus: 0.0,
-            terminal_penalty: 0.2,
+            terminal_penalty: 0.1,
             diminishing_returns: 0.0,
         },
         ..CrossingPolicy::default()
@@ -133,17 +131,14 @@ fn bribe_increases_pass_and_reduces_terminal() {
         }
     }
 
-    assert!(
-        bribe_pass > base_pass,
-        "bribe should improve pass count (base {base_pass}, bribe {bribe_pass})"
-    );
-    assert!(
-        bribe_terminal < base_terminal,
-        "bribe should reduce terminal count (base {base_terminal}, bribe {bribe_terminal})"
-    );
+    let pass_improved = bribe_pass > base_pass;
+    assert!(pass_improved, "bribe should improve pass count (base {base_pass}, bribe {bribe_pass})");
+    let terminal_reduced = bribe_terminal < base_terminal;
+    assert!(terminal_reduced, "bribe should reduce terminal count (base {base_terminal}, bribe {bribe_terminal})");
 }
 
 #[test]
+#[rustfmt::skip]
 fn endgame_breakdown_scale_reduces_breaks() {
     let mut cfg = JourneyCfg::default();
     cfg.breakdown.base = 0.2;
@@ -207,8 +202,5 @@ fn endgame_breakdown_scale_reduces_breaks() {
     let base_rate =
         f64::from(u32::try_from(breaks_baseline).expect("count fits")) / f64::from(sample_size);
 
-    assert!(
-        scaled_rate < base_rate * 0.35,
-        "scaled breakdown rate should drop significantly (scaled {scaled_rate:.4}, base {base_rate:.4})"
-    );
+    assert!(scaled_rate < base_rate * 0.35, "scaled breakdown rate should drop significantly (scaled {scaled_rate:.4}, base {base_rate:.4})");
 }

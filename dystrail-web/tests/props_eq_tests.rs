@@ -1,5 +1,3 @@
-use std::rc::Rc;
-
 use dystrail_web::components::ui::camp_panel::Props as CampPanelProps;
 use dystrail_web::components::ui::crossing_card::CrossingCardProps;
 use dystrail_web::components::ui::otdeluxe_crossing_card::OtDeluxeCrossingCardProps;
@@ -15,6 +13,7 @@ use dystrail_web::pages::{
     otdeluxe_store::OtDeluxeStorePageProps, route_prompt::RoutePromptPageProps,
     travel::TravelPageProps,
 };
+use std::rc::Rc;
 use yew::Callback;
 
 const fn weather_badge() -> WeatherBadge {
@@ -24,233 +23,72 @@ const fn weather_badge() -> WeatherBadge {
     }
 }
 
+#[rustfmt::skip]
+fn camp_panel_props(state: Rc<GameState>, camp: Rc<CampConfig>, endgame: Rc<EndgameTravelCfg>) -> CampPanelProps { CampPanelProps { game_state: state, camp_config: camp, endgame_config: endgame, on_state_change: Callback::noop(), on_close: Callback::noop() } }
+
+#[rustfmt::skip]
+fn crossing_props(state: Rc<GameState>, config: Rc<CrossingConfig>, kind: CrossingKind) -> CrossingCardProps { CrossingCardProps { game_state: state, config, kind, on_choice: Callback::noop() } }
+
 #[test]
-fn ui_props_use_pointer_equality() {
+#[rustfmt::skip]
+fn component_props_equality_tracks_shared_pointers_and_variants() {
     let state = Rc::new(GameState::default());
-    let other_state = Rc::new(GameState::default());
     let camp_cfg = Rc::new(CampConfig::default());
     let endgame_cfg = Rc::new(EndgameTravelCfg::default_config());
     let crossing_cfg = Rc::new(CrossingConfig::default());
-
-    let camp_panel_a = CampPanelProps {
-        game_state: state.clone(),
-        camp_config: camp_cfg.clone(),
-        endgame_config: endgame_cfg.clone(),
-        on_state_change: Callback::noop(),
-        on_close: Callback::noop(),
-    };
-    let camp_panel_b = CampPanelProps {
-        game_state: state.clone(),
-        camp_config: camp_cfg.clone(),
-        endgame_config: endgame_cfg.clone(),
-        on_state_change: Callback::noop(),
-        on_close: Callback::noop(),
-    };
-    assert!(camp_panel_a == camp_panel_b);
-
-    let camp_panel_c = CampPanelProps {
-        game_state: other_state.clone(),
-        camp_config: camp_cfg,
-        endgame_config: endgame_cfg,
-        on_state_change: Callback::noop(),
-        on_close: Callback::noop(),
-    };
-    assert!(camp_panel_a != camp_panel_c);
-
-    let crossing_props_a = CrossingCardProps {
-        game_state: state.clone(),
-        config: crossing_cfg.clone(),
-        kind: CrossingKind::Checkpoint,
-        on_choice: Callback::noop(),
-    };
-    let crossing_props_b = CrossingCardProps {
-        game_state: state.clone(),
-        config: crossing_cfg.clone(),
-        kind: CrossingKind::Checkpoint,
-        on_choice: Callback::noop(),
-    };
-    assert!(crossing_props_a == crossing_props_b);
-
-    let crossing_props_c = CrossingCardProps {
-        game_state: other_state,
-        config: crossing_cfg,
-        kind: CrossingKind::Checkpoint,
-        on_choice: Callback::noop(),
-    };
-    assert!(crossing_props_a != crossing_props_c);
-
-    let otdeluxe_crossing_props_a = OtDeluxeCrossingCardProps {
-        game_state: state.clone(),
-        on_choice: Callback::noop(),
-    };
-    let otdeluxe_crossing_props_b = OtDeluxeCrossingCardProps {
-        game_state: state.clone(),
-        on_choice: Callback::noop(),
-    };
-    assert!(otdeluxe_crossing_props_a == otdeluxe_crossing_props_b);
-
-    let otdeluxe_store_props_a = OtDeluxeStorePanelProps {
-        state: state.clone(),
-        on_purchase: Callback::noop(),
-        on_leave: Callback::noop(),
-    };
-    let otdeluxe_store_props_b = OtDeluxeStorePanelProps {
-        state,
-        on_purchase: Callback::noop(),
-        on_leave: Callback::noop(),
-    };
-    assert!(otdeluxe_store_props_a == otdeluxe_store_props_b);
+    let camp_a = camp_panel_props(state.clone(), camp_cfg.clone(), endgame_cfg.clone());
+    let camp_b = camp_panel_props(state.clone(), camp_cfg, endgame_cfg);
+    assert!(camp_a == camp_b);
+    let base_crossing = crossing_props(state.clone(), crossing_cfg.clone(), CrossingKind::Checkpoint);
+    let different_cfg = crossing_props(state.clone(), Rc::new(CrossingConfig::default()), CrossingKind::Checkpoint);
+    let different_kind = crossing_props(state.clone(), crossing_cfg, CrossingKind::BridgeOut);
+    assert!(base_crossing != different_cfg);
+    assert!(base_crossing != different_kind);
+    let otd_cross_a = OtDeluxeCrossingCardProps { game_state: state.clone(), on_choice: Callback::noop() };
+    let otd_cross_b = OtDeluxeCrossingCardProps { game_state: state.clone(), on_choice: Callback::noop() };
+    assert!(otd_cross_a == otd_cross_b);
+    let store_a = OtDeluxeStorePanelProps { state: state.clone(), on_purchase: Callback::noop(), on_leave: Callback::noop() };
+    let store_b = OtDeluxeStorePanelProps { state, on_purchase: Callback::noop(), on_leave: Callback::noop() };
+    assert!(store_a == store_b);
 }
 
 #[test]
-fn page_props_compare_boss_and_camp() {
-    let weather = weather_badge();
+#[rustfmt::skip]
+fn page_props_equality_for_core_routes() {
     let state = GameState::default();
     let state_rc = Rc::new(GameState::default());
-    let config = BossConfig::load_from_static();
-    let camp_cfg = Rc::new(CampConfig::default());
-    let endgame_cfg = Rc::new(EndgameTravelCfg::default_config());
-
-    let boss_a = BossPageProps {
-        state: state.clone(),
-        config: config.clone(),
-        weather: weather.clone(),
-        on_begin: Callback::noop(),
-    };
-    let boss_b = BossPageProps {
-        state,
-        config,
-        weather: weather.clone(),
-        on_begin: Callback::noop(),
-    };
+    let shared_camp_cfg = Rc::new(CampConfig::default());
+    let shared_endgame_cfg = Rc::new(EndgameTravelCfg::default_config());
+    let shared_crossing_cfg = Rc::new(CrossingConfig::default());
+    let boss_a = BossPageProps { state: state.clone(), config: BossConfig::load_from_static(), weather: weather_badge(), on_begin: Callback::noop() };
+    let boss_b = BossPageProps { state, config: BossConfig::load_from_static(), weather: weather_badge(), on_begin: Callback::noop() };
     assert!(boss_a == boss_b);
-
-    let camp_a = CampPageProps {
-        state: state_rc.clone(),
-        camp_config: camp_cfg.clone(),
-        endgame_config: endgame_cfg.clone(),
-        weather: weather.clone(),
-        on_state_change: Callback::noop(),
-        on_close: Callback::noop(),
-    };
-    let camp_b = CampPageProps {
-        state: state_rc,
-        camp_config: camp_cfg,
-        endgame_config: endgame_cfg,
-        weather,
-        on_state_change: Callback::noop(),
-        on_close: Callback::noop(),
-    };
+    let camp_a = CampPageProps { state: state_rc.clone(), camp_config: shared_camp_cfg.clone(), endgame_config: shared_endgame_cfg.clone(), weather: weather_badge(), on_state_change: Callback::noop(), on_close: Callback::noop() };
+    let camp_b = CampPageProps { state: state_rc.clone(), camp_config: shared_camp_cfg, endgame_config: shared_endgame_cfg, weather: weather_badge(), on_state_change: Callback::noop(), on_close: Callback::noop() };
     assert!(camp_a == camp_b);
-}
-
-#[test]
-fn page_props_compare_crossing_and_encounter() {
-    let weather = weather_badge();
-    let state_rc = Rc::new(GameState::default());
-    let crossing_cfg = Rc::new(CrossingConfig::default());
-
-    let crossing_a = CrossingPageProps {
-        state: state_rc.clone(),
-        config: crossing_cfg.clone(),
-        kind: CrossingKind::Checkpoint,
-        weather: weather.clone(),
-        on_choice: Callback::noop(),
-    };
-    let crossing_b = CrossingPageProps {
-        state: state_rc.clone(),
-        config: crossing_cfg,
-        kind: CrossingKind::Checkpoint,
-        weather: weather.clone(),
-        on_choice: Callback::noop(),
-    };
+    let crossing_a = CrossingPageProps { state: state_rc.clone(), config: shared_crossing_cfg.clone(), kind: CrossingKind::Checkpoint, weather: weather_badge(), on_choice: Callback::noop() };
+    let crossing_b = CrossingPageProps { state: state_rc.clone(), config: shared_crossing_cfg, kind: CrossingKind::Checkpoint, weather: weather_badge(), on_choice: Callback::noop() };
     assert!(crossing_a == crossing_b);
-
-    let encounter_a = EncounterPageProps {
-        state: state_rc.clone(),
-        weather: weather.clone(),
-        on_choice: Callback::noop(),
-    };
-    let encounter_b = EncounterPageProps {
-        state: state_rc,
-        weather,
-        on_choice: Callback::noop(),
-    };
+    let encounter_a = EncounterPageProps { state: state_rc.clone(), weather: weather_badge(), on_choice: Callback::noop() };
+    let encounter_b = EncounterPageProps { state: state_rc, weather: weather_badge(), on_choice: Callback::noop() };
     assert!(encounter_a == encounter_b);
 }
 
 #[test]
-fn page_props_compare_otdeluxe_and_travel() {
-    let weather = weather_badge();
+#[rustfmt::skip]
+fn page_props_equality_for_otdeluxe_and_travel_routes() {
     let state_rc = Rc::new(GameState::default());
-
-    let otdeluxe_cross_a = OtDeluxeCrossingPageProps {
-        state: state_rc.clone(),
-        weather: weather.clone(),
-        on_choice: Callback::noop(),
-    };
-    let otdeluxe_cross_b = OtDeluxeCrossingPageProps {
-        state: state_rc.clone(),
-        weather: weather.clone(),
-        on_choice: Callback::noop(),
-    };
-    assert!(otdeluxe_cross_a == otdeluxe_cross_b);
-
-    let otdeluxe_store_a = OtDeluxeStorePageProps {
-        state: state_rc.clone(),
-        weather: weather.clone(),
-        on_purchase: Callback::<Vec<OtDeluxeStoreLineItem>>::noop(),
-        on_leave: Callback::noop(),
-    };
-    let otdeluxe_store_b = OtDeluxeStorePageProps {
-        state: state_rc.clone(),
-        weather: weather.clone(),
-        on_purchase: Callback::<Vec<OtDeluxeStoreLineItem>>::noop(),
-        on_leave: Callback::noop(),
-    };
-    assert!(otdeluxe_store_a == otdeluxe_store_b);
-
-    let prompt = OtDeluxeRoutePrompt::SubletteCutoff;
-    let route_a = RoutePromptPageProps {
-        state: state_rc.clone(),
-        prompt,
-        weather: weather.clone(),
-        on_choice: Callback::<OtDeluxeRouteDecision>::noop(),
-    };
-    let route_b = RoutePromptPageProps {
-        state: state_rc.clone(),
-        prompt,
-        weather: weather.clone(),
-        on_choice: Callback::<OtDeluxeRouteDecision>::noop(),
-    };
+    let shared_pacing = Rc::new(PacingConfig::default());
+    let otd_cross_a = OtDeluxeCrossingPageProps { state: state_rc.clone(), weather: weather_badge(), on_choice: Callback::noop() };
+    let otd_cross_b = OtDeluxeCrossingPageProps { state: state_rc.clone(), weather: weather_badge(), on_choice: Callback::noop() };
+    assert!(otd_cross_a == otd_cross_b);
+    let otd_store_a = OtDeluxeStorePageProps { state: state_rc.clone(), weather: weather_badge(), on_purchase: Callback::<Vec<OtDeluxeStoreLineItem>>::noop(), on_leave: Callback::noop() };
+    let otd_store_b = OtDeluxeStorePageProps { state: state_rc.clone(), weather: weather_badge(), on_purchase: Callback::<Vec<OtDeluxeStoreLineItem>>::noop(), on_leave: Callback::noop() };
+    assert!(otd_store_a == otd_store_b);
+    let route_a = RoutePromptPageProps { state: state_rc.clone(), prompt: OtDeluxeRoutePrompt::SubletteCutoff, weather: weather_badge(), on_choice: Callback::<OtDeluxeRouteDecision>::noop() };
+    let route_b = RoutePromptPageProps { state: state_rc.clone(), prompt: OtDeluxeRoutePrompt::SubletteCutoff, weather: weather_badge(), on_choice: Callback::<OtDeluxeRouteDecision>::noop() };
     assert!(route_a == route_b);
-
-    let pacing = Rc::new(PacingConfig::default());
-    let travel_a = TravelPageProps {
-        state: state_rc.clone(),
-        logs: Vec::new(),
-        pacing_config: pacing.clone(),
-        weather_badge: weather.clone(),
-        data_ready: true,
-        on_travel: Callback::noop(),
-        on_trade: Callback::noop(),
-        on_hunt: Callback::noop(),
-        on_open_inventory: Callback::noop(),
-        on_open_pace_diet: Callback::noop(),
-        on_open_map: Callback::noop(),
-    };
-    let travel_b = TravelPageProps {
-        state: state_rc,
-        logs: Vec::new(),
-        pacing_config: pacing,
-        weather_badge: weather,
-        data_ready: true,
-        on_travel: Callback::noop(),
-        on_trade: Callback::noop(),
-        on_hunt: Callback::noop(),
-        on_open_inventory: Callback::noop(),
-        on_open_pace_diet: Callback::noop(),
-        on_open_map: Callback::noop(),
-    };
+    let travel_a = TravelPageProps { state: state_rc.clone(), logs: Vec::new(), pacing_config: shared_pacing.clone(), weather_badge: weather_badge(), data_ready: true, on_travel: Callback::noop(), on_trade: Callback::noop(), on_hunt: Callback::noop(), on_open_inventory: Callback::noop(), on_open_pace_diet: Callback::noop(), on_open_map: Callback::noop() };
+    let travel_b = TravelPageProps { state: state_rc, logs: Vec::new(), pacing_config: shared_pacing, weather_badge: weather_badge(), data_ready: true, on_travel: Callback::noop(), on_trade: Callback::noop(), on_hunt: Callback::noop(), on_open_inventory: Callback::noop(), on_open_pace_diet: Callback::noop(), on_open_map: Callback::noop() };
     assert!(travel_a == travel_b);
 }

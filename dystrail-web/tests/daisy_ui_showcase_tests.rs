@@ -4,49 +4,51 @@ use futures::executor::block_on;
 use yew::LocalServerRenderer;
 use yew::prelude::*;
 
+#[rustfmt::skip]
+fn sample_select_options() -> Vec<SelectOption> { vec![ SelectOption { label: "One".into(), value: "one".into(), disabled: false }, SelectOption { label: "Two".into(), value: "two".into(), disabled: true }, ] }
+
+#[rustfmt::skip]
+fn sample_crumbs() -> Vec<Crumb> { vec![ Crumb { label: AttrValue::from("Home"), href: Some(AttrValue::from("#")) }, Crumb { label: AttrValue::from("Settings"), href: None }, ] }
+
+#[rustfmt::skip]
+fn sample_menu_items() -> Vec<MenuItem> { vec![ MenuItem { label: AttrValue::from("Overview"), href: Some(AttrValue::from("#")), active: true, disabled: false }, MenuItem { label: AttrValue::from("Billing"), href: None, active: false, disabled: true }, ] }
+
+#[rustfmt::skip]
+fn sample_stat_items() -> Vec<StatItem> { vec![StatItem { title: AttrValue::from("Health"), value: AttrValue::from("98%"), description: Some(AttrValue::from("Stable")), figure: Some(html! { <span>{"♥"}</span> }), actions: Some(html! { <button class="btn btn-xs">{"Details"}</button> }), }] }
+
+#[rustfmt::skip]
+fn sample_tabs() -> Vec<TabItem> { vec![ TabItem { id: AttrValue::from("tab-a"), label: AttrValue::from("Tab A"), disabled: false, content: Some(html! { <div>{"Tab A content"}</div> }), }, TabItem { id: AttrValue::from("tab-b"), label: AttrValue::from("Tab B"), disabled: false, content: Some(html! { <div>{"Tab B content"}</div> }), }, ] }
+
+#[rustfmt::skip]
+fn sample_filter_options() -> Vec<FilterOption> { vec![ FilterOption { label: AttrValue::from("Active"), value: AttrValue::from("active") }, FilterOption { label: AttrValue::from("Paused"), value: AttrValue::from("paused") }, ] }
+
+#[rustfmt::skip]
+fn sample_variant_tabs() -> Vec<TabItem> { vec![ TabItem { id: AttrValue::from("tab-1"), label: AttrValue::from("Enabled"), disabled: false, content: Some(html! { <div>{"Enabled tab"}</div> }), }, TabItem { id: AttrValue::from("tab-2"), label: AttrValue::from("Disabled"), disabled: true, content: Some(html! { <div>{"Disabled tab"}</div> }), }, ] }
+
+#[rustfmt::skip]
+fn sample_toast_items() -> Vec<ToastItem> { vec![ToastItem { id: AttrValue::from("toast-1"), content: html! { <span>{"Saved"}</span> }, }] }
+
+#[rustfmt::skip]
+fn sample_timeline_items() -> Vec<TimelineItem> { vec![ TimelineItem { title: AttrValue::from("Start"), content: Some(AttrValue::from("Boot")) }, TimelineItem { title: AttrValue::from("Finish"), content: Some(AttrValue::from("Done")) }, ] }
+
 #[function_component(AtomsShowcase)]
 fn atoms_showcase() -> Html {
-    let select_options = vec![
-        SelectOption {
-            label: "One".into(),
-            value: "one".into(),
-            disabled: false,
-        },
-        SelectOption {
-            label: "Two".into(),
-            value: "two".into(),
-            disabled: true,
-        },
-    ];
+    let select_options = sample_select_options();
 
     html! {
         <div>
             <Alert title={Some(AttrValue::from("Heads up"))} message={Some(AttrValue::from("All systems nominal"))} />
-            <Alert title={Some(AttrValue::from("Warning"))} variant={Some(DaisyColor::Warning)}>
-                <span>{ "Check the gauges" }</span>
-            </Alert>
+            <Alert title={Some(AttrValue::from("Warning"))} variant={Some(DaisyColor::Warning)}><span>{ "Check the gauges" }</span></Alert>
             <Avatar initials={Some(AttrValue::from("DT"))} />
-            <Avatar
-                src={Some(AttrValue::from("https://example.com/avatar.png"))}
-                alt={Some(AttrValue::from("Avatar"))}
-                size={Some(DaisySize::Lg)}
-            />
+            <Avatar src={Some(AttrValue::from("https://example.com/avatar.png"))} alt={Some(AttrValue::from("Avatar"))} size={Some(DaisySize::Lg)} />
             <Badge label={Some(AttrValue::from("New"))} />
             <Badge label={Some(AttrValue::from("Info"))} variant={Some(DaisyColor::Info)} />
             <Badge>{"Inline badge"}</Badge>
             <Button label={Some(AttrValue::from("Click me"))} />
-            <Button
-                label={Some(AttrValue::from("Outline"))}
-                variant={Some(DaisyColor::Secondary)}
-                size={Some(DaisySize::Sm)}
-                outline={true}
-                aria_label={Some(AttrValue::from("Outline button"))}
-            />
+            <Button label={Some(AttrValue::from("Outline"))} variant={Some(DaisyColor::Secondary)} size={Some(DaisySize::Sm)} outline={true} aria_label={Some(AttrValue::from("Outline button"))} />
             <Button><span>{"Child button"}</span></Button>
             <Checkbox label={Some(AttrValue::from("Accept terms"))} checked={true} />
-            <Indicator indicator={Some(html! { <span class="badge">{"1"}</span> })}>
-                <span>{"Inbox"}</span>
-            </Indicator>
+            <Indicator indicator={Some(html! { <span class="badge">{"1"}</span> })}><span>{"Inbox"}</span></Indicator>
             <Input value={AttrValue::from("user")} placeholder={Some(AttrValue::from("Name"))} />
             <Kbd keys={vec![AttrValue::from("Ctrl"), AttrValue::from("K")]} />
             <Label for_input={Some(AttrValue::from("field"))} text={Some(AttrValue::from("Field label"))} />
@@ -55,9 +57,7 @@ fn atoms_showcase() -> Html {
             <Link href="#">{ "Child link" }</Link>
             <Loading label={Some(AttrValue::from("Loading"))} />
             <Loading label={Some(AttrValue::from("Loading md"))} size={Some(DaisySize::Md)} />
-            <Mask shape={Some(AttrValue::from("mask-squircle"))}>
-                <span>{"Masked"}</span>
-            </Mask>
+            <Mask shape={Some(AttrValue::from("mask-squircle"))}><span>{"Masked"}</span></Mask>
             <Progress value={42.0} max={100.0} />
             <Progress value={88.0} max={100.0} variant={Some(DaisyColor::Primary)} />
             <Progress value={70.0} max={100.0} label={Some(AttrValue::from("70%"))} />
@@ -78,61 +78,11 @@ fn atoms_showcase() -> Html {
 
 #[function_component(MoleculesShowcase)]
 fn molecules_showcase() -> Html {
-    let crumbs = vec![
-        Crumb {
-            label: AttrValue::from("Home"),
-            href: Some(AttrValue::from("#")),
-        },
-        Crumb {
-            label: AttrValue::from("Settings"),
-            href: None,
-        },
-    ];
-    let menu_items = vec![
-        MenuItem {
-            label: AttrValue::from("Overview"),
-            href: Some(AttrValue::from("#")),
-            active: true,
-            disabled: false,
-        },
-        MenuItem {
-            label: AttrValue::from("Billing"),
-            href: None,
-            active: false,
-            disabled: true,
-        },
-    ];
-    let stat_items = vec![StatItem {
-        title: AttrValue::from("Health"),
-        value: AttrValue::from("98%"),
-        description: Some(AttrValue::from("Stable")),
-        figure: Some(html! { <span>{"♥"}</span> }),
-        actions: Some(html! { <button class="btn btn-xs">{"Details"}</button> }),
-    }];
-    let tabs = vec![
-        TabItem {
-            id: AttrValue::from("tab-a"),
-            label: AttrValue::from("Tab A"),
-            disabled: false,
-            content: Some(html! { <div>{"Tab A content"}</div> }),
-        },
-        TabItem {
-            id: AttrValue::from("tab-b"),
-            label: AttrValue::from("Tab B"),
-            disabled: false,
-            content: Some(html! { <div>{"Tab B content"}</div> }),
-        },
-    ];
-    let filter_options = vec![
-        FilterOption {
-            label: AttrValue::from("Active"),
-            value: AttrValue::from("active"),
-        },
-        FilterOption {
-            label: AttrValue::from("Paused"),
-            value: AttrValue::from("paused"),
-        },
-    ];
+    let crumbs = sample_crumbs();
+    let menu_items = sample_menu_items();
+    let stat_items = sample_stat_items();
+    let tabs = sample_tabs();
+    let filter_options = sample_filter_options();
     let dropdown_menu = Children::new(vec![
         html! { <li role="menuitem">{"First"}</li> },
         html! { <li role="menuitem">{"Second"}</li> },
@@ -140,55 +90,31 @@ fn molecules_showcase() -> Html {
 
     html! {
         <div>
-            <Accordion title={AttrValue::from("Details")} open={true}>
-                <p>{"Accordion body"}</p>
-            </Accordion>
+            <Accordion title={AttrValue::from("Details")} open={true}><p>{"Accordion body"}</p></Accordion>
             <Breadcrumbs items={crumbs} />
             <Calendar year={2024} month={2} selected_day={Some(29)} />
-            <Card title={Some(AttrValue::from("Card title"))} subtitle={Some(AttrValue::from("Subtitle"))}>
-                <p>{"Card body"}</p>
-            </Card>
+            <Card title={Some(AttrValue::from("Card title"))} subtitle={Some(AttrValue::from("Subtitle"))}><p>{"Card body"}</p></Card>
             <Chat author={AttrValue::from("Operator")} message={AttrValue::from("Ping")} timestamp={Some(AttrValue::from("10:12"))} />
             <Chat author={AttrValue::from("Responder")} message={AttrValue::from("Pong")} position={ChatPosition::End} />
-            <Collapse title={AttrValue::from("More")} open={true}>
-                <p>{"Collapse body"}</p>
-            </Collapse>
+            <Collapse title={AttrValue::from("More")} open={true}><p>{"Collapse body"}</p></Collapse>
             <Countdown millis={90_000} label={Some(AttrValue::from("ETA"))} />
             <Diff before={AttrValue::from("Before")} after={AttrValue::from("After")} caption={Some(AttrValue::from("Delta"))} />
             <Divider text={Some(AttrValue::from("Or"))} />
             <Dropdown label={AttrValue::from("Menu")} open={Some(true)} menu={dropdown_menu} />
             <Fab label={Some(AttrValue::from("Create"))} />
-            <Fieldset legend={Some(AttrValue::from("Profile"))}>
-                <Input value={AttrValue::from("Name")} />
-            </Fieldset>
+            <Fieldset legend={Some(AttrValue::from("Profile"))}><Input value={AttrValue::from("Name")} /></Fieldset>
             <FileInput label={Some(AttrValue::from("Upload"))} />
             <Filter options={filter_options} selected={vec![AttrValue::from("active")]} />
             <HoverGallery>{ "Hover gallery" }</HoverGallery>
             <Hover3d>{ "Hover3d" }</Hover3d>
-            <Join>
-                <Button label={Some(AttrValue::from("Left"))} />
-                <Button label={Some(AttrValue::from("Right"))} />
-            </Join>
-            <Join vertical={true}>
-                <Button label={Some(AttrValue::from("Top"))} />
-                <Button label={Some(AttrValue::from("Bottom"))} />
-            </Join>
+            <Join><Button label={Some(AttrValue::from("Left"))} /><Button label={Some(AttrValue::from("Right"))} /></Join>
+            <Join vertical={true}><Button label={Some(AttrValue::from("Top"))} /><Button label={Some(AttrValue::from("Bottom"))} /></Join>
             <List items={vec![AttrValue::from("Alpha"), AttrValue::from("Beta")]} />
-            <List>
-                <li>{"Child list item"}</li>
-            </List>
+            <List><li>{"Child list item"}</li></List>
             <Menu items={menu_items} />
-            <Menu items={Vec::new()}>
-                <li>{"Child menu item"}</li>
-            </Menu>
-            <Stack align_top={true}>
-                <div class="card">{"Stacked 1"}</div>
-                <div class="card">{"Stacked 2"}</div>
-            </Stack>
-            <Stack align_start={true}>
-                <div class="card">{"Aligned 1"}</div>
-                <div class="card">{"Aligned 2"}</div>
-            </Stack>
+            <Menu items={Vec::new()}><li>{"Child menu item"}</li></Menu>
+            <Stack align_top={true}><div class="card">{"Stacked 1"}</div><div class="card">{"Stacked 2"}</div></Stack>
+            <Stack align_start={true}><div class="card">{"Aligned 1"}</div><div class="card">{"Aligned 2"}</div></Stack>
             <Stat items={stat_items.clone()} />
             <Stat items={stat_items} vertical={true} />
             <Steps steps={vec![AttrValue::from("One"), AttrValue::from("Two"), AttrValue::from("Three")]} current={1} horizontal={true} />
@@ -197,38 +123,17 @@ fn molecules_showcase() -> Html {
             <Tab tabs={tabs} active_id={Some(AttrValue::from("tab-b"))} />
             <TextRotate items={vec![AttrValue::from("Alpha"), AttrValue::from("Beta")]} active_index={Some(1)} />
             <TextRotate items={Vec::new()} />
-            <Tooltip text={AttrValue::from("Tooltip")}>
-                <span>{"Hover me"}</span>
-            </Tooltip>
-            <Tooltip text={AttrValue::from("Right")} position={Some(AttrValue::from("tooltip-right"))}>
-                <span>{"Hover right"}</span>
-            </Tooltip>
-            <Validator state={Some(ValidationState::Success)} message={Some(AttrValue::from("Looks good"))}>
-                <Input value={AttrValue::from("ok")} />
-            </Validator>
-            <Validator state={Some(ValidationState::Error)} message={Some(AttrValue::from("Problem"))}>
-                <Input value={AttrValue::from("bad")} />
-            </Validator>
+            <Tooltip text={AttrValue::from("Tooltip")}><span>{"Hover me"}</span></Tooltip>
+            <Tooltip text={AttrValue::from("Right")} position={Some(AttrValue::from("tooltip-right"))}><span>{"Hover right"}</span></Tooltip>
+            <Validator state={Some(ValidationState::Success)} message={Some(AttrValue::from("Looks good"))}><Input value={AttrValue::from("ok")} /></Validator>
+            <Validator state={Some(ValidationState::Error)} message={Some(AttrValue::from("Problem"))}><Input value={AttrValue::from("bad")} /></Validator>
         </div>
     }
 }
 
 #[function_component(MoleculesVariants)]
 fn molecules_variants() -> Html {
-    let tabs = vec![
-        TabItem {
-            id: AttrValue::from("tab-1"),
-            label: AttrValue::from("Enabled"),
-            disabled: false,
-            content: Some(html! { <div>{"Enabled tab"}</div> }),
-        },
-        TabItem {
-            id: AttrValue::from("tab-2"),
-            label: AttrValue::from("Disabled"),
-            disabled: true,
-            content: Some(html! { <div>{"Disabled tab"}</div> }),
-        },
-    ];
+    let tabs = sample_variant_tabs();
     let dropdown_menu = Children::new(vec![html! { <li role="menuitem">{"Only"}</li> }]);
 
     html! {
@@ -244,20 +149,8 @@ fn molecules_variants() -> Html {
 
 #[function_component(OrganismsShowcase)]
 fn organisms_showcase() -> Html {
-    let toast_items = vec![ToastItem {
-        id: AttrValue::from("toast-1"),
-        content: html! { <span>{"Saved"}</span> },
-    }];
-    let timeline_items = vec![
-        TimelineItem {
-            title: AttrValue::from("Start"),
-            content: Some(AttrValue::from("Boot")),
-        },
-        TimelineItem {
-            title: AttrValue::from("Finish"),
-            content: Some(AttrValue::from("Done")),
-        },
-    ];
+    let toast_items = sample_toast_items();
+    let timeline_items = sample_timeline_items();
     let table_headers = vec![AttrValue::from("Col A"), AttrValue::from("Col B")];
     let table_rows = vec![
         vec![AttrValue::from("A1"), AttrValue::from("B1")],
@@ -266,35 +159,19 @@ fn organisms_showcase() -> Html {
 
     html! {
         <div>
-            <Navbar
-                brand={Some(html! { <span class="font-bold">{"Brand"}</span> })}
-                start={Some(html! { <a href="#">{"Start"}</a> })}
-                center={Some(html! { <span>{"Center"}</span> })}
-                end={Some(html! { <button class="btn btn-xs">{"Sign in"}</button> })}
-            />
-            <Drawer open={true} side={html! { <nav>{"Side nav"}</nav> }}>
-                <div>{"Drawer content"}</div>
-            </Drawer>
+            <Navbar brand={Some(html! { <span class="font-bold">{"Brand"}</span> })} start={Some(html! { <a href="#">{"Start"}</a> })} center={Some(html! { <span>{"Center"}</span> })} end={Some(html! { <button class="btn btn-xs">{"Sign in"}</button> })} />
+            <Drawer open={true} side={html! { <nav>{"Side nav"}</nav> }}><div>{"Drawer content"}</div></Drawer>
             <Footer>{"Footer content"}</Footer>
-            <Hero title={AttrValue::from("Hero Title")} subtitle={Some(AttrValue::from("Subtitle"))}>
-                <p>{"Hero body"}</p>
-            </Hero>
-            <Modal open={true} title={AttrValue::from("Dialog")} description={Some(AttrValue::from("Details"))}>
-                <p>{"Modal content"}</p>
-            </Modal>
+            <Hero title={AttrValue::from("Hero Title")} subtitle={Some(AttrValue::from("Subtitle"))}><p>{"Hero body"}</p></Hero>
+            <Modal open={true} title={AttrValue::from("Dialog")} description={Some(AttrValue::from("Details"))}><p>{"Modal content"}</p></Modal>
             <Pagination total_pages={3} current_page={1} />
             <Table headers={table_headers} rows={table_rows} />
             <ThemeController themes={vec![AttrValue::from("light"), AttrValue::from("dark")]} value={Some(AttrValue::from("light"))} />
             <Timeline items={timeline_items.clone()} horizontal={true} />
             <Timeline items={timeline_items} horizontal={false} />
             <Toast toasts={toast_items} on_dismiss={Some(Callback::from(|_id: AttrValue| {}))} />
-            <Dock>
-                <a href="#home">{"Home"}</a>
-            </Dock>
-            <Carousel show_controls={true} show_indicators={true}>
-                <div>{"Slide 1"}</div>
-                <div>{"Slide 2"}</div>
-            </Carousel>
+            <Dock><a href="#home">{"Home"}</a></Dock>
+            <Carousel show_controls={true} show_indicators={true}><div>{"Slide 1"}</div><div>{"Slide 2"}</div></Carousel>
         </div>
     }
 }
@@ -303,15 +180,9 @@ fn organisms_showcase() -> Html {
 fn organisms_variants() -> Html {
     html! {
         <div>
-            <Modal open={false} title={AttrValue::from("Hidden")}>
-                <p>{"Hidden content"}</p>
-            </Modal>
-            <Drawer open={false} side={html! { <span>{"Drawer side"}</span> }}>
-                <div>{"Drawer body"}</div>
-            </Drawer>
-            <Carousel show_controls={false} show_indicators={false}>
-                <div>{"Only slide"}</div>
-            </Carousel>
+            <Modal open={false} title={AttrValue::from("Hidden")}><p>{"Hidden content"}</p></Modal>
+            <Drawer open={false} side={html! { <span>{"Drawer side"}</span> }}><div>{"Drawer body"}</div></Drawer>
+            <Carousel show_controls={false} show_indicators={false}><div>{"Only slide"}</div></Carousel>
         </div>
     }
 }
@@ -320,16 +191,10 @@ fn organisms_variants() -> Html {
 fn mockups_showcase() -> Html {
     html! {
         <div>
-            <MockupBrowser url={Some(AttrValue::from("https://example.com"))}>
-                <div>{"Browser content"}</div>
-            </MockupBrowser>
+            <MockupBrowser url={Some(AttrValue::from("https://example.com"))}><div>{"Browser content"}</div></MockupBrowser>
             <MockupCode code={AttrValue::from("let x = 1;\nprintln!(\"{x}\");")} language={Some(AttrValue::from("rust"))} />
-            <MockupPhone>
-                <div>{"Phone content"}</div>
-            </MockupPhone>
-            <MockupWindow title={Some(AttrValue::from("Window"))}>
-                <div>{"Window content"}</div>
-            </MockupWindow>
+            <MockupPhone><div>{"Phone content"}</div></MockupPhone>
+            <MockupWindow title={Some(AttrValue::from("Window"))}><div>{"Window content"}</div></MockupWindow>
         </div>
     }
 }
@@ -388,4 +253,40 @@ fn daisy_ui_foundation_helpers_build_classnames() {
     assert_eq!(DaisySize::Lg.class("btn"), "btn-lg");
     let value = attr_value(&Some(AttrValue::from("aria")));
     assert_eq!(value.as_deref(), Some("aria"));
+}
+
+#[test]
+fn daisy_ui_showcase_fixtures_cover_expected_values() {
+    let select_options = sample_select_options();
+    assert_eq!(select_options.len(), 2);
+    assert!(select_options.iter().any(|option| option.disabled));
+
+    let crumbs = sample_crumbs();
+    assert!(crumbs.iter().any(|crumb| crumb.href.is_none()));
+
+    let menu_items = sample_menu_items();
+    assert!(menu_items.iter().any(|item| item.active));
+    assert!(menu_items.iter().any(|item| item.disabled));
+
+    let stat_items = sample_stat_items();
+    assert!(stat_items.iter().all(|item| item.description.is_some()));
+    assert!(stat_items.iter().all(|item| item.actions.is_some()));
+
+    let tabs = sample_tabs();
+    assert_eq!(tabs.len(), 2);
+    assert!(tabs.iter().all(|tab| tab.content.is_some()));
+
+    let filter_options = sample_filter_options();
+    assert!(filter_options.iter().any(|option| option.value == "active"));
+    assert!(filter_options.iter().any(|option| option.value == "paused"));
+
+    let variant_tabs = sample_variant_tabs();
+    assert!(variant_tabs.iter().any(|tab| tab.disabled));
+
+    let toast_items = sample_toast_items();
+    assert_eq!(toast_items.len(), 1);
+
+    let timeline_items = sample_timeline_items();
+    assert_eq!(timeline_items.len(), 2);
+    assert!(timeline_items.iter().all(|item| item.content.is_some()));
 }

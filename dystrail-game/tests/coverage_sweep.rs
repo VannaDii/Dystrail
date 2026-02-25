@@ -78,6 +78,7 @@ fn load_personas() -> PersonasList {
     .unwrap()
 }
 
+#[rustfmt::skip]
 fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
     let policy_id = if mode.is_deep() {
         PolicyId::Deep
@@ -90,23 +91,26 @@ fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
         PolicyKind::Conservative => StrategyId::Conservative,
         PolicyKind::ResourceManager => StrategyId::ResourceManager,
     };
-    JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy_id, strategy, 0)
-        .config()
-        .clone()
+    JourneyController::new(MechanicalPolicyId::DystrailLegacy, policy_id, strategy, 0).config().clone()
 }
 
+#[rustfmt::skip]
 fn encounter_def(id: &str, regions: &[&str]) -> EncounterDef {
-    EncounterDef {
-        id: id.to_string(),
-        name: format!("Encounter {id}"),
-        desc: String::new(),
-        weight: 1,
-        regions: regions.iter().map(|region| (*region).to_string()).collect(),
-        modes: vec![String::from("classic")],
-        choices: Vec::new(),
-        hard_stop: false,
-        major_repair: false,
-        chainable: false,
+    EncounterDef { id: id.to_string(), name: format!("Encounter {id}"), desc: String::new(), weight: 1, regions: regions.iter().map(|region| (*region).to_string()).collect(), modes: vec![String::from("classic")], choices: Vec::new(), hard_stop: false, major_repair: false, chainable: false }
+}
+
+#[test]
+fn journey_cfg_for_supports_all_policies() {
+    for policy in [
+        PolicyKind::Balanced,
+        PolicyKind::Aggressive,
+        PolicyKind::Conservative,
+        PolicyKind::ResourceManager,
+    ] {
+        let classic = journey_cfg_for(policy, GameMode::Classic);
+        let deep = journey_cfg_for(policy, GameMode::Deep);
+        assert!(classic.travel.mpd_base > 0.0);
+        assert!(deep.travel.mpd_base > 0.0);
     }
 }
 
@@ -204,12 +208,11 @@ fn boss_probability_edges_cover_low_and_high() {
     fail_cfg.base_victory_chance = 0.0;
     let fail_outcome = run_boss_minigame(&mut fail_state, &fail_cfg);
     assert!(matches!(fail_outcome, BossOutcome::SurvivedFlood));
-    assert!(
-        fail_state
-            .logs
-            .last()
-            .is_some_and(|log| log.contains("failure"))
-    );
+    let has_failure_log = fail_state
+        .logs
+        .last()
+        .is_some_and(|log| log.contains("failure"));
+    assert!(has_failure_log);
 
     let mut win_state = GameState::default().with_seed(0x1234, GameMode::Deep, data);
     win_state.stats.supplies = 40;
@@ -232,12 +235,11 @@ fn boss_probability_edges_cover_low_and_high() {
     win_cfg.max_chance = 1.0;
     let win_outcome = run_boss_minigame(&mut win_state, &win_cfg);
     assert!(matches!(win_outcome, BossOutcome::PassedCloture));
-    assert!(
-        win_state
-            .logs
-            .last()
-            .is_some_and(|log| log.contains("victory"))
-    );
+    let has_victory_log = win_state
+        .logs
+        .last()
+        .is_some_and(|log| log.contains("victory"));
+    assert!(has_victory_log);
 }
 
 #[test]
@@ -472,8 +474,9 @@ fn full_content_walkthrough() {
             }
         }
 
-        let _outcome = run_boss_minigame(&mut state, &BossConfig::load_from_static());
-        let _summary = result_summary(&state, &ResultConfig::default()).unwrap();
+        let _ = run_boss_minigame(&mut state, &BossConfig::load_from_static());
+        let summary = result_summary(&state, &ResultConfig::default()).unwrap();
+        assert!(summary.score >= 0);
     }
 }
 
@@ -752,6 +755,7 @@ fn endgame_controller_and_failure_guard() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn store_cart_and_inventory_flows() {
     let mut cart = Cart::new();
     assert!(cart.is_empty());
@@ -763,23 +767,7 @@ fn store_cart_and_inventory_flows() {
     assert!(cart.lines.is_empty());
     assert_eq!(cart.remove_item("rope", 1), 0);
 
-    let item = StoreItem {
-        id: "grant".into(),
-        name: "Grant".into(),
-        desc: String::new(),
-        price_cents: 1_000,
-        unique: false,
-        max_qty: 5,
-        grants: Grants {
-            supplies: 1,
-            credibility: 1,
-            spare_tire: 1,
-            enabled: true,
-            ..Grants::default()
-        },
-        tags: vec!["legal_fund".into()],
-        category: "general".into(),
-    };
+    let item = StoreItem { id: "grant".into(), name: "Grant".into(), desc: String::new(), price_cents: 1_000, unique: false, max_qty: 5, grants: Grants { supplies: 1, credibility: 1, spare_tire: 1, enabled: true, ..Grants::default() }, tags: vec!["legal_fund".into()], category: "general".into() };
 
     let mut state = empty_state();
     state.apply_store_purchase(item.price_cents, &item.grants, &item.tags);
@@ -987,6 +975,7 @@ fn weather_variants_cover_branches() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn encounter_rotation_and_weights_cover_branches() {
     let data = load_encounter_data();
     let mut queue = VecDeque::new();
@@ -996,10 +985,7 @@ fn encounter_rotation_and_weights_cover_branches() {
         malnutrition_level: 3,
         starving: true,
         data: &data,
-        recent: &[
-            dystrail_game::state::RecentEncounter::new("alpha".into(), 1, Region::Heartland),
-            dystrail_game::state::RecentEncounter::new("beta".into(), 2, Region::RustBelt),
-        ],
+        recent: &[dystrail_game::state::RecentEncounter::new("alpha".into(), 1, Region::Heartland), dystrail_game::state::RecentEncounter::new("beta".into(), 2, Region::RustBelt)],
         current_day: 15,
         policy: Some(PolicyKind::Conservative),
         force_rotation: false,
@@ -1011,16 +997,10 @@ fn encounter_rotation_and_weights_cover_branches() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn crossing_config_thresholds_cover_branches() {
     let cfg = CrossingConfig::default();
-    for season in [Season::Spring, Season::Summer, Season::Fall, Season::Winter] {
-        assert!(
-            cfg.thresholds
-                .lookup(Region::Heartland, season)
-                .cost_multiplier
-                >= 100
-        );
-    }
+    for season in [Season::Spring, Season::Summer, Season::Fall, Season::Winter] { assert!(cfg.thresholds.lookup(Region::Heartland, season).cost_multiplier >= 100); }
     let beltway_summer = cfg.thresholds.lookup(Region::Beltway, Season::Summer);
     assert!(beltway_summer.success_adjust <= 0.0);
 
@@ -1071,10 +1051,8 @@ fn crossing_config_thresholds_cover_branches() {
         prior_bribe_attempts: 0,
     };
     let detour_outcome = resolve_crossing(detour_ctx, &mut rng);
-    assert!(
-        matches!(detour_outcome.result, CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max),
-        "expected detour days to reach configured maximum"
-    );
+    let reached_max_detour = matches!(detour_outcome.result, CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max);
+    assert!(reached_max_detour, "expected detour days to reach configured maximum");
 }
 
 #[test]
@@ -1266,32 +1244,10 @@ fn test_loader_config_lookup_handles_missing_and_present_entries() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn disease_uniform_fallback_trace_records_weights() {
     let catalog = DiseaseCatalog {
-        diseases: vec![
-            DiseaseDef {
-                id: "d1".into(),
-                kind: DiseaseKind::Illness,
-                display_key: "disease.d1".into(),
-                weight: 0,
-                duration_days: None,
-                onset_effects: DiseaseEffects::default(),
-                daily_tick_effects: DiseaseEffects::default(),
-                fatality_model: None,
-                tags: Vec::new(),
-            },
-            DiseaseDef {
-                id: "d2".into(),
-                kind: DiseaseKind::Illness,
-                display_key: "disease.d2".into(),
-                weight: 0,
-                duration_days: None,
-                onset_effects: DiseaseEffects::default(),
-                daily_tick_effects: DiseaseEffects::default(),
-                fatality_model: None,
-                tags: Vec::new(),
-            },
-        ],
+        diseases: vec![DiseaseDef { id: "d1".into(), kind: DiseaseKind::Illness, display_key: "disease.d1".into(), weight: 0, duration_days: None, onset_effects: DiseaseEffects::default(), daily_tick_effects: DiseaseEffects::default(), fatality_model: None, tags: Vec::new() }, DiseaseDef { id: "d2".into(), kind: DiseaseKind::Illness, display_key: "disease.d2".into(), weight: 0, duration_days: None, onset_effects: DiseaseEffects::default(), daily_tick_effects: DiseaseEffects::default(), fatality_model: None, tags: Vec::new() }],
     };
     let mut rng = SmallRng::seed_from_u64(42);
     let (_, trace) = catalog.pick_by_kind_with_trace(DiseaseKind::Illness, &mut rng);
@@ -1351,15 +1307,13 @@ fn pick_encounter_returns_forced_rotation_candidate() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn pick_encounter_weighted_selection_records_trace() {
     let data = EncounterData::from_encounters(vec![
         encounter_def("alpha", &["Heartland"]),
         encounter_def("beta", &["Heartland"]),
     ]);
-    let recent = [
-        RecentEncounter::new(String::from("alpha"), 10, Region::Heartland),
-        RecentEncounter::new(String::from("beta"), 10, Region::Heartland),
-    ];
+    let recent = [RecentEncounter::new(String::from("alpha"), 10, Region::Heartland), RecentEncounter::new(String::from("beta"), 10, Region::Heartland)];
     let request = EncounterRequest {
         region: Region::Heartland,
         is_deep: false,
@@ -1379,17 +1333,11 @@ fn pick_encounter_weighted_selection_records_trace() {
 }
 
 #[test]
+#[rustfmt::skip]
 fn pick_random_event_with_variant_emits_trace() {
     let catalog = OtDeluxeRandomEventCatalog {
         chance_per_day: 1.0,
-        events: vec![OtDeluxeRandomEventDef {
-            id: "resource_shortage".into(),
-            weight: 1,
-            variants: vec![OtDeluxeRandomEventVariant {
-                id: "bad_water".into(),
-                weight: 1,
-            }],
-        }],
+        events: vec![OtDeluxeRandomEventDef { id: "resource_shortage".into(), weight: 1, variants: vec![OtDeluxeRandomEventVariant { id: "bad_water".into(), weight: 1 }] }],
     };
     let ctx = OtDeluxeRandomEventContext {
         season: Season::Spring,
