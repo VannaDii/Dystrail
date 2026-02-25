@@ -1,5 +1,8 @@
 use crate::journey::EventKind;
 
+/// Version for the externally stable kernel event code schema.
+pub const KERNEL_EVENT_CODE_SCHEMA_VERSION: u16 = 1;
+
 /// Deterministic event code for i18n and UI rendering.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum KernelEventCode {
@@ -21,6 +24,27 @@ pub enum KernelEventCode {
     CrossingResolved,
     TravelBlocked,
 }
+
+/// Ordered canonical list of all stable kernel event codes.
+pub const KERNEL_EVENT_CODES: [KernelEventCode; 17] = [
+    KernelEventCode::LegacyLog,
+    KernelEventCode::WeatherResolved,
+    KernelEventCode::DailyConsumptionApplied,
+    KernelEventCode::HealthTickApplied,
+    KernelEventCode::GeneralStrainComputed,
+    KernelEventCode::ExecOrderStarted,
+    KernelEventCode::ExecOrderEnded,
+    KernelEventCode::BreakdownStarted,
+    KernelEventCode::BreakdownResolved,
+    KernelEventCode::EncounterTriggered,
+    KernelEventCode::RandomEventResolved,
+    KernelEventCode::TradeResolved,
+    KernelEventCode::HuntResolved,
+    KernelEventCode::AfflictionTriggered,
+    KernelEventCode::NavigationEvent,
+    KernelEventCode::CrossingResolved,
+    KernelEventCode::TravelBlocked,
+];
 
 impl KernelEventCode {
     #[must_use]

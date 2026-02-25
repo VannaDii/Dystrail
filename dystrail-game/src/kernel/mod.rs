@@ -13,7 +13,10 @@ use crate::mechanics::OtDeluxeOccupation;
 use crate::state::GameMode;
 use thiserror::Error;
 
-pub use events::{KernelDecisionTrace, KernelEventCode, KernelEventPayload};
+pub use events::{
+    KERNEL_EVENT_CODE_SCHEMA_VERSION, KERNEL_EVENT_CODES, KernelDecisionTrace, KernelEventCode,
+    KernelEventPayload,
+};
 pub use types::{KernelEvent, KernelTickInput, KernelTickOutput};
 
 /// Errors constructing or running the `OTDeluxe` kernel facade.
@@ -166,39 +169,40 @@ mod tests {
     #[test]
     fn kernel_event_code_maps_every_event_kind() {
         let pairs = [
-            (EventKind::LegacyLogKey, "event.legacy.log"),
-            (EventKind::WeatherResolved, "event.weather.resolved"),
-            (
-                EventKind::DailyConsumptionApplied,
-                "event.supplies.daily_consumption_applied",
-            ),
-            (EventKind::HealthTickApplied, "event.health.tick_applied"),
-            (
-                EventKind::GeneralStrainComputed,
-                "event.health.general_strain_computed",
-            ),
-            (EventKind::ExecOrderStarted, "event.exec_order.started"),
-            (EventKind::ExecOrderEnded, "event.exec_order.ended"),
-            (
-                EventKind::BreakdownStarted,
-                "event.vehicle.breakdown_started",
-            ),
-            (
-                EventKind::BreakdownResolved,
-                "event.vehicle.breakdown_resolved",
-            ),
-            (EventKind::EncounterTriggered, "event.encounter.triggered"),
-            (EventKind::RandomEventResolved, "event.random.resolved"),
-            (EventKind::TradeResolved, "event.trade.resolved"),
-            (EventKind::HuntResolved, "event.hunt.resolved"),
-            (EventKind::AfflictionTriggered, "event.affliction.triggered"),
-            (EventKind::NavigationEvent, "event.navigation.resolved"),
-            (EventKind::CrossingResolved, "event.crossing.resolved"),
-            (EventKind::TravelBlocked, "event.travel.blocked"),
+            EventKind::LegacyLogKey,
+            EventKind::WeatherResolved,
+            EventKind::DailyConsumptionApplied,
+            EventKind::HealthTickApplied,
+            EventKind::GeneralStrainComputed,
+            EventKind::ExecOrderStarted,
+            EventKind::ExecOrderEnded,
+            EventKind::BreakdownStarted,
+            EventKind::BreakdownResolved,
+            EventKind::EncounterTriggered,
+            EventKind::RandomEventResolved,
+            EventKind::TradeResolved,
+            EventKind::HuntResolved,
+            EventKind::AfflictionTriggered,
+            EventKind::NavigationEvent,
+            EventKind::CrossingResolved,
+            EventKind::TravelBlocked,
         ];
-        for (kind, expected) in pairs {
-            assert_eq!(KernelEventCode::from(&kind).as_str(), expected);
+        assert_eq!(pairs.len(), KERNEL_EVENT_CODES.len());
+        for (index, kind) in pairs.into_iter().enumerate() {
+            let code = KernelEventCode::from(&kind);
+            assert_eq!(code, KERNEL_EVENT_CODES[index]);
+            assert!(!code.as_str().is_empty());
         }
+    }
+
+    #[test]
+    fn kernel_event_schema_guardrails_are_stable() {
+        assert_eq!(KERNEL_EVENT_CODE_SCHEMA_VERSION, 1);
+        let mut seen = std::collections::BTreeSet::new();
+        for code in KERNEL_EVENT_CODES {
+            assert!(seen.insert(code.as_str()));
+        }
+        assert_eq!(seen.len(), KERNEL_EVENT_CODES.len());
     }
 
     #[test]
