@@ -4,148 +4,17 @@
 //! while `state.rs`/`journey` internals continue to be decomposed into phase and
 //! system modules.
 
+pub mod events;
+pub mod types;
+
 use crate::endgame::EndgameTravelCfg;
-use crate::journey::{
-    DayOutcome, DayTagSet, Event, EventDecisionTrace, EventId, EventKind, EventSeverity,
-    JourneySession, MechanicalPolicyId, PolicyId, StrategyId, TravelDayKind,
-};
+use crate::journey::{JourneySession, MechanicalPolicyId, PolicyId, StrategyId};
 use crate::mechanics::OtDeluxeOccupation;
-use crate::state::{DayIntent, GameMode};
+use crate::state::GameMode;
 use thiserror::Error;
 
-/// Input provided to the kernel for a single daily tick.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct KernelTickInput {
-    /// Player's day intent for this tick.
-    pub intent: DayIntent,
-}
-
-/// Deterministic event code for i18n and UI rendering.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum KernelEventCode {
-    LegacyLog,
-    WeatherResolved,
-    DailyConsumptionApplied,
-    HealthTickApplied,
-    GeneralStrainComputed,
-    ExecOrderStarted,
-    ExecOrderEnded,
-    BreakdownStarted,
-    BreakdownResolved,
-    EncounterTriggered,
-    RandomEventResolved,
-    TradeResolved,
-    HuntResolved,
-    AfflictionTriggered,
-    NavigationEvent,
-    CrossingResolved,
-    TravelBlocked,
-}
-
-impl KernelEventCode {
-    #[must_use]
-    pub const fn as_str(self) -> &'static str {
-        match self {
-            Self::LegacyLog => "event.legacy.log",
-            Self::WeatherResolved => "event.weather.resolved",
-            Self::DailyConsumptionApplied => "event.supplies.daily_consumption_applied",
-            Self::HealthTickApplied => "event.health.tick_applied",
-            Self::GeneralStrainComputed => "event.health.general_strain_computed",
-            Self::ExecOrderStarted => "event.exec_order.started",
-            Self::ExecOrderEnded => "event.exec_order.ended",
-            Self::BreakdownStarted => "event.vehicle.breakdown_started",
-            Self::BreakdownResolved => "event.vehicle.breakdown_resolved",
-            Self::EncounterTriggered => "event.encounter.triggered",
-            Self::RandomEventResolved => "event.random.resolved",
-            Self::TradeResolved => "event.trade.resolved",
-            Self::HuntResolved => "event.hunt.resolved",
-            Self::AfflictionTriggered => "event.affliction.triggered",
-            Self::NavigationEvent => "event.navigation.resolved",
-            Self::CrossingResolved => "event.crossing.resolved",
-            Self::TravelBlocked => "event.travel.blocked",
-        }
-    }
-}
-
-impl From<&EventKind> for KernelEventCode {
-    fn from(value: &EventKind) -> Self {
-        match value {
-            EventKind::LegacyLogKey => Self::LegacyLog,
-            EventKind::WeatherResolved => Self::WeatherResolved,
-            EventKind::DailyConsumptionApplied => Self::DailyConsumptionApplied,
-            EventKind::HealthTickApplied => Self::HealthTickApplied,
-            EventKind::GeneralStrainComputed => Self::GeneralStrainComputed,
-            EventKind::ExecOrderStarted => Self::ExecOrderStarted,
-            EventKind::ExecOrderEnded => Self::ExecOrderEnded,
-            EventKind::BreakdownStarted => Self::BreakdownStarted,
-            EventKind::BreakdownResolved => Self::BreakdownResolved,
-            EventKind::EncounterTriggered => Self::EncounterTriggered,
-            EventKind::RandomEventResolved => Self::RandomEventResolved,
-            EventKind::TradeResolved => Self::TradeResolved,
-            EventKind::HuntResolved => Self::HuntResolved,
-            EventKind::AfflictionTriggered => Self::AfflictionTriggered,
-            EventKind::NavigationEvent => Self::NavigationEvent,
-            EventKind::CrossingResolved => Self::CrossingResolved,
-            EventKind::TravelBlocked => Self::TravelBlocked,
-        }
-    }
-}
-
-/// A kernel event with stable code plus structured payload.
-#[derive(Debug, Clone)]
-pub struct KernelEvent {
-    pub id: EventId,
-    pub day: u32,
-    pub code: KernelEventCode,
-    pub severity: EventSeverity,
-    pub tags: DayTagSet,
-    pub ui_key: Option<String>,
-    pub payload: serde_json::Value,
-}
-
-impl KernelEvent {
-    fn from_journey_event(event: Event) -> Self {
-        Self {
-            id: event.id,
-            day: event.day,
-            code: KernelEventCode::from(&event.kind),
-            severity: event.severity,
-            tags: event.tags,
-            ui_key: event.ui_key,
-            payload: event.payload,
-        }
-    }
-}
-
-/// Result of a kernel daily tick.
-#[derive(Debug, Clone)]
-pub struct KernelTickOutput {
-    pub ended: bool,
-    pub day_consumed: bool,
-    pub day_kind: Option<TravelDayKind>,
-    pub log_key: String,
-    pub events: Vec<KernelEvent>,
-    pub decision_traces: Vec<EventDecisionTrace>,
-}
-
-impl From<DayOutcome> for KernelTickOutput {
-    fn from(outcome: DayOutcome) -> Self {
-        let day_kind = outcome.record.as_ref().map(|record| record.kind);
-        let events = outcome
-            .events
-            .into_iter()
-            .map(KernelEvent::from_journey_event)
-            .collect();
-        Self {
-            ended: outcome.ended,
-            day_consumed: outcome.day_consumed,
-            day_kind,
-            log_key: outcome.log_key,
-            events,
-            decision_traces: outcome.decision_traces,
-        }
-    }
-}
+pub use events::{KernelDecisionTrace, KernelEventCode, KernelEventPayload};
+pub use types::{KernelEvent, KernelTickInput, KernelTickOutput};
 
 /// Errors constructing or running the `OTDeluxe` kernel facade.
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -235,8 +104,11 @@ impl KernelSession {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::journey::{DayEffects, DayInputs, DayRecord, DayTagSet, Event, EventId, StatsDelta};
-    use crate::state::{DietId, GameState, PaceId, Region, Season};
+    use crate::journey::{
+        DayEffects, DayInputs, DayOutcome, DayRecord, DayTagSet, Event, EventId, EventKind,
+        EventSeverity, StatsDelta, TravelDayKind,
+    };
+    use crate::state::{DayIntent, DietId, GameState, PaceId, Region, Season};
     use crate::weather::Weather;
 
     fn sample_outcome(kind: EventKind, with_record: bool) -> DayOutcome {
@@ -340,7 +212,7 @@ mod tests {
         assert_eq!(event.day, 2);
         assert_eq!(event.code, KernelEventCode::EncounterTriggered);
         assert_eq!(event.ui_key.as_deref(), Some("ui.sample"));
-        assert_eq!(event.payload["key"], "value");
+        assert_eq!(event.payload.as_value()["key"], "value");
     }
 
     #[test]
