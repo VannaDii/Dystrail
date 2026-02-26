@@ -97,10 +97,11 @@ use crate::kernel::systems::supplies::{
     otdeluxe_pace_health_penalty, otdeluxe_rations_food_per_person_scaled,
     otdeluxe_rations_health_penalty,
 };
+use crate::kernel::systems::travel::otdeluxe_snow_speed_mult;
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeDallesOutcomeWeights, OtDeluxeHealthPolicy,
     OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride,
-    OtDeluxeRations, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
+    OtDeluxeRations, OtDeluxeTrailVariant,
 };
 use crate::otdeluxe_crossings;
 use crate::otdeluxe_random_events::{
@@ -287,20 +288,6 @@ fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDelux
         .find(|spec| spec.occupation == occupation)
         .map_or(0, |spec| spec.starting_cash_dollars);
     u32::from(dollars).saturating_mul(100)
-}
-
-fn otdeluxe_snow_speed_mult(snow_depth: f32, policy: &OtDeluxeTravelPolicy) -> f32 {
-    if !snow_depth.is_finite() {
-        return 1.0;
-    }
-    let penalty_per_in = policy.snow_speed_penalty_per_in.max(0.0);
-    if penalty_per_in <= 0.0 {
-        return 1.0;
-    }
-    let floor = policy.snow_speed_floor.clamp(0.0, 1.0);
-    let depth = snow_depth.max(0.0);
-    let mult = 1.0 - depth * penalty_per_in;
-    mult.clamp(floor, 1.0)
 }
 
 fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
