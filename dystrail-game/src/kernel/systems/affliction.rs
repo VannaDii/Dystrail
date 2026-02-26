@@ -33,6 +33,18 @@ pub fn otdeluxe_affliction_probability(
 }
 
 #[must_use]
+pub const fn otdeluxe_affliction_duration(
+    kind: OtDeluxeAfflictionKind,
+    policy: &OtDeluxeAfflictionPolicy,
+) -> u8 {
+    let duration = match kind {
+        OtDeluxeAfflictionKind::Illness => policy.illness_duration_days,
+        OtDeluxeAfflictionKind::Injury => policy.injury_duration_days,
+    };
+    if duration == 0 { 1 } else { duration }
+}
+
+#[must_use]
 pub fn roll_otdeluxe_affliction_kind_with_trace<R: Rng + ?Sized>(
     policy: &OtDeluxeAfflictionPolicy,
     overrides: &OtDeluxePolicyOverride,

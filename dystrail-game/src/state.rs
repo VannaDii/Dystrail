@@ -81,7 +81,8 @@ use crate::journey::{
     WeightedCandidate,
 };
 use crate::kernel::systems::affliction::{
-    otdeluxe_affliction_probability, roll_otdeluxe_affliction_kind_with_trace,
+    otdeluxe_affliction_duration, otdeluxe_affliction_probability,
+    roll_otdeluxe_affliction_kind_with_trace,
 };
 use crate::kernel::systems::health::{
     otdeluxe_affliction_health_penalty, otdeluxe_clothing_health_penalty,
@@ -97,9 +98,9 @@ use crate::kernel::systems::supplies::{
     otdeluxe_rations_health_penalty,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeAfflictionPolicy, OtDeluxeDallesOutcomeWeights,
-    OtDeluxeHealthPolicy, OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace,
-    OtDeluxePolicyOverride, OtDeluxeRations, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
+    OtDeluxe90sPolicy, OtDeluxeDallesOutcomeWeights, OtDeluxeHealthPolicy,
+    OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride,
+    OtDeluxeRations, OtDeluxeTrailVariant, OtDeluxeTravelPolicy,
 };
 use crate::otdeluxe_crossings;
 use crate::otdeluxe_random_events::{
@@ -326,17 +327,6 @@ fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
         + clothing_penalty
         + affliction_penalty
         + drought_penalty
-}
-
-fn otdeluxe_affliction_duration(
-    kind: OtDeluxeAfflictionKind,
-    policy: &OtDeluxeAfflictionPolicy,
-) -> u8 {
-    let duration = match kind {
-        OtDeluxeAfflictionKind::Illness => policy.illness_duration_days,
-        OtDeluxeAfflictionKind::Injury => policy.injury_duration_days,
-    };
-    duration.max(1)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
