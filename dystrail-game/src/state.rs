@@ -68,7 +68,7 @@ use crate::constants::{ASSERT_MIN_AVG_MPD, FLOAT_EPSILON};
 use crate::crossings::{self, CrossingChoice, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
-use crate::disease::{DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind};
+use crate::disease::{DiseaseCatalog, DiseaseDef, DiseaseKind};
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState};
 use crate::exec_orders::{ExecOrder, ExecOrderEffects};
@@ -81,6 +81,9 @@ use crate::journey::{
 use crate::kernel::systems::affliction::{
     otdeluxe_affliction_duration, otdeluxe_affliction_probability,
     roll_otdeluxe_affliction_kind_with_trace,
+};
+use crate::kernel::systems::disease::{
+    apply_otdeluxe_disease_effects, sanitize_disease_multiplier,
 };
 use crate::kernel::systems::economy::otdeluxe_starting_cash_cents;
 #[cfg(test)]
@@ -290,10 +293,6 @@ fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
 }
 
-const fn sanitize_disease_multiplier(mult: f32) -> f32 {
-    if mult.is_finite() { mult.max(0.0) } else { 1.0 }
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum OtDeluxeDallesOutcome {
     Safe,
@@ -351,24 +350,6 @@ fn sample_otdeluxe_dalles_outcome_with_rng<R: Rng>(
         Vec::new()
     };
     (outcome, drowned_indices)
-}
-
-fn apply_otdeluxe_disease_effects(
-    health_general: &mut u16,
-    inventory: &mut OtDeluxeInventory,
-    effects: &DiseaseEffects,
-) -> f32 {
-    if effects.health_general_delta != 0 {
-        let current = i32::from(*health_general);
-        let next = (current + effects.health_general_delta).max(0);
-        *health_general = u16::try_from(next).unwrap_or(u16::MAX);
-    }
-    if effects.food_lbs_delta != 0 {
-        let current = i32::from(inventory.food_lbs);
-        let next = (current + effects.food_lbs_delta).max(0);
-        inventory.food_lbs = u16::try_from(next).unwrap_or(u16::MAX);
-    }
-    sanitize_disease_multiplier(effects.travel_speed_mult)
 }
 
 #[cfg(test)]
