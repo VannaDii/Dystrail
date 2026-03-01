@@ -59,6 +59,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Extract OT occupation mobility-failure multiplier helper into `kernel/systems/vehicle.rs`.
   - [x] Extract OT disease effect application/multiplier sanitizer into `kernel/systems/disease.rs`.
   - [x] Extract OT Dalles outcome roll/sample helpers into `kernel/systems/dalles.rs`.
+  - [x] Extract OT event-weight multiplier sanitizer into `kernel/systems/random_events.rs`.
 - [ ] Canonicalize OT systems and remove duplicates.
 - [ ] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.

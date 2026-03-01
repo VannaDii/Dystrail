@@ -104,6 +104,7 @@ use crate::kernel::systems::navigation::{
     otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
     roll_otdeluxe_navigation_delay_days, roll_otdeluxe_navigation_event_with_trace,
 };
+use crate::kernel::systems::random_events::sanitize_event_weight_mult;
 use crate::kernel::systems::supplies::otdeluxe_rations_food_per_person_scaled;
 #[cfg(test)]
 use crate::kernel::systems::supplies::{
@@ -295,14 +296,6 @@ const fn default_pace() -> PaceId {
 fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
-}
-
-fn sanitize_event_weight_mult(weight_mult: f32) -> f32 {
-    if weight_mult.is_finite() && weight_mult >= 0.0 {
-        weight_mult
-    } else {
-        1.0
-    }
 }
 
 #[cfg(test)]
