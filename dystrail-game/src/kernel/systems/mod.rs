@@ -1,4 +1,5 @@
 pub mod affliction;
+pub mod dalles;
 pub mod disease;
 pub mod economy;
 pub mod fatality;

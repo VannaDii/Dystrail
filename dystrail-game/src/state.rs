@@ -82,6 +82,11 @@ use crate::kernel::systems::affliction::{
     otdeluxe_affliction_duration, otdeluxe_affliction_probability,
     roll_otdeluxe_affliction_kind_with_trace,
 };
+#[cfg(test)]
+use crate::kernel::systems::dalles::roll_otdeluxe_dalles_outcome;
+use crate::kernel::systems::dalles::{
+    OtDeluxeDallesOutcome, sample_otdeluxe_dalles_outcome_with_rng,
+};
 use crate::kernel::systems::disease::{
     apply_otdeluxe_disease_effects, sanitize_disease_multiplier,
 };
@@ -111,9 +116,8 @@ use crate::kernel::systems::vehicle::{
     consume_otdeluxe_spare_for_breakdown, otdeluxe_mobility_failure_mult,
 };
 use crate::mechanics::otdeluxe90s::{
-    OtDeluxe90sPolicy, OtDeluxeDallesOutcomeWeights, OtDeluxeHealthPolicy,
-    OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride,
-    OtDeluxeRations, OtDeluxeTrailVariant,
+    OtDeluxe90sPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationPolicy, OtDeluxeOccupation,
+    OtDeluxePace, OtDeluxePolicyOverride, OtDeluxeRations, OtDeluxeTrailVariant,
 };
 use crate::otdeluxe_crossings;
 use crate::otdeluxe_random_events::{
@@ -293,63 +297,12 @@ fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum OtDeluxeDallesOutcome {
-    Safe,
-    Loss,
-    Drown,
-}
-
 fn sanitize_event_weight_mult(weight_mult: f32) -> f32 {
     if weight_mult.is_finite() && weight_mult >= 0.0 {
         weight_mult
     } else {
         1.0
     }
-}
-
-fn roll_otdeluxe_dalles_outcome<R: Rng>(
-    weights: &OtDeluxeDallesOutcomeWeights,
-    rng: &mut R,
-) -> OtDeluxeDallesOutcome {
-    let safe = weights.safe.max(0.0);
-    let loss = weights.loss.max(0.0);
-    let drown = weights.drown.max(0.0);
-    let total = safe + loss + drown;
-    if total <= f32::EPSILON {
-        return OtDeluxeDallesOutcome::Safe;
-    }
-    let roll = rng.r#gen::<f32>() * total;
-    if roll < safe {
-        OtDeluxeDallesOutcome::Safe
-    } else if roll < safe + loss {
-        OtDeluxeDallesOutcome::Loss
-    } else {
-        OtDeluxeDallesOutcome::Drown
-    }
-}
-
-fn sample_otdeluxe_dalles_outcome_with_rng<R: Rng>(
-    weights: &OtDeluxeDallesOutcomeWeights,
-    drownings_min: u8,
-    drownings_max: u8,
-    alive_indices: &[usize],
-    rng: &mut R,
-) -> (OtDeluxeDallesOutcome, Vec<usize>) {
-    let outcome = roll_otdeluxe_dalles_outcome(weights, rng);
-    let drowned_indices = if matches!(outcome, OtDeluxeDallesOutcome::Drown) {
-        let min = drownings_min.min(drownings_max);
-        let max = drownings_max.max(drownings_min);
-        let drown_count = if max == 0 {
-            0
-        } else {
-            rng.gen_range(min..=max)
-        };
-        GameState::select_drowning_indices(rng, alive_indices, drown_count)
-    } else {
-        Vec::new()
-    };
-    (outcome, drowned_indices)
 }
 
 #[cfg(test)]
