@@ -68,9 +68,7 @@ use crate::constants::{ASSERT_MIN_AVG_MPD, FLOAT_EPSILON};
 use crate::crossings::{self, CrossingChoice, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
-use crate::disease::{
-    DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind, FatalityModel, FatalityModifier,
-};
+use crate::disease::{DiseaseCatalog, DiseaseDef, DiseaseEffects, DiseaseKind};
 use crate::encounters::{EncounterRequest, pick_encounter};
 use crate::endgame::{self, EndgameState};
 use crate::exec_orders::{ExecOrder, ExecOrderEffects};
@@ -85,6 +83,9 @@ use crate::kernel::systems::affliction::{
     roll_otdeluxe_affliction_kind_with_trace,
 };
 use crate::kernel::systems::economy::otdeluxe_starting_cash_cents;
+#[cfg(test)]
+use crate::kernel::systems::fatality::otdeluxe_fatality_probability;
+use crate::kernel::systems::fatality::{OtDeluxeFatalityContext, otdeluxe_roll_disease_fatality};
 use crate::kernel::systems::health::{
     otdeluxe_affliction_health_penalty, otdeluxe_clothing_health_penalty,
     otdeluxe_drought_health_penalty, otdeluxe_weather_health_penalty,
@@ -308,38 +309,6 @@ fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
         + drought_penalty
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum OtDeluxeHealthLabel {
-    Good,
-    Fair,
-    Poor,
-    VeryPoor,
-}
-
-#[derive(Debug, Clone, Copy)]
-struct OtDeluxeFatalityContext {
-    health_general: u16,
-    pace: OtDeluxePace,
-    rations: OtDeluxeRations,
-    weather: Weather,
-    occupation: Option<OtDeluxeOccupation>,
-}
-
-const fn otdeluxe_health_label(
-    health_general: u16,
-    policy: &OtDeluxeHealthPolicy,
-) -> OtDeluxeHealthLabel {
-    if health_general <= policy.label_ranges.good_max {
-        OtDeluxeHealthLabel::Good
-    } else if health_general <= policy.label_ranges.fair_max {
-        OtDeluxeHealthLabel::Fair
-    } else if health_general <= policy.label_ranges.poor_max {
-        OtDeluxeHealthLabel::Poor
-    } else {
-        OtDeluxeHealthLabel::VeryPoor
-    }
-}
-
 const fn sanitize_disease_multiplier(mult: f32) -> f32 {
     if mult.is_finite() { mult.max(0.0) } else { 1.0 }
 }
@@ -434,77 +403,6 @@ fn apply_otdeluxe_disease_effects(
         inventory.food_lbs = u16::try_from(next).unwrap_or(u16::MAX);
     }
     sanitize_disease_multiplier(effects.travel_speed_mult)
-}
-
-fn otdeluxe_fatality_probability(
-    model: &FatalityModel,
-    context: OtDeluxeFatalityContext,
-    policy: &OtDeluxe90sPolicy,
-) -> f32 {
-    let mut prob = model.base_prob_per_day.max(0.0);
-    for modifier in &model.prob_modifiers {
-        let mult = match modifier {
-            FatalityModifier::Constant { mult } => *mult,
-            FatalityModifier::HealthLabel {
-                good,
-                fair,
-                poor,
-                very_poor,
-            } => match otdeluxe_health_label(context.health_general, &policy.health) {
-                OtDeluxeHealthLabel::Good => *good,
-                OtDeluxeHealthLabel::Fair => *fair,
-                OtDeluxeHealthLabel::Poor => *poor,
-                OtDeluxeHealthLabel::VeryPoor => *very_poor,
-            },
-            FatalityModifier::Pace {
-                steady,
-                strenuous,
-                grueling,
-            } => match context.pace {
-                OtDeluxePace::Steady => *steady,
-                OtDeluxePace::Strenuous => *strenuous,
-                OtDeluxePace::Grueling => *grueling,
-            },
-            FatalityModifier::Rations {
-                filling,
-                meager,
-                bare_bones,
-            } => match context.rations {
-                OtDeluxeRations::Filling => *filling,
-                OtDeluxeRations::Meager => *meager,
-                OtDeluxeRations::BareBones => *bare_bones,
-            },
-            FatalityModifier::Weather { weather: key, mult } => {
-                if *key == context.weather {
-                    *mult
-                } else {
-                    1.0
-                }
-            }
-        };
-        prob *= sanitize_disease_multiplier(mult);
-    }
-    if model.apply_doctor_mult && matches!(context.occupation, Some(OtDeluxeOccupation::Doctor)) {
-        prob *= sanitize_disease_multiplier(policy.occupation_advantages.doctor_fatality_mult);
-    }
-    if prob.is_finite() {
-        prob.clamp(0.0, 1.0)
-    } else {
-        0.0
-    }
-}
-
-fn otdeluxe_roll_disease_fatality<R>(
-    model: &FatalityModel,
-    rng: &mut R,
-    context: OtDeluxeFatalityContext,
-    policy: &OtDeluxe90sPolicy,
-) -> bool
-where
-    R: rand::Rng + ?Sized,
-{
-    let prob = otdeluxe_fatality_probability(model, context, policy);
-    prob > 0.0 && rng.r#gen::<f32>() < prob
 }
 
 const fn otdeluxe_mobility_failure_mult(
