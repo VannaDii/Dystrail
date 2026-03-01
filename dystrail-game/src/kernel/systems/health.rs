@@ -1,7 +1,49 @@
-use crate::mechanics::otdeluxe90s::OtDeluxeHealthPolicy;
+use crate::kernel::systems::supplies::{
+    otdeluxe_pace_health_penalty, otdeluxe_rations_health_penalty,
+};
+use crate::mechanics::otdeluxe90s::{
+    OtDeluxe90sPolicy, OtDeluxeHealthPolicy, OtDeluxePace, OtDeluxeRations,
+};
 use crate::otdeluxe_state::{OtDeluxeInventory, OtDeluxePartyState};
 use crate::state::Season;
 use crate::weather::Weather;
+
+#[derive(Debug, Clone, Copy)]
+pub struct OtDeluxeHealthDeltaContext<'a> {
+    pub pace: OtDeluxePace,
+    pub rations: OtDeluxeRations,
+    pub weather: Weather,
+    pub season: Season,
+    pub inventory: &'a OtDeluxeInventory,
+    pub alive: u16,
+    pub party: &'a OtDeluxePartyState,
+    pub rain_accum: f32,
+}
+
+#[must_use]
+pub fn otdeluxe_health_delta(
+    context: OtDeluxeHealthDeltaContext<'_>,
+    policy: &OtDeluxe90sPolicy,
+) -> i32 {
+    let pace_penalty = otdeluxe_pace_health_penalty(context.pace, &policy.pace_health_penalty);
+    let rations_penalty = otdeluxe_rations_health_penalty(context.rations, &policy.rations);
+    let weather_penalty = otdeluxe_weather_health_penalty(context.weather, &policy.health);
+    let clothing_penalty = otdeluxe_clothing_health_penalty(
+        context.season,
+        context.inventory,
+        context.alive,
+        &policy.health,
+    );
+    let affliction_penalty = otdeluxe_affliction_health_penalty(context.party, &policy.health);
+    let drought_penalty = otdeluxe_drought_health_penalty(context.rain_accum, &policy.health);
+    policy.health.recovery_baseline
+        + pace_penalty
+        + rations_penalty
+        + weather_penalty
+        + clothing_penalty
+        + affliction_penalty
+        + drought_penalty
+}
 
 #[must_use]
 pub fn otdeluxe_weather_health_penalty(weather: Weather, policy: &OtDeluxeHealthPolicy) -> i32 {

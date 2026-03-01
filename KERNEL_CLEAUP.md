@@ -51,6 +51,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Extract OT affliction duration helper into `kernel/systems/affliction.rs`.
   - [x] Extract OT pace/rations supply math helpers into `kernel/systems/supplies.rs`.
   - [x] Extract OT weather/clothing/affliction/drought health penalties into `kernel/systems/health.rs`.
+  - [x] Extract OT health delta composition helper into `kernel/systems/health.rs`.
   - [x] Extract OT snow-speed multiplier helper into `kernel/systems/travel.rs`.
   - [x] Extract OT starting-cash helper into `kernel/systems/economy.rs`.
   - [x] Extract OT disease fatality probability/roll helpers into `kernel/systems/fatality.rs`.

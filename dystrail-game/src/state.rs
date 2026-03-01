@@ -86,18 +86,20 @@ use crate::kernel::systems::economy::otdeluxe_starting_cash_cents;
 #[cfg(test)]
 use crate::kernel::systems::fatality::otdeluxe_fatality_probability;
 use crate::kernel::systems::fatality::{OtDeluxeFatalityContext, otdeluxe_roll_disease_fatality};
+use crate::kernel::systems::health::{OtDeluxeHealthDeltaContext, otdeluxe_health_delta};
+#[cfg(test)]
 use crate::kernel::systems::health::{
-    otdeluxe_affliction_health_penalty, otdeluxe_clothing_health_penalty,
-    otdeluxe_drought_health_penalty, otdeluxe_weather_health_penalty,
+    otdeluxe_clothing_health_penalty, otdeluxe_drought_health_penalty,
 };
 use crate::kernel::systems::navigation::{
     OtDeluxeNavigationEvent, otdeluxe_navigation_delay_for, otdeluxe_navigation_delay_tag,
     otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
     roll_otdeluxe_navigation_delay_days, roll_otdeluxe_navigation_event_with_trace,
 };
+use crate::kernel::systems::supplies::otdeluxe_rations_food_per_person_scaled;
+#[cfg(test)]
 use crate::kernel::systems::supplies::{
-    otdeluxe_pace_health_penalty, otdeluxe_rations_food_per_person_scaled,
-    otdeluxe_rations_health_penalty,
+    otdeluxe_pace_health_penalty, otdeluxe_rations_health_penalty,
 };
 use crate::kernel::systems::travel::otdeluxe_snow_speed_mult;
 use crate::mechanics::otdeluxe90s::{
@@ -281,32 +283,6 @@ const fn default_pace() -> PaceId {
 fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
-}
-
-fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
-    let pace_penalty =
-        otdeluxe_pace_health_penalty(state.ot_deluxe.pace, &policy.pace_health_penalty);
-    let rations_penalty = otdeluxe_rations_health_penalty(state.ot_deluxe.rations, &policy.rations);
-    let weather_penalty =
-        otdeluxe_weather_health_penalty(state.weather_state.today, &policy.health);
-    let alive = state.otdeluxe_alive_party_count();
-    let clothing_penalty = otdeluxe_clothing_health_penalty(
-        state.ot_deluxe.season,
-        &state.ot_deluxe.inventory,
-        alive,
-        &policy.health,
-    );
-    let affliction_penalty =
-        otdeluxe_affliction_health_penalty(&state.ot_deluxe.party, &policy.health);
-    let drought_penalty =
-        otdeluxe_drought_health_penalty(state.ot_deluxe.weather.rain_accum, &policy.health);
-    policy.health.recovery_baseline
-        + pace_penalty
-        + rations_penalty
-        + weather_penalty
-        + clothing_penalty
-        + affliction_penalty
-        + drought_penalty
 }
 
 const fn sanitize_disease_multiplier(mult: f32) -> f32 {
@@ -2896,7 +2872,7 @@ mod tests {
 
         let delta = state.apply_otdeluxe_health_update();
 
-        let expected_delta = otdeluxe_health_delta(&state, policy);
+        let expected_delta = otdeluxe_health_delta(state.otdeluxe_health_delta_context(), policy);
         let expected_health = (20 + expected_delta).max(0);
         assert_eq!(delta, expected_delta);
         assert_eq!(
@@ -2918,7 +2894,7 @@ mod tests {
         policy.health.clothing_penalty_winter = 5;
         policy.health.clothing_sets_per_person = 2;
 
-        let delta = otdeluxe_health_delta(&state, &policy);
+        let delta = otdeluxe_health_delta(state.otdeluxe_health_delta_context(), &policy);
 
         let expected = policy.health.recovery_baseline
             + policy.pace_health_penalty.steady
@@ -7651,6 +7627,19 @@ impl GameState {
         leader.saturating_add(companions)
     }
 
+    fn otdeluxe_health_delta_context(&self) -> OtDeluxeHealthDeltaContext<'_> {
+        OtDeluxeHealthDeltaContext {
+            pace: self.ot_deluxe.pace,
+            rations: self.ot_deluxe.rations,
+            weather: self.weather_state.today,
+            season: self.ot_deluxe.season,
+            inventory: &self.ot_deluxe.inventory,
+            alive: self.otdeluxe_alive_party_count(),
+            party: &self.ot_deluxe.party,
+            rain_accum: self.ot_deluxe.weather.rain_accum,
+        }
+    }
+
     pub(crate) fn apply_otdeluxe_consumption(&mut self) -> u16 {
         let policy = default_otdeluxe_policy();
         let per_person = otdeluxe_rations_food_per_person_scaled(
@@ -7669,7 +7658,7 @@ impl GameState {
 
     pub(crate) fn apply_otdeluxe_health_update(&mut self) -> i32 {
         let policy = default_otdeluxe_policy();
-        let total_delta = otdeluxe_health_delta(self, policy);
+        let total_delta = otdeluxe_health_delta(self.otdeluxe_health_delta_context(), policy);
         let current = i32::from(self.ot_deluxe.health_general);
         let next = (current + total_delta).max(0);
         self.ot_deluxe.health_general = u16::try_from(next).unwrap_or(u16::MAX);
