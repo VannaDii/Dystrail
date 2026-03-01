@@ -102,6 +102,11 @@ use crate::kernel::systems::supplies::{
     otdeluxe_pace_health_penalty, otdeluxe_rations_health_penalty,
 };
 use crate::kernel::systems::travel::otdeluxe_snow_speed_mult;
+#[cfg(test)]
+use crate::kernel::systems::vehicle::{OtDeluxeSparePart, otdeluxe_spare_for_breakdown};
+use crate::kernel::systems::vehicle::{
+    consume_otdeluxe_spare_for_breakdown, otdeluxe_mobility_failure_mult,
+};
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeDallesOutcomeWeights, OtDeluxeHealthPolicy,
     OtDeluxeNavigationPolicy, OtDeluxeOccupation, OtDeluxePace, OtDeluxePolicyOverride,
@@ -290,25 +295,10 @@ const fn sanitize_disease_multiplier(mult: f32) -> f32 {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum OtDeluxeSparePart {
-    Wheel,
-    Axle,
-    Tongue,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum OtDeluxeDallesOutcome {
     Safe,
     Loss,
     Drown,
-}
-
-const fn otdeluxe_spare_for_breakdown(part: Part) -> OtDeluxeSparePart {
-    match part {
-        Part::Battery => OtDeluxeSparePart::Axle,
-        Part::Alternator => OtDeluxeSparePart::Tongue,
-        Part::Tire | Part::FuelPump => OtDeluxeSparePart::Wheel,
-    }
 }
 
 fn sanitize_event_weight_mult(weight_mult: f32) -> f32 {
@@ -379,17 +369,6 @@ fn apply_otdeluxe_disease_effects(
         inventory.food_lbs = u16::try_from(next).unwrap_or(u16::MAX);
     }
     sanitize_disease_multiplier(effects.travel_speed_mult)
-}
-
-const fn otdeluxe_mobility_failure_mult(
-    occupation: Option<OtDeluxeOccupation>,
-    policy: &OtDeluxe90sPolicy,
-) -> f32 {
-    if matches!(occupation, Some(OtDeluxeOccupation::Farmer)) {
-        sanitize_disease_multiplier(policy.occupation_advantages.mobility_failure_mult)
-    } else {
-        1.0
-    }
 }
 
 #[cfg(test)]
@@ -11517,22 +11496,7 @@ impl GameState {
     }
 
     const fn consume_otdeluxe_spare_for_breakdown(&mut self, part: Part) -> bool {
-        let inventory = &mut self.ot_deluxe.inventory;
-        match otdeluxe_spare_for_breakdown(part) {
-            OtDeluxeSparePart::Wheel if inventory.spares_wheels > 0 => {
-                inventory.spares_wheels -= 1;
-                true
-            }
-            OtDeluxeSparePart::Axle if inventory.spares_axles > 0 => {
-                inventory.spares_axles -= 1;
-                true
-            }
-            OtDeluxeSparePart::Tongue if inventory.spares_tongues > 0 => {
-                inventory.spares_tongues -= 1;
-                true
-            }
-            _ => false,
-        }
+        consume_otdeluxe_spare_for_breakdown(&mut self.ot_deluxe.inventory, part)
     }
 
     pub(crate) const fn consume_spare_for_part(&mut self, part: Part) -> bool {

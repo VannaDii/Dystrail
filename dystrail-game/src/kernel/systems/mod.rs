@@ -5,3 +5,4 @@ pub mod health;
 pub mod navigation;
 pub mod supplies;
 pub mod travel;
+pub mod vehicle;
