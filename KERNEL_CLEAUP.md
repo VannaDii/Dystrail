@@ -52,6 +52,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Extract OT pace/rations supply math helpers into `kernel/systems/supplies.rs`.
   - [x] Extract OT weather/clothing/affliction/drought health penalties into `kernel/systems/health.rs`.
   - [x] Extract OT snow-speed multiplier helper into `kernel/systems/travel.rs`.
+  - [x] Extract OT starting-cash helper into `kernel/systems/economy.rs`.
 - [ ] Canonicalize OT systems and remove duplicates.
 - [ ] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.

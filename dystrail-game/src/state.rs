@@ -84,6 +84,7 @@ use crate::kernel::systems::affliction::{
     otdeluxe_affliction_duration, otdeluxe_affliction_probability,
     roll_otdeluxe_affliction_kind_with_trace,
 };
+use crate::kernel::systems::economy::otdeluxe_starting_cash_cents;
 use crate::kernel::systems::health::{
     otdeluxe_affliction_health_penalty, otdeluxe_clothing_health_penalty,
     otdeluxe_drought_health_penalty, otdeluxe_weather_health_penalty,
@@ -279,15 +280,6 @@ const fn default_pace() -> PaceId {
 fn default_otdeluxe_policy() -> &'static OtDeluxe90sPolicy {
     static POLICY: OnceLock<OtDeluxe90sPolicy> = OnceLock::new();
     POLICY.get_or_init(OtDeluxe90sPolicy::default)
-}
-
-fn otdeluxe_starting_cash_cents(occupation: OtDeluxeOccupation, policy: &OtDeluxe90sPolicy) -> u32 {
-    let dollars = policy
-        .occupations
-        .iter()
-        .find(|spec| spec.occupation == occupation)
-        .map_or(0, |spec| spec.starting_cash_dollars);
-    u32::from(dollars).saturating_mul(100)
 }
 
 fn otdeluxe_health_delta(state: &GameState, policy: &OtDeluxe90sPolicy) -> i32 {
