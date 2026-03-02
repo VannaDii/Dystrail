@@ -85,7 +85,8 @@ use crate::kernel::systems::affliction::{
 #[cfg(test)]
 use crate::kernel::systems::dalles::roll_otdeluxe_dalles_outcome;
 use crate::kernel::systems::dalles::{
-    OtDeluxeDallesOutcome, sample_otdeluxe_dalles_outcome_with_rng,
+    OtDeluxeDallesOutcome, otdeluxe_dalles_outcome_id, otdeluxe_dalles_severity,
+    sample_otdeluxe_dalles_outcome_with_rng,
 };
 use crate::kernel::systems::disease::{
     apply_otdeluxe_disease_effects, sanitize_disease_multiplier,
@@ -12061,14 +12062,10 @@ impl GameState {
         losses: OtDeluxeCrossingLosses,
         drownings: u8,
     ) {
-        let outcome_id = match outcome {
-            OtDeluxeDallesOutcome::Safe => "safe",
-            OtDeluxeDallesOutcome::Loss => "loss",
-            OtDeluxeDallesOutcome::Drown => "drown",
-        };
+        let outcome_id = otdeluxe_dalles_outcome_id(outcome);
         self.push_event(
             EventKind::NavigationEvent,
-            Self::otdeluxe_dalles_severity(outcome),
+            otdeluxe_dalles_severity(outcome),
             DayTagSet::new(),
             None,
             None,
@@ -12089,14 +12086,6 @@ impl GameState {
                 "drownings": drownings
             }),
         );
-    }
-
-    const fn otdeluxe_dalles_severity(outcome: OtDeluxeDallesOutcome) -> EventSeverity {
-        match outcome {
-            OtDeluxeDallesOutcome::Safe => EventSeverity::Info,
-            OtDeluxeDallesOutcome::Loss => EventSeverity::Warning,
-            OtDeluxeDallesOutcome::Drown => EventSeverity::Critical,
-        }
     }
 
     pub fn resolve_otdeluxe_route_prompt(&mut self, decision: OtDeluxeRouteDecision) -> bool {

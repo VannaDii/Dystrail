@@ -1,6 +1,7 @@
 use rand::Rng;
 use rand::seq::SliceRandom;
 
+use crate::journey::EventSeverity;
 use crate::mechanics::otdeluxe90s::OtDeluxeDallesOutcomeWeights;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -8,6 +9,24 @@ pub enum OtDeluxeDallesOutcome {
     Safe,
     Loss,
     Drown,
+}
+
+#[must_use]
+pub const fn otdeluxe_dalles_outcome_id(outcome: OtDeluxeDallesOutcome) -> &'static str {
+    match outcome {
+        OtDeluxeDallesOutcome::Safe => "safe",
+        OtDeluxeDallesOutcome::Loss => "loss",
+        OtDeluxeDallesOutcome::Drown => "drown",
+    }
+}
+
+#[must_use]
+pub const fn otdeluxe_dalles_severity(outcome: OtDeluxeDallesOutcome) -> EventSeverity {
+    match outcome {
+        OtDeluxeDallesOutcome::Safe => EventSeverity::Info,
+        OtDeluxeDallesOutcome::Loss => EventSeverity::Warning,
+        OtDeluxeDallesOutcome::Drown => EventSeverity::Critical,
+    }
 }
 
 #[must_use]
