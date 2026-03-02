@@ -75,7 +75,8 @@ pub fn sample_otdeluxe_dalles_outcome_with_rng<R: Rng>(
     (outcome, drowned_indices)
 }
 
-fn select_drowning_indices<R: Rng>(
+#[must_use]
+pub fn select_drowning_indices<R: Rng>(
     rng: &mut R,
     alive_indices: &[usize],
     drownings: u8,

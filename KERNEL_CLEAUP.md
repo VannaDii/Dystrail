@@ -62,6 +62,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Extract OT event-weight multiplier sanitizer into `kernel/systems/random_events.rs`.
 - [ ] Canonicalize OT systems and remove duplicates.
   - [x] Canonicalize Dalles outcome id/severity mappings in `kernel/systems/dalles.rs` and remove duplicate mapping in `state.rs`.
+  - [x] Canonicalize drowning-index selection via `kernel/systems/dalles.rs` and remove duplicate implementation in `state.rs`.
 - [ ] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
 - [ ] Apply save reset/version bump and remove legacy migration logic.

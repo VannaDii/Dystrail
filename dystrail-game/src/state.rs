@@ -1,5 +1,4 @@
 use rand::rngs::SmallRng;
-use rand::seq::SliceRandom;
 use rand::{Rng, RngCore, SeedableRng};
 use serde::{Deserialize, Serialize};
 use std::cell::RefMut;
@@ -86,7 +85,7 @@ use crate::kernel::systems::affliction::{
 use crate::kernel::systems::dalles::roll_otdeluxe_dalles_outcome;
 use crate::kernel::systems::dalles::{
     OtDeluxeDallesOutcome, otdeluxe_dalles_outcome_id, otdeluxe_dalles_severity,
-    sample_otdeluxe_dalles_outcome_with_rng,
+    sample_otdeluxe_dalles_outcome_with_rng, select_drowning_indices,
 };
 use crate::kernel::systems::disease::{
     apply_otdeluxe_disease_effects, sanitize_disease_multiplier,
@@ -3418,11 +3417,11 @@ mod tests {
     #[test]
     fn select_drowning_indices_handles_empty_and_counts() {
         let mut rng = SmallRng::seed_from_u64(9);
-        let empty = GameState::select_drowning_indices(&mut rng, &[], 2);
+        let empty = select_drowning_indices(&mut rng, &[], 2);
         assert!(empty.is_empty());
 
         let alive = vec![0, 1, 2, 3];
-        let selected = GameState::select_drowning_indices(&mut rng, &alive, 2);
+        let selected = select_drowning_indices(&mut rng, &alive, 2);
         assert_eq!(selected.len(), 2);
     }
 
@@ -9650,11 +9649,8 @@ impl GameState {
                     method,
                     &mut fallback,
                 );
-                let drowned_indices = Self::select_drowning_indices(
-                    &mut fallback,
-                    alive_indices,
-                    resolution.drownings,
-                );
+                let drowned_indices =
+                    select_drowning_indices(&mut fallback, alive_indices, resolution.drownings);
                 (resolution, trace, drowned_indices)
             },
             |mut rng| {
@@ -9666,7 +9662,7 @@ impl GameState {
                     &mut *rng,
                 );
                 let drowned_indices =
-                    Self::select_drowning_indices(&mut *rng, alive_indices, resolution.drownings);
+                    select_drowning_indices(&mut *rng, alive_indices, resolution.drownings);
                 (resolution, trace, drowned_indices)
             },
         )
@@ -9882,21 +9878,6 @@ impl GameState {
         let offset = sample % span;
         let offset_u8 = u8::try_from(offset).unwrap_or(u8::MAX);
         min.saturating_add(offset_u8)
-    }
-
-    fn select_drowning_indices<R: RngCore + Rng>(
-        rng: &mut R,
-        alive_indices: &[usize],
-        drownings: u8,
-    ) -> Vec<usize> {
-        let count = usize::from(drownings);
-        if count == 0 || alive_indices.is_empty() {
-            return Vec::new();
-        }
-        let mut indices = alive_indices.to_vec();
-        indices.shuffle(rng);
-        indices.truncate(count.min(indices.len()));
-        indices
     }
 
     fn resolve_crossing_outcome(

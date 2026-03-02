@@ -11,6 +11,7 @@ use dystrail_web::pages::{
     camp::{CampPage, CampPageProps},
     crossing::{CrossingPage, CrossingPageProps},
     encounter::{EncounterPage, EncounterPageProps},
+    inventory::{InventoryPage, InventoryPageProps},
     menu::{MenuPage, MenuPageProps},
     not_found::{NotFound, Props as NotFoundProps},
     otdeluxe_crossing::{OtDeluxeCrossingPage, OtDeluxeCrossingPageProps},
@@ -109,4 +110,24 @@ fn encounter_with_loaded_data_renders_encounter_panel() {
     state.current_encounter = data.encounters.first().cloned();
     let html = block_on(LocalServerRenderer::<EncounterPage>::with_props(EncounterPageProps { state: Rc::new(state), weather: weather_badge(), on_choice: Callback::noop() }).render());
     assert!(html.contains("encounter-panel"));
+}
+
+#[test]
+#[rustfmt::skip]
+fn inventory_page_renders_empty_and_present_tags() {
+    dystrail_web::i18n::set_lang("en");
+
+    let empty = block_on(LocalServerRenderer::<InventoryPage>::with_props(InventoryPageProps {
+        state: Rc::new(base_state()),
+        on_back: Callback::noop(),
+    }).render());
+    assert!(empty.contains(&dystrail_web::i18n::t("inventory.tags_none")));
+
+    let mut tagged_state = base_state();
+    let _ = tagged_state.inventory.tags.insert("permit".to_string());
+    let tagged = block_on(LocalServerRenderer::<InventoryPage>::with_props(InventoryPageProps {
+        state: Rc::new(tagged_state),
+        on_back: Callback::noop(),
+    }).render());
+    assert!(tagged.contains("permit"));
 }

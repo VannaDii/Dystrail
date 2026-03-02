@@ -78,4 +78,35 @@ mod tests {
         };
         assert!(props_a != props_c);
     }
+
+    #[test]
+    fn inventory_page_renders_when_tags_empty() {
+        let state = Rc::new(GameState::default());
+        let props = InventoryPageProps {
+            state,
+            on_back: Callback::from(|()| ()),
+        };
+        let state = props.state;
+        let on_back = props.on_back;
+        let rendered = html! {
+            <InventoryPage {state} {on_back} />
+        };
+        let _ = format!("{rendered:?}");
+    }
+
+    #[test]
+    fn inventory_page_renders_when_tags_present() {
+        let mut state = GameState::default();
+        let _ = state.inventory.tags.insert("permit".to_string());
+        let props = InventoryPageProps {
+            state: Rc::new(state),
+            on_back: Callback::from(|()| ()),
+        };
+        let state = props.state;
+        let on_back = props.on_back;
+        let rendered = html! {
+            <InventoryPage {state} {on_back} />
+        };
+        let _ = format!("{rendered:?}");
+    }
 }
