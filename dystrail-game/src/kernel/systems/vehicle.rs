@@ -52,6 +52,15 @@ pub const fn otdeluxe_mobility_failure_mult(
     }
 }
 
+#[must_use]
+pub fn sanitize_breakdown_max_chance(max_chance: f32) -> f32 {
+    if max_chance.is_finite() && max_chance > 0.0 {
+        max_chance
+    } else {
+        1.0
+    }
+}
+
 const fn sanitize_multiplier(mult: f32) -> f32 {
     if mult.is_finite() { mult.max(0.0) } else { 1.0 }
 }

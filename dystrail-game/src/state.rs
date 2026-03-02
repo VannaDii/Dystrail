@@ -115,6 +115,7 @@ use crate::kernel::systems::travel::otdeluxe_snow_speed_mult;
 use crate::kernel::systems::vehicle::{OtDeluxeSparePart, otdeluxe_spare_for_breakdown};
 use crate::kernel::systems::vehicle::{
     consume_otdeluxe_spare_for_breakdown, otdeluxe_mobility_failure_mult,
+    sanitize_breakdown_max_chance,
 };
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationPolicy, OtDeluxeOccupation,
@@ -5746,10 +5747,7 @@ mod tests {
 
     #[test]
     fn sanitize_breakdown_max_chance_defaults_for_invalid() {
-        assert!(
-            (GameState::sanitize_breakdown_max_chance(f32::NAN) - PROBABILITY_MAX).abs()
-                <= f32::EPSILON
-        );
+        assert!((sanitize_breakdown_max_chance(f32::NAN) - PROBABILITY_MAX).abs() <= f32::EPSILON);
     }
 
     #[test]
@@ -11106,14 +11104,6 @@ impl GameState {
         (selected, Some(trace))
     }
 
-    fn sanitize_breakdown_max_chance(max_chance: f32) -> f32 {
-        if max_chance.is_finite() && max_chance > 0.0 {
-            max_chance
-        } else {
-            PROBABILITY_MAX
-        }
-    }
-
     /// Apply vehicle breakdown logic
     pub(crate) fn vehicle_roll(&mut self) -> bool {
         if self.breakdown.is_some() {
@@ -11163,7 +11153,7 @@ impl GameState {
             breakdown_chance *=
                 otdeluxe_mobility_failure_mult(self.ot_deluxe.mods.occupation, policy);
         }
-        let max_chance = Self::sanitize_breakdown_max_chance(max_chance);
+        let max_chance = sanitize_breakdown_max_chance(max_chance);
         breakdown_chance = breakdown_chance
             .clamp(PROBABILITY_FLOOR, PROBABILITY_MAX)
             .min(max_chance);
