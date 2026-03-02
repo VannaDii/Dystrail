@@ -78,7 +78,7 @@ use crate::journey::{
     WeightedCandidate,
 };
 use crate::kernel::systems::affliction::{
-    otdeluxe_affliction_duration, otdeluxe_affliction_probability,
+    otdeluxe_affliction_duration, otdeluxe_affliction_payload, otdeluxe_affliction_probability,
     roll_otdeluxe_affliction_kind_with_trace,
 };
 #[cfg(test)]
@@ -10404,7 +10404,7 @@ impl GameState {
             "bad_water" => {
                 let kind = OtDeluxeAfflictionKind::Illness;
                 let outcome = self.apply_otdeluxe_random_affliction(rng, kind);
-                affliction_payload = outcome.as_ref().map(Self::otdeluxe_affliction_payload);
+                affliction_payload = outcome.as_ref().map(otdeluxe_affliction_payload);
                 (2, (0_i16, 0_i16), EventSeverity::Warning)
             }
             "no_water" => (4, (0_i16, 0_i16), EventSeverity::Warning),
@@ -10466,7 +10466,7 @@ impl GameState {
         } else if variant == "snakebite" {
             let kind = OtDeluxeAfflictionKind::Injury;
             let outcome = self.apply_otdeluxe_random_affliction(rng, kind);
-            affliction_payload = outcome.as_ref().map(Self::otdeluxe_affliction_payload);
+            affliction_payload = outcome.as_ref().map(otdeluxe_affliction_payload);
             Vec::new()
         } else {
             return None;
@@ -10673,17 +10673,6 @@ impl GameState {
                 sanitize_disease_multiplier(self.ot_deluxe.travel.disease_speed_mult * onset_mult);
         }
         outcome
-    }
-
-    fn otdeluxe_affliction_payload(outcome: &OtDeluxeAfflictionOutcome) -> serde_json::Value {
-        serde_json::json!({ "member_index": outcome.member_index, "died": outcome.died, "kind": Self::otdeluxe_affliction_kind_key(outcome.kind), "disease_id": outcome.disease_id, "display_key": outcome.display_key })
-    }
-
-    const fn otdeluxe_affliction_kind_key(kind: OtDeluxeAfflictionKind) -> &'static str {
-        match kind {
-            OtDeluxeAfflictionKind::Illness => "illness",
-            OtDeluxeAfflictionKind::Injury => "injury",
-        }
     }
 
     fn lose_random_party_members<R: Rng + ?Sized>(&mut self, rng: &mut R, count: u8) -> Vec<usize> {

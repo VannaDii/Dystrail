@@ -2,7 +2,7 @@ use rand::Rng;
 
 use crate::journey::{EventDecisionTrace, RollValue, WeightedCandidate};
 use crate::mechanics::otdeluxe90s::{OtDeluxeAfflictionPolicy, OtDeluxePolicyOverride};
-use crate::otdeluxe_state::OtDeluxeAfflictionKind;
+use crate::otdeluxe_state::{OtDeluxeAfflictionKind, OtDeluxeAfflictionOutcome};
 
 #[must_use]
 pub fn otdeluxe_affliction_probability(
@@ -88,4 +88,23 @@ pub fn roll_otdeluxe_affliction_kind_with_trace<R: Rng + ?Sized>(
         chosen_id: chosen_id.to_string(),
     };
     (kind, Some(trace))
+}
+
+#[must_use]
+pub const fn otdeluxe_affliction_kind_key(kind: OtDeluxeAfflictionKind) -> &'static str {
+    match kind {
+        OtDeluxeAfflictionKind::Illness => "illness",
+        OtDeluxeAfflictionKind::Injury => "injury",
+    }
+}
+
+#[must_use]
+pub fn otdeluxe_affliction_payload(outcome: &OtDeluxeAfflictionOutcome) -> serde_json::Value {
+    serde_json::json!({
+        "member_index": outcome.member_index,
+        "died": outcome.died,
+        "kind": otdeluxe_affliction_kind_key(outcome.kind),
+        "disease_id": outcome.disease_id,
+        "display_key": outcome.display_key
+    })
 }

@@ -65,6 +65,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Canonicalize drowning-index selection via `kernel/systems/dalles.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize breakdown max-chance sanitizer in `kernel/systems/vehicle.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize breakdown-part weighted selection/trace builder in `kernel/systems/vehicle.rs` and remove duplicate implementation in `state.rs`.
+  - [x] Canonicalize OT affliction payload/kind-key helpers in `kernel/systems/affliction.rs` and remove duplicate implementation in `state.rs`.
 - [ ] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
 - [ ] Apply save reset/version bump and remove legacy migration logic.
