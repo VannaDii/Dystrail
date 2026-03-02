@@ -115,7 +115,7 @@ use crate::kernel::systems::travel::otdeluxe_snow_speed_mult;
 use crate::kernel::systems::vehicle::{OtDeluxeSparePart, otdeluxe_spare_for_breakdown};
 use crate::kernel::systems::vehicle::{
     consume_otdeluxe_spare_for_breakdown, otdeluxe_mobility_failure_mult,
-    sanitize_breakdown_max_chance,
+    sanitize_breakdown_max_chance, select_breakdown_part_with_trace,
 };
 use crate::mechanics::otdeluxe90s::{
     OtDeluxe90sPolicy, OtDeluxeHealthPolicy, OtDeluxeNavigationPolicy, OtDeluxeOccupation,
@@ -5723,7 +5723,7 @@ mod tests {
             ..GameState::default()
         };
         let mut rng = SmallRng::seed_from_u64(1);
-        let (part, trace) = state.select_breakdown_part_with_trace(&mut rng);
+        let (part, trace) = select_breakdown_part_with_trace(&mut rng, &state.journey_part_weights);
         assert_eq!(part, Part::Tire);
         assert!(trace.is_none());
     }
@@ -5740,7 +5740,7 @@ mod tests {
             ..GameState::default()
         };
         let mut rng = SmallRng::seed_from_u64(2);
-        let (part, trace) = state.select_breakdown_part_with_trace(&mut rng);
+        let (part, trace) = select_breakdown_part_with_trace(&mut rng, &state.journey_part_weights);
         assert_eq!(part, Part::Battery);
         assert!(trace.is_some());
     }
@@ -6305,7 +6305,8 @@ mod tests {
             ..GameState::default()
         };
         let mut rng = SmallRng::seed_from_u64(9);
-        let (_part, trace) = state.select_breakdown_part_with_trace(&mut rng);
+        let (_part, trace) =
+            select_breakdown_part_with_trace(&mut rng, &state.journey_part_weights);
         assert!(trace.is_some());
     }
 
@@ -6485,7 +6486,7 @@ mod tests {
     fn select_breakdown_part_with_trace_uses_weights() {
         let state = GameState::default();
         let mut rng = StepRng::new(0, 0);
-        let (_, trace) = state.select_breakdown_part_with_trace(&mut rng);
+        let (_, trace) = select_breakdown_part_with_trace(&mut rng, &state.journey_part_weights);
         assert!(trace.is_some());
     }
 
@@ -11059,51 +11060,6 @@ impl GameState {
         }
     }
 
-    fn select_breakdown_part_with_trace<R: rand::Rng + ?Sized>(
-        &self,
-        rng: &mut R,
-    ) -> (Part, Option<EventDecisionTrace>) {
-        let choices = [
-            (Part::Tire, self.journey_part_weights.tire),
-            (Part::Battery, self.journey_part_weights.battery),
-            (Part::Alternator, self.journey_part_weights.alt),
-            (Part::FuelPump, self.journey_part_weights.pump),
-        ];
-        let mut total = 0_u32;
-        for (_, weight) in &choices {
-            total = total.saturating_add(*weight);
-        }
-        if total == 0 {
-            return (Part::Tire, None);
-        }
-        let roll = rng.gen_range(0..total);
-        let mut current = 0_u32;
-        let mut selected = None;
-        for (part, weight) in &choices {
-            current = current.saturating_add(*weight);
-            if selected.is_none() && roll < current {
-                selected = Some(*part);
-            }
-        }
-        let selected = selected.unwrap_or(Part::Tire);
-        let candidates = choices
-            .iter()
-            .map(|(part, weight)| WeightedCandidate {
-                id: part.key().to_string(),
-                base_weight: f64::from(*weight),
-                multipliers: Vec::new(),
-                final_weight: f64::from(*weight),
-            })
-            .collect();
-        let trace = EventDecisionTrace {
-            pool_id: String::from("dystrail.breakdown_part"),
-            roll: RollValue::U32(roll),
-            candidates,
-            chosen_id: selected.key().to_string(),
-        };
-        (selected, Some(trace))
-    }
-
     /// Apply vehicle breakdown logic
     pub(crate) fn vehicle_roll(&mut self) -> bool {
         if self.breakdown.is_some() {
@@ -11166,7 +11122,7 @@ impl GameState {
         }
 
         let (part, trace) = self.breakdown_rng().map_or((Part::Tire, None), |mut rng| {
-            self.select_breakdown_part_with_trace(&mut *rng)
+            select_breakdown_part_with_trace(&mut *rng, &self.journey_part_weights)
         });
         if let Some(trace) = trace {
             self.decision_traces_today.push(trace);
