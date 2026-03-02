@@ -104,6 +104,7 @@ use crate::kernel::systems::navigation::{
     otdeluxe_navigation_event_id, otdeluxe_navigation_is_blocked, otdeluxe_navigation_reason_tag,
     roll_otdeluxe_navigation_delay_days, roll_otdeluxe_navigation_event_with_trace,
 };
+use crate::kernel::systems::party::alive_member_indices;
 use crate::kernel::systems::random_events::sanitize_event_weight_mult;
 use crate::kernel::systems::supplies::otdeluxe_rations_food_per_person_scaled;
 #[cfg(test)]
@@ -9541,7 +9542,7 @@ impl GameState {
         method: OtDeluxeCrossingMethod,
     ) -> Option<(bool, String)> {
         let (river_kind, river_state) = self.otdeluxe_crossing_context(method)?;
-        let alive_indices = self.otdeluxe_alive_indices();
+        let alive_indices = alive_member_indices(&self.ot_deluxe.party.members);
         let (resolution, trace, drowned_indices) =
             self.roll_otdeluxe_crossing(river_kind, &river_state, method, &alive_indices);
         if let Some(trace) = trace {
@@ -9611,16 +9612,6 @@ impl GameState {
             return None;
         }
         Some((river_kind, river_state))
-    }
-
-    fn otdeluxe_alive_indices(&self) -> Vec<usize> {
-        self.ot_deluxe
-            .party
-            .members
-            .iter()
-            .enumerate()
-            .filter_map(|(idx, member)| member.alive.then_some(idx))
-            .collect()
     }
 
     fn roll_otdeluxe_crossing(
@@ -10676,12 +10667,7 @@ impl GameState {
     }
 
     fn lose_random_party_members<R: Rng + ?Sized>(&mut self, rng: &mut R, count: u8) -> Vec<usize> {
-        let mut alive_indices = Vec::new();
-        for (idx, member) in self.ot_deluxe.party.members.iter().enumerate() {
-            if member.alive {
-                alive_indices.push(idx);
-            }
-        }
+        let mut alive_indices = alive_member_indices(&self.ot_deluxe.party.members);
         let mut lost = Vec::new();
         while !alive_indices.is_empty() && lost.len() < usize::from(count) {
             let idx = rng.gen_range(0..alive_indices.len());

@@ -5,6 +5,7 @@ pub mod economy;
 pub mod fatality;
 pub mod health;
 pub mod navigation;
+pub mod party;
 pub mod random_events;
 pub mod supplies;
 pub mod travel;
