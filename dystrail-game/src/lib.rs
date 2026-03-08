@@ -59,8 +59,9 @@ pub use journey::{
     TravelDayKind, UiSurfaceHint,
 };
 pub use kernel::{
-    KERNEL_EVENT_CODE_SCHEMA_VERSION, KERNEL_EVENT_CODES, KernelEvent, KernelEventCode,
-    KernelSession, KernelSessionError, KernelTickInput, KernelTickOutput,
+    KERNEL_EVENT_CODE_SCHEMA_VERSION, KERNEL_EVENT_CODES, KernelConfig, KernelDecisionTrace,
+    KernelEvent, KernelEventCode, KernelEventPayload, KernelSession, KernelSessionError,
+    KernelState, KernelTickInput, KernelTickOutput,
 };
 pub use mechanics::{
     OtDeluxe90sPolicy, OtDeluxeAfflictionWeightOverride, OtDeluxeBreakdownPolicy,

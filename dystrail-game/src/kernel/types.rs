@@ -1,7 +1,15 @@
-use crate::journey::{DayOutcome, DayTagSet, Event, EventId, EventSeverity, TravelDayKind};
+use crate::journey::{
+    DayOutcome, DayTagSet, Event, EventId, EventSeverity, JourneyCfg, TravelDayKind,
+};
 use crate::state::DayIntent;
 
 use super::events::{KernelDecisionTrace, KernelEventCode, KernelEventPayload};
+
+/// Kernel-facing simulation configuration.
+pub type KernelConfig = JourneyCfg;
+
+/// Kernel-facing simulation state snapshot.
+pub type KernelState = crate::GameState;
 
 /// Input provided to the kernel for a single daily tick.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

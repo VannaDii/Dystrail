@@ -15,7 +15,7 @@ pub use events::{
     KernelEventPayload,
 };
 pub use session::{KernelSession, KernelSessionError};
-pub use types::{KernelEvent, KernelTickInput, KernelTickOutput};
+pub use types::{KernelConfig, KernelEvent, KernelState, KernelTickInput, KernelTickOutput};
 
 #[cfg(test)]
 mod tests {
@@ -23,7 +23,8 @@ mod tests {
     use crate::endgame::EndgameTravelCfg;
     use crate::journey::{
         DayEffects, DayInputs, DayOutcome, DayRecord, DayTagSet, Event, EventId, EventKind,
-        EventSeverity, MechanicalPolicyId, PolicyId, StatsDelta, StrategyId, TravelDayKind,
+        EventSeverity, JourneyCfg, MechanicalPolicyId, PolicyId, StatsDelta, StrategyId,
+        TravelDayKind,
     };
     use crate::mechanics::OtDeluxeOccupation;
     use crate::state::{DayIntent, DietId, GameMode, GameState, PaceId, Region, Season};
@@ -195,5 +196,11 @@ mod tests {
         assert!(!output.log_key.is_empty());
         let state = session.into_state();
         assert_eq!(state.mechanical_policy, MechanicalPolicyId::OtDeluxe90s);
+    }
+
+    #[test]
+    fn kernel_aliases_match_legacy_surface() {
+        let _config: KernelConfig = JourneyCfg::default();
+        let _state: KernelState = GameState::default();
     }
 }

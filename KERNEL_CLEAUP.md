@@ -67,7 +67,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Canonicalize breakdown-part weighted selection/trace builder in `kernel/systems/vehicle.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize OT affliction payload/kind-key helpers in `kernel/systems/affliction.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize alive-party index collection in `kernel/systems/party.rs` and remove duplicate implementation in `state.rs`.
-- [ ] Rewire crate exports around kernel API.
+ - [x] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
 - [ ] Apply save reset/version bump and remove legacy migration logic.
 - [ ] Run full validation workflow.
