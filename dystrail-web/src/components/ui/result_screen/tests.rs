@@ -15,9 +15,10 @@ fn baseline_summary() -> ResultSummary {
         epilogue_key: "result.epilogue.victory".into(),
         ending_cause: None,
         seed: "CL-TEST90".into(),
-        persona_name: "Organizer".into(),
+        persona_key: Some("persona.organizer.name".into()),
+        persona_name: None,
         mult_str: "1.00×".into(),
-        mode: "Classic".into(),
+        mode_key: "mode.classic".into(),
         dp_badge: false,
         score: 12_345,
         score_threshold: 10_000,
@@ -147,9 +148,21 @@ fn interpolate_template_includes_summary_fields() {
         "Heading",
     );
     assert!(text.contains(&summary.seed));
-    assert!(text.contains(&summary.persona_name));
-    assert!(text.contains(&summary.mode));
+    assert!(text.contains("Organizer"));
+    assert!(text.contains("Classic"));
     assert!(text.contains("Heading"));
+}
+
+#[test]
+fn interpolate_template_localizes_mode_and_fallback_persona() {
+    crate::i18n::set_lang("it");
+    let mut summary = baseline_summary();
+    summary.persona_key = None;
+    summary.persona_name = None;
+    summary.mode_key = "mode.deep".into();
+    let text = share::interpolate_template("{persona} {mode}", &summary, "Titolo");
+    assert!(text.contains("Viaggiatore"));
+    assert!(text.contains("Oltre il Limite"));
 }
 
 #[test]
@@ -163,7 +176,7 @@ fn summary_uses_result_config() {
     let props = baseline_props();
     let summary = share::summary(&props).expect("summary should build");
     assert!(!summary.seed.is_empty());
-    assert!(!summary.mode.is_empty());
+    assert!(!summary.mode_key.is_empty());
 }
 
 #[test]

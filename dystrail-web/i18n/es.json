@@ -286,6 +286,9 @@
       "desc": "Afronta con humor; restaura cordura.",
       "name": "Satírico"
     },
+    "traveler": {
+      "name": "Viajero"
+    },
     "selected_budget_prefix": "Presupuesto inicial",
     "staffer": {
       "desc": "Equilibrado; sin ventajas fuertes.",

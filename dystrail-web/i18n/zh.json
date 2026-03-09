@@ -286,6 +286,9 @@
       "desc": "以幽默应对；恢复理智。",
       "name": "讽刺家"
     },
+    "traveler": {
+      "name": "旅人"
+    },
     "selected_budget_prefix": "起始预算",
     "staffer": {
       "desc": "均衡；无显著加成。",

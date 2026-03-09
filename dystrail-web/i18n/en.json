@@ -286,6 +286,9 @@
       "desc": "Copes with humor; restores sanity.",
       "name": "Satirist"
     },
+    "traveler": {
+      "name": "Traveler"
+    },
     "selected_budget_prefix": "Starting budget",
     "staffer": {
       "desc": "Balanced; no strong perks.",

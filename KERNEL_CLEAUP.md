@@ -69,6 +69,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Canonicalize alive-party index collection in `kernel/systems/party.rs` and remove duplicate implementation in `state.rs`.
  - [x] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
+  - [x] Move result-screen mode/persona display strings and fallback persona rendering to `dystrail-web` i18n.
 - [ ] Apply save reset/version bump and remove legacy migration logic.
 - [ ] Run full validation workflow.
 

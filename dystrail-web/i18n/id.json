@@ -286,6 +286,9 @@
       "desc": "Menghadapi dengan humor; memulihkan kewarasan.",
       "name": "Satiris"
     },
+    "traveler": {
+      "name": "Pengelana"
+    },
     "selected_budget_prefix": "Budget awal",
     "staffer": {
       "desc": "Seimbang; tidak ada keuntungan kuat.",

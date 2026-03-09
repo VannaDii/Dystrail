@@ -286,6 +286,9 @@
       "desc": "Fait face par l'humour; restaure la santé mentale.",
       "name": "Satiriste"
     },
+    "traveler": {
+      "name": "Voyageur"
+    },
     "selected_budget_prefix": "Budget de départ",
     "staffer": {
       "desc": "Équilibré; pas d'atout fort.",

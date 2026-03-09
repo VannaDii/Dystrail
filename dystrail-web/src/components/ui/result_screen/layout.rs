@@ -1,6 +1,8 @@
 use super::Props;
 use super::menu::render_menu_item;
-use super::share::{resolved_epilogue_key, resolved_headline_key};
+use super::share::{
+    resolved_epilogue_key, resolved_headline_key, resolved_mode_name, resolved_persona_name,
+};
 use crate::game::MechanicalPolicyId;
 use crate::game::ResultSummary;
 use crate::i18n;
@@ -48,6 +50,9 @@ pub fn render_body(
 }
 
 fn render_metadata(summary: &ResultSummary) -> Html {
+    let persona_name = resolved_persona_name(summary);
+    let mode_name = resolved_mode_name(summary);
+
     html! {
         <>
             <div class="result-metadata">
@@ -57,11 +62,11 @@ fn render_metadata(summary: &ResultSummary) -> Html {
                 </span>
                 <span class="metadata-item">
                     <strong>{ i18n::t("result.labels.persona") }{": "}</strong>
-                    { &summary.persona_name }{ " (" }{ &summary.mult_str }{ ")" }
+                    { persona_name }{ " (" }{ &summary.mult_str }{ ")" }
                 </span>
                 <span class="metadata-item">
                     <strong>{ i18n::t("result.labels.mode") }{": "}</strong>
-                    { &summary.mode }
+                    { mode_name }
                     { if summary.dp_badge {
                         html! { <span class="badge">{ i18n::t("result.badges.mode_deep") }</span> }
                     } else {

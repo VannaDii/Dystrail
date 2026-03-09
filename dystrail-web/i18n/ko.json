@@ -286,6 +286,9 @@
       "desc": "유머로 대처; 정신력 회복.",
       "name": "풍자가"
     },
+    "traveler": {
+      "name": "여행자"
+    },
     "selected_budget_prefix": "시작 예산",
     "staffer": {
       "desc": "균형잡힌; 강한 특전 없음.",

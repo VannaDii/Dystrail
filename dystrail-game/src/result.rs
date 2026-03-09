@@ -69,9 +69,10 @@ pub struct ResultSummary {
     pub epilogue_key: String,
     pub ending_cause: Option<String>,
     pub seed: String,
-    pub persona_name: String,
+    pub persona_key: Option<String>,
+    pub persona_name: Option<String>,
     pub mult_str: String,
-    pub mode: String,
+    pub mode_key: String,
     pub dp_badge: bool,
     pub score: i32,
     pub score_threshold: i32,
@@ -149,10 +150,11 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
     let epilogue_key = epilogue_key_for(&headline_key);
 
     let seed = encode_friendly(gs.mode.is_deep(), gs.seed);
+    let persona_key = resolve_persona_key(gs);
     let persona_name = resolve_persona_name(gs);
     let mult_val = total_multiplier(gs, &cfg.multipliers);
     let mult_str = format!("{mult_val:.2}×");
-    let mode_label = mode_display(gs.mode);
+    let mode_key = mode_display_key(gs.mode);
 
     let days = i32::try_from(gs.day.saturating_sub(1)).unwrap_or(0);
     let encounters = i32::try_from(gs.encounters_resolved).unwrap_or(0);
@@ -163,9 +165,10 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
         headline_key,
         epilogue_key,
         seed,
+        persona_key,
         persona_name,
         mult_str,
-        mode: mode_label,
+        mode_key,
         dp_badge: gs.mode.is_deep(),
         score,
         score_threshold: threshold,
@@ -292,24 +295,28 @@ fn epilogue_key_for(headline_key: &str) -> String {
     )
 }
 
-fn resolve_persona_name(gs: &GameState) -> String {
+fn resolve_persona_key(gs: &GameState) -> Option<String> {
     gs.persona_id
-        .clone()
+        .as_deref()
         .filter(|id| !id.is_empty())
+        .map(|id| format!("persona.{id}.name"))
         .or_else(|| {
-            if gs.party.leader.is_empty() {
-                None
-            } else {
-                Some(gs.party.leader.clone())
-            }
+            gs.party
+                .leader
+                .trim()
+                .is_empty()
+                .then(|| "persona.traveler.name".to_string())
         })
-        .unwrap_or_else(|| "Traveler".to_string())
 }
 
-fn mode_display(mode: GameMode) -> String {
+fn resolve_persona_name(gs: &GameState) -> Option<String> {
+    (!gs.party.leader.trim().is_empty()).then(|| gs.party.leader.clone())
+}
+
+fn mode_display_key(mode: GameMode) -> String {
     match mode {
-        GameMode::Classic => "Classic".to_string(),
-        GameMode::Deep => "The Deep End".to_string(),
+        GameMode::Classic => "mode.classic".to_string(),
+        GameMode::Deep => "mode.deep".to_string(),
     }
 }
 
@@ -391,10 +398,14 @@ mod tests {
     fn persona_resolution_and_headlines() {
         let cfg = ResultConfig::default();
         let persona_state = GameState {
-            persona_id: Some("persona".into()),
+            persona_id: Some("organizer".into()),
             ..GameState::default()
         };
-        assert_eq!(resolve_persona_name(&persona_state), "persona");
+        assert_eq!(
+            resolve_persona_key(&persona_state).as_deref(),
+            Some("persona.organizer.name")
+        );
+        assert_eq!(resolve_persona_name(&persona_state), None);
 
         let leader_state = GameState {
             persona_id: None,
@@ -404,7 +415,18 @@ mod tests {
             },
             ..GameState::default()
         };
-        assert_eq!(resolve_persona_name(&leader_state), "Leader");
+        assert_eq!(resolve_persona_key(&leader_state), None);
+        assert_eq!(
+            resolve_persona_name(&leader_state).as_deref(),
+            Some("Leader")
+        );
+
+        let traveler_state = GameState::default();
+        assert_eq!(
+            resolve_persona_key(&traveler_state).as_deref(),
+            Some("persona.traveler.name")
+        );
+        assert_eq!(resolve_persona_name(&traveler_state), None);
 
         let token = ending_cause_token(Ending::Exposure {
             kind: crate::state::ExposureKind::Heat,
@@ -419,8 +441,8 @@ mod tests {
         assert_eq!(auto_headline, cfg.endings.victory_key);
         assert!(epilogue_key_for(&auto_headline).starts_with("result.epilogue"));
 
-        assert_eq!(mode_display(GameMode::Classic), "Classic");
-        assert_eq!(mode_display(GameMode::Deep), "The Deep End");
+        assert_eq!(mode_display_key(GameMode::Classic), "mode.classic");
+        assert_eq!(mode_display_key(GameMode::Deep), "mode.deep");
     }
 
     #[test]

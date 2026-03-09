@@ -286,6 +286,9 @@
       "desc": "Resiste con umorismo; ripristina la sanità mentale.",
       "name": "Satiro"
     },
+    "traveler": {
+      "name": "Viaggiatore"
+    },
     "selected_budget_prefix": "Budget iniziale",
     "staffer": {
       "desc": "Bilanciato; senza grandi bonus.",

@@ -1,10 +1,24 @@
 #[cfg(target_arch = "wasm32")]
 use crate::dom;
 use crate::game::{ResultSummary, result_summary};
+use crate::i18n;
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 #[cfg(target_arch = "wasm32")]
 use web_sys::HtmlTextAreaElement;
+
+#[cfg(any(target_arch = "wasm32", test))]
+const HEADLINE_PLACEHOLDER: &str = "{headline}";
+#[cfg(any(target_arch = "wasm32", test))]
+const SCORE_PLACEHOLDER: &str = "{score}";
+#[cfg(any(target_arch = "wasm32", test))]
+const SEED_PLACEHOLDER: &str = "{seed}";
+#[cfg(any(target_arch = "wasm32", test))]
+const PERSONA_PLACEHOLDER: &str = "{persona}";
+#[cfg(any(target_arch = "wasm32", test))]
+const MULT_PLACEHOLDER: &str = "{mult}";
+#[cfg(any(target_arch = "wasm32", test))]
+const MODE_PLACEHOLDER: &str = "{mode}";
 
 pub(super) fn summary(props: &super::Props) -> Result<ResultSummary, String> {
     result_summary(&props.game_state, &props.result_config)
@@ -34,22 +48,34 @@ pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Prop
     }
 }
 
+pub(super) fn resolved_persona_name(summary: &ResultSummary) -> String {
+    summary
+        .persona_key
+        .as_deref()
+        .map(i18n::t)
+        .or_else(|| summary.persona_name.clone())
+        .unwrap_or_else(|| i18n::t("persona.traveler.name"))
+}
+
+pub(super) fn resolved_mode_name(summary: &ResultSummary) -> String {
+    i18n::t(&summary.mode_key)
+}
+
 #[cfg(any(target_arch = "wasm32", test))]
 pub(super) fn interpolate_template(
     template: &str,
     summary: &ResultSummary,
     headline_text: &str,
 ) -> String {
-    template
-        .replace("{headline}", headline_text)
-        .replace(
-            "{score}",
-            &crate::i18n::fmt_number(f64::from(summary.score)),
-        )
-        .replace("{seed}", &summary.seed)
-        .replace("{persona}", &summary.persona_name)
-        .replace("{mult}", &summary.mult_str)
-        .replace("{mode}", &summary.mode)
+    let score = crate::i18n::fmt_number(f64::from(summary.score));
+    let persona_name = resolved_persona_name(summary);
+    let mode_name = resolved_mode_name(summary);
+    let text = template.replace(HEADLINE_PLACEHOLDER, headline_text);
+    let text = text.replace(SCORE_PLACEHOLDER, &score);
+    let text = text.replace(SEED_PLACEHOLDER, &summary.seed);
+    let text = text.replace(PERSONA_PLACEHOLDER, &persona_name);
+    let text = text.replace(MULT_PLACEHOLDER, &summary.mult_str);
+    text.replace(MODE_PLACEHOLDER, &mode_name)
 }
 
 #[cfg(any(target_arch = "wasm32", test))]

@@ -286,6 +286,9 @@
       "desc": "Bewältigt mit Humor; stellt Vernunft wieder her.",
       "name": "Satiriker"
     },
+    "traveler": {
+      "name": "Reisender"
+    },
     "selected_budget_prefix": "Startbudget",
     "staffer": {
       "desc": "Ausgewogen; keine starken Vorteile.",

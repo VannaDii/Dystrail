@@ -286,6 +286,9 @@
       "desc": "Mizahla başa çıkar; aklı restore eder.",
       "name": "Hicivci"
     },
+    "traveler": {
+      "name": "Gezgin"
+    },
     "selected_budget_prefix": "Başlangıç bütçesi",
     "staffer": {
       "desc": "Dengeli; güçlü avantaj yok.",

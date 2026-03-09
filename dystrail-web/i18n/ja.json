@@ -286,6 +286,9 @@
       "desc": "ユーモアで耐える；正気を回復。",
       "name": "風刺家"
     },
+    "traveler": {
+      "name": "旅人"
+    },
     "selected_budget_prefix": "初期予算",
     "staffer": {
       "desc": "バランス型；特筆すべき強みなし。",

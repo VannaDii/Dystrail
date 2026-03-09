@@ -919,7 +919,7 @@ fn result_endings_branching() {
     state.mode = GameMode::Classic;
     state.score_mult = 1.0;
     let summary = result_summary(&state, &cfg).unwrap();
-    assert_eq!(summary.mode, "Classic");
+    assert_eq!(summary.mode_key, "mode.classic");
 }
 
 #[test]

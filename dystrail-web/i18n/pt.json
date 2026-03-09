@@ -286,6 +286,9 @@
       "desc": "Aguenta com humor; restaura sanidade.",
       "name": "Satirista"
     },
+    "traveler": {
+      "name": "Viajante"
+    },
     "selected_budget_prefix": "Orçamento inicial",
     "staffer": {
       "desc": "Equilibrado; sem grandes vantagens.",
