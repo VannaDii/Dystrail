@@ -393,6 +393,7 @@
   "save": {
     "close": "Tutup",
     "error": "JSON simpenan ora bener",
+    "incompatible": "Simpenan iki asalé saka versi sing ora kompatibel. Miwiti run anyar.",
     "export": "Salin ekspor JSON",
     "header": "Simpen/Muat",
     "import_button": "Impor",

@@ -280,6 +280,10 @@ impl From<PolicyKind> for String {
     }
 }
 
+fn placeholder_party_member_name(slot: usize) -> String {
+    format!("party.member.{slot}.name")
+}
+
 #[cfg(debug_assertions)]
 fn debug_log_enabled() -> bool {
     matches!(std::env::var(DEBUG_ENV_VAR), Ok(val) if val != "0")
@@ -2944,9 +2948,19 @@ mod tests {
         assert_eq!(state.party.companions.len(), 4);
         assert_eq!(state.party.companions[0], "Alice");
         assert_eq!(state.party.companions[1], "Bob");
-        assert!(state.party.companions[2].starts_with("Traveler"));
-        assert!(state.party.companions[3].starts_with("Traveler"));
+        assert_eq!(state.party.companions[2], "party.member.4.name");
+        assert_eq!(state.party.companions[3], "party.member.5.name");
         assert!(state.logs.iter().any(|log| log == "log.party.updated"));
+    }
+
+    #[test]
+    fn set_party_uses_placeholder_names_when_no_companions_are_provided() {
+        let mut state = GameState::default();
+        state.set_party("Leader", std::iter::empty::<&str>());
+
+        assert_eq!(state.party.companions.len(), 4);
+        assert_eq!(state.party.companions[0], "party.member.2.name");
+        assert_eq!(state.party.companions[3], "party.member.5.name");
     }
 
     #[test]
@@ -3046,9 +3060,9 @@ mod tests {
     }
 
     #[test]
-    fn rehydrate_backfills_records_and_otdeluxe_state() {
+    fn rehydrate_clears_transient_state_for_current_schema() {
         let mut state = GameState {
-            state_version: 3,
+            state_version: SAVE_SCHEMA_VERSION,
             day: 7,
             travel_days: 2,
             partial_travel_days: 1,
@@ -3073,27 +3087,13 @@ mod tests {
         ];
         state.ot_deluxe.crossing.chosen_method = Some(OtDeluxeCrossingMethod::Ford);
 
-        let rehydrated = state.rehydrate(EncounterData::empty());
+        let rehydrated = state
+            .rehydrate(EncounterData::empty())
+            .expect("current-schema save should rehydrate");
 
         assert_eq!(rehydrated.state_version, GameState::current_version());
         assert!(rehydrated.rng_bundle.is_some());
         assert!(rehydrated.journey_partial_ratio <= 0.95);
-        assert_eq!(rehydrated.day_records.len(), 1);
-        let record = &rehydrated.day_records[0];
-        assert!(matches!(record.kind, TravelDayKind::Travel));
-        assert_eq!(rehydrated.ot_deluxe.party.members.len(), 5);
-        assert_eq!(rehydrated.ot_deluxe.party.members[0].name, "Leader");
-        assert!(
-            rehydrated
-                .ot_deluxe
-                .party
-                .members
-                .iter()
-                .all(|member| !member.name.trim().is_empty())
-        );
-        assert_eq!(rehydrated.ot_deluxe.pace, OtDeluxePace::Grueling);
-        assert_eq!(rehydrated.ot_deluxe.rations, OtDeluxeRations::BareBones);
-        assert_eq!(rehydrated.ot_deluxe.inventory.cash_cents, 9000);
         assert!(rehydrated.pending_crossing_choice.is_none());
         assert!(rehydrated.pending_route_choice.is_none());
         assert!(rehydrated.ot_deluxe.crossing.chosen_method.is_none());
@@ -3106,7 +3106,23 @@ mod tests {
         state.party.companions = Vec::new();
         let ot_state = state.build_ot_deluxe_state_from_legacy();
         assert_eq!(ot_state.party.members.len(), 5);
-        assert!(ot_state.party.members[0].name.starts_with("Traveler"));
+        assert_eq!(ot_state.party.members[0].name, "party.member.1.name");
+    }
+
+    #[test]
+    fn build_otdeluxe_state_maps_blitz_and_doom_to_otdeluxe_defaults() {
+        let state = GameState {
+            pace: PaceId::Blitz,
+            diet: DietId::Doom,
+            budget_cents: 9_000,
+            ..GameState::default()
+        };
+
+        let ot_state = state.build_ot_deluxe_state_from_legacy();
+
+        assert_eq!(ot_state.pace, OtDeluxePace::Grueling);
+        assert_eq!(ot_state.rations, OtDeluxeRations::BareBones);
+        assert_eq!(ot_state.inventory.cash_cents, 9_000);
     }
 
     #[test]
@@ -5372,7 +5388,7 @@ mod tests {
     }
 
     #[test]
-    fn rehydrate_backfills_travel_day() {
+    fn rehydrate_rejects_legacy_save_versions() {
         let state = GameState {
             state_version: 0,
             day: 2,
@@ -5380,37 +5396,16 @@ mod tests {
             day_records: Vec::new(),
             ..GameState::default()
         };
-        let rehydrated = state.rehydrate(EncounterData::from_encounters(Vec::new()));
-        assert_eq!(rehydrated.day_records.len(), 1);
-        assert_eq!(rehydrated.day_records[0].kind, TravelDayKind::Travel);
-    }
-
-    #[test]
-    fn rehydrate_backfills_partial_day() {
-        let state = GameState {
-            state_version: 0,
-            day: 2,
-            partial_travel_days: 1,
-            day_records: Vec::new(),
-            ..GameState::default()
-        };
-        let rehydrated = state.rehydrate(EncounterData::from_encounters(Vec::new()));
-        assert_eq!(rehydrated.day_records.len(), 1);
-        assert_eq!(rehydrated.day_records[0].kind, TravelDayKind::Partial);
-    }
-
-    #[test]
-    fn rehydrate_backfills_non_travel_day() {
-        let state = GameState {
-            state_version: 0,
-            day: 2,
-            non_travel_days: 1,
-            day_records: Vec::new(),
-            ..GameState::default()
-        };
-        let rehydrated = state.rehydrate(EncounterData::from_encounters(Vec::new()));
-        assert_eq!(rehydrated.day_records.len(), 1);
-        assert_eq!(rehydrated.day_records[0].kind, TravelDayKind::NonTravel);
+        let err = state
+            .rehydrate(EncounterData::from_encounters(Vec::new()))
+            .expect_err("legacy saves should be rejected");
+        assert_eq!(
+            err,
+            SaveVersionError::IncompatibleVersion {
+                found: 0,
+                expected: SAVE_SCHEMA_VERSION,
+            }
+        );
     }
 
     #[test]
@@ -6919,6 +6914,14 @@ pub enum GamePhase {
     Result,
 }
 
+pub const SAVE_SCHEMA_VERSION: u16 = 5;
+
+#[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+pub enum SaveVersionError {
+    #[error("save version {found} is incompatible with the current schema version {expected}")]
+    IncompatibleVersion { found: u16, expected: u16 },
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GameState {
     pub mode: GameMode,
@@ -7382,7 +7385,7 @@ impl GameState {
     }
 
     const fn current_version() -> u16 {
-        4
+        SAVE_SCHEMA_VERSION
     }
 
     fn build_ot_deluxe_state_from_legacy(&self) -> OtDeluxeState {
@@ -7399,8 +7402,8 @@ impl GameState {
             names.truncate(5);
         }
         while names.len() < 5 {
-            let idx = names.len() + 1;
-            names.push(format!("Traveler {idx}"));
+            let slot = names.len() + 1;
+            names.push(placeholder_party_member_name(slot));
         }
 
         let pace = match self.pace {
@@ -10016,35 +10019,20 @@ impl GameState {
         self
     }
 
-    #[must_use]
-    pub fn rehydrate(mut self, data: EncounterData) -> Self {
-        self.data = Some(data);
-        if self.state_version < Self::current_version() {
-            if self.state_version < 4 {
-                self.intent = IntentState::default();
-                self.wait = WaitState::default();
-                self.ot_deluxe = self.build_ot_deluxe_state_from_legacy();
-            }
-            self.state_version = Self::current_version();
-            if self.day_records.is_empty()
-                && (self.travel_days > 0
-                    || self.partial_travel_days > 0
-                    || self.non_travel_days > 0)
-            {
-                // Conservatively backfill a single record representing the previous day counts.
-                let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
-                let kind = if self.travel_days > 0 {
-                    TravelDayKind::Travel
-                } else if self.partial_travel_days > 0 {
-                    TravelDayKind::Partial
-                } else {
-                    TravelDayKind::NonTravel
-                };
-                let miles = self.miles_traveled_actual;
-                self.day_records
-                    .push(DayRecord::new(day_index, kind, miles));
-            }
+    /// Reattach runtime-only state to a serialized save payload.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`SaveVersionError::IncompatibleVersion`] when the payload was
+    /// produced by an older save schema that is no longer supported.
+    pub fn rehydrate(mut self, data: EncounterData) -> Result<Self, SaveVersionError> {
+        if self.state_version != Self::current_version() {
+            return Err(SaveVersionError::IncompatibleVersion {
+                found: self.state_version,
+                expected: Self::current_version(),
+            });
         }
+        self.data = Some(data);
         self.journey_partial_ratio = self.journey_partial_ratio.clamp(0.2, 0.95);
         self.journey_travel.sanitize();
         self.journey_crossing.sanitize();
@@ -10061,7 +10049,7 @@ impl GameState {
         }
         self.day_state.lifecycle.log_cursor = u32::try_from(self.logs.len()).unwrap_or(u32::MAX);
         self.day_state.lifecycle.event_seq = 0;
-        self
+        Ok(self)
     }
 
     #[must_use]
@@ -11602,8 +11590,9 @@ impl GameState {
         self.party.leader = leader.into();
         self.party.companions = companions.into_iter().map(Into::into).take(4).collect();
         while self.party.companions.len() < 4 {
-            let idx = self.party.companions.len() + 2;
-            self.party.companions.push(format!("Traveler {idx}"));
+            let slot = self.party.companions.len() + 2;
+            let placeholder = placeholder_party_member_name(slot);
+            self.party.companions.push(placeholder);
         }
         self.push_log("log.party.updated");
     }

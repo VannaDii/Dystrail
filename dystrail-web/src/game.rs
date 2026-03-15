@@ -13,6 +13,11 @@ pub use dystrail_game::*;
 /// Web-specific data loader that fetches data from static assets
 pub struct WebDataLoader;
 
+#[cfg(target_arch = "wasm32")]
+fn storage_key(save_name: &str) -> String {
+    format!("dystrail.save.v{SAVE_SCHEMA_VERSION}.{save_name}")
+}
+
 #[derive(Debug, thiserror::Error)]
 pub enum WebDataError {
     #[error("Network error: {0}")]
@@ -88,7 +93,7 @@ impl GameStorage for WebGameStorage {
     ) -> Result<(), Self::Error> {
         #[cfg(target_arch = "wasm32")]
         {
-            let key = format!("dystrail.save.{save_name}");
+            let key = storage_key(save_name);
             let storage = dom::local_storage()
                 .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
             let serialized = serde_json::to_string(game_state)?;
@@ -109,7 +114,7 @@ impl GameStorage for WebGameStorage {
     fn load_game(&self, save_name: &str) -> Result<Option<dystrail_game::GameState>, Self::Error> {
         #[cfg(target_arch = "wasm32")]
         {
-            let key = format!("dystrail.save.{save_name}");
+            let key = storage_key(save_name);
             let storage = dom::local_storage()
                 .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
             let value = storage
@@ -135,7 +140,7 @@ impl GameStorage for WebGameStorage {
     fn delete_save(&self, save_name: &str) -> Result<(), Self::Error> {
         #[cfg(target_arch = "wasm32")]
         {
-            let key = format!("dystrail.save.{save_name}");
+            let key = storage_key(save_name);
             let storage = dom::local_storage()
                 .map_err(|err| WebStorageError::Storage(dom::js_error_message(&err)))?;
             storage

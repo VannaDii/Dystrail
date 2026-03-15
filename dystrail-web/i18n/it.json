@@ -393,6 +393,7 @@
   "save": {
     "close": "Chiudi",
     "error": "JSON di salvataggio non valido",
+    "incompatible": "Questo salvataggio proviene da una versione incompatibile. Avvia una nuova partita.",
     "export": "Copia JSON di esportazione",
     "header": "Salva/Carica",
     "import_button": "Importa",

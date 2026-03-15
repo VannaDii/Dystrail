@@ -393,6 +393,7 @@
   "save": {
     "close": "Tutup",
     "error": "JSON simpanan tidak valid",
+    "incompatible": "Simpanan ini berasal dari versi yang tidak kompatibel. Mulai run baru.",
     "export": "Salin JSON Ekspor",
     "header": "Simpan/Muat",
     "import_button": "Impor",

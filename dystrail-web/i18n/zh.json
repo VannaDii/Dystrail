@@ -402,6 +402,7 @@
   "save": {
     "close": "关闭",
     "error": "无效的存档 JSON",
+    "incompatible": "此存档来自不兼容的版本。请开始新的运行。",
     "export": "复制导出 JSON",
     "header": "保存/加载",
     "import_button": "导入",

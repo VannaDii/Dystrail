@@ -70,8 +70,12 @@ This initiative is a single large PR with legacy mechanics removed in the same e
  - [x] Rewire crate exports around kernel API.
 - [ ] Move narrative strings fully to `dystrail-web` i18n.
   - [x] Move result-screen mode/persona display strings and fallback persona rendering to `dystrail-web` i18n.
-- [ ] Apply save reset/version bump and remove legacy migration logic.
-- [ ] Run full validation workflow.
+  - [x] Replace unnamed party-member fallback labels with stable `party.member.{n}.name` kernel identifiers.
+- [x] Apply save reset/version bump and remove legacy migration logic.
+  - [x] Bump save schema version and reject stale save payloads instead of migrating them in `rehydrate`.
+  - [x] Version web save-storage keys to enforce the hard reset boundary.
+  - [x] Surface localized incompatible-save messaging during save import/load flows.
+- [x] Run full validation workflow.
 
 ## Testing and Acceptance
 - Deterministic seed replay must remain stable.

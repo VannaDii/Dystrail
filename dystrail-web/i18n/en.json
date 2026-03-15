@@ -393,6 +393,7 @@
   "save": {
     "close": "Close",
     "error": "Invalid save JSON",
+    "incompatible": "This save is from an incompatible version. Start a new run.",
     "export": "Copy Export JSON",
     "header": "Save/Load",
     "import_button": "Import",

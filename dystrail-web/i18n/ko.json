@@ -393,6 +393,7 @@
   "save": {
     "close": "닫기",
     "error": "유효하지 않은 세이브 JSON",
+    "incompatible": "이 저장 데이터는 호환되지 않는 버전에서 생성되었습니다. 새 런을 시작하세요.",
     "export": "내보내기 JSON 복사",
     "header": "저장/로드",
     "import_button": "가져오기",

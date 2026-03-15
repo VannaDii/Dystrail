@@ -402,6 +402,7 @@
   "save": {
     "close": "閉じる",
     "error": "無効なセーブJSON",
+    "incompatible": "このセーブデータは互換性のないバージョンのものです。新しいランを始めてください。",
     "export": "エクスポートJSONをコピー",
     "header": "保存/読込",
     "import_button": "取り込み",

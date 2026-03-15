@@ -393,6 +393,7 @@
   "save": {
     "close": "Cerrar",
     "error": "JSON de guardado no válido",
+    "incompatible": "Este guardado pertenece a una versión incompatible. Inicia una partida nueva.",
     "export": "Copiar JSON de exportación",
     "header": "Guardar/Cargar",
     "import_button": "Importar",

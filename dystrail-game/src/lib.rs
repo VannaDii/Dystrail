@@ -102,7 +102,8 @@ pub use seed::{decode_to_seed, encode_friendly, generate_code_from_entropy, pars
 pub use state::{
     BossProgress, BossReadiness, BossResolution, CollapseCause, CrossingOutcomeTelemetry,
     CrossingTelemetry, DayState, DietId, EncounterState, Ending, FeatureFlags, GameMode, GamePhase,
-    GameState, GuardState, Inventory, PaceId, PendingCrossing, PolicyKind, Region, Spares, Stats,
+    GameState, GuardState, Inventory, PaceId, PendingCrossing, PolicyKind, Region,
+    SAVE_SCHEMA_VERSION, SaveVersionError, Spares, Stats,
 };
 pub use store::{
     Cart, CartLine, Grants, Store, StoreItem, calculate_cart_total, calculate_effective_price,
@@ -257,7 +258,7 @@ where
         if let Some(mut game_state) = self.storage.load_game(save_name).map_err(Into::into)? {
             // Rehydrate with fresh data
             let data = self.data_loader.load_encounter_data().map_err(Into::into)?;
-            game_state = game_state.rehydrate(data);
+            game_state = game_state.rehydrate(data).map_err(anyhow::Error::from)?;
             Ok(Some(game_state))
         } else {
             Ok(None)
@@ -337,6 +338,24 @@ mod tests {
         assert_eq!(loaded.budget, 250);
         assert_eq!(loaded.mode, GameMode::Deep);
         assert!(engine.load_game("missing-slot").unwrap().is_none());
+    }
+
+    #[test]
+    fn engine_rejects_stale_save_versions() {
+        let engine = GameEngine::new(FixtureLoader, MemoryStorage::default());
+        let stale = GameState {
+            state_version: SAVE_SCHEMA_VERSION.saturating_sub(1),
+            ..GameState::default()
+        };
+        engine.save_game("slot-stale", &stale).unwrap();
+
+        let err = engine
+            .load_game("slot-stale")
+            .expect_err("stale save should fail");
+        assert!(
+            err.to_string().contains("incompatible"),
+            "expected stale save error, got {err}"
+        );
     }
 
     #[test]

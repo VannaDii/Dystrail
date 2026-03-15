@@ -402,6 +402,7 @@
   "save": {
     "close": "Fermer",
     "error": "JSON de sauvegarde invalide",
+    "incompatible": "Cette sauvegarde provient d'une version incompatible. Lancez une nouvelle partie.",
     "export": "Copier le JSON d’export",
     "header": "Enregistrer/Charger",
     "import_button": "Importer",

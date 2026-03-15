@@ -393,6 +393,7 @@
   "save": {
     "close": "Schließen",
     "error": "Ungültiges Spielstand-JSON",
+    "incompatible": "Dieser Spielstand stammt aus einer inkompatiblen Version. Starte einen neuen Lauf.",
     "export": "Export-JSON kopieren",
     "header": "Speichern/Laden",
     "import_button": "Importieren",

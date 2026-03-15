@@ -402,6 +402,7 @@
   "save": {
     "close": "Fechar",
     "error": "JSON de save inválido",
+    "incompatible": "Este save é de uma versão incompatível. Inicie uma nova partida.",
     "export": "Copiar JSON de exportação",
     "header": "Salvar/Carregar",
     "import_button": "Importar",

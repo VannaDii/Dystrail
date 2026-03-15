@@ -393,6 +393,7 @@
   "save": {
     "close": "Kapat",
     "error": "Geçersiz kayıt JSON'u",
+    "incompatible": "Bu kayıt uyumsuz bir sürümden geliyor. Yeni bir koşu başlatın.",
     "export": "Dışa Aktarma JSON'unu Kopyala",
     "header": "Kaydet/Yükle",
     "import_button": "İçe Aktar",

@@ -393,6 +393,7 @@
   "save": {
     "close": "ਬੰਦ ਕਰੋ",
     "error": "ਗਲਤ ਸੇਵ JSON",
+    "incompatible": "ਇਹ ਸੇਵ ਅਣਕੁੱਲ ਵਰਜਨ ਤੋਂ ਹੈ। ਨਵਾਂ ਰਨ ਸ਼ੁਰੂ ਕਰੋ।",
     "export": "ਐਕਸਪੋਰਟ JSON ਕਾਪੀ ਕਰੋ",
     "header": "ਸੇਵ/ਲੋਡ",
     "import_button": "ਇੰਪੋਰਟ",

@@ -3,15 +3,19 @@ use crate::app::state::AppState;
 use crate::game::state::GameState;
 use yew::prelude::*;
 
+fn load_save_message(logs: &UseStateHandle<Vec<String>>, key: &str) {
+    let mut entries = (**logs).clone();
+    entries.push(crate::i18n::t(key));
+    logs.set(entries);
+}
+
 pub fn build_save(state: &AppState) -> Callback<()> {
     let session_handle = state.session.clone();
     let logs_handle = state.logs.clone();
     Callback::from(move |()| {
         if let Some(sess) = (*session_handle).clone() {
             sess.state().save();
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.saved"));
-            logs_handle.set(l);
+            load_save_message(&logs_handle, "save.saved");
         }
     })
 }
@@ -33,16 +37,18 @@ where
     let endgame_cfg = (*state.endgame_config).clone();
     Callback::from(move |()| {
         if let Some(mut gs) = load_fn() {
-            gs = gs.rehydrate((*data_handle).clone());
-            let sess = session_from_state(gs, &endgame_cfg);
-            let next_phase = phase_for_state(sess.state());
-            run_seed_handle.set(sess.state().seed);
-            pending_handle.set(Some(sess.state().clone()));
-            session_handle.set(Some(sess));
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.loaded"));
-            logs_handle.set(l);
-            phase_handle.set(next_phase);
+            if let Ok(rehydrated) = gs.rehydrate((*data_handle).clone()) {
+                gs = rehydrated;
+                let sess = session_from_state(gs, &endgame_cfg);
+                let next_phase = phase_for_state(sess.state());
+                run_seed_handle.set(sess.state().seed);
+                pending_handle.set(Some(sess.state().clone()));
+                session_handle.set(Some(sess));
+                load_save_message(&logs_handle, "save.loaded");
+                phase_handle.set(next_phase);
+            } else {
+                load_save_message(&logs_handle, "save.incompatible");
+            }
         }
     })
 }
@@ -82,44 +88,43 @@ pub fn build_import_state(state: &AppState) -> Callback<String> {
     let endgame_cfg = (*state.endgame_config).clone();
     Callback::from(move |txt: String| {
         if let Ok(mut gs) = serde_json::from_str::<GameState>(&txt) {
-            gs = gs.rehydrate((*data_handle).clone());
+            let Ok(rehydrated) = gs.rehydrate((*data_handle).clone()) else {
+                load_save_message(&logs_handle, "save.incompatible");
+                return;
+            };
+            gs = rehydrated;
             let sess = session_from_state(gs, &endgame_cfg);
             let next_phase = phase_for_state(sess.state());
             run_seed_handle.set(sess.state().seed);
             pending_handle.set(Some(sess.state().clone()));
             session_handle.set(Some(sess));
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.loaded"));
-            logs_handle.set(l);
+            load_save_message(&logs_handle, "save.loaded");
             phase_handle.set(next_phase);
         } else {
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.error"));
-            logs_handle.set(l);
+            load_save_message(&logs_handle, "save.error");
         }
     })
 }
 
 #[cfg(test)]
 mod tests {
-    use super::build_load_with;
+    use super::{build_import_state, build_load_with};
     use crate::app::phase::Phase;
     use crate::app::state::AppState;
     use crate::game::data::EncounterData;
     use crate::game::state::GameMode;
-    use crate::game::{EndgameTravelCfg, JourneySession};
+    use crate::game::{EndgameTravelCfg, JourneySession, SAVE_SCHEMA_VERSION};
     use futures::executor::block_on;
     use std::cell::Cell;
     use std::rc::Rc;
     use yew::LocalServerRenderer;
     use yew::prelude::*;
 
-    #[function_component(LoadHarness)]
-    fn load_harness() -> Html {
-        crate::i18n::set_lang("en");
-        let invoked = use_state(|| false);
+    #[hook]
+    fn use_storage_test_state() -> (UseStateHandle<bool>, AppState, EncounterData) {
         let data = EncounterData::load_from_static();
         let data_for_state = data.clone();
+        let invoked = use_state(|| false);
         let state = AppState {
             phase: use_state(|| Phase::Menu),
             code: use_state(|| AttrValue::from("CL-TEST01")),
@@ -143,6 +148,13 @@ mod tests {
             show_settings: use_state(|| false),
             current_language: use_state(|| String::from("en")),
         };
+        (invoked, state, data)
+    }
+
+    #[function_component(LoadHarness)]
+    fn load_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let (invoked, state, data) = use_storage_test_state();
 
         let load_called = Rc::new(Cell::new(false));
         let load_called_ref = load_called.clone();
@@ -162,9 +174,65 @@ mod tests {
         }
     }
 
+    #[function_component(IncompatibleLoadHarness)]
+    fn incompatible_load_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let (invoked, state, _data) = use_storage_test_state();
+        let attempted = Rc::new(Cell::new(false));
+        let attempted_ref = attempted.clone();
+        let load_cb = build_load_with(&state, move || {
+            attempted_ref.set(true);
+            Some(crate::game::GameState {
+                state_version: SAVE_SCHEMA_VERSION.saturating_sub(1),
+                ..crate::game::GameState::default()
+            })
+        });
+
+        if !*invoked {
+            invoked.set(true);
+            load_cb.emit(());
+        }
+
+        html! { <div data-attempted={attempted.get().to_string()} /> }
+    }
+
+    #[function_component(IncompatibleImportHarness)]
+    fn incompatible_import_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let (invoked, state, _data) = use_storage_test_state();
+        let attempted = Rc::new(Cell::new(false));
+        let attempted_ref = attempted.clone();
+        let import_cb = build_import_state(&state);
+
+        if !*invoked {
+            invoked.set(true);
+            attempted_ref.set(true);
+            let payload = serde_json::to_string(&crate::game::GameState {
+                state_version: SAVE_SCHEMA_VERSION.saturating_sub(1),
+                ..crate::game::GameState::default()
+            })
+            .expect("stale payload should serialize");
+            import_cb.emit(payload);
+        }
+
+        html! { <div data-attempted={attempted.get().to_string()} /> }
+    }
+
     #[test]
     fn build_load_sets_state_from_loader() {
         let html = block_on(LocalServerRenderer::<LoadHarness>::new().render());
         assert!(html.contains("data-called=\"true\""));
+    }
+
+    #[test]
+    fn build_load_logs_incompatible_save_version() {
+        let html = block_on(LocalServerRenderer::<IncompatibleLoadHarness>::new().render());
+        assert!(html.contains("data-attempted=\"true\""));
+    }
+
+    #[test]
+    fn build_import_logs_incompatible_save_version() {
+        let html = block_on(LocalServerRenderer::<IncompatibleImportHarness>::new().render());
+        assert!(html.contains("data-attempted=\"true\""));
     }
 }
