@@ -70,7 +70,7 @@ fn travel_panel_render_includes_weather_and_breakdown() {
     );
 
     assert!(
-        html.contains("Weather: Storm"),
+        html.contains(&crate::i18n::t("weather.states.Storm")),
         "SSR output should include weather state: {html}"
     );
     assert!(
@@ -99,7 +99,7 @@ fn helpers_format_readable_effects() {
     let announcement =
         format_weather_announcement(Weather::Storm, weather_cfg.effects.get(&Weather::Storm));
     assert!(
-        announcement.contains("Weather: Storm"),
+        announcement.contains("Storm"),
         "Announcement should mention current weather: {announcement}"
     );
 }
@@ -327,7 +327,7 @@ fn weather_info_renders_clear_state_without_effects_text() {
     }
 
     let html = block_on(LocalServerRenderer::<WeatherInfoHarness>::new().render());
-    assert!(html.contains("Weather: Clear"));
+    assert!(html.contains(&crate::i18n::t("weather.states.Clear")));
 }
 
 #[test]
@@ -341,14 +341,35 @@ fn weather_details_renders_mitigation_and_effects() {
     }
 
     let html = block_on(LocalServerRenderer::<WeatherDetailsHarness>::new().render());
-    assert!(html.contains("Mitigation tag"));
+    assert!(
+        html.contains(
+            crate::i18n::t("weather.details.mitigation_tag")
+                .split(':')
+                .next()
+                .unwrap_or("Mitigation")
+        )
+    );
+}
+
+#[test]
+fn weather_details_renders_no_mitigation_when_missing() {
+    #[function_component(ClearWeatherDetailsHarness)]
+    fn clear_weather_details_harness() -> Html {
+        crate::i18n::set_lang("en");
+        let mut state = GameState::default();
+        state.weather_state.today = Weather::Clear;
+        render_weather_details(&state)
+    }
+
+    let html = block_on(LocalServerRenderer::<ClearWeatherDetailsHarness>::new().render());
+    assert!(html.contains(&crate::i18n::t("weather.details.no_mitigation")));
 }
 
 #[test]
 fn weather_announcement_handles_no_effects() {
     crate::i18n::set_lang("en");
     let announcement = format_weather_announcement(Weather::Clear, None);
-    assert!(announcement.contains("Weather:"));
+    assert!(announcement.contains(&crate::i18n::t("weather.states.Clear")));
     assert!(!announcement.contains("Supplies +"));
 }
 

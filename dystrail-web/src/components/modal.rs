@@ -110,7 +110,7 @@ pub fn modal(props: &Props) -> Html {
             >
                 <div class="modal__header">
                     <h2 id={title_id}>{ props.title.clone() }</h2>
-                    <button type="button" class="modal__close" aria-label="Close dialog" onclick={on_close.clone()}>
+                    <button type="button" class="modal__close" aria-label={crate::i18n::t("dialogs.close")} onclick={on_close.clone()}>
                         {"X"}
                     </button>
                 </div>

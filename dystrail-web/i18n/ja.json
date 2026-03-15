@@ -396,7 +396,19 @@
       "title": "タイトル"
     },
     "share": {
-      "template": "ディストレール — {headline} · スコア {score} · シード {seed} · ペルソナ {persona} ({mult}) · モード {mode}"
+      "template": "ディストレール — {headline} · スコア {score} · シード {seed} · ペルソナ {persona} ({mult}) · モード {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
+    },
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
     }
   },
   "save": {
@@ -428,7 +440,8 @@
     "pants": "パンツ {{pct}}%",
     "pants_label": "パンツメーター",
     "sanity_short": "正気",
-    "sup_short": "物資"
+    "sup_short": "物資",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -443,7 +456,8 @@
       "checkout": "決済",
       "line": "{item} x{qty} = {line_total}",
       "title": "カート",
-      "total": "合計: {sum}   残り予算: {left}"
+      "total": "合計: {sum}   残り予算: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "書類・許可証",
@@ -508,9 +522,14 @@
       "add5": "+5追加",
       "rem1": "-1除去",
       "rem_all": "全て除去",
-      "title": "{item} — {price} 各"
+      "title": "{item} — {price} 各",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "装備調達"
+    "title": "装備調達",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "次の区間へ進む",
@@ -529,7 +548,8 @@
     "hc_on": "ハイコントラストオン",
     "hc_off": "ハイコントラストオフ",
     "hc_toggle": "ハイコントラストオン",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -567,7 +587,8 @@
       "gear": "• 装備軽減：{text}",
       "header": "天気詳細：",
       "notes": "• 注記：{note}",
-      "state": "• 状態：{state}"
+      "state": "• 状態：{state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}%遭遇",
@@ -590,7 +611,16 @@
       "Smoke": "煙",
       "Storm": "嵐"
     },
-    "title": "天気"
+    "title": "天気",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "設定",
@@ -749,5 +779,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

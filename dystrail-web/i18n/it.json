@@ -385,10 +385,22 @@
       "title": "Titolo"
     },
     "share": {
-      "template": "Dystrail — {headline} · Punteggio {score} · Seed {seed} · Persona {persona} ({mult}) · Modalità {mode}"
+      "template": "Dystrail — {headline} · Punteggio {score} · Seed {seed} · Persona {persona} ({mult}) · Modalità {mode}",
+      "errors": {
+        "append_textarea": "Impossibile aggiungere l'area di testo",
+        "cast_textarea": "Impossibile convertire l'area di testo",
+        "create_textarea": "Impossibile creare l'area di testo",
+        "document_unavailable": "Documento non disponibile",
+        "no_body": "Elemento body non disponibile",
+        "remove_textarea": "Impossibile rimuovere l'area di testo"
+      }
     },
     "title": "Risultato",
-    "title_aria": "Risultato"
+    "title_aria": "Risultato",
+    "error": {
+      "announcement": "Errore: {error}",
+      "title": "Errore durante la generazione del risultato"
+    }
   },
   "save": {
     "close": "Chiudi",
@@ -419,7 +431,8 @@
     "pants": "Pantaloni {{pct}}%",
     "pants_label": "Indicatore Pantaloni",
     "sanity_short": "Sanità",
-    "sup_short": "Prov"
+    "sup_short": "Prov",
+    "pants_short": "Pantaloni"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "Paga",
       "line": "{item} x{qty} = {line_total}",
       "title": "Carrello",
-      "total": "Totale: {sum}   Budget rimanente: {left}"
+      "total": "Totale: {sum}   Budget rimanente: {left}",
+      "empty": "NESSUNO"
     },
     "categories": {
       "docs": "Documenti e Permessi",
@@ -499,9 +513,14 @@
       "add5": "Aggiungi +5",
       "rem1": "Rimuovi -1",
       "rem_all": "Rimuovi Tutto",
-      "title": "{item} — {price} ciascuno"
+      "title": "{item} — {price} ciascuno",
+      "current_in_cart": "Nel carrello: {qty}"
     },
-    "title": "Equipaggiamento"
+    "title": "Equipaggiamento",
+    "errors": {
+      "category_not_found": "Categoria non trovata",
+      "item_not_found": "Articolo non trovato"
+    }
   },
   "travel": {
     "next": "Prosegui al tratto successivo",
@@ -519,7 +538,8 @@
     "hc_on": "Alto contrasto attivo",
     "hc_off": "Alto contrasto disattivato",
     "hc_toggle": "Alto contrasto attivo",
-    "back": "Indietro"
+    "back": "Indietro",
+    "configuration_error": "Errore di configurazione"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• Mitigazione equipaggiamento: {text}",
       "header": "Dettagli Meteo:",
       "notes": "• Note: {note}",
-      "state": "• Stato: {state}"
+      "state": "• Stato: {state}",
+      "mitigation_tag": "Tag di mitigazione: {tag} ({sanity} sanità, {pants} pantaloni)"
     },
     "effects": {
       "enc": "{val}% Incontri",
@@ -580,7 +601,16 @@
       "Smoke": "Fumo",
       "Storm": "Tempesta"
     },
-    "title": "Meteo"
+    "title": "Meteo",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Giorno {day} — Regione: {region}",
+      "label_only": "Meteo: {weather}",
+      "state": "Meteo: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Impostazioni",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miglia percorse",
     "distance_today": "Miglia di oggi",
     "region": "Regione"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "Nessun cambiamento",
+      "receipts": "Ricevute +1"
+    }
   }
 }

@@ -28,7 +28,7 @@ pub fn otdeluxe_crossing_card(props: &OtDeluxeCrossingCardProps) -> Html {
         Err(error_msg) => {
             return html! {
                 <section role="region" class="ot-crossing error">
-                    <h3>{"Configuration Error"}</h3>
+                    <h3>{ crate::i18n::t("ui.configuration_error") }</h3>
                     <p class="error">{ error_msg }</p>
                 </section>
             };
@@ -124,7 +124,7 @@ mod tests {
         };
         let html =
             block_on(LocalServerRenderer::<OtDeluxeCrossingCard>::with_props(props).render());
-        assert!(html.contains("Configuration Error"));
+        assert!(html.contains(&crate::i18n::t("ui.configuration_error")));
     }
 
     #[test]

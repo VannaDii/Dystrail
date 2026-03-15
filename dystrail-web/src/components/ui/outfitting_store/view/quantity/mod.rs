@@ -13,7 +13,7 @@ pub fn render_quantity_screen(
     on_keydown: &Callback<web_sys::KeyboardEvent>,
 ) -> Html {
     let Some(item) = state.store_data.find_item(item_id) else {
-        return html! { <div>{ "Item not found" }</div> };
+        return html! { <div>{ crate::i18n::t("store.errors.item_not_found") }</div> };
     };
 
     let item_name = crate::i18n::t(&format!("store.items.{}.name", item.id));
@@ -40,7 +40,21 @@ pub fn render_quantity_screen(
             <section role="region" aria-labelledby="qty-title" onkeydown={on_keydown} tabindex="0" data-testid="outfitting-store">
                 <h1 id="qty-title">{ title }</h1>
                 { if current_qty > 0 {
-                    html! { <p class="current-qty">{ format!("Current in cart: {current_qty}") }</p> }
+                    let qty = current_qty.to_string();
+                    html! {
+                        <p class="current-qty">
+                            {
+                                crate::i18n::tr(
+                                    "store.qty_prompt.current_in_cart",
+                                    Some(&{
+                                        let mut vars = BTreeMap::new();
+                                        vars.insert("qty", qty.as_str());
+                                        vars
+                                    }),
+                                )
+                            }
+                        </p>
+                    }
                 } else { html! {} }}
                 <div ref={list_ref}>{ render_quantity_options(&options, state.focus_idx, &on_select) }</div>
                 <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
@@ -83,7 +97,7 @@ mod tests {
     #[test]
     fn render_quantity_screen_reports_missing_item() {
         let html = block_on(LocalServerRenderer::<MissingItemHarness>::new().render());
-        assert!(html.contains("Item not found"));
+        assert!(html.contains(&crate::i18n::t("store.errors.item_not_found")));
     }
 
     #[function_component(QuantityRenderHarness)]
@@ -153,6 +167,15 @@ mod tests {
     #[test]
     fn render_quantity_screen_shows_current_qty_when_present() {
         let html = block_on(LocalServerRenderer::<QuantityWithCartHarness>::new().render());
-        assert!(html.contains("Current in cart: 2"));
+        let qty = "2".to_string();
+        let expected = crate::i18n::tr(
+            "store.qty_prompt.current_in_cart",
+            Some(&{
+                let mut vars = BTreeMap::new();
+                vars.insert("qty", qty.as_str());
+                vars
+            }),
+        );
+        assert!(html.contains(&expected));
     }
 }

@@ -385,10 +385,22 @@
       "title": "शीर्षक"
     },
     "share": {
-      "template": "Dystrail — {headline} · स्कोअर {score} · सीड {seed} · व्यक्तिमत्त्व {persona} ({mult}) · मोड {mode}"
+      "template": "Dystrail — {headline} · स्कोअर {score} · सीड {seed} · व्यक्तिमत्त्व {persona} ({mult}) · मोड {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "परिणाम",
-    "title_aria": "परिणाम"
+    "title_aria": "परिणाम",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "बंद करा",
@@ -419,7 +431,8 @@
     "pants": "पँट्स {{pct}}%",
     "pants_label": "पँट्स मीटर",
     "sanity_short": "बुद्धी",
-    "sup_short": "पुरवठा"
+    "sup_short": "पुरवठा",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "चेकआउट",
       "line": "{item} x{qty} = {line_total}",
       "title": "कार्ट",
-      "total": "एकूण: {sum}   उरलेले बजेट: {left}"
+      "total": "एकूण: {sum}   उरलेले बजेट: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "कागदपत्रे आणि परमिट",
@@ -499,9 +513,14 @@
       "add5": "+5 जोडा",
       "rem1": "-1 काढा",
       "rem_all": "सगळे काढा",
-      "title": "{item} — प्रत्येकी {price}"
+      "title": "{item} — प्रत्येकी {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "उपकरणे"
+    "title": "उपकरणे",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "पुढील टप्प्याचा प्रवास",
@@ -519,7 +538,8 @@
     "hc_on": "हाय कॉन्ट्रास्ट चालू",
     "hc_off": "हाय कॉन्ट्रास्ट बंद",
     "hc_toggle": "हाय कॉन्ट्रास्ट चालू",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• गियर कमी करणे: {text}",
       "header": "हवामान तपशील:",
       "notes": "• टिपा: {note}",
-      "state": "• स्थिती: {state}"
+      "state": "• स्थिती: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% चकमक",
@@ -580,7 +601,16 @@
       "Smoke": "धूर",
       "Storm": "वादळ"
     },
-    "title": "हवामान"
+    "title": "हवामान",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "सेटिंग्ज",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

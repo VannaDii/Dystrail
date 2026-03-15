@@ -46,7 +46,7 @@ fn render_cart_content(
     cart_total_line: &str,
 ) -> Html {
     if state.cart.lines.is_empty() {
-        html! { <p class="empty-cart">{ "NONE" }</p> }
+        html! { <p class="empty-cart">{ i18n::t("store.cart.empty") }</p> }
     } else {
         let cart_total_line = cart_total_line.to_string();
         let set_size = cart_lines.len();

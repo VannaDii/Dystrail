@@ -385,10 +385,22 @@
       "title": "Titel"
     },
     "share": {
-      "template": "Dystrail — {headline} · Punkte {score} · Seed {seed} · Persona {persona} ({mult}) · Modus {mode}"
+      "template": "Dystrail — {headline} · Punkte {score} · Seed {seed} · Persona {persona} ({mult}) · Modus {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "Ergebnis",
-    "title_aria": "Ergebnis"
+    "title_aria": "Ergebnis",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "Schließen",
@@ -419,7 +431,8 @@
     "pants": "Hosen {{pct}}%",
     "pants_label": "Hosen-Meter",
     "sanity_short": "Ver",
-    "sup_short": "Vor"
+    "sup_short": "Vor",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "Zur Kasse",
       "line": "{item} x{qty} = {line_total}",
       "title": "Warenkorb",
-      "total": "Gesamt: {sum}   Budget übrig: {left}"
+      "total": "Gesamt: {sum}   Budget übrig: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Dokumente & Genehmigungen",
@@ -499,9 +513,14 @@
       "add5": "+5 hinzufügen",
       "rem1": "-1 entfernen",
       "rem_all": "Alle entfernen",
-      "title": "{item} — {price} pro Stück"
+      "title": "{item} — {price} pro Stück",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Ausrüstung"
+    "title": "Ausrüstung",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "Nächste Etappe reisen",
@@ -519,7 +538,8 @@
     "hc_on": "Hoher Kontrast an",
     "hc_off": "Hoher Kontrast aus",
     "hc_toggle": "Hoher Kontrast an",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• Ausrüstungs-Milderung: {text}",
       "header": "Wetterdetails:",
       "notes": "• Hinweise: {note}",
-      "state": "• Zustand: {state}"
+      "state": "• Zustand: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% Begegnung",
@@ -580,7 +601,16 @@
       "Smoke": "Rauch",
       "Storm": "Sturm"
     },
-    "title": "Wetter"
+    "title": "Wetter",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Einstellungen",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

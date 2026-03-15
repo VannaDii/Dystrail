@@ -385,10 +385,22 @@
       "title": "제목"
     },
     "share": {
-      "template": "Dystrail — {headline} · 점수 {score} · 시드 {seed} · 페르소나 {persona} ({mult}) · 모드 {mode}"
+      "template": "Dystrail — {headline} · 점수 {score} · 시드 {seed} · 페르소나 {persona} ({mult}) · 모드 {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "결과",
-    "title_aria": "결과"
+    "title_aria": "결과",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "닫기",
@@ -419,7 +431,8 @@
     "pants": "바지 {{pct}}%",
     "pants_label": "바지 미터",
     "sanity_short": "정신",
-    "sup_short": "보급"
+    "sup_short": "보급",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "결제",
       "line": "{item} x{qty} = {line_total}",
       "title": "장바구니",
-      "total": "총합: {sum}   남은 예산: {left}"
+      "total": "총합: {sum}   남은 예산: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "문서 & 허가증",
@@ -499,9 +513,14 @@
       "add5": "+5 추가",
       "rem1": "-1 제거",
       "rem_all": "모두 제거",
-      "title": "{item} — 개당 {price}"
+      "title": "{item} — 개당 {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "장비"
+    "title": "장비",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "다음 구간 여행",
@@ -519,7 +538,8 @@
     "hc_on": "고대비 켬",
     "hc_off": "고대비 끔",
     "hc_toggle": "고대비 켬",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• 장비 완화: {text}",
       "header": "날씨 세부사항:",
       "notes": "• 참고: {note}",
-      "state": "• 상태: {state}"
+      "state": "• 상태: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% 이벤트",
@@ -580,7 +601,16 @@
       "Smoke": "연기",
       "Storm": "폭풍"
     },
-    "title": "날씨"
+    "title": "날씨",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "설정",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

@@ -33,7 +33,7 @@ pub fn crossing_card(props: &CrossingCardProps) -> Html {
             Err(error_msg) => {
                 return html! {
                     <section role="region" class="ot-crossing error">
-                        <h3>{"Configuration Error"}</h3>
+                        <h3>{ crate::i18n::t("ui.configuration_error") }</h3>
                         <p class="error">{ error_msg }</p>
                     </section>
                 };
@@ -168,6 +168,6 @@ mod tests {
             on_choice: Callback::noop(),
         };
         let html = block_on(LocalServerRenderer::<CrossingCard>::with_props(props).render());
-        assert!(html.contains("Configuration Error"));
+        assert!(html.contains(&crate::i18n::t("ui.configuration_error")));
     }
 }

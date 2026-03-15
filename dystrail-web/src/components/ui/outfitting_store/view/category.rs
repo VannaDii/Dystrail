@@ -21,7 +21,7 @@ pub fn render_category_screen(
         .iter()
         .find(|c| c.id == *category_id)
     else {
-        return html! { <div>{ "Category not found" }</div> };
+        return html! { <div>{ i18n::t("store.errors.category_not_found") }</div> };
     };
 
     let budget_str = format_currency(game_state.budget_cents - state.cart.total_cents);
@@ -110,7 +110,7 @@ mod tests {
     #[test]
     fn render_category_screen_reports_missing_category() {
         let html = block_on(LocalServerRenderer::<MissingCategoryHarness>::new().render());
-        assert!(html.contains("Category not found"));
+        assert!(html.contains(&i18n::t("store.errors.category_not_found")));
     }
 
     #[test]

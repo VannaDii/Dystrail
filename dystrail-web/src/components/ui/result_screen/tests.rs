@@ -85,6 +85,7 @@ fn parse_numeric_key_identifies_digits() {
 
 #[test]
 fn resolve_summary_reports_error_html() {
+    crate::i18n::set_lang("en");
     #[function_component(ResolveHarness)]
     fn resolve_harness() -> Html {
         let props = baseline_props();
@@ -94,12 +95,13 @@ fn resolve_summary_reports_error_html() {
         }
     }
     let html = block_on(LocalServerRenderer::<ResolveHarness>::new().render());
-    assert!(html.contains("Error generating result"));
+    assert!(html.contains(&crate::i18n::t("result.error.title")));
     assert!(html.contains("boom"));
 }
 
 #[test]
 fn render_result_body_reports_error_html() {
+    crate::i18n::set_lang("en");
     #[function_component(RenderBodyHarness)]
     fn render_body_harness() -> Html {
         let props = baseline_props();
@@ -115,7 +117,7 @@ fn render_result_body_reports_error_html() {
         )
     }
     let html = block_on(LocalServerRenderer::<RenderBodyHarness>::new().render());
-    assert!(html.contains("Error generating result"));
+    assert!(html.contains(&crate::i18n::t("result.error.title")));
     assert!(html.contains("boom"));
 }
 
@@ -167,8 +169,12 @@ fn interpolate_template_localizes_mode_and_fallback_persona() {
 
 #[test]
 fn copy_payload_errors_without_document() {
+    crate::i18n::set_lang("en");
     let err = share::copy_payload("payload").unwrap_err();
-    assert!(err.contains("Document"));
+    assert_eq!(
+        err,
+        crate::i18n::t("result.share.errors.document_unavailable")
+    );
 }
 
 #[test]

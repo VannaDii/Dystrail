@@ -385,10 +385,22 @@
       "title": "ਸਿਰਲੇਖ"
     },
     "share": {
-      "template": "Dystrail — {headline} · ਸਕੋਰ {score} · ਸੀਡ {seed} · ਸ਼ਖਸੀਅਤ {persona} ({mult}) · ਮੋਡ {mode}"
+      "template": "Dystrail — {headline} · ਸਕੋਰ {score} · ਸੀਡ {seed} · ਸ਼ਖਸੀਅਤ {persona} ({mult}) · ਮੋਡ {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "ਨਤੀਜਾ",
-    "title_aria": "ਨਤੀਜਾ"
+    "title_aria": "ਨਤੀਜਾ",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "ਬੰਦ ਕਰੋ",
@@ -419,7 +431,8 @@
     "pants": "ਪੈਂਟ {{pct}}%",
     "pants_label": "ਪੈਂਟ ਮੀਟਰ",
     "sanity_short": "ਅਕਲ",
-    "sup_short": "ਸਪਲਾਈ"
+    "sup_short": "ਸਪਲਾਈ",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "ਚੈਕਆਉਟ",
       "line": "{item} x{qty} = {line_total}",
       "title": "ਕਾਰਟ",
-      "total": "ਕੁੱਲ: {sum}   ਬਚਿਆ ਬਜਟ: {left}"
+      "total": "ਕੁੱਲ: {sum}   ਬਚਿਆ ਬਜਟ: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਪਰਮਿਟ",
@@ -499,9 +513,14 @@
       "add5": "+5 ਜੋੜੋ",
       "rem1": "-1 ਹਟਾਓ",
       "rem_all": "ਸਭ ਹਟਾਓ",
-      "title": "{item} — ਹਰੇਕ {price}"
+      "title": "{item} — ਹਰੇਕ {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "ਸਾਜ਼ੋ-ਸਾਮਾਨ"
+    "title": "ਸਾਜ਼ੋ-ਸਾਮਾਨ",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "ਅਗਲੇ ਪੜਾਅ ਦਾ ਸਫ਼ਰ",
@@ -519,7 +538,8 @@
     "hc_on": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਆਨ",
     "hc_off": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਬੰਦ",
     "hc_toggle": "ਉੱਚਾ ਕਾਂਟ੍ਰਾਸਟ ਆਨ",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• ਗਿਅਰ ਘਟਾਉਣਾ: {text}",
       "header": "ਮੌਸਮ ਵੇਰਵੇ:",
       "notes": "• ਨੋਟਸ: {note}",
-      "state": "• ਸਥਿਤੀ: {state}"
+      "state": "• ਸਥਿਤੀ: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% ਮੁਲਾਕਾਤ",
@@ -580,7 +601,16 @@
       "Smoke": "ਧੂੰਆਂ",
       "Storm": "ਤੂਫਾਨ"
     },
-    "title": "ਮੌਸਮ"
+    "title": "ਮੌਸਮ",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "ਸੈਟਿੰਗਾਂ",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

@@ -86,13 +86,13 @@ pub(super) fn copy_payload(text: &str) -> Result<(), String> {
 #[cfg(all(target_arch = "wasm32", any(target_arch = "wasm32", test)))]
 fn fallback_copy(text: &str) -> Result<(), String> {
     let Some(document) = dom::document() else {
-        return Err("Document unavailable".to_string());
+        return Err(i18n::t("result.share.errors.document_unavailable"));
     };
     let textarea = document
         .create_element("textarea")
-        .map_err(|_| "Failed to create textarea".to_string())?
+        .map_err(|_| i18n::t("result.share.errors.create_textarea"))?
         .dyn_into::<HtmlTextAreaElement>()
-        .map_err(|_| "Failed to cast to textarea".to_string())?;
+        .map_err(|_| i18n::t("result.share.errors.cast_textarea"))?;
 
     textarea.set_value(text);
 
@@ -104,18 +104,18 @@ fn fallback_copy(text: &str) -> Result<(), String> {
 
     if let Some(body) = document.body() {
         body.append_child(&textarea)
-            .map_err(|_| "Failed to append textarea".to_string())?;
+            .map_err(|_| i18n::t("result.share.errors.append_textarea"))?;
         textarea.select();
         body.remove_child(&textarea)
-            .map_err(|_| "Failed to remove textarea".to_string())?;
+            .map_err(|_| i18n::t("result.share.errors.remove_textarea"))?;
         Ok(())
     } else {
-        Err("No body element".to_string())
+        Err(i18n::t("result.share.errors.no_body"))
     }
 }
 
 #[cfg(all(not(target_arch = "wasm32"), test))]
 fn fallback_copy(text: &str) -> Result<(), String> {
     let _ = text;
-    Err("Document unavailable".to_string())
+    Err(i18n::t("result.share.errors.document_unavailable"))
 }

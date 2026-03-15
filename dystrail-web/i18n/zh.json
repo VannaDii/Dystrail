@@ -396,7 +396,19 @@
       "title": "标题"
     },
     "share": {
-      "template": "Dystrail — {headline} · 分数 {score} · 种子 {seed} · 角色 {persona} ({mult}) · 模式 {mode}"
+      "template": "Dystrail — {headline} · 分数 {score} · 种子 {seed} · 角色 {persona} ({mult}) · 模式 {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
+    },
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
     }
   },
   "save": {
@@ -428,7 +440,8 @@
     "pants": "裤子 {{pct}}%",
     "pants_label": "裤子计量表",
     "sanity_short": "理智",
-    "sup_short": "物资"
+    "sup_short": "物资",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -443,7 +456,8 @@
       "checkout": "结账",
       "line": "{item} x{qty} = {line_total}",
       "title": "购物车",
-      "total": "总计: {sum}   剩余预算: {left}"
+      "total": "总计: {sum}   剩余预算: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "文件和许可证",
@@ -508,9 +522,14 @@
       "add5": "添加 +5",
       "rem1": "移除 -1",
       "rem_all": "移除全部",
-      "title": "{item} — 每个 {price}"
+      "title": "{item} — 每个 {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "装备"
+    "title": "装备",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "前往下一段",
@@ -528,7 +547,8 @@
     "hc_on": "高对比度已开启",
     "hc_off": "高对比度已关闭",
     "hc_toggle": "高对比度已开启",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -566,7 +586,8 @@
       "gear": "• 装备减免：{text}",
       "header": "天气详情：",
       "notes": "• 备注：{note}",
-      "state": "• 状态：{state}"
+      "state": "• 状态：{state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}%遭遇",
@@ -589,7 +610,16 @@
       "Smoke": "烟雾",
       "Storm": "风暴"
     },
-    "title": "天气"
+    "title": "天气",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "设置",
@@ -748,5 +778,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

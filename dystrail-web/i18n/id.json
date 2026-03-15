@@ -385,10 +385,22 @@
       "title": "Judul"
     },
     "share": {
-      "template": "Dystrail — {headline} · Skor {score} · Seed {seed} · Persona {persona} ({mult}) · Mode {mode}"
+      "template": "Dystrail — {headline} · Skor {score} · Seed {seed} · Persona {persona} ({mult}) · Mode {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "Hasil",
-    "title_aria": "Hasil"
+    "title_aria": "Hasil",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "Tutup",
@@ -419,7 +431,8 @@
     "pants": "Celana {{pct}}%",
     "pants_label": "Meter Celana",
     "sanity_short": "Waras",
-    "sup_short": "Pers"
+    "sup_short": "Pers",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "Check-out",
       "line": "{item} x{qty} = {line_total}",
       "title": "Keranjang",
-      "total": "Total: {sum}   Budget tersisa: {left}"
+      "total": "Total: {sum}   Budget tersisa: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Dokumen & Izin",
@@ -499,9 +513,14 @@
       "add5": "Tambah +5",
       "rem1": "Hapus -1",
       "rem_all": "Hapus Semua",
-      "title": "{item} — {price} setiap"
+      "title": "{item} — {price} setiap",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Perlengkapan"
+    "title": "Perlengkapan",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "Perjalanan Etape Berikutnya",
@@ -519,7 +538,8 @@
     "hc_on": "Kontras tinggi aktif",
     "hc_off": "Kontras tinggi nonaktif",
     "hc_toggle": "Kontras tinggi aktif",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• Mitigasi perlengkapan: {text}",
       "header": "Detail Cuaca:",
       "notes": "• Catatan: {note}",
-      "state": "• Status: {state}"
+      "state": "• Status: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% Pertemuan",
@@ -580,7 +601,16 @@
       "Smoke": "Asap",
       "Storm": "Badai"
     },
-    "title": "Cuaca"
+    "title": "Cuaca",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Pengaturan",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

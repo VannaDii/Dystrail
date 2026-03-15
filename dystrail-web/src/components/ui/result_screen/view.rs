@@ -94,7 +94,13 @@ impl ResultScreen {
         let summary = match share::summary(props) {
             Ok(s) => s,
             Err(e) => {
-                Self::announce(ctx, &format!("Error: {e}"));
+                Self::announce(
+                    ctx,
+                    &crate::i18n::tr(
+                        "result.error.announcement",
+                        Some(&std::collections::BTreeMap::from([("error", e.as_str())])),
+                    ),
+                );
                 return;
             }
         };
@@ -138,7 +144,7 @@ impl ResultScreen {
 fn render_error_view(error: &str) -> Html {
     html! {
         <main role="main" class="error">
-            <h1>{ "Error generating result" }</h1>
+            <h1>{ crate::i18n::t("result.error.title") }</h1>
             <p>{ error }</p>
         </main>
     }

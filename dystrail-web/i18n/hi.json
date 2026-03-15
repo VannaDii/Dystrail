@@ -396,7 +396,19 @@
       "title": "शीर्षक"
     },
     "share": {
-      "template": "डिस्ट्रेल - {headline} · स्कोर {score} · बीज {seed} · व्यक्तित्व {persona} ({mult}) · मोड {mode}"
+      "template": "डिस्ट्रेल - {headline} · स्कोर {score} · बीज {seed} · व्यक्तित्व {persona} ({mult}) · मोड {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
+    },
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
     }
   },
   "save": {
@@ -428,7 +440,8 @@
     "pants": "पैंट {{pct}}%",
     "pants_label": "पैंट मीटर",
     "sanity_short": "मानस",
-    "sup_short": "सामान"
+    "sup_short": "सामान",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -443,7 +456,8 @@
       "checkout": "चेकआउट",
       "line": "{item} x{qty} = {line_total}",
       "title": "कार्ट",
-      "total": "कुल: {sum}   बजट बचा: {left}"
+      "total": "कुल: {sum}   बजट बचा: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "दस्तावेज़ और परमिट",
@@ -508,9 +522,14 @@
       "add5": "+5 जोड़ें",
       "rem1": "-1 हटाएं",
       "rem_all": "सभी हटाएं",
-      "title": "{item} — {price} प्रत्येक"
+      "title": "{item} — {price} प्रत्येक",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "तैयारी"
+    "title": "तैयारी",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "अगला चरण यात्रा करें",
@@ -528,7 +547,8 @@
     "hc_on": "हाई कॉन्ट्रास्ट चालू",
     "hc_off": "हाई कॉन्ट्रास्ट बंद",
     "hc_toggle": "हाई कॉन्ट्रास्ट चालू",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -566,7 +586,8 @@
       "gear": "• उपकरण शमन: {text}",
       "header": "मौसम विवरण:",
       "notes": "• नोट्स: {note}",
-      "state": "• स्थिति: {state}"
+      "state": "• स्थिति: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% मुठभेड़",
@@ -589,7 +610,16 @@
       "Smoke": "धुआं",
       "Storm": "तूफान"
     },
-    "title": "मौसम"
+    "title": "मौसम",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -748,5 +778,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

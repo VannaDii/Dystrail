@@ -385,10 +385,22 @@
       "title": "శీర్షిక"
     },
     "share": {
-      "template": "Dystrail — {headline} · స్కోర్ {score} · సీడ్ {seed} · వ్యక్తిత్వం {persona} ({mult}) · మోడ్ {mode}"
+      "template": "Dystrail — {headline} · స్కోర్ {score} · సీడ్ {seed} · వ్యక్తిత్వం {persona} ({mult}) · మోడ్ {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "ఫలితం",
-    "title_aria": "ఫలితం"
+    "title_aria": "ఫలితం",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "మూసివేయండి",
@@ -419,7 +431,8 @@
     "pants": "ప్యాంట్స్ {{pct}}%",
     "pants_label": "ప్యాంట్స్ మీటర్",
     "sanity_short": "మానసిక",
-    "sup_short": "సరఫరా"
+    "sup_short": "సరఫరా",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "చెక్‌అవుట్",
       "line": "{item} x{qty} = {line_total}",
       "title": "కార్ట్",
-      "total": "మొత్తం: {sum}   మిగిలిన బడ్జెట్: {left}"
+      "total": "మొత్తం: {sum}   మిగిలిన బడ్జెట్: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "డాక్యుమెంట్లు & అనుమతులు",
@@ -499,9 +513,14 @@
       "add5": "+5 జోడించు",
       "rem1": "-1 తొలగించు",
       "rem_all": "అన్నీ తొలగించు",
-      "title": "{item} — ఒక్కొక్కటి {price}"
+      "title": "{item} — ఒక్కొక్కటి {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "పరికరాలు"
+    "title": "పరికరాలు",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "తదుపరి దశ ప్రయాణం",
@@ -519,7 +538,8 @@
     "hc_on": "హై కాంట్రాస్ట్ ఆన్",
     "hc_off": "హై కాంట్రాస్ట్ ఆఫ్",
     "hc_toggle": "హై కాంట్రాస్ట్ ఆన్",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• గియర్ తగ్గింపు: {text}",
       "header": "వాతావరణ వివరాలు:",
       "notes": "• గమనికలు: {note}",
-      "state": "• స్థితి: {state}"
+      "state": "• స్థితి: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% ఎన్‌కౌంటర్",
@@ -580,7 +601,16 @@
       "Smoke": "పొగ",
       "Storm": "తుఫాను"
     },
-    "title": "వాతావరణం"
+    "title": "వాతావరణం",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "సెట్టింగ్స్",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

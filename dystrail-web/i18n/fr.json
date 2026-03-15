@@ -396,7 +396,19 @@
       "title": "Titre"
     },
     "share": {
-      "template": "Dystrail — {headline} · Score {score} · Graine {seed} · Persona {persona} ({mult}) · Mode {mode}"
+      "template": "Dystrail — {headline} · Score {score} · Graine {seed} · Persona {persona} ({mult}) · Mode {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
+    },
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
     }
   },
   "save": {
@@ -428,7 +440,8 @@
     "pants": "Pantalon {{pct}}%",
     "pants_label": "Jauge de pantalon",
     "sanity_short": "Santé mentale",
-    "sup_short": "Rav"
+    "sup_short": "Rav",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -443,7 +456,8 @@
       "checkout": "Payer",
       "line": "{item} x{qty} = {line_total}",
       "title": "Panier",
-      "total": "Total: {sum}   Budget restant: {left}"
+      "total": "Total: {sum}   Budget restant: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Documents et Permis",
@@ -508,9 +522,14 @@
       "add5": "Ajouter +5",
       "rem1": "Retirer -1",
       "rem_all": "Retirer Tout",
-      "title": "{item} — {price} chacun"
+      "title": "{item} — {price} chacun",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Équipement"
+    "title": "Équipement",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "Parcourir l’étape suivante",
@@ -528,7 +547,8 @@
     "hc_on": "Contraste élevé activé",
     "hc_off": "Contraste élevé désactivé",
     "hc_toggle": "Contraste élevé activé",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -566,7 +586,8 @@
       "gear": "• Atténuation équipement : {text}",
       "header": "Détails Météo :",
       "notes": "• Notes : {note}",
-      "state": "• État : {state}"
+      "state": "• État : {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% Rencontre",
@@ -589,7 +610,16 @@
       "Smoke": "Fumée",
       "Storm": "Tempête"
     },
-    "title": "Météo"
+    "title": "Météo",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Paramètres",
@@ -748,5 +778,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

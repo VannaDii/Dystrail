@@ -2,7 +2,22 @@ use crate::components::ui::stats_bar::weather_symbol;
 use crate::game::weather::{Weather, WeatherConfig, WeatherEffect};
 use crate::game::{GameState, Region};
 use crate::i18n;
+use std::collections::BTreeMap;
 use yew::prelude::*;
+
+macro_rules! tr_args {
+    ($key:expr, $args:expr $(,)?) => {{
+        i18n::tr(
+            $key,
+            Some(
+                &$args
+                    .iter()
+                    .map(|(name, value)| (*name, value.as_str()))
+                    .collect::<BTreeMap<_, _>>(),
+            ),
+        )
+    }};
+}
 
 pub(super) fn render_weather_info(game_state: &GameState) -> Html {
     let weather_cfg = WeatherConfig::default_config();
@@ -50,11 +65,17 @@ pub(super) fn render_weather_info(game_state: &GameState) -> Html {
                onclick={Callback::from(move |_| {})}>
                 <span class="weather-icon" aria-hidden="true">{ icon }</span>
                 <span class="day-region">
-                    { format!("Day {day} — Region: {region}", day = game_state.day, region = region_name) }
+                    { tr_args!(
+                        "weather.summary.day_region",
+                        &[("day", game_state.day.to_string()), ("region", region_name)],
+                    ) }
                 </span>
                 <br />
                 <span class="weather-state">
-                    { format!("Weather: {weather}{effects}", weather = weather_state_name, effects = effects_text) }
+                    { tr_args!(
+                        "weather.summary.state",
+                        &[("weather", weather_state_name), ("effects", effects_text)],
+                    ) }
                 </span>
             </p>
 
@@ -79,20 +100,15 @@ pub(super) fn render_weather_details(game_state: &GameState) -> Html {
         <section class="weather-details" aria-label={i18n::t("weather.details.header")}>
             <h4>{ weather_state_name }</h4>
             <ul>
-                {
-                    effect.map_or_else(
-                        || html! { <li>{ i18n::t("weather.effects.none") }</li> },
-                        |eff| html! {
-                            <>
-                                <li>{ format_delta(&i18n::t("stats.supplies"), eff.supplies) }</li>
-                                <li>{ format_delta(&i18n::t("stats.sanity"), eff.sanity) }</li>
-                                <li>{ format_delta(&i18n::t("stats.pants"), eff.pants) }</li>
-                                <li>{ format_percent(&i18n::t("weather.details.encounter"), eff.enc_delta) }</li>
-                                <li>{ format_percent(&i18n::t("weather.details.travel"), eff.travel_mult - 1.0) }</li>
-                            </>
-                        }
-                    )
-                }
+                { effect.map(|eff| html! {
+                    <>
+                        <li>{ format_delta(&i18n::t("stats.supplies"), eff.supplies) }</li>
+                        <li>{ format_delta(&i18n::t("stats.sanity"), eff.sanity) }</li>
+                        <li>{ format_delta(&i18n::t("stats.pants"), eff.pants) }</li>
+                        <li>{ format_percent(&i18n::t("weather.details.encounter"), eff.enc_delta) }</li>
+                        <li>{ format_percent(&i18n::t("weather.details.travel"), eff.travel_mult - 1.0) }</li>
+                    </>
+                }).unwrap_or_default() }
             </ul>
             <p class="mitigation">
                 { mitigation.map_or_else(
@@ -100,7 +116,20 @@ pub(super) fn render_weather_details(game_state: &GameState) -> Html {
                     |mit| {
                         let sanity = mit.sanity.unwrap_or(0);
                         let pants = mit.pants.unwrap_or(0);
-                        html! { <span>{ format!("Mitigation tag: {} ({:+} sanity, {:+} pants)", mit.tag, sanity, pants) }</span> }
+                        html! {
+                            <span>
+                                {
+                                    tr_args!(
+                                        "weather.details.mitigation_tag",
+                                        &[
+                                            ("tag", mit.tag.clone()),
+                                            ("sanity", format!("{sanity:+}")),
+                                            ("pants", format!("{pants:+}")),
+                                        ],
+                                    )
+                                }
+                            </span>
+                        }
                     },
                 )}
             </p>
@@ -110,11 +139,20 @@ pub(super) fn render_weather_details(game_state: &GameState) -> Html {
 }
 
 pub(super) fn format_delta(stat: &str, value: i32) -> String {
-    format!("{stat} {value:+}")
+    tr_args!(
+        "weather.format.delta",
+        &[("stat", stat.to_string()), ("value", format!("{value:+}"))],
+    )
 }
 
 pub(super) fn format_percent(stat: &str, value: f32) -> String {
-    format!("{stat} {:+.0}%", value * 100.0)
+    tr_args!(
+        "weather.format.percent",
+        &[
+            ("stat", stat.to_string()),
+            ("value", format!("{:+.0}", value * 100.0)),
+        ],
+    )
 }
 
 pub(super) fn format_weather_announcement(
@@ -122,7 +160,10 @@ pub(super) fn format_weather_announcement(
     effects: Option<&WeatherEffect>,
 ) -> String {
     let mut parts = Vec::new();
-    parts.push(format!("Weather: {}", i18n::t(today.i18n_key())));
+    parts.push(tr_args!(
+        "weather.summary.label_only",
+        &[("weather", i18n::t(today.i18n_key()))],
+    ));
 
     if let Some(effect) = effects {
         if effect.supplies != 0 {

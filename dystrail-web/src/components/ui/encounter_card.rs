@@ -52,10 +52,14 @@ fn format_effects(effects: &crate::game::data::Effects) -> Vec<String> {
         ));
     }
     if effects.pants != 0 {
-        lines.push(format!("Pants {:+}", effects.pants));
+        lines.push(format!(
+            "{} {:+}",
+            crate::i18n::t("stats.pants_short"),
+            effects.pants
+        ));
     }
     if effects.add_receipt.is_some() {
-        lines.push("Receipts +1".to_string());
+        lines.push(crate::i18n::t("encounter.effects.receipts"));
     }
     lines
 }
@@ -82,7 +86,7 @@ pub fn encounter_card(p: &Props) -> Html {
                     { format!("{}{}", i + 1, ") ") }{ c.label.clone() }
                 </button>
                 <div id={desc_id} class="sr-only">
-                    { if tooltip.is_empty() { String::from("No change") } else { tooltip } }
+                    { if tooltip.is_empty() { crate::i18n::t("encounter.effects.no_change") } else { tooltip } }
                 </div>
             </div>
         }
@@ -172,7 +176,7 @@ mod tests {
         assert!(joined.contains("Mor"));
         assert!(joined.contains("Allies"));
         assert!(joined.contains("Pants -"));
-        assert!(joined.contains("Receipts +1"));
+        assert!(joined.contains(&crate::i18n::t("encounter.effects.receipts")));
     }
 
     #[test]

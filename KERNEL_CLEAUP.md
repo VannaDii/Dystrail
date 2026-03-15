@@ -45,7 +45,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] `kernel/events/*` introduced and schema frozen.
   - [x] `kernel/session.rs` extracted from `kernel/mod.rs`.
   - [x] `kernel/phases/mod.rs` introduced as explicit tick boundary.
-- [ ] Migrate mechanics out of `state.rs` by phase.
+- [x] Migrate mechanics out of `state.rs` by phase.
   - [x] Extract OT navigation helper/event-roll functions into `kernel/systems/navigation.rs`.
   - [x] Extract OT affliction probability + affliction-kind roll helpers into `kernel/systems/affliction.rs`.
   - [x] Extract OT affliction duration helper into `kernel/systems/affliction.rs`.
@@ -60,7 +60,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Extract OT disease effect application/multiplier sanitizer into `kernel/systems/disease.rs`.
   - [x] Extract OT Dalles outcome roll/sample helpers into `kernel/systems/dalles.rs`.
   - [x] Extract OT event-weight multiplier sanitizer into `kernel/systems/random_events.rs`.
-- [ ] Canonicalize OT systems and remove duplicates.
+- [x] Canonicalize OT systems and remove duplicates.
   - [x] Canonicalize Dalles outcome id/severity mappings in `kernel/systems/dalles.rs` and remove duplicate mapping in `state.rs`.
   - [x] Canonicalize drowning-index selection via `kernel/systems/dalles.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize breakdown max-chance sanitizer in `kernel/systems/vehicle.rs` and remove duplicate implementation in `state.rs`.
@@ -68,7 +68,7 @@ This initiative is a single large PR with legacy mechanics removed in the same e
   - [x] Canonicalize OT affliction payload/kind-key helpers in `kernel/systems/affliction.rs` and remove duplicate implementation in `state.rs`.
   - [x] Canonicalize alive-party index collection in `kernel/systems/party.rs` and remove duplicate implementation in `state.rs`.
  - [x] Rewire crate exports around kernel API.
-- [ ] Move narrative strings fully to `dystrail-web` i18n.
+- [x] Move narrative strings fully to `dystrail-web` i18n.
   - [x] Move result-screen mode/persona display strings and fallback persona rendering to `dystrail-web` i18n.
   - [x] Replace unnamed party-member fallback labels with stable `party.member.{n}.name` kernel identifiers.
 - [x] Apply save reset/version bump and remove legacy migration logic.

@@ -396,7 +396,19 @@
       "title": "Заголовок"
     },
     "share": {
-      "template": "Дистрайл — {headline} · Оценка {score} · Начальное значение {seed} · Персона {persona} ({mult}) · Режим {mode}"
+      "template": "Дистрайл — {headline} · Оценка {score} · Начальное значение {seed} · Персона {persona} ({mult}) · Режим {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
+    },
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
     }
   },
   "save": {
@@ -428,7 +440,8 @@
     "pants": "Штаны {{pct}}%",
     "pants_label": "Индикатор штанов",
     "sanity_short": "Разум",
-    "sup_short": "Зап"
+    "sup_short": "Зап",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -443,7 +456,8 @@
       "checkout": "Оплатить",
       "line": "{item} x{qty} = {line_total}",
       "title": "Корзина",
-      "total": "Итого: {sum}   Бюджет остался: {left}"
+      "total": "Итого: {sum}   Бюджет остался: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Документы и разрешения",
@@ -508,9 +522,14 @@
       "add5": "Добавить +5",
       "rem1": "Убрать -1",
       "rem_all": "Убрать все",
-      "title": "{item} — {price} за штуку"
+      "title": "{item} — {price} за штуку",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Снаряжение"
+    "title": "Снаряжение",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "В путь на следующий этап",
@@ -528,7 +547,8 @@
     "hc_on": "Высокий контраст включен",
     "hc_off": "Высокий контраст выключен",
     "hc_toggle": "Высокий контраст включен",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -566,7 +586,8 @@
       "gear": "• Смягчение снаряжения: {text}",
       "header": "Детали погоды:",
       "notes": "• Заметки: {note}",
-      "state": "• Состояние: {state}"
+      "state": "• Состояние: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% Встречи",
@@ -589,7 +610,16 @@
       "Smoke": "Дым",
       "Storm": "Шторм"
     },
-    "title": "Погода"
+    "title": "Погода",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Настройки",
@@ -748,5 +778,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

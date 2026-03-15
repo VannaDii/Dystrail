@@ -385,10 +385,22 @@
       "title": "Başlık"
     },
     "share": {
-      "template": "Dystrail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}"
+      "template": "Dystrail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "Sonuç",
-    "title_aria": "Sonuç"
+    "title_aria": "Sonuç",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "Kapat",
@@ -419,7 +431,8 @@
     "pants": "Pantolon {{pct}}%",
     "pants_label": "Pantolon Ölçer",
     "sanity_short": "Akıl",
-    "sup_short": "Malz"
+    "sup_short": "Malz",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "Ödeme",
       "line": "{item} x{qty} = {line_total}",
       "title": "Sepet",
-      "total": "Toplam: {sum}   Kalan bütçe: {left}"
+      "total": "Toplam: {sum}   Kalan bütçe: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Belgeler & İzinler",
@@ -499,9 +513,14 @@
       "add5": "+5 Ekle",
       "rem1": "-1 Çıkar",
       "rem_all": "Tümünü Çıkar",
-      "title": "{item} — Her biri {price}"
+      "title": "{item} — Her biri {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Donanım"
+    "title": "Donanım",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "Sonraki Etabı Seyahat Et",
@@ -519,7 +538,8 @@
     "hc_on": "Yüksek kontrast açık",
     "hc_off": "Yüksek kontrast kapalı",
     "hc_toggle": "Yüksek kontrast açık",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• Ekipman azaltması: {text}",
       "header": "Hava Durumu Detayları:",
       "notes": "• Notlar: {note}",
-      "state": "• Durum: {state}"
+      "state": "• Durum: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% Karşılaşma",
@@ -580,7 +601,16 @@
       "Smoke": "Duman",
       "Storm": "Fırtına"
     },
-    "title": "Hava Durumu"
+    "title": "Hava Durumu",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Ayarlar",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

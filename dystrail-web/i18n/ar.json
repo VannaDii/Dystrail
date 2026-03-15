@@ -385,10 +385,22 @@
       "title": "العنوان"
     },
     "share": {
-      "template": "دايستريل — {headline} · النقاط {score} · البذرة {seed} · الشخصية {persona} ({mult}) · الوضع {mode}"
+      "template": "دايستريل — {headline} · النقاط {score} · البذرة {seed} · الشخصية {persona} ({mult}) · الوضع {mode}",
+      "errors": {
+        "append_textarea": "تعذر إضافة مربع النص",
+        "cast_textarea": "تعذر تحويل مربع النص",
+        "create_textarea": "تعذر إنشاء مربع النص",
+        "document_unavailable": "المستند غير متاح",
+        "no_body": "عنصر body غير متاح",
+        "remove_textarea": "تعذر إزالة مربع النص"
+      }
     },
     "title": "النتيجة",
-    "title_aria": "النتيجة"
+    "title_aria": "النتيجة",
+    "error": {
+      "announcement": "خطأ: {error}",
+      "title": "خطأ أثناء إنشاء النتيجة"
+    }
   },
   "save": {
     "close": "إغلاق",
@@ -419,7 +431,8 @@
     "pants": "السراويل {{pct}}%",
     "pants_label": "مقياس السراويل",
     "sanity_short": "عقل",
-    "sup_short": "مؤن"
+    "sup_short": "مؤن",
+    "pants_short": "السراويل"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "الدفع",
       "line": "{item} س{qty} = {line_total}",
       "title": "السلة",
-      "total": "المجموع: {sum}   الميزانية المتبقية: {left}"
+      "total": "المجموع: {sum}   الميزانية المتبقية: {left}",
+      "empty": "لا شيء"
     },
     "categories": {
       "docs": "الوثائق والتصاريح",
@@ -499,9 +513,14 @@
       "add5": "إضافة +5",
       "rem1": "إزالة -1",
       "rem_all": "إزالة الكل",
-      "title": "{item} — {price} لكل واحد"
+      "title": "{item} — {price} لكل واحد",
+      "current_in_cart": "الموجود حاليًا في السلة: {qty}"
     },
-    "title": "التجهيز"
+    "title": "التجهيز",
+    "errors": {
+      "category_not_found": "لم يتم العثور على الفئة",
+      "item_not_found": "لم يتم العثور على العنصر"
+    }
   },
   "travel": {
     "next": "تابع إلى المرحلة التالية",
@@ -519,7 +538,8 @@
     "hc_on": "تشغيل تباين عالٍ",
     "hc_off": "إيقاف تباين عالٍ",
     "hc_toggle": "تشغيل تباين عالٍ",
-    "back": "رجوع"
+    "back": "رجوع",
+    "configuration_error": "خطأ في الإعداد"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• تخفيف المعدات: {text}",
       "header": "تفاصيل الطقس:",
       "notes": "• ملاحظات: {note}",
-      "state": "• الحالة: {state}"
+      "state": "• الحالة: {state}",
+      "mitigation_tag": "وسم التخفيف: {tag} ({sanity} عقل، {pants} سراويل)"
     },
     "effects": {
       "enc": "{val}% مواجهة",
@@ -580,7 +601,16 @@
       "Smoke": "دخان",
       "Storm": "عاصفة"
     },
-    "title": "الطقس"
+    "title": "الطقس",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "اليوم {day} — المنطقة: {region}",
+      "label_only": "الطقس: {weather}",
+      "state": "الطقس: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "الإعدادات",
@@ -739,5 +769,11 @@
     "distance_traveled": "الأميال المقطوعة",
     "distance_today": "أميال اليوم",
     "region": "المنطقة"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "لا تغيير",
+      "receipts": "إيصالات +1"
+    }
   }
 }

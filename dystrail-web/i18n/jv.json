@@ -385,10 +385,22 @@
       "title": "Judul"
     },
     "share": {
-      "template": "Dystrail — {headline} · Skor {score} · Wiji {seed} · Persona {persona} ({mult}) · Mode {mode}"
+      "template": "Dystrail — {headline} · Skor {score} · Wiji {seed} · Persona {persona} ({mult}) · Mode {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "Asil",
-    "title_aria": "Asil"
+    "title_aria": "Asil",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "Tutup",
@@ -419,7 +431,8 @@
     "pants": "Celono {{pct}}%",
     "pants_label": "Meter Celono",
     "sanity_short": "Waras",
-    "sup_short": "Pasokan"
+    "sup_short": "Pasokan",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "Bayar",
       "line": "__Ph0__ x__ph1__ = __ph2__",
       "title": "Keranjang",
-      "total": "Total: {sum}   Anggaran sisa: {left}"
+      "total": "Total: {sum}   Anggaran sisa: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "Dokumen lan Ijin",
@@ -499,9 +513,14 @@
       "add5": "Tambah +5",
       "rem1": "Kurangi -1",
       "rem_all": "Busak kabeh",
-      "title": "{item} — saben {price}"
+      "title": "{item} — saben {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "Toko"
+    "title": "Toko",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "Mlaku menyang tahap sabanjure",
@@ -519,7 +538,8 @@
     "hc_on": "Kontras dhuwur urip",
     "hc_off": "Kontras dhuwur mati",
     "hc_toggle": "Kontras dhuwur urip",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• Pengurangan gear: {text}",
       "header": "Rincian Cuaca:",
       "notes": "• Catetan: {note}",
-      "state": "• Kahanan: {state}"
+      "state": "• Kahanan: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% pertemuan",
@@ -580,7 +601,16 @@
       "Smoke": "Asap",
       "Storm": "Badai"
     },
-    "title": "Cuaca"
+    "title": "Cuaca",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "Setelan",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }

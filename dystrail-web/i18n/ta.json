@@ -385,10 +385,22 @@
       "title": "தலைப்பு"
     },
     "share": {
-      "template": "Dystrail — {headline} · மதிப்பெண் {score} · விதை {seed} · ஆளுமை {persona} ({mult}) · முறை {mode}"
+      "template": "Dystrail — {headline} · மதிப்பெண் {score} · விதை {seed} · ஆளுமை {persona} ({mult}) · முறை {mode}",
+      "errors": {
+        "append_textarea": "Failed to append textarea",
+        "cast_textarea": "Failed to cast to textarea",
+        "create_textarea": "Failed to create textarea",
+        "document_unavailable": "Document unavailable",
+        "no_body": "No body element",
+        "remove_textarea": "Failed to remove textarea"
+      }
     },
     "title": "முடிவு",
-    "title_aria": "முடிவு"
+    "title_aria": "முடிவு",
+    "error": {
+      "announcement": "Error: {error}",
+      "title": "Error generating result"
+    }
   },
   "save": {
     "close": "மூடு",
@@ -419,7 +431,8 @@
     "pants": "பேன்ட் {{pct}}%",
     "pants_label": "பேன்ட் மீட்டர்",
     "sanity_short": "புத்தி",
-    "sup_short": "வழங்கல்"
+    "sup_short": "வழங்கல்",
+    "pants_short": "Pants"
   },
   "store": {
     "alerts": {
@@ -434,7 +447,8 @@
       "checkout": "செக்அவுட்",
       "line": "{item} x{qty} = {line_total}",
       "title": "கார்ட்",
-      "total": "மொத்தம்: {sum}   மீதமுள்ள பட்ஜெட்: {left}"
+      "total": "மொத்தம்: {sum}   மீதமுள்ள பட்ஜெட்: {left}",
+      "empty": "NONE"
     },
     "categories": {
       "docs": "ஆவணங்கள் & அனுமதிகள்",
@@ -499,9 +513,14 @@
       "add5": "+5 சேர்க்கவும்",
       "rem1": "-1 அகற்று",
       "rem_all": "அனைத்தையும் அகற்று",
-      "title": "{item} — ஒவ்வொன்றும் {price}"
+      "title": "{item} — ஒவ்வொன்றும் {price}",
+      "current_in_cart": "Current in cart: {qty}"
     },
-    "title": "சாதனங்கள்"
+    "title": "சாதனங்கள்",
+    "errors": {
+      "category_not_found": "Category not found",
+      "item_not_found": "Item not found"
+    }
   },
   "travel": {
     "next": "அடுத்த கட்டம் பயணம்",
@@ -519,7 +538,8 @@
     "hc_on": "உயர் கண்டிராஸ்ட் இயக்கப்பட்டது",
     "hc_off": "உயர் கண்டிராஸ்ட் அணைக்கப்பட்டது",
     "hc_toggle": "உயர் கண்டிராஸ்ட் இயக்கப்பட்டது",
-    "back": "Back"
+    "back": "Back",
+    "configuration_error": "Configuration Error"
   },
   "vehicle": {
     "announce": {
@@ -557,7 +577,8 @@
       "gear": "• கியர் தணிப்பு: {text}",
       "header": "வானிலை விவரங்கள்:",
       "notes": "• குறிப்புகள்: {note}",
-      "state": "• நிலை: {state}"
+      "state": "• நிலை: {state}",
+      "mitigation_tag": "Mitigation tag: {tag} ({sanity} sanity, {pants} pants)"
     },
     "effects": {
       "enc": "{val}% சந்திப்பு",
@@ -580,7 +601,16 @@
       "Smoke": "புகை",
       "Storm": "புயல்"
     },
-    "title": "வானிலை"
+    "title": "வானிலை",
+    "format": {
+      "delta": "{stat} {value}",
+      "percent": "{stat} {value}%"
+    },
+    "summary": {
+      "day_region": "Day {day} — Region: {region}",
+      "label_only": "Weather: {weather}",
+      "state": "Weather: {weather}{effects}"
+    }
   },
   "settings": {
     "title": "அமைப்புகள்",
@@ -739,5 +769,11 @@
     "distance_traveled": "Miles traveled",
     "distance_today": "Miles today",
     "region": "Region"
+  },
+  "encounter": {
+    "effects": {
+      "no_change": "No change",
+      "receipts": "Receipts +1"
+    }
   }
 }
