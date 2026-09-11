@@ -8,8 +8,9 @@ fn base_props(state: GameState) -> Props {
     Props {
         game_state: Rc::new(state),
         camp_config: Rc::new(CampConfig::default_config()),
-        on_state_change: Callback::from(|_: GameState| {}),
+        on_state_change: Callback::from(|_: (GameState, String)| {}),
         on_close: Callback::noop(),
+        on_resolve_vehicle: Callback::noop(),
     }
 }
 
@@ -38,7 +39,7 @@ fn camp_panel_with_breakdown_starts_in_repair_view() {
 
     let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
     assert!(
-        html.contains("Repair Vehicle") || html.contains("Use Spare"),
+        html.contains("Handle breakdown"),
         "repair menu should surface when breakdown present: {html}"
     );
 }

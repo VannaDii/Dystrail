@@ -47,31 +47,6 @@ pub fn announce_quantity_change(
     set_status(&message);
 }
 
-pub fn announce_cannot_add(item: &StoreItem) {
-    let item_name = i18n::t(&format!("store.items.{}.name", item.id));
-    let message = if item.unique {
-        i18n::tr(
-            "store.alerts.unique",
-            Some(&{
-                let mut vars = BTreeMap::new();
-                vars.insert("item", item_name.as_str());
-                vars
-            }),
-        )
-    } else {
-        i18n::tr(
-            "store.alerts.max_qty",
-            Some(&{
-                let mut vars = BTreeMap::new();
-                vars.insert("item", item_name.as_str());
-                vars
-            }),
-        )
-    };
-
-    set_status(&message);
-}
-
 pub fn format_currency(cents: i64) -> String {
     crate::i18n::fmt_currency(cents)
 }

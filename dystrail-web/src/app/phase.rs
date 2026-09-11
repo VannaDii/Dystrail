@@ -4,17 +4,43 @@ use crate::game::state::{GameMode, GameState};
 use crate::game::weather::WeatherConfig;
 use crate::game::{JourneySession, StrategyId};
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum Phase {
     Boot,
     Persona,
+    Crew,
     Outfitting,
     Menu,
     Travel,
+    Town,
+    CrewCare,
+    Map,
     Camp,
     Encounter,
     Boss,
     Result,
+}
+
+impl Phase {
+    /// Stable stage name for presentation verification, independent of navigation URLs.
+    #[must_use]
+    pub const fn screen_name(self) -> &'static str {
+        match self {
+            Self::Boot => "setup",
+            Self::Persona => "persona",
+            Self::Crew => "crew",
+            Self::Outfitting => "outfitting",
+            Self::Menu => "menu",
+            Self::Travel => "travel",
+            Self::Town => "town",
+            Self::CrewCare => "crew-care",
+            Self::Map => "map",
+            Self::Camp => "camp",
+            Self::Encounter => "encounter",
+            Self::Boss => "boss",
+            Self::Result => "result",
+        }
+    }
 }
 
 #[must_use]
@@ -38,7 +64,8 @@ pub fn strategy_for_state(state: &GameState) -> StrategyId {
 }
 
 #[must_use]
-pub fn session_from_state(state: GameState, endgame_cfg: &EndgameTravelCfg) -> JourneySession {
+pub fn session_from_state(mut state: GameState, endgame_cfg: &EndgameTravelCfg) -> JourneySession {
+    state.continuity.interactive_repairs = true;
     let strategy = strategy_for_state(&state);
     JourneySession::from_state(state, strategy, endgame_cfg)
 }

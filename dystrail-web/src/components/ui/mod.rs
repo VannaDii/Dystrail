@@ -13,3 +13,18 @@ pub mod share_code_bar;
 pub mod stats_bar;
 pub mod travel_panel;
 pub mod vehicle_status;
+
+pub mod journey_scene;
+
+pub mod context_help;
+pub mod dismiss;
+pub mod game_clock;
+pub mod world_view;
+
+pub mod danger_notice;
+
+pub mod route_map;
+
+pub mod leg_summary;
+
+pub mod satire_context;

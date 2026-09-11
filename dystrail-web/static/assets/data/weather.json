@@ -14,14 +14,14 @@
       "travel_mult": 1.0
     },
     "Storm": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
       "pants": 2,
       "enc_delta": 0.05,
       "travel_mult": 0.9
     },
     "HeatWave": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
       "pants": 1,
       "enc_delta": 0.03,
@@ -35,7 +35,7 @@
       "travel_mult": 0.9
     },
     "Smoke": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
       "pants": 1,
       "enc_delta": 0.03,

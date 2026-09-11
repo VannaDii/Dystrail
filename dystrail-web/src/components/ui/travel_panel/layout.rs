@@ -1,4 +1,4 @@
-use super::pace::{diet_code, diet_preview, pace_code, pace_preview};
+use super::pace::{diet_preview, pace_preview};
 use crate::game::{GameState, PacingConfig};
 use crate::i18n;
 use web_sys::MouseEvent;
@@ -21,151 +21,28 @@ pub struct PanelContext<'a> {
 }
 
 pub fn render_panel(ctx: PanelContext) -> Html {
-    html! {
-        <section class="panel travel-shell">
-            <header class="section-header">
-                <h2>{ i18n::t("travel.title") }</h2>
-                { ctx.weather_info }
-            </header>
-
-            { render_breakdown(ctx.travel_blocked, ctx.breakdown_msg) }
-
-            { render_body(
-                ctx.travel_blocked,
-                ctx.show_weather_details,
-                ctx.weather_details,
-                ctx.show_pace_diet,
-                ctx.pace_diet_panel,
-                ctx.game_state,
-                ctx.pacing_config,
-                ctx.logs,
-            ) }
-
-            { render_footer(
-                ctx.travel_blocked,
-                ctx.on_show_pace_diet,
-                ctx.on_toggle_weather_details,
-                ctx.on_click,
-            ) }
-        </section>
-    }
-}
-
-fn render_breakdown(travel_blocked: bool, breakdown_msg: Option<&str>) -> Html {
-    if !travel_blocked {
-        return Html::default();
-    }
-    let Some(msg) = breakdown_msg else {
-        return Html::default();
-    };
-
-    html! {
-        <div class="alert breakdown-alert" role="alert" aria-live="assertive">
-            <p>{ msg }</p>
-            <p>{ i18n::t("vehicle.announce.blocked") }</p>
-        </div>
-    }
-}
-
-#[allow(clippy::too_many_arguments)]
-fn render_body(
-    travel_blocked: bool,
-    show_weather_details: bool,
-    weather_details: Html,
-    show_pace_diet: bool,
-    pace_diet_panel: Html,
-    game_state: Option<&GameState>,
-    pacing_config: &PacingConfig,
-    logs: &[String],
-) -> Html {
-    if show_weather_details {
-        return weather_details;
-    }
-    if show_pace_diet {
-        return pace_diet_panel;
-    }
-
-    html! {
-        <div class="travel-body">
-            { render_block_notice(travel_blocked) }
-            { render_current_settings(game_state, pacing_config) }
-            { render_logs(logs) }
-        </div>
-    }
-}
-
-fn render_block_notice(travel_blocked: bool) -> Html {
-    if travel_blocked {
-        html! {
-            <p id="breakdown-notice" class="help-text">
-                { i18n::t("vehicle.announce.blocked") }
-            </p>
+    let overlay = ctx.show_pace_diet || ctx.show_weather_details;
+    html! { <section class="travel-controls" aria-labelledby="screen-title">
+        <div class="travel-heading"><h1 id="screen-title" tabindex="-1">{i18n::t(if ctx.game_state.is_some_and(|gs|gs.mode.is_deep()) {"ux.road_deep"} else {"ux.road"})}</h1>{ctx.weather_info}</div>
+        if ctx.travel_blocked { <div id="breakdown-notice" class="alert" role="alert">
+            <p>{ctx.breakdown_msg.unwrap_or_default()}</p><p>{i18n::t("vehicle.announce.blocked")}</p>
+        </div> }
+        if ctx.show_weather_details { {ctx.weather_details} }
+        else if ctx.show_pace_diet { {ctx.pace_diet_panel} }
+        else {
+            if let Some(gs)=ctx.game_state {
+                <p class="current-settings"><span title={pace_preview(ctx.pacing_config,gs.pace)}>{i18n::t(&format!("pacediet.menu.pace_{}",gs.pace.as_str()))}</span>{" · "}<span title={diet_preview(ctx.pacing_config,gs.diet)}>{i18n::t(&format!("pacediet.menu.diet_{}",gs.diet.as_str()))}</span></p>
+                if gs.day <= 1 {<p class="onboarding-note">{i18n::t("ux.onboarding")}</p>}
+            }
         }
-    } else {
-        Html::default()
-    }
-}
-
-fn render_current_settings(game_state: Option<&GameState>, pacing_config: &PacingConfig) -> Html {
-    let Some(gs) = game_state else {
-        return Html::default();
-    };
-
-    html! {
-        <div class="current-settings" role="status" aria-live="polite">
-            <div class="pace-diet-row" role="list">
-                <div class="condition-pill pace-pill" role="listitem" title={pace_preview(pacing_config, gs.pace)}>
-                    <span class="sprite-badge sprite-pace" aria-hidden="true">{ pace_code(gs.pace) }</span>
-                    <span class="condition-label">{ format!("{} {}", i18n::t("menu.pace"), gs.pace) }</span>
-                </div>
-                <div class="condition-pill diet-pill" role="listitem" title={diet_preview(pacing_config, gs.diet)}>
-                    <span class="sprite-badge sprite-diet" aria-hidden="true">{ diet_code(gs.diet) }</span>
-                    <span class="condition-label">{ format!("{} {}", i18n::t("menu.diet"), gs.diet) }</span>
-                </div>
-            </div>
+        <div class="travel-actions">
+            <button class="retro-btn-primary" onclick={ctx.on_click.clone()} disabled={overlay} aria-describedby={if ctx.travel_blocked {Some("breakdown-notice")} else {None}}>{i18n::t(if ctx.travel_blocked {"ux.resolve_vehicle"} else if ctx.game_state.is_some_and(|gs| gs.day_state.lifecycle.day_initialized) {"ux.continue_today"} else {"ux.next_day"})}</button>
+            <button onclick={ctx.on_show_pace_diet.clone()}>{i18n::t("pacediet.title")}</button>
+            <button onclick={ctx.on_toggle_weather_details.clone()}>{i18n::t("weather.details.header")}</button>
         </div>
-    }
-}
-
-fn render_logs(logs: &[String]) -> Html {
-    if logs.is_empty() {
-        return Html::default();
-    }
-
-    html! {
-        <div class="log" role="log" aria-live="polite">
-            { for logs.iter().map(|l| html!{ <p>{l}</p> }) }
-        </div>
-    }
-}
-
-fn render_footer(
-    travel_blocked: bool,
-    on_show_pace_diet: &Callback<MouseEvent>,
-    on_toggle_weather_details: &Callback<MouseEvent>,
-    on_click: &Callback<MouseEvent>,
-) -> Html {
-    html! {
-        <footer class="panel-footer">
-            <button onclick={on_show_pace_diet.clone()} aria-label={i18n::t("pacediet.title")} class="retro-btn-secondary">
-                { i18n::t("pacediet.title") }
-            </button>
-            <button
-                onclick={on_toggle_weather_details.clone()}
-                aria-label={i18n::t("weather.details.header")}
-                class="retro-btn-secondary"
-            >
-                { i18n::t("weather.details.header") }
-            </button>
-            <button
-                onclick={on_click.clone()}
-                aria-label={i18n::t("travel.next")}
-                class="retro-btn-primary"
-                disabled={travel_blocked}
-                aria-describedby={if travel_blocked { "breakdown-notice" } else { "" }}
-            >
-                { i18n::t("travel.next") }
-            </button>
-        </footer>
-    }
+        if let Some(gs)=ctx.game_state { {super::status::render_status(gs)} }
+        <details class="journal"><summary>{i18n::t("ux.journal")}</summary><div class="log" role="log">
+            {for ctx.logs.iter().rev().take(30).map(|line|html!{<p>{line}</p>})}
+        </div></details>
+    </section> }
 }

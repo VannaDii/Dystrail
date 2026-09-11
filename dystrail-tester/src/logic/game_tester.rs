@@ -153,6 +153,7 @@ impl TesterAssets {
                 Choice {
                     label: "Share supplies".to_string(),
                     effects: Effects {
+                        cash_cents: 0,
                         hp: 0,
                         sanity: 1,
                         credibility: 0,
@@ -170,6 +171,7 @@ impl TesterAssets {
                 Choice {
                     label: "Hoard supplies".to_string(),
                     effects: Effects {
+                        cash_cents: 0,
                         hp: 0,
                         sanity: -1,
                         credibility: 1,
@@ -1391,7 +1393,8 @@ mod tests {
             state.budget_cents < 11_000,
             "budget should reflect store spend"
         );
-        assert_eq!(state.party.companions.len(), 4);
+        assert_eq!(state.party.companions.len(), 5);
+        assert_eq!(state.party.members.len(), 6);
         assert!(!state.party.leader.is_empty());
         assert!(
             state.inventory.spares.tire >= 2,

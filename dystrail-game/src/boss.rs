@@ -125,6 +125,22 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         }
     }
 
+    let win_prob = vote_chance(state, cfg);
+
+    let roll = f64::from(state.next_pct()) / 100.0;
+    if roll < win_prob {
+        state.boss.outcome.victory = true;
+        state.logs.push(String::from("log.boss.victory"));
+        BossOutcome::PassedCloture
+    } else {
+        state.logs.push(String::from("log.boss.failure"));
+        BossOutcome::SurvivedFlood
+    }
+}
+
+/// Probability after the hearing's stamina costs have been paid.
+#[must_use]
+pub fn vote_chance(state: &GameState, cfg: &BossConfig) -> f64 {
     let distance_required =
         f64::from(cfg.distance_required).max(f64::from(state.mode.boss_threshold()));
     let threshold = distance_required.max(1.0);
@@ -152,15 +168,25 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         win_prob = 1.0;
     }
 
-    let roll = f64::from(state.next_pct()) / 100.0;
-    if roll < win_prob {
-        state.boss.outcome.victory = true;
-        state.logs.push(String::from("log.boss.victory"));
-        BossOutcome::PassedCloture
-    } else {
-        state.logs.push(String::from("log.boss.failure"));
-        BossOutcome::SurvivedFlood
+    win_prob
+}
+
+/// Read-only forecast using the same probability calculation as the actual vote.
+#[must_use]
+pub fn vote_preview(state: &GameState, cfg: &BossConfig) -> Option<f64> {
+    let mut preview = state.clone();
+    if preview.mode.is_deep() && matches!(preview.policy, Some(PolicyKind::Aggressive)) {
+        let _ = preview.apply_deep_aggressive_compose();
     }
+    for _ in 0..cfg.rounds {
+        preview.stats.sanity -= cfg.sanity_loss_per_round.max(0);
+        preview.stats.pants += cfg.pants_gain_per_round.max(0);
+        preview.stats.clamp();
+        if preview.stats.sanity <= 0 || preview.stats.pants >= 100 {
+            return None;
+        }
+    }
+    Some(vote_chance(&preview, cfg))
 }
 
 #[cfg(test)]

@@ -1,0 +1,158 @@
+{
+  "tariffs": {
+    "title": "Auto-parts tariffs",
+    "date": "2025-03-26",
+    "fact": "Trump imposed a 25% tariff on imported automobiles and certain parts. Later amendments created offsets and exceptions.",
+    "source": "https://www.govinfo.gov/app/details/DCPD-202500403",
+    "qualification": "The original announcement is the historical hook; game prices are fictional, not current tariff calculations. Offsets: https://www.whitehouse.gov/presidential-actions/2025/04/amendments-to-adjusting-imports-of-automobiles-and-automobile-parts-into-the-united-states/",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Trump impose un dazio del 25% sulle automobili importate e su alcuni componenti. Modifiche successive introdussero compensazioni ed eccezioni.",
+      "es": "Trump impuso un arancel del 25% a los automóviles importados y ciertas piezas. Cambios posteriores introdujeron compensaciones y excepciones.",
+      "ar": "فرض ترامب رسوماً بنسبة 25% على السيارات المستوردة وبعض قطعها. وأدخلت تعديلات لاحقة تعويضات واستثناءات."
+    }
+  },
+  "straws": {
+    "title": "Paper-straw executive order",
+    "date": "2025-02-10",
+    "fact": "Trump directed federal agencies to stop buying paper straws and ordered a national strategy against their use.",
+    "source": "https://www.whitehouse.gov/fact-sheets/2025/02/fact-sheet-president-donald-j-trump-ends-the-procurement-and-forced-use-of-paper-straws/",
+    "qualification": "",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Trump ordinò alle agenzie federali di smettere di comprare cannucce di carta e richiese una strategia nazionale contro il loro uso.",
+      "es": "Trump ordenó a las agencias federales dejar de comprar pajitas de papel y exigió una estrategia nacional contra su uso.",
+      "ar": "وجّه ترامب الوكالات الفيدرالية لوقف شراء المصاصات الورقية وأمر بوضع استراتيجية وطنية ضد استخدامها."
+    }
+  },
+  "shower": {
+    "title": "Showerhead executive order",
+    "date": "2025-04-09",
+    "fact": "Trump ordered the Energy Department to rescind its 2021 showerhead definition.",
+    "source": "https://www.whitehouse.gov/presidential-actions/2025/04/maintaining-acceptable-water-pressure-in-showerheads/",
+    "qualification": "",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Trump ordinò al Dipartimento dell’Energia di revocare la definizione di soffione della doccia del 2021.",
+      "es": "Trump ordenó al Departamento de Energía revocar su definición de cabezal de ducha de 2021.",
+      "ar": "أمر ترامب وزارة الطاقة بإلغاء تعريف رأس الدش الصادر عام 2021."
+    }
+  },
+  "names": {
+    "title": "Federal geographic renaming",
+    "date": "2025-01-20",
+    "fact": "Trump ordered federal use of Gulf of America and Mount McKinley.",
+    "source": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+    "qualification": "The fictional local renamings are extrapolations. The game map retains geographically accurate route positions.",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Trump ordinò l’uso federale dei nomi Golfo d’America e Monte McKinley.",
+      "es": "Trump ordenó el uso federal de los nombres Golfo de América y Monte McKinley.",
+      "ar": "أمر ترامب باستخدام اسمي خليج أمريكا وجبل ماكينلي على المستوى الفيدرالي."
+    }
+  },
+  "food": {
+    "title": "LFPA25 cancellation",
+    "date": "2025-03-07",
+    "fact": "Wisconsin DATCP reported that USDA canceled LFPA25. Earlier LFPA and LFPA Plus agreements continued for their remaining grant periods.",
+    "source": "https://content.govdelivery.com/accounts/WIDATCP/bulletins/3d6544a",
+    "qualification": "National-program hook, with documented Wisconsin effects; no invented claim about a specific town grant.",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Il DATCP del Wisconsin riferì che l’USDA aveva cancellato LFPA25. Gli accordi precedenti LFPA e LFPA Plus continuarono per il periodo residuo delle sovvenzioni.",
+      "es": "El DATCP de Wisconsin informó de que el USDA canceló LFPA25. Los acuerdos anteriores LFPA y LFPA Plus siguieron durante el plazo restante de sus subvenciones.",
+      "ar": "أعلنت وزارة الزراعة في ويسكونسن أن وزارة الزراعة الأمريكية ألغت برنامج LFPA25. واستمرت اتفاقيات LFPA وLFPA Plus السابقة للفترات المتبقية من منحها."
+    }
+  },
+  "libraries": {
+    "title": "IMLS reduction order",
+    "date": "2025-03-14",
+    "fact": "Trump ordered reductions at the Institute of Museum and Library Services and other named agencies.",
+    "source": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-continues-the-reduction-of-the-federal-bureaucracy/",
+    "qualification": "Do not infer that a particular library closed. Missouri reported funding uncertainty in May; its IMLS profile subsequently lists an FY2025 allocation. https://www.sos.mo.gov/CMSImages/Library/Minutes5.2.2025.pdf ; https://imls.gov/find-funding/funding-opportunities/grants-state/state-profiles/missouri",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Trump ordinò riduzioni all’Institute of Museum and Library Services e ad altre agenzie indicate.",
+      "es": "Trump ordenó reducciones en el Instituto de Servicios de Museos y Bibliotecas y otras agencias indicadas.",
+      "ar": "أمر ترامب بتقليص معهد خدمات المتاحف والمكتبات ووكالات أخرى محددة."
+    }
+  },
+  "signal": {
+    "title": "Signal chat disclosure",
+    "date": "2025-03-26",
+    "fact": "The Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.",
+    "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+    "qualification": "The fictional convoy chat and its guests are invented. No claim about a real person appearing in the game.",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "The Atlantic pubblicò una conversazione su Signal in cui alti funzionari dell’amministrazione Trump discutevano di un’imminente operazione militare, dopo che un giornalista era stato aggiunto per errore.",
+      "es": "The Atlantic publicó una conversación de Signal en la que altos cargos de la administración Trump hablaban de una operación militar inminente, tras añadir por error a un periodista.",
+      "ar": "نشرت ذا أتلانتيك محادثة على سيغنال ناقش فيها كبار مسؤولي إدارة ترامب عملية عسكرية وشيكة، بعدما أُضيف صحفي بالخطأ."
+    }
+  },
+  "bullets": {
+    "title": "Five-accomplishment emails",
+    "date": "2025-02-28",
+    "fact": "Federal employees received demands for five weekly accomplishments, alongside conflicting agency guidance.",
+    "source": "https://apnews.com/article/53e59ab9a4bc52ce5553e0e83bb8cc7b",
+    "qualification": "Historical episode; OPM later ended its management of the exercise. https://time.com/7307850/white-house-ends-controversial-elon-musk-email-practice/",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "I dipendenti federali ricevettero richieste di elencare cinque risultati settimanali, insieme a istruzioni contrastanti dalle agenzie.",
+      "es": "Los empleados federales recibieron solicitudes de cinco logros semanales, junto con instrucciones contradictorias de las agencias.",
+      "ar": "تلقى الموظفون الفيدراليون طلبات لذكر خمسة إنجازات أسبوعية، بالتزامن مع تعليمات متضاربة من الوكالات."
+    }
+  },
+  "maha": {
+    "title": "MAHA report citation errors",
+    "date": "2025-05-29",
+    "fact": "Reporting identified nonexistent studies and other citation errors in the MAHA assessment. HHS issued corrections and defended its substance.",
+    "source": "https://abcnews.go.com/Politics/rfk-jrs-maha-report-contained-existent-studies/story?id=122321059",
+    "qualification": "The fictional studies, vendors and illnesses are invented. Original reporting: https://www.notus.org/health-science/maha-report-update-citation-errors",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Le inchieste giornalistiche individuarono studi inesistenti e altri errori nelle citazioni del rapporto MAHA. L’HHS pubblicò correzioni e ne difese i contenuti.",
+      "es": "Las investigaciones periodísticas identificaron estudios inexistentes y otros errores de citas en el informe MAHA. El HHS publicó correcciones y defendió su contenido.",
+      "ar": "كشفت تقارير صحفية دراسات غير موجودة وأخطاء أخرى في مراجع تقييم MAHA. وأصدرت وزارة الصحة تصحيحات ودافعت عن مضمونه."
+    }
+  },
+  "receipts": {
+    "title": "DOGE savings correction",
+    "date": "2025-02-19",
+    "fact": "DOGE revised a listed contract from $8 billion to $8 million after the error was identified.",
+    "source": "https://abcnews.go.com/US/doge-claims-55-billion-government-cuts-figure-hard/story?id=118966190",
+    "qualification": "Specific historical accounting error, not a claim that every DOGE saving was false.",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "DOGE corresse un contratto elencato da 8 miliardi a 8 milioni di dollari dopo la scoperta dell’errore.",
+      "es": "DOGE corrigió un contrato de 8.000 millones a 8 millones de dólares tras descubrirse el error.",
+      "ar": "صححت DOGE قيمة عقد مدرج من 8 مليارات إلى 8 ملايين دولار بعد اكتشاف الخطأ."
+    }
+  },
+  "weather": {
+    "title": "Dorian forecast controversy",
+    "date": "2019-09-06",
+    "fact": "Commerce investigators examined political intervention behind NOAA’s statement rebuking forecasters who contradicted Trump’s claim about Alabama and Hurricane Dorian.",
+    "source": "https://www.oversight.gov/reports/evaluation-noaas-september-6-2019-statement-about-hurricane-dorian-forecasts",
+    "qualification": "First-administration historical hook. Fictional weather scenes do not move real hurricanes onto inland route towns.",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "Gli investigatori del Dipartimento del Commercio esaminarono l’intervento politico dietro il comunicato NOAA che rimproverava i meteorologi che avevano contraddetto Trump su Alabama e uragano Dorian.",
+      "es": "Los investigadores de Comercio examinaron la intervención política detrás del comunicado de NOAA que reprendía a los meteorólogos que contradijeron a Trump sobre Alabama y el huracán Dorian.",
+      "ar": "فحص محققو وزارة التجارة التدخل السياسي وراء بيان NOAA الذي وبّخ خبراء الطقس الذين خالفوا ادعاء ترامب بشأن ألاباما وإعصار دوريان."
+    }
+  },
+  "transit": {
+    "title": "Chicago transit funding pause",
+    "date": "2025-10-03",
+    "fact": "The Trump administration paused Chicago transit funding while reviewing contracting practices.",
+    "source": "https://www.transitchicago.com/chicago-transit-authority-sues-federal-government-over-paused-red-line-extension-and-red--purple-modernization-project-funding/",
+    "qualification": "Historical pause; do not imply every project was canceled. Later dispute: https://apnews.com/article/e4d095f13f431743c802f8b95c06a910",
+    "checked": "2026-09-11",
+    "translations": {
+      "it": "L’amministrazione Trump sospese finanziamenti ai trasporti di Chicago mentre esaminava le pratiche di appalto.",
+      "es": "La administración Trump suspendió fondos de transporte de Chicago mientras revisaba las prácticas de contratación.",
+      "ar": "علّقت إدارة ترامب تمويل النقل في شيكاغو أثناء مراجعة ممارسات التعاقد."
+    }
+  }
+}

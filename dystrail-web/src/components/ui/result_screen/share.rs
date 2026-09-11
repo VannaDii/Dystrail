@@ -1,13 +1,14 @@
 use crate::dom;
 use crate::game::{ResultSummary, result_summary};
-use wasm_bindgen::JsCast;
-use web_sys::HtmlTextAreaElement;
 
 pub(super) fn summary(props: &super::Props) -> Result<ResultSummary, String> {
     result_summary(&props.game_state, &props.result_config)
 }
 
 pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Props) -> String {
+    if props.game_state.continuity.abandoned {
+        return "journey.abandoned".into();
+    }
     if (props.game_state.boss.outcome.attempted || props.game_state.boss.readiness.ready)
         && !props.boss_won
     {
@@ -20,6 +21,9 @@ pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Prop
 }
 
 pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Props) -> String {
+    if props.game_state.continuity.abandoned {
+        return "journey.abandoned_story".into();
+    }
     if (props.game_state.boss.outcome.attempted || props.game_state.boss.readiness.ready)
         && !props.boss_won
     {
@@ -48,36 +52,7 @@ pub(super) fn interpolate_template(
         .replace("{mode}", &summary.mode)
 }
 
-pub(super) fn copy_payload(text: &str) -> Result<(), String> {
-    fallback_copy(text)
-}
-
-fn fallback_copy(text: &str) -> Result<(), String> {
-    let Some(document) = dom::document() else {
-        return Err("Document unavailable".to_string());
-    };
-    let textarea = document
-        .create_element("textarea")
-        .map_err(|_| "Failed to create textarea".to_string())?
-        .dyn_into::<HtmlTextAreaElement>()
-        .map_err(|_| "Failed to cast to textarea".to_string())?;
-
-    textarea.set_value(text);
-
-    if let Ok(style) = js_sys::Reflect::get(&textarea, &"style".into()) {
-        let _ = js_sys::Reflect::set(&style, &"position".into(), &"fixed".into());
-        let _ = js_sys::Reflect::set(&style, &"top".into(), &"-1000px".into());
-        let _ = js_sys::Reflect::set(&style, &"left".into(), &"-1000px".into());
-    }
-
-    if let Some(body) = document.body() {
-        body.append_child(&textarea)
-            .map_err(|_| "Failed to append textarea".to_string())?;
-        textarea.select();
-        body.remove_child(&textarea)
-            .map_err(|_| "Failed to remove textarea".to_string())?;
-        Ok(())
-    } else {
-        Err("No body element".to_string())
-    }
+pub(super) fn copy_payload(text: &str) -> Result<js_sys::Promise, String> {
+    let window = dom::window().ok_or_else(|| String::from("Window unavailable"))?;
+    Ok(window.navigator().clipboard().write_text(text))
 }

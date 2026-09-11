@@ -13,6 +13,7 @@ pub fn render_encounter(state: &AppState, handlers: &AppHandlers) -> Html {
             <EncounterPage
                 state={Rc::new(snapshot)}
                 weather={weather_badge}
+                receipt={state.last_turn.as_ref().map_or_else(Html::default,crate::app::turn::render_last_turn)}
                 on_choice={handlers.encounter_choice.clone()}
             />
         }

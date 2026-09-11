@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Distrail"
+    "title": "Dystopian Trail"
   },
   "boss": {
     "begin": "Patronu Başlat",
@@ -98,7 +98,7 @@
     "war_dept_reorg": "Savaş Bakanlığı Yeniden Yapılanma"
   },
   "footer": {
-    "copyright": "© Dystrail – Tüm haklar saklıdır"
+    "copyright": "© Dystopian Trail"
   },
   "game": {
     "seed_label": "Tohum:"
@@ -198,7 +198,7 @@
     }
   },
   "persona": {
-    "choose": "Personanızı Seçin:",
+    "choose": "Choose your character",
     "journalist": {
       "desc": "Güvenilir ve becerikli; kanıtlarla gelişir.",
       "name": "Gazeteci"
@@ -220,7 +220,7 @@
       "name": "Organizatör"
     },
     "preview": "Başlangıç: Malzeme {sup} · Güven {cred} · Akıl {san} · Moral {mor} · Müttefik {allies} · Bütçe ${budget}",
-    "preview_wait": "Detayları görmek için bir persona seçin.",
+    "preview_wait": "Choose a character to see their strengths.",
     "satirist": {
       "desc": "Mizahla başa çıkar; aklı restore eder.",
       "name": "Hicivci"
@@ -265,7 +265,10 @@
       "vehicle_failure_vehicle_destroyed": "Kampanya minibüsü sonunda pes etti. ",
       "victory": "Tarihçiler kanıtlarınızı alıntılayacak. Lobiciler adınıza lanet okuyacak.",
       "exposure_cold": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi.",
-      "exposure_heat": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi."
+      "exposure_heat": "Sıcak çarpması ya da donma, siyasetin başlattığı işi hava bitirdi.",
+      "collapse_panic": "Altyazı gerisini halletti. GIF sonsuza dek kalacak.",
+      "collapse_disease": "Merdivenlere ulaştınız ama bitiş çizgisine değil. Sonraki deneme.",
+      "collapse_crossing": "Merdivenlere ulaştınız ama bitiş çizgisine değil. Sonraki deneme."
     },
     "headline": {
       "boss_loss": "FILIBUSTER SİZİ EZDİ",
@@ -281,7 +284,10 @@
       "vehicle_failure_vehicle_destroyed": "ARAÇ HASAR OLDU",
       "victory": "CLOTURE'U GEÇTİNİZ!",
       "exposure_cold": "ELEMENTLERE MARUZ KALDI",
-      "exposure_heat": "ELEMENTLERE MARUZ KALDI"
+      "exposure_heat": "ELEMENTLERE MARUZ KALDI",
+      "collapse_panic": "ULUSAL PANTOLON ACİL DURUMU",
+      "collapse_disease": "MERDİVENLERDE ÇÖKME",
+      "collapse_crossing": "MERDİVENLERDE ÇÖKME"
     },
     "labels": {
       "allies": "Müttefik",
@@ -321,7 +327,7 @@
       "title": "Başlık"
     },
     "share": {
-      "template": "Dystrail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}"
+      "template": "Dystopian Trail — {headline} · Puan {score} · Tohum {seed} · Persona {persona} ({mult}) · Mod {mode}"
     },
     "title": "Sonuç",
     "title_aria": "Sonuç"
@@ -521,5 +527,740 @@
     "title": "Sayfa bulunamadı",
     "message": "Bu sayfayı bulamadık. Yukarıdaki kontrollerle geri dönün.",
     "back": "Ana sayfaya dön"
+  },
+  "ux": {
+    "tagline": "A political survival road trip.",
+    "premise": "Get to D.C. with your health, sanity, and dignity intact. The road has other plans.",
+    "classic_desc": "Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity.",
+    "deep_desc": "The same road, a worse reality. Stranger encounters, harsher satire, and higher volatility. For a second trip into the mess.",
+    "begin": "Choose your character",
+    "new_run": "New journey",
+    "code": "Run code (optional)",
+    "code_help": "The same code and choices replay the same journey. CL is Classic; DP is The Deep End.",
+    "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+    "budget": "Remaining budget",
+    "details": "Full details",
+    "road": "Keep it together.",
+    "road_deep": "Reality is a policy choice.",
+    "next_day": "Travel one day",
+    "back_road": "Back to the road",
+    "aftermath": "Live with it.",
+    "day_report": "A day on the trail",
+    "no_change": "No resource change",
+    "known_effects": "Known effects",
+    "pants_help": "A fictional danger meter. Rushed travel, doomscrolling and risky encounters raise it; calmer choices and recovery lower it. At 100%, a National Pants Emergency ends the run.",
+    "onboarding": "Check your supplies and conditions, then travel one day. Choices show known effects; the next screen explains what actually changed.",
+    "journal": "Trail journal",
+    "status": "Status & inventory",
+    "distance": "Miles traveled",
+    "gear": "Equipment",
+    "empty": "Nothing yet",
+    "menu": "Menu",
+    "close": "Close",
+    "scene": "On the road",
+    "prepare": "Pack for a broken country.",
+    "prepare_help": "Buy what you need, keep an eye on your budget, and review your load before leaving.",
+    "persona_intro": "Different strengths. Same broken system.",
+    "ready": "Ready for the road",
+    "loading": "Loading the trail…",
+    "store_error": "The store could not load. Return to the title and try again.",
+    "resolve_first": "Resolve the current situation before traveling.",
+    "saved": "Journey saved.",
+    "save_error": "Your journey could not be saved on this device.",
+    "loaded": "Journey loaded.",
+    "camp_hint": "Opening camp costs nothing. Recovery and repairs use the resources and time shown below.",
+    "receipt": "Receipts",
+    "vehicle": "Vehicle condition",
+    "outcome": "Outcome",
+    "mode": "Choose your trail",
+    "steps": "Prepare for the trail",
+    "restart": "Return to title",
+    "unknown": "Outcome uncertain",
+    "continue": "Continue",
+    "camp": "Camp",
+    "supplies": "Supplies",
+    "health": "Health",
+    "sanity": "Sanity",
+    "pants": "Pants danger",
+    "resolve_vehicle": "Handle breakdown",
+    "repair_help": "The next day resolves the breakdown using the journey’s repair rules and available equipment. Review the result before continuing.",
+    "rest": "Rest · Sanity +{sanity}, Health +{hp}, Supplies {supplies}, Pants {pants} · {days} day",
+    "forage": "Forage · Base supplies +{supplies} (varies by region) · {days} day",
+    "camp_cooldown": "An action is unavailable while its recovery cooldown is active.",
+    "rested": "A little rest. The country will still be broken in the morning.",
+    "foraged": "You found supplies. Apparently self-reliance comes in discarded packaging.",
+    "continue_today": "Continue today",
+    "boss_begin": "Resolve the final vote",
+    "boss_hint": "The filibuster resolves in one action. Endure the debate, then learn the result of the vote.",
+    "boss_rounds": "Up to {rounds} rounds of debate",
+    "boss_sanity": "Sanity per round",
+    "boss_pants": "Pants danger per round",
+    "boss_resolution": "The debate ends early if sanity reaches zero or pants danger reaches 100%. Otherwise, a final vote decides your run."
+  },
+  "encounter_copy": {
+    "beltway_briefing": {
+      "name": "Department of Renaming Things",
+      "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Your permit names yesterday’s destination. Today’s amendments rename it again. The bridge remains structurally unsound, but its name has never been stronger. Read the amendments, skim the summary, or let counsel untangle the paperwork."
+    },
+    "classic_bridge_crews": {
+      "name": "The Efficiency Emergency",
+      "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. An efficiency drive dismissed the bridge crew. The crew came back to help anyway; the savings board still celebrates their eliminated salaries. Lend a hand or document what the board leaves out."
+    },
+    "deep_secure_line": {
+      "name": "National Security Family Plan",
+      "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. The encrypted checkpoint chat includes a cousin, a caterer, and your entire party. The encryption works. The invitation list needs diagnostics. The technicians await your decision.",
+      "choice_0": "Audit the guest list",
+      "log_0": "You remove the accidental guests. The encryption was never the problem.",
+      "choice_1": "Send staff instead",
+      "log_1": "Your staff sort out the invitations while you miss the briefing.",
+      "choice_2": "Request a formal access review",
+      "log_2": "The review consumes supplies but produces a documented access list."
+    },
+    "raw_milk": {
+      "name": "Raw Milk Stand",
+      "desc": "The MAHA report’s citation errors have arrived before its promised confidence. The vendor’s health claims cite nine studies, three of which are expected to exist shortly. A medal-wearing cow lends institutional credibility. Drink the milk, decline, or choose sealed snacks."
+    },
+    "tariff_whiplash": {
+      "name": "Tariff Whiplash",
+      "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Your previous emergency has been ruled invalid. Please pay for the replacement emergency. The clerk has a fresh tariff stamp and absolutely no refund cash. Pay, smuggle supplies, or lobby for a waiver."
+    },
+    "classic_civic_potluck": {
+      "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Local organizers insist you eat before the next leg."
+    },
+    "classic_crossing_block_party": {
+      "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. Residents host a morale party next to the jammed checkpoint."
+    },
+    "classic_freeway_mural": {
+      "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Artists pause your motorcade to finish a solidarity mural."
+    },
+    "classic_mail_drop": {
+      "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. Supporters sprint over with a bundle of letters asking for updates."
+    },
+    "classic_media_training": {
+      "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. A friendly coach offers quick framing tips before the next checkpoint."
+    },
+    "classic_mutual_aid": {
+      "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Volunteers flag you down to swap supplies for a quick broadcast boost."
+    },
+    "classic_mutual_aid_dispatch": {
+      "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Dispatchers dart between radios matching requests to trucks."
+    },
+    "classic_neighborhood_watch": {
+      "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Block captains share overnight intel and missing signage."
+    },
+    "classic_overpass_stage": {
+      "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. An allied troupe offers to headline a rapid teach-in over the freeway."
+    },
+    "classic_press_briefing": {
+      "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. Local journalists ask for quick quotes before the convoy moves on."
+    },
+    "classic_press_pool_qna": {
+      "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Traveling reporters request an extra rotation on the bus."
+    },
+    "classic_radio_phonebank": {
+      "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. Students spin up a call-in marathon for signatures."
+    },
+    "classic_service_station": {
+      "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. A union shop offers uptime checks before you push east."
+    },
+    "classic_union_blockade": {
+      "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. A local union offers to stage a slowdown so you can pass unharassed."
+    },
+    "classic_water_drive": {
+      "desc": "Trump’s showerhead order has inspired a debate about water pressure while actual water needs moving. A roadside relief post asks for a quick boost to their hydration drive."
+    },
+    "deep_circuit_breaker": {
+      "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Engineers beg to inspect the convoy's overloaded power grid."
+    },
+    "deep_field_intel": {
+      "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Community researchers hand over drive images and surveys."
+    },
+    "deep_grassroots_signal": {
+      "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Decentralized organizers beam encrypted updates from afar."
+    },
+    "deep_media_ambush": {
+      "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. A crisis PR coach ambushes you with rapid-fire hypotheticals."
+    },
+    "deep_memorandum_dump": {
+      "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Compressed drives of sealed memos await triage."
+    },
+    "deep_state_dirge": {
+      "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. A shadowy hearing drags on for hours."
+    },
+    "deep_watch_party": {
+      "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. A secure bunker hosts remote testimonies late into the night."
+    },
+    "deep_watchdog_sync": {
+      "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Inspectors general huddle to compare sealed reports."
+    },
+    "fundraiser_detour": {
+      "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. You are asked to crash a friendly fundraiser."
+    },
+    "town_hall_drift": {
+      "desc": "The MAHA report’s citation errors have arrived before its promised confidence. A classic-mode town hall needs calming words."
+    },
+    "deep_waystation_boost": {
+      "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. A local crew waves you onto freshly cleared asphalt."
+    },
+    "deep_rustbelt_convoy": {
+      "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Freight drivers offer to pace you past barricades."
+    },
+    "deep_beltway_fastpass": {
+      "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Policy aides flash badges to keep traffic enforcement off you."
+    },
+    "clinic_triage": {
+      "desc": "The MAHA report’s citation errors have arrived before its promised confidence. A volunteer medic wagon offers hydration and quick checks."
+    },
+    "overnight_briefing": {
+      "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. Allies urge you to pause, sleep, and align strategy before dawn."
+    },
+    "sat_straw_reserve": {
+      "name": "Emergency Straw Reserve",
+      "desc": "A roadside depot celebrates Trump’s straw order with a mountain of plastic straws. The water shipment is still pending approval.",
+      "choice_0": "Buy water from the uncelebrated cooler",
+      "log_0": "Water reaches your crew without a signing ceremony.",
+      "choice_1": "Inventory the strategic straws for pay",
+      "log_1": "You earn ten dollars and lose the ability to hear the word strategic calmly.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_corn_bullets": {
+      "name": "Five Things Corn Did Last Week",
+      "desc": "A farm office has adopted the administration’s five-bullet emails. The corn has submitted four. Management suspects loafing.",
+      "choice_0": "Document the fifth accomplishment: growing",
+      "log_0": "The crop keeps its job. You need a quiet minute.",
+      "choice_1": "Help the farmer file for a small fee",
+      "log_1": "Your invoice contains five bullet points. All five say paid.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_grant_groceries": {
+      "name": "Locally Grown Funding Gap",
+      "desc": "After the LFPA25 cancellation, this food co-op has vegetables, hungry neighbors and a federal explanation that contains no recipes.",
+      "choice_0": "Contribute two supply bundles",
+      "log_0": "Dinner survives its encounter with federal priorities.",
+      "choice_1": "Take the co-op’s paid loading shift",
+      "log_1": "The co-op pays you. The crates decline to become lighter.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_cow_citations": {
+      "name": "Peer-Reviewed by the Cow",
+      "desc": "A MAHA-inspired vendor assures you that every health claim has a citation. The bibliography is mostly the cow’s LinkedIn endorsements.",
+      "choice_0": "Check whether the studies exist",
+      "log_0": "Several citations retire to spend more time with their families.",
+      "choice_1": "Buy sealed snacks instead",
+      "log_1": "Your lunch has an ingredients list and no honorary doctorate.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_forecast_corrected": {
+      "name": "The Forecast Has Been Corrected",
+      "desc": "Inspired by Sharpiegate, the local spin desk has drawn sunshine over the rain radar. The windshield refuses to cooperate.",
+      "choice_0": "Use the forecaster’s actual shelter advice",
+      "log_0": "You stay dry. The marker remains scientifically unnecessary.",
+      "choice_1": "Trust the freshly drawn sun",
+      "log_1": "The briefing is cheerful. Your socks are a rebuttal.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_parking_gulf": {
+      "name": "Gulf of Parking Lot",
+      "desc": "Following Trump’s renaming spree, a rest stop declares its puddle the Gulf of Premium Parking. The fee applies at low tide too.",
+      "choice_0": "Paint the new sign for seven dollars",
+      "log_0": "A puddle gains prestige. You gain gas money.",
+      "choice_1": "Mark the actual exit on the map",
+      "log_1": "The crew escapes without recognizing the puddle’s sovereignty.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_library_minimum": {
+      "name": "The Minimum Viable Library",
+      "desc": "After Trump’s IMLS reduction order, a librarian prepares an emergency plan: one book, chained to a printer that only prints funding applications.",
+      "choice_0": "Supply the volunteer reading table",
+      "log_0": "The children get stories with endings.",
+      "choice_1": "Digitize the backup catalog for pay",
+      "log_1": "You preserve the books. The application still wants a fax.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_tariff_forklift": {
+      "name": "The Tariff Relabeling Shift",
+      "desc": "A freight yard responding to Trump’s tariffs needs help moving boxes between CURRENT RATE and PLEASE CHECK AGAIN. The labels are wearing out first.",
+      "choice_0": "Take a paid loading shift",
+      "log_0": "You earn actual dollars moving hypothetical certainty.",
+      "choice_1": "Trade paperwork help for supplies",
+      "log_1": "The dispatcher pays in snacks with a stable exchange rate.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_alternator_tariff": {
+      "name": "The Patriotic Parts Counter",
+      "desc": "At a shop responding to Trump’s auto-parts tariffs, imported emergency supplies cost more. A red-white-and-blue sticker is available for an additional emergency.",
+      "choice_0": "Buy the clearly priced roadside kit",
+      "log_0": "Three bundles enter the van. The sticker stays behind.",
+      "choice_1": "Audit the invoice with the mechanic",
+      "log_1": "You locate the tariff, the markup and the freedom handling fee.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_billion_pothole": {
+      "name": "The Eight-Billion-Dollar Pothole",
+      "desc": "A DOGE-style savings board has valued this pothole in billions. The crew suspects three extra zeroes. The pothole remains unimpressed by its valuation.",
+      "choice_0": "Count the zeroes on camera",
+      "log_0": "The savings lose weight. Your evidence gains it.",
+      "choice_1": "Take the paid patching shift",
+      "log_1": "You repair a real hole for a real ten dollars.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_bridge_bullets": {
+      "name": "Please Account for the Bridge",
+      "desc": "A bridge crew must list five accomplishments in the style of the administration’s emails. Preventing collapse apparently counts as only one.",
+      "choice_0": "Translate structural engineering into five bullets",
+      "log_0": "The bridge is still standing. The email is finally long enough.",
+      "choice_1": "Bring lunch while they finish the report",
+      "log_1": "The crew can eat without documenting each bite.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_press_pool_radio": {
+      "name": "Unscheduled Press Pool",
+      "desc": "After the administration’s Signal fiasco, a convoy dispatcher discovers the lunch-order chat also contains tomorrow’s security briefing. And a restaurant critic.",
+      "choice_0": "Separate lunch from the sensitive channel",
+      "log_0": "The critic is removed. The sandwiches remain under review.",
+      "choice_1": "Rebuild the contact list for a fee",
+      "log_1": "Eight dollars buys more contact hygiene than the old system had.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_hydration_pressure": {
+      "name": "Hydration Sovereignty",
+      "desc": "A truck stop inspired by Trump’s showerhead order advertises executive water pressure. The demonstration has washed the suggestion box into the road.",
+      "choice_0": "Take the ordinary shower",
+      "log_0": "You get clean without declaring a constitutional victory.",
+      "choice_1": "Help repair the demonstration stand for pay",
+      "log_1": "The plumbing accepts your wrench more readily than a proclamation.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_museum_grant": {
+      "name": "The Exhibit of Pending Funds",
+      "desc": "Following the IMLS reduction order, this museum opens a new exhibit: a velvet rope around the grant application. Nobody may touch its outcome.",
+      "choice_0": "Digitize exhibits for the museum’s day rate",
+      "log_0": "You preserve history before the application becomes an artifact.",
+      "choice_1": "Support the volunteer tour",
+      "log_1": "The tour has facts, unlike the funding timetable.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_factcheck_shift": {
+      "name": "Citation Repair Is Hiring",
+      "desc": "A local paper needs a freelancer after the MAHA report’s citation errors. The editor promises more real dollars than some references had real authors.",
+      "choice_0": "Take the paid fact-checking assignment",
+      "log_0": "Fifteen dollars. Several broken citations. One intact standard of evidence.",
+      "choice_1": "Declare the links spiritually valid",
+      "log_1": "The editor declines your services. Confidence briefly replaces verification.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_food_shelf": {
+      "name": "The Shelf Is Still Hungry",
+      "desc": "The LFPA25 cancellation has inspired a agency sign: FOOD ACCESS STREAMLINED. Volunteers are streamlining potatoes into actual bags.",
+      "choice_0": "Help pack food in exchange for three bundles",
+      "log_0": "Your crew gets supplies. Your arms get a government-sized workload.",
+      "choice_1": "Handle the co-op’s paid delivery paperwork",
+      "log_1": "The co-op pays ten dollars for forms that finally correspond to food.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_cabinet_guest": {
+      "name": "Cabinet Chat: Guest Access",
+      "desc": "Your checkpoint invitation follows the Signal scandal’s approach to access control: a lock icon, total confidence, and a man asking whether this is his dentist.",
+      "choice_0": "Verify every participant before transmitting",
+      "log_0": "You remove the dentist’s patient before sharing the route.",
+      "choice_1": "Post the itinerary and a thumbs-up",
+      "log_1": "The group appreciates your openness. So does somebody called External Guest 4.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_name_infrastructure": {
+      "name": "The Name Is the Infrastructure",
+      "desc": "The renaming office has learned from Trump’s geographic order. Your missing bridge is now called The Tremendous Connection. The river has not signed off.",
+      "choice_0": "Pay for the newly named detour permit",
+      "log_0": "The permit is excellent. You still take the detour.",
+      "choice_1": "Demand a route with physical pavement",
+      "log_1": "The clerk locates a road that exists outside the press release.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_straw_inspection": {
+      "name": "Strategic Straw Inspection",
+      "desc": "A checkpoint has interpreted Trump’s paper-straw order as a border doctrine. Your reusable cup is being questioned about its affiliations.",
+      "choice_0": "Offer a sealed drink to end the inspection",
+      "log_0": "The inspector finds the beverage ideologically sufficient.",
+      "choice_1": "Read the actual procurement order aloud",
+      "log_1": "The cup is released without charges.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_shower_force": {
+      "name": "The National Shower Demonstration",
+      "desc": "A promotional booth for Trump’s showerhead order needs a volunteer to hold the hose. Its pressure is presidential; its fasteners are municipal.",
+      "choice_0": "Take the paid maintenance shift",
+      "log_0": "You earn twelve dollars restraining executive water pressure.",
+      "choice_1": "Buy a normal wash token",
+      "log_1": "You wash off the road without becoming part of the demonstration.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_receipt_museum": {
+      "name": "The Museum of Very Large Savings",
+      "desc": "The exhibit commemorating DOGE’s billion-to-million correction has a donation box labeled TRILLIONS. The curator needs someone who understands decimal places.",
+      "choice_0": "Audit the exhibit for an honorarium",
+      "log_0": "The museum pays thirteen dollars. You verify all thirteen.",
+      "choice_1": "Applaud the trillion-dollar quarter",
+      "log_1": "The applause is tremendous. The accounting is performance art.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_transit_ribbon": {
+      "name": "The Ribbon-Cutting Holding Pattern",
+      "desc": "A transit advocacy booth displays Chicago’s funding-pause news. The ribbon is ready, the scissors are ready, and neither is accepted as public transportation.",
+      "choice_0": "Supply the volunteers’ outreach table",
+      "log_0": "The campaign gets lunch. Commuters still need actual transit.",
+      "choice_1": "Take a paid rider-survey shift",
+      "log_1": "You collect nine dollars and several unusually specific sighs.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_weather_desk": {
+      "name": "Alternative Weather Desk",
+      "desc": "A briefing contractor has learned the wrong lesson from Sharpiegate: every unfavorable forecast needs a thicker pen. You are offered the corrections desk.",
+      "choice_0": "Publish the meteorologist’s original chart",
+      "log_0": "The weather is unchanged. The record is finally accurate.",
+      "choice_1": "Accept six dollars to redraw the sunshine",
+      "log_1": "The chart improves politically. The clouds remain insubordinate.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    },
+    "sat_bibliography_emergency": {
+      "name": "Bibliography Emergency Room",
+      "desc": "After the MAHA report’s errors, a clinic has opened a citation triage desk. The references have impressive titles but no detectable authors.",
+      "choice_0": "Take the paid reference-checking shift",
+      "log_0": "Twelve dollars earned. The bibliography regains a pulse.",
+      "choice_1": "Use the clinic’s ordinary care supplies",
+      "log_1": "Your crew improves under a treatment that exists.",
+      "choice_2": "Keep moving",
+      "log_2": "You keep your resources and leave the opportunity behind."
+    }
+  },
+  "play": {
+    "help": "How this works",
+    "travel_help": "Set your pace and information diet, then travel. The road runs briefly before stopping at your next decision. Watch the gauges; choices and repairs report their actual costs.",
+    "outfit_help": "Your starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted.",
+    "outfit": "Outfit your van",
+    "shop": "Choose equipment",
+    "loadout": "Your loadout",
+    "review": "Review & depart",
+    "depart": "Start the journey",
+    "edit": "Keep outfitting",
+    "review_help": "Check what you are carrying and what you will have left. These purchases happen when you start the journey.",
+    "base_supplies": "Already in the van",
+    "packed_supplies": "Supplies after checkout",
+    "capacity": "Supplies are capped at 20. Extra provisions above that limit do not carry over.",
+    "spent": "Cart total",
+    "cash": "Cash remaining",
+    "owned": "Already carried",
+    "pack_empty": "A starter load is selected. Every item comes out of your funds—change or remove anything.",
+    "all": "All equipment",
+    "fuel_food_help": "Food and water add supplies. Water also gives you a water-jug equipment tag.",
+    "vehicle_help": "One matching spare is consumed when fitted. Without one, repairs may cost cash, time, or vehicle condition.",
+    "ppe_help": "Protective gear softens specific weather penalties. Select an item to see what it protects against.",
+    "docs_help": "A press pass can help at permit checks. A legal fund adds credibility.",
+    "grants": "Adds to your loadout",
+    "protection": "Protection",
+    "pace": "Travel pace",
+    "diet": "Information diet",
+    "steady": "Steady",
+    "heated": "Heated",
+    "blitz": "Blitz",
+    "quiet": "Quiet",
+    "mixed": "Mixed",
+    "doom": "Doomscroll",
+    "pace_help": "Faster travel brings more stress and encounter risk. These are configured daily modifiers, not a guarantee of distance.",
+    "diet_help": "This is your news intake, not your food ration. Quieter coverage supports sanity; doomscrolling raises receipt-finding chances and pants danger.",
+    "locked": "Today’s settings are locked until the next day.",
+    "distance": "Distance",
+    "risk": "Encounter chance",
+    "receipts": "Receipt chance",
+    "daily": "Per day",
+    "weather_effects": "Weather effects",
+    "no_weather": "No direct weather modifiers.",
+    "protected": "Equipped protection active",
+    "unprotected": "No matching protection carried",
+    "weather_help": "These modifiers describe the current weather. Conditions can change as the next day begins. Protective gear can replace some penalties.",
+    "credibility": "Credibility",
+    "morale": "Morale",
+    "allies": "Allies",
+    "cred_help": "Credibility rises by listening to locals, documenting events and useful encounter choices. Misleading claims and some shortcuts reduce it. It affects the final hearing.",
+    "morale_help": "Morale is the crew’s shared spirit. Care, rest, cooperation and successful encounters raise it. Losses, departures, hunger and difficult choices lower it.",
+    "sanity_help": "News intake, rushed travel, illness and stressful choices can lower sanity. Quiet news, camp recovery and helpful encounters restore it. A warning appears at 2 or less.",
+    "health_help": "Health falls through injury, hunger and hard physical work. Care, recovery days and some encounters restore it. At zero the journey ends.",
+    "supplies_help": "Food and water share a 20-unit capacity. Travel, weather, care and barter use supplies. Buy provisions, gather outside town, trade or work for food to replenish them.",
+    "allies_help": "Allies are outside supporters, separate from the people in your van. Helpful encounter choices build support; choices that spend or alienate support reduce it. Allies contribute to the final hearing.",
+    "journey": "The road to D.C.",
+    "your_turn": "Your turn",
+    "traveling": "On the road…",
+    "repairing": "Roadside repairs…",
+    "travel_wait": "Watch the road. Your next decision is approaching.",
+    "travel_progress": "Travel progress",
+    "skip": "Skip travel animation",
+    "turn_ready": "Ready for your next decision",
+    "travel_done": "You made it through this stretch.",
+    "last_turn": "Last action",
+    "crew": "Crew & condition",
+    "inventory": "In the van",
+    "journal": "Trail journal",
+    "journal_empty": "The journal fills as your journey unfolds.",
+    "spares": "Replacement parts",
+    "equipment": "Equipped protection & documents",
+    "none": "None carried",
+    "vehicle": "Vehicle condition",
+    "elapsed": "Days elapsed",
+    "miles": "Miles traveled",
+    "repair_receipt": "Repair receipt",
+    "repair_help": "Choose a repair and review its cost before fitting a part or calling for help.",
+    "danger": "Sanity is in the danger zone",
+    "danger_help": "Your sanity is 2 or lower. Consider rest or a quieter information diet before pushing on.",
+    "dismiss": "Got it",
+    "unknown_log": "Trail conditions changed. Check the latest resource receipt.",
+    "outcome": "Journey outcome",
+    "route": "Where your journey ended",
+    "checkpoint": "Final checkpoint",
+    "score": "Journey score",
+    "profile": "Your traveler",
+    "journey_review": "Journey in review",
+    "full_stats": "Run statistics",
+    "seed_hint": "Use a run code to replay a journey. Leave the generated code as-is for this trip."
+  },
+  "play_log": {
+    "spare": "A carried spare was fitted.",
+    "jury": "An improvised repair got you moving at a cost to vehicle condition.",
+    "blocked": "Travel is blocked by a breakdown.",
+    "service": "Roadside service was arranged. See the cash and condition changes.",
+    "field": "A field repair kept the vehicle moving.",
+    "partial": "You made progress along the route.",
+    "detour": "You took a detour around the crossing.",
+    "crossed": "The crossing is behind you.",
+    "crossing_failed": "The crossing attempt failed.",
+    "bribe": "A bribe was attempted at the crossing.",
+    "permit": "Your permit was presented at the crossing.",
+    "encounter": "The next encounter is ready.",
+    "capitol": "You are approaching the final checkpoint.",
+    "victory": "The final vote passed.",
+    "defeat": "The final vote did not pass."
+  },
+  "play2": {
+    "autosave_failed": "Automatic recovery could not be saved. Use Save or export your game before leaving.",
+    "rest_ready": "Rest available in {days} completed days",
+    "forage_ready": "Foraging available in {days} completed days",
+    "game_controls": "Game controls",
+    "save": "Save",
+    "load": "Load",
+    "clock": "Day {day} · {time}",
+    "route_stop": "Route stop",
+    "buy_return": "Buy supplies & return",
+    "leave_shop": "Leave store",
+    "exchange": "Community exchange",
+    "trade_done": "Traded 3 supplies for 1 spare tire. The community thanks you for keeping barter out of the subscription economy.",
+    "city": "City supply depot & aid center",
+    "town": "Town store & community center",
+    "stop_help": "Stock up before departure. One community exchange per stop; leaving takes you back onto the trail.",
+    "resupply": "Visit supply store",
+    "trade": "Trade 3 supplies → 1 spare tire",
+    "traded": "Community exchange used",
+    "purchase": "Supply purchase",
+    "purchase_done": "Your purchases are packed. Check the receipt before getting back on the road.",
+    "weather_changed": "Conditions changed. Weather affects distance, exposure and daily resources; your gear may reduce the impact. The turn receipt shows the combined result.",
+    "acknowledge": "Check conditions",
+    "weather_contribution": "Weather contribution",
+    "high_contrast": "High contrast"
+  },
+  "crew": {
+    "title": "Ekibine isim ver",
+    "player": "Adın",
+    "name": "Ekip adı",
+    "hint": "Ekibin için cinsiyetten bağımsız adlar seçtik. Bunları tutabilir veya istediğin adları yazabilirsin.",
+    "roster": "Ekibin",
+    "active": "Yolculukta",
+    "dead": "Öldü",
+    "departed": "Ekipten ayrıldı"
+  },
+  "route": {
+    "map": "Rota haritası",
+    "title": "D.C. yolu",
+    "upcoming": "Sıradaki duraklar",
+    "destination": "Son varış noktası",
+    "services": "Erzak dükkânı · Topluluk takası",
+    "help": "Supply shops and community trades open when you reach a town. Your map returns at new towns, regional borders, and every five days.",
+    "at": "{town} konumunda",
+    "between": "{from} → {to}",
+    "miles": "{miles} mil",
+    "day": "Day {day}",
+    "overview": "Whole U.S.",
+    "detail": "Zoom to route",
+    "traveled": "Distance traveled",
+    "remaining": "to D.C.",
+    "continue": "Continue the journey",
+    "origin": "Starts in {city} · Bound for D.C.",
+    "corn": "Corn Lobby HQ",
+    "factory": "Factory reset pending",
+    "paperwork": "Accountability sold separately",
+    "origin_satire": {
+      "journalist": "Minneapolis to D.C. — Midwest nice. Federal fine print.",
+      "organizer": "Kansas City to D.C. — The barbecue committee has reached no consensus.",
+      "whistleblower": "Denver to D.C. — Even the thin air comes with a premium tier.",
+      "lobbyist": "St. Louis to D.C. — The arch is free to admire. Access costs extra.",
+      "staffer": "Omaha to D.C. — Every cornfield has a field office.",
+      "satirist": "Austin to D.C. — Everything is bigger, especially the invoices."
+    }
+  },
+  "journey": {
+    "when": "When and where",
+    "capped": "Adjusted for current limits",
+    "day_effects": "Day-end conditions also apply",
+    "camp_forecast": "These are the recovery effects at your current levels. One stationary day passes; weather and hunger can also affect the crew. Rest helps every present crew member.",
+    "ready": "Ready now",
+    "capacity": "The van holds 20 supply units. Remove surplus packs before checkout; you will not be charged for goods you cannot carry.",
+    "shop_help": "Restock for the next leg. Your current supplies and spares are already in the van.",
+    "consequence": "The consequences",
+    "relief": "A little breathing room",
+    "speed": "Travel speed",
+    "normal": "Normal",
+    "fast": "Fast",
+    "step": "Step mode",
+    "map": "Review route",
+    "resume": "Resume travel",
+    "depart": "Depart town",
+    "rolling": "On the road. Travel continues until a decision, arrival or danger needs you.",
+    "pause": "Pause travel",
+    "assess": "Assess conditions",
+    "next_leg": "The next leg",
+    "next_stop": "Next stop",
+    "supplies_unit": "Shared food and water",
+    "today": "Pace · News intake",
+    "arrival": "You have arrived",
+    "arrival_help": "The road can wait. Restock, exchange goods or hear what the locals know before departing.",
+    "talk": "Talk to locals",
+    "local_word": "Word from the town",
+    "town_heartland": "The grain elevator has been renamed the Center for Agricultural Innovation. It still buys grain. Neighbors recommend a spare tire for the rural stretch ahead; volunteers run the aid table. Your notes add credibility.",
+    "town_rustbelt": "The old mill is an Innovation District now. The library still has working outlets. Locals recommend a spare battery; the exchange board lists today’s offer. You record their account.",
+    "town_beltway": "The community center is accepting feedback about the feedback process. Neighbors point out the actual aid desk around the back. Gather your evidence and rest before the D.C. hearing.",
+    "trade_0": "Trade 3 supplies → 1 spare tire",
+    "trade_1": "Trade 4 supplies → 1 battery",
+    "trade_2": "Trade 1 spare tire → 5 supplies",
+    "crew_stop": "A crew member needs help",
+    "care_body": "{name} is worn down after days on the road. A volunteer aid team stops alongside you. Help now, arrange a safe departure, or keep going with a risk of worsening illness.",
+    "care_critical": "{name} is critically ill after care was deferred. Continuing without treatment will be fatal. The aid team can help, and a recovery day can also clear this condition.",
+    "care_action": "Give care · Supplies −2 · Morale +{morale}",
+    "shelter_action": "Arrange a safe departure · Crew member leaves · Morale −{morale}",
+    "defer_action": "Keep going · Sanity −{sanity} · Illness may worsen",
+    "fatal_action": "Continue without care · This crew member will die · Sanity −{sanity} · Morale −{morale}",
+    "care_hint": "These choices take one hour. A full rest day clears crew illness; returning to a menu does not.",
+    "care_helped": "{name} receives care and can help the crew again.",
+    "care_sheltered": "{name} stays with the volunteer aid team and leaves the expedition safely. Their seat is now empty.",
+    "care_deferred": "{name} stays with the crew, still unwell. Give care or take a recovery day before the condition worsens.",
+    "care_lost": "{name} died after critical illness went untreated. The crew continues without them.",
+    "struggling": "Needs recovery",
+    "present": "Present at journey’s end",
+    "mission": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+    "multiplier": "Affects final scoring, not your travel speed or starting cash.",
+    "scorecard": "Detailed scorecard",
+    "your_story": "The people behind the miles",
+    "turning_points": "Moments that shaped the trip",
+    "vote_exhausted": "The crew cannot withstand the full hearing at these levels. Recover before proceeding.",
+    "vote_chance": "Estimated chance of passing the final vote: {chance}%.",
+    "vote_basis": "Evidence, credibility, allies, health, morale and supplies contribute to the journey score. Days and resolved encounters add experience; breakdowns subtract from it. Sanity and pants danger must survive the hearing’s round costs. The final vote is uncertain.",
+    "review_before_vote": "Rest before the hearing",
+    "vote_won": "The hearing passed. Your crew’s account is on the record in D.C.",
+    "vote_lost": "The hearing ended without a win. The journey and the people who helped still count.",
+    "forecast": "Recent supply use: about {days} days of stock. Conditions and choices can change this.",
+    "forecast_wait": "Supply outlook appears after the first travel day. Carry a reserve for weather, care and delays.",
+    "protection": "Protection is already packed",
+    "survival": "Survival",
+    "influence": "Public influence",
+    "abandon": "Abandon trail",
+    "abandon_question": "Abandon this trail?",
+    "abandon_explanation": "This ends the current journey and saves its story. You can start a new trip or load a separate manual save.",
+    "keep_traveling": "Keep traveling",
+    "confirm_abandon": "End this journey",
+    "abandoned": "The trail ends here",
+    "abandoned_story": "{name} chose to end the trail here with {crew}. Your journey and everyone who traveled with you remain in the journal.",
+    "conditions_changed": "Conditions changed",
+    "accept_conditions": "Continue with these conditions"
+  },
+  "trail": {
+    "clear_cart": "Empty the van",
+    "shop_help": "Supply shop. Buy food, water, spare parts and protective gear with cash at this stop.",
+    "trade_help": "Community trading. Exchange goods or work for supplies; local offers are available once per stop.",
+    "repair_title": "Replace the {part}",
+    "repair_context": "The van cannot continue. Parts and local contacts near {town} offer these routes back onto the road.",
+    "repair_onboard": "Fit your spare {part}",
+    "repair_purchase": "Order a replacement {part}",
+    "repair_barter": "Trade supplies for a used {part}",
+    "repair_radio": "Call local radio; work in exchange for repairs",
+    "repair_help": "A fitted spare is consumed. Buying outside town includes $10 delivery. Barter consumes four supplies. Radio contacts arrange a used part in exchange for four hours of work, costing sanity and morale. The radio option remains available without cash or spares.",
+    "repaired": "The {part} is fitted. The crew checks the van before continuing.",
+    "one_hour": "1 hour",
+    "ninety_minutes": "90 minutes",
+    "two_hours": "2 hours",
+    "four_hours": "4 hours",
+    "gather": "Gather supplies",
+    "town_work": "Community offers",
+    "gather_help": "Outside town, gather once every three travel days. Choose a short forage or harder work with more food. In towns, choose one paid or food-for-work offer per stop. Supplies cannot exceed 20; unavailable choices show their costs before you commit.",
+    "forage": "Forage with a local guide",
+    "glean": "Help glean a nearby farm",
+    "work_supplies": "Sort donations for a food parcel",
+    "work_cash": "Take a paid unloading shift",
+    "forage_cost": "Supplies +2 · Sanity up to +1 · 2 hours",
+    "glean_cost": "Supplies +4 · Health −1 · 2 hours",
+    "work_supplies_cost": "Supplies +4 · Sanity up to −1 · 3 hours",
+    "work_cash_cost": "Cash +$18 · Sanity up to −1 · 3 hours",
+    "forage_done": "Your guide identifies what can be gathered safely. The crew returns with food and a clearer head.",
+    "glean_done": "The farmer shares the harvest. Lifting and carrying have taken a physical toll.",
+    "work_supplies_done": "The donation shelves are stocked and the crew receives an agreed food parcel.",
+    "work_cash_done": "The unloading shift is complete. Payment goes directly into the crew’s cash reserve.",
+    "gather_wait": "Gathering available again in {days} travel days.",
+    "work_done": "You have completed this stop’s work offer. More offers await in the next town.",
+    "source": "Read the source",
+    "verified": "Local record · checked {date}",
+    "local": "Local resident",
+    "listen": "Back to town",
+    "fact_note": "Local facts are sourced. The resident and their commentary are fictional.",
+    "care_reason_0": "{name} tried raw milk from a MAHA-themed stall. The promised health revolution has become a stomach emergency.",
+    "care_reason_1": "{name} trusted a sunshine forecast corrected with a marker. The resulting dehydration has no comment for the press.",
+    "care_reason_2": "{name} spent the night reconstructing five accomplishments for a DOGE-inspired camp supervisor. Sleep did not make the list.",
+    "care_reason_3": "{name} sampled a wellness cure whose bibliography was inspired by the MAHA report. The nausea has better documentation.",
+    "care_reason_4": "{name} followed three freshly renamed detours. The road gained prestige; {name} lost sleep.",
+    "care_reason_5": "{name} spent hours verifying a parts invoice after the latest tariff explanation. They are exhausted and still on hold.",
+    "care_reason_6": "{name} was accidentally added to a Signal-inspired overnight briefing chat. The notifications have outlasted their sanity.",
+    "care_reason_7": "{name} strained their back loading food parcels after a co-op meeting about the LFPA25 cancellation. The press release weighed less.",
+    "behind_joke": "Behind the joke",
+    "satire_note": "The roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.",
+    "supply_outlook": "Supply outlook"
+  },
+  "offline": {
+    "title": "Offline play",
+    "downloading": "Downloading for offline play · {percent}%",
+    "ready": "Ready for offline play",
+    "error": "Download interrupted. Your saved run is safe.",
+    "unavailable": "Offline storage is unavailable in this browser.",
+    "checking": "Checking for updates…",
+    "updating": "Updating Dystopian Trail · {percent}%",
+    "retry": "Retry download",
+    "install": "Install Dystopian Trail",
+    "install_help": "On iPhone or iPad, use Share → Add to Home Screen. On a supported desktop browser, use its Install app or Add to Dock command. Installation options depend on your browser.",
+    "help": "All game scenes, maps and rules download automatically. Wait for Ready for offline play before disconnecting. The game checks for a complete update before starting online. Your browser stores the game and saves locally; clearing site data removes them."
   }
 }

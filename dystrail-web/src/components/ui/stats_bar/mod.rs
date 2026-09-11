@@ -1,16 +1,13 @@
+//! Compact survival HUD shared by every in-run screen.
 mod helpers;
 #[cfg(test)]
 mod tests;
-
-use crate::game::exec_orders::ExecOrder;
-use crate::game::state::{Region, Stats};
-use crate::game::weather::Weather;
-use crate::i18n;
-use helpers::{
-    exec_order_token, exec_sprite_class, persona_initial, persona_name_for, region_label,
-    stat_chip, weather_sprite_class,
+use crate::game::{
+    exec_orders::ExecOrder,
+    state::{Region, Stats},
+    weather::Weather,
 };
-use std::collections::BTreeMap;
+use crate::i18n;
 use yew::prelude::*;
 
 #[derive(Clone, PartialEq, Eq)]
@@ -25,6 +22,12 @@ pub struct Props {
     pub day: u32,
     pub region: Region,
     #[prop_or_default]
+    pub moving: bool,
+    #[prop_or(8)]
+    pub clock_hour: u8,
+    #[prop_or_default]
+    pub clock_minute: u8,
+    #[prop_or_default]
     pub exec_order: Option<ExecOrder>,
     #[prop_or_default]
     pub persona_id: Option<String>,
@@ -34,100 +37,29 @@ pub struct Props {
 
 #[function_component(StatsBar)]
 pub fn stats_bar(p: &Props) -> Html {
-    let region_text = region_label(p.region);
-    let day_str = crate::i18n::fmt_number(f64::from(p.day));
-    let pants_raw = p.stats.pants;
-    let pants_str = crate::i18n::fmt_number(f64::from(pants_raw));
-    let persona_name = p
-        .persona_id
-        .as_deref()
-        .map_or_else(|| i18n::t("persona.persona"), persona_name_for);
-    let persona_initial = persona_initial(&persona_name);
-
-    let day_region_text = {
-        let mut m = BTreeMap::new();
-        m.insert("day", day_str.as_str());
-        m.insert("region", region_text.as_str());
-        i18n::tr("stats.day_region", Some(&m))
-    };
-
-    let pants_text = {
-        let mut m = BTreeMap::new();
-        m.insert("pct", pants_str.as_str());
-        i18n::tr("stats.pants", Some(&m))
-    };
-
-    let pants_meter_class = classes!(
-        "pants-meter",
-        if p.stats.pants >= 90 {
-            Some("pants-critical")
-        } else if p.stats.pants >= 70 {
-            Some("pants-warn")
-        } else {
-            None
-        }
-    );
-
-    html! {
-        <section aria-label={i18n::t("stats.location")} class="panel stats-panel header-row" role="region">
-            <div class="header-persona">
-                <div class={classes!("persona-portrait", if p.stats.pants >= 90 { Some("portrait-pulse") } else { None })} aria-hidden="true">
-                    <span class="portrait-initial">{ persona_initial }</span>
+    html! { <section class="survival-hud" aria-label={i18n::t("play.crew")}>
+        <dl class="critical-stats">
+            {for [
+                ("ux.supplies", "play.supplies_help",p.stats.supplies,p.stats.supplies<=2),
+                ("ux.health", "play.health_help",p.stats.hp,p.stats.hp<=2),
+                ("ux.sanity", "play.sanity_help",p.stats.sanity,p.stats.sanity<=2),
+                ("ux.pants", "ux.pants_help",p.stats.pants,p.stats.pants>=80),
+                ("play.credibility", "play.cred_help",p.stats.credibility,false),
+                ("play.morale", "play.morale_help",p.stats.morale,false),
+                ("play.allies", "play.allies_help",p.stats.allies,false),
+            ].into_iter().map(|(key,help,value,critical)| html!{
+                <div class={classes!("hud-stat", critical.then_some("critical"))}>
+                    <dt>{i18n::t(key)}<crate::components::ui::context_help::ContextHelp title={i18n::t(key)} text={i18n::t(help)} /></dt>
+                    <dd>{if key=="ux.pants" {format!("{value}%")} else {i18n::fmt_number(f64::from(value))}}</dd>
                 </div>
-                <div class="persona-copy">
-                    <p class="persona-name">{ persona_name }</p>
-                    <p class="muted">{ day_region_text }</p>
-                </div>
-            </div>
-            <div class="stat-chip-grid" role="list" aria-label={i18n::t("stats.location")}>
-                { stat_chip(i18n::t("stats.sup_short"), p.stats.supplies, "supplies") }
-                { stat_chip(i18n::t("stats.hp_short"), p.stats.hp, "hp") }
-                { stat_chip(i18n::t("stats.sanity_short"), p.stats.sanity, "sanity") }
-                { stat_chip(i18n::t("stats.cred_short"), p.stats.credibility, "cred") }
-                { stat_chip(i18n::t("stats.mor_short"), p.stats.morale, "morale") }
-                { stat_chip(i18n::t("stats.allies_short"), p.stats.allies, "allies") }
-            </div>
-            <div class="conditions-stack">
-                <div class={pants_meter_class} role="meter" aria-label={i18n::t("stats.pants_label")} aria-valuemin="0" aria-valuemax="100" aria-valuenow={pants_raw.to_string()}>
-                    <div class="meter-label">{ pants_text.clone() }</div>
-                    <div class="bar-wrap slim">
-                        <div class={classes!("bar-fill", if p.stats.pants >= 90 { Some("bar-fill-pulse") } else { Some("bar-fill-glow") })} style={format!("width: {pants}%", pants = p.stats.pants)}></div>
-                    </div>
-                </div>
-                <div class="conditions-row">
-                    {
-                        p.weather.as_ref().map(|w| {
-                            let label = i18n::t(w.weather.i18n_key());
-                            let condition_label = format!("{} {}", i18n::t("weather.title"), label);
-                            let sprite_class = weather_sprite_class(w.weather);
-                            html! {
-                                <div class={classes!("condition-pill", "weather-pill", if w.mitigated { Some("mitigated") } else { None })} aria-label={condition_label.clone()} title={condition_label}>
-                                    <span class={classes!("sprite-badge", "sprite-weather", sprite_class)} aria-hidden="true">{ helpers::weather_symbol(w.weather) }</span>
-                                    <span class="condition-label">{ label }</span>
-                                </div>
-                            }
-                        }).unwrap_or_default()
-                    }
-                    <div class="exec-row" aria-live="polite">
-                    {
-                        p.exec_order.map_or_else(Html::default, |order| {
-                            let order_label = i18n::t(order.name_key());
-                            let abbr = exec_order_token(order);
-                            let sprite_class = exec_sprite_class(order);
-                            let full_label = format!("{} {}", i18n::t("eo.prefix"), order_label);
-                            html! {
-                                <div class="condition-pill exec-pill" aria-label={full_label.clone()} title={full_label}>
-                                    <span class={classes!("sprite-badge", "sprite-eo", sprite_class)} aria-hidden="true">{ abbr }</span>
-                                    <span class="condition-label">{ order_label }</span>
-                                </div>
-                            }
-                        })
-                    }
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
+            })}
+        </dl>
+        <div class="hud-context-row"><p class="hud-context"><span aria-hidden="true">{"◷ "}</span><super::game_clock::GameClock day={p.day} hour={p.clock_hour} minute={p.clock_minute} moving={p.moving} /></p>
+        <div class="hud-conditions">
+            if let Some(w)=&p.weather {<span class={helpers::weather_sprite_class(w.weather)}><span aria-hidden="true">{helpers::weather_symbol(w.weather)}</span>{i18n::t(w.weather.i18n_key())}</span>}
+            if let Some(order)=p.exec_order {<span class={helpers::exec_sprite_class(order)}>{i18n::t(order.name_key())}</span>}
+        </div></div>
+    </section> }
 }
 
 pub use helpers::weather_symbol;

@@ -36,7 +36,7 @@ pub fn menu_page(props: &MenuPageProps) -> Html {
                     <div class="header-center">
                         <pre class="ascii-art">
     { "═══════════════════════════════" }<br/>
-    { "D Y S T R A I L" }<br/>
+    { "DYSTOPIAN TRAIL" }<br/>
     { "A Political Survival Adventure" }<br/>
     { "═══════════════════════════════" }
                         </pre>
@@ -45,7 +45,6 @@ pub fn menu_page(props: &MenuPageProps) -> Html {
                         { format!("{seed_label} {code}", seed_label = crate::i18n::t("game.seed_label"), code = props.code.clone()) }
                     </p>
                 </header>
-                <img src={props.logo_src.clone()} alt="Dystrail" loading="lazy" style="width:min(520px,80vw)"/>
                 <crate::components::ui::main_menu::MainMenu seed_text={Some(props.code.to_string())} on_select={Some(on_select)} />
             </section>
         }

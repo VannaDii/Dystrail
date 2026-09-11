@@ -1,4 +1,4 @@
-mod focus;
+pub(crate) mod focus;
 #[cfg(test)]
 mod tests;
 mod view;

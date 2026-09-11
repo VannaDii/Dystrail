@@ -1,153 +1,90 @@
-//! Outfitting Store component - Oregon Trail style store with numbered menu navigation.
-//!
-//! Provides purchasing flow for supplies, vehicle spares, PPE, and documents before the journey.
-
+//! A single outfitting workspace with visible item effects and a persistent loadout.
 mod handlers;
+mod planner;
 mod state;
 mod view;
-
-pub use state::OutfittingStoreProps;
-
-use self::handlers::{get_max_menu_index, handle_back_navigation, handle_menu_selection};
-use self::state::{StoreScreen, StoreState, load_store_data};
-use self::view::{
-    cart::render_cart_screen, category::render_category_screen, home::render_home_screen,
-    quantity::render_quantity_screen,
-};
-use crate::dom;
 use crate::game::store::calculate_cart_total;
-use crate::input::{numeric_code_to_index, numeric_key_to_index};
-use wasm_bindgen::JsCast;
-use web_sys::KeyboardEvent;
+pub use state::OutfittingStoreProps;
+use state::{StoreState, load_store_data};
 use yew::prelude::*;
 
 #[function_component(OutfittingStore)]
-pub fn outfitting_store(props: &OutfittingStoreProps) -> Html {
-    let store_state = use_state(StoreState::default);
-    let list_ref = use_node_ref();
-    let _live_region_ref = use_node_ref();
-
-    let discount_pct = f64::from(props.game_state.mods.store_discount_pct);
-
+pub fn outfitting_store(p: &OutfittingStoreProps) -> Html {
+    let state = use_state(StoreState::default);
+    let category = use_state(|| "all".to_owned());
+    let review = use_state(|| false);
+    let failed = use_state(|| false);
+    let cart_key = format!(
+        "dystrail.cart.{}.{}.{:?}.{}",
+        p.game_state.seed, p.game_state.day, p.game_state.persona_id, p.resupply
+    );
     {
-        let store_state = store_state.clone();
+        let state = state.clone();
+        let failed = failed.clone();
+        let cart_key = cart_key.clone();
+        let category = category.clone();
+        let review = review.clone();
+        let resupply = p.resupply;
+        let discount = f64::from(p.game_state.mods.store_discount_pct);
         use_effect_with((), move |()| match load_store_data() {
-            Ok(store_data) => {
-                let mut state = (*store_state).clone();
-                state.store_data = store_data;
-                state.discount_pct = discount_pct;
-                state.cart.total_cents =
-                    calculate_cart_total(&state.cart, &state.store_data, discount_pct);
-                store_state.set(state);
+            Ok(data) => {
+                let mut next = (*state).clone();
+                next.store_data = data;
+                if !resupply {
+                    for (id, qty) in [
+                        ("rations", 4),
+                        ("water", 2),
+                        ("spare_tire", 1),
+                        ("battery", 1),
+                        ("masks", 1),
+                    ] {
+                        next.cart.add_item(id, qty);
+                    }
+                }
+                if let Some(saved) = web_sys::window()
+                    .and_then(|w| w.local_storage().ok().flatten())
+                    .and_then(|s| s.get_item(&cart_key).ok().flatten())
+                    .and_then(|s| serde_json::from_str(&s).ok())
+                {
+                    next.cart = saved;
+                }
+                if let Some((saved_category, saved_review)) = web_sys::window()
+                    .and_then(|w| w.local_storage().ok().flatten())
+                    .and_then(|s| s.get_item(&format!("{cart_key}.view")).ok().flatten())
+                    .and_then(|s| serde_json::from_str::<(String, bool)>(&s).ok())
+                {
+                    category.set(saved_category);
+                    review.set(saved_review);
+                }
+                next.discount_pct = discount;
+                next.cart.total_cents =
+                    calculate_cart_total(&next.cart, &next.store_data, discount);
+                state.set(next);
             }
-            Err(e) => {
-                dom::console_error(&format!("Failed to load store data: {e}"));
-            }
+            Err(_) => failed.set(true),
         });
     }
-
     {
-        let store_state = store_state.clone();
-        use_effect_with(store_state.cart.clone(), move |cart| {
-            let mut state = (*store_state).clone();
-            state.cart.total_cents =
-                calculate_cart_total(cart, &state.store_data, state.discount_pct);
-            store_state.set(state);
-        });
-    }
-
-    let on_keydown = {
-        let store_state = store_state.clone();
-        let props = props.clone();
-        Callback::from(move |e: KeyboardEvent| {
-            let key = e.key();
-            let state = (*store_state).clone();
-
-            if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
+        let cart = if state.store_data.categories.is_empty() {
+            None
+        } else {
+            serde_json::to_string(&state.cart).ok()
+        };
+        let view = serde_json::to_string(&((*category).clone(), *review)).ok();
+        use_effect_with((cart, cart_key, view), move |(cart, key, view)| {
+            if let Some(cart) = cart
+                && let Some(storage) =
+                    web_sys::window().and_then(|w| w.local_storage().ok().flatten())
             {
-                handle_menu_selection(n, &state, &store_state, &props);
-                e.prevent_default();
-                return;
-            }
-
-            match key.as_str() {
-                "Enter" | " " => {
-                    handle_menu_selection(state.focus_idx, &state, &store_state, &props);
-                    e.prevent_default();
-                }
-                "Escape" => {
-                    handle_back_navigation(&state, &store_state);
-                    e.prevent_default();
-                }
-                "ArrowDown" => {
-                    let max_idx = get_max_menu_index(&state);
-                    let next = if state.focus_idx >= max_idx {
-                        1
-                    } else {
-                        state.focus_idx + 1
-                    };
-                    let mut new_state = state;
-                    new_state.focus_idx = next;
-                    store_state.set(new_state);
-                    e.prevent_default();
-                }
-                "ArrowUp" => {
-                    let max_idx = get_max_menu_index(&state);
-                    let prev = if state.focus_idx <= 1 {
-                        max_idx
-                    } else {
-                        state.focus_idx - 1
-                    };
-                    let mut new_state = state;
-                    new_state.focus_idx = prev;
-                    store_state.set(new_state);
-                    e.prevent_default();
-                }
-                _ => {}
-            }
-        })
-    };
-
-    {
-        let list_ref = list_ref.clone();
-        let focus_idx = store_state.focus_idx;
-        use_effect_with(focus_idx, move |idx| {
-            if let Some(list) = list_ref.cast::<web_sys::Element>() {
-                let sel = format!("[role='menuitem'][data-key='{idx}']");
-                if let Ok(Some(el)) = list.query_selector(&sel) {
-                    let _ = el
-                        .dyn_into::<web_sys::HtmlElement>()
-                        .ok()
-                        .map(|e| e.focus());
+                let _ = storage.set_item(key, cart);
+                if let Some(view) = view {
+                    let _ = storage.set_item(&format!("{key}.view"), view);
                 }
             }
         });
     }
-
-    match &store_state.current_screen {
-        StoreScreen::Home => {
-            render_home_screen(&store_state, &props.game_state, &list_ref, &on_keydown)
-        }
-        StoreScreen::Category(category_id) => render_category_screen(
-            category_id,
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-        ),
-        StoreScreen::QuantityPrompt(item_id) => render_quantity_screen(
-            item_id,
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-        ),
-        StoreScreen::Cart => render_cart_screen(
-            &store_state,
-            &props.game_state,
-            &list_ref,
-            &on_keydown,
-            props,
-        ),
+    if *failed {
+        return html! {<p role="alert">{crate::i18n::t("ux.store_error")}</p>};
     }
+    planner::render(&state, p, &category, &review)
 }

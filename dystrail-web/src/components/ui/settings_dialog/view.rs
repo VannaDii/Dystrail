@@ -20,6 +20,8 @@ pub fn settings_dialog(p: &Props) -> Html {
 
     use_focus_management(p.open, ref_node.clone());
 
+    super::super::dismiss::use_outside_dismiss(ref_node.clone(), p.open, p.on_close.clone());
+
     if !p.open {
         return html! {};
     }
@@ -38,8 +40,8 @@ pub fn settings_dialog(p: &Props) -> Html {
     };
 
     html! {
-      <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="settings-title" ref={ref_node} onkeydown={on_keydown}>
-        <div class="drawer-body">
+      <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="settings-title" onkeydown={on_keydown}>
+        <div class="drawer-body" ref={ref_node}>
           <h2 id="settings-title">{ crate::i18n::t("settings.title") }</h2>
           <div class="field">
             <label for="hc-toggle"><strong>{ crate::i18n::t("ui.hc_toggle") }</strong></label>

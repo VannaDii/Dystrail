@@ -5,6 +5,7 @@ use yew::LocalServerRenderer;
 
 fn base_props(open: bool) -> Props {
     Props {
+        status: String::new(),
         open,
         on_close: Callback::noop(),
         on_save: Callback::noop(),

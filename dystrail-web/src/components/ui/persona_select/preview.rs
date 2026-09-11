@@ -1,7 +1,4 @@
-use super::helpers::{
-    initial_for, localized_desc, localized_name, modifier_text, multiplier_label, preview_line,
-    stats_row,
-};
+use super::helpers::{localized_desc, localized_name, modifier_text, multiplier_label, stats_row};
 use crate::game::personas::Persona;
 use yew::prelude::*;
 
@@ -17,26 +14,27 @@ pub fn persona_preview(props: &PersonaPreviewProps) -> Html {
         |per| {
             let name = localized_name(per);
             let desc = localized_desc(per);
-            let preview_line = preview_line(per);
+
             let mult_line = multiplier_label(per);
             let mods_text = modifier_text(per);
             html! {
               <>
                 <div class="persona-preview-header">
-                  <div class="persona-portrait" aria-hidden="true">
-                    <span class="portrait-initial">{ initial_for(&name) }</span>
-                  </div>
                   <div>
                     <h3 class="persona-name">{ name.clone() }</h3>
                     <p class="muted">{ desc }</p>
                   </div>
                 </div>
+                <p class="persona-origin">{crate::i18n::tr("route.origin",Some(&std::collections::BTreeMap::from([("city",crate::game::route::origin(&per.id))])))}</p>
+                <p class="mission-copy">{crate::i18n::t("journey.mission")}</p>
+                <div class="persona-mods">{ mods_text }</div>
+
                 <div class="persona-preview-stats">
                   { stats_row(per) }
                 </div>
-                <p class="muted">{ preview_line }</p>
-                <p class="muted">{ mult_line }</p>
-                <div class="persona-mods">{ mods_text }</div>
+
+                <p class="muted">{ mult_line }{" · "}{crate::i18n::t("journey.multiplier")}</p>
+
               </>
             }
         },

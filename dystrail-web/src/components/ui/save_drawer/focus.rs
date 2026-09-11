@@ -28,9 +28,10 @@ pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_
                 let _ = first.focus();
             }
 
+            let was_open = *open;
             let ret_id = ret.clone();
             move || {
-                let maybe_focus = if cfg!(target_arch = "wasm32") {
+                let maybe_focus = if cfg!(target_arch = "wasm32") && was_open {
                     ret_id
                         .clone()
                         .and_then(|id| {

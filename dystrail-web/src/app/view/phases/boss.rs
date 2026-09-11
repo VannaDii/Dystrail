@@ -11,10 +11,12 @@ pub fn render_boss(state: &AppState, handlers: &AppHandlers) -> Html {
         let weather_badge = build_weather_badge(&gs, &state.weather_config);
         html! {
             <BossPage
+                key={crate::i18n::current_lang()}
                 state={gs}
                 config={cfg}
                 weather={weather_badge}
                 on_begin={handlers.boss.clone()}
+                on_camp={{let phase=state.phase.clone();Callback::from(move |()|phase.set(crate::app::Phase::Camp))}}
             />
         }
     })

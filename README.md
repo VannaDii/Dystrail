@@ -1,6 +1,6 @@
 # 🎮 Dystrail
 
-_What if Oregon Trail took a wrong turn and ended up in DC?_
+_What if Oregon Trail took a wrong turn and ended up in D.C.?_
 
 **Dystrail** is a SNES-lite parody survival game where you march toward Capitol Hill, dodging tariffs, raw milk stands, brain worms, and the dreaded **National Pants Emergency**.
 

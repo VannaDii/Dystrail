@@ -42,8 +42,11 @@ impl JourneySession {
     ) -> Self {
         let mode = state.mode;
         let seed = state.seed;
-        let controller =
+        let mut controller =
             Self::build_controller(state.mechanical_policy, mode, strategy, seed, endgame_cfg);
+        if let Some(rng) = state.rng_bundle.as_ref() {
+            controller.rng = rng.clone();
+        }
         let mut session = Self { controller, state };
         session.reset_state_policy(strategy);
         session

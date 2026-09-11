@@ -547,6 +547,23 @@ mod tests {
     }
 
     #[test]
+    fn camp_cooldowns_tick_once_per_completed_day() {
+        let mut state = GameState::default();
+        state.camp.rest_cooldown = 3;
+        state.camp.forage_cooldown = 2;
+        state.start_of_day();
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 2);
+        assert_eq!(state.camp.forage_cooldown, 1);
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 2);
+        state.start_of_day();
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 1);
+        assert_eq!(state.camp.forage_cooldown, 0);
+    }
+
+    #[test]
     fn exec_order_expires_and_sets_cooldown() {
         let mut state = GameState {
             current_order: Some(ExecOrder::Shutdown),
@@ -1665,7 +1682,7 @@ pub enum Ending {
     BossVictory,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum DamageCause {
     Starvation,
     ExposureCold,
@@ -1811,14 +1828,7 @@ pub struct Spares {
     pub pump: i32, // fuel pump
 }
 
-/// Party configuration (leader plus four companions)
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
-pub struct Party {
-    #[serde(default)]
-    pub leader: String,
-    #[serde(default)]
-    pub companions: Vec<String>,
-}
+pub use crate::party::Party;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FeatureFlags {
@@ -1877,6 +1887,8 @@ pub enum GamePhase {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GameState {
+    #[serde(flatten)]
+    pub continuity: crate::journal::Continuity,
     pub mode: GameMode,
     #[serde(default)]
     pub mechanical_policy: MechanicalPolicyId,
@@ -2054,31 +2066,32 @@ pub struct GameState {
     pub recent_travel_days: VecDeque<TravelDayKind>,
     #[serde(default)]
     pub day_reason_history: Vec<String>,
-    #[serde(skip)]
+    #[serde(default)]
     pub rotation_backlog: VecDeque<String>,
-    #[serde(skip)]
+    #[serde(default, with = "crate::journey::rng_save")]
     pub rng_bundle: Option<Rc<RngBundle>>,
     #[serde(skip)]
     pub data: Option<EncounterData>,
-    #[serde(skip)]
+    #[serde(default)]
     pub last_damage: Option<DamageCause>,
-    #[serde(skip)]
+    #[serde(default)]
     pub decision_traces_today: Vec<EventDecisionTrace>,
-    #[serde(skip)]
+    #[serde(default)]
     pub current_day_record: Option<DayRecord>,
-    #[serde(skip)]
+    #[serde(default)]
     pub current_day_kind: Option<TravelDayKind>,
-    #[serde(skip)]
+    #[serde(default)]
     pub current_day_reason_tags: Vec<String>,
-    #[serde(skip)]
+    #[serde(default)]
     pub current_day_miles: f32,
-    #[serde(skip)]
+    #[serde(default)]
     pub last_breakdown_part: Option<Part>,
 }
 
 impl Default for GameState {
     fn default() -> Self {
         Self {
+            continuity: crate::journal::Continuity::default(),
             mode: GameMode::Classic,
             mechanical_policy: MechanicalPolicyId::default(),
             seed: 0,
@@ -2451,6 +2464,7 @@ impl GameState {
         if self.day_state.lifecycle.did_end_of_day {
             return;
         }
+        self.tick_camp_cooldowns();
         self.update_encounter_history();
         let miles_delta = self.compute_day_progress();
         self.assert_travel_consistency(miles_delta);
@@ -2735,6 +2749,7 @@ impl GameState {
         let applied = distance.min(remaining);
         let before = self.miles_traveled_actual;
         self.miles_traveled_actual += applied;
+        self.sync_route_location();
         self.miles_traveled = (self.miles_traveled + applied).min(self.trail_distance);
         let advanced = self.miles_traveled_actual > before;
         if advanced {
@@ -2766,6 +2781,7 @@ impl GameState {
         let day_progress = (self.miles_traveled_actual - self.prev_miles_traveled).max(0.0);
         if day_progress > 0.0 {
             self.miles_traveled_actual -= day_progress;
+            self.sync_route_location();
             self.miles_traveled = self.miles_traveled_actual.min(self.trail_distance);
             if self.miles_traveled_actual < self.trail_distance {
                 self.boss.readiness.ready = false;
@@ -3761,7 +3777,11 @@ impl GameState {
 
     #[must_use]
     pub fn rehydrate(mut self, data: EncounterData) -> Self {
+        self.sync_route_location();
         self.data = Some(data);
+        if let Some(player) = self.persona_id.as_deref() {
+            self.party.initialize(player, self.seed);
+        }
         if self.state_version < Self::current_version() {
             self.state_version = Self::current_version();
             if self.day_records.is_empty()
@@ -3795,13 +3815,7 @@ impl GameState {
 
     #[must_use]
     pub const fn region_by_miles(miles: f32) -> Region {
-        if miles < 700.0 {
-            Region::Heartland
-        } else if miles < 1_400.0 {
-            Region::RustBelt
-        } else {
-            Region::Beltway
-        }
+        crate::route::region(miles)
     }
 
     pub fn travel_next_leg(&mut self, endgame_cfg: &EndgameTravelCfg) -> (bool, String, bool) {
@@ -3817,6 +3831,10 @@ impl GameState {
         }
 
         let breakdown_started = self.vehicle_roll();
+        if self.continuity.interactive_repairs && self.breakdown.is_some() {
+            self.day_state.travel.travel_blocked = true;
+            return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
+        }
         self.resolve_breakdown();
         if let Some(result) = self.handle_vehicle_state(breakdown_started) {
             return result;
@@ -4155,6 +4173,11 @@ impl GameState {
             let (hp_before, sanity_before) = (self.stats.hp, self.stats.sanity);
 
             let eff = &choice.effects;
+            if !eff.affordable(&self.stats, self.budget_cents, self.receipts.len()) {
+                return;
+            }
+            self.budget_cents = self.budget_cents.saturating_add(eff.cash_cents);
+            self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
             self.stats.hp += eff.hp;
             self.stats.sanity += eff.sanity;
             self.stats.credibility += eff.credibility;
@@ -4452,6 +4475,8 @@ impl GameState {
         }
 
         self.stats.clamp();
+        self.continuity.route_services.route_id = Some(persona.id.clone());
+        self.sync_route_location();
         self.logs
             .push(format!("log.persona.selected.{}", persona.id));
     }
@@ -4462,12 +4487,18 @@ impl GameState {
         I::Item: Into<String>,
         S: Into<String>,
     {
-        self.party.leader = leader.into();
-        self.party.companions = companions.into_iter().map(Into::into).take(4).collect();
-        while self.party.companions.len() < 4 {
-            let idx = self.party.companions.len() + 2;
-            self.party.companions.push(format!("Traveler {idx}"));
+        let player = self.persona_id.as_deref().unwrap_or("journalist");
+        self.party.initialize(player, self.seed);
+        let mut names = companions.into_iter().map(Into::into);
+        let leader = leader.into();
+        for member in &mut self.party.members {
+            if member.persona == player {
+                member.name.clone_from(&leader);
+            } else if let Some(name) = names.next() {
+                member.name = name;
+            }
         }
+        self.party.sync_names(player);
         self.logs.push(String::from("log.party.updated"));
     }
 

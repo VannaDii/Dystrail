@@ -129,10 +129,20 @@ impl ResultScreen {
     }
 
     fn copy_to_clipboard(ctx: &Context<Self>, text: &str) {
-        match share::copy_payload(text) {
-            Ok(()) => Self::announce(ctx, &i18n::t("result.announce.copied")),
-            Err(_) => Self::announce(ctx, &i18n::t("result.announce.copy_failed")),
-        }
+        let link = ctx.link().clone();
+        let text = text.to_owned();
+        wasm_bindgen_futures::spawn_local(async move {
+            let copied = match share::copy_payload(&text) {
+                Ok(promise) => wasm_bindgen_futures::JsFuture::from(promise).await.is_ok(),
+                Err(_) => false,
+            };
+            let key = if copied {
+                "result.announce.copied"
+            } else {
+                "result.announce.copy_failed"
+            };
+            link.send_message(Msg::AnnouncementChange(i18n::t(key)));
+        });
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {

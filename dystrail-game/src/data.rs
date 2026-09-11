@@ -4,6 +4,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct Effects {
     #[serde(default)]
+    pub cash_cents: i64,
+    #[serde(default)]
     pub hp: i32,
     #[serde(default)]
     pub sanity: i32,
@@ -27,6 +29,16 @@ pub struct Effects {
     pub log: Option<String>,
     #[serde(default)]
     pub rest: bool,
+}
+
+impl Effects {
+    /// Mandatory costs must be payable before an encounter can be resolved.
+    #[must_use]
+    pub const fn affordable(&self, stats: &crate::Stats, cash: i64, receipts: usize) -> bool {
+        cash.saturating_add(self.cash_cents) >= 0
+            && stats.supplies.saturating_add(self.supplies) >= 0
+            && (!self.use_receipt || receipts > 0)
+    }
 }
 
 /// A choice within an encounter
@@ -108,6 +120,27 @@ impl EncounterData {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn mandatory_cash_and_supply_costs_are_atomic_and_rewards_reach_the_wallet() {
+        let data = EncounterData::from_json(r#"[{"id":"cash","name":"Shift","desc":"Work","choices":[{"label":"Pay","effects":{"cash_cents":-500,"supplies":-2}},{"label":"Work","effects":{"cash_cents":1200,"sanity":-1}}]}]"#).unwrap();
+        let mut gs = crate::GameState {
+            budget_cents: 400,
+            current_encounter: Some(data.encounters[0].clone()),
+            ..crate::GameState::default()
+        };
+        let before = gs.stats.clone();
+        gs.apply_choice(0);
+        assert!(gs.current_encounter.is_some());
+        assert_eq!(gs.budget_cents, 400);
+        assert_eq!(gs.stats, before);
+        gs.apply_choice(1);
+        assert_eq!(gs.budget_cents, 1600);
+        assert_eq!(gs.budget, 16);
+        assert!(gs.current_encounter.is_none());
+        gs.apply_choice(1);
+        assert_eq!(gs.budget_cents, 1600);
+    }
 
     #[test]
     fn test_encounter_data_from_json() {

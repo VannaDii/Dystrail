@@ -14,6 +14,9 @@ pub fn render_result(state: &AppState) -> Html {
         let session_for_replay = state.session.clone();
         let pending_state_for_replay = state.pending_state.clone();
         let seed_for_replay = *state.run_seed;
+        let replay_phase = state.phase.clone();
+        let replay_code = state.code.clone();
+        let replay_deep = result_state.mode.is_deep();
         let on_replay_seed = Callback::from(move |()| {
             let new_game = GameState {
                 seed: seed_for_replay,
@@ -21,13 +24,23 @@ pub fn render_result(state: &AppState) -> Html {
             };
             pending_state_for_replay.set(Some(new_game));
             session_for_replay.set(None);
+            replay_code.set(encode_friendly(replay_deep, seed_for_replay).into());
+            replay_phase.set(Phase::Persona);
         });
 
         let session_for_new_run = state.session.clone();
         let pending_state_for_new_run = state.pending_state.clone();
+        let new_phase = state.phase.clone();
+        let new_code = state.code.clone();
+        let deep = result_state.mode.is_deep();
         let on_new_run = Callback::from(move |()| {
             pending_state_for_new_run.set(Some(GameState::default()));
             session_for_new_run.set(None);
+            new_code.set(
+                crate::game::seed::generate_code_from_entropy(deep, js_sys::Date::now().to_bits())
+                    .into(),
+            );
+            new_phase.set(Phase::Boot);
         });
 
         let session_for_title = state.session.clone();
@@ -39,18 +52,7 @@ pub fn render_result(state: &AppState) -> Html {
             phase_for_title.set(Phase::Boot);
         });
 
-        let on_export = {
-            let seed = *state.run_seed;
-            let is_deep = result_state.mode.is_deep();
-            Callback::from(move |()| {
-                let code_str = encode_friendly(is_deep, seed);
-                if let Some(win) = web_sys::window() {
-                    let nav = win.navigator();
-                    let cb = nav.clipboard();
-                    let _ = cb.write_text(&code_str);
-                }
-            })
-        };
+        let on_export = crate::app::view::handlers::build_export_state(state);
 
         html! {
             <ResultPage

@@ -1133,9 +1133,12 @@ mod tests {
         119, 47, 185, 75, 143, 178, 235, 124, 7, 160, 121, 106, 184, 88, 95, 106, 255, 188, 53,
         147, 246, 149, 62, 54, 39, 126, 40, 12, 207, 13, 136, 161,
     ];
+    // Completed game days now decrement camp cooldowns, including days spent in camp.
+    // Mileage now changes the engine region, including region-based weather and encounters.
+    // The 59-event bank, unseen-first rotation and payable-choice filtering intentionally change this replay.
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        137, 213, 11, 180, 153, 205, 77, 202, 36, 111, 132, 203, 86, 109, 200, 96, 159, 0, 125,
-        141, 251, 254, 104, 225, 161, 243, 18, 248, 46, 137, 209, 167,
+        180, 21, 104, 242, 165, 46, 192, 66, 121, 252, 36, 120, 213, 51, 101, 107, 113, 179, 170,
+        157, 95, 251, 85, 113, 50, 206, 205, 105, 190, 103, 107, 99,
     ];
 
     #[test]
@@ -1143,6 +1146,12 @@ mod tests {
         let seeds = vec![SeedInfo::from_numeric(4242)];
         let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
         let digest = csv_digest(&records);
+        let replay = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
+        assert_eq!(
+            digest,
+            csv_digest(&replay),
+            "fixed-seed replay must remain reproducible"
+        );
         assert_eq!(
             digest, CSV_DIGEST_BASELINE,
             "canonical CSV digest drifted; update baseline if intentional"

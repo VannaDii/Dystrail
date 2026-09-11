@@ -64,6 +64,8 @@ jobs:
       - name: Add splash page and domain
         run: |
           cp -R site/* build/
+          # Pages serves this entry for nested game routes; local recovery selects the saved stage.
+          cp build/play/index.html build/404.html
           echo "dystrail.com" > build/CNAME
 
       - name: Upload Pages artifact

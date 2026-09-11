@@ -28,7 +28,7 @@ fn handle_home_selection(
     index: u8,
     state: &StoreState,
     store_state: &UseStateHandle<StoreState>,
-    props: &OutfittingStoreProps,
+    _props: &OutfittingStoreProps,
 ) {
     match index {
         1..=4 => {
@@ -54,12 +54,9 @@ fn handle_home_selection(
             crate::a11y::set_status(&i18n::t("store.menu.view_cart"));
         }
         0 => {
-            let remaining_budget = props.game_state.budget_cents - state.cart.total_cents;
-            if remaining_budget >= 0 {
-                handle_checkout(state, props);
-            } else {
-                crate::a11y::set_status(&i18n::t("store.alerts.over_budget"));
-            }
+            let mut next = state.clone();
+            next.current_screen = StoreScreen::Cart;
+            store_state.set(next);
         }
         _ => {}
     }

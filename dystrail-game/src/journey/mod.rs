@@ -9,7 +9,6 @@ use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
 use std::rc::Rc;
 use std::sync::OnceLock;
-use std::time::Instant;
 use thiserror::Error;
 
 use crate::endgame::EndgameTravelCfg;
@@ -19,9 +18,11 @@ use crate::weather::Weather;
 
 pub mod daily;
 pub mod event;
+pub mod rng_save;
 pub mod session;
 pub use daily::{DailyTickOutcome, apply_daily_effect};
 pub use event::{Event, EventDecisionTrace, EventId, EventKind, EventSeverity, UiSurfaceHint};
+use rng_save::RngCall;
 pub use session::JourneySession;
 
 /// Maximum tag capacity stored inline without additional allocations.
@@ -841,8 +842,7 @@ impl DetourPolicy {
         3
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         if self.min == 0 {
             self.min = 1;
         }
@@ -879,8 +879,7 @@ impl BribePolicy {
         0.5
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
         self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
         self.terminal_penalty = self.terminal_penalty.clamp(-0.9, 0.9);
@@ -1276,11 +1275,10 @@ pub struct PolicyCatalog {
 
 impl PolicyCatalog {
     #[must_use]
-    pub fn new(
+    pub const fn new(
         families: HashMap<PolicyId, JourneyCfg>,
         overlays: HashMap<StrategyId, JourneyOverlay>,
     ) -> Self {
-        let _ = Instant::now();
         Self { families, overlays }
     }
 
@@ -1313,14 +1311,12 @@ impl PolicyCatalog {
     }
 
     #[must_use]
-    pub fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
-        let _ = Instant::now();
+    pub const fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
         &self.families
     }
 
     #[must_use]
-    pub fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
-        let _ = Instant::now();
+    pub const fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
         &self.overlays
     }
 }
@@ -1387,7 +1383,7 @@ pub struct DayOutcome {
 }
 
 /// Deterministic bundle of RNG streams segregated by simulation domain.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RngBundle {
     weather: RefCell<CountingRng<SmallRng>>,
     health: RefCell<CountingRng<SmallRng>>,
@@ -1501,6 +1497,8 @@ impl RngBundle {
 pub struct CountingRng<R> {
     rng: R,
     draws: u64,
+    seed: u64,
+    calls: Vec<RngCall>,
 }
 
 impl CountingRng<SmallRng> {
@@ -1508,6 +1506,8 @@ impl CountingRng<SmallRng> {
         Self {
             rng: SmallRng::seed_from_u64(seed),
             draws: 0,
+            seed,
+            calls: Vec::new(),
         }
     }
 }
@@ -1523,21 +1523,25 @@ impl<R: rand::RngCore> CountingRng<R> {
 impl<R: rand::RngCore> rand::RngCore for CountingRng<R> {
     fn next_u32(&mut self) -> u32 {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::U32);
         self.rng.next_u32()
     }
 
     fn next_u64(&mut self) -> u64 {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::U64);
         self.rng.next_u64()
     }
 
     fn fill_bytes(&mut self, dest: &mut [u8]) {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::Bytes(dest.len()));
         self.rng.fill_bytes(dest);
     }
 
     fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), rand::Error> {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::Bytes(dest.len()));
         self.rng.try_fill_bytes(dest)
     }
 }

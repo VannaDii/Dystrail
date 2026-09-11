@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Dystrail – Viaggio di sopravvivenza"
+    "title": "Dystopian Trail"
   },
   "boss": {
     "begin": "Inizia Boss",
@@ -98,7 +98,7 @@
     "war_dept_reorg": "Riorg. Dip. Guerra"
   },
   "footer": {
-    "copyright": "©Distrail"
+    "copyright": "© Dystopian Trail"
   },
   "game": {
     "seed_label": "Seme:"
@@ -198,7 +198,7 @@
     }
   },
   "persona": {
-    "choose": "Scegli la tua Persona:",
+    "choose": "Scegli il personaggio",
     "journalist": {
       "desc": "Credibile e ingegnoso; vive di ricevute.",
       "name": "Giornalista"
@@ -220,7 +220,7 @@
       "name": "Organizzatore"
     },
     "preview": "Inizio: Provviste {sup} · Cred {cred} · San {san} · Mor {mor} · Alleati {allies} · Budget ${budget}",
-    "preview_wait": "Seleziona una persona per i dettagli.",
+    "preview_wait": "Scegli un personaggio per scoprirne i punti di forza.",
     "satirist": {
       "desc": "Resiste con umorismo; ripristina la sanità mentale.",
       "name": "Satiro"
@@ -265,7 +265,10 @@
       "vehicle_failure_vehicle_destroyed": "Alla fine il furgone della campagna si arrese. ",
       "victory": "Gli storici citeranno le tue ricevute. I lobbisti maledicono il tuo nome.",
       "exposure_cold": "Colpo di calore o congelamento, il tempo ha posto fine a ciò che la politica aveva iniziato.",
-      "exposure_heat": "Colpo di calore o congelamento, il tempo ha posto fine a ciò che la politica aveva iniziato."
+      "exposure_heat": "Colpo di calore o congelamento, il tempo ha posto fine a ciò che la politica aveva iniziato.",
+      "collapse_panic": "Il ticker ha fatto il resto. La GIF è per sempre.",
+      "collapse_disease": "Hai raggiunto i gradini ma non la fine. Prossima volta.",
+      "collapse_crossing": "Hai raggiunto i gradini ma non la fine. Prossima volta."
     },
     "headline": {
       "boss_loss": "IL FILIBUSTER TI HA SCHIACCIATO",
@@ -281,7 +284,10 @@
       "vehicle_failure_vehicle_destroyed": "VEICOLO DISTRUTTO",
       "victory": "HAI SUPERATO LA CLOTURE!",
       "exposure_cold": "ESPOSTO AGLI ELEMENTI",
-      "exposure_heat": "ESPOSTO AGLI ELEMENTI"
+      "exposure_heat": "ESPOSTO AGLI ELEMENTI",
+      "collapse_panic": "EMERGENZA NAZIONALE DEI PANTALONI",
+      "collapse_disease": "CROLLO SUI GRADINI",
+      "collapse_crossing": "CROLLO SUI GRADINI"
     },
     "labels": {
       "allies": "Alleati",
@@ -321,7 +327,7 @@
       "title": "Titolo"
     },
     "share": {
-      "template": "Dystrail — {headline} · Punteggio {score} · Seed {seed} · Persona {persona} ({mult}) · Modalità {mode}"
+      "template": "Dystopian Trail — {headline} · Punteggio {score} · Seed {seed} · Persona {persona} ({mult}) · Modalità {mode}"
     },
     "title": "Risultato",
     "title_aria": "Risultato"
@@ -373,7 +379,7 @@
     },
     "categories": {
       "docs": "Documenti e Permessi",
-      "fuel_food": "Carburante / Cibo",
+      "fuel_food": "Cibo e acqua",
       "ppe": "DPI e Abbigliamento",
       "vehicle": "Ricambi Veicolo"
     },
@@ -521,5 +527,740 @@
     "title": "Pagina non trovata",
     "message": "Non troviamo questa pagina. Usa i controlli sopra per tornare indietro.",
     "back": "Torna alla home"
+  },
+  "ux": {
+    "tagline": "Un viaggio di sopravvivenza politica.",
+    "premise": "Arriva a D.C. senza perdere salute, lucidità e dignità. La strada ha altri piani.",
+    "classic_desc": "Sistemi guasti, consigli dubbi e una possibilità di farcela. Il percorso originale, pieno di assurdità politiche.",
+    "deep_desc": "La stessa strada, una realtà peggiore. Incontri più strani, satira più dura e maggiore volatilità.",
+    "begin": "Scegli il personaggio",
+    "new_run": "Nuovo viaggio",
+    "code": "Codice partita (facoltativo)",
+    "code_help": "Lo stesso codice e le stesse scelte riproducono il viaggio. CL: Classico; DP: The Deep End.",
+    "code_error": "Inserisci un codice CL- o DP- valido che termini con due cifre.",
+    "budget": "Budget rimanente",
+    "details": "Tutti i dettagli",
+    "road": "Tieni duro.",
+    "road_deep": "La realtà è una scelta politica.",
+    "next_day": "Viaggia un giorno",
+    "back_road": "Torna sulla strada",
+    "aftermath": "Ora convivici.",
+    "day_report": "Un giorno sul percorso",
+    "no_change": "Nessuna variazione delle risorse",
+    "known_effects": "Effetti noti",
+    "pants_help": "Indicatore di pericolo immaginario. Fretta, notizie ossessive e rischi lo alzano; calma e recupero lo abbassano. Al 100% termina la partita.",
+    "onboarding": "Controlla scorte e condizioni, poi viaggia un giorno. Le scelte mostrano gli effetti noti; la schermata successiva spiega cosa è cambiato.",
+    "journal": "Diario di viaggio",
+    "status": "Stato e inventario",
+    "distance": "Miglia percorse",
+    "gear": "Equipaggiamento",
+    "empty": "Ancora niente",
+    "menu": "Menu",
+    "close": "Chiudi",
+    "scene": "Sulla strada",
+    "prepare": "Preparati per un paese in panne.",
+    "prepare_help": "Compra ciò che serve, controlla il budget e verifica il carico prima di partire.",
+    "persona_intro": "Punti di forza diversi. Lo stesso sistema guasto.",
+    "ready": "Pronti a partire",
+    "loading": "Caricamento del percorso…",
+    "store_error": "Impossibile caricare il negozio. Torna al titolo e riprova.",
+    "resolve_first": "Risolvi la situazione attuale prima di viaggiare.",
+    "saved": "Viaggio salvato.",
+    "save_error": "Impossibile salvare il viaggio su questo dispositivo.",
+    "loaded": "Viaggio caricato.",
+    "camp_hint": "Aprire il campo non costa nulla. Recupero e riparazioni consumano le risorse e il tempo indicati.",
+    "receipt": "Ricevute",
+    "vehicle": "Condizioni del veicolo",
+    "outcome": "Esito",
+    "mode": "Scegli il percorso",
+    "steps": "Preparati al viaggio",
+    "restart": "Torna al titolo",
+    "unknown": "Esito incerto",
+    "continue": "Continua",
+    "camp": "Campo",
+    "supplies": "Scorte",
+    "health": "Salute",
+    "sanity": "Lucidità",
+    "pants": "Pericolo pantaloni",
+    "resolve_vehicle": "Gestisci il guasto",
+    "repair_help": "Il prossimo giorno risolve il guasto usando le regole del viaggio e le attrezzature disponibili. Controlla il risultato prima di proseguire.",
+    "rest": "Riposo · Lucidità +{sanity}, Salute +{hp}, Scorte {supplies}, Pantaloni {pants} · {days} giorno",
+    "forage": "Cerca provviste · +{supplies} alla capacità attuale · {days} giorno",
+    "camp_cooldown": "Alcune azioni non sono disponibili durante il recupero.",
+    "rested": "Un po’ di riposo. Il paese sarà ancora a pezzi domattina.",
+    "foraged": "Hai trovato delle scorte. A quanto pare, l’autosufficienza arriva in confezioni abbandonate.",
+    "continue_today": "Prosegui la giornata",
+    "boss_begin": "Risolvi il voto finale",
+    "boss_hint": "L’ostruzionismo si risolve con una sola azione. Resisti al dibattito, poi scopri l’esito del voto.",
+    "boss_rounds": "Fino a {rounds} turni di dibattito",
+    "boss_sanity": "Sanità mentale per turno",
+    "boss_pants": "Pericolo pantaloni per turno",
+    "boss_resolution": "Il dibattito termina prima se la sanità mentale raggiunge zero o il pericolo pantaloni raggiunge il 100%. Altrimenti viene risolto un unico voto finale."
+  },
+  "encounter_copy": {
+    "beltway_briefing": {
+      "name": "Dipartimento delle Ridenominazioni",
+      "desc": "Le rinomine geografiche di Trump ispirano nuove insegne locali. Il permesso riporta la destinazione di ieri. Gli emendamenti di oggi la rinominano ancora. Il ponte resta pericolante, ma il suo nome non è mai stato così solido. Leggi tutto, scorri il riepilogo o affida le carte al legale."
+    },
+    "classic_bridge_crews": {
+      "name": "L’emergenza efficienza",
+      "desc": "Le email federali dei cinque risultati sono arrivate qui nello spirito, non nella competenza. Una campagna di efficienza ha licenziato la squadra del ponte. Gli operai sono tornati comunque ad aiutare; il tabellone dei risparmi celebra ancora gli stipendi eliminati. Dai una mano o documenta ciò che il tabellone omette."
+    },
+    "deep_secure_line": {
+      "name": "Sicurezza nazionale: piano famiglia",
+      "desc": "Dopo il caso Signal nell’amministrazione Trump, tutti controllano chi ascolta. La chat cifrata del posto di blocco include un cugino, il catering e tutto il tuo gruppo. La cifratura funziona. È la lista degli invitati che richiede una diagnosi. I tecnici attendono la tua decisione.",
+      "choice_0": "Controlla la lista degli invitati",
+      "log_0": "Rimuovi gli ospiti aggiunti per errore. La cifratura non era il problema.",
+      "choice_1": "Invia lo staff al tuo posto",
+      "log_1": "Lo staff sistema gli inviti, ma tu perdi il briefing.",
+      "choice_2": "Richiedi una verifica formale degli accessi",
+      "log_2": "La verifica consuma provviste, ma produce una lista degli accessi documentata."
+    },
+    "raw_milk": {
+      "name": "Bancarella del latte crudo",
+      "desc": "Gli errori nelle citazioni MAHA sono arrivati prima della fiducia promessa. Il venditore cita nove studi a sostegno delle sue promesse salutistiche. Tre dovrebbero esistere a breve. Una mucca decorata di medaglie offre credibilità istituzionale. Bevi, rifiuta o scegli snack sigillati."
+    },
+    "tariff_whiplash": {
+      "name": "Colpo di dazio",
+      "desc": "I dazi auto di Trump trasformano la sosta in un seminario economico non richiesto. La precedente emergenza è stata dichiarata invalida. Si prega di pagare per quella sostitutiva. L’impiegato ha un timbro nuovo e nessun contante per i rimborsi. Paga, contrabbanda provviste o chiedi una deroga."
+    },
+    "classic_civic_potluck": {
+      "desc": "La cancellazione LFPA25 è il tema del giorno; i vicini forniscono ciò che gli slogan non danno. Local organizers insist you eat before the next leg."
+    },
+    "classic_crossing_block_party": {
+      "desc": "L’ordine di Trump di ridurre IMLS rende il futuro della cultura pubblica il tema dell’incontro. Residents host a morale party next to the jammed checkpoint."
+    },
+    "classic_freeway_mural": {
+      "desc": "Le rinomine geografiche di Trump ispirano nuove insegne locali. Artists pause your motorcade to finish a solidarity mural."
+    },
+    "classic_mail_drop": {
+      "desc": "Le email federali dei cinque risultati sono arrivate qui nello spirito, non nella competenza. Supporters sprint over with a bundle of letters asking for updates."
+    },
+    "classic_media_training": {
+      "desc": "Dopo il caso Signal nell’amministrazione Trump, tutti controllano chi ascolta. A friendly coach offers quick framing tips before the next checkpoint."
+    },
+    "classic_mutual_aid": {
+      "desc": "La cancellazione LFPA25 è il tema del giorno; i vicini forniscono ciò che gli slogan non danno. Volunteers flag you down to swap supplies for a quick broadcast boost."
+    },
+    "classic_mutual_aid_dispatch": {
+      "desc": "La cancellazione LFPA25 è il tema del giorno; i vicini forniscono ciò che gli slogan non danno. Dispatchers dart between radios matching requests to trucks."
+    },
+    "classic_neighborhood_watch": {
+      "desc": "Le rinomine geografiche di Trump ispirano nuove insegne locali. Block captains share overnight intel and missing signage."
+    },
+    "classic_overpass_stage": {
+      "desc": "L’ordine di Trump di ridurre IMLS rende il futuro della cultura pubblica il tema dell’incontro. An allied troupe offers to headline a rapid teach-in over the freeway."
+    },
+    "classic_press_briefing": {
+      "desc": "Sharpiegate è l’esempio: le prove devono sopravvivere a chi impugna il pennarello. Local journalists ask for quick quotes before the convoy moves on."
+    },
+    "classic_press_pool_qna": {
+      "desc": "Dopo il caso Signal nell’amministrazione Trump, tutti controllano chi ascolta. Traveling reporters request an extra rotation on the bus."
+    },
+    "classic_radio_phonebank": {
+      "desc": "L’ordine di Trump di ridurre IMLS rende il futuro della cultura pubblica il tema dell’incontro. Students spin up a call-in marathon for signatures."
+    },
+    "classic_service_station": {
+      "desc": "I dazi auto di Trump trasformano la sosta in un seminario economico non richiesto. A union shop offers uptime checks before you push east."
+    },
+    "classic_union_blockade": {
+      "desc": "I dazi auto di Trump trasformano la sosta in un seminario economico non richiesto. A local union offers to stage a slowdown so you can pass unharassed."
+    },
+    "classic_water_drive": {
+      "desc": "L’ordine sui soffioni di Trump ispira un dibattito sulla pressione, mentre l’acqua vera va consegnata. A roadside relief post asks for a quick boost to their hydration drive."
+    },
+    "deep_circuit_breaker": {
+      "desc": "I dazi auto di Trump trasformano la sosta in un seminario economico non richiesto. Engineers beg to inspect the convoy's overloaded power grid."
+    },
+    "deep_field_intel": {
+      "desc": "Dopo il caso Signal nell’amministrazione Trump, tutti controllano chi ascolta. Community researchers hand over drive images and surveys."
+    },
+    "deep_grassroots_signal": {
+      "desc": "Dopo il caso Signal nell’amministrazione Trump, tutti controllano chi ascolta. Decentralized organizers beam encrypted updates from afar."
+    },
+    "deep_media_ambush": {
+      "desc": "Sharpiegate è l’esempio: le prove devono sopravvivere a chi impugna il pennarello. A crisis PR coach ambushes you with rapid-fire hypotheticals."
+    },
+    "deep_memorandum_dump": {
+      "desc": "Dopo la correzione DOGE da miliardi a milioni, il gruppo conta gli zeri da sé. Compressed drives of sealed memos await triage."
+    },
+    "deep_state_dirge": {
+      "desc": "Le email federali dei cinque risultati sono arrivate qui nello spirito, non nella competenza. A shadowy hearing drags on for hours."
+    },
+    "deep_watch_party": {
+      "desc": "Sharpiegate è l’esempio: le prove devono sopravvivere a chi impugna il pennarello. A secure bunker hosts remote testimonies late into the night."
+    },
+    "deep_watchdog_sync": {
+      "desc": "Dopo la correzione DOGE da miliardi a milioni, il gruppo conta gli zeri da sé. Inspectors general huddle to compare sealed reports."
+    },
+    "fundraiser_detour": {
+      "desc": "La cancellazione LFPA25 è il tema del giorno; i vicini forniscono ciò che gli slogan non danno. You are asked to crash a friendly fundraiser."
+    },
+    "town_hall_drift": {
+      "desc": "Gli errori nelle citazioni MAHA sono arrivati prima della fiducia promessa. A classic-mode town hall needs calming words."
+    },
+    "deep_waystation_boost": {
+      "desc": "La cancellazione LFPA25 è il tema del giorno; i vicini forniscono ciò che gli slogan non danno. A local crew waves you onto freshly cleared asphalt."
+    },
+    "deep_rustbelt_convoy": {
+      "desc": "I dazi auto di Trump trasformano la sosta in un seminario economico non richiesto. Freight drivers offer to pace you past barricades."
+    },
+    "deep_beltway_fastpass": {
+      "desc": "Dopo la correzione DOGE da miliardi a milioni, il gruppo conta gli zeri da sé. Policy aides flash badges to keep traffic enforcement off you."
+    },
+    "clinic_triage": {
+      "desc": "Gli errori nelle citazioni MAHA sono arrivati prima della fiducia promessa. A volunteer medic wagon offers hydration and quick checks."
+    },
+    "overnight_briefing": {
+      "desc": "Le email federali dei cinque risultati sono arrivate qui nello spirito, non nella competenza. Allies urge you to pause, sleep, and align strategy before dawn."
+    },
+    "sat_straw_reserve": {
+      "name": "Riserva strategica di cannucce",
+      "desc": "Un deposito celebra l’ordine di Trump con montagne di cannucce di plastica. L’acqua attende ancora l’approvazione.",
+      "choice_0": "Compra acqua dal frigorifero ignorato",
+      "log_0": "L’acqua arriva senza una cerimonia ufficiale.",
+      "choice_1": "Conta le cannucce a pagamento",
+      "log_1": "Guadagni dieci dollari e perdi un po’ di pazienza.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_corn_bullets": {
+      "name": "Cinque cose fatte dal mais",
+      "desc": "Un ufficio agricolo copia le email federali in cinque punti. Il mais ne ha consegnati quattro: sospetto ozio.",
+      "choice_0": "Documenta il quinto risultato: crescere",
+      "log_0": "Il mais conserva il posto. Ti serve un momento di calma.",
+      "choice_1": "Aiuta il contadino dietro compenso",
+      "log_1": "La fattura ha cinque punti. Tutti dicono pagato.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_grant_groceries": {
+      "name": "Il buco nei fondi a chilometro zero",
+      "desc": "Dopo la cancellazione LFPA25, questa cooperativa ha verdure, vicini affamati e spiegazioni federali senza ricette.",
+      "choice_0": "Dona due pacchi di provviste",
+      "log_0": "La cena sopravvive alle priorità federali.",
+      "choice_1": "Accetta un turno di carico pagato",
+      "log_1": "La cooperativa paga. Le casse restano pesanti.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_cow_citations": {
+      "name": "Revisione scientifica della mucca",
+      "desc": "Un venditore ispirato a MAHA cita prove per tutto. La bibliografia contiene soprattutto raccomandazioni LinkedIn della mucca.",
+      "choice_0": "Controlla se gli studi esistono",
+      "log_0": "Diverse citazioni si ritirano a vita privata.",
+      "choice_1": "Compra snack sigillati",
+      "log_1": "Il pranzo ha ingredienti, ma nessuna laurea honoris causa.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_forecast_corrected": {
+      "name": "Previsioni corrette a pennarello",
+      "desc": "Ispirato a Sharpiegate, l’ufficio propaganda disegna sole sul radar della pioggia. Il parabrezza non collabora.",
+      "choice_0": "Segui il vero bollettino e riparati",
+      "log_0": "Resti all’asciutto. Il pennarello è superfluo.",
+      "choice_1": "Fidati del sole appena disegnato",
+      "log_1": "Il bollettino è allegro. Le calze lo smentiscono.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_parking_gulf": {
+      "name": "Golfo del parcheggio",
+      "desc": "Seguendo le rinomine di Trump, una sosta battezza una pozzanghera Golfo del Parcheggio Premium. Si paga anche con la bassa marea.",
+      "choice_0": "Dipingi l’insegna per sette dollari",
+      "log_0": "La pozzanghera guadagna prestigio. Tu, contanti.",
+      "choice_1": "Segna la vera uscita sulla mappa",
+      "log_1": "Partite senza riconoscere la sovranità della pozzanghera.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_library_minimum": {
+      "name": "La biblioteca minima",
+      "desc": "Dopo l’ordine di riduzione IMLS, una bibliotecaria prepara un piano: un libro legato a una stampante di richieste fondi.",
+      "choice_0": "Rifornisci il tavolo di lettura",
+      "log_0": "I bambini ricevono storie con un finale.",
+      "choice_1": "Digitalizza il catalogo a pagamento",
+      "log_1": "Salvi i libri. La domanda pretende ancora un fax.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_tariff_forklift": {
+      "name": "Il turno delle etichette doganali",
+      "desc": "Un deposito alle prese con i dazi di Trump sposta scatole tra TARIFFA ATTUALE e RICONTROLLARE. Si consumano prima le etichette.",
+      "choice_0": "Accetta il turno pagato",
+      "log_0": "Guadagni soldi veri spostando certezze ipotetiche.",
+      "choice_1": "Scambia aiuto burocratico per provviste",
+      "log_1": "Il compenso è in snack a cambio stabile.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_alternator_tariff": {
+      "name": "Ricambi patriottici",
+      "desc": "I dazi auto di Trump animano il negozio. I kit importati costano di più; l’adesivo patriottico è un’emergenza a parte.",
+      "choice_0": "Compra il kit al prezzo indicato",
+      "log_0": "Tre pacchi entrano nel furgone. L’adesivo resta.",
+      "choice_1": "Controlla la fattura con chi ripara",
+      "log_1": "Trovi il dazio, il ricarico e la commissione libertà.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_billion_pothole": {
+      "name": "La buca da otto miliardi",
+      "desc": "Un tabellone in stile DOGE valuta la buca in miliardi. Forse ci sono tre zeri di troppo. La buca non si emoziona.",
+      "choice_0": "Conta gli zeri in video",
+      "log_0": "I risparmi dimagriscono. Le prove acquistano peso.",
+      "choice_1": "Ripara la buca a pagamento",
+      "log_1": "Ripari una buca vera per dieci dollari veri.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_bridge_bullets": {
+      "name": "Rendicontare il ponte",
+      "desc": "La squadra del ponte deve elencare cinque risultati, come nelle email federali. Evitare il crollo vale solo uno.",
+      "choice_0": "Traduci l’ingegneria in cinque punti",
+      "log_0": "Il ponte regge. L’email è finalmente abbastanza lunga.",
+      "choice_1": "Porta il pranzo durante il rapporto",
+      "log_1": "La squadra mangia senza documentare ogni boccone.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_press_pool_radio": {
+      "name": "Stampa non invitata",
+      "desc": "Dopo il caso Signal, la chat dei pranzi del convoglio contiene anche il briefing di sicurezza. E un critico gastronomico.",
+      "choice_0": "Separa il pranzo dal canale riservato",
+      "log_0": "Il critico esce. I panini restano sotto esame.",
+      "choice_1": "Ricostruisci la rubrica a pagamento",
+      "log_1": "Otto dollari migliorano parecchio la rubrica.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_hydration_pressure": {
+      "name": "Sovranità idrica",
+      "desc": "Una sosta ispirata all’ordine sui soffioni di Trump offre pressione presidenziale. La dimostrazione ha trascinato fuori la cassetta dei suggerimenti.",
+      "choice_0": "Usa la doccia normale",
+      "log_0": "Ti lavi senza proclamare una vittoria costituzionale.",
+      "choice_1": "Ripara lo stand a pagamento",
+      "log_1": "L’impianto preferisce la chiave inglese al proclama.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_museum_grant": {
+      "name": "La mostra dei fondi in sospeso",
+      "desc": "Dopo l’ordine IMLS, un museo espone una domanda di finanziamento dietro una corda di velluto. Vietato toccarne l’esito.",
+      "choice_0": "Digitalizza i reperti per una paga giornaliera",
+      "log_0": "Salvi la storia prima che la domanda diventi un reperto.",
+      "choice_1": "Sostieni la visita volontaria",
+      "log_1": "La visita ha fatti. Il calendario dei fondi no.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_factcheck_shift": {
+      "name": "Cercasi riparatore di citazioni",
+      "desc": "Dopo gli errori del rapporto MAHA, un giornale cerca aiuto. Promette dollari più reali di alcuni autori citati.",
+      "choice_0": "Accetta la verifica pagata",
+      "log_0": "Quindici dollari, citazioni rotte e prove integre.",
+      "choice_1": "Dichiara i link spiritualmente validi",
+      "log_1": "Il direttore rifiuta. La fiducia sostituisce per poco le prove.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_food_shelf": {
+      "name": "Lo scaffale ha ancora fame",
+      "desc": "La cancellazione LFPA25 ispira un cartello: ACCESSO AL CIBO SNELLITO. I volontari snelliscono patate nei sacchetti.",
+      "choice_0": "Confeziona cibo per tre pacchi",
+      "log_0": "Il gruppo riceve provviste. Le braccia, una montagna di lavoro.",
+      "choice_1": "Svolgi pratiche di consegna pagate",
+      "log_1": "Dieci dollari per moduli che corrispondono finalmente al cibo.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_cabinet_guest": {
+      "name": "Chat di gabinetto: accesso ospiti",
+      "desc": "L’invito copia il caso Signal: un lucchetto, fiducia assoluta e qualcuno che cerca il dentista.",
+      "choice_0": "Verifica tutti prima di trasmettere",
+      "log_0": "Rimuovi il paziente prima di condividere il percorso.",
+      "choice_1": "Pubblica itinerario e pollice alzato",
+      "log_1": "Tutti apprezzano, incluso Ospite Esterno 4.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_name_infrastructure": {
+      "name": "Il nome è l’infrastruttura",
+      "desc": "L’ufficio rinomine segue Trump. Il ponte mancante si chiama ora Collegamento Straordinario. Il fiume non ha approvato.",
+      "choice_0": "Paga il permesso della deviazione rinominata",
+      "log_0": "Ottimo permesso. Devi comunque deviare.",
+      "choice_1": "Chiedi un percorso con asfalto vero",
+      "log_1": "Spunta una strada che esiste fuori dal comunicato.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_straw_inspection": {
+      "name": "Ispezione strategica delle cannucce",
+      "desc": "Un posto di blocco interpreta l’ordine sulle cannucce come dottrina di frontiera. Interrogano la tazza riutilizzabile.",
+      "choice_0": "Offri una bevanda sigillata",
+      "log_0": "La bevanda risulta ideologicamente sufficiente.",
+      "choice_1": "Leggi il vero ordine sugli acquisti",
+      "log_1": "La tazza viene rilasciata senza accuse.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_shower_force": {
+      "name": "La dimostrazione nazionale della doccia",
+      "desc": "Uno stand dedicato all’ordine sui soffioni cerca chi tenga il tubo. Pressione presidenziale, bulloni comunali.",
+      "choice_0": "Accetta la manutenzione pagata",
+      "log_0": "Guadagni dodici dollari contenendo la pressione esecutiva.",
+      "choice_1": "Compra un gettone doccia normale",
+      "log_1": "Ti lavi senza partecipare alla dimostrazione.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_receipt_museum": {
+      "name": "Il museo dei risparmi enormi",
+      "desc": "La mostra sulla correzione DOGE da miliardi a milioni ha una cassetta offerte chiamata MIGLIAIA DI MILIARDI.",
+      "choice_0": "Controlla i conti per un compenso",
+      "log_0": "Il museo paga tredici dollari. Li verifichi tutti.",
+      "choice_1": "Applaudi la monetina da mille miliardi",
+      "log_1": "Applausi enormi. La contabilità è arte performativa.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_transit_ribbon": {
+      "name": "Il taglio del nastro in attesa",
+      "desc": "Un banchetto espone la notizia dei fondi bloccati a Chicago. Nastro e forbici sono pronti, ma nessuno dei due trasporta pendolari.",
+      "choice_0": "Rifornisci i volontari",
+      "log_0": "Arriva il pranzo. Ai pendolari serve ancora il trasporto.",
+      "choice_1": "Conduci sondaggi ai passeggeri a pagamento",
+      "log_1": "Raccogli nove dollari e sospiri molto specifici.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_weather_desk": {
+      "name": "Ufficio meteo alternativo",
+      "desc": "Un appaltatore ha imparato la lezione sbagliata da Sharpiegate: a ogni brutta previsione serve un pennarello più grosso.",
+      "choice_0": "Pubblica il grafico originale",
+      "log_0": "Il meteo non cambia. Il resoconto torna corretto.",
+      "choice_1": "Accetta sei dollari per ridisegnare il sole",
+      "log_1": "Il grafico migliora politicamente. Le nuvole restano insubordinate.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    },
+    "sat_bibliography_emergency": {
+      "name": "Pronto soccorso bibliografico",
+      "desc": "Dopo gli errori MAHA, una clinica apre il triage delle citazioni. Titoli impressionanti, autori irreperibili.",
+      "choice_0": "Accetta il turno pagato di verifica",
+      "log_0": "Dodici dollari. La bibliografia ritrova il battito.",
+      "choice_1": "Usa le normali provviste mediche",
+      "log_1": "Il gruppo migliora con cure che esistono.",
+      "choice_2": "Prosegui",
+      "log_2": "Conservi le risorse e lasci indietro questa opportunità."
+    }
+  },
+  "play": {
+    "help": "Come funziona",
+    "travel_help": "Scegli ritmo e dieta informativa, poi viaggia. La strada scorre brevemente fino alla prossima decisione. Controlla gli indicatori: scelte e riparazioni mostrano i costi effettivi.",
+    "outfit_help": "I fondi iniziali pagano il carrello. Non ci sono provviste gratuite nascoste. Aggiungi o togli cibo, acqua, ricambi e protezioni; puoi partire senza nulla. Paghi alla partenza. Un ricambio si consuma solo quando viene montato.",
+    "outfit": "Prepara il furgone",
+    "shop": "Scegli l’equipaggiamento",
+    "loadout": "Il tuo carico",
+    "review": "Controlla e parti",
+    "depart": "Inizia il viaggio",
+    "edit": "Modifica il carico",
+    "review_help": "Controlla il carico e ciò che resterà. Gli acquisti avvengono quando inizi il viaggio.",
+    "base_supplies": "Già nel furgone",
+    "packed_supplies": "Provviste dopo l’acquisto",
+    "capacity": "Le provviste sono limitate a 20. Quelle in eccesso non vengono conservate.",
+    "spent": "Totale carrello",
+    "cash": "Denaro rimanente",
+    "owned": "Già a bordo",
+    "pack_empty": "Un carico iniziale è selezionato. Ogni articolo costa: cambia o rimuovi ciò che vuoi.",
+    "all": "Tutto",
+    "fuel_food_help": "Cibo e acqua aggiungono provviste. L’acqua assegna anche l’equipaggiamento taniche d’acqua.",
+    "vehicle_help": "Il montaggio consuma un ricambio adatto. Senza, riparare può costare denaro, tempo o condizioni del veicolo.",
+    "ppe_help": "Le protezioni attenuano specifiche penalità meteo. Ogni articolo indica contro cosa protegge.",
+    "docs_help": "Un tesserino stampa può aiutare ai controlli. Un fondo legale aumenta la credibilità.",
+    "grants": "Aggiunge al carico",
+    "protection": "Protezione",
+    "pace": "Ritmo di viaggio",
+    "diet": "Dieta informativa",
+    "steady": "Regolare",
+    "heated": "Sostenuto",
+    "blitz": "Lampo",
+    "quiet": "Tranquilla",
+    "mixed": "Mista",
+    "doom": "Doomscrolling",
+    "pace_help": "Viaggiare più velocemente aumenta stress e rischio di incontri. Questi sono modificatori giornalieri, non distanze garantite.",
+    "diet_help": "È il consumo di notizie, non la razione di cibo. Meno notizie aiuta la sanità mentale; il doomscrolling favorisce le prove ma aumenta il pericolo pantaloni.",
+    "locked": "Le impostazioni di oggi sono bloccate fino al prossimo giorno.",
+    "distance": "Distanza",
+    "risk": "Probabilità di incontro",
+    "receipts": "Probabilità di prove",
+    "daily": "Al giorno",
+    "weather_effects": "Effetti del meteo",
+    "no_weather": "Nessun modificatore meteo diretto.",
+    "protected": "Protezione attiva",
+    "unprotected": "Nessuna protezione adatta a bordo",
+    "weather_help": "Questi modificatori descrivono il meteo attuale. Il tempo può cambiare all’inizio del giorno seguente. Le protezioni possono sostituire alcune penalità.",
+    "credibility": "Credibilità",
+    "morale": "Morale",
+    "allies": "Alleati",
+    "cred_help": "La credibilità aumenta ascoltando, documentando e scegliendo bene. Affermazioni ingannevoli e scorciatoie la riducono. Conta nell’udienza finale.",
+    "morale_help": "Il morale è lo spirito della squadra. Cure, riposo e cooperazione lo alzano. Perdite, partenze, fame e scelte difficili lo abbassano.",
+    "sanity_help": "Notizie, fretta, malattie e scelte stressanti riducono la lucidità. Notizie tranquille, riposo e incontri positivi la ripristinano. Avviso a 2 o meno.",
+    "health_help": "La salute cala per ferite, fame e fatica. Cure, riposo e alcuni incontri la ripristinano. A zero il viaggio finisce.",
+    "supplies_help": "Cibo e acqua condividono 20 unità. Viaggio, meteo, cure e baratti le consumano. Acquista, raccogli, scambia o lavora per rifornirti.",
+    "allies_help": "Gli alleati sono sostenitori esterni, distinti dai passeggeri. Aiutare crea sostegno; alcune scelte lo consumano o lo allontanano. Gli alleati contano nell’udienza finale.",
+    "journey": "La strada per D.C.",
+    "your_turn": "Tocca a te",
+    "traveling": "In viaggio…",
+    "repairing": "Riparazioni stradali…",
+    "travel_wait": "Osserva la strada. La prossima decisione si avvicina.",
+    "travel_progress": "Avanzamento del viaggio",
+    "skip": "Salta l’animazione",
+    "turn_ready": "Pronti per la prossima decisione",
+    "travel_done": "Hai superato questo tratto.",
+    "last_turn": "Ultima azione",
+    "crew": "Gruppo e condizioni",
+    "inventory": "Nel furgone",
+    "journal": "Diario di viaggio",
+    "journal_empty": "Il diario si riempie durante il viaggio.",
+    "spares": "Pezzi di ricambio",
+    "equipment": "Protezioni e documenti",
+    "none": "Nessuno a bordo",
+    "vehicle": "Condizioni del veicolo",
+    "elapsed": "Giorni trascorsi",
+    "miles": "Miglia percorse",
+    "repair_receipt": "Resoconto della riparazione",
+    "repair_help": "Scegli la riparazione e controlla il costo prima di montare un pezzo o chiedere aiuto.",
+    "danger": "Sanità mentale in zona critica",
+    "danger_help": "La sanità mentale è a 2 o meno. Valuta una pausa o una dieta informativa più tranquilla.",
+    "dismiss": "Capito",
+    "unknown_log": "Le condizioni sono cambiate. Controlla l’ultimo resoconto delle risorse.",
+    "outcome": "Esito del viaggio",
+    "route": "Dove si è concluso il viaggio",
+    "checkpoint": "Posto di blocco finale",
+    "score": "Punteggio del viaggio",
+    "profile": "Il tuo viaggiatore",
+    "journey_review": "Il viaggio in sintesi",
+    "full_stats": "Statistiche del viaggio",
+    "seed_hint": "Usa un codice per ripetere un viaggio. Lascia quello generato per questa partita."
+  },
+  "play_log": {
+    "spare": "È stato montato un ricambio a bordo.",
+    "jury": "Una riparazione improvvisata ti ha rimesso in marcia danneggiando il veicolo.",
+    "blocked": "Un guasto blocca il viaggio.",
+    "service": "È stato organizzato il soccorso. Controlla denaro e condizioni.",
+    "field": "Una riparazione sul campo ha tenuto in marcia il veicolo.",
+    "partial": "Hai fatto progressi lungo il percorso.",
+    "detour": "Hai aggirato il passaggio.",
+    "crossed": "Il passaggio è alle spalle.",
+    "crossing_failed": "Il tentativo di attraversamento è fallito.",
+    "bribe": "È stata tentata una tangente al passaggio.",
+    "permit": "Il permesso è stato presentato al passaggio.",
+    "encounter": "Il prossimo incontro è pronto.",
+    "capitol": "Ti avvicini al controllo finale.",
+    "victory": "Il voto finale è passato.",
+    "defeat": "Il voto finale non è passato."
+  },
+  "play2": {
+    "autosave_failed": "Impossibile salvare il recupero automatico. Salva o esporta la partita prima di uscire.",
+    "rest_ready": "Riposo disponibile tra {days} giorni completati",
+    "forage_ready": "Raccolta disponibile tra {days} giorni completati",
+    "game_controls": "Comandi di gioco",
+    "save": "Salva",
+    "load": "Carica",
+    "clock": "Giorno {day} · {time}",
+    "route_stop": "Sosta lungo il percorso",
+    "buy_return": "Acquista e torna al viaggio",
+    "leave_shop": "Esci dal negozio",
+    "exchange": "Scambio comunitario",
+    "trade_done": "Scambiate 3 provviste per 1 pneumatico. La comunità ringrazia: il baratto non richiede un abbonamento.",
+    "city": "Deposito cittadino e centro di aiuto",
+    "town": "Negozio e centro comunitario",
+    "stop_help": "Fai scorta prima di partire. Uno scambio per sosta; ripartendo torni sul sentiero.",
+    "resupply": "Visita il negozio",
+    "trade": "Scambia 3 provviste → 1 pneumatico",
+    "traded": "Scambio già effettuato",
+    "purchase": "Acquisto provviste",
+    "purchase_done": "Acquisti caricati. Controlla la ricevuta prima di ripartire.",
+    "weather_changed": "Le condizioni sono cambiate. Il meteo influenza distanza, esposizione e risorse; l’equipaggiamento può ridurne gli effetti. Il riepilogo mostra il risultato complessivo.",
+    "acknowledge": "Controlla le condizioni",
+    "weather_contribution": "Effetto del meteo",
+    "high_contrast": "Contrasto elevato"
+  },
+  "crew": {
+    "title": "Dai un nome alla squadra",
+    "player": "Il tuo nome",
+    "name": "Nome della squadra",
+    "hint": "Abbiamo scelto nomi neutri per la squadra. Puoi tenerli o cambiarli liberamente.",
+    "roster": "La tua squadra",
+    "active": "In viaggio",
+    "dead": "Deceduto/a",
+    "departed": "Ha lasciato la squadra"
+  },
+  "route": {
+    "map": "Mappa del percorso",
+    "title": "La strada per D.C.",
+    "upcoming": "Prossime tappe",
+    "destination": "Destinazione finale",
+    "services": "Negozio di provviste · Scambi comunitari",
+    "help": "Il percorso compiuto è segnato in oro. Le prossime città offrono negozi, scambi e aiuto.",
+    "at": "A {town}",
+    "between": "{from} → {to}",
+    "miles": "{miles} mi",
+    "day": "Giorno {day}",
+    "overview": "Tutti gli Stati Uniti",
+    "detail": "Ingrandisci il percorso",
+    "traveled": "Distanza percorsa",
+    "remaining": "a D.C.",
+    "continue": "Continua il viaggio",
+    "origin": "Partenza: {city} · Destinazione: D.C.",
+    "corn": "Sede della lobby del mais",
+    "factory": "Ripristino di fabbrica in attesa",
+    "paperwork": "La responsabilità si vende a parte",
+    "origin_satire": {
+      "journalist": "Da Minneapolis a D.C.: cortesia del Midwest, clausole federali.",
+      "organizer": "Da Kansas City a D.C.: il comitato barbecue non trova un accordo.",
+      "whistleblower": "Da Denver a D.C.: anche l’aria rarefatta ha un piano premium.",
+      "lobbyist": "Da St. Louis a D.C.: ammirare l’arco è gratis. L’accesso si paga a parte.",
+      "staffer": "Da Omaha a D.C.: ogni campo di mais ha una sede locale.",
+      "satirist": "Da Austin a D.C.: tutto è più grande, soprattutto le fatture."
+    }
+  },
+  "journey": {
+    "when": "Quando e dove",
+    "capped": "Adeguato ai limiti attuali",
+    "day_effects": "Si applicano anche le condizioni di fine giornata",
+    "camp_forecast": "Questi sono gli effetti del recupero ai livelli attuali. Passa una giornata da fermi; meteo e fame possono influire sul gruppo. Il riposo aiuta ogni membro presente.",
+    "ready": "Disponibile ora",
+    "capacity": "Il furgone contiene 20 unità di provviste. Rimuovi i pacchi in eccesso prima di pagare. Non pagherai per merci che non puoi trasportare.",
+    "shop_help": "Rifornisciti per la prossima tappa. Le provviste e i ricambi attuali sono già nel furgone.",
+    "consequence": "Le conseguenze",
+    "relief": "Un po’ di respiro",
+    "speed": "Velocità di viaggio",
+    "normal": "Normale",
+    "fast": "Veloce",
+    "step": "Un passo alla volta",
+    "map": "Consulta il percorso",
+    "resume": "Riprendi il viaggio",
+    "depart": "Lascia la città",
+    "rolling": "In viaggio. Ci fermeremo per una decisione, un arrivo o un pericolo.",
+    "pause": "Pausa viaggio",
+    "assess": "Valuta le condizioni",
+    "next_leg": "La prossima tappa",
+    "next_stop": "Prossima fermata",
+    "supplies_unit": "Cibo e acqua condivisi",
+    "today": "Ritmo · Notizie",
+    "arrival": "Siete arrivati",
+    "arrival_help": "La strada può aspettare. Compra provviste, scambia merci o ascolta la gente del posto prima di ripartire.",
+    "talk": "Parla con la gente",
+    "local_word": "Notizie dalla città",
+    "town_heartland": "Il silo si chiama ora Centro per l’Innovazione Agricola. Compra ancora grano. I vicini consigliano una ruota di scorta per il tratto rurale; il punto aiuti è gestito da volontari. I tuoi appunti aumentano la credibilità.",
+    "town_rustbelt": "La vecchia fabbrica è ora un Distretto dell’Innovazione. In biblioteca le prese funzionano ancora. La gente consiglia una batteria di scorta; la bacheca indica lo scambio di oggi. Raccogli le loro testimonianze.",
+    "town_beltway": "Il centro civico accetta commenti sulla procedura per i commenti. I vicini indicano il vero punto aiuti sul retro. Raccogli le prove e riposati prima dell’udienza a D.C.",
+    "trade_0": "Scambia 3 provviste → 1 pneumatico",
+    "trade_1": "Scambia 4 provviste → 1 batteria",
+    "trade_2": "Scambia 1 pneumatico → 5 provviste",
+    "crew_stop": "Una persona del gruppo ha bisogno di aiuto",
+    "care_body": "{name} è senza energie dopo giorni di viaggio. Una squadra di volontari si ferma accanto a voi. Aiuta ora, organizza una partenza sicura o continua rischiando che la malattia peggiori.",
+    "care_critical": "{name} è in condizioni critiche dopo aver rimandato le cure. Continuare senza trattamento sarà fatale. I volontari possono aiutare; anche una giornata di recupero risolve il problema.",
+    "care_action": "Presta cure · Provviste −2 · Morale +{morale}",
+    "shelter_action": "Organizza una partenza sicura · Lascia il gruppo · Morale −{morale}",
+    "defer_action": "Prosegui · Sanità mentale −{sanity} · La malattia può peggiorare",
+    "fatal_action": "Continua senza cure · Questa persona morirà · Sanità mentale −{sanity} · Morale −{morale}",
+    "care_hint": "Queste scelte richiedono un’ora. Un giorno completo di riposo cura il gruppo; aprire un menu no.",
+    "care_helped": "{name} riceve cure e può aiutare di nuovo il gruppo.",
+    "care_sheltered": "{name} resta con i volontari e lascia la spedizione in sicurezza. Il posto nel furgone è vuoto.",
+    "care_deferred": "{name} resta nel gruppo, ma sta ancora male. Offri cure o riposo prima che peggiori.",
+    "care_lost": "{name} è morto dopo una malattia critica non curata. Il gruppo prosegue senza questa persona.",
+    "struggling": "Ha bisogno di recupero",
+    "present": "Presente alla fine del viaggio",
+    "mission": "Porta il gruppo e le prove delle assurdità istituzionali a un’udienza pubblica a D.C. Raccogli documenti, credibilità e alleati. Arrivare non basta: il gruppo deve conservare abbastanza lucidità per farsi ascoltare.",
+    "multiplier": "Influisce sul punteggio finale, non su velocità o denaro iniziale.",
+    "scorecard": "Punteggio dettagliato",
+    "your_story": "Le persone dietro i chilometri",
+    "turning_points": "Momenti decisivi del viaggio",
+    "vote_exhausted": "Il gruppo non reggerà l’intera udienza a questi livelli. Recupera prima di proseguire.",
+    "vote_chance": "Probabilità stimata di vincere il voto finale: {chance}%.",
+    "vote_basis": "Prove, credibilità, alleati, salute, morale e provviste contribuiscono al punteggio. Giorni e incontri aggiungono esperienza; i guasti la riducono. Lucidità e pericolo pantaloni devono reggere i costi dell’udienza. Il voto rimane incerto.",
+    "review_before_vote": "Riposa prima dell’udienza",
+    "vote_won": "L’udienza è passata. Il racconto del gruppo è agli atti a D.C.",
+    "vote_lost": "L’udienza si è conclusa senza vittoria. Il viaggio e chi vi ha aiutato contano ancora.",
+    "forecast": "Al consumo recente: circa {days} giorni di provviste. Condizioni e scelte possono cambiare la stima.",
+    "forecast_wait": "La stima compare dopo il primo giorno di viaggio. Conserva una riserva per meteo, cure e ritardi.",
+    "protection": "Protezione già a bordo",
+    "survival": "Sopravvivenza",
+    "influence": "Influenza pubblica",
+    "abandon": "Abbandona il percorso",
+    "abandon_question": "Abbandonare questo percorso?",
+    "abandon_explanation": "Il viaggio attuale termina e la sua storia viene salvata. Puoi iniziare un altro viaggio o caricare un salvataggio manuale.",
+    "keep_traveling": "Continua il viaggio",
+    "confirm_abandon": "Termina questo viaggio",
+    "abandoned": "Il percorso finisce qui",
+    "abandoned_story": "{name} ha scelto di fermarsi qui con {crew}. Il viaggio e le persone restano nel diario.",
+    "conditions_changed": "Le condizioni sono cambiate",
+    "accept_conditions": "Continua con queste condizioni"
+  },
+  "trail": {
+    "clear_cart": "Svuota il furgone",
+    "shop_help": "Negozio. Compra cibo, acqua, ricambi e protezioni con il denaro disponibile.",
+    "trade_help": "Scambi comunitari. Scambia beni o lavoro con provviste; ogni offerta vale una volta per tappa.",
+    "repair_title": "Sostituisci {part}",
+    "repair_context": "Il furgone non può proseguire. Ricambi e contatti locali vicino a {town} offrono queste soluzioni.",
+    "repair_onboard": "Monta il ricambio: {part}",
+    "repair_purchase": "Ordina il ricambio: {part}",
+    "repair_barter": "Scambia provviste per {part} usato",
+    "repair_radio": "Chiama la radio locale; lavora in cambio della riparazione",
+    "repair_help": "Il ricambio montato viene consumato. Fuori città la consegna costa $10. Il baratto costa quattro provviste. I contatti radio offrono un pezzo usato per quattro ore di lavoro, con perdita di lucidità e morale. Funziona anche senza denaro o ricambi.",
+    "repaired": "Il pezzo {part} è montato. La squadra controlla il furgone prima di ripartire.",
+    "one_hour": "1 ora",
+    "ninety_minutes": "90 minuti",
+    "two_hours": "2 ore",
+    "four_hours": "4 ore",
+    "gather": "Raccogli provviste",
+    "town_work": "Offerte della comunità",
+    "gather_help": "Fuori città puoi raccogliere ogni tre giorni di viaggio: scegli una ricerca tranquilla o più lavoro per più cibo. In città scegli un incarico pagato o in cambio di provviste per tappa. Il limite è 20 provviste; i costi sono visibili prima di scegliere.",
+    "forage": "Raccogli con una guida locale",
+    "glean": "Aiuta a raccogliere in una fattoria",
+    "work_supplies": "Smista donazioni per un pacco viveri",
+    "work_cash": "Accetta un turno di scarico pagato",
+    "forage_cost": "Provviste +2 · Lucidità fino a +1 · 2 ore",
+    "glean_cost": "Provviste +4 · Salute −1 · 2 ore",
+    "work_supplies_cost": "Provviste +4 · Lucidità fino a −1 · 3 ore",
+    "work_cash_cost": "Denaro +$18 · Lucidità fino a −1 · 3 ore",
+    "forage_done": "La guida identifica ciò che si può raccogliere in sicurezza. La squadra torna con cibo e mente più serena.",
+    "glean_done": "Il contadino condivide il raccolto. Sollevare e trasportare ha affaticato la squadra.",
+    "work_supplies_done": "Gli scaffali sono riforniti e la squadra riceve il pacco viveri concordato.",
+    "work_cash_done": "Il turno di scarico è finito. Il pagamento entra nella cassa della squadra.",
+    "gather_wait": "Raccolta disponibile tra {days} giorni di viaggio.",
+    "work_done": "Hai completato il lavoro di questa tappa. Altre offerte nella prossima città.",
+    "source": "Leggi la fonte",
+    "verified": "Fatto locale · verificato {date}",
+    "local": "Persona del posto",
+    "listen": "Torna in città",
+    "fact_note": "I fatti locali hanno fonti. La persona e il suo commento sono immaginari.",
+    "care_reason_0": "{name} ha provato latte crudo a uno stand MAHA. La rivoluzione della salute è diventata un’emergenza di stomaco.",
+    "care_reason_1": "{name} si è fidato di previsioni corrette a pennarello. La disidratazione non rilascia commenti alla stampa.",
+    "care_reason_2": "{name} ha passato la notte a elencare cinque risultati per un supervisore ispirato a DOGE. Il sonno non era in lista.",
+    "care_reason_3": "{name} ha provato una cura con bibliografia ispirata al rapporto MAHA. La nausea è documentata meglio.",
+    "care_reason_4": "{name} ha seguito tre deviazioni appena rinominate. La strada ha guadagnato prestigio; {name} ha perso sonno.",
+    "care_reason_5": "{name} ha verificato per ore una fattura dopo l’ultima spiegazione dei dazi. La stanchezza è arrivata prima della risposta.",
+    "care_reason_6": "{name} è finito in una chat notturna ispirata a Signal. Le notifiche hanno superato ogni limite di pazienza.",
+    "care_reason_7": "{name} ha sforzato la schiena caricando pacchi dopo una riunione sulla cancellazione LFPA25. Il comunicato pesava meno.",
+    "behind_joke": "Dietro la battuta",
+    "satire_note": "Scena, dialoghi e prezzi del gioco sono satira immaginaria ispirata a questo episodio documentato.",
+    "supply_outlook": "Autonomia delle provviste"
+  },
+  "offline": {
+    "title": "Gioco offline",
+    "downloading": "Download per giocare offline · {percent}%",
+    "ready": "Pronto per giocare offline",
+    "error": "Download interrotto. La partita è al sicuro.",
+    "unavailable": "Archiviazione offline non disponibile in questo browser.",
+    "checking": "Ricerca aggiornamenti…",
+    "updating": "Aggiornamento Dystopian Trail · {percent}%",
+    "retry": "Riprova il download",
+    "install": "Installa Dystopian Trail",
+    "install_help": "Su iPhone o iPad, usa Condividi → Aggiungi alla schermata Home. Sul desktop, usa Installa app o Aggiungi al Dock se disponibile nel browser.",
+    "help": "Scene, mappe e regole si scaricano automaticamente. Attendi la conferma prima di disconnetterti. All’avvio online il gioco cerca un aggiornamento completo. Eliminare i dati del sito cancella gioco e salvataggi locali."
   }
 }

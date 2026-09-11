@@ -1,0 +1,111 @@
+import {test,expect,Page} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {baseline,importState,savedState,openMenu,snap,setup} from './helpers';
+import {routes} from './geography';
+const encounters=JSON.parse(readFileSync(join(__dirname,'../static/assets/data/game.json'),'utf8'));
+const recovery=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
+
+test('abandon is cancelable, saves a crew ending, and leaves the manual slot intact',async({page})=>{
+ const before=await baseline(page);
+ await openMenu(page);await page.getByRole('button',{name:'Abandon trail',exact:true}).click();
+ await expect(page.getByRole('dialog',{name:'Abandon this trail?'})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Keep traveling',exact:true})).toBeFocused();
+ await page.keyboard.press('Escape');await expect(page.locator('.abandon-dialog')).toHaveCount(0);
+ expect((await recovery(page)).state.stats).toEqual(before.stats);
+ await openMenu(page);await page.getByRole('button',{name:'Abandon trail',exact:true}).click();
+ await page.getByRole('button',{name:'End this journey',exact:true}).click();
+ await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+ await expect(page.locator('#main')).toContainText('The trail ends here');
+ await expect(page.locator('.ending-crew li')).toHaveCount(6);
+ const ended=(await recovery(page)).state;expect(ended.abandoned).toBe(true);expect(ended.party).toEqual(before.party);
+ await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+ expect((await recovery(page)).state.journal).toEqual(ended.journal);await snap(page,'abandoned');
+ await openMenu(page);await page.locator('#save-open-btn').click();await page.locator('.drawer').getByRole('button',{name:'Load',exact:true}).click();
+ await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');
+ expect((await recovery(page)).state.abandoned).toBe(false);
+});
+
+test('stationary rest records actual changes and survives manual loading',async({page})=>{
+ const state=await baseline(page);state.stats.sanity=9;state.clock_minutes=870;await importState(page,state);
+ await expect(page.locator('.game-clock')).toContainText('14:30');
+ await page.getByRole('button',{name:'Camp',exact:true}).click();
+ await expect(page.locator('.game-clock')).toContainText('14:30');
+ await expect(page.getByRole('button',{name:/^Rest ·/})).toContainText('Sanity +1');
+ await page.getByRole('button',{name:/^Rest ·/}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+ const rested=await savedState(page);expect(rested.day).toBe(state.day+1);expect(rested.clock_minutes).toBe(480);
+ expect(rested.miles_traveled_actual).toBe(state.miles_traveled_actual);expect(rested.journal.at(-1).after).toEqual(rested.stats);
+ await importState(page,rested);await expect(page.locator('.turn-receipt')).toContainText('Camp');
+ await page.getByRole('button',{name:'Trail journal',exact:true}).click();await expect(page.locator('.trail-log')).toContainText('Camp');
+ await page.reload();expect((await savedState(page)).journal).toEqual(rested.journal);
+});
+
+test('a named crew decision precedes map review and absence persists in later scenes',async({page})=>{
+ const state=await baseline(page);state.day=10;state.crew_care={strain:{organizer:2},pending:'organizer',last_check_day:10};
+ state.current_encounter=encounters.find((e:{id:string})=>e.id==='classic_mutual_aid');state.scene_subject='organizer';
+ await importState(page,state);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
+ await expect(page.locator('.scene-speaker')).toHaveAttribute('data-subject','organizer');
+ await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
+ await page.getByRole('button',{name:/^Arrange a safe departure/}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+ const departed=await savedState(page);expect(departed.party.members.find((m:{persona:string})=>m.persona==='organizer').status).toBe('Departed');
+ await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','encounter');
+ await expect(page.locator('.scene-speaker[data-subject=organizer]')).toHaveCount(0);
+ await expect(page.locator('.map-scene')).toHaveCount(0);await snap(page,'crew-care-continuity');
+});
+
+test('each persona map always fits its own traveled route',async({page})=>{
+ const state=await baseline(page);const views=new Set<string>();
+ for(const route of routes){
+  state.persona_id=route.id;state.route_services={route_id:route.id,stop:null,traded_at:null,map_reviewed:null};
+  await importState(page,state);await page.getByRole('button',{name:'Review route',exact:true}).click();
+  const view=await page.locator('.us-route-map').getAttribute('viewBox');expect(view).not.toBe('0 0 1000 660');views.add(view!);
+  await expect(page.locator('.us-route-map')).toHaveAttribute('data-route',route.id);
+  await expect(page.getByRole('button',{name:/Zoom|Overview/})).toHaveCount(0);
+  await snap(page,`map-${route.id}`);
+ }
+ expect(views.size).toBe(6);
+});
+
+test('one Resume carries two quiet travel actions; pausing and reload never replay them',async({page})=>{
+ const state=await baseline(page);state.seed=42;state.rng_bundle=null;state.encounter_cooldown=100;
+ state.weather_state.neutral_buffer=100;state.day_state.day_initialized=true;state.encounter_chance_today=0;
+ await importState(page,state);await page.getByRole('button',{name:'Fast',exact:true}).click();
+ const count=state.journal.length;
+ await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+ await expect.poll(async()=>(await recovery(page)).state.journal.length,{timeout:7000}).toBeGreaterThanOrEqual(count+2);
+ if(await page.getByRole('button',{name:'Pause travel',exact:true}).count()) await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+ const paused=await recovery(page);await page.reload();await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');
+ expect((await recovery(page)).state.journal).toEqual(paused.state.journal);
+});
+
+
+test('visibility loss pauses automatic travel and does not resume it on return',async({page})=>{
+ const state=await baseline(page);state.seed=42;state.rng_bundle=null;state.encounter_cooldown=100;
+ state.weather_state.neutral_buffer=100;state.day_state.day_initialized=true;state.encounter_chance_today=0;
+ await importState(page,state);await page.getByRole('button',{name:'Normal',exact:true}).click();
+ await page.getByRole('button',{name:'Resume travel',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','traveling');
+ // Exercise the browser visibility handler deterministically in headless Chromium.
+ await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
+ const interrupted=(await recovery(page)).state.journal;
+ await page.waitForTimeout(3100);
+ expect((await recovery(page)).state.journal).toEqual(interrupted);
+ await page.evaluate(()=>{delete (document as any).hidden;document.dispatchEvent(new Event('visibilitychange'));});
+ await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');await expect(page.getByRole('button',{name:'Resume travel',exact:true})).toBeVisible();
+});
+
+test('outfitting cannot charge for supplies beyond capacity',async({page})=>{
+ await setup(page);
+ await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+ await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+ await page.getByRole('button',{name:'Review & depart',exact:true}).filter({visible:true}).first().click();
+ await expect(page.locator('.capacity-warning')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Start the journey',exact:true})).toBeDisabled();
+});
+
+test('encounter forecasts and the journal agree at stat caps',async({page})=>{
+ const state=await baseline(page);state.stats.sanity=10;state.stats.credibility=19;
+ state.current_encounter=encounters.find((e:{id:string})=>e.id==='classic_media_training');await importState(page,state);
+ await expect(page.locator('.choice-effects').first()).toContainText('Sanity +0');await expect(page.locator('.choice-effects').first()).toContainText('Credibility +1');
+ await page.locator('.encounter-choice button').first().click();const after=await savedState(page);
+ expect(after.stats.sanity).toBe(10);expect(after.stats.credibility).toBe(20);expect(after.journal.at(-1).after).toEqual(after.stats);
+});

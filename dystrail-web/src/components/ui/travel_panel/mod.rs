@@ -1,8 +1,7 @@
-mod layout;
 mod pace;
+mod status;
 #[cfg(test)]
 mod tests;
 mod view;
-mod weather;
-
+pub mod weather;
 pub use view::{Props, TravelPanel};

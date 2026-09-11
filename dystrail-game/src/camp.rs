@@ -73,7 +73,6 @@ impl CampConfig {
 }
 
 pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
-    gs.start_of_day();
     let rest_cfg = &cfg.rest;
     if rest_cfg.day == 0 {
         return CampOutcome {
@@ -91,6 +90,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
+    gs.start_of_day();
     let mut supplies_delta = 0;
     if rest_cfg.supplies < 0 {
         let cost = rest_cfg.supplies.abs();
@@ -121,6 +121,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
             gs.start_of_day();
         }
         if rest_cfg.recovery_day {
+            gs.day_state.lifecycle.suppress_stop_ratio = true;
             gs.record_travel_day(TravelDayKind::NonTravel, 0.0, "camp");
         } else {
             gs.apply_rest_travel_credit();
@@ -129,6 +130,7 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
     }
     gs.camp.rest_cooldown = rest_cfg.cooldown_days;
     gs.clear_illness_penalty();
+    gs.recover_crew();
     gs.day_state.rest.rest_requested = false;
     gs.logs.push(String::from("log.camp.rest"));
     CampOutcome {
@@ -139,7 +141,6 @@ pub fn camp_rest(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
 }
 
 pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
-    gs.start_of_day();
     let forage_cfg = &cfg.forage;
     if forage_cfg.day == 0 || forage_cfg.supplies == 0 {
         return CampOutcome {
@@ -157,6 +158,7 @@ pub fn camp_forage(gs: &mut crate::GameState, cfg: &CampConfig) -> CampOutcome {
         };
     }
 
+    gs.start_of_day();
     let mut supplies_delta = forage_cfg.supplies;
     if supplies_delta != 0 && !forage_cfg.region_multipliers.is_empty() {
         let region_key = gs.region.asset_key();

@@ -11,7 +11,29 @@ use wasm_bindgen::JsValue;
 /// Returns a localized string representation of the percentage.
 #[must_use]
 pub fn fmt_pct(pct: u8) -> String {
-    fmt_number(f64::from(pct))
+    #[cfg(target_arch = "wasm32")]
+    {
+        with_bundle(|bundle| {
+            let locales = js_sys::Array::new();
+            locales.push(&JsValue::from_str(&bundle.lang));
+            let options = Object::new();
+            let _ = Reflect::set(
+                &options,
+                &JsValue::from_str("style"),
+                &JsValue::from_str("percent"),
+            );
+            let nf = Intl::NumberFormat::new(&locales, &options);
+            nf.format()
+                .call1(&nf, &JsValue::from_f64(f64::from(pct) / 100.0))
+                .ok()
+                .and_then(|value| value.as_string())
+                .unwrap_or_else(|| format!("{pct}%"))
+        })
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        format!("{pct}%")
+    }
 }
 
 /// Format a number using the current locale via Intl

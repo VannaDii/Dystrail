@@ -14,6 +14,8 @@ pub struct PersonaSelectProps {
     pub on_selected: Option<Callback<Persona>>,
     #[prop_or_default]
     pub on_continue: Option<Callback<()>>,
+    #[prop_or_default]
+    pub initial_id: Option<String>,
 }
 
 #[function_component(PersonaSelect)]
@@ -22,12 +24,20 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     let selected = use_state(|| None::<usize>);
     let live_msg = use_state(String::new);
     let list_ref = use_node_ref();
+    let restoring = use_mut_ref(|| p.initial_id.is_some());
 
     {
         let personas = personas.clone();
+        let selected = selected.clone();
+        let initial_id = p.initial_id.clone();
         use_effect_with((), move |()| {
             let data = include_str!("../../../../static/assets/data/personas.json");
             let list = PersonasList::from_json(data).unwrap_or_else(|_| PersonasList::empty());
+            selected.set(
+                list.0
+                    .iter()
+                    .position(|per| Some(&per.id) == initial_id.as_ref()),
+            );
             personas.set(list.0);
             || {}
         });
@@ -60,6 +70,10 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     {
         let list_ref = list_ref.clone();
         use_effect_with(*selected, move |sel| {
+            if sel.is_some() && *restoring.borrow() {
+                *restoring.borrow_mut() = false;
+                return;
+            }
             if let Some(first) = sel.as_ref().and_then(|i| {
                 let selector = format!("[role='radio'][data-key='{}']", i + 1);
                 list_ref
@@ -76,8 +90,25 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let selected = selected.clone();
         let select_idx = select_idx.clone();
         let on_continue = p.on_continue.clone();
+        let count = personas.len();
         Callback::from(move |e: KeyboardEvent| {
             let key = e.key();
+            if count > 0
+                && matches!(
+                    key.as_str(),
+                    "ArrowRight" | "ArrowDown" | "ArrowLeft" | "ArrowUp"
+                )
+            {
+                let current = selected.unwrap_or(0);
+                let next = if matches!(key.as_str(), "ArrowRight" | "ArrowDown") {
+                    (current + 1) % count
+                } else {
+                    (current + count - 1) % count
+                };
+                select_idx.emit(next);
+                e.prevent_default();
+                return;
+            }
             if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
             {
                 if n == 0 {
@@ -101,6 +132,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
 
     html! {
       <section class="panel retro-menu persona-select" aria-labelledby="persona-title" onkeydown={on_keydown}>
+        <p class="eyebrow">{crate::i18n::t("ux.persona_intro")}</p>
         <h2 id="persona-title">{ crate::i18n::t("persona.choose") }</h2>
         <div class="persona-layout">
           <div class="persona-grid" role="radiogroup" aria-labelledby="persona-title" id="persona-radios" ref={list_ref}>

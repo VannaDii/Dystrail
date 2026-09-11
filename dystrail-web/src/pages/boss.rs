@@ -1,3 +1,4 @@
+use crate::components::ui::journey_scene::SceneStage;
 use crate::components::ui::stats_bar::WeatherBadge;
 use crate::game::{BossConfig, GameState};
 use std::collections::BTreeMap;
@@ -9,6 +10,8 @@ pub struct BossPageProps {
     pub config: BossConfig,
     pub weather: WeatherBadge,
     pub on_begin: Callback<()>,
+    #[prop_or_default]
+    pub on_camp: Callback<()>,
 }
 
 impl PartialEq for BossPageProps {
@@ -22,92 +25,46 @@ impl PartialEq for BossPageProps {
     }
 }
 
-fn boss_stats_text(
-    cfg: &BossConfig,
-    gs: &GameState,
-) -> (String, String, Option<String>, Option<String>) {
-    let mut chance = f64::from(cfg.base_victory_chance);
-    chance += f64::from(gs.stats.credibility) * f64::from(cfg.credibility_weight);
-    chance += f64::from(gs.stats.sanity) * f64::from(cfg.sanity_weight);
-    chance += f64::from(gs.stats.supplies) * f64::from(cfg.supplies_weight);
-    chance += f64::from(gs.stats.allies) * f64::from(cfg.allies_weight);
-    chance -= f64::from(gs.stats.pants) * f64::from(cfg.pants_penalty_weight);
-    chance = chance.clamp(f64::from(cfg.min_chance), f64::from(cfg.max_chance));
-    let chance_pct = format!("{:.1}", chance * 100.0);
-
-    let mut rounds_map: BTreeMap<&str, &str> = BTreeMap::new();
-    let rounds_value = cfg.rounds.to_string();
-    let passes_value = cfg.passes_required.to_string();
-    rounds_map.insert("rounds", rounds_value.as_str());
-    rounds_map.insert("passes", passes_value.as_str());
-    let rounds_text = crate::i18n::tr("boss.stats.rounds", Some(&rounds_map));
-
-    let mut chance_map: BTreeMap<&str, &str> = BTreeMap::new();
-    chance_map.insert("chance", chance_pct.as_str());
-    let chance_text = crate::i18n::tr("boss.stats.chance", Some(&chance_map));
-
-    let sanity_text = if cfg.sanity_loss_per_round > 0 {
-        let mut map: BTreeMap<&str, &str> = BTreeMap::new();
-        let delta = format!("{:+}", -cfg.sanity_loss_per_round);
-        map.insert("sanity", delta.as_str());
-        Some(crate::i18n::tr("boss.stats.sanity", Some(&map)))
-    } else {
-        None
-    };
-
-    let pants_text = if cfg.pants_gain_per_round > 0 {
-        let mut map: BTreeMap<&str, &str> = BTreeMap::new();
-        let delta = format!("{:+}", cfg.pants_gain_per_round);
-        map.insert("pants", delta.as_str());
-        Some(crate::i18n::tr("boss.stats.pants", Some(&map)))
-    } else {
-        None
-    };
-
-    (rounds_text, chance_text, sanity_text, pants_text)
+fn boss_rounds_text(cfg: &BossConfig) -> String {
+    let rounds = cfg.rounds.to_string();
+    let mut map = BTreeMap::new();
+    map.insert("rounds", rounds.as_str());
+    crate::i18n::tr("ux.boss_rounds", Some(&map))
 }
 
 #[function_component(BossPage)]
 pub fn boss_page(props: &BossPageProps) -> Html {
     let gs = props.state.clone();
     let cfg = props.config.clone();
-    let persona_id = gs.persona_id.clone();
-    let (rounds_text, chance_text, sanity_text, pants_text) = boss_stats_text(&cfg, &gs);
+    let rounds_text = boss_rounds_text(&cfg);
 
     html! {
         <>
-            <crate::components::ui::stats_bar::StatsBar
-                stats={gs.stats.clone()}
-                day={gs.day}
-                region={gs.region}
-                exec_order={gs.current_order}
-                persona_id={persona_id}
-                weather={Some(props.weather.clone())}
-            />
+            <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={crate::i18n::t("boss.title")} stage={Some(SceneStage::Boss)} />
             <section class="panel boss-phase boss-panel">
-                <h2>{ crate::i18n::t("boss.title") }</h2>
+
                 <div class="encounter-desc">
-                    <p>{ crate::i18n::t("boss.phases_hint") }</p>
+                    <p>{ crate::i18n::t("journey.mission") }</p>
+                    <p class="vote-outlook">{crate::game::boss::vote_preview(&gs,&cfg).map_or_else(||crate::i18n::t("journey.vote_exhausted"),|chance|crate::i18n::tr("journey.vote_chance",Some(&BTreeMap::from([("chance",format!("{:.0}",chance*100.0).as_str())]))))}</p>
+                    <p>{crate::i18n::t("journey.vote_basis")}</p>
+                    <dl class="vote-strengths">{for [("play.credibility",gs.stats.credibility*15),("ux.receipt",i32::try_from(gs.receipts.len()).unwrap_or(0)*8),("play.allies",gs.stats.allies*5),("ux.health",gs.stats.hp*50),("play.morale",gs.stats.morale*25),("ux.supplies",gs.stats.supplies*10)].into_iter().map(|(key,value)|html!{<div><dt>{crate::i18n::t(key)}</dt><dd>{format!("+{value}")}</dd></div>})}</dl>
                     <ul class="boss-stats">
                         <li>{ rounds_text }</li>
-                        { sanity_text.map_or_else(
-                            Html::default,
-                            |text| html! { <li>{ text }</li> },
-                        ) }
-                        { pants_text.map_or_else(
-                            Html::default,
-                            |text| html! { <li>{ text }</li> },
-                        ) }
-                        <li>{ chance_text }</li>
+                        if cfg.sanity_loss_per_round > 0 {
+                            <li>{format!("{} −{}", crate::i18n::t("ux.boss_sanity"), cfg.sanity_loss_per_round)}</li>
+                        }
+                        if cfg.pants_gain_per_round > 0 {
+                            <li>{format!("{} +{}", crate::i18n::t("ux.boss_pants"), cfg.pants_gain_per_round)}</li>
+                        }
                     </ul>
-                    <p class="muted">{ crate::i18n::t("boss.reminder") }</p>
+                    <p class="muted">{ crate::i18n::t("ux.boss_resolution") }</p>
                 </div>
-                <div class="controls">
+                <div class="controls"><button onclick={{let on=props.on_camp.clone();Callback::from(move |_|on.emit(()))}}>{crate::i18n::t("journey.review_before_vote")}</button>
                     <button class="retro-btn-primary" onclick={{
                         let on_begin = props.on_begin.clone();
                         Callback::from(move |_| on_begin.emit(()))
                     }}>
-                        { crate::i18n::t("boss.begin") }
+                        { crate::i18n::t("ux.boss_begin") }
                     </button>
                 </div>
             </section>

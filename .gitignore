@@ -82,3 +82,7 @@ node_modules/
 npm-debug.log*
 
 # End of https://www.toptal.com/developers/gitignore/api/rust,rust-analyzer,visualstudiocode,macos
+
+# Local browser test output
+dystrail-web/test-results/
+dystrail-web/playwright-report/

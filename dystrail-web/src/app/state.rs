@@ -11,6 +11,16 @@ use yew::prelude::*;
 
 #[derive(Clone)]
 pub struct AppState {
+    pub show_abandon: UseStateHandle<bool>,
+    pub travel_running: UseStateHandle<bool>,
+    pub travel_speed: UseStateHandle<super::flow::TravelSpeed>,
+    pub recovery_ready: UseStateHandle<bool>,
+    pub weather_notice: UseStateHandle<bool>,
+    pub town_open: UseStateHandle<bool>,
+    pub pending_turn: UseStateHandle<Option<std::rc::Rc<crate::app::turn::PendingTurn>>>,
+    pub last_turn: UseStateHandle<Option<crate::app::aftermath::Aftermath>>,
+    pub aftermath: UseStateHandle<Option<crate::app::aftermath::Aftermath>>,
+    pub action_lock: std::rc::Rc<std::cell::RefCell<bool>>,
     pub phase: UseStateHandle<Phase>,
     pub code: UseStateHandle<AttrValue>,
     pub data: UseStateHandle<EncounterData>,
@@ -27,6 +37,7 @@ pub struct AppState {
     pub session: UseStateHandle<Option<JourneySession>>,
     pub logs: UseStateHandle<Vec<String>>,
     pub run_seed: UseStateHandle<u64>,
+    pub save_status: UseStateHandle<String>,
     pub show_save: UseStateHandle<bool>,
     pub save_focus_target: UseStateHandle<AttrValue>,
     pub show_settings: UseStateHandle<bool>,
@@ -36,6 +47,16 @@ pub struct AppState {
 #[hook]
 pub fn use_app_state() -> AppState {
     AppState {
+        show_abandon: use_state(|| false),
+        travel_running: use_state(|| false),
+        travel_speed: use_state(super::flow::TravelSpeed::default),
+        recovery_ready: use_state(|| false),
+        weather_notice: use_state(|| false),
+        town_open: use_state(|| false),
+        pending_turn: use_state(|| None),
+        last_turn: use_state(|| None),
+        aftermath: use_state(|| None),
+        action_lock: use_mut_ref(|| false),
         phase: use_state(|| Phase::Boot),
         code: use_state(|| AttrValue::from("CL-ORANGE42")),
         data: use_state(EncounterData::empty),
@@ -52,8 +73,9 @@ pub fn use_app_state() -> AppState {
         session: use_state(|| None::<JourneySession>),
         logs: use_state(Vec::<String>::new),
         run_seed: use_state(|| 0_u64),
+        save_status: use_state(String::new),
         show_save: use_state(|| false),
-        save_focus_target: use_state(|| AttrValue::from("save-open-btn")),
+        save_focus_target: use_state(|| AttrValue::from("game-menu-button")),
         show_settings: use_state(|| false),
         current_language: use_state(crate::i18n::current_lang),
     }

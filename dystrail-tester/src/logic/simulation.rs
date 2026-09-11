@@ -133,7 +133,6 @@ impl SimulationSession {
     }
 
     pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
-        self.state.tick_camp_cooldowns();
         self.state.refresh_exec_order();
 
         if self.state.boss.readiness.ready

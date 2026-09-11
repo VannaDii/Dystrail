@@ -43,6 +43,7 @@ fn travel_panel_render_includes_weather_and_breakdown() {
 
     let html = block_on(
         LocalServerRenderer::<TravelPanel>::with_props(Props {
+            receipt: yew::Html::default(),
             on_travel: Callback::noop(),
             logs: vec!["Welcome back".into()],
             game_state: Some(sample_game_state()),
@@ -54,16 +55,16 @@ fn travel_panel_render_includes_weather_and_breakdown() {
     );
 
     assert!(
-        html.contains("Weather: Storm"),
-        "SSR output should include weather state: {html}"
+        html.contains("Assess conditions"),
+        "SSR output should expose the conditions assessment: {html}"
     );
     assert!(
         html.contains("Travel blocked until repaired."),
         "Breakdown banner should be present when travel is blocked: {html}"
     );
     assert!(
-        html.contains("Log booting") || html.contains("Welcome back"),
-        "Rendered log entries should appear: {html}"
+        html.contains("Trail journal"),
+        "Journal access should appear: {html}"
     );
 }
 

@@ -24,7 +24,7 @@ pub fn render_category_screen(
     let category_name = i18n::t(&format!("store.categories.{category_id}"));
     let title = format!(
         "{category_name} — {budget_label}: {budget_str}",
-        budget_label = i18n::t("store.budget")
+        budget_label = i18n::t("ux.budget")
     );
 
     let items = category.items.clone();
@@ -39,14 +39,14 @@ pub fn render_category_screen(
     });
 
     html! {
-        <main class="outfitting-store">
+        <div class="outfitting-store">
             <section role="region" aria-labelledby="category-title" onkeydown={on_keydown} class="store-shell">
                 <header class="store-header">
                     <div>
                         <h1 id="category-title">{ title }</h1>
                     </div>
                     <div class="store-budget">
-                        <span class="label">{ i18n::t("store.budget") }</span>
+                        <span class="label">{ i18n::t("ux.budget") }</span>
                         <span class="value">{ budget_str }</span>
                     </div>
                 </header>
@@ -68,6 +68,6 @@ pub fn render_category_screen(
                 </div>
                 <div aria-live="polite" aria-atomic="true" class="sr-only" id="store-status"></div>
             </section>
-        </main>
+        </div>
     }
 }

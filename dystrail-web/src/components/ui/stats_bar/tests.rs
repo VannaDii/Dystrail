@@ -16,6 +16,9 @@ fn stats_bar_renders_core_fields() {
     };
     let props = Props {
         stats,
+        moving: false,
+        clock_hour: 8,
+        clock_minute: 0,
         day: 9,
         region: Region::RustBelt,
         exec_order: None,
@@ -27,16 +30,13 @@ fn stats_bar_renders_core_fields() {
     };
 
     let html = block_on(LocalServerRenderer::<StatsBar>::with_props(props).render());
-    assert!(
-        html.contains("Rust Belt"),
-        "region label should appear: {html}"
-    );
+    assert!(html.contains("Day 9"), "game day should appear: {html}");
     assert!(
         html.contains("42%"),
         "pants percentage should render: {html}"
     );
     assert!(
-        html.contains("HP"),
+        html.contains("Health"),
         "stat abbreviations should be present: {html}"
     );
     assert!(
@@ -50,6 +50,9 @@ fn stats_bar_announces_exec_order() {
     crate::i18n::set_lang("en");
     let props = Props {
         stats: Stats::default(),
+        moving: false,
+        clock_hour: 8,
+        clock_minute: 0,
         day: 1,
         region: Region::Heartland,
         exec_order: Some(ExecOrder::TariffTsunami),

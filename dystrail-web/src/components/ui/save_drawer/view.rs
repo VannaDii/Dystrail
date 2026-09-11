@@ -6,6 +6,8 @@ use yew::prelude::*;
 #[derive(Properties, PartialEq, Clone)]
 pub struct Props {
     pub open: bool,
+    #[prop_or_default]
+    pub status: String,
     pub on_close: Callback<()>,
     pub on_save: Callback<()>,
     pub on_load: Callback<()>,
@@ -51,6 +53,8 @@ pub fn save_drawer(p: &Props) -> Html {
         Callback::from(move |_| cb.emit((*val).to_string()))
     };
 
+    super::super::dismiss::use_outside_dismiss(container_ref.clone(), p.open, p.on_close.clone());
+
     if !p.open {
         return html! {};
     }
@@ -58,9 +62,10 @@ pub fn save_drawer(p: &Props) -> Html {
     let on_keydown = focus_keydown_handler(container_ref.clone(), p.on_close.clone());
 
     html! {
-        <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="save-title" ref={container_ref} onkeydown={on_keydown}>
-            <div class="drawer-body">
+        <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="save-title" onkeydown={on_keydown}>
+            <div class="drawer-body" ref={container_ref}>
                 <h2 id="save-title">{ i18n::t("save.title") }</h2>
+                <p role="status" aria-live="polite">{&p.status}</p>
                 <div class="controls">
                     <button onclick={save.clone()}>{ i18n::t("save.save") }</button>
                     <button onclick={load.clone()}>{ i18n::t("save.load") }</button>

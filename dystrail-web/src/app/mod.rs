@@ -2,11 +2,26 @@ use crate::router::Route;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
+pub mod abandon;
+pub mod activities;
+pub mod aftermath;
 pub mod bootstrap;
+pub mod crew_care;
+pub mod flow;
+pub mod history;
+pub mod map;
 pub mod phase;
+pub mod receipt;
+pub mod recovery;
+pub mod repair;
 pub mod routing;
+pub mod services;
 pub mod state;
+pub mod town;
+pub mod town_facts;
+pub mod turn;
 pub mod view;
+pub mod weather_notice;
 
 pub use phase::Phase;
 
@@ -24,13 +39,31 @@ pub fn app() -> Html {
 pub fn app_inner() -> Html {
     let app_state = state::use_app_state();
     bootstrap::use_bootstrap(&app_state);
+    recovery::use_recovery(&app_state);
+    flow::use_travel_flow(&app_state);
+    flow::use_stage_entry(&app_state);
+    crate::components::ui::dismiss::use_number_shortcuts();
 
     let navigator = use_navigator();
     let route = use_route::<Route>();
 
     routing::use_sync_route_with_phase(&app_state.phase, navigator.clone(), route.clone());
-    routing::use_sync_phase_with_route(&app_state.phase, route.clone());
 
+    {
+        let lock = app_state.action_lock.clone();
+        use_effect_with(
+            (
+                *app_state.phase,
+                app_state.aftermath.is_some(),
+                app_state.pending_turn.is_some(),
+            ),
+            move |(_, feedback, transit)| {
+                if !feedback && !transit {
+                    *lock.borrow_mut() = false;
+                }
+            },
+        );
+    }
     view::render_app(&app_state, route.as_ref(), navigator)
 }
 
@@ -55,9 +88,13 @@ mod tests {
         let phases = [
             Phase::Boot,
             Phase::Persona,
+            Phase::Crew,
             Phase::Outfitting,
             Phase::Menu,
             Phase::Travel,
+            Phase::Town,
+            Phase::CrewCare,
+            Phase::Map,
             Phase::Camp,
             Phase::Encounter,
             Phase::Boss,

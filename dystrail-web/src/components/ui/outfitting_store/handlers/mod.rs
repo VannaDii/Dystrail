@@ -1,10 +1,17 @@
 mod announce;
 mod checkout;
-mod navigation;
 mod quantity;
-
-pub use announce::{announce_cannot_add, announce_quantity_change, format_currency};
-pub use navigation::{
-    get_max_menu_index, handle_back_navigation, handle_cart_selection, handle_menu_selection,
-};
+use super::state::{OutfittingStoreProps, StoreState};
+pub use announce::{announce_quantity_change, format_currency};
 pub use quantity::can_add_item;
+use yew::prelude::*;
+pub fn handle_cart_selection(
+    index: u8,
+    state: &StoreState,
+    _handle: &UseStateHandle<StoreState>,
+    p: &OutfittingStoreProps,
+) {
+    if index == 0 {
+        checkout::handle_checkout(state, p);
+    }
+}

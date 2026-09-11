@@ -25,11 +25,6 @@ pub fn render_store_item_card(
         game_state.budget_cents,
         state.discount_pct,
     );
-    let initials = name
-        .chars()
-        .next()
-        .map_or_else(|| "?".to_string(), |c| c.to_uppercase().collect::<String>());
-
     let on_add = {
         let state = state.clone();
         let item_clone = item.clone();
@@ -79,19 +74,20 @@ pub fn render_store_item_card(
     html! {
         <article
             role="group"
-            aria-labelledby={format!("store-item-{idx}")}
+            aria-labelledby={format!("store-item-{}",item.id)}
             class="store-card"
             data-key={idx.to_string()}
             title={desc.clone()}>
             <div class="store-card-icon" aria-hidden="true">
-                <span>{ initials }</span>
+                <span>{match item.category.as_str(){"vehicle"=>"⚙", "ppe"=>"◈", "docs"=>"▤", _=>"▣"}}</span>
             </div>
             <div class="store-card-body">
                 <div class="store-card-head">
-                    <h2 id={format!("store-item-{idx}")}>{ name }</h2>
+                    <h2 id={format!("store-item-{}",item.id)}>{ name }</h2>
                     <span class="store-price">{ price_str }</span>
                 </div>
                 <p class="muted">{ desc }</p>
+                <p class="item-grants">{super::super::planner::grant_text(&item.grants)}</p>
                 <div class="store-qty-row">
                     <button class="store-qty-btn" onclick={on_remove} aria-label={i18n::t("store.qty_prompt.rem1")} disabled={qty_in_cart == 0}>{"–"}</button>
                     <span class="store-qty" aria-live="polite">{ qty_in_cart }</span>

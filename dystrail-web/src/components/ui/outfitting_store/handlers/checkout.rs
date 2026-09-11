@@ -23,9 +23,25 @@ pub fn handle_checkout(
         }
     }
 
+    if props.game_state.stats.supplies + total_grants.supplies > 20
+        || state.cart.total_cents > props.game_state.budget_cents
+    {
+        return;
+    }
     let mut new_game_state = props.game_state.clone();
     new_game_state.apply_store_purchase(state.cart.total_cents, &total_grants, &all_tags);
 
+    if let Some(storage) = web_sys::window().and_then(|w| w.local_storage().ok().flatten()) {
+        let key = format!(
+            "dystrail.cart.{}.{}.{:?}.{}",
+            props.game_state.seed,
+            props.game_state.day,
+            props.game_state.persona_id,
+            props.resupply
+        );
+        let _ = storage.remove_item(&key);
+        let _ = storage.remove_item(&format!("{key}.view"));
+    }
     props
         .on_continue
         .emit((new_game_state, total_grants, all_tags));

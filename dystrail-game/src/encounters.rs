@@ -120,7 +120,14 @@ pub fn pick_encounter<R: Rng>(
     rotation_queue: &mut VecDeque<String>,
     rng: &mut R,
 ) -> EncounterPick {
-    let candidates = filter_candidates(request);
+    let mut candidates = filter_candidates(request);
+    // Exhaust the eligible unseen bank before returning to earlier encounters.
+    if candidates
+        .iter()
+        .any(|e| !request.recent.iter().any(|r| r.id == e.id))
+    {
+        candidates.retain(|e| !request.recent.iter().any(|r| r.id == e.id));
+    }
 
     if debug_log_enabled() {
         println!(

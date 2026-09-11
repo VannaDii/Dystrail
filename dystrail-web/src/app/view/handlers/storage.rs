@@ -1,84 +1,102 @@
-use crate::app::phase::{Phase, session_from_state};
+use crate::app::phase::session_from_state;
 use crate::app::state::AppState;
-use crate::game::state::GameState;
+use crate::game::{GameState, GameStorage, WebGameStorage, encode_friendly};
 use yew::prelude::*;
 
 pub fn build_save(state: &AppState) -> Callback<()> {
-    let session_handle = state.session.clone();
-    let logs_handle = state.logs.clone();
+    let state = state.clone();
     Callback::from(move |()| {
-        if let Some(sess) = (*session_handle).clone() {
-            sess.state().save();
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.saved"));
-            logs_handle.set(l);
-        }
+        let success = state
+            .pending_turn
+            .as_ref()
+            .map(|p| p.session.state())
+            .or_else(|| {
+                state
+                    .session
+                    .as_ref()
+                    .map(crate::game::JourneySession::state)
+            })
+            .is_some_and(|gs| WebGameStorage.save_game("default", gs).is_ok());
+        state.save_status.set(crate::i18n::t(if success {
+            "save.saved"
+        } else {
+            "ux.save_error"
+        }));
     })
 }
 
+fn restore(state: &AppState, gs: GameState) {
+    state.travel_running.set(false);
+    state.pending_turn.set(None);
+    state.weather_notice.set(false);
+    state.town_open.set(false);
+    state.last_turn.set(crate::app::history::latest(&gs));
+    let gs = gs.rehydrate((*state.data).clone());
+    let next = crate::app::aftermath::next_phase(&gs);
+    state
+        .code
+        .set(encode_friendly(gs.mode.is_deep(), gs.seed).into());
+    state.run_seed.set(gs.seed);
+    state.pending_state.set(Some(gs.clone()));
+    let gs_logs = gs
+        .logs
+        .iter()
+        .map(|s| crate::i18n::log_message(s))
+        .collect();
+    state
+        .session
+        .set(Some(session_from_state(gs, &state.endgame_config)));
+    state.aftermath.set(None);
+    *state.action_lock.borrow_mut() = false;
+    state.logs.set(gs_logs);
+    state.save_status.set(crate::i18n::t("save.loaded"));
+    state.show_save.set(false);
+    state.phase.set(next);
+}
+
 pub fn build_load(state: &AppState) -> Callback<()> {
-    let session_handle = state.session.clone();
-    let pending_handle = state.pending_state.clone();
-    let data_handle = state.data.clone();
-    let logs_handle = state.logs.clone();
-    let phase_handle = state.phase.clone();
-    let run_seed_handle = state.run_seed.clone();
-    let endgame_cfg = (*state.endgame_config).clone();
-    Callback::from(move |()| {
-        if let Some(mut gs) = GameState::load() {
-            gs = gs.rehydrate((*data_handle).clone());
-            let sess = session_from_state(gs, &endgame_cfg);
-            run_seed_handle.set(sess.state().seed);
-            pending_handle.set(Some(sess.state().clone()));
-            session_handle.set(Some(sess));
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.loaded"));
-            logs_handle.set(l);
-            phase_handle.set(Phase::Travel);
-        }
+    let state = state.clone();
+    Callback::from(move |()| match WebGameStorage.load_game("default") {
+        Ok(Some(gs)) => restore(&state, gs),
+        _ => state.save_status.set(crate::i18n::t("save.error")),
     })
 }
 
 pub fn build_export_state(state: &AppState) -> Callback<()> {
-    let session_handle = state.session.clone();
+    let state = state.clone();
     Callback::from(move |()| {
-        let Some(sess) = (*session_handle).clone() else {
+        let Some(sess) = state
+            .pending_turn
+            .as_ref()
+            .map(|p| &p.session)
+            .or(state.session.as_ref())
+        else {
             return;
         };
         let Ok(text) = serde_json::to_string(sess.state()) else {
             return;
         };
         if let Some(win) = web_sys::window() {
-            let nav = win.navigator();
-            let cb = nav.clipboard();
-            let _ = cb.write_text(&text);
+            let promise = win.navigator().clipboard().write_text(&text);
+            let status = state.save_status.clone();
+            wasm_bindgen_futures::spawn_local(async move {
+                let success = wasm_bindgen_futures::JsFuture::from(promise).await.is_ok();
+                status.set(crate::i18n::t(if success {
+                    "save.export"
+                } else {
+                    "save.error"
+                }));
+            });
         }
     })
 }
 
 pub fn build_import_state(state: &AppState) -> Callback<String> {
-    let session_handle = state.session.clone();
-    let pending_handle = state.pending_state.clone();
-    let data_handle = state.data.clone();
-    let logs_handle = state.logs.clone();
-    let run_seed_handle = state.run_seed.clone();
-    let phase_handle = state.phase.clone();
-    let endgame_cfg = (*state.endgame_config).clone();
-    Callback::from(move |txt: String| {
-        if let Ok(mut gs) = serde_json::from_str::<GameState>(&txt) {
-            gs = gs.rehydrate((*data_handle).clone());
-            let sess = session_from_state(gs, &endgame_cfg);
-            run_seed_handle.set(sess.state().seed);
-            pending_handle.set(Some(sess.state().clone()));
-            session_handle.set(Some(sess));
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.loaded"));
-            logs_handle.set(l);
-            phase_handle.set(Phase::Travel);
-        } else {
-            let mut l = (*logs_handle).clone();
-            l.push(crate::i18n::t("save.error"));
-            logs_handle.set(l);
-        }
-    })
+    let state = state.clone();
+    Callback::from(
+        move |text: String| match serde_json::from_str::<GameState>(&text) {
+            Ok(gs) => restore(&state, gs),
+            Err(_) => state.save_status.set(crate::i18n::t("save.error")),
+        },
+    )
 }

@@ -1,5 +1,5 @@
 use crate::app::state::AppState;
-use crate::game::load_result_config;
+use crate::game::{DataLoader, WebDataLoader, load_result_config};
 use yew::prelude::*;
 
 #[hook]
@@ -22,7 +22,9 @@ pub fn use_bootstrap(app_state: &AppState) {
                     progress = progress.saturating_add(9);
                     p.set(progress.min(99));
                 };
-                let loaded_data = crate::game::data::EncounterData::load_from_static();
+                let loaded_data = WebDataLoader
+                    .load_encounter_data()
+                    .unwrap_or_else(|_| crate::game::data::EncounterData::empty());
                 bump(&preload_progress);
                 let loaded_pacing = crate::game::pacing::PacingConfig::load_from_static();
                 bump(&preload_progress);
@@ -66,7 +68,9 @@ pub fn use_bootstrap(app_state: &AppState) {
         }
         #[cfg(test)]
         {
-            let loaded_data = crate::game::data::EncounterData::load_from_static();
+            let loaded_data = WebDataLoader
+                .load_encounter_data()
+                .unwrap_or_else(|_| crate::game::data::EncounterData::empty());
             let loaded_pacing = crate::game::pacing::PacingConfig::load_from_static();
             let loaded_endgame = crate::game::endgame::EndgameTravelCfg::default_config();
             let loaded_weather = crate::game::weather::WeatherConfig::load_from_static();

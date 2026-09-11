@@ -1,3 +1,7 @@
+//! Accessible journey setup: mode is explicit and encoded in the optional replay code.
+use crate::components::ui::journey_scene::SceneStage;
+use crate::i18n;
+use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
 #[derive(Properties, Clone, PartialEq)]
@@ -6,92 +10,62 @@ pub struct BootPageProps {
     pub ready: bool,
     pub preload_progress: u8,
     pub on_begin: Callback<()>,
+    pub code: AttrValue,
+    pub on_code_change: Callback<AttrValue>,
 }
 
 #[function_component(BootPage)]
-pub fn boot_page(props: &BootPageProps) -> Html {
-    let on_click = {
-        let on_begin = props.on_begin.clone();
-        let ready = props.ready;
+pub fn boot_page(p: &BootPageProps) -> Html {
+    let deep = p.code.starts_with("DP-");
+    let valid = crate::game::seed::decode_to_seed(&p.code).is_some();
+    let on_input = {
+        let cb = p.on_code_change.clone();
+        Callback::from(move |e: InputEvent| {
+            if let Some(input) = e
+                .target()
+                .and_then(|t| t.dyn_into::<web_sys::HtmlInputElement>().ok())
+            {
+                cb.emit(input.value().trim().to_ascii_uppercase().into());
+            }
+        })
+    };
+    let mode_change = |is_deep: bool| {
+        let cb = p.on_code_change.clone();
         Callback::from(move |_| {
-            if ready {
-                on_begin.emit(());
-            }
+            let entropy = js_sys::Date::now().to_bits();
+            cb.emit(crate::game::seed::generate_code_from_entropy(is_deep, entropy).into());
         })
     };
-
-    let on_keydown = {
-        let on_begin = props.on_begin.clone();
-        let ready = props.ready;
-        Callback::from(move |e: web_sys::KeyboardEvent| {
-            if ready {
-                e.prevent_default();
-                on_begin.emit(());
-            }
-        })
+    let start = {
+        let cb = p.on_begin.clone();
+        Callback::from(move |_| cb.emit(()))
     };
-
-    html! {
-        <div
-            class="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#4EC9E6] to-[#87CEEB] relative"
-            aria-busy={(!props.ready).to_string()}
-            aria-live="polite"
-            onkeydown={on_keydown}
-            onclick={on_click}
-            tabindex="0"
-        >
-            // Ornate frame border
-            <div class="absolute inset-0 border-[16px] border-[#8B6914] shadow-[inset_0_0_0_4px_#D4A76A,inset_0_0_0_8px_#654321]" style="pointer-events: none;"></div>
-
-            <div class="card bg-gradient-to-b from-[#87CEEB] via-[#4EC9E6] to-[#E8D088] w-[600px] max-w-[90vw] rounded-none shadow-2xl border-4 border-[#D4A76A] relative overflow-hidden">
-                // Prairie foreground
-                <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#C9A961] to-[#E8D088]"></div>
-
-                <div class="card-body items-center text-center space-y-6 relative z-10 p-8">
-                    // Title Banner
-                    <div class="bg-white border-4 border-[#D4A76A] shadow-lg px-8 py-4 mb-4">
-                        <h1 class="text-4xl text-black tracking-wide" style="font-family: Georgia, 'Times New Roman', serif;">{ "Dystrail" }</h1>
-                    </div>
-
-                    // Subtitle
-                    <div class="bg-[#E8D088] border-2 border-[#8B6914] px-6 py-2 shadow-md">
-                        <p class="text-sm text-[#654321] font-semibold">{ "What if Oregon Trail went wrong?" }</p>
-                    </div>
-
-                    // Loading Indicator
-                    <div class="w-full max-w-md space-y-3 mt-8">
-                        <div class="bg-white border-2 border-[#8B6914] p-4 shadow-md">
-                            <progress
-                                class="progress h-6 w-full"
-                                value={props.preload_progress.to_string()}
-                                max="100"
-                                role="progressbar"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                aria-valuenow={props.preload_progress.to_string()}
-                                style="background-color: #C9A961;"
-                            />
-                        </div>
-                        <p class="text-sm text-[#654321] font-semibold bg-[#E8D088] border-2 border-[#8B6914] px-4 py-2 inline-block shadow-sm">
-                            { if props.ready { "Ready" } else { "Loading assets…" } }
-                        </p>
-                    </div>
-
-                    // "Press Any Key" Prompt
-                    if props.ready {
-                        <div class={classes!("mt-6", if props.ready { Some("animate-pulse-slow") } else { None })}>
-                            <div class="bg-[#E8D088] border-2 border-[#8B6914] px-6 py-3 shadow-lg inline-block">
-                                <span class="text-base text-[#654321] font-bold">{ crate::i18n::t("ui.cta_start") }</span>
-                            </div>
-                        </div>
-                    }
-
-                    // Footer / Build Info
-                    <div class="text-xs text-[#654321] mt-6 bg-[#E8D088] border border-[#8B6914] px-4 py-1 rounded-sm">
-                        <p>{ "v0.1 • Seed system ready" }</p>
-                    </div>
-                </div>
-            </div>
+    html! { <section class="setup-screen" aria-labelledby="screen-title">
+        <div class="setup-hero">
+            <crate::components::ui::journey_scene::JourneyScene {deep} stage={SceneStage::Setup} />
+            <div class="setup-heading"><p class="eyebrow">{i18n::t("ux.tagline")}</p>
+            <h1 id="screen-title" tabindex="-1">{"DYSTOPIAN TRAIL"}</h1>
+            <p>{i18n::t("ux.premise")}</p></div>
         </div>
-    }
+        <div class="setup-body">
+            <fieldset class="mode-picker"><legend>{i18n::t("ux.mode")}</legend>
+                <label class={classes!("mode-option", (!deep).then_some("selected"))}>
+                    <input type="radio" name="mode" checked={!deep} onchange={mode_change(false)} />
+                    <span><strong>{i18n::t("mode.classic")}</strong><span>{i18n::t("ux.classic_desc")}</span></span>
+                </label>
+                <label class={classes!("mode-option", deep.then_some("selected"))}>
+                    <input type="radio" name="mode" checked={deep} onchange={mode_change(true)} />
+                    <span><strong>{i18n::t("mode.deep")}</strong><span>{i18n::t("ux.deep_desc")}</span></span>
+                </label>
+            </fieldset>
+            <div class="seed-entry">
+                <label for="run-code">{i18n::t("ux.code")}</label>
+                <input id="run-code" dir="ltr" value={p.code.clone()} oninput={on_input} aria-describedby="code-help code-error" aria-invalid={(!valid).to_string()} />
+                <p id="code-help" class="muted">{i18n::t("play.seed_hint")}</p>
+                <p id="code-error" role="status">{if valid {String::new()} else {i18n::t("ux.code_error")}}</p>
+            </div>
+            <button class="retro-btn-primary" disabled={!p.ready || !valid} onclick={start}>{i18n::t("ux.begin")}</button>
+            if !p.ready {<p role="status">{i18n::t("ux.loading")}</p>}
+        </div>
+    </section> }
 }
