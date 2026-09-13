@@ -13,13 +13,15 @@ export default defineConfig({
   fullyParallel: true,
   workers: 2,
   reporter: 'list',
-  use: { channel, launchOptions: chromeLauncher, baseURL, trace: 'retain-on-failure', headless: true },
+  use: { channel, launchOptions: chromeLauncher, baseURL, trace: 'retain-on-failure', video: process.env.CI ? 'on' : 'off', headless: true },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
   webServer: process.env.PLAYTEST_EXTERNAL === '1' ? undefined : {
-    command: `NO_COLOR=true PUBLIC_URL=/play trunk serve ${process.env.CI ? '--release ' : ''}--address 127.0.0.1 --public-url /play/ --port ${port}`,
+    command: process.env.CI
+      ? `python3 tests-e2e/serve-build.py ${port}`
+      : `NO_COLOR=true PUBLIC_URL=/play trunk serve --address 127.0.0.1 --public-url /play/ --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     cwd: __dirname,

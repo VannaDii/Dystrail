@@ -142,10 +142,13 @@ jobs:
           toolchain: 1.92.0
           targets: wasm32-unknown-unknown
 
-      - name: Install trunk and wasm-pack
+      - name: Install pinned Trunk release
         run: |
-          cargo install trunk --version 0.21.14 --locked
-          cargo install wasm-pack --version 0.13.1 --locked
+          curl --fail --location --silent --show-error https://github.com/trunk-rs/trunk/releases/download/v0.21.14/trunk-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/trunk.tar.gz"
+          printf '%s  %s\n' 'f2b4680cd239693a646a2795e4633c625328d7b2a044fbe749fa3a2fe9e7036b' "$RUNNER_TEMP/trunk.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/trunk.tar.gz" -C "$RUNNER_TEMP" trunk
+          install -m 755 "$RUNNER_TEMP/trunk" "$HOME/.cargo/bin/trunk"
+          trunk --version
 
       - name: Install wasm-opt (binaryen)
         run: |
@@ -189,14 +192,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
+      - name: Download the release built by CI
+        uses: actions/download-artifact@v4
         with:
-          toolchain: 1.92.0
-          targets: wasm32-unknown-unknown
-
-      - name: Install trunk
-        run: cargo install trunk --version 0.21.14 --locked
+          name: dystrail-web-dist
+          path: dystrail-web/dist
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -217,7 +217,7 @@ jobs:
         working-directory: dystrail-web
         env:
           PUBLIC_URL: /play
-        run: npx playwright test --reporter=line --trace on --video on
+        run: npx playwright test --reporter=line --trace on
 
       - name: Upload Playwright artifacts (video/trace)
         if: always()
