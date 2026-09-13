@@ -10,6 +10,7 @@
     "assets/fonts/press-start-2p-latin.woff2": "42144b97bd2942ea606e5d880684eae0f7be5c804bdd57b1faac5a8d7699ae6e",
     "assets/fonts/space-grotesk-OFL.txt": "18a4de52385f6b988782639d5d0cc1326e5a8c2de9a7f01d7b20d9aedcc60943",
     "assets/fonts/space-grotesk-latin.woff2": "a0d054c4af557de20afd6ca59f47ab353bcaec49c63ff04b6c9d39d0f8910557",
+    "assets/gameplay-current.jpg": "6443cc2123ce7f879488e41144270d4d3348624ac0f5d7a867b1f128ed47a530",
     "assets/gameplay-small.webp": "6b85bd4f90e3c13dd5d3c40c9db58296b31e2b8629b2606ac41af8bc7a876213",
     "assets/gameplay-social.jpg": "ad950491a129bdb828fc4d0f90600f4904d0d659204d28fba698c5700bae6b73",
     "assets/gameplay.webp": "bc543ae4352cada2b98fe4b5947281c2ce75ff3edc1136925ac122f14260a80f",
@@ -57,7 +58,7 @@
     "docs/toc.html": "49c4d7719dc0ae841efc8413d3b31e1426858362a0f19a12fc66c312ed57e096",
     "docs/tomorrow-night-4c0ae647.css": "4c0ae647a06ef1699806fb9b4b6d0ef72de026708c6e8581362641c9298cb5f7",
     "favicon.ico": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756",
-    "index.html": "f0ab7b05b1ca1a32013587f342110398de4d070ceb87a01d8d329b193488460c",
+    "index.html": "01e511bebc898d487f0c176c85c44d2068c3be4a705c64afe8ae703c4b7d5ee7",
     "play/continuity-151a22f27aabfe68.css": "16308b497b05c74c1eb3e3345f2b22d2396a8c626ca7c1ffbba21003097dd8bc",
     "play/continuity-46888eac4583f0ba.css": "8f14ea260c8bc3f1dfdb055164355fac91bbc49ccee2beb32d43148e696f09e5",
     "play/continuity-583a687216545eeb.css": "b3f99696910fccc084cd69034a49d6313bbcf127c2f21befb232d0227c977e76",
@@ -309,7 +310,7 @@
     "play/dystrail-web-570cefe4596abd42_bg.wasm": "1453dc59432c3a9fec6a735d7d25fc2d473ff103ec61f08358fd5abb353b4700"
   },
   "artifact_manifest_sha256": "18efdf62a62400eb2c3ab39defccbc754f2d202493c64095ea20acac0dcf22b8",
-  "source_commit": "3525f031fca6d2d5d22464a20f6bb1d39c57a32a",
+  "source_commit": "2285204419c3dd3055a0fbdf7f763aa74f386b07",
   "source_branch": "release/complete-game-source-2026-09-13",
   "runtime_baseline": "d3ed78dac458b64a80ee"
 }
