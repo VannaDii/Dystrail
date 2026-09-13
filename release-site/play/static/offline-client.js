@@ -95,6 +95,60 @@
       return result;
     } finally { channel.port1.close(); channel.port2.close(); }
   }
+  async function prepareFonts(result) {
+    const definitions = [];
+    const collect = (owner, href) => {
+      for (const rule of owner.cssRules) {
+        if (rule.type === CSSRule.FONT_FACE_RULE) definitions.push({owner,rule,href});
+        else if (rule.styleSheet) collect(rule.styleSheet,rule.styleSheet.href);
+        else if (rule.cssRules) collect(rule,href);
+      }
+    };
+    for (const sheet of document.styleSheets) collect(sheet,sheet.href || document.baseURI);
+    const cache = await caches.open(result.cache);
+    const used = new Set();
+    const fonts = await timeout(Promise.all(definitions.map(async ({rule,href}) => {
+      const source = rule.style.getPropertyValue('src');
+      const urls = [...source.matchAll(/url\(\s*(?:"([^"]+)"|'([^']+)'|([^\s)]+))\s*\)/g)];
+      if (urls.length !== 1 || /\blocal\s*\(/i.test(source)) throw new Error('Font must have one bundled source');
+      const url = new URL(urls[0][1] || urls[0][2] || urls[0][3],href);
+      const asset = result.assets.find(item => new URL(item.path,root).href === url.href);
+      if (!asset || url.origin !== root.origin || !/\.(woff2?|ttf|otf)$/i.test(asset.path)) throw new Error('Font missing from the prepared release');
+      used.add(asset.path);
+      const response = await cache.match(url);
+      if (!response) throw new Error('Font missing from the prepared cache');
+      const bytes = await response.arrayBuffer();
+      const digest = await crypto.subtle.digest('SHA-256',bytes);
+      const integrity = 'sha256-' + btoa(String.fromCharCode(...new Uint8Array(digest)));
+      if (bytes.byteLength !== asset.bytes || integrity !== asset.integrity) {
+        await cache.delete(url);
+        await cache.delete(new URL('__offline_ready__',root));
+        throw new Error('Incomplete font');
+      }
+      const descriptors = {};
+      for (const [css,key] of [['font-style','style'],['font-weight','weight'],['font-stretch','stretch'],['unicode-range','unicodeRange'],['font-display','display'],['font-feature-settings','featureSettings'],['font-variation-settings','variationSettings']]) {
+        const value = rule.style.getPropertyValue(css);
+        if (value) descriptors[key] = value;
+      }
+      const family = rule.style.getPropertyValue('font-family').replace(/^(['"])(.*)\1$/,'$2');
+      const face = new FontFace(family,bytes,descriptors);
+      await face.load();
+      if (face.status !== 'loaded') throw new Error('Font cannot be rendered');
+      return face;
+    })),15000);
+    const assets = result.assets.filter(asset => /\.(woff2?|ttf|otf)$/i.test(asset.path));
+    if (assets.some(asset => !used.has(asset.path))) throw new Error('Bundled font has no declaration');
+    // Buffer-backed faces stay ready for unused bold, italic and RTL text too.
+    // Remove equivalent URL-backed rules so a later scene cannot start a font request.
+    for (const face of fonts) document.fonts.add(face);
+    for (const {owner,rule} of definitions) {
+      const index = Array.from(owner.cssRules).indexOf(rule);
+      if (index < 0) throw new Error('Font declaration changed during preparation');
+      owner.deleteRule(index);
+    }
+    await document.fonts.ready;
+    window.dystrailPreparedFonts = Object.freeze(fonts);
+  }
   async function prepareArtwork(result) {
     const cache = await caches.open(result.cache);
     const assets = result.assets.filter(asset => /\.(png|jpe?g|webp|gif|svg|ico)$/i.test(asset.path));
@@ -125,7 +179,6 @@
       for (const url of Object.values(urls)) URL.revokeObjectURL(url.split('#')[0]);
       throw new Error('Artwork preparation failed');
     }
-    await document.fonts.ready;
     // Keep the decoded sources alive. Scene changes reuse these exact local URLs.
     window.dystrailPreparedImages = images;
     window.dystrailAssetUrls = Object.freeze(urls);
@@ -171,6 +224,7 @@
       if (!active) throw new Error('no active offline copy');
       const prepared = await prepare(active);
       await activate(active);
+      await prepareFonts(prepared);
       await prepareArtwork(prepared);
       navigator.storage?.persist?.().catch(() => {});
       launchPending = false;

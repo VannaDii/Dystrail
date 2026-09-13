@@ -8,13 +8,15 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 payload = root / "release-site"
 manifest = json.loads((root / "release-manifest.json").read_text())
-assert manifest["revision"] == "24834f5498f7778940ee", "Unexpected preview revision"
+assert manifest["revision"] == "a9ff83cd924a07fdf4ec", "Unexpected preview revision"
 files = {str(path.relative_to(payload)): path for path in payload.rglob("*") if path.is_file()}
 assert set(files) == set(manifest["files"]), "Payload inventory differs from reviewed artifact"
 assert all(not path.is_symlink() for path in payload.rglob("*")), "Unexpected symlink"
 for name, path in files.items():
     assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest["files"][name], name
 for name, expected in manifest["preserved_files"].items():
+    assert manifest["files"][name] == expected, name
+for name, expected in manifest["preserved_hashed_assets"].items():
     assert manifest["files"][name] == expected, name
 assert (payload / "CNAME").read_text().strip() == "dystrail.com"
 assert (payload / "404.html").read_bytes() == (payload / "play/index.html").read_bytes()

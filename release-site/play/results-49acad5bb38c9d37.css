@@ -1,0 +1,136 @@
+/* End-of-run totals share the game's standard numeric readout. */
+.result-screen .stats-grid.result-stats {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  list-style:none;
+  margin:16px 0 0;
+  padding:0;
+}
+.result-stats .stat-card {
+  width:100%;
+  max-width:none;
+  min-height:112px;
+  justify-content:center;
+  color:var(--text);
+}
+.result-stats .stat-card>span {
+  color:var(--text-dim);
+  overflow-wrap:anywhere;
+}
+.result-stats .stat-card>strong {
+  max-width:100%;
+  overflow-wrap:anywhere;
+  font-variant-numeric:tabular-nums;
+}
+.result-stats [data-stat="result.labels.score"] {
+  border-color:var(--accent-border);
+  background:var(--panel-selected);
+}
+.result-stats [data-stat="result.labels.passed_threshold"]>strong {
+  font-size:22px;
+}
+.result-screen .ending-scorecard .result-info {
+  margin-top:12px;
+  padding-bottom:0;
+}
+
+/* Keep actions in view while the image, editable post and platform details scroll. */
+.share-composer {
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  gap:18px;
+  overflow:hidden;
+}
+.share-composer>header {
+  gap:12px;
+  margin:0;
+}
+.share-content {
+  min-height:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  padding:4px;
+  margin:-4px;
+}
+.share-editor textarea {
+  min-height:190px;
+}
+.share-footer {
+  display:grid;
+  gap:8px;
+  margin:0;
+  padding:14px 0 0;
+  border-top:1px solid var(--border-subtle);
+  background:var(--panel);
+}
+.share-footer .share-actions {
+  min-width:0;
+}
+.share-actions>button,.share-actions>a {
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.share-status:empty {
+  display:none;
+}
+@media(min-width:701px) {
+  .share-footer {
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    column-gap:24px;
+  }
+  .share-footer .share-actions,.share-footer .share-status {
+    grid-column:2;
+  }
+}
+@media(max-width:700px) {
+  .result-screen .stats-grid.result-stats {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .result-stats .stat-card {
+    min-height:104px;
+    padding:12px 8px;
+  }
+  .result-stats .stat-card>strong {
+    font-size:28px;
+  }
+  .share-composer {
+    gap:12px;
+    max-height:calc(100dvh - 24px);
+  }
+  .share-composer>header {
+    align-items:start;
+  }
+  .share-content {
+    gap:14px;
+  }
+  .share-preview {
+    width:min(100%,clamp(104px,26dvh,184px));
+    justify-self:center;
+  }
+  .share-placeholder {
+    padding:12px;
+    font-size:13px;
+  }
+  .share-editor textarea {
+    min-height:128px;
+    height:128px;
+    padding:10px;
+  }
+  .share-footer {
+    padding-top:12px;
+  }
+  .share-actions {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .share-actions>button,.share-actions>a {
+    min-height:44px;
+    padding:10px 8px;
+  }
+  .share-actions>:last-child:nth-child(3) {
+    grid-column:1/-1;
+  }
+}
