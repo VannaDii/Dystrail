@@ -150,16 +150,20 @@ jobs:
           install -m 755 "$RUNNER_TEMP/trunk" "$HOME/.cargo/bin/trunk"
           trunk --version
 
-      - name: Install wasm-opt (binaryen)
+      - name: Install pinned wasm-opt (Binaryen 132)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y binaryen
+          curl --fail --location --silent --show-error https://github.com/WebAssembly/binaryen/releases/download/version_132/binaryen-version_132-x86_64-linux.tar.gz --output "$RUNNER_TEMP/binaryen.tar.gz"
+          printf '%s  %s\n' '195ddc94f9bc89f45abdabb0b9eea86023d727ba90eac8b35b80f2544fc30572' "$RUNNER_TEMP/binaryen.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/binaryen.tar.gz" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/binaryen-version_132/bin" >> "$GITHUB_PATH"
 
       - name: Trunk build (release, wasm-opt)
         working-directory: dystrail-web
         env:
           PUBLIC_URL: /play
-        run: trunk build --release --public-url /play/
+        run: |
+          wasm-opt --version
+          trunk build --release --public-url /play/
 
       - name: Upload release dist
         uses: actions/upload-artifact@v4
