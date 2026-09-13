@@ -1626,8 +1626,11 @@ impl JourneyController {
     #[must_use]
     pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
         self.configure_state(state);
+        if state.boss.readiness.ready && !state.boss.outcome.attempted {
+            return Self::stopped_outcome(state, "log.boss.await");
+        }
         if state.continuity.interactive_repairs && state.breakdown.is_some() {
-            return Self::blocked_outcome(state);
+            return Self::stopped_outcome(state, crate::constants::LOG_TRAVEL_BLOCKED);
         }
         state.prepare_travel_clock();
         state.start_of_day();
@@ -1664,8 +1667,8 @@ impl JourneyController {
         }
     }
 
-    fn blocked_outcome(state: &crate::state::GameState) -> DayOutcome {
-        let log_key = String::from(crate::constants::LOG_TRAVEL_BLOCKED);
+    fn stopped_outcome(state: &crate::state::GameState, log_key: &str) -> DayOutcome {
+        let log_key = String::from(log_key);
         DayOutcome {
             ended: false,
             log_key: log_key.clone(),
@@ -1774,6 +1777,37 @@ mod tests {
         controller.reseed(2);
         let mut state = GameState::default();
         let _ = controller.tick_day(&mut state);
+    }
+
+    #[test]
+    fn awaiting_hearing_does_not_start_another_road_day() {
+        for clock in [
+            crate::journal::morning(),
+            crate::travel_time::TRAVEL_DAY_END,
+        ] {
+            let mut controller = JourneyController::new(
+                MechanicalPolicyId::DystrailLegacy,
+                PolicyId::Deep,
+                StrategyId::ResourceManager,
+                1660,
+            );
+            let mut state = GameState::default();
+            controller.configure_state(&mut state);
+            state.miles_traveled_actual = state.trail_distance;
+            state.boss.readiness.ready = true;
+            state.boss.readiness.reached = true;
+            state.continuity.clock_minutes = clock;
+            let before = serde_json::to_value(&state).unwrap();
+            let outcome = controller.tick_day(&mut state);
+            assert_eq!(outcome.log_key, "log.boss.await");
+            assert!(outcome.record.is_none());
+            assert_eq!(serde_json::to_value(&state).unwrap(), before);
+            assert_eq!(
+                state.travel_next_leg(&EndgameTravelCfg::default_config()),
+                (false, "log.boss.await".into(), false)
+            );
+            assert_eq!(serde_json::to_value(&state).unwrap(), before);
+        }
     }
 
     #[test]

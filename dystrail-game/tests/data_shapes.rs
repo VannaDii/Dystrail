@@ -8,7 +8,7 @@ use dystrail_game::{
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
 
-const SNAPSHOT_HASH: u64 = 0x7858_a458_b840_b44c;
+const SNAPSHOT_HASH: u64 = 14_555_745_011_322_502_100;
 
 #[test]
 fn journey_config_snapshot_stable() {

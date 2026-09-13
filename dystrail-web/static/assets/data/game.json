@@ -1353,7 +1353,6 @@
     "desc": "It’s midnight outside the hearing hall. Your comment on five-accomplishment reports is stuck in a six-person fight over commas. The lot attendant offers to text when the doors open.",
     "weight": 3,
     "regions": [
-      "RustBelt",
       "Beltway"
     ],
     "choices": [

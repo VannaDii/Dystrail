@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
-import {snap,baseline,openMenu} from './helpers';
+import {snap,baseline,openMenu,waitForLaunch} from './helpers';
 test('focus stays still, keyboard selection, rich locale, contrast and outside dismissal',async({page})=>{
- await page.goto('./');await expect(page.locator('#main')).toHaveAttribute('data-screen','setup');
+ await page.goto('./');await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','setup');
  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');expect(await page.evaluate(()=>scrollY)).toBe(0);
  await expect(page.locator('#game-menu-button')).toBeVisible();
  await openMenu(page);await page.locator('.language-picker>button').click();await expect(page.getByRole('listbox')).toBeVisible();

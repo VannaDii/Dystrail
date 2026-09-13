@@ -1,8 +1,8 @@
 import {test,expect} from '@playwright/test';
-import {setup,depart,savedState,snap,settle,openMenu} from './helpers';
+import {setup,depart,savedState,snap,settle,openMenu,waitForLaunch} from './helpers';
 test('outfitting recovery, direct controls, timed travel, manual save and camp',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('./');await expect(page).toHaveTitle(/Dystopian Trail/);
+ await page.goto('./');await waitForLaunch(page);await expect(page).toHaveTitle(/Dystopian Trail/);
  await expect(page.locator('#main')).toHaveAttribute('data-screen','setup');
  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
  expect(await page.evaluate(()=>scrollY)).toBe(0);

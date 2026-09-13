@@ -10,6 +10,15 @@ pub fn render(kind: &str) -> Html {
             html! {<><path d="M3 18V6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v2"/><path d="M3 18a2 2 0 0 0 2 2h13a2 2 0 0 0 1.9-1.4L22 11H8l-3 7H3Z"/></>}
         }
         "download" => html! {<><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></>},
+        "offline-ready" => {
+            html! {<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8m-4-5v5M8 9l3 3 5-5"/></>}
+        }
+        "status-warning" => {
+            html! {<><path d="M12 3 2 21h20L12 3ZM12 9v5m0 3v.5"/></>}
+        }
+        "sync" => {
+            html! {<><path d="M20 8a8 8 0 0 0-13-2L4 9m0-6v6h6M4 16a8 8 0 0 0 13 2l3-3m0 6v-6h-6"/></>}
+        }
         "upload" => html! {<><path d="M12 16V4m-5 5 5-5 5 5M4 16v5h16v-5"/></>},
         "copy" => {
             html! {<><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 5V3H3v13h2"/></>}

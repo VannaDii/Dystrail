@@ -1,9 +1,9 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
-import {join} from 'node:path';
+import {join,resolve} from 'node:path';
 import {createServer} from 'node:http';
-import {savedState,importState,snap} from './helpers';
-const built=process.env.PLAYTEST_DIST||'/tmp/dystrail-continuity-preview/play';
+import {savedState,importState,snap,waitForLaunch} from './helpers';
+const built=process.env.PLAYTEST_DIST||resolve(__dirname,'../dist');
 const heldAsset='static/img/journey/town-npcs-v1.png';
 test('first launch waits for every asset, retries failure, and repairs missing cached art before play',async({browser})=>{
  test.setTimeout(65000);
@@ -42,11 +42,12 @@ test('every image is decoded behind the gate and new encounter scenes use only p
   };
  });
  await page.goto('./',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>typeof (window as any).releaseArt==='function');
  await expect.poll(()=>page.evaluate(()=>(window as any).artWaiting)).toBe(true);
  await expect(page.locator('#main')).toHaveCount(0);await expect(page.locator('#launch-gate')).toBeVisible();
  await expect(page.locator('#launch-message')).toContainText('Preparing artwork');
  await page.screenshot({path:`test-results/art-preparation-${test.info().project.name}.png`});
- await page.evaluate(()=>(window as any).releaseArt());await expect(page.locator('#main')).toBeVisible();
+ await page.evaluate(()=>(window as any).releaseArt());await waitForLaunch(page);await expect(page.locator('#main')).toBeVisible();
  const art=await page.evaluate(async()=>{
   const manifest=await(await fetch('offline-manifest.json')).json();
   const expected=manifest.assets.filter((a:any)=>/\.(png|jpe?g|webp|gif|svg|ico)$/i.test(a.path)).map((a:any)=>a.path).sort();

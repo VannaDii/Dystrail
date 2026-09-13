@@ -902,6 +902,13 @@ mod tests {
     }
 
     #[test]
+    fn deep_resource_manager_keeps_travel_ratio_above_floor() {
+        let plan = full_game_plan(GameMode::Deep, GameplayStrategy::ResourceManager);
+        let summary = tester(false).run_plan(&plan, 1660);
+        assert!(summary.metrics.travel_ratio >= 0.90);
+    }
+
+    #[test]
     fn generates_records_for_each_scenario() {
         let seeds = vec![SeedInfo::from_numeric(1337)];
         let records = run_playability_analysis(&tester(false), &seeds, 1).unwrap();
@@ -1122,11 +1129,11 @@ mod tests {
     // now mark real repair days instead of disappearing from the ledger.
     // None of the playability thresholds are changed.
     // The independent repeated-run equality check still enforces deterministic replay.
-    // Town conversations now award credibility, a receipt or an ally. The simulator
-    // invokes that same explicit reward method at each stop, changing this campaign.
+    // The intentional health retuning and Beltway-only hearing briefing change
+    // this replay fingerprint; experience thresholds and strategy decisions stay pinned.
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        91, 89, 71, 146, 165, 106, 251, 89, 124, 200, 57, 239, 189, 211, 136, 178, 52, 237, 87,
-        105, 13, 131, 179, 140, 175, 224, 240, 155, 146, 192, 60, 120,
+        134, 236, 25, 137, 239, 195, 156, 255, 59, 207, 9, 157, 140, 189, 4, 92, 113, 66, 112, 84,
+        184, 102, 54, 30, 18, 203, 85, 129, 87, 209, 24, 217,
     ];
 
     #[test]

@@ -4578,13 +4578,13 @@ impl GameState {
             self.day_state.travel.travel_blocked = true;
             return (false, String::from(LOG_TRAVEL_BLOCKED), false);
         }
+        if let Some(result) = self.guard_boss_gate() {
+            return result;
+        }
         self.start_of_day();
 
         let rng_bundle = self.rng_bundle.as_ref().map(Rc::clone);
 
-        if let Some(result) = self.guard_boss_gate() {
-            return result;
-        }
         if let Some(result) = self.pre_travel_checks() {
             return result;
         }

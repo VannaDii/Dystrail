@@ -459,8 +459,6 @@ main#main>footer {
   justify-content:flex-end
 }
 .persona-select .controls button {
-  background:var(--accent);
-  color:var(--primary-ink);
   min-width:230px
 }
 .survival-hud {

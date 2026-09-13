@@ -12,7 +12,7 @@
   },
   "daily": {
     "health": {
-      "decay": 0.38
+      "decay": 0.39
     }
   },
   "crossing": {

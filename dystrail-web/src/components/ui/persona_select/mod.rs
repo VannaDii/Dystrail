@@ -15,6 +15,8 @@ pub struct PersonaSelectProps {
     #[prop_or_default]
     pub on_continue: Option<Callback<()>>,
     #[prop_or_default]
+    pub on_back: Option<Callback<()>>,
+    #[prop_or_default]
     pub initial_id: Option<String>,
 }
 
@@ -134,6 +136,14 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     let live_msg = preview_persona
         .as_ref()
         .map_or_else(String::new, helpers::selection_summary);
+    let on_back = {
+        let on = p.on_back.clone();
+        Callback::from(move |_| {
+            if let Some(cb) = on.as_ref() {
+                cb.emit(());
+            }
+        })
+    };
 
     html! {
       <section class="panel retro-menu persona-select" aria-labelledby="persona-title" onkeydown={on_keydown}>
@@ -156,12 +166,18 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
           </div>
           <preview::PersonaPreview persona={preview_persona} />
         </div>
-        <div class="controls persona-actions">
-          <p id="persona-helper" aria-live="polite" aria-atomic="true">{live_msg}</p>
-          <button id="persona-continue" disabled={selected.is_none()} onclick={
+        <p id="persona-helper" class="sr-only" aria-live="polite" aria-atomic="true">{live_msg}</p>
+        <div class="controls persona-actions setup-actions">
+          if p.on_back.is_some() {
+            <button type="button" class="retro-btn-secondary setup-back-desktop" onclick={on_back.clone()}>{crate::i18n::t("store.menu.back")}</button>
+          }
+          <button type="button" id="persona-continue" class="retro-btn-primary" disabled={selected.is_none()} onclick={
             let on = p.on_continue.clone();
             Callback::from(move |_| if let Some(cb)=on.clone(){ cb.emit(()); })
           }>{ crate::i18n::t("ui.continue") }</button>
+          if p.on_back.is_some() {
+            <button type="button" class="retro-btn-secondary setup-back-mobile" onclick={on_back}>{crate::i18n::t("store.menu.back")}</button>
+          }
         </div>
       </section>
     }

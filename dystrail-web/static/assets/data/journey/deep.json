@@ -73,7 +73,14 @@
     },
     "health": {
       "decay": 0.0,
-      "rest_heal": 0.0
+      "rest_heal": 0.0,
+      "weather": {
+        "Clear": 1.1,
+        "Storm": 1.1,
+        "HeatWave": 1.1,
+        "ColdSnap": 1.1,
+        "Smoke": 1.1
+      }
     }
   }
 }

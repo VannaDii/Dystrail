@@ -5,6 +5,7 @@ use yew::prelude::*;
 pub struct PersonaPageProps {
     pub on_selected: Callback<Persona>,
     pub on_continue: Callback<()>,
+    pub on_back: Callback<()>,
     #[prop_or_default]
     pub initial_id: Option<String>,
 }
@@ -25,6 +26,7 @@ pub fn persona_page(props: &PersonaPageProps) -> Html {
             initial_id={props.initial_id.clone()}
             on_selected={Some(props.on_selected.clone())}
             on_continue={Some(props.on_continue.clone())}
+            on_back={Some(props.on_back.clone())}
         />
       </section>
     }

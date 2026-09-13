@@ -75,8 +75,19 @@ test('local conversations offer all three benefits, are repeatable, and never aw
 test('one town action leaves town, normal maps last three seconds, Fast mode skips them',async({page})=>{
  const gs=await baseline(page);atTown(gs,'Spokane');gs.day=6;gs.encounter_cooldown=100;gs.crew_care.last_check_day=100;gs.weather_state.neutral_buffer=100;
  await importState(page,gs);await expect(page.getByRole('button',{name:'Leave town',exact:true})).toHaveCount(1);await expect(page.locator('.town-depart')).toHaveCount(0);
- await fastMode(page,false);await page.getByRole('button',{name:'Leave town',exact:true}).click();await expect(page.locator('.map-countdown')).toContainText('3');
- const started=Date.now();await expect(page.locator('.map-scene')).toHaveCount(0,{timeout:4200});const elapsed=Date.now()-started;expect(elapsed).toBeGreaterThan(1700);expect(elapsed).toBeLessThan(3900);
+ await fastMode(page,false);
+ await page.evaluate(()=>{
+  (window as any).mapDuration=new Promise<number>(resolve=>{
+   let started:number|undefined;
+   const observer=new MutationObserver(()=>{
+    if(document.querySelector('.map-scene')) started ??= performance.now();
+    else if(started!==undefined){observer.disconnect();resolve(performance.now()-started);}
+   });
+   observer.observe(document.body,{childList:true,subtree:true});
+  });
+ });
+ await page.getByRole('button',{name:'Leave town',exact:true}).click();await expect(page.locator('.map-countdown')).toContainText('3');
+ await expect(page.locator('.map-scene')).toHaveCount(0,{timeout:4200});const elapsed=await page.evaluate(()=>(window as any).mapDuration);expect(elapsed).toBeGreaterThan(1700);expect(elapsed).toBeLessThan(3900);
  await expect(page.getByRole('button',{name:'Pause travel',exact:true})).toBeVisible();await page.getByRole('button',{name:'Pause travel',exact:true}).click();
  await importState(page,gs);await fastMode(page,true);await page.getByRole('button',{name:'Visit the Store',exact:true}).click();
  await page.getByRole('spinbutton',{name:'Rations Pack Quantity',exact:true}).fill('1');await page.getByRole('button',{name:'Leave town',exact:true}).click();

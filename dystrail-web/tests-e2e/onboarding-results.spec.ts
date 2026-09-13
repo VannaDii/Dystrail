@@ -1,23 +1,23 @@
 import {test,expect} from '@playwright/test';
-import {baseline,importState,snap} from './helpers';
+import {baseline,importState,snap,waitForLaunch} from './helpers';
 import {atTown} from './geography';
 import {readFileSync} from 'node:fs';
 
 const checkpoint=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
 test('start action shares the Deep End column and stacks on mobile',async({page,isMobile})=>{
- await page.goto('./');await expect(page.locator('#main')).toHaveAttribute('data-screen','setup');
+ await page.goto('./');await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','setup');
  const geometry=await page.evaluate(()=>{const mode=document.querySelectorAll('.mode-option')[1].getBoundingClientRect(),code=document.querySelector('.seed-entry')!.getBoundingClientRect(),button=document.querySelector('.setup-start-row>button')!.getBoundingClientRect();return {button:{x:button.x,y:button.y,width:button.width},mode:{x:mode.x,width:mode.width},code:{x:code.x,bottom:code.bottom,width:code.width}};});
  if(isMobile){expect(geometry.button.y).toBeGreaterThanOrEqual(geometry.code.bottom);expect(Math.abs(geometry.button.width-geometry.code.width)).toBeLessThan(1);}else{expect(Math.abs(geometry.button.x-geometry.mode.x)).toBeLessThan(1);expect(geometry.button.x).toBeGreaterThan(geometry.code.x);}
  await snap(page,'setup-action-alignment');
 });
-test('random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background',async({page})=>{
+test('random character persists, selection announces without duplicate footer text, and compact crew busts have no added frame or background',async({page})=>{
  await page.goto('./');await page.getByRole('button',{name:'Choose your character',exact:true}).click();
  await expect(page.locator('.persona-tile[aria-checked=true]')).toHaveCount(1);const initial=(await checkpoint(page)).pending.persona_id;expect(initial).toBeTruthy();
  await expect(page.locator('#persona-continue')).toBeEnabled();await expect(page.locator('.journey-mission')).toContainText('public hearing in D.C.');await expect(page.locator('#persona-preview')).not.toContainText('public hearing');
  await page.reload();await expect.poll(async()=>(await checkpoint(page)).pending.persona_id).toBe(initial);expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
  for(const name of ['Journalist','Organizer','Whistleblower','Lobbyist','Staffer','Satirist']){
   await page.getByRole('radio',{name,exact:true}).click();await expect(page.locator('#persona-helper')).toContainText(name);
-  const delta=await page.locator('.persona-actions').evaluate(e=>{const a=e.querySelector('p')!.getBoundingClientRect(),b=e.querySelector('button')!.getBoundingClientRect();return a.y+a.height/2-b.y-b.height/2;});expect(Math.abs(delta)).toBeLessThan(1);
+  await expect(page.locator('#persona-helper')).toHaveClass('sr-only');await expect(page.locator('.persona-actions #persona-helper')).toHaveCount(0);await expect(page.locator('.persona-actions button:visible')).toHaveCount(2);
  }
  await snap(page,'character-details');await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.crew-name-card')).toHaveCount(6);
  for(const portrait of await page.locator('.crew-name-card .crew-portrait').all()){
@@ -41,7 +41,8 @@ test('early illness ending matches location and primary player, shows the full s
  const sameDay=structuredClone(gs);sameDay.party.members.find((m:any)=>m.persona===gs.persona_id).name='Reese';sameDay.continuity=undefined;sameDay.abandoned=true;
  await importState(page,sameDay);await expect(page.locator('.result-profile')).toContainText('Reese');await expect(page.locator('#result-title')).toHaveText('The trail ends here');
 });
-test('bottom result actions give visible feedback without a page jump',async({page})=>{
+test('bottom result actions give visible feedback without a page jump',async({page,context})=>{
+ await context.grantPermissions(['clipboard-read','clipboard-write']);
  const gs=await baseline(page);gs.abandoned=true;await importState(page,gs);
  const copy=page.getByRole('menuitem',{name:'5 Export Save',exact:true});await copy.scrollIntoViewIfNeeded();const before=await page.evaluate(()=>({y:scrollY,header:document.querySelector('.game-header')!.getBoundingClientRect().height}));
  await copy.click();await expect(page.locator('.action-feedback').filter({hasText:'Game export copied to clipboard.'})).toBeVisible();

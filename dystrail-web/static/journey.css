@@ -104,6 +104,13 @@ input[type=text],input[type=number],textarea{cursor:text}
 @media(prefers-reduced-motion:reduce){.scene-moving .scene-background,.scene-moving .crew-van,.scene-moving .crew-van img,.journey-scene[data-weather] .weather-atmosphere{animation:none}.scene-light{transition:none}}
 .game-header{position:relative;z-index:20}
 .crew-name-form,.crew-intro{padding:24px 30px}.crew-intro{border-bottom:1px solid var(--border-subtle)}.crew-intro h1{margin:10px 0}.crew-intro p:last-child{max-width:65ch;color:var(--text-dim)}.crew-name-form>label{display:block;font-weight:700;margin-bottom:8px}.crew-name-form>input{width:min(440px,100%)}.crew-names-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}.crew-name-card{display:grid;grid-template-columns:60px 1fr;column-gap:12px;align-items:center;background:var(--panel-raised);padding:15px;border:1px solid var(--border-subtle);border-radius:8px}.crew-name-card .portrait-art{grid-row:1/3;width:60px;height:75px}.crew-name-card label{font-weight:700}.crew-name-card input{width:100%;min-width:0;margin-top:8px}.crew-roster{grid-column:1/-1}.crew-roster .inventory-list{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.crew-roster dt span{display:block;font-size:12px;color:var(--text-dim)}.crew-roster dd{font-size:13px}
+.crew-actions { margin-block-start:0; }
+.setup-actions .setup-back-mobile { display:none; }
+@media(max-width:700px) {
+ .setup-actions { flex-direction:column; align-items:stretch; }
+ .setup-actions .setup-back-desktop { display:none; }
+ .setup-actions .setup-back-mobile { display:block; }
+}
 .crew-van .van-body{position:absolute;inset:0;mask-image:var(--van-art,url(static/img/journey/van-crew.png));mask-size:100% 100%;mask-repeat:no-repeat}
 .van-window{position:absolute;top:37.5%;height:20.3%;overflow:hidden;isolation:isolate}
 .van-row-0{left:23%;width:15%;border-radius:24% 9% 10% 6%}

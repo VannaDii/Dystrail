@@ -96,12 +96,12 @@ pub fn offline_status() -> Html {
             let _ = window.dispatch_event(&event);
         }
     });
-    let icon = match status.state.as_str() {
-        "ready" => "✓",
-        "error" | "unavailable" => "!",
-        "checking" => "↻",
-        _ => "↓",
-    };
+    let icon = crate::components::ui::journey_icon::render(match status.state.as_str() {
+        "ready" => "offline-ready",
+        "error" | "unavailable" => "status-warning",
+        "checking" => "sync",
+        _ => "download",
+    });
     html! {<div class="offline-status" data-offline={status.state.clone()}>
         if matches!(status.state.as_str(),"downloading"|"updating") {<progress class="offline-progress" max="100" value={status.percent.clone()} aria-label={crate::i18n::t("offline.title")} />}
         if status.state=="error" {<button class="offline-retry" onclick={retry}>{crate::i18n::t("offline.retry")}</button>}

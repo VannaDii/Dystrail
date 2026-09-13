@@ -1,6 +1,13 @@
 import { expect, Page, test } from '@playwright/test';
+export async function waitForLaunch(page:Page) {
+  await page.waitForFunction(() => typeof (window as any).dystrailLaunch?.then === 'function');
+  await page.evaluate(() => (window as any).dystrailLaunch);
+  await expect(page.locator('#launch-gate')).toHaveCount(0);
+  await expect(page.locator('#main')).toBeVisible();
+}
 export async function setup(page:Page,deep=false) {
   await page.goto('./');
+  await waitForLaunch(page);
   if(deep) await page.getByRole('radio',{name:/The Deep End/}).check();
   await page.getByRole('button',{name:'Choose your character',exact:true}).click();
   await page.getByRole('radio',{name:'Journalist',exact:true}).click();
@@ -32,7 +39,14 @@ export async function importState(page:Page,state:object) {
   await expect(page.locator('.drawer')).toHaveCount(0);
 }
 export async function snap(page:Page,name:string) {
-  for(const img of await page.locator('img:visible').all()) await img.evaluate((img:HTMLImageElement)=>img.decode());
+  await waitForLaunch(page);
+  await page.locator('img:visible').evaluateAll(async elements => {
+    await Promise.all(elements.map(async element => {
+      const img = element as HTMLImageElement;
+      try { await img.decode(); }
+      catch (error) { if (img.isConnected) throw error; }
+    }));
+  });
   await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
   await page.screenshot({path:`test-results/${name}-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

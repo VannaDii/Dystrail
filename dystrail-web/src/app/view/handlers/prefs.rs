@@ -46,7 +46,9 @@ pub fn build_begin_boot(state: &AppState) -> Callback<()> {
     Callback::from(move |()| {
         // Only advance when explicitly called (user presses key)
         if *ready {
-            pending.set(None);
+            if session.is_some() {
+                pending.set(None);
+            }
             session.set(None);
             feedback.set(None);
             phase.set(Phase::Persona);

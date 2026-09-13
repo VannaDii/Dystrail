@@ -24,9 +24,15 @@ pub fn render_persona(state: &AppState) -> Html {
                 gs.persona_id.as_deref().unwrap_or("journalist"),
                 js_sys::Date::now().to_bits(),
             );
+            gs.party
+                .sync_names(gs.persona_id.as_deref().unwrap_or("journalist"));
             pending.set(Some(gs));
             phase.set(Phase::Crew);
         })
     };
-    html! { <PersonaPage {on_selected} {on_continue} initial_id={state.pending_state.as_ref().and_then(|gs|gs.persona_id.clone())} /> }
+    let on_back = {
+        let phase = state.phase.clone();
+        Callback::from(move |()| phase.set(Phase::Boot))
+    };
+    html! { <PersonaPage {on_selected} {on_continue} {on_back} initial_id={state.pending_state.as_ref().and_then(|gs|gs.persona_id.clone())} /> }
 }

@@ -1,17 +1,17 @@
 import {test,expect,chromium} from '@playwright/test';
 import {readFileSync,mkdtempSync,rmSync} from 'node:fs';
-import {join} from 'node:path';
+import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {createServer} from 'node:http';
 import {baseline,importState,savedState,snap,openMenu} from './helpers';
 import {atTown} from './geography';
-const built=process.env.PLAYTEST_DIST || '/tmp/dystrail-continuity-preview/play';
+const built=process.env.PLAYTEST_DIST || resolve(__dirname,'../dist');
 
-test('all assets, saved play and town scenes work after an offline relaunch',async({baseURL})=>{
+test('all assets, saved play and town scenes work after an offline relaunch',async({baseURL,launchOptions})=>{
  test.setTimeout(60000);
  const profile=mkdtempSync(join(tmpdir(),'dystrail-install-'));
- const context=await chromium.launchPersistentContext(profile,{channel:process.env.PLAYTEST_CHANNEL,headless:true,baseURL});
+ const context=await chromium.launchPersistentContext(profile,{...launchOptions,channel:process.env.PLAYTEST_CHANNEL,headless:true,baseURL});
  const page=await context.newPage();
  try {
  const gs=await baseline(page);

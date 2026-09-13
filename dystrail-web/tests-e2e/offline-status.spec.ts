@@ -1,7 +1,7 @@
 import {test,expect,Page} from '@playwright/test';
-import {openMenu,snap} from './helpers';
+import {openMenu,snap,waitForLaunch} from './helpers';
 async function ready(page:Page){
- await page.goto('./');await expect(page.locator('#main')).toBeVisible();
+ await page.goto('./');await waitForLaunch(page);await expect(page.locator('#main')).toBeVisible();
  await expect.poll(()=>page.evaluate(()=>(window as any).dystrailOffline?.state),{timeout:30000}).toBe('ready');
  await openMenu(page);
 }
