@@ -1,0 +1,26 @@
+{
+  "base_revision": "69bbf502bf4d6e27f55c",
+  "changed_files": [
+    {
+      "path": "dystrail-game/src/state.rs",
+      "before_sha256": "c5cabf9169f6fdc3f79209243df5181fd44e703ac2427cb65a3b97c8a81b1f05",
+      "after_sha256": "e11d577a15b3b91764094cbac835a7cca4ddea73e3123e8cd90899aa9cba2dca"
+    },
+    {
+      "path": "dystrail-game/src/state/crossing_arrival_tests.rs",
+      "before_sha256": "eb864df642dd599bb040d33601f381b2c613505ee0ddbd6de1799ab8f9ee9ddc",
+      "after_sha256": "06142c8e29b0c8267ee0294b8c8d4cc34a9c24918b4462940926e05e99e8926d"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/travel.rs",
+      "before_sha256": "992b1ddad0421ad2599d47a6dca2bdad37b199fea1ad1a2cdd23b20c954eb603",
+      "after_sha256": "717adb2c4eb8cc5d99892ce5de5a74f1b584bf7cf2a8243f87a8acc7c4bc0fc0"
+    },
+    {
+      "path": "dystrail-tester/src/logic/simulation.rs",
+      "before_sha256": "0a6aa1fda5abf984d6f73d61f17a913b67681e7d23b1465f799cb38efa0c8ce6",
+      "after_sha256": "f2c3401b1716a2733666000ae568f7866bfa0ce6e496eb9307136b1f4621ff50"
+    }
+  ],
+  "scope": "One shared encounter-resolution action settles its actual thirty minutes, crossing arrival/delay, reached town, and new-day effects. Browser and tester call it. No tester strategies, expected assertions or balance configuration changed."
+}

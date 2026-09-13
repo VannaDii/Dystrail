@@ -11,7 +11,6 @@ pub const ROUTE_LEN_MILES: f32 = 2_100.0;
 pub enum BossOutcome {
     PassedCloture,
     SurvivedFlood,
-    PantsEmergency,
     Exhausted,
 }
 
@@ -61,13 +60,11 @@ pub struct BossConfig {
     pub rounds: u32,
     pub passes_required: u32,
     pub sanity_loss_per_round: i32,
-    pub pants_gain_per_round: i32,
     pub base_victory_chance: f32,
     pub credibility_weight: f32,
     pub sanity_weight: f32,
     pub supplies_weight: f32,
     pub allies_weight: f32,
-    pub pants_penalty_weight: f32,
     pub min_chance: f32,
     pub max_chance: f32,
     #[serde(default)]
@@ -81,13 +78,11 @@ impl Default for BossConfig {
             rounds: 3,
             passes_required: 2,
             sanity_loss_per_round: 2,
-            pants_gain_per_round: 3,
             base_victory_chance: 0.18,
             credibility_weight: 0.012,
             sanity_weight: 0.01,
             supplies_weight: 0.004,
             allies_weight: 0.015,
-            pants_penalty_weight: 0.005,
             min_chance: 0.25,
             max_chance: 0.88,
             balanced: BalancedBossBias::default(),
@@ -110,21 +105,31 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
     }
 
     for _ in 0..cfg.rounds {
-        if cfg.pants_gain_per_round > 0 {
-            state.stats.pants += cfg.pants_gain_per_round;
-        }
         if cfg.sanity_loss_per_round > 0 {
             state.stats.sanity -= cfg.sanity_loss_per_round;
         }
         state.stats.clamp();
-        if state.stats.pants >= 100 {
-            return BossOutcome::PantsEmergency;
-        }
         if state.stats.sanity <= 0 {
             return BossOutcome::Exhausted;
         }
     }
 
+    let win_prob = vote_chance(state, cfg);
+
+    let roll = f64::from(state.next_pct()) / 100.0;
+    if roll < win_prob {
+        state.boss.outcome.victory = true;
+        state.logs.push(String::from("log.boss.victory"));
+        BossOutcome::PassedCloture
+    } else {
+        state.logs.push(String::from("log.boss.failure"));
+        BossOutcome::SurvivedFlood
+    }
+}
+
+/// Probability after the hearing's stamina costs have been paid.
+#[must_use]
+pub fn vote_chance(state: &GameState, cfg: &BossConfig) -> f64 {
     let distance_required =
         f64::from(cfg.distance_required).max(f64::from(state.mode.boss_threshold()));
     let threshold = distance_required.max(1.0);
@@ -152,15 +157,25 @@ pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome
         win_prob = 1.0;
     }
 
-    let roll = f64::from(state.next_pct()) / 100.0;
-    if roll < win_prob {
-        state.boss.outcome.victory = true;
-        state.logs.push(String::from("log.boss.victory"));
-        BossOutcome::PassedCloture
-    } else {
-        state.logs.push(String::from("log.boss.failure"));
-        BossOutcome::SurvivedFlood
+    win_prob
+}
+
+/// Read-only forecast using the same probability calculation as the actual vote.
+#[must_use]
+pub fn vote_preview(state: &GameState, cfg: &BossConfig) -> Option<f64> {
+    let mut preview = state.clone();
+    if preview.mode.is_deep() && matches!(preview.policy, Some(PolicyKind::Aggressive)) {
+        let _ = preview.apply_deep_aggressive_compose();
     }
+    for _ in 0..cfg.rounds {
+        preview.stats.sanity -= cfg.sanity_loss_per_round.max(0);
+
+        preview.stats.clamp();
+        if preview.stats.sanity <= 0 {
+            return None;
+        }
+    }
+    Some(vote_chance(&preview, cfg))
 }
 
 #[cfg(test)]

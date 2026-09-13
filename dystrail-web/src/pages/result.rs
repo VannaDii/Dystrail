@@ -1,9 +1,10 @@
 use crate::game::{GameState, ResultConfig};
+use std::rc::Rc;
 use yew::prelude::*;
 
 #[derive(Properties, Clone)]
 pub struct ResultPageProps {
-    pub state: GameState,
+    pub state: Rc<GameState>,
     pub result_config: ResultConfig,
     pub boss_won: bool,
     pub on_replay_seed: Callback<()>,
@@ -14,14 +15,19 @@ pub struct ResultPageProps {
 
 impl PartialEq for ResultPageProps {
     fn eq(&self, other: &Self) -> bool {
-        self.state.day == other.state.day
-            && self.state.region == other.state.region
+        Rc::ptr_eq(&self.state, &other.state)
             && self.boss_won == other.boss_won
+            && self.result_config == other.result_config
+            && self.on_replay_seed == other.on_replay_seed
+            && self.on_new_run == other.on_new_run
+            && self.on_title == other.on_title
+            && self.on_export == other.on_export
     }
 }
 
 #[function_component(ResultPage)]
 pub fn result_page(props: &ResultPageProps) -> Html {
+    crate::i18n::use_language();
     html! {
         <crate::components::ui::result_screen::ResultScreen
             game_state={props.state.clone()}

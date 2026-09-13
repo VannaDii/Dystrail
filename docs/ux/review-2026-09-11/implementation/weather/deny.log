@@ -1,0 +1,1570 @@
+warning[license-not-encountered]: license was not encountered
+  ┌─ /Users/vanna/Source/Dystrail/deny.toml:9:6
+  │
+9 │     "0BSD",
+  │      ━━━━ unmatched license allowance
+
+warning[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:258:12
+    │
+258 │ yew 0.21.0 git+https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e
+    │            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ yew v0.21.0
+      ├── dystrail-web v0.10.0
+      └── yew-router v0.18.0
+          └── dystrail-web v0.10.0 (*)
+
+warning[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:259:18
+    │
+259 │ yew-macro 0.21.0 git+https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e
+    │                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ yew-macro v0.21.0
+      └── yew v0.21.0
+          ├── dystrail-web v0.10.0
+          └── yew-router v0.18.0
+              └── dystrail-web v0.10.0 (*)
+
+warning[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:260:19
+    │
+260 │ yew-router 0.18.0 git+https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e
+    │                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ yew-router v0.18.0
+      └── dystrail-web v0.10.0
+
+warning[source-not-allowed]: detected 'git' source not explicitly allowed
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:261:25
+    │
+261 │ yew-router-macro 0.18.0 git+https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e
+    │                         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ source
+    │
+    ├ yew-router-macro v0.18.0
+      └── yew-router v0.18.0
+          └── dystrail-web v0.10.0
+
+warning[duplicate]: found 2 duplicate entries for crate 'bincode'
+   ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:17:1
+   │  
+17 │ ╭ bincode 1.3.3 registry+https://github.com/rust-lang/crates.io-index
+18 │ │ bincode 2.0.1 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰───────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ bincode v1.3.3
+     └── gloo-worker v0.5.0
+         └── gloo v0.11.0
+             ├── tokise v0.2.0
+             │   └── yew v0.21.0
+             │       ├── dystrail-web v0.10.0
+             │       └── yew-router v0.18.0
+             │           └── dystrail-web v0.10.0 (*)
+             ├── yew v0.21.0 (*)
+             └── yew-router v0.18.0 (*)
+   ├ bincode v2.0.1
+     └── yew v0.21.0
+         ├── dystrail-web v0.10.0
+         └── yew-router v0.18.0
+             └── dystrail-web v0.10.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'http'
+   ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:80:1
+   │  
+80 │ ╭ http 0.2.12 registry+https://github.com/rust-lang/crates.io-index
+81 │ │ http 1.4.0 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ http v0.2.12
+     └── gloo-net v0.5.0
+         └── gloo v0.11.0
+             ├── tokise v0.2.0
+             │   └── yew v0.21.0
+             │       ├── dystrail-web v0.10.0
+             │       └── yew-router v0.18.0
+             │           └── dystrail-web v0.10.0 (*)
+             ├── yew v0.21.0 (*)
+             └── yew-router v0.18.0 (*)
+   ├ http v1.4.0
+     ├── http-body v1.0.1
+     │   ├── http-body-util v0.1.3
+     │   │   └── reqwest v0.12.24
+     │   │       └── thirtyfour v0.36.1
+     │   │           └── dystrail-tester v0.10.0
+     │   ├── hyper v1.8.1
+     │   │   ├── hyper-rustls v0.27.7
+     │   │   │   └── reqwest v0.12.24 (*)
+     │   │   ├── hyper-util v0.1.19
+     │   │   │   ├── hyper-rustls v0.27.7 (*)
+     │   │   │   └── reqwest v0.12.24 (*)
+     │   │   └── reqwest v0.12.24 (*)
+     │   ├── hyper-util v0.1.19 (*)
+     │   ├── reqwest v0.12.24 (*)
+     │   └── tower-http v0.6.7
+     │       └── reqwest v0.12.24 (*)
+     ├── http-body-util v0.1.3 (*)
+     ├── hyper v1.8.1 (*)
+     ├── hyper-rustls v0.27.7 (*)
+     ├── hyper-util v0.1.19 (*)
+     ├── reqwest v0.12.24 (*)
+     ├── thirtyfour v0.36.1 (*)
+     └── tower-http v0.6.7 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'syn'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:175:1
+    │  
+175 │ ╭ syn 1.0.109 registry+https://github.com/rust-lang/crates.io-index
+176 │ │ syn 2.0.111 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰─────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ syn v1.0.109
+      └── proc-macro-error v1.0.4
+          └── yew-macro v0.21.0
+              └── yew v0.21.0
+                  ├── dystrail-web v0.10.0
+                  └── yew-router v0.18.0
+                      └── dystrail-web v0.10.0 (*)
+    ├ syn v2.0.111
+      ├── async-stream-impl v0.3.6
+      │   └── async-stream v0.3.6
+      │       └── tokio-test v0.4.4
+      │           └── (dev) dystrail-tester v0.10.0
+      ├── async-trait v0.1.89
+      │   ├── dystrail-tester v0.10.0 (*)
+      │   ├── thirtyfour v0.36.1
+      │   │   └── dystrail-tester v0.10.0 (*)
+      │   └── wasm-bindgen-test v0.3.56
+      │       └── (dev) dystrail-web v0.10.0
+      ├── clap_derive v4.5.49
+      │   └── clap v4.5.53
+      │       └── dystrail-tester v0.10.0 (*)
+      ├── displaydoc v0.2.5
+      │   ├── icu_collections v2.1.1
+      │   │   ├── icu_normalizer v2.1.1
+      │   │   │   └── idna_adapter v1.2.1
+      │   │   │       └── idna v1.1.0
+      │   │   │           └── url v2.5.7
+      │   │   │               ├── reqwest v0.12.24
+      │   │   │               │   └── thirtyfour v0.36.1 (*)
+      │   │   │               └── thirtyfour v0.36.1 (*)
+      │   │   └── icu_properties v2.1.1
+      │   │       └── idna_adapter v1.2.1 (*)
+      │   ├── icu_locale_core v2.1.1
+      │   │   ├── icu_properties v2.1.1 (*)
+      │   │   └── icu_provider v2.1.1
+      │   │       ├── icu_normalizer v2.1.1 (*)
+      │   │       └── icu_properties v2.1.1 (*)
+      │   ├── icu_provider v2.1.1 (*)
+      │   ├── tinystr v0.8.2
+      │   │   └── icu_locale_core v2.1.1 (*)
+      │   └── zerotrie v0.2.3
+      │       ├── icu_properties v2.1.1 (*)
+      │       └── icu_provider v2.1.1 (*)
+      ├── futures-macro v0.3.31
+      │   └── futures-util v0.3.31
+      │       ├── futures v0.3.31
+      │       │   ├── (dev) dystrail-web v0.10.0 (*)
+      │       │   ├── gloo-worker v0.5.0
+      │       │   │   └── gloo v0.11.0
+      │       │   │       ├── tokise v0.2.0
+      │       │   │       │   └── yew v0.21.0
+      │       │   │       │       ├── dystrail-web v0.10.0 (*)
+      │       │   │       │       └── yew-router v0.18.0
+      │       │   │       │           └── dystrail-web v0.10.0 (*)
+      │       │   │       ├── yew v0.21.0 (*)
+      │       │   │       └── yew-router v0.18.0 (*)
+      │       │   ├── pinned v0.1.0
+      │       │   │   ├── gloo-worker v0.5.0 (*)
+      │       │   │   └── tokise v0.2.0 (*)
+      │       │   ├── tokise v0.2.0 (*)
+      │       │   └── yew v0.21.0 (*)
+      │       ├── futures-executor v0.3.31
+      │       │   └── futures v0.3.31 (*)
+      │       ├── hyper-util v0.1.19
+      │       │   ├── hyper-rustls v0.27.7
+      │       │   │   └── reqwest v0.12.24 (*)
+      │       │   └── reqwest v0.12.24 (*)
+      │       ├── thirtyfour v0.36.1 (*)
+      │       ├── tower v0.5.2
+      │       │   ├── reqwest v0.12.24 (*)
+      │       │   └── tower-http v0.6.7
+      │       │       └── reqwest v0.12.24 (*)
+      │       └── tower-http v0.6.7 (*)
+      ├── gloo-worker-macros v0.1.0
+      │   └── gloo-worker v0.5.0 (*)
+      ├── implicit-clone-derive v0.1.2
+      │   └── implicit-clone v0.6.0
+      │       └── yew v0.21.0 (*)
+      ├── pin-project-internal v1.1.10
+      │   └── pin-project v1.1.10
+      │       ├── gloo-net v0.5.0
+      │       │   └── gloo v0.11.0 (*)
+      │       └── tokise v0.2.0 (*)
+      ├── prettyplease v0.2.37
+      │   └── yew-macro v0.21.0
+      │       └── yew v0.21.0 (*)
+      ├── serde_derive v1.0.228
+      │   └── serde v1.0.228
+      │       ├── bincode v1.3.3
+      │       │   └── gloo-worker v0.5.0 (*)
+      │       ├── bincode v2.0.1
+      │       │   └── yew v0.21.0 (*)
+      │       ├── dystrail-game v0.1.0
+      │       │   ├── dystrail-tester v0.10.0 (*)
+      │       │   └── dystrail-web v0.10.0 (*)
+      │       ├── dystrail-tester v0.10.0 (*)
+      │       ├── dystrail-web v0.10.0 (*)
+      │       ├── gloo-console v0.3.0
+      │       │   └── gloo v0.11.0 (*)
+      │       ├── gloo-history v0.2.2
+      │       │   └── gloo v0.11.0 (*)
+      │       ├── gloo-net v0.5.0 (*)
+      │       ├── gloo-storage v0.3.0
+      │       │   └── gloo v0.11.0 (*)
+      │       ├── gloo-utils v0.2.0
+      │       │   ├── gloo v0.11.0 (*)
+      │       │   ├── gloo-console v0.3.0 (*)
+      │       │   ├── gloo-history v0.2.2 (*)
+      │       │   ├── gloo-net v0.5.0 (*)
+      │       │   ├── gloo-storage v0.3.0 (*)
+      │       │   └── gloo-worker v0.5.0 (*)
+      │       ├── gloo-worker v0.5.0 (*)
+      │       ├── reqwest v0.12.24 (*)
+      │       ├── serde-wasm-bindgen v0.6.5
+      │       │   ├── dystrail-web v0.10.0 (*)
+      │       │   └── gloo-history v0.2.2 (*)
+      │       ├── serde_urlencoded v0.7.1
+      │       │   ├── gloo-history v0.2.2 (*)
+      │       │   ├── reqwest v0.12.24 (*)
+      │       │   └── yew-router v0.18.0 (*)
+      │       ├── smallvec v1.15.1
+      │       │   ├── dystrail-game v0.1.0 (*)
+      │       │   ├── hyper v1.8.1
+      │       │   │   ├── hyper-rustls v0.27.7 (*)
+      │       │   │   ├── hyper-util v0.1.19 (*)
+      │       │   │   └── reqwest v0.12.24 (*)
+      │       │   ├── icu_normalizer v2.1.1 (*)
+      │       │   ├── idna v1.1.0 (*)
+      │       │   └── parking_lot_core v0.9.12
+      │       │       └── parking_lot v0.12.5
+      │       │           └── tokio v1.48.0
+      │       │               ├── dystrail-tester v0.10.0 (*)
+      │       │               ├── hyper v1.8.1 (*)
+      │       │               ├── hyper-rustls v0.27.7 (*)
+      │       │               ├── hyper-util v0.1.19 (*)
+      │       │               ├── reqwest v0.12.24 (*)
+      │       │               ├── thirtyfour v0.36.1 (*)
+      │       │               ├── tokio-rustls v0.26.4
+      │       │               │   ├── hyper-rustls v0.27.7 (*)
+      │       │               │   └── reqwest v0.12.24 (*)
+      │       │               ├── tokio-stream v0.1.17
+      │       │               │   ├── tokio-test v0.4.4 (*)
+      │       │               │   └── tokise v0.2.0 (*)
+      │       │               ├── tokio-test v0.4.4 (*)
+      │       │               ├── tokise v0.2.0 (*)
+      │       │               ├── tower v0.5.2 (*)
+      │       │               └── yew v0.21.0 (*)
+      │       ├── thirtyfour v0.36.1 (*)
+      │       ├── url v2.5.7 (*)
+      │       ├── wasm-bindgen-test v0.3.56 (*)
+      │       ├── yew v0.21.0 (*)
+      │       └── yew-router v0.18.0 (*)
+      ├── serde_repr v0.1.20
+      │   └── thirtyfour v0.36.1 (*)
+      ├── synstructure v0.13.2
+      │   ├── yoke-derive v0.8.1
+      │   │   └── yoke v0.8.1
+      │   │       ├── icu_collections v2.1.1 (*)
+      │   │       ├── icu_provider v2.1.1 (*)
+      │   │       ├── zerotrie v0.2.3 (*)
+      │   │       └── zerovec v0.11.5
+      │   │           ├── icu_collections v2.1.1 (*)
+      │   │           ├── icu_locale_core v2.1.1 (*)
+      │   │           ├── icu_normalizer v2.1.1 (*)
+      │   │           ├── icu_properties v2.1.1 (*)
+      │   │           ├── icu_provider v2.1.1 (*)
+      │   │           ├── potential_utf v0.1.4
+      │   │           │   └── icu_collections v2.1.1 (*)
+      │   │           └── tinystr v0.8.2 (*)
+      │   └── zerofrom-derive v0.1.6
+      │       └── zerofrom v0.1.6
+      │           ├── icu_collections v2.1.1 (*)
+      │           ├── icu_provider v2.1.1 (*)
+      │           ├── yoke v0.8.1 (*)
+      │           ├── zerotrie v0.2.3 (*)
+      │           └── zerovec v0.11.5 (*)
+      ├── thirtyfour-macros v0.2.0
+      │   └── thirtyfour v0.36.1 (*)
+      ├── thiserror-impl v1.0.69
+      │   └── thiserror v1.0.69
+      │       ├── gloo-history v0.2.2 (*)
+      │       ├── gloo-net v0.5.0 (*)
+      │       ├── gloo-storage v0.3.0 (*)
+      │       ├── gloo-worker v0.5.0 (*)
+      │       └── pinned v0.1.0 (*)
+      ├── thiserror-impl v2.0.17
+      │   └── thiserror v2.0.17
+      │       ├── dystrail-game v0.1.0 (*)
+      │       ├── dystrail-tester v0.10.0 (*)
+      │       ├── dystrail-web v0.10.0 (*)
+      │       ├── thirtyfour v0.36.1 (*)
+      │       └── yew v0.21.0 (*)
+      ├── tokio-macros v2.6.0
+      │   └── tokio v1.48.0 (*)
+      ├── tracing-attributes v0.1.31
+      │   └── tracing v0.1.43
+      │       ├── hyper-util v0.1.19 (*)
+      │       ├── thirtyfour v0.36.1 (*)
+      │       ├── yew v0.21.0 (*)
+      │       └── yew-router v0.18.0 (*)
+      ├── wasm-bindgen-macro-support v0.2.106
+      │   └── wasm-bindgen-macro v0.2.106
+      │       └── wasm-bindgen v0.2.106
+      │           ├── chrono v0.4.42
+      │           │   └── dystrail-tester v0.10.0 (*)
+      │           ├── console_error_panic_hook v0.1.7
+      │           │   └── yew v0.21.0 (*)
+      │           ├── dystrail-web v0.10.0 (*)
+      │           ├── getrandom v0.2.16
+      │           │   ├── gloo-history v0.2.2 (*)
+      │           │   ├── rand_core v0.6.4
+      │           │   │   ├── rand v0.8.5
+      │           │   │   │   ├── dystrail-game v0.1.0 (*)
+      │           │   │   │   ├── dystrail-tester v0.10.0 (*)
+      │           │   │   │   └── dystrail-web v0.10.0 (*)
+      │           │   │   └── rand_chacha v0.3.1
+      │           │   │       ├── dystrail-game v0.1.0 (*)
+      │           │   │       ├── dystrail-tester v0.10.0 (*)
+      │           │   │       ├── dystrail-web v0.10.0 (*)
+      │           │   │       └── rand v0.8.5 (*)
+      │           │   └── ring v0.17.14
+      │           │       ├── rustls v0.23.35
+      │           │       │   ├── hyper-rustls v0.27.7 (*)
+      │           │       │   ├── reqwest v0.12.24 (*)
+      │           │       │   └── tokio-rustls v0.26.4 (*)
+      │           │       └── rustls-webpki v0.103.8
+      │           │           └── rustls v0.23.35 (*)
+      │           ├── gloo-console v0.3.0 (*)
+      │           ├── gloo-dialogs v0.2.0
+      │           │   └── gloo v0.11.0 (*)
+      │           ├── gloo-events v0.2.0
+      │           │   ├── gloo v0.11.0 (*)
+      │           │   ├── gloo-file v0.3.0
+      │           │   │   └── gloo v0.11.0 (*)
+      │           │   └── gloo-history v0.2.2 (*)
+      │           ├── gloo-file v0.3.0 (*)
+      │           ├── gloo-history v0.2.2 (*)
+      │           ├── gloo-net v0.5.0 (*)
+      │           ├── gloo-render v0.2.0
+      │           │   └── gloo v0.11.0 (*)
+      │           ├── gloo-storage v0.3.0 (*)
+      │           ├── gloo-timers v0.3.0
+      │           │   └── gloo v0.11.0 (*)
+      │           ├── gloo-utils v0.2.0 (*)
+      │           ├── gloo-worker v0.5.0 (*)
+      │           ├── iana-time-zone v0.1.64
+      │           │   └── chrono v0.4.42 (*)
+      │           ├── js-sys v0.3.83
+      │           │   ├── chrono v0.4.42 (*)
+      │           │   ├── dystrail-web v0.10.0 (*)
+      │           │   ├── getrandom v0.2.16 (*)
+      │           │   ├── gloo-console v0.3.0 (*)
+      │           │   ├── gloo-file v0.3.0 (*)
+      │           │   ├── gloo-net v0.5.0 (*)
+      │           │   ├── gloo-storage v0.3.0 (*)
+      │           │   ├── gloo-timers v0.3.0 (*)
+      │           │   ├── gloo-utils v0.2.0 (*)
+      │           │   ├── gloo-worker v0.5.0 (*)
+      │           │   ├── iana-time-zone v0.1.64 (*)
+      │           │   ├── reqwest v0.12.24 (*)
+      │           │   ├── serde-wasm-bindgen v0.6.5 (*)
+      │           │   ├── wasm-bindgen-futures v0.4.56
+      │           │   │   ├── dystrail-web v0.10.0 (*)
+      │           │   │   ├── gloo-net v0.5.0 (*)
+      │           │   │   ├── gloo-worker v0.5.0 (*)
+      │           │   │   ├── reqwest v0.12.24 (*)
+      │           │   │   ├── tokise v0.2.0 (*)
+      │           │   │   ├── wasm-bindgen-test v0.3.56 (*)
+      │           │   │   └── yew v0.21.0 (*)
+      │           │   ├── wasm-bindgen-test v0.3.56 (*)
+      │           │   ├── web-sys v0.3.83
+      │           │   │   ├── dystrail-web v0.10.0 (*)
+      │           │   │   ├── gloo-console v0.3.0 (*)
+      │           │   │   ├── gloo-dialogs v0.2.0 (*)
+      │           │   │   ├── gloo-events v0.2.0 (*)
+      │           │   │   ├── gloo-file v0.3.0 (*)
+      │           │   │   ├── gloo-history v0.2.2 (*)
+      │           │   │   ├── gloo-net v0.5.0 (*)
+      │           │   │   ├── gloo-render v0.2.0 (*)
+      │           │   │   ├── gloo-storage v0.3.0 (*)
+      │           │   │   ├── gloo-utils v0.2.0 (*)
+      │           │   │   ├── gloo-worker v0.5.0 (*)
+      │           │   │   ├── reqwest v0.12.24 (*)
+      │           │   │   ├── wasm-bindgen-futures v0.4.56 (*)
+      │           │   │   ├── yew v0.21.0 (*)
+      │           │   │   └── yew-router v0.18.0 (*)
+      │           │   ├── yew v0.21.0 (*)
+      │           │   └── yew-router v0.18.0 (*)
+      │           ├── reqwest v0.12.24 (*)
+      │           ├── serde-wasm-bindgen v0.6.5 (*)
+      │           ├── wasm-bindgen-futures v0.4.56 (*)
+      │           ├── wasm-bindgen-test v0.3.56 (*)
+      │           ├── web-sys v0.3.83 (*)
+      │           ├── yew v0.21.0 (*)
+      │           └── yew-router v0.18.0 (*)
+      ├── wasm-bindgen-test-macro v0.3.56
+      │   └── wasm-bindgen-test v0.3.56 (*)
+      ├── windows-implement v0.60.2
+      │   └── windows-core v0.62.2
+      │       └── iana-time-zone v0.1.64 (*)
+      ├── windows-interface v0.59.3
+      │   └── windows-core v0.62.2 (*)
+      ├── yew-macro v0.21.0 (*)
+      ├── yew-router-macro v0.18.0
+      │   └── yew-router v0.18.0 (*)
+      ├── yoke-derive v0.8.1 (*)
+      ├── zerofrom-derive v0.1.6 (*)
+      └── zerovec-derive v0.11.2
+          └── zerovec v0.11.5 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'thiserror'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:181:1
+    │  
+181 │ ╭ thiserror 1.0.69 registry+https://github.com/rust-lang/crates.io-index
+182 │ │ thiserror 2.0.17 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰──────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ thiserror v1.0.69
+      ├── gloo-history v0.2.2
+      │   └── gloo v0.11.0
+      │       ├── tokise v0.2.0
+      │       │   └── yew v0.21.0
+      │       │       ├── dystrail-web v0.10.0
+      │       │       └── yew-router v0.18.0
+      │       │           └── dystrail-web v0.10.0 (*)
+      │       ├── yew v0.21.0 (*)
+      │       └── yew-router v0.18.0 (*)
+      ├── gloo-net v0.5.0
+      │   └── gloo v0.11.0 (*)
+      ├── gloo-storage v0.3.0
+      │   └── gloo v0.11.0 (*)
+      ├── gloo-worker v0.5.0
+      │   └── gloo v0.11.0 (*)
+      └── pinned v0.1.0
+          ├── gloo-worker v0.5.0 (*)
+          └── tokise v0.2.0 (*)
+    ├ thiserror v2.0.17
+      ├── dystrail-game v0.1.0
+      │   ├── dystrail-tester v0.10.0
+      │   └── dystrail-web v0.10.0
+      ├── dystrail-tester v0.10.0 (*)
+      ├── dystrail-web v0.10.0 (*)
+      ├── thirtyfour v0.36.1
+      │   └── dystrail-tester v0.10.0 (*)
+      └── yew v0.21.0
+          ├── dystrail-web v0.10.0 (*)
+          └── yew-router v0.18.0
+              └── dystrail-web v0.10.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'thiserror-impl'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:183:1
+    │  
+183 │ ╭ thiserror-impl 1.0.69 registry+https://github.com/rust-lang/crates.io-index
+184 │ │ thiserror-impl 2.0.17 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰───────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ thiserror-impl v1.0.69
+      └── thiserror v1.0.69
+          ├── gloo-history v0.2.2
+          │   └── gloo v0.11.0
+          │       ├── tokise v0.2.0
+          │       │   └── yew v0.21.0
+          │       │       ├── dystrail-web v0.10.0
+          │       │       └── yew-router v0.18.0
+          │       │           └── dystrail-web v0.10.0 (*)
+          │       ├── yew v0.21.0 (*)
+          │       └── yew-router v0.18.0 (*)
+          ├── gloo-net v0.5.0
+          │   └── gloo v0.11.0 (*)
+          ├── gloo-storage v0.3.0
+          │   └── gloo v0.11.0 (*)
+          ├── gloo-worker v0.5.0
+          │   └── gloo v0.11.0 (*)
+          └── pinned v0.1.0
+              ├── gloo-worker v0.5.0 (*)
+              └── tokise v0.2.0 (*)
+    ├ thiserror-impl v2.0.17
+      └── thiserror v2.0.17
+          ├── dystrail-game v0.1.0
+          │   ├── dystrail-tester v0.10.0
+          │   └── dystrail-web v0.10.0
+          ├── dystrail-tester v0.10.0 (*)
+          ├── dystrail-web v0.10.0 (*)
+          ├── thirtyfour v0.36.1
+          │   └── dystrail-tester v0.10.0 (*)
+          └── yew v0.21.0
+              ├── dystrail-web v0.10.0 (*)
+              └── yew-router v0.18.0
+                  └── dystrail-web v0.10.0 (*)
+
+warning[duplicate]: found 4 duplicate entries for crate 'windows-sys'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:234:1
+    │  
+234 │ ╭ windows-sys 0.52.0 registry+https://github.com/rust-lang/crates.io-index
+235 │ │ windows-sys 0.59.0 registry+https://github.com/rust-lang/crates.io-index
+236 │ │ windows-sys 0.60.2 registry+https://github.com/rust-lang/crates.io-index
+237 │ │ windows-sys 0.61.2 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows-sys v0.52.0
+      └── ring v0.17.14
+          ├── rustls v0.23.35
+          │   ├── hyper-rustls v0.27.7
+          │   │   └── reqwest v0.12.24
+          │   │       └── thirtyfour v0.36.1
+          │   │           └── dystrail-tester v0.10.0
+          │   ├── reqwest v0.12.24 (*)
+          │   └── tokio-rustls v0.26.4
+          │       ├── hyper-rustls v0.27.7 (*)
+          │       └── reqwest v0.12.24 (*)
+          └── rustls-webpki v0.103.8
+              └── rustls v0.23.35 (*)
+    ├ windows-sys v0.59.0
+      └── colored v3.0.0
+          └── dystrail-tester v0.10.0
+    ├ windows-sys v0.60.2
+      └── socket2 v0.6.1
+          ├── hyper-util v0.1.19
+          │   ├── hyper-rustls v0.27.7
+          │   │   └── reqwest v0.12.24
+          │   │       └── thirtyfour v0.36.1
+          │   │           └── dystrail-tester v0.10.0
+          │   └── reqwest v0.12.24 (*)
+          └── tokio v1.48.0
+              ├── dystrail-tester v0.10.0 (*)
+              ├── hyper v1.8.1
+              │   ├── hyper-rustls v0.27.7 (*)
+              │   ├── hyper-util v0.1.19 (*)
+              │   └── reqwest v0.12.24 (*)
+              ├── hyper-rustls v0.27.7 (*)
+              ├── hyper-util v0.1.19 (*)
+              ├── reqwest v0.12.24 (*)
+              ├── thirtyfour v0.36.1 (*)
+              ├── tokio-rustls v0.26.4
+              │   ├── hyper-rustls v0.27.7 (*)
+              │   └── reqwest v0.12.24 (*)
+              ├── tokio-stream v0.1.17
+              │   ├── tokio-test v0.4.4
+              │   │   └── (dev) dystrail-tester v0.10.0 (*)
+              │   └── tokise v0.2.0
+              │       └── yew v0.21.0
+              │           ├── dystrail-web v0.10.0
+              │           └── yew-router v0.18.0
+              │               └── dystrail-web v0.10.0 (*)
+              ├── tokio-test v0.4.4 (*)
+              ├── tokise v0.2.0 (*)
+              ├── tower v0.5.2
+              │   ├── reqwest v0.12.24 (*)
+              │   └── tower-http v0.6.7
+              │       └── reqwest v0.12.24 (*)
+              └── yew v0.21.0 (*)
+    ├ windows-sys v0.61.2
+      ├── anstyle-query v1.1.5
+      │   └── anstream v0.6.21
+      │       ├── clap_builder v4.5.53
+      │       │   └── clap v4.5.53
+      │       │       └── dystrail-tester v0.10.0
+      │       └── env_logger v0.11.8
+      │           └── dystrail-tester v0.10.0 (*)
+      ├── anstyle-wincon v3.0.11
+      │   └── anstream v0.6.21 (*)
+      ├── mio v1.1.1
+      │   └── tokio v1.48.0
+      │       ├── dystrail-tester v0.10.0 (*)
+      │       ├── hyper v1.8.1
+      │       │   ├── hyper-rustls v0.27.7
+      │       │   │   └── reqwest v0.12.24
+      │       │   │       └── thirtyfour v0.36.1
+      │       │   │           └── dystrail-tester v0.10.0 (*)
+      │       │   ├── hyper-util v0.1.19
+      │       │   │   ├── hyper-rustls v0.27.7 (*)
+      │       │   │   └── reqwest v0.12.24 (*)
+      │       │   └── reqwest v0.12.24 (*)
+      │       ├── hyper-rustls v0.27.7 (*)
+      │       ├── hyper-util v0.1.19 (*)
+      │       ├── reqwest v0.12.24 (*)
+      │       ├── thirtyfour v0.36.1 (*)
+      │       ├── tokio-rustls v0.26.4
+      │       │   ├── hyper-rustls v0.27.7 (*)
+      │       │   └── reqwest v0.12.24 (*)
+      │       ├── tokio-stream v0.1.17
+      │       │   ├── tokio-test v0.4.4
+      │       │   │   └── (dev) dystrail-tester v0.10.0 (*)
+      │       │   └── tokise v0.2.0
+      │       │       └── yew v0.21.0
+      │       │           ├── dystrail-web v0.10.0
+      │       │           └── yew-router v0.18.0
+      │       │               └── dystrail-web v0.10.0 (*)
+      │       ├── tokio-test v0.4.4 (*)
+      │       ├── tokise v0.2.0 (*)
+      │       ├── tower v0.5.2
+      │       │   ├── reqwest v0.12.24 (*)
+      │       │   └── tower-http v0.6.7
+      │       │       └── reqwest v0.12.24 (*)
+      │       └── yew v0.21.0 (*)
+      ├── nu-ansi-term v0.50.3
+      │   └── wasm-bindgen-test v0.3.56
+      │       └── (dev) dystrail-web v0.10.0 (*)
+      ├── tokio v1.48.0 (*)
+      └── winapi-util v0.1.11
+          ├── same-file v1.0.6
+          │   └── walkdir v2.5.0
+          │       └── (build) minicov v0.3.8
+          │           └── wasm-bindgen-test v0.3.56 (*)
+          └── walkdir v2.5.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows-targets'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:238:1
+    │  
+238 │ ╭ windows-targets 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+239 │ │ windows-targets 0.53.5 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows-targets v0.52.6
+      ├── windows-sys v0.52.0
+      │   └── ring v0.17.14
+      │       ├── rustls v0.23.35
+      │       │   ├── hyper-rustls v0.27.7
+      │       │   │   └── reqwest v0.12.24
+      │       │   │       └── thirtyfour v0.36.1
+      │       │   │           └── dystrail-tester v0.10.0
+      │       │   ├── reqwest v0.12.24 (*)
+      │       │   └── tokio-rustls v0.26.4
+      │       │       ├── hyper-rustls v0.27.7 (*)
+      │       │       └── reqwest v0.12.24 (*)
+      │       └── rustls-webpki v0.103.8
+      │           └── rustls v0.23.35 (*)
+      └── windows-sys v0.59.0
+          └── colored v3.0.0
+              └── dystrail-tester v0.10.0 (*)
+    ├ windows-targets v0.53.5
+      └── windows-sys v0.60.2
+          └── socket2 v0.6.1
+              ├── hyper-util v0.1.19
+              │   ├── hyper-rustls v0.27.7
+              │   │   └── reqwest v0.12.24
+              │   │       └── thirtyfour v0.36.1
+              │   │           └── dystrail-tester v0.10.0
+              │   └── reqwest v0.12.24 (*)
+              └── tokio v1.48.0
+                  ├── dystrail-tester v0.10.0 (*)
+                  ├── hyper v1.8.1
+                  │   ├── hyper-rustls v0.27.7 (*)
+                  │   ├── hyper-util v0.1.19 (*)
+                  │   └── reqwest v0.12.24 (*)
+                  ├── hyper-rustls v0.27.7 (*)
+                  ├── hyper-util v0.1.19 (*)
+                  ├── reqwest v0.12.24 (*)
+                  ├── thirtyfour v0.36.1 (*)
+                  ├── tokio-rustls v0.26.4
+                  │   ├── hyper-rustls v0.27.7 (*)
+                  │   └── reqwest v0.12.24 (*)
+                  ├── tokio-stream v0.1.17
+                  │   ├── tokio-test v0.4.4
+                  │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                  │   └── tokise v0.2.0
+                  │       └── yew v0.21.0
+                  │           ├── dystrail-web v0.10.0
+                  │           └── yew-router v0.18.0
+                  │               └── dystrail-web v0.10.0 (*)
+                  ├── tokio-test v0.4.4 (*)
+                  ├── tokise v0.2.0 (*)
+                  ├── tower v0.5.2
+                  │   ├── reqwest v0.12.24 (*)
+                  │   └── tower-http v0.6.7
+                  │       └── reqwest v0.12.24 (*)
+                  └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_aarch64_gnullvm'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:240:1
+    │  
+240 │ ╭ windows_aarch64_gnullvm 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+241 │ │ windows_aarch64_gnullvm 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰────────────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_aarch64_gnullvm v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_aarch64_gnullvm v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_aarch64_msvc'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:242:1
+    │  
+242 │ ╭ windows_aarch64_msvc 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+243 │ │ windows_aarch64_msvc 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰─────────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_aarch64_msvc v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_aarch64_msvc v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_i686_gnu'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:244:1
+    │  
+244 │ ╭ windows_i686_gnu 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+245 │ │ windows_i686_gnu 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰─────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_i686_gnu v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_i686_gnu v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_i686_gnullvm'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:246:1
+    │  
+246 │ ╭ windows_i686_gnullvm 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+247 │ │ windows_i686_gnullvm 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰─────────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_i686_gnullvm v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_i686_gnullvm v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_i686_msvc'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:248:1
+    │  
+248 │ ╭ windows_i686_msvc 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+249 │ │ windows_i686_msvc 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰──────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_i686_msvc v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_i686_msvc v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_x86_64_gnu'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:250:1
+    │  
+250 │ ╭ windows_x86_64_gnu 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+251 │ │ windows_x86_64_gnu 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰───────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_x86_64_gnu v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_x86_64_gnu v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_x86_64_gnullvm'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:252:1
+    │  
+252 │ ╭ windows_x86_64_gnullvm 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+253 │ │ windows_x86_64_gnullvm 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰───────────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_x86_64_gnullvm v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_x86_64_gnullvm v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'windows_x86_64_msvc'
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:254:1
+    │  
+254 │ ╭ windows_x86_64_msvc 0.52.6 registry+https://github.com/rust-lang/crates.io-index
+255 │ │ windows_x86_64_msvc 0.53.1 registry+https://github.com/rust-lang/crates.io-index
+    │ ╰────────────────────────────────────────────────────────────────────────────────┘ lock entries
+    │  
+    ├ windows_x86_64_msvc v0.52.6
+      └── windows-targets v0.52.6
+          ├── windows-sys v0.52.0
+          │   └── ring v0.17.14
+          │       ├── rustls v0.23.35
+          │       │   ├── hyper-rustls v0.27.7
+          │       │   │   └── reqwest v0.12.24
+          │       │   │       └── thirtyfour v0.36.1
+          │       │   │           └── dystrail-tester v0.10.0
+          │       │   ├── reqwest v0.12.24 (*)
+          │       │   └── tokio-rustls v0.26.4
+          │       │       ├── hyper-rustls v0.27.7 (*)
+          │       │       └── reqwest v0.12.24 (*)
+          │       └── rustls-webpki v0.103.8
+          │           └── rustls v0.23.35 (*)
+          └── windows-sys v0.59.0
+              └── colored v3.0.0
+                  └── dystrail-tester v0.10.0 (*)
+    ├ windows_x86_64_msvc v0.53.1
+      └── windows-targets v0.53.5
+          └── windows-sys v0.60.2
+              └── socket2 v0.6.1
+                  ├── hyper-util v0.1.19
+                  │   ├── hyper-rustls v0.27.7
+                  │   │   └── reqwest v0.12.24
+                  │   │       └── thirtyfour v0.36.1
+                  │   │           └── dystrail-tester v0.10.0
+                  │   └── reqwest v0.12.24 (*)
+                  └── tokio v1.48.0
+                      ├── dystrail-tester v0.10.0 (*)
+                      ├── hyper v1.8.1
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   ├── hyper-util v0.1.19 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── hyper-rustls v0.27.7 (*)
+                      ├── hyper-util v0.1.19 (*)
+                      ├── reqwest v0.12.24 (*)
+                      ├── thirtyfour v0.36.1 (*)
+                      ├── tokio-rustls v0.26.4
+                      │   ├── hyper-rustls v0.27.7 (*)
+                      │   └── reqwest v0.12.24 (*)
+                      ├── tokio-stream v0.1.17
+                      │   ├── tokio-test v0.4.4
+                      │   │   └── (dev) dystrail-tester v0.10.0 (*)
+                      │   └── tokise v0.2.0
+                      │       └── yew v0.21.0
+                      │           ├── dystrail-web v0.10.0
+                      │           └── yew-router v0.18.0
+                      │               └── dystrail-web v0.10.0 (*)
+                      ├── tokio-test v0.4.4 (*)
+                      ├── tokise v0.2.0 (*)
+                      ├── tower v0.5.2
+                      │   ├── reqwest v0.12.24 (*)
+                      │   └── tower-http v0.6.7
+                      │       └── reqwest v0.12.24 (*)
+                      └── yew v0.21.0 (*)
+
+error[unsound]: Unsoundness in `Error::downcast_mut()`
+  ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:8:1
+  │
+8 │ anyhow 1.0.100 registry+https://github.com/rust-lang/crates.io-index
+  │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+  │
+  ├ ID: RUSTSEC-2026-0190
+  ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0190
+  ├ Affected versions of this crate violate borrow rules, resulting in undefined behavior, when the user adds context to an error via `Error::context` and then later calls `Error::downcast_mut` on the returned `Error`.
+    
+    The flaw was corrected in commit `6e8c000` by revising how the mutable reference is constructed, avoiding inclusion of a shared reference in the resulting borrow chain.
+    
+    ## Example
+    
+    ```rust
+    use anyhow::Error;
+    use std::fmt;
+    
+    #[derive(Debug)]
+    struct ErrorContext(&'static str);
+    
+    impl fmt::Display for ErrorContext {
+        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+            fmt::Display::fmt(&self.0, f)
+        }
+    }
+    
+    fn main() {
+        let mut error = Error::msg("inner error").context(ErrorContext("old context"));
+        let context: &mut ErrorContext = error.downcast_mut().unwrap();
+        context.0 = "new context";
+        println!("{:?}", error);
+    }
+    ```
+    
+    ## Miri output
+    
+    ```
+    error: Undefined Behavior: trying to retag from <1538> for Unique permission at alloc602[0x38], but that tag only grants SharedReadOnly permission for this location
+       --> src/ptr.rs:170:18
+        |
+    170 |         unsafe { &mut *self.ptr.as_ptr() }
+        |                  ^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc602[0x38..0x48]
+        |
+        = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental
+        = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information
+    help: <1538> was created by a SharedReadOnly retag at offsets [0x38..0x48]
+       --> src/ptr.rs:89:18
+        |
+     89 |             ptr: NonNull::from(ptr),
+        |                  ^^^^^^^^^^^^^^^^^^
+        = note: stack backtrace:
+                0: anyhow::ptr::Mut::<'_, ErrorContext>::deref_mut
+                    at src/ptr.rs:170:18: 170:41
+                1: anyhow::error::<impl anyhow::Error>::downcast_mut::<ErrorContext>
+                    at src/error.rs:560:18: 560:46
+                2: main
+                    at examples/downcast_mut.rs:15:38: 15:58
+    ```
+  ├ Announcement: https://github.com/dtolnay/anyhow/issues/451
+  ├ Solution: Upgrade to >=1.0.103 (try `cargo update -p anyhow`)
+  ├ anyhow v1.0.100
+    ├── dystrail-game v0.1.0
+    │   ├── dystrail-tester v0.10.0
+    │   └── dystrail-web v0.10.0
+    ├── dystrail-tester v0.10.0 (*)
+    └── dystrail-web v0.10.0 (*)
+
+error[unmaintained]: Bincode is unmaintained
+   ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:17:1
+   │
+17 │ bincode 1.3.3 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unmaintained advisory detected
+   │
+   ├ ID: RUSTSEC-2025-0141
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2025-0141
+   ├ Due to a doxxing and harassment incident, the bincode team has taken the decision to cease development permanently.
+     
+     The team considers version 1.3.3 a complete version of bincode that is not in need of any updates.
+     
+     ## Alternatives to consider
+     
+     * [wincode](https://crates.io/crates/wincode)
+     * [postcard](https://crates.io/crates/postcard)
+     * [bitcode](https://crates.io/crates/bitcode)
+     * [rkyv](https://crates.io/crates/rkyv)
+   ├ Announcement: https://git.sr.ht/~stygianentity/bincode/tree/v3.0/item/README.md
+   ├ Solution: No safe upgrade is available!
+   ├ bincode v1.3.3
+     └── gloo-worker v0.5.0
+         └── gloo v0.11.0
+             ├── tokise v0.2.0
+             │   └── yew v0.21.0
+             │       ├── dystrail-web v0.10.0
+             │       └── yew-router v0.18.0
+             │           └── dystrail-web v0.10.0 (*)
+             ├── yew v0.21.0 (*)
+             └── yew-router v0.18.0 (*)
+
+error[unmaintained]: Bincode is unmaintained
+   ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:18:1
+   │
+18 │ bincode 2.0.1 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unmaintained advisory detected
+   │
+   ├ ID: RUSTSEC-2025-0141
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2025-0141
+   ├ Due to a doxxing and harassment incident, the bincode team has taken the decision to cease development permanently.
+     
+     The team considers version 1.3.3 a complete version of bincode that is not in need of any updates.
+     
+     ## Alternatives to consider
+     
+     * [wincode](https://crates.io/crates/wincode)
+     * [postcard](https://crates.io/crates/postcard)
+     * [bitcode](https://crates.io/crates/bitcode)
+     * [rkyv](https://crates.io/crates/rkyv)
+   ├ Announcement: https://git.sr.ht/~stygianentity/bincode/tree/v3.0/item/README.md
+   ├ Solution: No safe upgrade is available!
+   ├ bincode v2.0.1
+     └── yew v0.21.0
+         ├── dystrail-web v0.10.0
+         └── yew-router v0.18.0
+             └── dystrail-web v0.10.0 (*)
+
+error[vulnerability]: Integer overflow in `BytesMut::reserve`
+   ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:23:1
+   │
+23 │ bytes 1.11.0 registry+https://github.com/rust-lang/crates.io-index
+   │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+   │
+   ├ ID: RUSTSEC-2026-0007
+   ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0007
+   ├ In the unique reclaim path of `BytesMut::reserve`, the condition
+     ```rs
+     if v_capacity >= new_cap + offset
+     ```
+     uses an unchecked addition. When `new_cap + offset` overflows `usize` in release builds, this condition may incorrectly pass, causing `self.cap` to be set to a value that exceeds the actual allocated capacity. Subsequent APIs such as `spare_capacity_mut()` then trust this corrupted `cap` value and may create out-of-bounds slices, leading to UB.
+     
+     This behavior is observable in release builds (integer overflow wraps), whereas debug builds panic due to overflow checks.
+     
+     ## PoC
+     
+     ```rs
+     use bytes::*;
+     
+     fn main() {
+         let mut a = BytesMut::from(&b"hello world"[..]);
+         let mut b = a.split_off(5);
+     
+         // Ensure b becomes the unique owner of the backing storage
+         drop(a);
+     
+         // Trigger overflow in new_cap + offset inside reserve
+         b.reserve(usize::MAX - 6);
+     
+         // This call relies on the corrupted cap and may cause UB & HBO
+         b.put_u8(b'h');
+     }
+     ```
+     
+     # Workarounds
+     
+     Users of `BytesMut::reserve` are only affected if integer overflow checks are configured to wrap. When integer overflow is configured to panic, this issue does not apply.
+   ├ Announcement: https://github.com/advisories/GHSA-434x-w66g-qw3r
+   ├ Solution: Upgrade to >=1.11.1 (try `cargo update -p bytes`)
+   ├ bytes v1.11.0
+     ├── http v0.2.12
+     │   └── gloo-net v0.5.0
+     │       └── gloo v0.11.0
+     │           ├── tokise v0.2.0
+     │           │   └── yew v0.21.0
+     │           │       ├── dystrail-web v0.10.0
+     │           │       └── yew-router v0.18.0
+     │           │           └── dystrail-web v0.10.0 (*)
+     │           ├── yew v0.21.0 (*)
+     │           └── yew-router v0.18.0 (*)
+     ├── http v1.4.0
+     │   ├── http-body v1.0.1
+     │   │   ├── http-body-util v0.1.3
+     │   │   │   └── reqwest v0.12.24
+     │   │   │       └── thirtyfour v0.36.1
+     │   │   │           └── dystrail-tester v0.10.0
+     │   │   ├── hyper v1.8.1
+     │   │   │   ├── hyper-rustls v0.27.7
+     │   │   │   │   └── reqwest v0.12.24 (*)
+     │   │   │   ├── hyper-util v0.1.19
+     │   │   │   │   ├── hyper-rustls v0.27.7 (*)
+     │   │   │   │   └── reqwest v0.12.24 (*)
+     │   │   │   └── reqwest v0.12.24 (*)
+     │   │   ├── hyper-util v0.1.19 (*)
+     │   │   ├── reqwest v0.12.24 (*)
+     │   │   └── tower-http v0.6.7
+     │   │       └── reqwest v0.12.24 (*)
+     │   ├── http-body-util v0.1.3 (*)
+     │   ├── hyper v1.8.1 (*)
+     │   ├── hyper-rustls v0.27.7 (*)
+     │   ├── hyper-util v0.1.19 (*)
+     │   ├── reqwest v0.12.24 (*)
+     │   ├── thirtyfour v0.36.1 (*)
+     │   └── tower-http v0.6.7 (*)
+     ├── http-body v1.0.1 (*)
+     ├── http-body-util v0.1.3 (*)
+     ├── hyper v1.8.1 (*)
+     ├── hyper-util v0.1.19 (*)
+     ├── reqwest v0.12.24 (*)
+     ├── thirtyfour v0.36.1 (*)
+     ├── tokio v1.48.0
+     │   ├── dystrail-tester v0.10.0 (*)
+     │   ├── hyper v1.8.1 (*)
+     │   ├── hyper-rustls v0.27.7 (*)
+     │   ├── hyper-util v0.1.19 (*)
+     │   ├── reqwest v0.12.24 (*)
+     │   ├── thirtyfour v0.36.1 (*)
+     │   ├── tokio-rustls v0.26.4
+     │   │   ├── hyper-rustls v0.27.7 (*)
+     │   │   └── reqwest v0.12.24 (*)
+     │   ├── tokio-stream v0.1.17
+     │   │   ├── tokio-test v0.4.4
+     │   │   │   └── (dev) dystrail-tester v0.10.0 (*)
+     │   │   └── tokise v0.2.0 (*)
+     │   ├── tokio-test v0.4.4 (*)
+     │   ├── tokise v0.2.0 (*)
+     │   ├── tower v0.5.2
+     │   │   ├── reqwest v0.12.24 (*)
+     │   │   └── tower-http v0.6.7 (*)
+     │   └── yew v0.21.0 (*)
+     ├── tokio-test v0.4.4 (*)
+     └── tower-http v0.6.7 (*)
+
+error[unsound]: Rand is unsound with a custom logger using `rand::rng()`
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:141:1
+    │
+141 │ rand 0.8.5 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ unsound advisory detected
+    │
+    ├ ID: RUSTSEC-2026-0097
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0097
+    ├ It has been reported (by [@lopopolo](https://github.com/lopopolo)) that the `rand` library is [unsound](https://rust-lang.github.io/unsafe-code-guidelines/glossary.html#soundness-of-code--of-a-library) (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met:
+      
+      - The `log` and `thread_rng` features are enabled
+      - A [custom logger](https://docs.rs/log/latest/log/#implementing-a-logger) is defined
+      - The custom logger accesses `rand::rng()` (previously `rand::thread_rng()`) and calls any `TryRng` (previously `RngCore`) methods on `ThreadRng`
+      - The `ThreadRng` (attempts to) reseed while called from the custom logger (this happens every 64 kB of generated data)
+      - Trace-level logging is enabled or warn-level logging is enabled and the random source (the `getrandom` crate) is unable to provide a new seed
+      
+      `TryRng` (previously `RngCore`) methods for `ThreadRng` use `unsafe` code to cast `*mut BlockRng<ReseedingCore>` to `&mut BlockRng<ReseedingCore>`. When all the above conditions are met this results in an aliased mutable reference, violating the Stacked Borrows rules. Miri is able to detect this violation in sample code. Since construction of [aliased mutable references is Undefined Behaviour](https://doc.rust-lang.org/stable/nomicon/references.html), the behaviour of optimized builds is hard to predict.
+    ├ Announcement: https://github.com/rust-random/rand/pull/1763
+    ├ Solution: Upgrade to >=0.10.1 OR <0.10.0, >=0.9.3 OR <0.9.0, >=0.8.6 (try `cargo update -p rand`)
+    ├ rand v0.8.5
+      ├── dystrail-game v0.1.0
+      │   ├── dystrail-tester v0.10.0
+      │   └── dystrail-web v0.10.0
+      ├── dystrail-tester v0.10.0 (*)
+      └── dystrail-web v0.10.0 (*)
+
+error[vulnerability]: CRLs not considered authoritative by Distribution Point due to faulty matching logic
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:153:1
+    │
+153 │ rustls-webpki 0.103.8 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0049
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0049
+    ├ If a certificate had more than one `distributionPoint`, then only the first `distributionPoint` would be considered against each CRL's `IssuingDistributionPoint` `distributionPoint`, and then the certificate's subsequent `distributionPoint`s would be ignored.
+      
+      The impact was that correctly provided CRLs would not be consulted to check revocation. With `UnknownStatusPolicy::Deny` (the default) this would lead to incorrect but safe `Error::UnknownRevocationStatus`. With `UnknownStatusPolicy::Allow` this would lead to inappropriate acceptance of revoked certificates.
+      
+      This vulnerability is thought to be of limited impact. This is because both the certificate and CRL are signed -- an attacker would need to compromise a trusted issuing authority to trigger this bug.  An attacker with such capabilities could likely bypass revocation checking through other more impactful means (such as publishing a valid, empty CRL.)
+      
+      More likely, this bug would be latent in normal use, and an attacker could leverage faulty revocation checking to continue using a revoked credential.
+      
+      This vulnerability is identified as [GHSA-pwjx-qhcg-rvj4](https://github.com/rustls/webpki/security/advisories/GHSA-pwjx-qhcg-rvj4). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.10 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.8
+      └── rustls v0.23.35
+          ├── hyper-rustls v0.27.7
+          │   └── reqwest v0.12.24
+          │       └── thirtyfour v0.36.1
+          │           └── dystrail-tester v0.10.0
+          ├── reqwest v0.12.24 (*)
+          └── tokio-rustls v0.26.4
+              ├── hyper-rustls v0.27.7 (*)
+              └── reqwest v0.12.24 (*)
+
+error[vulnerability]: Name constraints for URI names were incorrectly accepted
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:153:1
+    │
+153 │ rustls-webpki 0.103.8 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0098
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0098
+    ├ Name constraints for URI names were ignored and therefore accepted.
+      
+      Note this library does not provide an API for asserting URI names, and URI name constraints are otherwise not implemented.  URI name constraints are now rejected unconditionally.
+      
+      Since name constraints are restrictions on otherwise properly-issued certificates, this bug is reachable only after signature verification and requires misissuance to exploit.
+      
+      This vulnerability is identified as [GHSA-965h-392x-2mh5](https://github.com/rustls/webpki/security/advisories/GHSA-965h-392x-2mh5). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.12, <0.104.0-alpha.1 OR >=0.104.0-alpha.6 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.8
+      └── rustls v0.23.35
+          ├── hyper-rustls v0.27.7
+          │   └── reqwest v0.12.24
+          │       └── thirtyfour v0.36.1
+          │           └── dystrail-tester v0.10.0
+          ├── reqwest v0.12.24 (*)
+          └── tokio-rustls v0.26.4
+              ├── hyper-rustls v0.27.7 (*)
+              └── reqwest v0.12.24 (*)
+
+error[vulnerability]: Name constraints were accepted for certificates asserting a wildcard name
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:153:1
+    │
+153 │ rustls-webpki 0.103.8 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0099
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0099
+    ├ Permitted subtree name constraints for DNS names were accepted for certificates asserting a wildcard name.
+      
+      This was incorrect because, given a name constraint of `accept.example.com`, `*.example.com` could feasibly allow a name of `reject.example.com` which is outside the constraint.
+      This is very similar to [CVE-2025-61727](https://go.dev/issue/76442).
+      
+      Since name constraints are restrictions on otherwise properly-issued certificates, this bug is reachable only after signature verification and requires misissuance to exploit.
+      
+      This vulnerability is identified as [GHSA-xgp8-3hg3-c2mh](https://github.com/rustls/webpki/security/advisories/GHSA-xgp8-3hg3-c2mh). Thank you to [@1seal](https://github.com/1seal) for the report.
+    ├ Solution: Upgrade to >=0.103.12, <0.104.0-alpha.1 OR >=0.104.0-alpha.6 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.8
+      └── rustls v0.23.35
+          ├── hyper-rustls v0.27.7
+          │   └── reqwest v0.12.24
+          │       └── thirtyfour v0.36.1
+          │           └── dystrail-tester v0.10.0
+          ├── reqwest v0.12.24 (*)
+          └── tokio-rustls v0.26.4
+              ├── hyper-rustls v0.27.7 (*)
+              └── reqwest v0.12.24 (*)
+
+error[vulnerability]: Reachable panic in certificate revocation list parsing
+    ┌─ /Users/vanna/Source/Dystrail/Cargo.lock:153:1
+    │
+153 │ rustls-webpki 0.103.8 registry+https://github.com/rust-lang/crates.io-index
+    │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ security vulnerability detected
+    │
+    ├ ID: RUSTSEC-2026-0104
+    ├ Advisory: https://rustsec.org/advisories/RUSTSEC-2026-0104
+    ├ A panic was reachable when parsing certificate revocation lists via [`BorrowedCertRevocationList::from_der`]
+      or [`OwnedCertRevocationList::from_der`].  This was the result of mishandling a syntactically valid empty
+      `BIT STRING` appearing in the `onlySomeReasons` element of a `IssuingDistributionPoint` CRL extension.
+      
+      This panic is reachable prior to a CRL's signature being verified.
+      
+      Applications that do not use CRLs are not affected.
+      
+      Thank you to [@tynus3](https://github.com/tynus3) for the report.
+    ├ Solution: Upgrade to >=0.103.13, <0.104.0-alpha.1 OR >=0.104.0-alpha.7 (try `cargo update -p rustls-webpki`)
+    ├ rustls-webpki v0.103.8
+      └── rustls v0.23.35
+          ├── hyper-rustls v0.27.7
+          │   └── reqwest v0.12.24
+          │       └── thirtyfour v0.36.1
+          │           └── dystrail-tester v0.10.0
+          ├── reqwest v0.12.24 (*)
+          └── tokio-rustls v0.26.4
+              ├── hyper-rustls v0.27.7 (*)
+              └── reqwest v0.12.24 (*)
+
+advisories FAILED, bans ok, licenses ok, sources ok

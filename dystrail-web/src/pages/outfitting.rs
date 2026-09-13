@@ -16,6 +16,7 @@ impl PartialEq for OutfittingPageProps {
 
 #[function_component(OutfittingPage)]
 pub fn outfitting_page(props: &OutfittingPageProps) -> Html {
+    crate::i18n::use_language();
     html! {
         <section class="panel retro-menu">
             <crate::components::ui::outfitting_store::OutfittingStore

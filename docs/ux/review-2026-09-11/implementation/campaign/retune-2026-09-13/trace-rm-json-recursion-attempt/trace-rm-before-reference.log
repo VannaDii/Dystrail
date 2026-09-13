@@ -1,0 +1,659 @@
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+🧪 Testing scenario: Real Game Test (mode: Classic seed: 1351)
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, Reese
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1351 mode:Classic policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: No Subscription Required -> Donate bandages and record the station’s supply needs (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: Pop-up Mutual Aid -> Give one bundle and share their public wishlist (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $55.00)
+🎯 Day 5: Wind Loyalty Hearing -> Record the technician’s testimony (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $53.00)
+🛞 Vehicle breakdown started: Alternator
+🎯 Day 8: Service Station Handoff -> Describe the trouble to the apprentices (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $53.00)
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:8
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:7
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:7
+🎯 Day 10: The Tariff Relabeling Shift -> Match the labels for two road packs (Balanced)
+📅 Day 10 stats | HP:6 Supplies:20 Sanity:6
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $56.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $69.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $82.00)
+🎯 Day 16: Mail Drop Pickup -> Record a short thank-you for the volunteer to share (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $95.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $111.00)
+📅 Day 20 stats | HP:3 Supplies:19 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+🎯 Day 20: Reply All, Clock Out -> Document the mix-up with the cashier’s permission (Balanced)
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $124.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $155.00)
+🎯 Day 23: The Eight-Billion-Dollar Pothole -> Save the claim and the correction (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $168.00)
+📅 Day 25 stats | HP:0 Supplies:16 Sanity:6
+🏁 Simulation ended: log.health-collapse
+  ✅ Iteration 1/1 passed (7.220083ms) days:25 ending:log.health-collapse strategy:Balanced
+🧪 Testing scenario: Real Game Test (mode: Classic seed: 1391)
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, River
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1391 mode:Classic policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: No Subscription Required -> Donate bandages and record the station’s supply needs (Balanced)
+🎯 Day 3: Pop-up Mutual Aid -> Give one bundle and share their public wishlist (Balanced)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $50.00)
+🎯 Day 5: Fundraiser Detour -> Thank them and stay on the route (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🎯 Day 9: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $79.00)
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:8
+📅 Day 11 stats | HP:6 Supplies:17 Sanity:8
+🏁 Simulation ended: log.crossing.failure
+  ✅ Iteration 1/1 passed (2.709292ms) days:11 ending:log.crossing.failure strategy:Balanced
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, Reese
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1351 mode:Classic policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: No Subscription Required -> Donate bandages and record the station’s supply needs (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: Pop-up Mutual Aid -> Give one bundle and share their public wishlist (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $55.00)
+🎯 Day 5: Wind Loyalty Hearing -> Record the technician’s testimony (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $53.00)
+🛞 Vehicle breakdown started: Alternator
+🎯 Day 8: Service Station Handoff -> Describe the trouble to the apprentices (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $53.00)
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:8
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:7
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:7
+🎯 Day 10: The Tariff Relabeling Shift -> Match the labels for two road packs (Balanced)
+📅 Day 10 stats | HP:6 Supplies:20 Sanity:6
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $56.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $69.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $82.00)
+🎯 Day 16: Mail Drop Pickup -> Record a short thank-you for the volunteer to share (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $95.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $111.00)
+📅 Day 20 stats | HP:3 Supplies:19 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+🎯 Day 20: Reply All, Clock Out -> Document the mix-up with the cashier’s permission (Balanced)
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+📅 Day 20 stats | HP:2 Supplies:17 Sanity:9
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $124.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $155.00)
+🎯 Day 23: The Eight-Billion-Dollar Pothole -> Save the claim and the correction (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $168.00)
+📅 Day 25 stats | HP:0 Supplies:16 Sanity:6
+🏁 Simulation ended: log.health-collapse
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, River
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1391 mode:Classic policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: No Subscription Required -> Donate bandages and record the station’s supply needs (Balanced)
+🎯 Day 3: Pop-up Mutual Aid -> Give one bundle and share their public wishlist (Balanced)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $50.00)
+🎯 Day 5: Fundraiser Detour -> Thank them and stay on the route (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🎯 Day 9: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $79.00)
+📅 Day 10 stats | HP:6 Supplies:18 Sanity:8
+📅 Day 11 stats | HP:6 Supplies:17 Sanity:8
+🏁 Simulation ended: log.crossing.failure
+🧬 Selected persona: Lobbyist
+🧑‍🤝‍🧑 Party: Samuel Harper, Margaret Liu, Robert Hayes, Diana Singh, Evelyn Clarke, Reese
+🛍️ Entering store with $130.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $110.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $102.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $88.00)
+🛒 Purchased 1x Battery for $20.00 (remaining $68.00)
+🛒 Purchased 1x Legal Fund for $14.00 (remaining $54.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $40.00)
+🎮 Starting simulation | seed:1351 mode:Classic policy:Conservative
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$40.00
+🎯 Day 1: No Subscription Required -> Wave the medics off and keep moving (Conservative)
+🎯 Day 2: Fundraiser Detour -> Thank them and stay on the route (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $61.00)
+🎯 Day 5: America First, Argentina Next -> Keep moving (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $69.00)
+🎯 Day 7: Tariff Whiplash -> Insist an extra pack was part of the deal (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $91.00)
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:10
+🎯 Day 10: The Tariff Relabeling Shift -> Pass on the work and head out (Conservative)
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:10
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $99.00)
+🎯 Day 12: Mail Drop Pickup -> Read the letters together and save them (Conservative)
+🎯 Day 15: Service Station Handoff -> Describe the trouble to the apprentices (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $121.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $134.00)
+🎯 Day 19: The Exhibit of Pending Funds -> Thank the guide and get back on the road (Conservative)
+📅 Day 20 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:12 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:12 Sanity:10
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $178.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $191.00)
+🎯 Day 22: Five Accomplishments, Six Exhausted People -> Accept the attendant's offer and get some sleep (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $190.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $203.00)
+🎯 Day 25: Reply All, Clock Out -> Document the mix-up with the cashier’s permission (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $234.00)
+📅 Day 27 stats | HP:10 Supplies:18 Sanity:4
+🏁 Simulation ended: log.boss.victory
+🧬 Selected persona: Lobbyist
+🧑‍🤝‍🧑 Party: Samuel Harper, Margaret Liu, Robert Hayes, Diana Singh, Evelyn Clarke, River
+🛍️ Entering store with $130.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $110.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $102.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $88.00)
+🛒 Purchased 1x Battery for $20.00 (remaining $68.00)
+🛒 Purchased 1x Legal Fund for $14.00 (remaining $54.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $40.00)
+🎮 Starting simulation | seed:1391 mode:Classic policy:Conservative
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$40.00
+🎯 Day 1: Tariff Whiplash -> Insist an extra pack was part of the deal (Conservative)
+🎯 Day 2: No Subscription Required -> Wave the medics off and keep moving (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🎯 Day 3: Pop-up Mutual Aid -> Give one bundle and share their public wishlist (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $61.00)
+🎯 Day 5: Fundraiser Detour -> Thank them and stay on the route (Conservative)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $64.00)
+🎯 Day 8: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Conservative)
+📅 Day 10 stats | HP:10 Supplies:18 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $86.00)
+🎯 Day 11: Has Anyone Tried Paying the Rent? -> Join a quieter group and talk from memory (Conservative)
+🎯 Day 12: Optimism Will Not Dry Your Socks -> Trust the sign and reassure the crew (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $94.00)
+🎯 Day 17: Civic Center Potluck -> Stay for stew and pack three road bundles (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $111.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $142.00)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+🎯 Day 20: College Radio Phonebank -> Join the live call-in (Conservative)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $168.00)
+🎯 Day 25: Overpass Pop-Up Stage -> Watch and share the troupe's public stream (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $203.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $234.00)
+📅 Day 29 stats | HP:10 Supplies:17 Sanity:4
+🏁 Simulation ended: log.boss.failure
+🧬 Selected persona: Whistleblower
+🧑‍🤝‍🧑 Party: Axel Stone, Blaze Carter, Rex Turner, Nova Fields, Zoe Knight, Reese
+🛍️ Entering store with $90.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $70.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $62.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $47.00)
+🛒 Purchased 2x Legal Fund for $30.00 (remaining $17.00)
+🎮 Starting simulation | seed:1351 mode:Classic policy:Aggressive
+📊 Initial stats | HP:10 Supplies:16 Sanity:9 Budget:$17.00
+🎯 Day 1: No Subscription Required -> Donate bandages and record the station’s supply needs (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $25.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $3.00)
+🎯 Day 2: Fundraiser Detour -> Bring two bundles and meet the organizers (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $11.00)
+🎯 Day 5: Wind Loyalty Hearing -> Record the technician’s testimony (Aggressive)
+🛞 Vehicle breakdown started: Alternator
+🎯 Day 8: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Aggressive)
+📅 Day 10 stats | HP:10 Supplies:13 Sanity:6
+📅 Day 10 stats | HP:10 Supplies:13 Sanity:6
+🎯 Day 10: The Tariff Relabeling Shift -> Match the labels for two road packs (Aggressive)
+📅 Day 10 stats | HP:10 Supplies:15 Sanity:5
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $9.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $22.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $35.00)
+🎯 Day 15: Mail Drop Pickup -> Record a short thank-you for the volunteer to share (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $48.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $61.00)
+🎯 Day 19: Please Account for the Bridge -> Type their account into the required five boxes (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $92.00)
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $90.00)
+🎯 Day 22: The Eight-Billion-Dollar Pothole -> Save the claim and the correction (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $103.00)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $111.00)
+📅 Day 26 stats | HP:9 Supplies:18 Sanity:1
+🏁 Simulation ended: log.boss.victory
+🧬 Selected persona: Whistleblower
+🧑‍🤝‍🧑 Party: Axel Stone, Blaze Carter, Rex Turner, Nova Fields, Zoe Knight, River
+🛍️ Entering store with $90.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $70.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $62.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $47.00)
+🛒 Purchased 2x Legal Fund for $30.00 (remaining $17.00)
+🎮 Starting simulation | seed:1391 mode:Classic policy:Aggressive
+📊 Initial stats | HP:10 Supplies:16 Sanity:9 Budget:$17.00
+🎯 Day 1: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $25.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $3.00)
+🎯 Day 2: No Subscription Required -> Donate bandages and record the station’s supply needs (Aggressive)
+🎯 Day 3: Pop-up Mutual Aid -> Donate two bundles and film their public appeal (Aggressive)
+🎯 Day 7: Fundraiser Detour -> Bring two bundles and meet the organizers (Aggressive)
+🎯 Day 8: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Aggressive)
+🎯 Day 8: A Building Is Overhead -> Share a supply pack (Aggressive)
+📅 Day 10 stats | HP:10 Supplies:6 Sanity:9
+📅 Day 10 stats | HP:10 Supplies:6 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:6 Sanity:10
+🎯 Day 12: Locally Grown Funding Gap -> Contribute two food bundles (Aggressive)
+📅 Day 14 stats | HP:9 Supplies:9 Sanity:9
+🏁 Simulation ended: log.crossing.failure
+🧬 Selected persona: Journalist
+🧑‍🤝‍🧑 Party: Harper Diaz, Morgan Lee, Dakota Shah, Emerson Vale, Quinn Walker, Rowan
+🛍️ Entering store with $120.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $100.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $92.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $77.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $55.00)
+🛒 Purchased 1x Warm Coats for $10.00 (remaining $45.00)
+🎮 Starting simulation | seed:1351 mode:Classic policy:Resource Manager
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$45.00
+🎯 Day 1: No Subscription Required -> Sit for the medic’s care and open your water (Resource Manager)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $48.00)
+🎯 Day 2: Tariff Whiplash -> Insist an extra pack was part of the deal (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $74.00)
+🎯 Day 6: A Building Is Overhead -> Keep moving (Resource Manager)
+🛞 Vehicle breakdown started: Alternator
+🎯 Day 8: College Radio Phonebank -> Join the live call-in (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $64.00)
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:9
+🎯 Day 10: The Tariff Relabeling Shift -> Match the labels for two road packs (Resource Manager)
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:8
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $80.00)
+🎯 Day 15: Mail Drop Pickup -> Record a short thank-you for the volunteer to share (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $111.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $142.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $158.00)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:9
+🎯 Day 20: Please Account for the Bridge -> Wish them luck and take the reopened lane (Resource Manager)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:9
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $166.00)
+📅 Day 24 stats | HP:10 Supplies:17 Sanity:2
+🏁 Simulation ended: log.boss.victory
+🧬 Selected persona: Journalist
+🧑‍🤝‍🧑 Party: Harper Diaz, Morgan Lee, Dakota Shah, Emerson Vale, Quinn Walker, Avery
+🛍️ Entering store with $120.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $100.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $92.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $77.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $55.00)
+🛒 Purchased 1x Warm Coats for $10.00 (remaining $45.00)
+🎮 Starting simulation | seed:1391 mode:Classic policy:Resource Manager
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$45.00
+🎯 Day 1: Tariff Whiplash -> Insist an extra pack was part of the deal (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $53.00)
+🎯 Day 2: No Subscription Required -> Sit for the medic’s care and open your water (Resource Manager)
+🎯 Day 3: Pop-up Mutual Aid -> Take the $10 loading job and food bundle (Resource Manager)
+🎯 Day 5: Fundraiser Detour -> Thank them and stay on the route (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $89.00)
+🎯 Day 7: Corporate Says It’s Healthy -> Take the complimentary wrapped snacks (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $92.00)
+🎯 Day 8: Locally Grown Funding Gap -> Thank them and keep driving (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $105.00)
+📅 Day 10 stats | HP:9 Supplies:18 Sanity:9
+📅 Day 10 stats | HP:9 Supplies:18 Sanity:8
+🎯 Day 11: Five Things Corn Did Last Week -> Type up her notes for $8 (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $126.00)
+🎯 Day 13: Water Drive Relay -> Unload cases for two road-supply bundles (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $129.00)
+🎯 Day 15: Optimism Will Not Dry Your Socks -> Trust the sign and reassure the crew (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $160.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $173.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $186.00)
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:10
+🎯 Day 20: Click Here for Fifteen Dollars -> Vouch for the studies based on their titles (Resource Manager)
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:10
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:10
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $217.00)
+🎯 Day 23: The Street Formerly Known as the Street -> Exchange the residents' public help numbers (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $251.00)
+📅 Day 24 stats | HP:8 Supplies:18 Sanity:4
+🏁 Simulation ended: log.boss.failure
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, Reese
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1351 mode:Deep policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: Wind Loyalty Hearing -> Record the technician’s testimony (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $60.00)
+🎯 Day 5: Private Chat, Public Application -> Offer paper and get the access policy in writing (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $58.00)
+🛞 Vehicle breakdown started: Alternator
+🎯 Day 8: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $58.00)
+📅 Day 10 stats | HP:6 Supplies:17 Sanity:8
+📅 Day 10 stats | HP:6 Supplies:17 Sanity:7
+📅 Day 10 stats | HP:6 Supplies:17 Sanity:7
+📅 Day 10 stats | HP:6 Supplies:17 Sanity:7
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $51.00)
+🎯 Day 12: Five Things Corn Did Last Week -> Help her document the work the form leaves out (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $77.00)
+🎯 Day 15: Gulf of Parking Lot -> Help the attendant mark the dry exit (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $90.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $103.00)
+🎯 Day 19: Reply All, Clock Out -> Document the mix-up with the cashier’s permission (Balanced)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $119.00)
+📅 Day 20 stats | HP:1 Supplies:18 Sanity:8
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $132.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $145.00)
+📅 Day 23 stats | HP:0 Supplies:17 Sanity:7
+🏁 Simulation ended: log.health-collapse
+🧬 Selected persona: Staffer
+🧑‍🤝‍🧑 Party: Jordan Rivers, Riley Chen, Taylor Brooks, Casey Patel, Alex Morgan, River
+🛍️ Entering store with $110.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $90.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $82.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $67.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $45.00)
+🛒 Purchased 1x Masks for $6.00 (remaining $39.00)
+🎮 Starting simulation | seed:1391 mode:Deep policy:Balanced
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$39.00
+🎯 Day 1: No Subscription Required -> Donate bandages and record the station’s supply needs (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $47.00)
+🎯 Day 2: A Building Is Overhead -> Keep moving (Balanced)
+🎯 Day 3: Please Hold While We Check Reality -> Practice answering from the published investigation (Balanced)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $55.00)
+🎯 Day 5: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Balanced)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $48.00)
+🎯 Day 8: Wind Loyalty Hearing -> Record the technician’s testimony (Balanced)
+📅 Day 10 stats | HP:6 Supplies:16 Sanity:7
+🎯 Day 10: Heartland Waystation -> Stay for their coffee, then take the easier route (Balanced)
+📅 Day 11 stats | HP:6 Supplies:15 Sanity:7
+🏁 Simulation ended: log.crossing.failure
+🧬 Selected persona: Lobbyist
+🧑‍🤝‍🧑 Party: Samuel Harper, Margaret Liu, Robert Hayes, Diana Singh, Evelyn Clarke, Reese
+🛍️ Entering store with $130.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $110.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $102.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $88.00)
+🛒 Purchased 1x Battery for $20.00 (remaining $68.00)
+🛒 Purchased 1x Legal Fund for $14.00 (remaining $54.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $40.00)
+🎮 Starting simulation | seed:1351 mode:Deep policy:Conservative
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$40.00
+🎯 Day 1: Patriotic Thesaurus -> Keep moving (Conservative)
+🎯 Day 2: Corporate Says It’s Healthy -> Decline and check the brand’s study links (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $61.00)
+🎯 Day 5: Desert Shower Freedom -> Help shut off the demonstration (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $74.00)
+🎯 Day 8: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $96.00)
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+🎯 Day 11: Private Chat, Public Application -> Check the roster and record the signup problem (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $104.00)
+🎯 Day 13: Emergency Straw Reserve -> Buy two water bundles for $6 (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $115.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $128.00)
+🎯 Day 17: The Minimum Viable Library -> Thank the staff and continue the trip (Conservative)
+📅 Day 20 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:12 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:12 Sanity:10
+🎯 Day 20: Reply All, Clock Out -> Document the mix-up with the cashier’s permission (Conservative)
+📅 Day 20 stats | HP:10 Supplies:12 Sanity:10
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $172.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $185.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $184.00)
+🎯 Day 23: Hydration Sovereignty -> Skip the promotion and keep moving (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $210.00)
+📅 Day 27 stats | HP:10 Supplies:17 Sanity:4
+🏁 Simulation ended: log.boss.victory
+🧬 Selected persona: Lobbyist
+🧑‍🤝‍🧑 Party: Samuel Harper, Margaret Liu, Robert Hayes, Diana Singh, Evelyn Clarke, River
+🛍️ Entering store with $130.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $110.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $102.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $88.00)
+🛒 Purchased 1x Battery for $20.00 (remaining $68.00)
+🛒 Purchased 1x Legal Fund for $14.00 (remaining $54.00)
+🛒 Purchased 1x Spare Tire for $14.00 (remaining $40.00)
+🎮 Starting simulation | seed:1391 mode:Deep policy:Conservative
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$40.00
+🎯 Day 1: No Subscription Required -> Wave the medics off and keep moving (Conservative)
+🎯 Day 2: Patriotic Thesaurus -> Keep moving (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $48.00)
+🎯 Day 3: Please Hold While We Check Reality -> Practice one calm answer together in the van (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $61.00)
+🎯 Day 5: Desert Shower Freedom -> Help shut off the demonstration (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $69.00)
+🎯 Day 8: Tariff Whiplash -> Insist an extra pack was part of the deal (Conservative)
+🎯 Day 9: Heartland Waystation -> Help stack empty crates, then take the shortcut (Conservative)
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:10
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $91.00)
+🎯 Day 12: Emergency Straw Reserve -> Buy two water bundles for $6 (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $98.00)
+🎯 Day 14: Optimism Will Not Dry Your Socks -> Trust the sign and reassure the crew (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $97.00)
+🎯 Day 15: Locally Grown Funding Gap -> Thank them and keep driving (Conservative)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $105.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $118.00)
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:10
+🎯 Day 20: The Exhibit of Pending Funds -> Thank the guide and get back on the road (Conservative)
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:10
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $149.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $162.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $179.00)
+🎯 Day 25: The Eight-Billion-Dollar Pothole -> Pass on the job and drive around the hole (Conservative)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $210.00)
+📅 Day 28 stats | HP:10 Supplies:16 Sanity:4
+🏁 Simulation ended: log.boss.failure
+🧬 Selected persona: Whistleblower
+🧑‍🤝‍🧑 Party: Axel Stone, Blaze Carter, Rex Turner, Nova Fields, Zoe Knight, Reese
+🛍️ Entering store with $90.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $70.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $62.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $47.00)
+🛒 Purchased 2x Legal Fund for $30.00 (remaining $17.00)
+🎮 Starting simulation | seed:1351 mode:Deep policy:Aggressive
+📊 Initial stats | HP:10 Supplies:16 Sanity:9 Budget:$17.00
+🎯 Day 1: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $25.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $3.00)
+🎯 Day 2: Wind Loyalty Hearing -> Record the technician’s testimony (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $16.00)
+🎯 Day 5: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Aggressive)
+🛞 Vehicle breakdown started: Alternator
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $1.00)
+🎯 Day 8: Please Hold While We Check Reality -> Practice answering from the published investigation (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $9.00)
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:5
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:5
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:5
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $22.00)
+🎯 Day 12: Private Chat, Public Application -> Offer paper and get the access policy in writing (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $20.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $33.00)
+🎯 Day 15: No Subscription Required -> Donate bandages and record the station’s supply needs (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $41.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $54.00)
+🎯 Day 19: Please Account for the Bridge -> Type their account into the required five boxes (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $85.00)
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+📅 Day 20 stats | HP:8 Supplies:17 Sanity:5
+🎯 Day 20: Click Here for Fifteen Dollars -> Take the $15 link-checking assignment (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $93.00)
+🎯 Day 22: The Shelf Is Still Hungry -> Pack bags for three road-food bundles (Aggressive)
+📅 Day 24 stats | HP:8 Supplies:14 Sanity:1
+🏁 Simulation ended: log.boss.victory
+🧬 Selected persona: Whistleblower
+🧑‍🤝‍🧑 Party: Axel Stone, Blaze Carter, Rex Turner, Nova Fields, Zoe Knight, River
+🛍️ Entering store with $90.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $70.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $62.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $47.00)
+🛒 Purchased 2x Legal Fund for $30.00 (remaining $17.00)
+🎮 Starting simulation | seed:1391 mode:Deep policy:Aggressive
+📊 Initial stats | HP:10 Supplies:16 Sanity:9 Budget:$17.00
+🎯 Day 1: No Subscription Required -> Donate bandages and record the station’s supply needs (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $25.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $3.00)
+🎯 Day 2: A Building Is Overhead -> Share a supply pack (Aggressive)
+🎯 Day 3: Please Hold While We Check Reality -> Practice answering from the published investigation (Aggressive)
+🎯 Day 4: Tariff Whiplash -> Compare the dated slips and offer one pack of spares (Aggressive)
+🎯 Day 7: Wind Loyalty Hearing -> Record the technician’s testimony (Aggressive)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $6.00)
+🎯 Day 9: Private Chat, Public Application -> Offer paper and get the access policy in writing (Aggressive)
+📅 Day 10 stats | HP:10 Supplies:18 Sanity:9
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:9
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:8
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:8
+📅 Day 10 stats | HP:10 Supplies:16 Sanity:8
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $19.00)
+🎯 Day 12: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $27.00)
+🎯 Day 14: Optimism Will Not Dry Your Socks -> Follow the shelter notice and eat one of your snacks (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $43.00)
+🎯 Day 17: Locally Grown Funding Gap -> Contribute two food bundles (Aggressive)
+🛒 Purchased 3x Rations Pack for $15.00 (remaining $46.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $77.00)
+📅 Day 20 stats | HP:10 Supplies:19 Sanity:7
+🎯 Day 21: The Exhibit of Pending Funds -> Thank the guide and get back on the road (Aggressive)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $93.00)
+🎯 Day 23: The Public Comment Endurance Test -> Stay, use your road snacks and give your comment (Aggressive)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $101.00)
+📅 Day 26 stats | HP:10 Supplies:15 Sanity:0
+🏁 Simulation ended: log.sanity-collapse
+🧬 Selected persona: Journalist
+🧑‍🤝‍🧑 Party: Harper Diaz, Morgan Lee, Dakota Shah, Emerson Vale, Quinn Walker, Rowan
+🛍️ Entering store with $120.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $100.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $92.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $77.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $55.00)
+🛒 Purchased 1x Warm Coats for $10.00 (remaining $45.00)
+🎮 Starting simulation | seed:1351 mode:Deep policy:Resource Manager
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$45.00
+🎯 Day 1: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $53.00)
+🎯 Day 2: High-Speed Replacement Van -> Keep moving (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $66.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $79.00)
+🎯 Day 6: Private Chat, Public Application -> Check the roster and record the signup problem (Resource Manager)
+🛞 Vehicle breakdown started: Alternator
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $51.00)
+🎯 Day 8: Emergency Straw Reserve -> Buy two water bundles for $6 (Resource Manager)
+📅 Day 10 stats | HP:10 Supplies:17 Sanity:10
+🎯 Day 10: The Tariff Relabeling Shift -> Match the labels for two road packs (Resource Manager)
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:9
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:8
+📅 Day 10 stats | HP:10 Supplies:19 Sanity:8
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $74.00)
+🎯 Day 13: Public Accountability, Folding Chairs -> Save the recording for a calmer review (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $105.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $118.00)
+🎯 Day 18: Hydration Sovereignty -> Skip the promotion and keep moving (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $152.00)
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:9
+📅 Day 20 stats | HP:10 Supplies:17 Sanity:9
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $165.00)
+🎯 Day 21: Please Account for the Bridge -> Wish them luck and take the reopened lane (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $196.00)
+📅 Day 23 stats | HP:10 Supplies:18 Sanity:3
+🏁 Simulation ended: log.boss.failure
+🧬 Selected persona: Journalist
+🧑‍🤝‍🧑 Party: Harper Diaz, Morgan Lee, Dakota Shah, Emerson Vale, Quinn Walker, Avery
+🛍️ Entering store with $120.00 (4 categories)
+🛒 Purchased 4x Rations Pack for $20.00 (remaining $100.00)
+🛒 Purchased 2x Water Jugs for $8.00 (remaining $92.00)
+🛒 Purchased 1x Spare Tire for $15.00 (remaining $77.00)
+🛒 Purchased 1x Battery for $22.00 (remaining $55.00)
+🛒 Purchased 1x Warm Coats for $10.00 (remaining $45.00)
+🎮 Starting simulation | seed:1391 mode:Deep policy:Resource Manager
+📊 Initial stats | HP:10 Supplies:16 Sanity:10 Budget:$45.00
+🎯 Day 1: No Subscription Required -> Sit for the medic’s care and open your water (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $53.00)
+🎯 Day 2: Patriotic Thesaurus -> Keep moving (Resource Manager)
+🎯 Day 3: Please Hold While We Check Reality -> Practice one calm answer together in the van (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $66.00)
+🎯 Day 5: A Building Is Overhead -> Keep moving (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $74.00)
+🎯 Day 7: Wind Loyalty Hearing -> Keep moving (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $77.00)
+🎯 Day 9: Heartland Waystation -> Help stack empty crates, then take the shortcut (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $90.00)
+📅 Day 10 stats | HP:10 Supplies:18 Sanity:10
+📅 Day 10 stats | HP:10 Supplies:18 Sanity:9
+📅 Day 10 stats | HP:10 Supplies:18 Sanity:9
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $103.00)
+🎯 Day 12: Optimism Will Not Dry Your Socks -> Trust the sign and reassure the crew (Resource Manager)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $101.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $114.00)
+🎯 Day 14: The Cow Hasn’t Read It Either -> Buy $5 of sealed snacks (Resource Manager)
+🛒 Purchased 2x Rations Pack for $10.00 (remaining $135.00)
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $166.00)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+🎯 Day 20: The Rally Address Has Entered the Chat -> Check and share the organizer’s dated public notice (Resource Manager)
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+📅 Day 20 stats | HP:10 Supplies:18 Sanity:10
+🛒 Purchased 1x Rations Pack for $5.00 (remaining $182.00)
+🎯 Day 24: Strategic Straw Inspection -> Decline the video and stay with the van (Resource Manager)
+📅 Day 24 stats | HP:10 Supplies:16 Sanity:4
+🏁 Simulation ended: log.boss.failure
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 88.5% < 90.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Classic - Aggressive terminal crossing rate 20.0% > 12%
+WARN: Classic - Balanced terminal crossing rate 20.0% > 12%
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Balanced terminal crossing rate 20.0% > 12%
+Error: Travel ratio 88.5% < 90% for scenario Classic - Aggressive seed CL-ORANGE02

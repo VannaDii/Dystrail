@@ -3,8 +3,24 @@ use web_sys::KeyboardEvent;
 use yew::hook;
 use yew::prelude::*;
 
-const FOCUSABLE_QUERY: &str =
-    "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])";
+const FOCUSABLE_QUERY: &str = "button:not([disabled]), [href], input:not([disabled]), textarea:not([disabled]), select:not([disabled]), summary, [tabindex]:not([tabindex='-1'])";
+
+fn focusable_elements(container: &web_sys::Element) -> Vec<web_sys::HtmlElement> {
+    let Ok(nodes) = container.query_selector_all(FOCUSABLE_QUERY) else {
+        return Vec::new();
+    };
+    (0..nodes.length())
+        .filter_map(|index| nodes.get(index)?.dyn_into::<web_sys::HtmlElement>().ok())
+        .filter(|element| element.offset_width() > 0 || element.offset_height() > 0)
+        .filter(|element| {
+            element
+                .closest("details:not([open]) > :not(summary)")
+                .ok()
+                .flatten()
+                .is_none()
+        })
+        .collect()
+}
 
 #[hook]
 pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_ref: NodeRef) {
@@ -12,14 +28,9 @@ pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_
         (open, return_focus_id, container_ref),
         move |(open, ret, container_ref)| {
             let focus_target = if cfg!(target_arch = "wasm32") && *open {
-                container_ref.cast::<web_sys::Element>().and_then(|el| {
-                    el.query_selector_all(FOCUSABLE_QUERY)
-                        .ok()
-                        .and_then(|list| {
-                            list.get(0)
-                                .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok())
-                        })
-                })
+                container_ref
+                    .cast::<web_sys::Element>()
+                    .and_then(|element| focusable_elements(&element).first().cloned())
             } else {
                 None
             };
@@ -28,9 +39,10 @@ pub fn use_focus_trap(open: bool, return_focus_id: Option<AttrValue>, container_
                 let _ = first.focus();
             }
 
+            let was_open = *open;
             let ret_id = ret.clone();
             move || {
-                let maybe_focus = if cfg!(target_arch = "wasm32") {
+                let maybe_focus = if cfg!(target_arch = "wasm32") && was_open {
                     ret_id
                         .clone()
                         .and_then(|id| {
@@ -70,19 +82,9 @@ pub fn focus_keydown_handler(
         let Some(container) = container_ref.cast::<web_sys::Element>() else {
             return;
         };
-        let Ok(nodes) = container.query_selector_all(FOCUSABLE_QUERY) else {
-            return;
-        };
-        let len = nodes.length();
-        if len == 0 {
-            return;
-        }
-        let first = nodes
-            .get(0)
-            .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok());
-        let last = nodes
-            .get(len - 1)
-            .and_then(|n| n.dyn_into::<web_sys::HtmlElement>().ok());
+        let nodes = focusable_elements(&container);
+        let first = nodes.first().cloned();
+        let last = nodes.last().cloned();
         let active = web_sys::window()
             .and_then(|w| w.document())
             .and_then(|d| d.active_element());

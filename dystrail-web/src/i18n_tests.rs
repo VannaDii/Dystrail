@@ -109,7 +109,6 @@ fn required_feature_keys_exist() {
         "weather.states.Smoke",
         "weather.effects.sup",
         "weather.effects.san",
-        "weather.effects.pants",
         "weather.effects.enc",
         "weather.details.header",
         "weather.details.state",

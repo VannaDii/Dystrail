@@ -13,14 +13,14 @@ fn test_pacing_config_validation() {
     let config = PacingConfig::from_json(
         r#"{
         "pace": {
-            "steady": {"dist_mult": 1.0, "sanity_delta": 0, "pants_delta": 0, "encounter_chance_delta": 0.0},
-            "heated": {"dist_mult": 1.5, "sanity_delta": 2, "pants_delta": 1, "encounter_chance_delta": 0.1},
-            "blitz": {"dist_mult": 2.0, "sanity_delta": 5, "pants_delta": 3, "encounter_chance_delta": 0.3}
+            "steady": {"dist_mult": 1.0, "sanity_delta": 0, "encounter_chance_delta": 0.0},
+            "heated": {"dist_mult": 1.5, "sanity_delta": 2, "encounter_chance_delta": 0.1},
+            "blitz": {"dist_mult": 2.0, "sanity_delta": 5, "encounter_chance_delta": 0.3}
         },
         "diet": {
-            "quiet": {"receipt_find_pct_delta": -0.2, "sanity_delta": -1, "pants_delta": 0},
-            "mixed": {"receipt_find_pct_delta": 0.0, "sanity_delta": 0, "pants_delta": 0},
-            "doom": {"receipt_find_pct_delta": 0.3, "sanity_delta": 3, "pants_delta": 1}
+            "quiet": {"receipt_find_pct_delta": -0.2, "sanity_delta": -1},
+            "mixed": {"receipt_find_pct_delta": 0.0, "sanity_delta": 0},
+            "doom": {"receipt_find_pct_delta": 0.3, "sanity_delta": 3}
         }
     }"#,
     );
@@ -39,12 +39,12 @@ fn test_pacing_config_validation() {
 fn test_pace_diet_effects() {
     let config = PacingConfig::from_json(r#"{
         "pace": {
-            "steady": {"dist_mult": 1.0, "sanity_delta": 0, "pants_delta": 0, "encounter_chance_delta": 0.0},
-            "heated": {"dist_mult": 1.5, "sanity_delta": 2, "pants_delta": 1, "encounter_chance_delta": 0.1}
+            "steady": {"dist_mult": 1.0, "sanity_delta": 0, "encounter_chance_delta": 0.0},
+            "heated": {"dist_mult": 1.5, "sanity_delta": 2, "encounter_chance_delta": 0.1}
         },
         "diet": {
-            "quiet": {"receipt_find_pct_delta": -0.2, "sanity_delta": -1, "pants_delta": 0},
-            "doom": {"receipt_find_pct_delta": 0.3, "sanity_delta": 3, "pants_delta": 1}
+            "quiet": {"receipt_find_pct_delta": -0.2, "sanity_delta": -1},
+            "doom": {"receipt_find_pct_delta": 0.3, "sanity_delta": 3}
         }
     }"#).unwrap();
 
@@ -60,14 +60,12 @@ fn test_pace_diet_effects() {
     game_state.diet = DietId::Doom;
 
     let initial_sanity = game_state.stats.sanity;
-    let initial_pants = game_state.stats.pants;
 
     // Apply pace and diet effects
     game_state.apply_pace_and_diet(&config);
 
     // Check that effects were applied
     assert_eq!(game_state.stats.sanity, initial_sanity + 2 + 3); // heated + doom
-    assert_eq!(game_state.stats.pants, initial_pants + 1 + 1); // heated + doom
     assert!((game_state.encounter_chance_today - 0.1).abs() < 0.01); // heated encounter chance
     assert!((game_state.receipt_bonus_pct - 0.3).abs() < 0.01); // doom receipt bonus
 }

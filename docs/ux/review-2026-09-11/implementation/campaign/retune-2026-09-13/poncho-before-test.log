@@ -1,0 +1,24 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/poncho-source/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.29s
+     Running tests/weather_paths.rs (/Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-698485da85f3b30e)
+
+running 1 test
+test ponchos_protect_sanity_in_storms_without_changing_other_weather_costs ... FAILED
+
+failures:
+
+---- ponchos_protect_sanity_in_storms_without_changing_other_weather_costs stdout ----
+
+thread 'ponchos_protect_sanity_in_storms_without_changing_other_weather_costs' (70571507) panicked at dystrail-game/tests/weather_paths.rs:152:13:
+assertion `left == right` failed
+  left: 6
+ right: 7
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    ponchos_protect_sanity_in_storms_without_changing_other_weather_costs
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p dystrail-game --test weather_paths`

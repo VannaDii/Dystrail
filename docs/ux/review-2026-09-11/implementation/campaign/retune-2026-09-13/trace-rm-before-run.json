@@ -1,0 +1,60 @@
+{
+  "phase": "before",
+  "frozen_patch_sha256": "d12802f2bceec787c00b30e12932b202938fcb3be55be0e3c5c5f3a4cb5c9f4f",
+  "commands": {
+    "reference": {
+      "argv": [
+        "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-tester",
+        "--mode",
+        "logic",
+        "--scenarios",
+        "real-game",
+        "--seeds",
+        "1351,1391",
+        "--iterations",
+        "1",
+        "--verbose",
+        "--report",
+        "csv",
+        "--output",
+        "/tmp/dystrail-retune-2026-09-13/trace-rm-before-reference.csv"
+      ],
+      "cwd": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-source",
+      "exit_code": 1,
+      "seconds": 0.101,
+      "log_path": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-reference.log",
+      "log_sha256": "7562185b34e9a88335900a51fb10661352130721d06576e3dbab11dfc45d3101"
+    },
+    "diagnostic": {
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "dystrail-tester",
+        "trace_resource_manager_activity_settlement",
+        "--",
+        "--nocapture"
+      ],
+      "cwd": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-source",
+      "exit_code": 0,
+      "seconds": 3.129,
+      "log_path": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-diagnostic.log",
+      "log_sha256": "6d62779ef940581a70925c903962c6eda195cd71602907616ea874b5fcfdbc15"
+    }
+  },
+  "reference_campaign_parity": {
+    "rows": 16,
+    "fields_per_row": 48,
+    "exact": true,
+    "differences": {},
+    "csv_sha256": "6a21067f578f725f56969c7206c442ebc8d9296a05df833309bad83d210ce906"
+  },
+  "source_hashes_unchanged": true,
+  "binary_path": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-test-binary",
+  "binary_sha256": "5ed4d4bdc2d8c100a6a3310eb63cde827da321da841fa9401c88504c47d352c0",
+  "compiled_source_path_verified": "/private/tmp/dystrail-retune-2026-09-13/trace-rm-before-source/dystrail-tester",
+  "parity_file": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-equivalence.json",
+  "parity_sha256": "8d927476803a97c55e1e08f9750900817481bb721a3c533b3a706d878fdc338b",
+  "trace_jsonl_sha256": "92cee4510d7cc4e50bb1a6cee738742165259cdd4424a1298acefb54846d53fa",
+  "source_hashes_unchanged_after_analysis": true
+}

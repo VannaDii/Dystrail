@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-11",
+  "build": {
+    "revision": "a24e05514179da6c0b69",
+    "files": 88,
+    "bytes": 90545722,
+    "all_hashes_verified": true,
+    "origin": "http://127.0.0.1:8180/play/"
+  },
+  "native_tests": 259,
+  "chrome_wasm_tests": 2,
+  "chrome_camp_regressions": {
+    "desktop": 2,
+    "mobile": 2,
+    "exit": 0
+  },
+  "strict_clippy": {
+    "native": true,
+    "wasm": true
+  },
+  "coverage_percent": 78.72,
+  "campaign": {
+    "runs": 8000,
+    "iterations_per_strategy_mode": 1000,
+    "seed_start": 1337,
+    "seed_end": 2336,
+    "exit": 1,
+    "first_failure": {
+      "scenario": "Classic - Balanced",
+      "seed": 1370,
+      "travel_percent": 88.7,
+      "required_percent": 90
+    },
+    "thresholds_changed": false,
+    "aggregates": [
+      {
+        "scenario": "Classic - Aggressive",
+        "runs": 1000,
+        "reach_percent": 63.6,
+        "win_percent": 4.5,
+        "mean_days": 105.416,
+        "mean_miles": 1786.8346,
+        "mean_travel_percent": 92.2522,
+        "mean_repair_days": 8.158
+      },
+      {
+        "scenario": "Classic - Balanced",
+        "runs": 1000,
+        "reach_percent": 68.4,
+        "win_percent": 42.3,
+        "mean_days": 119.45,
+        "mean_miles": 2051.5825,
+        "mean_travel_percent": 94.1145,
+        "mean_repair_days": 12.148
+      },
+      {
+        "scenario": "Classic - Conservative",
+        "runs": 1000,
+        "reach_percent": 77.60000000000001,
+        "win_percent": 16.2,
+        "mean_days": 144.411,
+        "mean_miles": 1915.737,
+        "mean_travel_percent": 91.3985,
+        "mean_repair_days": 6.536
+      },
+      {
+        "scenario": "Classic - Resource Manager",
+        "runs": 1000,
+        "reach_percent": 94.69999999999999,
+        "win_percent": 37.2,
+        "mean_days": 130.111,
+        "mean_miles": 2066.975,
+        "mean_travel_percent": 92.2834,
+        "mean_repair_days": 7.478
+      },
+      {
+        "scenario": "Deep - Aggressive",
+        "runs": 1000,
+        "reach_percent": 74.8,
+        "win_percent": 24.5,
+        "mean_days": 108.3,
+        "mean_miles": 1858.6425,
+        "mean_travel_percent": 92.7667,
+        "mean_repair_days": 6.945
+      },
+      {
+        "scenario": "Deep - Balanced",
+        "runs": 1000,
+        "reach_percent": 66.5,
+        "win_percent": 34.8,
+        "mean_days": 144.536,
+        "mean_miles": 2024.3524,
+        "mean_travel_percent": 92.8617,
+        "mean_repair_days": 15.437
+      },
+      {
+        "scenario": "Deep - Conservative",
+        "runs": 1000,
+        "reach_percent": 80.4,
+        "win_percent": 17.9,
+        "mean_days": 141.467,
+        "mean_miles": 1950.098,
+        "mean_travel_percent": 91.7758,
+        "mean_repair_days": 11.657
+      },
+      {
+        "scenario": "Deep - Resource Manager",
+        "runs": 1000,
+        "reach_percent": 87.7,
+        "win_percent": 30.8,
+        "mean_days": 114.367,
+        "mean_miles": 2014.6114,
+        "mean_travel_percent": 93.1157,
+        "mean_repair_days": 12.182
+      }
+    ]
+  },
+  "safari": {
+    "status": "blocked_window_visibility_and_driver_response",
+    "version": "26.6.2",
+    "url": "http://127.0.0.1:56854/play/",
+    "current_build_verified": false,
+    "current_attempt_exit": 143,
+    "current_checks_completed": 0,
+    "stable_test_preview": true,
+    "reason": "Earlier visibility wait timed out. Current attempt remained hidden and stopped answering a scoped driver request; stopped its runner before direct UI diagnostics. No current Safari pass."
+  },
+  "scope": "Synthetic players; no production deployment or user-save mutation.",
+  "native_release": "pass",
+  "chrome_receipts_reload": {
+    "revision": "a24e05514179da6c0b69",
+    "displayed": 2,
+    "saved": 2,
+    "hud_stats": 7,
+    "application_errors": 0,
+    "browser_warnings": "Wasm preload cross-world service-worker mismatch and ignored preload integrity remain visible in console output."
+  }
+}

@@ -30,26 +30,8 @@ fn encounter_seed_where(predicate: impl Fn(u8) -> bool) -> u64 {
 
 #[test]
 fn boss_minigame_exercises_outcomes() {
-    let pants_cfg = BossConfig {
-        rounds: 1,
-        pants_gain_per_round: 10,
-        sanity_loss_per_round: 0,
-        ..BossConfig::default()
-    };
-
-    let mut pants_state = GameState {
-        stats: Stats {
-            pants: 95,
-            ..Stats::default()
-        },
-        ..GameState::default()
-    };
-    let outcome = run_boss_minigame(&mut pants_state, &pants_cfg);
-    assert_eq!(outcome, BossOutcome::PantsEmergency);
-
     let exhaust_cfg = BossConfig {
         rounds: 2,
-        pants_gain_per_round: 0,
         sanity_loss_per_round: 7,
         ..BossConfig::default()
     };
@@ -66,7 +48,6 @@ fn boss_minigame_exercises_outcomes() {
 
     let win_cfg = BossConfig {
         rounds: 1,
-        pants_gain_per_round: 0,
         sanity_loss_per_round: 0,
         max_chance: 0.8,
         ..BossConfig::default()
@@ -77,7 +58,6 @@ fn boss_minigame_exercises_outcomes() {
         policy: Some(PolicyKind::Aggressive),
         stats: Stats {
             supplies: 10,
-            pants: 10,
             ..Stats::default()
         },
         day: 180,
@@ -95,7 +75,6 @@ fn boss_minigame_exercises_outcomes() {
 
     let lose_cfg = BossConfig {
         rounds: 1,
-        pants_gain_per_round: 0,
         sanity_loss_per_round: 0,
         max_chance: 0.2,
         base_victory_chance: 0.0,
@@ -136,7 +115,6 @@ fn camp_actions_cover_key_paths() {
     config.rest.supplies = -2;
     config.rest.hp = 2;
     config.rest.sanity = 1;
-    config.rest.pants = 3;
     config.rest.recovery_day = true;
     config.rest.cooldown_days = 2;
 
@@ -159,23 +137,18 @@ fn camp_actions_cover_key_paths() {
     assert!(!disabled.rested);
     assert_eq!(disabled.message, "log.camp.rest.disabled");
 
-    let mut forage_cfg = CampConfig::default_config();
-    forage_cfg.forage.day = 1;
-    forage_cfg.forage.supplies = 4;
-    forage_cfg.forage.cooldown_days = 3;
-    forage_cfg
-        .forage
-        .region_multipliers
-        .insert("heartland".into(), 1.5);
+    let forage_cfg = CampConfig::default_config();
 
     state.region = Region::Heartland;
-    state.camp.forage_cooldown = 0;
+    let day_before = state.day;
+    let minute_before = state.continuity.clock_minutes;
     let forage = camp_forage(&mut state, &forage_cfg);
     assert_eq!(forage.message, "log.camp.forage");
     assert!(forage.supplies_delta > 0);
-    assert_eq!(state.camp.forage_cooldown, 3);
+    assert_eq!(state.forage_cooldown_days(), 3);
+    assert_eq!(state.day, day_before);
+    assert_eq!(state.continuity.clock_minutes, minute_before + 120);
 
-    state.camp.forage_cooldown = 1;
     let forage_cd = camp_forage(&mut state, &forage_cfg);
     assert_eq!(forage_cd.message, "log.camp.forage.cooldown");
 
@@ -268,8 +241,8 @@ fn store_cart_covers_operations() {
     assert_eq!(items.get("rope").unwrap().name, "Rope");
 
     assert_eq!(calculate_effective_price(1_000, 0.0), 1_000);
-    assert_eq!(calculate_effective_price(1_000, 15.0), 850);
-    assert_eq!(calculate_effective_price(999, 12.5), 875);
+    assert_eq!(calculate_effective_price(1_000, 15.0), 900);
+    assert_eq!(calculate_effective_price(999, 12.5), 900);
 }
 
 #[test]
@@ -324,12 +297,10 @@ fn vehicle_system_behaviour() {
 #[test]
 fn pacing_accessors_are_resilient() {
     let pace = PaceCfg {
+        speed_mph: 60.0,
         id: "steady".into(),
         name: "Steady".into(),
-        dist_mult: 1.0,
-        distance: 12.0,
         sanity: 0,
-        pants: 0,
         encounter_chance_delta: 0.0,
     };
 
@@ -339,21 +310,13 @@ fn pacing_accessors_are_resilient() {
             id: "quiet".into(),
             name: "Quiet".into(),
             sanity: 1,
-            pants: -1,
             receipt_find_pct_delta: 2,
         }],
         limits: dystrail_game::PacingLimits {
             encounter_base: 0.25,
-            distance_base: 10.0,
             distance_penalty_floor: 0.6,
             encounter_floor: 0.05,
             encounter_ceiling: 0.95,
-            pants_floor: -10,
-            pants_ceiling: 100,
-            passive_relief: 0,
-            passive_relief_threshold: 0,
-            boss_pants_cap: 3,
-            boss_passive_relief: 0,
         },
         enabled: true,
     };
@@ -373,7 +336,6 @@ fn weather_effects_and_selection() {
         stats: Stats {
             sanity: 4,
             hp: 3,
-            pants: 10,
             ..Stats::default()
         },
         weather_state: WeatherState {

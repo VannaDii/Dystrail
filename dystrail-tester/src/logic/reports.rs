@@ -132,7 +132,6 @@ fn write_playability_summary(
     for agg in aggregates {
         let reach_pct = agg.boss_reach_pct * 100.0;
         let win_pct = agg.boss_win_pct * 100.0;
-        let pants_pct = agg.pants_failure_pct * 100.0;
         let travel_pct = agg.mean_travel_ratio * 100.0;
         let min_travel_pct = agg.min_travel_ratio * 100.0;
         let milestone_pct = agg.pct_reached_2k_by_150 * 100.0;
@@ -142,7 +141,7 @@ fn write_playability_summary(
         let label = format!("{} ({:?}/{:?})", agg.scenario_name, agg.mode, agg.strategy);
         writeln!(
             writer,
-            "• {} | n={} | days {:.1}±{:.1} | miles {:.1}±{:.1} | travel {:.1}% (min {:.1}%) | unique/20 {:.2} (min {:.2}) | ≥2k@150 {:.1}% | rotations {:.1} | boss reach {:.1}% | boss win {:.1}% | pants fails {:.1}%",
+            "• {} | n={} | days {:.1}±{:.1} | miles {:.1}±{:.1} | travel {:.1}% (min {:.1}%) | unique/20 {:.2} (min {:.2}) | ≥2k@150 {:.1}% | rotations {:.1} | boss reach {:.1}% | boss win {:.1}%",
             label.bold(),
             agg.iterations,
             agg.mean_days,
@@ -157,7 +156,6 @@ fn write_playability_summary(
             agg.mean_rotation_events,
             reach_pct,
             win_pct,
-            pants_pct
         )?;
         writeln!(
             writer,
@@ -322,7 +320,7 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
 
     writeln!(
         writer,
-        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_pants,final_budget_cents,boss.reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures,crossing_failure_rate,crossing_bribe_success_rate,day_reason_history,endgame_active,endgame_field_repair_used,endgame_cooldown_days,stop_cap_conversions"
+        "scenario,mode,strategy,seed_code,seed_value,days_survived,ending_type,ending_cause,encounters_faced,vehicle_breakdowns,final_hp,final_supplies,final_sanity,final_budget_cents,boss.reached,boss_won,miles_traveled,travel_days,partial_travel_days,non_travel_days,avg_mpd,unique_encounters,repairs_spent_cents,bribes_spent_cents,exec_order_active,exec_order_days_remaining,exec_order_cooldown,exposure_streak_heat,exposure_streak_cold,days_with_camp,days_with_repair,travel_ratio,unique_per_20_days,rotation_events,reached_2k_by_150,crossing_events,crossing_permit_uses,crossing_bribe_attempts,crossing_bribe_successes,crossing_detours_taken,crossing_failures,crossing_failure_rate,crossing_bribe_success_rate,day_reason_history,endgame_active,endgame_field_repair_used,endgame_cooldown_days,stop_cap_conversions"
     )?;
 
     for record in &sorted {
@@ -343,7 +341,6 @@ pub fn generate_csv_report(writer: &mut dyn Write, records: &[PlayabilityRecord]
         row.push(metrics.final_hp.to_string());
         row.push(metrics.final_supplies.to_string());
         row.push(metrics.final_sanity.to_string());
-        row.push(metrics.final_pants.to_string());
         row.push(metrics.final_budget_cents.to_string());
         row.push(metrics.boss.reached.to_string());
         row.push(metrics.boss.won.to_string());

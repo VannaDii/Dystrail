@@ -1,0 +1,290 @@
+{
+  "expected": "ef9b4b81cdeb1bc0700d",
+  "profile": "/tmp/dystrail-balance-production-check/recheck-old-production-profile",
+  "url": "https://dystrail.com/play/",
+  "errors": [],
+  "updated": {
+    "revision": "ef9b4b81cdeb1bc0700d",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 68,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js",
+    "fonts": {
+      "prepared": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "italic",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        }
+      ],
+      "documentStatus": "loaded",
+      "documentFaces": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        }
+      ]
+    },
+    "atGateRemoval": {
+      "revision": "ef9b4b81cdeb1bc0700d",
+      "state": "ready",
+      "images": 68,
+      "decoded": true,
+      "fonts": 7,
+      "fontsLoaded": true,
+      "documentFontsStatus": "loaded",
+      "documentFontsLoaded": true
+    }
+  },
+  "schemaChanges": [
+    {
+      "field": "distance_remainder",
+      "default": 0
+    },
+    {
+      "field": "day_start_remainder",
+      "default": 0
+    }
+  ],
+  "ruleChanges": [
+    {
+      "path": [
+        "journey_crossing",
+        "pass"
+      ],
+      "before": 0.66,
+      "after": 0.7
+    },
+    {
+      "path": [
+        "journey_crossing",
+        "detour"
+      ],
+      "before": 0.24,
+      "after": 0.085
+    },
+    {
+      "path": [
+        "journey_crossing",
+        "terminal"
+      ],
+      "before": 0.1,
+      "after": 0.215
+    },
+    {
+      "path": [
+        "journey_crossing",
+        "detour_hours",
+        "max"
+      ],
+      "before": 3,
+      "after": 2
+    },
+    {
+      "path": [
+        "journey_daily",
+        "health",
+        "decay"
+      ],
+      "before": 0.12,
+      "after": 0.38
+    }
+  ],
+  "addedStateKeys": [
+    "distance_remainder",
+    "day_start_remainder"
+  ],
+  "save": {
+    "phase": "Travel",
+    "day": 1,
+    "miles": 0,
+    "stateSha256": "1bda87fb8bc1cc52d8df8be817f0b48895f2687a07d8be1cdecc3d060e170942",
+    "playerStatePreserved": true
+  },
+  "cache": {
+    "name": "dystopian-trail:/play/:ef9b4b81cdeb1bc0700d",
+    "assets": 119,
+    "keys": 120,
+    "failures": [],
+    "marker": "ef9b4b81cdeb1bc0700d",
+    "cacheNames": [
+      "dystopian-trail:/play/:23cf83a1a7d5f9d02de9",
+      "dystopian-trail:/play/:ef9b4b81cdeb1bc0700d"
+    ]
+  },
+  "offline": {
+    "revision": "ef9b4b81cdeb1bc0700d",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 68,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js",
+    "fonts": {
+      "prepared": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "italic",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        }
+      ],
+      "documentStatus": "loaded",
+      "documentFaces": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        }
+      ]
+    },
+    "atGateRemoval": {
+      "revision": "ef9b4b81cdeb1bc0700d",
+      "state": "ready",
+      "images": 68,
+      "decoded": true,
+      "fonts": 7,
+      "fontsLoaded": true,
+      "documentFontsStatus": "loaded",
+      "documentFontsLoaded": true
+    }
+  },
+  "offlineCrewNames": [],
+  "failure": "AssertionError [ERR_ASSERTION]: Saved crew member is not visible: Riley\n\nfalse !== true\n\n    at file:///private/tmp/dystrail-balance-production-check/verify-published-update.mjs:105:57"
+}

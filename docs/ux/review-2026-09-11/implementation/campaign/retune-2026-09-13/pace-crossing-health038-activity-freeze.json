@@ -1,0 +1,23 @@
+{
+  "source": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source",
+  "base_inputs_verified": 538,
+  "unchanged_inputs": 537,
+  "file_changes": [
+    {
+      "path": "dystrail-game/src/activities.rs",
+      "before_sha256": "27af164f36c58b02251b86515350f655e3e2e17fb9c466c0160e86359c24513d",
+      "after_sha256": "493f48adf6787d2c3e9e5f9d0832a3376f3869808a11f9160a4d12a56e5215b9",
+      "added_lines": 228,
+      "existing_lines_removed_or_changed": 0
+    }
+  ],
+  "patch": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity.patch",
+  "patch_sha256": "e16c96424bce041058749c4f7bb8bd9ad31c4b53bda0aff1e3b988fc70bf227b",
+  "new_test_filter": "activity_settlement_",
+  "new_regressions": 7,
+  "rustfmt_exit": 0,
+  "builds_or_tests_started": false,
+  "shared_source_modified": false,
+  "low_level_clock_contract_changed": false,
+  "acceptance_guards_or_automated_strategies_changed": false
+}

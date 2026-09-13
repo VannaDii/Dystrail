@@ -1,0 +1,75 @@
+{
+  "revision": "a9ff83cd924a07fdf4ec",
+  "cases": [
+    {
+      "mode": "classic",
+      "width": 320,
+      "addedQuantity": 1,
+      "addedTotal": "$86",
+      "addedCash": "$34",
+      "removedQuantity": 0,
+      "restoredTotal": "$71",
+      "restoredCash": "$49",
+      "checkoutTrialClick": true,
+      "position": {
+        "scrollY": 1076,
+        "card": {
+          "x": 38,
+          "y": 473.1875,
+          "width": 244,
+          "height": 115
+        },
+        "checkout": {
+          "x": 38,
+          "y": 602.1875,
+          "width": 244,
+          "height": 148
+        }
+      },
+      "focus": {
+        "visible": true,
+        "color": "rgb(243, 206, 105)",
+        "width": "3px",
+        "x": 208.828125,
+        "y": 48.1875,
+        "height": 46
+      }
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "addedQuantity": 1,
+      "addedTotal": "$86",
+      "addedCash": "$34",
+      "removedQuantity": 0,
+      "restoredTotal": "$71",
+      "restoredCash": "$49",
+      "checkoutTrialClick": true,
+      "position": {
+        "scrollY": 1076,
+        "card": {
+          "x": 38,
+          "y": 473.1875,
+          "width": 244,
+          "height": 115
+        },
+        "checkout": {
+          "x": 38,
+          "y": 602.1875,
+          "width": 244,
+          "height": 148
+        }
+      },
+      "focus": {
+        "visible": true,
+        "color": "rgb(241, 177, 211)",
+        "width": "3px",
+        "x": 208.828125,
+        "y": 48.1875,
+        "height": 46
+      }
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

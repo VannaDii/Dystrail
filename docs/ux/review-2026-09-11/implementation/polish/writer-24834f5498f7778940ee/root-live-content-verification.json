@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-09-13T05:31:58.924330+00:00",
+  "origin": "https://dystrail.com/play/",
+  "revision": "24834f5498f7778940ee",
+  "exact_matches": [
+    {
+      "path": "offline-manifest.json",
+      "mime": "application/json",
+      "bytes": 16303,
+      "sha256": "03a4aa2482f042800cd4d6eb937fbe3b845430f4a01779700755a202d5e8fc18"
+    },
+    {
+      "path": "static/assets/data/game.json",
+      "mime": "application/json",
+      "bytes": 96839,
+      "sha256": "db0b9472a4283f0272b31458283a911273bdd58b17261756afdee8b29e7dd13f"
+    },
+    {
+      "path": "static/assets/data/town-facts.json",
+      "mime": "application/json",
+      "bytes": 93314,
+      "sha256": "1b20d9eb3201228ff60926b03e0a174986f8e9575fea4647c39d060831b4a8ab"
+    }
+  ]
+}

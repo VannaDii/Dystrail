@@ -1,0 +1,52 @@
+{
+  "variants": [
+    {
+      "phase": "before",
+      "freeze": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-freeze.json",
+      "patch": "/tmp/dystrail-retune-2026-09-13/trace-rm-before.patch",
+      "patch_sha256": "d12802f2bceec787c00b30e12932b202938fcb3be55be0e3c5c5f3a4cb5c9f4f",
+      "changed_files": [
+        {
+          "path": "dystrail-tester/src/logic/game_tester.rs",
+          "base_sha256": "6bdd1a8ef00c80b29ee9bbcd6653d56e913c21e3a73bd461180a5f579197a000",
+          "trace_sha256": "2ce67be8c2f58679c5a09a8152a3f5cec46caf0c1fab117eee573273ce4d5920",
+          "added_lines": 97,
+          "existing_lines_removed_or_changed": 0
+        },
+        {
+          "path": "dystrail-tester/src/logic/simulation.rs",
+          "base_sha256": "0a6aa1fda5abf984d6f73d61f17a913b67681e7d23b1465f799cb38efa0c8ce6",
+          "trace_sha256": "2bccf6516792320f221ec4fb43b0369165a7d4891ec6ac007ac03b7e26461057",
+          "added_lines": 127,
+          "existing_lines_removed_or_changed": 0
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "freeze": "/tmp/dystrail-retune-2026-09-13/trace-rm-after-freeze.json",
+      "patch": "/tmp/dystrail-retune-2026-09-13/trace-rm-after.patch",
+      "patch_sha256": "d12802f2bceec787c00b30e12932b202938fcb3be55be0e3c5c5f3a4cb5c9f4f",
+      "changed_files": [
+        {
+          "path": "dystrail-tester/src/logic/game_tester.rs",
+          "base_sha256": "6bdd1a8ef00c80b29ee9bbcd6653d56e913c21e3a73bd461180a5f579197a000",
+          "trace_sha256": "2ce67be8c2f58679c5a09a8152a3f5cec46caf0c1fab117eee573273ce4d5920",
+          "added_lines": 97,
+          "existing_lines_removed_or_changed": 0
+        },
+        {
+          "path": "dystrail-tester/src/logic/simulation.rs",
+          "base_sha256": "0a6aa1fda5abf984d6f73d61f17a913b67681e7d23b1465f799cb38efa0c8ce6",
+          "trace_sha256": "2bccf6516792320f221ec4fb43b0369165a7d4891ec6ac007ac03b7e26461057",
+          "added_lines": 127,
+          "existing_lines_removed_or_changed": 0
+        }
+      ]
+    }
+  ],
+  "identical_test_only_patch": true,
+  "shared_product_or_tester_edits": false,
+  "prior_instrumentation_compile_failure": "/tmp/dystrail-retune-2026-09-13/trace-rm-json-recursion-attempt",
+  "corrected_diagnostic_run_started": false
+}

@@ -1,3 +1,4 @@
+use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
 pub(super) fn render_menu_item(
@@ -10,15 +11,19 @@ pub(super) fn render_menu_item(
     let tabindex = if is_focused { "0" } else { "-1" };
     let action_callback = {
         let on_action = on_action.clone();
-        Callback::from(move |_: MouseEvent| {
-            on_action.emit(index);
+        Callback::from(move |event: MouseEvent| {
+            // Ignore the trailing click from the action that opened this screen.
+            if event.detail() <= 1 {
+                on_action.emit(index);
+            }
         })
     };
 
     let display_index = if index == 0 { "0" } else { &index.to_string() };
 
     html! {
-        <li
+        <li role="none"><button type="button"
+            id={format!("result-{}",if index==1 {"share-open".to_owned()}else{format!("action-{index}")})}
             role="menuitem"
             tabindex={tabindex}
             class={classes!("menu-item", if is_focused { Some("focused") } else { None })}
@@ -27,7 +32,7 @@ pub(super) fn render_menu_item(
             aria-label={format!("{display_index} {label}")}
         >
             { format!("{display_index}) {label}") }
-        </li>
+        </button></li>
     }
 }
 
@@ -37,6 +42,14 @@ pub(super) fn handle_keyboard(
     on_action: &Callback<u8>,
 ) -> u8 {
     let key = event.key();
+    if matches!(key.as_str(), "Enter" | " ")
+        && event
+            .target()
+            .and_then(|t| t.dyn_into::<web_sys::Element>().ok())
+            .is_some_and(|el| el.tag_name() == "BUTTON")
+    {
+        return current_focus;
+    }
 
     if let Some(action) = parse_numeric_key(&key) {
         event.prevent_default();

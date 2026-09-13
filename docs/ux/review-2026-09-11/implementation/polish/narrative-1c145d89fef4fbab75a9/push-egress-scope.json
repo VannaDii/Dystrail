@@ -1,0 +1,19 @@
+{
+  "base": "acaa88b1c1f104bf267048d393df2be403f056c9",
+  "new_commits": [
+    "40df1edf293a8961a79b9efeda33d0383caaff7e"
+  ],
+  "changed_paths": [
+    "release-manifest.json",
+    "release-site/404.html",
+    "release-site/play/dystrail-web-570cefe4596abd42.js",
+    "release-site/play/dystrail-web-570cefe4596abd42_bg.wasm",
+    "release-site/play/index.html",
+    "release-site/play/offline-manifest.json",
+    "release-site/play/static/assets/data/game.json",
+    "release-site/play/sw.js",
+    "scripts/verify-release-payload.py"
+  ],
+  "all_ordinary_source_and_history_preexisting": true,
+  "new_payload_scope": "Reviewed public game assets and integrity metadata only; no new ordinary source, credentials, user data or private history"
+}

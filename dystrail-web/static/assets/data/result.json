@@ -1,7 +1,5 @@
 {
   "score": {
-    "pants_threshold": 70,
-    "pants_penalty_per_point": 2,
     "persona_rounding": "nearest",
     "final_min": 0,
     "final_max": 999999
@@ -10,10 +8,14 @@
     "display_bonus_deep": 0.05
   },
   "endings": {
-    "priority": ["pants", "sanity", "collapse", "boss_loss", "victory"],
+    "priority": [
+      "sanity",
+      "collapse",
+      "boss_loss",
+      "victory"
+    ],
     "victory_key": "result.headline.victory",
     "boss_loss_key": "result.headline.boss_loss",
-    "pants_key": "result.headline.pants",
     "sanity_key": "result.headline.sanity",
     "collapse_key": "result.headline.collapse"
   },

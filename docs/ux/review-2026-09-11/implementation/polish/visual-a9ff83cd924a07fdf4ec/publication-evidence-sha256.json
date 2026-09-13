@@ -1,0 +1,23 @@
+{
+  "deployment-run.json": "cd9e8e2920497c3f48481181b59f98104d8450a1be9719d7b4050d7eb336d6b1",
+  "branch-policies-after.json": "fe0bd73974de7a940950da858c32a29b3b00b00c048a0e2db6cf1d1932d800be",
+  "staging-verification.json": "1c254f5fd0569dd3ad1158e0e1685c6f04f368d2b226295a5a57ef72b40ec99d",
+  "production-http-verification.json": "7d68d54ccdc1fc594edfb4cdc09503aa66cc35f790f9a63831e686072e225f7c",
+  "production-browser-verification.json": "50cbdf45564e4be8d44b7bc0c2d373460d4664bedf0627d8f12c6a53d0976044",
+  "production-offline-restart-verification.json": "3f090cb620a3e475c386d772ecafa536b613fc3cd44df7d05b24fe0ce6786917",
+  "production-updated-autosave.json": "3eac7e40747a7757138478c5ffd1ca7eb603fe486ebed688ed245074a7928984",
+  "production-offline-autosave.json": "3513143bd3ea67c8bc8eb6a9e14682e7ee48151cd145a6742c089ff16a29bfd3",
+  "old-production-autosave.json": "96cbeb04d065c8bdc3ddc8a06996b23ea546b30bca48248e72dd7e043740fe8e",
+  "old-production-browser.json": "5e4bd3bbc4b225f9db10c45b8c5b964e9290539c58903c894f200e81c4276702",
+  "old-production-browser-first.json": "de9fdee59d6023d14425becb085f0da1423013c005f9f58b4397f10ee73d8302",
+  "old-production-save-diff.json": "2fdf2fd19604d3f22aa2dc150f5873c6a321cbbdaa833fce47e9df28475458ef",
+  "publication-summary.json": "8be4dbe7fefd9ef14d8bfc55656afc33750848173506945f651230c319c564e3",
+  "verify-published-update.mjs": "ed21ce6a74ef41879c977c57b16756405adbabefc0b0cfd09ef5c859b0ade393",
+  "verify-published-offline-restart.mjs": "a326dc8eac54f844e818064cea01e8db60c90a64849d72d18343b221850ef6e9",
+  "verify-live-release.py": "a9e02229151d716dd7cd4547e41e5d2eb55f5556831d97ccb9001f9b9582f062",
+  "DEPLOYMENT.md": "b42ced3e32465bafcc1eba9bce91aea4f064aabc3f1b5f2660f1a824c1e76683",
+  "staged-release-record.json": "ff873acdee2608201d9e4215f97111915ba44220430958b417d809c30331663c",
+  "output/playwright/production-updated-desktop.png": "bb6306d9853f2115743098700d0c9aa5ec5b9397becf24e5b87160723a0ab89d",
+  "output/playwright/production-offline-van-phone.png": "ba7c49a822b3689d609abbf35b985a140e27cb0da027119cbfaa035077319d11",
+  "output/playwright/production-restarted-offline-phone-viewport.png": "3b7e474c9e6b78008f346dc687b153be3180d5938374be48d9816a2a79eb39a7"
+}

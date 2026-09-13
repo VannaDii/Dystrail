@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-09-13T18:36:13.602268+00:00",
+  "revision": "ef9b4b81cdeb1bc0700d",
+  "desktop_observed_at": "2026-09-13T18:33:01.868148+00:00",
+  "desktop": {
+    "CGSSessionScreenIsLocked": true,
+    "kCGSSessionOnConsoleKey": true
+  },
+  "safari_driver": {
+    "ready": true
+  },
+  "native_run_started": false,
+  "physical_device": {
+    "usb_phone_or_tablet_count": 0,
+    "wireless_discovery": "CoreDevice enumeration terminated after a 30-second timeout; availability not established"
+  },
+  "remaining": [
+    "Native Safari feedback and smoke runtime checks",
+    "Physical phone installation and offline relaunch",
+    "Native OS share-sheet handoff and cancellation"
+  ],
+  "user_input": "Asked the user to unlock the Mac and leave it unlocked for the remaining native checks.",
+  "runtime_changes": false,
+  "preview_changed": false,
+  "production_changed": false
+}

@@ -1,0 +1,405 @@
+[2m2026-09-12T22:22:24.582724Z[0m [32m INFO[0m [2mcargo_tarpaulin::config[0m[2m:[0m Creating config
+[2m2026-09-12T22:22:24.731402Z[0m [32m INFO[0m [2mcargo_tarpaulin[0m[2m:[0m Running Tarpaulin
+[2m2026-09-12T22:22:24.731417Z[0m [32m INFO[0m [2mcargo_tarpaulin[0m[2m:[0m Building project
+[2m2026-09-12T22:22:24.731422Z[0m [32m INFO[0m [2mcargo_tarpaulin::cargo[0m[2m:[0m Cleaning project
+   Compiling proc-macro2 v1.0.103
+   Compiling libc v0.2.178
+   Compiling version_check v0.9.5
+   Compiling typenum v1.19.0
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling zerocopy v0.8.31
+   Compiling cfg-if v1.0.4
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling subtle v2.6.1
+   Compiling autocfg v1.5.0
+   Compiling thiserror v2.0.17
+   Compiling anyhow v1.0.104
+   Compiling serde_json v1.0.145
+   Compiling ryu v1.0.20
+   Compiling itoa v1.0.15
+   Compiling memchr v2.7.6
+   Compiling twox-hash v2.1.2
+   Compiling generic-array v0.14.7
+   Compiling num-traits v0.2.19
+   Compiling syn v2.0.111
+   Compiling getrandom v0.2.16
+   Compiling cpufeatures v0.2.17
+   Compiling rand_core v0.6.4
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling ppv-lite86 v0.2.21
+   Compiling digest v0.10.7
+   Compiling serde_derive v1.0.228
+   Compiling thiserror-impl v2.0.17
+   Compiling rand_chacha v0.3.1
+   Compiling hmac v0.12.1
+   Compiling sha2 v0.10.9
+   Compiling rand v0.8.8
+   Compiling smallvec v1.15.1
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.42s
+[2m2026-09-12T22:22:41.905658Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-24f7964198393d5c
+[2m2026-09-12T22:22:41.905752Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 4 tests
+test neutral_buffer_defaults_to_clear_when_no_neutral_weights ... ok
+test neutral_buffer_prefers_smoke_when_weighted ... ok
+test select_weather_is_deterministic_for_same_seed ... ok
+test weather_selection_and_effects_cover_branches ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[2m2026-09-12T22:22:42.168030Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/weather_paths-24f7964198393d5c
+[2m2026-09-12T22:22:42.168039Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/weather_paths-24f7964198393d5c_7772530083139334537_0-95933.profraw
+[2m2026-09-12T22:22:42.168042Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:42.172679Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:42.206910Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/stat_acceptance-21ad91dc80422530
+[2m2026-09-12T22:22:42.207008Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 4 tests
+test breakdown_probability_tracks_base_rate ... ok
+test bribe_increases_pass_and_reduces_terminal ... ok
+test crossing_distribution_matches_policy_weights ... ok
+test endgame_breakdown_scale_reduces_breaks ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+[2m2026-09-12T22:22:42.438038Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/stat_acceptance-21ad91dc80422530
+[2m2026-09-12T22:22:42.438047Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/stat_acceptance-21ad91dc80422530_15750824168353220113_0-95949.profraw
+[2m2026-09-12T22:22:42.438050Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:42.442383Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:42.482586Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/system_coverage-a205dbecf5fca0c3
+[2m2026-09-12T22:22:42.482709Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 8 tests
+test boss_minigame_exercises_outcomes ... ok
+test camp_actions_cover_key_paths ... ok
+test encounter_data_static_loader_is_empty ... ok
+test pacing_accessors_are_resilient ... ok
+test store_cart_covers_operations ... ok
+test vehicle_system_behaviour ... ok
+test weather_config_validation_flags_missing_data ... ok
+test weather_effects_and_selection ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[2m2026-09-12T22:22:42.725593Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/system_coverage-a205dbecf5fca0c3
+[2m2026-09-12T22:22:42.725602Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/system_coverage-a205dbecf5fca0c3_2398432292527294884_0-95956.profraw
+[2m2026-09-12T22:22:42.725604Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:42.729890Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:42.765777Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/full_campaign-2a7a614bdec2ee22
+[2m2026-09-12T22:22:42.765869Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 1 test
+test full_campaign_exercises_core_systems ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+[2m2026-09-12T22:22:43.023397Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/full_campaign-2a7a614bdec2ee22
+[2m2026-09-12T22:22:43.023407Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/full_campaign-2a7a614bdec2ee22_10432575425914847369_0-95965.profraw
+[2m2026-09-12T22:22:43.023410Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:43.028271Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:43.070595Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/coverage_sweep-fcc899f3fe6ec4d3
+[2m2026-09-12T22:22:43.070704Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 24 tests
+test boss_outcomes_cover_all_paths ... ok
+test boss_probability_edges_cover_low_and_high ... ok
+test camp_actions_cover_branches ... ok
+test camp_disabled_and_negative_paths ... ok
+test camp_multi_day_sequences_cover_loops ... ok
+test crossing_config_thresholds_cover_branches ... ok
+test crossing_resolution_covers_branches ... ok
+test day_accounting_ratio_and_sanitize ... ok
+test day_accounting_transition_matrix_covers_edges ... ok
+test encounter_rotation_and_weights_cover_branches ... ok
+test endgame_controller_and_failure_guard ... ok
+test full_content_walkthrough ... ok
+test game_engine_smoke_and_storage_paths ... ok
+test journey_controller_applies_partial_ratio ... ok
+test journey_controller_tick_yields_day_record ... ok
+test pacing_and_personas_cover_fallbacks ... ok
+test result_endings_branching ... ok
+test seed_and_result_paths_cover_branches ... ok
+test seed_error_paths_cover_invalid_cases ... ok
+test state_apply_choice_handles_missing_encounter ... ok
+test store_cart_and_inventory_flows ... ok
+test store_pricing_variants ... ok
+test vehicle_and_weather_paths ... ok
+test weather_variants_cover_branches ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+[2m2026-09-12T22:22:43.374110Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/coverage_sweep-fcc899f3fe6ec4d3
+[2m2026-09-12T22:22:43.374121Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/coverage_sweep-fcc899f3fe6ec4d3_1952299079795140644_0-95972.profraw
+[2m2026-09-12T22:22:43.374123Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:43.379632Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:43.430560Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/data_shapes-947660548089cf62
+[2m2026-09-12T22:22:43.430666Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 2 tests
+test game_state_serialization_preserves_day_records ... ok
+test journey_config_snapshot_stable ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+[2m2026-09-12T22:22:43.699153Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/data_shapes-947660548089cf62
+[2m2026-09-12T22:22:43.699162Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/data_shapes-947660548089cf62_18074774783759832844_0-95983.profraw
+[2m2026-09-12T22:22:43.699165Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:43.706895Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:43.752113Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m running /Users/vanna/Source/Dystrail/target/debug/deps/dystrail_game-742f09e774a04437
+[2m2026-09-12T22:22:43.752214Z[0m [32m INFO[0m [2mcargo_tarpaulin::process_handling[0m[2m:[0m Setting LLVM_PROFILE_FILE
+
+running 142 tests
+test activities::tests::gathering_and_paid_work_cannot_be_farmed_by_reloading ... ok
+test boss::tests::balanced_biases_load_from_assets ... ok
+test boss::tests::balanced_defaults_match_const_fns ... ok
+test boss::tests::default_config_has_minimum_rounds_and_passes ... ok
+test boss::tests::run_boss_probability_branches_cover_edges ... ok
+test camp::explicit_breakdown_tests::camping_cannot_spend_time_resources_or_consume_a_spare_during_breakdown ... ok
+test coverage_anchor::tests::checksum_executes ... ok
+test crew_care::tests::losing_the_player_ends_the_journey_with_a_player_specific_message ... ok
+test crew_care::tests::natural_check_care_deferral_and_absence_are_persistent ... ok
+test crossings::resolver::tests::crossing_consumes_single_draw ... ok
+test crossings::resolver::tests::detour_days_cover_span_using_single_sample ... ok
+test crossings::resolver::tests::diminishing_returns_apply_to_bribes ... ok
+test crossings::resolver::tests::permit_disables_terminal ... ok
+test crossings::tests::apply_detour_records_partial_day ... ok
+test data::tests::every_region_offers_evidence_in_both_modes ... ok
+test data::tests::mandatory_cash_and_supply_costs_are_atomic_and_rewards_reach_the_wallet ... ok
+test data::tests::shipped_evidence_choices_award_save_and_score_their_receipt_once ... ok
+test data::tests::test_encounter_data_from_array ... ok
+test data::tests::test_encounter_data_from_json ... ok
+test day_accounting::tests::day_record_serialization_roundtrip_is_stable ... ok
+test day_accounting::tests::enforce_ratio_floor_checks_recent_history ... ok
+test day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route ... ok
+test day_accounting::tests::ledger_metrics_align_with_distance ... ok
+test day_accounting::tests::ledger_metrics_match_state_distance ... ok
+test day_accounting::tests::ledger_travel_ratio_matches_manual_computation ... ok
+test day_accounting::tests::partial_day_miles_falls_back_to_deltas ... ok
+test day_accounting::tests::partial_day_miles_uses_policy_ratio ... ok
+test day_accounting::tests::record_travel_day_applies_transitions ... ok
+test encounters::tests::determine_selection_falls_back ... ok
+test encounters::tests::pick_encounter_respects_rotation_queue ... ok
+test encounters::tests::rotation_backlog_skips_recent_encounters ... ok
+test encounters::tests::weighted_choice_prefers_higher_weight ... ok
+test encounters::tests::weighted_selection_emits_decision_trace ... ok
+test endgame::tests::config_defaults_load ... ok
+test endgame::tests::field_repair_consumes_resources ... ok
+test endgame::tests::one_time_wear_reset_applies_once ... ok
+test endgame::tests::policy_key_resolves ... ok
+test evidence::tests::base_evidence_is_guaranteed_and_bonus_is_bounded ... ok
+test evidence::tests::news_diet_bonus_does_not_accumulate_across_days ... ok
+test journal::tests::a_late_repair_spends_all_four_hours_across_midnight ... ok
+test journal::tests::an_empty_or_out_of_range_turn_has_no_entries ... ok
+test journal::tests::clock_and_actual_history_survive_save_without_navigation_time ... ok
+test journal::tests::old_saves_ignore_the_retired_stat_without_changing_other_resources ... ok
+test journal::tests::turn_history_preserves_every_action_and_resets_only_when_travel_begins ... ok
+test journey::daily::tests::applies_pace_diet_weather_and_exec_multipliers ... ok
+test journey::daily::tests::health_decay_and_rest_heal_interplay ... ok
+test journey::daily::tests::sanitize_guards_invalid_entries ... ok
+test journey::event::tests::decision_trace_roundtrips ... ok
+test journey::event::tests::legacy_log_event_roundtrips_and_has_stable_id ... ok
+test journey::rng_save::tests::a_resumed_journey_matches_an_uninterrupted_journey ... ok
+test journey::rng_save::tests::mixed_draws_continue_after_serializing_game_state ... ok
+test journey::rng_save::tests::session_from_state_keeps_stream_position ... ok
+test journey::session::tests::route_scale_is_ready_before_departure_and_stable_after_reload ... ok
+test journey::session::tests::session_construction_sets_policy_and_state ... ok
+test journey::session::tests::session_from_state_resets_policy_and_ticks ... ok
+test journey::tests::journey_cfg_missing_fields_use_defaults ... ok
+test journey::tests::journey_config_partial_ratio_clamped ... ok
+test journey::tests::journey_config_rejects_invalid_ratio ... ok
+test journey::tests::policy_catalog_resolves_family_and_overlay ... ok
+test journey::tests::policy_conversion_roundtrip ... ok
+test journey::tests::reseed_resets_rng_bundle ... ok
+test journey::tests::resource_manager_overlay_adjusts_part_weights ... ok
+test journey::tests::rng_bundle_uses_domain_hmac ... ok
+test journey::tests::tick_day_emits_events_with_stable_day_id_when_day_is_consumed ... ok
+test journey::tests::tick_day_surfaces_and_drains_decision_traces ... ok
+test journey::tests::travel_bounds_validation_catches_min_above_max ... ok
+test journey::tests::travel_day_kind_ratio_flag ... ok
+test mechanics::otdeluxe90s::tests::default_policy_includes_required_parity_defaults ... ok
+test mechanics::otdeluxe90s::tests::default_policy_matches_extracted_trail_and_store_constants ... ok
+test numbers::tests::ceil_clamps_and_handles_nan ... ok
+test numbers::tests::clamp_handles_non_finite ... ok
+test numbers::tests::rounders_cover_ranges ... ok
+test party::tests::legacy_names_survive_upgrade ... ok
+test party::tests::names_are_unique_reproducible_and_do_not_repopulate_absent_members ... ok
+test personas::tests::test_persona_json_parsing ... ok
+test repairs::tests::destroyed_vehicle_does_not_silently_spend_parts_or_cash ... ok
+test repairs::tests::interactive_travel_cannot_silently_install_an_available_part ... ok
+test repairs::tests::pending_breakdowns_block_all_automatic_recovery_before_a_day_starts ... ok
+test repairs::tests::purchase_uses_the_store_price_and_only_charges_delivery_outside_town ... ok
+test repairs::tests::repairs_are_costed_atomic_and_allow_a_cashless_exit ... ok
+test result::tests::high_score_triggers_victory ... ok
+test result::tests::hunger_collapse_maps_to_hunger_keys ... ok
+test result::tests::persona_resolution_and_headlines ... ok
+test result::tests::vehicle_failure_uses_detailed_keys ... ok
+test route::tests::geography_and_scenes_follow_the_selected_route_and_survive_save ... ok
+test route::tests::real_routes_have_distinct_origins_ordered_mileage_and_a_dc_finish ... ok
+test route_services::tests::arrival_trade_cost_and_departure_survive_save ... ok
+test route_services::tests::capped_social_stats_offer_a_receipt_instead_of_an_empty_reward ... ok
+test route_services::tests::town_rewards_are_varied_visible_and_claimed_once_across_saves ... ok
+test seed::tests::dp_orange_42_stable ... ok
+test seed::tests::encode_decode_roundtrips_code ... ok
+test seed::tests::retired_code_word_preserves_the_saved_seed ... ok
+test seed::tests::test_parse_share_code ... ok
+test state::tests::aggressive_emergency_and_field_repair_paths ... ok
+test state::tests::allows_two_encounters_before_cooldown ... ok
+test state::tests::ally_attrition_and_exec_order_paths ... ok
+test state::tests::balanced_strategy_applies_travel_nudge_by_mode ... ok
+test state::tests::breakdown_consumes_spare_and_clears_block ... ok
+test state::tests::breakdown_uses_part_weights ... ok
+test state::tests::breakdown_without_spare_resolves_after_stall ... ok
+test state::tests::camp_cooldowns_tick_once_per_completed_day ... ok
+test state::tests::classic_field_repair_guard_handles_zero_distance ... ok
+test state::tests::compute_miles_variations_cover_paths ... ok
+test state::tests::crossing_records_never_invent_a_bribe_attempt ... ok
+test state::tests::deep_aggressive_compose_uses_supplies_then_funds ... ok
+test state::tests::deep_aggressive_safeguards_and_compose ... ok
+test state::tests::encounter_penalties_and_boosts_apply ... ok
+test state::tests::encounter_recording_updates_history ... ok
+test state::tests::encounter_soft_cap_reduces_chance ... ok
+test state::tests::end_of_day_variants_cover_remaining_paths ... ok
+test state::tests::enumeration_roundtrips_cover_branches ... ok
+test state::tests::exec_order_drain_clamped_to_zero ... ok
+test state::tests::exec_order_effects_cover_all_variants ... ok
+test state::tests::exec_order_expires_and_sets_cooldown ... ok
+test state::tests::exposure_sets_kind ... ok
+test state::tests::health_and_sanity_boosts_apply ... ok
+test state::tests::illness_rolls_cover_positive_and_cooldown_paths ... ok
+test state::tests::illness_triggers_when_guard_conditions_met ... ok
+test state::tests::ledger_records_capture_tags_and_counts ... ok
+test state::tests::ledger_serializes_and_roundtrips ... ok
+test state::tests::max_two_encounters_per_day ... ok
+test state::tests::misc_state_path_exercise ... ok
+test state::tests::no_miles_on_camp ... ok
+test state::tests::partial_travel_credit_resets_and_logs ... ok
+test state::tests::repair_guards_and_limp_paths_execute ... ok
+test state::tests::rest_travel_credit_logs_when_enabled ... ok
+test state::tests::sanity_guard_marks_partial_day ... ok
+test state::tests::starvation_sets_hunger_collapse ... ok
+test state::tests::starvation_stacks_damage ... ok
+test state::tests::steady_clear_progress_is_sane ... ok
+test state::tests::stop_cap_conversion_awards_partial_credit ... ok
+test state::tests::travel_and_rotation_helpers_reset_reason_tags ... ok
+test state::tests::travel_ratio_recent_handles_edge_cases ... ok
+test state::tests::travel_wear_scales_with_pace_weather_and_fatigue ... ok
+test state::tests::vehicle_terminal_sets_ending ... ok
+test store::tests::cart_manipulation_and_totals ... ok
+test store::tests::store_lookup_variants ... ok
+test store::tests::whole_dollar_prices_match_affordability_and_saved_balances ... ok
+test tests::create_game_defaults_to_balanced_strategy ... ok
+test tests::engine_creates_and_roundtrips_state ... ok
+test weather_impact::tests::receipt_observes_cold_protection_and_stat_floors ... ok
+test weather_impact::tests::weather_receipt_includes_exposure_and_gear_then_clears ... ok
+
+test result: ok. 142 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+[2m2026-09-12T22:22:44.116638Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m For binary: target/debug/deps/dystrail_game-742f09e774a04437
+[2m2026-09-12T22:22:44.116647Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Generated: target/tarpaulin/profraws/dystrail_game-742f09e774a04437_17346877993132888032_0-95990.profraw
+[2m2026-09-12T22:22:44.116649Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Merging coverage reports
+[2m2026-09-12T22:22:44.125447Z[0m [32m INFO[0m [2mcargo_tarpaulin::statemachine::instrumented[0m[2m:[0m Mapping coverage data to source
+[2m2026-09-12T22:22:44.188657Z[0m [32m INFO[0m [2mcargo_tarpaulin::report[0m[2m:[0m Coverage Results:
+|| Uncovered Lines:
+|| dystrail-game/src/activities.rs: 22-27, 31-34, 47, 81-83
+|| dystrail-game/src/boss.rs: 88, 145-149, 151, 153, 165-168, 170-171, 173-175, 178
+|| dystrail-game/src/camp.rs: 167
+|| dystrail-game/src/crew_care.rs: 24, 33, 76, 117
+|| dystrail-game/src/crossings/resolver.rs: 98, 114, 134, 138
+|| dystrail-game/src/crossings.rs: 143
+|| dystrail-game/src/day_accounting.rs: 71, 101-103, 128, 161-164, 171, 179, 183, 198, 263
+|| dystrail-game/src/encounters.rs: 69, 74, 80-82, 102, 105-109, 133-137, 145, 151, 153-156, 160, 163-166, 176, 191, 194, 197, 224, 246-252, 301-302, 304, 308, 312, 315, 354, 362-363, 365-366, 376-378, 380-382, 384, 387-389, 402, 405-406, 414, 425-426, 441, 445, 454, 457-460, 464, 467-468, 470, 475-487, 489, 493-495, 497, 499-500, 502
+|| dystrail-game/src/endgame.rs: 226-227, 230-231, 318, 348, 366, 429-430
+|| dystrail-game/src/journey/daily.rs: 18
+|| dystrail-game/src/journey/mod.rs: 99, 168-169, 175-180, 238-242, 311-315, 319-322, 326-329, 333-335, 341, 343-346, 445-448, 458-462, 468-471, 477-480, 588-590, 598-600, 609-611, 615-618, 623-626, 685-686, 727-730, 797-800, 804-807, 847, 850, 1045, 1133-1136, 1212, 1221-1225, 1229-1232, 1237-1240, 1246-1249, 1303, 1306, 1314-1315, 1319-1320, 1460-1461, 1542-1545, 1605
+|| dystrail-game/src/journey/rng_save.rs: 20-21, 23, 34, 36-37, 43
+|| dystrail-game/src/lib.rs: 168-174, 200-201
+|| dystrail-game/src/pacing.rs: 96-97
+|| dystrail-game/src/party.rs: 47-48, 50-51
+|| dystrail-game/src/personas.rs: 73-74, 109-110, 123-124, 132-133
+|| dystrail-game/src/repairs.rs: 14-19, 23-28, 64, 79, 91
+|| dystrail-game/src/result.rs: 179, 196-197, 234-236, 240-245, 247, 250, 266
+|| dystrail-game/src/route.rs: 71-72, 75, 85-88, 90-91, 99, 105-112, 147-153
+|| dystrail-game/src/route_services.rs: 79-80, 91-92, 102, 112-114, 116-118
+|| dystrail-game/src/state.rs: 182-183, 191-192, 2533, 2541, 2563, 2568, 2573, 2578, 2615-2622, 2677, 2685, 2706, 2710, 2718, 2756, 2760, 2774-2775, 2878, 2891, 2921-2922, 2938, 2944, 2951-2952, 2973, 2979, 2990-2992, 3047, 3062, 3070, 3189-3190, 3256, 3258, 3284, 3294, 3302, 3316, 3326, 3335, 3394-3396, 3413, 3418, 3486, 3498, 3518-3520, 3522, 3543, 3551, 3562, 3567-3568, 3572-3574, 3577, 3584, 3589, 3591-3592, 3595, 3598, 3601-3602, 3604-3606, 3621, 3631, 3679-3683, 3697-3700, 3811-3815, 3818, 3820-3822, 3824, 3842-3843, 3855, 3864-3865, 3868, 3904, 3921-3922, 3930-3931, 3933-3934, 4006, 4013, 4019-4020, 4090-4091, 4103-4111, 4123, 4163, 4180-4183, 4224, 4232-4234, 4241-4246, 4248, 4250-4252, 4286-4293, 4295, 4328-4329, 4331-4332, 4334-4335, 4337-4338, 4345-4349, 4402, 4408, 4417-4418, 4441, 4447, 4449, 4486, 4492-4500, 4503-4504, 4520-4521, 4523-4524, 4527, 4530, 4544, 4548-4550, 4553-4555, 4558-4560, 4563-4565, 4579-4582, 4584-4585, 4587-4588, 4590, 4609, 4623-4624, 4635, 4640-4643, 4646-4647, 4664-4666
+|| dystrail-game/src/vehicle.rs: 65, 73, 79-80, 86, 108, 113, 195-196, 205, 226-228, 230
+|| dystrail-game/src/weather.rs: 38-40, 42, 59-60, 144, 163-165, 167-172, 174-175, 180, 197-199, 201-204, 222-224, 265, 287-291, 307-309, 311, 314, 316, 321-323, 325, 328, 352, 361, 363, 366, 371-374, 385, 465-468, 510, 514-520
+|| dystrail-game/tests/coverage_sweep.rs: 82-83, 447, 451-453, 455-458, 480-482, 1047, 1054-1058, 1085-1086, 1089-1092, 1096-1098
+|| dystrail-game/tests/full_campaign.rs: 121, 130-131
+|| dystrail-game/tests/system_coverage.rs: 28
+|| dystrail-tester/src/browser/bridge.rs: 20, 24-31, 33, 36-40, 43-44, 47, 49-50, 53-54, 57, 59-60, 63-67, 70-77
+|| dystrail-tester/src/common/scenario/mod.rs: 32, 34
+|| dystrail-tester/src/common/scenario/playability.rs: 40, 42
+|| dystrail-tester/src/logic/game_tester.rs: 249-251, 274, 286-287
+|| dystrail-tester/src/logic/logic.rs: 137, 144-145, 157, 159, 161, 168-172
+|| dystrail-tester/src/logic/playability.rs: 181-183, 185, 406, 408-409, 416
+|| dystrail-tester/src/logic/simulation.rs: 144-145, 147-149, 151-153, 155-157, 159-162, 164, 167-174, 178-180, 183-186, 188-189, 191-198, 201-210, 212, 216, 221
+|| dystrail-tester/src/logic/tester.rs: 222, 229-230, 242, 244, 246, 253-257
+|| dystrail-web/src/components/ui/journey_scene/composition.rs: 16-17, 19, 21, 23, 25, 27-28, 30, 32-33
+|| dystrail-web/src/components/ui/route_map/graphic.rs: 23-25
+|| dystrail-web/src/components/ui/route_map/labels.rs: 13-16, 18-20, 22-26, 28-29, 31-38, 40-48, 51, 53-54, 56-57, 60
+|| dystrail-web/src/game.rs: 38-49, 53
+|| dystrail-web/src/i18n/bundle.rs: 59-60
+|| dystrail-web/src/i18n/render.rs: 8-10, 12-15, 18
+|| dystrail-web/src/wasm_tests.rs: 18-22, 24, 26-28
+|| Tested/Total Lines:
+|| dystrail-game/src/activities.rs: 36/50 +0.00%
+|| dystrail-game/src/boss.rs: 45/63 -0.21%
+|| dystrail-game/src/camp.rs: 60/61 +29.47%
+|| dystrail-game/src/coverage_anchor.rs: 4/4 +0.00%
+|| dystrail-game/src/crew_care.rs: 52/56 +3.97%
+|| dystrail-game/src/crossings/resolver.rs: 52/56 +0.00%
+|| dystrail-game/src/crossings.rs: 107/108 +0.96%
+|| dystrail-game/src/data.rs: 14/14 +0.00%
+|| dystrail-game/src/day_accounting.rs: 99/113 +0.22%
+|| dystrail-game/src/encounters.rs: 139/237 +2.67%
+|| dystrail-game/src/endgame.rs: 169/178 +0.00%
+|| dystrail-game/src/evidence.rs: 10/10
+|| dystrail-game/src/exec_orders.rs: 31/31 +0.00%
+|| dystrail-game/src/journal.rs: 21/21 +0.00%
+|| dystrail-game/src/journey/daily.rs: 43/44 +0.00%
+|| dystrail-game/src/journey/event.rs: 5/5 +0.00%
+|| dystrail-game/src/journey/mod.rs: 538/659 +0.00%
+|| dystrail-game/src/journey/rng_save.rs: 18/25 +0.00%
+|| dystrail-game/src/journey/session.rs: 48/48 +4.35%
+|| dystrail-game/src/lib.rs: 12/21 +0.00%
+|| dystrail-game/src/mechanics/otdeluxe90s.rs: 30/30 +0.00%
+|| dystrail-game/src/numbers.rs: 24/24 +0.00%
+|| dystrail-game/src/pacing.rs: 16/18 +22.22%
+|| dystrail-game/src/party.rs: 39/43 +0.00%
+|| dystrail-game/src/personas.rs: 16/24 +0.00%
+|| dystrail-game/src/repairs.rs: 40/55 +3.64%
+|| dystrail-game/src/result.rs: 99/114 -0.45%
+|| dystrail-game/src/route.rs: 46/71 -2.86%
+|| dystrail-game/src/route_services.rs: 48/59 +4.43%
+|| dystrail-game/src/seed.rs: 51/51 +0.00%
+|| dystrail-game/src/state.rs: 1127/1362 +2.03%
+|| dystrail-game/src/store.rs: 48/48 +0.00%
+|| dystrail-game/src/vehicle.rs: 62/76 +0.00%
+|| dystrail-game/src/weather.rs: 162/229 +0.10%
+|| dystrail-game/src/weather_impact.rs: 10/10 +0.00%
+|| dystrail-game/tests/coverage_sweep.rs: 38/66 +0.00%
+|| dystrail-game/tests/data_shapes.rs: 23/23 +0.00%
+|| dystrail-game/tests/full_campaign.rs: 111/114 +0.00%
+|| dystrail-game/tests/system_coverage.rs: 7/8 +0.00%
+|| dystrail-game/tests/weather_paths.rs: 11/11 +0.00%
+|| dystrail-tester/src/browser/bridge.rs: 0/38 +0.00%
+|| dystrail-tester/src/common/scenario/mod.rs: 0/2 +0.00%
+|| dystrail-tester/src/common/scenario/playability.rs: 0/2 +0.00%
+|| dystrail-tester/src/logic/game_tester.rs: 0/6 +0.00%
+|| dystrail-tester/src/logic/logic.rs: 0/11 +0.00%
+|| dystrail-tester/src/logic/playability.rs: 0/8 +0.00%
+|| dystrail-tester/src/logic/simulation.rs: 0/54
+|| dystrail-tester/src/logic/tester.rs: 0/11 +0.00%
+|| dystrail-web/src/components/ui/journey_scene/composition.rs: 0/11 +0.00%
+|| dystrail-web/src/components/ui/route_map/graphic.rs: 0/3 +0.00%
+|| dystrail-web/src/components/ui/route_map/labels.rs: 0/37 +0.00%
+|| dystrail-web/src/game.rs: 0/13 +0.00%
+|| dystrail-web/src/i18n/bundle.rs: 0/2 +0.00%
+|| dystrail-web/src/i18n/render.rs: 0/8 +0.00%
+|| dystrail-web/src/wasm_tests.rs: 0/9
+|| 
+78.81% coverage, 3511/4455 lines covered, +0.57% change in coverage

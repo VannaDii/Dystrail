@@ -1,15 +1,16 @@
+use dystrail_game::activities::Activity;
 use dystrail_game::boss::{self, BossConfig, BossOutcome};
 use dystrail_game::camp::{self, CampConfig};
 use dystrail_game::data::EncounterData;
 use dystrail_game::endgame::EndgameTravelCfg;
 use dystrail_game::{
     GameMode, GameState, JourneyController, MechanicalPolicyId, PaceId, PolicyId, StrategyId,
-    apply_daily_effect,
 };
 
 use crate::logic::policy::{GameplayStrategy, PlayerPolicy, PolicyDecision};
 
 use dystrail_game::pacing::PacingConfig;
+use dystrail_game::repairs::RepairChoice;
 
 /// Configuration for a simulation session.
 #[derive(Debug, Clone, Copy)]
@@ -93,7 +94,6 @@ impl SimulationSession {
         boss_config: BossConfig,
     ) -> Self {
         let mut state = GameState::default().with_seed(config.seed, config.mode, encounters);
-        state.trail_distance = boss_config.distance_required;
         let strategy_id = strategy_id_for(config.strategy);
         let mut controller = JourneyController::new(
             MechanicalPolicyId::DystrailLegacy,
@@ -102,7 +102,10 @@ impl SimulationSession {
             config.seed,
         );
         controller.set_endgame_config(endgame_config);
+        controller.configure_state(&mut state);
+        state.sync_route_location();
         state.policy = Some(strategy_id.into());
+        state.continuity.interactive_repairs = true;
         state.attach_rng_bundle(controller.rng_bundle());
         Self {
             state,
@@ -132,9 +135,26 @@ impl SimulationSession {
         self.state
     }
 
-    pub fn advance(&mut self, policy: &mut dyn PlayerPolicy) -> TurnOutcome {
-        self.state.tick_camp_cooldowns();
-        self.state.refresh_exec_order();
+    pub fn advance(
+        &mut self,
+        policy: &mut dyn PlayerPolicy,
+        visit_stop: impl FnOnce(&mut GameState),
+    ) -> TurnOutcome {
+        // Follow the browser's decision priority before spending time on the road.
+        if self.has_ended() {
+            return self.finished_turn(None);
+        }
+        self.resolve_crew_care();
+        if self.has_ended() {
+            return self.finished_turn(None);
+        }
+        let decision = self.resolve_encounter(policy);
+        if self.has_ended() {
+            return self.finished_turn(decision);
+        }
+        self.resolve_repair();
+        visit_stop(&mut self.state);
+        self.gather_before_departure();
 
         if self.state.boss.readiness.ready
             && !self.state.boss.outcome.attempted
@@ -144,78 +164,31 @@ impl SimulationSession {
             self.state.day_state.rest.rest_requested = true;
         }
 
-        let forage_cfg = self.camp_config.forage.clone();
-        if forage_cfg.supplies > 0
-            && self.state.camp.forage_cooldown == 0
-            && self.state.stats.supplies <= forage_cfg.supplies.max(2)
-        {
-            let camp_cfg = self.camp_config.clone();
-            let outcome = camp::camp_forage(self.state_mut(), &camp_cfg);
-            let day = self.state.day;
-            let game_ended = day >= self.max_days;
+        if let Some(message) = self.camp_before_travel() {
             return TurnOutcome {
-                day,
-                travel_message: outcome.message,
+                day: self.state.day,
+                travel_message: message,
                 breakdown_started: false,
-                game_ended,
-                decision: None,
+                game_ended: self.has_ended(),
+                decision,
                 miles_traveled_actual: self.state.miles_traveled_actual,
             };
         }
 
-        let wants_rest = self.state.day_state.rest.rest_requested || self.state.should_auto_rest();
-
-        if wants_rest {
-            self.state.day_state.rest.rest_requested = false;
-            let camp_cfg = self.camp_config.clone();
-            let outcome = camp::camp_rest(self.state_mut(), &camp_cfg);
-            if outcome.rested {
-                let day = self.state.day;
-                let game_ended = day >= self.max_days;
-                return TurnOutcome {
-                    day,
-                    travel_message: outcome.message,
-                    breakdown_started: false,
-                    game_ended,
-                    decision: None,
-                    miles_traveled_actual: self.state.miles_traveled_actual,
-                };
-            }
-        }
-
         self.adjust_daily_pace();
-        self.state.apply_pace_and_diet(&self.pacing_config);
-        let cfg = self.controller.config();
-        let _ = apply_daily_effect(&cfg.daily, &mut self.state);
-
-        let mut decision: Option<DecisionRecord> = None;
-
-        if let Some(encounter) = self.state.current_encounter.clone() {
-            let PolicyDecision {
-                choice_index,
-                rationale,
-            } = policy.pick_choice(&self.state, &encounter);
-
-            let safe_index = clamp_choice_index(choice_index, &encounter);
-            let choice_label = encounter.choices.get(safe_index).map_or_else(
-                || "No available choice".to_string(),
-                |choice| choice.label.clone(),
-            );
-
-            decision = Some(DecisionRecord {
-                day: self.state.day,
-                encounter_id: encounter.id.clone(),
-                encounter_name: encounter.name.clone(),
-                choice_index: safe_index,
-                choice_label,
-                policy_name: policy.name().to_string(),
-                rationale,
-            });
-
-            self.state.apply_choice(safe_index);
+        if !self.state.day_state.lifecycle.day_initialized {
+            self.state.apply_pace_and_diet(&self.pacing_config);
         }
 
+        let before = self.state.clone();
         let outcome = self.controller.tick_day(&mut self.state);
+        if self.state.day > before.day
+            || self.state.miles_traveled_actual > before.miles_traveled_actual
+        {
+            self.state
+                .update_route_services(before.miles_traveled_actual);
+        }
+        self.state.check_crew(before.day);
         let mut game_ended = outcome.ended;
         let mut travel_message = outcome.log_key.clone();
         let breakdown_started = outcome.breakdown_started;
@@ -226,12 +199,13 @@ impl SimulationSession {
 
         if self.state.boss.readiness.ready && !self.state.boss.outcome.attempted {
             let boss_cfg = self.boss_config.clone();
+            let before = self.state.clone();
             let outcome = boss::run_boss_minigame(self.state_mut(), &boss_cfg);
+            self.state.advance_clock(&before, 120);
             game_ended = true;
             travel_message = match outcome {
                 BossOutcome::PassedCloture => String::from("log.boss.victory"),
                 BossOutcome::SurvivedFlood => String::from("log.boss.failure"),
-                BossOutcome::PantsEmergency => String::from("log.pants-emergency"),
                 BossOutcome::Exhausted => String::from("log.sanity-collapse"),
             };
             self.state.boss.readiness.ready = false;
@@ -245,6 +219,104 @@ impl SimulationSession {
             decision,
             miles_traveled_actual: self.state.miles_traveled_actual,
         }
+    }
+
+    const fn has_ended(&self) -> bool {
+        self.state.ending.is_some()
+            || self.state.continuity.abandoned
+            || self.state.boss.outcome.attempted
+            || self.state.day >= self.max_days
+    }
+
+    fn finished_turn(&self, decision: Option<DecisionRecord>) -> TurnOutcome {
+        TurnOutcome {
+            day: self.state.day,
+            travel_message: String::from("Journey ended"),
+            breakdown_started: false,
+            game_ended: true,
+            decision,
+            miles_traveled_actual: self.state.miles_traveled_actual,
+        }
+    }
+
+    fn camp_before_travel(&mut self) -> Option<String> {
+        let camp_cfg = self.camp_config.clone();
+        let before = self.state.clone();
+        if self.state.stats.supplies <= 2 && self.state.can_activity(Activity::Forage) {
+            let outcome = camp::camp_forage(self.state_mut(), &camp_cfg);
+            return Some(outcome.message);
+        }
+        if self.state.day_state.rest.rest_requested || self.state.should_auto_rest() {
+            self.state.day_state.rest.rest_requested = false;
+            let outcome = camp::camp_rest(self.state_mut(), &camp_cfg);
+            if outcome.rested {
+                self.state.advance_clock(&before, 0);
+                return Some(outcome.message);
+            }
+        }
+        None
+    }
+
+    fn resolve_encounter(&mut self, policy: &mut dyn PlayerPolicy) -> Option<DecisionRecord> {
+        let encounter = self.state.current_encounter.clone()?;
+        let PolicyDecision {
+            choice_index,
+            rationale,
+        } = policy.pick_choice(&self.state, &encounter);
+        let safe_index = clamp_choice_index(choice_index, &encounter);
+        let choice_label = encounter.choices.get(safe_index).map_or_else(
+            || "No available choice".to_string(),
+            |choice| choice.label.clone(),
+        );
+        let decision = DecisionRecord {
+            day: self.state.day,
+            encounter_id: encounter.id,
+            encounter_name: encounter.name,
+            choice_index: safe_index,
+            choice_label,
+            policy_name: policy.name().to_string(),
+            rationale,
+        };
+        self.state.resolve_encounter_choice(safe_index);
+        Some(decision)
+    }
+
+    fn resolve_crew_care(&mut self) {
+        if self.state.continuity.crew_care.pending.is_none() {
+            return;
+        }
+        let before = self.state.clone();
+        let choice = if self.state.stats.supplies >= 2 { 0 } else { 2 };
+        if self.state.resolve_crew_care(choice).is_some() {
+            self.state.advance_clock(&before, 60);
+        }
+    }
+
+    fn resolve_repair(&mut self) {
+        let choice = RepairChoice::ALL
+            .into_iter()
+            .find(|c| self.state.can_repair(*c));
+        if let Some(choice) = choice {
+            let before = self.state.clone();
+            if self.state.choose_repair(choice) {
+                self.state.advance_clock(&before, choice.minutes());
+            }
+        }
+    }
+
+    fn gather_before_departure(&mut self) {
+        if self.state.stats.supplies > 10 {
+            return;
+        }
+        let action = if self.state.stats.supplies <= 4
+            && self.state.stats.hp >= 8
+            && self.state.stats.sanity >= 7
+        {
+            Activity::Glean
+        } else {
+            Activity::Forage
+        };
+        let _ = self.state.perform_activity(action);
     }
 
     fn adjust_daily_pace(&mut self) {
@@ -305,7 +377,7 @@ impl SimulationSession {
             }
         }
         if matches!(self.strategy, GameplayStrategy::ResourceManager)
-            && state.stats.pants >= 65
+            && state.stats.sanity <= 3
             && state.camp.rest_cooldown == 0
         {
             state.day_state.rest.rest_requested = true;
@@ -323,4 +395,250 @@ const fn clamp_choice_index(index: usize, encounter: &dystrail_game::data::Encou
     }
 }
 
-impl SimulationSession {}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::logic::game_tester::PlayabilityMetrics;
+    use dystrail_game::travel_time::{TRAVEL_DAY_END, TRAVEL_DAY_MINUTES, TRAVEL_DAY_START};
+
+    fn session() -> SimulationSession {
+        SimulationSession::new(
+            SimulationConfig::new(GameMode::Classic, GameplayStrategy::Balanced, 42),
+            EncounterData::empty(),
+            PacingConfig::default(),
+            CampConfig::default_config(),
+            EndgameTravelCfg::default_config(),
+            BossConfig::load_from_static(),
+        )
+    }
+
+    fn hearing_session(clock: u16) -> SimulationSession {
+        let mut session = SimulationSession::new(
+            SimulationConfig::new(GameMode::Deep, GameplayStrategy::ResourceManager, 1570),
+            EncounterData::empty(),
+            PacingConfig::default(),
+            CampConfig::default_config(),
+            EndgameTravelCfg::default_config(),
+            BossConfig::load_from_static(),
+        );
+        session.state.diet = dystrail_game::DietId::Quiet;
+        session.state.stats.allies = 0;
+        session.state.disease_cooldown = 100;
+        session.state.exec_order_cooldown = 100;
+        session.state.weather_state.today = dystrail_game::Weather::Clear;
+        session.state.weather_state.neutral_buffer = 100;
+        session.state.continuity.crew_care.last_check_day = u32::MAX;
+        session.state.apply_pace_and_diet(&session.pacing_config);
+        session.state.continuity.clock_minutes = clock;
+        session.state.stats.hp = 10;
+        session.state.stats.sanity = 10;
+        session.state.stats.supplies = 20;
+        session.state.camp.rest_cooldown = 2;
+        session.state.day_state.rest.rest_requested = false;
+        session.state.boss.readiness.ready = true;
+        session.state.boss.readiness.reached = true;
+        session
+    }
+
+    #[test]
+    fn final_hearing_spends_two_hours_once_and_records_every_stationary_day() {
+        for (clock, elapsed_days, final_clock, stationary_days) in [
+            (TRAVEL_DAY_START, 0, TRAVEL_DAY_START + 120, 1),
+            (TRAVEL_DAY_END - 120, 0, TRAVEL_DAY_END, 1),
+            (TRAVEL_DAY_END - 60, 1, TRAVEL_DAY_START + 60, 2),
+            (TRAVEL_DAY_END, 1, TRAVEL_DAY_START + 120, 2),
+        ] {
+            let mut session = hearing_session(clock);
+            let before = session.state.clone();
+            let mut policy = GameplayStrategy::ResourceManager.create_policy(1570);
+            let outcome = session.advance(policy.as_mut(), |_| {});
+            assert!(outcome.game_ended);
+            assert!(session.state.boss.outcome.attempted);
+            assert_eq!(session.state.day, before.day + elapsed_days);
+            assert_eq!(session.state.continuity.clock_minutes, final_clock);
+            assert_eq!(
+                elapsed_days * u32::from(TRAVEL_DAY_MINUTES) + u32::from(final_clock)
+                    - u32::from(clock),
+                120
+            );
+            assert_eq!(
+                session.state.miles_traveled_actual.to_bits(),
+                before.miles_traveled_actual.to_bits()
+            );
+            assert_eq!(session.state.continuity.driving_minutes_total, 0);
+            let mut metrics = PlayabilityMetrics::default();
+            metrics.finalize(&session.state, &outcome);
+            assert_eq!(metrics.non_travel_days, stationary_days);
+            assert_eq!(metrics.travel_days, 0);
+            assert_eq!(metrics.partial_travel_days, 0);
+            assert_eq!(metrics.miles_traveled.to_bits(), 0.0_f32.to_bits());
+            assert_eq!(metrics.days_with_camp, 0);
+            assert_eq!(metrics.days_with_repair, 0);
+
+            let finished = serde_json::to_value(&session.state).unwrap();
+            for reload in [false, true] {
+                if reload {
+                    session.state = serde_json::from_value(finished.clone()).unwrap();
+                }
+                let repeated = session.advance(policy.as_mut(), |_| {
+                    panic!("a completed hearing cannot perform another action");
+                });
+                assert!(repeated.game_ended);
+                assert_eq!(serde_json::to_value(&session.state).unwrap(), finished);
+            }
+
+            // Deferred daily costs cannot decide whether the elapsed day exists.
+            session.state.apply_pace_and_diet(&session.pacing_config);
+            let mut initialized_metrics = PlayabilityMetrics::default();
+            initialized_metrics.finalize(&session.state, &outcome);
+            assert_eq!(initialized_metrics.non_travel_days, metrics.non_travel_days);
+            assert_eq!(initialized_metrics.travel_days, metrics.travel_days);
+            assert_eq!(
+                initialized_metrics.partial_travel_days,
+                metrics.partial_travel_days
+            );
+            assert_eq!(
+                initialized_metrics.miles_traveled.to_bits(),
+                metrics.miles_traveled.to_bits()
+            );
+        }
+    }
+
+    #[test]
+    fn gathering_uses_the_players_cost_and_persisted_cooldown() {
+        let mut session = session();
+        session.state.stats.supplies = 5;
+        session.state.stats.sanity = 6;
+        let before = session.state.clone();
+        session.gather_before_departure();
+        assert_eq!(session.state.stats.supplies, 7);
+        assert_eq!(session.state.stats.sanity, 7);
+        assert_eq!(session.state.day, before.day);
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + Activity::Forage.minutes()
+        );
+        session.state =
+            serde_json::from_str(&serde_json::to_string(&session.state).unwrap()).unwrap();
+        session.gather_before_departure();
+        assert_eq!(session.state.stats.supplies, 7);
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + Activity::Forage.minutes()
+        );
+    }
+
+    #[test]
+    fn town_and_route_preparation_match_the_configured_journey() {
+        let mut session = session();
+        assert!(
+            (session.state.trail_distance - session.controller.config().victory_miles).abs()
+                < f32::EPSILON
+        );
+        session.state.continuity.route_services.stop = Some(100);
+        session.state.stats.supplies = 4;
+        session.gather_before_departure();
+        assert_eq!(
+            session.state.stats.supplies, 4,
+            "roadside gathering is unavailable in town"
+        );
+    }
+
+    #[test]
+    fn roadside_repairs_use_owned_parts_then_affordable_player_options() {
+        use dystrail_game::vehicle::{Breakdown, Part};
+        let mut session = session();
+        session.state.inventory.spares.battery = 1;
+        session.state.breakdown = Some(Breakdown {
+            part: Part::Battery,
+            day_started: 1,
+        });
+        session.state.vehicle.health = 80.0;
+        let before = session.state.clone();
+        session.resolve_repair();
+        assert!(session.state.breakdown.is_none());
+        assert_eq!(session.state.inventory.spares.battery, 0);
+        assert_eq!(session.state.budget_cents, before.budget_cents);
+        assert!((session.state.vehicle.health - 88.0).abs() < f32::EPSILON);
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 60
+        );
+
+        session.state.breakdown = Some(Breakdown {
+            part: Part::FuelPump,
+            day_started: 1,
+        });
+        session.state.budget_cents = 0;
+        session.state.stats.supplies = 0;
+        let before = session.state.clone();
+        session.resolve_repair();
+        assert!(session.state.breakdown.is_none());
+        assert_eq!(session.state.stats.sanity, before.stats.sanity - 2);
+        assert_eq!(session.state.stats.morale, before.stats.morale - 1);
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 240
+        );
+    }
+
+    #[test]
+    fn care_spends_supplies_and_a_fatal_deferral_stops_all_later_actions() {
+        let mut session = session();
+        session.state.persona_id = Some("journalist".into());
+        session.state.party.initialize("journalist", 42);
+        session.state.continuity.crew_care.pending = Some("journalist".into());
+        let before = session.state.clone();
+        session.resolve_crew_care();
+        assert_eq!(session.state.stats.supplies, before.stats.supplies - 2);
+        assert!(session.state.continuity.crew_care.pending.is_none());
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 60
+        );
+
+        session.state.stats.supplies = 0;
+        session.state.continuity.crew_care.pending = Some("journalist".into());
+        session
+            .state
+            .continuity
+            .crew_care
+            .strain
+            .insert("journalist".into(), 3);
+        let before = session.state.clone();
+        let outcome = session.advance(
+            GameplayStrategy::Balanced.create_policy(42).as_mut(),
+            |_| {
+                panic!("a terminal decision cannot visit a shop or gather supplies");
+            },
+        );
+        assert!(outcome.game_ended);
+        assert!(session.state.ending.is_some());
+        assert_eq!(session.state.day, before.day);
+        assert!(
+            (session.state.miles_traveled_actual - before.miles_traveled_actual).abs()
+                < f32::EPSILON
+        );
+        assert_eq!(session.state.stats.supplies, 0);
+        assert_eq!(
+            session.state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 60
+        );
+    }
+
+    #[test]
+    fn a_completed_camp_day_resets_the_clock_without_driving() {
+        let mut session = session();
+        session.state.continuity.clock_minutes = 19 * 60;
+        session.state.stats.sanity = 3;
+        session.state.day_state.rest.rest_requested = true;
+        let before = session.state.clone();
+        assert!(session.camp_before_travel().is_some());
+        assert_eq!(session.state.day, before.day + 1);
+        assert_eq!(session.state.continuity.clock_minutes, 8 * 60);
+        assert!(
+            (session.state.miles_traveled_actual - before.miles_traveled_actual).abs()
+                < f32::EPSILON
+        );
+    }
+}

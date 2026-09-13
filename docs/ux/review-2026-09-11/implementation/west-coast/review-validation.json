@@ -1,0 +1,21 @@
+{
+  "gallery_images": 8,
+  "all_gallery_images_loaded": true,
+  "southwest_encounters": 13,
+  "southwest_choices": 36,
+  "southwest_towns": 6,
+  "des_moines_search_count": "1 town",
+  "horizontal_overflow": false,
+  "care_tables": 2,
+  "scene_compositions": 12,
+  "routes": 6,
+  "downloads": {
+    "inventory.json": 200,
+    "encounter-options.csv": 200
+  },
+  "final_native_release": {
+    "command": "cargo build --workspace --release",
+    "exit_code": 0,
+    "seconds": 10.53
+  }
+}

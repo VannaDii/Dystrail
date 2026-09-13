@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "-p",
+    "dystrail-tester",
+    "trace_aggressive_stationary_days_seed_1480",
+    "--",
+    "--nocapture"
+  ],
+  "cwd": "/tmp/dystrail-retune-2026-09-13/trace-source",
+  "cargo_target_dir": "/Users/vanna/Source/Dystrail/target",
+  "debug_logs_enabled": false,
+  "exit_code": 0,
+  "seconds": 4.521,
+  "source_hashes_unchanged": true,
+  "log_path": "/tmp/dystrail-retune-2026-09-13/trace-aggressive-1480.log",
+  "log_sha256": "307f4357274a95364e9404d479d5a4b45fb4ac495ee7f8d3e2daa5f1c992bcf7",
+  "binary_path": "/tmp/dystrail-retune-2026-09-13/trace-aggressive-1480-test-binary",
+  "binary_sha256": "586b8a19ab005f8e3f50849ec2d78e7c280e770d67f27d82ceb36f4a63d91dd1",
+  "compiled_source_path_verified": "/private/tmp/dystrail-retune-2026-09-13/trace-source/dystrail-tester",
+  "analysis_artifacts": {
+    "trace-aggressive-1480-report.md": "c57e52dab395170f3a185ec45a672261b900d9974712386b77c542bca95bd3c3",
+    "trace-aggressive-1480-equivalence.json": "c671c8c757268383dd3111827b8415a40d051236b34a6cbaa37670975cf37425",
+    "trace-aggressive-1480-stationary.json": "8057f88235ea3d258b3799d3d28357a879f5247450177a85e6f1e354fedc6350",
+    "trace-aggressive-1480.jsonl": "8044e826806aef215520bf5b67bb2130114b74a3f4a7816b8c3826b23c41c5be",
+    "trace-aggressive-1480-ui-owner.json": "66043dad9fe7d1bc36740724f8e7958aad7bc471145e751f89787c32e3069dfc"
+  },
+  "source_unchanged_after_analysis": true
+}

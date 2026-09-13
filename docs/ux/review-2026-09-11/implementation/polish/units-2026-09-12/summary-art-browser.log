@@ -1,0 +1,65 @@
+(node:64262) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:64310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:64310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-OWwAQM --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=64315 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64315:64526911:0912/145515.146874:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+181ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] Trying to load the allocator multiple times. This is *not* supported. [30m+140ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64526928:0912/145515.302242:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+15ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64527017:0912/145515.302461:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64526928:0912/145515.302625:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64527017:0912/145515.302677:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64526928:0912/145515.302758:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64527017:0912/145515.302797:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64526928:0912/145515.302878:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64527017:0912/145515.302985:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64526928:0912/145515.303078:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315][err] [64324:64527017:0912/145515.303115:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  1 [chromium] › tests-e2e/inventory-status.spec.ts:6:5 › illustrated van and compact journal preserve every count and fit desktop and phone (2.4s)
+  [30;1mpw:browser [0m[pid=64315] <gracefully close start> [30m+2s[0m
+  [30;1mpw:browser [0m[pid=64315] <process did exit: exitCode=0, signal=null> [30m+136ms[0m
+  [30;1mpw:browser [0m[pid=64315] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64315] finished temporary directories cleanup [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=64315] <gracefully close end> [30m+0ms[0m
+(node:64405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64405) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:64405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-6VTreM --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=64410 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64410:64528465:0912/145518.087456:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+111ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] Trying to load the allocator multiple times. This is *not* supported. [30m+124ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528483:0912/145518.227066:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+15ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528562:0912/145518.227297:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528483:0912/145518.227470:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528562:0912/145518.227508:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528483:0912/145518.227591:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528562:0912/145518.227629:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528483:0912/145518.227719:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528562:0912/145518.227765:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528483:0912/145518.227863:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410][err] [64415:64528562:0912/145518.227903:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  2 [mobile] › tests-e2e/inventory-status.spec.ts:6:5 › illustrated van and compact journal preserve every count and fit desktop and phone (2.2s)
+  [30;1mpw:browser [0m[pid=64410] <gracefully close start> [30m+2s[0m
+  [30;1mpw:browser [0m[pid=64410] <process did exit: exitCode=0, signal=null> [30m+138ms[0m
+  [30;1mpw:browser [0m[pid=64410] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=64410] finished temporary directories cleanup [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=64410] <gracefully close end> [30m+0ms[0m
+
+  2 passed (5.8s)

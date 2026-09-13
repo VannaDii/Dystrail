@@ -1,0 +1,17 @@
+
+Running 8 tests using 1 worker
+
+(node:84628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:84628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.5s)
+  ✓  2 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.3s)
+  ✓  3 [chromium] › tests-e2e/continuity.spec.ts:43:5 › a named crew decision precedes map review and absence persists in later scenes (3.6s)
+  ✓  4 [chromium] › tests-e2e/continuity.spec.ts:56:5 › each persona map always fits its own traveled route (3.9s)
+  ✓  5 [chromium] › tests-e2e/continuity.spec.ts:69:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.9s)
+  ✓  6 [chromium] › tests-e2e/continuity.spec.ts:82:5 › visibility loss pauses automatic travel and does not resume it on return (6.5s)
+  ✓  7 [chromium] › tests-e2e/continuity.spec.ts:96:5 › outfitting cannot charge for supplies beyond capacity (1.5s)
+  ✓  8 [chromium] › tests-e2e/continuity.spec.ts:105:5 › encounter forecasts and the journal agree at stat caps (3.4s)
+
+  8 passed (31.3s)

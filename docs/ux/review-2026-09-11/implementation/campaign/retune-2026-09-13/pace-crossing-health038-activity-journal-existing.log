@@ -1,0 +1,49 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.16s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_game-4a70b9969783f953)
+
+running 5 tests
+test journal::tests::an_empty_or_out_of_range_turn_has_no_entries ... ok
+test journal::tests::turn_history_preserves_every_action_and_resets_only_when_travel_begins ... ok
+test journal::tests::an_after_hours_repair_uses_all_four_hours_of_the_next_active_day ... ok
+test journal::tests::clock_and_actual_history_survive_save_without_navigation_time ... ok
+test journal::tests::old_saves_ignore_the_retired_stat_without_changing_other_resources ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 191 filtered out; finished in 0.00s
+
+     Running tests/coverage_sweep.rs (/Users/vanna/Source/Dystrail/target/debug/deps/coverage_sweep-130cb208682f63cb)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.00s
+
+     Running tests/data_shapes.rs (/Users/vanna/Source/Dystrail/target/debug/deps/data_shapes-62c049de5ced5fec)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/full_campaign.rs (/Users/vanna/Source/Dystrail/target/debug/deps/full_campaign-b73aaa8e37fe4b22)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/stat_acceptance.rs (/Users/vanna/Source/Dystrail/target/debug/deps/stat_acceptance-d0c3f8a768763aa0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+     Running tests/system_coverage.rs (/Users/vanna/Source/Dystrail/target/debug/deps/system_coverage-611b70b24ba40a99)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+     Running tests/weather_paths.rs (/Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-698485da85f3b30e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+

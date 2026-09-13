@@ -61,11 +61,10 @@ fn resource_stress_expectation(summary: &SimulationSummary) -> Result<()> {
         "Stress scenario should end before the max day limit"
     );
     anyhow::ensure!(
-        metrics.final_supplies <= 0 || metrics.final_sanity <= 0 || metrics.final_pants >= 100,
-        "Stress scenario should fail via resource depletion; observed stats supplies={supplies}, sanity={sanity}, pants={pants}",
+        metrics.final_supplies <= 0 || metrics.final_sanity <= 0,
+        "Stress scenario should fail via resource depletion; observed stats supplies={supplies}, sanity={sanity}",
         supplies = metrics.final_supplies,
         sanity = metrics.final_sanity,
-        pants = metrics.final_pants
     );
     Ok(())
 }
@@ -85,8 +84,7 @@ fn deterministic_verification_expectation(
         anyhow::ensure!(
             summary.metrics.final_hp == comparison.metrics.final_hp
                 && summary.metrics.final_supplies == comparison.metrics.final_supplies
-                && summary.metrics.final_sanity == comparison.metrics.final_sanity
-                && summary.metrics.final_pants == comparison.metrics.final_pants,
+                && summary.metrics.final_sanity == comparison.metrics.final_sanity,
             "Deterministic runs diverged: original {metrics:?}, comparison {comparison:?}",
             metrics = summary.metrics,
             comparison = comparison.metrics
@@ -96,7 +94,6 @@ fn deterministic_verification_expectation(
 }
 
 const fn edge_case_survival_setup(game_state: &mut dystrail_game::GameState) {
-    game_state.stats.pants = 95;
     game_state.stats.sanity = 1;
     game_state.stats.supplies = 1;
     game_state.stats.hp = 1;
@@ -115,10 +112,7 @@ fn edge_case_survival_expectation(summary: &SimulationSummary) -> Result<()> {
         "Edge-case scenario should fail quickly"
     );
     anyhow::ensure!(
-        metrics.final_pants >= 100
-            || metrics.final_hp <= 0
-            || metrics.final_sanity <= 0
-            || metrics.final_supplies <= 0,
+        metrics.final_hp <= 0 || metrics.final_sanity <= 0 || metrics.final_supplies <= 0,
         "Edge-case run should trigger a failure condition; observed metrics {metrics:?}"
     );
     Ok(())

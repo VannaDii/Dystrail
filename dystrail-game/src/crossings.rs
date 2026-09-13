@@ -20,9 +20,8 @@ pub enum CrossingKind {
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DetourCfg {
-    pub days: i32,
+    pub hours: i32,
     pub supplies: i32,
-    pub pants: i32,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -39,8 +38,7 @@ pub struct PermitCfg {
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct FailCfg {
-    pub days: i32,
-    pub pants: i32,
+    pub hours: i32,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -53,9 +51,7 @@ pub struct CrossingTypeCfg {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PartialDetour {
     #[serde(default)]
-    pub days: Option<i32>,
-    #[serde(default)]
-    pub pants: Option<i32>,
+    pub hours: Option<i32>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -183,6 +179,22 @@ impl ThresholdTable {
                 .set(season, entry);
         }
 
+        for region in [
+            Region::PacificCoast,
+            Region::MountainWest,
+            Region::Southwest,
+        ] {
+            for &(source, season, entry) in DEFAULTS {
+                if source == Region::Heartland {
+                    table
+                        .regions
+                        .entry(region.asset_key().to_string())
+                        .or_default()
+                        .set(season, entry);
+                }
+            }
+        }
+
         table
     }
 
@@ -213,14 +225,13 @@ impl Default for CrossingConfig {
             CrossingKind::Checkpoint,
             CrossingTypeCfg {
                 detour: DetourCfg {
-                    days: 2,
+                    hours: 2,
                     supplies: -2,
-                    pants: 1,
                 },
                 bribe: BribeCfg {
                     base_cost_cents: 1000, // $10.00
                     success_chance: 1.0,
-                    on_fail: FailCfg { days: 0, pants: 0 },
+                    on_fail: FailCfg { hours: 0 },
                 },
                 permit: PermitCfg { cred_gain: 1 },
             },
@@ -231,14 +242,13 @@ impl Default for CrossingConfig {
             CrossingKind::BridgeOut,
             CrossingTypeCfg {
                 detour: DetourCfg {
-                    days: 3,
+                    hours: 3,
                     supplies: -3,
-                    pants: 2,
                 },
                 bribe: BribeCfg {
                     base_cost_cents: 1500, // $15.00
                     success_chance: 1.0,
-                    on_fail: FailCfg { days: 0, pants: 0 },
+                    on_fail: FailCfg { hours: 0 },
                 },
                 permit: PermitCfg { cred_gain: 1 },
             },
@@ -249,10 +259,7 @@ impl Default for CrossingConfig {
         weather_mods.insert(
             crate::weather::Weather::Storm,
             WeatherDetourMod {
-                detour: PartialDetour {
-                    days: Some(1),
-                    pants: Some(1),
-                },
+                detour: PartialDetour { hours: Some(1) },
             },
         );
 
@@ -261,7 +268,7 @@ impl Default for CrossingConfig {
             "Shutdown".to_string(),
             ExecBribeMod {
                 bribe_success_chance: 0.5,
-                on_fail: FailCfg { days: 1, pants: 3 },
+                on_fail: FailCfg { hours: 1 },
             },
         );
 
@@ -308,20 +315,21 @@ pub fn apply_bribe(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Crossi
 pub fn apply_detour(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: CrossingKind) -> String {
     let type_cfg = cfg.types.get(&kind).unwrap();
     gs.stats.supplies += type_cfg.detour.supplies; // Can be negative (cost)
-    gs.stats.pants += type_cfg.detour.pants;
-    let detour_days = type_cfg.detour.days.max(1);
-    let partial = crate::day_accounting::partial_day_miles(gs, 0.0);
-    gs.record_travel_day(crate::journey::TravelDayKind::Partial, partial, "detour");
-    gs.end_of_day();
-    if detour_days > 1 {
-        let extra = u32::try_from(detour_days - 1).unwrap_or(0);
-        gs.advance_days_with_credit(
-            extra,
-            crate::journey::TravelDayKind::Partial,
-            partial,
-            "detour",
-        );
-    }
+
+    let weather_hours = cfg
+        .global_mods
+        .weather
+        .get(&gs.weather_state.today)
+        .and_then(|modifier| modifier.detour.hours)
+        .unwrap_or(0);
+    let hours = (type_cfg.detour.hours + weather_hours).max(1);
+    let before = gs.clone();
+    gs.start_of_day();
+    gs.add_day_reason_tag("detour");
+    gs.advance_clock(
+        &before,
+        u16::try_from(hours).unwrap_or(u16::MAX).saturating_mul(60),
+    );
     "crossing.result.detour.success".to_string()
 }
 
@@ -340,17 +348,7 @@ pub fn apply_permit(gs: &mut crate::GameState, cfg: &CrossingConfig, kind: Cross
 /// Calculate bribe cost based on base cost and discount
 #[must_use]
 pub fn calculate_bribe_cost(base_cost: i64, discount_pct: i32) -> i64 {
-    if discount_pct <= 0 {
-        return base_cost;
-    }
-    let clamped_pct = discount_pct.clamp(0, 100);
-    let numerator = base_cost.saturating_mul(i64::from(100 - clamped_pct));
-    let (quot, rem) = (numerator.div_euclid(100), numerator.rem_euclid(100));
-    if rem == 0 {
-        quot
-    } else {
-        quot.saturating_add(1)
-    }
+    crate::store::calculate_effective_price(base_cost, f64::from(discount_pct))
 }
 
 /// Check if player can afford bribe
@@ -382,31 +380,36 @@ pub fn can_use_permit(gs: &crate::GameState, _kind: &CrossingKind) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::journey::{RngBundle, TravelDayKind};
+    use crate::journey::RngBundle;
     use crate::state::GameState;
     use std::rc::Rc;
 
     #[test]
-    fn apply_detour_records_partial_day() {
+    fn apply_detour_spends_hours_without_inventing_miles() {
         let mut state = GameState::default();
         state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(5)));
+        state.start_of_day();
+        state.weather_state.today = crate::Weather::Clear;
         let cfg = CrossingConfig::default();
-        let baseline_records = state.day_records.len();
-
+        let before = state.clone();
         let result = apply_detour(&mut state, &cfg, CrossingKind::BridgeOut);
-
         assert_eq!(result, "crossing.result.detour.success");
-        let added = state.day_records.len().saturating_sub(baseline_records);
-        assert!(
-            added >= 1,
-            "expected detour to add at least one recorded day, got {added}"
+        assert_eq!(state.day, before.day);
+        assert_eq!(
+            state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 180
         );
-        let last_days = &state.day_records[(state.day_records.len() - added)..];
+        assert_eq!(
+            (state.miles_traveled_actual).to_bits(),
+            (before.miles_traveled_actual).to_bits()
+        );
+        assert!(state.day_records.is_empty());
         assert!(
-            last_days
+            state
+                .ledger
+                .current_day_reason_tags
                 .iter()
-                .all(|rec| rec.kind == TravelDayKind::Partial)
+                .any(|tag| tag == "detour")
         );
-        assert!(last_days.iter().all(|rec| rec.miles > 0.0));
     }
 }

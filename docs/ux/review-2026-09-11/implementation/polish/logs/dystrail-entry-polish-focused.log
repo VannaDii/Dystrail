@@ -1,0 +1,23 @@
+(node:70057) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:70077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70077) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:70077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (2.8s)
+  ✓  2 [chromium] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.2s)
+  ✓  3 [chromium] › tests-e2e/turn-history.spec.ts:60:5 › routine travel always has a visible title, including empty and transition-only messages (2.9s)
+(node:70229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70229) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:70229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (3.7s)
+  ✓  5 [mobile] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.8s)
+  ✓  6 [mobile] › tests-e2e/turn-history.spec.ts:60:5 › routine travel always has a visible title, including empty and transition-only messages (3.0s)
+
+  6 passed (22.7s)

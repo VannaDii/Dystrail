@@ -1,0 +1,53 @@
+{
+  "phase": "before",
+  "frozen_patch_sha256": "edb4dbad78c01a46882009162e4d2c46ea103281c3c24bb023f67af73321aeee",
+  "commands": {
+    "reference": {
+      "argv": [
+        "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-tester",
+        "--mode",
+        "logic",
+        "--scenarios",
+        "real-game",
+        "--seeds",
+        "1351,1391",
+        "--iterations",
+        "1",
+        "--verbose",
+        "--report",
+        "csv",
+        "--output",
+        "/tmp/dystrail-retune-2026-09-13/trace-rm-before-reference.csv"
+      ],
+      "cwd": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-source",
+      "exit_code": 1,
+      "seconds": 0.105,
+      "log_path": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-reference.log",
+      "log_sha256": "3e18905c1e74314584872ecc8488571453a4da846b6cccc5916e5ed397a2defa"
+    },
+    "diagnostic": {
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "dystrail-tester",
+        "trace_resource_manager_activity_settlement",
+        "--",
+        "--nocapture"
+      ],
+      "cwd": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-source",
+      "exit_code": 101,
+      "seconds": 3.358,
+      "log_path": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-diagnostic.log",
+      "log_sha256": "05e0e59af167ea27677b8c090f272e8ac008c103977c382736819b9463537be9"
+    }
+  },
+  "reference_campaign_parity": {
+    "rows": 16,
+    "fields_per_row": 48,
+    "exact": true,
+    "differences": {},
+    "csv_sha256": "716a533f79dac40f2fc35fca79b708cee3b0c6798283e0d168e6d5ad45f67ae1"
+  },
+  "source_hashes_unchanged": true
+}

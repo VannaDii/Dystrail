@@ -1,0 +1,40 @@
+{
+  "scope": "Complete dystrail-game engine package, all features and existing unit/integration tests; no source exclusions. Test code appears in instrumentation totals.",
+  "totals": {
+    "branches": {
+      "count": 0,
+      "covered": 0,
+      "notcovered": 0,
+      "percent": 0
+    },
+    "functions": {
+      "count": 992,
+      "covered": 932,
+      "percent": 93.95161290322581
+    },
+    "instantiations": {
+      "count": 1717,
+      "covered": 1431,
+      "percent": 83.34304018637158
+    },
+    "lines": {
+      "count": 11424,
+      "covered": 10613,
+      "percent": 92.90091036414566
+    },
+    "mcdc": {
+      "count": 0,
+      "covered": 0,
+      "notcovered": 0,
+      "percent": 0
+    },
+    "regions": {
+      "count": 16111,
+      "covered": 15050,
+      "notcovered": 1061,
+      "percent": 93.41443734094717
+    }
+  },
+  "files": 37,
+  "branch_coverage": "Not collected by this LLVM line/region run"
+}

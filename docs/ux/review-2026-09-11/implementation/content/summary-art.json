@@ -1,0 +1,32 @@
+{
+  "assets": [
+    {
+      "id": "cash",
+      "path": "dystrail-web/static/img/status/cash-v1.png",
+      "prompt": "Create a single inventory illustration for a charming 1990s pixel-art road-trip game. A small worn chestnut-brown leather wallet, open, with a neat visible stack of sage-green banknotes and three golden coins spilling in front. Cash should be instantly readable at 64 pixels. Three-quarter front view, crisp deliberate square pixels, clean dark navy outline, warm cream highlights, limited deep teal, olive, brown and gold palette. Centered isolated object, fills 85 percent of square canvas. Transparent background with actual alpha. No scene, no ground, no frame, no typography, no lettering, no real currency portrait, no watermark. Match handcrafted retro adventure-game inventory art; not a flat vector icon, not photorealistic.",
+      "generator": "image_gen",
+      "date": "2026-09-12",
+      "use": "Van summary: Cash",
+      "sha256": "b92f3b6148bc27dc957af1d430a6c1ad2ced71e49142ea83524f6b2d8e18a237",
+      "bytes": 1253484,
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "distance",
+      "path": "dystrail-web/static/img/status/distance-v1.png",
+      "prompt": "Create a single inventory illustration for a charming 1990s pixel-art road-trip game. A small folded cream paper road map with a bold winding orange route and a little brass compass resting at its lower right corner. Map is a simple fictional route, no place names. This means distance traveled and should be instantly readable at 64 pixels. Three-quarter front view, crisp deliberate square pixels, clean dark navy outline, warm cream highlights, limited deep teal, olive and gold palette. Centered isolated object, fills 85 percent of square canvas. Transparent background with actual alpha. No scene, no ground, no frame, no typography, no lettering, no watermark. Match handcrafted retro adventure-game inventory art; not a flat vector icon, not photorealistic.",
+      "generator": "image_gen",
+      "date": "2026-09-12",
+      "use": "Van summary: Miles traveled",
+      "sha256": "bb378023de222cca1a10144cedbbdb95cc57954d372b4488e935eb747d074ca5",
+      "bytes": 1143953,
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ]
+}

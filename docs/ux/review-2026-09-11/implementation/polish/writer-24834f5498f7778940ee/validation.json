@@ -1,0 +1,92 @@
+{
+  "revision": "24834f5498f7778940ee",
+  "artifact": "/tmp/dystrail-writer-final-web",
+  "manifest_sha256": "03a4aa2482f042800cd4d6eb937fbe3b845430f4a01779700755a202d5e8fc18",
+  "preview_published": true,
+  "production_published": true,
+  "native": {
+    "passed": 322,
+    "failed": 3,
+    "exit": 101,
+    "remaining": [
+      "journey_config_snapshot_stable",
+      "deterministic_csv_digest_for_fixed_seed",
+      "deterministic_journey_digest_baseline"
+    ]
+  },
+  "strict_native_clippy_exit": 0,
+  "strict_wasm_clippy_exit": 0,
+  "fmt_exit": 0,
+  "native_release_exit": 0,
+  "trunk_release_exit": 0,
+  "wasm": {
+    "registered": 2,
+    "passed": 2,
+    "exit": 0
+  },
+  "security": {
+    "advisory_exceptions_exit": 0,
+    "cargo_audit_exit": 0,
+    "cargo_deny_exit": 0
+  },
+  "localized_offline_browser": {
+    "passed": 18,
+    "exit": 0
+  },
+  "narrative_browser": {
+    "passed": 44,
+    "exit": 0,
+    "earlier_fixture_run": {
+      "passed": 19,
+      "failed": 3,
+      "interrupted": 1,
+      "not_run": 21,
+      "exit": 1,
+      "corrections": "Preserve all51 towns while pinning28 revised comments; compare exact saved mileage endpoints after imported route precision is normalized. No gameplay or cost assertions weakened."
+    }
+  },
+  "full_browser": {
+    "registered": 406,
+    "passed": 406,
+    "failed": 0,
+    "exit": 0,
+    "duration_minutes": 10.9
+  },
+  "unmodified_game_client_exit": 0,
+  "screenshots_inspected": [
+    "writer-ar-mobile.png",
+    "writer-it-chromium.png",
+    "game-client.png",
+    "mobile-status-review.png",
+    "mobile-impact-review.png",
+    "production-phone.png"
+  ],
+  "frozen_source_sha_file": "/tmp/dystrail-writers-2026-09-12/release-source-hashes-5-final.json",
+  "camp_recovery": 4,
+  "excluded_balance_experiment": 6,
+  "remaining_balance_acceptance": true,
+  "notes": "Rich narrative falls back to English in16locales. Device home-screen installation and final native Safari rerun are not newly verified.",
+  "browser_platform": "Chrome desktop and phone viewport emulation; this run is not physical-device or native Safari verification.",
+  "production_status": "Verified live and after a complete offline browser restart.",
+  "production": {
+    "url": "https://dystrail.com/play/",
+    "commit": "84dd03513a908f4e2c08b2664acd6258bd9e10d0",
+    "run": "https://github.com/VannaDii/Dystrail/actions/runs/34740330227",
+    "deployed_at_utc": "2026-09-13T05:27:39Z",
+    "live_files_verified": 171,
+    "non_game_files_preserved": 59,
+    "old_hashed_files_preserved": 10,
+    "cached_assets_verified": 101,
+    "prepared_images": 67,
+    "offline_cold_restart": true,
+    "save_fixture": "Preserved Day1, zero-mile saved crew; exact state and pending envelope after documented retired-field/default migrations. The prior verifier clicked The Van, and that exact selected tab persists. This is not a claim about all legacy save variants.",
+    "temporary_branch_rule_removed": true,
+    "main_only_rule_restored": true
+  },
+  "completion_alert": {
+    "automation_id": "dystrail-writer-release-complete",
+    "configured": true,
+    "pause_after_one_alert": true,
+    "phone_delivery_observable": false
+  }
+}

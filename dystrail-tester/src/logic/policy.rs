@@ -76,11 +76,16 @@ impl PlayerPolicy for ConservativePolicy {
         "Conservative"
     }
 
-    fn pick_choice(&mut self, _state: &GameState, encounter: &Encounter) -> PolicyDecision {
+    fn pick_choice(&mut self, state: &GameState, encounter: &Encounter) -> PolicyDecision {
         let (idx, risk) = encounter
             .choices
             .iter()
             .enumerate()
+            .filter(|(_, choice)| {
+                choice
+                    .effects
+                    .affordable(&state.stats, state.budget_cents, state.receipts.len())
+            })
             .map(|(idx, choice)| (idx, conservative_risk(choice)))
             .min_by_key(|(_, risk)| *risk)
             .unwrap_or((0, 0));
@@ -99,11 +104,16 @@ impl PlayerPolicy for AggressivePolicy {
         "Aggressive"
     }
 
-    fn pick_choice(&mut self, _state: &GameState, encounter: &Encounter) -> PolicyDecision {
+    fn pick_choice(&mut self, state: &GameState, encounter: &Encounter) -> PolicyDecision {
         let (idx, reward) = encounter
             .choices
             .iter()
             .enumerate()
+            .filter(|(_, choice)| {
+                choice
+                    .effects
+                    .affordable(&state.stats, state.budget_cents, state.receipts.len())
+            })
             .map(|(idx, choice)| (idx, aggressive_reward(choice)))
             .max_by_key(|(_, reward)| *reward)
             .unwrap_or((0, 0));
@@ -122,11 +132,16 @@ impl PlayerPolicy for BalancedPolicy {
         "Balanced"
     }
 
-    fn pick_choice(&mut self, _state: &GameState, encounter: &Encounter) -> PolicyDecision {
+    fn pick_choice(&mut self, state: &GameState, encounter: &Encounter) -> PolicyDecision {
         let (idx, score) = encounter
             .choices
             .iter()
             .enumerate()
+            .filter(|(_, choice)| {
+                choice
+                    .effects
+                    .affordable(&state.stats, state.budget_cents, state.receipts.len())
+            })
             .map(|(idx, choice)| (idx, balanced_score(choice)))
             .max_by_key(|(_, score)| *score)
             .unwrap_or((0, 0));
@@ -145,11 +160,16 @@ impl PlayerPolicy for ResourceManagerPolicy {
         "Resource Manager"
     }
 
-    fn pick_choice(&mut self, _state: &GameState, encounter: &Encounter) -> PolicyDecision {
+    fn pick_choice(&mut self, state: &GameState, encounter: &Encounter) -> PolicyDecision {
         let (idx, penalty) = encounter
             .choices
             .iter()
             .enumerate()
+            .filter(|(_, choice)| {
+                choice
+                    .effects
+                    .affordable(&state.stats, state.budget_cents, state.receipts.len())
+            })
             .map(|(idx, choice)| (idx, resource_penalty(choice)))
             .min_by_key(|(_, penalty)| *penalty)
             .unwrap_or((0, 0));
@@ -175,9 +195,6 @@ const fn conservative_risk(choice: &Choice) -> i32 {
     if eff.sanity < 0 {
         risk += (-eff.sanity) * 2;
     }
-    if eff.pants > 0 {
-        risk += eff.pants * 2;
-    }
     risk
 }
 
@@ -188,7 +205,6 @@ fn aggressive_reward(choice: &Choice) -> i32 {
     reward += eff.supplies.max(0) * 2;
     reward += eff.credibility.max(0) * 3;
     reward += eff.allies.max(0);
-    reward -= eff.pants.max(0);
     reward
 }
 
@@ -198,13 +214,7 @@ fn balanced_score(choice: &Choice) -> i32 {
 
 fn resource_penalty(choice: &Choice) -> i32 {
     let eff = &choice.effects;
-    let mut penalty = (-eff.hp).max(0) * 6
-        + (-eff.supplies).max(0) * 4
-        + (-eff.sanity).max(0) * 3
-        + eff.pants.max(0) * 5;
-    if eff.pants < 0 {
-        penalty -= (-eff.pants) * 3;
-    }
+    let mut penalty = (-eff.hp).max(0) * 6 + (-eff.supplies).max(0) * 4 + (-eff.sanity).max(0) * 3;
     if eff.supplies > 0 {
         penalty -= eff.supplies * 2;
     }

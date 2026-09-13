@@ -1,0 +1,1096 @@
+{
+  "revision": "1c145d89fef4fbab75a9",
+  "origin": "http://127.0.0.1:55725/play/",
+  "node": "v24.19.0",
+  "cases": [
+    {
+      "language": "en",
+      "id": "beltway_briefing",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+    },
+    {
+      "language": "en",
+      "id": "classic_union_blockade",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+    },
+    {
+      "language": "en",
+      "id": "classic_mail_drop",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+    },
+    {
+      "language": "en",
+      "id": "classic_mutual_aid_dispatch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+    },
+    {
+      "language": "en",
+      "id": "classic_neighborhood_watch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+    },
+    {
+      "language": "en",
+      "id": "classic_press_pool_qna",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Checking every total wears you out. Your receipts still give a stronger interview than anyone who keeps announcing how affordable everything is."
+    },
+    {
+      "language": "en",
+      "id": "deep_circuit_breaker",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+    },
+    {
+      "language": "en",
+      "id": "fundraiser_detour",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+    },
+    {
+      "language": "en",
+      "id": "deep_beltway_fastpass",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 1,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+    },
+    {
+      "language": "en",
+      "id": "overnight_briefing",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+    },
+    {
+      "language": "en",
+      "id": "sat_straw_reserve",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+    },
+    {
+      "language": "en",
+      "id": "sat_forecast_corrected",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+    },
+    {
+      "language": "en",
+      "id": "sat_alternator_tariff",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You stow the supplies, then perform the traditional American celebration: checking your balance in the parking lot."
+    },
+    {
+      "language": "en",
+      "id": "sat_hydration_pressure",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+    },
+    {
+      "language": "en",
+      "id": "sat_bibliography_emergency",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+    },
+    {
+      "language": "en",
+      "id": "sat_receipt_museum",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "You leave the quarter enjoying its promotion. None of you has ever had a performance review go quite that generously."
+    },
+    {
+      "language": "it",
+      "id": "beltway_briefing",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Ognuno ne legge una parte, ma i rimandi si confondono. Avete messo insieme la comprensione del gruppo davanti a un modulo progettato per sconfiggere un gruppo appena più numeroso."
+    },
+    {
+      "language": "it",
+      "id": "classic_union_blockade",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Vi mettete nei posti indicati dalla delegata. Il vostro gruppo di viaggiatori stanchi forma una bella fila, quando finalmente qualcuno li lascia stare dalla stessa parte."
+    },
+    {
+      "language": "it",
+      "id": "classic_mail_drop",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Leggete ogni pagina. Nel furgone vi sentite meno soli, e la valutazione del gatto riceve un voto di sfiducia unanime."
+    },
+    {
+      "language": "it",
+      "id": "classic_mutual_aid_dispatch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Seguite le indicazioni del volontario e fate entrambe le consegne. Un gruppo, un furgone, due consegne. Resistete alla tentazione di annunciare un Dipartimento."
+    },
+    {
+      "language": "it",
+      "id": "classic_neighborhood_watch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Vi salutano mentre prendete l’uscita giusta. Vi godete una rara esperienza vicina alla pubblica amministrazione che finisce sapendo dove andare."
+    },
+    {
+      "language": "it",
+      "id": "classic_press_pool_qna",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Controllare ogni totale vi sfinisce. I vostri scontrini concedono comunque un’intervista più convincente di chi continua ad annunciare quanto sia tutto conveniente."
+    },
+    {
+      "language": "it",
+      "id": "deep_circuit_breaker",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Controlla il ricambio mentre voi vi sgranchite e riposate. L’adattatore si raffredda. Anche chi stava negoziando sulle percentuali di batteria."
+    },
+    {
+      "language": "it",
+      "id": "fundraiser_detour",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Mettete il cibo sul tavolo e spiegate il viaggio. Gli organizzatori si ricordano dei viaggiatori che hanno contribuito con qualcosa che si poteva aprire e mangiare."
+    },
+    {
+      "language": "it",
+      "id": "deep_beltway_fastpass",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 1,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Vi fa entrare in un flusso regolare. Ripartite senza tutto il gruppo che spiega contemporaneamente come si guida: un notevole beneficio per la collettività."
+    },
+    {
+      "language": "it",
+      "id": "overnight_briefing",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Trovate un sostenitore del posto e un’occasione per riposare. Nessuno gli chiede cinque ragioni per interessarsi a un gruppo di sconosciuti."
+    },
+    {
+      "language": "it",
+      "id": "sat_straw_reserve",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Tornati nel furgone, qualcuno si chiede come far dichiarare un gruppo al verde un utensile da bevanda a rischio. Le prospettive di finanziamento potrebbero migliorare."
+    },
+    {
+      "language": "it",
+      "id": "sat_forecast_corrected",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Passate davanti ai chioschi del cibo mentre la pioggia punteggia il vetro. Il gruppo condivide lo stesso dolore inespresso per le patatine."
+    },
+    {
+      "language": "it",
+      "id": "sat_alternator_tariff",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Sistemi le provviste, poi passi alla tradizionale celebrazione americana: controllare il saldo nel parcheggio."
+    },
+    {
+      "language": "it",
+      "id": "sat_hydration_pressure",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Lo striscione umido sventola alle vostre spalle. Il gruppo conclude che la libertà ha un odore sospettosamente simile a un gruppo che ha ancora bisogno di una doccia."
+    },
+    {
+      "language": "it",
+      "id": "sat_bibliography_emergency",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Lasciate il lavoro e le sedie alle spalle. Il vostro piano sanitario torna a essere il gruppo che chiede se tutti stiano «probabilmente bene»."
+    },
+    {
+      "language": "it",
+      "id": "sat_receipt_museum",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Lasciate che la monetina si goda la promozione. Nessuno di voi ha mai avuto una valutazione del rendimento altrettanto generosa."
+    },
+    {
+      "language": "es",
+      "id": "beltway_briefing",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Cada uno lee una parte, pero las referencias cruzadas se enredan. Han reunido la comprensión del grupo ante un formulario diseñado para derrotar a un grupo un poco más numeroso."
+    },
+    {
+      "language": "es",
+      "id": "classic_union_blockade",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "El grupo ocupa los puestos que indica el delegado. Los viajeros cansados forman un buen piquete cuando por fin alguien les deja estar juntos."
+    },
+    {
+      "language": "es",
+      "id": "classic_mail_drop",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "El grupo lee todas las páginas. Todos en la furgoneta se sienten menos solos, y la evaluación de desempeño del gato recibe un voto de censura unánime."
+    },
+    {
+      "language": "es",
+      "id": "classic_mutual_aid_dispatch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Sigues las indicaciones del voluntario y haces las dos entregas. Un grupo, una furgoneta, dos repartos. Resistes la tentación de anunciar un Departamento."
+    },
+    {
+      "language": "es",
+      "id": "classic_neighborhood_watch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Se despiden mientras sales por la salida correcta. El grupo disfruta de una rara experiencia relacionada con la administración que termina sabiendo adónde van."
+    },
+    {
+      "language": "es",
+      "id": "classic_press_pool_qna",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Comprobar todos los totales te agota. Aun así, tus comprobantes dan una entrevista más sólida que cualquiera que no para de anunciar lo asequible que está todo."
+    },
+    {
+      "language": "es",
+      "id": "deep_circuit_breaker",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Comprueba el recambio mientras el grupo se estira y descansa. El adaptador se enfría. También se calman quienes llevaban negociando porcentajes de batería."
+    },
+    {
+      "language": "es",
+      "id": "fundraiser_detour",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Pones comida sobre la mesa y explicas el viaje. Los organizadores se acuerdan del grupo que aportó algo que podían abrir y comer."
+    },
+    {
+      "language": "es",
+      "id": "deep_beltway_fastpass",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 1,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Te indica que entres en una corriente de tráfico constante. El grupo se pone en marcha sin que todo el grupo explique a la vez cómo conducir: un beneficio público considerable."
+    },
+    {
+      "language": "es",
+      "id": "overnight_briefing",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Consigues un apoyo local y una oportunidad de descansar. Nadie le pide cinco razones para preocuparse por un grupo de desconocidos."
+    },
+    {
+      "language": "es",
+      "id": "sat_straw_reserve",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Ya en la furgoneta, alguien se pregunta cómo declarar a un grupo sin dinero utensilio para beber en peligro de extinción. Quizá así mejoren las perspectivas de financiación."
+    },
+    {
+      "language": "es",
+      "id": "sat_forecast_corrected",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Pasas junto a los puestos de comida mientras la lluvia salpica el cristal. El grupo comparte la misma pena callada por las patatas fritas."
+    },
+    {
+      "language": "es",
+      "id": "sat_alternator_tariff",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Guardas las provisiones y luego cumples con la tradicional celebración estadounidense: revisar tu saldo en el estacionamiento."
+    },
+    {
+      "language": "es",
+      "id": "sat_hydration_pressure",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "La pancarta húmeda ondea a tu espalda. El grupo concluye que la libertad huele sospechosamente a un grupo que aún necesita ducharse."
+    },
+    {
+      "language": "es",
+      "id": "sat_bibliography_emergency",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Dejas atrás el trabajo y las sillas. Tu plan de salud vuelve a ser el grupo preguntando si todos están «probablemente bien»."
+    },
+    {
+      "language": "es",
+      "id": "sat_receipt_museum",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "Dejas a la moneda disfrutando de su ascenso. Ninguno de ustedes ha tenido jamás una evaluación de desempeño tan generosa."
+    },
+    {
+      "language": "ar",
+      "id": "beltway_briefing",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "يقرأ كل منكم جزءًا، لكن الإحالات المتبادلة تختلط. جمعتم فهم الطاقم لنموذج صُمّم لإحباط مجموعة أكبر قليلًا."
+    },
+    {
+      "language": "ar",
+      "id": "classic_union_blockade",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تقفون في الأماكن التي يقترحها الممثل النقابي. يشكّل طاقمكم المتعب صفًا لا بأس به، حين يسمح له أحد أخيرًا بالوقوف معًا."
+    },
+    {
+      "language": "ar",
+      "id": "classic_mail_drop",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تقرؤون كل صفحة. يشعر كل من في الفان بوحدة أقل، وينال تقييم القط للأداء تصويتًا بالإجماع على حجب الثقة."
+    },
+    {
+      "language": "ar",
+      "id": "classic_mutual_aid_dispatch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تتبعون إرشادات المتطوّع وتنجزون التوصيلين. طاقم واحد، فان واحد، توصيلان. تقاومون الرغبة في إعلان إدارة حكومية."
+    },
+    {
+      "language": "ar",
+      "id": "classic_neighborhood_watch",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "يودّعونكم من المخرج الصحيح. تستمتعون بتجربة نادرة قريبة من الشأن الحكومي تنتهي بمعرفتكم إلى أين تذهبون."
+    },
+    {
+      "language": "ar",
+      "id": "classic_press_pool_qna",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "ترهقكم مراجعة كل مبلغ إجمالي. ومع ذلك، تقدّم إيصالاتكم مقابلة أقوى من أي شخص يواصل إعلان أن كل شيء في متناول اليد."
+    },
+    {
+      "language": "ar",
+      "id": "deep_circuit_breaker",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "يفحص البديل بينما تتمدّدون وتستريحون. يبرد المحوّل، وتهدأ معه أعصاب أفراد الطاقم الذين ظلوا يتفاوضون على نسب شحن البطاريات."
+    },
+    {
+      "language": "ar",
+      "id": "fundraiser_detour",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تضعون الطعام على الطاولة وتشرحون الرحلة. يتذكّر المنظّمون الطاقم الذي قدّم شيئًا يمكن فتحه وأكله."
+    },
+    {
+      "language": "ar",
+      "id": "deep_beltway_fastpass",
+      "mode": "deep",
+      "activeCrew": 3,
+      "choice": 1,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تشير لكم بالدخول في حركة منتظمة. تتحركون من دون أن يشرح الطاقم كله القيادة في وقت واحد، وهي منفعة عامة لا يُستهان بها."
+    },
+    {
+      "language": "ar",
+      "id": "overnight_briefing",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تكسبون داعمًا محليًا وفرصة للراحة. لا يطالبه أحد بخمسة أسباب للاهتمام بالغرباء."
+    },
+    {
+      "language": "ar",
+      "id": "sat_straw_reserve",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "في الفان، يتساءل أحدكم كيف يمكن إعلان طاقم مفلس أداة شرب مهدّدة. قد تتحسّن فرص التمويل."
+    },
+    {
+      "language": "ar",
+      "id": "sat_forecast_corrected",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تمرّون بأكشاك الطعام بينما ينقّط المطر الزجاج. يتشارك أفراد الطاقم الحزن الصامت نفسه على البطاطا المقلية."
+    },
+    {
+      "language": "ar",
+      "id": "sat_alternator_tariff",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 0,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تضع المؤن في مكانها، ثم تؤدي طقس الاحتفال الأمريكي التقليدي: تفقد رصيدك في موقف السيارات."
+    },
+    {
+      "language": "ar",
+      "id": "sat_hydration_pressure",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "ترفرف اللافتة المبتلّة خلفكم. يخلص الطاقم إلى أن رائحة الحرية تشبه على نحو مريب رائحة طاقم ما زال يحتاج إلى الاستحمام."
+    },
+    {
+      "language": "ar",
+      "id": "sat_bibliography_emergency",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تتركون العمل والكراسي وراءكم. تعود خطتكم الصحية إلى طاقم يسأل إن كان الجميع «بخير على الأرجح»."
+    },
+    {
+      "language": "ar",
+      "id": "sat_receipt_museum",
+      "mode": "classic",
+      "activeCrew": 3,
+      "choice": 2,
+      "widths": [
+        1440,
+        393
+      ],
+      "outcomeWidths": [
+        393,
+        1440
+      ],
+      "crewPreserved": true,
+      "outcomeText": "تتركون قطعة الربع دولار تستمتع بترقيتها. لم يحظَ أي منكم بتقييم أداء بلغ هذا الحد من السخاء."
+    }
+  ],
+  "errors": []
+}

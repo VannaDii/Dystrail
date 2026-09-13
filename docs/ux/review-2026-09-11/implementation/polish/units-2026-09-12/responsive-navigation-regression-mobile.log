@@ -1,0 +1,244 @@
+(node:2691) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 15 tests using 1 worker
+
+(node:2755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2755) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:2755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-UrVKon --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=2761 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2761:64915501:0912/152537.364463:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+105ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] ERROR: Failed normalizing string [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] Trying to load the allocator multiple times. This is *not* supported. [30m+138ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152537.518003:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+15ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152537.518215:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152537.518398:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152537.518441:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152537.518533:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152537.518573:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152537.518658:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152537.518730:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152537.518812:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152537.518850:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2761:64915503:0912/152539.736862:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+2s[0m
+  ✓   1 [mobile] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.1s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152540.557679:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+821ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152540.557733:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152540.557859:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152540.557910:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152540.558017:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152540.558051:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152540.558164:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152540.558214:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152540.558307:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152540.558377:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   2 [mobile] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.6s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152543.155401:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+3s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152543.155451:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152543.155554:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152543.155589:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152543.155675:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152543.155711:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152543.155801:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152543.155840:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152543.155923:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152543.155959:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   3 [mobile] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.7s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152545.866336:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+3s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152545.866391:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152545.867054:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152545.867095:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152545.867697:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152545.867740:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152545.867833:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152545.867871:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152545.867948:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152545.867985:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   4 [mobile] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (1.5s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152547.376255:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152547.376309:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152547.376970:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152547.377017:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152547.377550:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152547.377594:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152547.377685:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152547.377729:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152547.377812:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152547.377859:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   5 [mobile] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (6.7s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152554.046134:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+7s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152554.046190:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152554.046305:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152554.046345:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152554.046436:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152554.046483:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152554.046584:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152554.046657:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152554.046748:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152554.046818:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   6 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details use compact responsive space (1.6s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152555.696214:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152555.696279:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152555.696394:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152555.696437:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152555.696539:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152555.696578:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152555.696668:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152555.696712:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152555.696803:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152555.696851:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.356771:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake-all --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2 [30m+661ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.357309:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 1714409, parent pid: 2761 [30m+2ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.359079:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/vanna/Library/Application Support/Google/GoogleUpdater): 1983444496384B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.359090:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/): 1983444496384B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.359152:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3468:64925790:0912/152556.365960:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2 [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3468:64925790:0912/152556.366382:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 1714409, parent pid: 1 [30m+2ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3468:64925790:0912/152556.368059:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/vanna/Library/Application Support/Google/GoogleUpdater): 1983444496384B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3468:64925790:0912/152556.368071:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/): 1983444496384B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3468:64925790:0912/152556.368139:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.368607:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369589:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369655:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369724:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Chrome Dev/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369737:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369743:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/consentOptions/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369749:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Android File Transfer/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369754:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Chrome Beta/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369775:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/FIRApp/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152556.369918:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925809:0912/152556.370208:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake` [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.376563:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2 [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.376999:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 1714409, parent pid: 3465 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.378542:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/vanna/Library/Application Support/Google/GoogleUpdater): 1983444492288B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.378556:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/): 1983444492288B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.378613:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3471:64925818:0912/152556.385813:VERBOSE1:chrome/updater/updater.cc:374] Version: 152.0.7933.0, opt, ARM_64, command line: /Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2 [30m+8ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3471:64925818:0912/152556.386183:VERBOSE1:chrome/updater/updater.cc:377] OS version: 26.6.2, arch: arm64, System uptime (seconds): 1714409, parent pid: 1 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3471:64925818:0912/152556.387549:VERBOSE1:chrome/updater/updater.cc:382] Available disk space in install directory (/Users/vanna/Library/Application Support/Google/GoogleUpdater): 1983444492288B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3471:64925818:0912/152556.387559:VERBOSE1:chrome/updater/updater.cc:386] Available disk space in temporary directory (/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/): 1983444492288B (1.804TiB) / 3996276899840B (3.635TiB) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3471:64925818:0912/152556.387619:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.388060:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready. [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.388980:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389062:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389142:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Chrome Dev/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389154:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389181:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/consentOptions/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389190:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Android File Transfer/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389197:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/Chrome Beta/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389223:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/vanna/Library/Application Support/Google/FIRApp/Crashpad/settings.dat: No such file or directory (2) [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389391:VERBOSE1:chrome/updater/updater.cc:105] Crash reporting initialized. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152556.389573:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run [30m+0ms[0m
+  ✓   7 [mobile] › tests-e2e/scene-flow.spec.ts:22:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.9s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152558.582159:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152558.582211:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152558.583039:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152558.583112:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152558.583561:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152558.583603:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152558.583703:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152558.583746:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152558.583833:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152558.583873:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2761:64915503:0912/152602.920335:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+4s[0m
+  ✓   8 [mobile] › tests-e2e/scene-flow.spec.ts:32:5 › automatic map keeps moving and closes in three seconds without a second click (10.1s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152608.698611:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+6s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152608.698668:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152608.699245:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152608.699286:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152608.699711:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152608.699756:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152608.699844:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152608.699877:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152608.699973:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152608.700015:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓   9 [mobile] › tests-e2e/scene-flow.spec.ts:40:5 › automatic map can stay open, survives reload, and resumes with one click (12.1s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152620.807929:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+12s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152620.807976:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152620.808091:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152620.808129:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152620.808221:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152620.808261:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152620.808358:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152620.808403:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152620.808492:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152620.808530:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  10 [mobile] › tests-e2e/scene-flow.spec.ts:48:5 › manual map stays open and resumed travel stops at the next town (10.5s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152631.297910:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+10s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152631.297963:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152631.298072:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152631.298113:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152631.298221:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152631.298263:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152631.298346:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152631.298387:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152631.298476:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152631.298516:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152632.348936:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0 [30m+1s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152632.349429:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3469:64925813:0912/152632.349449:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--wake) returned 0. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925809:0912/152632.529703:VERBOSE1:chrome/updater/app/app_wakeall.cc:68] `/Users/vanna/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake` exited 0 [30m+180ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152632.529779:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152632.530122:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [3465:64925778:0912/152632.530132:VERBOSE1:chrome/updater/updater.cc:419] UpdaterMain (--wake-all) returned 0. [30m+0ms[0m
+  ✓  11 [mobile] › tests-e2e/scene-flow.spec.ts:56:5 › camp gathering uses cooldown cards, persists and becomes available again (2.9s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152634.247009:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152634.247078:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152634.247193:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152634.247236:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152634.247338:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152634.247383:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152634.247488:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152634.247529:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152634.247617:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152634.247657:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  12 [mobile] › tests-e2e/scene-flow.spec.ts:64:5 › help preference hides only optional tips, persists offline, and keeps information usable (2.5s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152636.753493:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+3s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152636.753547:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152636.753654:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152636.753696:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152636.753794:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152636.753834:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152636.753923:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152636.753960:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152636.754046:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152636.754086:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  13 [mobile] › tests-e2e/scene-flow.spec.ts:73:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (1.7s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152638.410090:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152638.410150:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152638.410893:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152638.410960:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152638.411426:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152638.411479:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152638.411582:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152638.411616:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152638.411707:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152638.411747:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2761:64915503:0912/152643.937098:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+6s[0m
+  ✓  14 [mobile] › tests-e2e/scene-flow.spec.ts:79:5 › a queued crew decision waits for the automatic map without advancing past it (7.6s)
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152645.968879:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+2s[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152645.968930:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152645.969683:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152645.969733:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152645.970294:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152645.970334:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152645.970438:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152645.970479:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915517:0912/152645.970570:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761][err] [2767:64915595:0912/152645.970612:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  15 [mobile] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.3s)
+  [30;1mpw:browser [0m[pid=2761] <gracefully close start> [30m+4s[0m
+  [30;1mpw:browser [0m[pid=2761] <kill> [30m+30s[0m
+  [30;1mpw:browser [0m[pid=2761] <will force kill> [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=2761] exception while trying to kill process: Error: kill ESRCH [30m+0ms[0m
+[31mTimed out waiting 120s for the test suite to run[39m
+[31mTimed out waiting 120s for the teardown for report begin to run[39m
+
+  15 passed (2.0m)
+  2 errors were not a part of any test, see above for details

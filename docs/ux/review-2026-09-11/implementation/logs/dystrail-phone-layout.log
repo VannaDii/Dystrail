@@ -1,0 +1,18 @@
+
+Running 6 tests using 1 worker
+
+(node:83021) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:83021) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [mobile] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (3.3s)
+  ✓  2 [mobile] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (621ms)
+  ✓  3 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (2.9s)
+  ✓  4 [mobile] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.4s)
+  ✓  5 [mobile] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (5.5s)
+  ✓  6 [mobile] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (3.3s)
+[31mTimed out waiting 90s for the test suite to run[39m
+[31mTimed out waiting 90s for the teardown for report begin to run[39m
+
+  6 passed (1.5m)
+  2 errors were not a part of any test, see above for details

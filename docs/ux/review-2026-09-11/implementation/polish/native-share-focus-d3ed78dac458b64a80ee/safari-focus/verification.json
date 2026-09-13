@@ -1,0 +1,12 @@
+{
+  "browser": "Native Safari",
+  "revision": "d3ed78dac458b64a80ee",
+  "basis": "Real Safari keyboard and focus behavior with controlled share promises; actual OS handoff is recorded separately.",
+  "checks": [],
+  "capabilities": {
+    "browserName": "Safari",
+    "browserVersion": "26.6.2"
+  },
+  "failure": "Error: {\"error\":\"element not interactable\",\"message\":\"\",\"stacktrace\":\"\"}\n    at call (file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:10:76)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async click (file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:15:100)\n    at async file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:33:3",
+  "passed": false
+}

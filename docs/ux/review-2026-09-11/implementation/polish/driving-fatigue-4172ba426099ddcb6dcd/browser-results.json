@@ -1,0 +1,7885 @@
+{
+  "revision": "4172ba426099ddcb6dcd",
+  "origin": "http://127.0.0.1:61666/play/",
+  "node": "v24.19.0",
+  "layouts": [
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 174.375
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 174.375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 191.765625
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 191.765625
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 191.765625
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 174.375
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 174.375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 214.671875,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.34375,
+            "right": 206.671875,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.34375,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.671875,
+            "right": 308,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.34375,
+            "right": 206.671875,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.34375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 263.34375,
+            "right": 381,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.671875,
+            "right": 255.34375,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12.015625,
+            "right": 129.671875,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.34375,
+            "right": 381,
+            "height": 136.578125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.671875,
+            "right": 255.34375,
+            "height": 136.578125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12.015625,
+            "right": 129.671875,
+            "height": 136.578125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 229.6875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 174.375
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 174.375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 249.9375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 191.765625
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 191.765625
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 191.765625
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 174.375
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 174.375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 214.671875,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.34375,
+            "right": 206.671875,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.34375,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.671875,
+            "right": 308,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.34375,
+            "right": 206.671875,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.34375,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 263.34375,
+            "right": 381,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.671875,
+            "right": 255.34375,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12.015625,
+            "right": 129.671875,
+            "height": 159.96875
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.34375,
+            "right": 381,
+            "height": 136.578125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.671875,
+            "right": 255.34375,
+            "height": 136.578125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12.015625,
+            "right": 129.671875,
+            "height": 136.578125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "width": 320,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 12,
+            "right": 105.328125,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 212.296875
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 12,
+            "right": 105.328125,
+            "height": 174.375
+          },
+          {
+            "client": 89,
+            "scroll": 89,
+            "left": 113.328125,
+            "right": 206.65625,
+            "height": 174.375
+          },
+          {
+            "client": 91,
+            "scroll": 91,
+            "left": 214.65625,
+            "right": 308,
+            "height": 174.375
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "width": 393,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 12,
+            "right": 129.65625,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 177.359375
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 12,
+            "right": 129.65625,
+            "height": 154.125
+          },
+          {
+            "client": 114,
+            "scroll": 114,
+            "left": 137.65625,
+            "right": 255.328125,
+            "height": 154.125
+          },
+          {
+            "client": 116,
+            "scroll": 116,
+            "left": 263.328125,
+            "right": 380.984375,
+            "height": 154.125
+          }
+        ]
+      }
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "width": 1440,
+      "buttons": 6,
+      "periods": true,
+      "icons": true,
+      "signedValues": true,
+      "geometry": {
+        "overflow": false,
+        "buttons": [
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 129,
+            "right": 317,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 325,
+            "right": 513,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 521,
+            "right": 709,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 731,
+            "right": 919,
+            "height": 130
+          },
+          {
+            "client": 184,
+            "scroll": 184,
+            "left": 927,
+            "right": 1115,
+            "height": 130
+          },
+          {
+            "client": 186,
+            "scroll": 186,
+            "left": 1123,
+            "right": 1311,
+            "height": 130
+          }
+        ]
+      }
+    }
+  ],
+  "help": [
+    {
+      "mode": "classic",
+      "language": "en",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "en",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "key": "pace_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "key": "diet_help",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true
+    }
+  ],
+  "driving": [
+    {
+      "mode": "classic",
+      "pace": "steady",
+      "mph": 60,
+      "fiveHourMiles": 300,
+      "sanityCost": 0,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 60,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 120,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 180,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 240,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 300,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    },
+    {
+      "mode": "classic",
+      "pace": "heated",
+      "mph": 70,
+      "fiveHourMiles": 350,
+      "sanityCost": 1,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 70,
+          "sanity": 8,
+          "remainder": 60,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 140,
+          "sanity": 8,
+          "remainder": 120,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 210,
+          "sanity": 8,
+          "remainder": 180,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 280,
+          "sanity": 8,
+          "remainder": 240,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 350,
+          "sanity": 7,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    },
+    {
+      "mode": "classic",
+      "pace": "blitz",
+      "mph": 80,
+      "fiveHourMiles": 400,
+      "sanityCost": 2,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 80,
+          "sanity": 8,
+          "remainder": 120,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 160,
+          "sanity": 8,
+          "remainder": 240,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 240,
+          "sanity": 7,
+          "remainder": 60,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 320,
+          "sanity": 7,
+          "remainder": 180,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 400,
+          "sanity": 6,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    },
+    {
+      "mode": "deep",
+      "pace": "steady",
+      "mph": 60,
+      "fiveHourMiles": 300,
+      "sanityCost": 0,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 60,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 120,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 180,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 240,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 300,
+          "sanity": 8,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    },
+    {
+      "mode": "deep",
+      "pace": "heated",
+      "mph": 70,
+      "fiveHourMiles": 350,
+      "sanityCost": 1,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 70,
+          "sanity": 8,
+          "remainder": 60,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 140,
+          "sanity": 8,
+          "remainder": 120,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 210,
+          "sanity": 8,
+          "remainder": 180,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 280,
+          "sanity": 8,
+          "remainder": 240,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 350,
+          "sanity": 7,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    },
+    {
+      "mode": "deep",
+      "pace": "blitz",
+      "mph": 80,
+      "fiveHourMiles": 400,
+      "sanityCost": 2,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 80,
+          "sanity": 8,
+          "remainder": 120,
+          "driving": 60
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 160,
+          "sanity": 8,
+          "remainder": 240,
+          "driving": 120
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 240,
+          "sanity": 7,
+          "remainder": 60,
+          "driving": 180
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 320,
+          "sanity": 7,
+          "remainder": 180,
+          "driving": 240
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 400,
+          "sanity": 6,
+          "remainder": 0,
+          "driving": 300
+        }
+      ],
+      "offlineReloadAtHour2": true
+    }
+  ],
+  "stationary": [
+    {
+      "mode": "classic",
+      "action": "Forage with a local guide",
+      "minutes": 120,
+      "drivingMinutes": 0,
+      "miles": 0,
+      "sanity": 1,
+      "supplies": 2,
+      "remainderBefore": 299,
+      "remainderAfter": 299
+    },
+    {
+      "mode": "deep",
+      "action": "Forage with a local guide",
+      "minutes": 120,
+      "drivingMinutes": 0,
+      "miles": 0,
+      "sanity": 1,
+      "supplies": 2,
+      "remainderBefore": 299,
+      "remainderAfter": 299
+    }
+  ],
+  "offline": [
+    {
+      "kind": "localized-controls-reload",
+      "mode": "classic",
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true
+    },
+    {
+      "kind": "localized-controls-reload",
+      "mode": "deep",
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "classic",
+      "pace": "steady",
+      "remainder": 0,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "classic",
+      "pace": "heated",
+      "remainder": 120,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "classic",
+      "pace": "blitz",
+      "remainder": 240,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "deep",
+      "pace": "steady",
+      "remainder": 0,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "deep",
+      "pace": "heated",
+      "remainder": 120,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    },
+    {
+      "kind": "partial-driving-reload",
+      "mode": "deep",
+      "pace": "blitz",
+      "remainder": 240,
+      "statePreserved": true,
+      "revision": "4172ba426099ddcb6dcd",
+      "state": "ready",
+      "cacheKeys": 120
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

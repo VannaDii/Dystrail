@@ -1,0 +1,220 @@
+[
+  {
+    "deep": false,
+    "policy": false,
+    "width": 393,
+    "overflow": false,
+    "bounds": {
+      ".resource-hud": {
+        "x": 0,
+        "y": 73,
+        "width": 393,
+        "height": 111
+      },
+      ".conditions-hud": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 70
+      },
+      ".hud-journey-settings": {
+        "x": 8,
+        "y": 189,
+        "width": 283.546875,
+        "height": 28
+      },
+      ".hud-trip-context": {
+        "x": 8,
+        "y": 220,
+        "width": 377,
+        "height": 30
+      },
+      ".hud-conditions": {
+        "x": 299.546875,
+        "y": 188,
+        "width": 85.453125,
+        "height": 30
+      }
+    },
+    "visibleCopy": [
+      "Day 8 · 09:15",
+      "Steady",
+      "Mixed",
+      "Next stop",
+      "Des Moines",
+      "$83",
+      "96%",
+      "?\n",
+      "☼",
+      "Clear",
+      "i"
+    ]
+  },
+  {
+    "deep": false,
+    "policy": true,
+    "width": 393,
+    "overflow": false,
+    "bounds": {
+      ".resource-hud": {
+        "x": 0,
+        "y": 73,
+        "width": 393,
+        "height": 111
+      },
+      ".conditions-hud": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 100
+      },
+      ".hud-journey-settings": {
+        "x": 8,
+        "y": 188,
+        "width": 377,
+        "height": 28
+      },
+      ".hud-trip-context": {
+        "x": 8,
+        "y": 218,
+        "width": 377,
+        "height": 30
+      },
+      ".hud-conditions": {
+        "x": 8,
+        "y": 250,
+        "width": 377,
+        "height": 30
+      }
+    },
+    "visibleCopy": [
+      "Day 8 · 09:15",
+      "Steady",
+      "Mixed",
+      "Next stop",
+      "Des Moines",
+      "$83",
+      "96%",
+      "?\n",
+      "❄",
+      "Cold Snap",
+      "i",
+      "§",
+      "Book Panic",
+      "i"
+    ]
+  },
+  {
+    "deep": false,
+    "errors": []
+  },
+  {
+    "deep": true,
+    "policy": false,
+    "width": 393,
+    "overflow": false,
+    "bounds": {
+      ".resource-hud": {
+        "x": 0,
+        "y": 73,
+        "width": 393,
+        "height": 111
+      },
+      ".conditions-hud": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 70
+      },
+      ".hud-journey-settings": {
+        "x": 8,
+        "y": 189,
+        "width": 283.546875,
+        "height": 28
+      },
+      ".hud-trip-context": {
+        "x": 8,
+        "y": 220,
+        "width": 377,
+        "height": 30
+      },
+      ".hud-conditions": {
+        "x": 299.546875,
+        "y": 188,
+        "width": 85.453125,
+        "height": 30
+      }
+    },
+    "visibleCopy": [
+      "Day 8 · 09:15",
+      "Steady",
+      "Mixed",
+      "Next stop",
+      "Des Moines",
+      "$83",
+      "96%",
+      "?\n",
+      "☼",
+      "Clear",
+      "i"
+    ]
+  },
+  {
+    "deep": true,
+    "policy": true,
+    "width": 393,
+    "overflow": false,
+    "bounds": {
+      ".resource-hud": {
+        "x": 0,
+        "y": 73,
+        "width": 393,
+        "height": 111
+      },
+      ".conditions-hud": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 100
+      },
+      ".hud-journey-settings": {
+        "x": 8,
+        "y": 188,
+        "width": 377,
+        "height": 28
+      },
+      ".hud-trip-context": {
+        "x": 8,
+        "y": 218,
+        "width": 377,
+        "height": 30
+      },
+      ".hud-conditions": {
+        "x": 8,
+        "y": 250,
+        "width": 377,
+        "height": 30
+      }
+    },
+    "visibleCopy": [
+      "Day 8 · 09:15",
+      "Steady",
+      "Mixed",
+      "Next stop",
+      "Des Moines",
+      "$83",
+      "96%",
+      "?\n",
+      "❄",
+      "Cold Snap",
+      "i",
+      "§",
+      "Book Panic",
+      "i"
+    ]
+  },
+  {
+    "deep": true,
+    "errors": []
+  }
+]

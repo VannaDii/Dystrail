@@ -1,0 +1,27 @@
+[
+  {
+    "check": "format",
+    "exit_code": 0,
+    "seconds": 0.23
+  },
+  {
+    "check": "game-tests",
+    "exit_code": 0,
+    "seconds": 4.06
+  },
+  {
+    "check": "clippy-native",
+    "exit_code": 0,
+    "seconds": 8.0
+  },
+  {
+    "check": "clippy-wasm",
+    "exit_code": 0,
+    "seconds": 8.17
+  },
+  {
+    "check": "build",
+    "exit_code": 0,
+    "seconds": 15.8
+  }
+]

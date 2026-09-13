@@ -1,0 +1,130 @@
+{
+  "revision": "1c145d89fef4fbab75a9",
+  "network": "offline before initial navigation",
+  "profile": "/tmp/dystrail-narrative-release-prep/old-production-profile",
+  "errors": [],
+  "uiNavigation": {
+    "before": {
+      "tab": 0,
+      "expanded": true
+    },
+    "after": {
+      "tab": 0,
+      "expanded": true
+    },
+    "reason": "The exact save captured after the deliberate Van selection survives a closed-browser restart."
+  },
+  "entireSavePreserved": true,
+  "cache": {
+    "revision": "1c145d89fef4fbab75a9",
+    "assets": 119,
+    "keys": 120,
+    "failures": [],
+    "marker": "1c145d89fef4fbab75a9",
+    "images": 68,
+    "decoded": true,
+    "fonts": {
+      "prepared": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "italic",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        }
+      ],
+      "documentStatus": "loaded",
+      "documentFaces": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        }
+      ]
+    },
+    "atGateRemoval": {
+      "revision": "1c145d89fef4fbab75a9",
+      "state": "ready",
+      "images": 68,
+      "decoded": true,
+      "fonts": 7,
+      "fontsLoaded": true,
+      "documentFontsStatus": "loaded",
+      "documentFontsLoaded": true
+    }
+  },
+  "crew": [
+    "Morgan",
+    "Sam",
+    "Drew",
+    "Dakota",
+    "Taylor",
+    "Release Check"
+  ],
+  "passed": true
+}

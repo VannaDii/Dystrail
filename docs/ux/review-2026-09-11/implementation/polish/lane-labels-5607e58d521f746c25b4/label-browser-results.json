@@ -1,0 +1,175 @@
+{
+  "revision": "5607e58d521f746c25b4",
+  "checks": [
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "noTimeChange": true
+    }
+  ],
+  "errors": [],
+  "offline": {
+    "revision": "5607e58d521f746c25b4",
+    "state": "ready",
+    "cacheKeys": 120,
+    "savedStatePreserved": true
+  },
+  "complete": true
+}

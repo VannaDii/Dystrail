@@ -1,4 +1,3 @@
-use super::weather::{format_delta, format_percent, format_weather_announcement};
 use super::*;
 use crate::game::vehicle::{Breakdown, Part};
 use crate::game::weather::{Weather, WeatherConfig, WeatherState};
@@ -38,12 +37,13 @@ fn sample_game_state() -> Rc<GameState> {
 }
 
 #[test]
-fn travel_panel_render_includes_weather_and_breakdown() {
+fn travel_panel_journal_is_available_during_a_breakdown() {
     crate::i18n::set_lang("en");
 
     let html = block_on(
         LocalServerRenderer::<TravelPanel>::with_props(Props {
-            on_travel: Callback::noop(),
+            detail: 1,
+            receipt: yew::Html::default(),
             logs: vec!["Welcome back".into()],
             game_state: Some(sample_game_state()),
             pacing_config: Rc::new(PacingConfig::default_config()),
@@ -54,36 +54,39 @@ fn travel_panel_render_includes_weather_and_breakdown() {
     );
 
     assert!(
-        html.contains("Weather: Storm"),
-        "SSR output should include weather state: {html}"
+        html.contains("Trail journal"),
+        "Journal access should appear: {html}"
     );
     assert!(
-        html.contains("Travel blocked until repaired."),
-        "Breakdown banner should be present when travel is blocked: {html}"
-    );
-    assert!(
-        html.contains("Log booting") || html.contains("Welcome back"),
-        "Rendered log entries should appear: {html}"
+        html.contains("Welcome back"),
+        "Journal logs should appear: {html}"
     );
 }
 
 #[test]
-fn helpers_format_readable_effects() {
-    let pos = format_delta("Supplies", 3);
-    let neg = format_delta("Supplies", -2);
-    assert_eq!(pos, "Supplies +3");
-    assert_eq!(neg, "Supplies -2");
-
-    let pct_pos = format_percent("Encounter", 0.25);
-    let pct_neg = format_percent("Encounter", -0.5);
-    assert_eq!(pct_pos, "Encounter +25%");
-    assert_eq!(pct_neg, "Encounter -50%");
-
-    let weather_cfg = WeatherConfig::default_config();
-    let announcement =
-        format_weather_announcement(Weather::Storm, weather_cfg.effects.get(&Weather::Storm));
-    assert!(
-        announcement.contains("Weather: Storm"),
-        "Announcement should mention current weather: {announcement}"
-    );
+fn weather_readout_reports_applied_exposure_without_spending_again() {
+    crate::i18n::set_lang("en");
+    let cfg = WeatherConfig::default_config();
+    let mut gs = GameState::default();
+    gs.weather_state.today = Weather::HeatWave;
+    gs.exposure_streak_heat = 2;
+    crate::game::weather::apply_weather_effects(&mut gs, &cfg);
+    let before = gs.stats.clone();
+    let readout = crate::components::ui::stats_bar::weather::readout(&gs, &cfg);
+    assert!(readout.cost.contains("Sanity -2"));
+    assert!(readout.cost.contains("Health -1"));
+    assert_eq!(readout.applied_day, Some(1));
+    assert_eq!(readout.changes.len(), 3);
+    assert_eq!(readout.rates.len(), 2);
+    let _ = crate::components::ui::stats_bar::weather::details(&readout);
+    assert_eq!(gs.stats, before);
+    gs.weather_state.today = Weather::ColdSnap;
+    gs.inventory.tags.insert("cold_resist".into());
+    crate::game::weather::apply_weather_effects(&mut gs, &cfg);
+    let protected = crate::components::ui::stats_bar::weather::readout(&gs, &cfg);
+    assert_eq!(protected.cost, "Distance -10%");
+    gs.weather_state.today = Weather::Clear;
+    let clear = crate::components::ui::stats_bar::weather::readout(&gs, &cfg);
+    assert_eq!(clear.cost, "No weather cost");
+    assert!(!clear.cost.contains("Health"));
 }

@@ -1,0 +1,272 @@
+{
+  "revision": "23cf83a1a7d5f9d02de9",
+  "activation": [
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 393,
+      "kind": "named-care",
+      "exactNamedProseAndOutcome": true,
+      "noHorizontalOverflow": true,
+      "careMinutes": 60,
+      "careSupplies": 2,
+      "offlineSavedStateUnchanged": true
+    }
+  ],
+  "layouts": [
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 1440,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 393,
+      "kind": "tariff",
+      "exactTitleDescriptionChoicesAndOutcome": true,
+      "quoteCashUnchanged": true,
+      "receiptAdded": true,
+      "choiceMinutes": 30,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "errors": []
+}

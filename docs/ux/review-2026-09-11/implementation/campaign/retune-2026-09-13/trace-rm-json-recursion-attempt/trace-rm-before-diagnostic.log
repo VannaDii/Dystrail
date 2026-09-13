@@ -1,0 +1,19 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/trace-rm-before-source/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/private/tmp/dystrail-retune-2026-09-13/trace-rm-before-source/dystrail-tester)
+error: recursion limit reached while expanding `$crate::json_internal!`
+  --> dystrail-tester/src/logic/simulation.rs:19:20
+   |
+19 |       let snapshot = serde_json::json!({
+   |  ____________________^
+20 | |         "stage": stage,
+21 | |         "seed": state.seed,
+22 | |         "mode": state.mode,
+...  |
+63 | |         "last_journal_entry": state.continuity.journal.last(),
+64 | |     });
+   | |______^
+   |
+   = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`dystrail_tester`)
+   = note: this error originates in the macro `$crate::json_internal` which comes from the expansion of the macro `serde_json::json` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: could not compile `dystrail-tester` (bin "dystrail-tester" test) due to 1 previous error

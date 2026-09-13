@@ -1,0 +1,7 @@
+{
+  "baseline_revision": "ef9b4b81cdeb1bc0700d",
+  "path": "dystrail-web/static/continuity.css",
+  "before": "703627846bde2fd194e007d9e253db58b05bbd345ff2e3989ff328dab5ade832",
+  "after": "8f14ea260c8bc3f1dfdb055164355fac91bbc49ccee2beb32d43148e696f09e5",
+  "runtime_scope": "CSS only; all other runtime source copied from the verified frozen release"
+}

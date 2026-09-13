@@ -1,0 +1,30 @@
+
+Running 14 tests using 2 workers
+
+(node:80224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (4.3s)
+  ✓   1 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (6.8s)
+  ✓   4 [chromium] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (2.0s)
+  ✓   3 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (4.9s)
+  ✓   5 [chromium] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (3.1s)
+  ✓   6 [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (3.2s)
+  ✓   8 [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (3.2s)
+  ✓   7 [chromium] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (4.1s)
+  ✓   9 [chromium] › tests-e2e/second-pass.spec.ts:38:5 › a new political encounter pays cash and exposes its factual hook (3.5s)
+  ✓  10 [chromium] › tests-e2e/second-pass.spec.ts:43:5 › road and progress elements survive consecutive automatic turns (5.0s)
+  ✓  11 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.8s)
+  ✓  12 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (3.2s)
+  ✓  13 [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (4.7s)
+  ✓  14 [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (16.6s)
+[31mTimed out waiting 120s for the test suite to run[39m
+[31mTimed out waiting 120s for the teardown for report begin to run[39m
+
+  14 passed (2.0m)
+  2 errors were not a part of any test, see above for details

@@ -1,0 +1,8 @@
+{
+  "report_sha256": "764a2d9c0fba9768879b1b04442bd8c9563104aac989a038efe897c4d4940ad6",
+  "comparison_sha256": "18c05b53aff9aab3ae06759576fb37ebb276301d6e11becdb722a635de198677",
+  "source_inputs_verified": 538,
+  "source_inputs_unchanged": true,
+  "binary_sha256": "bc49a7ce2d5dafc67831a140d73c0d2688d21aff716461a43792f6c743fcf392",
+  "finished_at_utc": "2026-09-13T08:38:15.528797+00:00"
+}

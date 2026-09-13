@@ -11,6 +11,7 @@ pub struct Props {
 
 #[function_component(ShareCodeBar)]
 pub fn share_code_bar(p: &Props) -> Html {
+    crate::i18n::use_language();
     let oninput = {
         let cb = p.onchange.clone();
         Callback::from(move |e: InputEvent| {

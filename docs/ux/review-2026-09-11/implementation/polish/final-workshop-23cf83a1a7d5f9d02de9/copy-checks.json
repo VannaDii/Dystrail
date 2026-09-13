@@ -1,0 +1,221 @@
+{
+  "source_path": "/tmp/dystrail-workshop-final/source",
+  "canonical_handoff": {
+    "path": "/private/tmp/dystrail-workshop-complete.oZfbM6/production-satire-handoff.json",
+    "documentId": "1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+    "revisionId": "ANLCKQlwLW9DDjI14b_JMfeMuESUHjLGbK1zsEZVWGoch3_GsjRXeM6p7zsKj1ACb1Cynu-zWe_jZFR2DFmKPsED1cBkZJQDYbhXIVKGa1o",
+    "sha256": "b3c9cc5db50c6f6dfbe402527c5bf14cab129315550f6fba0a4ad195db3b425b"
+  },
+  "counts": {
+    "satire_units": 101,
+    "mapped_encounters": 59,
+    "ordered_choices": 169,
+    "town_opinions": 28,
+    "care_incidents": 8,
+    "ally_departures": 6,
+    "shared_care_keys": 13,
+    "total_runtime_encounters": 65,
+    "unmentioned_encounters_preserved": 6,
+    "changed_encounter_fields": 386,
+    "changed_files": 22,
+    "locale_files": 20
+  },
+  "checks": {
+    "exact_english_handoff_encounters": true,
+    "exact_english_handoff_town_lines": true,
+    "choice_count_and_order_unchanged": true,
+    "effect_values_and_nontext_metadata_unchanged": true,
+    "town_facts_and_sources_unchanged": true,
+    "all_json_keys_unchanged": true,
+    "all_changed_interpolation_token_counts_unchanged": true,
+    "action_cost_placeholders_and_separators_unchanged": true,
+    "source_association_files_unchanged": true,
+    "all_other_source_files_byte_identical": true,
+    "editorial_scenarios_and_section_labels_excluded": true,
+    "no_aides_in_final_english_copy": true,
+    "final_file_hashes_reverified": true
+  },
+  "locales": {
+    "updated_translations": [
+      "es",
+      "it",
+      "ar"
+    ],
+    "english_fallback_retained": [
+      "bn",
+      "de",
+      "fr",
+      "hi",
+      "id",
+      "ja",
+      "jv",
+      "ko",
+      "mr",
+      "pa",
+      "pt",
+      "ru",
+      "ta",
+      "te",
+      "tr",
+      "zh"
+    ],
+    "human_translation_review": false,
+    "locale_leaf_key_counts": {
+      "ar": 1349,
+      "bn": 1356,
+      "de": 1349,
+      "en": 1349,
+      "es": 1349,
+      "fr": 1356,
+      "hi": 1356,
+      "id": 1349,
+      "it": 1349,
+      "ja": 1357,
+      "jv": 1349,
+      "ko": 1349,
+      "mr": 1349,
+      "pa": 1349,
+      "pt": 1356,
+      "ru": 1356,
+      "ta": 1349,
+      "te": 1349,
+      "tr": 1349,
+      "zh": 1356
+    },
+    "translation_scope_fields_including_towns": {
+      "ar": 441,
+      "es": 441,
+      "it": 441
+    },
+    "actual_changed_strings_including_towns": {
+      "en": 441,
+      "es": 440,
+      "it": 439,
+      "ar": 440
+    }
+  },
+  "name_adaptations": {
+    "care": "Initial Your crewmate becomes {name}; the second care_3 subject becomes They and care_7 possessive becomes their.",
+    "allies": "An ally becomes {name}; ally departure 2 substitutes {name} for an ally.",
+    "shared_care": "Named outcomes retain one {name}; action labels retain the existing cost, effect and interpolation display."
+  },
+  "renamed_encounters": {
+    "overnight_briefing": {
+      "before": "Five Accomplishments, One Exhausted Crew",
+      "after": "Five Accomplishments, Six Exhausted People"
+    }
+  },
+  "changed_files": [
+    {
+      "path": "dystrail-web/static/assets/data/game.json",
+      "before_sha256": "6f57ab062390d5d3145ff795dea9c643375c82f91925e2abb0e36a1747e2fa8c",
+      "after_sha256": "7f04175c5e65ac6ab48445fd8b6c8ec5701b82a1c5a9da0dd2c37199a7cbfcc2"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/town-facts.json",
+      "before_sha256": "1b20d9eb3201228ff60926b03e0a174986f8e9575fea4647c39d060831b4a8ab",
+      "after_sha256": "70f5843f9d81f10ea59db74b867d57f92b268e5bdd1e445d3a98d8f9b380abf8"
+    },
+    {
+      "path": "dystrail-web/i18n/ar.json",
+      "before_sha256": "5e8ed22e155d55523e0253d7c9e8dc9bbb1e2cd4992dfe8d267b8949fbdd304a",
+      "after_sha256": "7df231429668eed16cedc4eea652ca5265cda161cd346e68c0f6d3dadca85472"
+    },
+    {
+      "path": "dystrail-web/i18n/bn.json",
+      "before_sha256": "f72323882bd09f2a579c07d5f22e99e57ce9fd8a3939740f45767c3ebd467bdd",
+      "after_sha256": "2bc527e2f81d86677ad5d05c9251c855406c7803d128f2b970b33545e090836f"
+    },
+    {
+      "path": "dystrail-web/i18n/de.json",
+      "before_sha256": "9338d304d82b0cdd00ba62ea08db5ac10e0fbe7f6a7fb5b822e76d9c4cab4b97",
+      "after_sha256": "1785565fbaad5d0083a6b0f0106144e590932c07ecd4fc3be95c4ca075f873ad"
+    },
+    {
+      "path": "dystrail-web/i18n/en.json",
+      "before_sha256": "14487d5228babb64bd18b8e335e36162523cf12dc8e6ad236357892bd242b211",
+      "after_sha256": "f708300458c2fecdbbc0cc1a1e9e863fca15ffc9d8d05340f6a02a27dbba5fd7"
+    },
+    {
+      "path": "dystrail-web/i18n/es.json",
+      "before_sha256": "ba60cf4d4a3640f76709e5e97a9b0ed75c4c31fe1a89bc57fca98842f74609ed",
+      "after_sha256": "62adc60155119c6d453b59371d6b8d55d0847f8261f2020276390925664a6214"
+    },
+    {
+      "path": "dystrail-web/i18n/fr.json",
+      "before_sha256": "8c6649c6bb31eca25e580d5cd52e2884caeddc2c28d3cd061f820d91fe261e8e",
+      "after_sha256": "78bf33cf704f11cb591fd94c71886c008c310a350fac87a4ba4b2f2aea5c5c57"
+    },
+    {
+      "path": "dystrail-web/i18n/hi.json",
+      "before_sha256": "071a115698985b57fd487315e23c7b2e4b73abaa62ce4d8c64b516c5dfac0cb6",
+      "after_sha256": "e0956e73d4239c9788cd6d6e2bc150ac2ba51fc7fb3c44286ea1003903e6c37c"
+    },
+    {
+      "path": "dystrail-web/i18n/id.json",
+      "before_sha256": "471b279d089bdb6a40faf4cef97bbbf597d011098ea25b4276e2b51ef6a78d2d",
+      "after_sha256": "d265efc4805f5cf14a0c440733ae030b93f2c54276a329ecaaebd7a160f13e81"
+    },
+    {
+      "path": "dystrail-web/i18n/it.json",
+      "before_sha256": "a59cb9539a5077aa6f761155f1d8847c822b8c60c43926a7f256266ef5c218a1",
+      "after_sha256": "252223f7ddae78977ea4482591d3506b9f3b6a536bdc6901723814134a86acda"
+    },
+    {
+      "path": "dystrail-web/i18n/ja.json",
+      "before_sha256": "716fbc5301d55ea104b1601d84464229b1f521399843155d57a270ced745b50b",
+      "after_sha256": "eb512c1c0606d66d73af7fb3ac9cdc151420b967afeceb2706ddb2e750e02dc2"
+    },
+    {
+      "path": "dystrail-web/i18n/jv.json",
+      "before_sha256": "803ff20083e01b5709568f57b6e82547e49f8ae03a38cadb2ffe12d1177b9b1a",
+      "after_sha256": "17befde567868bdc51a14809ece32cb27e0912da0b156fcc0608a55286b41536"
+    },
+    {
+      "path": "dystrail-web/i18n/ko.json",
+      "before_sha256": "1f3d6618138a2fa92933d6357564b54c6636c5d3ae8b74f454b1654a9a4b82d1",
+      "after_sha256": "463c76d22f5644e6abe7db6bdc48560ec40981e2369c14c5577a4235846e52f9"
+    },
+    {
+      "path": "dystrail-web/i18n/mr.json",
+      "before_sha256": "ab69413aea7850472bb137a95f3447cd9069fcc9a4c4b65abcc3d6bc9c0db93b",
+      "after_sha256": "5e085f061aa123bba8af8513a458fcd9218b397475eca3e5018d50a8571bf51e"
+    },
+    {
+      "path": "dystrail-web/i18n/pa.json",
+      "before_sha256": "857f8d27e8b4bddffded1950b1c0145e8da0bd8af15df0f51e1063a5578d8b0f",
+      "after_sha256": "a06d8e6b39ea85d4b7ba601e6db0083fd6cbf082a2fff15f1c2aeef7a575cee8"
+    },
+    {
+      "path": "dystrail-web/i18n/pt.json",
+      "before_sha256": "926e572a605186124060de79213964a24ffeaacb9f094d890b31c1394eb992ba",
+      "after_sha256": "0ac797edb90f2c4934c70a32db87fadaed1d788bd5888d0a75a5e4c646d71eba"
+    },
+    {
+      "path": "dystrail-web/i18n/ru.json",
+      "before_sha256": "548b25ff227ee7bd54e70388fb8942eaa2b1510f191632a0cbf7d1a460fdfa71",
+      "after_sha256": "748680c83901b1877db5fe2085c21f934af76260e5ac48b55c379ae774995973"
+    },
+    {
+      "path": "dystrail-web/i18n/ta.json",
+      "before_sha256": "04ea94120d138caccc9b14be9eed5f2403c0373d579a247a50ea757213e27f6f",
+      "after_sha256": "45c70027bb916d572da2f672b2f6a3e218efcfc23ebcefa975a0b7c0cc1ce470"
+    },
+    {
+      "path": "dystrail-web/i18n/te.json",
+      "before_sha256": "08dd8a8523410f89dae779a2a77d9292a5a8259046af71c89cfbf70d41f4ebea",
+      "after_sha256": "9061dca9f46d6a0529b374ceff3299d5746394611f50ae1b2de1bdc34d1a54fb"
+    },
+    {
+      "path": "dystrail-web/i18n/tr.json",
+      "before_sha256": "fd25c86832d51340e89977cd88559af2ff1375ba6c210a00dbf8f9e90883e7f0",
+      "after_sha256": "90a49c9f82711e19c3c6b28eef518386cdd0e9966974ff5e1b566cbccde20243"
+    },
+    {
+      "path": "dystrail-web/i18n/zh.json",
+      "before_sha256": "ae9e5b3a233615d8ae699c22639597f90981df4225c094d9861058d3368e9514",
+      "after_sha256": "21a32826df9f41e0d8b15f83519d7c82e3eb5b21ec104f2b1669b911b5858b7b"
+    }
+  ],
+  "unresolved": []
+}

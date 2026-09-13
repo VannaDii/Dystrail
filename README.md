@@ -1,18 +1,18 @@
 # 🎮 Dystrail
 
-_What if Oregon Trail took a wrong turn and ended up in DC?_
+_What if Oregon Trail took a wrong turn and ended up in D.C.?_
 
-**Dystrail** is a SNES-lite parody survival game where you march toward Capitol Hill, dodging tariffs, raw milk stands, brain worms, and the dreaded **National Pants Emergency**.
+**Dystrail** is a SNES-lite parody survival game where you march toward Capitol Hill, dodging tariffs, raw milk stands, brain worms and political paperwork.
 
 ![Dystrail Social Card](static/img/social-card.png)
 
 ## 🕹️ Gameplay Loop
 
-1. **Boot & Loading** → asset preloading with progress bar, _Press Any Key to Begin_.
-2. **Persona Selection** → choose your character (Journalist, Organizer, Whistleblower, Lobbyist, Staffer, Satirist) with unique stats and abilities.
-3. **Outfitting Store** → purchase supplies and gear before departure.
-4. **Share Code & Mode** → prefilled seed (e.g., `CL-ORANGE42`), paste a friend/streamer's code to replay their run.
-5. **Mode Select** → **Classic** or **The Deep End** (edgier encounters).
+1. **Loading** → download and cache the complete game behind a progress screen. Play starts only when every bundled asset is ready.
+2. **Run code & mode** → choose **Classic** or **The Deep End**, and keep or replace the run code.
+3. **Choose your character** → pick a traveler with distinct starting stats, abilities and a West Coast origin. One is selected at random initially.
+4. **Name your crew** → enter your name and crew name; keep or replace the companions' names.
+5. **Outfitting Store** → customize the preselected purchases, including removing everything, before spending the starting budget.
 6. **Travel System** → manage pace and diet while burning supplies; weather affects progress and breakdown chances.
 7. **Camp Management** → rest, resupply, and recover between legs.
 8. **Encounters** → multi-choice cards with stat effects (Raw Milk, Tariffs, Brain Worms, 5G towers, etc.).
@@ -25,17 +25,16 @@ _What if Oregon Trail took a wrong turn and ended up in DC?_
 ## ✨ Features
 
 - **SNES-lite 16-bit style** palette and sprites.
-- **Six unique personas** with distinct starting stats and gameplay modifiers.
+- **Six characters** with distinct starting stats and gameplay modifiers.
 - **Comprehensive survival mechanics**: supplies, sanity, credibility, morale, allies, budget.
 - **Dynamic weather and pacing systems** affecting travel and resource consumption.
 - **Vehicle breakdown system** with realistic maintenance and repair mechanics.
 - **Camp system** for rest and resupply between travel legs.
 - **Border crossings** with permit, bribe, or detour options.
 - **Outfitting store** for gear and supply management.
-- **Save system** with multiple save slots and import/export functionality.
+- **Save system** with an automatic save, a device checkpoint, and file or text backup/restore.
 - **Modes**: `CL` (Classic) and `DP` (The Deep End) with different encounter pools.
 - **Share Codes**: `CL-WORD42` / `DP-ORANGE97` — short, memorable, deterministic seeds.
-- **Pants Meter**: reach 💩 100% → **National Pants Emergency** fail state.
 - **Internationalization**: Support for 20 languages (EN, ES, FR, IT, PT, DE, RU, AR, ZH, HI, BN, JA, KO, ID, TR, TA, TE, MR, PA, JV).
 - **Data-driven content**: all encounters, personas, and systems configurable via JSON.
 - **Result System**: deterministic scoring with configurable weights, comprehensive statistics tracking, and social sharing capabilities.
@@ -49,7 +48,7 @@ _What if Oregon Trail took a wrong turn and ended up in DC?_
 - `dystrail-web/static/img/spritesheet.png` — game sprites and tiles
 - `dystrail-web/static/img/logo.png` — DYSTRAIL wordmark
 - `dystrail-web/static/img/social-card.png` — 1200×630 Open Graph/Twitter card
-- `dystrail-web/static/favicon.ico` — pants sprite favicon
+- `dystrail-web/static/favicon.ico` — app favicon
 - `dystrail-web/static/assets/data/` — game configuration files:
   - `game.json` — encounters and choices
   - `personas.json` — character classes and stats
@@ -114,7 +113,6 @@ Edit `dystrail-web/static/assets/data/game.json`:
       "effects": {
         "supplies": -2,
         "credibility": 1,
-        "pants": 5,
         "log": "You pay the tariff. It stings."
       }
     }
@@ -203,7 +201,7 @@ Add translations to `dystrail-web/i18n/{language}.json` files. Use `en.json` as 
 - 🎨 **Enhanced Visuals:** animated sprites, particle effects, dynamic backgrounds
 - 📊 **Analytics:** gameplay metrics and balance insights
 - 🎮 **Gamepad Support:** controller input for accessibility
-- 🌐 **PWA Features:** offline play, app installation
+- 🌐 **PWA:** offline play, app installation and verified updates (implemented; see below)
 
 ### Phase 3 (Future)
 
@@ -222,3 +220,16 @@ MIT
 **Team Dystrail** — design, development, pixel art, and political satire **Community Contributors** — encounter ideas, translations, and feedback **Special Thanks** — to everyone who helped test and improve the game
 
 Community contributions welcome! See the Contributing section above for how to help.
+
+
+## Offline play and installation
+
+Dystopian Trail ships a complete offline PWA bundle. On the first visit to `/play/`, a loading screen shows progress while every scene, portrait, map, rule and game file is downloaded and written to the local cache. The game cannot start until all files are cached. The verified September 13 bundle contains 119 assets, with 68 prepared images and seven font faces. Optional external source articles are not needed for gameplay. Autosaves remain in localStorage.
+
+A failed download or cache write keeps the loading screen open with Retry. Every launch checks the complete asset list again; a missing cached file must be restored before play can start. Once preparation succeeds, **Ready for offline play** appears centered at the bottom of the Menu.
+
+Online launches check for a changed build before starting the game. A complete bundle must pass integrity checks before activation; failed updates retain the previous playable version and the save. The manifest supports standalone launch and includes regular/maskable icons and Apple home-screen metadata. Installation uses the browser's supported install or Add to Home Screen / Add to Dock flow. Deployed origins require HTTPS.
+
+The Trunk `post_build` hook runs `scripts/build_offline.py` automatically. New shipped files enter the revisioned manifest without manually maintained cache lists. Rebuild the release after any content or artwork change. Do not remove old release assets during deployment before the new worker and manifest are available.
+
+Current evidence: [loading, HUD and journal verification](docs/ux/review-2026-09-11/implementation/polish/README.md) and [complete content inventory](docs/ux/review-2026-09-11/implementation/content/index.html). Chrome and native Safari checks cover loading, recovery, updates and gameplay, with results attributed to their tested builds. Physical-phone installation and offline reopening are confirmed by the player. The [final sharing verification](docs/ux/review-2026-09-11/implementation/polish/native-share-focus-d3ed78dac458b64a80ee/README.md) distinguishes actual system-sheet observation from controlled sharing responses in the native browser.

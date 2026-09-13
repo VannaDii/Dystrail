@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-11",
+  "offline_build": "2cd4ea64e1665b6196ad",
+  "preview": "http://127.0.0.1:8180/play/",
+  "chrome": {
+    "version": "152.0.7977.84",
+    "desktop_cases": 22,
+    "phone_cases": 22,
+    "exit_code": 0,
+    "additional_narrow_viewport": 320
+  },
+  "safari": {
+    "version": "26.6.2",
+    "checks": 21,
+    "exit_code": 0
+  },
+  "native": {
+    "tests_passed": 236,
+    "strict_clippy": "pass",
+    "formatting": "pass",
+    "release": "pass"
+  },
+  "localization": {
+    "locales": 20,
+    "missing_keys": [],
+    "new_toolbar_translations": [
+      "en",
+      "es",
+      "it",
+      "ar"
+    ]
+  },
+  "known_baseline_failures": [
+    "Dependency audit and advisory checks",
+    "Classic/Aggressive campaign seed 1337 iteration 273 Pants 2"
+  ]
+}

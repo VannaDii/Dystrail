@@ -27,9 +27,8 @@ fn plural_category(lang: &str, count: f64) -> String {
             arr
         };
         let rules = Intl::PluralRules::new(&locales, &Object::new());
-        match rules.select(count).as_string() {
-            Some(selected) => selected,
-            None => {
+        rules.select(count).as_string().map_or_else(
+            || {
                 if (count - 1.0).abs() < f64::EPSILON {
                     "one".to_string()
                 } else if count.abs() < f64::EPSILON {
@@ -37,8 +36,9 @@ fn plural_category(lang: &str, count: f64) -> String {
                 } else {
                     "other".to_string()
                 }
-            }
-        }
+            },
+            std::convert::identity,
+        )
     }
 
     #[cfg(not(target_arch = "wasm32"))]

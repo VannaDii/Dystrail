@@ -1,0 +1,28 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-mileage-ledger-preview/source/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.65s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_game-4a70b9969783f953)
+
+running 2 tests
+
+thread 'day_accounting::tests::fractional_leg_credit_matches_observed_progress' (72624932) panicked at dystrail-game/src/day_accounting.rs:321:13:
+assertion `left == right` failed
+  left: 1043207291
+ right: 1043210240
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'day_accounting::tests::fractional_days_reconcile_with_odometer_and_saved_open_day' (72624931) panicked at dystrail-game/src/day_accounting.rs:334:17:
+assertion `left == right` failed
+  left: 1043207291
+ right: 1043207168
+test day_accounting::tests::fractional_days_reconcile_with_odometer_and_saved_open_day ... FAILED
+test day_accounting::tests::fractional_leg_credit_matches_observed_progress ... FAILED
+
+failures:
+
+failures:
+    day_accounting::tests::fractional_days_reconcile_with_odometer_and_saved_open_day
+    day_accounting::tests::fractional_leg_credit_matches_observed_progress
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 211 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p dystrail-game --lib`

@@ -1,0 +1,24 @@
+{
+  "revision": "a9ff83cd924a07fdf4ec",
+  "encounters": 65,
+  "scene_usage": {
+    "enc-service-counter": 2,
+    "enc-bridge": 2,
+    "enc-community": 10,
+    "enc-checkpoint": 3,
+    "enc-street": 9,
+    "enc-media-workshop": 6,
+    "enc-radio": 2,
+    "enc-cafe": 4,
+    "enc-service": 6,
+    "enc-library": 4,
+    "enc-rest-area": 3,
+    "enc-motel": 1,
+    "enc-civic": 2,
+    "enc-convoy": 4,
+    "enc-clinic": 3,
+    "enc-night-briefing": 1,
+    "enc-farm-office": 1,
+    "enc-museum": 2
+  }
+}

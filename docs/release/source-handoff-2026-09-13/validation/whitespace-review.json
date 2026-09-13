@@ -1,0 +1,13 @@
+{
+  "full_snapshot_diff_check_exit": 2,
+  "affected_files": 109,
+  "application_source_findings": 0,
+  "categories": {
+    "captured_tool_logs": 92,
+    "retained_patch_artifacts": 11,
+    "generated_csv": 1,
+    "captured_html": 2,
+    "upstream_font_licenses": 3
+  },
+  "decision": "Preserve raw evidence, patches, CSV formatting and upstream licenses byte for byte. Rust formatting passed. This is not recorded as a clean whole-snapshot whitespace check."
+}

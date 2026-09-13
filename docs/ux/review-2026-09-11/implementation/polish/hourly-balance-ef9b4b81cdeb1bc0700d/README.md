@@ -1,0 +1,9 @@
+# Accepted hourly balance — ef9b4b81cdeb1bc0700d
+
+The actual 2,000-run campaign acceptance command succeeds with the original experience thresholds and automated-player strategies. The frozen browser runtime matches that accepted candidate exactly. Three configuration/replay fingerprints were then recorded; repeated-run determinism and acceptance assertions remain intact. Four newly added clock tests retain exact effects with the retuned diet values and the existing sanity cap.
+
+Travel remains capped at 60/70/80 MPH, with five active hours and real time spent on activities, encounters and crossings. Quiet/Mixed/Doomscroll restore 3/2/−2 sanity daily. Full rest restores sanity up to the existing 10-point cap, costs one supply and one complete day, and buffers new illness. Encounter, weather, illness, recovery and Balanced crossing/health settings were retuned together. Overnight encounter weight remains unchanged at 3.
+
+The entire native workspace, strict native/Wasm lint, release build and browser-backed Wasm tests pass. Complete-engine LLVM coverage reports 92.90% lines; test code is included and branch coverage was not collected. Four focused browser cases cover both modes at desktop/phone widths, 12 capped rest actions, exact stated costs, reload persistence and blocked rest during breakdown. The final run has no console or failed-resource errors. An initial missing-resource message was not reproduced; first-run and diagnostic records are retained.
+
+All 408 unique browser cases now pass:394 in the full run plus14 corrected-fixture cases in the targeted rerun, with zero skips or flaky results. The exact union of cases is verified. Production delivery and saved-install/offline checks are complete; see DEPLOYMENT.md. Native Safari remains blocked by the observed locked Mac. Production and preview now serve ef9b4b81cdeb1bc0700d.

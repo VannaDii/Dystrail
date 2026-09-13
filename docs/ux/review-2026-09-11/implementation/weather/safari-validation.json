@@ -1,0 +1,28 @@
+{
+  "browser": "Safari 26.6.2",
+  "origin": "http://127.0.0.1:58157/play/",
+  "checks": [
+    "Onboarding: names, unwarped portraits, no focus jump",
+    "Paid starter cart can be emptied and persists across refresh",
+    "Empty departure has no hidden supplies or charges",
+    "Menu dismisses when clicked outside",
+    "Contextual help remains inside viewport and dismisses outside",
+    "Safari manifest and Apple touch icon available; complete offline cache ready",
+    "Fast, Camp, Review route and Resume share one row with detail controls in the same toolbar",
+    "Fast toggle persists, detail panels switch without spending a turn, and old Step saves restore as Normal",
+    "Arabic layout and selected language survive reload",
+    "Geographic map frames the active route as a full scene",
+    "Heat and cold use state-matched effects in Safari",
+    "Weather applies real costs and notifies inline while travel continues; reload never repeats costs",
+    "Weather indicator includes exposure, contextual help, and clears obsolete damage in clear conditions",
+    "Foraging changes supplies and the clock",
+    "Cashless repair lists unavailable alternatives and charges time, sanity and morale",
+    "Number keys select encounter choices; cash reward and matching scene agree",
+    "Exact-town fact, player portrait, random NPC and conversation persist",
+    "Origin stopped: reload, saved crew, town scene and every bundled asset still work",
+    "Complete update replaces old build before game launches and preserves saves",
+    "Interrupted update leaves the last complete version playable",
+    "Abandon uses the selected character\u2019s name and creates a saved ending"
+  ],
+  "offline_build": "2cd4ea64e1665b6196ad"
+}

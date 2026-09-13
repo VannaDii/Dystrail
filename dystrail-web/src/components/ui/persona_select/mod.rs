@@ -14,20 +14,38 @@ pub struct PersonaSelectProps {
     pub on_selected: Option<Callback<Persona>>,
     #[prop_or_default]
     pub on_continue: Option<Callback<()>>,
+    #[prop_or_default]
+    pub initial_id: Option<String>,
 }
 
 #[function_component(PersonaSelect)]
 pub fn persona_select(p: &PersonaSelectProps) -> Html {
+    crate::i18n::use_language();
     let personas = use_state(Vec::<Persona>::new);
     let selected = use_state(|| None::<usize>);
-    let live_msg = use_state(String::new);
     let list_ref = use_node_ref();
+    let focus_selection = use_mut_ref(|| false);
 
     {
         let personas = personas.clone();
+        let selected = selected.clone();
+        let initial_id = p.initial_id.clone();
+        let on_selected = p.on_selected.clone();
         use_effect_with((), move |()| {
             let data = include_str!("../../../../static/assets/data/personas.json");
             let list = PersonasList::from_json(data).unwrap_or_else(|_| PersonasList::empty());
+            let index = helpers::initial_selection(
+                &list.0,
+                initial_id.as_deref(),
+                js_sys::Math::random().to_bits(),
+            );
+            selected.set(index);
+            if let Some(per) = index.and_then(|i| list.0.get(i))
+                && initial_id.as_deref() != Some(per.id.as_str())
+                && let Some(cb) = on_selected
+            {
+                cb.emit(per.clone());
+            }
             personas.set(list.0);
             || {}
         });
@@ -37,19 +55,10 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let selected = selected.clone();
         let personas_state = personas.clone();
         let on_selected = p.on_selected.clone();
-        let live_msg = live_msg.clone();
         Callback::from(move |idx: usize| {
             if idx < personas_state.len() {
                 selected.set(Some(idx));
                 let per = &personas_state[idx];
-                let msg = format!(
-                    "{} {}. {} ${}",
-                    crate::i18n::t("menu.selected"),
-                    per.name,
-                    crate::i18n::t("persona.selected_budget_prefix"),
-                    per.start.budget
-                );
-                live_msg.set(msg);
                 if let Some(cb) = on_selected.clone() {
                     cb.emit(per.clone());
                 }
@@ -59,7 +68,12 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
 
     {
         let list_ref = list_ref.clone();
+        let focus_selection = focus_selection.clone();
         use_effect_with(*selected, move |sel| {
+            if !*focus_selection.borrow() {
+                return;
+            }
+            *focus_selection.borrow_mut() = false;
             if let Some(first) = sel.as_ref().and_then(|i| {
                 let selector = format!("[role='radio'][data-key='{}']", i + 1);
                 list_ref
@@ -76,8 +90,26 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
         let selected = selected.clone();
         let select_idx = select_idx.clone();
         let on_continue = p.on_continue.clone();
+        let count = personas.len();
         Callback::from(move |e: KeyboardEvent| {
             let key = e.key();
+            if count > 0
+                && matches!(
+                    key.as_str(),
+                    "ArrowRight" | "ArrowDown" | "ArrowLeft" | "ArrowUp"
+                )
+            {
+                let current = selected.unwrap_or(0);
+                let next = if matches!(key.as_str(), "ArrowRight" | "ArrowDown") {
+                    (current + 1) % count
+                } else {
+                    (current + count - 1) % count
+                };
+                *focus_selection.borrow_mut() = true;
+                select_idx.emit(next);
+                e.prevent_default();
+                return;
+            }
             if let Some(n) = numeric_key_to_index(&key).or_else(|| numeric_code_to_index(&e.code()))
             {
                 if n == 0 {
@@ -90,6 +122,7 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
                     }
                 } else {
                     let idx = (n as usize).saturating_sub(1);
+                    *focus_selection.borrow_mut() = true;
                     select_idx.emit(idx);
                 }
                 e.prevent_default();
@@ -98,10 +131,15 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
     };
 
     let preview_persona = selected.and_then(|i| personas.get(i)).cloned();
+    let live_msg = preview_persona
+        .as_ref()
+        .map_or_else(String::new, helpers::selection_summary);
 
     html! {
       <section class="panel retro-menu persona-select" aria-labelledby="persona-title" onkeydown={on_keydown}>
+        <p class="eyebrow">{crate::i18n::t("ux.persona_intro")}</p>
         <h2 id="persona-title">{ crate::i18n::t("persona.choose") }</h2>
+        <p class="journey-mission">{crate::i18n::t("journey.mission")}</p>
         <div class="persona-layout">
           <div class="persona-grid" role="radiogroup" aria-labelledby="persona-title" id="persona-radios" ref={list_ref}>
             { for personas.iter().enumerate().map(|(i, per)| {
@@ -118,13 +156,13 @@ pub fn persona_select(p: &PersonaSelectProps) -> Html {
           </div>
           <preview::PersonaPreview persona={preview_persona} />
         </div>
-        <div class="controls">
+        <div class="controls persona-actions">
+          <p id="persona-helper" aria-live="polite" aria-atomic="true">{live_msg}</p>
           <button id="persona-continue" disabled={selected.is_none()} onclick={
             let on = p.on_continue.clone();
             Callback::from(move |_| if let Some(cb)=on.clone(){ cb.emit(()); })
           }>{ crate::i18n::t("ui.continue") }</button>
         </div>
-        <p id="persona-helper" aria-live="polite" class="muted">{ (*live_msg).clone() }</p>
       </section>
     }
 }

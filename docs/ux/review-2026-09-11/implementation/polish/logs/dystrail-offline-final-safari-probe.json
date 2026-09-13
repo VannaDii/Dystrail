@@ -1,0 +1,45 @@
+{
+  "status": {
+    "status": 200,
+    "body": {
+      "value": {
+        "message": "",
+        "ready": true
+      }
+    }
+  },
+  "create": {
+    "status": 200,
+    "body": {
+      "value": {
+        "sessionId": "84FC7414-5E05-4C1A-9073-17C0489A60EA",
+        "capabilities": {
+          "safari:platformVersion": "26.6.2",
+          "safari:automaticInspection": false,
+          "webkit:WebRTC": {
+            "DisableICECandidateFiltering": false,
+            "DisableInsecureMediaCapture": false
+          },
+          "webkit:alwaysAllowAutoplay": false,
+          "browserVersion": "26.6.2",
+          "strictFileInteractability": false,
+          "browserName": "Safari",
+          "safari:useSimulator": false,
+          "safari:automaticProfiling": false,
+          "setWindowRect": true,
+          "acceptInsecureCerts": false,
+          "safari:platformBuildVersion": "25G83",
+          "safari:experimentalWebSocketUrl": false,
+          "platformName": "macOS",
+          "safari:diagnose": false
+        }
+      }
+    }
+  },
+  "probe_session_cleanup": {
+    "status": 200,
+    "body": {
+      "value": null
+    }
+  }
+}

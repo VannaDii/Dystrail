@@ -1,0 +1,173 @@
+[
+  {
+    "mode": "Deep",
+    "width": 320,
+    "readout": {
+      "clock": {
+        "text": "Day 129 · 11:59",
+        "x": 8,
+        "y": 175.1875,
+        "width": 94.203125,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 108.203125,
+        "y": 175.1875,
+        "width": 42.015625,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 156.21875,
+        "y": 175.1875,
+        "width": 39.25,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$9,999",
+        "x": 201.46875,
+        "y": 175.1875,
+        "width": 54.875,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 262.34375,
+        "y": 175.1875,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 8,
+        "y": 209.1875,
+        "width": 164.15625,
+        "height": 26
+      },
+      "weather": {
+        "text": "Conditions changed: ❄Cold SnapEffects apply automaticallyi",
+        "x": 180.15625,
+        "y": 205.1875,
+        "width": 131.84375,
+        "height": 34
+      },
+      "height": 110
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 393,
+    "readout": {
+      "clock": {
+        "text": "Day 129 · 11:59",
+        "x": 8,
+        "y": 188,
+        "width": 94.203125,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 108.203125,
+        "y": 188,
+        "width": 52.46875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 166.671875,
+        "y": 188,
+        "width": 49.03125,
+        "height": 26
+      },
+      "cash": {
+        "text": "Bargeld9.999 $",
+        "x": 271.140625,
+        "y": 188,
+        "width": 58.203125,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 335.34375,
+        "y": 188,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 Meilen",
+        "x": 8,
+        "y": 222,
+        "width": 235.171875,
+        "height": 26
+      },
+      "weather": {
+        "text": "Conditions changed: ❄KältewelleEffects apply automaticallyi",
+        "x": 251.171875,
+        "y": 218,
+        "width": 133.828125,
+        "height": 34
+      },
+      "height": 110
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 393,
+    "readout": {
+      "clock": {
+        "text": "اليوم 129 · 11:59",
+        "x": 287.78125,
+        "y": 188,
+        "width": 97.21875,
+        "height": 26
+      },
+      "pace": {
+        "text": "ثابت",
+        "x": 240.296875,
+        "y": 188,
+        "width": 41.484375,
+        "height": 26
+      },
+      "diet": {
+        "text": "مختلط",
+        "x": 184.96875,
+        "y": 188,
+        "width": 49.328125,
+        "height": 26
+      },
+      "cash": {
+        "text": "النقد‏9,999 US$",
+        "x": 63.65625,
+        "y": 188,
+        "width": 72.421875,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "حالة المركبة100%",
+        "x": 8,
+        "y": 188,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "المحطة التاليةSpokane280 ميل",
+        "x": 136.859375,
+        "y": 222,
+        "width": 248.140625,
+        "height": 26
+      },
+      "weather": {
+        "text": "تغيرت الظروف: ❄موجة بردتُطبَّق التأثيرات تلقائيًاi",
+        "x": 8,
+        "y": 218,
+        "width": 120.859375,
+        "height": 34
+      },
+      "height": 110
+    },
+    "errors": []
+  }
+]

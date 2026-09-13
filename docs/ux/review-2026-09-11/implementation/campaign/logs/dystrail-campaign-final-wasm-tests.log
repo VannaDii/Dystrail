@@ -1,0 +1,25 @@
+[INFO]: 🎯  Checking for the Wasm target...
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling dystrail-web v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-web)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.29s
+[INFO]: ⬇️  Installing wasm-bindgen...
+[WARN  wasm_pack::install] could not download pre-built `wasm-bindgen`: no prebuilt wasm-bindgen binaries are available for this platform: Unrecognized target!. Falling back to `cargo install`.
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/wasm32-unknown-unknown/debug/deps/dystrail_web-09f53292544237d5.wasm)
+Executing bindgen...                                                                                Running headless tests in Chrome on `http://127.0.0.1:50021/`
+Try find `webdriver.json` for configure browser's capabilities:
+Not found
+Starting new webdriver session...                 Visiting http://127.0.0.1:50020...                Loading page elements...                          Waiting for test to finish...                                                                       running 2 tests
+test wasm_tests::receipt_hud_updates_without_replacing_the_stat_row ... ok
+test wasm_tests::evidence_choice_click_awards_what_the_button_offers ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 filtered out; finished in 0.06s
+                                                       Running tests/crossing_i18n_tests.rs (/Users/vanna/Source/Dystrail/target/wasm32-unknown-unknown/debug/deps/crossing_i18n_tests-d8908cc7658bbf16.wasm)
+no tests to run!
+   Doc-tests dystrail_web
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[WARN]: ⚠️   There's a newer version of wasm-pack available, the new version is: 0.15.0, you are using: 0.13.1. To update, navigate to: https://rustwasm.github.io/wasm-pack/installer/

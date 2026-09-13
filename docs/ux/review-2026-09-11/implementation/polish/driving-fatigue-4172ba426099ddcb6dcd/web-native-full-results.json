@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "cargo",
+    "test",
+    "-p",
+    "dystrail-web"
+  ],
+  "exit_code": 0,
+  "test_group_counts": [
+    78,
+    3,
+    0
+  ],
+  "total_passed": 81
+}

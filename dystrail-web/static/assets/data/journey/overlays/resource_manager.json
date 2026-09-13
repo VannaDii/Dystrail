@@ -8,7 +8,7 @@
   },
   "partial_ratio": 0.5,
   "wear": {
-    "base": 0.11,
+    "base": 1.1,
     "fatigue_k": 0.14
   },
   "breakdown": {

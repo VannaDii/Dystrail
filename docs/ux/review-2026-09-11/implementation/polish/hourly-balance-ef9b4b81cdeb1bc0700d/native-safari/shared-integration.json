@@ -1,0 +1,6 @@
+{
+  "path": "dystrail-web/tests-e2e/safari-smoke.mjs",
+  "before": "0e1caea4664566d87774c00ab817545532ca9c162ad67b3d899033ad7f835dad",
+  "after": "9e2e5a1f0f34733ec330f41bd316a062247cf551c5b90ec266be2c9a397c81c3",
+  "scope": "Two fixture constants, retaining all functional assertions and timeouts."
+}

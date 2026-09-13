@@ -1,0 +1,9 @@
+# Final workshop production release
+
+Production https://dystrail.com/play/ and local preview both serve revision `23cf83a1a7d5f9d02de9`. Commit `7ea6499d97cf6baa64819766a22d7e880a555176` was published by [successful Pages run 34755822315](https://github.com/VannaDii/Dystrail/actions/runs/34755822315). All 199 public files match their frozen hashes and MIME rules. The 59 non-game site files and 22 prior hashed assets remain exact. Canonical routes and homepage asset versioning pass. The exact temporary release-branch permission was removed and the original main-only policy restored.
+
+The isolated deployment agent's two automatic approval rejections lacked trusted original user authorization. The original coordinating task then submitted the same bounded operation through automatic approval review, with the user's production request available as a trusted user message. That review approved execution. No deployment or permission mutation occurred during the rejected attempts.
+
+An isolated browser profile first installed the prior production release and saved a real six-person Day 1, zero-mile journey. Updating preserved the full save with only the declared new pace_fatigue_remainder field initialized to zero; inventory tag ordering was normalized for comparison. Both offline reload and a completely closed-browser restart, offline before initial navigation, preserve that updated save exactly. All 119 assets, 68 images and seven font faces are ready before gameplay. No runtime/console errors were recorded. This is evidence for this specific saved-install fixture, not a claim that every historical save was exercised. Native Safari remains pending while the Mac is locked.
+
+Experimental campaign tuning is excluded from this release. The broader active goal remains open for final experience acceptance and final validation.

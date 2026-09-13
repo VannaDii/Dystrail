@@ -1,0 +1,54 @@
+Safari 26.6.2
+Waiting for visible Safari test window: http://127.0.0.1:57510/play/
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+Click Review & depart
+Click Start the journey
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+PASS Credibility cap, actual struck-out award, unlimited conversation access, and reload persistence
+Click Visit the Store
+Click Leave store
+PASS Leave store aligns vertically with the heading and horizontally under Resume
+Click Take a paid unloading shift
+Click Continue
+Click Journal
+PASS Journal shows dated cards and typed cash change; work completion is centered
+Click Review route
+PASS Map credits sit in the header next to the current town
+Click Import
+Click Fit your spare Battery
+PASS Repair consumes the actual spare and shows vehicle recovery in an outcome card
+Click Import
+Click 2) Help load their vans
+PASS Encounter cash uses the same stat-card format and accessible primary button name
+Click Import
+Click 1) Acknowledge the farewell
+Click Resume travel
+Click Back to the road
+Click Journal
+PASS Ally notice survives reload, waits behind the map, acknowledges once, and stays in the journal
+Click Import
+PASS Removed stat is ignored in old saves; six stats, concise risk and centered final offline footer
+Click Import
+Click Take a paid unloading shift
+Click Continue
+Click Journal
+PASS Town profile and journal remain readable in the measured native Safari viewport without horizontal overflow
+Click The Trail
+Click Talk to locals
+Measured Safari conversation width 1728
+PASS Conversation columns align in Safari; the browser ignores narrow-window resize requests
+Click Back to town
+PASS Conversation context is accessible and Back to town returns to unchanged services
+Safari feedback completed: 11 checks

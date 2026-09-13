@@ -1,0 +1,41 @@
+Checking the real published update against the preserved production installation
+AssertionError [ERR_ASSERTION]: Published game update changed the saved envelope beyond the explicit zero-default fields
++ actual - expected
+... Skipped lines
+
+  {
+    aftermath: null,
+    code: 'CL-ORANGE42',
+    journey_detail: {
+      expanded: true,
+...
+        },
++       detour: 0.085,
+-       detour: 0.24,
+        detour_hours: {
++         max: 2,
+-         max: 3,
+          min: 1
+        },
++       pass: 0.7,
+-       pass: 0.66,
+        permit: {
+          disable_terminal: true,
+          eligible: [
+            'checkpoint'
+          ]
+        },
++       terminal: 0.215
+-       terminal: 0.1
+      },
+      journey_daily: {
+        health: {
++         decay: 0.38,
+-         decay: 0.12,
+          exec: {},
+          rest_heal: 0,
+          weather: {}
+        },
+        sanity: {
+
+    at file:///private/tmp/dystrail-balance-production-check/verify-published-update.mjs:66:9

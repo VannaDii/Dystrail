@@ -1,0 +1,123 @@
+{
+  "date": "2026-09-11",
+  "preview": "http://127.0.0.1:8084/",
+  "viewportWidths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "textEnlargement": "200% root font size; no viewport overflow or content boxes outside viewport",
+  "motion": {
+    "durationMs": 4200,
+    "start": "fully off-screen left",
+    "reducedMotion": "all animation disabled"
+  },
+  "lighthouse": {
+    "mobile": {
+      "version": "13.4.1",
+      "fetchedAt": "2026-09-11T19:51:26.996Z",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 751.7629,
+        "largest-contentful-paint": 2101.7629,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 751.7629
+      }
+    },
+    "desktop": {
+      "version": "13.4.1",
+      "fetchedAt": "2026-09-11T19:52:03.206Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 203.51749999999998,
+        "largest-contentful-paint": 761.5174999999999,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 203.51749999999998
+      }
+    }
+  },
+  "siteFiles": {
+    "site/assets/crew-van-small.webp": {
+      "bytes": 60496,
+      "sha256": "10fde18cd882cc636e65a6bdcb0ada3ed0f919f3db684c4baa45c19348e94c50"
+    },
+    "site/assets/crew-van.webp": {
+      "bytes": 169210,
+      "sha256": "dc8c3f9e27555621d379118c1a5cfc3447b06f7ea427511cfc49adba72be0e88"
+    },
+    "site/assets/fonts/press-start-2p-OFL.txt": {
+      "bytes": 4413,
+      "sha256": "172c7cfc7e60165cab231417c0bbd73809b72a8e8e1e89ac9538607c5293a780"
+    },
+    "site/assets/fonts/press-start-2p-latin.woff2": {
+      "bytes": 4704,
+      "sha256": "42144b97bd2942ea606e5d880684eae0f7be5c804bdd57b1faac5a8d7699ae6e"
+    },
+    "site/assets/fonts/space-grotesk-OFL.txt": {
+      "bytes": 4401,
+      "sha256": "18a4de52385f6b988782639d5d0cc1326e5a8c2de9a7f01d7b20d9aedcc60943"
+    },
+    "site/assets/fonts/space-grotesk-latin.woff2": {
+      "bytes": 22320,
+      "sha256": "a0d054c4af557de20afd6ca59f47ab353bcaec49c63ff04b6c9d39d0f8910557"
+    },
+    "site/assets/gameplay-small.webp": {
+      "bytes": 49996,
+      "sha256": "6b85bd4f90e3c13dd5d3c40c9db58296b31e2b8629b2606ac41af8bc7a876213"
+    },
+    "site/assets/gameplay-social.jpg": {
+      "bytes": 159723,
+      "sha256": "ad950491a129bdb828fc4d0f90600f4904d0d659204d28fba698c5700bae6b73"
+    },
+    "site/assets/gameplay.webp": {
+      "bytes": 136350,
+      "sha256": "bc543ae4352cada2b98fe4b5947281c2ce75ff3edc1136925ac122f14260a80f"
+    },
+    "site/assets/prairie-small.webp": {
+      "bytes": 56698,
+      "sha256": "66d418c7ae64ee080ee3e085532955efd1677c346029ad27d02b386d1e1d2c84"
+    },
+    "site/assets/prairie.webp": {
+      "bytes": 220522,
+      "sha256": "e965b1a63c66b14460dbe03d0bac9f2c8d88e3fdbcd634a175e57ab11bd1bd2e"
+    },
+    "site/favicon.ico": {
+      "bytes": 1340,
+      "sha256": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756"
+    },
+    "site/index.html": {
+      "bytes": 8089,
+      "sha256": "236b30e3b020de822af4104e835bc6b2ec0e71afccfc0ad62642c884d9c359b5"
+    },
+    "site/robots.txt": {
+      "bytes": 66,
+      "sha256": "c98dab60c86a1f1234157ee211af61a405f118150483944ad838acea29d35c5c"
+    },
+    "site/site.js": {
+      "bytes": 672,
+      "sha256": "34b69513ce64100df741a3ec3f719398ba221c13a6f0167c407a1dc25efc667b"
+    },
+    "site/sitemap.xml": {
+      "bytes": 258,
+      "sha256": "910212167cda1be33a9b93afae9ffb88312caa5fa22c83aebd9ea1dc962b40cf"
+    },
+    "site/styles.css": {
+      "bytes": 8040,
+      "sha256": "6034467f88a3e680b38531f59d0525d96633c9a920a22189bc9aadee805f17f4"
+    }
+  },
+  "productionVerification": "production-verification.json"
+}

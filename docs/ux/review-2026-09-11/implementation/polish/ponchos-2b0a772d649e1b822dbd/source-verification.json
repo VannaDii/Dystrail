@@ -1,0 +1,111 @@
+{
+  "base": "/tmp/dystrail-driving-fatigue-preview/source",
+  "base_revision": "4172ba426099ddcb6dcd",
+  "source": "/tmp/dystrail-poncho-preview/source",
+  "integration_manifests": {
+    "/tmp/dystrail-retune-2026-09-13/poncho-integration.json": "c81640c5af8c4b02eb3d504a735013e79288ddee608d9d7b3540d6e61449f332",
+    "/tmp/dystrail-poncho-preview/ui-integration.json": "c85e75dd7adb93a768dd1e0f4738ea08bf3d08868cc626abf05fe68b70cdef65"
+  },
+  "files": {
+    "dystrail-web/static/assets/data/weather.json": {
+      "before": "b2be2ef9302d3063ebdf74835ac1f9ea4018e9d3017c4370ed0ac5318d0aeac9",
+      "after": "73a1c4c6acbcd604cda840f1503d5d71f00db0fe3f2a72649d31fb39511e7f4a"
+    },
+    "dystrail-game/tests/weather_paths.rs": {
+      "before": "ba765513ca443e59893395ccab7a0c6dc475069e69a0d10b69911a2497e5ca08",
+      "after": "bb5f356ca32c4f7355e0d45c8d19a63469f3fa32bc9e504c5d0e8847a5f9c569"
+    },
+    "dystrail-web/src/components/ui/stats_bar/weather.rs": {
+      "before": "e44684d0c80099a9ce65982dc66ebd83962daffc10faae9fce295e5323da9b84",
+      "after": "ae6bd63398eac7c8be93f5f018a0f00d2762e4687c3fa35983beb86bf62144cb"
+    },
+    "dystrail-web/i18n/ar.json": {
+      "before": "814b6ec04ce3e79fd00b1d02474bdb880ab3d58265804af84bd90fbcb2a74d77",
+      "after": "880df4ad600fafd1a3566507b359a0a43aac22fbc2294a3d0f8f3aa013e28d62"
+    },
+    "dystrail-web/i18n/bn.json": {
+      "before": "98d9cb5bcf9031c6fda66b3f56ec0757bd437fc6c291d09b87dd99ceeef87063",
+      "after": "e69780d193e7083840af23e2f60da977a590f2ef285a6ab5d68e727d1594468e"
+    },
+    "dystrail-web/i18n/de.json": {
+      "before": "e4b201202077373af57853d6addae6c5a59281ce7245a0e4d97c288ae5616af4",
+      "after": "2112fc9f18b152be77b7629aeb33810c6f1483664d67580d4d76761ea9c1af0d"
+    },
+    "dystrail-web/i18n/en.json": {
+      "before": "d9cbd01ece6ff8be36eccd68647ef0a36c4e003127029b0eed586e7c992a4dec",
+      "after": "cdbb8d11ce1d58d9281c6ff1e9451b560a2b5c97e2b23f58f0c07a9ff35a1ce2"
+    },
+    "dystrail-web/i18n/es.json": {
+      "before": "9f0172e6434592ae90197f9b622119c3311e1819a4ba417f3c8d3491f474bcf6",
+      "after": "e7b17c70b42caf941333474db7ab84c2cdae2153535b48b64a5b838876d4867c"
+    },
+    "dystrail-web/i18n/fr.json": {
+      "before": "1015f2ee927f250eac5d344f829bfe5e719d46a1d9cac85e738d34ed3279a95b",
+      "after": "8a50f8283772bbd66bbb99c5a29e34e1cb7a4337a75a6cce6291247b4f8850f1"
+    },
+    "dystrail-web/i18n/hi.json": {
+      "before": "e060715e1e623b388441e07082a3e073dae5b54a0a52ea9270f42b3cb1a1ded3",
+      "after": "b8bce65c9b39bc58f531d160a43bc1c81459dde5fa0eee6eacb5e00df4a71e9e"
+    },
+    "dystrail-web/i18n/id.json": {
+      "before": "40b2e523f34bb5a9d07d9b3c8d016020efa22487384ac27707bba124ac520817",
+      "after": "50d674746f5e7ea7d28836ed57412ca95aa73bb6839664d526f46e7269a7a4bc"
+    },
+    "dystrail-web/i18n/it.json": {
+      "before": "2320a132643d46e2dd3047b448abbe3eb6b7c7a29457f87563a4199356c7cbda",
+      "after": "f0e2035a4a526d6f4a3663d02f68e11e796c2462b135a0230f0af00da449cc1e"
+    },
+    "dystrail-web/i18n/ja.json": {
+      "before": "4bfc90557f69c4ca5c00c8fa655c7cf4e170e1a9f2d7eaa2e1814d2b3a525745",
+      "after": "51eeaf4bc52fe20ce02fa761fc0d6cc1672b3906e8c466cb37f362882d31bd8c"
+    },
+    "dystrail-web/i18n/jv.json": {
+      "before": "6faf7d7f7a2f2462e780de483d60801de7401a2a641895aafca990ef0ccfd887",
+      "after": "dec7bbaf52f8c8da05f2da35a7647c9f8e40dbf2b7299d2f5c2649e9593876d5"
+    },
+    "dystrail-web/i18n/ko.json": {
+      "before": "9c60542d9dba98d380a2c5c3c7df6ff31071c2b9ce7617e7ad0ac33ae8bd6a6e",
+      "after": "f45639ea78992da41e6961d7cf6bde0f5963f4600263ae338d7573258fd8d8d0"
+    },
+    "dystrail-web/i18n/mr.json": {
+      "before": "6138d544d7dcee39d4780a82d37df729062cb6aed062cba107a9fc7ddfab44a0",
+      "after": "71e47e3035e8efb7fde45ba56234be61ba60c0fb69fce55f0ba9744e6fecf1da"
+    },
+    "dystrail-web/i18n/pa.json": {
+      "before": "90a7f4259553c090378ab62e3b839290f85da64ac64d73a169c56706a8c9b8a6",
+      "after": "bcd33f7feaf9082d189d35c56edb6a7a298a852bcbc2d26efb075eaf86a99e94"
+    },
+    "dystrail-web/i18n/pt.json": {
+      "before": "1c25acc4c389c3ca2e5f854e45ea6f41e61ae12ab7bf1c6ceb403b88acc94b7c",
+      "after": "a5b604f868706ead17eceae380f98e9663e1f183cc7b677eafcfbd70dda63fcf"
+    },
+    "dystrail-web/i18n/ru.json": {
+      "before": "da8e90c5ccbf5aa43a2ca3689bdff61449c2139acc2321c445bac41512877d22",
+      "after": "d149fbe729965899fdca16cdc2e7e0cec8163f3d8dd12cacb49d7d420c9eff15"
+    },
+    "dystrail-web/i18n/ta.json": {
+      "before": "f2304bef9a6d0c4d2f489c1e9d9ca80a9c6ecc9af55cf335b3550c97072b96ae",
+      "after": "5b2ba80cd3e3ae8dd164800dbdcf075135bc968916b6b98f2d0cf91a79283a38"
+    },
+    "dystrail-web/i18n/te.json": {
+      "before": "69e2e0915bdf5a5891d9fc9fed78994b1ebb44f0e1b6c40769e4091f48b871d9",
+      "after": "4a4ab3abcc779cffec1f63a0c4059dad861a9c3a0dfc2df738e7c2d0fef14e8a"
+    },
+    "dystrail-web/i18n/tr.json": {
+      "before": "f028e76126c0c7e6a34f9c10fb3d89d7e790dc2780626ed5f36c1f80fd189da5",
+      "after": "c63eb8b4b78718106e1aaaf9b6f672c3d007c0e40dc5c32a4ddd12d46acbb5dd"
+    },
+    "dystrail-web/i18n/zh.json": {
+      "before": "bc9e60f89fb47d93bc157f3a17467ebdb5119bf3f68c20ba8cf6cbf144c7e297",
+      "after": "df3fae09d3d425d97b5d9cc574bbc30edeefac07c39b8bf5841f9c231fa9b0f5"
+    }
+  },
+  "changed_files": 23,
+  "unchanged_inputs": 611,
+  "config_changes": [
+    "dystrail-web/static/assets/data/weather.json"
+  ],
+  "every_prior_locale_leaf_preserved": true,
+  "camp_sanity": 4,
+  "source_tree_sha256": "a81516fc612803a5207d88f37ba3f28dc42cc23a10380e3f9c23a39a8a271123"
+}

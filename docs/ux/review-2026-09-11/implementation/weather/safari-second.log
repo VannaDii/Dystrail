@@ -1,0 +1,35 @@
+Safari 26.6.2
+Click Choose your character
+Click Journalist
+file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:18
+async function until(script,timeout=20000){const start=Date.now();while(Date.now()-start<timeout){try{if(await exec(script))return;}catch{}await new Promise(r=>setTimeout(r,200));}throw new Error('Timed out: '+script+'\n'+await exec('return document.body.innerText'));}
+                                                                                                                                                                                          ^
+
+Error: Timed out: return [...document.querySelectorAll("button")].some(e=>e.offsetHeight&&!e.disabled&&e.textContent.trim()==="Journalist")
+Skip to content
+DYSTOPIAN TRAIL
+Menu ▾
+
+A POLITICAL SURVIVAL ROAD TRIP.
+
+DYSTOPIAN TRAIL
+Get to D.C. with your health, sanity, and dignity intact. The road has other plans.
+Choose your trail
+
+Classic
+Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity.
+
+The Deep End
+The same road, a worse reality. Stranger encounters, harsher satire, and higher volatility. For a second trip into the mess.
+Run code (optional)
+
+Use a run code to replay a journey. Leave the generated code as-is for this trip.
+Choose your character
+© Dystopian Trail
+
+    at until (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:18:187)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async click (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:19:56)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:45:39
+
+Node.js v24.19.0

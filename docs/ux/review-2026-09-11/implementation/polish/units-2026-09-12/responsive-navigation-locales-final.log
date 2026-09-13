@@ -1,0 +1,184 @@
+Safari 26.6.2
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+PASS All eleven shop images are decoded local assets before the store opens
+Click Review & depart
+Click Start the journey
+Click Import
+Click The Van
+PASS The Van has an illustrated trip overview and the crew above every part and equipment item
+Click Journal
+PASS Desktop journal uses the horizontal space and retains boxed resource changes
+Click Import
+Click The Van
+Click The Trail
+PASS Every current-turn entry stays newest first under The Trail through tab navigation and reload
+Click Import
+Click Journal
+PASS Trail and Journal share five compact cards in one row, with historical clock, pace and diet beneath the route
+Click Import
+Click Conditions
+PASS Clock, pace and diet icons update in the top bar; weather has structured effects and a plain i
+Click Help & tips
+PASS Help & tips does not move the HUD
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+PASS Local conversations visibly offer credibility, receipts or allies once, and remain open after claiming
+Click Import
+Click Fit your spare Battery
+PASS The outcome return button stays visible and clickable at every tested scroll position in native Safari
+Click Back to the road
+PASS Breakdown is never automatic; Camp and Travel unlock only after an explicit repair
+Click Import
+Click The Trail
+Click The Trail
+Click Conditions
+Click Conditions
+Click Conditions
+Click The Van
+Click The Van
+Click The Van
+Click Journal
+Click Journal
+Click Journal
+Click Camp
+Click Route
+Click Close map
+PASS All tabs collapse and reopen; a manual map returns to the same screen and selected tab without traveling, including after reload
+Click Import
+Click Journal
+Click English
+Click Italiano
+Click Español
+Click العربية
+Click 中文
+Click हिन्दी
+Click Français
+Click বাংলা
+Click Português
+Click Русский
+Click 日本語
+Click Deutsch
+Click Bahasa Indonesia
+Click Basa Jawa
+Click 한국어
+Click मराठी
+Click ਪੰਜਾਬੀ
+Click தமிழ்
+Click తెలుగు
+Click Türkçe
+Click English
+PASS All 20 shipped locales render Journal and manual-map controls without unresolved keys or horizontal overflow
+Click Import
+Click Close
+PASS Wasm renders a real 1200px PNG offline, editable post text and draft links without posting
+Click Import
+Click The Van
+Click العربية
+PASS Illustrated inventory retains counts and alignment in Arabic
+{
+  "revision": "56213723b1c62ed89b93",
+  "checks": [
+    "All eleven shop images are decoded local assets before the store opens",
+    "The Van has an illustrated trip overview and the crew above every part and equipment item",
+    "Desktop journal uses the horizontal space and retains boxed resource changes",
+    "Every current-turn entry stays newest first under The Trail through tab navigation and reload",
+    "Trail and Journal share five compact cards in one row, with historical clock, pace and diet beneath the route",
+    "Clock, pace and diet icons update in the top bar; weather has structured effects and a plain i",
+    "Help & tips does not move the HUD",
+    "Local conversations visibly offer credibility, receipts or allies once, and remain open after claiming",
+    "The outcome return button stays visible and clickable at every tested scroll position in native Safari",
+    "Breakdown is never automatic; Camp and Travel unlock only after an explicit repair",
+    "All tabs collapse and reopen; a manual map returns to the same screen and selected tab without traveling, including after reload",
+    "All 20 shipped locales render Journal and manual-map controls without unresolved keys or horizontal overflow",
+    "Wasm renders a real 1200px PNG offline, editable post text and draft links without posting",
+    "Illustrated inventory retains counts and alignment in Arabic"
+  ],
+  "viewports": [
+    {
+      "name": "illustrated-shop",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "illustrated-van",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "compact-journal",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "turn-history-newest-first",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "compact-trail-five-stats",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "compact-journal-five-stats",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "weather-details",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "explicit-repair",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "reachable-outcome",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "manual-map-back-to-camp",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "journal-ar",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "journal-ja",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "offline-share",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "arabic-van",
+      "width": 1728,
+      "height": 1032
+    }
+  ]
+}

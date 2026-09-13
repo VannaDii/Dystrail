@@ -1,0 +1,79 @@
+{
+  "archived_utc": "2026-09-13T08:16:49.288062+00:00",
+  "experiment": "pace-crossing",
+  "status": "failed acceptance; retained for diagnosis",
+  "source": "/tmp/dystrail-retune-2026-09-13",
+  "runner_sha256": "3eec31e6b39604835e7ff2511ea1b0ca174a63dd39d611c7535bccb953e99225",
+  "files": {
+    "pace-crossing.patch": {
+      "bytes": 380,
+      "sha256": "ddb8eb2dcb6d85a27c1ba3a2e3a7144b82f526edc0b7a650165c9a12365a5b69"
+    },
+    "pace-crossing-inputs.pre-run.json": {
+      "bytes": 137389,
+      "sha256": "71117a5c2eb20c6d42132569db44d1c9f02438aae144df4280c67b0756186364"
+    },
+    "pace-crossing-inputs.json": {
+      "bytes": 202932,
+      "sha256": "002eb4984fb71812b05d5345ffc442e7282f7634f0e85bf2cc4ca0e8c5824c07"
+    },
+    "pace-crossing-binary-ready.json": {
+      "bytes": 373,
+      "sha256": "6fccb951fe982d3c7ec8b08dc276a73445b8b68326153cd23dbd5784fbead99c"
+    },
+    "pace-crossing-seed4242.log": {
+      "bytes": 603,
+      "sha256": "c2ad20075ad2c8cda52b797c136b7f0a8264eb94433a10aff681e81b41790cb4"
+    },
+    "pace-crossing-build.log": {
+      "bytes": 289,
+      "sha256": "076439c0f08a03441a95cb66294e85b8f9468d3cb938dfcc41a730bb304abf97"
+    },
+    "pace-crossing-campaign.log": {
+      "bytes": 2607,
+      "sha256": "dff7b829f0aee4b28a200b361b9dd7dee3a15988ceba5b501c5beb9b1d2634f6"
+    },
+    "pace-crossing-analysis.json": {
+      "bytes": 48927,
+      "sha256": "39ba0cb02c430a566ec3f6573a495811302fcbbc2baecff7ff88fe6e5fea8242"
+    },
+    "pace-crossing-comparison.json": {
+      "bytes": 880,
+      "sha256": "e4b9baf1f21d69eb2b9ee1926ebc8df55a6a4a28d292abbd1076e718b63b7b6c"
+    },
+    "pace-crossing-measurement.md": {
+      "bytes": 8578,
+      "sha256": "d3abb3901af750f3f7053358ed649b8d5a68d2bab8c12821a6dcb42f4b26e370"
+    },
+    "crossing-policy-audit.py": {
+      "bytes": 4992,
+      "sha256": "b3a12bef846a6a941a80126f0ad54b96fe73c9fa92fc019037845b7f040b3809"
+    },
+    "crossing-policy-audit.json": {
+      "bytes": 7423,
+      "sha256": "9bd4ffa0726fe65d234ff938715db7874268dd3b43b6676f2eab0e08f14d12c6"
+    },
+    "crossing-policy-audit.md": {
+      "bytes": 8452,
+      "sha256": "2afe64f4cc85a5a61644058c7109db651f7defc8e3426c85c6b39e72d63f9d22"
+    },
+    "crossing-policy-evidence-hashes.json": {
+      "bytes": 1065,
+      "sha256": "39c0482456f39e14e79d56a8c129167eedbf1fed1f3a8a6f0ca3bf4a91b24c81"
+    },
+    "crossing-policy-021-forecast.json": {
+      "bytes": 845,
+      "sha256": "074c1adba38804f8cda957271b7345ad70ad609482dcb713884ec76864739c0c"
+    },
+    "pace-crossing-results.csv.gz": {
+      "bytes": 54006,
+      "sha256": "0ce861c84bdd53bcf16729b3d80fe2c27facedb1129d68725e8cdec11845f066",
+      "uncompressed_bytes": 684194,
+      "uncompressed_sha256": "a748cf28d00120c1caa5925a28c1a81577422a78b5ed506586c8503f90f3cac6",
+      "gzip_mtime": 0,
+      "gzip_filename": "",
+      "deterministic_second_compression_matched": true,
+      "roundtrip_exact": true
+    }
+  }
+}

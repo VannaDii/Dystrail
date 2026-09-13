@@ -24,7 +24,7 @@ fn build_bundle(lang: &str) -> Option<I18nBundle> {
 }
 
 fn fallback_bundle() -> I18nBundle {
-    let fallback = load_translations("en").unwrap_or(Value::Object(serde_json::Map::new()));
+    let fallback = load_translations("en").unwrap_or_else(|| Value::Object(serde_json::Map::new()));
 
     I18nBundle {
         lang: "en".to_string(),
@@ -73,13 +73,13 @@ pub fn set_lang(lang: &str) {
         replace_bundle(bundle);
         #[cfg(target_arch = "wasm32")]
         {
-            if let Some(doc) = web_sys::window().and_then(|w| w.document()) {
-                if let Some(el) = doc.document_element() {
-                    with_bundle(|read| {
-                        let _ = el.set_attribute("lang", &read.lang);
-                        let _ = el.set_attribute("dir", if read.rtl { "rtl" } else { "ltr" });
-                    });
-                }
+            if let Some(doc) = web_sys::window().and_then(|w| w.document())
+                && let Some(el) = doc.document_element()
+            {
+                with_bundle(|read| {
+                    let _ = el.set_attribute("lang", &read.lang);
+                    let _ = el.set_attribute("dir", if read.rtl { "rtl" } else { "ltr" });
+                });
             }
             if let Some(storage) =
                 web_sys::window().and_then(|win| win.local_storage().ok().flatten())

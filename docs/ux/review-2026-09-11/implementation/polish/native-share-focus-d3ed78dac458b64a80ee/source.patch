@@ -1,0 +1,61 @@
+--- a/dystrail-web/src/components/ui/result_screen/composer.rs
++++ b/dystrail-web/src/components/ui/result_screen/composer.rs
+@@ -19,12 +19,26 @@
+     let retry = use_state(|| 0u32);
+     let status = use_state(String::new);
+     let busy = use_state(|| false);
++    let completed_shares = use_state(|| 0_u32);
++    let native_button = use_node_ref();
+     let container = use_node_ref();
+     crate::components::ui::save_drawer::focus::use_focus_trap(
+         true,
+         Some("result-share-open".into()),
+         container.clone(),
+     );
++    {
++        let native_button = native_button.clone();
++        use_effect_with(*completed_shares, move |completed| {
++            // Native sheets can return focus to the page. Wait for the button
++            // to be enabled again before returning keyboard control to it.
++            if *completed > 0
++                && let Some(button) = native_button.cast::<web_sys::HtmlElement>()
++            {
++                let _ = button.focus();
++            }
++        });
++    }
+     {
+         let rendered = rendered.clone();
+         use_effect_with((p.post.clone(), *retry), move |(post, _)| {
+@@ -129,7 +143,7 @@
+             <div class="share-actions"><button onclick={on_copy}>{i18n::t("result.compose.copy")}</button>
+                 if let Some(Ok(image)) = rendered.as_ref() {
+                     <a class="share-download retro-btn" href={image.url.clone()} download="dystopian-trail.png">{i18n::t("result.compose.download")}</a>
+-                    if share_browser::supports_files(image) {<button class="retro-btn-primary" disabled={*busy} onclick={native_share(image.clone(), content.clone(), status.clone(), busy.clone())}>{i18n::t("result.compose.native")}</button>}
++                    if share_browser::supports_files(image) {<button ref={native_button} class="retro-btn-primary" disabled={*busy} onclick={native_share(image.clone(), content.clone(), status.clone(), busy.clone(), completed_shares.clone())}>{i18n::t("result.compose.native")}</button>}
+                 }
+             </div>
+             <p class="share-status" role="status" aria-live="polite">{&*status}</p>
+@@ -142,12 +156,14 @@
+     content: UseStateHandle<String>,
+     status: UseStateHandle<String>,
+     busy: UseStateHandle<bool>,
++    completed_shares: UseStateHandle<u32>,
+ ) -> Callback<MouseEvent> {
+     Callback::from(move |_| {
+         let promise = share_browser::start(&image, &content);
+         busy.set(true);
+         let status = status.clone();
+         let busy = busy.clone();
++        let completed_shares = completed_shares.clone();
+         spawn_local(async move {
+             let result = match promise {
+                 Ok(promise) => JsFuture::from(promise).await,
+@@ -160,6 +176,7 @@
+             };
+             status.set(i18n::t(key));
+             busy.set(false);
++            completed_shares.set(completed_shares.wrapping_add(1));
+         });
+     })
+ }

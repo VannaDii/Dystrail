@@ -1,0 +1,51 @@
+{
+  "revision": "69bbf502bf4d6e27f55c",
+  "activation": [
+    {
+      "mode": "classic",
+      "startClock": 480,
+      "exactCrossing": 1250,
+      "drivingMinutes": 30,
+      "crossingResolvedOnce": true,
+      "finalDay": 1,
+      "finalClock": 540,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "startClock": 720,
+      "exactCrossing": 1250,
+      "drivingMinutes": 30,
+      "crossingResolvedOnce": true,
+      "finalDay": 2,
+      "finalClock": 480,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "startClock": 480,
+      "exactCrossing": 1250,
+      "drivingMinutes": 30,
+      "crossingResolvedOnce": true,
+      "finalDay": 1,
+      "finalClock": 540,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "startClock": 720,
+      "exactCrossing": 1250,
+      "drivingMinutes": 30,
+      "crossingResolvedOnce": true,
+      "finalDay": 2,
+      "finalClock": 480,
+      "pauseAndOfflineReloadUnchanged": true
+    }
+  ],
+  "layouts": [],
+  "errors": [],
+  "currentCase": {
+    "mode": "deep",
+    "clock": 720
+  }
+}

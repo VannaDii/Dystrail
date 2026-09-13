@@ -1,11 +1,35 @@
 use crate::game::personas::Persona;
+use rand::{Rng, SeedableRng};
 use std::collections::BTreeMap;
 use yew::prelude::*;
 
-pub(super) fn initial_for(name: &str) -> String {
-    name.chars()
-        .next()
-        .map_or_else(|| "?".to_string(), |c| c.to_uppercase().collect::<String>())
+pub(super) fn initial_selection(
+    personas: &[Persona],
+    initial_id: Option<&str>,
+    entropy: u64,
+) -> Option<usize> {
+    if personas.is_empty() {
+        return None;
+    }
+    personas
+        .iter()
+        .position(|per| Some(per.id.as_str()) == initial_id)
+        .or_else(|| {
+            Some(rand_chacha::ChaCha8Rng::seed_from_u64(entropy).gen_range(0..personas.len()))
+        })
+}
+
+pub(super) fn selection_summary(per: &Persona) -> String {
+    crate::i18n::tr(
+        "persona.selection_summary",
+        Some(&BTreeMap::from([
+            ("name", localized_name(per).as_str()),
+            (
+                "budget",
+                crate::i18n::fmt_currency(i64::from(per.start.budget) * 100).as_str(),
+            ),
+        ])),
+    )
 }
 
 pub(super) fn mini_stat(label: String, value: i32) -> Html {
@@ -37,32 +61,11 @@ pub(super) fn localized_desc(per: &Persona) -> String {
     }
 }
 
-pub(super) fn multiplier_value(per: &Persona) -> String {
-    format!("×{:.1}", per.score_mult)
-}
-
 pub(super) fn multiplier_label(per: &Persona) -> String {
     let mult = format!("{:.1}", per.score_mult);
     let mut m = BTreeMap::new();
     m.insert("mult", mult.as_str());
     crate::i18n::tr("persona.mult", Some(&m))
-}
-
-pub(super) fn preview_line(per: &Persona) -> String {
-    let sup = per.start.supplies.to_string();
-    let cred = per.start.credibility.to_string();
-    let san = per.start.sanity.to_string();
-    let mor = per.start.morale.to_string();
-    let allies = per.start.allies.to_string();
-    let budget = per.start.budget.to_string();
-    let mut m = BTreeMap::new();
-    m.insert("sup", sup.as_str());
-    m.insert("cred", cred.as_str());
-    m.insert("san", san.as_str());
-    m.insert("mor", mor.as_str());
-    m.insert("allies", allies.as_str());
-    m.insert("budget", budget.as_str());
-    crate::i18n::tr("persona.preview", Some(&m))
 }
 
 pub(super) fn modifier_text(per: &Persona) -> String {
@@ -98,14 +101,36 @@ pub(super) fn modifier_text(per: &Persona) -> String {
 }
 
 pub(super) fn stats_row(per: &Persona) -> Html {
+    let mut starting_state = crate::game::GameState::default();
+    starting_state.apply_persona(per);
+    let stats = starting_state.stats;
     html! {
         <>
-            { mini_stat(crate::i18n::t("stats.sup_short"), per.start.supplies) }
-            { mini_stat(crate::i18n::t("stats.sanity_short"), per.start.sanity) }
-            { mini_stat(crate::i18n::t("stats.cred_short"), per.start.credibility) }
-            { mini_stat(crate::i18n::t("stats.mor_short"), per.start.morale) }
-            { mini_stat(crate::i18n::t("stats.allies_short"), per.start.allies) }
-            { mini_stat(crate::i18n::t("persona.selected_budget_prefix"), per.start.budget) }
+            { mini_stat(crate::i18n::t("ux.sanity"), stats.sanity) }
+            { mini_stat(crate::i18n::t("play.credibility"), stats.credibility) }
+            { mini_stat(crate::i18n::t("play.morale"), stats.morale) }
+            { mini_stat(crate::i18n::t("play.allies"), stats.allies) }
         </>
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::game::personas::PersonasList;
+    #[test]
+    fn initial_character_varies_but_recovery_preserves_the_selection() {
+        let list =
+            PersonasList::from_json(include_str!("../../../../static/assets/data/personas.json"))
+                .unwrap();
+        let choices: std::collections::BTreeSet<_> = (0..60)
+            .filter_map(|seed| initial_selection(&list.0, None, seed))
+            .collect();
+        assert_eq!(choices.len(), list.0.len());
+        for per in &list.0 {
+            let i = initial_selection(&list.0, Some(&per.id), 91).unwrap();
+            assert_eq!(list.0[i].id, per.id);
+        }
+        assert_eq!(initial_selection(&[], None, 1), None);
     }
 }

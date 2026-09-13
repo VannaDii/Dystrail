@@ -1,0 +1,14 @@
+{"url":"http://127.0.0.1:62101/play/","text":"","save":"{\"state\":{\"weather_impact\":null,\"interactive_repairs\":true,\"activities\":{\"foraged_on\":null,\"worked_at\":null,\"local_word\":null},\"abandoned\":true,\"clock_minutes\":480,\"driving_minutes_total\":0,\"pace_fati"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.waitFor: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('#result-share-open') to be visible[22m
+
+    at /private/tmp/dystrail-native-device-check/verify-preparation.mjs:8:152 {
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0

@@ -12,6 +12,7 @@ pub struct MenuItemProps {
 
 #[function_component(MenuItem)]
 pub fn menu_item(p: &MenuItemProps) -> Html {
+    crate::i18n::use_language();
     let idx = p.index;
     let on_click = {
         let on = p.on_activate.clone();

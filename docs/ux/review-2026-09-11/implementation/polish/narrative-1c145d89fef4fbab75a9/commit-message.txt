@@ -1,0 +1,7 @@
+fix(content): publish crew-neutral encounter copy
+
+Publish verified narrative revision 1c145d89fef4fbab75a9. Replace fixed player-crew headcounts in 20 shared narrative fields across the canonical data and 20 locales, plus one Spanish-only correction. Preserve every gameplay value and the published camp recovery of +4 sanity.
+
+Verify 196 payload files and 119 offline assets. Preserve all 59 homepage, documentation and domain files and all 20 previously published hashed game assets. The frozen source differs from the preceding visual release in exactly 421 string leaves across 21 JSON files.
+
+All 64 English, Italian, Spanish and Arabic encounter resolutions passed desktop, phone and offline checks using three remaining crew members. The existing production save passed the pre-deployment offline preservation check.

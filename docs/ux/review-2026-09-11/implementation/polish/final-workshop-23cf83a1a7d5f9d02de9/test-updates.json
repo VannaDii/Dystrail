@@ -1,0 +1,42 @@
+{
+  "handoff_sha256": "b3c9cc5db50c6f6dfbe402527c5bf14cab129315550f6fba0a4ad195db3b425b",
+  "files": [
+    {
+      "path": "dystrail-web/tests-e2e/writer-content.spec.ts",
+      "before_sha256": "c59a10e4a91954fba5aab9902bf7882e37bd17f55b226e531d242275c3cf8fe6",
+      "after_sha256": "b8f43f261408a201725803579733435274315e0519daaa3290dbc7201632c4cd"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/writer-narratives.spec.ts",
+      "before_sha256": "6e6a9ee2c85b9f977e684b66b5d22057aabbe1dfb488514b8ec706a04d63d467",
+      "after_sha256": "16e194eefa17324d248ca5d5de2e9fb1a26bbee862a3c79e4f1c853d6fcc3937"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/helpers.ts",
+      "before_sha256": "b2dd0c6b2a784181c349cdec71b78f8d2dd9dd16c7e95876274c5be62b9e6c82",
+      "after_sha256": "b73d620577ad89227f6ced32a1a1b1982afd980c5e114f8109e6dee58c345f44",
+      "reason": "Open the collapsed backup-text section before importing through the redesigned Save/Load UI; assertions unchanged."
+    }
+  ],
+  "checks": {
+    "expected_copy_derived_from_author_handoff": true,
+    "no_expected_copy_read_from_game_bundle": true,
+    "named_adapters_match_verified_integration": true,
+    "gameplay_effect_assertions_unchanged": true,
+    "choice_iteration_and_ids_unchanged": true,
+    "time_care_status_source_and_persistence_assertions_unchanged": true,
+    "narrative_key_coverage_expanded": true,
+    "exact_descriptions_labels_and_logs_pinned": true,
+    "only_two_requested_files_emitted": true,
+    "cargo_and_browser_not_run": true
+  },
+  "counts": {
+    "modified_files": 2,
+    "pinned_encounters": 3,
+    "pinned_ordered_choices": 9,
+    "pinned_choice_labels_and_logs": 18,
+    "updated_town_remarks": 28,
+    "updated_existing_narrative_fields": 25,
+    "additional_pinned_shared_care_fields": 2
+  }
+}

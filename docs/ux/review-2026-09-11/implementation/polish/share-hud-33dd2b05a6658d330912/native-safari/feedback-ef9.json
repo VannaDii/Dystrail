@@ -1,0 +1,163 @@
+{
+  "browser": "Native Safari",
+  "revision": "ef9b4b81cdeb1bc0700d",
+  "checks": [
+    "First launch stays behind the loading gate while an asset is held or failed, then Retry caches the complete game before launch",
+    "Every image is decoded and all seven bundled font faces are loaded locally at launch, including the app icon",
+    "All eleven illustrated items are visible without filters; direct store quantities recalculate exact whole-dollar totals; both checkout controls fit inside the footer",
+    "compact-outfitting changes language immediately in both directions without resetting quantities",
+    "Camp toggles in the shared row without time or resource costs; Travel leaves camp and starts travel with one click",
+    "All three local rewards, capped-credit receipt fallback, exact half-hour first cost, repeat access, no duplicate reward and reload persistence",
+    "One enabled Leave town action occupies the shared Travel position with its travel icon",
+    "Leave store aligns vertically with the heading and horizontally under the shared Travel action",
+    "compact-town-checkout changes language immediately in both directions without resetting quantities",
+    "Town checkout purchases once at its quoted price and returns to the latest dated Census population",
+    "Journal shows dated cards and typed cash change; work completion is centered",
+    "Map credits sit in the header next to the current town",
+    "Repair consumes the actual spare and shows vehicle recovery in an outcome card",
+    "Encounter subtitles align beneath the primary text and HUD stats have no inset background",
+    "Encounter cash uses the same stat-card format and accessible primary button name",
+    "Receipt is offered, awarded once, counted in the shared HUD, saved, explained and recorded in the journal",
+    "The map retains the actual receipt count, including after reload",
+    "Offline encounter awards a second receipt; reload preserves it and all 119 cached assets match their hashes while the origin is unavailable",
+    "A full camp day two miles before D.C. costs time without moving the van or triggering the hearing, including after reload",
+    "Ally notice survives reload, waits behind the map, acknowledges once, and stays in the journal",
+    "Removed stat is ignored in old saves; seven stats, concise risk and centered final offline footer",
+    "Town profile and journal remain readable in the measured native Safari viewport without horizontal overflow",
+    "Journal overflow is contained and its scroll area can receive keyboard focus",
+    "Conversation stacks joke and sourced record at a measured narrow Safari width",
+    "Conversation context is accessible and Back to town returns to unchanged services"
+  ],
+  "viewports": [
+    {
+      "name": "loading-held",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "loading-retry",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "compact-outfitting",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "compact-outfitting-arabic",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "camp-toggle",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "town-capped-reward",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "single-town-departure",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "store-alignment",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "compact-town-checkout",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "compact-town-checkout-arabic",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "journal",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "map-credits",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "repair-cards",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "aligned-choices",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-offer",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-outcome",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-journal",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-map",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-offline",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "late-route-stationary-camp",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "ally-departure",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "offline-footer",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "town-narrow",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "journal-narrow",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "conversation-measured",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "conversation-desktop",
+      "width": 1280,
+      "height": 928
+    }
+  ]
+}

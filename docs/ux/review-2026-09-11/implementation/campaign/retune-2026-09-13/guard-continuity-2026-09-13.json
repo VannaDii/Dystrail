@@ -1,0 +1,128 @@
+{
+  "current_guard_files": {
+    "dystrail-tester/src/logic/playability.rs": "80d4821649e18b1c05ed17850234c8199f80c2a4eacfd80d6ff7af96828dee64",
+    "dystrail-tester/src/logic/policy.rs": "832bfe5f6511bedcf10ae3805e9ab6e38e5ab02a4a47fab607126bc8c2ab32a5",
+    "dystrail-tester/src/common/scenario/full_game.rs": "e8d47d87193790ce74ad0ad262acbce0f723e0f2699edce62db035f2395ba3d7"
+  },
+  "verified_against": "Current production release source, fresh retuning baseline and every listed candidate input manifest",
+  "campaigns": [
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/baseline-inputs.json",
+      "manifest_sha256": "678eb27170e644ebba75a78167bb933eeefccdf79c22b74ca64a98e8cd3383a4",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/health035-inputs.json",
+      "manifest_sha256": "71fa58c843ca51b38a39044c99729a8de7249ea98cfbd49f39dc136c6c299b2f",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/health045-inputs.json",
+      "manifest_sha256": "d4efb26acca677de9f69e97a452c3f16d2457ed369c1f14337913659453bd184",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/health055-inputs.json",
+      "manifest_sha256": "51b1d010042527aa910f6392c7b9c35015377972a791173b89c9661be15d4328",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-camp8-inputs.json",
+      "manifest_sha256": "10a9d9e86af4777ec3ac7fcdf3c85e86f034544c19ecb54dfb1fc9b6db7744ce",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-inputs.json",
+      "manifest_sha256": "8208bbbb22d2260b429f06ddbe54458a321587887b67ee93eb43d77d47b72d97",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-activity-poncho-inputs.json",
+      "manifest_sha256": "04cc30db90165df732e5fa10fa85851c559a503117e6c887660511e085881415",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-inputs.json",
+      "manifest_sha256": "b1b66f3e81b8a99aa4288b2bb9d5d928d44ac70f9cbdb8cdce04189766666be0",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-inputs.json",
+      "manifest_sha256": "d2790fc5142009ce95ab21dedf6919135b534f6b692b4bde7dce7ab38623e8b1",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-crossing-inputs.json",
+      "manifest_sha256": "002eb4984fb71812b05d5345ffc442e7282f7634f0e85bf2cc4ca0e8c5824c07",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-health040-inputs.json",
+      "manifest_sha256": "5ac8e3f68cdb020f8248770bab754342a1eadcd50e0cab3f88f1f27b98a432dd",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    },
+    {
+      "manifest": "/tmp/dystrail-retune-2026-09-13/pace-inputs.json",
+      "manifest_sha256": "b6973375be91f5c4998a6965f772bd2667a64a764ccd482ef78a21f1357ce2bc",
+      "matches": {
+        "dystrail-tester/src/logic/playability.rs": true,
+        "dystrail-tester/src/logic/policy.rs": true,
+        "dystrail-tester/src/common/scenario/full_game.rs": true
+      }
+    }
+  ],
+  "historical_manifest_preserved": {
+    "path": "../retuning-acceptance-source-hashes.json",
+    "matches_current": {
+      "dystrail-tester/src/logic/playability.rs": false,
+      "dystrail-tester/src/logic/policy.rs": true,
+      "dystrail-tester/src/common/scenario/full_game.rs": true
+    },
+    "note": "The older playability file hash predates current production and the September 13 frozen baseline. It is retained as historical evidence and must not be asserted as a current whole-file match. Current physical mileage guards are 100\u2013350 miles per moving day, consistent with the requested modern hour/speed model. The present investigation changed no guarded thresholds, strategies or these three files."
+  },
+  "status": "All current candidate guard files match the actual fresh baseline and production exactly."
+}

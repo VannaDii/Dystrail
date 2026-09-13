@@ -1,0 +1,10 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source/dystrail-tester)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.85s
+     Running unittests src/main.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_tester-334413771449cb4e)
+
+running 1 test
+test logic::game_tester::tests::balanced_run_survives_past_day_45 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.03s
+

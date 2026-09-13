@@ -1,0 +1,15 @@
+### Result
+{"url":"http://127.0.0.1:8083/play/travel","receipts":"2","saved":2,"hudStats":7,"errors":[]}
+### Ran Playwright code
+```js
+await (async (page) => {
+ const errors=[];page.on('pageerror',error=>errors.push(String(error)));
+ await page.reload();
+ await page.locator('[data-stat="ux.receipt"] dd').waitFor();
+ const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')).state);
+ const result={url:page.url(),receipts:await page.locator('[data-stat="ux.receipt"] dd').innerText(),saved:saved.receipts.length,hudStats:await page.locator('.critical-stats .hud-stat').count(),errors};
+ return result;
+})(page);
+```
+### Events
+- New console entries: .playwright-cli/console-2026-09-12T04-12-24-816Z.log#L40-L42

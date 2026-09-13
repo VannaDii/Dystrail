@@ -1,60 +1,48 @@
-use crate::i18n::{locales, set_lang, t};
-use wasm_bindgen::JsCast;
+use crate::i18n::t;
 use yew::prelude::*;
-
 #[derive(Properties, PartialEq, Clone)]
 pub struct Props {
+    #[prop_or_default]
+    pub on_abandon: Callback<()>,
+    #[prop_or_default]
+    pub can_abandon: bool,
     pub on_open_save: Callback<()>,
+    pub on_save: Callback<()>,
+    pub status: String,
+    pub on_status_clear: Callback<()>,
     pub on_lang_change: Callback<String>,
     pub current_lang: String,
     pub high_contrast: bool,
     pub on_toggle_hc: Callback<bool>,
+    pub help_enabled: bool,
+    pub on_toggle_help: Callback<bool>,
 }
-
 #[function_component(Header)]
 pub fn header(p: &Props) -> Html {
-    let on_change = {
-        let cb = p.on_lang_change.clone();
-        Callback::from(move |e: web_sys::Event| {
-            if let Some(sel) = e
-                .target()
-                .and_then(|t| t.dyn_into::<web_sys::HtmlSelectElement>().ok())
-            {
-                set_lang(&sel.value());
-                cb.emit(sel.value());
-            }
-        })
-    };
-    let on_hc_toggle = {
+    crate::i18n::use_language();
+    let contrast = {
         let cb = p.on_toggle_hc.clone();
         let current = p.high_contrast;
         Callback::from(move |_| cb.emit(!current))
     };
-    let open_save = {
+    let save = {
+        let cb = p.on_save.clone();
+        Callback::from(move |_| cb.emit(()))
+    };
+    let load = {
         let cb = p.on_open_save.clone();
         Callback::from(move |_| cb.emit(()))
     };
-    html! {
-        <header role="banner">
-            <a href="#main" class="sr-only">{ t("ui.skip_to_content") }</a>
-            <div class="header-content">
-                <nav aria-label={t("nav.language")} class="header-left">
-                    <label for="lang-select" class="sr-only">{ t("nav.language") }</label>
-                    <select id="lang-select" onchange={on_change} value={p.current_lang.clone()} aria-label={t("nav.language")}>
-                        { for locales().iter().map(|meta| {
-                            let value = meta.code.to_string();
-                            let label = meta.name;
-                            html! { <option value={value}>{ label }</option> }
-                        }) }
-                    </select>
-                </nav>
-                <div class="header-right">
-                    <button aria-pressed={p.high_contrast.to_string()} onclick={on_hc_toggle} class="hc-toggle">
-                        { if p.high_contrast { t("ui.hc_on") } else { t("ui.hc_off") } }
-                    </button>
-                    <button id="save-open-btn" onclick={open_save}>{ t("save.header") }</button>
-                </div>
-            </div>
-        </header>
-    }
+    html! {<header class="game-header">
+        <a href="#main" class="skip-link">{t("ui.skip_to_content")}</a>
+        <span class="wordmark">{"DYSTOPIAN TRAIL"}<span class="wordmark-line"></span></span>
+        <super::game_menu::GameMenu><nav class="header-controls" aria-label={t("play2.game_controls")}>
+            <button data-menu-close="true" onclick={save}>{t("play2.save")}</button><button id="save-open-btn" data-menu-close="true" onclick={load}>{t("play2.load")}</button>
+            <button class="contrast-switch" role="switch" aria-checked={p.high_contrast.to_string()} onclick={contrast}><span class="switch-track" aria-hidden="true"><span></span></span>{t("play2.high_contrast")}</button>
+            <button class="contrast-switch help-switch" role="switch" aria-checked={p.help_enabled.to_string()} onclick={{let cb=p.on_toggle_help.clone();let enabled=p.help_enabled;Callback::from(move |_|cb.emit(!enabled))}}><span class="switch-track" aria-hidden="true"><span></span></span>{t("play2.help_tips")}</button>
+            <super::language_picker::LanguagePicker on_lang_change={p.on_lang_change.clone()} current_lang={p.current_lang.clone()} />
+        if p.can_abandon {<button class="abandon-menu-item" data-menu-close="true" onclick={{let cb=p.on_abandon.clone();Callback::from(move |_|cb.emit(()))}}>{t("journey.abandon")}</button>}
+        <super::offline_status::OfflineStatus key={p.current_lang.clone()} /></nav></super::game_menu::GameMenu>
+        <super::status_notice::StatusNotice message={p.status.clone()} on_clear={p.on_status_clear.clone()} />
+    </header>}
 }

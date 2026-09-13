@@ -1,0 +1,14 @@
+{
+  "revision": "4172ba426099ddcb6dcd",
+  "seed": 4,
+  "rain_resist": true,
+  "weatherImpact": {
+    "day": 1,
+    "weather": "Storm",
+    "supplies": -1,
+    "hp": 0,
+    "sanity": -1
+  },
+  "protectionReadout": false,
+  "errors": []
+}

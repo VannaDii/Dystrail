@@ -1,0 +1,391 @@
+   Compiling dystrail-web v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-web)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.47s
+     Running unittests src/lib.rs (target/debug/deps/dystrail_game-f5774ff2951196b5)
+
+running 124 tests
+test boss::tests::balanced_defaults_match_const_fns ... ok
+test coverage_anchor::tests::checksum_executes ... ok
+test crossings::resolver::tests::crossing_consumes_single_draw ... ok
+test day_accounting::tests::ledger_metrics_align_with_distance ... ok
+test crossings::resolver::tests::diminishing_returns_apply_to_bribes ... ok
+test crossings::resolver::tests::permit_disables_terminal ... ok
+test crossings::resolver::tests::detour_days_cover_span_using_single_sample ... ok
+test encounters::tests::determine_selection_falls_back ... ok
+test encounters::tests::pick_encounter_respects_rotation_queue ... ok
+test day_accounting::tests::partial_day_miles_falls_back_to_deltas ... ok
+test day_accounting::tests::enforce_ratio_floor_checks_recent_history ... ok
+test day_accounting::tests::partial_day_miles_uses_policy_ratio ... ok
+test encounters::tests::rotation_backlog_skips_recent_encounters ... ok
+test day_accounting::tests::ledger_travel_ratio_matches_manual_computation ... ok
+test encounters::tests::weighted_choice_prefers_higher_weight ... ok
+test endgame::tests::policy_key_resolves ... ok
+test encounters::tests::weighted_selection_emits_decision_trace ... ok
+test journal::tests::a_late_repair_spends_all_four_hours_across_midnight ... ok
+test journey::daily::tests::health_decay_and_rest_heal_interplay ... ok
+test journey::daily::tests::applies_pace_diet_weather_and_exec_multipliers ... ok
+test journey::daily::tests::sanitize_guards_invalid_entries ... ok
+test boss::tests::balanced_biases_load_from_assets ... ok
+test boss::tests::default_config_has_minimum_rounds_and_passes ... ok
+test data::tests::test_encounter_data_from_array ... ok
+test journey::event::tests::legacy_log_event_roundtrips_and_has_stable_id ... ok
+test data::tests::mandatory_cash_and_supply_costs_are_atomic_and_rewards_reach_the_wallet ... ok
+test data::tests::test_encounter_data_from_json ... ok
+test endgame::tests::config_defaults_load ... ok
+test boss::tests::run_boss_probability_branches_cover_edges ... ok
+test endgame::tests::one_time_wear_reset_applies_once ... ok
+test day_accounting::tests::day_record_serialization_roundtrip_is_stable ... ok
+test endgame::tests::field_repair_consumes_resources ... ok
+test day_accounting::tests::ledger_metrics_match_state_distance ... ok
+test journey::tests::journey_cfg_missing_fields_use_defaults ... ok
+test crossings::tests::apply_detour_records_partial_day ... ok
+test day_accounting::tests::record_travel_day_applies_transitions ... ok
+test journey::tests::journey_config_rejects_invalid_ratio ... ok
+test journey::event::tests::decision_trace_roundtrips ... ok
+test journey::tests::policy_conversion_roundtrip ... ok
+test activities::tests::gathering_and_paid_work_cannot_be_farmed_by_reloading ... ok
+test journey::tests::resource_manager_overlay_adjusts_part_weights ... ok
+test journal::tests::clock_and_actual_history_survive_save_without_navigation_time ... ok
+test crew_care::tests::natural_check_care_deferral_and_absence_are_persistent ... ok
+test journey::tests::travel_bounds_validation_catches_min_above_max ... ok
+test journey::tests::policy_catalog_resolves_family_and_overlay ... ok
+test journey::rng_save::tests::mixed_draws_continue_after_serializing_game_state ... ok
+test journey::tests::travel_day_kind_ratio_flag ... ok
+test journey::tests::journey_config_partial_ratio_clamped ... ok
+test mechanics::otdeluxe90s::tests::default_policy_includes_required_parity_defaults ... ok
+test journey::rng_save::tests::session_from_state_keeps_stream_position ... ok
+test numbers::tests::ceil_clamps_and_handles_nan ... ok
+test mechanics::otdeluxe90s::tests::default_policy_matches_extracted_trail_and_store_constants ... ok
+test numbers::tests::clamp_handles_non_finite ... ok
+test numbers::tests::rounders_cover_ranges ... ok
+test journey::tests::rng_bundle_uses_domain_hmac ... ok
+test journey::session::tests::session_from_state_resets_policy_and_ticks ... ok
+test party::tests::legacy_names_survive_upgrade ... ok
+test journey::tests::tick_day_emits_events_with_stable_day_id_when_day_is_consumed ... ok
+test journey::session::tests::session_construction_sets_policy_and_state ... ok
+test party::tests::names_are_unique_reproducible_and_do_not_repopulate_absent_members ... ok
+test journey::tests::tick_day_surfaces_and_drains_decision_traces ... ok
+test personas::tests::test_persona_json_parsing ... ok
+test journey::tests::reseed_resets_rng_bundle ... ok
+test repairs::tests::interactive_travel_cannot_silently_install_an_available_part ... ok
+test repairs::tests::purchase_uses_the_store_price_and_only_charges_delivery_outside_town ... ok
+test repairs::tests::repairs_are_costed_atomic_and_allow_a_cashless_exit ... ok
+test result::tests::high_score_triggers_victory ... ok
+test result::tests::hunger_collapse_maps_to_hunger_keys ... ok
+test result::tests::persona_resolution_and_headlines ... ok
+test result::tests::vehicle_failure_uses_detailed_keys ... ok
+test seed::tests::dp_orange_42_stable ... ok
+test seed::tests::encode_decode_roundtrips_code ... ok
+test seed::tests::test_parse_share_code ... ok
+test state::tests::encounter_recording_updates_history ... ok
+test state::tests::balanced_strategy_applies_travel_nudge_by_mode ... ok
+test state::tests::deep_aggressive_compose_uses_supplies_then_funds ... ok
+test state::tests::compute_miles_variations_cover_paths ... ok
+test state::tests::encounter_penalties_and_boosts_apply ... ok
+test state::tests::deep_aggressive_safeguards_and_compose ... ok
+test state::tests::classic_field_repair_guard_handles_zero_distance ... ok
+test state::tests::camp_cooldowns_tick_once_per_completed_day ... ok
+test state::tests::enumeration_roundtrips_cover_branches ... ok
+test state::tests::breakdown_without_spare_resolves_after_stall ... ok
+test state::tests::exec_order_effects_cover_all_variants ... ok
+test state::tests::encounter_soft_cap_reduces_chance ... ok
+test state::tests::breakdown_consumes_spare_and_clears_block ... ok
+test state::tests::end_of_day_variants_cover_remaining_paths ... ok
+test state::tests::allows_two_encounters_before_cooldown ... ok
+test state::tests::exposure_sets_kind ... ok
+test state::tests::exec_order_expires_and_sets_cooldown ... ok
+test state::tests::exec_order_drain_clamped_to_zero ... ok
+test state::tests::ledger_records_capture_tags_and_counts ... ok
+test state::tests::misc_state_path_exercise ... ok
+test state::tests::partial_travel_credit_resets_and_logs ... ok
+test state::tests::breakdown_uses_part_weights ... ok
+test state::tests::rest_travel_credit_logs_when_enabled ... ok
+test state::tests::starvation_sets_hunger_collapse ... ok
+test state::tests::sanity_guard_marks_partial_day ... ok
+test state::tests::max_two_encounters_per_day ... ok
+test state::tests::starvation_stacks_damage ... ok
+test state::tests::no_miles_on_camp ... ok
+test state::tests::stop_cap_conversion_awards_partial_credit ... ok
+test state::tests::travel_ratio_recent_handles_edge_cases ... ok
+test state::tests::travel_wear_scales_with_pace_weather_and_fatigue ... ok
+test state::tests::travel_and_rotation_helpers_reset_reason_tags ... ok
+test store::tests::cart_manipulation_and_totals ... ok
+test store::tests::store_lookup_variants ... ok
+test state::tests::vehicle_terminal_sets_ending ... ok
+test state::tests::ledger_serializes_and_roundtrips ... ok
+test state::tests::illness_rolls_cover_positive_and_cooldown_paths ... ok
+test tests::create_game_defaults_to_balanced_strategy ... ok
+test weather_impact::tests::weather_receipt_includes_exposure_and_gear_then_clears ... ok
+test tests::engine_creates_and_roundtrips_state ... ok
+test state::tests::repair_guards_and_limp_paths_execute ... ok
+test weather_impact::tests::receipt_observes_cold_protection_and_stat_floors ... ok
+test state::tests::aggressive_emergency_and_field_repair_paths ... ok
+test state::tests::steady_clear_progress_is_sane ... ok
+test state::tests::illness_triggers_when_guard_conditions_met ... ok
+test journey::rng_save::tests::a_resumed_journey_matches_an_uninterrupted_journey ... ok
+test route::tests::real_routes_have_distinct_origins_ordered_mileage_and_a_dc_finish ... ok
+test route::tests::geography_and_scenes_follow_the_selected_route_and_survive_save ... ok
+test route_services::tests::arrival_trade_cost_and_departure_survive_save ... ok
+test state::tests::health_and_sanity_boosts_apply ... ok
+test state::tests::ally_attrition_and_exec_order_paths ... ok
+
+test result: ok. 124 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/coverage_sweep.rs (target/debug/deps/coverage_sweep-12058017fa8a805d)
+
+running 24 tests
+test day_accounting_transition_matrix_covers_edges ... ok
+test seed_error_paths_cover_invalid_cases ... ok
+test pacing_and_personas_cover_fallbacks ... ok
+test state_apply_choice_handles_missing_encounter ... ok
+test day_accounting_ratio_and_sanitize ... ok
+test seed_and_result_paths_cover_branches ... ok
+test result_endings_branching ... ok
+test camp_disabled_and_negative_paths ... ok
+test endgame_controller_and_failure_guard ... ok
+test journey_controller_applies_partial_ratio ... ok
+test store_pricing_variants ... ok
+test camp_actions_cover_branches ... ok
+test boss_outcomes_cover_all_paths ... ok
+test store_cart_and_inventory_flows ... ok
+test camp_multi_day_sequences_cover_loops ... ok
+test weather_variants_cover_branches ... ok
+test game_engine_smoke_and_storage_paths ... ok
+test vehicle_and_weather_paths ... ok
+test crossing_config_thresholds_cover_branches ... ok
+test encounter_rotation_and_weights_cover_branches ... ok
+test journey_controller_tick_yields_day_record ... ok
+test boss_probability_edges_cover_low_and_high ... ok
+test crossing_resolution_covers_branches ... ok
+test full_content_walkthrough ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/data_shapes.rs (target/debug/deps/data_shapes-c3b662ef932ebcff)
+
+running 2 tests
+test game_state_serialization_preserves_day_records ... ok
+test journey_config_snapshot_stable ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/full_campaign.rs (target/debug/deps/full_campaign-d7a3de1ba300a76f)
+
+running 1 test
+test full_campaign_exercises_core_systems ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/stat_acceptance.rs (target/debug/deps/stat_acceptance-53e5a6151564a299)
+
+running 4 tests
+test crossing_distribution_matches_policy_weights ... ok
+test bribe_increases_pass_and_reduces_terminal ... ok
+test breakdown_probability_tracks_base_rate ... ok
+test endgame_breakdown_scale_reduces_breaks ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/system_coverage.rs (target/debug/deps/system_coverage-07b657a7dbe8d8f6)
+
+running 8 tests
+test encounter_data_static_loader_is_empty ... ok
+test vehicle_system_behaviour ... ok
+test pacing_accessors_are_resilient ... ok
+test weather_config_validation_flags_missing_data ... ok
+test store_cart_covers_operations ... ok
+test boss_minigame_exercises_outcomes ... ok
+test camp_actions_cover_key_paths ... ok
+test weather_effects_and_selection ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/weather_paths.rs (target/debug/deps/weather_paths-2b94428e48d2524a)
+
+running 4 tests
+test neutral_buffer_prefers_smoke_when_weighted ... ok
+test select_weather_is_deterministic_for_same_seed ... ok
+test neutral_buffer_defaults_to_clear_when_no_neutral_weights ... ok
+test weather_selection_and_effects_cover_branches ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/dystrail_tester-408cd53e3980bd64)
+
+running 18 tests
+test logic::game_tester::tests::boss_flags_only_when_attempted ... ok
+test logic::seeds::tests::resolves_numeric_and_share_code ... ok
+test logic::playability::tests::encounter_catalog_contains_rotation_additions ... ok
+test logic::game_tester::tests::boss_config_loads_balanced_biases ... ok
+test logic::playability::tests::deterministic_journey_digest_baseline ... ok
+test logic::playability::tests::validate_targets_enforce_distance_window ... ok
+WARN: Deep - Balanced terminal crossing rate 5.0% below 8% deep lower band
+WARN: Deep - Balanced terminal crossing rate 5.0% below 8% deep lower band
+test logic::playability::tests::validate_targets_enforce_deep_crossing_failure_cap ... ok
+test logic::playability::tests::validate_targets_enforce_classic_crossing_failure_cap ... ok
+WARN: Deep - Balanced terminal crossing rate 5.0% below 8% deep lower band
+WARN: Deep - Conservative terminal crossing rate 5.0% below 8% deep lower band
+test logic::playability::tests::validate_targets_enforce_average_miles_per_day_band ... ok
+WARN: Deep - Conservative terminal crossing rate 5.0% below 8% deep lower band
+WARN: Deep - Aggressive terminal crossing rate 5.0% below 8% deep lower band
+test logic::playability::tests::validate_targets_accepts_balanced_sample_data ... ok
+test logic::game_tester::tests::miles_reflect_miles_traveled ... ok
+test logic::game_tester::tests::balanced_setup_applies_persona_and_store_plan ... ok
+test logic::game_tester::tests::balanced_run_survives_past_day_45 ... ok
+test logic::playability::tests::generates_records_for_each_scenario ... ok
+test logic::playability::tests::deterministic_csv_digest_for_fixed_seed ... ok
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 80.1% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 80.3% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 79.6% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 80.0% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 79.4% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 78.7% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 74.2% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 75.6% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 74.8% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 81.3% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 79.7% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 80.4% < 90.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 79.4% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 79.1% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 81.0% < 92.0%
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 81.9% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 79.6% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 78.8% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 85.6% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 86.5% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 85.9% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 82.4% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 78.8% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 81.5% < 92.0%
+WARN: Deep - Aggressive average stop-cap conversions 16.67 > 1.2
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Balanced average stop-cap conversions 3.00 > 1.2
+test logic::playability::tests::aggregates_match_record_counts ... ok
+test logic::seeds::tests::expands_all_share_codes ... ok
+WARN: Classic - Balanced seed CL-ORANGE19 travel ratio 78.9% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE19 travel ratio 77.8% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 5 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 6 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 travel ratio 79.4% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 1 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE19 crossing 1 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 travel ratio 81.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE19 travel ratio 76.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE19 travel ratio 78.4% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE19 crossing 5 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 travel ratio 76.3% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE19 travel ratio 71.2% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE19 travel ratio 75.0% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 5 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE19 crossing 1 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE19 travel ratio 82.1% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE19 travel ratio 77.6% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE19 travel ratio 80.7% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE19 crossing 2 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE19 crossing 3 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE19 crossing 4 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE19 crossing 5 reported bribe success without attempt
+test logic::playability::tests::balanced_samples_hit_survival_and_boss_targets ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.30s
+
+     Running unittests src/lib.rs (target/debug/deps/dystrail_web-63599c26d5d5b5c4)
+
+running 48 tests
+test a11y::tests::status_helpers_are_noops_without_dom ... ok
+test a11y::tests::focus_css_includes_sr_only_helpers ... ok
+test app::tests::route_phase_mappings_cover_all_states ... ok
+test components::ui::journey_scene::tests::roads_change_by_region_and_day_without_rng ... ok
+test components::ui::result_screen::tests::parse_numeric_key_identifies_digits ... ok
+test app::aftermath::tests::reports_actual_capped_changes_and_inverted_danger ... ok
+test components::ui::result_screen::tests::headline_resolution_prefers_boss_flags ... ok
+test components::ui::result_screen::tests::epilogue_resolution_tracks_victory_state ... ok
+test app::aftermath::tests::completed_boss_resumes_results_even_without_an_explicit_ending ... ok
+test components::ui::journey_scene::composition::tests::casting_rotates_and_never_revives_absent_people ... ok
+test app::aftermath::tests::abandoning_is_terminal_even_with_unresolved_crew_or_town_stops ... ok
+test components::ui::journey_scene::encounters::tests::every_shipped_encounter_has_an_existing_non_road_illustration ... ok
+test components::ui::satire_context::tests::every_encounter_has_a_source_and_an_affordable_way_through ... ok
+test components::ui::camp_panel::tests::camp_panel_with_breakdown_starts_in_repair_view ... ok
+test components::ui::camp_panel::tests::camp_panel_main_view_renders_actions ... ok
+test components::ui::pace_diet_panel::tests::selection_outcome_covers_all_menu_entries ... ok
+test components::ui::main_menu::tests::main_menu_renders_all_entries_with_seed ... ok
+test components::ui::save_drawer::tests::save_drawer_hidden_when_closed ... ok
+test app::tests::seed_code_validation_handles_expected_formats ... ok
+test components::ui::save_drawer::tests::save_drawer_renders_action_buttons_when_open ... ok
+test game::tests::web_data_loader_reports_unknown_config ... ok
+test game::tests::web_data_loader_parses_static_assets ... ok
+test i18n::render::tests::interpolation_handles_braced_forms ... ok
+test i18n::render::tests::plural_selection_defaults ... ok
+test components::ui::encounter_card::tests::encounter_renders_effect_tooltips ... ok
+test game::tests::engine_factory_wires_default_components ... ok
+test components::ui::share_code_bar::tests::share_code_bar_enables_start_for_valid_codes ... ok
+test components::ui::route_map::graphic::tests::vehicle_marker_stays_on_real_road_and_reaches_dc ... ok
+test components::ui::settings_dialog::tests::settings_dialog_renders_controls_when_open ... ok
+test components::ui::settings_dialog::tests::settings_dialog_returns_empty_when_closed ... ok
+test components::ui::result_screen::tests::result_screen_renders_summary ... ok
+test app::receipt::tests::consumed_pump_is_visible_even_when_stats_are_identical ... ok
+test app::map::tests::maps_wait_for_a_safe_gap_and_never_hide_a_decision ... ok
+test components::ui::stats_bar::tests::stats_bar_announces_exec_order ... ok
+test components::ui::share_code_bar::tests::share_code_bar_marks_invalid_codes ... ok
+test input::tests::code_maps ... ok
+test input::tests::key_maps ... ok
+test paths::tests::builds_root_prefixed_path_when_base_missing ... ok
+test paths::tests::router_base_is_none_by_default ... ok
+test components::ui::travel_panel::tests::travel_panel_render_includes_weather_and_breakdown ... ok
+test components::ui::stats_bar::tests::stats_bar_renders_core_fields ... ok
+test components::ui::travel_panel::tests::weather_readout_reports_applied_exposure_without_spending_again ... ok
+test i18n::logs::tests::keys_and_placeholders_do_not_reach_players ... ok
+test i18n::encounters::tests::localized_copy_and_imported_fallback_stay_readable ... ok
+test app::town_facts::tests::every_real_route_stop_has_a_localized_sourced_fact ... ok
+test i18n_tests::required_feature_keys_exist ... ok
+test i18n_tests::locales_have_balanced_templates ... ok
+test i18n_tests::locales_have_matching_keys ... ok
+
+test result: ok. 48 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/crossing_i18n_tests.rs (target/debug/deps/crossing_i18n_tests-cfb40de1ed06f566)
+
+running 3 tests
+test test_crossing_config_structure ... ok
+test test_crossing_i18n_interpolation_structure ... ok
+test test_crossing_i18n_coverage ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests dystrail_game
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests dystrail_web
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

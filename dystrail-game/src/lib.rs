@@ -3,27 +3,36 @@
 //! Platform-agnostic core game logic for the Dystrail satirical survival game.
 //! This crate provides all game mechanics without UI or platform-specific dependencies.
 
+pub mod activities;
 pub mod boss;
 pub mod camp;
 pub mod constants;
 pub mod coverage_anchor;
+pub mod crew_care;
 pub mod crossings;
 pub mod data;
 pub mod day_accounting;
 pub mod encounters;
 pub mod endgame;
+pub mod evidence;
 pub mod exec_orders;
+pub mod journal;
 pub mod journey;
 pub mod mechanics;
 pub mod numbers;
 pub mod pacing;
+pub mod party;
 pub mod personas;
+pub mod repairs;
 pub mod result;
+pub mod route_services;
 pub mod seed;
 pub mod state;
 pub mod store;
+pub mod travel_time;
 pub mod vehicle;
 pub mod weather;
+pub mod weather_impact;
 
 // Re-export commonly used types
 pub use boss::{BossConfig, BossOutcome, run_boss_minigame};
@@ -278,3 +287,5 @@ mod tests {
         assert_eq!(state.policy, Some(PolicyKind::Balanced));
     }
 }
+
+pub mod route;

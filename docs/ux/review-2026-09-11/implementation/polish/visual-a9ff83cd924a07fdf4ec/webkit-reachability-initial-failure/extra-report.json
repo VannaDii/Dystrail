@@ -1,0 +1,6 @@
+{
+  "revision": "a9ff83cd924a07fdf4ec",
+  "cases": [],
+  "errors": [],
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(reach.controls.every(c=>c.visible&&c.uncovered))\n\n    at file:///private/tmp/dystrail-visual-refine/webkit-unit5-extra.mjs:23:4\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:502:9)"
+}

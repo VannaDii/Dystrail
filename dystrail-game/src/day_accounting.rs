@@ -1,10 +1,21 @@
-use crate::constants::{
-    TRAVEL_CLASSIC_BASE_DISTANCE, TRAVEL_HISTORY_WINDOW, TRAVEL_PARTIAL_MIN_DISTANCE,
-    TRAVEL_V2_BASE_DISTANCE,
-};
+//! Records actual movement and time in the current and completed driving days.
+
+/// The day's ledger stays open across individual hours and stationary actions.
+#[derive(Debug, Clone, Default, serde::Serialize, serde::Deserialize)]
+#[serde(default)]
+pub struct OpenDayLedger {
+    pub current_day_record: Option<DayRecord>,
+    pub current_day_kind: Option<TravelDayKind>,
+    pub current_day_reason_tags: Vec<String>,
+    pub current_day_miles: f32,
+    /// Retain distance below the odometer's precision across legs and saves.
+    pub distance_remainder: f32,
+    pub day_start_remainder: f32,
+}
+
 use crate::journey::{DayRecord, TravelDayKind};
 use crate::numbers::clamp_f64_to_f32;
-use crate::state::{GameState, PolicyKind, TravelProgressKind};
+use crate::state::{GameState, TravelProgressKind};
 
 /// Aggregate metrics derived from recorded day history.
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -45,24 +56,29 @@ impl Default for DayLedgerMetrics {
 #[must_use]
 pub fn compute_day_ledger_metrics(records: &[DayRecord]) -> DayLedgerMetrics {
     let mut metrics = DayLedgerMetrics::default();
+    let mut miles = [0.0_f64; 3];
     for record in records {
         metrics.total_days = metrics.total_days.saturating_add(1);
-        metrics.total_miles += record.miles;
-        match record.kind {
+        let bucket = match record.kind {
             TravelDayKind::Travel => {
                 metrics.travel_days = metrics.travel_days.saturating_add(1);
-                metrics.travel_miles += record.miles;
+                0
             }
             TravelDayKind::Partial => {
                 metrics.partial_days = metrics.partial_days.saturating_add(1);
-                metrics.partial_miles += record.miles;
+                1
             }
             TravelDayKind::NonTravel => {
                 metrics.non_travel_days = metrics.non_travel_days.saturating_add(1);
-                metrics.non_travel_miles += record.miles;
+                2
             }
-        }
+        };
+        miles[bucket] += f64::from(record.miles);
     }
+    metrics.total_miles = clamp_f64_to_f32(miles.iter().sum());
+    metrics.travel_miles = clamp_f64_to_f32(miles[0]);
+    metrics.partial_miles = clamp_f64_to_f32(miles[1]);
+    metrics.non_travel_miles = clamp_f64_to_f32(miles[2]);
     metrics
 }
 
@@ -74,6 +90,15 @@ fn compute_ratio(numerator: u32, denominator: u32) -> f32 {
     clamp_f64_to_f32(ratio.clamp(0.0, 1.0))
 }
 
+pub(crate) fn current_day_distance(state: &GameState) -> f32 {
+    clamp_f64_to_f32(
+        (f64::from(state.miles_traveled_actual) - f64::from(state.prev_miles_traveled)
+            + f64::from(state.ledger.distance_remainder)
+            - f64::from(state.ledger.day_start_remainder))
+        .max(0.0),
+    )
+}
+
 /// Record travel day details and update counters consistently.
 pub fn record_travel_day(
     state: &mut GameState,
@@ -83,31 +108,25 @@ pub fn record_travel_day(
     state.start_of_day();
     let mut effective_kind = kind;
     let mut miles = sanitize_miles(miles_earned);
-    let suppress_stop_ratio = state.day_state.lifecycle.suppress_stop_ratio;
-
-    if matches!(effective_kind, TravelDayKind::NonTravel)
-        && !suppress_stop_ratio
-        && enforce_ratio_floor(state)
-    {
-        effective_kind = TravelDayKind::Partial;
-        miles = partial_day_miles(state, miles);
-        state.add_day_reason_tag("stop_cap");
+    if miles == 0.0 && state.ledger.current_day_miles == 0.0 {
+        effective_kind = TravelDayKind::NonTravel;
+    }
+    // A stop cannot erase driving already completed earlier in the same day.
+    if miles == 0.0 && state.ledger.current_day_miles > 0.0 {
+        effective_kind = state
+            .ledger
+            .current_day_kind
+            .unwrap_or(TravelDayKind::Partial);
     }
 
-    if matches!(effective_kind, TravelDayKind::NonTravel) && enforce_endgame_stop_cap(state) {
-        effective_kind = TravelDayKind::Partial;
-        miles = partial_day_miles(state, miles);
-        state.add_day_reason_tag("auto_cap");
-    }
-
-    match state.current_day_kind {
+    match state.ledger.current_day_kind {
         None => {
             apply_initial_counters(state, effective_kind);
-            state.current_day_kind = Some(effective_kind);
+            state.ledger.current_day_kind = Some(effective_kind);
         }
         Some(existing) if existing != effective_kind => {
             adjust_counters_for_transition(state, existing, effective_kind);
-            state.current_day_kind = Some(effective_kind);
+            state.ledger.current_day_kind = Some(effective_kind);
         }
         _ => {}
     }
@@ -119,7 +138,7 @@ pub fn record_travel_day(
         };
         let credited = state.apply_travel_progress(miles, progress_kind);
         if credited > 0.0 {
-            state.current_day_miles += credited;
+            state.ledger.current_day_miles = current_day_distance(state);
             miles = credited;
         } else {
             miles = 0.0;
@@ -141,7 +160,8 @@ pub fn record_travel_day(
         }
     }
 
-    if state.endgame.active
+    if miles > 0.0
+        && state.endgame.active
         && matches!(effective_kind, TravelDayKind::Partial)
         && state.endgame.wear_shave_ratio < 1.0
     {
@@ -149,25 +169,6 @@ pub fn record_travel_day(
     }
 
     (effective_kind, miles)
-}
-
-fn enforce_endgame_stop_cap(state: &GameState) -> bool {
-    if !state.endgame.active {
-        return false;
-    }
-    let window = usize::from(state.endgame.stop_cap_window.max(1));
-    let max_full = usize::from(state.endgame.stop_cap_max_full);
-    if max_full == 0 {
-        return true;
-    }
-    let full_stops = state
-        .recent_travel_days
-        .iter()
-        .rev()
-        .take(window)
-        .filter(|kind| matches!(kind, TravelDayKind::NonTravel))
-        .count();
-    full_stops >= max_full
 }
 
 fn apply_endgame_wear_shave(state: &mut GameState) {
@@ -189,55 +190,6 @@ const fn sanitize_miles(miles: f32) -> f32 {
     }
 }
 
-fn enforce_ratio_floor(state: &GameState) -> bool {
-    let window = TRAVEL_HISTORY_WINDOW.saturating_sub(1);
-    if window == 0 {
-        return false;
-    }
-
-    let stop_cap = ratio_stop_limit(state);
-    let recent_stops = state
-        .recent_travel_days
-        .iter()
-        .rev()
-        .take(window)
-        .filter(|kind| matches!(kind, TravelDayKind::NonTravel))
-        .count();
-    recent_stops >= stop_cap
-}
-
-const fn ratio_stop_limit(state: &GameState) -> usize {
-    if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Conservative)) {
-        2
-    } else {
-        1
-    }
-}
-
-pub(crate) fn partial_day_miles(state: &GameState, miles: f32) -> f32 {
-    if miles > 0.0 {
-        return miles;
-    }
-
-    let ratio = state.journey_partial_ratio.clamp(0.2, 0.95);
-
-    let partial_today = state.partial_distance_today;
-    if partial_today > 0.0 {
-        return partial_today.max(TRAVEL_PARTIAL_MIN_DISTANCE);
-    }
-    let distance_today = state.distance_today;
-    if distance_today > 0.0 {
-        return (distance_today * ratio).max(TRAVEL_PARTIAL_MIN_DISTANCE);
-    }
-
-    let base = if state.features.travel_v2 {
-        TRAVEL_V2_BASE_DISTANCE
-    } else {
-        TRAVEL_CLASSIC_BASE_DISTANCE
-    };
-    (base * ratio).max(TRAVEL_PARTIAL_MIN_DISTANCE)
-}
-
 const fn apply_initial_counters(state: &mut GameState, kind: TravelDayKind) {
     if matches!(kind, TravelDayKind::Travel | TravelDayKind::Partial) {
         state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
@@ -250,8 +202,7 @@ const fn adjust_counters_for_transition(
     next: TravelDayKind,
 ) {
     match (existing, next) {
-        (TravelDayKind::Partial | TravelDayKind::NonTravel, TravelDayKind::Travel)
-        | (TravelDayKind::NonTravel, TravelDayKind::Partial) => {
+        (TravelDayKind::NonTravel, TravelDayKind::Travel | TravelDayKind::Partial) => {
             state.rotation_travel_days = state.rotation_travel_days.saturating_add(1);
         }
         (TravelDayKind::Partial | TravelDayKind::Travel, TravelDayKind::NonTravel) => {
@@ -264,7 +215,8 @@ const fn adjust_counters_for_transition(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::state::GameMode;
+    use crate::constants::TRAVEL_HISTORY_WINDOW;
+    use crate::state::{GameMode, PolicyKind};
     use rand::{Rng, SeedableRng, rngs::StdRng};
     use serde_json;
     use std::collections::VecDeque;
@@ -274,6 +226,44 @@ mod tests {
         let mut state = GameState::default();
         state.features.travel_v2 = true;
         state
+    }
+
+    #[test]
+    fn late_route_camping_never_moves_the_van_or_finishes_the_route() {
+        for forage in [false, true] {
+            let mut state = fresh_state();
+            state.trail_distance = 2_400.0;
+            state.miles_traveled_actual = 2_398.0;
+            state.miles_traveled = state.miles_traveled_actual;
+            state.endgame.active = true;
+            state.endgame.stop_cap_max_full = 0;
+            state.stats.supplies = 5;
+            state.stats.sanity = 3;
+            let before = state.clone();
+            let config = crate::camp::CampConfig::default_config();
+            if forage {
+                crate::camp::camp_forage(&mut state, &config);
+            } else {
+                crate::camp::camp_rest(&mut state, &config);
+            }
+            assert!(
+                (state.miles_traveled_actual - before.miles_traveled_actual).abs() < f32::EPSILON
+            );
+            assert!(!state.boss.readiness.ready);
+            if forage {
+                assert_eq!(state.day, before.day);
+                assert_eq!(
+                    state.continuity.clock_minutes,
+                    before.continuity.clock_minutes + 120
+                );
+                assert!(state.day_records.is_empty());
+            } else {
+                assert_eq!(state.day, before.day + 1);
+                let day = state.day_records.last().unwrap();
+                assert_eq!(day.kind, TravelDayKind::NonTravel);
+                assert!(day.miles.abs() < f32::EPSILON);
+            }
+        }
     }
 
     #[test]
@@ -303,50 +293,23 @@ mod tests {
     }
 
     #[test]
-    fn partial_day_miles_uses_policy_ratio() {
-        let mut state = fresh_state();
-        let base = 10.0;
-        for ratio in [0.25_f32, 0.5, 0.75, 0.9] {
-            state.distance_today = base;
-            state.distance_today_raw = base;
-            state.partial_distance_today = 0.0;
-            state.journey_partial_ratio = ratio;
-            let miles = partial_day_miles(&state, 0.0);
-            let expected = (ratio.clamp(0.2, 0.95) * base).max(TRAVEL_PARTIAL_MIN_DISTANCE);
-            assert!((miles - expected).abs() <= 1e-5);
-        }
-    }
-
-    #[test]
-    fn partial_day_miles_falls_back_to_deltas() {
-        let mut state = fresh_state();
-        state.partial_distance_today = 4.0;
-        let miles = partial_day_miles(&state, 0.0);
-        assert!((miles - 4.0).abs() <= f32::EPSILON);
-
-        state.partial_distance_today = 0.0;
-        state.distance_today = 6.0;
-        let computed = partial_day_miles(&state, 0.0);
-        assert!(computed >= TRAVEL_PARTIAL_MIN_DISTANCE);
-
-        state.distance_today = 0.0;
-        state.features.travel_v2 = false;
-        let computed = partial_day_miles(&state, 0.0);
-        assert!(computed >= TRAVEL_PARTIAL_MIN_DISTANCE);
-    }
-
-    #[test]
-    fn enforce_ratio_floor_checks_recent_history() {
+    fn recent_stops_cannot_create_distance() {
         let mut state = fresh_state();
         state.recent_travel_days =
             VecDeque::from(vec![TravelDayKind::NonTravel; TRAVEL_HISTORY_WINDOW]);
-        assert!(enforce_ratio_floor(&state));
+        let (kind, miles) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+        assert_eq!(kind, TravelDayKind::NonTravel);
+        assert_eq!((miles).to_bits(), (0.0f32).to_bits());
+        assert_eq!((state.miles_traveled_actual).to_bits(), (0.0f32).to_bits());
 
         state.mode = GameMode::Deep;
         state.policy = Some(PolicyKind::Conservative);
         state.recent_travel_days =
             VecDeque::from(vec![TravelDayKind::NonTravel; TRAVEL_HISTORY_WINDOW]);
-        assert!(enforce_ratio_floor(&state));
+        let (kind, miles) = record_travel_day(&mut state, TravelDayKind::NonTravel, 0.0);
+        assert_eq!(kind, TravelDayKind::NonTravel);
+        assert_eq!((miles).to_bits(), (0.0f32).to_bits());
+        assert_eq!((state.miles_traveled_actual).to_bits(), (0.0f32).to_bits());
     }
 
     #[test]
@@ -362,6 +325,67 @@ mod tests {
         assert_eq!(metrics.travel_days, 1);
         assert_eq!(metrics.partial_days, 1);
         assert_eq!(metrics.non_travel_days, 1);
+    }
+
+    #[test]
+    fn fractional_legs_keep_their_distance_below_odometer_precision() {
+        let mut state = fresh_state();
+        record_travel_day(&mut state, TravelDayKind::Travel, 1_498.3);
+        for requested in [0.17, 11.3, 0.1, 7.127] {
+            let (_, credited) = record_travel_day(&mut state, TravelDayKind::Partial, requested);
+            assert_eq!(credited.to_bits(), requested.to_bits());
+        }
+        assert_ne!(state.ledger.distance_remainder.to_bits(), 0.0_f32.to_bits());
+    }
+
+    #[test]
+    fn fractional_days_reconcile_with_odometer_and_saved_open_day() {
+        let mut state = fresh_state();
+        state.trail_distance = 2_100.0;
+        'journey: for _ in 0..100 {
+            state.start_of_day();
+            let mut planned = 0.0_f64;
+            for leg in [0.17, 27.123, 0.1, 11.707, 6.39] {
+                planned += f64::from(leg);
+                state.record_travel_day(TravelDayKind::Travel, leg, "driving");
+                if state.miles_traveled_actual >= state.trail_distance {
+                    break 'journey;
+                }
+                assert_eq!(
+                    state.ledger.current_day_miles.to_bits(),
+                    clamp_f64_to_f32(planned).to_bits()
+                );
+            }
+            state.end_of_day();
+        }
+        assert_eq!(state.miles_traveled_actual.to_bits(), 2_100.0_f32.to_bits());
+        let restored: GameState =
+            serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
+        assert_eq!(
+            restored.ledger.distance_remainder.to_bits(),
+            state.ledger.distance_remainder.to_bits()
+        );
+        assert_eq!(
+            restored.ledger.day_start_remainder.to_bits(),
+            state.ledger.day_start_remainder.to_bits()
+        );
+        for mut checkpoint in [state, restored] {
+            let records: Vec<_> = checkpoint
+                .day_records
+                .iter()
+                .chain(checkpoint.ledger.current_day_record.iter())
+                .cloned()
+                .collect();
+            let open = compute_day_ledger_metrics(&records);
+            assert_eq!(
+                open.total_miles.to_bits(),
+                checkpoint.miles_traveled_actual.to_bits()
+            );
+            checkpoint.end_of_day();
+            let closed = checkpoint.ledger_metrics();
+            assert_eq!(closed.total_miles.to_bits(), 2_100.0_f32.to_bits());
+            assert_eq!(closed.total_days, open.total_days);
+        }
     }
 
     #[test]

@@ -51,16 +51,12 @@ fn test_crossing_i18n_interpolation_structure() {
         .expect("Missing detour option");
 
     assert!(
-        detour_option.contains("{days}"),
-        "detour option should have days placeholder"
+        detour_option.contains("{hours}"),
+        "detour option should have hours placeholder"
     );
     assert!(
         detour_option.contains("{supplies}"),
         "detour option should have supplies placeholder"
-    );
-    assert!(
-        detour_option.contains("{pants}"),
-        "detour option should have pants placeholder"
     );
 
     let bribe_option = cross
@@ -104,9 +100,8 @@ fn test_crossing_config_structure() {
 
     // Validate detour has required fields
     let detour = checkpoint.get("detour").unwrap();
-    assert!(detour.get("days").is_some());
+    assert!(detour.get("hours").is_some());
     assert!(detour.get("supplies").is_some());
-    assert!(detour.get("pants").is_some());
 }
 
 fn get_expected_crossing_keys() -> Vec<String> {

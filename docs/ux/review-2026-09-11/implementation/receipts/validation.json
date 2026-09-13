@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-11",
+  "preview": "http://127.0.0.1:8180/play/",
+  "revision": "89ee0b2f9cabd5c5e72b",
+  "offline": {
+    "assets": 88,
+    "bytes": 90545824,
+    "all_served_sha256_verified": true
+  },
+  "receipts": {
+    "hud_stats": 7,
+    "reward_choices": 26,
+    "score_per_held_receipt": 8,
+    "guaranteed_reward": 1,
+    "maximum_extra_reward": 1
+  },
+  "native": {
+    "tests_passed": 254,
+    "strict_clippy": "pass",
+    "wasm_strict_clippy": "pass",
+    "wasm_chrome_tests_passed": 2,
+    "engine_coverage_percent": 78.24,
+    "required_coverage_percent": 77
+  },
+  "chrome": {
+    "version": "152.0.7977.84",
+    "award_outcome_journal_reload": "pass",
+    "offline_award_and_reload": "pass",
+    "languages": [
+      "en",
+      "es",
+      "it",
+      "ar"
+    ],
+    "widths": [
+      1280,
+      390,
+      320
+    ],
+    "horizontal_overflow": false,
+    "application_console_errors": 0,
+    "final_revision_checks": [
+      "persisted receipt total",
+      "localized help",
+      "Arabic layout at 320 pixels"
+    ]
+  },
+  "safari": {
+    "version": "26.6.2",
+    "status": "pending",
+    "reason": "Owned test window reports hidden; waiting for user visibility",
+    "test_origin": "http://127.0.0.1:56854/play/",
+    "previous_build": "f6b4922d52c336b3eec9",
+    "previous_build_checks_passed": 11
+  },
+  "security": {
+    "vulnerabilities": 0,
+    "unmaintained_package_warnings": 3,
+    "audit": "pass with documented temporary exceptions",
+    "cargo_deny": "pass with documented temporary exceptions",
+    "exceptions_expire": "2026-10-11"
+  },
+  "campaign": {
+    "iterations": 1000,
+    "status": "failed",
+    "first_failure": "Classic/Balanced CL-ORANGE02 travel ratio 89.8% < 90%",
+    "thresholds_changed": false
+  },
+  "goal": "open",
+  "production_deployed": false
+}

@@ -16,6 +16,7 @@ fn breakdown_probability_tracks_base_rate() {
         policy: Some(PolicyKind::Balanced),
         ..GameState::default()
     };
+    state.leg_minutes = 60;
     state.journey_breakdown.base = 0.12;
     state.journey_breakdown.beta = 0.0;
     state.journey_breakdown.pace_factor = std::iter::once((PaceId::Steady, 1.0)).collect();
@@ -31,7 +32,8 @@ fn breakdown_probability_tracks_base_rate() {
     let sample_size = u32::try_from(SAMPLE_SIZE).expect("sample size fits u32");
     let mut triggered = 0usize;
     for _ in 0..SAMPLE_SIZE {
-        let rolled = state.vehicle_roll_for_testing();
+        let rolled = (0..dystrail_game::travel_time::TRAVEL_DAY_MINUTES / 60)
+            .any(|_| state.vehicle_roll_for_testing());
         if rolled {
             triggered += 1;
             state.breakdown = None;

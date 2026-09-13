@@ -13,6 +13,7 @@ pub struct MenuLineProps {
 
 #[function_component(MenuLine)]
 pub fn menu_line(props: &MenuLineProps) -> Html {
+    crate::i18n::use_language();
     let onclick = {
         let on_activate = props.on_activate.clone();
         let idx = props.index;

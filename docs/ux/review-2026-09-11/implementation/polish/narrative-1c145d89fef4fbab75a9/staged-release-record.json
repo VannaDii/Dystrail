@@ -1,0 +1,137 @@
+{
+  "artifact": "/tmp/dystrail-crew-count-narrative/web",
+  "frozen_source": "/tmp/dystrail-crew-count-narrative/release-source",
+  "revision": "1c145d89fef4fbab75a9",
+  "offline_manifest_sha256": "c70601fce90ea1a63f2197d0077327fae727f7ca9b4d30c913534d54bd57730d",
+  "source_scope": {
+    "base_source": "/tmp/dystrail-visual-refine/unit5-source",
+    "release_source": "/tmp/dystrail-crew-count-narrative/release-source",
+    "total_files": 634,
+    "changed_files": [
+      "dystrail-web/i18n/ar.json",
+      "dystrail-web/i18n/bn.json",
+      "dystrail-web/i18n/de.json",
+      "dystrail-web/i18n/en.json",
+      "dystrail-web/i18n/es.json",
+      "dystrail-web/i18n/fr.json",
+      "dystrail-web/i18n/hi.json",
+      "dystrail-web/i18n/id.json",
+      "dystrail-web/i18n/it.json",
+      "dystrail-web/i18n/ja.json",
+      "dystrail-web/i18n/jv.json",
+      "dystrail-web/i18n/ko.json",
+      "dystrail-web/i18n/mr.json",
+      "dystrail-web/i18n/pa.json",
+      "dystrail-web/i18n/pt.json",
+      "dystrail-web/i18n/ru.json",
+      "dystrail-web/i18n/ta.json",
+      "dystrail-web/i18n/te.json",
+      "dystrail-web/i18n/tr.json",
+      "dystrail-web/i18n/zh.json",
+      "dystrail-web/static/assets/data/game.json"
+    ],
+    "unchanged_file_count": 613,
+    "baseline_matches_before_snapshots": true,
+    "allowed_narrative_leaf_changes": 421,
+    "published_camp_sanity": 4,
+    "gameplay_config_bytes_preserved": true,
+    "files": {
+      "dystrail-web/i18n/ar.json": {
+        "bytes": 157988,
+        "sha256": "4209618b8152c0e54e893ad347e689232122b8bcc1a92283604107b552b8e5b5"
+      },
+      "dystrail-web/i18n/bn.json": {
+        "bytes": 128754,
+        "sha256": "0377ba14563c9ac862b2b7d62be725ded24c60b20655726428580d7634b95093"
+      },
+      "dystrail-web/i18n/de.json": {
+        "bytes": 117100,
+        "sha256": "c1ffa2a1c7521ffe1e96fe298879b414cf8ae3a839599780ebc09c8d67e0d38a"
+      },
+      "dystrail-web/i18n/en.json": {
+        "bytes": 115814,
+        "sha256": "0dc8897f620b3baad32cfa9564bab61b3c7bc27f4f7f7590ef3dff1738e1d553"
+      },
+      "dystrail-web/i18n/es.json": {
+        "bytes": 127503,
+        "sha256": "f98a4b90895109d27b724c7872b04e0b04950616aab5bf6bdb7aeb0508b80ada"
+      },
+      "dystrail-web/i18n/fr.json": {
+        "bytes": 118033,
+        "sha256": "7a42b577aab851dd8847e0dd09959c097b4a2488f80cd7382fd8d4c961e939fe"
+      },
+      "dystrail-web/i18n/hi.json": {
+        "bytes": 128185,
+        "sha256": "b04375d7bd70b022e682fd5755eb50b05acf1f9c9321d7dcf78ae772654eb49a"
+      },
+      "dystrail-web/i18n/id.json": {
+        "bytes": 116523,
+        "sha256": "5badd07fc2e939ceb53cae1467ad787f0a2e82640e190178f251fe95bc1fd7a8"
+      },
+      "dystrail-web/i18n/it.json": {
+        "bytes": 128520,
+        "sha256": "00ccb5ed3f644fdbcbcc77ff8590ed3282aea1bcf2f75b797e74c4e434bb6eab"
+      },
+      "dystrail-web/i18n/ja.json": {
+        "bytes": 118785,
+        "sha256": "85ca4c45454bbb3f1b33ea27b484af04e6bff2c82304d14c114d59724bc8cb8d"
+      },
+      "dystrail-web/i18n/jv.json": {
+        "bytes": 115931,
+        "sha256": "2783356c981a656d6f3c6a9dd52287df7c53ff5bb2bd4efa80ee749582558a25"
+      },
+      "dystrail-web/i18n/ko.json": {
+        "bytes": 117120,
+        "sha256": "18806f6de9dbc60f5e4720f6ebb694c6d0922128a5820cc4fa59ec3a73a6972a"
+      },
+      "dystrail-web/i18n/mr.json": {
+        "bytes": 127107,
+        "sha256": "6f348b65e6c41c84ad15fbed91de6d530bc73e914138fee8b0999489c8d7b933"
+      },
+      "dystrail-web/i18n/pa.json": {
+        "bytes": 126189,
+        "sha256": "936fa952fb331b8746065a2a9e3ffd18e1e24c85416aaef80831a044ce04300e"
+      },
+      "dystrail-web/i18n/pt.json": {
+        "bytes": 117381,
+        "sha256": "446a394c2fa804a3e3f335b3ae168b5669c457f01b769504d552ba8d61dad424"
+      },
+      "dystrail-web/i18n/ru.json": {
+        "bytes": 123565,
+        "sha256": "61affc6c0ef32cc45e92b54edcde7f913021605e8bbb4a7d1309adfbdcb3794a"
+      },
+      "dystrail-web/i18n/ta.json": {
+        "bytes": 132745,
+        "sha256": "30d0e5a3ec3979fdc4740e3bdcb255f27a3150dcc252ae022d3b91eff3049da1"
+      },
+      "dystrail-web/i18n/te.json": {
+        "bytes": 131009,
+        "sha256": "cab2a5155a7b01e81677dd50a72a720b833b8fc9e72f7b747348c2055d773a0e"
+      },
+      "dystrail-web/i18n/tr.json": {
+        "bytes": 116729,
+        "sha256": "8702cd07043180a92253d1dee8341dda0b6529539c70d0cf6402f7382db3b21a"
+      },
+      "dystrail-web/i18n/zh.json": {
+        "bytes": 115920,
+        "sha256": "0003b9498faa1e408a7cd21782a386b242428226874d53d3e8b7450921dabb7d"
+      },
+      "dystrail-web/static/assets/data/game.json": {
+        "bytes": 96770,
+        "sha256": "6f57ab062390d5d3145ff795dea9c643375c82f91925e2abb0e36a1747e2fa8c"
+      }
+    },
+    "source_tree_sha256": "76c82b2e59b7c6210a9f3382e92e275ee5792e8108a700987441b7fa17516038"
+  },
+  "parent_verified_signal_received": true,
+  "dispatch_on_hold": false,
+  "published": true,
+  "commit": "40df1edf293a8961a79b9efeda33d0383caaff7e",
+  "branch": "release/crew-neutral-narrative-2026-09-13",
+  "release_manifest_sha256": "1301f36c950bf7c0155665105cb6305dc33be58ccaf8eabc8946aebfc43aac2f",
+  "source_final_verification": "source-final-verification.json",
+  "old_installation_preflight": "old-production-browser.json",
+  "production_verified": true,
+  "run": "https://github.com/VannaDii/Dystrail/actions/runs/34746871285",
+  "verified_at": "2026-09-13T08:12:21.561232+00:00"
+}

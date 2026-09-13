@@ -1,0 +1,54 @@
+[
+  {
+    "file": "journalist-cities.json.gz",
+    "source_sha256": "44d4d8157042f6717f5c03c7bd52f783b2385d7db8f4e5fece5d1b559c00a4b9"
+  },
+  {
+    "file": "journalist.json.gz",
+    "source_sha256": "67f4fca4bbafe63ce2f5fef49f0c21459cd097438c3cd2c20a7bdf266b54d875"
+  },
+  {
+    "file": "lobbyist-cities.json.gz",
+    "source_sha256": "ef9872df526a587e264708408fa8ec241126f680f85a5c17f1baf56f57880339"
+  },
+  {
+    "file": "lobbyist.json.gz",
+    "source_sha256": "658ed8e4d23f295c259117654c97fe89e33444da9b1116250bd825921a8f72b6"
+  },
+  {
+    "file": "organizer-cities.json.gz",
+    "source_sha256": "f819d2638714c259b1cc575c4b13da7f7f4bb854e9a670c664687dd13706da53"
+  },
+  {
+    "file": "organizer.json.gz",
+    "source_sha256": "159e3aef6b82eaba436281b947f9e517da6258d519a59a99bf2c719ce7359410"
+  },
+  {
+    "file": "satirist-cities.json.gz",
+    "source_sha256": "6341813c4253559d8d5ade87dd7431cf91450e33627c5271af1ca5965ce10104"
+  },
+  {
+    "file": "satirist.json.gz",
+    "source_sha256": "f23caf7fd382a421e4c3870c98abec310a4d27557c043380984abd2ee864e034"
+  },
+  {
+    "file": "staffer-cities.json.gz",
+    "source_sha256": "fe6e94ecb4b862a695409a3f564432fbd561ebb0268a6b4449864160c903d8dc"
+  },
+  {
+    "file": "staffer.json.gz",
+    "source_sha256": "c87f62261e0ae9b7f70777d5ba439ea6a3b920d256ae859b3e3e5fc521678da7"
+  },
+  {
+    "file": "states.kml.gz",
+    "source_sha256": "ec1201e98679425b85cfd3b4ed2d6c196049140c34558325868b494d9c2643a6"
+  },
+  {
+    "file": "whistleblower-cities.json.gz",
+    "source_sha256": "4d3d72f29183595bb18407ffb10b5ad9d0b35bee4ee298fe63f6ffd5a0ef8557"
+  },
+  {
+    "file": "whistleblower.json.gz",
+    "source_sha256": "af4d74b771df256ef6cbb97cb38943d4b16394c66054d0662956cd919580aba9"
+  }
+]

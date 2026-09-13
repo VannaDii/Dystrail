@@ -1,0 +1,110 @@
+{
+  "expected": "ef9b4b81cdeb1bc0700d",
+  "profile": "/tmp/dystrail-balance-production-check/old-production-profile",
+  "url": "https://dystrail.com/play/",
+  "errors": [],
+  "updated": {
+    "revision": "ef9b4b81cdeb1bc0700d",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 68,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js",
+    "fonts": {
+      "prepared": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "style": "italic",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Courier Prime",
+          "style": "normal",
+          "weight": "700",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "style": "normal",
+          "weight": "400 800",
+          "status": "loaded",
+          "registered": true
+        }
+      ],
+      "documentStatus": "loaded",
+      "documentFaces": [
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Atkinson Hyperlegible Next",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Courier Prime",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans Arabic",
+          "status": "loaded"
+        }
+      ]
+    },
+    "atGateRemoval": {
+      "revision": "ef9b4b81cdeb1bc0700d",
+      "state": "ready",
+      "images": 68,
+      "decoded": true,
+      "fonts": 7,
+      "fontsLoaded": true,
+      "documentFontsStatus": "loaded",
+      "documentFontsLoaded": true
+    }
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Published game update changed the saved envelope beyond the explicit zero-default fields\n+ actual - expected\n... Skipped lines\n\n  {\n    aftermath: null,\n    code: 'CL-ORANGE42',\n    journey_detail: {\n      expanded: true,\n...\n        },\n+       detour: 0.085,\n-       detour: 0.24,\n        detour_hours: {\n+         max: 2,\n-         max: 3,\n          min: 1\n        },\n+       pass: 0.7,\n-       pass: 0.66,\n        permit: {\n          disable_terminal: true,\n          eligible: [\n            'checkpoint'\n          ]\n        },\n+       terminal: 0.215\n-       terminal: 0.1\n      },\n      journey_daily: {\n        health: {\n+         decay: 0.38,\n-         decay: 0.12,\n          exec: {},\n          rest_heal: 0,\n          weather: {}\n        },\n        sanity: {\n\n    at file:///private/tmp/dystrail-balance-production-check/verify-published-update.mjs:66:9"
+}

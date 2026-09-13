@@ -1,0 +1,16 @@
+{
+  "artifact": "index.html",
+  "checks": [
+    "Flow and findings navigation exercised in browser",
+    "Evidence switching and image modal exercised",
+    "Escape closes modal and returns focus",
+    "Keep and Next pass sections exercised",
+    "All referenced screenshot and source files exist",
+    "No horizontal overflow at 1280 \u00d7 720",
+    "No browser errors returned",
+    "Audit game tab closed; viewport override reset; report tab retained"
+  ],
+  "application_changes": "None. Review files only.",
+  "browser_engine": "In-app browser",
+  "review_date": "2026-09-11"
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "path": "dystrail-game/src/camp.rs",
+    "before": "612870eb2375ac7349e69c8d1545d4e9c834415deb47e3f5896ba6a496ebf280",
+    "after": "f9086a4d0f91ed704c4b0357640f30b5d044bde2a5c62c937f66e10cc45f12ce"
+  },
+  {
+    "path": "dystrail-game/src/constants.rs",
+    "before": "660835dc67a1bc5037db8307628d6a34dfdb2532e92e7fa8f8038a8c924b19fa",
+    "after": "6bd3f1d5c85997588a43ad420b4cd373fbad26bece78bd2738568ce31be46a2c"
+  },
+  {
+    "path": "dystrail-game/src/weather.rs",
+    "before": "268ec0867ae04943de6c37a0d6037e453cbef9c2c047151cdd6083d1002bfe61",
+    "after": "a7543651e383bd529290bfede98120aacc0c7f2159f8887df6b6c1508f085561"
+  },
+  {
+    "path": "dystrail-game/src/activities.rs",
+    "before": "493f48adf6787d2c3e9e5f9d0832a3376f3869808a11f9160a4d12a56e5215b9",
+    "after": "f51dcec8285c2c72af7997f1cff5b4ea6e29803fdf571e5a868b409c587ed77d"
+  },
+  {
+    "path": "dystrail-game/src/travel_time.rs",
+    "before": "76284ad980c4c0adb047018030d6d61d24f494550fa6da0f05f9c6f11fce0b1a",
+    "after": "b9c7d9cecbf82d081460e1b3f2bc325d93c796b85ce0d5388e64b3d672035a1e"
+  },
+  {
+    "path": "dystrail-game/tests/data_shapes.rs",
+    "before": "725eddd8aac60d4f702097e6874c583e8f45c3b7659665058b927c20418f74d4",
+    "after": "b10eb17563d539a8e43e36fef83d0df90faf9b1eca2633813f182b4d95d803dc"
+  },
+  {
+    "path": "dystrail-tester/src/logic/playability.rs",
+    "before": "80d4821649e18b1c05ed17850234c8199f80c2a4eacfd80d6ff7af96828dee64",
+    "after": "4ee99e82cce7a57d0443873fdcde6812ef4227ba4ac8686380f7222ec08f5dce"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/camp.json",
+    "before": "6dc78cd59fa15bb1fd824116f51496c3f846a5fd835c6d25a6ca89572c6daf92",
+    "after": "fbcac939ee540c6019de1bdfc3f6b67a095b38bd132e7fd563b0f50fb1c8f96f"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/pacing.json",
+    "before": "0ffd61952728dfc748f0943eb892da01ede6657537c3b7f7795c6ce31236b8f7",
+    "after": "bcf99ae4f3a3c511a62dab1e57aa60a16c0037eca9bc4509ad8f37910e0f20ff"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/weather.json",
+    "before": "73a1c4c6acbcd604cda840f1503d5d71f00db0fe3f2a72649d31fb39511e7f4a",
+    "after": "4ea70acfb7ba3b653c56dce41ab3bfcbab8a20cd1116abf7e331044314ca8aef"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/journey/classic.json",
+    "before": "b10934e17d0af738db226adf8e35b00af422affedea09178cb43f7a7bacce1b9",
+    "after": "ca719bd5a910be796ca26da2e1d304c2b29ab0978365ec91ee0aad3501fdc1a0"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/journey/deep.json",
+    "before": "a621a004785ef0b3b6cb56f3f65765f065c546631df390bf2c253ec90e256ebf",
+    "after": "23732b5e4af6ceef1234dc3ceff1e1513b60b2d292164146e3b9eb478e570a43"
+  },
+  {
+    "path": "dystrail-web/static/assets/data/journey/overlays/balanced.json",
+    "before": "929a49616bd8590012bc3d9f811f6d348b8722815c54f2690d3743c14bd7d95f",
+    "after": "3fc1d4bbc18cecc58e479aaea63620bf19d80c60e3443569a70afe03c06aaae1"
+  }
+]

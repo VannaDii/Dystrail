@@ -1,0 +1,15 @@
+{
+  "parent_verified_signal_received": true,
+  "dispatch_on_hold": false,
+  "revision": "33dd2b05a6658d330912",
+  "commit": "27f71c1b7f448487da07dced09c61a9b8804903a",
+  "verification": [
+    "79 frontend unit tests",
+    "strict native and Wasm lint",
+    "6 mobile impact and bounds cases",
+    "12 share flow cases",
+    "four both-mode sticky header and journal disclosure cases",
+    "119 local preview asset manifest",
+    "immutable release payload integrity"
+  ]
+}

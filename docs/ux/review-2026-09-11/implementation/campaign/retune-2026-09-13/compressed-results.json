@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "raw_csv_sha256": "d04889975134a337afcbc207c3402f31a9b95c302eed23f9174b456f8b368da4",
+    "gzip_sha256": "8671b711b43a5bfffb21be617a20b07cb3f1d2eb486e5054ee05fb767d0886e2"
+  },
+  "health035": {
+    "raw_csv_sha256": "942efb3e96a02572760cfff720dd5a3aee3c0514170068b9cc4a662566f8fcbc",
+    "gzip_sha256": "3c8d61550b3cf60bda3c6e7f392f612032106ea7d694dee75948c90338e9f54e"
+  },
+  "health045": {
+    "raw_csv_sha256": "fe8db0b22f7da146a58a7f0d61f9469e67de1816e4c60bea4aa9bd96c1e5da7d",
+    "gzip_sha256": "1fb217a05c684c12afed5b87f19868ac9d365a3dd2963c18d1631a702c8854cf"
+  },
+  "health055": {
+    "raw_csv_sha256": "328436e85875202d0d3b50355455f90cfa5d60e181d7d3b7826deef879c21252",
+    "gzip_sha256": "8822efd48868b526b0968c5aaff970394212eb9fb46de6464b99906774128fc5"
+  },
+  "pace": {
+    "raw_csv_sha256": "53e16588d9cc19bf2227bdec7d1cc0952b6451d10e4b8e5bc9b124932a849300",
+    "gzip_sha256": "c5460261c06631835d1d036429f4177016ee4aa6e5432f4ac1fab21739fd6035"
+  },
+  "pace-health040": {
+    "raw_csv_sha256": "3ca125734327ab677a12549c19d908cbc153563f137847538cec57b2538e26d2",
+    "gzip_sha256": "17c7bfc7e97fda092c3a4668e834fc9fd9e11bcbcff90da3c2a8183090e15922"
+  },
+  "pace-camp8": {
+    "raw_csv_sha256": "e05b018ee3bf75edd80ede4e62badb94a31bb5e1297ef18cc5705bcd6afccb7a",
+    "gzip_sha256": "c43f0493a67dee805e111f2d218096f59cba88c54e6063302150e953f0e80c2f"
+  }
+}

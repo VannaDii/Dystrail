@@ -1,0 +1,82 @@
+{
+  "revision": "1c145d89fef4fbab75a9",
+  "source": {
+    "files_changed": 21,
+    "common_encounters": 15,
+    "common_fields": 20,
+    "common_string_leaves": 420,
+    "spanish_only_extra": "sat_receipt_museum.log_2",
+    "string_leaves_total": 421,
+    "structural_validation": "exact equality of every unrelated JSON leaf and all key sets; unchanged IDs, choices, numerical effects, timing, weights, sources, placeholders, paragraph breaks, object/capacity counts and money",
+    "other_source_files_byte_identical": 613,
+    "camp_rest_sanity": 4
+  },
+  "browser": {
+    "languages": [
+      "en",
+      "it",
+      "es",
+      "ar"
+    ],
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        393,
+        852
+      ]
+    ],
+    "resolved_encounters": 64,
+    "scene_inspections": 128,
+    "outcome_inspections": 128,
+    "active_crew": 3,
+    "title": "localized title is contained in scene heading, permitting the active speaker prefix",
+    "body": "exact full localized description text",
+    "choices": "exact translated title of every choice and exact original choice count; selected choice is enabled",
+    "outcome": "expected localized outcome is contained in aftermath summary; persisted current_encounter is null",
+    "stats": "party persona/status pairs equal imported state after every resolution; active speaker belongs to active crew. Numeric resource deltas are NOT independently asserted by this browser script. Their source effects and every engine/config byte are unchanged.",
+    "time": "browser fixture starts day 6 at 08:00. Numeric elapsed time is NOT independently asserted by this browser script. Timing fields and every engine/config byte are unchanged.",
+    "offline": "service worker ready with exact candidate revision before switching offline; all four language runs and final language-preserving reload execute with context offline",
+    "layout": "no document horizontal overflow at either viewport in scene and aftermath; representative screenshots saved",
+    "errors": []
+  },
+  "screenshots": {
+    "classic_phone": "en-overnight_briefing-phone.png",
+    "deep_phone": "en-beltway_briefing-phone.png",
+    "arabic_deep_phone": "ar-beltway_briefing-phone.png",
+    "spanish_extra_outcome_phone": "es-museum-outcome-phone.png"
+  },
+  "scope_limit": "Text-only candidate; no claim of new balance, time, or resource behavior. Production publication is not authorized for this subtask.",
+  "clean_preview_capture": {
+    "revision": "1c145d89fef4fbab75a9",
+    "origin": "http://127.0.0.1:8180/play/",
+    "node": "v24.19.0",
+    "cases": [
+      {
+        "id": "overnight_briefing",
+        "mode": "classic",
+        "screenshot": "en-overnight_briefing-phone-clean.png",
+        "viewport": [
+          393,
+          852
+        ],
+        "temporary_notice_absent": true,
+        "capture_state": "imported encounter after temporary notification cleared naturally"
+      },
+      {
+        "id": "beltway_briefing",
+        "mode": "deep",
+        "screenshot": "en-beltway_briefing-phone-clean.png",
+        "viewport": [
+          393,
+          852
+        ],
+        "temporary_notice_absent": true,
+        "capture_state": "imported encounter after temporary notification cleared naturally"
+      }
+    ],
+    "errors": []
+  }
+}

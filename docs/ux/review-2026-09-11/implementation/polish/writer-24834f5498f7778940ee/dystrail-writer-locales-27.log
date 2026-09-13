@@ -1,0 +1,45 @@
+(node:92410) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 18 tests using 2 workers
+
+(node:92431) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92430) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92431) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92431) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_circuit_breaker remains readable offline (3.7s)
+  ✓   1 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_secure_line remains readable offline (3.9s)
+  ✓   3 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: sat_weather_desk remains readable offline (3.6s)
+  ✓   4 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_circuit_breaker remains readable offline (3.7s)
+  ✓   6 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: sat_weather_desk remains readable offline (3.2s)
+  ✓   5 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_secure_line remains readable offline (3.9s)
+  ✓   7 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_circuit_breaker remains readable offline (3.7s)
+  ✓   8 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_secure_line remains readable offline (3.8s)
+(node:92757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92757) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: sat_weather_desk remains readable offline (3.7s)
+(node:92798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92798) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_circuit_breaker remains readable offline (3.8s)
+  ✓  11 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_secure_line remains readable offline (3.9s)
+  ✓  12 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: sat_weather_desk remains readable offline (3.2s)
+  ✓  13 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_circuit_breaker remains readable offline (3.6s)
+  ✓  14 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_secure_line remains readable offline (3.9s)
+  ✓  15 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: sat_weather_desk remains readable offline (3.2s)
+  ✓  16 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_circuit_breaker remains readable offline (3.2s)
+  ✓  17 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_secure_line remains readable offline (3.4s)
+  ✓  18 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: sat_weather_desk remains readable offline (3.2s)
+
+  18 passed (33.7s)

@@ -6,27 +6,30 @@ use yew::LocalServerRenderer;
 
 fn base_props(state: GameState) -> Props {
     Props {
+        gathering: Html::default(),
         game_state: Rc::new(state),
         camp_config: Rc::new(CampConfig::default_config()),
-        on_state_change: Callback::from(|_: GameState| {}),
+        on_state_change: Callback::from(|_: (GameState, String)| {}),
         on_close: Callback::noop(),
     }
 }
 
 #[test]
-fn camp_panel_main_view_renders_actions() {
+fn camp_panel_renders_each_shared_gathering_action_once() {
     crate::i18n::set_lang("en");
-    let props = base_props(GameState::default());
+    let mut props = base_props(GameState::default());
+    props.gathering = html! {
+        <><button>{i18n::t("trail.forage")}</button><button>{i18n::t("trail.glean")}</button></>
+    };
 
     let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
-    assert!(
-        html.contains("Rest") && html.contains("Forage"),
-        "main view should list key camp actions: {html}"
-    );
+    assert!(html.contains("Rest"));
+    assert_eq!(html.matches(i18n::t("trail.forage").as_str()).count(), 1);
+    assert_eq!(html.matches(i18n::t("trail.glean").as_str()).count(), 1);
 }
 
 #[test]
-fn camp_panel_with_breakdown_starts_in_repair_view() {
+fn camp_panel_cannot_offer_camping_or_a_generic_repair_during_breakdown() {
     crate::i18n::set_lang("en");
     let mut game_state = GameState::default();
     game_state.day_state.travel.travel_blocked = true;
@@ -37,8 +40,6 @@ fn camp_panel_with_breakdown_starts_in_repair_view() {
     let props = base_props(game_state);
 
     let html = block_on(LocalServerRenderer::<CampPanel>::with_props(props).render());
-    assert!(
-        html.contains("Repair Vehicle") || html.contains("Use Spare"),
-        "repair menu should surface when breakdown present: {html}"
-    );
+    assert!(!html.contains("Handle breakdown"));
+    assert!(!html.contains("camp-actions"));
 }

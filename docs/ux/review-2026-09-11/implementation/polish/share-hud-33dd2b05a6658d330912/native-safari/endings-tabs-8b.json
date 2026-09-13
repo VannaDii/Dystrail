@@ -1,0 +1,49 @@
+{
+  "browser": "Native Safari",
+  "revision": "8b8fcc3f7004fd8ec354",
+  "checks": [
+    "Classic native tabs remain transparent at both measured widths, with correct selection underline",
+    "Deep native tabs remain transparent at both measured widths, with correct selection underline",
+    "Early illness result uses the real route location, full scorecard and player identity, not a D.C. arrival or another crew member",
+    "Bottom result export stays in place and confirms the action inside the viewport",
+    "Importing a different ending on the same day refreshes the result and player card",
+    "Classic ending image renders as a 1200px PNG offline; editing, copying, draft links, closing and focus preserve the game"
+  ],
+  "viewports": [
+    {
+      "name": "tabs-classic-1280",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "tabs-classic-600",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "tabs-deep-1280",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "tabs-deep-600",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "illness-ending",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "result-export-feedback",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "offline-share-classic",
+      "width": 1728,
+      "height": 1032
+    }
+  ]
+}

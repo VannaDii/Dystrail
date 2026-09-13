@@ -1,0 +1,2107 @@
+[
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.beltway_briefing.choice_2",
+    "قسّم الملف بينكم أنتم الستة",
+    "قسّم الملف بين أفراد الطاقم"
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.beltway_briefing.log_2",
+    "يقرأ كل منكم جزءًا، لكن الإحالات المتبادلة تختلط. جمعتم فهم ستة أشخاص عاديين لنموذج صُمّم لإحباط نحو سبعة.",
+    "يقرأ كل منكم جزءًا، لكن الإحالات المتبادلة تختلط. جمعتم فهم الطاقم لنموذج صُمّم لإحباط مجموعة أكبر قليلًا."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_union_blockade.desc",
+    "أمام مصنع لقطع الغيار، يحتج العمال على تقليص وردياتهم، فيما تلقي الشركة اللوم على غموض الرسوم الجمركية. أما جدول مكافآت الإدارة فما زال واضحًا على نحو لافت. يلمح ممثل نقابي لافتاتكم المتجهة إلى واشنطن ويدعوكم للاقتراب. هناك مكان بجوار صف المضربين، وصندوق وجبات خفيفة تبرّع بها الناس للطريق، وستة أشخاص يعرفون معنى أن يُطلب منهم شدّ الأحزمة.",
+    "أمام مصنع لقطع الغيار، يحتج العمال على تقليص وردياتهم، فيما تلقي الشركة اللوم على غموض الرسوم الجمركية. أما جدول مكافآت الإدارة فما زال واضحًا على نحو لافت. يلمح ممثل نقابي لافتاتكم المتجهة إلى واشنطن ويدعوكم للاقتراب. هناك مكان بجوار صف المضربين، وصندوق وجبات خفيفة تبرّع بها الناس للطريق، وطاقم يعرف معنى أن يُطلب منه شدّ الأحزمة."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_union_blockade.choice_0",
+    "اسأل أين يمكن لستة أشخاص آخرين المساعدة",
+    "اسأل أين يمكن لطاقمكم المساعدة"
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_union_blockade.log_0",
+    "تقفون في الأماكن التي يقترحها الممثل النقابي. يشكّل ستة مسافرين متعبين صفًا لا بأس به، حين يسمح لهم أحد أخيرًا بالوقوف معًا.",
+    "تقفون في الأماكن التي يقترحها الممثل النقابي. يشكّل طاقمكم المتعب صفًا لا بأس به، حين يسمح له أحد أخيرًا بالوقوف معًا."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.beltway_briefing.choice_2",
+    "Repartir el paquete entre los seis",
+    "Repartir el paquete entre ustedes"
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.beltway_briefing.log_2",
+    "Cada uno lee una parte, pero las referencias cruzadas se enredan. Han reunido la comprensión de seis personas corrientes ante un formulario diseñado para derrotar aproximadamente a siete.",
+    "Cada uno lee una parte, pero las referencias cruzadas se enredan. Han reunido la comprensión del grupo ante un formulario diseñado para derrotar a un grupo un poco más numeroso."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_union_blockade.desc",
+    "Frente a una fábrica de piezas, los trabajadores protestan por la reducción de turnos mientras la empresa culpa a la incertidumbre arancelaria. El calendario de bonificaciones de la dirección sigue siendo notablemente cierto. Un delegado ve tus carteles sobre Washington y te hace señas. Hay sitio junto al piquete, una caja de comida donada para el camino y seis personas que entienden lo que es oír que hay que apretarse el cinturón.",
+    "Frente a una fábrica de piezas, los trabajadores protestan por la reducción de turnos mientras la empresa culpa a la incertidumbre arancelaria. El calendario de bonificaciones de la dirección sigue siendo notablemente cierto. Un delegado ve tus carteles sobre Washington y te hace señas. Hay sitio junto al piquete, una caja de comida donada para el camino y un grupo que entiende lo que es oír que hay que apretarse el cinturón."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_union_blockade.choice_0",
+    "Preguntar dónde pueden ayudar seis personas más",
+    "Preguntar dónde puede ayudar el grupo"
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_union_blockade.log_0",
+    "El grupo ocupa los puestos que indica el delegado. Seis viajeros cansados forman un buen piquete cuando por fin alguien les deja estar juntos.",
+    "El grupo ocupa los puestos que indica el delegado. Los viajeros cansados forman un buen piquete cuando por fin alguien les deja estar juntos."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.beltway_briefing.choice_2",
+    "Dividi il fascicolo tra voi sei",
+    "Dividi il fascicolo tra voi"
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.beltway_briefing.log_2",
+    "Ognuno ne legge una parte, ma i rimandi si confondono. Avete messo insieme la comprensione di sei persone comuni davanti a un modulo progettato per sconfiggerne circa sette.",
+    "Ognuno ne legge una parte, ma i rimandi si confondono. Avete messo insieme la comprensione del gruppo davanti a un modulo progettato per sconfiggere un gruppo appena più numeroso."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_union_blockade.desc",
+    "Davanti a una fabbrica di ricambi, gli operai protestano per i turni ridotti, mentre l’azienda dà la colpa all’incertezza sui dazi. Il calendario dei bonus ai dirigenti rimane straordinariamente certo. Una delegata sindacale nota i vostri cartelli per Washington e vi fa avvicinare. C’è posto accanto al picchetto, una scatola di snack donati per il viaggio e sei persone che sanno cosa significa sentirsi dire di stringere la cinghia.",
+    "Davanti a una fabbrica di ricambi, gli operai protestano per i turni ridotti, mentre l’azienda dà la colpa all’incertezza sui dazi. Il calendario dei bonus ai dirigenti rimane straordinariamente certo. Una delegata sindacale nota i vostri cartelli per Washington e vi fa avvicinare. C’è posto accanto al picchetto, una scatola di snack donati per il viaggio e un gruppo che sa cosa significa sentirsi dire di stringere la cinghia."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_union_blockade.choice_0",
+    "Chiedi dove possono dare una mano altre sei persone",
+    "Chiedi dove può dare una mano il vostro gruppo"
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_union_blockade.log_0",
+    "Vi mettete nei posti indicati dalla delegata. Sei viaggiatori stanchi formano una bella fila, quando finalmente qualcuno li lascia stare dalla stessa parte.",
+    "Vi mettete nei posti indicati dalla delegata. Il vostro gruppo di viaggiatori stanchi forma una bella fila, quando finalmente qualcuno li lascia stare dalla stessa parte."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:beltway_briefing.choice_2",
+    "Split the packet between the six of you",
+    "Split the packet among the crew"
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:beltway_briefing.log_2",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven.",
+    "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_union_blockade.desc",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_union_blockade.choice_0",
+    "Ask where six more people can help",
+    "Ask where your crew can help"
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_union_blockade.log_0",
+    "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together.",
+    "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_mail_drop.log_0",
+    "تقرؤون كل صفحة. يشعر ستة أشخاص في فان بوحدة أقل، وينال تقييم القط للأداء تصويتًا بالإجماع على حجب الثقة.",
+    "تقرؤون كل صفحة. يشعر كل من في الفان بوحدة أقل، وينال تقييم القط للأداء تصويتًا بالإجماع على حجب الثقة."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "تتبعون إرشادات المتطوّع وتنجزون التوصيلين. ستة أشخاص، فان واحد، توصيلان. تقاومون الرغبة في إعلان إدارة حكومية.",
+    "تتبعون إرشادات المتطوّع وتنجزون التوصيلين. طاقم واحد، فان واحد، توصيلان. تقاومون الرغبة في إعلان إدارة حكومية."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "يودّعونكم من المخرج الصحيح. تستمتعون أنتم الستة بتجربة نادرة قريبة من الشأن الحكومي تنتهي بمعرفتكم إلى أين تذهبون.",
+    "يودّعونكم من المخرج الصحيح. تستمتعون بتجربة نادرة قريبة من الشأن الحكومي تنتهي بمعرفتكم إلى أين تذهبون."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.classic_press_pool_qna.desc",
+    "في مطعم بسيط، تسأل مراسلة محلية لماذا ينفق ستة أشخاص آخر دولاراتهم التي كان يمكن أن تريحهم في القيادة إلى واشنطن. تتحقّق من موافقة الجميع على التسجيل. لم يُضَف أحد إلى هذه المقابلة بالخطأ، مما يضعها متقدّمة بإجراء واحد على دردشة مجلس الوزراء على سيغنال.",
+    "في مطعم بسيط، تسأل مراسلة محلية لماذا ينفق أفراد طاقمكم آخر دولاراتهم التي كان يمكن أن تريحهم في القيادة إلى واشنطن. تتحقّق من موافقة الجميع على التسجيل. لم يُضَف أحد إلى هذه المقابلة بالخطأ، مما يضعها متقدّمة بإجراء واحد على دردشة مجلس الوزراء على سيغنال."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.deep_circuit_breaker.log_0",
+    "يفحص البديل بينما تتمدّدون وتستريحون. يبرد المحوّل، وتهدأ معه أعصاب ستة أشخاص ظلوا يتفاوضون على نسب شحن البطاريات.",
+    "يفحص البديل بينما تتمدّدون وتستريحون. يبرد المحوّل، وتهدأ معه أعصاب أفراد الطاقم الذين ظلوا يتفاوضون على نسب شحن البطاريات."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.fundraiser_detour.log_0",
+    "تضعون الطعام على الطاولة وتشرحون الرحلة. يتذكّر المنظّمون الستة الذين قدّموا شيئًا يمكن فتحه وأكله.",
+    "تضعون الطعام على الطاولة وتشرحون الرحلة. يتذكّر المنظّمون الطاقم الذي قدّم شيئًا يمكن فتحه وأكله."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "تشير لكم بالدخول في حركة منتظمة. تتحركون من دون ستة أشخاص يشرحون القيادة في وقت واحد، وهي منفعة عامة لا يُستهان بها.",
+    "تشير لكم بالدخول في حركة منتظمة. تتحركون من دون أن يشرح الطاقم كله القيادة في وقت واحد، وهي منفعة عامة لا يُستهان بها."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.overnight_briefing.log_2",
+    "تكسبون داعمًا محليًا وفرصة للراحة. لا يطالبه أحد بخمسة أسباب للاهتمام بستة غرباء.",
+    "تكسبون داعمًا محليًا وفرصة للراحة. لا يطالبه أحد بخمسة أسباب للاهتمام بالغرباء."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_straw_reserve.log_2",
+    "في الفان، يتساءل أحدكم كيف يمكن إعلان ستة أشخاص مفلسين أداة شرب مهدّدة. قد تتحسّن فرص التمويل.",
+    "في الفان، يتساءل أحدكم كيف يمكن إعلان طاقم مفلس أداة شرب مهدّدة. قد تتحسّن فرص التمويل."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_forecast_corrected.log_2",
+    "تمرّون بأكشاك الطعام بينما ينقّط المطر الزجاج. يتشارك ستة أشخاص الحزن الصامت نفسه على البطاطا المقلية.",
+    "تمرّون بأكشاك الطعام بينما ينقّط المطر الزجاج. يتشارك أفراد الطاقم الحزن الصامت نفسه على البطاطا المقلية."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_alternator_tariff.desc",
+    "تريك الموظفة الرسوم الجمركية الإضافية على عدة للطوارئ على الطريق.\n\nتقول: «واشنطن هي التي تحددها. هم فقط وضعوني في مرمى الصراخ».\n\nخلفها، يصف التلفزيون الرسوم الجمركية بأنها انتصار اقتصادي. تحسبون أنتم الستة إن كنتم تستطيعون تحمّل كلفة انتصار آخر.",
+    "تريك الموظفة الرسوم الجمركية الإضافية على عدة للطوارئ على الطريق.\n\nتقول: «واشنطن هي التي تحددها. هم فقط وضعوني في مرمى الصراخ».\n\nخلفها، يصف التلفزيون الرسوم الجمركية بأنها انتصار اقتصادي. تحسبون إن كنتم تستطيعون تحمّل كلفة انتصار آخر."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_hydration_pressure.desc",
+    "أغرق احتفال محطة الشاحنات برؤوس الدش لافتته الخاصة المكتوب عليها «حكومة محدودة». تعرض موظفة الصندوق تسعة دولارات للمساعدة في تثبيت المنصة. الاستحمام العادي مجاني ضمن العرض إذا أحضرتم الصابون. ومع ستة أشخاص يتشاركون فانًا، وجدتم أخيرًا إعلانًا رئاسيًا يخص الملابس الداخلية للجميع.",
+    "أغرق احتفال محطة الشاحنات برؤوس الدش لافتته الخاصة المكتوب عليها «حكومة محدودة». تعرض موظفة الصندوق تسعة دولارات للمساعدة في تثبيت المنصة. الاستحمام العادي مجاني ضمن العرض إذا أحضرتم الصابون. ومع أفراد الطاقم يتشاركون فانًا، وجدتم أخيرًا إعلانًا رئاسيًا يخص الملابس الداخلية للجميع."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_hydration_pressure.log_2",
+    "ترفرف اللافتة المبتلّة خلفكم. يخلص الطاقم إلى أن رائحة الحرية تشبه على نحو مريب رائحة ستة أشخاص ما زالوا يحتاجون إلى الاستحمام.",
+    "ترفرف اللافتة المبتلّة خلفكم. يخلص الطاقم إلى أن رائحة الحرية تشبه على نحو مريب رائحة طاقم ما زال يحتاج إلى الاستحمام."
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "تتركون العمل والكراسي وراءكم. تعود خطتكم الصحية إلى ستة أشخاص يسألون إن كان الجميع «بخير على الأرجح».",
+    "تتركون العمل والكراسي وراءكم. تعود خطتكم الصحية إلى طاقم يسأل إن كان الجميع «بخير على الأرجح»."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_mail_drop.log_0",
+    "El grupo lee todas las páginas. Seis personas en una furgoneta se sienten menos solas, y la evaluación de desempeño del gato recibe un voto de censura unánime.",
+    "El grupo lee todas las páginas. Todos en la furgoneta se sienten menos solos, y la evaluación de desempeño del gato recibe un voto de censura unánime."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "Sigues las indicaciones del voluntario y haces las dos entregas. Seis personas, una furgoneta, dos repartos. Resistes la tentación de anunciar un Departamento.",
+    "Sigues las indicaciones del voluntario y haces las dos entregas. Un grupo, una furgoneta, dos repartos. Resistes la tentación de anunciar un Departamento."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "Se despiden mientras sales por la salida correcta. Los seis disfrutan de una rara experiencia relacionada con la administración que termina sabiendo adónde van.",
+    "Se despiden mientras sales por la salida correcta. El grupo disfruta de una rara experiencia relacionada con la administración que termina sabiendo adónde van."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.classic_press_pool_qna.desc",
+    "En un restaurante de carretera, una periodista local pregunta por qué seis personas están gastando los últimos dólares que podían gastar sin angustia en conducir hacia Washington. Comprueba que todos acepten que los graben. Nadie ha sido añadido por accidente a esta entrevista, lo que la coloca un procedimiento por delante del chat de Signal del gabinete.",
+    "En un restaurante de carretera, una periodista local pregunta por qué el grupo está gastando los últimos dólares que podían gastar sin angustia en conducir hacia Washington. Comprueba que todos acepten que los graben. Nadie ha sido añadido por accidente a esta entrevista, lo que la coloca un procedimiento por delante del chat de Signal del gabinete."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.deep_circuit_breaker.log_0",
+    "Comprueba el recambio mientras el grupo se estira y descansa. El adaptador se enfría. También se calman seis personas que llevaban negociando porcentajes de batería.",
+    "Comprueba el recambio mientras el grupo se estira y descansa. El adaptador se enfría. También se calman quienes llevaban negociando porcentajes de batería."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.fundraiser_detour.log_0",
+    "Pones comida sobre la mesa y explicas el viaje. Los organizadores se acuerdan de las seis personas que aportaron algo que podían abrir y comer.",
+    "Pones comida sobre la mesa y explicas el viaje. Los organizadores se acuerdan del grupo que aportó algo que podían abrir y comer."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "Te indica que entres en una corriente de tráfico constante. El grupo se pone en marcha sin que seis personas expliquen a la vez cómo conducir: un beneficio público considerable.",
+    "Te indica que entres en una corriente de tráfico constante. El grupo se pone en marcha sin que todo el grupo explique a la vez cómo conducir: un beneficio público considerable."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.overnight_briefing.log_2",
+    "Consigues un apoyo local y una oportunidad de descansar. Nadie le pide cinco razones para preocuparse por seis desconocidos.",
+    "Consigues un apoyo local y una oportunidad de descansar. Nadie le pide cinco razones para preocuparse por un grupo de desconocidos."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_straw_reserve.log_2",
+    "Ya en la furgoneta, alguien se pregunta cómo declarar a seis personas sin dinero utensilio para beber en peligro de extinción. Quizá así mejoren las perspectivas de financiación.",
+    "Ya en la furgoneta, alguien se pregunta cómo declarar a un grupo sin dinero utensilio para beber en peligro de extinción. Quizá así mejoren las perspectivas de financiación."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_forecast_corrected.log_2",
+    "Pasas junto a los puestos de comida mientras la lluvia salpica el cristal. Seis personas comparten la misma pena callada por las patatas fritas.",
+    "Pasas junto a los puestos de comida mientras la lluvia salpica el cristal. El grupo comparte la misma pena callada por las patatas fritas."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_alternator_tariff.desc",
+    "La empleada te muestra el recargo del arancel en un kit de emergencia para el auto.\n\n“Lo fija Washington”, dice. “A mí solo me pusieron lo bastante cerca para recibir los gritos”.\n\nDetrás de ella, la televisión presenta los aranceles como una victoria económica. Ustedes seis hacen cuentas para ver si pueden pagar otra.",
+    "La empleada te muestra el recargo del arancel en un kit de emergencia para el auto.\n\n“Lo fija Washington”, dice. “A mí solo me pusieron lo bastante cerca para recibir los gritos”.\n\nDetrás de ella, la televisión presenta los aranceles como una victoria económica. Ustedes hacen cuentas para ver si pueden pagar otra."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_hydration_pressure.desc",
+    "La celebración de los cabezales de ducha en la parada de camiones ha empapado su propia pancarta de GOBIERNO LIMITADO. La cajera ofrece nueve dólares por ayudar a apuntalar la instalación. Las duchas normales son gratis durante la promoción si traes jabón. Con seis personas compartiendo una furgoneta, por fin han encontrado un anuncio presidencial relevante para la ropa interior de todos.",
+    "La celebración de los cabezales de ducha en la parada de camiones ha empapado su propia pancarta de GOBIERNO LIMITADO. La cajera ofrece nueve dólares por ayudar a apuntalar la instalación. Las duchas normales son gratis durante la promoción si traes jabón. Con el grupo compartiendo una furgoneta, por fin han encontrado un anuncio presidencial relevante para la ropa interior de todos."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_hydration_pressure.log_2",
+    "La pancarta húmeda ondea a tu espalda. El grupo concluye que la libertad huele sospechosamente a seis personas que aún necesitan ducharse.",
+    "La pancarta húmeda ondea a tu espalda. El grupo concluye que la libertad huele sospechosamente a un grupo que aún necesita ducharse."
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "Dejas atrás el trabajo y las sillas. Tu plan de salud vuelve a ser seis personas preguntando si todos están «probablemente bien».",
+    "Dejas atrás el trabajo y las sillas. Tu plan de salud vuelve a ser el grupo preguntando si todos están «probablemente bien»."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_mail_drop.log_0",
+    "Leggete ogni pagina. Sei persone in un furgone si sentono meno sole, e la valutazione del gatto riceve un voto di sfiducia unanime.",
+    "Leggete ogni pagina. Nel furgone vi sentite meno soli, e la valutazione del gatto riceve un voto di sfiducia unanime."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "Seguite le indicazioni del volontario e fate entrambe le consegne. Sei persone, un furgone, due consegne. Resistete alla tentazione di annunciare un Dipartimento.",
+    "Seguite le indicazioni del volontario e fate entrambe le consegne. Un gruppo, un furgone, due consegne. Resistete alla tentazione di annunciare un Dipartimento."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "Vi salutano mentre prendete l’uscita giusta. Voi sei vi godete una rara esperienza vicina alla pubblica amministrazione che finisce sapendo dove andare.",
+    "Vi salutano mentre prendete l’uscita giusta. Vi godete una rara esperienza vicina alla pubblica amministrazione che finisce sapendo dove andare."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.classic_press_pool_qna.desc",
+    "In una tavola calda, una cronista locale chiede perché sei persone stiano spendendo gli ultimi dollari che potevano usare senza preoccupazioni per andare a Washington. Verifica che tutti siano d’accordo a essere registrati. Nessuno è stato aggiunto per errore a questa intervista: una procedura in più rispetto alla chat Signal del governo.",
+    "In una tavola calda, una cronista locale chiede perché il vostro gruppo stia spendendo gli ultimi dollari che potevano usare senza preoccupazioni per andare a Washington. Verifica che tutti siano d’accordo a essere registrati. Nessuno è stato aggiunto per errore a questa intervista: una procedura in più rispetto alla chat Signal del governo."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.deep_circuit_breaker.log_0",
+    "Controlla il ricambio mentre voi vi sgranchite e riposate. L’adattatore si raffredda. Anche sei persone che stavano negoziando sulle percentuali di batteria.",
+    "Controlla il ricambio mentre voi vi sgranchite e riposate. L’adattatore si raffredda. Anche chi stava negoziando sulle percentuali di batteria."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.fundraiser_detour.log_0",
+    "Mettete il cibo sul tavolo e spiegate il viaggio. Gli organizzatori si ricordano delle sei persone che hanno contribuito con qualcosa che si poteva aprire e mangiare.",
+    "Mettete il cibo sul tavolo e spiegate il viaggio. Gli organizzatori si ricordano dei viaggiatori che hanno contribuito con qualcosa che si poteva aprire e mangiare."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "Vi fa entrare in un flusso regolare. Ripartite senza sei persone che spiegano contemporaneamente come si guida: un notevole beneficio per la collettività.",
+    "Vi fa entrare in un flusso regolare. Ripartite senza tutto il gruppo che spiega contemporaneamente come si guida: un notevole beneficio per la collettività."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.overnight_briefing.log_2",
+    "Trovate un sostenitore del posto e un’occasione per riposare. Nessuno gli chiede cinque ragioni per interessarsi a sei sconosciuti.",
+    "Trovate un sostenitore del posto e un’occasione per riposare. Nessuno gli chiede cinque ragioni per interessarsi a un gruppo di sconosciuti."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_straw_reserve.log_2",
+    "Tornati nel furgone, qualcuno si chiede come far dichiarare sei persone al verde un utensile da bevanda a rischio. Le prospettive di finanziamento potrebbero migliorare.",
+    "Tornati nel furgone, qualcuno si chiede come far dichiarare un gruppo al verde un utensile da bevanda a rischio. Le prospettive di finanziamento potrebbero migliorare."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_forecast_corrected.log_2",
+    "Passate davanti ai chioschi del cibo mentre la pioggia punteggia il vetro. Sei persone condividono lo stesso dolore inespresso per le patatine.",
+    "Passate davanti ai chioschi del cibo mentre la pioggia punteggia il vetro. Il gruppo condivide lo stesso dolore inespresso per le patatine."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_alternator_tariff.desc",
+    "La commessa ti mostra il sovrapprezzo dei dazi su un kit d’emergenza per l’auto.\n\n“Lo decide Washington”, dice. “Hanno solo messo me a portata delle urla”.\n\nAlle sue spalle, la TV definisce i dazi una vittoria economica. Voi sei controllate se potete permettervene un’altra.",
+    "La commessa ti mostra il sovrapprezzo dei dazi su un kit d’emergenza per l’auto.\n\n“Lo decide Washington”, dice. “Hanno solo messo me a portata delle urla”.\n\nAlle sue spalle, la TV definisce i dazi una vittoria economica. Controllate se potete permettervene un’altra."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_hydration_pressure.desc",
+    "La celebrazione dei soffioni dell’area di sosta per camion ha inzuppato il suo stesso striscione GOVERNO LIMITATO. La cassiera offre nove dollari per aiutare a puntellare l’espositore. Per la promozione, le docce normali sono gratuite se portate il sapone. Con sei persone nello stesso furgone, avete finalmente trovato un annuncio presidenziale che riguarda le mutande di tutti.",
+    "La celebrazione dei soffioni dell’area di sosta per camion ha inzuppato il suo stesso striscione GOVERNO LIMITATO. La cassiera offre nove dollari per aiutare a puntellare l’espositore. Per la promozione, le docce normali sono gratuite se portate il sapone. Con tutto il gruppo nello stesso furgone, avete finalmente trovato un annuncio presidenziale che riguarda le mutande di tutti."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_hydration_pressure.log_2",
+    "Lo striscione umido sventola alle vostre spalle. Il gruppo conclude che la libertà ha un odore sospettosamente simile a sei persone che hanno ancora bisogno di una doccia.",
+    "Lo striscione umido sventola alle vostre spalle. Il gruppo conclude che la libertà ha un odore sospettosamente simile a un gruppo che ha ancora bisogno di una doccia."
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "Lasciate il lavoro e le sedie alle spalle. Il vostro piano sanitario torna a essere sei persone che chiedono se tutti stiano «probabilmente bene».",
+    "Lasciate il lavoro e le sedie alle spalle. Il vostro piano sanitario torna a essere il gruppo che chiede se tutti stiano «probabilmente bene»."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_mail_drop.log_0",
+    "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+    "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_mutual_aid_dispatch.log_0",
+    "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department.",
+    "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_neighborhood_watch.log_2",
+    "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going.",
+    "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:classic_press_pool_qna.desc",
+    "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:deep_circuit_breaker.log_0",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages.",
+    "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:fundraiser_detour.log_0",
+    "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat.",
+    "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:deep_beltway_fastpass.log_1",
+    "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit.",
+    "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:overnight_briefing.log_2",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers.",
+    "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_straw_reserve.log_2",
+    "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve.",
+    "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_forecast_corrected.log_2",
+    "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries.",
+    "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_alternator_tariff.desc",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_hydration_pressure.desc",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_hydration_pressure.log_2",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower.",
+    "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:sat_bibliography_emergency.log_2",
+    "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’",
+    "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
+  ],
+  [
+    "dystrail-web/i18n/ar.json:encounter_copy.overnight_briefing.name",
+    "خمسة إنجازات، ستة أشخاص منهكين",
+    "خمسة إنجازات، طاقم واحد منهك"
+  ],
+  [
+    "dystrail-web/i18n/bn.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/de.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/en.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.overnight_briefing.name",
+    "Cinco logros, seis personas agotadas",
+    "Cinco logros, un grupo agotado"
+  ],
+  [
+    "dystrail-web/i18n/fr.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/hi.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/id.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/it.json:encounter_copy.overnight_briefing.name",
+    "Cinque risultati, sei persone esauste",
+    "Cinque risultati, un gruppo esausto"
+  ],
+  [
+    "dystrail-web/i18n/ja.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/jv.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/ko.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/mr.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/pa.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/pt.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/ru.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/ta.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/te.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/tr.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/zh.json:encounter_copy.overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/static/assets/data/game.json:overnight_briefing.name",
+    "Five Accomplishments, Six Exhausted People",
+    "Five Accomplishments, One Exhausted Crew"
+  ],
+  [
+    "dystrail-web/i18n/es.json:encounter_copy.sat_receipt_museum.log_2",
+    "Dejas a la moneda disfrutando de su ascenso. Ninguno de los seis ha tenido jamás una evaluación de desempeño tan generosa.",
+    "Dejas a la moneda disfrutando de su ascenso. Ninguno de ustedes ha tenido jamás una evaluación de desempeño tan generosa."
+  ]
+]

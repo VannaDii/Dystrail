@@ -1,0 +1,279 @@
+The Trail [
+  {
+    "class": "travel-controls",
+    "x": 0,
+    "y": 752,
+    "w": 412,
+    "h": 301.578125,
+    "display": "block",
+    "pad": "0px 12px 12px",
+    "border": "0px",
+    "columns": "none"
+  },
+  {
+    "class": "turn-receipt",
+    "x": 12,
+    "y": 752,
+    "w": 388,
+    "h": 275.578125,
+    "display": "block",
+    "pad": "12px 12px 12px 11px",
+    "border": "0px 0px 0px 3px",
+    "columns": "none"
+  },
+  {
+    "class": "receipt-body",
+    "x": 26,
+    "y": 764,
+    "w": 362,
+    "h": 251.578125,
+    "display": "flex",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "none"
+  },
+  {
+    "class": "resource-changes",
+    "x": 26,
+    "y": 800,
+    "w": 362,
+    "h": 215.578125,
+    "display": "grid",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "115.328px 115.328px 115.344px"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 26,
+    "y": 800,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 149.328125,
+    "y": 800,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card neutral",
+    "x": 272.65625,
+    "y": 800,
+    "w": 115.34375,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card helpful",
+    "x": 26,
+    "y": 910,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 149.328125,
+    "y": 910,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  }
+]
+Journal [
+  {
+    "class": "travel-controls",
+    "x": 0,
+    "y": 738,
+    "w": 412,
+    "h": 423.359375,
+    "display": "block",
+    "pad": "0px 12px 12px",
+    "border": "0px",
+    "columns": "none"
+  },
+  {
+    "class": "trail-log",
+    "x": 12,
+    "y": 738,
+    "w": 388,
+    "h": 411.359375,
+    "display": "grid",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "388px"
+  },
+  {
+    "class": "journal-entry journal-day",
+    "x": 12,
+    "y": 738,
+    "w": 388,
+    "h": 411.359375,
+    "display": "block",
+    "pad": "12px",
+    "border": "1px",
+    "columns": "minmax(0px, 1fr)"
+  },
+  {
+    "class": "journal-story",
+    "x": 25,
+    "y": 751,
+    "w": 362,
+    "h": 331.359375,
+    "display": "flex",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "none"
+  },
+  {
+    "class": "resource-changes",
+    "x": 25,
+    "y": 866.78125,
+    "w": 362,
+    "h": 215.578125,
+    "display": "grid",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "115.328px 115.328px 115.344px"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 25,
+    "y": 866.78125,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 148.328125,
+    "y": 866.78125,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card neutral",
+    "x": 271.65625,
+    "y": 866.78125,
+    "w": 115.34375,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card helpful",
+    "x": 25,
+    "y": 976.78125,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 148.328125,
+    "y": 976.78125,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "resource-changes",
+    "x": 25,
+    "y": 1249.40625,
+    "w": 362,
+    "h": 215.578125,
+    "display": "grid",
+    "pad": "0px",
+    "border": "0px",
+    "columns": "115.328px 115.328px 115.344px"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 25,
+    "y": 1249.40625,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 148.328125,
+    "y": 1249.40625,
+    "w": 115.328125,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card neutral",
+    "x": 271.65625,
+    "y": 1249.40625,
+    "w": 115.34375,
+    "h": 102,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card helpful",
+    "x": 25,
+    "y": 1359.40625,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  },
+  {
+    "class": "change stat-card harmful",
+    "x": 148.328125,
+    "y": 1359.40625,
+    "w": 115.328125,
+    "h": 105.578125,
+    "display": "flex",
+    "pad": "10px 8px",
+    "border": "1px",
+    "columns": "none"
+  }
+]

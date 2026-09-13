@@ -4,6 +4,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct Effects {
     #[serde(default)]
+    pub cash_cents: i64,
+    #[serde(default)]
     pub hp: i32,
     #[serde(default)]
     pub sanity: i32,
@@ -16,8 +18,6 @@ pub struct Effects {
     #[serde(default)]
     pub allies: i32,
     #[serde(default)]
-    pub pants: i32,
-    #[serde(default)]
     pub travel_bonus_ratio: f32,
     #[serde(default)]
     pub add_receipt: Option<String>,
@@ -27,6 +27,16 @@ pub struct Effects {
     pub log: Option<String>,
     #[serde(default)]
     pub rest: bool,
+}
+
+impl Effects {
+    /// Mandatory costs must be payable before an encounter can be resolved.
+    #[must_use]
+    pub const fn affordable(&self, stats: &crate::Stats, cash: i64, receipts: usize) -> bool {
+        cash.saturating_add(self.cash_cents) >= 0
+            && stats.supplies.saturating_add(self.supplies) >= 0
+            && (!self.use_receipt || receipts > 0)
+    }
 }
 
 /// A choice within an encounter
@@ -108,6 +118,86 @@ impl EncounterData {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn every_region_offers_evidence_in_both_modes() {
+        let data = EncounterData::from_json(include_str!(
+            "../../dystrail-web/static/assets/data/game.json"
+        ))
+        .unwrap();
+        for region in [
+            "PacificCoast",
+            "MountainWest",
+            "Southwest",
+            "Heartland",
+            "RustBelt",
+            "Beltway",
+        ] {
+            for mode in ["classic", "deep_end"] {
+                assert!(
+                    data.encounters.iter().any(|event| {
+                        event.regions.iter().any(|r| r == region)
+                            && event.modes.iter().any(|m| m == mode)
+                            && event
+                                .choices
+                                .iter()
+                                .any(|choice| choice.effects.add_receipt.is_some())
+                    }),
+                    "No evidence opportunity in {region}/{mode}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn shipped_evidence_choices_award_save_and_score_their_receipt_once() {
+        let data = EncounterData::from_json(include_str!(
+            "../../dystrail-web/static/assets/data/game.json"
+        ))
+        .unwrap();
+        for event in data.encounters {
+            for (index, choice) in event.choices.iter().enumerate() {
+                let Some(receipt) = &choice.effects.add_receipt else {
+                    continue;
+                };
+                let mut state = crate::GameState {
+                    budget_cents: 10_000,
+                    current_encounter: Some(event.clone()),
+                    ..crate::GameState::default()
+                };
+                state.apply_choice(index);
+                assert_eq!(state.receipts, vec![receipt.clone()], "{}", event.id);
+                let saved = serde_json::to_string(&state).unwrap();
+                let mut restored: crate::GameState = serde_json::from_str(&saved).unwrap();
+                restored.apply_choice(index);
+                assert_eq!(restored.receipts, state.receipts);
+                let score = restored.journey_score();
+                restored.receipts.clear();
+                assert_eq!(score - restored.journey_score(), 8);
+            }
+        }
+    }
+
+    #[test]
+    fn mandatory_cash_and_supply_costs_are_atomic_and_rewards_reach_the_wallet() {
+        let data = EncounterData::from_json(r#"[{"id":"cash","name":"Shift","desc":"Work","choices":[{"label":"Pay","effects":{"cash_cents":-500,"supplies":-2}},{"label":"Work","effects":{"cash_cents":1200,"sanity":-1}}]}]"#).unwrap();
+        let mut gs = crate::GameState {
+            budget_cents: 400,
+            current_encounter: Some(data.encounters[0].clone()),
+            ..crate::GameState::default()
+        };
+        let before = gs.stats.clone();
+        gs.apply_choice(0);
+        assert!(gs.current_encounter.is_some());
+        assert_eq!(gs.budget_cents, 400);
+        assert_eq!(gs.stats, before);
+        gs.apply_choice(1);
+        assert_eq!(gs.budget_cents, 1600);
+        assert_eq!(gs.budget, 16);
+        assert!(gs.current_encounter.is_none());
+        gs.apply_choice(1);
+        assert_eq!(gs.budget_cents, 1600);
+    }
 
     #[test]
     fn test_encounter_data_from_json() {

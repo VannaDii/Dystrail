@@ -1,0 +1,21 @@
+{
+  "revision": "6f8ee335b0133a02b499",
+  "activation": [
+    {
+      "mode": "classic",
+      "masksRetained": true,
+      "saveReloadIdentical": true,
+      "offlineReload": true,
+      "revision": "6f8ee335b0133a02b499"
+    },
+    {
+      "mode": "deep",
+      "masksRetained": true,
+      "saveReloadIdentical": true,
+      "offlineReload": true,
+      "revision": "6f8ee335b0133a02b499"
+    }
+  ],
+  "layouts": [],
+  "errors": []
+}

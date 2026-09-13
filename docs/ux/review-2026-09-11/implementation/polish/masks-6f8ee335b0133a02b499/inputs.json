@@ -1,0 +1,10 @@
+{
+  "base_revision": "a2666947301cbcb4bfb7",
+  "base_source": "/tmp/dystrail-save-menu/source",
+  "changed_files": [
+    "dystrail-game/src/state.rs",
+    "dystrail-game/src/state/illness_protection_tests.rs"
+  ],
+  "mask_state_sha256": "d2925a381232d7fdb54eabe997519dbfe2943c8fe6830ea38a917c1ff0db69fa",
+  "scope": "Masks protection only; all balance configuration and UI retained from the verified Save / Load preview."
+}

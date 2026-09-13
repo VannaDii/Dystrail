@@ -1,0 +1,197 @@
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-tester)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.84s
+     Running `target/debug/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report console`
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 79.3% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 78.8% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 80.9% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ORANGE02 crossing 6 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ANTIVAX03 crossing 6 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-ROSEN03 crossing 7 reported bribe success without attempt
+WARN: Classic - Balanced seed CL-VOTEFRA03 crossing 7 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 80.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 80.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 82.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-SARAH03 crossing 6 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-ORANGE03 crossing 5 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-TRAVELB04 crossing 5 reported bribe success without attempt
+WARN: Classic - Conservative seed CL-TRAVELB04 crossing 6 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 74.8% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 73.8% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 75.5% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-PARDON03 crossing 5 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-SARAH03 crossing 6 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-ANTIVAX04 crossing 0 reported bribe success without attempt
+WARN: Classic - Aggressive seed CL-TRAVELB04 crossing 6 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 83.2% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 81.9% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 82.8% < 90.0%
+WARN: Classic - Resource Manager seed CL-CHEETO03 crossing 2 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-MILLER03 crossing 3 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE03 crossing 3 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE03 crossing 4 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE03 crossing 2 reported bribe success without attempt
+WARN: Classic - Resource Manager seed CL-ORANGE03 crossing 4 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 77.4% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 78.9% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 78.9% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ORANGE02 crossing 0 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-ANTIVAX03 crossing 6 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-HICKS03 crossing 6 reported bribe success without attempt
+WARN: Deep - Balanced seed DP-MAGARLY03 crossing 0 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 82.5% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 80.4% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 81.8% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Conservative seed DP-PATCH04 crossing 5 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 85.4% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 85.6% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 86.0% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-DREAMER03 crossing 0 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-PARDON03 crossing 5 reported bribe success without attempt
+WARN: Deep - Aggressive seed DP-SARAH03 crossing 6 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 84.8% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 81.2% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 82.9% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 3 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 4 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 2 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 1 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE02 crossing 5 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-PARDON03 crossing 5 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-SARAH03 crossing 6 reported bribe success without attempt
+WARN: Deep - Resource Manager seed DP-ORANGE03 crossing 6 reported bribe success without attempt
+WARN: Deep - Aggressive average stop-cap conversions 16.12 > 1.2
+WARN: Deep - Aggressive field repair only triggered 11.0% of runs
+WARN: Deep - Aggressive average endgame cooldown 0.00 days remaining
+WARN: Deep - Balanced average stop-cap conversions 3.48 > 1.2
+WARN: Deep - Balanced average endgame cooldown 0.01 days remaining
+
+📊 Logic Test Results Summary
+==============================
+Total scenarios: 1
+Passed: 1
+Failed: 0
+Success rate: 100.0%
+Total time: 74.949886625s
+
+✅ PASS Real Game Test
+   Iterations: 1000/1000 successful
+   Average time: 8.08922ms
+
+⚡ Performance Summary
+=====================
+Fastest: Real Game Test (8.08922ms)
+Slowest: Real Game Test (8.08922ms)
+
+📈 Playability Summary
+======================
+• Classic - Aggressive (Classic/Aggressive) | n=1000 | days 145.1±16.1 | miles 1992.7±220.5 | travel 75.7% (min 68.7%) | unique/20 3.56 (min 1.68) | ≥2k@150 63.6% | rotations 31.7 | boss reach 66.6% | boss win 6.4%
+   crossings: events 3.4 | permit 0.0% | bribes 2.50 (succ 83.2%) | detours 0.55 | fail 3.4%
+   ⚠ travel ratio 75.7% below 80% target
+   ⚠ min travel ratio 68.7% below 80% requirement
+   ⚠ average mileage 1993 below 2000 mi goal
+• Classic - Balanced (Classic/Balanced) | n=1000 | days 142.3±32.8 | miles 2039.2±468.7 | travel 80.2% (min 73.4%) | unique/20 3.54 (min 1.83) | ≥2k@150 61.1% | rotations 33.2 | boss reach 35.9% | boss win 21.1%
+   crossings: events 3.6 | permit 0.0% | bribes 2.87 (succ 70.8%) | detours 0.86 | fail 6.7%
+   ⚠ min travel ratio 73.4% below 80% requirement
+• Classic - Conservative (Classic/Conservative) | n=1000 | days 169.2±8.8 | miles 2079.5±91.3 | travel 81.5% (min 75.6%) | unique/20 3.84 (min 2.34) | ≥2k@150 0.0% | rotations 38.6 | boss reach 91.1% | boss win 24.5%
+   crossings: events 3.6 | permit 0.0% | bribes 3.38 (succ 83.0%) | detours 0.58 | fail 1.3%
+   ⚠ min travel ratio 75.6% below 80% requirement
+   ⚠ only 0.0% of runs reached 2,000mi by day 150
+• Classic - Resource Manager (Classic/ResourceManager) | n=1000 | days 144.9±6.1 | miles 2097.8±19.1 | travel 83.1% (min 76.1%) | unique/20 4.37 (min 2.65) | ≥2k@150 97.0% | rotations 35.3 | boss reach 99.6% | boss win 37.6%
+   crossings: events 3.7 | permit 0.0% | bribes 3.62 (succ 81.7%) | detours 0.67 | fail 0.0%
+   ⚠ min travel ratio 76.1% below 80% requirement
+• Deep - Aggressive (Deep/Aggressive) | n=1000 | days 134.5±13.4 | miles 2001.5±194.3 | travel 85.5% (min 83.3%) | unique/20 3.31 (min 1.82) | ≥2k@150 83.9% | rotations 29.3 | boss reach 86.4% | boss win 37.7%
+   crossings: events 3.3 | permit 0.0% | bribes 2.58 (succ 87.4%) | detours 0.41 | fail 1.8%
+• Deep - Balanced (Deep/Balanced) | n=1000 | days 174.4±41.0 | miles 1949.4±478.0 | travel 77.8% (min 69.7%) | unique/20 2.62 (min 1.26) | ≥2k@150 0.0% | rotations 39.9 | boss reach 18.9% | boss win 10.2%
+   crossings: events 3.4 | permit 0.0% | bribes 2.13 (succ 70.9%) | detours 0.81 | fail 7.5%
+   ⚠ travel ratio 77.8% below 80% target
+   ⚠ min travel ratio 69.7% below 80% requirement
+   ⚠ min unique encounters per 20d 1.26 below 1.5 requirement
+   ⚠ average mileage 1949 below 2000 mi goal
+   ⚠ only 0.0% of runs reached 2,000mi by day 150
+• Deep - Conservative (Deep/Conservative) | n=1000 | days 159.7±13.0 | miles 1983.4±201.8 | travel 81.5% (min 73.9%) | unique/20 3.39 (min 2.00) | ≥2k@150 5.6% | rotations 36.5 | boss reach 62.4% | boss win 15.0%
+   crossings: events 3.2 | permit 0.0% | bribes 2.80 (succ 87.3%) | detours 0.41 | fail 0.8%
+   ⚠ min travel ratio 73.9% below 80% requirement
+   ⚠ average mileage 1983 below 2000 mi goal
+   ⚠ only 5.6% of runs reached 2,000mi by day 150
+• Deep - Resource Manager (Deep/ResourceManager) | n=1000 | days 133.6±7.4 | miles 2070.2±87.8 | travel 82.6% (min 75.7%) | unique/20 4.07 (min 2.45) | ≥2k@150 89.6% | rotations 31.2 | boss reach 84.3% | boss win 23.2%
+   crossings: events 3.6 | permit 0.0% | bribes 3.10 (succ 81.5%) | detours 0.66 | fail 0.7%
+   ⚠ min travel ratio 75.7% below 80% requirement
+
+🏁 Total time: 74.949951042s
+Error: Travel ratio 79.3% < 90% for scenario Classic - Balanced seed CL-ORANGE02

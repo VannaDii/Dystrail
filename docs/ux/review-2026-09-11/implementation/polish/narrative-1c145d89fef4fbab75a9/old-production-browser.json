@@ -1,0 +1,73 @@
+{
+  "expected": "a9ff83cd924a07fdf4ec",
+  "profile": "/tmp/dystrail-narrative-release-prep/old-production-profile",
+  "url": "https://dystrail.com/play/",
+  "productionHold": true,
+  "errors": [],
+  "loaded": {
+    "revision": "a9ff83cd924a07fdf4ec",
+    "readiness": "ready",
+    "screen": "setup",
+    "gate": false,
+    "prepared": 68,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js",
+    "cacheNames": []
+  },
+  "save": {
+    "stateSha256": "3487425f6fb69a8a03553bff82813d81cc779fc7066cddeae8b50179fe47f20f",
+    "phase": "Travel",
+    "day": 1,
+    "miles": 0,
+    "crew": [
+      {
+        "name": "Morgan",
+        "persona": "staffer"
+      },
+      {
+        "name": "Sam",
+        "persona": "satirist"
+      },
+      {
+        "name": "Drew",
+        "persona": "whistleblower"
+      },
+      {
+        "name": "Dakota",
+        "persona": "lobbyist"
+      },
+      {
+        "name": "Taylor",
+        "persona": "organizer"
+      },
+      {
+        "name": "Release Check",
+        "persona": "journalist"
+      }
+    ]
+  },
+  "cache": {
+    "name": "dystopian-trail:/play/:a9ff83cd924a07fdf4ec",
+    "assets": 119,
+    "keys": 120,
+    "failures": [],
+    "marker": "a9ff83cd924a07fdf4ec"
+  },
+  "offline": {
+    "revision": "a9ff83cd924a07fdf4ec",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "prepared": 68,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js",
+    "cacheNames": []
+  },
+  "offlineStateSha256": "3487425f6fb69a8a03553bff82813d81cc779fc7066cddeae8b50179fe47f20f",
+  "completeEnvelopePreserved": true,
+  "passed": true,
+  "unorderedFields": [
+    "state.inventory.tags (Rust HashSet)",
+    "pending.inventory.tags (Rust HashSet)"
+  ]
+}

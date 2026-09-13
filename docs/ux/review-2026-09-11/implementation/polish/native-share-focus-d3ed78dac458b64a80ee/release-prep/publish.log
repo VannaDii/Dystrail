@@ -1,0 +1,6 @@
+Verified 207 files and 119 offline assets for preview d3ed78dac458b64a80ee
+Exact release branch permitted; dispatching reviewed commit 99ae520b19f1ef8eb259d2211229fe954e4d3803
+{"url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065", "status": ["in_progress", "", [["package", "in_progress", ""]]]}
+{"url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065", "status": ["in_progress", "", [["package", "completed", "success"], ["deploy", "in_progress", ""]]]}
+{"url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065", "status": ["completed", "success", [["package", "completed", "success"], ["deploy", "completed", "success"]]]}
+Temporary exact-branch policy removed; main-only policy restored.

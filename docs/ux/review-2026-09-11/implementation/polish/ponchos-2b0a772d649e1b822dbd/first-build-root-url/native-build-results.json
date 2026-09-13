@@ -1,0 +1,97 @@
+{
+  "source": "/tmp/dystrail-poncho-preview/source",
+  "commands": [
+    {
+      "label": "format",
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.286
+    },
+    {
+      "label": "weather-native",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "dystrail-game",
+        "weather"
+      ],
+      "exit_code": 0,
+      "seconds": 7.331
+    },
+    {
+      "label": "web-native",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "dystrail-web"
+      ],
+      "exit_code": 0,
+      "seconds": 13.534
+    },
+    {
+      "label": "clippy-native",
+      "argv": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked",
+        "--",
+        "-Dwarnings",
+        "-Dclippy::all",
+        "-Dclippy::pedantic",
+        "-Dclippy::cargo",
+        "-Dclippy::nursery",
+        "-Aclippy::multiple-crate-versions"
+      ],
+      "exit_code": 0,
+      "seconds": 9.913
+    },
+    {
+      "label": "clippy-wasm",
+      "argv": [
+        "cargo",
+        "clippy",
+        "-p",
+        "dystrail-web",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--all-targets",
+        "--all-features",
+        "--locked",
+        "--",
+        "-Dwarnings",
+        "-Dclippy::all",
+        "-Dclippy::pedantic",
+        "-Dclippy::cargo",
+        "-Dclippy::nursery",
+        "-Aclippy::multiple-crate-versions"
+      ],
+      "exit_code": 0,
+      "seconds": 9.407
+    },
+    {
+      "label": "trunk",
+      "argv": [
+        "trunk",
+        "build",
+        "--release",
+        "--dist",
+        "/tmp/dystrail-poncho-preview/web"
+      ],
+      "exit_code": 0,
+      "seconds": 18.62
+    }
+  ]
+}

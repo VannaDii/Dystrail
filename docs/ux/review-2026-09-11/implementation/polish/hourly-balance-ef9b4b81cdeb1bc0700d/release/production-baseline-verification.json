@@ -1,0 +1,12 @@
+{
+  "commit": "7ea6499d97cf6baa64819766a22d7e880a555176",
+  "revision": "23cf83a1a7d5f9d02de9",
+  "passed": true,
+  "scope": "Prepared checkout matches its complete immutable manifest; previous full live proof reused without a new authority audit.",
+  "prior_live_verified_at": "2026-09-13T12:01:16.347228+00:00",
+  "prior_live_evidence": "/tmp/dystrail-workshop-release-prep/production-http-verification.json",
+  "prior_publication_evidence": "/tmp/dystrail-workshop-release-prep/publication-summary.json",
+  "files": 199,
+  "protected_files": 59,
+  "existing_hashed_assets": 25
+}

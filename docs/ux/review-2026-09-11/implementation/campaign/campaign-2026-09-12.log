@@ -1,0 +1,58 @@
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-tester)
+    Finished `release` profile [optimized] target(s) in 5.92s
+     Running `target/release/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report csv --output /tmp/dystrail-repair-final-campaign.csv`
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 88.7% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 88.9% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 89.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 89.2% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 89.8% < 90.0%
+WARN: Classic - Conservative seed CL-ORANGE02 travel ratio 89.9% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 87.0% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 89.8% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 88.6% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 89.6% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 89.6% < 90.0%
+WARN: Classic - Resource Manager seed CL-ORANGE02 travel ratio 89.6% < 90.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 89.9% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 89.3% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 89.6% < 92.0%
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 89.5% < 92.0%
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 89.5% < 92.0%
+WARN: Deep - Conservative seed DP-ORANGE02 travel ratio 91.4% < 92.0%
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep Conservative seed DP-ORANGE02 failed ≥2k@150
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.8% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 90.1% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.0% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 90.2% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 88.7% < 92.0%
+WARN: Classic - Aggressive average endgame cooldown 0.39 days remaining
+WARN: Classic - Balanced average endgame cooldown 0.54 days remaining
+WARN: Classic - Conservative average endgame cooldown 0.23 days remaining
+WARN: Classic - Resource Manager average endgame cooldown 0.28 days remaining
+WARN: Deep - Aggressive average stop-cap conversions 1.77 > 1.2
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Aggressive average endgame cooldown 0.09 days remaining
+WARN: Deep - Balanced average endgame cooldown 0.17 days remaining
+WARN: Deep - Conservative average endgame cooldown 0.48 days remaining
+WARN: Deep - Resource Manager average endgame cooldown 0.65 days remaining
+Error: Travel ratio 88.7% < 90% for scenario Classic - Balanced seed CL-ORANGE02

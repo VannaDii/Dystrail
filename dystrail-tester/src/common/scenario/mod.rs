@@ -4,9 +4,7 @@ use thirtyfour::prelude::*;
 use crate::browser::TestBridge;
 pub mod catalog;
 
-use crate::logic::{
-    DEFAULT_POLICY_SIM_DAYS, GameTester, GameplayStrategy, SimulationPlan, default_policy_setup,
-};
+use crate::logic::{DEFAULT_POLICY_SIM_DAYS, GameTester, GameplayStrategy, SimulationPlan};
 use catalog::find_catalog_scenario;
 use dystrail_game::GameMode;
 
@@ -115,7 +113,6 @@ fn strategy_scenario(name: &'static str, strategy: GameplayStrategy) -> Simulati
         name,
         SimulationPlan::new(GameMode::Classic, strategy)
             .with_max_days(DEFAULT_POLICY_SIM_DAYS)
-            .with_setup(default_policy_setup(strategy))
             .with_expectation(survival_expectation),
     )
 }

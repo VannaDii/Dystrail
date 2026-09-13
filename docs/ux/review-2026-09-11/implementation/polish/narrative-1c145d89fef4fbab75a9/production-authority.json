@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-09-13T08:01:44.055692+00:00",
+  "pages": {
+    "build_type": "legacy",
+    "cname": "dystrail.com",
+    "html_url": "https://dystrail.com/",
+    "https_enforced": true,
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "status": "built"
+  },
+  "runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T07:09:32Z",
+      "databaseId": 34744528068,
+      "headBranch": "release/visual-refinement-2026-09-12",
+      "headSha": "acaa88b1c1f104bf267048d393df2be403f056c9",
+      "status": "completed",
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34744528068"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T05:27:09Z",
+      "databaseId": 34740330227,
+      "headBranch": "release/writer-preview-2026-09-12",
+      "headSha": "84dd03513a908f4e2c08b2664acd6258bd9e10d0",
+      "status": "completed",
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34740330227"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-13T02:22:40Z",
+      "databaseId": 34732895218,
+      "headBranch": "release/homepage-cta-2026-09-12",
+      "headSha": "7ac74b0266637c5304a7f351dd0788ac70fb9327",
+      "status": "completed",
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34732895218"
+    }
+  ],
+  "branch_policies": [
+    {
+      "id": 39031816,
+      "name": "main",
+      "type": "branch"
+    }
+  ]
+}

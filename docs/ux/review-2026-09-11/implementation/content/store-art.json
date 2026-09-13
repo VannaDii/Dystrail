@@ -1,0 +1,129 @@
+{
+  "generated": "2026-09-12",
+  "style": "Original transparent pixel-art inventory sprites; no image-embedded text.",
+  "assets": [
+    {
+      "id": "rations",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-96837a1d-0814-47ac-ab3b-7010c1adfa4f.png",
+      "target": "dystrail-web/static/img/items/rations-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A small khaki field-ration paper pouch with a folded top, a red tin can and two crisp crackers in front. Readable food supplies silhouette.",
+      "sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d",
+      "bytes": 997755,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "water",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-07229ef0-096b-4227-bac4-7b16ca3ae62e.png",
+      "target": "dystrail-web/static/img/items/water-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A sturdy translucent blue plastic water jug, ribbed sides, bright blue screw cap and carry handle. Water visibly gleams inside.",
+      "sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e",
+      "bytes": 842624,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "spare_tire",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-8af8134c-341c-4ec9-8fd3-7a930bea4fa1.png",
+      "target": "dystrail-web/static/img/items/spare_tire-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A single black spare automobile tire upright at a three-quarter angle, chunky tread and silver steel wheel hub. Full tire visible.",
+      "sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673",
+      "bytes": 970054,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "battery",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-27b09f43-e7b9-4b37-98b1-d83504e5c6d0.png",
+      "target": "dystrail-web/static/img/items/battery-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A compact red-and-dark-gray car battery at a three-quarter angle, two brass terminals and a molded carry handle. No printed lettering.",
+      "sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b",
+      "bytes": 997605,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "alternator",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-89d3f749-55b5-49bf-af95-e3f8e54fcdaf.png",
+      "target": "dystrail-web/static/img/items/alternator-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A silver automobile alternator, distinct ribbed cast-metal round housing and dark front pulley, copper winding visible in vents. Readable mechanical silhouette.",
+      "sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7",
+      "bytes": 1489143,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "fuel_pump",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-fa1e75b0-8107-4216-a166-38cddcb6aafd.png",
+      "target": "dystrail-web/static/img/items/fuel_pump-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A compact silver electric automobile fuel pump with a cylindrical metal body, brass hose barbs and two short insulated red and black leads. Readable standalone spare part.",
+      "sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916",
+      "bytes": 762415,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "masks",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-26c22dcf-f91b-4f77-9c96-c3df419423da.png",
+      "target": "dystrail-web/static/img/items/masks-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: Two light blue pleated surgical face masks with white elastic ear loops, one in front of the other at a slight angle. Full loops visible.",
+      "sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce",
+      "bytes": 855098,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "coats",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-4c3b35cf-d2e6-450a-aeaa-d4e61b1406fb.png",
+      "target": "dystrail-web/static/img/items/coats-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A folded burnt-orange winter parka with a thick cream fleece collar, chunky dark zipper and one padded sleeve folded across the front. Clearly warm outerwear.",
+      "sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7",
+      "bytes": 1232801,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "ponchos",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-51f8e8f1-e2c6-444f-80f3-67f244d2903f.png",
+      "target": "dystrail-web/static/img/items/ponchos-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A bright golden-yellow rain poncho draped upright with an empty open hood and a few chunky pale-blue raindrop highlights on its waterproof folds. No person inside.",
+      "sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157",
+      "bytes": 807819,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "press_pass",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-0259f7b8-218f-4879-88c5-99e83e107fd9.png",
+      "target": "dystrail-web/static/img/items/press_pass-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A cream press credential in a clear plastic badge holder on a loop of red lanyard, with a tiny blue portrait silhouette and dark horizontal bars representing print. NO readable words or numbers.",
+      "sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb",
+      "bytes": 773384,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    },
+    {
+      "id": "legal_fund",
+      "path": "/Users/vanna/.codex/generated_images/01a08e79-1249-7a52-850f-36deb5ffb845/exec-774b93af-ef2e-4c51-a593-3cc19173c7ba.png",
+      "target": "dystrail-web/static/img/items/legal_fund-v1.png",
+      "prompt": "Create one production-ready inventory item sprite for a 1990s pixel-art road-trip adventure game. Square composition, transparent alpha background. Crisp deliberately stepped pixel contours, dark navy outlines, rich restrained 16-bit colors, 3 or 4 hard-edged shading levels, warm light from upper left, slightly humorous hand-crafted game artwork. Object fills about 82% of the frame and is fully visible with breathing room. Designed to remain recognizable at 64-80 CSS pixels. No scenery, no ground, no frame, no vignette, no pedestal, no cast shadow outside the object, no lettering, no watermark, no UI mockup. SUBJECT: A small open teal metal cash tin holding a tidy stack of paper money beside a miniature wooden judge's gavel and folded legal papers. A clear legal defense fund game item.",
+      "sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814",
+      "bytes": 1300626,
+      "width": 1254,
+      "height": 1254,
+      "source_matches_target": true
+    }
+  ],
+  "generator": "Built-in image generation tool",
+  "provenance": "Original images generated for this game; exact prompts and verified shipped PNG hashes are recorded per item."
+}

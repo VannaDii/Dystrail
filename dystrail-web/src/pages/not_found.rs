@@ -8,6 +8,7 @@ pub struct Props {
 
 #[function_component(NotFound)]
 pub fn not_found(props: &Props) -> Html {
+    crate::i18n::use_language();
     let go_home = {
         let cb = props.on_go_home.clone();
         Callback::from(move |_| cb.emit(()))

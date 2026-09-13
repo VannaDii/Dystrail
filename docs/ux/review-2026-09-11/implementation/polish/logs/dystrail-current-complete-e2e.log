@@ -1,0 +1,559 @@
+(node:54413) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 134 tests using 1 worker
+
+(node:54433) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54433) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:54433) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (2.9s)
+  ✓    2 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (1.8s)
+  ✓    3 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (2.8s)
+  ✓    4 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (2.8s)
+  ✓    5 [chromium] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (2.7s)
+  ✓    6 [chromium] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (2.8s)
+  ✓    7 [chromium] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (3.4s)
+  ✓    8 [chromium] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.5s)
+  ✓    9 [chromium] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (5.9s)
+  ✓   10 [chromium] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.3s)
+  ✓   11 [chromium] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (2.5s)
+  ✓   12 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (3.0s)
+  ✓   13 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.1s)
+  ✓   14 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.9s)
+  ✓   15 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (3.8s)
+  ✓   16 [chromium] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.0s)
+  ✓   17 [chromium] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.0s)
+  ✓   18 [chromium] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.1s)
+  ✓   19 [chromium] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.6s)
+  ✘   20 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (5.4s)
+(node:55400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55400) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:55400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   21 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (2.7s)
+  ✓   22 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (3.0s)
+  ✓   23 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.6s)
+  ✓   24 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (1.5s)
+  ✓   25 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (2.4s)
+  ✓   26 [chromium] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.5s)
+  ✓   27 [chromium] › tests-e2e/onboarding-results.spec.ts:6:5 › start action shares the Deep End column and stacks on mobile (1.2s)
+  ✓   28 [chromium] › tests-e2e/onboarding-results.spec.ts:12:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (1.6s)
+  ✓   29 [chromium] › tests-e2e/onboarding-results.spec.ts:28:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.6s)
+  ✓   30 [chromium] › tests-e2e/onboarding-results.spec.ts:43:5 › bottom result actions give visible feedback without a page jump (2.6s)
+  ✓   31 [chromium] › tests-e2e/onboarding-results.spec.ts:51:5 › a fatal player care decision reports the death and ends the run here (2.4s)
+  ✓   32 [chromium] › tests-e2e/onboarding-results.spec.ts:58:5 › store and trade have distinct illustrated symbols and retained information (2.5s)
+  ✓   33 [chromium] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.5s)
+  ✓   34 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (5.7s)
+  ✓   35 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (7.0s)
+  ✓   36 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details are centered (2.6s)
+  ✓   37 [chromium] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.6s)
+  ✓   38 [chromium] › tests-e2e/scene-flow.spec.ts:30:5 › automatic map keeps moving and closes in five seconds without a second click (10.0s)
+  ✓   39 [chromium] › tests-e2e/scene-flow.spec.ts:38:5 › automatic map can stay open, survives reload, and resumes with one click (11.4s)
+  ✓   40 [chromium] › tests-e2e/scene-flow.spec.ts:46:5 › manual map stays open and resumed travel stops at the next town (10.9s)
+  ✓   41 [chromium] › tests-e2e/scene-flow.spec.ts:54:5 › camp gathering uses cooldown cards, persists and becomes available again (3.2s)
+  ✓   42 [chromium] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (2.8s)
+  ✓   43 [chromium] › tests-e2e/scene-flow.spec.ts:69:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.6s)
+  ✓   44 [chromium] › tests-e2e/scene-flow.spec.ts:75:5 › a queued crew decision waits for the automatic map without advancing past it (9.1s)
+  ✓   45 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.2s)
+  ✓   46 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (5.1s)
+  ✓   47 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.7s)
+  ✓   48 [chromium] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (1.7s)
+  ✓   49 [chromium] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (2.4s)
+  ✓   50 [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (2.5s)
+  ✓   51 [chromium] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (2.9s)
+  ✘   52 [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (9.4s)
+(node:60020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60020) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:60020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   53 [chromium] › tests-e2e/second-pass.spec.ts:38:5 › a new political encounter pays cash and exposes its factual hook (2.7s)
+  ✓   54 [chromium] › tests-e2e/second-pass.spec.ts:43:5 › road and progress elements survive consecutive automatic turns (4.5s)
+  ✘   55 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (10.2s)
+(node:61848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61848) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:61848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   56 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (9.4s)
+(node:63149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63149) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:63149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   57 [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (10.1s)
+(node:64518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64518) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:64518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   58 [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (31.9s)
+(node:67248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:67248) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:67248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   59 [chromium] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.8s)
+  ✓   60 [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (3.0s)
+  ✓   61 [chromium] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (2.7s)
+Weather travel fixture [33m4[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+  ✓   62 [chromium] › tests-e2e/weather.spec.ts:11:5 › weather costs apply during continuous travel, notify inline, and survive reload once (8.9s)
+  ✓   63 [chromium] › tests-e2e/weather.spec.ts:34:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (2.8s)
+  ✓   64 [chromium] › tests-e2e/weather.spec.ts:45:5 › old weather pause checkpoints resume without a weather decision or repeated costs (2.5s)
+  ✓   65 [chromium] › tests-e2e/weather.spec.ts:52:5 › weather indicator respects reduced motion and Arabic layout (1.8s)
+  ✓   66 [chromium] › tests-e2e/weather.spec.ts:60:5 › travel actions share one compact row and the scene gets the saved space (2.4s)
+  ✓   67 [chromium] › tests-e2e/weather.spec.ts:79:5 › Fast mode persists, legacy Step saves recover, and toolbar details do not spend a turn (2.8s)
+(node:68855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68855) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:68855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   68 [mobile] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (2.9s)
+  ✓   69 [mobile] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (1.9s)
+  ✓   70 [mobile] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.4s)
+  ✓   71 [mobile] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.3s)
+  ✓   72 [mobile] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (3.3s)
+  ✓   73 [mobile] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.3s)
+  ✓   74 [mobile] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (4.0s)
+  ✓   75 [mobile] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (5.0s)
+  ✓   76 [mobile] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (6.3s)
+  ✓   77 [mobile] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.2s)
+  ✓   78 [mobile] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (3.0s)
+  ✓   79 [mobile] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (3.7s)
+  ✓   80 [mobile] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.8s)
+  ✓   81 [mobile] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (3.5s)
+  ✓   82 [mobile] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (4.4s)
+  ✓   83 [mobile] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.7s)
+  ✓   84 [mobile] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.6s)
+  ✓   85 [mobile] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.8s)
+  ✓   86 [mobile] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (3.1s)
+  ✘   87 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (5.8s)
+(node:72202) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72202) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:72202) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   88 [mobile] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.4s)
+  ✓   89 [mobile] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (3.7s)
+  ✓   90 [mobile] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (3.2s)
+  ✓   91 [mobile] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (1.6s)
+  ✓   92 [mobile] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (2.3s)
+  ✓   93 [mobile] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.4s)
+  ✓   94 [mobile] › tests-e2e/onboarding-results.spec.ts:6:5 › start action shares the Deep End column and stacks on mobile (1.3s)
+  ✓   95 [mobile] › tests-e2e/onboarding-results.spec.ts:12:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (1.8s)
+  ✓   96 [mobile] › tests-e2e/onboarding-results.spec.ts:28:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (3.3s)
+  ✓   97 [mobile] › tests-e2e/onboarding-results.spec.ts:43:5 › bottom result actions give visible feedback without a page jump (3.3s)
+  ✓   98 [mobile] › tests-e2e/onboarding-results.spec.ts:51:5 › a fatal player care decision reports the death and ends the run here (3.0s)
+  ✓   99 [mobile] › tests-e2e/onboarding-results.spec.ts:58:5 › store and trade have distinct illustrated symbols and retained information (3.1s)
+  ✓  100 [mobile] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.0s)
+  ✓  101 [mobile] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (6.1s)
+  ✓  102 [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (7.6s)
+  ✓  103 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details are centered (3.1s)
+  ✓  104 [mobile] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (3.2s)
+  ✓  105 [mobile] › tests-e2e/scene-flow.spec.ts:30:5 › automatic map keeps moving and closes in five seconds without a second click (10.1s)
+  ✓  106 [mobile] › tests-e2e/scene-flow.spec.ts:38:5 › automatic map can stay open, survives reload, and resumes with one click (12.0s)
+  ✓  107 [mobile] › tests-e2e/scene-flow.spec.ts:46:5 › manual map stays open and resumed travel stops at the next town (11.4s)
+  ✓  108 [mobile] › tests-e2e/scene-flow.spec.ts:54:5 › camp gathering uses cooldown cards, persists and becomes available again (3.7s)
+  ✓  109 [mobile] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (3.3s)
+  ✓  110 [mobile] › tests-e2e/scene-flow.spec.ts:69:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (3.1s)
+  ✓  111 [mobile] › tests-e2e/scene-flow.spec.ts:75:5 › a queued crew decision waits for the automatic map without advancing past it (9.6s)
+  ✓  112 [mobile] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.9s)
+  ✓  113 [mobile] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (6.2s)
+  ✓  114 [mobile] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (3.5s)
+  ✓  115 [mobile] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (2.9s)
+  ✓  116 [mobile] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (3.0s)
+  ✓  117 [mobile] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (3.1s)
+  ✓  118 [mobile] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (3.5s)
+  ✘  119 [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (9.9s)
+(node:82796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82796) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:82796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  120 [mobile] › tests-e2e/second-pass.spec.ts:38:5 › a new political encounter pays cash and exposes its factual hook (3.3s)
+  ✓  121 [mobile] › tests-e2e/second-pass.spec.ts:43:5 › road and progress elements survive consecutive automatic turns (5.2s)
+  ✘  122 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (10.9s)
+(node:85138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85138) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:85138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  123 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (10.1s)
+(node:85539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85539) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:85539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  124 [mobile] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (11.4s)
+(node:86037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:86037) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:86037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  125 [mobile] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (31.9s)
+(node:87458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:87458) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:87458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  126 [mobile] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (3.4s)
+  ✓  127 [mobile] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (3.8s)
+  ✓  128 [mobile] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (3.3s)
+Weather travel fixture [33m4[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+  ✓  129 [mobile] › tests-e2e/weather.spec.ts:11:5 › weather costs apply during continuous travel, notify inline, and survive reload once (9.7s)
+  ✓  130 [mobile] › tests-e2e/weather.spec.ts:34:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (3.6s)
+  ✓  131 [mobile] › tests-e2e/weather.spec.ts:45:5 › old weather pause checkpoints resume without a weather decision or repeated costs (3.0s)
+  ✓  132 [mobile] › tests-e2e/weather.spec.ts:52:5 › weather indicator respects reduced motion and Arabic layout (1.9s)
+  ✓  133 [mobile] › tests-e2e/weather.spec.ts:60:5 › travel actions share one compact row and the scene gets the saved space (3.2s)
+  ✓  134 [mobile] › tests-e2e/weather.spec.ts:79:5 › Fast mode persists, legacy Step saves recover, and toolbar details do not spend a turn (3.6s)
+
+
+  1) [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.cooldown-status')
+    Expected pattern: [32m/completed days/[39m
+    Error: strict mode violation: locator('.cooldown-status') resolved to 4 elements:
+        1) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: /^Rest available in 2 completed days$/ })
+        2) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: 'Ready now' }).nth(3)
+        3) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: 'Ready now' }).nth(5)
+        4) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: /^Ready now$/ }).nth(2)
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.cooldown-status')[22m
+
+
+      41 |  await page.getByRole('button',{name:'Back to the road',exact:true}).click();
+      42 |  await page.getByRole('button',{name:'Camp',exact:true}).last().click();
+    > 43 |  await expect(page.locator('.cooldown-status')).toContainText(/completed days/);
+         |                                                 ^
+      44 |  expect(errors).toEqual([]);
+      45 | });
+      46 |
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/journey.spec.ts:43:49
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/journey-outfitting-recover-de3cd-travel-manual-save-and-camp-chromium/error-context.md
+
+  2) [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.local-conversation blockquote')
+    Expected substring: [32m"showerhead"[39m
+    Received string:    [31m"We built a bridge to keep the science going. The administration is still taking bids on a troll to live underneath."[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.local-conversation blockquote')[22m
+    [2m    9 × locator resolved to <blockquote class="resident-remark">…</blockquote>[22m
+    [2m      - unexpected value "We built a bridge to keep the science going. The administration is still taking bids on a troll to live underneath."[22m
+
+
+      34 |  await expect(page.locator('.conversation-player')).toHaveAttribute('data-subject','journalist');await expect(page.locator('.conversation-player')).toContainText('Vanna Test');
+      35 |  const npc=await page.locator('.scene-npc').getAttribute('data-npc');await page.reload();await expect(page.locator('.scene-npc')).toHaveAttribute('data-npc',npc!);
+    > 36 |  await expect(page.locator('.local-conversation blockquote')).toContainText('showerhead');await snap(page,'town-conversation');
+         |                                                               ^
+      37 | });
+      38 | test('a new political encounter pays cash and exposes its factual hook',async({page})=>{
+      39 |  const gs=await baseline(page);gs.current_encounter=bank.find((e:any)=>e.id==='sat_corn_bullets');await importState(page,gs);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/second-pass.spec.ts:36:63
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/second-pass-town-facts-and-1f610-PC-portraits-survive-reload-chromium/error-context.md
+
+  3) [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'NATIONAL PANTS EMERGENCY' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'NATIONAL PANTS EMERGENCY' })[22m
+
+
+      11 |  state.current_encounter=null;state.stats.sanity=1;await importState(page,state);await expect(page.locator('.danger-notice')).toHaveCount(0);await expect(page.locator('.hud-stat.critical')).toBeVisible();await snap(page,'danger');
+      12 |  state.stats.pants=100;state.ending={type:'collapse',cause:'panic'};await importState(page,state);
+    > 13 |  await expect(page.getByRole('heading',{name:'NATIONAL PANTS EMERGENCY'})).toBeVisible();await snap(page,'result');
+         |                                                                            ^
+      14 |  await page.getByRole('menuitem',{name:/Replay/i}).click();await expect(page.getByRole('radio',{name:'Journalist',exact:true})).toBeVisible();
+      15 | });
+      16 | test('repair consumes a pump and shows the cost',async({page})=>{
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:13:76
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-numbered-encounter--34f51-w-sanity-and-visual-results-chromium/error-context.md
+
+  4) [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.aftermath-panel')
+    Expected substring: [32m"1 → 0 (-1)"[39m
+    Received string:    [31m"OutcomeThe Fuel Pump is fitted. The crew checks the van before continuing.Fuel Pump-1Back to the road"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.aftermath-panel')[22m
+    [2m    9 × locator resolved to <section aria-live="polite" class="aftermath-panel" aria-labelledby="aftermath-title">…</section>[22m
+    [2m      - unexpected value "OutcomeThe Fuel Pump is fitted. The crew checks the van before continuing.Fuel Pump-1Back to the road"[22m
+
+
+      18 |  await importState(page,state);await page.getByRole('button',{name:'Fit your spare Fuel Pump',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+      19 |  const after=await savedState(page);expect(after.inventory.spares.pump).toBe(0);expect(after.breakdown).toBeNull();
+    > 20 |  await expect(page.locator('.aftermath-panel')).toContainText('Fuel Pump');await expect(page.locator('.aftermath-panel')).toContainText('1 → 0 (-1)');await snap(page,'repair');
+         |                                                                                                                           ^
+      21 | });
+      22 | test('regions, weather details, final vote and terminal reload',async({page})=>{
+      23 |  const state=await baseline(page,true);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:20:123
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-repair-consumes-a-pump-and-shows-the-cost-chromium/error-context.md
+
+  5) [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.weather-summary')
+    Expected substring: [32m"Sanity -1"[39m
+    Received string:    [31m"❄Cold Snap?Effects apply automaticallyNo matching protection carried"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.weather-summary')[22m
+    [2m    9 × locator resolved to <section class="weather-summary" aria-label="Weather effects">…</section>[22m
+    [2m      - unexpected value "❄Cold Snap?Effects apply automaticallyNo matching protection carried"[22m
+
+
+      23 |  const state=await baseline(page,true);
+      24 |  for(const [region,asset] of [['RustBelt','rustbelt'],['Beltway','beltway']]) {atTown(state,region==='RustBelt'?'Chicago':'Frederick');state.route_services.stop=null;await importState(page,state);await expect(page.locator('.journey-scene .scene-background').first()).toHaveAttribute('src',new RegExp(asset));await snap(page,asset+'-deep');}
+    > 25 |  state.weather_state.today='ColdSnap';await importState(page,state);await expect(page.locator('.journey-scene')).toHaveAttribute('data-weather','cold');await page.getByRole('tab',{name:'Conditions',exact:true}).click();await expect(page.locator('.weather-summary')).toContainText('Sanity -1');await expect(page.locator('.weather-summary')).not.toContainText(/weather\.|\{.*\}/);await snap(page,'cold');
+         |                                                                                                                                                                                                                                                                           ^
+      26 |  state.current_encounter=encounters.find((e:{id:string})=>e.id==='beltway_briefing');state.boss.ready=true;await importState(page,state);
+      27 |  await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','4');
+      28 |  await page.locator('.encounter-choice button').first().click();await expect(page.locator('#main')).toHaveAttribute('data-screen','aftermath');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:25:267
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-regions-weather-det-653dd-al-vote-and-terminal-reload-chromium/error-context.md
+
+  6) [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ──
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: /^Trade 4 supplies/ })[22m
+
+
+      32 | test('route store, one exchange and cooldown recovery',async({page})=>{
+      33 |  const state=await baseline(page);atTown(state,'La Crosse');state.stats.supplies=10;state.camp.rest_cooldown=1;
+    > 34 |  await importState(page,state);await snap(page,'route-stop');await page.getByRole('button',{name:/^Trade 4 supplies/}).click();
+         |                                                                                                                        ^
+      35 |  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);
+      36 |  await page.reload();await expect(page.getByRole('button',{name:'Community exchange used'})).toBeDisabled();
+      37 |  await page.getByRole('button',{name:'Visit supply store',exact:true}).click();await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:34:120
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-route-store-one-exchange-and-cooldown-recovery-chromium/error-context.md
+
+  7) [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.cooldown-status')
+    Expected pattern: [32m/completed days/[39m
+    Error: strict mode violation: locator('.cooldown-status') resolved to 4 elements:
+        1) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: /^Rest available in 2 completed days$/ })
+        2) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: 'Ready now' }).nth(3)
+        3) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: 'Ready now' }).nth(5)
+        4) <div class="cooldown-status">…</div> aka locator('div').filter({ hasText: /^Ready now$/ }).nth(2)
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.cooldown-status')[22m
+
+
+      41 |  await page.getByRole('button',{name:'Back to the road',exact:true}).click();
+      42 |  await page.getByRole('button',{name:'Camp',exact:true}).last().click();
+    > 43 |  await expect(page.locator('.cooldown-status')).toContainText(/completed days/);
+         |                                                 ^
+      44 |  expect(errors).toEqual([]);
+      45 | });
+      46 |
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/journey.spec.ts:43:49
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/journey-outfitting-recover-de3cd-travel-manual-save-and-camp-mobile/error-context.md
+
+  8) [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.local-conversation blockquote')
+    Expected substring: [32m"showerhead"[39m
+    Received string:    [31m"We built a bridge to keep the science going. The administration is still taking bids on a troll to live underneath."[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.local-conversation blockquote')[22m
+    [2m    9 × locator resolved to <blockquote class="resident-remark">…</blockquote>[22m
+    [2m      - unexpected value "We built a bridge to keep the science going. The administration is still taking bids on a troll to live underneath."[22m
+
+
+      34 |  await expect(page.locator('.conversation-player')).toHaveAttribute('data-subject','journalist');await expect(page.locator('.conversation-player')).toContainText('Vanna Test');
+      35 |  const npc=await page.locator('.scene-npc').getAttribute('data-npc');await page.reload();await expect(page.locator('.scene-npc')).toHaveAttribute('data-npc',npc!);
+    > 36 |  await expect(page.locator('.local-conversation blockquote')).toContainText('showerhead');await snap(page,'town-conversation');
+         |                                                               ^
+      37 | });
+      38 | test('a new political encounter pays cash and exposes its factual hook',async({page})=>{
+      39 |  const gs=await baseline(page);gs.current_encounter=bank.find((e:any)=>e.id==='sat_corn_bullets');await importState(page,gs);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/second-pass.spec.ts:36:63
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/second-pass-town-facts-and-1f610-PC-portraits-survive-reload-mobile/error-context.md
+
+  9) [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'NATIONAL PANTS EMERGENCY' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'NATIONAL PANTS EMERGENCY' })[22m
+
+
+      11 |  state.current_encounter=null;state.stats.sanity=1;await importState(page,state);await expect(page.locator('.danger-notice')).toHaveCount(0);await expect(page.locator('.hud-stat.critical')).toBeVisible();await snap(page,'danger');
+      12 |  state.stats.pants=100;state.ending={type:'collapse',cause:'panic'};await importState(page,state);
+    > 13 |  await expect(page.getByRole('heading',{name:'NATIONAL PANTS EMERGENCY'})).toBeVisible();await snap(page,'result');
+         |                                                                            ^
+      14 |  await page.getByRole('menuitem',{name:/Replay/i}).click();await expect(page.getByRole('radio',{name:'Journalist',exact:true})).toBeVisible();
+      15 | });
+      16 | test('repair consumes a pump and shows the cost',async({page})=>{
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:13:76
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-numbered-encounter--34f51-w-sanity-and-visual-results-mobile/error-context.md
+
+  10) [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ─────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.aftermath-panel')
+    Expected substring: [32m"1 → 0 (-1)"[39m
+    Received string:    [31m"OutcomeThe Fuel Pump is fitted. The crew checks the van before continuing.Fuel Pump-1Back to the road"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.aftermath-panel')[22m
+    [2m    9 × locator resolved to <section aria-live="polite" class="aftermath-panel" aria-labelledby="aftermath-title">…</section>[22m
+    [2m      - unexpected value "OutcomeThe Fuel Pump is fitted. The crew checks the van before continuing.Fuel Pump-1Back to the road"[22m
+
+
+      18 |  await importState(page,state);await page.getByRole('button',{name:'Fit your spare Fuel Pump',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+      19 |  const after=await savedState(page);expect(after.inventory.spares.pump).toBe(0);expect(after.breakdown).toBeNull();
+    > 20 |  await expect(page.locator('.aftermath-panel')).toContainText('Fuel Pump');await expect(page.locator('.aftermath-panel')).toContainText('1 → 0 (-1)');await snap(page,'repair');
+         |                                                                                                                           ^
+      21 | });
+      22 | test('regions, weather details, final vote and terminal reload',async({page})=>{
+      23 |  const state=await baseline(page,true);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:20:123
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-repair-consumes-a-pump-and-shows-the-cost-mobile/error-context.md
+
+  11) [mobile] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.weather-summary')
+    Expected substring: [32m"Sanity -1"[39m
+    Received string:    [31m"❄Cold Snap?Effects apply automaticallyNo matching protection carried"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.weather-summary')[22m
+    [2m    9 × locator resolved to <section class="weather-summary" aria-label="Weather effects">…</section>[22m
+    [2m      - unexpected value "❄Cold Snap?Effects apply automaticallyNo matching protection carried"[22m
+
+
+      23 |  const state=await baseline(page,true);
+      24 |  for(const [region,asset] of [['RustBelt','rustbelt'],['Beltway','beltway']]) {atTown(state,region==='RustBelt'?'Chicago':'Frederick');state.route_services.stop=null;await importState(page,state);await expect(page.locator('.journey-scene .scene-background').first()).toHaveAttribute('src',new RegExp(asset));await snap(page,asset+'-deep');}
+    > 25 |  state.weather_state.today='ColdSnap';await importState(page,state);await expect(page.locator('.journey-scene')).toHaveAttribute('data-weather','cold');await page.getByRole('tab',{name:'Conditions',exact:true}).click();await expect(page.locator('.weather-summary')).toContainText('Sanity -1');await expect(page.locator('.weather-summary')).not.toContainText(/weather\.|\{.*\}/);await snap(page,'cold');
+         |                                                                                                                                                                                                                                                                           ^
+      26 |  state.current_encounter=encounters.find((e:{id:string})=>e.id==='beltway_briefing');state.boss.ready=true;await importState(page,state);
+      27 |  await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','4');
+      28 |  await page.locator('.encounter-choice button').first().click();await expect(page.locator('#main')).toHaveAttribute('data-screen','aftermath');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:25:267
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-regions-weather-det-653dd-al-vote-and-terminal-reload-mobile/error-context.md
+
+  12) [mobile] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ───
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: /^Trade 4 supplies/ })[22m
+
+
+      32 | test('route store, one exchange and cooldown recovery',async({page})=>{
+      33 |  const state=await baseline(page);atTown(state,'La Crosse');state.stats.supplies=10;state.camp.rest_cooldown=1;
+    > 34 |  await importState(page,state);await snap(page,'route-stop');await page.getByRole('button',{name:/^Trade 4 supplies/}).click();
+         |                                                                                                                        ^
+      35 |  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);
+      36 |  await page.reload();await expect(page.getByRole('button',{name:'Community exchange used'})).toBeDisabled();
+      37 |  await page.getByRole('button',{name:'Visit supply store',exact:true}).click();await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:34:120
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-complete-e2e-results/states-route-store-one-exchange-and-cooldown-recovery-mobile/error-context.md
+
+  12 failed
+    [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+    [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload 
+    [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results 
+    [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ─────────
+    [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload 
+    [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ───
+    [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+    [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload 
+    [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results 
+    [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ───────────
+    [mobile] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload 
+    [mobile] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ─────
+  122 passed (17.7m)

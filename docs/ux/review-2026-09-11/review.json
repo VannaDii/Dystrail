@@ -1,0 +1,165 @@
+{
+  "title": "Dystopian Trail: continuity, flow & feel",
+  "date": "September 11, 2026",
+  "verdict": "The art promises a journey. The interaction still makes the player repeatedly authorize the next screen.",
+  "scope": "Review of the current local release preview, with source inspection. One natural Classic / Journalist opening through Day 3; controlled saves for town arrival, absent crew and both ending types. Desktop 1440 × 900 and phone 390 × 844. This is an expert review, not a usability study or a complete balance test.",
+  "findings": [
+    {
+      "id": "F01", "priority": "P1", "type": "Experience gap", "title": "Let the trip continue between meaningful interruptions",
+      "observation": "Travel resolves one engine action, plays a fixed 2.6-second animation, then stops. An encounter can require a map confirmation, a choice, an outcome confirmation and another travel command. The first natural encounter occurred only 3 physical miles into Day 1.",
+      "impact": "Suspense becomes a predictable wait for another form. The player cannot settle into watching the van, conditions and approaching town.",
+      "recommendation": "Make Depart / Resume start sustained travel. Pause for a consequential event, arrival, critical condition or deliberate player stop. Provide pause and readable travel speeds; an optional step mode can remain. Reveal decisions as interruptions inside the journey.",
+      "acceptance": "One Resume carries the crew through uneventful days to the next meaningful interruption. The player can pause at any time; no hidden-tab travel or skipped decisions. Reload preserves the pending decision exactly once.",
+      "owner": "Travel orchestration and interaction design",
+      "code": ["dystrail-web/src/app/turn.rs:12", "dystrail-web/src/app/view/handlers/travel.rs:8"],
+      "evidence": ["08-transit", "09-map-interlude", "10-first-encounter", "11-encounter-result"]
+    },
+    {
+      "id": "F02", "priority": "P1", "type": "Observed bug", "title": "A new stage can open below its scene and primary action",
+      "observation": "Starting the journey from the checkout review landed at scrollTop 930 in an 1830-pixel document on a 900-pixel viewport. Inventory and Camp were visible; the road and HUD were above the viewport. Opening camp and a town store also inherited the prior scroll position.",
+      "impact": "The player misses the visual transition and must search for the next action. This also makes scene changes appear absent even when the asset is correct.",
+      "recommendation": "Define entry positions per stage and return positions for detail views. Keep scene, essential state and next action in a coherent viewport. Restore useful scroll deliberately without forcing mouse users onto a visibly focused heading.",
+      "acceptance": "Depart, encounter, outcome, camp, store and map transitions expose the new context and next action at desktop and phone sizes. Keyboard focus remains visible when keyboard navigation is used.",
+      "owner": "App navigation and scene layout",
+      "code": ["dystrail-web/src/app/view/phases/aftermath.rs:10", "dystrail-web/static/journey.css:3"],
+      "evidence": ["05-departure-review", "06-travel-idle", "12-camp-arrival", "18-town-store"]
+    },
+    {
+      "id": "F03", "priority": "P1", "type": "Observed bug", "title": "The latest consequence is not the latest story",
+      "observation": "After the potluck restored Sanity +1 and reduced Pants danger by 1, the road still showed the earlier travel receipt with Sanity -2 and Pants danger +1. After resting, Last action still said Traveled, and the visible journal omitted the rest. Import replaced the visible history with Save loaded.",
+      "impact": "The player cannot reliably connect a choice to the current state or reconstruct what happened after returning to a save.",
+      "recommendation": "Use one ordered action history for travel, choices, rest, repairs and trades. Derive the latest receipt and journal from it. Include day, place, named participants, actual deltas and why they occurred; preserve history through manual load as well as autosave.",
+      "acceptance": "The most recent action, HUD deltas and first journal entry agree before and after reload / save import. A rest entry and a trade entry survive recovery.",
+      "owner": "Action receipts, persistence and journal",
+      "code": ["dystrail-web/src/app/view/handlers/travel.rs:135", "dystrail-web/src/app/view/phases/camp.rs:36", "dystrail-web/src/app/view/handlers/storage.rs:28"],
+      "evidence": ["11-encounter-result", "13-camp-rest", "14-journal", "17-town-services"]
+    },
+    {
+      "id": "F04", "priority": "P1", "type": "Observed mismatch", "title": "Known effects need to mean what this crew will actually receive",
+      "observation": "The Journalist started with 18 supplies. A $5 ration pack advertised +3 but checkout capped the total at 20, charging full price for only +2. At 20 supplies, Stay for stew advertised Supplies +3 but delivered zero; Pants danger -2 became -1 at the floor. Rest advertised Sanity +4 but delivered +1 at the cap.",
+      "impact": "The arithmetic is internally clamped, but the interface teaches an unreliable decision contract. Outfitting cannot answer how long the crew can travel or what the first leg needs.",
+      "recommendation": "Preview effective gains, costs and caps using the actual state. Explain overflow before purchase or choice. Present current stock, useful capacity, projected consumption and distance to the next supply stop. Describe protection as a player benefit, replacing equipment-tag language.",
+      "acceptance": "Every deterministic preview matches the realized delta, or explicitly distinguishes base effect from a cap, protection or uncertainty. A purchase cannot silently waste supplies.",
+      "owner": "Outfitting, encounter previews and camp previews",
+      "code": ["dystrail-web/src/components/ui/encounter_card.rs:10", "dystrail-web/src/components/ui/camp_panel/mod.rs:76", "dystrail-web/src/components/ui/outfitting_store/planner.rs:1"],
+      "evidence": ["04-outfitting", "05-departure-review", "10-first-encounter", "11-encounter-result", "13-camp-rest"]
+    },
+    {
+      "id": "F05", "priority": "P1", "type": "Observed + source confirmed", "title": "Time, rest and weather need one believable account",
+      "observation": "Opening camp changed Day 2 at 08:00 to Day 2 at 20:00 without spending time. Rest produced Day 3 at 20:00; returning to the road reset it to Day 3 at 08:00. Rest also advanced route mileage from 7 to 12 physical miles through a hidden travel-credit rule. Heat Wave reports Supplies +1, which the engine really adds; Check conditions only dismisses the warning.",
+      "impact": "The clock appears authoritative while behaving like decoration. A stationary recovery day advances geography, and weather mixes harmful language with a supply bonus that has no explanation.",
+      "recommendation": "Drive calendar, lighting and route advancement from persisted simulation time. Define a stationary rest day or explicitly offer a short-drive-and-rest action. Review the weather supply sign and explain the chosen mechanic. Make Check conditions actually show the actionable condition.",
+      "acceptance": "Free navigation never changes time. The displayed clock cannot run backward. Rest, travel distance, weather costs and location tell the same story; danger information appears before a routine map interlude.",
+      "owner": "Day accounting, world clock and weather feedback",
+      "code": ["dystrail-web/src/components/ui/world_view.rs:40", "dystrail-web/src/components/ui/game_clock.rs:25", "dystrail-game/src/camp.rs:118", "dystrail-game/src/weather.rs:407", "dystrail-web/src/app/view/mod.rs:58"],
+      "evidence": ["08-transit", "12-camp-arrival", "13-camp-rest", "14-journal"]
+    },
+    {
+      "id": "F06", "priority": "P1", "type": "Observed experience gap", "title": "Arriving in town should change the scene and the available plan",
+      "observation": "At La Crosse, the page still led with The road to D.C. and Travel one day. Town services began at y=1287 on a 900-pixel viewport with the journal selected. The exchange worked and consumed resources, but offered the same 3 supplies for 1 tire pattern. The store reused departure copy about persona starting gear.",
+      "impact": "A place worth reaching becomes an easy-to-miss footer. The player can leave without noticing resupply, and towns lack distinct social or strategic value.",
+      "recommendation": "Give arrivals a local establishing scene, town name, next-leg context and Shop / Trade / Talk / Depart actions. Let towns differ through stocked goods, needs, prices or information. Keep departure explicit so services cannot disappear unnoticed.",
+      "acceptance": "Arrival visibly interrupts travel. The local services and next stop are clear without scrolling through pace, diet and inventory. Transactions retain the town context and show costs immediately.",
+      "owner": "Route services, arrival UI and narrative content",
+      "code": ["dystrail-web/src/app/services.rs:7", "dystrail-game/src/route_services.rs:1"],
+      "evidence": ["16-town-arrival-top", "17-town-services", "18-town-store"]
+    },
+    {
+      "id": "F07", "priority": "P1", "type": "Controlled-state continuity failure", "title": "The named crew must remain the same people throughout the journey",
+      "observation": "The van correctly removed Charlie (dead) and Robin (departed) from an imported test roster. The next potluck illustration still featured Robin's Organizer likeness. Current member records carry names, personas and status; no gameplay callers of the member-status mutation were found. The result identifies Journalist, not Alex or The Paper Tigers.",
+      "impact": "Naming creates an emotional promise that generic text, static encounter casts and score-first endings do not yet keep. A removed character can appear to return.",
+      "recommendation": "Make named crew affect incidents, aid, illness, recovery and departure. Use the active roster when choosing scene subjects; record which crew member participated. Preserve identity in camp, outcomes and endings. Maintain distinct visual identities for crew and opposing officials.",
+      "acceptance": "A natural encounter can affect a named member and leave a persistent consequence. Absent members are excluded from all active-party imagery. Each ending explains what happened to the named crew.",
+      "owner": "Party mechanics, scene casting and narrative",
+      "code": ["dystrail-game/src/party.rs:1", "dystrail-web/src/components/ui/journey_scene/mod.rs:50", "dystrail-web/src/components/ui/journey_scene/encounters.rs:1"],
+      "evidence": ["03-crew", "19-absent-crew-van", "20-absent-crew-encounter", "24-failure-ending"]
+    },
+    {
+      "id": "F08", "priority": "P1", "type": "Measured readability bug", "title": "The persona's origin is almost invisible",
+      "observation": "Starts in Minneapolis · Bound for D.C. uses #f6d68b on #eadcb8 in the persona preview. Computed-color contrast is approximately 1.03:1 at 17px, regular weight.",
+      "impact": "The newly important starting-location choice is visually lost at the moment the player selects it.",
+      "recommendation": "Use the dark text token on this cream surface and apply a surface-aware text rule to every preview and help panel. Explain the score multiplier separately from the persona's practical benefit.",
+      "acceptance": "Origin and destination read clearly in the default theme, high contrast, and supported text sizes. Normal text meets the project's 4.5:1 requirement.",
+      "owner": "Persona preview and design tokens",
+      "code": ["dystrail-web/static/journey.css:72", "dystrail-web/src/components/ui/persona_select/preview.rs:1"],
+      "evidence": ["02-persona"]
+    },
+    {
+      "id": "F09", "priority": "P2", "type": "Information hierarchy gap", "title": "The HUD shows numbers before it explains the survival model",
+      "observation": "Seven stats have equal weight. Cash and vehicle condition sit in inventory, distance to the next town appears only on the map, and Supplies has no duration or unit. Receipt chance, Allies and the crew roster describe different systems without a clear relationship. Fuel / Food contains food and water but no fuel purchase.",
+      "impact": "The player sees many numbers but cannot quickly answer: can we make the next stop, who is struggling, and what needs attention now?",
+      "recommendation": "Group physical survival, emotional strain and public influence while keeping all requested stats available. Keep vehicle condition, supplies outlook and next-town distance near travel. Define Supplies, Receipts and Allies consistently. Show pace and information-diet comparisons together when assessing the situation, without click-to-read accordions.",
+      "acceptance": "A first-time player can explain the next leg's main constraint and each major stat in their own words. Critical information stays visible during travel at phone and desktop sizes.",
+      "owner": "HUD, terminology and pause view",
+      "code": ["dystrail-web/src/components/ui/stats_bar/mod.rs:1", "dystrail-web/src/components/ui/travel_panel/status.rs:1"],
+      "evidence": ["15-top-menu", "14-journal", "21-mobile-road", "04-outfitting"]
+    },
+    {
+      "id": "F10", "priority": "P2", "type": "Interruption ordering gap", "title": "Keep the map as a scene, but let urgency decide when it appears",
+      "observation": "The current map is an actual U.S. map with a traced road route, upcoming towns, route zoom and regional satire. It appears on first progress, then at checkpoint changes including five-day intervals. In the natural run it preceded a waiting Heat Wave notice and potluck encounter. Its full overview also puts continuation below the first desktop viewport.",
+      "impact": "A useful orientation beat competes with unresolved consequences. The first map stop comes before the player has experienced a meaningful stretch of travel.",
+      "recommendation": "Retain the full-scene map and accurate geometry. Show it at safe leg transitions, periodic travel checkpoints and deliberate route review; queue it behind urgent incidents. Keep route, upcoming services and continuation together. Tie marginal satire to the actual region without moving places or obstructing route labels.",
+      "acceptance": "The map never buries an unresolved critical event. Every scene caption, map position and town service refers to the same place. It remains an occasional scene, never a permanent extra panel.",
+      "owner": "Map scheduling and scene composition",
+      "code": ["dystrail-web/src/app/map.rs:7", "dystrail-game/src/route.rs:142", "dystrail-web/src/components/ui/route_map/mod.rs:26"],
+      "evidence": ["09-map-interlude", "29-map-overview", "30-map-route"]
+    },
+    {
+      "id": "F11", "priority": "P2", "type": "Narrative and goal gap", "title": "The ending needs to pay off the journey the opening promised",
+      "observation": "The opening asks the player to reach D.C. intact. A controlled final state introduced Filibuster Boss, a one-action vote with round costs but no clear explanation of how the journey's receipts, credibility or allies affect the vote. Endings show twelve statistical fields, including Score Threshold and Boss Vote Ready, but no named crew recap.",
+      "impact": "Arrival changes the apparent objective late, and a personal road trip ends as a system scorecard. Generic Live with it. text also gives beneficial encounters and recovery the same emotional cadence as disasters.",
+      "recommendation": "Establish the purpose of reaching D.C. during onboarding and build anticipation across route milestones. At the final challenge, show which accumulated strengths and harms matter. End with the crew, route and decisive moments, then optional detailed scoring. Let relief, loss and absurdity have different aftermath tones.",
+      "acceptance": "Before departing, players can explain why they are going to D.C. At the end they can explain the outcome through their own decisions, and see the fate of their crew.",
+      "owner": "Onboarding, final challenge and results",
+      "code": ["dystrail-web/src/app/view/phases/boss.rs:1", "dystrail-web/src/components/ui/result_screen/layout.rs:1", "dystrail-web/src/app/view/phases/aftermath.rs:28"],
+      "evidence": ["01-setup", "27-final-vote", "24-failure-ending", "25-ending-scorecard"]
+    },
+    {
+      "id": "F12", "priority": "P2", "type": "Art direction and continuity gap", "title": "Give each scene a specific job and a consistent cast",
+      "observation": "Roads, camp, aid and civic encounters now differ, and the red-cap persona is no longer the default subject everywhere. However, encounter families reuse fixed illustrations without region or roster inputs. Camp is always a briefing table, the final vote reuses a civic podium scene, and the failure scene is a darkened road. Portraits and the van use stronger pixel contours than several softly shaded encounter figures.",
+      "impact": "Art selection can be technically valid while the scene still fails to communicate rest, arrival, a specific decision or a changed party. Reused character likenesses blur crew and opposition.",
+      "recommendation": "Prioritize new arrival, recovery and terminal compositions. Maintain a scene register covering narrative job, route biome, time, weather, active subjects and outcome variant. Match the approved chunky pixel scale, palette, outlines and anatomy; review each asset inside the actual HUD crop at desktop and phone sizes.",
+      "acceptance": "A reviewer can identify the stage and main action with the title hidden. Every featured crew member is eligible, the region is plausible, and the scene survives both viewport crops without anatomy or style drift.",
+      "owner": "Art direction, asset register and scene selection",
+      "code": ["dystrail-web/src/components/ui/journey_scene/mod.rs:45", "dystrail-web/src/components/ui/journey_scene/encounters.rs:1", "dystrail-web/src/components/ui/world_view.rs:41"],
+      "evidence": ["02-persona", "08-transit", "12-camp-arrival", "20-absent-crew-encounter", "27-final-vote", "24-failure-ending"]
+    }
+  ],
+  "strengths": [
+    "The full name and D.C. wording are present throughout the sampled screens.",
+    "The geographically grounded map has route zoom, upcoming services and satire in its margins. Road art changes between prairie and river/orchard terrain on the sampled route.",
+    "The van has three normal seat rows and six visible crew members. Controlled absent-member states remove them and fill the front seats from the remaining crew.",
+    "The top menu groups Save, Load, High contrast and Language. Both the menu and tooltip dismissed on outside clicks in the checks performed.",
+    "The phone travel view had no horizontal overflow; its primary travel button was visible. The weather tooltip stayed on screen at 390 × 844.",
+    "A numbered encounter choice worked, transactions showed actual costs, and the tested terminal state auto-resumed after reload. No browser errors were reported in the inspected session."
+  ],
+  "comparison": [
+    ["Travel rhythm", "Automatic travel between meaningful interruptions", "A fixed animation between player-authorized engine actions", "Sustained travel with pause, speed and accessible step controls"],
+    ["Landmarks", "Places break the journey into anticipated legs", "Accurate map; town services below ordinary road controls", "Approach cue, local arrival scene and a deliberate departure"],
+    ["Party", "Named people create personal stakes", "Named roster and dynamic van; mostly global consequences", "Named incidents, persistent status and active scene casting"],
+    ["Preparation", "Equipment choices connect to survival", "Catalog costs and stat grants, little next-leg context", "Explain useful stock, protection and what the next leg needs"],
+    ["Cause and effect", "Visible conditions invite intervention", "Known-effect labels disagree with caps; receipts can be stale", "Honest forecasts plus one persistent action history"],
+    ["Geography", "Terrain and climate support a real route", "Real U.S. geometry and route captions now work together", "Keep route authority; deepen arrivals and local encounter context"],
+    ["Emotional rhythm", "Routine, trouble, relief and attachment", "Frequent similar panels with a constant sardonic voice", "Quiet road time, pointed institutional satire and sincere mutual aid"]
+  ],
+  "currentFlow": [
+    ["Setup", "Mode and run code", "01-setup"],
+    ["Persona & crew", "Choose a role, then name six travelers", "03-crew"],
+    ["Catalog → review", "Buy equipment and confirm departure", "05-departure-review"],
+    ["Road controls", "Authorize one engine action", "06-travel-idle"],
+    ["2.6-second transit", "Outcome already resolved internally", "08-transit"],
+    ["Map if due", "Confirm before seeing the pending event", "09-map-interlude"],
+    ["Encounter", "Read the choice and stat effects", "10-first-encounter"],
+    ["Outcome panel", "Confirm again; return to road controls", "11-encounter-result"]
+  ],
+  "targetFlow": [
+    ["Prepare for a real leg", "Persona origin, mission, named crew, useful loadout", "02-persona"],
+    ["Depart / Resume", "Commit to travel with current pace and information diet", "08-transit"],
+    ["Watch the road", "Van moves; distance, supplies and conditions update; pause anytime", "08-transit"],
+    ["Meaningful interruption", "Crew incident, consequential weather, obstacle or deliberate stop", "10-first-encounter"],
+    ["Choose → see the consequence", "Actual deltas, named people, one journal record; resume when ready", "11-encounter-result"],
+    ["Approach → arrive", "Distinct town scene; shop, trade, talk, recover or depart", "16-town-arrival-top"],
+    ["Occasional map scene", "Trace progress and anticipate services at a safe break", "30-map-route"],
+    ["D.C. & the crew's outcome", "Pay off the mission and the journey's accumulated consequences", "27-final-vote"]
+  ]
+}

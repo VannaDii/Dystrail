@@ -1,0 +1,17 @@
+    Blocking waiting for file lock on build directory
+   Compiling dystrail-web v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-web)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.23s
+[INFO]: ⬇️  Installing wasm-bindgen...
+[WARN  wasm_pack::install] could not download pre-built `wasm-bindgen`: no prebuilt wasm-bindgen binaries are available for this platform: Unrecognized target!. Falling back to `cargo install`.
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/wasm32-unknown-unknown/debug/deps/dystrail_web-01e6c270f7fd31ab.wasm)
+no tests to run!
+     Running tests/crossing_i18n_tests.rs (/Users/vanna/Source/Dystrail/target/wasm32-unknown-unknown/debug/deps/crossing_i18n_tests-6c8c9e2aa3f0a60d.wasm)
+no tests to run!
+   Doc-tests dystrail_web
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[WARN]: ⚠️   There's a newer version of wasm-pack available, the new version is: 0.15.0, you are using: 0.13.1. To update, navigate to: https://rustwasm.github.io/wasm-pack/installer/

@@ -1,0 +1,101 @@
+   Compiling dystrail-web v0.10.0 (/private/tmp/dystrail-visual-refine/unit5-source/dystrail-web)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.35s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_web-5b951e968192b8aa)
+
+running 78 tests
+test a11y::tests::status_helpers_are_noops_without_dom ... ok
+test a11y::tests::focus_css_includes_sr_only_helpers ... ok
+test app::tests::route_phase_mappings_cover_all_states ... ok
+test components::ui::journey_scene::composition::tests::outdoor_crew_discussions_keep_western_geography ... ok
+test components::ui::journey_scene::composition::tests::roadside_briefing_stays_outdoors_through_day_and_night ... ok
+test components::ui::journey_scene::composition::tests::indoor_atlas_is_six_distinct_square_cells ... ok
+test components::ui::journey_scene::encounters::tests::revised_encounter_locations_replace_historical_theme_assignments ... ok
+test app::aftermath::tests::completed_boss_resumes_results_even_without_an_explicit_ending ... ok
+test app::history::tests::completed_driving_stays_in_its_day_while_next_morning_work_keeps_its_time ... ok
+test components::ui::journey_scene::tests::roads_change_by_region_and_day_without_rng ... ok
+test app::aftermath::tests::reports_actual_capped_changes ... ok
+test components::ui::leg_summary::tests::purchases_and_care_change_the_days_actual_net_use ... ok
+test components::ui::leg_summary::tests::outlook_uses_eight_completed_travel_days_instead_of_eight_actions ... ok
+test components::ui::leg_summary::tests::rollover_costs_close_the_original_day_in_old_and_new_saves ... ok
+test components::ui::journey_scene::composition::tests::casting_rotates_and_never_revives_absent_people ... ok
+test components::ui::leg_summary::tests::localized_titles_and_repeated_hourly_snapshots_preserve_daily_net_use ... ok
+test components::ui::leg_summary::tests::steady_stock_days_count_without_cancelling_other_days_consumption ... ok
+test components::ui::leg_summary::tests::unfinished_days_and_non_travel_days_do_not_establish_an_outlook ... ok
+test components::ui::outfitting_store::handlers::quantity::tests::replacing_a_quantity_reuses_its_budget_and_honors_stock_limits ... ok
+test components::ui::result_screen::tests::epilogue_resolution_tracks_victory_state ... ok
+test components::ui::result_screen::tests::explicit_journey_cause_wins_over_readiness_and_score ... ok
+test components::ui::persona_select::helpers::tests::initial_character_varies_but_recovery_preserves_the_selection ... ok
+test components::ui::result_screen::tests::headline_resolution_prefers_boss_flags ... ok
+test app::aftermath::tests::abandoning_is_terminal_even_with_unresolved_crew_or_town_stops ... ok
+test components::ui::result_screen::tests::parse_numeric_key_identifies_digits ... ok
+test components::ui::journey_scene::encounters::tests::every_shipped_encounter_has_an_existing_crew_free_atlas_cell ... ok
+test app::tests::seed_code_validation_handles_expected_formats ... ok
+test components::ui::satire_context::tests::every_encounter_has_a_source_and_an_affordable_way_through ... ok
+test app::receipt::tests::driving_durations_preserve_partial_hours ... ok
+test components::ui::camp_panel::tests::camp_panel_cannot_offer_camping_or_a_generic_repair_during_breakdown ... ok
+test components::ui::camp_panel::tests::camp_panel_renders_each_shared_gathering_action_once ... ok
+test components::ui::leg_summary::tests::outlook_renders_a_shared_stat_card_with_context ... ok
+test components::ui::encounter_card::tests::encounter_renders_effect_tooltips ... ok
+test components::ui::pace_diet_panel::tests::selection_outcome_covers_all_menu_entries ... ok
+test components::ui::main_menu::tests::main_menu_renders_all_entries_with_seed ... ok
+test components::ui::save_drawer::tests::save_drawer_hidden_when_closed ... ok
+test components::ui::save_drawer::tests::save_drawer_renders_action_buttons_when_open ... ok
+test components::ui::settings_dialog::tests::settings_dialog_renders_controls_when_open ... ok
+test components::ui::share_code_bar::tests::share_code_bar_enables_start_for_valid_codes ... ok
+test components::ui::settings_dialog::tests::settings_dialog_returns_empty_when_closed ... ok
+test components::ui::share_code_bar::tests::share_code_bar_marks_invalid_codes ... ok
+test components::ui::stats_bar::policy::tests::book_panic_explains_actual_cost_protection_and_singular_duration ... ok
+test components::ui::stats_bar::policy::tests::each_order_uses_engine_effects_without_applying_them ... ok
+test components::ui::stat_card::tests::day_rollover_keeps_driving_time_in_the_mileage_card ... ok
+test app::map::tests::maps_wait_for_a_safe_gap_and_never_hide_a_decision ... ok
+test app::receipt::tests::mileage_days_and_spares_use_typed_changes ... ok
+test app::history::tests::an_ally_loss_is_recorded_once_and_waits_for_acknowledgment_after_reload ... ok
+test components::ui::result_screen::tests::result_screen_renders_summary ... ok
+test components::ui::route_map::graphic::tests::vehicle_marker_stays_on_real_road_and_reaches_dc ... ok
+test app::town_profile::tests::every_route_stop_has_a_unique_sourced_profile ... ok
+test components::ui::result_screen::tests::final_stat_cards_preserve_score_totals_physical_miles_and_threshold_result ... ok
+test components::ui::route_map::tests::map_shows_the_same_receipt_count_as_the_journey ... ok
+test game::tests::web_data_loader_reports_unknown_config ... ok
+test game::tests::web_data_loader_parses_static_assets ... ok
+test components::ui::stats_bar::tests::stats_bar_announces_exec_order ... ok
+test components::ui::stats_bar::tests::stats_bar_renders_core_fields ... ok
+test game::tests::engine_factory_wires_default_components ... ok
+test i18n::render::tests::interpolation_handles_braced_forms ... ok
+test i18n::render::tests::plural_selection_defaults ... ok
+test components::ui::travel_panel::journal::tests::day_totals_use_actual_snapshots_after_spending_recovery_and_refunds ... ok
+test components::ui::travel_panel::journal::tests::crew_outcomes_and_original_messages_remain_available_after_grouping ... ok
+test components::ui::travel_panel::journal::tests::a_busy_day_keeps_its_earliest_snapshots_and_all_raw_actions ... ok
+test input::tests::code_maps ... ok
+test input::tests::key_maps ... ok
+test paths::tests::builds_root_prefixed_path_when_base_missing ... ok
+test paths::tests::router_base_is_none_by_default ... ok
+test components::ui::travel_panel::journal::tests::persisted_days_accumulate_actions_without_mutating_the_turn_history ... ok
+test components::ui::travel_panel::journal::tests::journal_renders_one_card_per_day_with_totals_and_disclosed_action_evidence ... ok
+test components::ui::travel_panel::journal::tests::routine_travel_combines_without_hiding_crew_settings_or_route_changes ... ok
+test components::ui::travel_panel::tests::weather_readout_reports_applied_exposure_without_spending_again ... ok
+test components::ui::travel_panel::tests::travel_panel_journal_is_available_during_a_breakdown ... ok
+test i18n::logs::tests::keys_and_placeholders_do_not_reach_players ... ok
+test i18n::logs::tests::receipts_keep_consequences_without_repeating_scene_transitions ... ok
+test app::town_facts::tests::every_real_route_stop_has_a_localized_sourced_fact ... ok
+test i18n::encounters::tests::localized_copy_and_imported_fallback_stay_readable ... ok
+test i18n_tests::required_feature_keys_exist ... ok
+test i18n_tests::locales_have_balanced_templates ... ok
+test i18n_tests::locales_have_matching_keys ... ok
+
+test result: ok. 78 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/crossing_i18n_tests.rs (/Users/vanna/Source/Dystrail/target/debug/deps/crossing_i18n_tests-f0b6f4db8e25c65b)
+
+running 3 tests
+test test_crossing_config_structure ... ok
+test test_crossing_i18n_interpolation_structure ... ok
+test test_crossing_i18n_coverage ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests dystrail_web
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "dystrail-web/static/assets/data/weather.json": {
+      "before": "b2be2ef9302d3063ebdf74835ac1f9ea4018e9d3017c4370ed0ac5318d0aeac9",
+      "after": "73a1c4c6acbcd604cda840f1503d5d71f00db0fe3f2a72649d31fb39511e7f4a"
+    },
+    "dystrail-game/tests/weather_paths.rs": {
+      "before": "ba765513ca443e59893395ccab7a0c6dc475069e69a0d10b69911a2497e5ca08",
+      "after": "bb5f356ca32c4f7355e0d45c8d19a63469f3fa32bc9e504c5d0e8847a5f9c569"
+    }
+  },
+  "published": false
+}

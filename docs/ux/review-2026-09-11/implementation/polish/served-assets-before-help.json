@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-09-12T16:47:48.270336+00:00",
+  "previews": [
+    {
+      "origin": "http://127.0.0.1:8180/play/",
+      "revision": "1868d6c37d8c25729dae",
+      "files": 87,
+      "bytes": 90539342,
+      "invalid": []
+    },
+    {
+      "origin": "http://127.0.0.1:8083/play/",
+      "revision": "1868d6c37d8c25729dae",
+      "files": 87,
+      "bytes": 90539342,
+      "invalid": []
+    },
+    {
+      "origin": "http://127.0.0.1:56854/play/",
+      "revision": "1868d6c37d8c25729dae",
+      "files": 87,
+      "bytes": 90539342,
+      "invalid": []
+    }
+  ]
+}

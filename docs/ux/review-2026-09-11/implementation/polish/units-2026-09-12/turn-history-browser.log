@@ -1,0 +1,89 @@
+(node:53196) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:53231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:53231) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:53231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-jM78lF --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=53238 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53238:64439229:0912/144503.752173:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+216ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] ERROR: Failed normalizing string [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] Trying to load the allocator multiple times. This is *not* supported. [30m+178ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144503.944612:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+13ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144503.944886:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144503.946055:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144503.946103:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144503.947014:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144503.947085:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144503.947372:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144503.947408:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144503.947498:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144503.947550:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53238:64439210:0912/144506.240207:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+2s[0m
+  ✓  1 [chromium] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.9s)
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144506.830748:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+590ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144506.830793:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144506.830909:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144506.830942:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144506.831023:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144506.831059:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144506.831138:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144506.831167:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439237:0912/144506.831236:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238][err] [53248:64439327:0912/144506.831265:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  2 [chromium] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.3s)
+  [30;1mpw:browser [0m[pid=53238] <gracefully close start> [30m+4s[0m
+  [30;1mpw:browser [0m[pid=53238] <process did exit: exitCode=0, signal=null> [30m+163ms[0m
+  [30;1mpw:browser [0m[pid=53238] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53238] finished temporary directories cleanup [30m+10ms[0m
+  [30;1mpw:browser [0m[pid=53238] <gracefully close end> [30m+0ms[0m
+(node:53363) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:53363) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:53363) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-ymLA8R --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=53364 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53364:64440615:0912/144511.617833:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+127ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] Trying to load the allocator multiple times. This is *not* supported. [30m+151ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144511.787167:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+18ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144511.787353:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144511.787527:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144511.787561:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144511.787640:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144511.787699:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144511.787799:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144511.787830:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144511.787941:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144511.787970:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53364:64440617:0912/144514.043458:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+2s[0m
+  ✓  3 [mobile] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (3.1s)
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144514.822415:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+779ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144514.822466:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144514.822568:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144514.822603:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144514.822700:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144514.822726:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144514.822811:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144514.822850:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440630:0912/144514.822925:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364][err] [53368:64440702:0912/144514.822956:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  ✓  4 [mobile] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.3s)
+  [30;1mpw:browser [0m[pid=53364] <gracefully close start> [30m+4s[0m
+  [30;1mpw:browser [0m[pid=53364] <process did exit: exitCode=0, signal=null> [30m+175ms[0m
+  [30;1mpw:browser [0m[pid=53364] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=53364] finished temporary directories cleanup [30m+8ms[0m
+  [30;1mpw:browser [0m[pid=53364] <gracefully close end> [30m+0ms[0m
+
+  4 passed (16.1s)

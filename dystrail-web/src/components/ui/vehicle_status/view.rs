@@ -48,6 +48,7 @@ impl PartialEq for VehicleStatusProps {
 
 #[function_component(VehicleStatus)]
 pub fn vehicle_status(p: &VehicleStatusProps) -> Html {
+    crate::i18n::use_language();
     let focus_idx = use_state(|| 1_u8);
     let list_ref = use_node_ref();
 

@@ -1,0 +1,9 @@
+{
+  "observed_at_utc": "2026-09-13T08:33:10.306256+00:00",
+  "binary_sha256": "bc49a7ce2d5dafc67831a140d73c0d2688d21aff716461a43792f6c743fcf392",
+  "source_path": "/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source/dystrail-tester",
+  "frozen_source_inputs_verified": 538,
+  "source_hashes_unchanged": true,
+  "seed4242_exit": 0,
+  "release_build_exit": 0
+}

@@ -45,6 +45,20 @@ const fn pick_none(rotation_satisfied: bool) -> EncounterPick {
     }
 }
 
+fn pick_from_rotation(encounter: Encounter) -> EncounterPick {
+    let decision_trace = EventDecisionTrace {
+        pool_id: String::from("dystrail.encounter.rotation"),
+        roll: RollValue::Deterministic,
+        candidates: Vec::new(),
+        chosen_id: encounter.id.clone(),
+    };
+    EncounterPick {
+        encounter: Some(encounter),
+        rotation_satisfied: true,
+        decision_trace: Some(decision_trace),
+    }
+}
+
 fn find_candidate<'a>(candidates: &[&'a Encounter], encounter_id: &str) -> Option<&'a Encounter> {
     candidates
         .iter()
@@ -120,7 +134,14 @@ pub fn pick_encounter<R: Rng>(
     rotation_queue: &mut VecDeque<String>,
     rng: &mut R,
 ) -> EncounterPick {
-    let candidates = filter_candidates(request);
+    let mut candidates = filter_candidates(request);
+    // Exhaust the eligible unseen bank before returning to earlier encounters.
+    let has_unseen = candidates
+        .iter()
+        .any(|e| !request.recent.iter().any(|r| r.id == e.id));
+    if has_unseen {
+        candidates.retain(|e| !request.recent.iter().any(|r| r.id == e.id));
+    }
 
     if debug_log_enabled() {
         println!(
@@ -136,33 +157,29 @@ pub fn pick_encounter<R: Rng>(
     }
 
     let last_seen = build_last_seen_map(request.recent);
-    if rotation_queue.is_empty() {
-        *rotation_queue = build_rotation_backlog(request, &candidates, &last_seen);
-    }
+    // New scenes use their weights instead of inheriting alphabetical queue order.
+    if !has_unseen {
+        if rotation_queue.is_empty() {
+            *rotation_queue = build_rotation_backlog(request, &candidates, &last_seen);
+        }
 
-    if let Some(encounter) =
-        try_pick_ready_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
-    {
-        return EncounterPick {
-            encounter: Some(encounter),
-            rotation_satisfied: true,
-            decision_trace: None,
-        };
-    }
+        if let Some(encounter) =
+            try_pick_ready_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
+        {
+            return pick_from_rotation(encounter);
+        }
 
-    if let Some(encounter) =
-        try_pick_forced_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
-    {
-        return EncounterPick {
-            encounter: Some(encounter),
-            rotation_satisfied: true,
-            decision_trace: None,
-        };
+        if let Some(encounter) =
+            try_pick_forced_from_rotation_queue(request, rotation_queue, &candidates, &last_seen)
+        {
+            return pick_from_rotation(encounter);
+        }
     }
 
     let (primary, fallback) = categorize_candidates(request, &candidates, &last_seen);
-    let (selection, rotation_satisfied) =
+    let (selection, mut rotation_satisfied) =
         determine_selection(primary, fallback, request.force_rotation, candidates.len());
+    rotation_satisfied |= has_unseen;
 
     let region_counts =
         if request.is_deep && matches!(request.policy, Some(PolicyKind::Conservative)) {
@@ -186,6 +203,9 @@ pub fn pick_encounter<R: Rng>(
 
     let chosen_ref = candidates.get(chosen_idx).copied();
     let chosen = chosen_ref.map(|encounter| (*encounter).clone());
+    if let Some(encounter) = chosen_ref {
+        rotation_queue.retain(|id| id != &encounter.id);
+    }
 
     let decision_trace =
         chosen_ref.map(|encounter| build_decision_trace(&candidates, &weighted, roll, encounter));
@@ -245,36 +265,39 @@ fn is_forage(encounter: &Encounter) -> bool {
         || name_lower.contains("gather")
 }
 
-fn filter_candidates<'a>(request: &EncounterRequest<'a>) -> Vec<&'a Encounter> {
-    let region_str = match request.region {
-        Region::Heartland => "heartland",
-        Region::RustBelt => "rustbelt",
-        Region::Beltway => "beltway",
-    };
-    let mode_aliases: &[&str] = if request.is_deep {
+#[must_use]
+pub(crate) fn encounter_matches_context(
+    encounter: &Encounter,
+    region: Region,
+    is_deep: bool,
+) -> bool {
+    let region_str = region.asset_key();
+    let mode_aliases: &[&str] = if is_deep {
         &["deep", "deep_end"]
     } else {
         &["classic"]
     };
 
+    let region_match = encounter.regions.is_empty()
+        || encounter
+            .regions
+            .iter()
+            .any(|region| region.eq_ignore_ascii_case(region_str));
+    let mode_match = encounter.modes.is_empty()
+        || encounter.modes.iter().any(|mode| {
+            mode_aliases
+                .iter()
+                .any(|alias| mode.eq_ignore_ascii_case(alias))
+        });
+    region_match && mode_match
+}
+
+fn filter_candidates<'a>(request: &EncounterRequest<'a>) -> Vec<&'a Encounter> {
     request
         .data
         .encounters
         .iter()
-        .filter(|encounter| {
-            let region_match = encounter.regions.is_empty()
-                || encounter
-                    .regions
-                    .iter()
-                    .any(|region| region.eq_ignore_ascii_case(region_str));
-            let mode_match = encounter.modes.is_empty()
-                || encounter.modes.iter().any(|mode| {
-                    mode_aliases
-                        .iter()
-                        .any(|alias| mode.eq_ignore_ascii_case(alias))
-                });
-            region_match && mode_match
-        })
+        .filter(|encounter| encounter_matches_context(encounter, request.region, request.is_deep))
         .collect()
 }
 
@@ -462,7 +485,7 @@ fn build_recent_region_counts(recent: &[RecentEncounter]) -> HashMap<Region, u32
 }
 
 fn global_min_region_count(counts: &HashMap<Region, u32>) -> u32 {
-    [Region::Heartland, Region::RustBelt, Region::Beltway]
+    Region::ALL
         .iter()
         .map(|region| counts.get(region).copied().unwrap_or(0))
         .min()
@@ -470,7 +493,13 @@ fn global_min_region_count(counts: &HashMap<Region, u32>) -> u32 {
 }
 
 const fn parse_region(label: &str) -> Option<Region> {
-    if label.eq_ignore_ascii_case("heartland") {
+    if label.eq_ignore_ascii_case("pacificcoast") {
+        Some(Region::PacificCoast)
+    } else if label.eq_ignore_ascii_case("mountainwest") {
+        Some(Region::MountainWest)
+    } else if label.eq_ignore_ascii_case("southwest") {
+        Some(Region::Southwest)
+    } else if label.eq_ignore_ascii_case("heartland") {
         Some(Region::Heartland)
     } else if label.eq_ignore_ascii_case("rustbelt") {
         Some(Region::RustBelt)
@@ -497,8 +526,8 @@ mod tests {
     use super::*;
     use crate::constants::FLOAT_EPSILON;
     use crate::state::{RecentEncounter, Region};
-    use rand::Rng;
     use rand::SeedableRng;
+    use rand::{Rng, RngCore};
     use rand_chacha::ChaCha20Rng;
     use std::collections::VecDeque;
 
@@ -582,6 +611,119 @@ mod tests {
         request.force_rotation = true;
         let mut rng = ChaCha20Rng::from_seed([0u8; 32]);
         let _ = pick_encounter(&request, &mut queue, &mut rng);
+    }
+
+    #[test]
+    fn queue_selected_repeats_emit_traces_without_consuming_rng() {
+        let data = sample_encounters();
+        for (force_rotation, last_day) in [(false, 1), (true, 19)] {
+            let recent: Vec<_> = data
+                .encounters
+                .iter()
+                .map(|enc| RecentEncounter::new(enc.id.clone(), last_day, Region::Heartland))
+                .collect();
+            let request = EncounterRequest {
+                is_deep: false,
+                recent: &recent,
+                current_day: 20,
+                force_rotation,
+                ..mk_request(&data)
+            };
+            let mut queue = VecDeque::from([
+                String::from("beta"),
+                String::from("alpha"),
+                String::from("gamma"),
+            ]);
+            let mut rng = ChaCha20Rng::seed_from_u64(29);
+            let mut untouched_rng = rng.clone();
+            let pick = pick_encounter(&request, &mut queue, &mut rng);
+            let trace = pick.decision_trace.expect("queue decision must be visible");
+            assert_eq!(pick.encounter.unwrap().id, "beta");
+            assert!(pick.rotation_satisfied);
+            assert_eq!(trace.chosen_id, "beta");
+            assert_eq!(trace.pool_id, "dystrail.encounter.rotation");
+            assert_eq!(trace.roll, RollValue::Deterministic);
+            assert!(
+                trace.candidates.is_empty(),
+                "queue selection has no weighted draw"
+            );
+            assert_eq!(rng.next_u64(), untouched_rng.next_u64());
+            assert_eq!(
+                queue,
+                VecDeque::from([String::from("alpha"), String::from("gamma")])
+            );
+            let restored: EventDecisionTrace =
+                serde_json::from_str(&serde_json::to_string(&trace).unwrap()).unwrap();
+            assert_eq!(restored, trace);
+        }
+    }
+
+    #[test]
+    fn unseen_selection_uses_weights_even_with_an_alphabetical_rotation_queue() {
+        let mut alpha = make_enc("alpha", &["Heartland"]);
+        alpha.weight = 1;
+        let mut beta = make_enc("beta", &["Heartland"]);
+        beta.weight = 10_000;
+        let data = EncounterData::from_encounters(vec![alpha, beta]);
+        let mut request = mk_request(&data);
+        request.is_deep = false;
+        request.policy = None;
+        request.force_rotation = true;
+        let mut beta_selected = false;
+
+        for seed in 0..16 {
+            let mut queue = VecDeque::from([String::from("alpha"), String::from("beta")]);
+            let mut rng = ChaCha20Rng::seed_from_u64(seed);
+            let pick = pick_encounter(&request, &mut queue, &mut rng);
+            let encounter = pick.encounter.expect("unseen scene selected");
+            let trace = pick.decision_trace.expect("weighted draw is recorded");
+            assert_eq!(trace.candidates.len(), 2);
+            assert_eq!(trace.chosen_id, encounter.id);
+            assert!(!queue.contains(&encounter.id));
+            beta_selected |= encounter.id == "beta";
+        }
+        assert!(
+            beta_selected,
+            "alphabetical order must not determine the opening encounter"
+        );
+    }
+
+    #[test]
+    fn selection_exhausts_the_eligible_region_and_mode_before_repeating() {
+        let mut data = sample_encounters();
+        data.encounters.push(make_enc("wrong_region", &["Beltway"]));
+        let mut wrong_mode = make_enc("wrong_mode", &["Heartland"]);
+        wrong_mode.modes = vec![String::from("deep")];
+        data.encounters.push(wrong_mode);
+        let mut recent = Vec::new();
+        let mut queue = VecDeque::from([String::from("alpha")]);
+        let mut rng = ChaCha20Rng::seed_from_u64(28);
+
+        for _ in 0..3 {
+            let request = EncounterRequest {
+                is_deep: false,
+                recent: &recent,
+                force_rotation: true,
+                ..mk_request(&data)
+            };
+            let pick = pick_encounter(&request, &mut queue, &mut rng);
+            let encounter = pick.encounter.expect("remaining eligible scene selected");
+            assert!(["alpha", "beta", "gamma"].contains(&encounter.id.as_str()));
+            assert!(!recent.iter().any(|entry| entry.id == encounter.id));
+            assert!(pick.decision_trace.is_some());
+            recent.push(RecentEncounter::new(encounter.id, 12, Region::Heartland));
+        }
+        assert_eq!(recent.len(), 3);
+        let request = EncounterRequest {
+            is_deep: false,
+            recent: &recent,
+            current_day: 20,
+            ..mk_request(&data)
+        };
+        let repeat = pick_encounter(&request, &mut queue, &mut rng)
+            .encounter
+            .expect("a later repeat remains possible after exhausting the pool");
+        assert!(recent.iter().any(|entry| entry.id == repeat.id));
     }
 
     #[test]

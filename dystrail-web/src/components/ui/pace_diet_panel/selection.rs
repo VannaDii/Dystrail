@@ -11,12 +11,10 @@ pub enum SelectionOutcome {
 fn pace_message(pacing_config: &PacingConfig, pace_id: PaceId) -> SelectionOutcome {
     let pace_cfg = pacing_config.get_pace_safe(pace_id.as_str());
     let sanity_str = format!("{:+}", pace_cfg.sanity);
-    let pants_str = format!("{:+}", pace_cfg.pants);
     let chance_str = format!("{:+.0}%", pace_cfg.encounter_chance_delta * 100.0);
     let mut args = BTreeMap::new();
     args.insert("pace", pace_cfg.name.as_str());
     args.insert("sanity", sanity_str.as_str());
-    args.insert("pants", pants_str.as_str());
     args.insert("chance", chance_str.as_str());
     let msg = i18n::tr("pacediet.announce.pace_set", Some(&args));
     SelectionOutcome::Pace(pace_id, msg)
@@ -25,12 +23,10 @@ fn pace_message(pacing_config: &PacingConfig, pace_id: PaceId) -> SelectionOutco
 fn diet_message(pacing_config: &PacingConfig, diet_id: DietId) -> SelectionOutcome {
     let diet_cfg = pacing_config.get_diet_safe(diet_id.as_str());
     let sanity_str = format!("{:+}", diet_cfg.sanity);
-    let pants_str = format!("{:+}", diet_cfg.pants);
     let receipt_str = format!("{:+}%", diet_cfg.receipt_find_pct_delta);
     let mut args = BTreeMap::new();
     args.insert("diet", diet_cfg.name.as_str());
     args.insert("sanity", sanity_str.as_str());
-    args.insert("pants", pants_str.as_str());
     args.insert("receipt", receipt_str.as_str());
     let msg = i18n::tr("pacediet.announce.diet_set", Some(&args));
     SelectionOutcome::Diet(diet_id, msg)

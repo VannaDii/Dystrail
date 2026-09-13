@@ -1,0 +1,16 @@
+{
+  "base_revision": "3b433040a721822787db",
+  "changed_files": [
+    {
+      "path": "dystrail-game/src/state.rs",
+      "before_sha256": "d2925a381232d7fdb54eabe997519dbfe2943c8fe6830ea38a917c1ff0db69fa",
+      "after_sha256": "c5cabf9169f6fdc3f79209243df5181fd44e703ac2427cb65a3b97c8a81b1f05"
+    },
+    {
+      "path": "dystrail-game/src/state/crossing_arrival_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "eb864df642dd599bb040d33601f381b2c613505ee0ddbd6de1799ab8f9ee9ddc"
+    }
+  ],
+  "scope": "Cap driving at the next crossing and resolve it upon arrival with its exact time/cost. Preserve all preview UI, activity/masks fixes and existing balance configuration. No experimental settings included."
+}

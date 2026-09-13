@@ -1,0 +1,10 @@
+{
+  "revision": "fd85d61ff87f8e40619b",
+  "manifest_sha256": "4bec23c27b317fe36084c2866f8c017d57b2cf511464f7bfe9a3dacc25c05256",
+  "artifact": "/tmp/dystrail-writer-preview-web",
+  "served_at": "http://127.0.0.1:8180/play/",
+  "asset_count": 101,
+  "worker_matches": true,
+  "saves_untouched": true,
+  "verification_log": "writer-fd85d61ff87f8e40619b/dystrail-writer-publish-preview-22.log"
+}

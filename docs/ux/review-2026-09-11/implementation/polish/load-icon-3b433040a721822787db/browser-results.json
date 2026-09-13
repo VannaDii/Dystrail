@@ -1,0 +1,35 @@
+{
+  "revision": "3b433040a721822787db",
+  "activation": [],
+  "layouts": [
+    {
+      "mode": "classic",
+      "size": "desktop",
+      "width": 1440,
+      "aligned": true,
+      "iconWithinViewBox": true
+    },
+    {
+      "mode": "classic",
+      "size": "phone",
+      "width": 393,
+      "aligned": true,
+      "iconWithinViewBox": true
+    },
+    {
+      "mode": "deep",
+      "size": "desktop",
+      "width": 1440,
+      "aligned": true,
+      "iconWithinViewBox": true
+    },
+    {
+      "mode": "deep",
+      "size": "phone",
+      "width": 393,
+      "aligned": true,
+      "iconWithinViewBox": true
+    }
+  ],
+  "errors": []
+}

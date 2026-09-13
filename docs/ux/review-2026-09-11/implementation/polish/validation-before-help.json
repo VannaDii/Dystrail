@@ -1,0 +1,113 @@
+{
+  "checked_at": "2026-09-12T16:51:33.665067+00:00",
+  "build": {
+    "revision": "1868d6c37d8c25729dae",
+    "files": 87,
+    "bytes": 90539342,
+    "artifact": "/tmp/dystrail-offline-final-web",
+    "preview": "http://127.0.0.1:8180/play/"
+  },
+  "offline_cache": {
+    "revision": "1868d6c37d8c25729dae",
+    "files": 87,
+    "bytes": 90539342,
+    "missing": [],
+    "invalid": [],
+    "launchGate": false,
+    "offline": "ready"
+  },
+  "native_tests": {
+    "passed": 260,
+    "exit": 0,
+    "source_unchanged_by_final_packaging": true
+  },
+  "chrome_wasm_tests": {
+    "passed": 2,
+    "exit": 0
+  },
+  "strict_clippy": {
+    "native_exit": 0,
+    "wasm_exit": 0
+  },
+  "release_builds": {
+    "native_exit": 0,
+    "web_exit": 0
+  },
+  "formatting": {
+    "cargo_fmt_exit": 0,
+    "git_diff_check_exit": 0
+  },
+  "chrome_regressions": {
+    "gameplay_build": "595e6114615d79492626",
+    "desktop": {
+      "assertions_passed": 67,
+      "runner_exit": 143,
+      "status": "assertions_passed_cleanup_stalled",
+      "unstarted_phone_project_counted": false
+    },
+    "phone": {
+      "passed": 67,
+      "runner_exit": 0,
+      "physical_device": false
+    },
+    "final_package": {
+      "build": "1868d6c37d8c25729dae",
+      "passed": 20,
+      "runner_exit": 0,
+      "scope": [
+        "feedback.spec.ts",
+        "preload.spec.ts",
+        "pwa.spec.ts"
+      ]
+    }
+  },
+  "game_client": {
+    "exit": 0,
+    "unmodified": true,
+    "screenshot_visually_reviewed": true
+  },
+  "layout": {
+    "ltr_widths": [
+      390,
+      1280
+    ],
+    "rtl_width": 390,
+    "primary_subtitle_alignment_error_px": 0,
+    "inset_stat_backgrounds": false
+  },
+  "safari": {
+    "current_build_verified": false,
+    "status": "waiting_for_mac_unlock",
+    "required_user_step": "Unlock the Mac; a fresh owned Safari test window will be opened afterward.",
+    "paired_session_recovered": true,
+    "first_attempt": "The first native attempt timed out because document.visibilityState stayed hidden.",
+    "computer_use_observation": "The Mac is locked and automatic unlock could not unlock it.",
+    "test_origin": "http://127.0.0.1:56921/play/",
+    "earlier_pass": "../west-coast/safari-validation.json",
+    "latest_attempt_exit": 1,
+    "latest_attempt": "Visibility wait expired while the Mac was locked; the harness closed its own session and server."
+  },
+  "campaign": {
+    "report": "../campaign/validation.json",
+    "status": "unchanged_acceptance_failure",
+    "decision": "../campaign/balance-decision.md",
+    "thresholds_changed": false
+  },
+  "engine_coverage_percent": 78.72,
+  "security_exceptions": "../../../../security/advisory-exceptions.json",
+  "remaining": [
+    "Native Safari verification",
+    "Pending campaign balance decision"
+  ],
+  "completion_audit": {
+    "checked_at": "2026-09-12T17:03:11.093930+00:00",
+    "previous_goal_turn": "progress: packaging fix, complete-cache evidence and final Chrome verification",
+    "current_preview_revision": "1868d6c37d8c25729dae",
+    "current_safari_observation": "Computer use again reports the Mac is locked and cannot unlock it.",
+    "status": "blocked",
+    "next_actions": [
+      "Unlock the Mac for a fresh native Safari verification session.",
+      "Resolve the previously presented campaign balance decision."
+    ]
+  }
+}

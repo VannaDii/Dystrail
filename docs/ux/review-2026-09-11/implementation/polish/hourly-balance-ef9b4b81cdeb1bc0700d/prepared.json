@@ -1,0 +1,21 @@
+{
+  "status": "prepared-awaiting-built-url-and-revision",
+  "modes": [
+    "classic",
+    "deep"
+  ],
+  "widths": [
+    1440,
+    393
+  ],
+  "rest_sanity_starting_values": [
+    2,
+    9,
+    10
+  ],
+  "rest_actions_planned": 12,
+  "conditions_cases_planned": 4,
+  "breakdown_cases_planned": 4,
+  "browser_launched": false,
+  "harness_sha256": "5de8bd2360871950ff92515b6323c088e63c821094493b11282fbfce1e770f02"
+}

@@ -1,0 +1,476 @@
+{
+  "revision": "a2666947301cbcb4bfb7",
+  "activation": [],
+  "layouts": [
+    {
+      "mode": "classic",
+      "language": "en",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 300,
+      "x": 10,
+      "y": 107.296875,
+      "height": 525.390625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 300,
+      "x": 10,
+      "y": 129.390625,
+      "height": 481.21875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "de",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "ta",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "te",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "ja",
+      "width": 300,
+      "x": 10,
+      "y": 109.890625,
+      "height": 520.21875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "zh",
+      "width": 300,
+      "x": 10,
+      "y": 123.53125,
+      "height": 492.9375,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "ko",
+      "width": 300,
+      "x": 10,
+      "y": 113.78125,
+      "height": 512.4375,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "bn",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "hi",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "pa",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "mr",
+      "width": 300,
+      "x": 10,
+      "y": 117.046875,
+      "height": 505.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "jv",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "id",
+      "width": 300,
+      "x": 10,
+      "y": 115.75,
+      "height": 508.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "pt",
+      "width": 300,
+      "x": 10,
+      "y": 115.75,
+      "height": 508.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "ru",
+      "width": 300,
+      "x": 10,
+      "y": 99.75,
+      "height": 540.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "fr",
+      "width": 300,
+      "x": 10,
+      "y": 109.5,
+      "height": 521,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "classic",
+      "language": "tr",
+      "width": 300,
+      "x": 10,
+      "y": 106,
+      "height": 528,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "en",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 300,
+      "x": 10,
+      "y": 107.296875,
+      "height": 525.390625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 300,
+      "x": 10,
+      "y": 129.390625,
+      "height": 481.21875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "de",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "ta",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "te",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "ja",
+      "width": 300,
+      "x": 10,
+      "y": 109.890625,
+      "height": 520.21875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "zh",
+      "width": 300,
+      "x": 10,
+      "y": 123.53125,
+      "height": 492.9375,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "ko",
+      "width": 300,
+      "x": 10,
+      "y": 113.78125,
+      "height": 512.4375,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "bn",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "hi",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "pa",
+      "width": 300,
+      "x": 10,
+      "y": 119.640625,
+      "height": 500.71875,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "mr",
+      "width": 300,
+      "x": 10,
+      "y": 117.046875,
+      "height": 505.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "jv",
+      "width": 300,
+      "x": 10,
+      "y": 97.546875,
+      "height": 544.890625,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "id",
+      "width": 300,
+      "x": 10,
+      "y": 115.75,
+      "height": 508.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "pt",
+      "width": 300,
+      "x": 10,
+      "y": 115.75,
+      "height": 508.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "ru",
+      "width": 300,
+      "x": 10,
+      "y": 99.75,
+      "height": 540.5,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "fr",
+      "width": 300,
+      "x": 10,
+      "y": 109.5,
+      "height": 521,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    },
+    {
+      "mode": "deep",
+      "language": "tr",
+      "width": 300,
+      "x": 10,
+      "y": 106,
+      "height": 528,
+      "closeVisible": true,
+      "actionsVisible": true,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "roundTrips": [
+    {
+      "mode": "classic",
+      "downloadedStateExact": true,
+      "fileRestoreExact": true,
+      "invalidFilePreservedState": true
+    },
+    {
+      "mode": "deep",
+      "downloadedStateExact": true,
+      "fileRestoreExact": true,
+      "invalidFilePreservedState": true
+    }
+  ],
+  "keyboard": [
+    {
+      "mode": "classic",
+      "initialFocus": true,
+      "closedAndExpandedTrap": true,
+      "escapeAndReturnFocus": true
+    },
+    {
+      "mode": "deep",
+      "initialFocus": true,
+      "closedAndExpandedTrap": true,
+      "escapeAndReturnFocus": true
+    }
+  ],
+  "complete": true
+}

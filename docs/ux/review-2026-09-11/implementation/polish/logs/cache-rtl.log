@@ -1,0 +1,35 @@
+### Result
+{"language":"ar","direction":"rtl","width":390,"overflow":false,"choices":[{"role":"BUTTON","titleRight":329.15625,"detailRight":329.15625,"numberRight":350},{"role":"BUTTON","titleRight":329.15625,"detailRight":329.15625,"numberRight":350}],"hudBackgrounds":["rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)"],"revision":"595e6114615d79492626","cachedAssets":88,"bytes":90545490,"missing":[],"invalid":[]}
+### Ran Playwright code
+```js
+await (async page => {
+  if(await page.locator('#game-menu-button').getAttribute('aria-expanded')!=='true') await page.locator('#game-menu-button').click();
+  await page.locator('.language-picker>button').click();
+  await page.getByRole('option',{name:'العربية',exact:true}).click();
+  await page.locator('.wordmark').click();
+  const result=await page.evaluate(async()=>{
+    const choices=[...document.querySelectorAll('.encounter-choice button')].map(button=>{
+      const title=button.querySelector('.action-title').getBoundingClientRect();
+      const detail=button.querySelector('.choice-effects').getBoundingClientRect();
+      const number=button.querySelector('.choice-number').getBoundingClientRect();
+      return {role:button.tagName,titleRight:title.right,detailRight:detail.right,numberRight:number.right};
+    });
+    const manifest=await(await fetch('offline-manifest.json')).json();
+    const cache=await caches.open('dystopian-trail:/play/:'+manifest.revision);
+    const missing=[],invalid=[];
+    for(const asset of manifest.assets){
+      const response=await cache.match(new URL(asset.path,document.baseURI));
+      if(!response){missing.push(asset.path);continue;}
+      const bytes=await response.arrayBuffer();
+      const hash=btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))));
+      if(bytes.byteLength!==asset.bytes||'sha256-'+hash!==asset.integrity)invalid.push(asset.path);
+    }
+    return {language:document.documentElement.lang,direction:document.documentElement.dir,width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,choices,hudBackgrounds:[...document.querySelectorAll('.hud-stat')].map(el=>getComputedStyle(el).backgroundColor),revision:manifest.revision,cachedAssets:manifest.assets.length,bytes:manifest.bytes,missing,invalid};
+  });
+  if(result.overflow||result.missing.length||result.invalid.length||result.choices.some(c=>Math.abs(c.titleRight-c.detailRight)>1||c.numberRight<=c.titleRight))throw Error(JSON.stringify(result));
+  await page.screenshot({path:'output/playwright/hud-choice-ar-390.png',fullPage:true});
+  await page.locator('#game-menu-button').click();await page.locator('.language-picker>button').click();
+  await page.getByRole('option',{name:'English',exact:true}).click();await page.locator('.wordmark').click();
+  return result;
+})(page);
+```

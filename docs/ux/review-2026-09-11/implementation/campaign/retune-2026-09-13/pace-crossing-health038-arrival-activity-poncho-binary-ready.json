@@ -1,0 +1,7 @@
+{
+  "binary": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-activity-poncho-tester",
+  "sha256": "8766f1f155c8d333ab90de9e629773e42a2859b1a7b7249c8824f330987049eb",
+  "compiled_source_path_verified": "/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-activity-poncho-source/dystrail-tester",
+  "source_tree_sha256": "a2626beef408903e3d5672de1e81dbda6ce75801ca98fc9a48fce1e58e04e267",
+  "source_unchanged_after_build": true
+}

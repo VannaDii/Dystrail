@@ -1,0 +1,4166 @@
+[
+  {
+    "name": "classic-result-en",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 154,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 317.421875,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 480.84375,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 644.28125,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 807.703125,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 971.140625,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.5625,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 1134.5625,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 154,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 317.421875,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 480.84375,
+        "y": 1218.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 644.28125,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 807.703125,
+        "y": 1218.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 1330.125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-result-en",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 33,
+        "y": 1258.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1362.703125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 201.5,
+        "y": 1258.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1362.703125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 1372.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1476.703125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 201.5,
+        "y": 1372.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1476.703125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1486.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1590.703125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 201.5,
+        "y": 1486.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1590.703125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1600.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1704.703125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 201.5,
+        "y": 1600.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1704.703125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1714.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1818.703125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 201.5,
+        "y": 1714.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1818.703125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1828.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1932.703125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 201.5,
+        "y": 1828.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1932.703125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-result-en",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 33,
+        "y": 1365.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1469.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 165,
+        "y": 1365.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1469.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 1479.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1583.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 165,
+        "y": 1479.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1583.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1593.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1697.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 165,
+        "y": 1593.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1697.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1707.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1811.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 165,
+        "y": 1707.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1811.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1821.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1925.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 165,
+        "y": 1821.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1925.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1935.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 2039.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 165,
+        "y": 1935.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 2039.171875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-share-en",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 154,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 317.421875,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 480.84375,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 644.28125,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 807.703125,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 971.140625,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.5625,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 1134.5625,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 1286,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 154,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 317.421875,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 480.84375,
+        "y": 628.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 644.28125,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 807.703125,
+        "y": 628.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 740.125
+      }
+    ],
+    "composer": {
+      "x": 180,
+      "y": 149.109375,
+      "w": 1080,
+      "h": 701.78125,
+      "right": 1260,
+      "bottom": 850.890625
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 732,
+        "y": 781.890625,
+        "w": 162.328125,
+        "h": 44,
+        "right": 894.328125,
+        "bottom": 825.890625
+      },
+      {
+        "text": "Save image",
+        "x": 902.328125,
+        "y": 781.890625,
+        "w": 162.34375,
+        "h": 44,
+        "right": 1064.671875,
+        "bottom": 825.890625
+      },
+      {
+        "text": "Share image & post",
+        "x": 1072.671875,
+        "y": 781.890625,
+        "w": 162.328125,
+        "h": 44,
+        "right": 1235,
+        "bottom": 825.890625
+      }
+    ],
+    "preview": {
+      "x": 205,
+      "y": 245.890625,
+      "w": 503,
+      "h": 503,
+      "right": 708,
+      "bottom": 748.890625
+    },
+    "editor": {
+      "x": 732,
+      "y": 245.890625,
+      "w": 503,
+      "h": 503,
+      "right": 1235,
+      "bottom": 748.890625
+    }
+  },
+  {
+    "name": "classic-share-en",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 33,
+        "y": 668.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 772.703125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 201.5,
+        "y": 668.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 772.703125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 782.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 886.703125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 201.5,
+        "y": 782.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 886.703125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 896.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1000.703125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 201.5,
+        "y": 896.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1000.703125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1010.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1114.703125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 201.5,
+        "y": 1010.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1114.703125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1124.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1228.703125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 201.5,
+        "y": 1124.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1228.703125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1238.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1342.703125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 201.5,
+        "y": 1238.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1342.703125
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 67.078125,
+      "w": 369,
+      "h": 717.828125,
+      "right": 381,
+      "bottom": 784.90625
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 29,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 192.5,
+        "bottom": 715.90625
+      },
+      {
+        "text": "Save image",
+        "x": 200.5,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 364,
+        "bottom": 715.90625
+      },
+      {
+        "text": "Share image & post",
+        "x": 29,
+        "y": 723.90625,
+        "w": 335,
+        "h": 44,
+        "right": 364,
+        "bottom": 767.90625
+      }
+    ],
+    "preview": {
+      "x": 104.5,
+      "y": 143.859375,
+      "w": 184,
+      "h": 184,
+      "right": 288.5,
+      "bottom": 327.859375
+    },
+    "editor": {
+      "x": 29,
+      "y": 341.859375,
+      "w": 335,
+      "h": 305.046875,
+      "right": 364,
+      "bottom": 646.90625
+    }
+  },
+  {
+    "name": "classic-share-en",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "934",
+        "x": 33,
+        "y": 775.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 879.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 165,
+        "y": 775.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 879.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 889.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 993.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 165,
+        "y": 889.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 993.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1003.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1107.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 165,
+        "y": 1003.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1107.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1117.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1221.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 165,
+        "y": 1117.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1221.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1231.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1335.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,000",
+        "x": 165,
+        "y": 1231.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1335.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1345.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1449.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 165,
+        "y": 1345.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1449.171875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 12,
+      "w": 296,
+      "h": 544,
+      "right": 308,
+      "bottom": 556
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 29,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 156,
+        "bottom": 487
+      },
+      {
+        "text": "Save image",
+        "x": 164,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 291,
+        "bottom": 487
+      },
+      {
+        "text": "Share image & post",
+        "x": 29,
+        "y": 495,
+        "w": 262,
+        "h": 44,
+        "right": 291,
+        "bottom": 539
+      }
+    ],
+    "preview": {
+      "x": 86.15625,
+      "y": 113.96875,
+      "w": 147.671875,
+      "h": 147.671875,
+      "right": 233.828125,
+      "bottom": 261.640625
+    },
+    "editor": {
+      "x": 29,
+      "y": 275.640625,
+      "w": 262,
+      "h": 323.046875,
+      "right": 291,
+      "bottom": 598.6875
+    }
+  },
+  {
+    "name": "classic-result-ar",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 1134.578125,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 971.15625,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 807.71875,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 644.296875,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 480.859375,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 317.4375,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.859375,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 154,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 305.4375,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 1134.578125,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 971.15625,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 807.71875,
+        "y": 1247.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 644.296875,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 480.859375,
+        "y": 1247.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 1359.125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-result-ar",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 201.5,
+        "y": 1227.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1331.46875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 1227.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1331.46875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 201.5,
+        "y": 1341.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1445.46875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 1341.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1445.46875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 201.5,
+        "y": 1455.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1559.46875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 1455.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1559.46875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 201.5,
+        "y": 1569.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1673.46875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1569.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1673.46875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 201.5,
+        "y": 1683.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1787.46875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 33,
+        "y": 1683.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1787.46875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 201.5,
+        "y": 1797.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1901.46875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1797.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1901.46875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-result-ar",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 165,
+        "y": 1394.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1498.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 1394.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1498.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 165,
+        "y": 1508.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1612.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 1508.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1612.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 165,
+        "y": 1622.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1726.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 1622.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1726.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 165,
+        "y": 1736.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1840.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1736.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1840.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 165,
+        "y": 1850.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1954.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 33,
+        "y": 1850.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1954.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 165,
+        "y": 1964.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 2068.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1964.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 2068.171875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "classic-share-ar",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 1134.578125,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 971.15625,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 807.71875,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 644.296875,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 480.859375,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 317.4375,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.859375,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 154,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 305.4375,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 1134.578125,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 971.15625,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 807.71875,
+        "y": 610.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 644.296875,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 480.859375,
+        "y": 610.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 722.125
+      }
+    ],
+    "composer": {
+      "x": 180,
+      "y": 143.21875,
+      "w": 1080,
+      "h": 713.5625,
+      "right": 1260,
+      "bottom": 856.78125
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 545.671875,
+        "y": 776,
+        "w": 162.328125,
+        "h": 55.78125,
+        "right": 708,
+        "bottom": 831.78125
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 375.328125,
+        "y": 776,
+        "w": 162.34375,
+        "h": 55.78125,
+        "right": 537.671875,
+        "bottom": 831.78125
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 205,
+        "y": 776,
+        "w": 162.328125,
+        "h": 55.78125,
+        "right": 367.328125,
+        "bottom": 831.78125
+      }
+    ],
+    "preview": {
+      "x": 732,
+      "y": 240,
+      "w": 503,
+      "h": 503,
+      "right": 1235,
+      "bottom": 743
+    },
+    "editor": {
+      "x": 205,
+      "y": 240,
+      "w": 503,
+      "h": 503,
+      "right": 708,
+      "bottom": 743
+    }
+  },
+  {
+    "name": "classic-share-ar",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 201.5,
+        "y": 590.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 694.46875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 590.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 694.46875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 201.5,
+        "y": 704.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 808.46875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 704.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 808.46875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 201.5,
+        "y": 818.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 922.46875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 818.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 922.46875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 201.5,
+        "y": 932.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1036.46875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 932.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1036.46875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 201.5,
+        "y": 1046.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1150.46875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 33,
+        "y": 1046.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1150.46875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 201.5,
+        "y": 1160.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1264.46875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1160.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1264.46875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 67.078125,
+      "w": 369,
+      "h": 717.828125,
+      "right": 381,
+      "bottom": 784.90625
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 200.5,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 364,
+        "bottom": 715.90625
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 29,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 192.5,
+        "bottom": 715.90625
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 29,
+        "y": 723.90625,
+        "w": 335,
+        "h": 44,
+        "right": 364,
+        "bottom": 767.90625
+      }
+    ],
+    "preview": {
+      "x": 104.5,
+      "y": 143.859375,
+      "w": 184,
+      "h": 184,
+      "right": 288.5,
+      "bottom": 327.859375
+    },
+    "editor": {
+      "x": 29,
+      "y": 341.859375,
+      "w": 335,
+      "h": 305.046875,
+      "right": 364,
+      "bottom": 646.90625
+    }
+  },
+  {
+    "name": "classic-share-ar",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "934",
+        "x": 165,
+        "y": 757.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 861.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 757.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 861.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 165,
+        "y": 871.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 975.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 871.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 975.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 165,
+        "y": 985.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1089.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 985.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1089.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 165,
+        "y": 1099.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1203.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1099.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1203.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 165,
+        "y": 1213.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1317.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,000",
+        "x": 33,
+        "y": 1213.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1317.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 165,
+        "y": 1327.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1431.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1327.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1431.171875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 12,
+      "w": 296,
+      "h": 544,
+      "right": 308,
+      "bottom": 556
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 164,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 291,
+        "bottom": 487
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 29,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 156,
+        "bottom": 487
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 29,
+        "y": 495,
+        "w": 262,
+        "h": 44,
+        "right": 291,
+        "bottom": 539
+      }
+    ],
+    "preview": {
+      "x": 86.171875,
+      "y": 88.78125,
+      "w": 147.671875,
+      "h": 147.671875,
+      "right": 233.84375,
+      "bottom": 236.453125
+    },
+    "editor": {
+      "x": 29,
+      "y": 250.453125,
+      "w": 262,
+      "h": 305.046875,
+      "right": 291,
+      "bottom": 555.5
+    }
+  },
+  {
+    "name": "deep-result-en",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 154,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 317.421875,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 480.84375,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 644.28125,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 807.703125,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 971.140625,
+        "y": 1094.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.5625,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 1134.5625,
+        "y": 1094.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1206.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 154,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 317.421875,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 480.84375,
+        "y": 1218.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 644.28125,
+        "y": 1218.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 1330.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 807.703125,
+        "y": 1218.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 1330.125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-result-en",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 33,
+        "y": 1258.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1362.703125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 201.5,
+        "y": 1258.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1362.703125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 1372.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1476.703125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 201.5,
+        "y": 1372.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1476.703125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1486.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1590.703125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 201.5,
+        "y": 1486.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1590.703125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1600.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1704.703125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 201.5,
+        "y": 1600.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1704.703125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1714.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1818.703125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 201.5,
+        "y": 1714.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1818.703125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1828.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1932.703125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 201.5,
+        "y": 1828.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1932.703125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-result-en",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 33,
+        "y": 1365.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1469.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 165,
+        "y": 1365.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1469.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 1479.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1583.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 165,
+        "y": 1479.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1583.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1593.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1697.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 165,
+        "y": 1593.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1697.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1707.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1811.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 165,
+        "y": 1707.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1811.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1821.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1925.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 165,
+        "y": 1821.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1925.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1935.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 2039.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 165,
+        "y": 1935.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 2039.171875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-share-en",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 154,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 317.421875,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 480.84375,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 644.28125,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 807.703125,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 971.140625,
+        "y": 504.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.5625,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 1134.5625,
+        "y": 504.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 1286,
+        "bottom": 616.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 154,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 305.421875,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 317.421875,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.84375,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 480.84375,
+        "y": 628.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.28125,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 644.28125,
+        "y": 628.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.703125,
+        "bottom": 740.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 807.703125,
+        "y": 628.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.140625,
+        "bottom": 740.125
+      }
+    ],
+    "composer": {
+      "x": 180,
+      "y": 149.109375,
+      "w": 1080,
+      "h": 701.78125,
+      "right": 1260,
+      "bottom": 850.890625
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 732,
+        "y": 781.890625,
+        "w": 162.328125,
+        "h": 44,
+        "right": 894.328125,
+        "bottom": 825.890625
+      },
+      {
+        "text": "Save image",
+        "x": 902.328125,
+        "y": 781.890625,
+        "w": 162.34375,
+        "h": 44,
+        "right": 1064.671875,
+        "bottom": 825.890625
+      },
+      {
+        "text": "Share image & post",
+        "x": 1072.671875,
+        "y": 781.890625,
+        "w": 162.328125,
+        "h": 44,
+        "right": 1235,
+        "bottom": 825.890625
+      }
+    ],
+    "preview": {
+      "x": 205,
+      "y": 245.890625,
+      "w": 503,
+      "h": 503,
+      "right": 708,
+      "bottom": 748.890625
+    },
+    "editor": {
+      "x": 732,
+      "y": 245.890625,
+      "w": 503,
+      "h": 503,
+      "right": 1235,
+      "bottom": 748.890625
+    }
+  },
+  {
+    "name": "deep-share-en",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 33,
+        "y": 668.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 772.703125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 201.5,
+        "y": 668.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 772.703125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 782.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 886.703125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 201.5,
+        "y": 782.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 886.703125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 896.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1000.703125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 201.5,
+        "y": 896.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1000.703125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1010.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1114.703125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 201.5,
+        "y": 1010.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1114.703125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1124.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1228.703125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 201.5,
+        "y": 1124.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1228.703125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1238.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1342.703125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 201.5,
+        "y": 1238.703125,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1342.703125
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 67.078125,
+      "w": 369,
+      "h": 717.828125,
+      "right": 381,
+      "bottom": 784.90625
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 29,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 192.5,
+        "bottom": 715.90625
+      },
+      {
+        "text": "Save image",
+        "x": 200.5,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 364,
+        "bottom": 715.90625
+      },
+      {
+        "text": "Share image & post",
+        "x": 29,
+        "y": 723.90625,
+        "w": 335,
+        "h": 44,
+        "right": 364,
+        "bottom": 767.90625
+      }
+    ],
+    "preview": {
+      "x": 104.5,
+      "y": 143.859375,
+      "w": 184,
+      "h": 184,
+      "right": 288.5,
+      "bottom": 327.859375
+    },
+    "editor": {
+      "x": 29,
+      "y": 341.859375,
+      "w": 335,
+      "h": 305.046875,
+      "right": 364,
+      "bottom": 646.90625
+    }
+  },
+  {
+    "name": "deep-share-en",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "ltr",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "Score",
+        "value": "992",
+        "x": 33,
+        "y": 775.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 879.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "Days",
+        "value": "42",
+        "x": 165,
+        "y": 775.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 879.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "Encounters",
+        "value": "12",
+        "x": 33,
+        "y": 889.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 993.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "Receipts",
+        "value": "3",
+        "x": 165,
+        "y": 889.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 993.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "Allies",
+        "value": "5",
+        "x": 33,
+        "y": 1003.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1107.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "Supplies",
+        "value": "16",
+        "x": 165,
+        "y": 1003.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1107.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "Credibility",
+        "value": "7",
+        "x": 33,
+        "y": 1117.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1221.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "Breakdowns",
+        "value": "1",
+        "x": 165,
+        "y": 1117.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1221.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "Miles Traveled",
+        "value": "1,524",
+        "x": 33,
+        "y": 1231.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1335.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "Score Threshold",
+        "value": "1,200",
+        "x": 165,
+        "y": 1231.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1335.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "Starvation Days",
+        "value": "2",
+        "x": 33,
+        "y": 1345.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1449.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "Score target met",
+        "value": "Fail",
+        "x": 165,
+        "y": 1345.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1449.171875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 12,
+      "w": 296,
+      "h": 544,
+      "right": 308,
+      "bottom": 556
+    },
+    "actions": [
+      {
+        "text": "Copy post",
+        "x": 29,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 156,
+        "bottom": 487
+      },
+      {
+        "text": "Save image",
+        "x": 164,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 291,
+        "bottom": 487
+      },
+      {
+        "text": "Share image & post",
+        "x": 29,
+        "y": 495,
+        "w": 262,
+        "h": 44,
+        "right": 291,
+        "bottom": 539
+      }
+    ],
+    "preview": {
+      "x": 86.15625,
+      "y": 113.96875,
+      "w": 147.671875,
+      "h": 147.671875,
+      "right": 233.828125,
+      "bottom": 261.640625
+    },
+    "editor": {
+      "x": 29,
+      "y": 275.640625,
+      "w": 262,
+      "h": 323.046875,
+      "right": 291,
+      "bottom": 598.6875
+    }
+  },
+  {
+    "name": "deep-result-ar",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 1134.578125,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 971.15625,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 807.71875,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 644.296875,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 480.859375,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 317.4375,
+        "y": 1123.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.859375,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 154,
+        "y": 1123.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 305.4375,
+        "bottom": 1235.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 1134.578125,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 971.15625,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 807.71875,
+        "y": 1247.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 644.296875,
+        "y": 1247.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 1359.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 480.859375,
+        "y": 1247.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 1359.125
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-result-ar",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 201.5,
+        "y": 1227.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1331.46875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 1227.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1331.46875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 201.5,
+        "y": 1341.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1445.46875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 1341.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1445.46875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 201.5,
+        "y": 1455.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1559.46875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 1455.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1559.46875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 201.5,
+        "y": 1569.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1673.46875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1569.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1673.46875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 201.5,
+        "y": 1683.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1787.46875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 33,
+        "y": 1683.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1787.46875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 201.5,
+        "y": 1797.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1901.46875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1797.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1901.46875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-result-ar",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 165,
+        "y": 1394.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1498.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 1394.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1498.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 165,
+        "y": 1508.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1612.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 1508.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1612.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 165,
+        "y": 1622.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1726.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 1622.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1726.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 165,
+        "y": 1736.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1840.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1736.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1840.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 165,
+        "y": 1850.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1954.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 33,
+        "y": 1850.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1954.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 165,
+        "y": 1964.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 2068.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1964.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 2068.171875
+      }
+    ],
+    "composer": null,
+    "actions": [],
+    "preview": null,
+    "editor": null
+  },
+  {
+    "name": "deep-share-ar",
+    "size": "desktop",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "scrollWidth": 1440,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 1134.578125,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 971.15625,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 807.71875,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 644.296875,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 480.859375,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 317.4375,
+        "y": 486.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 468.859375,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 154,
+        "y": 486.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 305.4375,
+        "bottom": 598.125
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 1134.578125,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1286,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 971.15625,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 1122.578125,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 807.71875,
+        "y": 610.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 959.15625,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 644.296875,
+        "y": 610.125,
+        "w": 151.421875,
+        "h": 112,
+        "right": 795.71875,
+        "bottom": 722.125
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 480.859375,
+        "y": 610.125,
+        "w": 151.4375,
+        "h": 112,
+        "right": 632.296875,
+        "bottom": 722.125
+      }
+    ],
+    "composer": {
+      "x": 180,
+      "y": 143.21875,
+      "w": 1080,
+      "h": 713.5625,
+      "right": 1260,
+      "bottom": 856.78125
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 545.671875,
+        "y": 776,
+        "w": 162.328125,
+        "h": 55.78125,
+        "right": 708,
+        "bottom": 831.78125
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 375.328125,
+        "y": 776,
+        "w": 162.34375,
+        "h": 55.78125,
+        "right": 537.671875,
+        "bottom": 831.78125
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 205,
+        "y": 776,
+        "w": 162.328125,
+        "h": 55.78125,
+        "right": 367.328125,
+        "bottom": 831.78125
+      }
+    ],
+    "preview": {
+      "x": 732,
+      "y": 240,
+      "w": 503,
+      "h": 503,
+      "right": 1235,
+      "bottom": 743
+    },
+    "editor": {
+      "x": 205,
+      "y": 240,
+      "w": 503,
+      "h": 503,
+      "right": 708,
+      "bottom": 743
+    }
+  },
+  {
+    "name": "deep-share-ar",
+    "size": "phone",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      393,
+      852
+    ],
+    "scrollWidth": 393,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 201.5,
+        "y": 590.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 694.46875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 590.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 694.46875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 201.5,
+        "y": 704.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 808.46875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 704.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 808.46875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 201.5,
+        "y": 818.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 922.46875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 818.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 922.46875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 201.5,
+        "y": 932.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1036.46875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 932.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1036.46875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 201.5,
+        "y": 1046.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1150.46875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 33,
+        "y": 1046.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1150.46875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 201.5,
+        "y": 1160.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 360,
+        "bottom": 1264.46875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1160.46875,
+        "w": 158.5,
+        "h": 104,
+        "right": 191.5,
+        "bottom": 1264.46875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 67.078125,
+      "w": 369,
+      "h": 717.828125,
+      "right": 381,
+      "bottom": 784.90625
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 200.5,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 364,
+        "bottom": 715.90625
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 29,
+        "y": 671.90625,
+        "w": 163.5,
+        "h": 44,
+        "right": 192.5,
+        "bottom": 715.90625
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 29,
+        "y": 723.90625,
+        "w": 335,
+        "h": 44,
+        "right": 364,
+        "bottom": 767.90625
+      }
+    ],
+    "preview": {
+      "x": 104.5,
+      "y": 143.859375,
+      "w": 184,
+      "h": 184,
+      "right": 288.5,
+      "bottom": 327.859375
+    },
+    "editor": {
+      "x": 29,
+      "y": 341.859375,
+      "w": 335,
+      "h": 305.046875,
+      "right": 364,
+      "bottom": 646.90625
+    }
+  },
+  {
+    "name": "deep-share-ar",
+    "size": "narrow",
+    "revision": "2fa3864f31cbf9af2ff6",
+    "viewport": [
+      320,
+      568
+    ],
+    "scrollWidth": 320,
+    "dir": "rtl",
+    "stats": [
+      {
+        "key": "result.labels.score",
+        "label": "النقاط",
+        "value": "992",
+        "x": 165,
+        "y": 757.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 861.171875
+      },
+      {
+        "key": "result.labels.days",
+        "label": "الأيام",
+        "value": "42",
+        "x": 33,
+        "y": 757.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 861.171875
+      },
+      {
+        "key": "result.labels.encounters",
+        "label": "المواجهات",
+        "value": "12",
+        "x": 165,
+        "y": 871.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 975.171875
+      },
+      {
+        "key": "result.labels.receipts",
+        "label": "الإيصالات",
+        "value": "3",
+        "x": 33,
+        "y": 871.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 975.171875
+      },
+      {
+        "key": "result.labels.allies",
+        "label": "الحلفاء",
+        "value": "5",
+        "x": 165,
+        "y": 985.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1089.171875
+      },
+      {
+        "key": "result.labels.supplies",
+        "label": "الإمدادات",
+        "value": "16",
+        "x": 33,
+        "y": 985.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1089.171875
+      },
+      {
+        "key": "result.labels.credibility",
+        "label": "المصداقية",
+        "value": "7",
+        "x": 165,
+        "y": 1099.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1203.171875
+      },
+      {
+        "key": "result.labels.breakdowns",
+        "label": "الأعطال",
+        "value": "1",
+        "x": 33,
+        "y": 1099.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1203.171875
+      },
+      {
+        "key": "result.labels.miles",
+        "label": "سافر مايلز",
+        "value": "1,524",
+        "x": 165,
+        "y": 1213.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1317.171875
+      },
+      {
+        "key": "result.labels.score_threshold",
+        "label": "عتبة النتيجة",
+        "value": "1,200",
+        "x": 33,
+        "y": 1213.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1317.171875
+      },
+      {
+        "key": "result.labels.malnutrition",
+        "label": "أيام المجاعة",
+        "value": "2",
+        "x": 165,
+        "y": 1327.171875,
+        "w": 122,
+        "h": 104,
+        "right": 287,
+        "bottom": 1431.171875
+      },
+      {
+        "key": "result.labels.passed_threshold",
+        "label": "تحقق هدف النقاط",
+        "value": "يفشل",
+        "x": 33,
+        "y": 1327.171875,
+        "w": 122,
+        "h": 104,
+        "right": 155,
+        "bottom": 1431.171875
+      }
+    ],
+    "composer": {
+      "x": 12,
+      "y": 12,
+      "w": 296,
+      "h": 544,
+      "right": 308,
+      "bottom": 556
+    },
+    "actions": [
+      {
+        "text": "نسخ المنشور",
+        "x": 164,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 291,
+        "bottom": 487
+      },
+      {
+        "text": "حفظ الصورة",
+        "x": 29,
+        "y": 443,
+        "w": 127,
+        "h": 44,
+        "right": 156,
+        "bottom": 487
+      },
+      {
+        "text": "مشاركة الصورة والمنشور",
+        "x": 29,
+        "y": 495,
+        "w": 262,
+        "h": 44,
+        "right": 291,
+        "bottom": 539
+      }
+    ],
+    "preview": {
+      "x": 86.171875,
+      "y": 88.78125,
+      "w": 147.671875,
+      "h": 147.671875,
+      "right": 233.84375,
+      "bottom": 236.453125
+    },
+    "editor": {
+      "x": 29,
+      "y": 250.453125,
+      "w": 262,
+      "h": 305.046875,
+      "right": 291,
+      "bottom": 555.5
+    }
+  }
+]

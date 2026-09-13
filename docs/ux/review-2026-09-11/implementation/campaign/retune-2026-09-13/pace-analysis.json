@@ -1,0 +1,2236 @@
+{
+  "row_count": 2000,
+  "scenarios": {
+    "Classic - Aggressive": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 24.28,
+      "mean_miles": 2086.266,
+      "mean_physical_mpd": 133.06004,
+      "mean_ratio": 0.9325668316868317,
+      "min_ratio": 0.8461538461538461,
+      "mean_unique_per_20": 7.112987325717761,
+      "min_unique_per_20": 4.0,
+      "mean_encounters": 8.676,
+      "mean_unique": 8.676,
+      "boss_reach": 0.968,
+      "boss_win": 0.204,
+      "survival": 0.992,
+      "milestone": 0.968,
+      "bribe_success": 0.8335745296671491,
+      "crossing_failure": 0.0107095046854083,
+      "crossing_event_count": 747,
+      "bribe_attempt_count": 691,
+      "bribe_success_count": 576,
+      "crossing_failure_count": 8,
+      "mean_camp_days": 2.012,
+      "mean_repair_days": 0.436,
+      "mean_nonmoving_days": 1.652,
+      "mean_breakdowns": 0.436,
+      "days_range": [
+        10,
+        27
+      ],
+      "physical_mpd_range": [
+        116.14,
+        180.1
+      ],
+      "encounter_range": [
+        4,
+        11
+      ],
+      "endings": {
+        "boss.victory": 51,
+        "sanity": 98,
+        "boss_vote_failed": 93,
+        "collapse_crossing": 8
+      },
+      "failure_families": {
+        "sanity": 98,
+        "crossing": 8
+      },
+      "dominant_failure": 0.9245283018867925,
+      "record_ratio_failures": [
+        {
+          "seed": 1339,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1340,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1351,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1359,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1362,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1369,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1376,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1386,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1387,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1392,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1397,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1405,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1416,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1418,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1422,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1431,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1436,
+          "days": 21,
+          "moving_days": 18,
+          "ledger_days": 21,
+          "ratio": 0.8571428571428571,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1437,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1439,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1440,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1452,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1458,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1478,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1480,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1484,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1486,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1488,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1491,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1505,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1512,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1513,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1524,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1533,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1534,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1543,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1548,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1549,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1559,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1561,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1575,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        }
+      ],
+      "failures": [
+        {
+          "guard": "each-run moving-day ratio",
+          "count": 40,
+          "minimum": 0.9,
+          "observed": 0.8461538461538461
+        }
+      ]
+    },
+    "Classic - Balanced": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 23.4,
+      "mean_miles": 2280.0852,
+      "mean_physical_mpd": 130.46088,
+      "mean_ratio": 0.9365244020335068,
+      "min_ratio": 0.84,
+      "mean_unique_per_20": 6.687123958167437,
+      "min_unique_per_20": 4.0,
+      "mean_encounters": 8.164,
+      "mean_unique": 8.164,
+      "boss_reach": 0.856,
+      "boss_win": 0.468,
+      "survival": 0.924,
+      "milestone": 0.856,
+      "bribe_success": 0.6972602739726027,
+      "crossing_failure": 0.049315068493150684,
+      "crossing_event_count": 730,
+      "bribe_attempt_count": 730,
+      "bribe_success_count": 509,
+      "crossing_failure_count": 36,
+      "mean_camp_days": 2.108,
+      "mean_repair_days": 0.388,
+      "mean_nonmoving_days": 1.54,
+      "mean_breakdowns": 0.388,
+      "days_range": [
+        10,
+        28
+      ],
+      "physical_mpd_range": [
+        118.25,
+        177.56
+      ],
+      "encounter_range": [
+        4,
+        11
+      ],
+      "endings": {
+        "boss.victory": 117,
+        "boss_vote_failed": 76,
+        "sanity": 21,
+        "collapse_crossing": 36
+      },
+      "failure_families": {
+        "sanity": 21,
+        "crossing": 36
+      },
+      "dominant_failure": 0.631578947368421,
+      "record_ratio_failures": [
+        {
+          "seed": 1339,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1345,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1359,
+          "days": 28,
+          "moving_days": 25,
+          "ledger_days": 28,
+          "ratio": 0.8928571428571429,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1361,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1362,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1365,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1366,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1368,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1376,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1383,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1384,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1385,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1386,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1394,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1404,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1410,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1415,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1418,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1420,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1423,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1426,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1428,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1429,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1433,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1439,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1448,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1463,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1466,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1476,
+          "days": 17,
+          "moving_days": 15,
+          "ledger_days": 17,
+          "ratio": 0.8823529411764706,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1486,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1487,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1489,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1497,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1503,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1504,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1512,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1514,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1519,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1527,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1529,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1534,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1536,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1540,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1544,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1545,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1556,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1562,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1563,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1568,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1569,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1570,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1572,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        }
+      ],
+      "failures": [
+        {
+          "guard": "each-run moving-day ratio",
+          "count": 52,
+          "minimum": 0.9,
+          "observed": 0.84
+        },
+        {
+          "guard": "mean internal campaign distance",
+          "observed": 2280.0852,
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        {
+          "guard": "crossing bribe success",
+          "observed": 0.6972602739726027,
+          "minimum": 0.7,
+          "maximum": null
+        },
+        {
+          "guard": "boss reach",
+          "observed": 0.856,
+          "minimum": 0.3,
+          "maximum": 0.5
+        },
+        {
+          "guard": "boss wins",
+          "observed": 0.468,
+          "minimum": 0.2,
+          "maximum": 0.35
+        },
+        {
+          "guard": "survival or 12-day run",
+          "observed": 0.924,
+          "minimum": 0.6,
+          "maximum": 0.87
+        },
+        {
+          "guard": "dominant tracked failure family",
+          "observed": 0.631578947368421,
+          "minimum": null,
+          "maximum": 0.6
+        }
+      ]
+    },
+    "Classic - Conservative": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 26.712,
+      "mean_miles": 2095.7012,
+      "mean_physical_mpd": 115.23367999999999,
+      "mean_ratio": 0.9857069246207177,
+      "min_ratio": 0.9285714285714286,
+      "mean_unique_per_20": 7.254582437297279,
+      "min_unique_per_20": 5.925925925925926,
+      "mean_encounters": 9.688,
+      "mean_unique": 9.688,
+      "boss_reach": 0.976,
+      "boss_win": 0.316,
+      "survival": 1,
+      "milestone": 0.976,
+      "bribe_success": 0.8373333333333334,
+      "crossing_failure": 0.008,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 628,
+      "crossing_failure_count": 6,
+      "mean_camp_days": 0.416,
+      "mean_repair_days": 0.28,
+      "mean_nonmoving_days": 0.388,
+      "mean_breakdowns": 0.28,
+      "days_range": [
+        21,
+        29
+      ],
+      "physical_mpd_range": [
+        108.46,
+        132.14
+      ],
+      "encounter_range": [
+        7,
+        13
+      ],
+      "endings": {
+        "boss.victory": 79,
+        "boss_vote_failed": 165,
+        "collapse_crossing": 6
+      },
+      "failure_families": {
+        "crossing": 6
+      },
+      "dominant_failure": 1.0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Classic - Resource Manager": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 23.384,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 127.06888000000001,
+      "mean_ratio": 0.9838431884057971,
+      "min_ratio": 0.9166666666666666,
+      "mean_unique_per_20": 7.039485638998683,
+      "min_unique_per_20": 5.217391304347826,
+      "mean_encounters": 8.228,
+      "mean_unique": 8.228,
+      "boss_reach": 1,
+      "boss_win": 0.28,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.8226666666666667,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 617,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.376,
+      "mean_repair_days": 0.308,
+      "mean_nonmoving_days": 0.384,
+      "mean_breakdowns": 0.308,
+      "days_range": [
+        22,
+        25
+      ],
+      "physical_mpd_range": [
+        116.84,
+        132.77
+      ],
+      "encounter_range": [
+        6,
+        11
+      ],
+      "endings": {
+        "boss.victory": 70,
+        "boss_vote_failed": 178,
+        "sanity": 2
+      },
+      "failure_families": {
+        "sanity": 2
+      },
+      "dominant_failure": 1.0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Aggressive": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 23.324,
+      "mean_miles": 2050.1756,
+      "mean_physical_mpd": 136.66132,
+      "mean_ratio": 0.9296044187696362,
+      "min_ratio": 0.8461538461538461,
+      "mean_unique_per_20": 7.222889713185365,
+      "min_unique_per_20": 4.0,
+      "mean_encounters": 8.496,
+      "mean_unique": 8.496,
+      "boss_reach": 0.98,
+      "boss_win": 0.724,
+      "survival": 0.984,
+      "milestone": 0.98,
+      "bribe_success": 0.8740849194729137,
+      "crossing_failure": 0.006711409395973154,
+      "crossing_event_count": 745,
+      "bribe_attempt_count": 683,
+      "bribe_success_count": 597,
+      "crossing_failure_count": 5,
+      "mean_camp_days": 2.12,
+      "mean_repair_days": 0.396,
+      "mean_nonmoving_days": 1.668,
+      "mean_breakdowns": 0.396,
+      "days_range": [
+        10,
+        26
+      ],
+      "physical_mpd_range": [
+        118.92,
+        180.1
+      ],
+      "encounter_range": [
+        4,
+        11
+      ],
+      "endings": {
+        "boss.victory": 181,
+        "sanity": 64,
+        "collapse_crossing": 5
+      },
+      "failure_families": {
+        "sanity": 64,
+        "crossing": 5
+      },
+      "dominant_failure": 0.927536231884058,
+      "record_ratio_failures": [
+        {
+          "seed": 1339,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1341,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1344,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1358,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1363,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1367,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1374,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1375,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1387,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1390,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1400,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1405,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1406,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1407,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1418,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1422,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1424,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1430,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1446,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1464,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1475,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1480,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1481,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1484,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1494,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1501,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1505,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1512,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1523,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1524,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1526,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1530,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1533,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1544,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1547,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1550,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1566,
+          "days": 23,
+          "moving_days": 20,
+          "ledger_days": 23,
+          "ratio": 0.8695652173913043,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1571,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1573,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1575,
+          "days": 24,
+          "moving_days": 21,
+          "ledger_days": 24,
+          "ratio": 0.875,
+          "cause": "boss.victory"
+        }
+      ],
+      "failures": [
+        {
+          "guard": "each-run moving-day ratio",
+          "count": 40,
+          "minimum": 0.9,
+          "observed": 0.8461538461538461
+        }
+      ]
+    },
+    "Deep - Balanced": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 23.736,
+      "mean_miles": 2280.8592,
+      "mean_physical_mpd": 130.58044,
+      "mean_ratio": 0.9227392483982617,
+      "min_ratio": 0.8214285714285714,
+      "mean_unique_per_20": 6.5805230698448085,
+      "min_unique_per_20": 4.0,
+      "mean_encounters": 8.144,
+      "mean_unique": 8.144,
+      "boss_reach": 0.856,
+      "boss_win": 0.316,
+      "survival": 0.92,
+      "milestone": 0.856,
+      "bribe_success": 0.6972602739726027,
+      "crossing_failure": 0.049315068493150684,
+      "crossing_event_count": 730,
+      "bribe_attempt_count": 730,
+      "bribe_success_count": 509,
+      "crossing_failure_count": 36,
+      "mean_camp_days": 2.632,
+      "mean_repair_days": 0.336,
+      "mean_nonmoving_days": 1.916,
+      "mean_breakdowns": 0.336,
+      "days_range": [
+        10,
+        28
+      ],
+      "physical_mpd_range": [
+        113.7,
+        177.04
+      ],
+      "encounter_range": [
+        4,
+        12
+      ],
+      "endings": {
+        "boss.victory": 79,
+        "boss_vote_failed": 103,
+        "sanity": 32,
+        "collapse_crossing": 36
+      },
+      "failure_families": {
+        "sanity": 32,
+        "crossing": 36
+      },
+      "dominant_failure": 0.5294117647058824,
+      "record_ratio_failures": [
+        {
+          "seed": 1338,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1339,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1341,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1344,
+          "days": 18,
+          "moving_days": 16,
+          "ledger_days": 18,
+          "ratio": 0.8888888888888888,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1349,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1350,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1359,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1362,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1365,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1366,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1367,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1369,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1380,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1384,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1386,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1387,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1388,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1392,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1397,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1398,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1400,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1401,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1404,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1405,
+          "days": 28,
+          "moving_days": 24,
+          "ledger_days": 28,
+          "ratio": 0.8571428571428571,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1406,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1410,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1411,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1412,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1415,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1418,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1422,
+          "days": 28,
+          "moving_days": 23,
+          "ledger_days": 28,
+          "ratio": 0.8214285714285714,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1432,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1433,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1440,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1441,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1446,
+          "days": 18,
+          "moving_days": 16,
+          "ledger_days": 18,
+          "ratio": 0.8888888888888888,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1450,
+          "days": 28,
+          "moving_days": 25,
+          "ledger_days": 28,
+          "ratio": 0.8928571428571429,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1451,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1456,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1465,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1466,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1471,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1472,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1474,
+          "days": 25,
+          "moving_days": 21,
+          "ledger_days": 25,
+          "ratio": 0.84,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1475,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1479,
+          "days": 19,
+          "moving_days": 17,
+          "ledger_days": 19,
+          "ratio": 0.8947368421052632,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1480,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1481,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1486,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1491,
+          "days": 18,
+          "moving_days": 16,
+          "ledger_days": 18,
+          "ratio": 0.8888888888888888,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1496,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1498,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1504,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1505,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1507,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1510,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1516,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1518,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1527,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1529,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1531,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1535,
+          "days": 18,
+          "moving_days": 16,
+          "ledger_days": 18,
+          "ratio": 0.8888888888888888,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1536,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1537,
+          "days": 27,
+          "moving_days": 23,
+          "ledger_days": 27,
+          "ratio": 0.8518518518518519,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1540,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1543,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1547,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1550,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1555,
+          "days": 17,
+          "moving_days": 15,
+          "ledger_days": 17,
+          "ratio": 0.8823529411764706,
+          "cause": "collapse_crossing"
+        },
+        {
+          "seed": 1556,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1557,
+          "days": 27,
+          "moving_days": 24,
+          "ledger_days": 27,
+          "ratio": 0.8888888888888888,
+          "cause": "sanity"
+        },
+        {
+          "seed": 1563,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss.victory"
+        },
+        {
+          "seed": 1570,
+          "days": 26,
+          "moving_days": 22,
+          "ledger_days": 26,
+          "ratio": 0.8461538461538461,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1577,
+          "days": 26,
+          "moving_days": 23,
+          "ledger_days": 26,
+          "ratio": 0.8846153846153846,
+          "cause": "boss_vote_failed"
+        },
+        {
+          "seed": 1583,
+          "days": 25,
+          "moving_days": 22,
+          "ledger_days": 25,
+          "ratio": 0.88,
+          "cause": "boss.victory"
+        }
+      ],
+      "failures": [
+        {
+          "guard": "each-run moving-day ratio",
+          "count": 75,
+          "minimum": 0.9,
+          "observed": 0.8214285714285714
+        },
+        {
+          "guard": "mean internal campaign distance",
+          "observed": 2280.8592,
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        {
+          "guard": "crossing bribe success",
+          "observed": 0.6972602739726027,
+          "minimum": 0.7,
+          "maximum": null
+        }
+      ]
+    },
+    "Deep - Conservative": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 26.888,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 114.9024,
+      "mean_ratio": 0.9838304492442423,
+      "min_ratio": 0.9259259259259259,
+      "mean_unique_per_20": 7.266949220383703,
+      "min_unique_per_20": 5.925925925925926,
+      "mean_encounters": 9.772,
+      "mean_unique": 9.772,
+      "boss_reach": 1,
+      "boss_win": 0.32,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.868,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 651,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.428,
+      "mean_repair_days": 0.34,
+      "mean_nonmoving_days": 0.44,
+      "mean_breakdowns": 0.34,
+      "days_range": [
+        25,
+        29
+      ],
+      "physical_mpd_range": [
+        108.46,
+        121.47
+      ],
+      "encounter_range": [
+        8,
+        13
+      ],
+      "endings": {
+        "boss.victory": 80,
+        "boss_vote_failed": 170
+      },
+      "failure_families": {},
+      "dominant_failure": 0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Resource Manager": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 23.44,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 126.87096,
+      "mean_ratio": 0.9831704347826087,
+      "min_ratio": 0.9166666666666666,
+      "mean_unique_per_20": 7.003283267457181,
+      "min_unique_per_20": 5.0,
+      "mean_encounters": 8.208,
+      "mean_unique": 8.208,
+      "boss_reach": 1,
+      "boss_win": 0.276,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.8226666666666667,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 617,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.424,
+      "mean_repair_days": 0.416,
+      "mean_nonmoving_days": 0.4,
+      "mean_breakdowns": 0.416,
+      "days_range": [
+        22,
+        25
+      ],
+      "physical_mpd_range": [
+        121.71,
+        132.77
+      ],
+      "encounter_range": [
+        6,
+        10
+      ],
+      "endings": {
+        "boss.victory": 69,
+        "boss_vote_failed": 181
+      },
+      "failure_families": {},
+      "dominant_failure": 0,
+      "record_ratio_failures": [],
+      "failures": []
+    }
+  },
+  "all_failures": [
+    {
+      "scenario": "Classic - Aggressive",
+      "guard": "each-run moving-day ratio",
+      "count": 40,
+      "minimum": 0.9,
+      "observed": 0.8461538461538461
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "each-run moving-day ratio",
+      "count": 52,
+      "minimum": 0.9,
+      "observed": 0.84
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "mean internal campaign distance",
+      "observed": 2280.0852,
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "crossing bribe success",
+      "observed": 0.6972602739726027,
+      "minimum": 0.7,
+      "maximum": null
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "boss reach",
+      "observed": 0.856,
+      "minimum": 0.3,
+      "maximum": 0.5
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "boss wins",
+      "observed": 0.468,
+      "minimum": 0.2,
+      "maximum": 0.35
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "survival or 12-day run",
+      "observed": 0.924,
+      "minimum": 0.6,
+      "maximum": 0.87
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "dominant tracked failure family",
+      "observed": 0.631578947368421,
+      "minimum": null,
+      "maximum": 0.6
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "guard": "each-run moving-day ratio",
+      "count": 40,
+      "minimum": 0.9,
+      "observed": 0.8461538461538461
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "guard": "each-run moving-day ratio",
+      "count": 75,
+      "minimum": 0.9,
+      "observed": 0.8214285714285714
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "guard": "mean internal campaign distance",
+      "observed": 2280.8592,
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "guard": "crossing bribe success",
+      "observed": 0.6972602739726027,
+      "minimum": 0.7,
+      "maximum": null
+    }
+  ]
+}

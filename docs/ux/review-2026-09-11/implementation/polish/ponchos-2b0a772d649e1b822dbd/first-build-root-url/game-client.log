@@ -1,0 +1,7 @@
+Failed to click selector button:has-text("Choose your character") page.click: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for locator('button:has-text("Choose your character")')[22m
+
+    at main (/Users/vanna/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js:292:18) {
+  name: 'TimeoutError'
+}

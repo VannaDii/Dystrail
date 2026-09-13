@@ -1,0 +1,12 @@
+[
+  {
+    "file": "safari-feedback.mjs",
+    "checked": 118,
+    "failures": []
+  },
+  {
+    "file": "safari-smoke.mjs",
+    "checked": 155,
+    "failures": []
+  }
+]

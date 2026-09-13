@@ -1,0 +1,38 @@
+   Compiling libc v0.2.178
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling syn v2.0.111
+   Compiling serde_derive v1.0.228
+   Compiling thiserror-impl v2.0.17
+   Compiling thiserror v2.0.17
+   Compiling serde_json v1.0.145
+   Compiling getrandom v0.2.16
+   Compiling cpufeatures v0.2.17
+   Compiling sha2 v0.10.9
+   Compiling rand_core v0.6.4
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.8
+   Compiling smallvec v1.15.1
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.24s
+     Running unittests src/lib.rs (target/debug/deps/dystrail_game-4a70b9969783f953)
+
+running 1 test
+test day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route ... FAILED
+
+failures:
+
+---- day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route stdout ----
+
+thread 'day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route' (61520612) panicked at dystrail-game/src/day_accounting.rs:297:13:
+assertion failed: (state.miles_traveled_actual - before.miles_traveled_actual).abs() <
+    f32::EPSILON
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 135 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p dystrail-game --lib`

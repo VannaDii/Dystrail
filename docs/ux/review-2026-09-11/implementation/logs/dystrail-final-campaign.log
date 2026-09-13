@@ -1,0 +1,12 @@
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-tester)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.27s
+     Running `target/debug/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report console`
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+Error: Playability expectation failed for mode Classic, strategy Aggressive, seed 1337 (iteration 273)
+
+Caused by:
+    Aggressive runs should accumulate risk, observed pants 2

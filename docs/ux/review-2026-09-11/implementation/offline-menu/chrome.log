@@ -1,0 +1,21 @@
+
+Running 8 tests using 1 worker
+
+(node:13599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (2.6s)
+  ✓  2 [chromium] › tests-e2e/offline-status.spec.ts:31:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (717ms)
+  ✓  3 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (3.5s)
+  ✓  4 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (4.4s)
+(node:13741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (3.4s)
+  ✓  6 [mobile] › tests-e2e/offline-status.spec.ts:31:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (646ms)
+  ✓  7 [mobile] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (3.4s)
+  ✓  8 [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (4.4s)
+
+  8 passed (24.5s)

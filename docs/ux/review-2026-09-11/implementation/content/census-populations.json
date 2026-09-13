@@ -1,0 +1,418 @@
+{
+  "dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+  "year": 2025,
+  "as_of": "2025-07-01",
+  "checked": "2026-09-12",
+  "csv_sha256": "e3508f5201465913476d4ddf91740f191f7977c9f2614a2a7e30b5fd22027934",
+  "definition": "July 1 resident population estimate for the incorporated city, not its metro area.",
+  "towns": [
+    {
+      "town": "Minneapolis",
+      "name": "Minneapolis city",
+      "state": "Minnesota",
+      "fips": "2743000",
+      "population": 430324,
+      "source": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/PST045225"
+    },
+    {
+      "town": "La Crosse",
+      "name": "La Crosse city",
+      "state": "Wisconsin",
+      "fips": "5540775",
+      "population": 50784,
+      "source": "https://www.census.gov/quickfacts/fact/table/lacrossecitywisconsin/PST045225"
+    },
+    {
+      "town": "Madison",
+      "name": "Madison city",
+      "state": "Wisconsin",
+      "fips": "5548000",
+      "population": 286233,
+      "source": "https://www.census.gov/quickfacts/fact/table/madisoncitywisconsin/PST045225"
+    },
+    {
+      "town": "Chicago",
+      "name": "Chicago city",
+      "state": "Illinois",
+      "fips": "1714000",
+      "population": 2731585,
+      "source": "https://www.census.gov/quickfacts/fact/table/chicagocityillinois/PST045225"
+    },
+    {
+      "town": "South Bend",
+      "name": "South Bend city",
+      "state": "Indiana",
+      "fips": "1871000",
+      "population": 103201,
+      "source": "https://www.census.gov/quickfacts/fact/table/southbendcityindiana/PST045225"
+    },
+    {
+      "town": "Toledo",
+      "name": "Toledo city",
+      "state": "Ohio",
+      "fips": "3977000",
+      "population": 263423,
+      "source": "https://www.census.gov/quickfacts/fact/table/toledocityohio/PST045225"
+    },
+    {
+      "town": "Cleveland",
+      "name": "Cleveland city",
+      "state": "Ohio",
+      "fips": "3916000",
+      "population": 363608,
+      "source": "https://www.census.gov/quickfacts/fact/table/clevelandcityohio/PST045225"
+    },
+    {
+      "town": "Pittsburgh",
+      "name": "Pittsburgh city",
+      "state": "Pennsylvania",
+      "fips": "4261000",
+      "population": 307632,
+      "source": "https://www.census.gov/quickfacts/fact/table/pittsburghcitypennsylvania/PST045225"
+    },
+    {
+      "town": "Cumberland",
+      "name": "Cumberland city",
+      "state": "Maryland",
+      "fips": "2421325",
+      "population": 18799,
+      "source": "https://www.census.gov/quickfacts/fact/table/cumberlandcitymaryland/PST045225"
+    },
+    {
+      "town": "Hagerstown",
+      "name": "Hagerstown city",
+      "state": "Maryland",
+      "fips": "2436075",
+      "population": 44228,
+      "source": "https://www.census.gov/quickfacts/fact/table/hagerstowncitymaryland/PST045225"
+    },
+    {
+      "town": "Frederick",
+      "name": "Frederick city",
+      "state": "Maryland",
+      "fips": "2430325",
+      "population": 92059,
+      "source": "https://www.census.gov/quickfacts/fact/table/frederickcitymaryland/PST045225"
+    },
+    {
+      "town": "D.C.",
+      "name": "Washington city",
+      "state": "District of Columbia",
+      "fips": "1150000",
+      "population": 693645,
+      "source": "https://www.census.gov/quickfacts/fact/table/districtofcolumbiadistrictofcolumbia/PST045225"
+    },
+    {
+      "town": "Kansas City",
+      "name": "Kansas City city",
+      "state": "Missouri",
+      "fips": "2938000",
+      "population": 521220,
+      "source": "https://www.census.gov/quickfacts/fact/table/kansascitycitymissouri/PST045225"
+    },
+    {
+      "town": "Columbia",
+      "name": "Columbia city",
+      "state": "Missouri",
+      "fips": "2915670",
+      "population": 130851,
+      "source": "https://www.census.gov/quickfacts/fact/table/columbiacitymissouri/PST045225"
+    },
+    {
+      "town": "St. Louis",
+      "name": "St. Louis city",
+      "state": "Missouri",
+      "fips": "2965000",
+      "population": 278144,
+      "source": "https://www.census.gov/quickfacts/fact/table/stlouiscitymissouri/PST045225"
+    },
+    {
+      "town": "Springfield, IL",
+      "name": "Springfield city",
+      "state": "Illinois",
+      "fips": "1772000",
+      "population": 112989,
+      "source": "https://www.census.gov/quickfacts/fact/table/springfieldcityillinois/PST045225"
+    },
+    {
+      "town": "Denver",
+      "name": "Denver city",
+      "state": "Colorado",
+      "fips": "0820000",
+      "population": 740613,
+      "source": "https://www.census.gov/quickfacts/fact/table/denvercitycolorado/PST045225"
+    },
+    {
+      "town": "North Platte",
+      "name": "North Platte city",
+      "state": "Nebraska",
+      "fips": "3135000",
+      "population": 22524,
+      "source": "https://www.census.gov/quickfacts/fact/table/northplattecitynebraska/PST045225"
+    },
+    {
+      "town": "Omaha",
+      "name": "Omaha city",
+      "state": "Nebraska",
+      "fips": "3137000",
+      "population": 488797,
+      "source": "https://www.census.gov/quickfacts/fact/table/omahacitynebraska/PST045225"
+    },
+    {
+      "town": "Des Moines",
+      "name": "Des Moines city",
+      "state": "Iowa",
+      "fips": "1921000",
+      "population": 212086,
+      "source": "https://www.census.gov/quickfacts/fact/table/desmoinescityiowa/PST045225"
+    },
+    {
+      "town": "Iowa City",
+      "name": "Iowa City city",
+      "state": "Iowa",
+      "fips": "1938595",
+      "population": 76229,
+      "source": "https://www.census.gov/quickfacts/fact/table/iowacitycityiowa/PST045225"
+    },
+    {
+      "town": "Austin",
+      "name": "Austin city",
+      "state": "Texas",
+      "fips": "4805000",
+      "population": 1002632,
+      "source": "https://www.census.gov/quickfacts/fact/table/austincitytexas/PST045225"
+    },
+    {
+      "town": "Waco",
+      "name": "Waco city",
+      "state": "Texas",
+      "fips": "4876000",
+      "population": 147788,
+      "source": "https://www.census.gov/quickfacts/fact/table/wacocitytexas/PST045225"
+    },
+    {
+      "town": "Dallas",
+      "name": "Dallas city",
+      "state": "Texas",
+      "fips": "4819000",
+      "population": 1329491,
+      "source": "https://www.census.gov/quickfacts/fact/table/dallascitytexas/PST045225"
+    },
+    {
+      "town": "Oklahoma City",
+      "name": "Oklahoma City city",
+      "state": "Oklahoma",
+      "fips": "4055000",
+      "population": 719849,
+      "source": "https://www.census.gov/quickfacts/fact/table/oklahomacitycityoklahoma/PST045225"
+    },
+    {
+      "town": "Tulsa",
+      "name": "Tulsa city",
+      "state": "Oklahoma",
+      "fips": "4075000",
+      "population": 416209,
+      "source": "https://www.census.gov/quickfacts/fact/table/tulsacityoklahoma/PST045225"
+    },
+    {
+      "town": "Joplin",
+      "name": "Joplin city",
+      "state": "Missouri",
+      "fips": "2937592",
+      "population": 53930,
+      "source": "https://www.census.gov/quickfacts/fact/table/joplincitymissouri/PST045225"
+    },
+    {
+      "town": "Springfield, MO",
+      "name": "Springfield city",
+      "state": "Missouri",
+      "fips": "2970000",
+      "population": 169847,
+      "source": "https://www.census.gov/quickfacts/fact/table/springfieldcitymissouri/PST045225"
+    },
+    {
+      "town": "Seattle",
+      "name": "Seattle city",
+      "state": "Washington",
+      "fips": "5363000",
+      "population": 784777,
+      "source": "https://www.census.gov/quickfacts/fact/table/seattlecitywashington/PST045225"
+    },
+    {
+      "town": "Portland",
+      "name": "Portland city",
+      "state": "Oregon",
+      "fips": "4159000",
+      "population": 635109,
+      "source": "https://www.census.gov/quickfacts/fact/table/portlandcityoregon/PST045225"
+    },
+    {
+      "town": "San Francisco",
+      "name": "San Francisco city",
+      "state": "California",
+      "fips": "0667000",
+      "population": 826079,
+      "source": "https://www.census.gov/quickfacts/fact/table/sanfranciscocitycalifornia/PST045225"
+    },
+    {
+      "town": "Los Angeles",
+      "name": "Los Angeles city",
+      "state": "California",
+      "fips": "0644000",
+      "population": 3869089,
+      "source": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/PST045225"
+    },
+    {
+      "town": "Sacramento",
+      "name": "Sacramento city",
+      "state": "California",
+      "fips": "0664000",
+      "population": 536449,
+      "source": "https://www.census.gov/quickfacts/fact/table/sacramentocitycalifornia/PST045225"
+    },
+    {
+      "town": "San Diego",
+      "name": "San Diego city",
+      "state": "California",
+      "fips": "0666000",
+      "population": 1406106,
+      "source": "https://www.census.gov/quickfacts/fact/table/sandiegocitycalifornia/PST045225"
+    },
+    {
+      "town": "Spokane",
+      "name": "Spokane city",
+      "state": "Washington",
+      "fips": "5367000",
+      "population": 230783,
+      "source": "https://www.census.gov/quickfacts/fact/table/spokanecitywashington/PST045225"
+    },
+    {
+      "town": "Missoula",
+      "name": "Missoula city",
+      "state": "Montana",
+      "fips": "3050200",
+      "population": 78903,
+      "source": "https://www.census.gov/quickfacts/fact/table/missoulacitymontana/PST045225"
+    },
+    {
+      "town": "Billings",
+      "name": "Billings city",
+      "state": "Montana",
+      "fips": "3006550",
+      "population": 121239,
+      "source": "https://www.census.gov/quickfacts/fact/table/billingscitymontana/PST045225"
+    },
+    {
+      "town": "Rapid City",
+      "name": "Rapid City city",
+      "state": "South Dakota",
+      "fips": "4652980",
+      "population": 80589,
+      "source": "https://www.census.gov/quickfacts/fact/table/rapidcitycitysouthdakota/PST045225"
+    },
+    {
+      "town": "Sioux Falls",
+      "name": "Sioux Falls city",
+      "state": "South Dakota",
+      "fips": "4659020",
+      "population": 213748,
+      "source": "https://www.census.gov/quickfacts/fact/table/siouxfallscitysouthdakota/PST045225"
+    },
+    {
+      "town": "Boise",
+      "name": "Boise City city",
+      "state": "Idaho",
+      "fips": "1608830",
+      "population": 238429,
+      "source": "https://www.census.gov/quickfacts/fact/table/boisecitycityidaho/PST045225"
+    },
+    {
+      "town": "Salt Lake City",
+      "name": "Salt Lake City city",
+      "state": "Utah",
+      "fips": "4967000",
+      "population": 218428,
+      "source": "https://www.census.gov/quickfacts/fact/table/saltlakecitycityutah/PST045225"
+    },
+    {
+      "town": "Reno",
+      "name": "Reno city",
+      "state": "Nevada",
+      "fips": "3260600",
+      "population": 283621,
+      "source": "https://www.census.gov/quickfacts/fact/table/renocitynevada/PST045225"
+    },
+    {
+      "town": "Cheyenne",
+      "name": "Cheyenne city",
+      "state": "Wyoming",
+      "fips": "5613900",
+      "population": 66507,
+      "source": "https://www.census.gov/quickfacts/fact/table/cheyennecitywyoming/PST045225"
+    },
+    {
+      "town": "Las Vegas",
+      "name": "Las Vegas city",
+      "state": "Nevada",
+      "fips": "3240000",
+      "population": 679817,
+      "source": "https://www.census.gov/quickfacts/fact/table/lasvegascitynevada/PST045225"
+    },
+    {
+      "town": "Flagstaff",
+      "name": "Flagstaff city",
+      "state": "Arizona",
+      "fips": "0423620",
+      "population": 77260,
+      "source": "https://www.census.gov/quickfacts/fact/table/flagstaffcityarizona/PST045225"
+    },
+    {
+      "town": "Albuquerque",
+      "name": "Albuquerque city",
+      "state": "New Mexico",
+      "fips": "3502000",
+      "population": 556588,
+      "source": "https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico/PST045225"
+    },
+    {
+      "town": "Amarillo",
+      "name": "Amarillo city",
+      "state": "Texas",
+      "fips": "4803000",
+      "population": 205130,
+      "source": "https://www.census.gov/quickfacts/fact/table/amarillocitytexas/PST045225"
+    },
+    {
+      "town": "Phoenix",
+      "name": "Phoenix city",
+      "state": "Arizona",
+      "fips": "0455000",
+      "population": 1665481,
+      "source": "https://www.census.gov/quickfacts/fact/table/phoenixcityarizona/PST045225"
+    },
+    {
+      "town": "Tucson",
+      "name": "Tucson city",
+      "state": "Arizona",
+      "fips": "0477000",
+      "population": 548371,
+      "source": "https://www.census.gov/quickfacts/fact/table/tucsoncityarizona/PST045225"
+    },
+    {
+      "town": "El Paso",
+      "name": "El Paso city",
+      "state": "Texas",
+      "fips": "4824000",
+      "population": 683012,
+      "source": "https://www.census.gov/quickfacts/fact/table/elpasocitytexas/PST045225"
+    },
+    {
+      "town": "San Antonio",
+      "name": "San Antonio city",
+      "state": "Texas",
+      "fips": "4865000",
+      "population": 1548422,
+      "source": "https://www.census.gov/quickfacts/fact/table/sanantoniocitytexas/PST045225"
+    }
+  ]
+}

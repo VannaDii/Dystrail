@@ -5,6 +5,8 @@ use yew::prelude::*;
 pub struct PersonaPageProps {
     pub on_selected: Callback<Persona>,
     pub on_continue: Callback<()>,
+    #[prop_or_default]
+    pub initial_id: Option<String>,
 }
 
 impl PartialEq for PersonaPageProps {
@@ -16,9 +18,11 @@ impl PartialEq for PersonaPageProps {
 
 #[function_component(PersonaPage)]
 pub fn persona_page(props: &PersonaPageProps) -> Html {
+    crate::i18n::use_language();
     html! {
       <section class="panel retro-menu">
         <crate::components::ui::persona_select::PersonaSelect
+            initial_id={props.initial_id.clone()}
             on_selected={Some(props.on_selected.clone())}
             on_continue={Some(props.on_continue.clone())}
         />

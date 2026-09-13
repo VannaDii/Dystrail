@@ -1,0 +1,19 @@
+{
+  "prior": "8b8fcc3f7004fd8ec354",
+  "expected": "33dd2b05a6658d330912",
+  "url": "http://127.0.0.1:62984/play/",
+  "basis": "Exact old and newly published artifacts served on one disposable local origin",
+  "errors": [],
+  "updatePreservedSave": true,
+  "offlineAssets": {
+    "count": 119,
+    "failures": [],
+    "preparedImages": 68,
+    "imagesReady": true,
+    "fonts": 7,
+    "fontsReady": true
+  },
+  "offlineReloadPreservedSave": true,
+  "closedBrowserOfflineRestartPreservedSave": true,
+  "passed": true
+}

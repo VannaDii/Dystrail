@@ -9,7 +9,6 @@ use std::cell::{RefCell, RefMut};
 use std::collections::HashMap;
 use std::rc::Rc;
 use std::sync::OnceLock;
-use std::time::Instant;
 use thiserror::Error;
 
 use crate::endgame::EndgameTravelCfg;
@@ -18,10 +17,13 @@ use crate::vehicle::PartWeights;
 use crate::weather::Weather;
 
 pub mod daily;
+pub mod daily_overlay;
 pub mod event;
+pub mod rng_save;
 pub mod session;
 pub use daily::{DailyTickOutcome, apply_daily_effect};
 pub use event::{Event, EventDecisionTrace, EventId, EventKind, EventSeverity, UiSurfaceHint};
+use rng_save::RngCall;
 pub use session::JourneySession;
 
 /// Maximum tag capacity stored inline without additional allocations.
@@ -361,8 +363,6 @@ impl Default for AcceptanceGuards {
 /// Errors raised when journey configuration invariants are violated.
 #[derive(Debug, Error, PartialEq)]
 pub enum JourneyConfigError {
-    #[error("travel minimum {min:.2} exceeds maximum {max:.2}")]
-    TravelMinExceedsMax { min: f32, max: f32 },
     #[error("{field} must be at least {min:.2} (got {value:.2})")]
     MinViolation {
         field: &'static str,
@@ -390,42 +390,14 @@ pub enum JourneyConfigError {
     },
 }
 
-/// Policy-driven travel pacing configuration.
+/// Policy-driven weather effects on travel speed.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct TravelConfig {
-    #[serde(default = "TravelConfig::default_mpd_base")]
-    pub mpd_base: f32,
-    #[serde(default = "TravelConfig::default_mpd_min")]
-    pub mpd_min: f32,
-    #[serde(default = "TravelConfig::default_mpd_max")]
-    pub mpd_max: f32,
-    #[serde(default = "TravelConfig::default_pace_factor")]
-    pub pace_factor: HashMap<PaceId, f32>,
     #[serde(default = "TravelConfig::default_weather_factor")]
     pub weather_factor: HashMap<Weather, f32>,
 }
 
 impl TravelConfig {
-    const fn default_mpd_base() -> f32 {
-        crate::constants::TRAVEL_V2_BASE_DISTANCE
-    }
-
-    const fn default_mpd_min() -> f32 {
-        6.0
-    }
-
-    const fn default_mpd_max() -> f32 {
-        24.0
-    }
-
-    fn default_pace_factor() -> HashMap<PaceId, f32> {
-        HashMap::from([
-            (PaceId::Steady, 1.0),
-            (PaceId::Heated, 1.2),
-            (PaceId::Blitz, 1.35),
-        ])
-    }
-
     fn default_weather_factor() -> HashMap<Weather, f32> {
         HashMap::from([
             (Weather::Clear, 1.0),
@@ -439,38 +411,7 @@ impl TravelConfig {
 
 impl TravelConfig {
     fn validate(&self) -> Result<(), JourneyConfigError> {
-        let min_floor = crate::constants::TRAVEL_PARTIAL_MIN_DISTANCE;
-        if self.mpd_min < min_floor {
-            return Err(JourneyConfigError::MinViolation {
-                field: "travel.mpd_min",
-                min: min_floor,
-                value: self.mpd_min,
-            });
-        }
-        if self.mpd_min > self.mpd_max {
-            return Err(JourneyConfigError::TravelMinExceedsMax {
-                min: self.mpd_min,
-                max: self.mpd_max,
-            });
-        }
-        if self.mpd_base < self.mpd_min || self.mpd_base > self.mpd_max {
-            return Err(JourneyConfigError::RangeViolation {
-                field: "travel.mpd_base",
-                min: self.mpd_min,
-                max: self.mpd_max,
-                value: self.mpd_base,
-            });
-        }
         let multiplier_floor = crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER;
-        for &value in self.pace_factor.values() {
-            if value < multiplier_floor {
-                return Err(JourneyConfigError::MinViolation {
-                    field: "travel.pace_factor",
-                    min: multiplier_floor,
-                    value,
-                });
-            }
-        }
         for &value in self.weather_factor.values() {
             if value < multiplier_floor {
                 return Err(JourneyConfigError::MinViolation {
@@ -487,10 +428,6 @@ impl TravelConfig {
 impl Default for TravelConfig {
     fn default() -> Self {
         Self {
-            mpd_base: Self::default_mpd_base(),
-            mpd_min: Self::default_mpd_min(),
-            mpd_max: Self::default_mpd_max(),
-            pace_factor: Self::default_pace_factor(),
             weather_factor: Self::default_weather_factor(),
         }
     }
@@ -534,7 +471,7 @@ pub struct CrossingPolicy {
     #[serde(default = "CrossingPolicy::default_terminal")]
     pub terminal: f32,
     #[serde(default)]
-    pub detour_days: DetourPolicy,
+    pub detour_hours: DetourPolicy,
     #[serde(default)]
     pub bribe: BribePolicy,
     #[serde(default)]
@@ -566,8 +503,8 @@ impl CrossingPolicy {
         if let Some(terminal) = overlay.terminal {
             merged.terminal = terminal;
         }
-        if let Some(detour_days) = overlay.detour_days.as_ref() {
-            merged.detour_days = detour_days.clone();
+        if let Some(detour_hours) = overlay.detour_hours.as_ref() {
+            merged.detour_hours = detour_hours.clone();
         }
         if let Some(bribe) = overlay.bribe.as_ref() {
             merged.bribe = bribe.clone();
@@ -598,16 +535,16 @@ impl CrossingPolicy {
             self.detour /= renormalized;
             self.terminal /= renormalized;
         }
-        self.detour_days.sanitize();
+        self.detour_hours.sanitize();
         self.bribe.sanitize();
         self.permit.sanitize();
     }
 
     fn validate(&self) -> Result<(), JourneyConfigError> {
-        if self.detour_days.min > self.detour_days.max {
+        if self.detour_hours.min > self.detour_hours.max {
             return Err(JourneyConfigError::CrossingDetourBounds {
-                min: self.detour_days.min,
-                max: self.detour_days.max,
+                min: self.detour_hours.min,
+                max: self.detour_hours.max,
             });
         }
         if self.pass < 0.0 || self.detour < 0.0 || self.terminal < 0.0 {
@@ -816,7 +753,7 @@ impl Default for CrossingPolicy {
             pass: Self::default_pass(),
             detour: Self::default_detour(),
             terminal: Self::default_terminal(),
-            detour_days: DetourPolicy::default(),
+            detour_hours: DetourPolicy::default(),
             bribe: BribePolicy::default(),
             permit: PermitPolicy::default(),
         }
@@ -841,8 +778,7 @@ impl DetourPolicy {
         3
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         if self.min == 0 {
             self.min = 1;
         }
@@ -879,8 +815,7 @@ impl BribePolicy {
         0.5
     }
 
-    fn sanitize(&mut self) {
-        let _ = Instant::now();
+    const fn sanitize(&mut self) {
         self.pass_bonus = self.pass_bonus.clamp(-0.9, 0.9);
         self.detour_bonus = self.detour_bonus.clamp(-0.9, 0.9);
         self.terminal_penalty = self.terminal_penalty.clamp(-0.9, 0.9);
@@ -931,7 +866,7 @@ pub struct CrossingPolicyOverlay {
     pub detour: Option<f32>,
     pub terminal: Option<f32>,
     #[serde(default)]
-    pub detour_days: Option<DetourPolicy>,
+    pub detour_hours: Option<DetourPolicy>,
     #[serde(default)]
     pub bribe: Option<BribePolicy>,
     #[serde(default)]
@@ -955,6 +890,8 @@ pub struct JourneyOverlay {
     pub crossing: Option<CrossingPolicyOverlay>,
     #[serde(default)]
     pub guards: Option<AcceptanceGuardsOverlay>,
+    #[serde(default)]
+    pub daily: Option<daily_overlay::DailyTickOverlay>,
 }
 
 impl JourneyCfg {
@@ -983,6 +920,9 @@ impl JourneyCfg {
         if let Some(crossing_overlay) = overlay.crossing.as_ref() {
             merged.crossing = merged.crossing.with_overlay(crossing_overlay);
         }
+        if let Some(daily) = overlay.daily.as_ref() {
+            merged.daily.apply_overlay(daily);
+        }
         if let Some(guards_overlay) = overlay.guards.as_ref() {
             merged.guards = merged.guards.with_overlay(guards_overlay);
         }
@@ -999,14 +939,9 @@ pub struct AcceptanceGuardsOverlay {
     pub target_days_max: Option<u16>,
 }
 
-/// Overlay of travel pacing parameters.
+/// Overlay of weather effects on travel speed.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub struct TravelConfigOverlay {
-    pub mpd_base: Option<f32>,
-    pub mpd_min: Option<f32>,
-    pub mpd_max: Option<f32>,
-    #[serde(default)]
-    pub pace_factor: Option<HashMap<PaceId, f32>>,
     #[serde(default)]
     pub weather_factor: Option<HashMap<Weather, f32>>,
 }
@@ -1015,20 +950,6 @@ impl TravelConfig {
     #[must_use]
     fn with_overlay(&self, overlay: &TravelConfigOverlay) -> Self {
         let mut merged = self.clone();
-        if let Some(base) = overlay.mpd_base {
-            merged.mpd_base = base;
-        }
-        if let Some(min) = overlay.mpd_min {
-            merged.mpd_min = min;
-        }
-        if let Some(max) = overlay.mpd_max {
-            merged.mpd_max = max;
-        }
-        if let Some(pace_map) = overlay.pace_factor.as_ref() {
-            for (&pace, &value) in pace_map {
-                merged.pace_factor.insert(pace, value);
-            }
-        }
         if let Some(weather_map) = overlay.weather_factor.as_ref() {
             for (&weather, &value) in weather_map {
                 merged.weather_factor.insert(weather, value);
@@ -1038,27 +959,6 @@ impl TravelConfig {
     }
 
     pub(crate) fn sanitize(&mut self) {
-        self.mpd_min = self
-            .mpd_min
-            .max(crate::constants::TRAVEL_PARTIAL_MIN_DISTANCE);
-        self.mpd_max = self.mpd_max.max(self.mpd_min);
-        if self.mpd_base.is_nan() || self.mpd_base <= 0.0 {
-            self.mpd_base = Self::default_mpd_base();
-        }
-        self.mpd_base = self.mpd_base.clamp(self.mpd_min, self.mpd_max);
-
-        for pace in [PaceId::Steady, PaceId::Heated, PaceId::Blitz] {
-            let default = Self::default_pace_factor()
-                .get(&pace)
-                .copied()
-                .unwrap_or(1.0);
-            let entry = self.pace_factor.entry(pace).or_insert(default);
-            *entry = entry.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
-        }
-        for value in self.pace_factor.values_mut() {
-            *value = value.max(crate::constants::TRAVEL_CONFIG_MIN_MULTIPLIER);
-        }
-
         for weather in [
             Weather::Clear,
             Weather::Storm,
@@ -1276,11 +1176,10 @@ pub struct PolicyCatalog {
 
 impl PolicyCatalog {
     #[must_use]
-    pub fn new(
+    pub const fn new(
         families: HashMap<PolicyId, JourneyCfg>,
         overlays: HashMap<StrategyId, JourneyOverlay>,
     ) -> Self {
-        let _ = Instant::now();
         Self { families, overlays }
     }
 
@@ -1313,14 +1212,12 @@ impl PolicyCatalog {
     }
 
     #[must_use]
-    pub fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
-        let _ = Instant::now();
+    pub const fn families(&self) -> &HashMap<PolicyId, JourneyCfg> {
         &self.families
     }
 
     #[must_use]
-    pub fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
-        let _ = Instant::now();
+    pub const fn overlays(&self) -> &HashMap<StrategyId, JourneyOverlay> {
         &self.overlays
     }
 }
@@ -1387,7 +1284,7 @@ pub struct DayOutcome {
 }
 
 /// Deterministic bundle of RNG streams segregated by simulation domain.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RngBundle {
     weather: RefCell<CountingRng<SmallRng>>,
     health: RefCell<CountingRng<SmallRng>>,
@@ -1501,6 +1398,8 @@ impl RngBundle {
 pub struct CountingRng<R> {
     rng: R,
     draws: u64,
+    seed: u64,
+    calls: Vec<RngCall>,
 }
 
 impl CountingRng<SmallRng> {
@@ -1508,6 +1407,8 @@ impl CountingRng<SmallRng> {
         Self {
             rng: SmallRng::seed_from_u64(seed),
             draws: 0,
+            seed,
+            calls: Vec::new(),
         }
     }
 }
@@ -1523,21 +1424,25 @@ impl<R: rand::RngCore> CountingRng<R> {
 impl<R: rand::RngCore> rand::RngCore for CountingRng<R> {
     fn next_u32(&mut self) -> u32 {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::U32);
         self.rng.next_u32()
     }
 
     fn next_u64(&mut self) -> u64 {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::U64);
         self.rng.next_u64()
     }
 
     fn fill_bytes(&mut self, dest: &mut [u8]) {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::Bytes(dest.len()));
         self.rng.fill_bytes(dest);
     }
 
     fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), rand::Error> {
         self.draws = self.draws.saturating_add(1);
+        self.calls.push(RngCall::Bytes(dest.len()));
         self.rng.try_fill_bytes(dest)
     }
 }
@@ -1702,9 +1607,8 @@ impl JourneyController {
         self.rng = Rc::new(RngBundle::from_user_seed(seed));
     }
 
-    /// Perform a single day tick using the current game state.
-    #[must_use]
-    pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
+    /// Attach the complete ruleset before any action can initialize a day.
+    pub fn configure_state(&self, state: &mut crate::state::GameState) {
         state.attach_rng_bundle(self.rng.clone());
         state.mechanical_policy = self.mechanics;
         state.policy = Some(self.strategy.into());
@@ -1715,12 +1619,19 @@ impl JourneyController {
         state.journey_breakdown = self.cfg.breakdown.clone();
         state.journey_part_weights = self.cfg.part_weights.clone();
         state.journey_crossing = self.cfg.crossing.clone();
+        state.journey_daily = self.cfg.daily.clone();
+    }
 
-        let starting_new_day = !state.day_state.lifecycle.day_initialized;
-        state.start_of_day();
-        if starting_new_day {
-            let _ = apply_daily_effect(&self.cfg.daily, state);
+    /// Drive for at most one hour, stopping early for an arrival or decision.
+    #[must_use]
+    pub fn tick_day(&mut self, state: &mut crate::state::GameState) -> DayOutcome {
+        self.configure_state(state);
+        if state.continuity.interactive_repairs && state.breakdown.is_some() {
+            return Self::blocked_outcome(state);
         }
+        state.prepare_travel_clock();
+        state.start_of_day();
+        state.apply_pace_and_diet(&crate::PacingConfig::default_config());
         {
             let travel_rng = self.rng.travel();
             let _ = travel_rng.draws();
@@ -1752,6 +1663,22 @@ impl JourneyController {
             decision_traces,
         }
     }
+
+    fn blocked_outcome(state: &crate::state::GameState) -> DayOutcome {
+        let log_key = String::from(crate::constants::LOG_TRAVEL_BLOCKED);
+        DayOutcome {
+            ended: false,
+            log_key: log_key.clone(),
+            breakdown_started: false,
+            record: None,
+            events: vec![Event::legacy_log_key(
+                EventId::new(state.day, 0),
+                state.day,
+                log_key,
+            )],
+            decision_traces: Vec::new(),
+        }
+    }
 }
 
 #[cfg(test)]
@@ -1778,34 +1705,6 @@ mod tests {
         assert!(
             classic_aggressive.wear.base > classic_balanced.wear.base,
             "aggressive overlay should increase base wear"
-        );
-        assert!(
-            classic_aggressive.travel.mpd_base > classic_balanced.travel.mpd_base,
-            "aggressive overlay should increase base mpd"
-        );
-        assert!(
-            classic_aggressive
-                .travel
-                .pace_factor
-                .get(&PaceId::Blitz)
-                .unwrap()
-                > classic_balanced
-                    .travel
-                    .pace_factor
-                    .get(&PaceId::Blitz)
-                    .unwrap(),
-            "aggressive overlay should bias blitz pace"
-        );
-
-        let deep_balanced = catalog.resolve(PolicyId::Deep, StrategyId::Balanced);
-        let deep_conservative = catalog.resolve(PolicyId::Deep, StrategyId::Conservative);
-        assert!(
-            deep_conservative.breakdown.base < deep_balanced.breakdown.base,
-            "conservative overlay should ease breakdown chance"
-        );
-        assert!(
-            deep_conservative.travel.mpd_max < deep_balanced.travel.mpd_max,
-            "conservative overlay should lower max mpd"
         );
     }
 
@@ -1892,6 +1791,8 @@ mod tests {
             77,
         );
 
+        state.continuity.route_services.route_id = Some("uninterrupted-road".into());
+        state.continuity.clock_minutes = crate::travel_time::TRAVEL_DAY_END - 60;
         let outcome = controller.tick_day(&mut state);
 
         assert!(
@@ -1976,7 +1877,14 @@ mod tests {
             101,
         );
 
-        let outcome = controller.tick_day(&mut state);
+        state.continuity.route_services.route_id = Some("uninterrupted-road".into());
+        let outcome = (0..80)
+            .find_map(|_| {
+                state.region = Region::Heartland;
+                let outcome = controller.tick_day(&mut state);
+                (outcome.log_key == "log.encounter").then_some(outcome)
+            })
+            .expect("encounter must produce a trace within the seeded journey");
         assert_eq!(outcome.log_key, "log.encounter");
         assert!(
             !outcome.decision_traces.is_empty(),
@@ -2049,22 +1957,6 @@ mod tests {
         assert!(matches!(
             cfg.validate(),
             Err(JourneyConfigError::RangeViolation { field, .. }) if field == "partial_ratio"
-        ));
-    }
-
-    #[test]
-    fn travel_bounds_validation_catches_min_above_max() {
-        let cfg = JourneyCfg {
-            travel: TravelConfig {
-                mpd_min: 30.0,
-                mpd_max: 10.0,
-                ..TravelConfig::default()
-            },
-            ..JourneyCfg::default()
-        };
-        assert!(matches!(
-            cfg.travel.validate(),
-            Err(JourneyConfigError::TravelMinExceedsMax { .. })
         ));
     }
 

@@ -17,9 +17,7 @@ use dystrail_game::state::{
 };
 use dystrail_game::store::{Grants, Store, StoreItem, calculate_effective_price};
 use dystrail_game::weather::{Weather, WeatherConfig};
-use dystrail_game::{
-    DietId, GameMode, GameState, PaceId, PolicyKind, Region, compute_day_ledger_metrics,
-};
+use dystrail_game::{DietId, GameMode, GameState, PaceId, PolicyKind, compute_day_ledger_metrics};
 use serde_json;
 
 use crate::logic::policy::GameplayStrategy;
@@ -30,7 +28,6 @@ const HEATWAVE_RISK_THRESHOLD: f64 = 0.18;
 const HEATWAVE_MIN_WATER: i32 = 2;
 const COLDSNAP_RISK_THRESHOLD: f64 = 0.16;
 const COLDSNAP_MIN_COATS: i32 = 1;
-const PRICE_BASIS_DENOM: i128 = 100;
 const MILESTONE_MILES: f32 = 2000.0;
 const MILESTONE_DAY_LIMIT: u32 = 150;
 
@@ -153,13 +150,13 @@ impl TesterAssets {
                 Choice {
                     label: "Share supplies".to_string(),
                     effects: Effects {
+                        cash_cents: 0,
                         hp: 0,
                         sanity: 1,
                         credibility: 0,
                         supplies: -1,
                         morale: 1,
                         allies: 0,
-                        pants: 0,
                         travel_bonus_ratio: 0.0,
                         add_receipt: None,
                         use_receipt: false,
@@ -170,13 +167,13 @@ impl TesterAssets {
                 Choice {
                     label: "Hoard supplies".to_string(),
                     effects: Effects {
+                        cash_cents: 0,
                         hp: 0,
                         sanity: -1,
                         credibility: 1,
                         supplies: 0,
                         morale: -1,
                         allies: 0,
-                        pants: 2,
                         travel_bonus_ratio: 0.0,
                         add_receipt: None,
                         use_receipt: false,
@@ -212,54 +209,7 @@ impl TesterAssets {
     }
 }
 
-const POLICY_BASE_ENCOUNTER_CHANCE: f32 = 0.85;
-
 pub const DEFAULT_POLICY_SIM_DAYS: u32 = 35;
-
-pub fn default_policy_setup(strategy: GameplayStrategy) -> fn(&mut GameState) {
-    match strategy {
-        GameplayStrategy::Conservative => conservative_policy_setup,
-        GameplayStrategy::Aggressive => aggressive_policy_setup,
-        GameplayStrategy::ResourceManager => resource_policy_setup,
-        GameplayStrategy::Balanced => balanced_policy_setup,
-    }
-}
-
-fn balanced_policy_setup(state: &mut GameState) {
-    base_policy_setup(state);
-}
-
-fn conservative_policy_setup(state: &mut GameState) {
-    base_policy_setup(state);
-    state.stats.sanity = state.stats.sanity.max(8);
-    state.stats.pants = 2;
-    state.inventory.spares.tire = 2;
-}
-
-fn aggressive_policy_setup(state: &mut GameState) {
-    base_policy_setup(state);
-    state.stats.sanity = state.stats.sanity.min(7);
-    state.stats.pants = 6;
-    state.stats.supplies = state.stats.supplies.saturating_sub(2);
-}
-
-fn resource_policy_setup(state: &mut GameState) {
-    base_policy_setup(state);
-    state.stats.supplies += 3;
-    state.stats.supplies = state.stats.supplies.min(15);
-    state.budget_cents = 18_000;
-}
-
-fn base_policy_setup(state: &mut GameState) {
-    state.stats.hp = state.stats.hp.max(8);
-    state.stats.sanity = state.stats.sanity.max(8);
-    state.stats.supplies = state.stats.supplies.max(12);
-    state.stats.pants = state.stats.pants.min(5);
-    state.encounter_chance_today = POLICY_BASE_ENCOUNTER_CHANCE;
-    state.inventory.spares.tire = state.inventory.spares.tire.max(1);
-    state.inventory.spares.battery = state.inventory.spares.battery.max(1);
-    state.stats.clamp();
-}
 
 /// Declarative plan for running a simulation session.
 #[derive(Debug, Clone)]
@@ -391,6 +341,8 @@ impl GameTester {
                 println!("🧬 Selected persona: {}", persona.name);
             }
             state.apply_persona(&persona);
+            state.stats.supplies = 0;
+            state.inventory = dystrail_game::state::Inventory::default();
         } else if self.verbose {
             println!("⚠️ No persona data available; using default stats");
         }
@@ -458,16 +410,35 @@ impl GameTester {
         _seed: u64,
     ) -> Vec<(&'static str, i32)> {
         let mut plan: Vec<(&'static str, i32)> = match strategy {
-            GameplayStrategy::Balanced => vec![("rations", 2), ("water", 1), ("spare_tire", 1)],
+            GameplayStrategy::Balanced => vec![
+                ("rations", 4),
+                ("water", 2),
+                ("spare_tire", 1),
+                ("battery", 1),
+                ("masks", 1),
+            ],
             GameplayStrategy::Conservative => vec![
+                ("rations", 4),
+                ("water", 2),
                 ("spare_tire", 1),
                 ("battery", 1),
                 ("legal_fund", 1),
                 ("spare_tire", 1),
             ],
-            GameplayStrategy::Aggressive => vec![("legal_fund", 2), ("rations", 1)],
+            GameplayStrategy::Aggressive => vec![
+                ("rations", 4),
+                ("water", 2),
+                ("spare_tire", 1),
+                ("legal_fund", 2),
+            ],
             GameplayStrategy::ResourceManager => {
-                vec![("rations", 3), ("water", 2), ("spare_tire", 1)]
+                vec![
+                    ("rations", 4),
+                    ("water", 2),
+                    ("spare_tire", 1),
+                    ("battery", 1),
+                    ("coats", 1),
+                ]
             }
         };
 
@@ -539,42 +510,6 @@ impl GameTester {
                 Some(f64::from(*cold) / f64::from(total))
             })
             .fold(0.0_f64, f64::max)
-    }
-
-    fn dynamic_price_multiplier(state: &GameState, item: &StoreItem) -> i32 {
-        let mut basis_points = 100_i32;
-        let has_tag = |tag: &str| item.tags.iter().any(|t| t == tag);
-        let id = item.id.as_str();
-
-        if has_tag("warm_coat") || has_tag("cold_resist") || id == "coats" {
-            if matches!(state.season, Season::Fall | Season::Winter) {
-                basis_points += 25;
-            } else if matches!(state.season, Season::Spring) {
-                basis_points += 10;
-            }
-            if matches!(state.region, Region::Beltway) {
-                basis_points += 5;
-            }
-        }
-
-        if has_tag("water_jugs") || id == "water" {
-            if matches!(state.season, Season::Summer) {
-                basis_points += 20;
-            }
-            if matches!(state.region, Region::Heartland) {
-                basis_points += 5;
-            }
-        }
-
-        if id.starts_with("spare_") {
-            if state.vehicle_breakdowns >= 4 {
-                basis_points += 20;
-            } else if state.vehicle_breakdowns >= 2 {
-                basis_points += 10;
-            }
-        }
-
-        basis_points.max(100)
     }
 
     fn ensure_min_quantity(
@@ -703,25 +638,18 @@ impl GameTester {
         }
 
         let discount = f64::from(state.mods.store_discount_pct);
-        let base_unit_price = calculate_effective_price(item.price_cents, discount);
-        let price_basis = i128::from(Self::dynamic_price_multiplier(state, item));
-        let unit_price = i128::from(base_unit_price);
-        let Some(product) = unit_price.checked_mul(price_basis) else {
-            return;
-        };
-        let adjusted_unit = if product >= 0 {
-            (product + (PRICE_BASIS_DENOM - 1)) / PRICE_BASIS_DENOM
-        } else {
-            product / PRICE_BASIS_DENOM
-        };
-        let Ok(adjusted_unit) = i64::try_from(adjusted_unit) else {
-            return;
-        };
-        let qty_i64 = i64::from(qty);
-        let total_cost = adjusted_unit.saturating_mul(qty_i64);
-        if total_cost <= 0 || state.budget_cents < total_cost {
+        let unit_price = calculate_effective_price(item.price_cents, discount);
+        if unit_price <= 0 {
             return;
         }
+        qty = qty.min(i32::try_from(state.budget_cents / unit_price).unwrap_or(i32::MAX));
+        if item.grants.supplies > 0 {
+            qty = qty.min((20 - state.stats.supplies).max(0) / item.grants.supplies);
+        }
+        if qty <= 0 {
+            return;
+        }
+        let total_cost = unit_price.saturating_mul(i64::from(qty));
 
         let total_grants = Grants {
             supplies: item.grants.supplies * qty,
@@ -763,8 +691,8 @@ impl GameTester {
             self.assets.boss_config.clone(),
         );
 
-        self.assign_party(session.state_mut(), plan.strategy, seed);
         self.apply_persona_choice(session.state_mut(), plan.strategy);
+        self.assign_party(session.state_mut(), plan.strategy, seed);
 
         if let Some(setup) = plan.setup {
             setup(session.state_mut());
@@ -796,7 +724,7 @@ impl GameTester {
         }
 
         loop {
-            let outcome = session.advance(policy.as_mut());
+            let outcome = session.advance(policy.as_mut(), |state| self.visit_route_stop(state));
             metrics.record_turn(&outcome);
 
             if self.verbose {
@@ -826,6 +754,35 @@ impl GameTester {
             game_ended: final_outcome.game_ended,
         }
     }
+
+    fn visit_route_stop(&self, state: &mut GameState) {
+        use dystrail_game::activities::Activity;
+        if state.continuity.route_services.stop.is_none()
+            || state.current_encounter.is_some()
+            || state.ending.is_some()
+        {
+            return;
+        }
+        let before = state.clone();
+        if state.claim_local_conversation().is_some() {
+            state.advance_clock(&before, 30);
+        }
+        let action = if state.stats.supplies <= 10 {
+            Activity::WorkSupplies
+        } else {
+            Activity::WorkCash
+        };
+        let _ = state.perform_activity(action);
+        let rations = (20 - state.stats.supplies).max(0) / 3;
+        self.execute_purchase(state, "rations", rations);
+        if state.inventory.spares.tire == 0 {
+            self.execute_purchase(state, "spare_tire", 1);
+        }
+        if state.inventory.spares.battery == 0 {
+            self.execute_purchase(state, "battery", 1);
+        }
+        state.continuity.route_services.stop = None;
+    }
 }
 
 fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
@@ -835,11 +792,10 @@ fn log_initial_state(seed: u64, plan: &SimulationPlan, state: &GameState) {
         plan.strategy.label()
     );
     println!(
-        "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Pants:{} Budget:${}",
+        "📊 Initial stats | HP:{} Supplies:{} Sanity:{} Budget:${}",
         state.stats.hp,
         state.stats.supplies,
         state.stats.sanity,
-        state.stats.pants,
         format_cents(state.budget_cents)
     );
 }
@@ -854,8 +810,8 @@ fn log_turn(outcome: &TurnOutcome, state: &GameState) {
 
     if outcome.day.div_euclid(10) * 10 == outcome.day || outcome.game_ended {
         println!(
-            "📅 Day {} stats | HP:{} Supplies:{} Sanity:{} Pants:{}",
-            state.day, state.stats.hp, state.stats.supplies, state.stats.sanity, state.stats.pants
+            "📅 Day {} stats | HP:{} Supplies:{} Sanity:{}",
+            state.day, state.stats.hp, state.stats.supplies, state.stats.sanity
         );
     }
 
@@ -909,7 +865,6 @@ pub struct PlayabilityMetrics {
     pub final_hp: i32,
     pub final_supplies: i32,
     pub final_sanity: i32,
-    pub final_pants: i32,
     pub final_budget_cents: i64,
     pub decision_log: Vec<DecisionRecord>,
     pub boss: BossOutcomeFlags,
@@ -966,7 +921,6 @@ impl Default for PlayabilityMetrics {
             final_hp: 10,
             final_supplies: 10,
             final_sanity: 10,
-            final_pants: 0,
             final_budget_cents: 10_000,
             decision_log: Vec::new(),
             boss: BossOutcomeFlags::default(),
@@ -1018,7 +972,16 @@ struct LedgerSummary {
 
 impl PlayabilityMetrics {
     fn summarize_day_records(state: &GameState) -> LedgerSummary {
-        let metrics = compute_day_ledger_metrics(&state.day_records);
+        let records: Vec<_> = state
+            .day_records
+            .iter()
+            .chain(state.ledger.current_day_record.iter().filter(|record| {
+                record.miles > 0.0
+                    || state.continuity.clock_minutes > dystrail_game::journal::morning()
+            }))
+            .cloned()
+            .collect();
+        let metrics = compute_day_ledger_metrics(&records);
         let mut summary = LedgerSummary {
             miles: f64::from(metrics.total_miles),
             travel_days: metrics.travel_days,
@@ -1028,7 +991,7 @@ impl PlayabilityMetrics {
             total_days: metrics.total_days,
             reason_history: Vec::with_capacity(metrics.total_days as usize),
         };
-        for record in &state.day_records {
+        for record in &records {
             if record
                 .tags
                 .iter()
@@ -1106,7 +1069,6 @@ impl PlayabilityMetrics {
         self.final_hp = state.stats.hp;
         self.final_supplies = state.stats.supplies;
         self.final_sanity = state.stats.sanity;
-        self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
         let (ending, cause) = describe_ending(state, outcome);
         self.ending_type = ending;
@@ -1120,7 +1082,10 @@ impl PlayabilityMetrics {
         self.non_travel_days = ledger.non_travel_days;
         let moving_days = ledger.travel_days.saturating_add(ledger.partial_days);
         self.avg_miles_per_day = if moving_days > 0 {
-            ledger.miles / f64::from(moving_days)
+            f64::from(dystrail_game::route::physical_at(
+                state,
+                clamp_f64_to_f32(ledger.miles),
+            )) / f64::from(moving_days)
         } else {
             0.0
         };
@@ -1170,7 +1135,6 @@ impl PlayabilityMetrics {
         self.final_hp = state.stats.hp;
         self.final_supplies = state.stats.supplies;
         self.final_sanity = state.stats.sanity;
-        self.final_pants = state.stats.pants;
         self.final_budget_cents = state.budget_cents;
         self.boss.reached = state.boss.readiness.reached;
         self.boss.won = state.boss.outcome.victory;
@@ -1181,7 +1145,10 @@ impl PlayabilityMetrics {
         self.non_travel_days = ledger.non_travel_days;
         let moving_days = ledger.travel_days.saturating_add(ledger.partial_days);
         self.avg_miles_per_day = if moving_days > 0 {
-            ledger.miles / f64::from(moving_days)
+            f64::from(dystrail_game::route::physical_at(
+                state,
+                clamp_f64_to_f32(ledger.miles),
+            )) / f64::from(moving_days)
         } else {
             0.0
         };
@@ -1246,7 +1213,7 @@ impl PlayabilityMetrics {
     }
 }
 
-const SURVIVAL_DAY_THRESHOLD: u32 = 84;
+const SURVIVAL_DAY_THRESHOLD: u32 = 12;
 
 const fn survived_or_long_run(state: &GameState) -> bool {
     state.boss.readiness.reached || state.day >= SURVIVAL_DAY_THRESHOLD
@@ -1294,10 +1261,6 @@ fn describe_ending(state: &GameState, outcome: &TurnOutcome) -> (String, String)
         Some(Ending::Collapse { cause }) => (
             format!("Collapse ({}) - Game Over", cause.key()),
             format!("collapse_{}", cause.key()),
-        ),
-        None if state.stats.pants >= 100 => (
-            "Pants Emergency - Game Over".to_string(),
-            "pants".to_string(),
         ),
         None if state.stats.hp <= 0 => (
             "Health Depleted - Game Over".to_string(),
@@ -1379,9 +1342,8 @@ mod tests {
     #[test]
     fn balanced_setup_applies_persona_and_store_plan() {
         let tester = build_tester();
-        let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
-            .with_max_days(0)
-            .with_setup(default_policy_setup(GameplayStrategy::Balanced));
+        let plan =
+            SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(0);
 
         let summary = tester.run_plan(&plan, 12345);
         let state = summary.final_state;
@@ -1391,24 +1353,42 @@ mod tests {
             state.budget_cents < 11_000,
             "budget should reflect store spend"
         );
-        assert_eq!(state.party.companions.len(), 4);
+        assert_eq!(state.party.companions.len(), 5);
+        assert_eq!(state.party.members.len(), 6);
         assert!(!state.party.leader.is_empty());
-        assert!(
-            state.inventory.spares.tire >= 2,
-            "store loadout should add an extra spare tire"
-        );
-        assert!(
-            state.stats.supplies >= 18,
-            "persona/start loadout should boost supplies"
-        );
+        assert_eq!(state.inventory.spares.tire, 1);
+        assert_eq!(state.inventory.spares.battery, 1);
+        assert_eq!(state.stats.supplies, 16);
+        assert_eq!(state.budget_cents, 3900);
+        assert_eq!(state.party.player_name(Some("staffer")), state.party.leader);
+    }
+
+    #[test]
+    fn store_purchases_match_shelf_prices_capacity_and_available_cash() {
+        let tester = build_tester();
+        let mut state = GameState::default();
+        state.stats.supplies = 16;
+        state.budget_cents = 10_000;
+        state.season = Season::Summer;
+        state.region = dystrail_game::Region::Heartland;
+        state.vehicle_breakdowns = 4;
+        tester.execute_purchase(&mut state, "water", 10);
+        assert_eq!(state.stats.supplies, 20);
+        assert_eq!(state.budget_cents, 9200);
+        tester.execute_purchase(&mut state, "spare_tire", 1);
+        assert_eq!(state.budget_cents, 7700);
+        state.stats.supplies = 0;
+        state.budget_cents = 1000;
+        tester.execute_purchase(&mut state, "rations", 4);
+        assert_eq!(state.stats.supplies, 6);
+        assert_eq!(state.budget_cents, 0);
     }
 
     #[test]
     fn balanced_run_survives_past_day_45() {
         let tester = build_tester();
-        let plan = SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced)
-            .with_max_days(55)
-            .with_setup(default_policy_setup(GameplayStrategy::Balanced));
+        let plan =
+            SimulationPlan::new(GameMode::Classic, GameplayStrategy::Balanced).with_max_days(55);
 
         let summary = tester.run_plan(&plan, 4242);
         assert!(

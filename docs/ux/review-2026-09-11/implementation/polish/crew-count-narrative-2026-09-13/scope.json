@@ -1,0 +1,52 @@
+{
+  "beltway_briefing": [
+    "choice_2",
+    "log_2"
+  ],
+  "classic_union_blockade": [
+    "desc",
+    "choice_0",
+    "log_0"
+  ],
+  "classic_mail_drop": [
+    "log_0"
+  ],
+  "classic_mutual_aid_dispatch": [
+    "log_0"
+  ],
+  "classic_neighborhood_watch": [
+    "log_2"
+  ],
+  "classic_press_pool_qna": [
+    "desc"
+  ],
+  "deep_circuit_breaker": [
+    "log_0"
+  ],
+  "fundraiser_detour": [
+    "log_0"
+  ],
+  "deep_beltway_fastpass": [
+    "log_1"
+  ],
+  "overnight_briefing": [
+    "log_2",
+    "name"
+  ],
+  "sat_straw_reserve": [
+    "log_2"
+  ],
+  "sat_forecast_corrected": [
+    "log_2"
+  ],
+  "sat_alternator_tariff": [
+    "desc"
+  ],
+  "sat_hydration_pressure": [
+    "desc",
+    "log_2"
+  ],
+  "sat_bibliography_emergency": [
+    "log_2"
+  ]
+}

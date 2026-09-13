@@ -1,0 +1,33 @@
+(node:69850) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 2 workers
+
+(node:69851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69851) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:69852) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:69851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/mobile-impact.spec.ts:94:5 › weather and resource help fit short phone viewports and close without spending time (4.5s)
+  ✓  2 [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (5.1s)
+(node:69958) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69958) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:69958) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [chromium] › tests-e2e/mobile-impact.spec.ts:127:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.9s)
+(node:69991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69991) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:69991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (4.8s)
+  ✓  5 [mobile] › tests-e2e/mobile-impact.spec.ts:94:5 › weather and resource help fit short phone viewports and close without spending time (3.9s)
+  ✓  6 [mobile] › tests-e2e/mobile-impact.spec.ts:127:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.3s)
+
+  6 passed (13.8s)

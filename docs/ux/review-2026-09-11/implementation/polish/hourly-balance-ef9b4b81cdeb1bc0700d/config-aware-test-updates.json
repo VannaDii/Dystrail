@@ -1,0 +1,14 @@
+[
+  {
+    "path": "dystrail-game/src/activities.rs",
+    "before": "493f48adf6787d2c3e9e5f9d0832a3376f3869808a11f9160a4d12a56e5215b9",
+    "after": "f51dcec8285c2c72af7997f1cff5b4ea6e29803fdf571e5a868b409c587ed77d",
+    "reason": "Keep new clock-settlement regression assertions exact for the accepted diet recovery values and existing sanity cap; no experience thresholds or strategies changed."
+  },
+  {
+    "path": "dystrail-game/src/travel_time.rs",
+    "before": "76284ad980c4c0adb047018030d6d61d24f494550fa6da0f05f9c6f11fce0b1a",
+    "after": "b9c7d9cecbf82d081460e1b3f2bc325d93c796b85ce0d5388e64b3d672035a1e",
+    "reason": "Keep new clock-settlement regression assertions exact for the accepted diet recovery values and existing sanity cap; no experience thresholds or strategies changed."
+  }
+]

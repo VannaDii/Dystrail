@@ -1,0 +1,271 @@
+{
+  "revision": "952fb2acea8c52d8500b",
+  "activation": [
+    {
+      "mode": "classic",
+      "width": 1440,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 64.19,
+          "ledgerTotal": 64.19000244140625,
+          "completedDays": 0,
+          "openMiles": 64.19
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 128.38,
+          "ledgerTotal": 128.3800048828125,
+          "completedDays": 0,
+          "openMiles": 128.38
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 192.57,
+          "ledgerTotal": 192.57000732421875,
+          "completedDays": 0,
+          "openMiles": 192.57
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 256.76,
+          "ledgerTotal": 256.760009765625,
+          "completedDays": 0,
+          "openMiles": 256.76
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 320.95,
+          "ledgerTotal": 320.95001220703125,
+          "completedDays": 1,
+          "openMiles": 0
+        },
+        {
+          "hour": 6,
+          "day": 2,
+          "clock": 540,
+          "miles": 376.334,
+          "ledgerTotal": 376.3340148925781,
+          "completedDays": 1,
+          "openMiles": 55.384
+        }
+      ],
+      "observedDistanceEqualsDayLedger": true,
+      "offlineReloadAfterHours": [
+        2,
+        5
+      ],
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 64.19,
+          "ledgerTotal": 64.19000244140625,
+          "completedDays": 0,
+          "openMiles": 64.19
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 128.38,
+          "ledgerTotal": 128.3800048828125,
+          "completedDays": 0,
+          "openMiles": 128.38
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 192.57,
+          "ledgerTotal": 192.57000732421875,
+          "completedDays": 0,
+          "openMiles": 192.57
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 256.76,
+          "ledgerTotal": 256.760009765625,
+          "completedDays": 0,
+          "openMiles": 256.76
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 320.95,
+          "ledgerTotal": 320.95001220703125,
+          "completedDays": 1,
+          "openMiles": 0
+        },
+        {
+          "hour": 6,
+          "day": 2,
+          "clock": 540,
+          "miles": 376.334,
+          "ledgerTotal": 376.3340148925781,
+          "completedDays": 1,
+          "openMiles": 55.384
+        }
+      ],
+      "observedDistanceEqualsDayLedger": true,
+      "offlineReloadAfterHours": [
+        2,
+        5
+      ],
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 64.19,
+          "ledgerTotal": 64.19000244140625,
+          "completedDays": 0,
+          "openMiles": 64.19
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 128.38,
+          "ledgerTotal": 128.3800048828125,
+          "completedDays": 0,
+          "openMiles": 128.38
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 192.57,
+          "ledgerTotal": 192.57000732421875,
+          "completedDays": 0,
+          "openMiles": 192.57
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 256.76,
+          "ledgerTotal": 256.760009765625,
+          "completedDays": 0,
+          "openMiles": 256.76
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 320.95,
+          "ledgerTotal": 320.95001220703125,
+          "completedDays": 1,
+          "openMiles": 0
+        },
+        {
+          "hour": 6,
+          "day": 2,
+          "clock": 540,
+          "miles": 390.95,
+          "ledgerTotal": 390.95001220703125,
+          "completedDays": 1,
+          "openMiles": 70
+        }
+      ],
+      "observedDistanceEqualsDayLedger": true,
+      "offlineReloadAfterHours": [
+        2,
+        5
+      ],
+      "noHorizontalOverflow": true
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "hours": [
+        {
+          "hour": 1,
+          "day": 1,
+          "clock": 540,
+          "miles": 64.19,
+          "ledgerTotal": 64.19000244140625,
+          "completedDays": 0,
+          "openMiles": 64.19
+        },
+        {
+          "hour": 2,
+          "day": 1,
+          "clock": 600,
+          "miles": 128.38,
+          "ledgerTotal": 128.3800048828125,
+          "completedDays": 0,
+          "openMiles": 128.38
+        },
+        {
+          "hour": 3,
+          "day": 1,
+          "clock": 660,
+          "miles": 192.57,
+          "ledgerTotal": 192.57000732421875,
+          "completedDays": 0,
+          "openMiles": 192.57
+        },
+        {
+          "hour": 4,
+          "day": 1,
+          "clock": 720,
+          "miles": 256.76,
+          "ledgerTotal": 256.760009765625,
+          "completedDays": 0,
+          "openMiles": 256.76
+        },
+        {
+          "hour": 5,
+          "day": 2,
+          "clock": 480,
+          "miles": 320.95,
+          "ledgerTotal": 320.95001220703125,
+          "completedDays": 1,
+          "openMiles": 0
+        },
+        {
+          "hour": 6,
+          "day": 2,
+          "clock": 540,
+          "miles": 390.95,
+          "ledgerTotal": 390.95001220703125,
+          "completedDays": 1,
+          "openMiles": 70
+        }
+      ],
+      "observedDistanceEqualsDayLedger": true,
+      "offlineReloadAfterHours": [
+        2,
+        5
+      ],
+      "noHorizontalOverflow": true
+    }
+  ],
+  "layouts": [],
+  "errors": []
+}

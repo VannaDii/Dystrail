@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-09-13T08:31:33.646701+00:00",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "scripts/check_advisory_exceptions.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "cargo",
+        "audit",
+        "--deny",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "cargo",
+        "deny",
+        "check",
+        "licenses",
+        "bans",
+        "advisories",
+        "sources"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "existing_maintenance_exceptions": [
+    "RUSTSEC-2025-0141: bincode 1.3.3 and 2.0.1",
+    "RUSTSEC-2024-0370: proc-macro-error 1.0.4"
+  ],
+  "exceptions_expire": "2026-10-11",
+  "new_exceptions_added": false,
+  "initial_sandbox_attempts": "Audit and deny initially failed to lock read-only advisory caches; same standard commands succeeded with cache write/network authorization.",
+  "inputs": {
+    "Cargo.toml": "41d5c1edfc714939a1648f401913bebcf84932ae8f0127a76939533d02110249",
+    "Cargo.lock": "f784384b8442369b937f7f513f6ff2d1e63438e79a38578b912884ba6a72f481",
+    "dystrail-game/Cargo.toml": "78b28d7d11ca33e59c573fc7a968d75d72f5e1e8eb5d4656481a04db2d6afd9c",
+    "dystrail-web/Cargo.toml": "5a748b96a2ea8a19f7b764e699a728c418166273acd79e06c2fd4963eff95e87",
+    "dystrail-tester/Cargo.toml": "944dbab2ecc8b9d0decee52c560f2784d2fafbf77d0640bd17a580b468f7722b",
+    "deny.toml": "a382335cf171f21ad51a4d283ceccca87a1a0ee6ae74056e10300886d47abc16",
+    ".cargo/audit.toml": "a55569621ff2844a75e86b56e9283cf378326abecb07f64c818f1a0a006f1a01",
+    "scripts/check_advisory_exceptions.py": "3d69368bcbbf832ba821d790524d489ee09301ae1495a2a16c587823da5bbf2c",
+    "docs/security/dependency-maintenance.md": "9bbbf88d9bbdd6380599f9e964113641d99cf7fc35f4e7a2ac0ac6d81d235a24"
+  },
+  "logs": {
+    "final-cargo-audit.log": "b1ce0c023c00217011f326d679c85b7ecad4531dba4f639cf757077f0a45dc93",
+    "final-cargo-deny.log": "3136db4a58d51aafc088f30d12d08e7b94e4dbc03fe0930025b9a0213775851b"
+  }
+}

@@ -105,7 +105,7 @@ fn share_code_expectation(_summary: &SimulationSummary) -> Result<()> {
         );
     }
 
-    let known_codes = ["CL-ORANGE42", "DP-ORANGE42", "CL-PANTS99", "DP-CHEETO00"];
+    let known_codes = ["CL-ORANGE42", "DP-ORANGE42", "CL-PATCH99", "DP-CHEETO00"];
     for code in known_codes {
         let (is_deep, decoded_seed) = decode_to_seed(code)
             .ok_or_else(|| anyhow!("Failed to decode known share code: {code}"))?;

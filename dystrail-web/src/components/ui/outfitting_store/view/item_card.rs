@@ -1,103 +1,58 @@
-use super::super::handlers::{announce_quantity_change, can_add_item, format_currency};
 use super::super::state::StoreState;
-use crate::game::{
-    GameState,
-    store::{StoreItem, calculate_cart_total, calculate_effective_price},
+use crate::{
+    game::{GameState, store::StoreItem, store::calculate_effective_price},
+    i18n,
 };
-use crate::i18n;
+use std::collections::BTreeMap;
 use yew::prelude::*;
 
 pub fn render_store_item_card(
-    idx: u8,
     item: &StoreItem,
     state: &UseStateHandle<StoreState>,
-    game_state: &GameState,
+    gs: &GameState,
+    resupply: bool,
 ) -> Html {
-    let name = i18n::t(&format!("store.items.{}.name", item.id));
-    let desc = i18n::t(&format!("store.items.{}.desc", item.id));
-    let effective_price = calculate_effective_price(item.price_cents, state.discount_pct);
-    let price_str = format_currency(effective_price);
-    let qty_in_cart = state.cart.get_quantity(&item.id);
-    let can_add = can_add_item(
-        &state.cart,
-        item,
-        1,
-        game_state.budget_cents,
+    let price = i18n::fmt_currency(calculate_effective_price(
+        item.price_cents,
         state.discount_pct,
+    ));
+    let grants = super::super::planner::grant_text(&item.grants);
+    let spare = match item.id.as_str() {
+        "spare_tire" => Some(gs.inventory.spares.tire),
+        "battery" => Some(gs.inventory.spares.battery),
+        "alternator" => Some(gs.inventory.spares.alt),
+        "fuel_pump" => Some(gs.inventory.spares.pump),
+        _ => None,
+    };
+    let owned = spare.filter(|_| resupply).map_or_else(
+        || {
+            if resupply
+                && !item.tags.is_empty()
+                && item.tags.iter().all(|tag| gs.inventory.tags.contains(tag))
+            {
+                i18n::t("play.owned")
+            } else {
+                String::new()
+            }
+        },
+        |count| {
+            i18n::tr(
+                "shopping.in_van",
+                Some(&BTreeMap::from([("count", count.to_string().as_str())])),
+            )
+        },
     );
-    let initials = name
-        .chars()
-        .next()
-        .map_or_else(|| "?".to_string(), |c| c.to_uppercase().collect::<String>());
-
-    let on_add = {
-        let state = state.clone();
-        let item_clone = item.clone();
-        let budget = game_state.budget_cents;
-        Callback::from(move |_| {
-            let mut new_state = (*state).clone();
-            if can_add_item(
-                &new_state.cart,
-                &item_clone,
-                1,
-                budget,
-                new_state.discount_pct,
-            ) {
-                new_state.cart.add_item(&item_clone.id, 1);
-                announce_quantity_change(&item_clone, 1, true, &new_state, budget);
-                new_state.cart.total_cents = calculate_cart_total(
-                    &new_state.cart,
-                    &new_state.store_data,
-                    new_state.discount_pct,
-                );
-                new_state.focus_idx = idx;
-                state.set(new_state);
-            }
-        })
-    };
-
-    let on_remove = {
-        let state = state.clone();
-        let item_clone = item.clone();
-        let budget = game_state.budget_cents;
-        Callback::from(move |_| {
-            let mut new_state = (*state).clone();
-            if new_state.cart.get_quantity(&item_clone.id) > 0 {
-                new_state.cart.remove_item(&item_clone.id, 1);
-                announce_quantity_change(&item_clone, 1, false, &new_state, budget);
-                new_state.cart.total_cents = calculate_cart_total(
-                    &new_state.cart,
-                    &new_state.store_data,
-                    new_state.discount_pct,
-                );
-                new_state.focus_idx = idx;
-                state.set(new_state);
-            }
-        })
-    };
-
-    html! {
-        <article
-            role="group"
-            aria-labelledby={format!("store-item-{idx}")}
-            class="store-card"
-            data-key={idx.to_string()}
-            title={desc.clone()}>
-            <div class="store-card-icon" aria-hidden="true">
-                <span>{ initials }</span>
-            </div>
-            <div class="store-card-body">
-                <div class="store-card-head">
-                    <h2 id={format!("store-item-{idx}")}>{ name }</h2>
-                    <span class="store-price">{ price_str }</span>
-                </div>
-                <p class="muted">{ desc }</p>
-                <div class="store-qty-row">
-                    <button class="store-qty-btn" onclick={on_remove} aria-label={i18n::t("store.qty_prompt.rem1")} disabled={qty_in_cart == 0}>{"–"}</button>
-                    <span class="store-qty" aria-live="polite">{ qty_in_cart }</span>
-                    <button class="store-qty-btn" onclick={on_add} aria-label={i18n::t("store.qty_prompt.add1")} disabled={!can_add}>{"+"}</button>
-                </div>
-            </div>
-        </article>
-    }
+    html! {<article key={item.id.clone()} role="group" aria-labelledby={format!("store-item-{}",item.id)}
+        class={classes!("store-card",(state.cart.get_quantity(&item.id)>0).then_some("store-item-selected"))}>
+        <img class="store-item-art" src={crate::paths::asset_path(&format!("static/img/items/{}-v1.png",item.id))} alt="" width="72" height="72" decoding="sync" />
+        <div class="store-card-body">
+            <h3 id={format!("store-item-{}",item.id)}>{i18n::t(&format!("store.items.{}.name",item.id))}</h3>
+            <p class="store-item-detail"><span>{i18n::t(&format!("store.items.{}.desc",item.id))}</span>
+                if !grants.is_empty() {<span class="item-grants">{grants}</span>}
+                if !owned.is_empty() {<span class="store-owned">{owned}</span>}
+            </p>
+        </div>
+        <span class="store-price">{i18n::tr("shopping.each",Some(&BTreeMap::from([("price",price.as_str())])))}</span>
+        {super::item_quantity::render(item,state,gs.budget_cents)}
+    </article>}
 }

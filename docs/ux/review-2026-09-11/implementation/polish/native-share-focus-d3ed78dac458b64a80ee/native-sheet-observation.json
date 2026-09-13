@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-09-13T21:05:54.075134+00:00",
+  "observed_revision": "33dd2b05a6658d330912",
+  "method": "Direct native Safari UI accessibility and visual observation in this conversation",
+  "origin": "http://127.0.0.1:62101",
+  "fixture": "Disposable ending named Native Share Review; unrelated player saves untouched",
+  "observed": [
+    "Actual macOS share popover opened from Share image & post",
+    "Popover identified dystopian-trail as a PNG Image of approximately 650 KB",
+    "Escape dismissed the native sheet",
+    "Game showed Sharing cancelled.",
+    "Edited post remained unchanged and sharing button was enabled",
+    "Mouse Close restored focus to the result sharing opener"
+  ],
+  "defect_observed": "Native cancellation left document focus outside the dialog; Tab escaped and Escape did not close the dialog.",
+  "resolution": "The final d3ed78dac458b64a80ee build returns focus after the sharing promise settles and the button becomes enabled. Native Safari 26.6.2 passes all eight focused groups for both modes with controlled share completions.",
+  "boundaries": [
+    "The final OS sheet cancellation was not replayed after the one-file focus fix because native UI observation became unavailable. Actual OS opening/cancellation and the final native-browser focus behavior are separate evidence.",
+    "No recipient was selected and no social content was sent.",
+    "Contact suggestions and unrelated Safari content are excluded from retained evidence.",
+    "Physical-phone installation and offline reopening are confirmed by the user, not independently observed."
+  ]
+}

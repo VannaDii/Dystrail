@@ -1,0 +1,47 @@
+{
+  "revision": "da9be3bca81423352bf3",
+  "activation": [
+    {
+      "mode": "classic",
+      "action": "work",
+      "nextDay": 7,
+      "clock": 570,
+      "immediateDailyEffects": true,
+      "noDriving": true,
+      "offlineReloadUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "action": "forage",
+      "nextDay": 7,
+      "clock": 540,
+      "immediateDailyEffects": true,
+      "noDriving": true,
+      "offlineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "action": "work",
+      "nextDay": 7,
+      "clock": 570,
+      "immediateDailyEffects": true,
+      "noDriving": true,
+      "offlineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "action": "forage",
+      "nextDay": 7,
+      "clock": 540,
+      "immediateDailyEffects": true,
+      "noDriving": true,
+      "offlineReloadUnchanged": true
+    }
+  ],
+  "layouts": [],
+  "errors": [],
+  "currentCase": {
+    "mode": "deep",
+    "action": "forage"
+  }
+}

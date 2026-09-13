@@ -1,0 +1,66 @@
+{
+  "verified_at": "2026-09-13T08:12:21.561232+00:00",
+  "production_url": "https://dystrail.com/play/",
+  "revision": "1c145d89fef4fbab75a9",
+  "commit": "40df1edf293a8961a79b9efeda33d0383caaff7e",
+  "branch": "release/crew-neutral-narrative-2026-09-13",
+  "run": "https://github.com/VannaDii/Dystrail/actions/runs/34746871285",
+  "run_conclusion": "success",
+  "artifact": "/tmp/dystrail-crew-count-narrative/web",
+  "frozen_source": "/tmp/dystrail-crew-count-narrative/release-source",
+  "offline_manifest_sha256": "c70601fce90ea1a63f2197d0077327fae727f7ca9b4d30c913534d54bd57730d",
+  "release_manifest_sha256": "1301f36c950bf7c0155665105cb6305dc33be58ccaf8eabc8946aebfc43aac2f",
+  "source_tree_sha256": "76c82b2e59b7c6210a9f3382e92e275ee5792e8108a700987441b7fa17516038",
+  "total_live_files_verified": 196,
+  "explicit_mime_and_canonical_checks": true,
+  "protected_non_game_files_preserved": 59,
+  "old_hashed_game_assets_preserved": 20,
+  "cache_assets_verified": 119,
+  "cache_keys": 120,
+  "decoded_images": 68,
+  "prepared_fonts_loaded": 7,
+  "all_assets_ready_at_gate_removal": true,
+  "gate_checks": [
+    "updated online installation",
+    "offline reload",
+    "closed-browser offline restart"
+  ],
+  "entire_fixture_save_preserved": true,
+  "saved_day": 1,
+  "saved_miles": 0,
+  "saved_crew_members": 6,
+  "unchanged_state_sha256": "3487425f6fb69a8a03553bff82813d81cc779fc7066cddeae8b50179fe47f20f",
+  "save_normalization": "Canonical object key order and unordered state/pending inventory HashSet tags only; no gameplay field exclusions.",
+  "schema_changes": [],
+  "rule_changes": [],
+  "browser_errors": [],
+  "phone_overflow": false,
+  "temporary_policy_removed": true,
+  "remaining_branch_policy": [
+    {
+      "id": 39031816,
+      "name": "main",
+      "type": "branch"
+    }
+  ],
+  "source_scope": {
+    "common_narrative_fields": 20,
+    "encounters": 15,
+    "locales": 20,
+    "spanish_only_extra": "sat_receipt_museum.log_2",
+    "total_string_leaves": 421,
+    "json_files_changed": 21,
+    "other_source_files_identical": 613,
+    "camp_rest_sanity": 4
+  },
+  "native_safari": "Not rerun: native Safari is blocked by the locked Mac. Verification used an isolated Chrome profile; this does not claim native Safari coverage.",
+  "initial_approval_rejection": "Resolved through read-only public ownership, existing public ancestry and one-commit payload-scope checks; the same bounded push was then accepted. See approval-review-record.json.",
+  "user_browser_storage_touched": false,
+  "shared_source_and_git_touched": false,
+  "screenshots_inspected": [
+    "output/playwright/production-updated-desktop.png",
+    "output/playwright/production-offline-van-phone.png",
+    "output/playwright/production-restarted-offline-phone-viewport.png"
+  ],
+  "passed": true
+}

@@ -1,0 +1,8 @@
+{
+  "time": "2026-09-13T20:33:20.416525+00:00",
+  "evidence_type": "direct user report",
+  "requested_check": "Install to the physical phone home screen, close, enable Airplane Mode, reopen the saved journey",
+  "user_response": "This is working wonderfully for me on my physical device. Proceed with the auto checks while I leave safari idle.",
+  "result": "confirmed by the user; not independently observed by the agent",
+  "safari_idle": "explicitly confirmed for the remaining automatic checks"
+}

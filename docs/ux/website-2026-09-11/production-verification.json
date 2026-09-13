@@ -1,0 +1,187 @@
+{
+  "date": "2026-09-11",
+  "status": "published",
+  "website": "https://dystrail.com/",
+  "play": "https://dystrail.com/play/",
+  "docs": "https://dystrail.com/docs/",
+  "sourceCommit": "b4a6bcd1bc5bd2d402e384c2f891f9ad72f28713",
+  "sourceBranch": "release/website-game-2026-09-11",
+  "workflow": "https://github.com/VannaDii/Dystrail/actions/runs/34642769554",
+  "permissionCleanup": {
+    "temporaryReleasePermissionRemoved": true,
+    "remainingBranches": [
+      "main"
+    ]
+  },
+  "http": {
+    "origin": "https://dystrail.com",
+    "siteAssets": [
+      {
+        "path": "/assets/crew-van-small.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 60496
+      },
+      {
+        "path": "/assets/crew-van.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 169210
+      },
+      {
+        "path": "/assets/fonts/press-start-2p-OFL.txt",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 4413
+      },
+      {
+        "path": "/assets/fonts/press-start-2p-latin.woff2",
+        "status": 200,
+        "contentType": "font/woff2",
+        "matchesRelease": true,
+        "bytes": 4704
+      },
+      {
+        "path": "/assets/fonts/space-grotesk-OFL.txt",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 4401
+      },
+      {
+        "path": "/assets/fonts/space-grotesk-latin.woff2",
+        "status": 200,
+        "contentType": "font/woff2",
+        "matchesRelease": true,
+        "bytes": 22320
+      },
+      {
+        "path": "/assets/gameplay-small.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 49996
+      },
+      {
+        "path": "/assets/gameplay-social.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "matchesRelease": true,
+        "bytes": 159723
+      },
+      {
+        "path": "/assets/gameplay.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 136350
+      },
+      {
+        "path": "/assets/prairie-small.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 56698
+      },
+      {
+        "path": "/assets/prairie.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "matchesRelease": true,
+        "bytes": 220522
+      },
+      {
+        "path": "/favicon.ico",
+        "status": 200,
+        "contentType": "image/vnd.microsoft.icon",
+        "matchesRelease": true,
+        "bytes": 1340
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 8089
+      },
+      {
+        "path": "/robots.txt",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 66
+      },
+      {
+        "path": "/site.js",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 672
+      },
+      {
+        "path": "/sitemap.xml",
+        "status": 200,
+        "contentType": "application/xml",
+        "matchesRelease": true,
+        "bytes": 258
+      },
+      {
+        "path": "/styles.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8",
+        "matchesRelease": true,
+        "bytes": 8040
+      }
+    ],
+    "/play/": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 7847
+    },
+    "/docs/": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 21642
+    },
+    "gameBuild": {
+      "revision": "6e8fb90f5bd9d9464207",
+      "assets": 79,
+      "bytes": 75573608
+    },
+    "wasm": {
+      "path": "dystrail-web-bd7dadaa48648384_bg.wasm",
+      "contentType": "application/wasm"
+    },
+    "structuredData": [
+      "WebSite",
+      "WebPage",
+      "VideoGame"
+    ],
+    "canonical": "https://dystrail.com/",
+    "sitemap": [
+      "https://dystrail.com/",
+      "https://dystrail.com/play/",
+      "https://dystrail.com/docs/"
+    ],
+    "http://dystrail.com/": {
+      "finalURL": "https://dystrail.com/",
+      "status": 200
+    },
+    "https://www.dystrail.com/": {
+      "finalURL": "https://dystrail.com/",
+      "status": 200
+    }
+  },
+  "browser": {
+    "livePlayFlow": "passed",
+    "offlineState": "ready",
+    "offlineAssetsChecked": 79,
+    "offlineAssetFailures": [],
+    "savedCrewPreservedAfterOfflineReload": true,
+    "pageErrors": [],
+    "profile": "isolated temporary Chrome profile; existing player profiles untouched"
+  }
+}

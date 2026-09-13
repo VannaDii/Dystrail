@@ -1,0 +1,241 @@
+(node:11114) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:11134) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11134) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:11134) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (4.4s)
+(node:11576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11576) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:11576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [mobile] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (4.9s)
+
+
+  1) [chromium] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 22[39m
+    [31m+ Received  + 22[39m
+
+    [2m  Object {[22m
+    [2m    "boxes": Array [[22m
+    [2m      Object {[22m
+    [32m-       "height": 397.6875,[39m
+    [31m+       "height": 389.6875,[39m
+    [2m        "width": 300,[22m
+    [2m        "x": 933,[22m
+    [2m        "y": 99.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 91,[39m
+    [31m+       "height": 83,[39m
+    [2m        "width": 274,[22m
+    [2m        "x": 946,[22m
+    [2m        "y": 393.625,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 61,[39m
+    [31m+       "height": 54.1875,[39m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [2m        "y": 105.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 50,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 50,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 221.140625,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 221.140625,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 151.140625,[22m
+    [2m        "x": 392.28125,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 151.140625,[22m
+    [2m        "x": 392.28125,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 563.421875,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 563.421875,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 734.5625,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 734.5625,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 905.703125,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 152.140625,[22m
+    [2m        "x": 905.703125,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 20,[39m
+    [31m+       "height": 13.1875,[39m
+    [2m        "width": 153.140625,[22m
+    [2m        "x": 1076.84375,[22m
+    [2m        "y": 113.9375,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 23,[22m
+    [2m        "width": 153.140625,[22m
+    [2m        "x": 1076.84375,[22m
+    [32m-       "y": 135.9375,[39m
+    [31m+       "y": 129.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 490,[22m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [32m-       "y": 166.9375,[39m
+    [31m+       "y": 160.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 40,[22m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [32m-       "y": 166.9375,[39m
+    [31m+       "y": 160.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 52,[22m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [32m-       "y": 656.9375,[39m
+    [31m+       "y": 650.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 68,[22m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [32m-       "y": 708.9375,[39m
+    [31m+       "y": 702.125,[39m
+    [2m      },[22m
+    [2m      Object {[22m
+    [2m        "height": 63.59375,[22m
+    [2m        "width": 1230,[22m
+    [2m        "x": 25,[22m
+    [32m-       "y": 920.53125,[39m
+    [31m+       "y": 913.71875,[39m
+    [2m      },[22m
+    [2m    ],[22m
+    [2m    "scroll": 0,[22m
+    [2m  }[22m
+
+      64 |  const layout=()=>page.evaluate(()=>({scroll:scrollY,boxes:[...document.querySelectorAll('.survival-hud, .hud-stat dt, .hud-stat dd, .journey-scene, .scene-status, .travel-toolbar, #main>footer, #game-menu-panel, .offline-status')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};})}));
+      65 |  const before=await layout();
+    > 66 |  await toggle.click();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);expect(await layout()).toEqual(before);await expect(page.getByRole('button',{name:'How this works: Supplies',exact:true})).toHaveCount(0);await expect(page.locator('[data-help-kind=info]')).not.toHaveCount(0);await expect(page.getByRole('button',{name:'How to install',exact:true})).toBeVisible();await snap(page,'help-off');
+         |                                                                                                                        ^
+      67 |  await page.locator('.wordmark').click();await page.locator('.service-indicators button').first().click();await expect(page.locator('.viewport-help')).toBeVisible();await page.keyboard.press('Escape');await page.locator('.weather-indicator button').click();await expect(page.locator('.viewport-help')).toBeVisible();await page.keyboard.press('Escape');
+      68 |  await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);await openMenu(page);await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.focus();const offlineBefore=await layout();await page.keyboard.press('Space');await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('[data-help-kind=tip]:visible')).not.toHaveCount(0);expect(await layout()).toEqual(offlineBefore);
+      69 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:66:120
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-help-before-browser-results/scene-flow-help-preference-33aaa-nd-keeps-information-usable-chromium/error-context.md
+
+  2) [mobile] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 2[39m
+    [31m+ Received  + 2[39m
+
+    [33m@@ -1,15 +1,15 @@[39m
+    [2m  Object {[22m
+    [2m    "boxes": Array [[22m
+    [2m      Object {[22m
+    [32m-       "height": 389.953125,[39m
+    [31m+       "height": 381.953125,[39m
+    [2m        "width": 300,[22m
+    [2m        "x": 100,[22m
+    [2m        "y": 78,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+    [32m-       "height": 91,[39m
+    [31m+       "height": 83,[39m
+    [2m        "width": 274,[22m
+    [2m        "x": 113,[22m
+    [2m        "y": 363.953125,[22m
+    [2m      },[22m
+    [2m      Object {[22m
+
+      64 |  const layout=()=>page.evaluate(()=>({scroll:scrollY,boxes:[...document.querySelectorAll('.survival-hud, .hud-stat dt, .hud-stat dd, .journey-scene, .scene-status, .travel-toolbar, #main>footer, #game-menu-panel, .offline-status')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};})}));
+      65 |  const before=await layout();
+    > 66 |  await toggle.click();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);expect(await layout()).toEqual(before);await expect(page.getByRole('button',{name:'How this works: Supplies',exact:true})).toHaveCount(0);await expect(page.locator('[data-help-kind=info]')).not.toHaveCount(0);await expect(page.getByRole('button',{name:'How to install',exact:true})).toBeVisible();await snap(page,'help-off');
+         |                                                                                                                        ^
+      67 |  await page.locator('.wordmark').click();await page.locator('.service-indicators button').first().click();await expect(page.locator('.viewport-help')).toBeVisible();await page.keyboard.press('Escape');await page.locator('.weather-indicator button').click();await expect(page.locator('.viewport-help')).toBeVisible();await page.keyboard.press('Escape');
+      68 |  await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);await openMenu(page);await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.focus();const offlineBefore=await layout();await page.keyboard.press('Space');await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('[data-help-kind=tip]:visible')).not.toHaveCount(0);expect(await layout()).toEqual(offlineBefore);
+      69 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:66:120
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-help-before-browser-results/scene-flow-help-preference-33aaa-nd-keeps-information-usable-mobile/error-context.md
+
+  2 failed
+    [chromium] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable 
+    [mobile] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable 

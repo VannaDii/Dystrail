@@ -1,0 +1,2311 @@
+{
+  "revision": "2fa3864f31cbf9af2ff6",
+  "baseURL": "http://127.0.0.1:63070/play/",
+  "cases": [
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "deep_secure_line",
+      "scene": "enc-motel",
+      "atlas": "encounter-settings-v3",
+      "cell": "0",
+      "viewBox": "0 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Robin",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Check the roster and record the signup problem",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Take the manager’s word and reassure the crew",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Offer paper and get the access policy in writing",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Private Chat, Public Application",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "deep_secure_line",
+      "scene": "enc-motel",
+      "atlas": "encounter-settings-v3",
+      "cell": "0",
+      "viewBox": "0 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Robin",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Check the roster and record the signup problem",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Take the manager’s word and reassure the crew",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1140.03125
+          }
+        },
+        {
+          "text": "Offer paper and get the access policy in writing",
+          "rect": {
+            "x": 16,
+            "y": 1163.03125,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1252.375
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1286.375,
+        "width": 393,
+        "height": 448,
+        "bottom": 1734.375
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Private Chat, Public Application",
+      "source": {
+        "x": 12,
+        "y": 318,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "sat_press_pool_radio",
+      "scene": "enc-cafe",
+      "atlas": "encounter-settings-v3",
+      "cell": "1",
+      "viewBox": "512 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Jamie",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Document the mix-up with the cashier’s permission",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Take $8 to sort the contact list",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Decline and head back to the van",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Reply All, Clock Out",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "sat_press_pool_radio",
+      "scene": "enc-cafe",
+      "atlas": "encounter-settings-v3",
+      "cell": "1",
+      "viewBox": "512 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Jamie",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Document the mix-up with the cashier’s permission",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1008.84375
+          }
+        },
+        {
+          "text": "Take $8 to sort the contact list",
+          "rect": {
+            "x": 16,
+            "y": 1031.84375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1100.9375
+          }
+        },
+        {
+          "text": "Decline and head back to the van",
+          "rect": {
+            "x": 16,
+            "y": 1123.9375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1193.03125
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1227.03125,
+        "width": 393,
+        "height": 448,
+        "bottom": 1675.03125
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Reply All, Clock Out",
+      "source": {
+        "x": 12,
+        "y": 377,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "deep_field_intel",
+      "scene": "enc-library",
+      "atlas": "encounter-settings-v3",
+      "cell": "2",
+      "viewBox": "1024 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Robin",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Use your spare folders to organize the public records",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Give them envelopes and folders for their private copies",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Check that private details stayed out",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Carry This to Washington",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "deep_field_intel",
+      "scene": "enc-library",
+      "atlas": "encounter-settings-v3",
+      "cell": "2",
+      "viewBox": "1024 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Robin",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Use your spare folders to organize the public records",
+          "rect": {
+            "x": 16,
+            "y": 942.75,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1050.9375
+          }
+        },
+        {
+          "text": "Give them envelopes and folders for their private copies",
+          "rect": {
+            "x": 16,
+            "y": 1073.9375,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1163.28125
+          }
+        },
+        {
+          "text": "Check that private details stayed out",
+          "rect": {
+            "x": 16,
+            "y": 1186.28125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1255.375
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1289.375,
+        "width": 393,
+        "height": 448,
+        "bottom": 1737.375
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 162.75,
+          "bottom": 924.75
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Carry This to Washington",
+      "source": {
+        "x": 12,
+        "y": 315,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "sat_museum_grant",
+      "scene": "enc-museum",
+      "atlas": "encounter-settings-v3",
+      "cell": "3",
+      "viewBox": "0 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "staffer",
+          "name": "Sage",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Scan the assigned exhibit photos for $11",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Share a supply bundle and join the volunteer tour",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Thank the guide and get back on the road",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "The Exhibit of Pending Funds",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-continues-the-reduction-of-the-federal-bureaucracy/",
+        "text": "Behind the joke\n3/14/2025\n\nTrump ordered reductions at the Institute of Museum and Library Services and other named agencies.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "sat_museum_grant",
+      "scene": "enc-museum",
+      "atlas": "encounter-settings-v3",
+      "cell": "3",
+      "viewBox": "0 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "staffer",
+          "name": "Sage",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Scan the assigned exhibit photos for $11",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 988.59375
+          }
+        },
+        {
+          "text": "Share a supply bundle and join the volunteer tour",
+          "rect": {
+            "x": 16,
+            "y": 1011.59375,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1100.9375
+          }
+        },
+        {
+          "text": "Thank the guide and get back on the road",
+          "rect": {
+            "x": 16,
+            "y": 1123.9375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1193.03125
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1227.03125,
+        "width": 393,
+        "height": 448,
+        "bottom": 1675.03125
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "The Exhibit of Pending Funds",
+      "source": {
+        "x": 12,
+        "y": 377,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-continues-the-reduction-of-the-federal-bureaucracy/",
+        "text": "Behind the joke\n3/14/2025\n\nTrump ordered reductions at the Institute of Museum and Library Services and other named agencies.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "sat_corn_bullets",
+      "scene": "enc-farm-office",
+      "atlas": "encounter-settings-v3",
+      "cell": "4",
+      "viewBox": "512 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Jamie",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Help her document the work the form leaves out",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Type up her notes for $8",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Pass on the paperwork and leave",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Five Things Corn Did Last Week",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/53e59ab9a4bc52ce5553e0e83bb8cc7b",
+        "text": "Behind the joke\n2/28/2025\n\nFederal employees received demands for five weekly accomplishments, alongside conflicting agency guidance.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "sat_corn_bullets",
+      "scene": "enc-farm-office",
+      "atlas": "encounter-settings-v3",
+      "cell": "4",
+      "viewBox": "512 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Jamie",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Help her document the work the form leaves out",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Type up her notes for $8",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1119.78125
+          }
+        },
+        {
+          "text": "Pass on the paperwork and leave",
+          "rect": {
+            "x": 16,
+            "y": 1142.78125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1211.875
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1245.875,
+        "width": 393,
+        "height": 448,
+        "bottom": 1693.875
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Five Things Corn Did Last Week",
+      "source": {
+        "x": 12,
+        "y": 358,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://apnews.com/article/53e59ab9a4bc52ce5553e0e83bb8cc7b",
+        "text": "Behind the joke\n2/28/2025\n\nFederal employees received demands for five weekly accomplishments, alongside conflicting agency guidance.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "desktop",
+      "id": "beltway_briefing",
+      "scene": "enc-service-counter",
+      "atlas": "encounter-settings-v3",
+      "cell": "5",
+      "viewBox": "1024 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "lobbyist",
+          "name": "Reese",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Read the whole packet over your road snacks",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Skim the bold print",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Split the packet between the six of you",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Department of Renaming Things",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 276,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+        "text": "Behind the joke\n1/20/2025\n\nTrump ordered federal use of Gulf of America and Mount McKinley.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "classic",
+      "device": "phone",
+      "id": "beltway_briefing",
+      "scene": "enc-service-counter",
+      "atlas": "encounter-settings-v3",
+      "cell": "5",
+      "viewBox": "1024 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/4845a6af-9a7a-47e6-9501-acabc1828f21#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "lobbyist",
+          "name": "Reese",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Read the whole packet over your road snacks",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Skim the bold print",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1119.78125
+          }
+        },
+        {
+          "text": "Split the packet between the six of you",
+          "rect": {
+            "x": 16,
+            "y": 1142.78125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1211.875
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1245.875,
+        "width": 393,
+        "height": 448,
+        "bottom": 1693.875
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Department of Renaming Things",
+      "source": {
+        "x": 12,
+        "y": 358,
+        "width": 320,
+        "height": 276,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "source": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+        "text": "Behind the joke\n1/20/2025\n\nTrump ordered federal use of Gulf of America and Mount McKinley.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 13.091198759569638
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "deep_secure_line",
+      "scene": "enc-motel",
+      "atlas": "encounter-settings-v3",
+      "cell": "0",
+      "viewBox": "0 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Rowan",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Check the roster and record the signup problem",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Take the manager’s word and reassure the crew",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Offer paper and get the access policy in writing",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Private Chat, Public Application",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "deep_secure_line",
+      "scene": "enc-motel",
+      "atlas": "encounter-settings-v3",
+      "cell": "0",
+      "viewBox": "0 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Rowan",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Check the roster and record the signup problem",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Take the manager’s word and reassure the crew",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1140.03125
+          }
+        },
+        {
+          "text": "Offer paper and get the access policy in writing",
+          "rect": {
+            "x": 16,
+            "y": 1163.03125,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1252.375
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1286.375,
+        "width": 393,
+        "height": 448,
+        "bottom": 1734.375
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Private Chat, Public Application",
+      "source": {
+        "x": 12,
+        "y": 318,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "sat_press_pool_radio",
+      "scene": "enc-cafe",
+      "atlas": "encounter-settings-v3",
+      "cell": "1",
+      "viewBox": "512 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Avery",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Document the mix-up with the cashier’s permission",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Take $8 to sort the contact list",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Decline and head back to the van",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Reply All, Clock Out",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "sat_press_pool_radio",
+      "scene": "enc-cafe",
+      "atlas": "encounter-settings-v3",
+      "cell": "1",
+      "viewBox": "512 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Avery",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Document the mix-up with the cashier’s permission",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1008.84375
+          }
+        },
+        {
+          "text": "Take $8 to sort the contact list",
+          "rect": {
+            "x": 16,
+            "y": 1031.84375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1100.9375
+          }
+        },
+        {
+          "text": "Decline and head back to the van",
+          "rect": {
+            "x": 16,
+            "y": 1123.9375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1193.03125
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1227.03125,
+        "width": 393,
+        "height": 448,
+        "bottom": 1675.03125
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Reply All, Clock Out",
+      "source": {
+        "x": 12,
+        "y": 377,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "deep_field_intel",
+      "scene": "enc-library",
+      "atlas": "encounter-settings-v3",
+      "cell": "2",
+      "viewBox": "1024 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Rowan",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Use your spare folders to organize the public records",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Give them envelopes and folders for their private copies",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Check that private details stayed out",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Carry This to Washington",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "deep_field_intel",
+      "scene": "enc-library",
+      "atlas": "encounter-settings-v3",
+      "cell": "2",
+      "viewBox": "1024 0 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "satirist",
+          "name": "Rowan",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Use your spare folders to organize the public records",
+          "rect": {
+            "x": 16,
+            "y": 942.75,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1050.9375
+          }
+        },
+        {
+          "text": "Give them envelopes and folders for their private copies",
+          "rect": {
+            "x": 16,
+            "y": 1073.9375,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1163.28125
+          }
+        },
+        {
+          "text": "Check that private details stayed out",
+          "rect": {
+            "x": 16,
+            "y": 1186.28125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1255.375
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1289.375,
+        "width": 393,
+        "height": 448,
+        "bottom": 1737.375
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 162.75,
+          "bottom": 924.75
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Carry This to Washington",
+      "source": {
+        "x": 12,
+        "y": 315,
+        "width": 320,
+        "height": 318,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/c0addd08c627ab01a37ea63621cb695e",
+        "text": "Behind the joke\n3/26/2025\n\nThe Atlantic published a Signal conversation in which senior Trump administration officials discussed an impending military operation after a journalist was inadvertently added.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "sat_museum_grant",
+      "scene": "enc-museum",
+      "atlas": "encounter-settings-v3",
+      "cell": "3",
+      "viewBox": "0 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "staffer",
+          "name": "Alex",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Scan the assigned exhibit photos for $11",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Share a supply bundle and join the volunteer tour",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Thank the guide and get back on the road",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "The Exhibit of Pending Funds",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-continues-the-reduction-of-the-federal-bureaucracy/",
+        "text": "Behind the joke\n3/14/2025\n\nTrump ordered reductions at the Institute of Museum and Library Services and other named agencies.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "sat_museum_grant",
+      "scene": "enc-museum",
+      "atlas": "encounter-settings-v3",
+      "cell": "3",
+      "viewBox": "0 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "staffer",
+          "name": "Alex",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Scan the assigned exhibit photos for $11",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 988.59375
+          }
+        },
+        {
+          "text": "Share a supply bundle and join the volunteer tour",
+          "rect": {
+            "x": 16,
+            "y": 1011.59375,
+            "width": 361,
+            "height": 89.34375,
+            "bottom": 1100.9375
+          }
+        },
+        {
+          "text": "Thank the guide and get back on the road",
+          "rect": {
+            "x": 16,
+            "y": 1123.9375,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1193.03125
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1227.03125,
+        "width": 393,
+        "height": 448,
+        "bottom": 1675.03125
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "The Exhibit of Pending Funds",
+      "source": {
+        "x": 12,
+        "y": 377,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-continues-the-reduction-of-the-federal-bureaucracy/",
+        "text": "Behind the joke\n3/14/2025\n\nTrump ordered reductions at the Institute of Museum and Library Services and other named agencies.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "sat_corn_bullets",
+      "scene": "enc-farm-office",
+      "atlas": "encounter-settings-v3",
+      "cell": "4",
+      "viewBox": "512 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Avery",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Help her document the work the form leaves out",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Type up her notes for $8",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Pass on the paperwork and leave",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Five Things Corn Did Last Week",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/53e59ab9a4bc52ce5553e0e83bb8cc7b",
+        "text": "Behind the joke\n2/28/2025\n\nFederal employees received demands for five weekly accomplishments, alongside conflicting agency guidance.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "sat_corn_bullets",
+      "scene": "enc-farm-office",
+      "atlas": "encounter-settings-v3",
+      "cell": "4",
+      "viewBox": "512 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "organizer",
+          "name": "Avery",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Help her document the work the form leaves out",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Type up her notes for $8",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1119.78125
+          }
+        },
+        {
+          "text": "Pass on the paperwork and leave",
+          "rect": {
+            "x": 16,
+            "y": 1142.78125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1211.875
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1245.875,
+        "width": 393,
+        "height": 448,
+        "bottom": 1693.875
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Five Things Corn Did Last Week",
+      "source": {
+        "x": 12,
+        "y": 358,
+        "width": 320,
+        "height": 297,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://apnews.com/article/53e59ab9a4bc52ce5553e0e83bb8cc7b",
+        "text": "Behind the joke\n2/28/2025\n\nFederal employees received demands for five weekly accomplishments, alongside conflicting agency guidance.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "desktop",
+      "id": "beltway_briefing",
+      "scene": "enc-service-counter",
+      "atlas": "encounter-settings-v3",
+      "cell": "5",
+      "viewBox": "1024 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "lobbyist",
+          "name": "Jordan",
+          "rect": {
+            "x": 1165,
+            "y": 408.140625,
+            "width": 150,
+            "height": 175.796875,
+            "bottom": 583.9375
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Read the whole packet over your road snacks",
+          "rect": {
+            "x": 135,
+            "y": 851.25,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 921.578125
+          }
+        },
+        {
+          "text": "Skim the bold print",
+          "rect": {
+            "x": 135,
+            "y": 935.578125,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1005.90625
+          }
+        },
+        {
+          "text": "Split the packet between the six of you",
+          "rect": {
+            "x": 135,
+            "y": 1019.90625,
+            "width": 1170,
+            "height": 70.328125,
+            "bottom": 1090.234375
+          }
+        }
+      ],
+      "history": {
+        "x": 105,
+        "y": 1117.234375,
+        "width": 1230,
+        "height": 194,
+        "bottom": 1311.234375
+      },
+      "narrative": {
+        "rect": {
+          "x": 135,
+          "y": 738.9375,
+          "width": 960.328125,
+          "height": 88.3125,
+          "bottom": 827.25
+        },
+        "font": "19px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 105,
+        "y": 170.9375,
+        "width": 1230,
+        "height": 430,
+        "bottom": 600.9375
+      },
+      "title": "Department of Renaming Things",
+      "source": {
+        "x": 114.484375,
+        "y": 661.9375,
+        "width": 320,
+        "height": 276,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+        "text": "Behind the joke\n1/20/2025\n\nTrump ordered federal use of Gulf of America and Mount McKinley.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    },
+    {
+      "mode": "deep",
+      "device": "phone",
+      "id": "beltway_briefing",
+      "scene": "enc-service-counter",
+      "atlas": "encounter-settings-v3",
+      "cell": "5",
+      "viewBox": "1024 512 512 512",
+      "atlasHref": "blob:http://127.0.0.1:63070/d801a17a-110f-4083-9b86-6ffe6a873035#static%2Fimg%2Fjourney%2Fencounter-settings-v3.png",
+      "subjects": [
+        {
+          "persona": "lobbyist",
+          "name": "Jordan",
+          "rect": {
+            "x": 299,
+            "y": 470,
+            "width": 80,
+            "height": 101,
+            "bottom": 571
+          }
+        }
+      ],
+      "choices": [
+        {
+          "text": "Read the whole packet over your road snacks",
+          "rect": {
+            "x": 16,
+            "y": 919.5,
+            "width": 361,
+            "height": 108.1875,
+            "bottom": 1027.6875
+          }
+        },
+        {
+          "text": "Skim the bold print",
+          "rect": {
+            "x": 16,
+            "y": 1050.6875,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1119.78125
+          }
+        },
+        {
+          "text": "Split the packet between the six of you",
+          "rect": {
+            "x": 16,
+            "y": 1142.78125,
+            "width": 361,
+            "height": 69.09375,
+            "bottom": 1211.875
+          }
+        }
+      ],
+      "history": {
+        "x": 0,
+        "y": 1245.875,
+        "width": 393,
+        "height": 448,
+        "bottom": 1693.875
+      },
+      "narrative": {
+        "rect": {
+          "x": 16,
+          "y": 762,
+          "width": 361,
+          "height": 139.5,
+          "bottom": 901.5
+        },
+        "font": "15px"
+      },
+      "overflow": false,
+      "sceneRect": {
+        "x": 0,
+        "y": 184,
+        "width": 393,
+        "height": 400,
+        "bottom": 584
+      },
+      "title": "Department of Renaming Things",
+      "source": {
+        "x": 12,
+        "y": 358,
+        "width": 320,
+        "height": 276,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "source": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+        "text": "Behind the joke\n1/20/2025\n\nTrump ordered federal use of Gulf of America and Mount McKinley.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+        "contrast": 12.531811900329009
+      }
+    }
+  ],
+  "contexts": [
+    {
+      "mode": "classic",
+      "gate": {
+        "at": 1789281370110,
+        "images": 68,
+        "decoded": true,
+        "fonts": [
+          {
+            "family": "Atkinson Hyperlegible Next",
+            "status": "loaded"
+          },
+          {
+            "family": "Atkinson Hyperlegible Next",
+            "status": "loaded"
+          },
+          {
+            "family": "Courier Prime",
+            "status": "loaded"
+          },
+          {
+            "family": "Courier Prime",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          }
+        ]
+      },
+      "networkAssetsAfterGate": [],
+      "offlineDuringScenes": true
+    },
+    {
+      "mode": "deep",
+      "gate": {
+        "at": 1789281448470,
+        "images": 68,
+        "decoded": true,
+        "fonts": [
+          {
+            "family": "Atkinson Hyperlegible Next",
+            "status": "loaded"
+          },
+          {
+            "family": "Atkinson Hyperlegible Next",
+            "status": "loaded"
+          },
+          {
+            "family": "Courier Prime",
+            "status": "loaded"
+          },
+          {
+            "family": "Courier Prime",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          },
+          {
+            "family": "Noto Sans Arabic",
+            "status": "loaded"
+          }
+        ]
+      },
+      "networkAssetsAfterGate": [],
+      "offlineDuringScenes": true
+    }
+  ],
+  "errors": [],
+  "highContrast": {
+    "id": "classic_union_blockade",
+    "descriptionLength": 348,
+    "color": "rgb(0, 0, 0)",
+    "background": "rgb(255, 255, 255)",
+    "x": 12,
+    "y": 412.59375,
+    "width": 320,
+    "height": 297,
+    "classes": "hc",
+    "text": "Behind the joke\n3/26/2025\n\nTrump imposed a 25% tariff on imported automobiles and certain parts. Later amendments created offsets and exceptions.\n\nThe roadside scene, dialogue and resource prices are fictional satire inspired by this documented episode.\n\nRead the source",
+    "contrast": 21
+  },
+  "passed": true
+}

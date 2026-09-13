@@ -1,0 +1,246 @@
+(node:71754) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 186 tests using 2 workers
+
+(node:71775) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71774) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:71775) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:71774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71775) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.3s)
+  ✓    2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (4.5s)
+  ✓    3 [chromium] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (5.8s)
+  ✓    4 [chromium] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (5.4s)
+  ✓    6 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (2.6s)
+  ✓    5 [chromium] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (5.4s)
+  ✓    8 [chromium] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (1.5s)
+  ✓    7 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (2.5s)
+  ✓   10 [chromium] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (2.6s)
+  ✓    9 [chromium] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.0s)
+  ✓   11 [chromium] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.2s)
+  ✓   12 [chromium] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (4.8s)
+  ✓   13 [chromium] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.2s)
+  ✓   14 [chromium] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (1.9s)
+  ✓   15 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (4.0s)
+  ✓   16 [chromium] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (3.3s)
+  ✓   18 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.3s)
+  ✓   17 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.9s)
+  ✓   20 [chromium] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.9s)
+  ✓   19 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (5.4s)
+  ✓   21 [chromium] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (2.4s)
+  ✓   22 [chromium] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (2.7s)
+  ✓   23 [chromium] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.0s)
+  ✓   24 [chromium] › tests-e2e/inventory-status.spec.ts:6:5 › illustrated van and compact journal preserve every count and fit desktop and phone (2.4s)
+  ✓   25 [chromium] › tests-e2e/inventory-status.spec.ts:26:5 › status icons, weather detail, help spacing, and selected pace and diet stay synchronized (2.4s)
+  ✓   26 [chromium] › tests-e2e/inventory-status.spec.ts:47:5 › repair outcome and its journal use stat cards with remaining parts (2.1s)
+  ✓   27 [chromium] › tests-e2e/inventory-status.spec.ts:58:5 › local conversations offer all three benefits, are repeatable, and never award twice (4.8s)
+  ✓   29 [chromium] › tests-e2e/inventory-status.spec.ts:83:5 › offline share creates a real image and editable post without sending it (2.2s)
+  ✓   28 [chromium] › tests-e2e/inventory-status.spec.ts:71:5 › one town action leaves town, normal maps last three seconds, Fast mode skips them (8.1s)
+  ✓   31 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (2.9s)
+  ✓   32 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.5s)
+  ✓   33 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.7s)
+  ✓   34 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (2.0s)
+  ✓   35 [chromium] › tests-e2e/navigation-toggle.spec.ts:8:5 › manual Route closes back to the previous screen and never starts travel (14.8s)
+  ✘   30 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (30.0s)
+(node:72820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72820) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:72820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   36 [chromium] › tests-e2e/navigation-toggle.spec.ts:31:5 › every selected tab toggles its content without spending a turn and remains keyboard accessible (3.3s)
+  ✓   38 [chromium] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (2.4s)
+  ✓   37 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (3.2s)
+  ✓   39 [chromium] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (1.2s)
+  ✓   41 [chromium] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.1s)
+  ✓   40 [chromium] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (2.7s)
+  ✓   42 [chromium] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (2.1s)
+  ✓   43 [chromium] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here (1.9s)
+  ✓   44 [chromium] › tests-e2e/onboarding-results.spec.ts:59:5 › town names omit universal service icons while town actions remain accessible (2.3s)
+  ✓   46 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.4s)
+  ✓   45 [chromium] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (6.5s)
+  ✓   47 [chromium] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.1s)
+  ✓   48 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (3.8s)
+  ✓   50 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details use compact responsive space (2.1s)
+  ✓   49 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (5.9s)
+  ✓   51 [chromium] › tests-e2e/scene-flow.spec.ts:22:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.8s)
+  ✓   52 [chromium] › tests-e2e/scene-flow.spec.ts:32:5 › automatic map keeps moving and closes in three seconds without a second click (10.7s)
+  ✓   53 [chromium] › tests-e2e/scene-flow.spec.ts:40:5 › automatic map can stay open, survives reload, and resumes with one click (12.6s)
+  ✓   55 [chromium] › tests-e2e/scene-flow.spec.ts:56:5 › camp gathering uses cooldown cards, persists and becomes available again (2.9s)
+  ✓   56 [chromium] › tests-e2e/scene-flow.spec.ts:64:5 › help preference hides only optional tips, persists offline, and keeps information usable (2.9s)
+  ✓   54 [chromium] › tests-e2e/scene-flow.spec.ts:48:5 › manual map stays open and resumed travel stops at the next town (11.0s)
+  ✓   57 [chromium] › tests-e2e/scene-flow.spec.ts:73:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.0s)
+  ✓   59 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (2.7s)
+  ✓   58 [chromium] › tests-e2e/scene-flow.spec.ts:79:5 › a queued crew decision waits for the automatic map without advancing past it (8.0s)
+  ✓   61 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.3s)
+  ✓   62 [chromium] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (2.7s)
+  ✓   63 [chromium] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (1.9s)
+  ✓   64 [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (2.0s)
+  ✓   65 [chromium] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (3.4s)
+  ✓   66 [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (2.4s)
+  ✓   67 [chromium] › tests-e2e/second-pass.spec.ts:41:5 › a new political encounter pays cash and exposes its factual hook (2.1s)
+  ✘   60 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (30.0s)
+(node:74513) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:74513) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:74513) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   69 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.3s)
+  ✓   70 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.1s)
+  ✓   71 [chromium] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.0s)
+  ✓   72 [chromium] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.1s)
+  ✓   73 [chromium] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.1s)
+  ✓   74 [chromium] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.5s)
+  ✓   75 [chromium] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases (2.8s)
+  ✓   76 [chromium] › tests-e2e/shopping.spec.ts:39:5 › quantity entry cannot overspend and clearing a selected item restores its funds (1.7s)
+  ✘   68 [chromium] › tests-e2e/second-pass.spec.ts:46:5 › road and progress elements survive consecutive automatic turns (30.0s)
+(node:75858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75858) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:75858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   77 [chromium] › tests-e2e/shopping.spec.ts:51:5 › town store shows carried parts, buys once with the shown total, and keeps inventory available (3.4s)
+  ✓   78 [chromium] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls (2.1s)
+  ✓   79 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.8s)
+  ✓   80 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.2s)
+  ✓   82 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (3.8s)
+  ✘   81 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (7.6s)
+(node:76317) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76317) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:76317) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   83 [chromium] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (4.8s)
+  ✓   85 [chromium] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.2s)
+  ✓   84 [chromium] › tests-e2e/turn-history.spec.ts:60:5 › routine travel always has a visible title, including empty and transition-only messages (3.1s)
+  ✘   86 [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (6.9s)
+[31mTesting stopped early after 5 maximum allowed failures.[39m
+  ✘   87 [chromium] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (6.8s)
+
+
+  1) [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Resume travel', exact: true })[22m
+
+
+      19 |  await expect(page.locator('.critical-stats')).toContainText('Morale');
+      20 |  await savedState(page);await snap(page,'travel');
+    > 21 |  await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+         |                                                                   ^
+      22 |  await expect(page.locator('#main')).toHaveAttribute('data-screen','traveling');
+      23 |  const recovery=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
+      24 |  await page.reload();await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/journey.spec.ts:21:67
+
+    Error Context: ../../../../../tmp/dystrail-entry-polish-regression/journey-outfitting-recover-de3cd-travel-manual-save-and-camp-chromium/error-context.md
+
+  2) [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Resume travel', exact: true })[22m
+
+
+      28 |  expect(await page.locator('.weather-atmosphere').evaluate(el=>getComputedStyle(el).animationName)).toBe('heat-shimmer');await snap(page,'heat-wave');
+      29 |  state.weather_state.today='Clear';await importState(page,state);
+    > 30 |  await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+         |                                                                   ^
+      31 |  await expect(page.locator('.scene-moving .crew-van')).toBeVisible();
+      32 |  expect(await page.locator('.crew-van').evaluate(el=>getComputedStyle(el).animationName)).toBe('van-suspension');
+      33 |  await expect(page.locator('.scene-moving')).toHaveAttribute('data-time','morning');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scenes.spec.ts:30:67
+
+    Error Context: ../../../../../tmp/dystrail-entry-polish-regression/scenes-regional-roads-foll-7ab20--and-clock-are-synchronized-chromium/error-context.md
+
+  3) [chromium] › tests-e2e/second-pass.spec.ts:46:5 › road and progress elements survive consecutive automatic turns 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Resume travel', exact: true })[22m
+
+
+      48 |  await importState(page,gs);await fastMode(page,true);
+      49 |  await page.evaluate(()=>{(window as any).roadNode=document.querySelector('.road-pan-track');(window as any).progressNode=document.querySelector('.route-progress');});
+    > 50 |  await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+         |                                                                   ^
+      51 |  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state.journal.length),{timeout:7000}).toBeGreaterThanOrEqual(gs.journal.length+2);
+      52 |  expect(await page.evaluate(()=>(window as any).roadNode===document.querySelector('.road-pan-track'))).toBe(true);expect(await page.evaluate(()=>(window as any).progressNode===document.querySelector('.route-progress'))).toBe(true);
+      53 |  await page.getByRole('button',{name:'Pause travel',exact:true}).click();await snap(page,'continuous-road');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/second-pass.spec.ts:50:67
+
+    Error Context: ../../../../../tmp/dystrail-entry-polish-regression/second-pass-road-and-progr-25303-consecutive-automatic-turns-chromium/error-context.md
+
+  4) [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.weather-summary')
+    Expected substring: [32m"Sanity -1"[39m
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.weather-summary')[22m
+
+
+      26 |  // This checkpoint represents the day after its automatic cold-weather charge.
+      27 |  state.weather_state.today='ColdSnap';state.stats.sanity-=1;state.weather_impact={day:state.day,weather:'ColdSnap',supplies:0,hp:0,sanity:-1};
+    > 28 |  await importState(page,state);await expect(page.locator('.journey-scene')).toHaveAttribute('data-weather','cold');await page.getByRole('tab',{name:'Conditions',exact:true}).click();await expect(page.locator('.weather-summary')).toContainText('Sanity -1');await expect(page.locator('.weather-summary')).not.toContainText(/weather\.|\{.*\}/);await snap(page,'cold');
+         |                                                                                                                                                                                                                                      ^
+      29 |  state.current_encounter=encounters.find((e:{id:string})=>e.id==='beltway_briefing');state.boss.ready=true;await importState(page,state);
+      30 |  await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','4');
+      31 |  await page.locator('.encounter-choice button').first().click();await expect(page.locator('#main')).toHaveAttribute('data-screen','aftermath');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:28:230
+
+    Error Context: ../../../../../tmp/dystrail-entry-polish-regression/states-regions-weather-det-653dd-al-vote-and-terminal-reload-chromium/error-context.md
+
+  5) [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.status-sheet')
+    Expected substring: [32m"Battery"[39m
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.status-sheet')[22m
+
+
+      15 |  await importState(page,gs);await expect(page.locator('.turn-receipt')).toHaveCount(gs.journal.length-(gs.turn_journal_start??Math.max(0,gs.journal.length-1)));await expect(page.getByRole('button',{name:'Visit the Store',exact:true})).toBeVisible();
+      16 |  for(const name of ['The Trail','Conditions','The Van','Journal'])await expect(page.getByRole('tab',{name,exact:true})).toBeVisible();
+    > 17 |  await page.getByRole('tab',{name:'The Van',exact:true}).click();await expect(page.locator('.status-sheet')).toContainText('Battery');await page.getByRole('button',{name:'Trade with locals',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','trade');await expect(page.locator('.town-trading .action-button')).toHaveCount(3);await snap(page,'town-trading');
+         |                                                                                                              ^
+      18 |  await page.getByRole('button',{name:'Get a battery',exact:true}).click();const traded=(await recovery(page)).state;expect(traded.stats.supplies).toBe(4);expect(traded.inventory.spares.battery).toBe(1);await expect(page.locator('.town-trading .action-button:disabled')).toHaveCount(3);await page.reload();await expect(page.locator('.town-trading')).toBeVisible();await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.trail-log')).toContainText('Trade 4 supplies');
+      19 |  await page.getByRole('button',{name:'Back to town',exact:true}).click();const talk=page.getByRole('button',{name:'Talk to locals',exact:true});await expect(talk).toBeEnabled();await expect(talk.locator('small')).toContainText('Credibility +1');await talk.click();await expect(page.locator('.local-conversation')).toBeVisible();const first=(await recovery(page)).state;
+      20 |  await page.getByRole('button',{name:'Back to town',exact:true}).click();await expect(talk).toBeEnabled();await expect(talk.locator('s')).toHaveText('Credibility +1');await talk.click();await expect(page.locator('.local-conversation')).toBeVisible();const second=(await recovery(page)).state;expect(second.stats).toEqual(first.stats);expect(second.clock_minutes).toBe(first.clock_minutes);expect(second.journal).toEqual(first.journal);await snap(page,'town-conversation');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/ux-round.spec.ts:17:110
+
+    Error Context: ../../../../../tmp/dystrail-entry-polish-regression/ux-round-town-inventory-se-f629d-tions-retain-the-real-state-chromium/error-context.md
+
+  5 failed
+    [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+    [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized 
+    [chromium] › tests-e2e/second-pass.spec.ts:46:5 › road and progress elements survive consecutive automatic turns 
+    [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload 
+    [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state 
+  1 interrupted
+    [chromium] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs 
+  99 did not run
+  81 passed (3.4m)
+  1 error was not a part of any test, see above for details

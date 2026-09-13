@@ -1,0 +1,12 @@
+{
+  "revision": "8b8fcc3f7004fd8ec354",
+  "preview_target": "/Users/vanna/Source/Dystrail/dystrail-web/dist",
+  "changed_files": [
+    "continuity-46888eac4583f0ba.css",
+    "static/continuity.css",
+    "index.html",
+    "offline-manifest.json",
+    "sw.js"
+  ],
+  "preserved_existing_hashed_assets": true
+}

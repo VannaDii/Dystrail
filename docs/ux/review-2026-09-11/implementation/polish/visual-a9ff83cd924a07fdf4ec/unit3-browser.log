@@ -1,0 +1,547 @@
+(node:92641) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 408 tests using 2 workers
+
+(node:92677) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92678) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92677) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92678) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:92677) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:92678) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.5s)
+  ✓    2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (4.9s)
+  ✓    3 [chromium] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (6.6s)
+  ✓    4 [chromium] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (6.0s)
+  ✓    6 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.3s)
+  ✓    5 [chromium] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (6.3s)
+  ✓    7 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.3s)
+  ✓    8 [chromium] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (2.6s)
+  ✓    9 [chromium] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.3s)
+  ✓   10 [chromium] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (3.3s)
+  ✓   11 [chromium] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (5.0s)
+  ✓   12 [chromium] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (5.5s)
+  ✓   13 [chromium] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.9s)
+  ✓   14 [chromium] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (2.1s)
+  ✓   15 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (4.4s)
+  ✓   16 [chromium] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (3.6s)
+  ✓   17 [chromium] › tests-e2e/entry-layout.spec.ts:59:5 › the daily Journal accumulates actual first-final totals and preserves every raw action across days (3.8s)
+  ✓   19 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (4.3s)
+  ✓   18 [chromium] › tests-e2e/entry-layout.spec.ts:105:5 › real driving rollover keeps all five hours and their daily effects in the completed day Journal (9.0s)
+  ✓   20 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.6s)
+  ✓   22 [chromium] › tests-e2e/feedback.spec.ts:64:5 › ally losses have a persistent acknowledgment and remain in the journal (4.4s)
+  ✓   21 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (6.1s)
+  ✓   23 [chromium] › tests-e2e/feedback.spec.ts:75:5 › long journals scroll by keyboard without overlapping the footer (2.7s)
+  ✓   24 [chromium] › tests-e2e/feedback.spec.ts:86:5 › town information, action spacing, journal cards and map credits share the established alignment (3.0s)
+  ✓   25 [chromium] › tests-e2e/feedback.spec.ts:108:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.2s)
+  ✓   26 [chromium] › tests-e2e/hourly-travel.spec.ts:46:6 › steady covers 60 miles during one clear, healthy driving hour (3.2s)
+  ✓   27 [chromium] › tests-e2e/hourly-travel.spec.ts:46:6 › heated covers 70 miles during one clear, healthy driving hour (3.2s)
+  ✓   28 [chromium] › tests-e2e/hourly-travel.spec.ts:46:6 › blitz covers 80 miles during one clear, healthy driving hour (3.2s)
+  ✓   30 [chromium] › tests-e2e/hourly-travel.spec.ts:77:5 › two hours of foraging leave three driving hours and 180 miles that day (5.7s)
+  ✓   29 [chromium] › tests-e2e/hourly-travel.spec.ts:58:5 › five driving hours cover 300 miles and overnight rollover adds no driving time (8.0s)
+  ✓   31 [chromium] › tests-e2e/inventory-status.spec.ts:6:5 › illustrated van and compact journal preserve every count and fit desktop and phone (2.6s)
+  ✓   32 [chromium] › tests-e2e/inventory-status.spec.ts:27:5 › status icons, weather detail, help spacing, and selected pace and diet stay synchronized (2.9s)
+  ✓   33 [chromium] › tests-e2e/inventory-status.spec.ts:48:5 › repair outcome and its journal use stat cards with remaining parts (2.3s)
+  ✓   34 [chromium] › tests-e2e/inventory-status.spec.ts:62:5 › local conversations offer all three benefits, are repeatable, and never award twice (5.5s)
+  ✓   36 [chromium] › tests-e2e/inventory-status.spec.ts:87:5 › offline share creates a real image and editable post without sending it (2.4s)
+  ✓   35 [chromium] › tests-e2e/inventory-status.spec.ts:75:5 › one town action leaves town, normal maps last three seconds, Fast mode skips them (8.2s)
+  ✓   38 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.3s)
+  ✓   37 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (7.6s)
+  ✓   39 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.7s)
+  ✓   41 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (2.2s)
+  ✓   40 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (3.1s)
+  ✓   42 [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (3.6s)
+  ✓   43 [chromium] › tests-e2e/mobile-impact.spec.ts:82:5 › weather and resource help fit short phone viewports and close without spending time (3.3s)
+  ✓   44 [chromium] › tests-e2e/mobile-impact.spec.ts:115:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.1s)
+  ✓   46 [chromium] › tests-e2e/navigation-toggle.spec.ts:31:5 › every selected tab toggles its content without spending a turn and remains keyboard accessible (3.4s)
+  ✓   47 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (4.3s)
+  ✓   48 [chromium] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (2.6s)
+  ✓   49 [chromium] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (2.4s)
+  ✓   45 [chromium] › tests-e2e/navigation-toggle.spec.ts:8:5 › manual Route closes back to the previous screen and never starts travel (15.7s)
+  ✓   50 [chromium] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (3.1s)
+  ✓   51 [chromium] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.4s)
+  ✓   52 [chromium] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (2.5s)
+  ✓   53 [chromium] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here (2.3s)
+  ✓   54 [chromium] › tests-e2e/onboarding-results.spec.ts:59:5 › town names omit universal service icons while town actions remain accessible (2.5s)
+  ✓   55 [chromium] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (6.4s)
+  ✓   57 [chromium] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.3s)
+  ✓   56 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (8.6s)
+  ✓   58 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (7.4s)
+  ✓   60 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › the top HUD includes travel resources and repair details remain compact (2.4s)
+  ✓   61 [chromium] › tests-e2e/scene-flow.spec.ts:24:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (3.1s)
+  ✓   59 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (12.5s)
+  ✓   62 [chromium] › tests-e2e/scene-flow.spec.ts:34:5 › automatic map keeps moving and closes in three seconds without a second click (10.9s)
+  ✓   63 [chromium] › tests-e2e/scene-flow.spec.ts:42:5 › automatic map can stay open, survives reload, and resumes with one click (12.9s)
+  ✓   65 [chromium] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again (3.7s)
+  ✓   66 [chromium] › tests-e2e/scene-flow.spec.ts:66:5 › help preference hides only optional tips, persists offline, and keeps information usable (3.2s)
+  ✓   67 [chromium] › tests-e2e/scene-flow.spec.ts:75:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.2s)
+  ✓   64 [chromium] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town (17.3s)
+  ✓   69 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (2.9s)
+  ✓   68 [chromium] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it (8.0s)
+  ✓   71 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.5s)
+  ✓   70 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (4.8s)
+  ✓   72 [chromium] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (3.0s)
+  ✓   73 [chromium] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (2.1s)
+  ✓   74 [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (2.3s)
+  ✓   75 [chromium] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (4.5s)
+  ✓   76 [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (3.2s)
+  ✓   77 [chromium] › tests-e2e/second-pass.spec.ts:41:5 › a new political encounter pays cash and exposes its factual hook (2.3s)
+  ✓   78 [chromium] › tests-e2e/second-pass.spec.ts:51:5 › road and progress elements survive consecutive automatic turns (4.2s)
+  ✓   79 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.3s)
+  ✓   80 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.2s)
+  ✓   81 [chromium] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.2s)
+  ✓   82 [chromium] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.2s)
+  ✓   83 [chromium] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.2s)
+  ✓   85 [chromium] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases (3.0s)
+  ✓   84 [chromium] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.4s)
+  ✓   86 [chromium] › tests-e2e/shopping.spec.ts:39:5 › quantity entry cannot overspend and clearing a selected item restores its funds (1.8s)
+  ✓   87 [chromium] › tests-e2e/shopping.spec.ts:51:5 › town store shows carried parts, buys once with the shown total, and keeps inventory available (3.6s)
+  ✓   88 [chromium] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls (2.0s)
+  ✓   90 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.2s)
+  ✓   89 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.9s)
+  ✓   91 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.2s)
+  ✓   93 [chromium] › tests-e2e/stopped-crew.spec.ts:56:5 › paid shift returns to town without moving or spending time (3.4s)
+  ✓   92 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (6.5s)
+  ✓   94 [chromium] › tests-e2e/stopped-crew.spec.ts:80:5 › stopping displays only present crew outside the van and keeps all readouts in the top HUD (4.1s)
+  ✓   95 [chromium] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (5.3s)
+  ✓   96 [chromium] › tests-e2e/turn-history.spec.ts:67:5 › routine travel always has a visible title, including empty and transition-only messages (3.2s)
+  ✓   97 [chromium] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.4s)
+  ✓   99 [chromium] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (2.5s)
+  ✓   98 [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (3.9s)
+Weather travel fixture [33m4[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+  ✓  101 [chromium] › tests-e2e/weather.spec.ts:41:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (2.6s)
+  ✓  102 [chromium] › tests-e2e/weather.spec.ts:52:5 › old weather pause checkpoints resume without a weather decision or repeated costs (3.1s)
+  ✓  103 [chromium] › tests-e2e/weather.spec.ts:59:5 › weather indicator respects reduced motion and Arabic layout (2.4s)
+  ✓  100 [chromium] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once (9.5s)
+  ✓  104 [chromium] › tests-e2e/weather.spec.ts:67:5 › travel actions share one compact row and the scene gets the saved space (2.2s)
+  ✓  105 [chromium] › tests-e2e/weather.spec.ts:86:5 › Fast mode persists, legacy Step saves recover, and toolbar details do not spend a turn (4.3s)
+  ✓  106 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: beltway_briefing (3.5s)
+  ✓  107 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_bridge_crews (3.3s)
+  ✓  108 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_civic_potluck (3.3s)
+  ✓  109 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_crossing_block_party (3.4s)
+  ✓  110 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_freeway_mural (3.4s)
+  ✓  111 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mail_drop (3.4s)
+  ✓  112 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_media_training (3.2s)
+  ✓  113 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mutual_aid (3.4s)
+  ✓  114 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mutual_aid_dispatch (3.4s)
+  ✓  115 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_neighborhood_watch (3.4s)
+  ✓  116 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_overpass_stage (3.3s)
+  ✓  117 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_press_briefing (3.3s)
+  ✓  118 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_press_pool_qna (3.5s)
+  ✓  119 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_radio_phonebank (3.3s)
+  ✓  120 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_service_station (3.3s)
+  ✓  121 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_union_blockade (3.3s)
+  ✓  122 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_water_drive (3.2s)
+  ✓  123 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_circuit_breaker (3.5s)
+  ✓  124 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_field_intel (3.4s)
+  ✓  125 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_grassroots_signal (3.3s)
+  ✓  126 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_media_ambush (3.4s)
+  ✓  127 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_memorandum_dump (3.3s)
+  ✓  128 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_secure_line (3.5s)
+  ✓  129 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_state_dirge (3.4s)
+  ✓  130 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_watch_party (3.3s)
+  ✓  131 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_watchdog_sync (3.4s)
+  ✓  132 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: fundraiser_detour (3.2s)
+  ✓  133 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: raw_milk (3.3s)
+  ✓  134 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: tariff_whiplash (3.3s)
+  ✓  135 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: town_hall_drift (3.3s)
+  ✓  136 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_waystation_boost (3.3s)
+  ✓  137 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_rustbelt_convoy (3.2s)
+  ✓  138 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_beltway_fastpass (3.3s)
+  ✓  139 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: clinic_triage (3.3s)
+  ✓  140 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: overnight_briefing (3.4s)
+  ✓  141 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_straw_reserve (3.3s)
+  ✓  142 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_corn_bullets (3.4s)
+  ✓  143 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_grant_groceries (3.5s)
+  ✓  144 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_cow_citations (3.5s)
+  ✓  145 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_forecast_corrected (3.4s)
+  ✓  146 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_parking_gulf (3.4s)
+  ✓  147 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_library_minimum (3.4s)
+  ✓  148 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_tariff_forklift (3.3s)
+  ✓  149 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_alternator_tariff (3.3s)
+  ✓  150 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_billion_pothole (3.3s)
+  ✓  151 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_bridge_bullets (3.3s)
+  ✓  152 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_press_pool_radio (3.3s)
+  ✓  153 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_hydration_pressure (3.4s)
+  ✓  154 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_museum_grant (3.4s)
+  ✓  155 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_factcheck_shift (3.4s)
+  ✓  156 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_food_shelf (3.3s)
+  ✓  157 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_cabinet_guest (3.3s)
+  ✓  158 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_name_infrastructure (3.4s)
+  ✓  159 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_straw_inspection (3.4s)
+  ✓  160 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_shower_force (3.5s)
+  ✓  161 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_receipt_museum (3.4s)
+  ✓  162 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_transit_ribbon (3.3s)
+  ✓  163 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_weather_desk (3.6s)
+  ✓  164 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_bibliography_emergency (3.4s)
+  ✓  165 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_grant_translation (3.3s)
+  ✓  166 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_rail_replacement (3.4s)
+  ✓  167 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_laboratory_overhead (3.2s)
+  ✓  168 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_wind_loyalty (3.3s)
+  ✓  169 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_desert_pressure (3.3s)
+  ✓  170 [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_beef_passports (3.3s)
+  ✓  171 [chromium] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_alternator_tariff retains its complete copy and exact choice effects offline (3.5s)
+  ✓  172 [chromium] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_billion_pothole retains its complete copy and exact choice effects offline (3.6s)
+  ✓  173 [chromium] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_cabinet_guest retains its complete copy and exact choice effects offline (3.5s)
+  ✓  174 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_circuit_breaker remains readable offline (4.1s)
+  ✓  175 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_secure_line remains readable offline (4.3s)
+  ✓  176 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: sat_weather_desk remains readable offline (4.1s)
+  ✓  177 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_circuit_breaker remains readable offline (4.0s)
+  ✓  178 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_secure_line remains readable offline (4.3s)
+  ✓  179 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: sat_weather_desk remains readable offline (4.2s)
+  ✓  180 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_circuit_breaker remains readable offline (4.2s)
+  ✓  181 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_secure_line remains readable offline (4.3s)
+  ✓  183 [chromium] › tests-e2e/writer-narratives.spec.ts:175:5 › revision 5 source contains all 28 town remarks and 25 named narrative fields (12ms)
+  ✓  182 [chromium] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: sat_weather_desk remains readable offline (4.1s)
+  ✓  185 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: raw milk, with care costs shown before choosing (3.2s)
+  ✓  186 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: heat warning, with care costs shown before choosing (3.1s)
+  ✓  184 [chromium] › tests-e2e/writer-narratives.spec.ts:192:5 › all 28 town conversations show their own revised remark and sourced fact offline (9.1s)
+  ✓  187 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: five accomplishments, with care costs shown before choosing (3.1s)
+  ✓  188 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: wellness sample, with care costs shown before choosing (3.2s)
+  ✓  189 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: renamed detours, with care costs shown before choosing (3.3s)
+  ✓  190 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: tariff invoice, with care costs shown before choosing (3.1s)
+  ✓  191 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: Signal work chat, with care costs shown before choosing (3.2s)
+  ✓  192 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: food parcels, with care costs shown before choosing (3.2s)
+  ✓  193 [chromium] › tests-e2e/writer-narratives.spec.ts:269:5 › critical care saves the named companion for the advertised supplies and hour (2.1s)
+  ✓  194 [chromium] › tests-e2e/writer-narratives.spec.ts:282:5 › leaving a critically ill companion with the aid team is safe and persists (2.2s)
+  ✓  195 [chromium] › tests-e2e/writer-narratives.spec.ts:301:5 › continuing before illness becomes critical leaves the companion unwell (2.1s)
+  ✓  196 [chromium] › tests-e2e/writer-narratives.spec.ts:314:5 › the explicitly fatal companion choice records death without ending the player journey (2.1s)
+  ✓  197 [chromium] › tests-e2e/writer-narratives.spec.ts:329:5 › the player cannot use companion departure and their fatal choice ends this named journey (2.2s)
+  ✓  198 [chromium] › tests-e2e/writer-narratives.spec.ts:348:5 › unaffordable care stays disabled while a safe companion departure remains available (2.1s)
+  ✓  199 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 0: Jules is named and the crew is unchanged (4.0s)
+  ✓  200 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 1: Kit is named and the crew is unchanged (4.1s)
+  ✓  201 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 2: Ari is named and the crew is unchanged (4.1s)
+  ✓  202 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 3: Blair is named and the crew is unchanged (4.1s)
+  ✓  203 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 4: Casey is named and the crew is unchanged (4.2s)
+(node:99289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99289) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:99289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  204 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 5: Devon is named and the crew is unchanged (4.1s)
+(node:99319) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99319) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:99319) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  206 [mobile] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.5s)
+  ✓  205 [mobile] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (5.1s)
+  ✓  207 [mobile] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (6.6s)
+  ✓  208 [mobile] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (6.1s)
+  ✓  210 [mobile] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.5s)
+  ✓  209 [mobile] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (6.2s)
+  ✓  211 [mobile] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.3s)
+  ✓  212 [mobile] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (2.6s)
+  ✓  213 [mobile] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.4s)
+  ✓  214 [mobile] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (3.4s)
+  ✓  215 [mobile] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (5.0s)
+  ✓  216 [mobile] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (5.5s)
+  ✓  217 [mobile] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.8s)
+  ✓  218 [mobile] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (2.1s)
+  ✓  219 [mobile] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (4.6s)
+  ✓  221 [mobile] › tests-e2e/entry-layout.spec.ts:59:5 › the daily Journal accumulates actual first-final totals and preserves every raw action across days (4.1s)
+  ✓  222 [mobile] › tests-e2e/entry-layout.spec.ts:105:5 › real driving rollover keeps all five hours and their daily effects in the completed day Journal (8.2s)
+  ✓  223 [mobile] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (4.4s)
+  ✓  224 [mobile] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.6s)
+  ✓  225 [mobile] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (6.1s)
+  ✓  226 [mobile] › tests-e2e/feedback.spec.ts:64:5 › ally losses have a persistent acknowledgment and remain in the journal (4.4s)
+  ✘  220 [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (5.0s)
+  ✓  227 [mobile] › tests-e2e/feedback.spec.ts:75:5 › long journals scroll by keyboard without overlapping the footer (2.8s)
+(node:157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  228 [mobile] › tests-e2e/feedback.spec.ts:108:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.3s)
+  ✓  229 [mobile] › tests-e2e/feedback.spec.ts:86:5 › town information, action spacing, journal cards and map credits share the established alignment (3.6s)
+  ✓  230 [mobile] › tests-e2e/hourly-travel.spec.ts:46:6 › steady covers 60 miles during one clear, healthy driving hour (3.2s)
+  ✓  231 [mobile] › tests-e2e/hourly-travel.spec.ts:46:6 › heated covers 70 miles during one clear, healthy driving hour (3.2s)
+  ✓  232 [mobile] › tests-e2e/hourly-travel.spec.ts:46:6 › blitz covers 80 miles during one clear, healthy driving hour (3.2s)
+  ✓  233 [mobile] › tests-e2e/hourly-travel.spec.ts:58:5 › five driving hours cover 300 miles and overnight rollover adds no driving time (8.0s)
+  ✓  234 [mobile] › tests-e2e/hourly-travel.spec.ts:77:5 › two hours of foraging leave three driving hours and 180 miles that day (6.9s)
+  ✓  235 [mobile] › tests-e2e/inventory-status.spec.ts:6:5 › illustrated van and compact journal preserve every count and fit desktop and phone (2.9s)
+  ✓  236 [mobile] › tests-e2e/inventory-status.spec.ts:27:5 › status icons, weather detail, help spacing, and selected pace and diet stay synchronized (2.9s)
+  ✓  237 [mobile] › tests-e2e/inventory-status.spec.ts:48:5 › repair outcome and its journal use stat cards with remaining parts (2.4s)
+  ✓  238 [mobile] › tests-e2e/inventory-status.spec.ts:62:5 › local conversations offer all three benefits, are repeatable, and never award twice (5.4s)
+  ✓  240 [mobile] › tests-e2e/inventory-status.spec.ts:87:5 › offline share creates a real image and editable post without sending it (2.4s)
+  ✓  239 [mobile] › tests-e2e/inventory-status.spec.ts:75:5 › one town action leaves town, normal maps last three seconds, Fast mode skips them (8.3s)
+  ✓  242 [mobile] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.3s)
+  ✓  241 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (7.8s)
+  ✓  243 [mobile] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.8s)
+  ✓  244 [mobile] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.9s)
+  ✓  245 [mobile] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (2.2s)
+  ✓  247 [mobile] › tests-e2e/mobile-impact.spec.ts:82:5 › weather and resource help fit short phone viewports and close without spending time (3.3s)
+  ✓  246 [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (3.8s)
+  ✓  248 [mobile] › tests-e2e/mobile-impact.spec.ts:115:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.1s)
+  ✓  250 [mobile] › tests-e2e/navigation-toggle.spec.ts:31:5 › every selected tab toggles its content without spending a turn and remains keyboard accessible (3.5s)
+  ✓  251 [mobile] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (4.4s)
+  ✓  252 [mobile] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (2.5s)
+  ✓  253 [mobile] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (2.3s)
+  ✓  249 [mobile] › tests-e2e/navigation-toggle.spec.ts:8:5 › manual Route closes back to the previous screen and never starts travel (15.6s)
+  ✓  254 [mobile] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (3.2s)
+  ✓  255 [mobile] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.4s)
+  ✓  257 [mobile] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here (2.1s)
+  ✓  256 [mobile] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (2.5s)
+  ✓  258 [mobile] › tests-e2e/onboarding-results.spec.ts:59:5 › town names omit universal service icons while town actions remain accessible (2.7s)
+  ✓  259 [mobile] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (7.2s)
+  ✓  261 [mobile] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.3s)
+  ✓  260 [mobile] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (8.6s)
+  ✓  262 [mobile] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (6.6s)
+  ✓  264 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › the top HUD includes travel resources and repair details remain compact (2.4s)
+  ✓  265 [mobile] › tests-e2e/scene-flow.spec.ts:24:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (3.1s)
+  ✓  263 [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (12.3s)
+  ✓  266 [mobile] › tests-e2e/scene-flow.spec.ts:34:5 › automatic map keeps moving and closes in three seconds without a second click (11.0s)
+  ✓  267 [mobile] › tests-e2e/scene-flow.spec.ts:42:5 › automatic map can stay open, survives reload, and resumes with one click (13.0s)
+  ✓  269 [mobile] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again (3.8s)
+  ✓  270 [mobile] › tests-e2e/scene-flow.spec.ts:66:5 › help preference hides only optional tips, persists offline, and keeps information usable (3.2s)
+  ✓  271 [mobile] › tests-e2e/scene-flow.spec.ts:75:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.3s)
+  ✓  268 [mobile] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town (17.4s)
+  ✓  273 [mobile] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.1s)
+  ✓  272 [mobile] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it (7.9s)
+  ✓  275 [mobile] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.6s)
+  ✓  274 [mobile] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (5.7s)
+  ✓  276 [mobile] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (3.2s)
+  ✓  277 [mobile] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (2.1s)
+  ✓  278 [mobile] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (2.3s)
+  ✓  280 [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (3.3s)
+  ✓  279 [mobile] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (4.3s)
+  ✓  281 [mobile] › tests-e2e/second-pass.spec.ts:41:5 › a new political encounter pays cash and exposes its factual hook (2.4s)
+  ✓  283 [mobile] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.3s)
+  ✓  282 [mobile] › tests-e2e/second-pass.spec.ts:51:5 › road and progress elements survive consecutive automatic turns (4.3s)
+  ✓  284 [mobile] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.2s)
+  ✓  285 [mobile] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.1s)
+  ✓  286 [mobile] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.2s)
+  ✓  287 [mobile] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.2s)
+  ✓  288 [mobile] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.3s)
+  ✓  290 [mobile] › tests-e2e/shopping.spec.ts:39:5 › quantity entry cannot overspend and clearing a selected item restores its funds (1.8s)
+  ✓  291 [mobile] › tests-e2e/shopping.spec.ts:51:5 › town store shows carried parts, buys once with the shown total, and keeps inventory available (3.7s)
+  ✘  289 [mobile] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases (4.1s)
+(node:4026) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4026) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:4026) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  293 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (4.3s)
+  ✓  294 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.3s)
+  ✘  292 [mobile] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls (5.4s)
+(node:4178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4178) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:4178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  295 [mobile] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.4s)
+  ✓  297 [mobile] › tests-e2e/stopped-crew.spec.ts:56:5 › paid shift returns to town without moving or spending time (3.5s)
+  ✓  296 [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (6.6s)
+  ✓  298 [mobile] › tests-e2e/stopped-crew.spec.ts:80:5 › stopping displays only present crew outside the van and keeps all readouts in the top HUD (4.4s)
+  ✓  299 [mobile] › tests-e2e/turn-history.spec.ts:7:5 › every action in the turn stays on The Trail newest first through navigation and reload (5.2s)
+  ✓  300 [mobile] › tests-e2e/turn-history.spec.ts:67:5 › routine travel always has a visible title, including empty and transition-only messages (3.3s)
+  ✓  301 [mobile] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.5s)
+  ✓  302 [mobile] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (3.9s)
+  ✓  303 [mobile] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (2.4s)
+Weather travel fixture [33m4[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+  ✓  305 [mobile] › tests-e2e/weather.spec.ts:41:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (2.8s)
+  ✓  306 [mobile] › tests-e2e/weather.spec.ts:52:5 › old weather pause checkpoints resume without a weather decision or repeated costs (3.1s)
+  ✓  307 [mobile] › tests-e2e/weather.spec.ts:59:5 › weather indicator respects reduced motion and Arabic layout (2.6s)
+  ✓  304 [mobile] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once (9.6s)
+  ✓  308 [mobile] › tests-e2e/weather.spec.ts:67:5 › travel actions share one compact row and the scene gets the saved space (2.3s)
+  ✓  309 [mobile] › tests-e2e/weather.spec.ts:86:5 › Fast mode persists, legacy Step saves recover, and toolbar details do not spend a turn (4.3s)
+  ✓  310 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: beltway_briefing (3.9s)
+  ✓  311 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_bridge_crews (3.2s)
+  ✓  312 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_civic_potluck (3.3s)
+  ✓  313 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_crossing_block_party (3.3s)
+  ✓  314 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_freeway_mural (3.3s)
+  ✓  315 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mail_drop (3.3s)
+  ✓  316 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_media_training (3.2s)
+  ✓  317 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mutual_aid (3.4s)
+  ✓  318 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_mutual_aid_dispatch (3.3s)
+  ✓  319 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_neighborhood_watch (3.3s)
+  ✓  320 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_overpass_stage (3.1s)
+  ✓  321 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_press_briefing (3.3s)
+  ✓  322 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_press_pool_qna (3.4s)
+  ✓  323 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_radio_phonebank (3.3s)
+  ✓  324 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_service_station (3.3s)
+  ✓  325 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_union_blockade (3.4s)
+  ✓  326 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: classic_water_drive (3.1s)
+  ✓  327 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_circuit_breaker (3.6s)
+  ✓  328 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_field_intel (3.3s)
+  ✓  329 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_grassroots_signal (3.4s)
+  ✓  330 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_media_ambush (3.3s)
+  ✓  331 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_memorandum_dump (3.4s)
+  ✓  332 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_secure_line (3.7s)
+  ✓  333 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_state_dirge (3.3s)
+  ✓  334 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_watch_party (3.3s)
+  ✓  335 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_watchdog_sync (3.3s)
+  ✓  336 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: fundraiser_detour (3.2s)
+  ✓  337 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: raw_milk (3.3s)
+  ✓  338 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: tariff_whiplash (3.3s)
+  ✓  339 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: town_hall_drift (3.3s)
+  ✓  340 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_waystation_boost (3.1s)
+  ✓  341 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_rustbelt_convoy (3.2s)
+  ✓  342 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: deep_beltway_fastpass (3.2s)
+  ✓  343 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: clinic_triage (3.3s)
+  ✓  344 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: overnight_briefing (3.4s)
+  ✓  345 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_straw_reserve (3.3s)
+  ✓  346 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_corn_bullets (3.3s)
+  ✓  347 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_grant_groceries (3.3s)
+  ✓  348 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_cow_citations (3.3s)
+  ✓  349 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_forecast_corrected (3.3s)
+  ✓  350 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_parking_gulf (3.4s)
+  ✓  351 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_library_minimum (3.3s)
+  ✓  352 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_tariff_forklift (3.3s)
+  ✓  353 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_alternator_tariff (3.4s)
+  ✓  354 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_billion_pothole (3.3s)
+  ✓  355 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_bridge_bullets (3.3s)
+  ✓  356 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_press_pool_radio (3.4s)
+  ✓  357 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_hydration_pressure (3.4s)
+  ✓  358 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_museum_grant (3.4s)
+  ✓  359 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_factcheck_shift (3.4s)
+  ✓  360 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_food_shelf (3.4s)
+  ✓  361 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_cabinet_guest (3.4s)
+  ✓  362 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_name_infrastructure (3.3s)
+  ✓  363 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_straw_inspection (3.4s)
+  ✓  364 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_shower_force (3.3s)
+  ✓  365 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_receipt_museum (3.4s)
+  ✓  366 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_transit_ribbon (3.4s)
+  ✓  367 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_weather_desk (3.6s)
+  ✓  368 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_bibliography_emergency (3.3s)
+  ✓  369 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_grant_translation (3.4s)
+  ✓  370 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_rail_replacement (3.4s)
+  ✓  371 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_laboratory_overhead (3.4s)
+  ✓  372 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_wind_loyalty (3.3s)
+  ✓  373 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_desert_pressure (3.4s)
+  ✓  374 [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: west_beef_passports (3.3s)
+  ✓  375 [mobile] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_alternator_tariff retains its complete copy and exact choice effects offline (3.6s)
+  ✓  376 [mobile] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_billion_pothole retains its complete copy and exact choice effects offline (3.7s)
+  ✓  377 [mobile] › tests-e2e/writer-content.spec.ts:11:7 › writer scene sat_cabinet_guest retains its complete copy and exact choice effects offline (3.6s)
+  ✓  378 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_circuit_breaker remains readable offline (4.1s)
+  ✓  379 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: deep_secure_line remains readable offline (4.3s)
+  ✓  380 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization it: sat_weather_desk remains readable offline (4.0s)
+  ✓  381 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_circuit_breaker remains readable offline (4.0s)
+  ✓  382 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: deep_secure_line remains readable offline (4.2s)
+  ✓  383 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization es: sat_weather_desk remains readable offline (4.1s)
+  ✓  384 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_circuit_breaker remains readable offline (4.1s)
+  ✓  385 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: deep_secure_line remains readable offline (4.3s)
+  ✓  387 [mobile] › tests-e2e/writer-narratives.spec.ts:175:5 › revision 5 source contains all 28 town remarks and 25 named narrative fields (14ms)
+  ✓  386 [mobile] › tests-e2e/writer-locales.spec.ts:11:9 › writer localization ar: sat_weather_desk remains readable offline (4.1s)
+  ✓  389 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: raw milk, with care costs shown before choosing (3.2s)
+  ✓  390 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: heat warning, with care costs shown before choosing (3.2s)
+  ✓  388 [mobile] › tests-e2e/writer-narratives.spec.ts:192:5 › all 28 town conversations show their own revised remark and sourced fact offline (9.5s)
+  ✓  391 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: five accomplishments, with care costs shown before choosing (3.1s)
+  ✓  392 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: wellness sample, with care costs shown before choosing (3.2s)
+  ✓  393 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: renamed detours, with care costs shown before choosing (3.2s)
+  ✓  394 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: tariff invoice, with care costs shown before choosing (3.2s)
+  ✓  395 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: Signal work chat, with care costs shown before choosing (3.2s)
+  ✓  397 [mobile] › tests-e2e/writer-narratives.spec.ts:269:5 › critical care saves the named companion for the advertised supplies and hour (2.2s)
+  ✓  396 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: food parcels, with care costs shown before choosing (3.3s)
+  ✓  398 [mobile] › tests-e2e/writer-narratives.spec.ts:282:5 › leaving a critically ill companion with the aid team is safe and persists (2.2s)
+  ✓  399 [mobile] › tests-e2e/writer-narratives.spec.ts:301:5 › continuing before illness becomes critical leaves the companion unwell (2.1s)
+  ✓  400 [mobile] › tests-e2e/writer-narratives.spec.ts:314:5 › the explicitly fatal companion choice records death without ending the player journey (2.3s)
+  ✓  401 [mobile] › tests-e2e/writer-narratives.spec.ts:329:5 › the player cannot use companion departure and their fatal choice ends this named journey (2.2s)
+  ✓  402 [mobile] › tests-e2e/writer-narratives.spec.ts:348:5 › unaffordable care stays disabled while a safe companion departure remains available (2.1s)
+  ✓  403 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 0: Jules is named and the crew is unchanged (4.1s)
+  ✓  404 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 1: Kit is named and the crew is unchanged (4.0s)
+  ✓  405 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 2: Ari is named and the crew is unchanged (4.2s)
+  ✓  406 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 3: Blair is named and the crew is unchanged (4.1s)
+  ✓  407 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 4: Casey is named and the crew is unchanged (4.2s)
+  ✓  408 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 5: Devon is named and the crew is unchanged (4.3s)
+
+
+  1) [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 7[39m
+    [31m+ Received  + 7[39m
+
+    [2m  Array [[22m
+    [2m    Object {[22m
+    [2m      "height": 102,[22m
+    [32m-     "width": 159.5,[39m
+    [31m+     "width": 113.328125,[39m
+    [2m    },[22m
+    [2m    Object {[22m
+    [2m      "height": 102,[22m
+    [32m-     "width": 159.5,[39m
+    [31m+     "width": 113.328125,[39m
+    [2m    },[22m
+    [2m    Object {[22m
+    [2m      "height": 102,[22m
+    [32m-     "width": 159.5,[39m
+    [31m+     "width": 113.34375,[39m
+    [2m    },[22m
+    [2m    Object {[22m
+    [32m-     "height": 102,[39m
+    [32m-     "width": 159.5,[39m
+    [31m+     "height": 105.578125,[39m
+    [31m+     "width": 113.328125,[39m
+    [2m    },[22m
+    [2m    Object {[22m
+    [32m-     "height": 102,[39m
+    [32m-     "width": 159.5,[39m
+    [31m+     "height": 105.578125,[39m
+    [31m+     "width": 113.328125,[39m
+    [2m    },[22m
+    [2m  ][22m
+
+      40 |  const entry=page.locator('.journal-day > .journal-story'),journalCards=await cardSizes(page,'.journal-day > .journal-story');
+      41 |  await containedCards(page,'.journal-day > .journal-story');
+    > 42 |  expect(journalCards.map(({width,height})=>({width,height}))).toEqual(trailCards.map(({width,height})=>({width,height})));
+         |                                                               ^
+      43 |  if(!isMobile)expect(new Set(journalCards.map(r=>Math.round(r.top))).size).toBe(1);
+      44 |  await expect(entry.getByRole('heading',{name:'Day 74',exact:true})).toBeVisible();
+      45 |  await expect(entry.locator('.journal-context')).toHaveText('08:00HeatedQuiet');
+        at /private/tmp/dystrail-visual-refine/unit3-source/dystrail-web/tests-e2e/entry-layout.spec.ts:42:63
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: test-results/entry-layout-Trail-and-Jou-5fb09-historical-journey-settings-mobile/error-context.md
+
+  2) [mobile] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m1700[39m
+    Received:   [31m1984.484375[39m
+
+      23 |  expect(await page.locator('.store-item-art').evaluateAll(images=>new Set(images.map(e=>(e as HTMLImageElement).src)).size)).toBe(11);
+      24 |  const height=await page.locator('.outfit-workspace').evaluate(e=>e.getBoundingClientRect().height);
+    > 25 |  expect(height).toBeLessThan(info.project.name==='mobile'?1700:1200);
+         |                 ^
+      26 |  const rations=page.getByRole('spinbutton',{name:'Rations Pack Quantity',exact:true});
+      27 |  await rations.fill('2');await expect(rations).toHaveValue('2');
+      28 |  await expect(page.locator('.cart-total')).toHaveText('$61');await expect(page.locator('.cart-cash')).toHaveText('$59');
+        at /private/tmp/dystrail-visual-refine/unit3-source/dystrail-web/tests-e2e/shopping.spec.ts:25:17
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: test-results/shopping-illustrated-outfi-18c79-orts-exact-direct-purchases-mobile/error-context.md
+
+  3) [mobile] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m42[39m
+    Received:    [31m174[39m
+
+       99 |  await expect(page.locator('.outfit-workspace')).not.toContainText('shopping.');
+      100 |  const row=await page.locator('.store-card').first().evaluate(e=>{const a=e.querySelector('.store-card-body')!.getBoundingClientRect(),b=e.querySelector('.store-qty-row')!.getBoundingClientRect();return {nameLeft:a.left,controlsRight:b.right};});
+    > 101 |  expect(row.controlsRight).toBeLessThanOrEqual(row.nameLeft);
+          |                            ^
+      102 |  await snap(page,'compact-store-arabic');
+      103 | });
+      104 |
+        at /private/tmp/dystrail-visual-refine/unit3-source/dystrail-web/tests-e2e/shopping.spec.ts:101:28
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: test-results/shopping-shopping-remains--fe799--never-shifts-item-controls-mobile/error-context.md
+
+  3 failed
+    [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 
+    [mobile] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases 
+    [mobile] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls 
+  405 passed (14.0m)

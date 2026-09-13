@@ -1,0 +1,384 @@
+{
+  "checked": "2026-09-12",
+  "results": [
+    {
+      "town": "Minneapolis",
+      "source": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "La Crosse",
+      "source": "https://www.census.gov/quickfacts/fact/table/lacrossecitywisconsin/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Madison",
+      "source": "https://www.census.gov/quickfacts/fact/table/madisoncitywisconsin/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Chicago",
+      "source": "https://www.census.gov/quickfacts/fact/table/chicagocityillinois/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "South Bend",
+      "source": "https://www.census.gov/quickfacts/fact/table/southbendcityindiana/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Toledo",
+      "source": "https://www.census.gov/quickfacts/fact/table/toledocityohio/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Cleveland",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/clevelandcityohio/PST045225",
+        "population": 363608,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Pittsburgh",
+      "source": "https://www.census.gov/quickfacts/fact/table/pittsburghcitypennsylvania/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Cumberland",
+      "source": "https://www.census.gov/quickfacts/fact/table/cumberlandcitymaryland/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Hagerstown",
+      "source": "https://www.census.gov/quickfacts/fact/table/hagerstowncitymaryland/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Frederick",
+      "source": "https://www.census.gov/quickfacts/fact/table/frederickcitymaryland/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "D.C.",
+      "source": "https://www.census.gov/quickfacts/fact/table/districtofcolumbiadistrictofcolumbia/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Kansas City",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/kansascitycitymissouri/PST045225",
+        "population": 521220,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Columbia",
+      "source": "https://www.census.gov/quickfacts/fact/table/columbiacitymissouri/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "St. Louis",
+      "source": "https://www.census.gov/quickfacts/fact/table/stlouiscitymissouri/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Springfield, IL",
+      "source": "https://www.census.gov/quickfacts/fact/table/springfieldcityillinois/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Denver",
+      "source": "https://www.census.gov/quickfacts/fact/table/denvercitycolorado/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "North Platte",
+      "source": "https://www.census.gov/quickfacts/fact/table/northplattecitynebraska/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Omaha",
+      "source": "https://www.census.gov/quickfacts/fact/table/omahacitynebraska/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Des Moines",
+      "source": "https://www.census.gov/quickfacts/fact/table/desmoinescityiowa/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Iowa City",
+      "source": "https://www.census.gov/quickfacts/fact/table/iowacitycityiowa/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Austin",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/austincitytexas/PST045225",
+        "population": 1002632,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Waco",
+      "source": "https://www.census.gov/quickfacts/fact/table/wacocitytexas/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Dallas",
+      "source": "https://www.census.gov/quickfacts/fact/table/dallascitytexas/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Oklahoma City",
+      "source": "https://www.census.gov/quickfacts/fact/table/oklahomacitycityoklahoma/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Tulsa",
+      "source": "https://www.census.gov/quickfacts/fact/table/tulsacityoklahoma/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Joplin",
+      "source": "https://www.census.gov/quickfacts/fact/table/joplincitymissouri/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Springfield, MO",
+      "source": "https://www.census.gov/quickfacts/fact/table/springfieldcitymissouri/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Seattle",
+      "source": "https://www.census.gov/quickfacts/fact/table/seattlecitywashington/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Portland",
+      "source": "https://www.census.gov/quickfacts/fact/table/portlandcityoregon/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "San Francisco",
+      "source": "https://www.census.gov/quickfacts/fact/table/sanfranciscocitycalifornia/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Los Angeles",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/PST045225",
+        "population": 3869089,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Sacramento",
+      "source": "https://www.census.gov/quickfacts/fact/table/sacramentocitycalifornia/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "San Diego",
+      "source": "https://www.census.gov/quickfacts/fact/table/sandiegocitycalifornia/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Spokane",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/spokanecitywashington/PST045225",
+        "population": 230783,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Missoula",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/missoulacitymontana/PST045225",
+        "population": 78903,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Billings",
+      "source": "https://www.census.gov/quickfacts/fact/table/billingscitymontana/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Rapid City",
+      "source": "https://www.census.gov/quickfacts/fact/table/rapidcitycitysouthdakota/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Sioux Falls",
+      "source": "https://www.census.gov/quickfacts/fact/table/siouxfallscitysouthdakota/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Boise",
+      "source": "https://www.census.gov/quickfacts/fact/table/boisecitycityidaho/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Salt Lake City",
+      "source": "https://www.census.gov/quickfacts/fact/table/saltlakecitycityutah/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Reno",
+      "source": "https://www.census.gov/quickfacts/fact/table/renocitynevada/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Cheyenne",
+      "source": "https://www.census.gov/quickfacts/fact/table/cheyennecitywyoming/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Las Vegas",
+      "source": "https://www.census.gov/quickfacts/fact/table/lasvegascitynevada/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Flagstaff",
+      "source": "https://www.census.gov/quickfacts/fact/table/flagstaffcityarizona/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Albuquerque",
+      "source": "https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Amarillo",
+      "source": "https://www.census.gov/quickfacts/fact/table/amarillocitytexas/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "Phoenix",
+      "error": "HTTP Error 403: Forbidden",
+      "web_readback": {
+        "source": "https://www.census.gov/quickfacts/fact/table/phoenixcityarizona/PST045225",
+        "population": 1665481,
+        "year": 2025,
+        "matched": true
+      }
+    },
+    {
+      "town": "Tucson",
+      "source": "https://www.census.gov/quickfacts/fact/table/tucsoncityarizona/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "El Paso",
+      "source": "https://www.census.gov/quickfacts/fact/table/elpasocitytexas/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    },
+    {
+      "town": "San Antonio",
+      "source": "https://www.census.gov/quickfacts/fact/table/sanantoniocitytexas/PST045225",
+      "status": 200,
+      "year_present": true,
+      "value_present": true
+    }
+  ],
+  "verified": true
+}

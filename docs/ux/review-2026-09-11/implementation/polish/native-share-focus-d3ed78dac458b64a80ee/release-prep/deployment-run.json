@@ -1,0 +1,135 @@
+{
+  "revision": "d3ed78dac458b64a80ee",
+  "branch": "release/native-share-focus-2026-09-13",
+  "commit": "99ae520b19f1ef8eb259d2211229fe954e4d3803",
+  "started_at": "2026-09-13T21:00:44.523022+00:00",
+  "temporary_policy": {
+    "id": 59894616,
+    "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k1OTg5NDYxNg==",
+    "name": "release/native-share-focus-2026-09-13",
+    "type": "branch"
+  },
+  "dispatched_at": "2026-09-13T21:00:47.954413+00:00",
+  "run": {
+    "conclusion": "success",
+    "createdAt": "2026-09-13T21:00:47Z",
+    "databaseId": 34782506065,
+    "headBranch": "release/native-share-focus-2026-09-13",
+    "headSha": "99ae520b19f1ef8eb259d2211229fe954e4d3803",
+    "jobs": [
+      {
+        "completedAt": "2026-09-13T21:01:10Z",
+        "conclusion": "success",
+        "databaseId": 103791964337,
+        "name": "package",
+        "startedAt": "2026-09-13T21:00:52Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-09-13T21:00:54Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-13T21:00:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:02Z",
+            "conclusion": "success",
+            "name": "Checkout exact release",
+            "number": 2,
+            "startedAt": "2026-09-13T21:00:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:02Z",
+            "conclusion": "success",
+            "name": "Verify immutable preview payload",
+            "number": 3,
+            "startedAt": "2026-09-13T21:01:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:02Z",
+            "conclusion": "success",
+            "name": "Configure Pages",
+            "number": 4,
+            "startedAt": "2026-09-13T21:01:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:07Z",
+            "conclusion": "success",
+            "name": "Upload verified Pages artifact",
+            "number": 5,
+            "startedAt": "2026-09-13T21:01:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:08Z",
+            "conclusion": "success",
+            "name": "Post Checkout exact release",
+            "number": 10,
+            "startedAt": "2026-09-13T21:01:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:08Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "startedAt": "2026-09-13T21:01:08Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065/job/103791964337"
+      },
+      {
+        "completedAt": "2026-09-13T21:01:29Z",
+        "conclusion": "success",
+        "databaseId": 103792016386,
+        "name": "deploy",
+        "startedAt": "2026-09-13T21:01:14Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-09-13T21:01:16Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-13T21:01:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:28Z",
+            "conclusion": "success",
+            "name": "Deploy to GitHub Pages",
+            "number": 2,
+            "startedAt": "2026-09-13T21:01:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-13T21:01:28Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 3,
+            "startedAt": "2026-09-13T21:01:28Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065/job/103792016386"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/VannaDii/Dystrail/actions/runs/34782506065"
+  },
+  "deployed_at": "2026-09-13T21:01:38.353748+00:00",
+  "temporary_policy_removed": true,
+  "branch_policies_after": [
+    {
+      "id": 39031816,
+      "name": "main",
+      "type": "branch"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+
+Running 9 tests using 1 worker
+
+(node:38834) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38834) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/onboarding-results.spec.ts:6:5 › start action shares the Deep End column and stacks on mobile (778ms)
+  ✓  2 [chromium] › tests-e2e/onboarding-results.spec.ts:12:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (2.6s)
+  ✓  3 [chromium] › tests-e2e/onboarding-results.spec.ts:28:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (1.8s)
+  ✓  4 [chromium] › tests-e2e/onboarding-results.spec.ts:43:5 › bottom result actions give visible feedback without a page jump (1.9s)
+  ✓  5 [chromium] › tests-e2e/onboarding-results.spec.ts:51:5 › a fatal player care decision reports the death and ends the run here (1.6s)
+  ✓  6 [chromium] › tests-e2e/onboarding-results.spec.ts:58:5 › store and trade have distinct illustrated symbols and retained information (1.7s)
+  ✓  7 [chromium] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (1.1s)
+  ✓  8 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (2.6s)
+  ✓  9 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (3.6s)
+
+  9 passed (18.4s)

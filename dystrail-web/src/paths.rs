@@ -5,6 +5,10 @@
 /// fall back to root-anchored paths.
 #[must_use]
 pub fn asset_path(relative: &str) -> String {
+    #[cfg(target_arch = "wasm32")]
+    if let Some(url) = prepared_asset(relative.trim_start_matches('/')) {
+        return url;
+    }
     let base = option_env!("PUBLIC_URL")
         .unwrap_or("")
         .trim_end_matches('/');
@@ -15,6 +19,15 @@ pub fn asset_path(relative: &str) -> String {
     } else {
         format!("{base}/{rel}")
     }
+}
+
+#[cfg(target_arch = "wasm32")]
+fn prepared_asset(relative: &str) -> Option<String> {
+    let window = web_sys::window()?;
+    let assets = js_sys::Reflect::get(&window, &"dystrailAssetUrls".into()).ok()?;
+    js_sys::Reflect::get(&assets, &relative.into())
+        .ok()?
+        .as_string()
 }
 
 /// Base path for the router (e.g., `/play` when hosted under a subdirectory).

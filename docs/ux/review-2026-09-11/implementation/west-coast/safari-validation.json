@@ -1,0 +1,74 @@
+{
+  "browser": "Native Safari",
+  "revision": "f6b4922d52c336b3eec9",
+  "checks": [
+    "Credibility cap, actual struck-out award, unlimited conversation access, and reload persistence",
+    "Leave store aligns vertically with the heading and horizontally under Resume",
+    "Journal shows dated cards and typed cash change; work completion is centered",
+    "Map credits sit in the header next to the current town",
+    "Repair consumes the actual spare and shows vehicle recovery in an outcome card",
+    "Encounter cash uses the same stat-card format and accessible primary button name",
+    "Ally notice survives reload, waits behind the map, acknowledges once, and stays in the journal",
+    "Removed stat is ignored in old saves; six stats, concise risk and centered final offline footer",
+    "Town profile and journal remain readable in the measured native Safari viewport without horizontal overflow",
+    "Conversation columns align in Safari; the browser ignores narrow-window resize requests",
+    "Conversation context is accessible and Back to town returns to unchanged services"
+  ],
+  "viewports": [
+    {
+      "name": "town-capped-reward",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "store-alignment",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "journal",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "map-credits",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "repair-cards",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "ally-departure",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "offline-footer",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "town-narrow",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "journal-narrow",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "conversation-measured",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "conversation-desktop",
+      "width": 1728,
+      "height": 1032
+    }
+  ]
+}

@@ -116,7 +116,7 @@ impl LogicTester {
                     "halted"
                 };
                 failures.push(format!(
-                    "Iteration {} (mode {:?}, strategy {}, seed {}, turns {}, status {}, ending '{}'): {} | {} | final HP {} Supplies {} Sanity {} Pants {}",
+                    "Iteration {} (mode {:?}, strategy {}, seed {}, turns {}, status {}, ending '{}'): {} | {} | final HP {} Supplies {} Sanity {}",
                     i + 1,
                     summary.mode,
                     summary.strategy.label(),
@@ -129,7 +129,6 @@ impl LogicTester {
                     final_stats.hp,
                     final_stats.supplies,
                     final_stats.sanity,
-                    final_stats.pants
                 ));
 
                 if verbose {
@@ -140,13 +139,12 @@ impl LogicTester {
                         err.clone().red()
                     );
                     println!(
-                        "     ↳ Seed {} | Turns {} | Final HP {} Supplies {} Sanity {} Pants {} | Decisions: {}",
+                        "     ↳ Seed {} | Turns {} | Final HP {} Supplies {} Sanity {} | Decisions: {}",
                         summary.seed,
                         turns,
                         final_stats.hp,
                         final_stats.supplies,
                         final_stats.sanity,
-                        final_stats.pants,
                         context
                     );
                 }

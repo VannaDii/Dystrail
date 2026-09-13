@@ -40,9 +40,15 @@ pub fn build_go_home(state: &AppState, navigator: Option<Navigator>) -> Callback
 pub fn build_begin_boot(state: &AppState) -> Callback<()> {
     let phase = state.phase.clone();
     let ready = state.boot_ready.clone();
+    let pending = state.pending_state.clone();
+    let session = state.session.clone();
+    let feedback = state.aftermath.clone();
     Callback::from(move |()| {
         // Only advance when explicitly called (user presses key)
         if *ready {
+            pending.set(None);
+            session.set(None);
+            feedback.set(None);
             phase.set(Phase::Persona);
         }
     })

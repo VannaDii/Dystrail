@@ -8,7 +8,6 @@
 // Logging keys -------------------------------------------------------------
 #[cfg(debug_assertions)]
 pub(crate) const DEBUG_ENV_VAR: &str = "DYSTRAIL_DEBUG_LOGS";
-pub(crate) const LOG_PANTS_EMERGENCY: &str = "log.pants-emergency";
 pub(crate) const LOG_HEALTH_COLLAPSE: &str = "log.health-collapse";
 pub(crate) const LOG_SANITY_COLLAPSE: &str = "log.sanity-collapse";
 pub(crate) const LOG_TRAVEL_BLOCKED: &str = "log.travel-blocked";
@@ -80,13 +79,12 @@ pub(crate) const EMERGENCY_LIMP_MILE_WINDOW: f32 = 200.0;
 
 // Encounter tuning ---------------------------------------------------------
 pub(crate) const ENCOUNTER_BASE_DEFAULT: f32 = 0.27;
-pub(crate) const ENCOUNTER_COOLDOWN_DAYS: u8 = 1;
 pub(crate) const ENCOUNTER_SOFT_CAP_THRESHOLD: u32 = 5;
 pub(crate) const ENCOUNTER_HISTORY_WINDOW: usize = 10;
 pub(crate) const MAX_ENCOUNTERS_PER_DAY: u8 = 2;
-pub(crate) const ENCOUNTER_RECENT_MEMORY: usize = 8;
+pub(crate) const ENCOUNTER_RECENT_MEMORY: usize = 128;
 pub(crate) const ENCOUNTER_REPEAT_WINDOW_DAYS: u32 = 6;
-pub(crate) const ENCOUNTER_EXTENDED_MEMORY_DAYS: u32 = ENCOUNTER_REPEAT_WINDOW_DAYS * 2;
+pub(crate) const ENCOUNTER_EXTENDED_MEMORY_DAYS: u32 = 365;
 pub(crate) const ENCOUNTER_REROLL_PENALTY: f32 = 0.8;
 pub(crate) const ENCOUNTER_CRITICAL_VEHICLE_BONUS: f32 = 0.12;
 pub(crate) const ENCOUNTER_SOFT_CAP_FACTOR: f32 = TRAVEL_PARTIAL_RATIO;
@@ -94,7 +92,7 @@ pub(crate) const ENCOUNTER_SOFT_CAP_FACTOR: f32 = TRAVEL_PARTIAL_RATIO;
 // Executive order tuning ---------------------------------------------------
 pub(crate) const EXEC_ORDER_DAILY_CHANCE: f32 = 0.06;
 pub(crate) const EXEC_ORDER_MIN_DURATION: u8 = 2;
-pub(crate) const EXEC_ORDER_MAX_DURATION: u8 = 4;
+pub(crate) const EXEC_ORDER_MAX_DURATION: u8 = 3;
 pub(crate) const EXEC_ORDER_MIN_COOLDOWN: u8 = 6;
 pub(crate) const EXEC_ORDER_MAX_COOLDOWN: u8 = 9;
 pub(crate) const EXEC_ORDER_SPEED_BONUS: f32 = 0.88;
@@ -104,12 +102,7 @@ pub(crate) const EXEC_BREAKDOWN_BONUS_CLAMP_MAX: f32 = 0.2;
 
 // Travel parameters --------------------------------------------------------
 pub(crate) const CROSSING_MILESTONES: [f32; 3] = [650.0, 1_250.0, 1_900.0];
-pub(crate) const REST_TRAVEL_CREDIT_MILES: f32 = 12.0;
-pub(crate) const DELAY_TRAVEL_CREDIT_MILES: f32 = 9.0;
 pub(crate) const TRAVEL_HISTORY_WINDOW: usize = 10;
-pub(crate) const TRAVEL_PARTIAL_MIN_DISTANCE: f32 = 1.0;
-pub(crate) const TRAVEL_V2_BASE_DISTANCE: f32 = 13.5;
-pub(crate) const TRAVEL_CLASSIC_BASE_DISTANCE: f32 = 12.0;
 pub(crate) const TRAVEL_CONFIG_MIN_MULTIPLIER: f32 = 0.1;
 pub(crate) const TRAVEL_V2_PENALTY_FLOOR: f32 = 0.7;
 pub(crate) const TRAVEL_CLASSIC_PENALTY_FLOOR: f32 = 0.6;
@@ -137,8 +130,6 @@ pub(crate) const DEEP_AGGRESSIVE_BOSS_BIAS_MILES: f32 = 2_050.0;
 
 pub(crate) const DEEP_BALANCED_TOLERANCE_THRESHOLDS: &[(f32, i32)] = &[(1_950.0, 2), (1_900.0, 1)];
 pub(crate) const DEEP_BALANCED_FAILSAFE_DISTANCE: f32 = 1_950.0;
-pub(crate) const CLASSIC_BALANCED_TRAVEL_NUDGE: f32 = 1.03;
-pub(crate) const DEEP_BALANCED_TRAVEL_NUDGE: f32 = 0.79;
 pub(crate) const DEEP_AGGRESSIVE_TOLERANCE_THRESHOLDS: &[(f32, i32)] =
     &[(1_950.0, 3), (1_850.0, 2)];
 
@@ -151,8 +142,8 @@ pub(crate) const PROBABILITY_FLOOR: f32 = 0.0;
 pub(crate) const PROBABILITY_MAX: f32 = 1.0;
 
 // Disease tuning -----------------------------------------------------------
-pub(crate) const DISEASE_DAILY_CHANCE: f32 = 0.012;
-pub(crate) const DISEASE_COOLDOWN_DAYS: u32 = 5;
+pub(crate) const DISEASE_DAILY_CHANCE: f32 = 0.006;
+pub(crate) const DISEASE_COOLDOWN_DAYS: u32 = 20;
 pub(crate) const DISEASE_SANITY_PENALTY: i32 = 1;
 pub(crate) const DISEASE_HP_PENALTY: i32 = 1;
 pub(crate) const DISEASE_SUPPLY_PENALTY: i32 = 1;
@@ -168,28 +159,22 @@ pub(crate) const DISEASE_TICK_SANITY_LOSS: i32 = 1;
 // Starvation tuning --------------------------------------------------------
 pub(crate) const STARVATION_BASE_HP_LOSS: i32 = 1;
 pub(crate) const STARVATION_SANITY_LOSS: i32 = 1;
-pub(crate) const STARVATION_PANTS_GAIN: i32 = 1;
 pub(crate) const STARVATION_MAX_STACK: u32 = 5;
 pub(crate) const STARVATION_GRACE_DAYS: u32 = 1;
 // Miscellaneous thresholds -------------------------------------------------
 pub(crate) const ALLY_ATTRITION_CHANCE: f32 = 0.02;
 pub(crate) const EMERGENCY_REPAIR_COST: i64 = 1_000;
 #[cfg(test)]
-pub(crate) const ASSERT_MIN_AVG_MPD: f64 = 12.0;
-#[cfg(test)]
 pub(crate) const FLOAT_EPSILON: f64 = 1e-6;
 
+#[cfg(test)]
 pub(crate) const AGGRESSIVE_STOP_WINDOW_DAYS: usize = 10;
-pub(crate) const AGGRESSIVE_STOP_CAP: usize = 2;
 
 pub(crate) const DEEP_AGGRESSIVE_SANITY_DAY: u32 = 130;
 pub(crate) const DEEP_AGGRESSIVE_SANITY_MILES: f32 = 1_800.0;
 pub(crate) const DEEP_AGGRESSIVE_SANITY_COST: i64 = 2_000;
-pub(crate) const DEEP_AGGRESSIVE_SANITY_PANTS_PENALTY: i32 = 3;
 
 pub(crate) const BOSS_COMPOSE_SUPPLY_COST: i32 = 4;
-pub(crate) const BOSS_COMPOSE_PANTS_SUPPLY: i32 = 5;
-pub(crate) const BOSS_COMPOSE_FUNDS_PANTS: i32 = 3;
 pub(crate) const BOSS_COMPOSE_FUNDS_COST: i64 = 2_000;
 pub(crate) const SANITY_POINT_REWARD: i32 = 1;
 

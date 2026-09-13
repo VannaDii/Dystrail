@@ -1,0 +1,31 @@
+🎮 Dystrail Automated Tester
+================================
+🔁 Acceptance mode enabled: using 250 playability iterations
+🧠 Running Logic Tests
+------------------------------
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 90.9% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 90.9% < 92.0%
+WARN: Deep Aggressive seed DP-BARRON03 failed to reach the boss
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Classic - Aggressive average endgame cooldown 0.02 days remaining
+WARN: Classic - Balanced average endgame cooldown 0.01 days remaining
+WARN: Classic - Conservative average endgame cooldown 0.03 days remaining
+WARN: Classic - Resource Manager average endgame cooldown 0.00 days remaining
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Aggressive average endgame cooldown 0.00 days remaining
+WARN: Deep - Balanced average endgame cooldown 0.01 days remaining
+WARN: Deep - Conservative average endgame cooldown 0.02 days remaining
+WARN: Classic Aggressive survival 98.4% exceeds Balanced upper band
+WARN: Deep - Conservative boss reach 100.0% exceeds 75% deep upper bound
+WARN: Deep - Aggressive boss reach 99.2% exceeds 75% deep upper bound
+WARN: Deep - Aggressive boss win 99.2% exceeds 52% deep upper bound
+WARN: Deep - Aggressive terminal crossing rate 0.3% below 8% deep lower band
+WARN: Deep - Conservative terminal crossing rate 0.0% below 8% deep lower band
+WARN: Deep - Resource Manager terminal crossing rate 0.0% below 8% deep lower band

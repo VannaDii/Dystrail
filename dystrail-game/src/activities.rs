@@ -1,0 +1,391 @@
+//! Bounded supply gathering and town work, persisted independently from UI navigation.
+use crate::GameState;
+use serde::{Deserialize, Serialize};
+
+pub const FORAGE_COOLDOWN_DAYS: u32 = 3;
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct TrailActivities {
+    pub foraged_on: Option<u32>,
+    pub worked_at: Option<u32>,
+    pub local_word: Option<u8>,
+}
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum Activity {
+    Forage,
+    Glean,
+    WorkSupplies,
+    WorkCash,
+}
+impl Activity {
+    pub const ROADSIDE: [Self; 2] = [Self::Forage, Self::Glean];
+    pub const TOWN: [Self; 2] = [Self::WorkSupplies, Self::WorkCash];
+    #[must_use]
+    pub const fn key(self) -> &'static str {
+        match self {
+            Self::Forage => "trail.forage",
+            Self::Glean => "trail.glean",
+            Self::WorkSupplies => "trail.work_supplies",
+            Self::WorkCash => "trail.work_cash",
+        }
+    }
+    #[must_use]
+    pub const fn minutes(self) -> u16 {
+        match self {
+            Self::Forage | Self::Glean => 120,
+            Self::WorkSupplies | Self::WorkCash => 180,
+        }
+    }
+}
+impl GameState {
+    /// Foraging and gleaning share one cooldown, including after a reload.
+    #[must_use]
+    pub fn forage_cooldown_days(&self) -> u32 {
+        self.continuity.activities.foraged_on.map_or(0, |day| {
+            day.saturating_add(FORAGE_COOLDOWN_DAYS)
+                .saturating_sub(self.day)
+        })
+    }
+
+    #[must_use]
+    pub fn can_activity(&self, action: Activity) -> bool {
+        if self.current_encounter.is_some()
+            || self.breakdown.is_some()
+            || self.continuity.crew_care.pending.is_some()
+            || self.ending.is_some()
+            || self.continuity.abandoned
+        {
+            return false;
+        }
+        match action {
+            Activity::Forage | Activity::Glean => {
+                self.continuity.route_services.stop.is_none()
+                    && self.forage_cooldown_days() == 0
+                    && self.stats.supplies <= if action == Activity::Forage { 18 } else { 16 }
+                    && (action != Activity::Glean || self.stats.hp > 1)
+            }
+            Activity::WorkSupplies | Activity::WorkCash => {
+                self.continuity.route_services.stop.is_some()
+                    && self.continuity.activities.worked_at != self.continuity.route_services.stop
+                    && (action != Activity::WorkSupplies || self.stats.supplies <= 16)
+                    && self.stats.sanity > 0
+            }
+        }
+    }
+    pub fn perform_activity(&mut self, action: Activity) -> bool {
+        if !self.can_activity(action) {
+            return false;
+        }
+        let before = self.clone();
+        match action {
+            Activity::Forage => {
+                self.stats.supplies += 2;
+                self.stats.sanity = (self.stats.sanity + 1).min(10);
+            }
+            Activity::Glean => {
+                self.stats.supplies += 4;
+                self.stats.hp = (self.stats.hp - 1).max(0);
+            }
+            Activity::WorkSupplies => {
+                self.stats.sanity -= 1;
+                self.stats.supplies += 4;
+            }
+            Activity::WorkCash => {
+                self.stats.sanity -= 1;
+                self.budget_cents += 1800;
+                self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
+            }
+        }
+        self.advance_clock(&before, action.minutes());
+        // An overnight activity must return the new day's settled state to its caller.
+        // The raw clock remains lazy; no new day is charged without time spent there.
+        if self.day > before.day
+            && self.continuity.clock_minutes > crate::travel_time::TRAVEL_DAY_START
+        {
+            self.start_of_day();
+        }
+        if matches!(action, Activity::Forage | Activity::Glean) {
+            self.continuity.activities.foraged_on = Some(self.day);
+        } else {
+            self.continuity.activities.worked_at = self.continuity.route_services.stop;
+        }
+        true
+    }
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn activity_day(clock: u16) -> GameState {
+        let mut state = GameState {
+            day: 6,
+            pace: crate::PaceId::Heated,
+            diet: crate::DietId::Mixed,
+            disease_cooldown: 10,
+            exec_order_cooldown: 10,
+            journey_daily: crate::journey::DailyTickConfig {
+                supplies: crate::journey::DailyChannelConfig {
+                    base: 1.0,
+                    ..crate::journey::DailyChannelConfig::default()
+                },
+                ..crate::journey::DailyTickConfig::default()
+            },
+            ..GameState::default()
+        };
+        state.start_of_day();
+        state.stats.sanity = 4;
+        state.record_travel_day(crate::TravelDayKind::Travel, 12.5, "travel");
+        state.spend_driving_time(30);
+        state.continuity.clock_minutes = clock;
+        state
+    }
+
+    fn assert_activity_movement_unchanged(before: &GameState, after: &GameState) {
+        assert_eq!(
+            after.miles_traveled_actual.to_bits(),
+            before.miles_traveled_actual.to_bits()
+        );
+        assert_eq!(
+            after.continuity.driving_minutes_total,
+            before.continuity.driving_minutes_total
+        );
+        assert_eq!(
+            after.continuity.pace_fatigue_remainder,
+            before.continuity.pace_fatigue_remainder
+        );
+    }
+
+    #[test]
+    fn activity_settlement_overnight_work_returns_current_day_costs_and_clock() {
+        for action in Activity::TOWN {
+            let mut state = activity_day(crate::travel_time::TRAVEL_DAY_END - 90);
+            state.continuity.route_services.stop = Some(160);
+            let before = state.clone();
+            assert!(state.perform_activity(action));
+            assert_eq!(state.day, before.day + 1);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                crate::journal::morning() + 90
+            );
+            assert!(state.day_state.lifecycle.day_initialized);
+            // A three-hour shift costs one sanity; the new day's Mixed diet restores two.
+            assert_eq!(state.stats.sanity, before.stats.sanity + 1);
+            let supplies_gain = if action == Activity::WorkSupplies {
+                4
+            } else {
+                0
+            };
+            let cash_gain = if action == Activity::WorkCash {
+                1800
+            } else {
+                0
+            };
+            assert_eq!(
+                state.stats.supplies,
+                before.stats.supplies + supplies_gain - 1
+            );
+            assert_eq!(state.budget_cents, before.budget_cents + cash_gain);
+            assert_eq!(state.continuity.activities.worked_at, Some(160));
+            assert_activity_movement_unchanged(&before, &state);
+            assert_eq!(state.day_records.len(), 1);
+            assert_eq!(state.day_records[0].miles.to_bits(), 12.5_f32.to_bits());
+            let current = state.ledger.current_day_record.as_ref().unwrap();
+            assert_eq!(u32::from(current.day_index), state.day - 1);
+            assert_eq!(current.kind, crate::TravelDayKind::NonTravel);
+            assert_eq!(current.miles.to_bits(), 0.0_f32.to_bits());
+            assert_eq!(
+                state.continuity.weather_impact.as_ref().unwrap().day,
+                state.day
+            );
+        }
+    }
+
+    #[test]
+    fn activity_settlement_overnight_gathering_keeps_reward_cost_and_cooldown() {
+        for action in Activity::ROADSIDE {
+            let mut state = activity_day(crate::travel_time::TRAVEL_DAY_END - 60);
+            let before = state.clone();
+            assert!(state.perform_activity(action));
+            assert_eq!(state.day, before.day + 1);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                crate::journal::morning() + 60
+            );
+            assert!(state.day_state.lifecycle.day_initialized);
+            let supplies_gain = if action == Activity::Forage { 2 } else { 4 };
+            let sanity_gain = if action == Activity::Forage { 3 } else { 2 };
+            let health_loss = i32::from(action == Activity::Glean);
+            assert_eq!(
+                state.stats.supplies,
+                before.stats.supplies + supplies_gain - 1
+            );
+            assert_eq!(state.stats.sanity, before.stats.sanity + sanity_gain);
+            assert_eq!(state.stats.hp, before.stats.hp - health_loss);
+            assert_eq!(state.continuity.activities.foraged_on, Some(state.day));
+            assert_eq!(state.forage_cooldown_days(), FORAGE_COOLDOWN_DAYS);
+            assert_activity_movement_unchanged(&before, &state);
+            assert_eq!(state.day_records[0].miles.to_bits(), 12.5_f32.to_bits());
+        }
+    }
+
+    #[test]
+    fn activity_settlement_preserves_capped_reward_before_next_day_diet_cost() {
+        let mut state = activity_day(crate::travel_time::TRAVEL_DAY_END - 60);
+        state.diet = crate::DietId::Doom;
+        state.stats.sanity = 10;
+        let before = state.clone();
+        assert!(state.perform_activity(Activity::Forage));
+        // The forage gain is capped when earned, before tomorrow's existing diet cost.
+        assert_eq!(state.stats.sanity, 8);
+        assert_eq!(state.stats.supplies, before.stats.supplies + 1);
+        assert_eq!(state.day, before.day + 1);
+        assert_activity_movement_unchanged(&before, &state);
+    }
+
+    #[test]
+    fn activity_settlement_same_day_actions_do_not_repeat_daily_costs() {
+        for action in [Activity::Forage, Activity::WorkCash] {
+            let mut state = activity_day(crate::journal::morning() + 60);
+            if action == Activity::WorkCash {
+                state.continuity.route_services.stop = Some(160);
+            }
+            let before = state.clone();
+            assert!(state.perform_activity(action));
+            assert_eq!(state.day, before.day);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes + action.minutes()
+            );
+            let (sanity_delta, supplies_delta) = if action == Activity::Forage {
+                (1, 2)
+            } else {
+                (-1, 0)
+            };
+            assert_eq!(state.stats.sanity, before.stats.sanity + sanity_delta);
+            assert_eq!(state.stats.supplies, before.stats.supplies + supplies_delta);
+            assert_eq!(
+                state.continuity.weather_impact,
+                before.continuity.weather_impact
+            );
+            assert!(state.day_records.is_empty());
+            assert_activity_movement_unchanged(&before, &state);
+        }
+    }
+
+    #[test]
+    fn activity_settlement_exact_day_end_does_not_start_tomorrow() {
+        let mut state = activity_day(crate::travel_time::TRAVEL_DAY_END - 180);
+        state.continuity.route_services.stop = Some(160);
+        let before = state.clone();
+        assert!(state.perform_activity(Activity::WorkCash));
+        assert_eq!(state.day, before.day);
+        assert_eq!(
+            state.continuity.clock_minutes,
+            crate::travel_time::TRAVEL_DAY_END
+        );
+        assert_eq!(state.stats.sanity, before.stats.sanity - 1);
+        assert_eq!(state.stats.supplies, before.stats.supplies);
+        assert!(state.day_records.is_empty());
+        assert_activity_movement_unchanged(&before, &state);
+    }
+
+    #[test]
+    fn activity_settlement_reload_and_zero_time_do_not_charge_again() {
+        let mut state = activity_day(crate::travel_time::TRAVEL_DAY_END - 90);
+        state.continuity.route_services.stop = Some(160);
+        assert!(state.perform_activity(Activity::WorkCash));
+        let encoded = serde_json::to_string(&state).unwrap();
+        let mut restored: GameState = serde_json::from_str(&encoded).unwrap();
+        let before = restored.clone();
+        assert!(!restored.can_activity(Activity::WorkCash));
+        assert!(!restored.perform_activity(Activity::WorkCash));
+        restored.advance_clock(&before, 0);
+        restored.start_of_day();
+        assert_eq!(
+            serde_json::to_value(&restored).unwrap(),
+            serde_json::to_value(&before).unwrap()
+        );
+        restored.continuity.route_services.stop = None;
+        let before_gathering = restored.clone();
+        assert!(restored.perform_activity(Activity::Forage));
+        assert_eq!(restored.day, before_gathering.day);
+        assert_eq!(restored.stats.supplies, before_gathering.stats.supplies + 2);
+        assert_eq!(restored.stats.sanity, before_gathering.stats.sanity + 1);
+        assert_activity_movement_unchanged(&before_gathering, &restored);
+    }
+
+    #[test]
+    fn activity_settlement_does_not_expand_same_day_lazy_initialization() {
+        let mut state = GameState {
+            stats: crate::Stats {
+                sanity: 4,
+                ..crate::Stats::default()
+            },
+            ..GameState::default()
+        };
+        let before = state.clone();
+        assert!(state.perform_activity(Activity::Forage));
+        assert_eq!(state.day, before.day);
+        assert!(!state.day_state.lifecycle.day_initialized);
+        assert_eq!(state.stats.sanity, 5);
+        assert_eq!(state.stats.supplies, before.stats.supplies + 2);
+        assert_eq!(
+            state.continuity.clock_minutes,
+            before.continuity.clock_minutes + 120
+        );
+        assert!(state.continuity.weather_impact.is_none());
+        assert_activity_movement_unchanged(&before, &state);
+    }
+
+    #[test]
+    fn gathering_and_paid_work_cannot_be_farmed_by_reloading() {
+        let mut gs = GameState::default();
+        gs.stats.supplies = 5;
+        assert!(gs.perform_activity(Activity::Glean));
+        assert_eq!(gs.stats.supplies, 9);
+        let mut gs: GameState = serde_json::from_str(&serde_json::to_string(&gs).unwrap()).unwrap();
+        assert!(!gs.perform_activity(Activity::Forage));
+        gs.day += 3;
+        assert!(gs.perform_activity(Activity::Forage));
+        gs.continuity.route_services.stop = Some(160);
+        let cash = gs.budget_cents;
+        assert!(gs.perform_activity(Activity::WorkCash));
+        assert_eq!(gs.budget_cents, cash + 1800);
+        assert!(!gs.perform_activity(Activity::WorkSupplies));
+        assert!(!gs.perform_activity(Activity::Forage));
+    }
+
+    #[test]
+    fn gathering_preserves_capacity_health_and_town_guards() {
+        let mut state = GameState::default();
+        state.stats.supplies = 19;
+        assert!(!state.can_activity(Activity::Forage));
+        state.stats.supplies = 18;
+        assert!(state.can_activity(Activity::Forage));
+        assert!(!state.can_activity(Activity::Glean));
+        state.stats.supplies = 16;
+        state.stats.hp = 1;
+        assert!(!state.can_activity(Activity::Glean));
+        state.stats.hp = 2;
+        assert!(state.can_activity(Activity::Glean));
+        state.continuity.route_services.stop = Some(160);
+        assert!(!state.can_activity(Activity::Forage));
+        assert!(!state.can_activity(Activity::Glean));
+    }
+
+    #[test]
+    fn late_gathering_starts_its_shared_cooldown_when_the_work_finishes() {
+        let mut state = GameState::default();
+        state.stats.supplies = 5;
+        state.continuity.clock_minutes = crate::travel_time::TRAVEL_DAY_END - 60;
+        let day = state.day;
+        assert!(state.perform_activity(Activity::Forage));
+        assert_eq!(state.day, day + 1);
+        assert_eq!(
+            state.continuity.clock_minutes,
+            crate::journal::morning() + 60
+        );
+        assert_eq!(state.continuity.activities.foraged_on, Some(state.day));
+        assert_eq!(state.forage_cooldown_days(), FORAGE_COOLDOWN_DAYS);
+        assert_eq!(state.continuity.driving_minutes_total, 0);
+    }
+}

@@ -1,0 +1,18 @@
+Safari 26.6.2
+Waiting for visible Safari test window: http://127.0.0.1:56921/play/
+file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-feedback.mjs:17
+async function until(script,timeout=20000){const start=Date.now();while(Date.now()-start<timeout){try{if(await exec(script))return;}catch{}await new Promise(r=>setTimeout(r,200));}throw new Error('Timed out: '+script+'\n'+await exec('return document.body.innerText'));}
+                                                                                                                                                                                          ^
+
+Error: Timed out: return document.visibilityState==="visible"
+Dystopian Trail
+Packing the trail
+Downloading for offline play · 97%
+
+Downloading every scene, map and game file before you begin. Your saved journey will resume when everything is ready.
+
+    at until (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-feedback.mjs:17:187)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-feedback.mjs:47:175
+
+Node.js v26.8.2

@@ -2,6 +2,13 @@
 
 use num_traits::cast::cast;
 
+/// Round a monetary magnitude up to a whole dollar, retaining cents as the save unit.
+#[must_use]
+pub const fn whole_dollar_cents(cents: i64) -> i64 {
+    let dollars = cents / 100 + if cents % 100 == 0 { 0 } else { cents.signum() };
+    dollars.saturating_mul(100)
+}
+
 /// Clamp a f64 to the f32 range and downcast, returning 0.0 for non-finite values.
 #[must_use]
 pub fn clamp_f64_to_f32(value: f64) -> f32 {

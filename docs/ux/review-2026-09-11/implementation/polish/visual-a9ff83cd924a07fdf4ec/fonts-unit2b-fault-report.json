@@ -1,0 +1,42 @@
+{
+  "revision": "4831b874f6a8ad955112",
+  "target": "static/fonts/atkinson-next-italic.woff2",
+  "stages": [
+    {
+      "name": "missing-blocked",
+      "gateRetained": true,
+      "retryVisible": true,
+      "blockedFetches": 1
+    },
+    {
+      "name": "missing-recovery",
+      "ready": true
+    },
+    {
+      "name": "corrupt-blocked",
+      "gateRetained": true,
+      "retryVisible": true
+    },
+    {
+      "name": "corrupt-recovery",
+      "state": "ready",
+      "gate": false,
+      "faces": [
+        "loaded",
+        "loaded",
+        "loaded",
+        "loaded",
+        "loaded",
+        "loaded",
+        "loaded"
+      ]
+    }
+  ],
+  "harness": "Disposable service-worker fetch rejection simulates an unavailable target font; page offline emulation alone does not block worker fetches in this Chrome configuration.",
+  "recoveredIntegrity": {
+    "bytes": 52692,
+    "integrity": "sha256-NEkcWof3EdMUY3li9pJn0ox98+1JgILJkM37vALr8/I=",
+    "marker": "4831b874f6a8ad955112"
+  },
+  "passed": true
+}

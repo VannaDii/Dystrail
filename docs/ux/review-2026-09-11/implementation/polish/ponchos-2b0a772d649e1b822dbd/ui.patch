@@ -1,0 +1,306 @@
+--- a/dystrail-web/src/components/ui/stats_bar/weather.rs
++++ b/dystrail-web/src/components/ui/stats_bar/weather.rs
+@@ -83,7 +83,13 @@
+             "plague_resist",
+             "weather.panel.masks",
+         )),
+-        Weather::Clear | Weather::Storm => None,
++        Weather::Storm => Some((
++            "ponchos",
++            "rain_resist",
++            "rain_resist",
++            "weather.panel.ponchos",
++        )),
++        Weather::Clear => None,
+     };
+     Readout {
+         cost,
+@@ -157,3 +163,48 @@
+         }
+     </div>}
+ }
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn storm_readout_explains_ponchos_and_retains_other_weather_costs() {
++        i18n::set_lang("en");
++        let cfg = WeatherConfig::default_config();
++        for carried in [false, true] {
++            let mut gs = GameState::default();
++            gs.weather_state.today = Weather::Storm;
++            gs.stats.sanity = 7;
++            if carried {
++                gs.inventory.tags.insert("rain_resist".into());
++            }
++            crate::game::weather::apply_weather_effects(&mut gs, &cfg);
++            let before = serde_json::to_value(&gs).unwrap();
++            let result = readout(&gs, &cfg);
++            assert_eq!(
++                result.protection,
++                Some((
++                    "Ponchos".into(),
++                    carried,
++                    "Ponchos prevent storm sanity loss. Other storm costs still apply.".into(),
++                ))
++            );
++            assert_eq!(result.changes[0].key, "ux.supplies");
++            assert_eq!(result.changes[0].value, "-1");
++            assert_eq!(
++                result
++                    .changes
++                    .iter()
++                    .find(|card| card.key == "ux.sanity")
++                    .map(|card| card.value.as_str()),
++                if carried { None } else { Some("-1") },
++            );
++            assert_eq!(result.rates[0].key, "play.distance");
++            assert_eq!(result.rates[0].value, "-10%");
++            assert_eq!(result.rates[1].key, "play.risk");
++            assert_eq!(result.rates[1].value, "+5%");
++            assert_eq!(serde_json::to_value(&gs).unwrap(), before);
++        }
++    }
++}
+--- a/dystrail-web/i18n/ar.json
++++ b/dystrail-web/i18n/ar.json
+@@ -592,7 +592,8 @@
+       "missing": "غير متوفر",
+       "water": "يمنع الماء خسارة إضافية في الاتزان والضرر الصحي الناتج عن الحر المطوّل.",
+       "coats": "تمنع المعاطف تكلفة البرد على الاتزان والضرر الصحي الناتج عن التعرض المطوّل.",
+-      "masks": "تمنع الكمامات تكلفة الدخان على الاتزان. تبقى تكلفة المؤن سارية."
++      "masks": "تمنع الكمامات تكلفة الدخان على الاتزان. تبقى تكلفة المؤن سارية.",
++      "ponchos": "تمنع معاطف المطر خسارة الاتزان بسبب العواصف. تبقى تكاليف العواصف الأخرى سارية."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/bn.json
++++ b/dystrail-web/i18n/bn.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/de.json
++++ b/dystrail-web/i18n/de.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/en.json
++++ b/dystrail-web/i18n/en.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/es.json
++++ b/dystrail-web/i18n/es.json
+@@ -592,7 +592,8 @@
+       "missing": "No llevas",
+       "water": "El agua evita pérdidas adicionales de cordura y daños a la salud por calor prolongado.",
+       "coats": "Los abrigos evitan el coste de cordura del frío y los daños a la salud por exposición prolongada.",
+-      "masks": "Las mascarillas evitan el coste de cordura del humo. El coste de suministros se mantiene."
++      "masks": "Las mascarillas evitan el coste de cordura del humo. El coste de suministros se mantiene.",
++      "ponchos": "Los ponchos evitan la pérdida de cordura por las tormentas. Los demás costes de las tormentas se mantienen."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/fr.json
++++ b/dystrail-web/i18n/fr.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/hi.json
++++ b/dystrail-web/i18n/hi.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/id.json
++++ b/dystrail-web/i18n/id.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/it.json
++++ b/dystrail-web/i18n/it.json
+@@ -592,7 +592,8 @@
+       "missing": "Non a bordo",
+       "water": "L’acqua evita ulteriori perdite di lucidità e danni alla salute causati dal caldo prolungato.",
+       "coats": "I cappotti evitano il costo in lucidità del freddo e i danni alla salute da esposizione prolungata.",
+-      "masks": "Le mascherine evitano il costo in lucidità del fumo. Il costo in provviste resta."
++      "masks": "Le mascherine evitano il costo in lucidità del fumo. Il costo in provviste resta.",
++      "ponchos": "I poncho evitano la perdita di lucidità causata dalle tempeste. Gli altri costi delle tempeste restano."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/ja.json
++++ b/dystrail-web/i18n/ja.json
+@@ -600,7 +600,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/jv.json
++++ b/dystrail-web/i18n/jv.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/ko.json
++++ b/dystrail-web/i18n/ko.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/mr.json
++++ b/dystrail-web/i18n/mr.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/pa.json
++++ b/dystrail-web/i18n/pa.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/pt.json
++++ b/dystrail-web/i18n/pt.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/ru.json
++++ b/dystrail-web/i18n/ru.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/ta.json
++++ b/dystrail-web/i18n/ta.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/te.json
++++ b/dystrail-web/i18n/te.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/tr.json
++++ b/dystrail-web/i18n/tr.json
+@@ -592,7 +592,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {
+--- a/dystrail-web/i18n/zh.json
++++ b/dystrail-web/i18n/zh.json
+@@ -599,7 +599,8 @@
+       "missing": "Not carried",
+       "water": "Water prevents extra sanity loss and health damage from prolonged heat.",
+       "coats": "Warm coats prevent the cold’s sanity cost and health damage from prolonged exposure.",
+-      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies."
++      "masks": "Masks prevent the smoke’s sanity cost. The supplies cost still applies.",
++      "ponchos": "Ponchos prevent storm sanity loss. Other storm costs still apply."
+     }
+   },
+   "settings": {

@@ -1,0 +1,22 @@
+[
+  {
+    "check": "format",
+    "exit_code": 0,
+    "seconds": 0.25
+  },
+  {
+    "check": "clippy-native",
+    "exit_code": 0,
+    "seconds": 6.46
+  },
+  {
+    "check": "clippy-wasm",
+    "exit_code": 0,
+    "seconds": 6.75
+  },
+  {
+    "check": "build",
+    "exit_code": 0,
+    "seconds": 15.59
+  }
+]

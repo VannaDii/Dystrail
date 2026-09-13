@@ -1,5 +1,5 @@
 //! Store management and shopping cart
-use crate::numbers::{ceil_f64_to_i64, i64_to_f64};
+use crate::numbers::{ceil_f64_to_i64, i64_to_f64, whole_dollar_cents};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -186,17 +186,17 @@ impl Store {
 }
 
 /// Calculate the effective price after persona discount.
-/// Returns price in cents, rounded up.
+/// Returns price in cents, rounded up to the next whole dollar.
 #[must_use]
 pub fn calculate_effective_price(base_price_cents: i64, discount_pct: f64) -> i64 {
     if discount_pct <= 0.0 {
-        return base_price_cents;
+        return whole_dollar_cents(base_price_cents);
     }
 
     let pct = discount_pct.clamp(0.0, 100.0);
     let multiplier = 1.0 - (pct / 100.0);
     let discounted = i64_to_f64(base_price_cents).mul_add(multiplier, 0.0);
-    ceil_f64_to_i64(discounted)
+    whole_dollar_cents(ceil_f64_to_i64(discounted))
 }
 
 /// Calculate the total cost of a cart with persona discount applied.
@@ -258,7 +258,7 @@ mod tests {
         assert_eq!(cart.get_quantity("rope"), 2);
 
         let total = calculate_cart_total(&cart, &store, 10.0);
-        assert_eq!(total, 2 * 900 + 450);
+        assert_eq!(total, 2 * 900 + 500);
 
         cart.remove_item("rope", 1);
         assert_eq!(cart.get_quantity("rope"), 1);
@@ -276,5 +276,23 @@ mod tests {
         let all = store.items_by_id();
         assert_eq!(all.len(), 2);
         assert!(all.contains_key("rope"));
+    }
+
+    #[test]
+    fn whole_dollar_prices_match_affordability_and_saved_balances() {
+        let price = calculate_effective_price(1_000, 15.0);
+        assert_eq!(price, 900);
+        assert_eq!(crate::crossings::calculate_bribe_cost(1_000, 15), price);
+        let state = crate::GameState {
+            budget_cents: 850,
+            ..crate::GameState::default()
+        };
+        let mut restored = state.rehydrate(crate::EncounterData::from_json("[]").unwrap());
+        assert_eq!(restored.budget_cents, 900);
+        assert_eq!(restored.budget, 9);
+        restored.apply_store_purchase(price, &Grants::default(), &[]);
+        assert_eq!(restored.budget_cents, 0);
+        let restored = restored.rehydrate(crate::EncounterData::from_json("[]").unwrap());
+        assert_eq!(restored.budget_cents, 0);
     }
 }

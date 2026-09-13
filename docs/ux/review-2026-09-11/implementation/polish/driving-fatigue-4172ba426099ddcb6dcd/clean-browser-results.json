@@ -1,0 +1,22 @@
+{
+  "revision": "4172ba426099ddcb6dcd",
+  "checks": [
+    {
+      "mode": "classic",
+      "keyboardPace": "heated",
+      "keyboardDiet": "quiet",
+      "timeStatsUnchanged": true,
+      "offlineReloadSelectionPreserved": true,
+      "cleanScreenshots": 8
+    },
+    {
+      "mode": "deep",
+      "keyboardPace": "heated",
+      "keyboardDiet": "quiet",
+      "timeStatsUnchanged": true,
+      "offlineReloadSelectionPreserved": true,
+      "cleanScreenshots": 8
+    }
+  ],
+  "errors": []
+}

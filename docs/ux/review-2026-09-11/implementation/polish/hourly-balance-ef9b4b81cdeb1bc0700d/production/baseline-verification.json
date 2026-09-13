@@ -1,0 +1,13 @@
+{
+  "priorRevision": "23cf83a1a7d5f9d02de9",
+  "url": "https://dystrail.com/play/",
+  "disposableProfile": true,
+  "errors": [],
+  "save": {
+    "phase": "Travel",
+    "day": 1,
+    "miles": 0,
+    "crew": 6
+  },
+  "passed": true
+}

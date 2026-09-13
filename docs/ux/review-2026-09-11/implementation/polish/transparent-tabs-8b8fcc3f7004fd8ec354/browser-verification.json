@@ -1,0 +1,789 @@
+{
+  "origin": "http://127.0.0.1:62818/play/",
+  "records": [
+    {
+      "mode": "Classic",
+      "width": 1440,
+      "states": [
+        {
+          "state": "The Trail selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Trail hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Trail pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Trail focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Trail collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Conditions selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Conditions collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Van selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Van collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Journal selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Journal collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "keyboard focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mode": "Classic",
+      "width": 393,
+      "states": [
+        {
+          "state": "The Trail selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Trail hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Trail pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Trail focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Trail collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Conditions selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Conditions focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Conditions collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Van selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "The Van focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "The Van collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Journal selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        },
+        {
+          "state": "Journal focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "Journal collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 246, 223)"
+        },
+        {
+          "state": "keyboard focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(243, 206, 105)"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mode": "Deep",
+      "width": 1440,
+      "states": [
+        {
+          "state": "The Trail selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Trail hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Trail pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Trail focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Trail collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Conditions selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Conditions collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Van selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Van collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Journal selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Journal collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "keyboard focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "mode": "Deep",
+      "width": 393,
+      "states": [
+        {
+          "state": "The Trail selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Trail hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Trail pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Trail focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Trail collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Conditions selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Conditions focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Conditions collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Van selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "The Van focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "The Van collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Journal selected or collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal hover",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal pressed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        },
+        {
+          "state": "Journal focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "Journal collapsed",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "false",
+          "underline": "0",
+          "color": "rgb(255, 243, 250)"
+        },
+        {
+          "state": "keyboard focus",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "shadow": "none",
+          "selected": "true",
+          "underline": "1",
+          "color": "rgb(241, 177, 211)"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

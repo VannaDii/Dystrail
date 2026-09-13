@@ -1,0 +1,58 @@
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling memchr v2.7.6
+   Compiling futures-task v0.3.31
+   Compiling futures-channel v0.3.31
+   Compiling serde_json v1.0.145
+   Compiling tracing v0.1.43
+   Compiling zerofrom v0.1.6
+   Compiling num-traits v0.2.19
+   Compiling thiserror v2.0.17
+   Compiling const_format v0.2.35
+   Compiling clap v4.5.53
+   Compiling yoke v0.8.1
+   Compiling futures-util v0.3.31
+   Compiling zerovec v0.11.5
+   Compiling zerotrie v0.2.3
+   Compiling aho-corasick v1.1.4
+   Compiling tinystr v0.8.2
+   Compiling potential_utf v0.1.4
+   Compiling icu_collections v2.1.1
+   Compiling icu_locale_core v2.1.1
+   Compiling regex-automata v0.4.13
+   Compiling chrono v0.4.42
+   Compiling icu_provider v2.1.1
+   Compiling icu_properties v2.1.1
+   Compiling regex v1.12.2
+   Compiling env_filter v0.1.4
+   Compiling stringmatch v0.4.0
+   Compiling env_logger v0.11.8
+   Compiling smallvec v1.15.1
+   Compiling serde_urlencoded v0.7.1
+   Compiling parking_lot_core v0.9.12
+   Compiling icu_normalizer v2.1.1
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling parking_lot v0.12.5
+   Compiling idna_adapter v1.2.1
+   Compiling tokio v1.48.0
+   Compiling idna v1.1.0
+   Compiling url v2.5.7
+   Compiling hyper v1.8.1
+   Compiling tokio-rustls v0.26.4
+   Compiling tower v0.5.2
+   Compiling tower-http v0.6.7
+   Compiling hyper-util v0.1.19
+   Compiling hyper-rustls v0.27.7
+   Compiling reqwest v0.12.24
+   Compiling thirtyfour v0.36.1
+   Compiling dystrail-tester v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-tester)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.81s
+     Running `target/debug/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report console`
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+Error: Playability expectation failed for mode Classic, strategy Aggressive, seed 1337 (iteration 273)
+
+Caused by:
+    Aggressive runs should accumulate risk, observed pants 2

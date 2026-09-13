@@ -40,7 +40,7 @@ pub const WORD_LIST: [&str; 258] = [
     "MAGARLY", "MANAFRT", "MANGO", "MARALAG", "MASKERS", "MASKOFF", "MCCAIN", "MCENANY", "MILLER",
     "MILLS", "MNUCHIN", "MOB", "MSM", "MTG", "MULLER", "MULVAN", "MURDOCH", "MURPHY", "MUSLBAN",
     "NADLER", "NAVARRO", "NEWSMAX", "NEWSOM", "NOEM", "NOOBSTR", "NUKHURR", "NUNES", "OANN",
-    "OCASIO", "OIL", "OMAR", "OPIODS", "ORANGE", "OREILLY", "OSSOFF", "OWENS", "PARADE", "PANTS",
+    "OCASIO", "OIL", "OMAR", "OPIODS", "ORANGE", "OREILLY", "OSSOFF", "OWENS", "PARADE", "PATCH",
     "PARDON", "PARLER", "PAYOFF", "PELOSI", "PELTS", "PENCE", "PLANDEM", "POMPEO", "POWELL",
     "PRICE", "PRIEBUS", "PRUITT", "QANON", "QSHAMAN", "RAIMDO", "RALLY", "RAND", "RECOUNT",
     "RETURNS", "RETWEET", "RICK", "RICO", "RIGGED", "RIOT", "ROBERTS", "ROMNEY", "RON", "ROSEN",
@@ -98,6 +98,12 @@ pub fn decode_to_seed(code: &str) -> Option<(bool, u64)> {
     let (word_part, nn_part) = rest.split_at(rest.len() - 2);
     let nn: u8 = nn_part.parse().ok()?;
     let word = sanitize_word(word_part);
+    // Old run codes keep their exact seed; newly generated codes use the replacement word.
+    let word = if word == "PANTS" {
+        "PATCH"
+    } else {
+        word.as_str()
+    };
     let idx = WORD_LIST.iter().position(|w| sanitize_word(w) == word)?;
     let wi = u16::try_from(idx).ok()?;
     let seed = compose_seed(is_deep, wi, nn);
@@ -143,6 +149,13 @@ mod tests {
         let (deep, seed) = decode_to_seed("DP-ORANGE42").unwrap();
         assert!(deep);
         assert_eq!(encode_friendly(true, seed), "DP-ORANGE42");
+    }
+
+    #[test]
+    fn retired_code_word_preserves_the_saved_seed() {
+        assert_eq!(decode_to_seed("CL-PANTS99"), decode_to_seed("CL-PATCH99"));
+        let (_, seed) = decode_to_seed("CL-PANTS99").unwrap();
+        assert_eq!(encode_friendly(false, seed), "CL-PATCH99");
     }
 
     #[test]

@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-11",
+  "scope": "F01-F12 plus route-only map and abandon trail",
+  "deployment": "local only",
+  "player_storage": "8081 storage untouched; isolated 8083 playtesting",
+  "rust_tests": {
+    "passed": 226,
+    "failed": 0
+  },
+  "clippy": "passed",
+  "format_and_whitespace": "passed",
+  "coverage_percent": 78.24,
+  "coverage_required_percent": 77,
+  "native_release": "passed",
+  "web_release": "passed",
+  "browser": {
+    "desktop_cases_passed": 23,
+    "phone_cases_passed": 23,
+    "combined_runner": "timed out during project teardown after the desktop assertions passed",
+    "phone_runner": "23 final cases passed cleanly in two batches of 6 and 17",
+    "final_targeted_layout_checks": {
+      "cases_passed": 6,
+      "exit_code": 0,
+      "seconds": 9.2,
+      "covers": "corrected phone HUD, focus, pointer/help layout, stage entry, regional scenes, weather, clock, autosave and camp"
+    },
+    "visibility_check": "controlled visibility event in headless Chrome; no OS background-throttling certification",
+    "browser_limit": "cached bundled browser incomplete; working installed Chrome used",
+    "remaining_final_phone_checks": {
+      "cases_passed": 17,
+      "exit_code": 0,
+      "seconds": 46.0
+    }
+  },
+  "dependency_audit": {
+    "status": "failed",
+    "vulnerabilities": 7,
+    "denied_warnings": 7,
+    "lockfile_changed": false
+  },
+  "dependency_policy": {
+    "advisories": "failed",
+    "licenses": "passed",
+    "bans": "passed",
+    "sources": "passed"
+  },
+  "campaign_simulation": {
+    "requested_iterations": 1000,
+    "status": "failed",
+    "mode": "Classic",
+    "strategy": "Aggressive",
+    "seed": 1337,
+    "iteration": 273,
+    "reason": "Pants danger 2 below scenario risk expectation"
+  },
+  "wasm_pack": {
+    "command_completed": true,
+    "tests_discovered": 0
+  },
+  "local_delivery": {
+    "game": {
+      "status": 200,
+      "content_type": "text/html",
+      "matches_local_build": true
+    },
+    "gallery": {
+      "status": 200,
+      "content_type": "text/html",
+      "matches_local_build": true,
+      "play_link": "http://127.0.0.1:8081/play/"
+    },
+    "encounter_art": {
+      "status": 200,
+      "content_type": "image/png",
+      "matches_local_build": true
+    }
+  }
+}

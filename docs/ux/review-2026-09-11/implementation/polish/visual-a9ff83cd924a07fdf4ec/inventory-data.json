@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "encounters": 65,
+    "choices": 187,
+    "towns": 51,
+    "scene_compositions": 18
+  },
+  "independent_mapping_match": true,
+  "html_inventory_match": true,
+  "csv_rows_exact": 187,
+  "source_encounter_fields_except_derived_scene_unchanged": true,
+  "source_towns_unchanged": true,
+  "historical_dates_unchanged": true,
+  "generated": "2026-09-13",
+  "scene_usage": {
+    "enc-service-counter": 2,
+    "enc-bridge": 2,
+    "enc-community": 10,
+    "enc-checkpoint": 3,
+    "enc-street": 9,
+    "enc-media-workshop": 6,
+    "enc-radio": 2,
+    "enc-cafe": 4,
+    "enc-service": 6,
+    "enc-library": 4,
+    "enc-rest-area": 3,
+    "enc-motel": 1,
+    "enc-civic": 2,
+    "enc-convoy": 4,
+    "enc-clinic": 3,
+    "enc-night-briefing": 1,
+    "enc-farm-office": 1,
+    "enc-museum": 2
+  }
+}

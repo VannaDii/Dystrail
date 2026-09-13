@@ -1,0 +1,51 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-source/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.89s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_game-4a70b9969783f953)
+
+running 7 tests
+test state::crossing_arrival_tests::crossing_arrival_preserves_the_first_checkpoint_alternate_route ... ok
+test state::crossing_arrival_tests::crossing_arrival_already_reached_milestones_do_not_rewind_or_credit_driving ... ok
+test state::crossing_arrival_tests::crossing_arrival_costs_that_fill_the_day_settle_it_without_driving_during_the_stop ... ok
+test state::crossing_arrival_tests::crossing_arrival_terminal_at_day_end_retains_the_approach_without_an_empty_next_day ... ok
+test state::crossing_arrival_tests::crossing_arrival_mid_hour_resolves_once_and_preserves_pass_detour_and_terminal_costs ... ok
+test state::crossing_arrival_tests::crossing_arrival_respects_earlier_towns_and_the_route_endpoint ... ok
+test state::crossing_arrival_tests::crossing_arrival_in_the_final_minute_keeps_the_exact_boundary_for_every_route_and_pace ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 189 filtered out; finished in 0.03s
+
+     Running tests/coverage_sweep.rs (/Users/vanna/Source/Dystrail/target/debug/deps/coverage_sweep-130cb208682f63cb)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.00s
+
+     Running tests/data_shapes.rs (/Users/vanna/Source/Dystrail/target/debug/deps/data_shapes-62c049de5ced5fec)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/full_campaign.rs (/Users/vanna/Source/Dystrail/target/debug/deps/full_campaign-b73aaa8e37fe4b22)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests/stat_acceptance.rs (/Users/vanna/Source/Dystrail/target/debug/deps/stat_acceptance-d0c3f8a768763aa0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+     Running tests/system_coverage.rs (/Users/vanna/Source/Dystrail/target/debug/deps/system_coverage-611b70b24ba40a99)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+     Running tests/weather_paths.rs (/Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-698485da85f3b30e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+

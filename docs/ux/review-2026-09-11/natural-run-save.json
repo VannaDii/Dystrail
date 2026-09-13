@@ -1,0 +1,408 @@
+{
+  "mode": "Classic",
+  "mechanical_policy": "dystrail_legacy",
+  "seed": 5500896596926486000,
+  "state_version": 3,
+  "day": 3,
+  "region": "Heartland",
+  "season": "spring",
+  "stats": {
+    "supplies": 19,
+    "hp": 10,
+    "sanity": 10,
+    "credibility": 7,
+    "morale": 5,
+    "allies": 1,
+    "pants": 0
+  },
+  "budget": 90,
+  "budget_cents": 9000,
+  "inventory": {
+    "spares": {
+      "tire": 1,
+      "battery": 0,
+      "alt": 0,
+      "pump": 0
+    },
+    "tags": [
+      "cold_resist",
+      "warm_coat"
+    ]
+  },
+  "persona_id": "journalist",
+  "score_mult": 0.8,
+  "mods": {
+    "receipt_find_pct": 10,
+    "store_discount_pct": 0,
+    "eo_heat_pct": 0,
+    "bribe_discount_pct": 0,
+    "satire_sustain": false,
+    "pants_relief": -1,
+    "pants_relief_threshold": 35
+  },
+  "features": {
+    "travel_v2": true,
+    "encounter_diversity": true,
+    "exposure_streaks": true
+  },
+  "party": {
+    "leader": "Alex",
+    "companions": [
+      "Kai",
+      "Charlie",
+      "Drew",
+      "Rowan",
+      "Robin"
+    ],
+    "name": "The Paper Tigers",
+    "members": [
+      {
+        "persona": "staffer",
+        "name": "Kai",
+        "status": "Active"
+      },
+      {
+        "persona": "satirist",
+        "name": "Charlie",
+        "status": "Active"
+      },
+      {
+        "persona": "whistleblower",
+        "name": "Drew",
+        "status": "Active"
+      },
+      {
+        "persona": "lobbyist",
+        "name": "Rowan",
+        "status": "Active"
+      },
+      {
+        "persona": "organizer",
+        "name": "Robin",
+        "status": "Active"
+      },
+      {
+        "persona": "journalist",
+        "name": "Alex",
+        "status": "Active"
+      }
+    ]
+  },
+  "auto_camp_rest": false,
+  "rest_threshold": 4,
+  "trail_distance": 2400,
+  "miles_traveled": 25.0707,
+  "miles_traveled_actual": 25.0707,
+  "vehicle_breakdowns": 0,
+  "crossings_completed": 0,
+  "crossing_detours_taken": 0,
+  "crossing_failures": 0,
+  "crossing_permit_uses": 0,
+  "crossing_bribe_attempts": 0,
+  "crossing_bribe_successes": 0,
+  "crossing_events": [],
+  "starvation_days": 0,
+  "malnutrition_level": 0,
+  "exposure_streak_heat": 0,
+  "exposure_streak_cold": 0,
+  "disease_cooldown": 0,
+  "guards": {
+    "deep_aggressive_sanity_guard_used": false,
+    "starvation_backstop_used": false,
+    "exposure_damage_lockout": false
+  },
+  "boss": {
+    "ready": false,
+    "reached": false,
+    "attempted": false,
+    "victory": false
+  },
+  "ending": null,
+  "pace": "steady",
+  "diet": "mixed",
+  "receipt_bonus_pct": 0,
+  "encounter_chance_today": 0.27,
+  "encounters": {
+    "occurred_today": false,
+    "force_rotation_pending": true
+  },
+  "distance_today": 12,
+  "distance_today_raw": 12,
+  "partial_distance_today": 12,
+  "distance_cap_today": 0,
+  "day_records": [
+    {
+      "day_index": 0,
+      "kind": "travel",
+      "miles": 13.0707,
+      "tags": []
+    },
+    {
+      "day_index": 1,
+      "kind": "partial",
+      "miles": 12,
+      "tags": [
+        "camp"
+      ]
+    }
+  ],
+  "journey_partial_ratio": 0.51,
+  "journey_travel": {
+    "mpd_base": 15.6,
+    "mpd_min": 10,
+    "mpd_max": 22,
+    "pace_factor": {
+      "steady": 1,
+      "heated": 1.12,
+      "blitz": 1.3
+    },
+    "weather_factor": {
+      "Smoke": 0.86,
+      "HeatWave": 0.78,
+      "ColdSnap": 0.9,
+      "Clear": 1,
+      "Storm": 0.82
+    }
+  },
+  "journey_wear": {
+    "base": 0.073,
+    "fatigue_k": 0.245,
+    "comfort_miles": 1750
+  },
+  "journey_breakdown": {
+    "base": 0.015,
+    "beta": 0.185,
+    "pace_factor": {
+      "heated": 1.08,
+      "blitz": 1.28,
+      "steady": 0.94
+    },
+    "weather_factor": {
+      "HeatWave": 1.35,
+      "Storm": 1.25,
+      "Smoke": 1.15,
+      "ColdSnap": 1.1,
+      "Clear": 1
+    }
+  },
+  "journey_part_weights": {
+    "tire": 44,
+    "battery": 22,
+    "alt": 18,
+    "pump": 16
+  },
+  "journey_crossing": {
+    "pass": 0.66,
+    "detour": 0.24,
+    "terminal": 0.1,
+    "detour_days": {
+      "min": 1,
+      "max": 3
+    },
+    "bribe": {
+      "pass_bonus": 0.192,
+      "detour_bonus": 0,
+      "terminal_penalty": 0.045,
+      "diminishing_returns": 0.38
+    },
+    "permit": {
+      "disable_terminal": true,
+      "eligible": [
+        "checkpoint"
+      ]
+    }
+  },
+  "logs": [
+    "log.booting",
+    "log.persona.selected.journalist",
+    "log.seed-set",
+    "log.travel.partial",
+    "Warm food and stories refill everyone.",
+    "log.travel.rest-credit",
+    "log.camp.rest"
+  ],
+  "receipts": [],
+  "encounters_resolved": 1,
+  "prev_miles_traveled": 13.0707,
+  "travel_days": 1,
+  "partial_travel_days": 1,
+  "non_travel_days": 0,
+  "days_with_camp": 1,
+  "days_with_repair": 0,
+  "day_state": {
+    "rest_requested": false,
+    "traveled_today": false,
+    "partial_traveled_today": true,
+    "travel_blocked": false,
+    "day_initialized": false,
+    "did_end_of_day": true,
+    "suppress_stop_ratio": false
+  },
+  "encounters_today": 0,
+  "encounter_history": [
+    1,
+    0
+  ],
+  "recent_encounters": [
+    {
+      "id": "classic_civic_potluck",
+      "day": 1,
+      "region": "Heartland"
+    }
+  ],
+  "encounter_cooldown": 1,
+  "repairs_spent_cents": 0,
+  "bribes_spent_cents": 0,
+  "current_order": null,
+  "exec_order_days_remaining": 0,
+  "exec_order_cooldown": 0,
+  "exec_travel_multiplier": 1,
+  "exec_breakdown_bonus": 0,
+  "weather_travel_multiplier": 1,
+  "illness_travel_penalty": 1,
+  "illness_days_remaining": 0,
+  "current_encounter": null,
+  "vehicle": {
+    "wear": 0.14358735,
+    "health": 99.856415,
+    "breakdown_cooldown": 0,
+    "wear_multiplier": 1
+  },
+  "breakdown": null,
+  "weather_state": {
+    "today": "Clear",
+    "yesterday": "HeatWave",
+    "extreme_streak": 0,
+    "heatwave_streak": 0,
+    "coldsnap_streak": 0,
+    "neutral_buffer": 0
+  },
+  "camp": {
+    "rest_cooldown": 2,
+    "forage_cooldown": 0,
+    "repair_cooldown": 0
+  },
+  "route_services": {
+    "stop": null,
+    "route_id": "journalist",
+    "traded_at": null,
+    "map_reviewed": {
+      "day_group": 0,
+      "settlement": 0,
+      "region": "Heartland",
+      "route": "journalist"
+    }
+  },
+  "endgame": {
+    "active": false,
+    "field_repair_used": false,
+    "last_limp_mile": 0,
+    "failure_guard_miles": 1950,
+    "health_floor": 0,
+    "wear_reset": 0,
+    "cooldown_days": 0,
+    "partial_ratio": 0.5,
+    "wear_multiplier": 1,
+    "policy_key": "",
+    "resource_priority": [],
+    "travel_bias": 1,
+    "stop_cap_window": 10,
+    "stop_cap_max_full": 2,
+    "breakdown_scale": 1,
+    "wear_shave_ratio": 1,
+    "wear_reset_used": false
+  },
+  "rotation_travel_days": 1,
+  "policy": "balanced",
+  "recent_travel_days": [
+    "travel",
+    "partial"
+  ],
+  "day_reason_history": [
+    "",
+    "camp"
+  ],
+  "rotation_backlog": [
+    "classic_mail_drop",
+    "classic_media_training",
+    "classic_mutual_aid",
+    "classic_mutual_aid_dispatch",
+    "classic_radio_phonebank",
+    "classic_service_station",
+    "classic_water_drive",
+    "clinic_triage",
+    "fundraiser_detour",
+    "raw_milk",
+    "town_hall_drift"
+  ],
+  "rng_bundle": {
+    "weather": [
+      7137987021119877000,
+      [
+        "U32",
+        "U32",
+        "U32",
+        "U32",
+        "U32",
+        "U32"
+      ]
+    ],
+    "health": [
+      8559294509292265000,
+      [
+        "U32",
+        "U32"
+      ]
+    ],
+    "travel": [
+      2474543636833087000,
+      []
+    ],
+    "events": [
+      8712065763917773000,
+      [
+        "U32",
+        "U32",
+        "U32",
+        "U32"
+      ]
+    ],
+    "breakdown": [
+      12825853047300426000,
+      [
+        "U32",
+        "U32"
+      ]
+    ],
+    "encounter": [
+      6103402190465589000,
+      [
+        "U32",
+        "U32"
+      ]
+    ],
+    "crossing": [
+      12441506013987115000,
+      []
+    ],
+    "boss": [
+      14975567108147595000,
+      []
+    ],
+    "trade": [
+      13345056042271873000,
+      []
+    ],
+    "hunt": [
+      7491263072442061000,
+      []
+    ]
+  },
+  "last_damage": null,
+  "decision_traces_today": [],
+  "current_day_record": null,
+  "current_day_kind": null,
+  "current_day_reason_tags": [],
+  "current_day_miles": 0,
+  "last_breakdown_part": null
+}

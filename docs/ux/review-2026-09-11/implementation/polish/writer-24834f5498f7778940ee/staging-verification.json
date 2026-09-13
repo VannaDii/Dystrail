@@ -1,0 +1,28 @@
+{
+  "artifact": "/private/tmp/dystrail-writer-final-web",
+  "revision": "24834f5498f7778940ee",
+  "artifact_manifest_sha256": "03a4aa2482f042800cd4d6eb937fbe3b845430f4a01779700755a202d5e8fc18",
+  "game_assets": 101,
+  "total_files": 171,
+  "protected_files": 59,
+  "changed": [
+    "404.html",
+    "play/index.html",
+    "play/offline-manifest.json",
+    "play/static/assets/data/camp.json",
+    "play/static/assets/data/game.json",
+    "play/static/assets/data/journey/classic.json",
+    "play/static/assets/data/journey/deep.json",
+    "play/static/assets/data/pacing.json",
+    "play/static/assets/data/town-facts.json",
+    "play/static/continuity.css",
+    "play/sw.js"
+  ],
+  "added": [
+    "play/continuity-a90f27fe509609f2.css",
+    "play/dystrail-web-b561a51203b60392.js",
+    "play/dystrail-web-b561a51203b60392_bg.wasm"
+  ],
+  "removed": [],
+  "passed": true
+}

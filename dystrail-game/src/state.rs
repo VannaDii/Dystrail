@@ -11,48 +11,44 @@ use std::str::FromStr;
 use crate::camp::CampState;
 #[cfg(debug_assertions)]
 use crate::constants::DEBUG_ENV_VAR;
+#[cfg(test)]
+use crate::constants::{AGGRESSIVE_STOP_WINDOW_DAYS, FLOAT_EPSILON, TRAVEL_PARTIAL_RATIO};
 use crate::constants::{
-    AGGRESSIVE_STOP_CAP, AGGRESSIVE_STOP_WINDOW_DAYS, ALLY_ATTRITION_CHANCE,
-    BEHIND_SCHEDULE_MILES_PER_DAY, BOSS_COMPOSE_FUNDS_COST, BOSS_COMPOSE_FUNDS_PANTS,
-    BOSS_COMPOSE_PANTS_SUPPLY, BOSS_COMPOSE_SUPPLY_COST, CLASSIC_BALANCED_FAILURE_GUARD_MILES,
-    CLASSIC_BALANCED_TRAVEL_NUDGE, CLASSIC_FIELD_REPAIR_COST_CENTS,
-    CLASSIC_FIELD_REPAIR_WEAR_REDUCTION, CROSSING_MILESTONES, DEEP_AGGRESSIVE_BOOSTS,
-    DEEP_AGGRESSIVE_BOSS_BIAS_MILES, DEEP_AGGRESSIVE_SANITY_COST, DEEP_AGGRESSIVE_SANITY_DAY,
-    DEEP_AGGRESSIVE_SANITY_MILES, DEEP_AGGRESSIVE_SANITY_PANTS_PENALTY,
-    DEEP_AGGRESSIVE_TOLERANCE_THRESHOLDS, DEEP_BALANCED_FAILSAFE_DISTANCE,
-    DEEP_BALANCED_TOLERANCE_THRESHOLDS, DEEP_BALANCED_TRAVEL_NUDGE, DEEP_CONSERVATIVE_BOOSTS,
-    DEEP_EMERGENCY_REPAIR_THRESHOLD, DELAY_TRAVEL_CREDIT_MILES, DISEASE_COOLDOWN_DAYS,
-    DISEASE_DAILY_CHANCE, DISEASE_DURATION_RANGE, DISEASE_HP_PENALTY, DISEASE_LOW_HP_BONUS,
-    DISEASE_MAX_DAILY_CHANCE, DISEASE_SANITY_PENALTY, DISEASE_STARVATION_BONUS,
-    DISEASE_SUPPLIES_BONUS, DISEASE_SUPPLY_PENALTY, DISEASE_TICK_HP_LOSS, DISEASE_TICK_SANITY_LOSS,
+    ALLY_ATTRITION_CHANCE, BEHIND_SCHEDULE_MILES_PER_DAY, BOSS_COMPOSE_FUNDS_COST,
+    BOSS_COMPOSE_SUPPLY_COST, CLASSIC_BALANCED_FAILURE_GUARD_MILES,
+    CLASSIC_FIELD_REPAIR_COST_CENTS, CLASSIC_FIELD_REPAIR_WEAR_REDUCTION, CROSSING_MILESTONES,
+    DEEP_AGGRESSIVE_BOOSTS, DEEP_AGGRESSIVE_BOSS_BIAS_MILES, DEEP_AGGRESSIVE_SANITY_COST,
+    DEEP_AGGRESSIVE_SANITY_DAY, DEEP_AGGRESSIVE_SANITY_MILES, DEEP_AGGRESSIVE_TOLERANCE_THRESHOLDS,
+    DEEP_BALANCED_FAILSAFE_DISTANCE, DEEP_BALANCED_TOLERANCE_THRESHOLDS, DEEP_CONSERVATIVE_BOOSTS,
+    DEEP_EMERGENCY_REPAIR_THRESHOLD, DISEASE_COOLDOWN_DAYS, DISEASE_DAILY_CHANCE,
+    DISEASE_DURATION_RANGE, DISEASE_HP_PENALTY, DISEASE_LOW_HP_BONUS, DISEASE_MAX_DAILY_CHANCE,
+    DISEASE_SANITY_PENALTY, DISEASE_STARVATION_BONUS, DISEASE_SUPPLIES_BONUS,
+    DISEASE_SUPPLY_PENALTY, DISEASE_TICK_HP_LOSS, DISEASE_TICK_SANITY_LOSS,
     EMERGENCY_LIMP_MILE_WINDOW, EMERGENCY_LIMP_REPAIR_COST_CENTS, EMERGENCY_LIMP_WEAR_REDUCTION,
-    EMERGENCY_REPAIR_COST, ENCOUNTER_BASE_DEFAULT, ENCOUNTER_COOLDOWN_DAYS,
-    ENCOUNTER_CRITICAL_VEHICLE_BONUS, ENCOUNTER_EXTENDED_MEMORY_DAYS, ENCOUNTER_HISTORY_WINDOW,
-    ENCOUNTER_RECENT_MEMORY, ENCOUNTER_REPEAT_WINDOW_DAYS, ENCOUNTER_REROLL_PENALTY,
-    ENCOUNTER_SOFT_CAP_FACTOR, ENCOUNTER_SOFT_CAP_THRESHOLD, EXEC_BREAKDOWN_BONUS_CLAMP_MAX,
-    EXEC_ORDER_BREAKDOWN_BONUS, EXEC_ORDER_DAILY_CHANCE, EXEC_ORDER_MAX_COOLDOWN,
-    EXEC_ORDER_MAX_DURATION, EXEC_ORDER_MIN_COOLDOWN, EXEC_ORDER_MIN_DURATION,
-    EXEC_ORDER_SPEED_BONUS, EXEC_TRAVEL_MULTIPLIER_CLAMP_MIN, ILLNESS_TRAVEL_PENALTY,
+    EMERGENCY_REPAIR_COST, ENCOUNTER_BASE_DEFAULT, ENCOUNTER_CRITICAL_VEHICLE_BONUS,
+    ENCOUNTER_EXTENDED_MEMORY_DAYS, ENCOUNTER_HISTORY_WINDOW, ENCOUNTER_RECENT_MEMORY,
+    ENCOUNTER_REPEAT_WINDOW_DAYS, ENCOUNTER_REROLL_PENALTY, ENCOUNTER_SOFT_CAP_FACTOR,
+    ENCOUNTER_SOFT_CAP_THRESHOLD, EXEC_BREAKDOWN_BONUS_CLAMP_MAX, EXEC_ORDER_DAILY_CHANCE,
+    EXEC_ORDER_MAX_COOLDOWN, EXEC_ORDER_MAX_DURATION, EXEC_ORDER_MIN_COOLDOWN,
+    EXEC_ORDER_MIN_DURATION, EXEC_TRAVEL_MULTIPLIER_CLAMP_MIN, ILLNESS_TRAVEL_PENALTY,
     LOG_ALLIES_GONE, LOG_ALLY_LOST, LOG_BOSS_COMPOSE, LOG_BOSS_COMPOSE_FUNDS,
     LOG_BOSS_COMPOSE_SUPPLIES, LOG_CROSSING_DECISION_BRIBE, LOG_CROSSING_DECISION_PERMIT,
     LOG_CROSSING_DETOUR, LOG_CROSSING_FAILURE, LOG_CROSSING_PASSED,
     LOG_DEEP_AGGRESSIVE_FIELD_REPAIR, LOG_DISEASE_HIT, LOG_DISEASE_RECOVER, LOG_DISEASE_TICK,
     LOG_EMERGENCY_REPAIR_FORCED, LOG_ENCOUNTER_ROTATION, LOG_EXEC_END_PREFIX,
-    LOG_EXEC_START_PREFIX, LOG_HEALTH_COLLAPSE, LOG_PANTS_EMERGENCY, LOG_REST_REQUESTED_ENCOUNTER,
-    LOG_SANITY_COLLAPSE, LOG_STARVATION_BACKSTOP, LOG_STARVATION_RELIEF, LOG_STARVATION_TICK,
-    LOG_TRAVEL_BLOCKED, LOG_TRAVEL_BONUS, LOG_TRAVEL_DELAY_CREDIT, LOG_TRAVEL_PARTIAL,
-    LOG_TRAVEL_REST_CREDIT, LOG_TRAVELED, LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE,
-    LOG_VEHICLE_FIELD_REPAIR_GUARD, LOG_VEHICLE_REPAIR_EMERGENCY, LOG_VEHICLE_REPAIR_SPARE,
-    MAX_ENCOUNTERS_PER_DAY, PROBABILITY_FLOOR, PROBABILITY_MAX, REST_TRAVEL_CREDIT_MILES,
-    ROTATION_FORCE_INTERVAL, SANITY_POINT_REWARD, STARVATION_BASE_HP_LOSS, STARVATION_GRACE_DAYS,
-    STARVATION_MAX_STACK, STARVATION_PANTS_GAIN, STARVATION_SANITY_LOSS,
-    TRAVEL_CLASSIC_BASE_DISTANCE, TRAVEL_CLASSIC_PENALTY_FLOOR, TRAVEL_CONFIG_MIN_MULTIPLIER,
-    TRAVEL_HISTORY_WINDOW, TRAVEL_PARTIAL_CLAMP_HIGH, TRAVEL_PARTIAL_CLAMP_LOW,
-    TRAVEL_PARTIAL_DEFAULT_WEAR, TRAVEL_PARTIAL_MIN_DISTANCE, TRAVEL_PARTIAL_RATIO,
-    TRAVEL_PARTIAL_RECOVERY_RATIO, TRAVEL_RATIO_DEFAULT, TRAVEL_V2_BASE_DISTANCE,
-    TRAVEL_V2_PENALTY_FLOOR, VEHICLE_BASE_TOLERANCE_CLASSIC, VEHICLE_BASE_TOLERANCE_DEEP,
-    VEHICLE_BREAKDOWN_DAMAGE, VEHICLE_BREAKDOWN_PARTIAL_FACTOR, VEHICLE_BREAKDOWN_WEAR,
-    VEHICLE_BREAKDOWN_WEAR_CLASSIC, VEHICLE_CRITICAL_SPEED_FACTOR, VEHICLE_CRITICAL_THRESHOLD,
+    LOG_EXEC_START_PREFIX, LOG_HEALTH_COLLAPSE, LOG_REST_REQUESTED_ENCOUNTER, LOG_SANITY_COLLAPSE,
+    LOG_STARVATION_BACKSTOP, LOG_STARVATION_RELIEF, LOG_STARVATION_TICK, LOG_TRAVEL_BLOCKED,
+    LOG_TRAVEL_BONUS, LOG_TRAVEL_DELAY_CREDIT, LOG_TRAVEL_PARTIAL, LOG_TRAVEL_REST_CREDIT,
+    LOG_TRAVELED, LOG_VEHICLE_EMERGENCY_LIMP, LOG_VEHICLE_FAILURE, LOG_VEHICLE_FIELD_REPAIR_GUARD,
+    LOG_VEHICLE_REPAIR_EMERGENCY, LOG_VEHICLE_REPAIR_SPARE, MAX_ENCOUNTERS_PER_DAY,
+    PROBABILITY_FLOOR, PROBABILITY_MAX, ROTATION_FORCE_INTERVAL, SANITY_POINT_REWARD,
+    STARVATION_BASE_HP_LOSS, STARVATION_GRACE_DAYS, STARVATION_MAX_STACK, STARVATION_SANITY_LOSS,
+    TRAVEL_CLASSIC_PENALTY_FLOOR, TRAVEL_CONFIG_MIN_MULTIPLIER, TRAVEL_HISTORY_WINDOW,
+    TRAVEL_PARTIAL_CLAMP_HIGH, TRAVEL_PARTIAL_CLAMP_LOW, TRAVEL_PARTIAL_DEFAULT_WEAR,
+    TRAVEL_PARTIAL_RECOVERY_RATIO, TRAVEL_RATIO_DEFAULT, TRAVEL_V2_PENALTY_FLOOR,
+    VEHICLE_BASE_TOLERANCE_CLASSIC, VEHICLE_BASE_TOLERANCE_DEEP, VEHICLE_BREAKDOWN_DAMAGE,
+    VEHICLE_BREAKDOWN_PARTIAL_FACTOR, VEHICLE_BREAKDOWN_WEAR, VEHICLE_BREAKDOWN_WEAR_CLASSIC,
+    VEHICLE_CRITICAL_SPEED_FACTOR, VEHICLE_CRITICAL_THRESHOLD,
     VEHICLE_DEEP_EMERGENCY_HEAL_AGGRESSIVE, VEHICLE_DEEP_EMERGENCY_HEAL_BALANCED,
     VEHICLE_EMERGENCY_HEAL, VEHICLE_EXEC_MULTIPLIER_DECAY, VEHICLE_EXEC_MULTIPLIER_FLOOR,
     VEHICLE_HEALTH_MAX, VEHICLE_JURY_RIG_HEAL, VEHICLE_MALNUTRITION_MIN_FACTOR,
@@ -60,24 +56,34 @@ use crate::constants::{
     WEATHER_DEFAULT_SPEED, WEATHER_HEAT_WAVE_SPEED, WEATHER_PACE_MULTIPLIER_FLOOR,
     WEATHER_STORM_SMOKE_SPEED,
 };
-#[cfg(test)]
-use crate::constants::{ASSERT_MIN_AVG_MPD, FLOAT_EPSILON};
 use crate::crossings::{self, CrossingConfig, CrossingContext, CrossingKind};
 use crate::data::{Encounter, EncounterData};
 use crate::day_accounting::{self, DayLedgerMetrics};
-use crate::encounters::{EncounterRequest, pick_encounter};
+use crate::encounters::{EncounterRequest, encounter_matches_context, pick_encounter};
 use crate::endgame::{self, EndgameState, EndgameTravelCfg};
 use crate::exec_orders::ExecOrder;
 use crate::journey::{
     BreakdownConfig, CountingRng, CrossingPolicy, DayRecord, DayTag, EventDecisionTrace,
     JourneyCfg, MechanicalPolicyId, RngBundle, TravelConfig, TravelDayKind, WearConfig,
 };
+use crate::numbers::clamp_f64_to_f32;
 use crate::personas::{Persona, PersonaMods};
 use crate::vehicle::{Breakdown, Part, PartWeights, Vehicle, weighted_pick};
 use crate::weather::{Weather, WeatherConfig, WeatherState};
 
+#[cfg(test)]
+mod illness_protection_tests;
+
+#[cfg(test)]
+mod crossing_arrival_tests;
+
 const ENCOUNTER_UNIQUE_WINDOW: u32 = 20;
 const ENCOUNTER_UNIQUE_RATIO_FLOOR: f32 = 0.075;
+const ENCOUNTER_EARLY_MIN_DRIVING_MINUTES: u32 = 90;
+const ENCOUNTER_FIRST_MAX_DRIVING_MINUTES: u32 = 120;
+const ENCOUNTER_SECOND_MAX_DRIVING_MINUTES: u32 = 180;
+const ENCOUNTER_MIN_DRIVING_MINUTES: u32 = 120;
+const ENCOUNTER_MAX_DRIVING_MINUTES: u32 = 8 * 60;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 #[serde(rename_all = "lowercase")]
 pub enum PaceId {
@@ -234,7 +240,6 @@ const fn default_pace() -> PaceId {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::{CLASSIC_BALANCED_TRAVEL_NUDGE, DEEP_BALANCED_TRAVEL_NUDGE};
     use crate::data::{Choice, Effects, Encounter};
     use crate::journey::{CountingRng, RngBundle};
     use crate::pacing::{PaceCfg, PacingLimits};
@@ -280,6 +285,720 @@ mod tests {
         );
     }
 
+    fn clear_road_state(pace: PaceId) -> GameState {
+        let mut state = GameState::default();
+        state.continuity.route_services.route_id = Some("uninterrupted-test-road".into());
+        state.start_of_day();
+        state.pace = pace;
+        state.weather_state.today = Weather::Clear;
+        state.weather_travel_multiplier = 1.0;
+        state.exec_travel_multiplier = 1.0;
+        state.exec_breakdown_bonus = 0.0;
+        state.illness_travel_penalty = 1.0;
+        state.stats.hp = 10;
+        state.stats.sanity = 10;
+        state.stats.supplies = 20;
+        state.journey_breakdown.base = 0.0;
+        state
+    }
+
+    fn final_approach_state(pace: PaceId, route_id: &str, road_miles_left: f32) -> GameState {
+        let mut state = clear_road_state(pace);
+        state.continuity.route_services.route_id = Some(route_id.into());
+        state.trail_distance = 2400.0;
+        state.miles_traveled_actual =
+            state.trail_distance - crate::route::simulation_distance(&state, road_miles_left);
+        state.miles_traveled = state.miles_traveled_actual;
+        state.prev_miles_traveled = state.miles_traveled_actual;
+        state.crossings_completed = u32::try_from(CROSSING_MILESTONES.len()).unwrap();
+        state.sync_route_location();
+        state
+    }
+
+    #[test]
+    fn fractional_route_remainder_uses_only_the_final_driving_minute() {
+        let pacing = crate::pacing::PacingConfig::default_config();
+        for route in crate::route::routes() {
+            let marker_gap = route.total_miles - f32::from(route.stops.last().unwrap().mile);
+            let remaining = if marker_gap > 0.0 {
+                marker_gap / 2.0
+            } else {
+                0.125
+            };
+            for pace in [PaceId::Steady, PaceId::Heated, PaceId::Blitz] {
+                let mut state = final_approach_state(pace, &route.id, remaining);
+                let before = state.clone();
+                state.apply_pace_and_diet(&pacing);
+                assert_eq!(state.leg_minutes, 1, "{} {pace:?}", route.id);
+                assert!(
+                    (state.distance_today - (state.trail_distance - before.miles_traveled_actual))
+                        .abs()
+                        < 0.001
+                );
+                let (ended, message, breakdown) = state.travel_next_leg(&endgame_cfg());
+                assert!(!ended);
+                assert!(!breakdown);
+                assert_eq!(message, LOG_TRAVELED);
+                assert_eq!(state.day, before.day);
+                assert_eq!(
+                    state.continuity.clock_minutes,
+                    before.continuity.clock_minutes + 1
+                );
+                assert_eq!(state.continuity.driving_minutes_total, 1);
+                assert_eq!(
+                    state.miles_traveled_actual.to_bits(),
+                    state.trail_distance.to_bits()
+                );
+                assert!(state.boss.readiness.ready);
+                assert!(state.boss.readiness.reached);
+                assert!(
+                    (crate::route::physical_miles(&state)
+                        - crate::route::physical_miles(&before)
+                        - remaining)
+                        .abs()
+                        < 0.001
+                );
+                assert!(
+                    (state.ledger.current_day_miles
+                        - (state.miles_traveled_actual - before.miles_traveled_actual))
+                        .abs()
+                        < 0.001
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn exact_endpoint_arrival_charges_only_its_driving_time_and_cannot_repeat() {
+        let pacing = crate::pacing::PacingConfig::default_config();
+        for (pace, mph) in [
+            (PaceId::Steady, 60.0),
+            (PaceId::Heated, 70.0),
+            (PaceId::Blitz, 80.0),
+        ] {
+            for minutes in [30_u16, 60] {
+                let remaining = mph * f32::from(minutes) / 60.0;
+                let mut state = final_approach_state(pace, "uninterrupted-test-road", remaining);
+                let before = state.clone();
+                state.apply_pace_and_diet(&pacing);
+                assert_eq!(state.leg_minutes, minutes);
+                approx_eq(state.distance_today, remaining);
+                let (ended, message, breakdown) = state.travel_next_leg(&endgame_cfg());
+                assert!(!ended);
+                assert!(!breakdown);
+                assert_eq!(message, LOG_TRAVELED);
+                assert_eq!(state.day, before.day);
+                assert_eq!(
+                    state.continuity.clock_minutes,
+                    before.continuity.clock_minutes + minutes
+                );
+                assert_eq!(state.continuity.driving_minutes_total, u32::from(minutes));
+                assert_eq!(
+                    state.miles_traveled_actual.to_bits(),
+                    state.trail_distance.to_bits()
+                );
+                approx_eq(state.ledger.current_day_miles, remaining);
+                assert!(state.boss.readiness.ready);
+                assert!(!state.boss.outcome.attempted);
+
+                let arrived = serde_json::to_value(&state).unwrap();
+                let repeated = state.travel_next_leg(&endgame_cfg());
+                assert_eq!(repeated, (false, "log.boss.await".into(), false));
+                assert_eq!(serde_json::to_value(&state).unwrap(), arrived);
+                state.apply_pace_and_diet(&pacing);
+                assert_eq!(state.leg_minutes, 0);
+                approx_eq(state.distance_today, 0.0);
+            }
+        }
+    }
+
+    #[test]
+    fn pace_fatigue_charges_the_final_minute_once_and_no_more_after_arrival() {
+        let pacing = crate::pacing::PacingConfig::default_config();
+        for (pace, remainder, expected_sanity, expected_remainder) in [
+            (PaceId::Steady, 299, 8, 299),
+            (PaceId::Heated, 299, 7, 0),
+            (PaceId::Blitz, 298, 7, 0),
+        ] {
+            let mut state = final_approach_state(pace, "uninterrupted-test-road", 0.125);
+            state.stats.sanity = 8;
+            state.continuity.pace_fatigue_remainder = remainder;
+            let before = state.clone();
+            state.apply_pace_and_diet(&pacing);
+            assert_eq!(state.leg_minutes, 1);
+            let (ended, _, breakdown) = state.travel_next_leg(&endgame_cfg());
+            assert!(!ended && !breakdown);
+            assert_eq!(state.stats.sanity, expected_sanity);
+            assert_eq!(state.continuity.pace_fatigue_remainder, expected_remainder);
+            assert_eq!(state.continuity.driving_minutes_total, 1);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes + 1
+            );
+            assert_eq!(
+                state.continuity.weather_impact,
+                before.continuity.weather_impact
+            );
+            assert!(state.boss.readiness.ready);
+            approx_eq(
+                state.miles_traveled_actual - before.miles_traveled_actual,
+                0.125,
+            );
+            let arrived = serde_json::to_value(&state).unwrap();
+            assert_eq!(
+                state.travel_next_leg(&endgame_cfg()),
+                (false, "log.boss.await".into(), false)
+            );
+            assert_eq!(serde_json::to_value(&state).unwrap(), arrived);
+        }
+    }
+
+    #[test]
+    fn final_approach_still_respects_remaining_daylight() {
+        let pacing = crate::pacing::PacingConfig::default_config();
+        for (pace, mph) in [
+            (PaceId::Steady, 60.0),
+            (PaceId::Heated, 70.0),
+            (PaceId::Blitz, 80.0),
+        ] {
+            let mut state = final_approach_state(pace, "uninterrupted-test-road", mph / 2.0);
+            state.continuity.clock_minutes = crate::travel_time::TRAVEL_DAY_END - 10;
+            let before = state.clone();
+            state.apply_pace_and_diet(&pacing);
+            assert_eq!(state.leg_minutes, 10);
+            approx_eq(state.distance_today, mph / 6.0);
+            let (ended, message, breakdown) = state.travel_next_leg(&endgame_cfg());
+            assert!(!ended);
+            assert!(!breakdown);
+            assert_eq!(message, LOG_TRAVELED);
+            assert_eq!(state.day, before.day + 1);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                crate::travel_time::TRAVEL_DAY_START
+            );
+            assert_eq!(state.continuity.driving_minutes_total, 10);
+            assert!(
+                (state.miles_traveled_actual - before.miles_traveled_actual - mph / 6.0).abs()
+                    < 0.001
+            );
+            assert_eq!(state.day_records.len(), 1);
+            approx_eq(state.day_records[0].miles, mph / 6.0);
+            assert!(!state.boss.readiness.ready);
+            assert!(!state.boss.readiness.reached);
+        }
+    }
+
+    fn ride_encounter(ratio: f32) -> Encounter {
+        Encounter {
+            id: "test_ride".into(),
+            name: "A ride with the convoy".into(),
+            desc: "Join the convoy for part of the next half hour.".into(),
+            weight: 1,
+            regions: Vec::new(),
+            modes: Vec::new(),
+            choices: vec![Choice {
+                label: "Ride along".into(),
+                effects: Effects {
+                    travel_bonus_ratio: ratio,
+                    ..Effects::default()
+                },
+            }],
+            hard_stop: false,
+            major_repair: false,
+            chainable: false,
+        }
+    }
+
+    #[test]
+    fn encounter_rides_preserve_earlier_driving_within_the_choice_time() {
+        for (pace, mph) in [
+            (PaceId::Steady, 60.0),
+            (PaceId::Heated, 70.0),
+            (PaceId::Blitz, 80.0),
+        ] {
+            let mut state = clear_road_state(pace);
+            state.record_travel_day(TravelDayKind::Travel, mph, "travel");
+            state.spend_driving_time(60);
+            state.current_encounter = Some(ride_encounter(0.5));
+            let before = state.clone();
+            state.apply_choice(0);
+            approx_eq(state.miles_traveled_actual, mph * 1.5);
+            approx_eq(state.ledger.current_day_miles, mph * 1.5);
+            assert_eq!(state.continuity.driving_minutes_total, 90);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes + 30
+            );
+            state.advance_clock(&before, 30);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes + 30
+            );
+            assert_eq!(state.continuity.driving_minutes_total, 90);
+            state.apply_choice(0);
+            approx_eq(state.miles_traveled_actual, mph * 1.5);
+        }
+    }
+
+    #[test]
+    fn encounter_rides_respect_current_speed_and_remaining_daylight() {
+        use crate::travel_time::{TRAVEL_DAY_END, TRAVEL_DAY_START};
+
+        for (clock, multiplier, ratio, minutes, miles, final_clock) in [
+            (TRAVEL_DAY_START, 0.5, 0.5, 30, 15.0, TRAVEL_DAY_START + 30),
+            (TRAVEL_DAY_START, 3.0, 0.5, 30, 30.0, TRAVEL_DAY_START + 30),
+            (TRAVEL_DAY_START, 1.0, 0.25, 15, 15.0, TRAVEL_DAY_START + 30),
+            (
+                TRAVEL_DAY_END - 10,
+                1.0,
+                2.0,
+                10,
+                10.0,
+                TRAVEL_DAY_START + 20,
+            ),
+            (TRAVEL_DAY_END, 1.0, 0.5, 0, 0.0, TRAVEL_DAY_START + 30),
+            (3 * 60, 1.0, 0.5, 0, 0.0, TRAVEL_DAY_START + 30),
+            (
+                TRAVEL_DAY_START,
+                1.0,
+                f32::NAN,
+                0,
+                0.0,
+                TRAVEL_DAY_START + 30,
+            ),
+        ] {
+            let mut state = clear_road_state(PaceId::Steady);
+            state.continuity.clock_minutes = clock;
+            state.exec_travel_multiplier = multiplier;
+            state.current_encounter = Some(ride_encounter(ratio));
+            let before = state.clone();
+            state.apply_choice(0);
+            approx_eq(state.miles_traveled_actual, miles);
+            assert_eq!(state.continuity.driving_minutes_total, minutes);
+            state.advance_clock(&before, 30);
+            assert_eq!(state.continuity.clock_minutes, final_clock);
+        }
+    }
+
+    #[test]
+    fn encounter_rides_cannot_bypass_a_breakdown() {
+        let mut state = clear_road_state(PaceId::Steady);
+        state.breakdown = Some(Breakdown {
+            part: Part::Tire,
+            day_started: 1,
+        });
+        state.current_encounter = Some(ride_encounter(0.5));
+        state.apply_choice(0);
+        approx_eq(state.miles_traveled_actual, 0.0);
+        assert_eq!(state.continuity.driving_minutes_total, 0);
+        assert!(state.breakdown.is_some());
+    }
+
+    #[test]
+    fn deep_aggressive_readiness_unlocks_on_progress_without_time_or_rng() {
+        for kind in [TravelProgressKind::Full, TravelProgressKind::Partial] {
+            let mut state = clear_road_state(PaceId::Heated);
+            state.mode = GameMode::Deep;
+            state.policy = Some(PolicyKind::Aggressive);
+            state.miles_traveled_actual = DEEP_AGGRESSIVE_BOSS_BIAS_MILES - 1.0;
+            state.miles_traveled = state.miles_traveled_actual;
+            let bundle = Rc::new(RngBundle::from_user_seed(42));
+            state.attach_rng_bundle(Rc::clone(&bundle));
+            let rng_before = serde_json::to_value(bundle.as_ref()).unwrap();
+            let day = state.day;
+            let minute = state.continuity.clock_minutes;
+
+            approx_eq(state.apply_travel_progress(0.5, kind), 0.5);
+            assert!(!state.boss.readiness.ready);
+            assert!(!state.boss.readiness.reached);
+            let mut state: GameState =
+                serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
+            approx_eq(state.apply_travel_progress(0.5, kind), 0.5);
+
+            assert!(state.boss.readiness.ready);
+            assert!(state.boss.readiness.reached);
+            assert!(!state.boss.outcome.attempted);
+            assert!(!state.day_state.rest.rest_requested);
+            assert_eq!(state.day, day);
+            assert_eq!(state.continuity.clock_minutes, minute);
+            assert_eq!(state.policy, Some(PolicyKind::Aggressive));
+            approx_eq(state.miles_traveled_actual, DEEP_AGGRESSIVE_BOSS_BIAS_MILES);
+            assert_eq!(
+                serde_json::to_value(state.rng_bundle.as_deref().unwrap()).unwrap(),
+                rng_before
+            );
+        }
+    }
+
+    #[test]
+    fn early_readiness_preserves_mode_policy_and_terminal_guards() {
+        for (mode, policy, ended, attempted) in [
+            (GameMode::Classic, PolicyKind::Aggressive, false, false),
+            (GameMode::Deep, PolicyKind::Balanced, false, false),
+            (GameMode::Deep, PolicyKind::Conservative, false, false),
+            (GameMode::Deep, PolicyKind::ResourceManager, false, false),
+            (GameMode::Deep, PolicyKind::Aggressive, true, false),
+            (GameMode::Deep, PolicyKind::Aggressive, false, true),
+        ] {
+            let mut state = clear_road_state(PaceId::Heated);
+            state.mode = mode;
+            state.policy = Some(policy);
+            state.ending = ended.then_some(Ending::SanityLoss);
+            state.boss.outcome.attempted = attempted;
+            state.miles_traveled_actual = DEEP_AGGRESSIVE_BOSS_BIAS_MILES - 1.0;
+            approx_eq(
+                state.apply_travel_progress(1.0, TravelProgressKind::Full),
+                1.0,
+            );
+            assert!(!state.boss.readiness.ready);
+            assert!(!state.boss.readiness.reached);
+            assert_eq!(state.policy, Some(policy));
+        }
+    }
+
+    #[test]
+    fn stationary_work_and_camp_cannot_unlock_early_readiness() {
+        let mut state = clear_road_state(PaceId::Heated);
+        state.mode = GameMode::Deep;
+        state.policy = Some(PolicyKind::Aggressive);
+        state.miles_traveled_actual = DEEP_AGGRESSIVE_BOSS_BIAS_MILES;
+        state.miles_traveled = state.miles_traveled_actual;
+        state.prev_miles_traveled = state.miles_traveled_actual;
+        state.continuity.route_services.stop = Some(42);
+        state.continuity.clock_minutes = crate::travel_time::TRAVEL_DAY_END - 60;
+        let day = state.day;
+
+        approx_eq(
+            state.apply_travel_progress(0.0, TravelProgressKind::Full),
+            0.0,
+        );
+        assert!(state.perform_activity(crate::activities::Activity::WorkCash));
+        assert_eq!(state.day, day + 1);
+        assert!(!state.boss.readiness.ready);
+        assert!(!state.boss.readiness.reached);
+        assert!(
+            crate::camp::camp_rest(&mut state, &crate::camp::CampConfig::default_config()).rested
+        );
+        assert_eq!(state.day, day + 2);
+        assert!(!state.boss.readiness.ready);
+        assert!(!state.boss.readiness.reached);
+        approx_eq(state.miles_traveled_actual, DEEP_AGGRESSIVE_BOSS_BIAS_MILES);
+        assert!(state.day_records.iter().all(|record| record.miles == 0.0));
+    }
+
+    fn shipped_encounter(id: &str) -> Encounter {
+        EncounterData::from_json(include_str!(
+            "../../dystrail-web/static/assets/data/game.json"
+        ))
+        .unwrap()
+        .encounters
+        .into_iter()
+        .find(|encounter| encounter.id == id)
+        .unwrap()
+    }
+
+    #[test]
+    fn clinic_choices_spend_only_the_short_visit_and_preserve_earlier_driving() {
+        for (choice, supplies_cost, hp_gain, credibility_gain) in [(1, 1, 1, 0), (2, 2, 0, 2)] {
+            let mut state = clear_road_state(PaceId::Steady);
+            state.stats.hp = 8;
+            state.stats.credibility = 0;
+            state.record_travel_day(TravelDayKind::Travel, 60.0, "");
+            state.spend_driving_time(60);
+            let bundle = Rc::new(RngBundle::from_user_seed(42));
+            state.attach_rng_bundle(Rc::clone(&bundle));
+            state.current_encounter = Some(shipped_encounter("clinic_triage"));
+            let before = state.clone();
+            let rng_before = serde_json::to_value(bundle.as_ref()).unwrap();
+
+            state.apply_choice(choice);
+            state.advance_clock(&before, 30);
+
+            assert_eq!(state.day, before.day);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes + 30
+            );
+            assert!(!state.day_state.rest.rest_requested);
+            assert!(state.current_encounter.is_none());
+            assert_eq!(state.encounters_resolved, before.encounters_resolved + 1);
+            assert_eq!(state.stats.supplies, before.stats.supplies - supplies_cost);
+            assert_eq!(state.stats.hp, before.stats.hp + hp_gain);
+            assert_eq!(state.stats.credibility, credibility_gain);
+            assert_eq!(state.days_with_camp, 0);
+            assert_eq!(state.continuity.driving_minutes_total, 60);
+            approx_eq(state.miles_traveled_actual, 60.0);
+            approx_eq(state.ledger.current_day_miles, 60.0);
+            assert_eq!(serde_json::to_value(bundle.as_ref()).unwrap(), rng_before);
+        }
+    }
+
+    #[test]
+    fn overnight_briefing_choices_still_request_a_full_rest() {
+        for choice in [1, 2] {
+            let mut state = clear_road_state(PaceId::Steady);
+            state.current_encounter = Some(shipped_encounter("overnight_briefing"));
+            let before = state.clone();
+            state.apply_choice(choice);
+            state.advance_clock(&before, 30);
+            assert!(state.day_state.rest.rest_requested);
+            assert!(
+                crate::camp::camp_rest(&mut state, &crate::camp::CampConfig::default_config())
+                    .rested
+            );
+            assert_eq!(state.day, before.day + 1);
+            assert_eq!(state.days_with_camp, 1);
+            assert!(!state.day_state.rest.rest_requested);
+            approx_eq(state.miles_traveled_actual, 0.0);
+        }
+    }
+
+    #[test]
+    fn beginning_a_day_while_parked_does_not_wear_the_vehicle() {
+        for travel_v2 in [false, true] {
+            let mut state = GameState::default();
+            state.features.travel_v2 = travel_v2;
+            state.leg_minutes = 60;
+            state.vehicle.wear = 8.0;
+            state.start_of_day();
+            state.start_of_day();
+            approx_eq(state.vehicle.wear, 8.0);
+            approx_eq(state.miles_traveled_actual, 0.0);
+            assert_eq!(state.continuity.driving_minutes_total, 0);
+        }
+    }
+
+    #[test]
+    fn crossing_pass_and_detour_spend_time_without_driving_wear() {
+        for detour in [false, true] {
+            let mut state = clear_road_state(PaceId::Steady);
+            state.miles_traveled_actual = CROSSING_MILESTONES[0];
+            state.prev_miles_traveled = state.miles_traveled_actual;
+            state.miles_traveled = state.miles_traveled_actual;
+            state.distance_today = 60.0;
+            state.distance_today_raw = 60.0;
+            state.leg_minutes = 60;
+            state.vehicle.wear = 8.0;
+            state.budget_cents = 0;
+            state.encounter_chance_today = 0.0;
+            state.journey_crossing.pass = if detour { 0.0 } else { 1.0 };
+            state.journey_crossing.detour = if detour { 1.0 } else { 0.0 };
+            state.journey_crossing.terminal = 0.0;
+            state.journey_crossing.detour_hours.min = 1;
+            state.journey_crossing.detour_hours.max = 1;
+            let (ended, message, breakdown) = state.travel_next_leg(&endgame_cfg());
+            assert!(!ended);
+            assert!(!breakdown);
+            assert_eq!(
+                message,
+                if detour {
+                    LOG_CROSSING_DETOUR
+                } else {
+                    LOG_CROSSING_PASSED
+                }
+            );
+            approx_eq(state.vehicle.wear, 8.0);
+            approx_eq(state.miles_traveled_actual, CROSSING_MILESTONES[0]);
+            assert_eq!(state.continuity.driving_minutes_total, 0);
+            assert_eq!(
+                state.crossing_events.last().unwrap().detour_reason,
+                detour.then_some(CrossingDetourReason::RouteDiversion)
+            );
+            assert_eq!(
+                state.continuity.clock_minutes,
+                crate::journal::morning() + if detour { 60 } else { 30 }
+            );
+        }
+    }
+
+    fn crossing_state(mode: GameMode, seed: u64, completed: usize) -> (GameState, Rc<RngBundle>) {
+        let mut state = clear_road_state(PaceId::Steady);
+        state.mode = mode;
+        state.seed = seed;
+        let bundle = Rc::new(RngBundle::from_user_seed(seed));
+        state.attach_rng_bundle(Rc::clone(&bundle));
+        state.crossings_completed = u32::try_from(completed).unwrap();
+        state.miles_traveled_actual = CROSSING_MILESTONES[completed] - 60.0;
+        state.miles_traveled = state.miles_traveled_actual;
+        state.prev_miles_traveled = state.miles_traveled_actual;
+        state.record_travel_day(TravelDayKind::Travel, 60.0, "travel");
+        state.spend_driving_time(60);
+        state.vehicle.wear = 8.0;
+        state.budget_cents = 2_000;
+        state.budget = 20;
+        state.inventory.tags.clear();
+        state.receipts.clear();
+        state.stats.credibility = 6;
+        state.journey_crossing.pass = 0.0;
+        state.journey_crossing.detour = 0.0;
+        state.journey_crossing.terminal = 1.0;
+        state.journey_crossing.bribe = crate::journey::BribePolicy::default();
+        state.journey_crossing.detour_hours.min = 1;
+        state.journey_crossing.detour_hours.max = 2;
+        (state, bundle)
+    }
+
+    #[test]
+    fn first_checkpoint_denials_are_clocked_detours_with_honest_bribe_records() {
+        for mode in [GameMode::Classic, GameMode::Deep] {
+            for seed in [0, 1, 4242, u64::MAX] {
+                for attempted in [false, true] {
+                    let (mut state, bundle) = crossing_state(mode, seed, 0);
+                    if !attempted {
+                        state.budget_cents = 0;
+                        state.budget = 0;
+                    }
+                    let before = state.clone();
+                    let (ended, message) = state.handle_crossing_event(60.0).unwrap();
+                    assert!(!ended);
+                    assert!(state.ending.is_none());
+                    assert_eq!(message, "log.crossing.denied");
+                    assert_eq!(state.crossings_completed, 1);
+                    assert_eq!(state.crossing_detours_taken, 1);
+                    assert_eq!(state.crossing_failures, 0);
+                    assert_eq!(state.crossing_bribe_attempts, u32::from(attempted));
+                    assert_eq!(state.crossing_bribe_successes, 0);
+                    let cost = if attempted { 1_000 } else { 0 };
+                    assert_eq!(state.budget_cents, before.budget_cents - cost);
+                    assert_eq!(state.bribes_spent_cents, cost);
+                    assert_eq!(
+                        state.continuity.clock_minutes,
+                        before.continuity.clock_minutes + 120
+                    );
+                    assert_eq!(state.continuity.driving_minutes_total, 60);
+                    approx_eq(state.miles_traveled_actual, before.miles_traveled_actual);
+                    approx_eq(state.ledger.current_day_miles, 60.0);
+                    approx_eq(state.vehicle.wear, before.vehicle.wear);
+                    assert_eq!(bundle.crossing().draws(), 1);
+                    let event = state.crossing_events.last().unwrap();
+                    assert_eq!(
+                        event.detour_reason,
+                        Some(CrossingDetourReason::CheckpointDenied)
+                    );
+                    assert_eq!(event.outcome, CrossingOutcomeTelemetry::Detoured);
+                    assert!(event.detour_taken);
+                    assert_eq!(event.detour_hours, Some(2));
+                    assert_eq!(event.bribe_attempted, attempted);
+                    assert_eq!(event.bribe_success, attempted.then_some(false));
+                    assert_eq!(event.bribe_cost_cents, cost);
+                    assert!(!event.permit_used);
+                    assert!(
+                        state
+                            .ledger
+                            .current_day_reason_tags
+                            .iter()
+                            .any(|tag| tag == "crossing_denied")
+                    );
+                    assert!(
+                        state
+                            .ledger
+                            .current_day_reason_tags
+                            .iter()
+                            .any(|tag| tag == "detour")
+                    );
+                    assert_eq!(
+                        state
+                            .logs
+                            .iter()
+                            .any(|log| log == "crossing.result.bribe.fail"),
+                        attempted
+                    );
+                    assert!(!state.logs.iter().any(|log| log == LOG_CROSSING_FAILURE));
+                    let restored: GameState =
+                        serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
+                    assert_eq!(
+                        restored.crossing_events.last().unwrap().detour_reason,
+                        Some(CrossingDetourReason::CheckpointDenied)
+                    );
+                    assert!(state.handle_crossing_event(60.0).is_none());
+                    assert_eq!(bundle.crossing().draws(), 1);
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn first_checkpoint_permits_and_successful_bribes_remain_passes() {
+        for mode in [GameMode::Classic, GameMode::Deep] {
+            for permit in [false, true] {
+                let (mut state, bundle) = crossing_state(mode, 4242, 0);
+                if permit {
+                    state.inventory.tags.insert("press_pass".into());
+                    state.journey_crossing.permit.disable_terminal = true;
+                    state.journey_crossing.permit.eligible = vec!["checkpoint".into()];
+                } else {
+                    state.journey_crossing.pass = 1.0;
+                    state.journey_crossing.terminal = 0.0;
+                }
+                let before = state.clone();
+                let (ended, message) = state.handle_crossing_event(60.0).unwrap();
+                assert!(!ended);
+                assert_eq!(message, LOG_CROSSING_PASSED);
+                let event = state.crossing_events.last().unwrap();
+                assert_eq!(event.outcome, CrossingOutcomeTelemetry::Passed);
+                assert_eq!(event.detour_reason, None);
+                assert!(!event.detour_taken);
+                assert_eq!(event.permit_used, permit);
+                assert_eq!(event.bribe_attempted, !permit);
+                assert_eq!(event.bribe_success, (!permit).then_some(true));
+                let cost = if permit { 0 } else { 1_000 };
+                assert_eq!(event.bribe_cost_cents, cost);
+                assert_eq!(state.budget_cents, before.budget_cents - cost);
+                assert_eq!(state.crossing_permit_uses, u32::from(permit));
+                assert_eq!(state.crossing_bribe_successes, u32::from(!permit));
+                assert_eq!(
+                    state.stats.credibility,
+                    before.stats.credibility + i32::from(permit)
+                );
+                assert_eq!(
+                    state.continuity.clock_minutes,
+                    before.continuity.clock_minutes + 30
+                );
+                assert_eq!(state.continuity.driving_minutes_total, 60);
+                assert_eq!(bundle.crossing().draws(), 1);
+            }
+        }
+    }
+
+    #[test]
+    fn later_checkpoint_and_bridge_failures_still_end_the_journey() {
+        for mode in [GameMode::Classic, GameMode::Deep] {
+            for completed in [1, 2] {
+                let (mut state, bundle) = crossing_state(mode, 4242, completed);
+                let before = state.clone();
+                let (ended, message) = state.handle_crossing_event(60.0).unwrap();
+                assert!(ended);
+                assert_eq!(message, LOG_CROSSING_FAILURE);
+                assert!(matches!(
+                    state.ending,
+                    Some(Ending::Collapse {
+                        cause: CollapseCause::Crossing
+                    })
+                ));
+                assert_eq!(state.crossing_failures, 1);
+                assert_eq!(state.crossings_completed, before.crossings_completed);
+                assert_eq!(state.crossing_detours_taken, 0);
+                assert_eq!(
+                    state.continuity.clock_minutes,
+                    before.continuity.clock_minutes
+                );
+                assert_eq!(state.continuity.driving_minutes_total, 60);
+                approx_eq(state.miles_traveled_actual, before.miles_traveled_actual);
+                approx_eq(state.vehicle.wear, before.vehicle.wear);
+                let event = state.crossing_events.last().unwrap();
+                assert_eq!(event.detour_reason, None);
+                assert_eq!(event.outcome, CrossingOutcomeTelemetry::Failed);
+                assert!(!event.detour_taken);
+                assert_eq!(event.bribe_success, Some(false));
+                assert_eq!(
+                    event.bribe_cost_cents,
+                    before.budget_cents - state.budget_cents
+                );
+                assert_eq!(bundle.crossing().draws(), 1);
+            }
+        }
+    }
+
     #[test]
     fn ledger_records_capture_tags_and_counts() {
         let mut state = GameState::default();
@@ -322,8 +1041,43 @@ mod tests {
     }
 
     #[test]
+    fn crossing_records_never_invent_a_bribe_attempt() {
+        for result in [
+            crossings::CrossingResult::Pass,
+            crossings::CrossingResult::Detour(1),
+            crossings::CrossingResult::TerminalFail,
+        ] {
+            for attempted in [false, true] {
+                let mut state = GameState::default();
+                state.start_of_day();
+                let resolved = crossings::CrossingOutcome {
+                    result,
+                    used_permit: false,
+                    bribe_attempted: attempted,
+                    bribe_succeeded: false,
+                };
+                let mut telemetry = CrossingTelemetry::new(
+                    state.day,
+                    state.region,
+                    state.season,
+                    CrossingKind::Checkpoint,
+                );
+                telemetry.bribe_attempted = attempted;
+                telemetry.bribe_success = attempted.then_some(false);
+                let _ = state.process_crossing_result(resolved, telemetry, 10.0);
+                let event = state.crossing_events.last().unwrap();
+                assert_eq!(event.bribe_attempted, attempted);
+                assert_eq!(event.bribe_success, attempted.then_some(false));
+            }
+        }
+    }
+
+    #[test]
     fn travel_wear_scales_with_pace_weather_and_fatigue() {
-        let mut state = GameState::default();
+        let mut state = GameState {
+            leg_minutes: 60,
+            ..GameState::default()
+        };
         state.journey_wear.base = 1.0;
         state.journey_wear.fatigue_k = 0.5;
         state.journey_wear.comfort_miles = 0.0;
@@ -352,34 +1106,23 @@ mod tests {
     }
 
     #[test]
-    fn balanced_strategy_applies_travel_nudge_by_mode() {
+    fn strategy_does_not_secretly_change_the_selected_travel_pace() {
         let mut classic = GameState {
             policy: Some(PolicyKind::Balanced),
             journey_travel: TravelConfig {
-                mpd_base: 10.0,
-                mpd_min: 1.0,
-                mpd_max: 20.0,
-                pace_factor: HashMap::from([
-                    (PaceId::Steady, 1.0),
-                    (PaceId::Heated, 1.0),
-                    (PaceId::Blitz, 1.0),
-                ]),
                 weather_factor: HashMap::from([(Weather::Clear, 1.0), (Weather::Storm, 1.0)]),
             },
             ..GameState::default()
         };
 
-        let pace_cfg = PaceCfg {
-            dist_mult: 1.0,
-            ..PaceCfg::default()
-        };
+        let pace_cfg = PaceCfg::default();
         let limits = PacingLimits::default();
 
         let mut control = classic.clone();
         control.policy = Some(PolicyKind::Aggressive);
         let base = control.compute_miles_for_today(&pace_cfg, &limits);
         let nudged = classic.compute_miles_for_today(&pace_cfg, &limits);
-        approx_eq(nudged, base * CLASSIC_BALANCED_TRAVEL_NUDGE);
+        approx_eq(nudged, base);
 
         let mut deep = classic.clone();
         deep.mode = GameMode::Deep;
@@ -388,7 +1131,7 @@ mod tests {
         deep_control.policy = Some(PolicyKind::ResourceManager);
         let deep_base = deep_control.compute_miles_for_today(&pace_cfg, &limits);
         let deep_nudged = deep.compute_miles_for_today(&pace_cfg, &limits);
-        approx_eq(deep_nudged, deep_base * DEEP_BALANCED_TRAVEL_NUDGE);
+        approx_eq(deep_nudged, deep_base);
     }
 
     #[test]
@@ -399,7 +1142,6 @@ mod tests {
             stats: Stats {
                 supplies: BOSS_COMPOSE_SUPPLY_COST,
                 sanity: 0,
-                pants: 5,
                 ..Stats::default()
             },
             budget_cents: BOSS_COMPOSE_FUNDS_COST * 2,
@@ -410,7 +1152,6 @@ mod tests {
         assert!(applied_supplies, "expected supply-based compose");
         assert_eq!(state.stats.supplies, 0);
         assert_eq!(state.stats.sanity, 1);
-        assert!(state.stats.pants < 5);
         assert!(
             state
                 .logs
@@ -422,7 +1163,7 @@ mod tests {
         state.logs.clear();
         state.stats.supplies = 0;
         state.stats.sanity = 0;
-        state.stats.pants = 5;
+
         let baseline_budget = state.budget_cents;
         state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
 
@@ -430,7 +1171,6 @@ mod tests {
         assert!(applied_funds, "expected funds-based compose");
         assert!(state.budget_cents < baseline_budget);
         assert_eq!(state.stats.sanity, 1);
-        assert!(state.stats.pants < 5);
         assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE_FUNDS));
         assert!(state.logs.iter().any(|log| log == LOG_BOSS_COMPOSE));
     }
@@ -439,6 +1179,7 @@ mod tests {
     fn breakdown_uses_part_weights() {
         let mut state = GameState::default();
         state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.2));
+        state.leg_minutes = crate::travel_time::TRAVEL_DAY_MINUTES;
         state.journey_breakdown.base = 1.0;
         state.journey_breakdown.beta = 0.0;
         state.journey_part_weights = PartWeights {
@@ -544,6 +1285,20 @@ mod tests {
 
         assert!(state.stats.supplies >= 0, "supplies went negative");
         assert!(state.stats.sanity >= 0, "sanity went negative");
+    }
+
+    #[test]
+    fn camp_cooldowns_tick_once_per_completed_day() {
+        let mut state = GameState::default();
+        state.camp.rest_cooldown = 3;
+        state.start_of_day();
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 2);
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 2);
+        state.start_of_day();
+        state.end_of_day();
+        assert_eq!(state.camp.rest_cooldown, 1);
     }
 
     #[test]
@@ -655,36 +1410,37 @@ mod tests {
     }
 
     #[test]
-    fn steady_clear_progress_is_sane() {
-        let mut state = GameState {
-            pace: PaceId::Steady,
-            ..GameState::default()
-        };
+    fn steady_clear_progress_uses_hours_and_the_actual_road_distance() {
+        let mut state = GameState::default();
+        state.continuity.route_services.route_id = Some(String::from("uninterrupted-road"));
+        state.trail_distance = 20_000.0;
+        state.crossings_completed = u32::try_from(CROSSING_MILESTONES.len()).unwrap();
         state.detach_rng_bundle();
         let pacing = crate::pacing::PacingConfig::default_config();
         let cfg = endgame_cfg();
         for _ in 0..30 {
             state.start_of_day();
             state.weather_state.today = Weather::Clear;
-            state.weather_state.yesterday = Weather::Clear;
+            state.weather_travel_multiplier = 1.0;
+            state.exec_travel_multiplier = 1.0;
+            state.illness_travel_penalty = 1.0;
             state.apply_pace_and_diet(&pacing);
             state.encounter_chance_today = 0.0;
             let (ended, _, _) = state.travel_next_leg(&cfg);
             assert!(!ended, "run ended prematurely");
         }
-        assert!(
-            state.travel_days + state.partial_travel_days >= 30,
-            "expected at least 30 days with travel credit"
+        assert_eq!(state.day, 7);
+        assert_eq!(
+            state.continuity.clock_minutes,
+            crate::travel_time::TRAVEL_DAY_START
         );
-        let moving_days = state.travel_days.saturating_add(state.partial_travel_days);
-        let avg_mpd = if moving_days > 0 {
-            f64::from(state.miles_traveled_actual) / f64::from(moving_days)
-        } else {
-            0.0
-        };
+        assert!((state.miles_traveled_actual - 1_800.0).abs() < 0.01);
+        assert_eq!(state.day_records.len(), 6);
         assert!(
-            avg_mpd >= ASSERT_MIN_AVG_MPD,
-            "average miles per day {avg_mpd:.2}"
+            state
+                .day_records
+                .iter()
+                .all(|record| (record.miles - 300.0).abs() < 0.01)
         );
     }
 
@@ -708,7 +1464,7 @@ mod tests {
         base_state.detach_rng_bundle();
         base_state.apply_pace_and_diet(&cfg);
         let base = base_state.encounter_chance_today;
-        assert!((f64::from(base) - f64::from(ENCOUNTER_BASE_DEFAULT)).abs() < FLOAT_EPSILON);
+        assert!((f64::from(base) - f64::from(cfg.limits.encounter_base)).abs() < FLOAT_EPSILON);
 
         let mut capped_state = GameState {
             encounter_history: VecDeque::from(vec![2, 1, 1, 1, 0, 0, 0, 0, 0]),
@@ -729,6 +1485,10 @@ mod tests {
     #[test]
     fn misc_state_path_exercise() {
         let mut state = GameState {
+            ledger: crate::day_accounting::OpenDayLedger {
+                current_day_reason_tags: ["camp".into(), "repair".into()].into(),
+                ..crate::day_accounting::OpenDayLedger::default()
+            },
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Aggressive),
             features: FeatureFlags {
@@ -737,23 +1497,25 @@ mod tests {
             },
             stats: Stats {
                 supplies: 5,
-                pants: 20,
                 ..Stats::default()
             },
             distance_today: 5.0,
             distance_today_raw: 5.0,
             partial_distance_today: 2.0,
-            current_day_reason_tags: ["camp".into(), "repair".into()].into(),
             recent_travel_days: VecDeque::from(vec![
                 TravelDayKind::NonTravel;
                 TRAVEL_HISTORY_WINDOW
             ]),
             ..GameState::default()
         };
-        state.enforce_aggressive_delay_cap(0.0);
-        state.apply_partial_travel_credit(3.0, LOG_TRAVEL_PARTIAL, "misc");
+        let parked_miles = state.miles_traveled_actual;
+        state.advance_days(1);
+        assert_eq!(
+            (state.miles_traveled_actual).to_bits(),
+            (parked_miles).to_bits()
+        );
+        state.record_travel_day(TravelDayKind::Partial, 3.0, "misc");
         state.apply_delay_travel_credit("delay_test");
-        state.reset_today_progress();
 
         state.current_order = Some(ExecOrder::TravelBanLite);
         state.exec_order_days_remaining = 1;
@@ -781,7 +1543,6 @@ mod tests {
     fn max_two_encounters_per_day() {
         let mut state = GameState {
             encounters_today: MAX_ENCOUNTERS_PER_DAY,
-            encounter_cooldown: 0,
             encounter_chance_today: 0.0,
             encounters: EncounterState {
                 occurred_today: false,
@@ -807,13 +1568,13 @@ mod tests {
             chainable: false,
         };
         state.data = Some(EncounterData::from_encounters(vec![encounter]));
+        state.day_state.lifecycle.day_initialized = true;
+        state.continuity.driving_minutes_total = ENCOUNTER_MAX_DRIVING_MINUTES;
+        state.encounter_history.push_back(MAX_ENCOUNTERS_PER_DAY);
         let cfg = crate::pacing::PacingConfig::default_config();
         state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 0.0;
-        state.day_state.lifecycle.day_initialized = true;
-        if let Some(back) = state.encounter_history.back_mut() {
-            *back = state.encounters_today;
-        }
+        state.encounter_chance_today = 1.0;
+        assert!(state.encounter_drought_due());
 
         let end_cfg = endgame_cfg();
         let (ended, message, _) = state.travel_next_leg(&end_cfg);
@@ -823,96 +1584,217 @@ mod tests {
     }
 
     #[test]
-    fn allows_two_encounters_before_cooldown() {
-        let mut state = GameState::default();
-        state.attach_rng_bundle(Rc::new(RngBundle::from_user_seed(99)));
-        let encounter = Encounter {
-            id: "test".to_string(),
-            name: "Test".to_string(),
-            desc: "desc".to_string(),
-            weight: 1,
-            regions: Vec::new(),
-            modes: Vec::new(),
-            choices: vec![Choice {
-                label: "Do it".to_string(),
-                effects: Effects::default(),
-            }],
-            hard_stop: false,
-            major_repair: false,
-            chainable: false,
-        };
-        state.data = Some(EncounterData::from_encounters(vec![encounter]));
-        let cfg = crate::pacing::PacingConfig::default_config();
-
-        state.apply_pace_and_diet(&cfg);
+    fn allows_two_spaced_encounters_before_daily_cap() {
+        let mut state = encounter_schedule_state(GameMode::Classic, 99);
         state.encounter_chance_today = 1.0;
-        let end_cfg = endgame_cfg();
-        let (_ended_first, msg_first, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_first, "log.encounter");
+        drive_encounter_minutes(&mut state, 90);
+        assert!(draw_scheduled_encounter(&mut state).is_some());
         assert_eq!(state.encounters_today, 1);
         state.apply_choice(0);
         assert!(!state.encounters.occurred_today);
 
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 1.0;
-        let (_ended_second, msg_second, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_second, "log.encounter");
+        drive_encounter_minutes(&mut state, 90);
+        assert!(draw_scheduled_encounter(&mut state).is_some());
         assert_eq!(state.encounters_today, 2);
         state.apply_choice(0);
         assert!(state.encounters.occurred_today);
 
-        state.apply_pace_and_diet(&cfg);
-        state.encounter_chance_today = 1.0;
-        let (_ended_third, msg_third, _) = state.travel_next_leg(&end_cfg);
-        assert_eq!(msg_third, LOG_TRAVELED);
+        assert!(draw_scheduled_encounter(&mut state).is_none());
         assert_eq!(
             state.encounter_history.back(),
             Some(&MAX_ENCOUNTERS_PER_DAY)
         );
     }
 
+    fn encounter_schedule_state(mode: GameMode, seed: u64) -> GameState {
+        let data = EncounterData::from_encounters(
+            ["alpha", "beta", "gamma", "delta"]
+                .into_iter()
+                .map(|id| Encounter {
+                    id: id.to_owned(),
+                    name: id.to_owned(),
+                    ..ride_encounter(0.0)
+                })
+                .collect(),
+        );
+        let mut state = clear_road_state(PaceId::Steady).with_seed(seed, mode, data);
+        state.encounter_chance_today = 0.0;
+        state.leg_minutes = 60;
+        state
+    }
+
+    fn drive_encounter_minutes(state: &mut GameState, minutes: u16) {
+        let mut remaining = minutes;
+        while remaining > 0 {
+            state.prepare_travel_clock();
+            state.start_of_day();
+            let elapsed = remaining.min(state.travel_minutes_available());
+            let miles = crate::route::simulation_distance(state, f32::from(elapsed));
+            state.record_travel_day(TravelDayKind::Travel, miles, "travel");
+            state.spend_driving_time(elapsed);
+            remaining -= elapsed;
+        }
+    }
+
+    fn draw_scheduled_encounter(state: &mut GameState) -> Option<String> {
+        let bundle = state.rng_bundle.as_ref().map(Rc::clone);
+        state.process_encounter_flow(bundle.as_ref(), false)?;
+        state.current_encounter.as_ref().map(|enc| enc.id.clone())
+    }
+
     #[test]
-    fn stop_cap_conversion_awards_partial_credit() {
+    fn driving_drought_introduces_two_distinct_early_encounters_in_both_modes() {
+        for mode in [GameMode::Classic, GameMode::Deep] {
+            for seed in [0, 1, 42, 4242, u64::MAX] {
+                let mut state = encounter_schedule_state(mode, seed);
+                drive_encounter_minutes(&mut state, 119);
+                assert!(draw_scheduled_encounter(&mut state).is_none());
+                drive_encounter_minutes(&mut state, 1);
+                let first_miles = state.miles_traveled_actual;
+                let first = draw_scheduled_encounter(&mut state).expect("first scene by two hours");
+                assert_eq!(state.continuity.driving_minutes_total, 120);
+                approx_eq(state.miles_traveled_actual, first_miles);
+                state.apply_choice(0);
+
+                drive_encounter_minutes(&mut state, 179);
+                assert!(draw_scheduled_encounter(&mut state).is_none());
+                drive_encounter_minutes(&mut state, 1);
+                let second_miles = state.miles_traveled_actual;
+                let second = draw_scheduled_encounter(&mut state)
+                    .expect("second scene within three more hours");
+                assert_ne!(first, second, "mode {mode:?}, seed {seed}");
+                assert_eq!(state.continuity.driving_minutes_total, 300);
+                approx_eq(state.miles_traveled_actual, second_miles);
+                assert_eq!(state.encounters_today, 2);
+            }
+        }
+    }
+
+    #[test]
+    fn encounter_minimum_gap_uses_ninety_then_one_hundred_twenty_driving_minutes() {
+        let mut state = encounter_schedule_state(GameMode::Classic, 22);
+        state.encounter_chance_today = 1.0;
+        drive_encounter_minutes(&mut state, 89);
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+        drive_encounter_minutes(&mut state, 1);
+        assert!(draw_scheduled_encounter(&mut state).is_some());
+        state.apply_choice(0);
+
+        drive_encounter_minutes(&mut state, 89);
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+        drive_encounter_minutes(&mut state, 1);
+        assert!(draw_scheduled_encounter(&mut state).is_some());
+        state.apply_choice(0);
+
+        state.advance_days_with_reason(1, "camp");
+        drive_encounter_minutes(&mut state, 119);
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+        drive_encounter_minutes(&mut state, 1);
+        // The new day's empty count cannot shorten the road-time gap.
+        assert!(draw_scheduled_encounter(&mut state).is_some());
+    }
+
+    #[test]
+    fn eight_hour_drought_bypasses_soft_cap_and_defers_when_no_unseen_scene_is_eligible() {
+        let mut state = encounter_schedule_state(GameMode::Deep, 23);
+        state.record_encounter("alpha");
+        state.record_encounter("beta");
+        state.encounter_history = VecDeque::from(vec![2, 2, 2]);
+        drive_encounter_minutes(&mut state, 479);
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+        drive_encounter_minutes(&mut state, 1);
+        let encounter =
+            draw_scheduled_encounter(&mut state).expect("drought ends after eight driving hours");
+        assert!(!["alpha", "beta"].contains(&encounter.as_str()));
+        assert_eq!(state.continuity.driving_minutes_total, 480);
+        state.apply_choice(0);
+
+        let other = if encounter == "gamma" {
+            "delta"
+        } else {
+            "gamma"
+        };
+        state.record_encounter(other);
+        drive_encounter_minutes(&mut state, 480);
+        assert!(!state.encounter_drought_due());
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+    }
+
+    #[test]
+    fn work_and_camp_do_not_advance_encounter_exposure() {
+        let mut state = encounter_schedule_state(GameMode::Classic, 24);
+        drive_encounter_minutes(&mut state, 89);
+        let exposure = state.continuity.driving_minutes_total;
+        let before_work = state.clone();
+        state.advance_clock(&before_work, 180);
+        assert_eq!(state.continuity.driving_minutes_total, exposure);
+        let before_camp = state.clone();
+        state.advance_days_with_reason(1, "camp");
+        assert!(state.day > before_camp.day);
+        assert_eq!(state.continuity.driving_minutes_total, exposure);
+        assert!(!state.encounter_drought_due());
+        state.encounter_chance_today = 1.0;
+        assert!(draw_scheduled_encounter(&mut state).is_none());
+    }
+
+    #[test]
+    fn encounter_schedule_and_weighted_choice_survive_save_reload() {
+        let mut state = encounter_schedule_state(GameMode::Deep, 25);
+        drive_encounter_minutes(&mut state, 120);
+        assert!(draw_scheduled_encounter(&mut state).is_some());
+        state.apply_choice(0);
+        drive_encounter_minutes(&mut state, 179);
+        let data = state.data.clone().unwrap();
+        let json = serde_json::to_string(&state).unwrap();
+        let mut restored: GameState = serde_json::from_str(&json).unwrap();
+        restored = restored.rehydrate(data);
+        assert_eq!(
+            restored.continuity.last_encounter_driving_minutes,
+            Some(120)
+        );
+        assert!(!restored.encounter_drought_due());
+        drive_encounter_minutes(&mut state, 1);
+        drive_encounter_minutes(&mut restored, 1);
+        assert_eq!(
+            draw_scheduled_encounter(&mut state),
+            draw_scheduled_encounter(&mut restored)
+        );
+        assert_eq!(
+            restored.continuity.last_encounter_driving_minutes,
+            Some(300)
+        );
+        assert_eq!(restored.recent_encounters, state.recent_encounters);
+    }
+
+    #[test]
+    fn repeated_stops_do_not_award_unearned_miles() {
         let mut state = GameState {
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Aggressive),
-            features: FeatureFlags {
-                travel_v2: true,
-                ..FeatureFlags::default()
-            },
             recent_travel_days: VecDeque::from(vec![
                 TravelDayKind::NonTravel;
                 AGGRESSIVE_STOP_WINDOW_DAYS
             ]),
-            distance_today: 20.0,
-            distance_today_raw: 20.0,
-            vehicle: Vehicle {
-                wear: 5.0,
-                ..Vehicle::default()
-            },
             ..GameState::default()
         };
-
-        state.enforce_aggressive_delay_cap(20.0);
-
-        assert!(
-            state.day_state.travel.partial_traveled_today,
-            "expected partial credit after stop cap"
-        );
-        assert_eq!(state.current_day_kind, Some(TravelDayKind::Partial));
-        assert!(state.distance_today > 0.0);
-        assert_eq!(state.days_with_camp, 0);
-        assert!(state.vehicle.wear < 5.0);
+        state.advance_days(4);
+        assert_eq!((state.miles_traveled_actual).to_bits(), (0.0f32).to_bits());
         assert!(
             state
-                .current_day_reason_tags
+                .day_records
                 .iter()
-                .any(|tag| tag == "stop_cap")
+                .all(|r| r.kind == TravelDayKind::NonTravel && r.miles == 0.0)
+        );
+        assert!(
+            !state
+                .day_reason_history
+                .iter()
+                .any(|reason| reason.contains("stop_cap"))
         );
     }
 
     #[test]
-    fn sanity_guard_marks_partial_day() {
+    fn sanity_guard_recovers_without_inventing_distance() {
         let mut state = GameState {
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Aggressive),
@@ -926,13 +1808,22 @@ mod tests {
             ..GameState::default()
         };
 
+        state.day_state.lifecycle.day_initialized = true;
         state.apply_deep_aggressive_sanity_guard();
 
         assert!(state.guards.deep_aggressive_sanity_guard_used);
         assert_eq!(state.stats.sanity, SANITY_POINT_REWARD);
-        assert_eq!(state.current_day_kind, Some(TravelDayKind::Partial));
+        assert_eq!(
+            state.ledger.current_day_kind,
+            Some(TravelDayKind::NonTravel)
+        );
+        assert_eq!(
+            (state.miles_traveled_actual).to_bits(),
+            (DEEP_AGGRESSIVE_SANITY_MILES).to_bits()
+        );
         assert!(
             state
+                .ledger
                 .current_day_reason_tags
                 .iter()
                 .any(|tag| tag == "da_sanity_guard")
@@ -1044,20 +1935,52 @@ mod tests {
     }
 
     #[test]
-    fn partial_travel_credit_resets_and_logs() {
-        let mut state = GameState {
-            day_state: DayState {
-                travel: TravelDayState {
-                    traveled_today: true,
-                    partial_traveled_today: false,
-                    ..TravelDayState::default()
-                },
-                ..DayState::default()
-            },
-            ..GameState::default()
-        };
-        state.apply_partial_travel_credit(5.0, "log.partial", "reason");
-        assert!(state.logs.iter().any(|log| log == "log.partial"));
+    fn rest_and_delay_helpers_cannot_create_or_erase_movement() {
+        for earlier_miles in [0.0, 60.0] {
+            let mut state = clear_road_state(PaceId::Steady);
+            if earlier_miles > 0.0 {
+                state.record_travel_day(TravelDayKind::Partial, earlier_miles, "travel");
+                state.spend_driving_time(60);
+            }
+            state.endgame.active = true;
+            state.endgame.wear_shave_ratio = 0.5;
+            state.vehicle.wear = 8.0;
+            let before = state.clone();
+            state.apply_rest_travel_credit();
+            state.apply_delay_travel_credit("repair");
+            approx_eq(state.miles_traveled_actual, earlier_miles);
+            approx_eq(state.ledger.current_day_miles, earlier_miles);
+            approx_eq(state.vehicle.wear, 8.0);
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes
+            );
+            assert_eq!(
+                state.continuity.driving_minutes_total,
+                before.continuity.driving_minutes_total
+            );
+            assert_eq!(
+                state.ledger.current_day_kind,
+                before
+                    .ledger
+                    .current_day_kind
+                    .or(Some(TravelDayKind::NonTravel))
+            );
+            assert!(
+                state
+                    .ledger
+                    .current_day_reason_tags
+                    .iter()
+                    .any(|tag| tag == "camp")
+            );
+            assert!(
+                state
+                    .ledger
+                    .current_day_reason_tags
+                    .iter()
+                    .any(|tag| tag == "repair")
+            );
+        }
     }
 
     #[test]
@@ -1085,6 +2008,9 @@ mod tests {
             ..GameState::default()
         };
         state.apply_classic_field_repair_guard();
+        approx_eq(state.miles_traveled_actual, 0.0);
+        approx_eq(state.ledger.current_day_miles, 0.0);
+        assert_eq!(state.continuity.driving_minutes_total, 0);
         assert!(
             state
                 .logs
@@ -1120,22 +2046,34 @@ mod tests {
         state.policy = Some(PolicyKind::Aggressive);
         state.miles_traveled_actual = 1_951.0;
         state.distance_today = 5.0;
+        let before_limp = state.miles_traveled_actual;
         let limp_triggered = state.try_emergency_limp_guard();
         assert!(limp_triggered);
+        approx_eq(state.miles_traveled_actual, before_limp);
 
         state.miles_traveled_actual = 1_700.0;
         state.attach_rng_bundle(breakdown_bundle_with_roll_below(0.1));
         let deep_repair = state.try_deep_aggressive_field_repair();
         assert!(deep_repair);
+        approx_eq(state.miles_traveled_actual, 1_700.0);
 
-        state.prev_miles_traveled = state.miles_traveled_actual - 10.0;
-        state.reset_today_progress();
         state.recent_travel_days.clear();
         for _ in 0..6 {
             state.recent_travel_days.push_back(TravelDayKind::NonTravel);
         }
-        state.enforce_aggressive_delay_cap(0.0);
-        assert!(state.logs.iter().any(|log| log == LOG_TRAVEL_PARTIAL));
+        let parked_miles = state.miles_traveled_actual;
+        state.advance_days(1);
+        assert_eq!(
+            (state.miles_traveled_actual).to_bits(),
+            (parked_miles).to_bits()
+        );
+        assert!(
+            !state
+                .ledger
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "stop_cap")
+        );
 
         state.logs.clear();
         state.apply_delay_travel_credit("delay_test");
@@ -1145,18 +2083,20 @@ mod tests {
     #[test]
     fn deep_aggressive_safeguards_and_compose() {
         let mut state = GameState {
+            ledger: crate::day_accounting::OpenDayLedger {
+                current_day_kind: None,
+                ..crate::day_accounting::OpenDayLedger::default()
+            },
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Aggressive),
             miles_traveled_actual: 1_950.0,
             day: 220,
             stats: Stats {
                 sanity: 0,
-                pants: 30,
                 ..Stats::default()
             },
             budget_cents: 10_000,
             budget: 100,
-            current_day_kind: None,
             ..GameState::default()
         };
 
@@ -1189,24 +2129,14 @@ mod tests {
             weather_travel_multiplier: 0.5,
             ..GameState::default()
         };
-        let mut limits = crate::pacing::PacingLimits {
-            distance_base: 30.0,
-            ..crate::pacing::PacingLimits::default()
-        };
-        let mut pace = crate::pacing::PaceCfg {
-            distance: 0.0,
-            dist_mult: 0.0,
-            ..crate::pacing::PaceCfg::default()
-        };
+        let limits = crate::pacing::PacingLimits::default();
+        let pace = crate::pacing::PaceCfg::default();
         let classic = state.compute_miles_for_today(&pace, &limits);
         assert!(classic > 0.0);
 
         // Travel v2 branch with fallback defaults.
         state.features.travel_v2 = true;
         state.mode = GameMode::Deep;
-        pace.distance = 0.0;
-        pace.dist_mult = 0.0;
-        limits.distance_base = 0.0;
         let v2 = state.compute_miles_for_today(&pace, &limits);
         assert!(v2 > 0.0);
         assert!((classic - v2).abs() > f32::EPSILON);
@@ -1289,6 +2219,10 @@ mod tests {
 
         // No travel paths ensure assertion branch executes without panic.
         let mut stagnant = GameState {
+            ledger: crate::day_accounting::OpenDayLedger {
+                current_day_kind: Some(TravelDayKind::NonTravel),
+                ..crate::day_accounting::OpenDayLedger::default()
+            },
             encounter_history: VecDeque::from(vec![0]),
             prev_miles_traveled: 10.0,
             miles_traveled_actual: 10.0,
@@ -1300,7 +2234,6 @@ mod tests {
                 },
                 ..DayState::default()
             },
-            current_day_kind: Some(TravelDayKind::NonTravel),
             ..GameState::default()
         };
         stagnant.end_of_day();
@@ -1310,14 +2243,18 @@ mod tests {
         // Deep conservative branch applies travel bonus and rotation enforcement.
         let rotation_interval = GameState::default().rotation_force_interval();
         let mut conservative = GameState {
+            ledger: crate::day_accounting::OpenDayLedger {
+                current_day_kind: Some(TravelDayKind::Travel),
+                current_day_miles: 3.0,
+                current_day_reason_tags: vec!["progress".into()],
+                ..crate::day_accounting::OpenDayLedger::default()
+            },
             encounter_history: VecDeque::from(vec![0]),
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Conservative),
             encounters_today: 1,
             prev_miles_traveled: 100.0,
             miles_traveled_actual: 105.0,
-            current_day_kind: Some(TravelDayKind::Travel),
-            current_day_miles: 3.0,
             distance_today: 2.0,
             distance_today_raw: 2.5,
             partial_distance_today: 1.5,
@@ -1329,11 +2266,11 @@ mod tests {
                 ..DayState::default()
             },
             distance_cap_today: 6.0,
-            current_day_reason_tags: vec!["progress".into()],
             rotation_travel_days: rotation_interval,
             recent_travel_days: VecDeque::from(vec![TravelDayKind::Partial; TRAVEL_HISTORY_WINDOW]),
             ..GameState::default()
         };
+        conservative.day_state.lifecycle.day_initialized = true;
         conservative.end_of_day();
         assert!(conservative.encounters.force_rotation_pending);
         assert!(
@@ -1343,13 +2280,17 @@ mod tests {
                 .is_some_and(|entry| entry.contains("progress"))
         );
 
-        // Deep aggressive branch unlocks boss readiness.
+        // Readiness earned while driving survives day finalization.
         let mut aggressive = GameState {
+            ledger: crate::day_accounting::OpenDayLedger {
+                current_day_reason_tags: vec!["march".into()],
+                ..crate::day_accounting::OpenDayLedger::default()
+            },
             encounter_history: VecDeque::from(vec![0]),
             mode: GameMode::Deep,
             policy: Some(PolicyKind::Aggressive),
             prev_miles_traveled: DEEP_AGGRESSIVE_BOSS_BIAS_MILES - 10.0,
-            miles_traveled_actual: DEEP_AGGRESSIVE_BOSS_BIAS_MILES + 5.0,
+            miles_traveled_actual: DEEP_AGGRESSIVE_BOSS_BIAS_MILES - 10.0,
             day_state: DayState {
                 travel: TravelDayState {
                     traveled_today: true,
@@ -1359,10 +2300,11 @@ mod tests {
             },
             distance_today: 5.0,
             distance_today_raw: 5.0,
-            current_day_miles: 5.0,
-            current_day_reason_tags: vec!["march".into()],
             ..GameState::default()
         };
+        aggressive.day_state.lifecycle.day_initialized = true;
+        aggressive.record_travel_day(TravelDayKind::Travel, 15.0, "march");
+        assert!(aggressive.boss.readiness.ready);
         aggressive.end_of_day();
         assert!(aggressive.boss.readiness.ready);
         assert!(aggressive.boss.readiness.reached);
@@ -1385,22 +2327,10 @@ mod tests {
     }
 
     #[test]
-    fn travel_and_rotation_helpers_reset_reason_tags() {
-        let mut state = GameState {
-            current_day_kind: Some(TravelDayKind::Travel),
-            current_day_reason_tags: vec!["camp".into(), "repair".into()],
-            travel_days: 1,
-            partial_travel_days: 1,
-            non_travel_days: 1,
-            days_with_camp: 1,
-            days_with_repair: 1,
-            rotation_travel_days: 2,
-            ..GameState::default()
-        };
-        state.revert_current_day_record();
-        assert!(state.current_day_reason_tags.is_empty());
-
-        let _ = state.apply_travel_progress(5.0, TravelProgressKind::Partial);
+    fn stationary_stops_preserve_travel_and_rotation_history() {
+        let mut state = clear_road_state(PaceId::Steady);
+        state.record_travel_day(TravelDayKind::Partial, 5.0, "camp");
+        state.add_day_reason_tag("repair");
         assert!(state.day_state.travel.partial_traveled_today);
 
         assert!(state.rotation_force_interval() >= 3);
@@ -1411,10 +2341,30 @@ mod tests {
         ]);
         assert!(state.travel_ratio_recent(3) < 1.0);
 
-        state.day_state.travel.traveled_today = true;
-        state.day_state.travel.partial_traveled_today = false;
-        state.apply_partial_travel_credit(1.0, "log.partial.credit", "delay");
-        assert!(state.logs.iter().any(|entry| entry == "log.partial.credit"));
+        state.record_stationary_stop("log.stopped", "delay");
+        approx_eq(state.miles_traveled_actual, 5.0);
+        assert!(state.logs.iter().any(|entry| entry == "log.stopped"));
+        assert!(
+            state
+                .ledger
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "camp")
+        );
+        assert!(
+            state
+                .ledger
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "repair")
+        );
+        assert!(
+            state
+                .ledger
+                .current_day_reason_tags
+                .iter()
+                .any(|tag| tag == "delay")
+        );
     }
 
     #[test]
@@ -1514,7 +2464,7 @@ mod tests {
         state.day = DEEP_AGGRESSIVE_SANITY_DAY;
         state.miles_traveled_actual = DEEP_AGGRESSIVE_SANITY_MILES;
         state.stats.sanity = 0;
-        state.stats.pants = 30;
+
         state.budget_cents = DEEP_AGGRESSIVE_SANITY_COST + 1_000;
         state.budget = i32::try_from(state.budget_cents / 100).unwrap_or(0);
         state.guards.deep_aggressive_sanity_guard_used = false;
@@ -1557,15 +2507,29 @@ impl GameMode {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Region {
+    PacificCoast,
+    MountainWest,
+    Southwest,
     Heartland,
     RustBelt,
     Beltway,
 }
 
 impl Region {
+    pub const ALL: [Self; 6] = [
+        Self::PacificCoast,
+        Self::MountainWest,
+        Self::Southwest,
+        Self::Heartland,
+        Self::RustBelt,
+        Self::Beltway,
+    ];
     #[must_use]
     pub const fn asset_key(self) -> &'static str {
         match self {
+            Self::PacificCoast => "PacificCoast",
+            Self::MountainWest => "MountainWest",
+            Self::Southwest => "Southwest",
             Self::Heartland => "Heartland",
             Self::RustBelt => "RustBelt",
             Self::Beltway => "Beltway",
@@ -1665,7 +2629,7 @@ pub enum Ending {
     BossVictory,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum DamageCause {
     Starvation,
     ExposureCold,
@@ -1746,7 +2710,6 @@ pub struct Stats {
     pub credibility: i32,
     pub morale: i32,
     pub allies: i32,
-    pub pants: i32, // 0..100
 }
 
 pub const DEFAULT_STATS: Stats = Stats {
@@ -1756,7 +2719,6 @@ pub const DEFAULT_STATS: Stats = Stats {
     credibility: 5,
     morale: 5,
     allies: 0,
-    pants: 0,
 };
 
 impl Default for Stats {
@@ -1773,7 +2735,6 @@ impl Stats {
         self.morale = self.morale.clamp(0, 10);
         self.supplies = self.supplies.clamp(0, 20);
         self.allies = self.allies.clamp(0, 50);
-        self.pants = self.pants.clamp(0, 100);
     }
 }
 
@@ -1811,14 +2772,7 @@ pub struct Spares {
     pub pump: i32, // fuel pump
 }
 
-/// Party configuration (leader plus four companions)
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
-pub struct Party {
-    #[serde(default)]
-    pub leader: String,
-    #[serde(default)]
-    pub companions: Vec<String>,
-}
+pub use crate::party::Party;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FeatureFlags {
@@ -1877,6 +2831,8 @@ pub enum GamePhase {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GameState {
+    #[serde(flatten)]
+    pub continuity: crate::journal::Continuity,
     pub mode: GameMode,
     #[serde(default)]
     pub mechanical_policy: MechanicalPolicyId,
@@ -1965,6 +2921,8 @@ pub struct GameState {
     #[serde(default)]
     pub distance_today: f32,
     #[serde(default)]
+    pub leg_minutes: u16,
+    #[serde(default)]
     pub distance_today_raw: f32,
     #[serde(default)]
     pub partial_distance_today: f32,
@@ -1984,6 +2942,10 @@ pub struct GameState {
     pub journey_part_weights: PartWeights,
     #[serde(default)]
     pub journey_crossing: CrossingPolicy,
+    #[serde(default)]
+    pub journey_daily: crate::journey::DailyTickConfig,
+    #[serde(default)]
+    pub daily_remainders: crate::journey::daily::DailyRemainders,
     pub logs: Vec<String>,
     pub receipts: Vec<String>,
     #[serde(default)]
@@ -2008,8 +2970,6 @@ pub struct GameState {
     pub encounter_history: VecDeque<u8>,
     #[serde(default)]
     pub recent_encounters: VecDeque<RecentEncounter>,
-    #[serde(default)]
-    pub encounter_cooldown: u8,
     #[serde(default)]
     pub repairs_spent_cents: i64,
     #[serde(default)]
@@ -2054,31 +3014,26 @@ pub struct GameState {
     pub recent_travel_days: VecDeque<TravelDayKind>,
     #[serde(default)]
     pub day_reason_history: Vec<String>,
-    #[serde(skip)]
+    #[serde(default)]
     pub rotation_backlog: VecDeque<String>,
-    #[serde(skip)]
+    #[serde(default, with = "crate::journey::rng_save")]
     pub rng_bundle: Option<Rc<RngBundle>>,
     #[serde(skip)]
     pub data: Option<EncounterData>,
-    #[serde(skip)]
+    #[serde(default)]
     pub last_damage: Option<DamageCause>,
-    #[serde(skip)]
+    #[serde(default)]
     pub decision_traces_today: Vec<EventDecisionTrace>,
-    #[serde(skip)]
-    pub current_day_record: Option<DayRecord>,
-    #[serde(skip)]
-    pub current_day_kind: Option<TravelDayKind>,
-    #[serde(skip)]
-    pub current_day_reason_tags: Vec<String>,
-    #[serde(skip)]
-    pub current_day_miles: f32,
-    #[serde(skip)]
+    #[serde(flatten)]
+    pub ledger: crate::day_accounting::OpenDayLedger,
+    #[serde(default)]
     pub last_breakdown_part: Option<Part>,
 }
 
 impl Default for GameState {
     fn default() -> Self {
         Self {
+            continuity: crate::journal::Continuity::default(),
             mode: GameMode::Classic,
             mechanical_policy: MechanicalPolicyId::default(),
             seed: 0,
@@ -2122,6 +3077,7 @@ impl Default for GameState {
             encounter_chance_today: ENCOUNTER_BASE_DEFAULT,
             encounters: EncounterState::default(),
             distance_today: 0.0,
+            leg_minutes: 0,
             distance_today_raw: 0.0,
             partial_distance_today: 0.0,
             distance_cap_today: 0.0,
@@ -2132,6 +3088,8 @@ impl Default for GameState {
             journey_breakdown: BreakdownConfig::default(),
             journey_part_weights: PartWeights::default(),
             journey_crossing: CrossingPolicy::default(),
+            journey_daily: crate::journey::DailyTickConfig::default(),
+            daily_remainders: crate::journey::daily::DailyRemainders::default(),
             logs: vec![String::from("log.booting")],
             receipts: vec![],
             encounters_resolved: 0,
@@ -2145,7 +3103,6 @@ impl Default for GameState {
             encounters_today: 0,
             encounter_history: VecDeque::with_capacity(ENCOUNTER_HISTORY_WINDOW + 2),
             recent_encounters: VecDeque::with_capacity(ENCOUNTER_RECENT_MEMORY),
-            encounter_cooldown: 0,
             repairs_spent_cents: 0,
             bribes_spent_cents: 0,
             current_encounter: None,
@@ -2171,10 +3128,7 @@ impl Default for GameState {
             data: None,
             last_damage: None,
             decision_traces_today: Vec::new(),
-            current_day_record: None,
-            current_day_kind: None,
-            current_day_reason_tags: Vec::new(),
-            current_day_miles: 0.0,
+            ledger: crate::day_accounting::OpenDayLedger::default(),
             last_breakdown_part: None,
         }
     }
@@ -2194,6 +3148,14 @@ pub enum CrossingOutcomeTelemetry {
     Failed,
 }
 
+/// Why the crew took an alternate route after a crossing decision.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum CrossingDetourReason {
+    RouteDiversion,
+    CheckpointDenied,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CrossingTelemetry {
     pub day: u32,
@@ -2206,11 +3168,13 @@ pub struct CrossingTelemetry {
     pub bribe_cost_cents: i64,
     pub bribe_chance: Option<f32>,
     pub bribe_roll: Option<f32>,
+    /// Distinguishes an ordinary diversion from an administrative refusal of passage.
+    #[serde(default)]
+    pub detour_reason: Option<CrossingDetourReason>,
     pub detour_taken: bool,
-    pub detour_days: Option<u32>,
+    pub detour_hours: Option<u32>,
     pub detour_base_supplies_delta: Option<i32>,
     pub detour_extra_supplies_loss: Option<i32>,
-    pub detour_pants_delta: Option<i32>,
     pub terminal_threshold: f32,
     pub terminal_roll: Option<f32>,
     pub outcome: CrossingOutcomeTelemetry,
@@ -2229,11 +3193,11 @@ impl CrossingTelemetry {
             bribe_cost_cents: 0,
             bribe_chance: None,
             bribe_roll: None,
+            detour_reason: None,
             detour_taken: false,
-            detour_days: None,
+            detour_hours: None,
             detour_base_supplies_delta: None,
             detour_extra_supplies_loss: None,
-            detour_pants_delta: None,
             terminal_threshold: 0.0,
             terminal_roll: None,
             outcome: CrossingOutcomeTelemetry::Detoured,
@@ -2311,12 +3275,14 @@ impl GameState {
         self.encounters_today = 0;
         self.encounters.occurred_today = false;
         self.prev_miles_traveled = self.miles_traveled_actual;
-        self.current_day_kind = None;
-        self.current_day_reason_tags.clear();
-        self.current_day_miles = 0.0;
+        self.ledger.day_start_remainder = self.ledger.distance_remainder;
+        self.ledger.current_day_kind = None;
+        self.ledger.current_day_reason_tags.clear();
+        self.ledger.current_day_miles = 0.0;
         self.decision_traces_today.clear();
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
-        self.current_day_record = Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
+        self.ledger.current_day_record =
+            Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
         self.exec_travel_multiplier = 1.0;
         self.exec_breakdown_bonus = 0.0;
         self.weather_travel_multiplier = 1.0;
@@ -2334,11 +3300,8 @@ impl GameState {
         }
         self.encounter_history.push_back(0);
 
-        if self.encounter_cooldown > 0 {
-            self.encounter_cooldown -= 1;
-        }
-
         self.tick_exec_order_state();
+        self.tick_ally_attrition();
 
         self.apply_starvation_tick();
         self.roll_daily_illness();
@@ -2346,11 +3309,12 @@ impl GameState {
         let weather_cfg = WeatherConfig::default_config();
         let weather_rng = self.rng_bundle.as_ref().map(Rc::clone);
         crate::weather::process_daily_weather(self, &weather_cfg, weather_rng.as_deref());
+        let daily = self.journey_daily.clone();
+        let _ = crate::journey::apply_daily_effect(&daily, self);
+        let pacing = crate::pacing::PacingConfig::default_config();
+        let diet = pacing.get_diet_safe(self.diet.as_str());
+        self.consume_daily_effects(diet.sanity, 0);
         self.stats.clamp();
-
-        if !self.features.travel_v2 {
-            self.apply_travel_wear_scaled(1.0);
-        }
     }
 
     fn tick_exec_order_state(&mut self) {
@@ -2408,32 +3372,12 @@ impl GameState {
     }
 
     fn apply_exec_order_effects(&mut self, order: ExecOrder) {
-        match order {
-            ExecOrder::Shutdown => {
-                self.stats.morale -= 1;
-                self.stats.supplies = (self.stats.supplies - 1).max(0);
-            }
-            ExecOrder::TravelBanLite => {
-                self.stats.sanity -= 1;
-                self.exec_travel_multiplier *= EXEC_ORDER_SPEED_BONUS;
-            }
-            ExecOrder::BookPanic => {
-                if self.stats.morale < 7 {
-                    self.stats.sanity -= 1;
-                }
-            }
-            ExecOrder::TariffTsunami => {
-                if !self.inventory.has_tag("legal_fund") {
-                    self.stats.supplies = (self.stats.supplies - 1).max(0);
-                }
-            }
-            ExecOrder::DoEEliminated => {
-                self.stats.morale -= 1;
-            }
-            ExecOrder::WarDeptReorg => {
-                self.exec_breakdown_bonus += EXEC_ORDER_BREAKDOWN_BONUS;
-            }
-        }
+        let effect = order.daily_effect(self.stats.morale, self.inventory.has_tag("legal_fund"));
+        self.stats.supplies = (self.stats.supplies + effect.supplies).max(0);
+        self.stats.sanity += effect.sanity;
+        self.stats.morale += effect.morale;
+        self.exec_travel_multiplier *= effect.travel_multiplier;
+        self.exec_breakdown_bonus += effect.breakdown_bonus;
         self.cap_exec_order_effects();
         self.stats.clamp();
     }
@@ -2451,15 +3395,13 @@ impl GameState {
         if self.day_state.lifecycle.did_end_of_day {
             return;
         }
+        self.tick_camp_cooldowns();
         self.update_encounter_history();
         let miles_delta = self.compute_day_progress();
         self.assert_travel_consistency(miles_delta);
-        self.apply_conservative_travel_bonus();
 
         let day_kind = self.resolve_day_kind();
-        let day_kind = self.apply_stop_ratio_floor(day_kind);
         self.finalize_day(day_kind);
-        self.unlock_aggressive_boss_ready();
     }
 
     fn update_encounter_history(&mut self) {
@@ -2469,11 +3411,9 @@ impl GameState {
     }
 
     fn compute_day_progress(&mut self) -> f32 {
-        let computed_miles_today = self.distance_today.max(self.distance_today_raw);
-        self.enforce_aggressive_delay_cap(computed_miles_today);
-        let miles_delta = (self.miles_traveled_actual - self.prev_miles_traveled).max(0.0);
-        let needs_backfill = self.current_day_kind.is_none()
-            || (matches!(self.current_day_kind, Some(TravelDayKind::NonTravel))
+        let miles_delta = day_accounting::current_day_distance(self);
+        let needs_backfill = self.ledger.current_day_kind.is_none()
+            || (matches!(self.ledger.current_day_kind, Some(TravelDayKind::NonTravel))
                 && miles_delta > 0.0);
         if needs_backfill {
             if miles_delta > 0.0 {
@@ -2491,11 +3431,11 @@ impl GameState {
                 fallback_kind,
                 TravelDayKind::Travel | TravelDayKind::Partial
             ) {
-                self.current_day_miles = miles_delta;
                 self.distance_today = self.distance_today.max(miles_delta);
                 self.distance_today_raw = self.distance_today_raw.max(miles_delta);
             }
         }
+        self.ledger.current_day_miles = miles_delta;
         miles_delta
     }
 
@@ -2516,87 +3456,14 @@ impl GameState {
         }
     }
 
-    fn apply_conservative_travel_bonus(&mut self) {
-        if !self.mode.is_deep()
-            || !matches!(self.policy, Some(PolicyKind::Conservative))
-            || self.current_day_miles <= 0.0
-        {
-            return;
-        }
-
-        let had_repair = self
-            .current_day_reason_tags
-            .iter()
-            .any(|tag| tag.contains("repair"));
-        let had_crossing = self
-            .current_day_reason_tags
-            .iter()
-            .any(|tag| tag.starts_with("crossing") || tag == "detour");
-        if had_repair || had_crossing {
-            return;
-        }
-
-        let bonus = self.current_day_miles * 0.03;
-        if bonus <= 0.0 {
-            return;
-        }
-        let cap = if self.distance_cap_today > 0.0 {
-            self.distance_cap_today
-        } else {
-            self.distance_today.max(self.distance_today_raw)
-        };
-        let available = if cap > self.current_day_miles {
-            cap - self.current_day_miles
-        } else {
-            0.0
-        };
-        let applied = bonus.min(available);
-        if applied > 0.0 {
-            let credited = self.apply_travel_progress(applied, TravelProgressKind::Full);
-            if credited > 0.0 {
-                self.current_day_miles += credited;
-                self.distance_today = self.distance_today.max(self.current_day_miles);
-                self.distance_today_raw = self.distance_today_raw.max(self.current_day_miles);
-                self.partial_distance_today = self
-                    .partial_distance_today
-                    .max(credited)
-                    .min(self.distance_today);
-            }
-        }
-    }
-
     fn resolve_day_kind(&self) -> TravelDayKind {
-        self.current_day_kind
-            .unwrap_or(if self.day_state.travel.traveled_today {
-                TravelDayKind::Travel
-            } else if self.day_state.travel.partial_traveled_today {
-                TravelDayKind::Partial
-            } else {
-                TravelDayKind::NonTravel
-            })
-    }
-
-    fn apply_stop_ratio_floor(&mut self, mut day_kind: TravelDayKind) -> TravelDayKind {
-        if matches!(day_kind, TravelDayKind::NonTravel)
-            && !self.day_state.lifecycle.suppress_stop_ratio
-        {
-            let total_days = self.travel_days + self.partial_travel_days + self.non_travel_days;
-            if total_days > 0 {
-                let travel_days = self.travel_days + self.partial_travel_days;
-                let ratio = f64::from(travel_days) / f64::from(total_days);
-                if ratio < 0.90_f64 {
-                    self.revert_current_day_record();
-                    let baseline = self.distance_today.max(self.distance_today_raw);
-                    let partial = day_accounting::partial_day_miles(self, baseline);
-                    self.record_travel_day(TravelDayKind::Partial, partial, "stop_cap");
-                    self.distance_today = self.distance_today.max(partial);
-                    self.distance_today_raw = self.distance_today_raw.max(partial);
-                    self.partial_distance_today = self.partial_distance_today.max(partial);
-                    day_kind = TravelDayKind::Partial;
-                }
-            }
+        if self.ledger.current_day_miles <= 0.0 {
+            TravelDayKind::NonTravel
+        } else {
+            self.ledger
+                .current_day_kind
+                .unwrap_or(TravelDayKind::Partial)
         }
-        day_kind
     }
 
     fn finalize_day(&mut self, day_kind: TravelDayKind) {
@@ -2608,32 +3475,34 @@ impl GameState {
             self.recent_travel_days.pop_front();
         }
         self.recent_travel_days.push_back(day_kind);
-        if let Some(record) = self.current_day_record.as_mut() {
+        if let Some(record) = self.ledger.current_day_record.as_mut() {
             record.kind = day_kind;
-            record.miles = self.current_day_miles;
+            record.miles = self.ledger.current_day_miles;
         }
-        let reason_entry = if self.current_day_reason_tags.is_empty() {
+        let reason_entry = if self.ledger.current_day_reason_tags.is_empty() {
             String::new()
         } else {
-            self.current_day_reason_tags.join(";")
+            self.ledger.current_day_reason_tags.join(";")
         };
         self.day_reason_history.push(reason_entry);
-        self.current_day_reason_tags.clear();
-        if let Some(record) = self.current_day_record.take() {
+        self.ledger.current_day_reason_tags.clear();
+        if let Some(record) = self.ledger.current_day_record.take() {
             self.day_records.push(record);
         }
         self.recompute_day_counters();
-        self.current_day_miles = 0.0;
-        self.current_day_kind = None;
+        self.ledger.current_day_miles = 0.0;
+        self.ledger.current_day_kind = None;
         self.day_state.lifecycle.suppress_stop_ratio = false;
         self.day_state.lifecycle.day_initialized = false;
         self.day_state.lifecycle.did_end_of_day = true;
         self.day = self.day.saturating_add(1);
+        self.continuity.clock_minutes = crate::journal::morning();
     }
 
     fn unlock_aggressive_boss_ready(&mut self) {
         if self.mode.is_deep()
             && matches!(self.policy, Some(PolicyKind::Aggressive))
+            && self.ending.is_none()
             && !self.boss.readiness.ready
             && !self.boss.outcome.attempted
             && self.miles_traveled_actual >= DEEP_AGGRESSIVE_BOSS_BIAS_MILES
@@ -2652,7 +3521,8 @@ impl GameState {
         if let Some(back) = self.encounter_history.back_mut() {
             *back = self.encounters_today;
         }
-        self.encounter_cooldown = ENCOUNTER_COOLDOWN_DAYS.saturating_add(1);
+        self.continuity.last_encounter_driving_minutes =
+            Some(self.continuity.driving_minutes_total);
         let day = self.day;
         while self.recent_encounters.len() >= ENCOUNTER_RECENT_MEMORY {
             self.recent_encounters.pop_front();
@@ -2675,6 +3545,10 @@ impl GameState {
     }
 
     fn apply_travel_wear_scaled(&mut self, scale: f32) {
+        self.apply_travel_wear_for_minutes(self.leg_minutes, scale);
+    }
+
+    fn apply_travel_wear_for_minutes(&mut self, minutes: u16, scale: f32) {
         if scale <= 0.0 {
             return;
         }
@@ -2686,7 +3560,9 @@ impl GameState {
             * self.journey_pace_factor()
             * self.journey_weather_factor()
             * self.journey_fatigue_multiplier()
-            * scale;
+            * scale
+            * f32::from(minutes)
+            / f32::from(crate::travel_time::TRAVEL_DAY_MINUTES);
         if wear_delta <= 0.0 {
             return;
         }
@@ -2697,51 +3573,37 @@ impl GameState {
         self.apply_travel_wear_scaled(1.0);
     }
 
-    fn revert_current_day_record(&mut self) {
-        if matches!(
-            self.current_day_kind,
-            Some(TravelDayKind::Travel | TravelDayKind::Partial)
-        ) {
-            self.rotation_travel_days = self.rotation_travel_days.saturating_sub(1);
-        }
-        self.current_day_kind = None;
-        if self.current_day_reason_tags.iter().any(|tag| tag == "camp") {
-            self.days_with_camp = self.days_with_camp.saturating_sub(1);
-        }
-        if self
-            .current_day_reason_tags
-            .iter()
-            .any(|tag| tag == "repair")
-        {
-            self.days_with_repair = self.days_with_repair.saturating_sub(1);
-        }
-        if let Some(record) = self.current_day_record.as_mut() {
-            record.kind = TravelDayKind::NonTravel;
-            record.miles = 0.0;
-            record.tags.clear();
-        }
-        self.current_day_reason_tags.clear();
-        self.current_day_miles = 0.0;
-    }
-
     pub(crate) fn apply_travel_progress(&mut self, distance: f32, kind: TravelProgressKind) -> f32 {
         if distance <= 0.0 {
             return 0.0;
         }
-        let remaining = (self.trail_distance - self.miles_traveled_actual).max(0.0);
+        let before =
+            f64::from(self.miles_traveled_actual) + f64::from(self.ledger.distance_remainder);
+        let goal = f64::from(self.trail_distance);
+        let remaining = (goal - before).max(0.0);
         if remaining <= 0.0 {
             return 0.0;
         }
-        let applied = distance.min(remaining);
-        let before = self.miles_traveled_actual;
-        self.miles_traveled_actual += applied;
-        self.miles_traveled = (self.miles_traveled + applied).min(self.trail_distance);
-        let advanced = self.miles_traveled_actual > before;
+        let next = (before + f64::from(distance).min(remaining)).min(goal);
+        self.miles_traveled_actual = clamp_f64_to_f32(next);
+        let next = if self.miles_traveled_actual >= self.trail_distance {
+            goal
+        } else {
+            next
+        };
+        self.ledger.distance_remainder =
+            clamp_f64_to_f32(next - f64::from(self.miles_traveled_actual));
+        let applied = clamp_f64_to_f32(next - before);
+        self.sync_route_location();
+        self.miles_traveled = self.miles_traveled_actual;
+        let advanced = applied > 0.0;
         if advanced {
             match kind {
                 TravelProgressKind::Full => self.day_state.travel.traveled_today = true,
                 TravelProgressKind::Partial => self.day_state.travel.partial_traveled_today = true,
             }
+            // Readiness is earned by movement, never by finishing a parked activity.
+            self.unlock_aggressive_boss_ready();
             if self.ending.is_none() && self.miles_traveled_actual >= self.trail_distance {
                 self.boss.readiness.ready = true;
                 self.boss.readiness.reached = true;
@@ -2762,69 +3624,12 @@ impl GameState {
         day_accounting::compute_day_ledger_metrics(&self.day_records)
     }
 
-    pub(crate) fn reset_today_progress(&mut self) {
-        let day_progress = (self.miles_traveled_actual - self.prev_miles_traveled).max(0.0);
-        if day_progress > 0.0 {
-            self.miles_traveled_actual -= day_progress;
-            self.miles_traveled = self.miles_traveled_actual.min(self.trail_distance);
-            if self.miles_traveled_actual < self.trail_distance {
-                self.boss.readiness.ready = false;
-                self.boss.readiness.reached = false;
-            }
-        }
-        self.revert_current_day_record();
-        self.distance_today = 0.0;
-        self.distance_today_raw = 0.0;
-        self.partial_distance_today = 0.0;
-        self.day_state.travel.traveled_today = false;
-        self.day_state.travel.partial_traveled_today = false;
-    }
-
     fn rotation_force_interval(&self) -> u32 {
         let mut interval = ROTATION_FORCE_INTERVAL;
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Conservative)) {
             interval = interval.saturating_sub(2).max(1);
         }
         interval
-    }
-
-    fn enforce_aggressive_delay_cap(&mut self, computed_miles: f32) {
-        if self.day_state.travel.traveled_today || self.day_state.travel.partial_traveled_today {
-            return;
-        }
-        if !(self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive))) {
-            return;
-        }
-        let full_stops = self
-            .recent_travel_days
-            .iter()
-            .rev()
-            .take(AGGRESSIVE_STOP_WINDOW_DAYS)
-            .filter(|kind| matches!(kind, TravelDayKind::NonTravel))
-            .count();
-        if full_stops < AGGRESSIVE_STOP_CAP {
-            return;
-        }
-
-        let baseline = if computed_miles > 0.0 {
-            computed_miles
-        } else if self.features.travel_v2 {
-            TRAVEL_V2_BASE_DISTANCE
-        } else {
-            TRAVEL_CLASSIC_BASE_DISTANCE
-        };
-        let partial = (baseline * TRAVEL_PARTIAL_RATIO).max(TRAVEL_PARTIAL_MIN_DISTANCE);
-        self.reset_today_progress();
-        self.record_travel_day(TravelDayKind::Partial, partial, "stop_cap");
-        self.distance_today = partial;
-        self.distance_today_raw = partial;
-        self.partial_distance_today = partial;
-        self.current_day_miles = partial;
-        self.day_state.travel.partial_traveled_today = true;
-        self.day_state.travel.traveled_today = false;
-        let new_wear = (self.vehicle.wear - self.journey_wear.base).max(0.0);
-        self.vehicle.set_wear(new_wear);
-        self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
     }
 
     #[must_use]
@@ -2852,46 +3657,21 @@ impl GameState {
         }
     }
 
-    fn apply_partial_travel_credit(
-        &mut self,
-        distance: f32,
-        log_key: &'static str,
-        reason_tag: &str,
-    ) {
-        if distance <= 0.0 {
-            return;
-        }
-        if self.day_state.travel.traveled_today && !self.day_state.travel.partial_traveled_today {
-            self.reset_today_progress();
-        }
-        self.distance_today += distance;
-        self.distance_today_raw += distance;
-        self.partial_distance_today = self.partial_distance_today.max(distance);
-        self.record_travel_day(TravelDayKind::Partial, distance, reason_tag);
+    fn record_stationary_stop(&mut self, log_key: &'static str, reason_tag: &str) {
+        self.record_travel_day(TravelDayKind::NonTravel, 0.0, reason_tag);
         self.logs.push(String::from(log_key));
     }
 
     pub(crate) fn apply_rest_travel_credit(&mut self) {
-        self.apply_partial_travel_credit(REST_TRAVEL_CREDIT_MILES, LOG_TRAVEL_REST_CREDIT, "camp");
+        self.record_stationary_stop(LOG_TRAVEL_REST_CREDIT, "camp");
     }
 
     fn apply_delay_travel_credit(&mut self, reason_tag: &str) {
-        let miles = day_accounting::partial_day_miles(self, 0.0).max(DELAY_TRAVEL_CREDIT_MILES);
-        self.apply_partial_travel_credit(miles, LOG_TRAVEL_DELAY_CREDIT, reason_tag);
+        self.record_stationary_stop(LOG_TRAVEL_DELAY_CREDIT, reason_tag);
     }
 
     fn apply_classic_field_repair_guard(&mut self) {
-        let partial = day_accounting::partial_day_miles(self, 0.0);
-        if partial > 0.0 {
-            self.apply_partial_travel_credit(
-                partial,
-                LOG_VEHICLE_FIELD_REPAIR_GUARD,
-                "field_repair_guard",
-            );
-        } else {
-            self.record_travel_day(TravelDayKind::Partial, 0.0, "field_repair_guard");
-            self.logs.push(String::from(LOG_VEHICLE_FIELD_REPAIR_GUARD));
-        }
+        self.record_stationary_stop(LOG_VEHICLE_FIELD_REPAIR_GUARD, "field_repair_guard");
         self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
         self.vehicle.wear = (self.vehicle.wear - CLASSIC_FIELD_REPAIR_WEAR_REDUCTION).max(0.0);
         let field_repair_cost = CLASSIC_FIELD_REPAIR_COST_CENTS;
@@ -2915,13 +3695,7 @@ impl GameState {
             return false;
         }
 
-        let partial = day_accounting::partial_day_miles(self, 0.0);
-        if partial > 0.0 {
-            self.apply_partial_travel_credit(partial, LOG_VEHICLE_EMERGENCY_LIMP, "emergency_limp");
-        } else {
-            self.record_travel_day(TravelDayKind::Partial, 0.0, "emergency_limp");
-            self.logs.push(String::from(LOG_VEHICLE_EMERGENCY_LIMP));
-        }
+        self.record_stationary_stop(LOG_VEHICLE_EMERGENCY_LIMP, "emergency_limp");
         self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
         self.vehicle.wear = (self.vehicle.wear - EMERGENCY_LIMP_WEAR_REDUCTION).max(0.0);
         let limp_cost = EMERGENCY_LIMP_REPAIR_COST_CENTS;
@@ -2950,18 +3724,7 @@ impl GameState {
             return false;
         }
 
-        let partial = day_accounting::partial_day_miles(self, 0.0);
-        if partial > 0.0 {
-            self.apply_partial_travel_credit(
-                partial,
-                LOG_DEEP_AGGRESSIVE_FIELD_REPAIR,
-                "field_repair",
-            );
-        } else {
-            self.record_travel_day(TravelDayKind::Partial, 0.0, "field_repair");
-            self.logs
-                .push(String::from(LOG_DEEP_AGGRESSIVE_FIELD_REPAIR));
-        }
+        self.record_stationary_stop(LOG_DEEP_AGGRESSIVE_FIELD_REPAIR, "field_repair");
         self.vehicle.ensure_health_floor(VEHICLE_EMERGENCY_HEAL);
         self.vehicle.wear = (self.vehicle.wear - EMERGENCY_LIMP_WEAR_REDUCTION).max(0.0);
         let limp_cost = EMERGENCY_LIMP_REPAIR_COST_CENTS;
@@ -2979,6 +3742,7 @@ impl GameState {
         let trimmed = tag.trim();
         if trimmed.is_empty()
             || self
+                .ledger
                 .current_day_reason_tags
                 .iter()
                 .any(|existing| existing == trimmed)
@@ -2990,8 +3754,10 @@ impl GameState {
         } else if trimmed == "repair" {
             self.days_with_repair = self.days_with_repair.saturating_add(1);
         }
-        self.current_day_reason_tags.push(trimmed.to_string());
-        if let Some(record) = self.current_day_record.as_mut() {
+        self.ledger
+            .current_day_reason_tags
+            .push(trimmed.to_string());
+        if let Some(record) = self.ledger.current_day_record.as_mut() {
             record.push_tag(DayTag::new(trimmed));
         }
     }
@@ -3003,9 +3769,9 @@ impl GameState {
         reason_tag: &str,
     ) -> TravelDayKind {
         let (recorded_kind, _) = day_accounting::record_travel_day(self, kind, miles_earned);
-        if let Some(record) = self.current_day_record.as_mut() {
+        if let Some(record) = self.ledger.current_day_record.as_mut() {
             record.kind = recorded_kind;
-            record.miles = self.current_day_miles;
+            record.miles = self.ledger.current_day_miles;
         }
         if !reason_tag.is_empty() {
             self.add_day_reason_tag(reason_tag);
@@ -3124,7 +3890,7 @@ impl GameState {
 
         self.stats.hp -= STARVATION_BASE_HP_LOSS;
         self.stats.sanity -= STARVATION_SANITY_LOSS;
-        self.stats.pants = (self.stats.pants + STARVATION_PANTS_GAIN).clamp(0, 100);
+
         self.mark_damage(DamageCause::Starvation);
         self.logs.push(String::from(LOG_STARVATION_TICK));
         if self.stats.hp <= 0 {
@@ -3182,6 +3948,10 @@ impl GameState {
             chance *= 0.5;
         }
 
+        // Masks reduce new illness risk; existing illness still needs recovery.
+        if self.inventory.has_tag("plague_resist") {
+            chance *= 0.5;
+        }
         let roll = self.health_rng().map_or(1.0, |mut rng| rng.r#gen::<f32>());
         if roll >= chance {
             return;
@@ -3289,9 +4059,9 @@ impl GameState {
         self.budget_cents -= DEEP_AGGRESSIVE_SANITY_COST;
         self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
         self.stats.sanity += SANITY_POINT_REWARD;
-        self.stats.pants = (self.stats.pants - DEEP_AGGRESSIVE_SANITY_PANTS_PENALTY).max(0);
+
         self.stats.clamp();
-        if self.current_day_kind.is_none() {
+        if self.ledger.current_day_kind.is_none() {
             self.record_travel_day(TravelDayKind::Partial, 0.0, "da_sanity_guard");
         } else {
             self.add_day_reason_tag("da_sanity_guard");
@@ -3310,14 +4080,14 @@ impl GameState {
         if self.stats.supplies >= BOSS_COMPOSE_SUPPLY_COST {
             self.stats.supplies -= BOSS_COMPOSE_SUPPLY_COST;
             self.stats.sanity += SANITY_POINT_REWARD;
-            self.stats.pants = (self.stats.pants - BOSS_COMPOSE_PANTS_SUPPLY).max(0);
+
             self.logs.push(String::from(LOG_BOSS_COMPOSE_SUPPLIES));
             applied = true;
         } else if self.budget_cents >= BOSS_COMPOSE_FUNDS_COST {
             self.budget_cents -= BOSS_COMPOSE_FUNDS_COST;
             self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
             self.stats.sanity += SANITY_POINT_REWARD;
-            self.stats.pants = (self.stats.pants - BOSS_COMPOSE_FUNDS_PANTS).max(0);
+
             self.logs.push(String::from(LOG_BOSS_COMPOSE_FUNDS));
             applied = true;
         }
@@ -3335,88 +4105,70 @@ impl GameState {
         pace_cfg: &crate::pacing::PaceCfg,
         limits: &crate::pacing::PacingLimits,
     ) -> f32 {
-        let travel_v2 = self.features.travel_v2;
-        let travel_cfg = &self.journey_travel;
-
-        let pace_scalar = self.pace_scalar(travel_cfg, pace_cfg);
-        let (weather_scalar, penalty_floor) = self.weather_scalar(travel_v2, travel_cfg, limits);
-
-        let mut multiplier = (pace_scalar * weather_scalar).max(penalty_floor);
-        if matches!(self.policy, Some(PolicyKind::Balanced)) {
-            multiplier *= if self.mode.is_deep() {
-                DEEP_BALANCED_TRAVEL_NUDGE
-            } else {
-                CLASSIC_BALANCED_TRAVEL_NUDGE
-            };
-        }
-        multiplier *= self.endgame_bias();
-        let behind_boost = self.behind_schedule_multiplier();
-        if behind_boost > 1.0 {
-            multiplier *= behind_boost;
-        }
-
-        let mut raw_distance = travel_cfg.mpd_base * multiplier;
-        let mut distance = raw_distance;
-        let ratio = self.journey_partial_ratio.clamp(0.0, 1.0);
-        let mut partial_distance = raw_distance * ratio;
-
-        let travel_boost = self.travel_boost_multiplier();
-        if travel_boost > 1.0 {
-            raw_distance *= travel_boost;
-            distance *= travel_boost;
-            partial_distance *= travel_boost;
-        }
-
-        let stamina_penalty = self.vehicle_penalty() * self.malnutrition_penalty();
-        distance *= stamina_penalty;
-        partial_distance *= stamina_penalty;
-
-        distance *= self.exec_travel_multiplier;
-        partial_distance *= self.exec_travel_multiplier;
-        let illness_penalty = self.illness_travel_penalty.max(0.0);
-        distance *= illness_penalty;
-        partial_distance *= illness_penalty;
-
-        self.distance_cap_today = travel_cfg.mpd_max.max(travel_cfg.mpd_base);
-        let max_distance = if self.distance_cap_today > 0.0 {
-            self.distance_cap_today
+        let speed = self.current_road_speed(pace_cfg, limits);
+        let minutes = self.travel_leg_minutes();
+        let (road_miles, distance) =
+            self.distance_before_next_stop(speed * f32::from(minutes) / 60.0);
+        self.leg_minutes = if speed > 0.0 {
+            u16::try_from(crate::numbers::round_f32_to_i32(
+                (road_miles * 60.0 / speed).ceil(),
+            ))
+            .unwrap_or(minutes)
+            .min(minutes)
         } else {
-            travel_cfg.mpd_max
+            minutes
         };
-
-        let mut clamped_distance = distance.clamp(travel_cfg.mpd_min, max_distance);
-        if clamped_distance.is_nan() || clamped_distance <= 0.0 {
-            clamped_distance = travel_cfg.mpd_min.max(TRAVEL_PARTIAL_MIN_DISTANCE);
-        }
-        clamped_distance = clamped_distance.max(TRAVEL_PARTIAL_MIN_DISTANCE);
-
-        raw_distance = raw_distance.clamp(0.0, max_distance);
-
-        partial_distance = partial_distance.clamp(0.0, clamped_distance);
-        if partial_distance > 0.0 {
-            partial_distance =
-                partial_distance.max(TRAVEL_PARTIAL_MIN_DISTANCE.min(clamped_distance));
-        }
-
-        self.distance_today_raw = raw_distance;
-        self.distance_today = clamped_distance;
-        self.partial_distance_today = partial_distance;
-        self.distance_today
+        self.distance_today_raw = distance;
+        self.distance_today = distance;
+        self.partial_distance_today = distance * self.journey_partial_ratio.clamp(0.0, 1.0);
+        self.distance_cap_today = self.ledger.current_day_miles + distance;
+        distance
     }
 
-    fn pace_scalar(&self, travel_cfg: &TravelConfig, pace_cfg: &crate::pacing::PaceCfg) -> f32 {
-        let pace_policy = travel_cfg
-            .pace_factor
-            .get(&self.pace)
-            .copied()
-            .unwrap_or(1.0)
-            .max(TRAVEL_CONFIG_MIN_MULTIPLIER);
-        let pace_cfg_scalar = if pace_cfg.dist_mult > 0.0 {
-            pace_cfg.dist_mult
+    fn current_road_speed(
+        &self,
+        pace_cfg: &crate::pacing::PaceCfg,
+        limits: &crate::pacing::PacingLimits,
+    ) -> f32 {
+        let (weather_scalar, penalty_floor) =
+            self.weather_scalar(self.features.travel_v2, &self.journey_travel, limits);
+        let cap = pace_cfg.speed_mph.max(1.0);
+        (cap * weather_scalar.max(penalty_floor)
+            * self.vehicle_penalty()
+            * self.malnutrition_penalty()
+            * self.exec_travel_multiplier
+            * self.illness_travel_penalty.max(0.0)
+            * self.endgame_bias()
+            * self.travel_boost_multiplier())
+        .clamp(0.0, cap)
+    }
+
+    fn distance_before_next_stop(&self, road_miles: f32) -> (f32, f32) {
+        // The final town marker can precede the route's exact fractional endpoint.
+        let remaining = (self.trail_distance - self.miles_traveled_actual).max(0.0);
+        let crossing_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
+        let remaining = CROSSING_MILESTONES
+            .get(crossing_idx)
+            .map_or(remaining, |milestone| {
+                remaining.min((milestone - self.miles_traveled_actual).max(0.0))
+            });
+        let road_to_limit = crate::route::physical_at(self, remaining);
+        let road_to_stop = crate::route::upcoming(self)
+            .next()
+            .map_or(road_miles, |next| {
+                let to_town = (f32::from(next.mile) - crate::route::physical_miles(self)).max(0.0);
+                road_miles.min(to_town)
+            });
+        if road_to_limit <= road_to_stop {
+            // Carry the exact internal boundary through the physical-mile conversion.
+            // Rounding it back from road miles can otherwise require a second tiny leg.
+            (road_to_limit, remaining)
         } else {
-            1.0
-        };
-        (pace_policy * pace_cfg_scalar).max(TRAVEL_CONFIG_MIN_MULTIPLIER)
+            (
+                road_to_stop,
+                crate::route::simulation_distance(self, road_to_stop),
+            )
+        }
     }
 
     fn weather_scalar(
@@ -3485,6 +4237,15 @@ impl GameState {
     }
 
     fn check_vehicle_terminal_state(&mut self) -> bool {
+        if self.continuity.interactive_repairs {
+            if self.vehicle.health <= 0.0 {
+                self.set_ending(Ending::VehicleFailure {
+                    cause: VehicleFailureCause::Destroyed,
+                });
+                return true;
+            }
+            return false;
+        }
         let spare_guard = self.total_spares();
         let base_tolerance = if self.mode.is_deep() {
             if matches!(self.policy, Some(PolicyKind::Balanced)) {
@@ -3586,16 +4347,6 @@ impl GameState {
         }
     }
 
-    fn apply_target_travel(&mut self, kind: TravelDayKind, target_miles: f32, reason_tag: &str) {
-        let tolerance = 0.0001;
-        let target = target_miles.max(0.0);
-        if target + tolerance < self.current_day_miles {
-            self.reset_today_progress();
-        }
-        let delta = (target - self.current_day_miles).max(0.0);
-        self.record_travel_day(kind, delta, reason_tag);
-    }
-
     fn handle_crossing_event(&mut self, computed_miles_today: f32) -> Option<(bool, String)> {
         let next_idx = usize::try_from(self.crossings_completed).unwrap_or(usize::MAX);
         let &milestone = CROSSING_MILESTONES.get(next_idx)?;
@@ -3623,7 +4374,11 @@ impl GameState {
         }
 
         self.apply_crossing_decisions(resolved, &cfg, kind, &mut telemetry);
-        Some(self.process_crossing_result(resolved, telemetry, computed_miles_today))
+        let result = self.process_crossing_result(resolved, telemetry, computed_miles_today);
+        if !result.0 && self.travel_minutes_available() == 0 {
+            self.end_of_day();
+        }
+        Some(result)
     }
 
     fn crossing_options(&self, cfg: &CrossingConfig, kind: CrossingKind) -> (bool, bool) {
@@ -3664,7 +4419,9 @@ impl GameState {
 
         if resolved.bribe_attempted {
             self.logs.push(String::from(LOG_CROSSING_DECISION_BRIBE));
+            let budget_before = self.budget_cents;
             let _ = crossings::apply_bribe(self, cfg, kind);
+            telemetry.bribe_cost_cents = (budget_before - self.budget_cents).max(0);
             self.crossing_bribe_attempts = self.crossing_bribe_attempts.saturating_add(1);
             if resolved.bribe_succeeded {
                 self.crossing_bribe_successes = self.crossing_bribe_successes.saturating_add(1);
@@ -3683,56 +4440,65 @@ impl GameState {
         &mut self,
         resolved: crossings::CrossingOutcome,
         mut telemetry: CrossingTelemetry,
-        computed_miles_today: f32,
+        _computed_miles_today: f32,
     ) -> (bool, String) {
-        match resolved.result {
+        let result = match resolved.result {
+            crossings::CrossingResult::TerminalFail
+                if self.crossings_completed == 0 && telemetry.kind == CrossingKind::Checkpoint =>
+            {
+                // The first checkpoint can refuse passage, but an alternate route remains.
+                // Keep the original roll and any failed bribe; only its consequence changes.
+                telemetry.detour_reason = Some(CrossingDetourReason::CheckpointDenied);
+                self.add_day_reason_tag("crossing_denied");
+                crossings::CrossingResult::Detour(self.journey_crossing.detour_hours.max.max(1))
+            }
+            result => result,
+        };
+        match result {
             crossings::CrossingResult::Pass => {
                 telemetry.outcome = CrossingOutcomeTelemetry::Passed;
                 self.logs.push(String::from(LOG_CROSSING_PASSED));
                 self.crossings_completed = self.crossings_completed.saturating_add(1);
-                let target_miles = day_accounting::partial_day_miles(self, computed_miles_today);
-                self.apply_target_travel(TravelDayKind::Partial, target_miles, "crossing_pass");
+                self.add_day_reason_tag("crossing_pass");
+                let before = self.clone();
+                self.advance_clock(&before, 30);
                 self.stats.clamp();
                 self.crossing_events.push(telemetry);
-                self.end_of_day();
                 (false, String::from(LOG_CROSSING_PASSED))
             }
-            crossings::CrossingResult::Detour(days) => {
-                telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
+            crossings::CrossingResult::Detour(hours) => {
+                let reason = telemetry
+                    .detour_reason
+                    .unwrap_or(CrossingDetourReason::RouteDiversion);
+                telemetry.detour_reason = Some(reason);
                 telemetry.detour_taken = true;
-                telemetry.detour_days = Some(u32::from(days));
+                telemetry.detour_hours = Some(u32::from(hours));
                 telemetry.outcome = CrossingOutcomeTelemetry::Detoured;
                 self.crossing_detours_taken = self.crossing_detours_taken.saturating_add(1);
-                let per_day_miles = day_accounting::partial_day_miles(self, computed_miles_today);
-                self.logs.push(String::from(LOG_CROSSING_DETOUR));
-                self.apply_target_travel(TravelDayKind::Partial, per_day_miles, "detour");
+                self.crossings_completed = self.crossings_completed.saturating_add(1);
+                let log_key = match reason {
+                    CrossingDetourReason::CheckpointDenied => "log.crossing.denied",
+                    CrossingDetourReason::RouteDiversion => LOG_CROSSING_DETOUR,
+                };
+                self.logs.push(String::from(log_key));
+                self.add_day_reason_tag("detour");
+                let before = self.clone();
+                self.advance_clock(&before, u16::from(hours) * 60);
                 self.stats.clamp();
                 self.crossing_events.push(telemetry);
-                self.end_of_day();
-                if days > 1 {
-                    let extra_days = u32::from(days.saturating_sub(1));
-                    self.advance_days_with_credit(
-                        extra_days,
-                        TravelDayKind::Partial,
-                        per_day_miles,
-                        "detour",
-                    );
-                }
-                (false, String::from(LOG_CROSSING_DETOUR))
+                (false, String::from(log_key))
             }
             crossings::CrossingResult::TerminalFail => {
-                telemetry.bribe_success = telemetry.bribe_success.or(Some(false));
                 telemetry.outcome = CrossingOutcomeTelemetry::Failed;
                 self.crossing_failures = self.crossing_failures.saturating_add(1);
                 self.logs.push(String::from(LOG_CROSSING_FAILURE));
-                self.reset_today_progress();
-                self.record_travel_day(TravelDayKind::NonTravel, 0.0, "crossing_fail");
+                self.add_day_reason_tag("crossing_fail");
+                self.day_state.lifecycle.suppress_stop_ratio = true;
                 self.stats.clamp();
                 self.set_ending(Ending::Collapse {
                     cause: CollapseCause::Crossing,
                 });
                 self.crossing_events.push(telemetry);
-                self.end_of_day();
                 (true, String::from(LOG_CROSSING_FAILURE))
             }
         }
@@ -3746,7 +4512,7 @@ impl GameState {
         self.state_version = Self::current_version();
         self.day_records.clear();
         self.recompute_day_counters();
-        self.current_day_record = None;
+        self.ledger.current_day_record = None;
         self.journey_partial_ratio = JourneyCfg::default_partial_ratio();
         self.journey_travel = TravelConfig::default();
         self.journey_wear = WearConfig::default();
@@ -3761,7 +4527,16 @@ impl GameState {
 
     #[must_use]
     pub fn rehydrate(mut self, data: EncounterData) -> Self {
+        // Older discounted purchases could leave cents. Preserve their purchasing power.
+        if self.budget_cents % 100 != 0 {
+            self.budget_cents = crate::numbers::whole_dollar_cents(self.budget_cents.max(0));
+            self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(i32::MAX);
+        }
+        self.sync_route_location();
         self.data = Some(data);
+        if let Some(player) = self.persona_id.as_deref() {
+            self.party.initialize(player, self.seed);
+        }
         if self.state_version < Self::current_version() {
             self.state_version = Self::current_version();
             if self.day_records.is_empty()
@@ -3795,16 +4570,14 @@ impl GameState {
 
     #[must_use]
     pub const fn region_by_miles(miles: f32) -> Region {
-        if miles < 700.0 {
-            Region::Heartland
-        } else if miles < 1_400.0 {
-            Region::RustBelt
-        } else {
-            Region::Beltway
-        }
+        crate::route::region(miles)
     }
 
     pub fn travel_next_leg(&mut self, endgame_cfg: &EndgameTravelCfg) -> (bool, String, bool) {
+        if self.continuity.interactive_repairs && self.breakdown.is_some() {
+            self.day_state.travel.travel_blocked = true;
+            return (false, String::from(LOG_TRAVEL_BLOCKED), false);
+        }
         self.start_of_day();
 
         let rng_bundle = self.rng_bundle.as_ref().map(Rc::clone);
@@ -3817,6 +4590,10 @@ impl GameState {
         }
 
         let breakdown_started = self.vehicle_roll();
+        if self.continuity.interactive_repairs && self.breakdown.is_some() {
+            self.day_state.travel.travel_blocked = true;
+            return (false, String::from(LOG_TRAVEL_BLOCKED), breakdown_started);
+        }
         self.resolve_breakdown();
         if let Some(result) = self.handle_vehicle_state(breakdown_started) {
             return result;
@@ -3829,26 +4606,28 @@ impl GameState {
             return result;
         }
 
-        if self.features.travel_v2 {
-            self.apply_travel_wear();
-        }
-
         let computed_miles_today = self.distance_today.max(self.distance_today_raw);
         endgame::run_endgame_controller(self, computed_miles_today, breakdown_started, endgame_cfg);
         if let Some((ended, log)) = self.handle_crossing_event(computed_miles_today) {
             return (ended, log, breakdown_started);
         }
 
-        let additional_miles = (self.distance_today - self.current_day_miles).max(0.0);
-        self.record_travel_day(TravelDayKind::Travel, additional_miles, "");
+        self.apply_travel_wear();
+        self.record_travel_day(TravelDayKind::Travel, self.distance_today, "");
+        self.spend_driving_time(self.leg_minutes);
         self.log_travel_debug();
 
         if let Some(log_key) = self.failure_log_key() {
-            self.end_of_day();
             return (true, String::from(log_key), breakdown_started);
         }
 
-        self.end_of_day();
+        if let Some((ended, log)) = self.handle_crossing_event(computed_miles_today) {
+            return (ended, log, breakdown_started);
+        }
+
+        if self.travel_minutes_available() == 0 {
+            self.end_of_day();
+        }
         (false, String::from(LOG_TRAVELED), breakdown_started)
     }
 
@@ -3861,17 +4640,13 @@ impl GameState {
     }
 
     fn pre_travel_checks(&mut self) -> Option<(bool, String, bool)> {
-        self.tick_ally_attrition();
         self.stats.clamp();
-        self.failure_log_key().map(|log_key| {
-            self.end_of_day();
-            (true, String::from(log_key), false)
-        })
+        self.failure_log_key()
+            .map(|log_key| (true, String::from(log_key), false))
     }
 
     fn handle_vehicle_state(&mut self, breakdown_started: bool) -> Option<(bool, String, bool)> {
         if self.check_vehicle_terminal_state() {
-            self.end_of_day();
             Some((true, String::from(LOG_VEHICLE_FAILURE), breakdown_started))
         } else {
             None
@@ -3899,7 +4674,8 @@ impl GameState {
             return None;
         }
 
-        let trigger_encounter = self.should_trigger_encounter(rng_bundle);
+        let drought_due = self.encounter_drought_due();
+        let trigger_encounter = self.should_trigger_encounter(rng_bundle, drought_due);
         if !trigger_encounter {
             return None;
         }
@@ -3911,7 +4687,7 @@ impl GameState {
         let mut force_rotation_pending = self.encounters.force_rotation_pending;
         let mut rotation_logged = false;
         if let (Some(bundle), Some(data)) = (rng_bundle, self.data.as_ref()) {
-            let forced = force_rotation_pending;
+            let forced = force_rotation_pending || drought_due;
             let request = EncounterRequest {
                 region: self.region,
                 is_deep: self.mode.is_deep(),
@@ -3952,6 +4728,7 @@ impl GameState {
             if self.features.travel_v2
                 && self.distance_today > 0.0
                 && !(is_hard_stop || is_major_repair)
+                && !drought_due
             {
                 let mut partial = if self.partial_distance_today > 0.0 {
                     self.partial_distance_today
@@ -3966,11 +4743,14 @@ impl GameState {
                     TRAVEL_PARTIAL_DEFAULT_WEAR
                 };
                 self.record_travel_day(TravelDayKind::Partial, partial, "");
+                let minutes =
+                    crate::numbers::round_f32_to_i32(f32::from(self.leg_minutes) * wear_scale);
+                self.spend_driving_time(u16::try_from(minutes).unwrap_or(0));
                 self.apply_travel_wear_scaled(wear_scale);
                 self.logs.push(String::from(LOG_TRAVEL_PARTIAL));
             }
             if is_major_repair {
-                self.record_travel_day(TravelDayKind::NonTravel, 0.0, "repair");
+                self.add_day_reason_tag("repair");
             }
             let encounter_id = enc.id.clone();
             self.current_encounter = Some(enc);
@@ -3982,15 +4762,68 @@ impl GameState {
         None
     }
 
-    fn should_trigger_encounter(&self, rng_bundle: Option<&Rc<RngBundle>>) -> bool {
+    fn encounter_spacing_minutes(&self) -> (u32, u32) {
+        let mut distinct = self.recent_encounters.iter().map(|entry| entry.id.as_str());
+        let Some(first) = distinct.next() else {
+            return (
+                ENCOUNTER_EARLY_MIN_DRIVING_MINUTES,
+                ENCOUNTER_FIRST_MAX_DRIVING_MINUTES,
+            );
+        };
+        if distinct.any(|id| id != first) {
+            (ENCOUNTER_MIN_DRIVING_MINUTES, ENCOUNTER_MAX_DRIVING_MINUTES)
+        } else {
+            (
+                ENCOUNTER_EARLY_MIN_DRIVING_MINUTES,
+                ENCOUNTER_SECOND_MAX_DRIVING_MINUTES,
+            )
+        }
+    }
+
+    fn driving_minutes_since_encounter(&self) -> u32 {
+        self.continuity
+            .driving_minutes_total
+            .saturating_sub(self.continuity.last_encounter_driving_minutes.unwrap_or(0))
+    }
+
+    /// A drought can bring forward unseen content, never force a repeated scene.
+    fn encounter_drought_due(&self) -> bool {
+        let (_, maximum) = self.encounter_spacing_minutes();
+        self.driving_minutes_since_encounter() >= maximum
+            && self.data.as_ref().is_some_and(|data| {
+                data.encounters.iter().any(|encounter| {
+                    encounter_matches_context(encounter, self.region, self.mode.is_deep())
+                        && !self
+                            .recent_encounters
+                            .iter()
+                            .any(|entry| entry.id == encounter.id)
+                })
+            })
+    }
+
+    fn should_trigger_encounter(
+        &self,
+        rng_bundle: Option<&Rc<RngBundle>>,
+        drought_due: bool,
+    ) -> bool {
         let Some(bundle) = rng_bundle else {
             return false;
         };
+        let (minimum, _) = self.encounter_spacing_minutes();
+        if self.driving_minutes_since_encounter() < minimum {
+            return false;
+        }
+        if drought_due {
+            return true;
+        }
         let roll = {
             let mut rng = bundle.encounter();
             rng.r#gen::<f32>()
         };
-        roll < self.encounter_chance_today
+        roll < crate::travel_time::probability_for_minutes(
+            self.encounter_chance_today,
+            self.leg_minutes,
+        )
     }
 
     fn maybe_reroll_encounter(
@@ -4093,7 +4926,10 @@ impl GameState {
         if self.mode.is_deep() && matches!(self.policy, Some(PolicyKind::Aggressive)) {
             breakdown_chance *= 0.7;
         }
-        breakdown_chance = breakdown_chance.min(0.35);
+        breakdown_chance = crate::travel_time::probability_for_minutes(
+            breakdown_chance.min(0.35),
+            self.leg_minutes,
+        );
 
         let roll = self
             .breakdown_rng()
@@ -4144,6 +4980,44 @@ impl GameState {
         self.vehicle_roll()
     }
 
+    /// Resolve an encounter, its half-hour cost, and any arrival as one action.
+    /// Ride time belongs to the choice; crossing delays are additional elapsed time.
+    pub fn resolve_encounter_choice(&mut self, idx: usize) -> bool {
+        let affordable = self
+            .current_encounter
+            .as_ref()
+            .and_then(|encounter| encounter.choices.get(idx))
+            .is_some_and(|choice| {
+                choice
+                    .effects
+                    .affordable(&self.stats, self.budget_cents, self.receipts.len())
+            });
+        if !affordable {
+            return false;
+        }
+        let before = self.clone();
+        self.apply_choice(idx);
+        self.advance_clock(&before, 30);
+        if self.day > before.day
+            && self.continuity.clock_minutes > crate::travel_time::TRAVEL_DAY_START
+        {
+            self.start_of_day();
+        }
+        if self.miles_traveled_actual > before.miles_traveled_actual {
+            if self.failure_log_key().is_none() {
+                let _ = self.handle_crossing_event(self.distance_today);
+            }
+            self.update_route_services(before.miles_traveled_actual);
+        }
+        if self.day > before.day
+            && self.continuity.clock_minutes > crate::travel_time::TRAVEL_DAY_START
+            && self.ending.is_none()
+        {
+            self.start_of_day();
+        }
+        true
+    }
+
     pub fn apply_choice(&mut self, idx: usize) {
         let Some(enc) = self.current_encounter.clone() else {
             self.finalize_encounter();
@@ -4155,18 +5029,23 @@ impl GameState {
             let (hp_before, sanity_before) = (self.stats.hp, self.stats.sanity);
 
             let eff = &choice.effects;
+            if !eff.affordable(&self.stats, self.budget_cents, self.receipts.len()) {
+                return;
+            }
+            self.budget_cents = self.budget_cents.saturating_add(eff.cash_cents);
+            self.budget = i32::try_from(self.budget_cents / 100).unwrap_or(0);
             self.stats.hp += eff.hp;
             self.stats.sanity += eff.sanity;
             self.stats.credibility += eff.credibility;
             self.stats.supplies += eff.supplies;
             self.stats.morale += eff.morale;
             self.stats.allies += eff.allies;
-            self.stats.pants += eff.pants;
+
             if eff.hp < 0 {
                 self.mark_damage(DamageCause::Breakdown);
             }
             if let Some(r) = &eff.add_receipt {
-                self.receipts.push(r.clone());
+                self.collect_receipt(r);
             }
             if eff.use_receipt {
                 let _ = self.receipts.pop();
@@ -4185,21 +5064,7 @@ impl GameState {
 
             self.stats.clamp();
 
-            if eff.travel_bonus_ratio > 0.0 {
-                let baseline = if self.distance_today > 0.0 {
-                    self.distance_today
-                } else if self.distance_today_raw > 0.0 {
-                    self.distance_today_raw
-                } else if self.features.travel_v2 {
-                    TRAVEL_V2_BASE_DISTANCE
-                } else {
-                    TRAVEL_CLASSIC_BASE_DISTANCE
-                };
-                let bonus = (baseline * eff.travel_bonus_ratio).max(0.0);
-                if bonus > 0.0 {
-                    self.apply_partial_travel_credit(bonus, LOG_TRAVEL_BONUS, "");
-                }
-            }
+            self.apply_encounter_ride(eff.travel_bonus_ratio);
             if eff.rest {
                 if !self.day_state.rest.rest_requested {
                     self.logs.push(String::from(LOG_REST_REQUESTED_ENCOUNTER));
@@ -4209,6 +5074,51 @@ impl GameState {
         }
 
         self.finalize_encounter();
+    }
+
+    fn apply_encounter_ride(&mut self, ratio: f32) {
+        const CHOICE_MINUTES: u16 = 30;
+        if !ratio.is_finite()
+            || ratio <= 0.0
+            || self.breakdown.is_some()
+            || self.day_state.travel.travel_blocked
+            || self.ending.is_some()
+            || self.stats.hp <= 0
+            || self.stats.sanity <= 0
+            || self.continuity.clock_minutes < crate::travel_time::TRAVEL_DAY_START
+        {
+            return;
+        }
+        let requested = crate::numbers::round_f32_to_i32(ratio.clamp(0.0, 0.5) * 60.0);
+        let minutes = u16::try_from(requested)
+            .unwrap_or(0)
+            .min(CHOICE_MINUTES)
+            .min(self.travel_minutes_available());
+        if minutes == 0 {
+            return;
+        }
+        self.start_of_day();
+        if self.stats.hp <= 0 || self.stats.sanity <= 0 {
+            return;
+        }
+        let pacing = crate::pacing::PacingConfig::default_config();
+        let pace = pacing.get_pace_safe(self.pace.as_str());
+        let speed = self.current_road_speed(&pace, &pacing.limits);
+        if speed <= 0.0 {
+            return;
+        }
+        let (_, distance) = self.distance_before_next_stop(speed * f32::from(minutes) / 60.0);
+        let before = crate::route::physical_miles(self);
+        self.record_travel_day(TravelDayKind::Partial, distance, "");
+        let traveled = crate::route::physical_miles(self) - before;
+        if traveled <= 0.0 {
+            return;
+        }
+        let elapsed = crate::numbers::round_f32_to_i32((traveled * 60.0 / speed).ceil());
+        let driven_minutes = u16::try_from(elapsed).unwrap_or(minutes).min(minutes);
+        self.spend_driving_time(driven_minutes);
+        self.apply_travel_wear_for_minutes(driven_minutes, 1.0);
+        self.logs.push(String::from(LOG_TRAVEL_BONUS));
     }
 
     fn resolve_breakdown(&mut self) {
@@ -4339,7 +5249,7 @@ impl GameState {
         }
     }
 
-    /// Apply pace and diet configuration (placeholder)
+    /// Recompute the next leg from remaining time without repeating daily costs.
     pub fn apply_pace_and_diet(&mut self, cfg: &crate::pacing::PacingConfig) {
         self.start_of_day();
         let pace_cfg = cfg.get_pace_safe(self.pace.as_str());
@@ -4357,7 +5267,12 @@ impl GameState {
         } else {
             limits.encounter_ceiling
         };
-        let mut encounter = encounter_base + pace_cfg.encounter_chance_delta;
+        let weather = crate::weather::WeatherConfig::default_config();
+        let weather_encounter = weather
+            .effects
+            .get(&self.weather_state.today)
+            .map_or(0.0, |effect| effect.enc_delta);
+        let mut encounter = encounter_base + pace_cfg.encounter_chance_delta + weather_encounter;
 
         let _ = self.compute_miles_for_today(&pace_cfg, limits);
 
@@ -4372,9 +5287,7 @@ impl GameState {
             encounter *= ENCOUNTER_SOFT_CAP_FACTOR;
         }
 
-        if self.encounters_today >= MAX_ENCOUNTERS_PER_DAY
-            || (self.encounter_cooldown > 0 && self.encounters_today == 0)
-        {
+        if self.encounters_today >= MAX_ENCOUNTERS_PER_DAY {
             encounter = PROBABILITY_FLOOR;
         }
 
@@ -4382,34 +5295,7 @@ impl GameState {
             .clamp(encounter_floor, encounter_ceiling)
             .max(PROBABILITY_FLOOR);
 
-        let pants_floor = limits.pants_floor;
-        let pants_ceiling = limits.pants_ceiling;
-        let mut pants_value = self.stats.pants;
-
-        if limits.passive_relief != 0 && pants_value >= limits.passive_relief_threshold {
-            pants_value = (pants_value + limits.passive_relief).clamp(pants_floor, pants_ceiling);
-        }
-
-        if self.mods.pants_relief != 0 && pants_value >= self.mods.pants_relief_threshold {
-            pants_value = (pants_value + self.mods.pants_relief).clamp(pants_floor, pants_ceiling);
-        }
-
-        let boss_stage = self.boss.readiness.ready || self.miles_traveled >= self.trail_distance;
-        if boss_stage && limits.boss_passive_relief != 0 {
-            pants_value =
-                (pants_value + limits.boss_passive_relief).clamp(pants_floor, pants_ceiling);
-        }
-
-        let mut pants_delta = pace_cfg.pants + diet_cfg.pants;
-        if boss_stage && limits.boss_pants_cap > 0 && pants_delta > limits.boss_pants_cap {
-            pants_delta = limits.boss_pants_cap;
-        }
-
-        pants_value = (pants_value + pants_delta).clamp(pants_floor, pants_ceiling);
-        self.stats.pants = pants_value;
-
-        self.receipt_bonus_pct += diet_cfg.receipt_find_pct_delta;
-        self.receipt_bonus_pct = self.receipt_bonus_pct.clamp(-100, 100);
+        self.receipt_bonus_pct = diet_cfg.receipt_find_pct_delta.clamp(-100, 100);
     }
 
     /// Save game state (placeholder - platform specific)
@@ -4452,6 +5338,8 @@ impl GameState {
         }
 
         self.stats.clamp();
+        self.continuity.route_services.route_id = Some(persona.id.clone());
+        self.sync_route_location();
         self.logs
             .push(format!("log.persona.selected.{}", persona.id));
     }
@@ -4462,12 +5350,18 @@ impl GameState {
         I::Item: Into<String>,
         S: Into<String>,
     {
-        self.party.leader = leader.into();
-        self.party.companions = companions.into_iter().map(Into::into).take(4).collect();
-        while self.party.companions.len() < 4 {
-            let idx = self.party.companions.len() + 2;
-            self.party.companions.push(format!("Traveler {idx}"));
+        let player = self.persona_id.as_deref().unwrap_or("journalist");
+        self.party.initialize(player, self.seed);
+        let mut names = companions.into_iter().map(Into::into);
+        let leader = leader.into();
+        for member in &mut self.party.members {
+            if member.persona == player {
+                member.name.clone_from(&leader);
+            } else if let Some(name) = names.next() {
+                member.name = name;
+            }
         }
+        self.party.sync_names(player);
         self.logs.push(String::from("log.party.updated"));
     }
 
@@ -4477,6 +5371,12 @@ impl GameState {
 
     fn failure_log_key(&mut self) -> Option<&'static str> {
         if self.vehicle.health <= 0.0 {
+            if self.continuity.interactive_repairs {
+                self.set_ending(Ending::VehicleFailure {
+                    cause: VehicleFailureCause::Destroyed,
+                });
+                return Some(LOG_VEHICLE_FAILURE);
+            }
             if self.mode == GameMode::Classic
                 && matches!(self.policy, Some(PolicyKind::Balanced))
                 && self.miles_traveled_actual < CLASSIC_BALANCED_FAILURE_GUARD_MILES
@@ -4494,12 +5394,6 @@ impl GameState {
                 cause: VehicleFailureCause::Destroyed,
             });
             return Some(LOG_VEHICLE_FAILURE);
-        }
-        if self.stats.pants >= 100 {
-            self.set_ending(Ending::Collapse {
-                cause: CollapseCause::Panic,
-            });
-            return Some(LOG_PANTS_EMERGENCY);
         }
         if self.stats.hp <= 0 {
             if self.ending.is_none() {
@@ -4594,9 +5488,6 @@ impl GameState {
     pub const fn tick_camp_cooldowns(&mut self) {
         if self.camp.rest_cooldown > 0 {
             self.camp.rest_cooldown -= 1;
-        }
-        if self.camp.forage_cooldown > 0 {
-            self.camp.forage_cooldown -= 1;
         }
         if self.camp.repair_cooldown > 0 {
             self.camp.repair_cooldown -= 1;

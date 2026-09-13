@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/dystrail-crew-count-narrative/release-source",
+  "base": "/tmp/dystrail-visual-refine/unit5-source",
+  "files": 634,
+  "changed_files": [
+    "dystrail-web/i18n/ar.json",
+    "dystrail-web/i18n/bn.json",
+    "dystrail-web/i18n/de.json",
+    "dystrail-web/i18n/en.json",
+    "dystrail-web/i18n/es.json",
+    "dystrail-web/i18n/fr.json",
+    "dystrail-web/i18n/hi.json",
+    "dystrail-web/i18n/id.json",
+    "dystrail-web/i18n/it.json",
+    "dystrail-web/i18n/ja.json",
+    "dystrail-web/i18n/jv.json",
+    "dystrail-web/i18n/ko.json",
+    "dystrail-web/i18n/mr.json",
+    "dystrail-web/i18n/pa.json",
+    "dystrail-web/i18n/pt.json",
+    "dystrail-web/i18n/ru.json",
+    "dystrail-web/i18n/ta.json",
+    "dystrail-web/i18n/te.json",
+    "dystrail-web/i18n/tr.json",
+    "dystrail-web/i18n/zh.json",
+    "dystrail-web/static/assets/data/game.json"
+  ],
+  "other_files_identical": 613,
+  "source_tree_sha256": "76c82b2e59b7c6210a9f3382e92e275ee5792e8108a700987441b7fa17516038",
+  "expected_tree_hash_matches": true,
+  "camp_rest_sanity": 4,
+  "passed": true
+}

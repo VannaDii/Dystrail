@@ -1,0 +1,40 @@
+
+Running 46 tests using 2 workers
+
+(node:57682) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57681) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57682) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57681) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (755ms)
+  ✓   2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (1.4s)
+  ✓   3 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (2.8s)
+  ✓   4 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (2.7s)
+  ✓   5 [chromium] › tests-e2e/continuity.spec.ts:43:5 › a named crew decision precedes map review and absence persists in later scenes (2.7s)
+  ✓   6 [chromium] › tests-e2e/continuity.spec.ts:56:5 › each persona map always fits its own traveled route (3.4s)
+  ✓   7 [chromium] › tests-e2e/continuity.spec.ts:69:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.4s)
+  ✓   9 [chromium] › tests-e2e/continuity.spec.ts:96:5 › outfitting cannot charge for supplies beyond capacity (1.5s)
+  ✓   8 [chromium] › tests-e2e/continuity.spec.ts:82:5 › visibility loss pauses automatic travel and does not resume it on return (5.9s)
+  ✓  10 [chromium] › tests-e2e/continuity.spec.ts:104:5 › encounter forecasts and the journal agree at stat caps (2.8s)
+  ✓  11 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (3.4s)
+  ✓  12 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (3.9s)
+  ✓  13 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (2.4s)
+  ✓  15 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.1s)
+  ✓  14 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (3.0s)
+  ✓  16 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (762ms)
+  ✓  17 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.2s)
+  ✓  18 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (4.8s)
+  ✓  19 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (3.1s)
+  ✓  20 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.4s)
+  ✓  21 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (3.6s)
+  ✓  22 [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (4.1s)
+  ✓  23 [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (9.4s)
+[31mTimed out waiting 150s for the test suite to run[39m
+[31mTimed out waiting 150s for the teardown for test suite to run[39m
+
+  23 did not run
+  23 passed (2.5m)
+  2 errors were not a part of any test, see above for details

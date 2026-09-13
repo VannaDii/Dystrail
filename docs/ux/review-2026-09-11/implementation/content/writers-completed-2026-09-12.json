@@ -1,0 +1,56 @@
+{
+  "source": "https://docs.google.com/document/d/1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+  "title": "Dystrail Satire Workshop",
+  "revision": "ANLCKQlErqm_XKHfxTRpguBrNlwybMw-EFTmsnoUMLOfJ1y9rltH6lI39nml_QnloITrxBA4XTxh4XTLmQ8wUj8BNsaCye1Pm8KBlcuh8oA",
+  "source_rechecks": 8,
+  "source_tabs": [
+    "t.0",
+    "t.5bhbm0veor3n",
+    "t.hnz3abpdqe3b",
+    "t.w3pknsnu8gcm",
+    "t.e4vbtrh2qo76",
+    "t.7s63fsgx99si"
+  ],
+  "encounters": 59,
+  "encounter_choices": 169,
+  "town_comments": 28,
+  "crew_and_ally_messages": 14,
+  "shared_care_fields": 11,
+  "primary_translation_languages": [
+    "it",
+    "es",
+    "ar"
+  ],
+  "narrative_fallback_languages": 16,
+  "placeholders_imported": 0,
+  "gameplay_effects_unchanged": true,
+  "official_town_facts_and_sources_unchanged": true,
+  "preserved_newer_encounters": [
+    "west_grant_translation",
+    "west_rail_replacement",
+    "west_laboratory_overhead",
+    "west_wind_loyalty",
+    "west_desert_pressure",
+    "west_beef_passports"
+  ],
+  "preserved_other_towns": 23,
+  "excluded": "Authoring guidance and the previously removed one-hour explanation. Time and real stat costs remain in button subtitles.",
+  "adaptations": "Named runtime identity placeholders and existing dynamic stat subtitles; no invented mechanics.",
+  "candidate_revision": "24834f5498f7778940ee",
+  "offline_manifest_sha256": "03a4aa2482f042800cd4d6eb937fbe3b845430f4a01779700755a202d5e8fc18",
+  "publication_status": "Published and verified on production, including all171live files and a full offline browser restart.",
+  "translated_encounter_fields_per_language": 456,
+  "narrative_fields_per_language": 53,
+  "source_rechecked_at_utc": "2026-09-13T05:38:37.076429+00:00",
+  "production_url": "https://dystrail.com/play/",
+  "production_commit": "84dd03513a908f4e2c08b2664acd6258bd9e10d0",
+  "deployment_run": "https://github.com/VannaDii/Dystrail/actions/runs/34740330227",
+  "followup_request_check": {
+    "all_six_tabs_unchanged": true,
+    "paragraphs": 689,
+    "paragraph_digest_sha256": "728aeed6a41d7ca201f0e863eb6225596461ea1f297d545fc3b8103604932741",
+    "document_modified_at_utc": "2026-09-13T04:27:12.107Z",
+    "native_document_revision_confirmed": true,
+    "result": "The latest user-requested document revision is already included in verified production24834f5498f7778940ee; no additional source changes were present."
+  }
+}

@@ -1,0 +1,315 @@
+(node:39244) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 126 tests using 2 workers
+
+(node:39264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39265) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:39264) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:39264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.3s)
+  ✓    2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (4.6s)
+  ✓    3 [chromium] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (6.3s)
+  ✓    4 [chromium] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (5.9s)
+  ✓    6 [chromium] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.1s)
+  ✓    5 [chromium] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (5.9s)
+  ✓    8 [chromium] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (2.0s)
+  ✓    7 [chromium] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.0s)
+  ✓    9 [chromium] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.0s)
+  ✓   10 [chromium] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (3.1s)
+  ✓   11 [chromium] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.7s)
+  ✓   12 [chromium] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (5.4s)
+  ✓   13 [chromium] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.6s)
+  ✓   14 [chromium] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (1.9s)
+  ✓   15 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (4.0s)
+  ✓   17 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (2.9s)
+  ✓   16 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (6.0s)
+  ✓   18 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.5s)
+  ✓   19 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.8s)
+  ✓   20 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (2.0s)
+  ✓   22 [chromium] › tests-e2e/navigation-toggle.spec.ts:31:5 › every selected tab toggles its content without spending a turn and remains keyboard accessible (3.1s)
+  ✓   23 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (3.1s)
+  ✓   24 [chromium] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.4s)
+  ✓   25 [chromium] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (1.2s)
+  ✓   26 [chromium] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (2.7s)
+  ✓   21 [chromium] › tests-e2e/navigation-toggle.spec.ts:8:5 › manual Route closes back to the previous screen and never starts travel (14.9s)
+  ✓   27 [chromium] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.1s)
+  ✓   28 [chromium] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (2.2s)
+  ✓   29 [chromium] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here (1.9s)
+  ✓   30 [chromium] › tests-e2e/onboarding-results.spec.ts:59:5 › town names omit universal service icons while town actions remain accessible (2.6s)
+  ✓   32 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.5s)
+  ✓   31 [chromium] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (6.4s)
+  ✓   33 [chromium] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.0s)
+  ✓   34 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (4.3s)
+  ✓   36 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › the top HUD includes travel resources and repair details remain compact (2.0s)
+  ✓   35 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (5.9s)
+  ✓   37 [chromium] › tests-e2e/scene-flow.spec.ts:24:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.8s)
+  ✓   38 [chromium] › tests-e2e/scene-flow.spec.ts:34:5 › automatic map keeps moving and closes in three seconds without a second click (10.6s)
+  ✓   39 [chromium] › tests-e2e/scene-flow.spec.ts:42:5 › automatic map can stay open, survives reload, and resumes with one click (12.6s)
+  ✘   41 [chromium] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again (6.8s)
+(node:40355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40355) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   42 [chromium] › tests-e2e/scene-flow.spec.ts:66:5 › help preference hides only optional tips, persists offline, and keeps information usable (3.0s)
+  ✓   43 [chromium] › tests-e2e/scene-flow.spec.ts:75:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.0s)
+  ✓   40 [chromium] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town (17.0s)
+  ✓   45 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (2.7s)
+  ✘   44 [chromium] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it (7.7s)
+(node:40567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   46 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (4.5s)
+(node:40567) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   47 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.1s)
+  ✓   48 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.6s)
+  ✓   49 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.0s)
+  ✓   50 [chromium] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.0s)
+  ✓   51 [chromium] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.0s)
+  ✓   52 [chromium] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.1s)
+  ✓   53 [chromium] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.4s)
+  ✓   54 [chromium] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases (2.9s)
+  ✓   55 [chromium] › tests-e2e/shopping.spec.ts:39:5 › quantity entry cannot overspend and clearing a selected item restores its funds (1.6s)
+  ✓   57 [chromium] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls (1.9s)
+  ✓   56 [chromium] › tests-e2e/shopping.spec.ts:51:5 › town store shows carried parts, buys once with the shown total, and keeps inventory available (3.3s)
+  ✓   59 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.1s)
+  ✓   58 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.6s)
+  ✓   60 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (3.8s)
+  ✓   62 [chromium] › tests-e2e/stopped-crew.spec.ts:56:5 › paid shift returns to town without moving or spending time (3.2s)
+  ✓   63 [chromium] › tests-e2e/stopped-crew.spec.ts:80:5 › stopping displays only present crew outside the van and keeps all readouts in the top HUD (3.6s)
+(node:40852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40852) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   61 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (13.2s)
+(node:40927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40927) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   64 [mobile] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (4.7s)
+  ✓   65 [mobile] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.4s)
+  ✓   66 [mobile] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (6.4s)
+  ✓   67 [mobile] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (5.9s)
+  ✓   69 [mobile] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.1s)
+  ✓   68 [mobile] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (5.9s)
+  ✓   70 [mobile] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.0s)
+  ✓   71 [mobile] › tests-e2e/continuity.spec.ts:43:5 › late-route camp stays put and never triggers the hearing (2.1s)
+  ✓   72 [mobile] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes (3.1s)
+  ✓   73 [mobile] › tests-e2e/continuity.spec.ts:74:5 › each persona map always fits its own traveled route (3.2s)
+  ✓   74 [mobile] › tests-e2e/continuity.spec.ts:87:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.7s)
+  ✓   76 [mobile] › tests-e2e/continuity.spec.ts:114:5 › outfitting cannot charge for supplies beyond capacity (1.7s)
+  ✓   75 [mobile] › tests-e2e/continuity.spec.ts:100:5 › visibility loss pauses automatic travel and does not resume it on return (5.3s)
+  ✓   77 [mobile] › tests-e2e/continuity.spec.ts:123:5 › encounter forecasts and the journal agree at stat caps (2.0s)
+  ✓   78 [mobile] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (4.2s)
+  ✓   80 [mobile] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.0s)
+  ✓   79 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (6.3s)
+  ✓   81 [mobile] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.7s)
+  ✓   82 [mobile] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.8s)
+  ✓   83 [mobile] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (2.1s)
+  ✓   85 [mobile] › tests-e2e/navigation-toggle.spec.ts:31:5 › every selected tab toggles its content without spending a turn and remains keyboard accessible (3.2s)
+  ✓   86 [mobile] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (3.0s)
+  ✓   87 [mobile] › tests-e2e/offline-status.spec.ts:32:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.4s)
+  ✓   88 [mobile] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (1.2s)
+  ✓   89 [mobile] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, mission is shared, action row stays aligned, and compact crew busts have no added frame or background (2.9s)
+  ✓   84 [mobile] › tests-e2e/navigation-toggle.spec.ts:8:5 › manual Route closes back to the previous screen and never starts travel (15.0s)
+  ✓   90 [mobile] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (2.4s)
+  ✓   92 [mobile] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here (2.0s)
+  ✓   91 [mobile] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (2.3s)
+  ✓   93 [mobile] › tests-e2e/onboarding-results.spec.ts:59:5 › town names omit universal service icons while town actions remain accessible (2.5s)
+  ✓   95 [mobile] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.5s)
+  ✓   94 [mobile] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (7.1s)
+  ✓   96 [mobile] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.2s)
+  ✓   97 [mobile] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (3.9s)
+  ✓   99 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › the top HUD includes travel resources and repair details remain compact (2.1s)
+  ✓   98 [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (6.0s)
+  ✓  100 [mobile] › tests-e2e/scene-flow.spec.ts:24:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.9s)
+  ✓  101 [mobile] › tests-e2e/scene-flow.spec.ts:34:5 › automatic map keeps moving and closes in three seconds without a second click (10.7s)
+  ✓  102 [mobile] › tests-e2e/scene-flow.spec.ts:42:5 › automatic map can stay open, survives reload, and resumes with one click (12.7s)
+  ✘  104 [mobile] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again (7.0s)
+(node:42178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42178) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:42178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  105 [mobile] › tests-e2e/scene-flow.spec.ts:66:5 › help preference hides only optional tips, persists offline, and keeps information usable (3.2s)
+  ✓  103 [mobile] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town (17.1s)
+  ✓  106 [mobile] › tests-e2e/scene-flow.spec.ts:75:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.2s)
+  ✓  108 [mobile] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.2s)
+  ✘  107 [mobile] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it (7.8s)
+(node:42376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42376) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:42376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  109 [mobile] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (5.5s)
+  ✓  110 [mobile] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (2.8s)
+  ✓  111 [mobile] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.2s)
+  ✓  113 [mobile] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.1s)
+  ✓  112 [mobile] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.2s)
+  ✓  114 [mobile] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.1s)
+  ✓  115 [mobile] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.2s)
+  ✓  117 [mobile] › tests-e2e/shopping.spec.ts:17:5 › illustrated outfitting shows every item without filters and supports exact direct purchases (3.0s)
+  ✓  116 [mobile] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.6s)
+  ✓  118 [mobile] › tests-e2e/shopping.spec.ts:39:5 › quantity entry cannot overspend and clearing a selected item restores its funds (1.8s)
+  ✓  120 [mobile] › tests-e2e/shopping.spec.ts:84:5 › shopping remains readable in Arabic and Help & tips never shifts item controls (2.0s)
+  ✓  119 [mobile] › tests-e2e/shopping.spec.ts:51:5 › town store shows carried parts, buys once with the shown total, and keeps inventory available (3.6s)
+  ✓  122 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.3s)
+  ✓  121 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (4.1s)
+  ✓  123 [mobile] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.5s)
+  ✓  125 [mobile] › tests-e2e/stopped-crew.spec.ts:56:5 › paid shift returns to town without moving or spending time (3.4s)
+  ✓  126 [mobile] › tests-e2e/stopped-crew.spec.ts:80:5 › stopping displays only present crew outside the van and keeps all readouts in the top HUD (4.1s)
+  ✘  124 [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (13.4s)
+
+
+  1) [chromium] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.camp-action')
+    Expected: [32m4[39m
+    Received: [31m3[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 5000ms[22m
+    [2m  - waiting for locator('.camp-action')[22m
+    [2m    9 × locator resolved to 3 elements[22m
+    [2m      - unexpected value "3"[22m
+
+
+      57 | });
+      58 | test('camp gathering uses cooldown cards, persists and becomes available again',async({page})=>{
+    > 59 |  const gs=await baseline(page);gs.stats.supplies=8;await importState(page,gs);await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.locator('.camp-action')).toHaveCount(4);await expect(page.locator('.camp-gather .cooldown-status').first()).toContainText('Ready');
+         |                                                                                                                                                                                                                                                                                              ^
+      60 |  await page.getByRole('button',{name:'Help glean a nearby farm',exact:true}).click();const used=await savedState(page);expect(used.stats.supplies).toBe(12);expect(used.stats.hp).toBe(gs.stats.hp-1);expect(used.clock_minutes).toBe(gs.clock_minutes+120);
+      61 |  await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.camp-gather button').first()).toBeDisabled();await page.reload();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');await snap(page,'camp-cooldowns');
+      62 |  used.day+=2;await importState(page,used);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.locator('.camp-gather').first()).toContainText('1 travel days');await expect(page.locator('.camp-gather progress').first()).toHaveAttribute('value','2');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:59:286
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/scene-flow-camp-gathering--d8d14-and-becomes-available-again-chromium/error-context.md
+
+  2) [chromium] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBeNull[2m()[22m
+
+    Received: [31mnull[39m
+
+    Call Log:
+    - Timeout 3500ms exceeded while waiting on the predicate
+
+      82 |  const gs=await quietMap(page);gs.crew_care.last_check_day=3;await importState(page,gs);await fastMode(page,false);
+      83 |  await page.getByRole('button',{name:'Travel',exact:true}).click();await expect(page.locator('.map-countdown')).toBeVisible();
+    > 84 |  await expect.poll(async()=>(await recovery(page)).state.crew_care.pending,{timeout:3500}).not.toBeNull();const queued=await recovery(page);await expect(page.locator('.map-scene')).toBeVisible();await page.waitForTimeout(1000);expect((await recovery(page)).state.journal).toEqual(queued.state.journal);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care',{timeout:6500});await expect(page.locator('.map-scene')).toHaveCount(0);await expect(page.getByRole('button',{name:/^Give care/})).toBeVisible();
+         |  ^
+      85 | });
+      86 |
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:84:2
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/scene-flow-a-queued-crew-d-5a971-p-without-advancing-past-it-chromium/error-context.md
+
+  3) [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ──
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m1[39m
+    Received:   [31m1[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      47 |  const bought=await savedState(page);expect(bought.stats.supplies).toBe(9);expect(bought.budget_cents).toBe(state.budget_cents-500);expect(bought.day).toBe(state.day);
+      48 |  await fastMode(page,true);await page.getByRole('button',{name:'Leave town',exact:true}).click();
+    > 49 |  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state.day),{timeout:10000}).toBeGreaterThan(state.day);
+         |  ^
+      50 |  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+      51 |  expect((await savedState(page)).camp.rest_cooldown).toBe(0);
+      52 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:49:2
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/states-route-store-one-exchange-and-cooldown-recovery-chromium/error-context.md
+
+  4) [mobile] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.camp-action')
+    Expected: [32m4[39m
+    Received: [31m3[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 5000ms[22m
+    [2m  - waiting for locator('.camp-action')[22m
+    [2m    9 × locator resolved to 3 elements[22m
+    [2m      - unexpected value "3"[22m
+
+
+      57 | });
+      58 | test('camp gathering uses cooldown cards, persists and becomes available again',async({page})=>{
+    > 59 |  const gs=await baseline(page);gs.stats.supplies=8;await importState(page,gs);await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.locator('.camp-action')).toHaveCount(4);await expect(page.locator('.camp-gather .cooldown-status').first()).toContainText('Ready');
+         |                                                                                                                                                                                                                                                                                              ^
+      60 |  await page.getByRole('button',{name:'Help glean a nearby farm',exact:true}).click();const used=await savedState(page);expect(used.stats.supplies).toBe(12);expect(used.stats.hp).toBe(gs.stats.hp-1);expect(used.clock_minutes).toBe(gs.clock_minutes+120);
+      61 |  await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.camp-gather button').first()).toBeDisabled();await page.reload();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');await snap(page,'camp-cooldowns');
+      62 |  used.day+=2;await importState(page,used);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.locator('.camp-gather').first()).toContainText('1 travel days');await expect(page.locator('.camp-gather progress').first()).toHaveAttribute('value','2');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:59:286
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/scene-flow-camp-gathering--d8d14-and-becomes-available-again-mobile/error-context.md
+
+  5) [mobile] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBeNull[2m()[22m
+
+    Received: [31mnull[39m
+
+    Call Log:
+    - Timeout 3500ms exceeded while waiting on the predicate
+
+      82 |  const gs=await quietMap(page);gs.crew_care.last_check_day=3;await importState(page,gs);await fastMode(page,false);
+      83 |  await page.getByRole('button',{name:'Travel',exact:true}).click();await expect(page.locator('.map-countdown')).toBeVisible();
+    > 84 |  await expect.poll(async()=>(await recovery(page)).state.crew_care.pending,{timeout:3500}).not.toBeNull();const queued=await recovery(page);await expect(page.locator('.map-scene')).toBeVisible();await page.waitForTimeout(1000);expect((await recovery(page)).state.journal).toEqual(queued.state.journal);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care',{timeout:6500});await expect(page.locator('.map-scene')).toHaveCount(0);await expect(page.getByRole('button',{name:/^Give care/})).toBeVisible();
+         |  ^
+      85 | });
+      86 |
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/scene-flow.spec.ts:84:2
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/scene-flow-a-queued-crew-d-5a971-p-without-advancing-past-it-mobile/error-context.md
+
+  6) [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m1[39m
+    Received:   [31m1[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      47 |  const bought=await savedState(page);expect(bought.stats.supplies).toBe(9);expect(bought.budget_cents).toBe(state.budget_cents-500);expect(bought.day).toBe(state.day);
+      48 |  await fastMode(page,true);await page.getByRole('button',{name:'Leave town',exact:true}).click();
+    > 49 |  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state.day),{timeout:10000}).toBeGreaterThan(state.day);
+         |  ^
+      50 |  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+      51 |  expect((await savedState(page)).camp.rest_cooldown).toBe(0);
+      52 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:49:2
+
+    Error Context: ../../../../../tmp/dystrail-mobile-journal-regression-17/states-route-store-one-exchange-and-cooldown-recovery-mobile/error-context.md
+
+  6 failed
+    [chromium] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again 
+    [chromium] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it 
+    [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ───
+    [mobile] › tests-e2e/scene-flow.spec.ts:58:5 › camp gathering uses cooldown cards, persists and becomes available again 
+    [mobile] › tests-e2e/scene-flow.spec.ts:81:5 › a queued crew decision waits for the automatic map without advancing past it 
+    [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ─────
+  120 passed (4.4m)

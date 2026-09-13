@@ -1,0 +1,132 @@
+(node:77452) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:77487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:77487) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:77487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-f9aCME --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=77508 [30m+4ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77508:64658381:0912/150654.223687:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+260ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] Trying to load the allocator multiple times. This is *not* supported. [30m+190ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150654.435680:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+21ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150654.435886:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150654.436063:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150654.436141:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150654.436265:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150654.436316:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150654.436488:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150654.436545:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150654.436649:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150654.436706:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77508:64658386:0912/150657.138901:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+3s[0m
+  ✓  1 [chromium] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (6.7s)
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.989855:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+4s[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.989954:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.989978:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.989994:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990009:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990024:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990038:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990315:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990323:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990325:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990327:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990329:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990331:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990333:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990335:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990700:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990711:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990714:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990716:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990718:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150700.990720:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150701.044298:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+54ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150701.044357:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150701.044473:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150701.044518:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150701.044620:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150701.044670:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150701.044762:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150701.044805:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658406:0912/150701.044887:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508][err] [77514:64658474:0912/150701.044925:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  2 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details use compact responsive space (1.5s)
+  [30;1mpw:browser [0m[pid=77508] <gracefully close start> [30m+2s[0m
+  [30;1mpw:browser [0m[pid=77508] <process did exit: exitCode=0, signal=null> [30m+145ms[0m
+  [30;1mpw:browser [0m[pid=77508] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77508] finished temporary directories cleanup [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=77508] <gracefully close end> [30m+0ms[0m
+(node:77631) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:77631) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:77631) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-vlBagV --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=77633 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77633:64659865:0912/150703.060767:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+126ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] Trying to load the allocator multiple times. This is *not* supported. [30m+134ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150703.209797:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+15ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150703.210015:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150703.210229:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150703.210270:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150703.210353:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150703.210398:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150703.210497:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150703.210545:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150703.210626:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150703.210661:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77633:64659868:0912/150705.449750:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+2s[0m
+  ✓  3 [mobile] › tests-e2e/outcome-reachability.spec.ts:6:5 › outcome exit stays reachable at every scroll position and with a short viewport (7.8s)
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962548:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+6s[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962561:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962563:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962565:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962567:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962568:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962569:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962571:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962573:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962574:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962576:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962578:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962579:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962580:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962581:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962583:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962584:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962586:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962587:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962589:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962590:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:370] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150710.962591:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox. [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150711.014295:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+48ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150711.014366:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150711.014473:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150711.014519:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150711.014609:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150711.014650:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150711.014740:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150711.014778:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659881:0912/150711.014865:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633][err] [77637:64659952:0912/150711.014904:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  ✓  4 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details use compact responsive space (1.6s)
+  [30;1mpw:browser [0m[pid=77633] <gracefully close start> [30m+2s[0m
+  [30;1mpw:browser [0m[pid=77633] <process did exit: exitCode=0, signal=null> [30m+151ms[0m
+  [30;1mpw:browser [0m[pid=77633] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=77633] finished temporary directories cleanup [30m+8ms[0m
+  [30;1mpw:browser [0m[pid=77633] <gracefully close end> [30m+0ms[0m
+
+  4 passed (19.1s)

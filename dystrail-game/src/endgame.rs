@@ -5,7 +5,7 @@ use std::iter;
 
 use crate::constants::{
     EMERGENCY_REPAIR_COST, LOG_ENDGAME_ACTIVATE, LOG_ENDGAME_FAILURE_GUARD,
-    LOG_ENDGAME_FIELD_REPAIR, TRAVEL_PARTIAL_MIN_DISTANCE, TRAVEL_PARTIAL_RATIO,
+    LOG_ENDGAME_FIELD_REPAIR, TRAVEL_PARTIAL_RATIO,
 };
 use crate::{
     TravelDayKind,
@@ -263,7 +263,7 @@ impl EndgameState {
 /// Primary endgame controller invoked during the day loop.
 pub fn run_endgame_controller(
     state: &mut GameState,
-    computed_miles_today: f32,
+    _computed_miles_today: f32,
     breakdown_started: bool,
     cfg: &EndgameTravelCfg,
 ) {
@@ -295,7 +295,7 @@ pub fn run_endgame_controller(
     }
 
     if breakdown_started && !state.endgame.field_repair_used {
-        run_field_repair(state, policy_cfg, computed_miles_today);
+        run_field_repair(state, policy_cfg);
     }
 
     if breakdown_started
@@ -338,11 +338,7 @@ pub fn enforce_failure_guard(state: &mut GameState) -> bool {
     true
 }
 
-fn run_field_repair(
-    state: &mut GameState,
-    policy_cfg: &EndgamePolicyCfg,
-    computed_miles_today: f32,
-) {
+fn run_field_repair(state: &mut GameState, policy_cfg: &EndgamePolicyCfg) {
     let last_part = state.last_breakdown_part;
     let priority_iter = if policy_cfg.resource_priority.is_empty() {
         EndgamePolicyCfg::default_resource_priority()
@@ -394,18 +390,7 @@ fn run_field_repair(
     state.add_day_reason_tag("field_repair");
     state.logs.push(String::from(LOG_ENDGAME_FIELD_REPAIR));
 
-    let ratio = state.endgame.partial_ratio.clamp(0.0, 1.0);
-    let mut partial = (computed_miles_today * ratio).clamp(0.0, computed_miles_today);
-    partial = partial.max(TRAVEL_PARTIAL_MIN_DISTANCE.min(computed_miles_today.max(0.0)));
-
-    state.reset_today_progress();
-    state.record_travel_day(TravelDayKind::Partial, partial, "field_repair");
-    state.distance_today = partial;
-    state.distance_today_raw = partial;
-    state.partial_distance_today = partial;
-    state.current_day_miles = partial;
-    state.day_state.travel.partial_traveled_today = true;
-    state.day_state.travel.traveled_today = false;
+    state.record_travel_day(TravelDayKind::NonTravel, 0.0, "field_repair");
     state.stats.clamp();
 }
 
@@ -456,7 +441,7 @@ mod tests {
             resource_priority: vec![ResourceKind::MatchingSpare, ResourceKind::Emergency],
             ..EndgamePolicyCfg::default()
         };
-        let mut state = GameState {
+        let base = GameState {
             breakdown: Some(Breakdown {
                 part: Part::Tire,
                 day_started: 1,
@@ -476,10 +461,40 @@ mod tests {
             },
             ..GameState::default()
         };
-        run_field_repair(&mut state, &cfg, 12.0);
-        assert!(state.breakdown.is_none());
-        assert!(state.endgame.field_repair_used);
-        assert!(state.logs.iter().any(|log| log == LOG_ENDGAME_FIELD_REPAIR));
+        for earlier_miles in [0.0, 12.0] {
+            let mut state = base.clone();
+            state.record_travel_day(TravelDayKind::Partial, earlier_miles, "travel");
+            if earlier_miles > 0.0 {
+                state.spend_driving_time(12);
+            }
+            let before = state.clone();
+            run_field_repair(&mut state, &cfg);
+            assert!(state.breakdown.is_none());
+            assert!(state.endgame.field_repair_used);
+            assert!(state.logs.iter().any(|log| log == LOG_ENDGAME_FIELD_REPAIR));
+            assert_eq!(state.inventory.spares.tire, 0);
+            assert_eq!(state.budget_cents, before.budget_cents);
+            assert_eq!(
+                state.miles_traveled_actual.to_bits(),
+                earlier_miles.to_bits()
+            );
+            assert_eq!(
+                state.ledger.current_day_miles.to_bits(),
+                earlier_miles.to_bits()
+            );
+            assert_eq!(
+                state.continuity.clock_minutes,
+                before.continuity.clock_minutes
+            );
+            assert_eq!(
+                state.continuity.driving_minutes_total,
+                before.continuity.driving_minutes_total
+            );
+            assert_eq!(
+                state.ledger.current_day_kind,
+                before.ledger.current_day_kind
+            );
+        }
     }
 
     #[test]

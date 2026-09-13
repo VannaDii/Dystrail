@@ -1,0 +1,27 @@
+{
+  "revision": "ebba9ffd5912cc71a21c",
+  "delivery": "local preview only",
+  "focused_browser": {
+    "passed": 86,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "remaining_browser": {
+    "passed": 120,
+    "failed": 6,
+    "exit_code": 1
+  },
+  "native": {
+    "passed": 313,
+    "pending_config_replay_snapshots": 3,
+    "exit_code": 101
+  },
+  "release_builds": "native and Trunk passed",
+  "strict_native_wasm_lint": "passed on code-equivalent build16 before Mixed config and CSS finalization",
+  "wasm_registered_tests": 2,
+  "published_client_exit_code": 0,
+  "screenshots_visually_reviewed": true,
+  "production_game_revision": "08a07362f3e5c5445818",
+  "future_health_cause_patch_included": false,
+  "future_camp_sanity_experiment_included": false
+}

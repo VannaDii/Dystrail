@@ -1,0 +1,517 @@
+{
+  "counts": {
+    "encounters": 65,
+    "choices": 187,
+    "towns": 51,
+    "compositions": 18
+  },
+  "thumbs": [
+    {
+      "scene": "enc-service-counter",
+      "viewBox": "1024 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 365.328125
+      }
+    },
+    {
+      "scene": "enc-bridge",
+      "viewBox": "1024 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 182.671875
+      }
+    },
+    {
+      "scene": "enc-checkpoint",
+      "viewBox": "1024 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 182.671875
+      }
+    },
+    {
+      "scene": "enc-radio",
+      "viewBox": "512 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-cafe",
+      "viewBox": "512 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 365.328125
+      }
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 182.671875
+      }
+    },
+    {
+      "scene": "enc-library",
+      "viewBox": "1024 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 365.328125
+      }
+    },
+    {
+      "scene": "enc-rest-area",
+      "viewBox": "768 682.6666666666666 768 341.3333333333333",
+      "atlas": "/play/static/img/journey/journey-settings-v1.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 162.359375
+      }
+    },
+    {
+      "scene": "enc-motel",
+      "viewBox": "0 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 365.34375
+      }
+    },
+    {
+      "scene": "enc-civic",
+      "viewBox": "512 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-convoy",
+      "viewBox": "0 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-clinic",
+      "viewBox": "0 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 182.671875
+      }
+    },
+    {
+      "scene": "enc-night-briefing",
+      "viewBox": "1024 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 182.65625
+      }
+    },
+    {
+      "scene": "enc-farm-office",
+      "viewBox": "512 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.328125,
+        "height": 365.328125
+      }
+    },
+    {
+      "scene": "enc-museum",
+      "viewBox": "0 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png",
+      "bounds": {
+        "width": 365.34375,
+        "height": 365.34375
+      }
+    }
+  ],
+  "encounterThumbs": [
+    {
+      "scene": "enc-service-counter",
+      "viewBox": "1024 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-bridge",
+      "viewBox": "1024 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-checkpoint",
+      "viewBox": "1024 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-radio",
+      "viewBox": "512 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-cafe",
+      "viewBox": "512 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-radio",
+      "viewBox": "512 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-library",
+      "viewBox": "1024 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-rest-area",
+      "viewBox": "768 682.6666666666666 768 341.3333333333333",
+      "atlas": "/play/static/img/journey/journey-settings-v1.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-library",
+      "viewBox": "1024 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-motel",
+      "viewBox": "0 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-civic",
+      "viewBox": "512 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-library",
+      "viewBox": "1024 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-civic",
+      "viewBox": "512 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-convoy",
+      "viewBox": "0 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-convoy",
+      "viewBox": "0 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-checkpoint",
+      "viewBox": "1024 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-clinic",
+      "viewBox": "0 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-night-briefing",
+      "viewBox": "1024 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-farm-office",
+      "viewBox": "512 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-rest-area",
+      "viewBox": "768 682.6666666666666 768 341.3333333333333",
+      "atlas": "/play/static/img/journey/journey-settings-v1.png"
+    },
+    {
+      "scene": "enc-library",
+      "viewBox": "1024 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-convoy",
+      "viewBox": "0 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-cafe",
+      "viewBox": "512 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-bridge",
+      "viewBox": "1024 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-cafe",
+      "viewBox": "512 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-museum",
+      "viewBox": "0 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-community",
+      "viewBox": "512 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-cafe",
+      "viewBox": "512 0 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-service-counter",
+      "viewBox": "1024 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-checkpoint",
+      "viewBox": "1024 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-rest-area",
+      "viewBox": "768 682.6666666666666 768 341.3333333333333",
+      "atlas": "/play/static/img/journey/journey-settings-v1.png"
+    },
+    {
+      "scene": "enc-museum",
+      "viewBox": "0 512 512 512",
+      "atlas": "/play/static/img/journey/encounter-settings-v3.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-clinic",
+      "viewBox": "0 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-media-workshop",
+      "viewBox": "0 0 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-clinic",
+      "viewBox": "0 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-street",
+      "viewBox": "1024 512 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-service",
+      "viewBox": "0 256 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    },
+    {
+      "scene": "enc-convoy",
+      "viewBox": "0 768 512 256",
+      "atlas": "/play/static/img/journey/encounter-settings-v2.png"
+    }
+  ],
+  "decoded": [
+    {
+      "src": "/play/static/img/journey/encounter-settings-v3.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/play/static/img/journey/encounter-settings-v2.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/play/static/img/journey/journey-settings-v1.png",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "errors": []
+}

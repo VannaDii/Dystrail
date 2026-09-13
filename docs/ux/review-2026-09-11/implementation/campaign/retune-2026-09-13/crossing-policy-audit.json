@@ -1,0 +1,286 @@
+{
+  "scope": "Crossing-only roll replay. No full-game or timing forecast. First checkpoint stays protected.",
+  "native_baseline_250_seed_telemetry_parity": true,
+  "variants": {
+    "current": {
+      "raw_policy": {
+        "pass": 0.66,
+        "detour": 0.24,
+        "terminal": 0.1,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.7428073883056641,
+          0.20924150943756104,
+          0.04795118048787117
+        ],
+        [
+          0.7222003936767578,
+          0.21689587831497192,
+          0.06090373545885086
+        ],
+        [
+          0.7098060846328735,
+          0.2214997410774231,
+          0.06869429349899292
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 730,
+        "crossing_bribe_attempts": 730,
+        "crossing_bribe_successes": 509,
+        "crossing_detours_taken": 185,
+        "crossing_failures": 36
+      },
+      "bribe_success": 0.6972602739726027,
+      "terminal_rate": 0.049315068493150684,
+      "terminal_by_crossing_index": {
+        "1": 20,
+        "2": 16
+      }
+    },
+    "detour_008_only": {
+      "raw_policy": {
+        "pass": 0.66,
+        "detour": 0.08,
+        "terminal": 0.1,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.852410078048706,
+          0.08303233981132507,
+          0.06455764919519424
+        ],
+        [
+          0.8358125686645508,
+          0.08606979250907898,
+          0.07811769843101501
+        ],
+        [
+          0.8258296847343445,
+          0.08789671957492828,
+          0.08627363294363022
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 725,
+        "crossing_bribe_attempts": 725,
+        "crossing_bribe_successes": 602,
+        "crossing_detours_taken": 81,
+        "crossing_failures": 42
+      },
+      "bribe_success": 0.8303448275862069,
+      "terminal_rate": 0.057931034482758624,
+      "terminal_by_crossing_index": {
+        "1": 25,
+        "2": 17
+      }
+    },
+    "terminal_020_only": {
+      "raw_policy": {
+        "pass": 0.66,
+        "detour": 0.24,
+        "terminal": 0.2,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.6904969215393066,
+          0.19021952152252197,
+          0.11928350478410721
+        ],
+        [
+          0.667976438999176,
+          0.19717806577682495,
+          0.13484551012516022
+        ],
+        [
+          0.6544310450553894,
+          0.20136336982250214,
+          0.14420555531978607
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 709,
+        "crossing_bribe_attempts": 709,
+        "crossing_bribe_successes": 463,
+        "crossing_detours_taken": 179,
+        "crossing_failures": 67
+      },
+      "bribe_success": 0.6530324400564175,
+      "terminal_rate": 0.09449929478138223,
+      "terminal_by_crossing_index": {
+        "1": 41,
+        "2": 26
+      }
+    },
+    "bribe_pass_022_only": {
+      "raw_policy": {
+        "pass": 0.66,
+        "detour": 0.24,
+        "terminal": 0.1,
+        "bribe_pass_bonus": 0.22,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.7489361763000488,
+          0.20425531268119812,
+          0.04680851101875305
+        ],
+        [
+          0.7272025942802429,
+          0.21299034357070923,
+          0.05980707332491875
+        ],
+        [
+          0.7140052318572998,
+          0.21829459071159363,
+          0.06770026683807373
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 730,
+        "crossing_bribe_attempts": 730,
+        "crossing_bribe_successes": 513,
+        "crossing_detours_taken": 181,
+        "crossing_failures": 36
+      },
+      "bribe_success": 0.7027397260273973,
+      "terminal_rate": 0.049315068493150684,
+      "terminal_by_crossing_index": {
+        "1": 20,
+        "2": 16
+      }
+    },
+    "shift_detour_to_terminal": {
+      "raw_policy": {
+        "pass": 0.66,
+        "detour": 0.14,
+        "terminal": 0.2,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.7428073883056641,
+          0.12205754965543747,
+          0.13513514399528503
+        ],
+        [
+          0.7222003936767578,
+          0.12652260065078735,
+          0.15127702057361603
+        ],
+        [
+          0.709805965423584,
+          0.12920817732810974,
+          0.1609858274459839
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 703,
+        "crossing_bribe_attempts": 703,
+        "crossing_bribe_successes": 489,
+        "crossing_detours_taken": 138,
+        "crossing_failures": 76
+      },
+      "bribe_success": 0.6955903271692745,
+      "terminal_rate": 0.10810810810810811,
+      "terminal_by_crossing_index": {
+        "1": 47,
+        "2": 29
+      }
+    },
+    "redistribute_070_010_020": {
+      "raw_policy": {
+        "pass": 0.7,
+        "detour": 0.1,
+        "terminal": 0.2,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.7776809334754944,
+          0.08718396723270416,
+          0.13513514399528503
+        ],
+        [
+          0.7583497166633606,
+          0.09037328511476517,
+          0.15127702057361603
+        ],
+        [
+          0.7467225790023804,
+          0.09229155629873276,
+          0.1609858274459839
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 703,
+        "crossing_bribe_attempts": 703,
+        "crossing_bribe_successes": 521,
+        "crossing_detours_taken": 106,
+        "crossing_failures": 76
+      },
+      "bribe_success": 0.7411095305832148,
+      "terminal_rate": 0.10810810810810811,
+      "terminal_by_crossing_index": {
+        "1": 47,
+        "2": 29
+      }
+    },
+    "redistribute_070_008_022": {
+      "raw_policy": {
+        "pass": 0.7,
+        "detour": 0.08,
+        "terminal": 0.22,
+        "bribe_pass_bonus": 0.192,
+        "bribe_terminal_penalty": 0.045,
+        "bribe_diminishing": 0.38
+      },
+      "effective_bribed_probabilities_by_attempt": [
+        [
+          0.7776809334754944,
+          0.06974717229604721,
+          0.1525719314813614
+        ],
+        [
+          0.7583497166633606,
+          0.07229862362146378,
+          0.16935166716575623
+        ],
+        [
+          0.7467226386070251,
+          0.07383324950933456,
+          0.17944416403770447
+        ]
+      ],
+      "crossing_only_totals": {
+        "crossing_events": 695,
+        "crossing_bribe_attempts": 695,
+        "crossing_bribe_successes": 515,
+        "crossing_detours_taken": 95,
+        "crossing_failures": 85
+      },
+      "bribe_success": 0.7410071942446043,
+      "terminal_rate": 0.1223021582733813,
+      "terminal_by_crossing_index": {
+        "1": 55,
+        "2": 30
+      }
+    }
+  }
+}

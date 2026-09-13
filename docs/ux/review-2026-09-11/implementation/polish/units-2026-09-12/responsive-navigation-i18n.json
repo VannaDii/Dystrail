@@ -1,0 +1,125 @@
+{
+  "base_keys": 1099,
+  "locales": [
+    {
+      "locale": "zh",
+      "missing_keys": [],
+      "close_map": "关闭地图",
+      "trip_overview": "旅程概览"
+    },
+    {
+      "locale": "tr",
+      "missing_keys": [],
+      "close_map": "Haritayı kapat",
+      "trip_overview": "Yolculuk özeti"
+    },
+    {
+      "locale": "mr",
+      "missing_keys": [],
+      "close_map": "नकाशा बंद करा",
+      "trip_overview": "प्रवासाचा आढावा"
+    },
+    {
+      "locale": "bn",
+      "missing_keys": [],
+      "close_map": "মানচিত্র বন্ধ করুন",
+      "trip_overview": "যাত্রার সারসংক্ষেপ"
+    },
+    {
+      "locale": "ja",
+      "missing_keys": [],
+      "close_map": "地図を閉じる",
+      "trip_overview": "旅の概要"
+    },
+    {
+      "locale": "de",
+      "missing_keys": [],
+      "close_map": "Karte schließen",
+      "trip_overview": "Reiseübersicht"
+    },
+    {
+      "locale": "ru",
+      "missing_keys": [],
+      "close_map": "Закрыть карту",
+      "trip_overview": "Обзор поездки"
+    },
+    {
+      "locale": "ta",
+      "missing_keys": [],
+      "close_map": "வரைபடத்தை மூடு",
+      "trip_overview": "பயணச் சுருக்கம்"
+    },
+    {
+      "locale": "pt",
+      "missing_keys": [],
+      "close_map": "Fechar mapa",
+      "trip_overview": "Resumo da viagem"
+    },
+    {
+      "locale": "en",
+      "missing_keys": [],
+      "close_map": "Close map",
+      "trip_overview": "Trip overview"
+    },
+    {
+      "locale": "pa",
+      "missing_keys": [],
+      "close_map": "ਨਕਸ਼ਾ ਬੰਦ ਕਰੋ",
+      "trip_overview": "ਯਾਤਰਾ ਦਾ ਸਾਰ"
+    },
+    {
+      "locale": "it",
+      "missing_keys": [],
+      "close_map": "Chiudi mappa",
+      "trip_overview": "Riepilogo del viaggio"
+    },
+    {
+      "locale": "fr",
+      "missing_keys": [],
+      "close_map": "Fermer la carte",
+      "trip_overview": "Résumé du voyage"
+    },
+    {
+      "locale": "hi",
+      "missing_keys": [],
+      "close_map": "नक्शा बंद करें",
+      "trip_overview": "यात्रा का सारांश"
+    },
+    {
+      "locale": "ko",
+      "missing_keys": [],
+      "close_map": "지도 닫기",
+      "trip_overview": "여정 요약"
+    },
+    {
+      "locale": "te",
+      "missing_keys": [],
+      "close_map": "పటాన్ని మూసివేయండి",
+      "trip_overview": "ప్రయాణ సారాంశం"
+    },
+    {
+      "locale": "id",
+      "missing_keys": [],
+      "close_map": "Tutup peta",
+      "trip_overview": "Ringkasan perjalanan"
+    },
+    {
+      "locale": "es",
+      "missing_keys": [],
+      "close_map": "Cerrar mapa",
+      "trip_overview": "Resumen del viaje"
+    },
+    {
+      "locale": "ar",
+      "missing_keys": [],
+      "close_map": "إغلاق الخريطة",
+      "trip_overview": "ملخص الرحلة"
+    },
+    {
+      "locale": "jv",
+      "missing_keys": [],
+      "close_map": "Tutup peta",
+      "trip_overview": "Ringkesan lelampahan"
+    }
+  ]
+}

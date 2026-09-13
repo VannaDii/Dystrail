@@ -1,0 +1,51 @@
+{
+  "variants": [
+    {
+      "phase": "before",
+      "freeze": "/tmp/dystrail-retune-2026-09-13/trace-rm-before-freeze.json",
+      "patch": "/tmp/dystrail-retune-2026-09-13/trace-rm-before.patch",
+      "patch_sha256": "edb4dbad78c01a46882009162e4d2c46ea103281c3c24bb023f67af73321aeee",
+      "changed_files": [
+        {
+          "path": "dystrail-tester/src/logic/game_tester.rs",
+          "base_sha256": "6bdd1a8ef00c80b29ee9bbcd6653d56e913c21e3a73bd461180a5f579197a000",
+          "trace_sha256": "2ce67be8c2f58679c5a09a8152a3f5cec46caf0c1fab117eee573273ce4d5920",
+          "added_lines": 97,
+          "existing_lines_removed_or_changed": 0
+        },
+        {
+          "path": "dystrail-tester/src/logic/simulation.rs",
+          "base_sha256": "0a6aa1fda5abf984d6f73d61f17a913b67681e7d23b1465f799cb38efa0c8ce6",
+          "trace_sha256": "8499b1451ed65e8a6550d41e3227a7aeb5bce94631f52dc3970a40c0069845ad",
+          "added_lines": 124,
+          "existing_lines_removed_or_changed": 0
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "freeze": "/tmp/dystrail-retune-2026-09-13/trace-rm-after-freeze.json",
+      "patch": "/tmp/dystrail-retune-2026-09-13/trace-rm-after.patch",
+      "patch_sha256": "edb4dbad78c01a46882009162e4d2c46ea103281c3c24bb023f67af73321aeee",
+      "changed_files": [
+        {
+          "path": "dystrail-tester/src/logic/game_tester.rs",
+          "base_sha256": "6bdd1a8ef00c80b29ee9bbcd6653d56e913c21e3a73bd461180a5f579197a000",
+          "trace_sha256": "2ce67be8c2f58679c5a09a8152a3f5cec46caf0c1fab117eee573273ce4d5920",
+          "added_lines": 97,
+          "existing_lines_removed_or_changed": 0
+        },
+        {
+          "path": "dystrail-tester/src/logic/simulation.rs",
+          "base_sha256": "0a6aa1fda5abf984d6f73d61f17a913b67681e7d23b1465f799cb38efa0c8ce6",
+          "trace_sha256": "8499b1451ed65e8a6550d41e3227a7aeb5bce94631f52dc3970a40c0069845ad",
+          "added_lines": 124,
+          "existing_lines_removed_or_changed": 0
+        }
+      ]
+    }
+  ],
+  "identical_test_only_patch": true,
+  "shared_product_or_tester_edits": false,
+  "cargo_build_or_test_started": false
+}

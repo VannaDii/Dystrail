@@ -1,0 +1,1900 @@
+{
+  "checked_at": "2026-09-13T21:22:09.431668+00:00",
+  "published_revision": "d3ed78dac458b64a80ee",
+  "published_artifact_commit": "99ae520b19f1ef8eb259d2211229fe954e4d3803",
+  "runtime_source_matches": true,
+  "runtime_input_count": 466,
+  "inputs": [
+    {
+      "path": "Cargo.toml",
+      "sha256": "05e31dd389e35f60acbb5ff88311a7151690856ca0a404c7d9aaa75484a738cf"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "f784384b8442369b937f7f513f6ff2d1e63438e79a38578b912884ba6a72f481"
+    },
+    {
+      "path": "dystrail-game/Cargo.toml",
+      "sha256": "78b28d7d11ca33e59c573fc7a968d75d72f5e1e8eb5d4656481a04db2d6afd9c"
+    },
+    {
+      "path": "dystrail-game/.tarpaulin.toml",
+      "sha256": "d826de109068f35ae709748d74199fb58507ea13612c6aa73072bb3ebcb08fe9"
+    },
+    {
+      "path": "dystrail-game/data/routes.json",
+      "sha256": "de9e14c75ea4693b418ee8a831b7a758018fe739acffcd09990ebc008e00ba60"
+    },
+    {
+      "path": "dystrail-game/src/boss.rs",
+      "sha256": "48a2d4ab9045eeaf8139dc803c572bf16dd908f269504da3db5fcc1932f977a3"
+    },
+    {
+      "path": "dystrail-game/src/travel_time.rs",
+      "sha256": "b9c7d9cecbf82d081460e1b3f2bc325d93c796b85ce0d5388e64b3d672035a1e"
+    },
+    {
+      "path": "dystrail-game/src/vehicle.rs",
+      "sha256": "7aacfe6f2ddd7bff8dba92a0d01dd6de1f90d22bb20e05a9b91261e049d41e00"
+    },
+    {
+      "path": "dystrail-game/src/weather.rs",
+      "sha256": "a7543651e383bd529290bfede98120aacc0c7f2159f8887df6b6c1508f085561"
+    },
+    {
+      "path": "dystrail-game/src/endgame.rs",
+      "sha256": "07da4231eef53617397d8b840373a30c376c510beac3e978ed9da37764c66574"
+    },
+    {
+      "path": "dystrail-game/src/numbers.rs",
+      "sha256": "bf831beb3047d47f2a39abfad102f946150b6f784e1c8b92d24eaaed13f84ed1"
+    },
+    {
+      "path": "dystrail-game/src/crew_care.rs",
+      "sha256": "972caf7e929cd7fe580bbe4ba521daa1090c1d08b0db2d7bba64c14c311ea635"
+    },
+    {
+      "path": "dystrail-game/src/constants.rs",
+      "sha256": "6bd3f1d5c85997588a43ad420b4cd373fbad26bece78bd2738568ce31be46a2c"
+    },
+    {
+      "path": "dystrail-game/src/route.rs",
+      "sha256": "3ba5252c89410654155ded5077a9d7e3f33b50ea1e91557ffa10e9c90f4f9f56"
+    },
+    {
+      "path": "dystrail-game/src/exec_orders.rs",
+      "sha256": "f12b3ef4c8f9426ddcae7106f8026774157c98790b93797abff025ede603fe4b"
+    },
+    {
+      "path": "dystrail-game/src/journal.rs",
+      "sha256": "7a043f74207d662a02f82a3ddd1a7d8dc3a5a7a209c7584e34510bbd8c60adc7"
+    },
+    {
+      "path": "dystrail-game/src/coverage_anchor.rs",
+      "sha256": "9ee5aa5d51a4400525a407ebdbc33c5fb6b88b52b65c618d90441e4810bb3373"
+    },
+    {
+      "path": "dystrail-game/src/lib.rs",
+      "sha256": "915e8f6dadfbaaabf9664b210c28077627f208bf056432f0dc3e522317b2f4e4"
+    },
+    {
+      "path": "dystrail-game/src/store.rs",
+      "sha256": "2d6a76ad9a542b5abbc4e74b4c87712c5bb962f8122bc856befa716d8c0a93ee"
+    },
+    {
+      "path": "dystrail-game/src/activities.rs",
+      "sha256": "f51dcec8285c2c72af7997f1cff5b4ea6e29803fdf571e5a868b409c587ed77d"
+    },
+    {
+      "path": "dystrail-game/src/weather_impact.rs",
+      "sha256": "1cd8f7227fde39b9315905a5a434c0be930172ddc4a01ec0ddb0c4bf8221727a"
+    },
+    {
+      "path": "dystrail-game/src/personas.rs",
+      "sha256": "93bec30f74eceaf045b8a890f43b7755ebe0fa7d8431f7d32f52cee06106e686"
+    },
+    {
+      "path": "dystrail-game/src/day_accounting.rs",
+      "sha256": "69a0f507e21c531873e3adcdf3b9203a44bd657a12e8dd0ee83fa0e04e7642e6"
+    },
+    {
+      "path": "dystrail-game/src/evidence.rs",
+      "sha256": "7b72d69c215f09203a4f5c0ffabd6269b34b09eca891ffb7855957c3751317eb"
+    },
+    {
+      "path": "dystrail-game/src/party.rs",
+      "sha256": "7214db9c6f9404ad9835c118a8a55b0b1f770fa15767ddca796f18ff7379c0d6"
+    },
+    {
+      "path": "dystrail-game/src/encounters.rs",
+      "sha256": "2a75d9f027451c9c292fb7fff8dec16eb1c4b2cfbcfef9c604ff7c3f8f99f230"
+    },
+    {
+      "path": "dystrail-game/src/route_services.rs",
+      "sha256": "a8aa197f5bb41dd3b0119154de706e5c051f51eabf7e4807a0b485a8c39d6adf"
+    },
+    {
+      "path": "dystrail-game/src/state.rs",
+      "sha256": "736d844043775a29b0241445cd4599b1ecbadea85277d38a5f5ec0d6cd2ce531"
+    },
+    {
+      "path": "dystrail-game/src/data.rs",
+      "sha256": "f958e38a52f513274d10a10e666533557671bf6fe53c41cd87910d0033bb99aa"
+    },
+    {
+      "path": "dystrail-game/src/camp.rs",
+      "sha256": "f9086a4d0f91ed704c4b0357640f30b5d044bde2a5c62c937f66e10cc45f12ce"
+    },
+    {
+      "path": "dystrail-game/src/pacing.rs",
+      "sha256": "67f2e897d92978517ff1a86f6ff2b06b7f447b3265e65a1f3c3302fd8e078ba1"
+    },
+    {
+      "path": "dystrail-game/src/repairs.rs",
+      "sha256": "c0a6bd8470595b60f66caa4fae068bd0be3c0412b7e0ecc88fe4e562043972f7"
+    },
+    {
+      "path": "dystrail-game/src/result.rs",
+      "sha256": "a4f02f167eeb398cbf8de8ba6329d86452ee217c451722bd18984026b0c047f5"
+    },
+    {
+      "path": "dystrail-game/src/crossings.rs",
+      "sha256": "060ec5567697867e27b4ad4162f25a0c80727ef0fb9f420b1d286464c3fa3450"
+    },
+    {
+      "path": "dystrail-game/src/seed.rs",
+      "sha256": "1581b907c7de6fee39a11d3a55f02ce7330f46d17460d0b3d2bd4d04b424496a"
+    },
+    {
+      "path": "dystrail-game/src/route/tests.rs",
+      "sha256": "c56273a12e4e3f0fc88a67ece5670af42a1e0061fed031273ededc3cf570da24"
+    },
+    {
+      "path": "dystrail-game/src/mechanics/otdeluxe90s.rs",
+      "sha256": "214cc13496b64da58a81778bfe9924315be0a10ea3be99dcf2240ca093761045"
+    },
+    {
+      "path": "dystrail-game/src/mechanics/mod.rs",
+      "sha256": "63043330f0bfb13ccc579bd0144e1925db25b3d39b2bdf6352a6f2d4952d47af"
+    },
+    {
+      "path": "dystrail-game/src/state/illness_protection_tests.rs",
+      "sha256": "a77ca8fc054b7586126f15d080bc9c50c5b4fcbc841b8c6504d86d2721a39ec3"
+    },
+    {
+      "path": "dystrail-game/src/state/crossing_arrival_tests.rs",
+      "sha256": "06142c8e29b0c8267ee0294b8c8d4cc34a9c24918b4462940926e05e99e8926d"
+    },
+    {
+      "path": "dystrail-game/src/journey/session.rs",
+      "sha256": "650bdaccfdf00ed724071f8ac480ff02b7678b6be4df62e74d1caa2a4d6ad12a"
+    },
+    {
+      "path": "dystrail-game/src/journey/daily_overlay.rs",
+      "sha256": "cf086888a219b57f9eca63bee43f9a55bb1f046aa3b64e8fb8bfeae5fffa1bf9"
+    },
+    {
+      "path": "dystrail-game/src/journey/rng_save.rs",
+      "sha256": "b39312ea8c3c6477c33f8da68d3b7a1136f0364f950fb620e575af1e0a29ed56"
+    },
+    {
+      "path": "dystrail-game/src/journey/event.rs",
+      "sha256": "c603a8eb92396d83f14489121de3736ae0953a23097f6e362281e08beeac3237"
+    },
+    {
+      "path": "dystrail-game/src/journey/mod.rs",
+      "sha256": "cf879d43987a20de1ecc28eea0028b9e5a5223cc767fd0c516eb308d450ab45c"
+    },
+    {
+      "path": "dystrail-game/src/journey/daily.rs",
+      "sha256": "ed9a8711ca7da76b7f85bfb869d593f8da0ea6ca48a233d99c09462184d4d3ec"
+    },
+    {
+      "path": "dystrail-game/src/crossings/resolver.rs",
+      "sha256": "c3329db86b4217baa0792c6aba71b7c64474c826b90d40bad8ebd7e06cff0f40"
+    },
+    {
+      "path": "dystrail-web/Cargo.toml",
+      "sha256": "5a748b96a2ea8a19f7b764e699a728c418166273acd79e06c2fd4963eff95e87"
+    },
+    {
+      "path": "dystrail-web/index.html",
+      "sha256": "7282b562945ed47e3f167677b103dae6dc4029d7b4a82faf39ef6924dc1ca04d"
+    },
+    {
+      "path": "dystrail-web/package-lock.json",
+      "sha256": "19c280bcac5c9aa63e95ab76171cc8cb498f36bd6a4c38298165040ca6983be2"
+    },
+    {
+      "path": "dystrail-web/package.json",
+      "sha256": "8f263cbfaac398ebf915a7aa91c3529d8ea9247d3827432f99b8b6a9a40500c9"
+    },
+    {
+      "path": "dystrail-web/Trunk.toml",
+      "sha256": "9bfea9a9845a4f247d7e9d5d19ed676a58b43f9c07ab62ab648ecc85dace1242"
+    },
+    {
+      "path": "dystrail-web/static/favicon.ico",
+      "sha256": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756"
+    },
+    {
+      "path": "dystrail-web/static/theme.css",
+      "sha256": "486f7221c647cf780c2c57596d7a831cf25b2cdced7f8ea1afa16cd4122dc390"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "sha256": "b3f99696910fccc084cd69034a49d6313bbcf127c2f21befb232d0227c977e76"
+    },
+    {
+      "path": "dystrail-web/static/styles.css",
+      "sha256": "3be49b4944597c7003f09e5ec002301bf745bcdc4b0520e83778b3a5b1fad2ab"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "sha256": "949805d2f819af62f7efbc0bb8d5623daaecd8590af8c95d33db26e6b13977c8"
+    },
+    {
+      "path": "dystrail-web/static/results.css",
+      "sha256": "1ad0d537571a1af434d86c66c0f32538fbb048ac596bfd14e4530a4e7ad5b440"
+    },
+    {
+      "path": "dystrail-web/static/offline-client.js",
+      "sha256": "67b59d76d1abe2c3bf02f989c5e7a40e14ed4142ccddb4292e5caf08e4d401ed"
+    },
+    {
+      "path": "dystrail-web/static/manifest.webmanifest",
+      "sha256": "09a1b003dc6ce80fdf322a82e5844b78711ca9565ebb0ceded508dad5a09231d"
+    },
+    {
+      "path": "dystrail-web/static/fonts.css",
+      "sha256": "e8f71417b9951a556f6ea2a26eec39ed27c0fee6209ae1e3ed8b06177bfc9a1d"
+    },
+    {
+      "path": "dystrail-web/i18n/zh.json",
+      "sha256": "39fac4771a862ef35d88870bcecd58035d9f3c031db635e0cf9f7d3b6d708856"
+    },
+    {
+      "path": "dystrail-web/i18n/tr.json",
+      "sha256": "42a185a1e79139d7761c92e64cba7c1225fd4efc9bbc86a4bb4cdf042a4d2ac8"
+    },
+    {
+      "path": "dystrail-web/i18n/mr.json",
+      "sha256": "b0a01bd1acad7372fd388aa4858defb8af3b08e5afc3614922fdbf58ef7df5f4"
+    },
+    {
+      "path": "dystrail-web/i18n/bn.json",
+      "sha256": "270285ad309fdd5801b5e323f07abb6bd9551144067f06c798e550448c573e70"
+    },
+    {
+      "path": "dystrail-web/i18n/ja.json",
+      "sha256": "29617b8ed2873dd90e96930000aa1d494f7ad71961206408fd263c0828e9cbce"
+    },
+    {
+      "path": "dystrail-web/i18n/de.json",
+      "sha256": "ebd5fed9e37d49b0d9ff5a7f34b246aa8798f5a2e867605c099fac85e67ce19f"
+    },
+    {
+      "path": "dystrail-web/i18n/ru.json",
+      "sha256": "dcddd0c84201a352dddc187603a56d31010b13a1208202a972fdf23c790f5c13"
+    },
+    {
+      "path": "dystrail-web/i18n/ta.json",
+      "sha256": "c0722ee520e0857fbd39d3fd150b51e829252e9e4afb705746d413ffc6abcf5c"
+    },
+    {
+      "path": "dystrail-web/i18n/pt.json",
+      "sha256": "2d44b14dbf9e3f7de57c70a98ebd748dc4e47ec53db0b69906ad9f6b7d1cab30"
+    },
+    {
+      "path": "dystrail-web/i18n/en.json",
+      "sha256": "85a16e55afb20567a2a8f45091b493cabf9cb6e98920719937256a3df23d8691"
+    },
+    {
+      "path": "dystrail-web/i18n/pa.json",
+      "sha256": "5cc40296a86f93b276165b086700a0a74ef22d1c4f40de95a696923b14b3f322"
+    },
+    {
+      "path": "dystrail-web/i18n/it.json",
+      "sha256": "a887401f2a541cf8fa42206820e29d888b37339a6fc276e548be3afbbfcba57b"
+    },
+    {
+      "path": "dystrail-web/i18n/fr.json",
+      "sha256": "9d642b9aa58b592ea49f6d68615f284117b0762dab7700a8398cf0a67fcdd49b"
+    },
+    {
+      "path": "dystrail-web/i18n/hi.json",
+      "sha256": "fc5b57d2cf38846fdb5238cbb446ac0388c8801c921a5b83c41beca936ec5df3"
+    },
+    {
+      "path": "dystrail-web/i18n/ko.json",
+      "sha256": "e20fb4926403d0c13770d7e3339e88d4f1916ca863461c96127fd2fc338eecef"
+    },
+    {
+      "path": "dystrail-web/i18n/te.json",
+      "sha256": "39c2d4c9447bba29b5c40b90aa85a77b167d878577b1b0a77ceab2564f2c357e"
+    },
+    {
+      "path": "dystrail-web/i18n/id.json",
+      "sha256": "396622531d54839dc2e1ed6ee71c659d58dadd572ec598ab97d68fabaf16c54f"
+    },
+    {
+      "path": "dystrail-web/i18n/es.json",
+      "sha256": "9bc679872a8a43d5cadb95d5727df3499de87d083a938bc0b0a766bfefede9fe"
+    },
+    {
+      "path": "dystrail-web/i18n/ar.json",
+      "sha256": "d8ea80efb420a0b4f22d4876d90ad40425e149a74597160a244acb815d1e2a52"
+    },
+    {
+      "path": "dystrail-web/i18n/jv.json",
+      "sha256": "e7fc0cadf5d17b67a245fea9d5ba2f5741d9a0e9722bbe65468da541a309ad9d"
+    },
+    {
+      "path": "dystrail-web/src/game.rs",
+      "sha256": "31d180d7686f55f760091a1de7536b1599825bd245d26552a72fb668cef6f766"
+    },
+    {
+      "path": "dystrail-web/src/lib.rs",
+      "sha256": "749ad9bb12f263e6cfd61d70e33e4465689f32ca418fc767913a8de267841574"
+    },
+    {
+      "path": "dystrail-web/src/paths.rs",
+      "sha256": "edb4581940964a2badd845a9fb4c3edf0968d0e2436f1b464f2f22fb1e5b3df6"
+    },
+    {
+      "path": "dystrail-web/src/wasm_tests.rs",
+      "sha256": "409752cad13508e7f086fb492988eb99dbccecb5b136583a65da4ebbe3345320"
+    },
+    {
+      "path": "dystrail-web/src/dom.rs",
+      "sha256": "ea2a2c04dd781536ebcc487c7c9f1ef54330e363dce6993a67aad52a464b6cdb"
+    },
+    {
+      "path": "dystrail-web/src/router.rs",
+      "sha256": "9f7e3c312ac1985e82d6dbadf49ee0eeb938022dcd670d7efbf07efb10aa7c62"
+    },
+    {
+      "path": "dystrail-web/src/a11y.rs",
+      "sha256": "0dc17b72308326864d35e416b069a82671f1f6b915e587a11243d670a480bd6c"
+    },
+    {
+      "path": "dystrail-web/src/input.rs",
+      "sha256": "f377437d77b65f623a5c8425919012462cd000c356db2a7361545a0235b96ad6"
+    },
+    {
+      "path": "dystrail-web/src/i18n_tests.rs",
+      "sha256": "24008fcacd77b87baefffe1e15c30d9a38a98f43b0453732486eedfd4ccbc3af"
+    },
+    {
+      "path": "dystrail-web/src/app/flow.rs",
+      "sha256": "2625867505a88b7abc75ed1aa6e8f7d023ebc665a5ad1751fe7b28ddbd7cd5bb"
+    },
+    {
+      "path": "dystrail-web/src/app/trading.rs",
+      "sha256": "40397e9d90fef1254cb483a2946fc9af390c3331a0c8b6ca55f562eca7076d12"
+    },
+    {
+      "path": "dystrail-web/src/app/crew_care.rs",
+      "sha256": "91f8187523aff1989a268116e268e396997358aff68c0f9b36a19fa84ebaa2f1"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "sha256": "98b9a261e62b08c9c1d7939d95f40a0a3459b183300b86408f3ff81a7bb5a482"
+    },
+    {
+      "path": "dystrail-web/src/app/recovery.rs",
+      "sha256": "c728bc8980cc4befb49ec447bc87bacf74973837a5764edf6d27010a535f7ff5"
+    },
+    {
+      "path": "dystrail-web/src/app/turn.rs",
+      "sha256": "b26214f441b56932be12ff6bad51f4187cc6f3fcfe60fbbaaec40c45f9ca30c6"
+    },
+    {
+      "path": "dystrail-web/src/app/phase.rs",
+      "sha256": "a8c9b8e066bc54db85cae9b01b92652a9e8d6574371f0ab0f6c98a41b2ee5732"
+    },
+    {
+      "path": "dystrail-web/src/app/bootstrap.rs",
+      "sha256": "cd6c7bac9953a99f3b707d430676014337bd995adbb5fbc0252f8ce8f343d1d4"
+    },
+    {
+      "path": "dystrail-web/src/app/activities.rs",
+      "sha256": "4daa4cd9506bd29b4f7e5da128941d2740e8d916c544edb963dd087974e7a74b"
+    },
+    {
+      "path": "dystrail-web/src/app/repair.rs",
+      "sha256": "f8870d090ab06556306f77a12bb6251c7d8c220eb51083797fe1c89206fb0ab3"
+    },
+    {
+      "path": "dystrail-web/src/app/services.rs",
+      "sha256": "58ee11ff10a0b2b51254bdc476f22f94e7fc9031fd49ece76e6cdd6e518668a7"
+    },
+    {
+      "path": "dystrail-web/src/app/town_profile.rs",
+      "sha256": "f634bcd2be74ccf8660886a7fcdf81c943ae9e738bc58bec45df364d6fcea197"
+    },
+    {
+      "path": "dystrail-web/src/app/weather_status.rs",
+      "sha256": "8d01b54581f7ff3cca7bf7b8efa8aa6e11551c21131fed783436253c4b4ccbc7"
+    },
+    {
+      "path": "dystrail-web/src/app/abandon.rs",
+      "sha256": "d34bae4dc57d55182d5e06cd128942d5d2ff7d978aecfba049b49a56807dc52d"
+    },
+    {
+      "path": "dystrail-web/src/app/journey_panel.rs",
+      "sha256": "b44708ab3d0c6c17ed3721c41984321bff164583d7d0d06546499290fc9f13dd"
+    },
+    {
+      "path": "dystrail-web/src/app/mod.rs",
+      "sha256": "68d3fbaaea6ae2d1bae0994a56e7db4cafaeff3663ee995a121e1eefc315fe0a"
+    },
+    {
+      "path": "dystrail-web/src/app/history.rs",
+      "sha256": "f0b0fa2cb0decc992190574ba0230f0982b66a7db30ca6df06acb7f92f01562e"
+    },
+    {
+      "path": "dystrail-web/src/app/state.rs",
+      "sha256": "bea2f6f9959b9ace8273ecc478e54820c73ac0bad72de4d6ab8f67732107e6f8"
+    },
+    {
+      "path": "dystrail-web/src/app/help.rs",
+      "sha256": "301deefbeb8f32519eff115fc567e7c866d930ddf8ce285c62dab86b0c81951e"
+    },
+    {
+      "path": "dystrail-web/src/app/town.rs",
+      "sha256": "41ed52b2c8696c53b672d45284e19f906573875539dc5866478f3c88dfed13ba"
+    },
+    {
+      "path": "dystrail-web/src/app/map_countdown.rs",
+      "sha256": "1cf33f44d49b762d38c37df5d67dc7de6181d3bf2c81a58ff9fef59aabed5541"
+    },
+    {
+      "path": "dystrail-web/src/app/routing.rs",
+      "sha256": "0577e86def72a424f282f32434c0c047f1671563559bf815896bcc94745170df"
+    },
+    {
+      "path": "dystrail-web/src/app/town_facts.rs",
+      "sha256": "0f14ca8742d7c8fb38bf57587ace9f2c05c7120d5787f4d06c234bdbf0b1fb40"
+    },
+    {
+      "path": "dystrail-web/src/app/receipt.rs",
+      "sha256": "f9b9bc85c5a7fdacf6f68013afeef42681d34779ff8f4d218e02f062707b28a9"
+    },
+    {
+      "path": "dystrail-web/src/app/aftermath.rs",
+      "sha256": "9a696e9bf3da9125cd74fea6460d321626b43fd67b13242cf1e6e9362bc89f79"
+    },
+    {
+      "path": "dystrail-web/src/app/map.rs",
+      "sha256": "279f0567c237933d2030c43c0855826766160a6042b7b9b92fad42cb2909343c"
+    },
+    {
+      "path": "dystrail-web/src/components/offline_status.rs",
+      "sha256": "28e9117ae2bd306852be8706d38025cb25929e7720facfe75494a00302aaa15c"
+    },
+    {
+      "path": "dystrail-web/src/components/language_picker.rs",
+      "sha256": "36dbec77993ab8f28065503e9722ba13bd91dcc4c3a30c28cbe0bf3f80ddb81c"
+    },
+    {
+      "path": "dystrail-web/src/components/header.rs",
+      "sha256": "147bb2cf4604f0a810e4762faba4794a90e1fdd90419a9e13aaf352161cb6f4e"
+    },
+    {
+      "path": "dystrail-web/src/components/status_notice.rs",
+      "sha256": "c3f167d0a2d6d343dfb5bf35de214167d03eb70a930718ea37b9e2a19e55cd59"
+    },
+    {
+      "path": "dystrail-web/src/components/mod.rs",
+      "sha256": "afd14a2355f34369f450161feea58f89f3c1c884e4bc2abf1fee5fb4568da33b"
+    },
+    {
+      "path": "dystrail-web/src/components/game_menu.rs",
+      "sha256": "345dbe5232dc4cbeca008972c7344e6ea21ac3d526c8ec8e2afd47f1ec07c230"
+    },
+    {
+      "path": "dystrail-web/src/components/footer.rs",
+      "sha256": "959225d0be951030b68fa1723cf018a8ad053e631f317ec436d20a176be18d64"
+    },
+    {
+      "path": "dystrail-web/src/components/modal.rs",
+      "sha256": "cb06960545654a31b7037e69131ff7972e9eb7017e09a0653f47bef81bf38dbb"
+    },
+    {
+      "path": "dystrail-web/src/components/button.rs",
+      "sha256": "35bb97352a8adff09ab5e9688527dce80f92f040d21eb1d4113e9a1f10f038da"
+    },
+    {
+      "path": "dystrail-web/src/i18n/format.rs",
+      "sha256": "a5cf5482f4e31a132bf7a5bcc95b146197b0b3f15c7d6e66bf3386c8b73b24b7"
+    },
+    {
+      "path": "dystrail-web/src/i18n/render.rs",
+      "sha256": "a2d584e99a72ae0c2e04c3d839ba9f3f9030cde518fb9639c75c291742378d89"
+    },
+    {
+      "path": "dystrail-web/src/i18n/bundle.rs",
+      "sha256": "47f958d63bdac12c804100cdeeaf6663ec19efa43dcef01dd47c1ab08a0f159b"
+    },
+    {
+      "path": "dystrail-web/src/i18n/mod.rs",
+      "sha256": "a84497ad2012667f3f3fe7e771bff16af1342744d61c871689319d9eb3767b01"
+    },
+    {
+      "path": "dystrail-web/src/i18n/encounters.rs",
+      "sha256": "4101a3350562f8d9aa2a8e49d8871233ffa21d98573c817260408e949190624e"
+    },
+    {
+      "path": "dystrail-web/src/i18n/locales.rs",
+      "sha256": "5a90373ba80106ef7a08886fe79451264d8fdf32bba919e2d0ad3544428e16fb"
+    },
+    {
+      "path": "dystrail-web/src/i18n/logs.rs",
+      "sha256": "ac58835b22a158caf8075d98f717f0b7e4cf829815c0f10fb4eddc32c60af869"
+    },
+    {
+      "path": "dystrail-web/src/i18n/context.rs",
+      "sha256": "1461b295d45d5a911cd8df55052ca1024d8548fcf57f4ac243ff35826d64b2a8"
+    },
+    {
+      "path": "dystrail-web/src/pages/boss.rs",
+      "sha256": "afeedb826816bd046e9ac2164a30e71fb0cac41bbcffec4b1afcdb01c2e2bfef"
+    },
+    {
+      "path": "dystrail-web/src/pages/encounter.rs",
+      "sha256": "ce9e6fb529ae6cb937b7a833e02df3c416f21c1259900114cba703b0edfdc02d"
+    },
+    {
+      "path": "dystrail-web/src/pages/persona.rs",
+      "sha256": "5da4a642f1e4f71ec040a436a31eef6337e907944a737897183d2b6da3670b4e"
+    },
+    {
+      "path": "dystrail-web/src/pages/not_found.rs",
+      "sha256": "9e098bad70c28daaecd2d7a2f9ec7638418f4054a41364ad33ed179c008547f3"
+    },
+    {
+      "path": "dystrail-web/src/pages/boot.rs",
+      "sha256": "ebc6c5a9408b7cf32e5fb1c94f41df6f72a4434cfc81f664c8e69f67216f72ac"
+    },
+    {
+      "path": "dystrail-web/src/pages/travel.rs",
+      "sha256": "1452847c61c810c7405699902a94a2d96ac05c2338f5f13bc7adc1ad7bf8248e"
+    },
+    {
+      "path": "dystrail-web/src/pages/outfitting.rs",
+      "sha256": "ad6babe58c4aa9d8e4a871c58da280b6601e4b555ec29f340a5ac8b996e146d0"
+    },
+    {
+      "path": "dystrail-web/src/pages/mod.rs",
+      "sha256": "64eb05949d2c8995d55a040102658bf73e9be6242f44930578f173c222ea3582"
+    },
+    {
+      "path": "dystrail-web/src/pages/camp.rs",
+      "sha256": "4c74f2654008b3723d3f90263fd55e0400855c0238fe595184178c76f946aba5"
+    },
+    {
+      "path": "dystrail-web/src/pages/menu.rs",
+      "sha256": "1e3393c3e00e42468625f5493773ce2cb12d336bdefe068f6f73d0c66916f4ee"
+    },
+    {
+      "path": "dystrail-web/src/pages/result.rs",
+      "sha256": "d4400c1d8d4588ea63543bede3c03dab483a6923d5ece3d880ca3e8ecaff63fa"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/leg_summary.rs",
+      "sha256": "acfdb0c458b67be8edc35f6dc4317fb7cfef1f5be243ff8ee2024ae1d9f30e3f"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/satire_context.rs",
+      "sha256": "ce91592b5eb4da02a89bda821ad9e3c51c0ef5a22f37e8b440ff81cbe089fe46"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stat_card.rs",
+      "sha256": "412f5f4a346ba590fae6eacbe6bc851d4d80d6a440bb52354b4de8c6dbcf37e6"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/action_button.rs",
+      "sha256": "7e0f4fc53d8d9ebfe698517071315f2090583073f1d0c9fb807fad67613fe963"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/encounter_card.rs",
+      "sha256": "b274747382d021e91a887f9c7860e3ec515f9fca841248062665e7e3cadfe6a2"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/context_help.rs",
+      "sha256": "e662cb1bc6f4c5cebb799878b1f98c5fc0bf533b0f05cc9c5635bcacaf5af8ab"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/seed_footer.rs",
+      "sha256": "bf6fa53ea6ca9ba3023b72ff40a04dfa0aead57a8da3a63c7d1a4b42d7adbdb8"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/mod.rs",
+      "sha256": "0252834eba1189daeaef856c9eb9cd3d17125cd0269b962404d1e7caa2033ffe"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/game_clock.rs",
+      "sha256": "9945c97b74c060a87a0e9d2fcd90455cb4a4815ee6b534fc9f9dac111f53cf87"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/share_code_bar.rs",
+      "sha256": "4f13271cf2464772fe1a156efaa2e6e775a6388e969aed1657e9a4028cfc0cbf"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "sha256": "ba15a5334e6d80a9f2dabb2bc8e0e01f44843ac8a7d1bcc31673b34b09befd02"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/dismiss.rs",
+      "sha256": "f4a898ab875a65f542bd3328e842ac29f15e0dcc6263ba1116a747c380e30ad9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/world_view.rs",
+      "sha256": "0f1427551a2e7e4b40bd84a7a9c3df6ed43ecd3081d5b5fc8d89578b0b69bb60"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/danger_notice.rs",
+      "sha256": "c63bab4559af774e01b692bd030d63b33da6037336926624f747f2a36395de06"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/foundation.rs",
+      "sha256": "6d8102f4cf06fb7b7992c5fd6de9511a2eaa055e1e9ce9be81a840a1785a9bb6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mod.rs",
+      "sha256": "59807cc73972907e5e4cc549a3412aaabb70a783b1dfb0f2f61af537c8b8c217"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/collapse.rs",
+      "sha256": "5d47b93d2e7cf80ae0c98fc4ba0d33b174a226c620599f1e4e6fb7ab4571247d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/join.rs",
+      "sha256": "ded759352b67e7f645fd01c2ade354295782cc8f4d08950191a6df903be75a40"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/tooltip.rs",
+      "sha256": "8a3ea30fc73d647f562e848be8750e544abd9ba3f4c6a9cf0cf196ae56ccd65d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/swap.rs",
+      "sha256": "51b62e012d2d4a2d34826b4e211388bce3aad77688f7849a92ffad3593a0993d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/hover_gallery.rs",
+      "sha256": "61065e236dba028159199fd76ba48833350f5d76a3c9d368137bf1c0164c4bc6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/divider.rs",
+      "sha256": "6363c3f9b3ec71ea56f6fe48b630e2d9a649a64b1fdfb461c8104bf68cea927d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/list.rs",
+      "sha256": "b9c8c6086fb8e403965c07e565b1f58228059c3a61f9d117af9c141e34795bf0"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/steps.rs",
+      "sha256": "9a264946af6ad008e97bff2c846970fc8dbe585871225bea77a5e6a1b59e6e1e"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/validator.rs",
+      "sha256": "2f400e17086012d18f3a5a3c32e42e4ea853e5e026dc10ca4f320ae6c2994d1f"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/mod.rs",
+      "sha256": "88824193faf516bd042074df9f74b75156f468e876b8f44738cd9269ff43b153"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/countdown.rs",
+      "sha256": "fb7a1cf0c19f9673375dd21bd38a5c636041d98274ae824e87344ef0302f81d4"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/breadcrumbs.rs",
+      "sha256": "3087b4122311a149e7a289f2222bd69b2db31ba0a48150b0ab8967412671f543"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/fieldset.rs",
+      "sha256": "299ac8348b343eed3fc81e7975283df2309b2c98513f810dcd0d0e55abb5b6f6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/dropdown.rs",
+      "sha256": "42732d196d49bb4670546199362414fd97820d314facc6eaa6caff36637eb5d1"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/tab.rs",
+      "sha256": "c424234ec394a68fcc7253e559e020c733f02697e6b120e37558196d4e62881a"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/hover3d.rs",
+      "sha256": "6d55e11648e6713b513fc30b9b40a2d8af114ea47b5477cec371a308c1b8598d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/stat.rs",
+      "sha256": "0a55e9443211e414dedcdbc2adcae0165506a08969ea8f1dc0704e28e47d6747"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/stack.rs",
+      "sha256": "221fab07a4f6fa14d1ea93b7834cb19c60a07c047b1040050dda6245e56b71e6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/accordion.rs",
+      "sha256": "5f375417adf0b81617e237c1b6ce0e680637d3346735ad8b77a1febf7c34c867"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/filter.rs",
+      "sha256": "d5d329e396ce9a010e9297ae74a92c2f6196e33d783d1f13e01ad04f19d2f867"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/diff.rs",
+      "sha256": "8a6fe39b3514e6bb621e3898fe0fd13ce70ea002915ae9af6543a85832d4c411"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/fab.rs",
+      "sha256": "6654a5ff7de8bfd13b6ab2682f2999546e4f47d0f60b852f3adda2698017db2f"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/calendar.rs",
+      "sha256": "20fcbe94dcfd7523e6c966d7238992c8a3b8dd1404a91901182464a4bb3952f6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/file_input.rs",
+      "sha256": "934548ec0afe94a82767baebf3b5dd6bbd5d006886fc2469d63a5b6737bf929b"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/menu.rs",
+      "sha256": "0ef5e23d4fa4afe25e20d622a194bd006be664f9e6ccb81fc6bea4acf7c0b396"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/card.rs",
+      "sha256": "1e425bd8e95089a4fbb73ef7e3af36d00e866ab6efa9e615444e5e76c547b385"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/chat.rs",
+      "sha256": "f6434bfd57e65faddb2d0ead8c42cf0cab718974a7a94ead113437797309878c"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/molecules/text_rotate.rs",
+      "sha256": "3106b9cf5769808b2f2b564f36599800c0e5b8a90c865503a9d895b1e4f6498a"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/avatar.rs",
+      "sha256": "9d7db4ef42c09bdb85e136911e5a536ab7f0176af2a0d007e4851ffeacd230d7"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/badge.rs",
+      "sha256": "cd62039b2561423964a42e6973042e2a25c1d256dedaad6e18c53ef4d2709c4d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/kbd.rs",
+      "sha256": "1e88bb2285d85a97f01559396211f42fd5de6c75c957da86eb49d8a0794a8652"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/rating.rs",
+      "sha256": "cda9c3b320c78cb90ea01a168d8e0633132a971a9d6e57a736bc4c45db4fc598"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/skeleton.rs",
+      "sha256": "deec2d36df4bd02ead64efdc91269b7bc46b50e592a609bc437dc8df659bf37d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/radial_progress.rs",
+      "sha256": "105bc4e83d8ecd8e19db89cc52b1f5ae38d0d5e78a56bf316f4cfc51735d75e6"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/indicator.rs",
+      "sha256": "a76299ae0fb11a178996c3b992afc327340418ffc72494fae24c0cf5ab6b3ae4"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/range.rs",
+      "sha256": "c1e2c592e5b0685479c4ff51d8cc14801e8143d8c25f84632ff9cbbcc218342d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/mask.rs",
+      "sha256": "a7953e5860ee8fda49de9913fe680532cf4f74d5418bd1924d68e14fa3fae2ff"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/toggle.rs",
+      "sha256": "ed74e8f8e7c5c02fe9f208c88d896a3d4142a9054e1595bbe231fe7538b20665"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/link.rs",
+      "sha256": "7cfbfa99547ef2524cd04ae2d41936f60bc8f40111b19f1974710b876e106097"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/loading.rs",
+      "sha256": "ee8212d5443fe7b8305f49a83fce6055792369d99b08c4a6531f28334af861df"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/textarea.rs",
+      "sha256": "a4ca0c8168be6953e4b808aed1a039b13f23ad7675c02118491dc64e9ac3f531"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/mod.rs",
+      "sha256": "082614be00485af99456fa509b90651db5725348eade5a1df9f28a74e326e321"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/alert.rs",
+      "sha256": "11628b3a69e243c192a8078371943c1ed76b491e086cca95f5151f0eea756da8"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/status.rs",
+      "sha256": "97b57797d7a330dd39b609bf279797e7704c61b14f34a2edcdd517abe3723075"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/checkbox.rs",
+      "sha256": "18a33d0321dde0b882e5577753cd0992e0e49d52a5d6a224f91e8ae360df4e74"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/progress.rs",
+      "sha256": "e66605475bf9fe3211a81a358e336ad16500eb02787a5f46222a39f9a8844483"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/select.rs",
+      "sha256": "38a772a5375c08605cc7f7e57e39985270e568713d3a92ed191fbb3a2e2899b9"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/label.rs",
+      "sha256": "84399e2dd9b1054a33970b1999775992b3c6dc53d183bcedd9bd95b87366fbb1"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/input.rs",
+      "sha256": "93fed7689db73a7077ef01bfda31d1cbe2b75ad0418e20e16441136f3c51263f"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/radio.rs",
+      "sha256": "11a631e98e29d1691873e85af77b416fd07028fa04e114016e48cf66c6fa768d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/atoms/button.rs",
+      "sha256": "75be6b4d1d2e41c34b1c6992a31a46c210507d44c95c17835fb14537168b885a"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mockups/mod.rs",
+      "sha256": "9e907b2879909df6b50a9582ba84164b175c71d63fc9b937ac8d1c743bd544b7"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mockups/mockup_browser.rs",
+      "sha256": "affca72eba074298b93a917814d1be676742b76cf1b15d033af04f29df12c2df"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mockups/mockup_phone.rs",
+      "sha256": "f55bc2acf794f1fe9a8ab9b3b21837ef502a60c89b1c221acf0b99773edc7fae"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mockups/mockup_code.rs",
+      "sha256": "d0877814c617806e02eee5745e974f1faca32ee7c7b887c0dae847d7ca43e463"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/mockups/mockup_window.rs",
+      "sha256": "e8364192b50b19264a2a236bcca73b68b39039f8307114876ba47a08411736e2"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/dock.rs",
+      "sha256": "57b67b9423b7258cc111584d752ca76da4ad298247f9aecb44e1bd34536daa1c"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/navbar.rs",
+      "sha256": "f3bad7523a6126fedeacd4be89ea201fd81cbd52359e69cbe5a1d652aff602c4"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/timeline.rs",
+      "sha256": "ac643cd6061dc1104205b20ba229f1ae25401ee24c30580429fcbd202bf3281d"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/drawer.rs",
+      "sha256": "316da75b3305f20164f20fda08dc695ea698d7c842b4b1da1d062d264839c2a2"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/hero.rs",
+      "sha256": "5168c4fda5f625679742bfe674cdef8c0e646d3a13f764e3ad5afb9d6d1a6145"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/mod.rs",
+      "sha256": "82f36d6c316b57e95ae83838468fef85bca7511d767de0c231b15b8b2a76e7a0"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/theme_controller.rs",
+      "sha256": "e43b24fc2d4844b2618da08096a52ea96b716e48cba134516c141426ddaa7af7"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/pagination.rs",
+      "sha256": "21fa330b8329912dbea883630c961c7fadaabbfab92a6f1c767dd76e843b3919"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/table.rs",
+      "sha256": "2db335e962062d0f05ec83162462a0ee82fcb6685935e56277a5f8fc5b0bfb50"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/footer.rs",
+      "sha256": "5fee08639e358305dae3adfba476e7ef7c138aeb287ab4fa7db690257dc0875e"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/modal.rs",
+      "sha256": "8138424508a178665a0ba0306c23e410872be956d1d1df131cc62423c7f7b661"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/toast.rs",
+      "sha256": "80f15948d59acedb724f4dce02b72346fe3cfe7a23f1dc0dede3f5f01fb6db40"
+    },
+    {
+      "path": "dystrail-web/src/components/daisy_ui/organisms/carousel.rs",
+      "sha256": "c91b2d2e6e569ae8cd9e804f6a4b811da7f2375a8a94700ea32026373d2d2de6"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/main_menu/mod.rs",
+      "sha256": "6debfaa473421dd7d269f0a2c46bad447e83adafd2b27cd44fab5ba9e00ce3fa"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/main_menu/item.rs",
+      "sha256": "b95b2ab45dca838cb23150203db6524324e3acabaf424bb69bc2ae2f0a934bd7"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/main_menu/interactions.rs",
+      "sha256": "48e5846435241ca9dc65d7e7c219bba347e2664c22cea8342f9b112b398214e9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/main_menu/tests.rs",
+      "sha256": "bb12f71d5e5b4f36fdb4907754e73dee0f49f2c19b470eee1c3b16c073265339"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/main_menu/view.rs",
+      "sha256": "145034c84a4f34125f05b13d127ed4148107ac46b0f004f5e80c93bb3d9c857e"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/settings_dialog/mod.rs",
+      "sha256": "8d0dbe761e2c4132f1d1f6c91987b544a6e6858757b6dc4f524c670f90e9e1a5"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/settings_dialog/focus.rs",
+      "sha256": "4fd70f3774dfd73de2be0801596a3afd43c8b26e106ddb56ae76c8b8a2877512"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/settings_dialog/tests.rs",
+      "sha256": "d96ab6085dbfaaadaca65c3be84e0ec833a94df7a44342ba38902755dfa42191"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/settings_dialog/view.rs",
+      "sha256": "2ca2f9730629639cd46c5261e6863015ffaaf02c1027658097deaeda78fc8120"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/camp_panel/mod.rs",
+      "sha256": "b04417d1d18dec75ae87ca9a41540c3b685cbbe9831a0bf04a3ea5ec863c07ad"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/camp_panel/tests.rs",
+      "sha256": "6920e6f8952ea1af829f5fd49cfc8845a3e438b669ed558a2da0701246db0993"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/logic.rs",
+      "sha256": "eaf82fafbf4861177b3238c67adca9cb536e1e40fd9fe6ae140eeaea9235f008"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/layout.rs",
+      "sha256": "b7801eafa9be72c73b309453891e7c374e12b022222a101f5ded53020658581a"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/menu_item.rs",
+      "sha256": "73248adefd05e4eaa221c67389f371a8fe9277bcaaa1248deb3b3c26a88cc57e"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/mod.rs",
+      "sha256": "2043d31ae42e6cb0dfb205d58838f3b2ec465f88b43e7fa4ceed16b823830b42"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/tests.rs",
+      "sha256": "f613d5ced56e619341c81aa2c8fe8c62dbfddeeffb3520cbb84fc5688ddc8eca"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/vehicle_status/view.rs",
+      "sha256": "6e1d8561a8a7ef894f0f0c3ee64f6a03eac78946118446514af2ed65a17f2f15"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/planner.rs",
+      "sha256": "158f4924b887048ee319ccea04668288fdab86d5e703f2e126cd218a04f54e40"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/mod.rs",
+      "sha256": "314c894b2d69ec95243883aebc62ed18a2d0f02c78de6c1a3eb098ef6c34e99c"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/state.rs",
+      "sha256": "e7e3210292adbedeec0de97e26efb872b764ad189ffe8333966c364874a38b50"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/summary.rs",
+      "sha256": "7da416a0bb7e3900d013969443de2c1b06eed1514cc0c8866a01089a8c9f7343"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/crossing_card/option.rs",
+      "sha256": "beb11edd8a368ceeaa0adc14445067f045d2ab8c1fd65aeac51213da6dc1e519"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/crossing_card/view_model.rs",
+      "sha256": "784c0cbdb299cdbb2adde8e538ae188e9908c55e35f34d19f91e9955004e88cb"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/crossing_card/mod.rs",
+      "sha256": "1f091799f2bda7814592f144777affde071427afcbe4e55b8db29a1586c30eab"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/crossing_card/interactions.rs",
+      "sha256": "ed172f20a28ac6b99877bf9876f89cd9331b55382a8f862b872f242c357bc6aa"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/crossing_card/view.rs",
+      "sha256": "53fc5a583cf229c556fb053e8590585a6518592ed610cfd6a9b14330a9549031"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/layout.rs",
+      "sha256": "c53dc287158f97c21059703e2d8662943454ebcf74885988e94566b849cc1aa3"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/pace.rs",
+      "sha256": "32ce5fae876a987d6ae9acf38aa0914d870821472dbeba02f37751905daaafe9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/journal.rs",
+      "sha256": "69a3123bc8310d07fdaa1874a7cc229f59655f713dee6f587abb346d0566254f"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/tabs.rs",
+      "sha256": "e02545fbedf9e2a115c3eb842c3cffb46dbfeede1dc7e6c32c573cabe239cae9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/mod.rs",
+      "sha256": "e4969a87b270f27acb5dada01a05917b7aa6e0a45391101aa41a64a251fe572a"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/status.rs",
+      "sha256": "683e9fca962cecdc1e93af325d85e10b1840e46091dd684c2433187305e95180"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/tests.rs",
+      "sha256": "144c481d14a62334f98358a3d924440aa60009ad27b9b2e3555d5c305d0e961a"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/view.rs",
+      "sha256": "bfc8b2d64200cfafe1156e1ef54f56790179f6dac4e1b514396578b2b995c01d"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/persona_select/preview.rs",
+      "sha256": "92f4ac9e7b66eb1d04863ac1aa61620d3e114dd769826f5474b2f7677f9816c2"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/persona_select/tile.rs",
+      "sha256": "5814d874f9dac3295dbadb4d22e6251b09584a1eb3411b9b47b33bd3778fc99d"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/persona_select/helpers.rs",
+      "sha256": "4d21275b1fa8964ea03170c859092f32c6014ccfa7fdd392913d7050a8950d73"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/persona_select/mod.rs",
+      "sha256": "6b88137c20323f100fda51328d4332f8977aabb8680ec998f1b44444ad8137dc"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/share_browser.rs",
+      "sha256": "3cf53312de543d7fb33ec579d34f9261caa07f0c36016a48feb8dbf9764364f3"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/layout.rs",
+      "sha256": "eb270e5812f4296cce2997a34f5e2a45c3ab5ef3f3e68de7cf81ec6070ec9d75"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/composer.rs",
+      "sha256": "03c444862e159308e369484fb0bd08c044560074589759251d89301a17f4c4a8"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/post.rs",
+      "sha256": "0203eeded293e44d522870898352cef3e0d5eaee8215b7f6ab50927614228057"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/image.rs",
+      "sha256": "40710b6ca37b2773cd449754866b3d08ca922de9d3af03e490401bbd9a956c42"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/mod.rs",
+      "sha256": "93978e4b3e0c2d41d7b803c5f5507baebca65e67aa9ab089da7d631c6c93a882"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/crew_story.rs",
+      "sha256": "2bed68abbcde8b9bcad7722b2fae1afdc445a7f02cbad6941282720f0aa2de11"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/tests.rs",
+      "sha256": "e51671876941b9360be4bca6b150d7572eb78f878924b97627f686802decf9f9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/share.rs",
+      "sha256": "ea7af543953b6ed2b82cf9e3b275eac65f03a9a540929a03a147f378893ee52a"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/menu.rs",
+      "sha256": "98dc871b1fe02cbf963e6aeb003df4c57a51913a6b6124f0a140741050ecb5c9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/result_screen/view.rs",
+      "sha256": "ed253cef5ad0c5e1c2ad202516ad849d3e2c334c1d7b08a8bf5d1cfa72af5c46"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/route_map/labels.rs",
+      "sha256": "3ea301d7cacb191c3ad04bb2f3d1b0a5572604bccda55ae9fc5cea1cabcec050"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/route_map/mod.rs",
+      "sha256": "a9fcd8b1be7a36000b32369fb5b666b4a02161186c9820d9422c6471a7b0c67e"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/route_map/tests.rs",
+      "sha256": "0e44efe4b0068705c0ac212427335b424a5fa012b732d7aa551e501b9c7b7bb8"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/route_map/location.rs",
+      "sha256": "cc3f42994f482e5f641e974109a303f60a7ab06cb6e9393f6e4bfb88caaf71a2"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/route_map/graphic.rs",
+      "sha256": "f2e842a2cdce7c13d2b3c6be0311375f579999ce417c0da30a9705a7e1d0c975"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "sha256": "f6096b531f9e47afccc452b9055f47ced12b1be6b560136d2b1fda984732105d"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/parked.rs",
+      "sha256": "73f35032ad65aa4943e900829393985fd3ef49f04d51f59dc1095d1fac87f2ee"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/encounters.rs",
+      "sha256": "f89ee781f7d54c8e8c028fa11f85ec1eb6f9f480a0e3b720e0e4924214cb84a4"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "sha256": "3cdb5af3c965e48e7f8be3f8773813324fe87f19a96436c622c9fede97143769"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/van.rs",
+      "sha256": "ed9e33f06779e65df927c4105630c02487819d03add6fcf1c0198d6a14f57d43"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/line.rs",
+      "sha256": "9c4de78b7e9057cece6c90c1acef2a2ef31bf7ebc6bf4d373c5d64c32fb3796f"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/options.rs",
+      "sha256": "22aa0dae0c3c30b90f664b4f31f633340d70d50898960961d78b3875e0f441b2"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/mod.rs",
+      "sha256": "431e6e0fa386277c648ed4233f7efb008abda57cbd6ab08d74912ec92784c138"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/interactions.rs",
+      "sha256": "c0d1f8e5566a6cf1d4a595a65b3812e03a0de36ff37b6cb95113727fda2420f5"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/selection.rs",
+      "sha256": "4048302ffdd1ed089de819ca99610866a1f9426827c94aa2aed89b5184f4f9cd"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/pace_diet_panel/tests.rs",
+      "sha256": "4b4e3875c388873fd34ef9e7c66f928b8cbc536c9dfee54e74ab1889bb31d1eb"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/weather.rs",
+      "sha256": "ae6bd63398eac7c8be93f5f018a0f00d2762e4687c3fa35983beb86bf62144cb"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/policy.rs",
+      "sha256": "edfb4c372702703bbd8008336b7aec2139c787fd5e77eeb66e31581400ab1f25"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/helpers.rs",
+      "sha256": "fe92986620c5f2f1cd0686bb022d23f8f0e1ec00b1699fa3a3443fbe50038ce8"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/mod.rs",
+      "sha256": "28a5cd13365a12a0d4c1ca4f0743332a1f5267e628e7819310fcd516101eaac7"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/tests.rs",
+      "sha256": "af7554c03f9c3ca4f9bd25584ef2bcc3ceeb2ec939130a09b565a9e256c513cd"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/leg_summary/tests.rs",
+      "sha256": "6f0019a26c426f00abca0fbdab9c83a845b4f17e36717a28f10f423ff4175e4c"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/save_drawer/mod.rs",
+      "sha256": "f8e7f90c3da2fe76646f73a10fd59e2c1d09196a12c7a9c13948a0a9f8bbc896"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/save_drawer/focus.rs",
+      "sha256": "2f3a3148efa745d239c3850a1b810f09c23a9b3f14bee53cf3d1baa98ece4b9d"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/save_drawer/tests.rs",
+      "sha256": "f3e5e44fd164409c11e7a569ee203b0eeb146e4ca2c8efeea0b87da8f66492f7"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/save_drawer/transfer.rs",
+      "sha256": "a92f8f1f74b0aba151dfbbbcdf7f6b05fc0070d11e809ee62a84b3ef849db071"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/save_drawer/view.rs",
+      "sha256": "64a4f0bf8c03b1c4969f4e75a771ec42fb6c99a7c18db0801fecd14c2ef8c45b"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/journal/tests.rs",
+      "sha256": "24f51e491181e17cc1cd43aaeeae0e1c7912e28605e31ba2c5af1fceaf62302a"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/journal/view.rs",
+      "sha256": "1429111e8e785c7a479fb6e44422640f331704e3fb93e8f332c14faa3438c603"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/travel_panel/journal/day.rs",
+      "sha256": "a6600401fc6e197c5dbaf07f0bb2ac66b0d85d710892032e89af9b0db6f201c9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/home.rs",
+      "sha256": "3f5676cce1970e245c7f33141b52a8b37d0738ede35877e331e5babc8a92dc81"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/cart.rs",
+      "sha256": "649a7f5cdd3936a35422e3e81f62058e506515f8deacd83428e65b37c998efc9"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/mod.rs",
+      "sha256": "f349539c8177005e0d57a1388b577a7797aa5ac3d760a9b0a5ad1566b7ec2c4b"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/category.rs",
+      "sha256": "7c14b7659d39590db350a4d94cb7e5e731365cd4724c4eeca251f0c6f350cc0b"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/item_quantity.rs",
+      "sha256": "cc6df63e4c9e252e7e3fe30ea7e5f74dc1826b332122632927cee024da73f59f"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/item_card.rs",
+      "sha256": "5d735b4240f819e1e723360ffd6c5f922131c0d2aeacb7283d4669c7f357e9d0"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/handlers/mod.rs",
+      "sha256": "f5908b234db4b0ad8971ff7f1b29fc153fad7f868715cb0f7da5ff0d1d725cb3"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/handlers/announce.rs",
+      "sha256": "ab12bb009f24fc26bc4a3ab034f601e2053251aab90aad200f133cf88417481d"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/handlers/quantity.rs",
+      "sha256": "10274ba9ca7a7f89deed698e030836afedc32661b5c724a59b7b55bfecdf0882"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/handlers/navigation.rs",
+      "sha256": "9df184a55797f978c64bb49f25b251a1e928441c20c44a4a9a4931f2c8b5d722"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/handlers/checkout.rs",
+      "sha256": "b11c30d59fe5c0c980b4c0677a0a9373138894f4634e34f15143cfe9ab862729"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/quantity/mod.rs",
+      "sha256": "30e1f5b8d3363778d641389a74c0b3a4e8074b7c3878a6cd442752632d999a38"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/quantity/options/render.rs",
+      "sha256": "cdc682ac991f15fec5c0b28a1bcc7b5f44e61042acf38d727291a26232afa931"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/quantity/options/mod.rs",
+      "sha256": "4a62ec34372b05a4055c31cd94c4ef4843ede61eea919877a85396eca2c1bf61"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/quantity/options/callbacks.rs",
+      "sha256": "1835c6330c31ea063433338d85f97d8601f45144d59d01e394dcae54ec51978b"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/outfitting_store/view/quantity/options/builder.rs",
+      "sha256": "e79dd1836708f733345a213a70a3372d691d97147ffc0b8d1bf626e0891860cf"
+    },
+    {
+      "path": "dystrail-web/src/app/view/mod.rs",
+      "sha256": "174124541c5d1bf17c315120c9d134898a69015d23febf07b41729711f574b74"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/boss.rs",
+      "sha256": "9153b86a4a2d022988e15a0fd977e27b8fdef1c4ba3f8a8a8d92a4e8ab5629f9"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/encounter.rs",
+      "sha256": "b1f67b7fa10f731171e87379cfec845192aac919836b9ed913eb2a8b7c10df40"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/persona.rs",
+      "sha256": "46724dc3b1b313e4a6cf65243a3b06dfa2f763f8b142b3d7bd813c625f79d0f2"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/travel.rs",
+      "sha256": "3dcbc34191ef74ab04971e78ee4f5f7473cb2c33f488ad4985864f4c63bf08cd"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/outfitting.rs",
+      "sha256": "a75d1b178efc3293b9645b58357562c5bac683679887e875b8a4ec0df98f8592"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/mod.rs",
+      "sha256": "1df7968693b9b72b8baf824062722f88049d8a09195e3ea260f6b19b823466e0"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/camp.rs",
+      "sha256": "b622dca882aa384886535d9cd2c5dd2b6d2b697ff44b7f14150b4a27ac80e997"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/crew.rs",
+      "sha256": "1035345bb584b076f6c4ea96f0f83d7b30d47c21b99ac4053ffe538d133febfe"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/aftermath.rs",
+      "sha256": "703c4263b958c4ac63227c41ed71934b0c12d0df3673df466af04df89996903e"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/menu.rs",
+      "sha256": "fbc6d6614d9ef4fa312909856930b964f1ba9070ac31518d19f05538824b44be"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/result.rs",
+      "sha256": "00fcc698bbd3593c2d9f95b9883633c612fd06389cb140c863f2ee645c46e0aa"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/boss.rs",
+      "sha256": "562e4424465ed3477e50575c1669c9d421ebd303cb69e60400e36b3d162761b4"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/travel.rs",
+      "sha256": "717adb2c4eb8cc5d99892ce5de5a74f1b584bf7cf2a8243f87a8acc7c4bc0fc0"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/mod.rs",
+      "sha256": "c1b62f3b3e1838db1a8aaeba5010e6e28007a5162201f51445cc0b2228de5680"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/storage.rs",
+      "sha256": "e40ac9ec45f02dda4e1c6cdd42112d7188ff2ddc7bd56e5cd05a8e775fd2202e"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/prefs.rs",
+      "sha256": "76d958527876472c32d687d496c213c0d5cba8c251e747283d90611bd61869dd"
+    },
+    {
+      "path": "dystrail-web/static/licenses/lucide.txt",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "dystrail-web/static/img/palette.png",
+      "sha256": "f9dff3ec6f9bc3095ebcbfa6970e0efb0b44fc37d2c67765d4cb1a463881d4bd"
+    },
+    {
+      "path": "dystrail-web/static/img/app-icon-512.png",
+      "sha256": "8d4f62fde20e475f1536cf065ec09ee1ec74eae11f3d60179f8459f7bbbec701"
+    },
+    {
+      "path": "dystrail-web/static/img/social-card.png",
+      "sha256": "4cce199221b7484bd64a4cc0583393bb4bbe99e4707ab63e9819da70589fb692"
+    },
+    {
+      "path": "dystrail-web/static/img/app-icon-192.png",
+      "sha256": "6f3b859c66c44c293db039b01f0091a35093bfa414f301dcda9dc89375020acc"
+    },
+    {
+      "path": "dystrail-web/static/img/logo.png",
+      "sha256": "7a4cdb77c2720d5672a14cb1e03eae9f82acd99d06de9b41cfa2149196256e49"
+    },
+    {
+      "path": "dystrail-web/static/img/app-icon.svg",
+      "sha256": "adcb48e4ad98158d76821479f8e8119490c1444ecff7a5cbfdc8b3e77754bbba"
+    },
+    {
+      "path": "dystrail-web/static/img/logo-temp.png",
+      "sha256": "b935a53e309bbda27e8f675d870bad16746b7ecd106773a6c1b379aafb4e6cad"
+    },
+    {
+      "path": "dystrail-web/static/img/spritesheet.png",
+      "sha256": "069874329444ffefa08cdec7b1c98e4ee82a6d8cef207bf273cc8ef4fe25a7b9"
+    },
+    {
+      "path": "dystrail-web/static/fonts/noto-sans-arabic-arabic.woff2",
+      "sha256": "69cdf0bf005fdc9cc13fb5a8581697eb9ba8f761aeaf255fc717d14c62c38891"
+    },
+    {
+      "path": "dystrail-web/static/fonts/courier-prime-bold-latin-ext.woff2",
+      "sha256": "078c780980eb6dc4865a9d738b8230e0d3b5175b3ae7dee7ec4978d75af6efc3"
+    },
+    {
+      "path": "dystrail-web/static/fonts/provenance.json",
+      "sha256": "af8bed4ca25b32010ff4d91b7f794143c150039995663361d1cb696cb769e2a1"
+    },
+    {
+      "path": "dystrail-web/static/fonts/atkinson-next-normal.woff2",
+      "sha256": "abde1ad5cf78b9ac575ef90d991f2e9101eb0b3b6668bde9a00e2e1e27d99afd"
+    },
+    {
+      "path": "dystrail-web/static/fonts/atkinson-next-italic.woff2",
+      "sha256": "34491c5a87f711d314637962f69267d28c7df3ed498082c990cdfbbc02ebf3f2"
+    },
+    {
+      "path": "dystrail-web/static/fonts/courier-prime-OFL.txt",
+      "sha256": "9a755af092b494944c99f471be6fddd19b006a448fefdc4717e4ee0aa09a97b0"
+    },
+    {
+      "path": "dystrail-web/static/fonts/noto-sans-arabic-OFL.txt",
+      "sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96"
+    },
+    {
+      "path": "dystrail-web/static/fonts/noto-sans-arabic-latin-ext.woff2",
+      "sha256": "ebf1bb8a062aa6693b51fbeaf6b8d30d6456869e3f169230e4c35cc60b96aafb"
+    },
+    {
+      "path": "dystrail-web/static/fonts/noto-sans-arabic-latin.woff2",
+      "sha256": "20d51311e187e0ff5be9d6fe24f099e97be6cc583078d6f271c74d68920cd1e0"
+    },
+    {
+      "path": "dystrail-web/static/fonts/atkinson-hyperlegible-next-OFL.txt",
+      "sha256": "aca6a428580965d2297d1b718042dd427c2a9443ece3b0d02d758e161e0c4030"
+    },
+    {
+      "path": "dystrail-web/static/fonts/courier-prime-bold-latin.woff2",
+      "sha256": "06622415713b4150c18f4489db7c8850300d9f3e55051fc78ed33dca88c5ff08"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/boss.json",
+      "sha256": "d4fbcefe0d82ca5d3f8a212924aa68dd14db0628e763b58bf23d31a6314f4e5c"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/vehicle.json",
+      "sha256": "d27d644dbda301a51b61141ddf558c1424803f441ee99e354651d52810eafb60"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/result.json",
+      "sha256": "51a417be6df8553fc5663c95d560a76a2a2d30e5f9e1ca6d4d27accfe6a95d56"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/exec_orders.json",
+      "sha256": "b8c4958599db3d26d9038291db9141fa68f246455f6956b31e870e997129a8f2"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/store.json",
+      "sha256": "e5c0b929a1cc70f5095e1578f5e20960b266b93aa26a6393fd2acf0e1547de45"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/game.json",
+      "sha256": "7f04175c5e65ac6ab48445fd8b6c8ec5701b82a1c5a9da0dd2c37199a7cbfcc2"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/town-facts.json",
+      "sha256": "70f5843f9d81f10ea59db74b867d57f92b268e5bdd1e445d3a98d8f9b380abf8"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/endgame.json",
+      "sha256": "9735dd3d752b809f6b7007a3f48baa527558cf9352070462635e213de1582a47"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/personas.json",
+      "sha256": "5d027e1b1ecb5cf48a782c10ee8c400329eac1b2aea8a326d0e8ab5729a5a4b2"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/camp.json",
+      "sha256": "fbcac939ee540c6019de1bdfc3f6b67a095b38bd132e7fd563b0f50fb1c8f96f"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/weather.json",
+      "sha256": "4ea70acfb7ba3b653c56dce41ab3bfcbab8a20cd1116abf7e331044314ca8aef"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/pacing.json",
+      "sha256": "bcf99ae4f3a3c511a62dab1e57aa60a16c0037eca9bc4509ad8f37910e0f20ff"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/town-profiles.json",
+      "sha256": "11a8b4470b78456b3a0b4a3a4d7b194d80fab2bfa4bb2702c948166cec25d765"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/satire-sources.json",
+      "sha256": "6714120cb5d08a7802c46e1dbc64a322d0544eed0a13652d0dd9eee125ece03f"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/crossings.json",
+      "sha256": "f2a664b697614471e843086448c623775582c541f8834264b80c5c93fe5ab0f7"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/classic.json",
+      "sha256": "ca719bd5a910be796ca26da2e1d304c2b29ab0978365ec91ee0aad3501fdc1a0"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/deep.json",
+      "sha256": "23732b5e4af6ceef1234dc3ceff1e1513b60b2d292164146e3b9eb478e570a43"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/overlays/resource_manager.json",
+      "sha256": "3cad68534fada60cf8b90d7bd7be9aab6e77df0e0050a32dfbc01d351fce0dd5"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/overlays/conservative.json",
+      "sha256": "9a1c78f5e4efde38e10833403ef0395270ffc2ab30bb0969adcf26c45c5a46c7"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/overlays/aggressive.json",
+      "sha256": "c9d7fe1153b50bf6bda0b717b4e8ea7893ac63ab8adba5037ebc0e218a2c8a82"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/overlays/monte_carlo.json",
+      "sha256": "25751192a6e1741c9fbda5e1f1bb474c66e2109a1b2e0f72578e20c23d66f9cf"
+    },
+    {
+      "path": "dystrail-web/static/assets/data/journey/overlays/balanced.json",
+      "sha256": "3fc1d4bbc18cecc58e479aaea63620bf19d80c60e3443569a70afe03c06aaae1"
+    },
+    {
+      "path": "dystrail-web/static/img/status/cash-v1.png",
+      "sha256": "b92f3b6148bc27dc957af1d430a6c1ad2ced71e49142ea83524f6b2d8e18a237"
+    },
+    {
+      "path": "dystrail-web/static/img/status/distance-v1.png",
+      "sha256": "bb378023de222cca1a10144cedbbdb95cc57954d372b4488e935eb747d074ca5"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-clinic.png",
+      "sha256": "33981456fe2b66bcc5659e480416bd2c10d73e0cbc6f565ed294f13e2e2d905a"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-beltway-suburbs.png",
+      "sha256": "01a34e87754c95b21d8c95a37496d4a8072355c9c96f8f84303276c4a0f91eff"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-beltway-parkway.png",
+      "sha256": "c26e9df42322a201f6aeb16e091a65b4811342d23240c6eee25ec73fa3be40cc"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-service.png",
+      "sha256": "a02d770c28d2ef4aecb999d882cd6d36e73031112d21166a6fec943826854afe"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-lobbyist.png",
+      "sha256": "f25d777ab60220c89472f70b50139beab163efd9a1dd2b9378e8364733ede02b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-great-basin.png",
+      "sha256": "5a366f5448686d2752e09de96d940335a7b8072c2747aebc93457b6b13f5428e"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-street.png",
+      "sha256": "794698037295be8fa4f77b3e827493d90cf09762023d9b8c345116c2269fc1c3"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/rustbelt.png",
+      "sha256": "42c0011a1a9ca37134f493fc3b005bd2040c0cc893458d19cc705e29aa63d16f"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-heartland-prairie.png",
+      "sha256": "de63d22e3c41a16b51db71c07504d23dda4f498daabdc44ea18658a6b80e50cb"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-night-briefing.png",
+      "sha256": "53ce6b23df3743b5866366b7f1ff7637a52f76ae4cf64c6e27abf1e6e524283f"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-mountain-west.png",
+      "sha256": "19cf48252db2e773ec5475242c0ab50b67613757240b11e756d2e4a5999ac5e7"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/personas.png",
+      "sha256": "483f319ca6e563a39890874e0f1ccbdf1e0a63961a35d880e673ef7f58aa7d9b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-staffer.png",
+      "sha256": "a4a52c97a0ecd871c545cd8a24cc8bf6ac0fb1cbbc5c5c329b20122eaf39413d"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-checkpoint.png",
+      "sha256": "2ba07cb7c6d7cf90efa88537f695ecb3ac1be53d57402fc9a38184d06de04f4b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-media-workshop.png",
+      "sha256": "7ef193d23c53015a2c940c2635440970d00e877a5bf077f01197029f82bc2db6"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-community.png",
+      "sha256": "cfd788be9a4a799d9dce393eb56e74bd0f8d262ca03eff65df8006fb96dae2f1"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-satirist.png",
+      "sha256": "1a1a13de2dfd187a998f0b209a8927f83ee7722ffc825b7068ab4e9ded588230"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-radio.png",
+      "sha256": "c6063d41c3da32f90fe0aeec339f95b6dd5c22d6aa42575a3ae2c9cdeaf5f070"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-bridge.png",
+      "sha256": "296c58fdb7ab945a27332f6eb60845e0064793a392d7c94b5ba85ff30fde74c3"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-whistleblower.png",
+      "sha256": "b30c7280deaa25df94f30f58dfb6e0076820f2c1ff741b7596866f2114385668"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/camp.png",
+      "sha256": "cd0112b449fe098d3345d352f70ba15d401574a57622b699d0b451a03558e19b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-appalachian-ridge.png",
+      "sha256": "52a50ccc02cac320ac2e343b93f367c84deba48c1c366ffbd2acaacad0361aa5"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/encounter-settings-v3.png",
+      "sha256": "d75a00dc682fae68f7fc6ca8689316dccb7e7fb1852d18fcd0deb1665647031d"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/standing-crew-v1.png",
+      "sha256": "079581d3d501519c8a8f3dc665b71693258f36cdf87281911785d7a9bd48d510"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/encounter-settings-v2.png",
+      "sha256": "b82e560689c1379cedf49a04a7fabd057dca7efa5c847dcb7d1ad807f8f7ff64"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/western-settings-v1.png",
+      "sha256": "88519b4cf18642c11e1a764637e64eb447be9558151775725597c2cdfc6bd28b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/van-empty.png",
+      "sha256": "8e66cf17ba27a60fd82e92b81a8c80bcb389873fd2b638a123382144a26cc322"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-convoy.png",
+      "sha256": "744077d6620e2a7a3ef63f8f1b4f7c8807c6791ff21374412a5ea48237431f3a"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-journalist.png",
+      "sha256": "453c6a65d35433fb0150ee5e2d5fbad2d1a82e2732278eb0c9a222dcd08da90f"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-rustbelt-foundry.png",
+      "sha256": "95f3297657c71a1bccc77a821ce67c001b0c1359489ef6a73c864cae1f417017"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/milk-deep.png",
+      "sha256": "4d0e24be1e6fe56cdfe66df7d3c01d8d3b3a879082ae50e9038de61031573af3"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/enc-civic.png",
+      "sha256": "0790094ee6f5c5a198f9520a98642650804151e9924f3cc9790a1c2e9b708af0"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/road-deep.png",
+      "sha256": "3d51facfa907124260dc43aaa2752cb0f5f3f93e00214d283b2ebbcfe5982646"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/town-npcs-v1.png",
+      "sha256": "249cf728c028bbfff155c5cd0680f74eb51859c90f769a7714ce8da54eb6023a"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/van-crew.png",
+      "sha256": "9a6e2c8aa3a073a3dce75c13f2bba175f0b777e0448c063a33e8a2fb615f1dba"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-california-hills.png",
+      "sha256": "4656c54eb75d68724025529ed457b70483de2693130d870a0ba3c0cbd8bc34db"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/occupant-organizer.png",
+      "sha256": "9db44253e4bb0d0a850a0b1bd37ce9b6c740c29acece25e92df7a69f32d1fcd1"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-southwest-desert.png",
+      "sha256": "83dbc681cd2f6f006b8ce9a635c841054341eedd9e62aaabb90a3a1750b3f297"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/road-classic.png",
+      "sha256": "4f8d7a2fe22fd94f63c52e41a6b638a49ba4ab53d44b05ee1413b4685b85f111"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-pacific-northwest.png",
+      "sha256": "33f283a6af4de40073100e92b5c05ddb1b37d324043e876b2d2e82f650b4b9a3"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-heartland-orchard.png",
+      "sha256": "48886bd79a046e5bb774f7af26592e6e37fa618b57607c1254648f0d23f44f88"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/journey-settings-v1.png",
+      "sha256": "6d023c4e0ca2db447a05be3c26ba550482024d8cdd38151804b830d02291d655"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/beltway.png",
+      "sha256": "a59a1f680105b2134e70f81a0fa5bd94276060b884e728a6629fe68f54218d0b"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/milk-classic.png",
+      "sha256": "2e7564697b51b74d6676c8a171c5b078b36c756760ad4e83c441e6c1e7cede61"
+    },
+    {
+      "path": "dystrail-web/static/img/journey/open-rustbelt-lakeside.png",
+      "sha256": "448ed2d15b9f3078b42e1f0f00ce51fc07fe9048aa9e69430ea2843952695eb1"
+    },
+    {
+      "path": "dystrail-web/static/img/map/us-states.svg",
+      "sha256": "899ebe170d7dbfbff96baf1116a8ac8b12f2522424cce3fb052b8b96053aac22"
+    },
+    {
+      "path": "dystrail-web/static/img/items/coats-v1.png",
+      "sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7"
+    },
+    {
+      "path": "dystrail-web/static/img/items/battery-v1.png",
+      "sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b"
+    },
+    {
+      "path": "dystrail-web/static/img/items/fuel_pump-v1.png",
+      "sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916"
+    },
+    {
+      "path": "dystrail-web/static/img/items/rations-v1.png",
+      "sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d"
+    },
+    {
+      "path": "dystrail-web/static/img/items/masks-v1.png",
+      "sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce"
+    },
+    {
+      "path": "dystrail-web/static/img/items/spare_tire-v1.png",
+      "sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673"
+    },
+    {
+      "path": "dystrail-web/static/img/items/press_pass-v1.png",
+      "sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb"
+    },
+    {
+      "path": "dystrail-web/static/img/items/water-v1.png",
+      "sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e"
+    },
+    {
+      "path": "dystrail-web/static/img/items/alternator-v1.png",
+      "sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7"
+    },
+    {
+      "path": "dystrail-web/static/img/items/legal_fund-v1.png",
+      "sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814"
+    },
+    {
+      "path": "dystrail-web/static/img/items/ponchos-v1.png",
+      "sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157"
+    },
+    {
+      "path": "dystrail-tester/Cargo.toml",
+      "sha256": "944dbab2ecc8b9d0decee52c560f2784d2fafbf77d0640bd17a580b468f7722b"
+    },
+    {
+      "path": "dystrail-tester/config/example.toml",
+      "sha256": "05b41d77773bd0f4f9bde5f884f85ee026540d95ab1d2815cb3ec7e025531e68"
+    },
+    {
+      "path": "dystrail-tester/src/main.rs",
+      "sha256": "6d468500a20ed1a94f95ec1bb767bb79d12307f3753957067bf8c8686d5ba7f6"
+    },
+    {
+      "path": "dystrail-tester/src/logic/policy.rs",
+      "sha256": "832bfe5f6511bedcf10ae3805e9ab6e38e5ab02a4a47fab607126bc8c2ab32a5"
+    },
+    {
+      "path": "dystrail-tester/src/logic/logic.rs",
+      "sha256": "7bb7fcb4020d463901abc0e30c4a410ad57181b5e38dced38b0c0ba70ece78f3"
+    },
+    {
+      "path": "dystrail-tester/src/logic/playability.rs",
+      "sha256": "4ee99e82cce7a57d0443873fdcde6812ef4227ba4ac8686380f7222ec08f5dce"
+    },
+    {
+      "path": "dystrail-tester/src/logic/simulation.rs",
+      "sha256": "f2c3401b1716a2733666000ae568f7866bfa0ce6e496eb9307136b1f4621ff50"
+    },
+    {
+      "path": "dystrail-tester/src/logic/tester.rs",
+      "sha256": "eaeb673a5b3fb864a527c96c154de060306e9f92040bcb82b05d36592cf78498"
+    },
+    {
+      "path": "dystrail-tester/src/logic/mod.rs",
+      "sha256": "3399045f487ce664396d565973189b259717f5be330d8f6683e7b7474f71a528"
+    },
+    {
+      "path": "dystrail-tester/src/logic/game_tester.rs",
+      "sha256": "6bdd1a8ef00c80b29ee9bbcd6653d56e913c21e3a73bd461180a5f579197a000"
+    },
+    {
+      "path": "dystrail-tester/src/logic/seeds.rs",
+      "sha256": "9d0d4d18547b3bfc3d43d60ab091c7af7a4993c2f359b87ed2812e1a91b7d992"
+    },
+    {
+      "path": "dystrail-tester/src/logic/reports.rs",
+      "sha256": "ab240d5fe357386ef53b99b9d4630dd2723088619f49e7d493f018e880f5f351"
+    },
+    {
+      "path": "dystrail-tester/src/browser/bridge.rs",
+      "sha256": "70444bdb3b7c24ed79feb9bded0ab91d50b29e8d69ae7ef38a432eaec011fc3d"
+    },
+    {
+      "path": "dystrail-tester/src/browser/session.rs",
+      "sha256": "66d3f944a5ec5845f5b62b3784461bdccab172c878220b52c60ac02ba0fcf48e"
+    },
+    {
+      "path": "dystrail-tester/src/browser/mod.rs",
+      "sha256": "1f6734c80a6f2f44018c7a460f20348c6e9425e131615c4994333b570986fbe1"
+    },
+    {
+      "path": "dystrail-tester/src/common/util.rs",
+      "sha256": "4a1dab16c10371e79cfded5bbeed5c3fd893c0f022cf20958fd43a3e3348eac5"
+    },
+    {
+      "path": "dystrail-tester/src/common/mod.rs",
+      "sha256": "8b46c14e5554229a3d75a705b5e1ac423c0ded53998fd84ddaade553e45a889f"
+    },
+    {
+      "path": "dystrail-tester/src/common/scenario/playability.rs",
+      "sha256": "0e89d18a895cffa5159c5a70639f9ba12086d6c109c6e3a1fa509ba65dd8fcb2"
+    },
+    {
+      "path": "dystrail-tester/src/common/scenario/catalog.rs",
+      "sha256": "80e400f3dde7ecd133c65ed3d52ceeceebf211740555464a9ff0ab5883324ccf"
+    },
+    {
+      "path": "dystrail-tester/src/common/scenario/mod.rs",
+      "sha256": "58b7a5b909b6fdfa334b6d25db277e7142ffed4f2c20ae98a15294f93fca9e8a"
+    },
+    {
+      "path": "dystrail-tester/src/common/scenario/smoke.rs",
+      "sha256": "c4cf3614fa470f3ed3b4f39c5020adf5e43e54bdf81e281f4161162f29017f44"
+    },
+    {
+      "path": "dystrail-tester/src/common/scenario/full_game.rs",
+      "sha256": "e8d47d87193790ce74ad0ad262acbce0f723e0f2699edce62db035f2395ba3d7"
+    },
+    {
+      "path": "scripts/build_offline.py",
+      "sha256": "445b628c2d7ec4777fdf599ff753cb3159b34d39ef97a8bee924b1311607fb9e"
+    },
+    {
+      "path": "scripts/offline-worker.js",
+      "sha256": "aa44fdb8065e262b5e3ad13b8bcd4f3426c37d9636bbe7a9440652af4aee5522"
+    }
+  ],
+  "accepted_tester_files": {
+    "dystrail-tester/Cargo.toml": true,
+    "dystrail-tester/README.md": true,
+    "dystrail-tester/config/example.toml": true,
+    "dystrail-tester/src/main.rs": true,
+    "dystrail-tester/src/logic/policy.rs": true,
+    "dystrail-tester/src/logic/logic.rs": true,
+    "dystrail-tester/src/logic/playability.rs": true,
+    "dystrail-tester/src/logic/simulation.rs": true,
+    "dystrail-tester/src/logic/tester.rs": true,
+    "dystrail-tester/src/logic/mod.rs": true,
+    "dystrail-tester/src/logic/game_tester.rs": true,
+    "dystrail-tester/src/logic/seeds.rs": true,
+    "dystrail-tester/src/logic/reports.rs": true,
+    "dystrail-tester/src/browser/bridge.rs": true,
+    "dystrail-tester/src/browser/session.rs": true,
+    "dystrail-tester/src/browser/mod.rs": true,
+    "dystrail-tester/src/common/util.rs": true,
+    "dystrail-tester/src/common/mod.rs": true,
+    "dystrail-tester/src/common/scenario/playability.rs": true,
+    "dystrail-tester/src/common/scenario/catalog.rs": true,
+    "dystrail-tester/src/common/scenario/mod.rs": true,
+    "dystrail-tester/src/common/scenario/smoke.rs": true,
+    "dystrail-tester/src/common/scenario/full_game.rs": true
+  },
+  "website_change": "Remove stale Pants-mechanic copy; preserve favicon and approved offline CTA",
+  "exclusions": "Source-only test harnesses, source/content review tools, documentation and pinned build configuration are checked separately."
+}

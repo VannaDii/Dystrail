@@ -1,0 +1,57 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-encounter-arrival-preview/source/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/private/tmp/dystrail-encounter-arrival-preview/source/dystrail-tester)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.14s
+     Running unittests src/main.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_tester-334413771449cb4e)
+
+running 25 tests
+test logic::game_tester::tests::boss_flags_only_when_attempted ... ok
+test logic::seeds::tests::resolves_numeric_and_share_code ... ok
+test logic::simulation::tests::a_completed_camp_day_resets_the_clock_without_driving ... ok
+test logic::playability::tests::encounter_catalog_contains_rotation_additions ... ok
+test logic::simulation::tests::care_spends_supplies_and_a_fatal_deferral_stops_all_later_actions ... ok
+test logic::playability::tests::validate_targets_enforce_distance_window ... ok
+test logic::playability::tests::validate_targets_accepts_balanced_sample_data ... ok
+test logic::playability::tests::validate_targets_enforce_average_miles_per_day_band ... ok
+test logic::playability::tests::validate_targets_enforce_classic_crossing_failure_cap ... ok
+test logic::playability::tests::validate_targets_enforce_deep_crossing_failure_cap ... ok
+test logic::simulation::tests::roadside_repairs_use_owned_parts_then_affordable_player_options ... ok
+test logic::simulation::tests::town_and_route_preparation_match_the_configured_journey ... ok
+test logic::game_tester::tests::boss_config_loads_balanced_biases ... ok
+test logic::game_tester::tests::store_purchases_match_shelf_prices_capacity_and_available_cash ... ok
+test logic::simulation::tests::gathering_uses_the_players_cost_and_persisted_cooldown ... ok
+test logic::game_tester::tests::balanced_setup_applies_persona_and_store_plan ... ok
+test logic::simulation::tests::final_hearing_spends_two_hours_once_and_records_every_stationary_day ... ok
+test logic::game_tester::tests::miles_reflect_miles_traveled ... ok
+test logic::playability::tests::deterministic_journey_digest_baseline ... FAILED
+test logic::game_tester::tests::balanced_run_survives_past_day_45 ... ok
+test logic::playability::tests::generates_records_for_each_scenario ... ok
+test logic::playability::tests::deterministic_csv_digest_for_fixed_seed ... FAILED
+test logic::playability::tests::aggregates_match_record_counts ... ok
+test logic::seeds::tests::expands_all_share_codes ... ok
+test logic::playability::tests::balanced_samples_hit_survival_and_boss_targets ... ok
+
+failures:
+
+---- logic::playability::tests::deterministic_journey_digest_baseline stdout ----
+
+thread 'logic::playability::tests::deterministic_journey_digest_baseline' (72387791) panicked at dystrail-tester/src/logic/playability.rs:1298:9:
+assertion `left == right` failed: journey ledger digest drifted; update baseline if intentional
+  left: [119, 109, 124, 97, 142, 246, 35, 155, 102, 179, 205, 240, 113, 115, 190, 90, 88, 23, 136, 14, 65, 126, 248, 229, 141, 114, 233, 14, 234, 160, 22, 80]
+ right: [119, 47, 185, 75, 143, 178, 235, 124, 7, 160, 121, 106, 184, 88, 95, 106, 255, 188, 53, 147, 246, 149, 62, 54, 39, 126, 40, 12, 207, 13, 136, 161]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- logic::playability::tests::deterministic_csv_digest_for_fixed_seed stdout ----
+
+thread 'logic::playability::tests::deterministic_csv_digest_for_fixed_seed' (72387790) panicked at dystrail-tester/src/logic/playability.rs:1141:9:
+assertion `left == right` failed: canonical CSV digest drifted; update baseline if intentional
+  left: [39, 128, 177, 190, 191, 110, 6, 115, 162, 124, 52, 165, 91, 44, 117, 134, 196, 34, 17, 33, 71, 226, 160, 124, 167, 167, 68, 95, 1, 81, 147, 68]
+ right: [250, 181, 157, 164, 247, 155, 25, 225, 94, 187, 32, 180, 92, 225, 5, 32, 211, 65, 5, 237, 219, 68, 171, 175, 124, 106, 163, 23, 45, 249, 181, 89]
+
+
+failures:
+    logic::playability::tests::deterministic_csv_digest_for_fixed_seed
+    logic::playability::tests::deterministic_journey_digest_baseline
+
+test result: FAILED. 23 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.91s
+
+error: test failed, to rerun pass `-p dystrail-tester --bin dystrail-tester`

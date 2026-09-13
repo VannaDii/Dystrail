@@ -1,0 +1,36 @@
+(node:84471) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:84491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:84491) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:84491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (1.7s)
+
+
+  1) [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 
+
+    Error: [{"class":"journal-entry","width":382,"left":12,"display":"block","wrap":"nowrap","min":"0px","max":"none","flex":"0 1 auto"},{"class":"journal-story","width":356,"left":25,"display":"flex","wrap":"wrap","min":"0px","max":"none","flex":"0 1 auto"},{"class":"resource-changes","width":356,"left":25,"display":"flex","wrap":"wrap","min":"auto","max":"100%","flex":"0 1 auto"},{"class":"change stat-card harmful","width":64.796875,"left":25,"display":"flex","wrap":"nowrap","min":"0px","max":"none","flex":"1 1 0%"},{"class":"change stat-card harmful","width":64.8125,"left":97.796875,"display":"flex","wrap":"nowrap","min":"0px","max":"none","flex":"1 1 0%"},{"class":"change stat-card neutral","width":64.796875,"left":170.609375,"display":"flex","wrap":"nowrap","min":"0px","max":"none","flex":"1 1 0%"},{"class":"change stat-card helpful","width":64.796875,"left":243.40625,"display":"flex","wrap":"nowrap","min":"0px","max":"none","flex":"1 1 0%"},{"class":"change stat-card harmful","width":64.796875,"left":316.203125,"display":"flex","wrap":"nowrap","min":"0px","max":"none","flex":"1 1 0%"}]
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      11 |  });
+      12 |  const layout=await page.locator(selector).evaluate(e=>[e,...e.querySelectorAll('.journal-story,.resource-changes,.stat-card')].map(n=>{const r=n.getBoundingClientRect(),s=getComputedStyle(n);return {class:n.className,width:r.width,left:r.left,display:s.display,wrap:s.flexWrap,min:s.minWidth,max:s.maxWidth,flex:s.flex};}));
+    > 13 |  expect(fits,JSON.stringify(layout)).toBe(true);
+         |                                      ^
+      14 | }
+      15 |
+      16 | test('Trail and Journal share compact right-hand cards and retain historical journey settings',async({page,isMobile})=>{
+        at containedCards (/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/entry-layout.spec.ts:13:38)
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/entry-layout.spec.ts:37:2
+
+    Error Context: ../../../../../tmp/dystrail-entry-geometry/entry-layout-Trail-and-Jou-5fb09-historical-journey-settings-mobile/error-context.md
+
+  1 failed
+    [mobile] › tests-e2e/entry-layout.spec.ts:16:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 

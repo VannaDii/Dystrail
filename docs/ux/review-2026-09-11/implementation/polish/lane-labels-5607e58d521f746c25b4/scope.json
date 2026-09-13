@@ -1,0 +1,13 @@
+{
+  "base_revision": "2b0a772d649e1b822dbd",
+  "changed_files": [
+    "dystrail-web/static/continuity.css",
+    "dystrail-web/i18n/it.json",
+    "dystrail-web/i18n/es.json",
+    "dystrail-web/i18n/ar.json"
+  ],
+  "unchanged_inputs": 630,
+  "only_three_locale_leaves_changed": true,
+  "all_game_configs_and_narratives_exact": true,
+  "camp_sanity": 4
+}

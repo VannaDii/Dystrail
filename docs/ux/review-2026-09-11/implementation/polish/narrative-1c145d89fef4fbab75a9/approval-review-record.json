@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-09-13T08:06:03.019040+00:00",
+  "action": "git push --set-upstream origin release/crew-neutral-narrative-2026-09-13",
+  "workspace": "/tmp/dystrail-narrative-release",
+  "initial_review": "rejected",
+  "reason": "Pushing the isolated branch exports the private release source and history to the GitHub remote, whose trust/ownership is not established by trusted transcript content; production intent alone does not authorize this sensitive egress to that destination.",
+  "read_only_followup": {
+    "repository": "VannaDii/Dystrail",
+    "visibility": "public",
+    "private": false,
+    "owner": "VannaDii",
+    "authenticated_login": "VannaDii",
+    "permissions": {
+      "admin": true,
+      "maintain": true,
+      "pull": true,
+      "push": true,
+      "triage": true
+    },
+    "existing_public_base": "acaa88b1c1f104bf267048d393df2be403f056c9",
+    "public_base_url": "https://github.com/VannaDii/Dystrail/commit/acaa88b1c1f104bf267048d393df2be403f056c9",
+    "new_commit_scope": "push-egress-scope.json"
+  },
+  "retry": "same command and transport with verified ownership/public ancestry and scoped payload evidence",
+  "retry_review": "accepted",
+  "transport_workaround_used": false
+}

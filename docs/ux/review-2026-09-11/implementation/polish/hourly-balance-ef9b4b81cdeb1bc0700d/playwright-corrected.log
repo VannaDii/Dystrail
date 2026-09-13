@@ -1,0 +1,56 @@
+
+Running 14 tests using 2 workers
+
+[1A[2K(node:4900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:4901) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:4901) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:4900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/14] [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help
+[1A[2K[2/14] [chromium] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes
+[1A[2K[3/14] [chromium] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here
+[1A[2K[4/14] [chromium] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town
+[1A[2K[5/14] [chromium] › tests-e2e/scene-flow.spec.ts:83:5 › a queued crew decision waits for the automatic map without advancing past it
+[1A[2K[6/14] [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight
+[1A[2K[7/14] [chromium] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once
+[1A[2K(node:5149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:5149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[8/14] [mobile] › tests-e2e/continuity.spec.ts:61:5 › a named crew decision precedes map review and absence persists in later scenes
+[1A[2K[chromium] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once
+Weather travel fixture [33m5[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+
+[1A[2K[9/14] [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help
+[1A[2K[10/14] [mobile] › tests-e2e/onboarding-results.spec.ts:52:5 › a fatal player care decision reports the death and ends the run here
+[1A[2K(node:5252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:5252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[11/14] [mobile] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town
+[1A[2K[12/14] [mobile] › tests-e2e/scene-flow.spec.ts:83:5 › a queued crew decision waits for the automatic map without advancing past it
+[1A[2K[13/14] [mobile] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight
+[1A[2K[14/14] [mobile] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once
+[1A[2K[mobile] › tests-e2e/weather.spec.ts:16:5 › weather costs apply during continuous travel, notify inline, and survive reload once
+Weather travel fixture [33m5[39m PacificCoast Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m }
+
+[1A[2K  14 passed (47.4s)

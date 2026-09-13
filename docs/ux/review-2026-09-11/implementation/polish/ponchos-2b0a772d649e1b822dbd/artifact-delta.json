@@ -1,0 +1,17 @@
+{
+  "added": [
+    "dystrail-web-42bbd1fb00a75ab.js",
+    "dystrail-web-42bbd1fb00a75ab_bg.wasm"
+  ],
+  "removed": [
+    "dystrail-web-25024ad604613f35.js",
+    "dystrail-web-25024ad604613f35_bg.wasm"
+  ],
+  "changed": [
+    "index.html",
+    "offline-manifest.json",
+    "static/assets/data/weather.json",
+    "sw.js"
+  ],
+  "unchanged_files": 115
+}

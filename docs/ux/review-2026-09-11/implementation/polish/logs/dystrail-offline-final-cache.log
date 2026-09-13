@@ -1,0 +1,26 @@
+### Result
+{"revision":"1868d6c37d8c25729dae","files":87,"bytes":90539342,"missing":[],"invalid":[],"launchGate":false,"offline":"ready"}
+### Ran Playwright code
+```js
+await (async page => {
+ await page.reload({waitUntil:'domcontentloaded'});await page.locator('#main').waitFor({state:'visible'});
+ const result=await page.evaluate(async()=>{
+   const manifest=await(await fetch('offline-manifest.json')).json();
+   const cache=await caches.open('dystopian-trail:/play/:'+manifest.revision);const missing=[],invalid=[];
+   for(const asset of manifest.assets){
+    const response=await cache.match(new URL(asset.path,document.baseURI));if(!response){missing.push(asset.path);continue;}
+    const bytes=await response.arrayBuffer();const digest='sha256-'+btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))));
+    if(bytes.byteLength!==asset.bytes||digest!==asset.integrity)invalid.push(asset.path);
+   }
+   return {revision:manifest.revision,files:manifest.assets.length,bytes:manifest.bytes,missing,invalid,launchGate:!!document.querySelector('#launch-gate'),offline:window.dystrailOffline?.state};
+ });
+ if(result.revision!=='1868d6c37d8c25729dae'||result.files!==87||result.missing.length||result.invalid.length||result.launchGate||result.offline!=='ready')throw Error(JSON.stringify(result));
+ return result;
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8083/play/encounter
+- Page Title: Dystopian Trail — A Satirical 16-bit Trek to D.C.
+- Console: 0 errors, 2 warnings
+### Events
+- New console entries: .playwright-cli/console-2026-09-12T04-12-24-816Z.log#L53-L55

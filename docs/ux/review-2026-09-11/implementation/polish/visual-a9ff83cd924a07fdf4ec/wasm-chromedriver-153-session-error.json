@@ -1,0 +1,10 @@
+{
+  "httpStatus": 200,
+  "response": {
+    "sessionId": "f1bd541ac081c2153af2066f0e2fbdb2",
+    "status": 33,
+    "value": {
+      "message": "session not created: This version of ChromeDriver only supports Chrome version 153\nCurrent browser version is 152.0.7977.84\n  (Driver info: chromedriver=153.0.8010.36 (507c6ee3e2f3b2ca0e660547e5b9ea4820c67f4c-refs/branch-heads/8010@{#906}),platform=Mac OS X 26.6.2 arm64)"
+    }
+  }
+}

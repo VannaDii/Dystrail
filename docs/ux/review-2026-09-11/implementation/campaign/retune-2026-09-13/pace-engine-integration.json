@@ -1,0 +1,23 @@
+{
+  "source": "/tmp/dystrail-retune-2026-09-13/pace-checked-source",
+  "files": {
+    "dystrail-game/src/journal.rs": {
+      "before": "c0967b362765e9a495f8bce3db71195f3b6b85095044b4c9d3afd2dc2fa67531",
+      "after": "7a043f74207d662a02f82a3ddd1a7d8dc3a5a7a209c7584e34510bbd8c60adc7"
+    },
+    "dystrail-game/src/pacing.rs": {
+      "before": "1cc07f35585d61dc5b6941039bb3e29605378dc72a01cbf058a9dbeed6c6afc5",
+      "after": "67f2e897d92978517ff1a86f6ff2b06b7f447b3265e65a1f3c3302fd8e078ba1"
+    },
+    "dystrail-game/src/state.rs": {
+      "before": "37271a8274b490b7da94849317b8bbf46955054dfb4c09edf7418bef8508652f",
+      "after": "91b7f8307c05f05cf4b044f59fd3c3918fe809ce9e4e5f768792d24cbf53e6d6"
+    },
+    "dystrail-game/src/travel_time.rs": {
+      "before": "d20dac6cad3b88d8a5f517e1e6d0ae581336d9494094c61e602f3f11fa0b95dd",
+      "after": "76284ad980c4c0adb047018030d6d61d24f494550fa6da0f05f9c6f11fce0b1a"
+    }
+  },
+  "acceptance_tests_modified": false,
+  "production_or_preview_changed": false
+}

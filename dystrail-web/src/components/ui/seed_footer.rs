@@ -13,6 +13,7 @@ pub struct Props {
 /// Footer strip that shows the current seed/share code and optional navigation controls.
 #[function_component(SeedFooter)]
 pub fn seed_footer(p: &Props) -> Html {
+    crate::i18n::use_language();
     let share_code = encode_friendly(p.is_deep_mode, p.seed);
     let share_code_copy = share_code.clone();
     let on_copy = Callback::from(move |_| {

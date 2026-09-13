@@ -1,0 +1,41 @@
+{
+  "revision": "2b0a772d649e1b822dbd",
+  "assets_verified": 119,
+  "bytes": 109966945,
+  "service_worker_manifest_matches": true,
+  "base_url": "/play/",
+  "index_asset_references_verified": [
+    "static/manifest.webmanifest",
+    "static/img/app-icon-192.png",
+    "static/img/app-icon-192.png",
+    "static/fonts.css",
+    "theme-a00fef3fd7d22679.css",
+    "styles-e7334a516cfa8071.css",
+    "journey-5fe63ee3f473b890.css",
+    "continuity-f40f85e4abf3719f.css",
+    "results-49acad5bb38c9d37.css",
+    "dystrail-web-42bbd1fb00a75ab.js",
+    "dystrail-web-42bbd1fb00a75ab_bg.wasm",
+    "static/offline-client.js"
+  ],
+  "weather-native": {
+    "group_counts": [
+      6,
+      2,
+      0,
+      0,
+      0,
+      2,
+      3
+    ],
+    "passed": 13
+  },
+  "web-native": {
+    "group_counts": [
+      79,
+      3,
+      0
+    ],
+    "passed": 82
+  }
+}

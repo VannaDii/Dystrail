@@ -1,0 +1,15 @@
+--- a/dystrail-web/static/assets/data/journey/overlays/balanced.json
++++ b/dystrail-web/static/assets/data/journey/overlays/balanced.json
+@@ -16,9 +16,9 @@
+     }
+   },
+   "crossing": {
+-    "pass": 0.66,
+-    "detour": 0.24,
+-    "terminal": 0.1,
++    "pass": 0.7,
++    "detour": 0.1,
++    "terminal": 0.2,
+     "bribe": {
+       "pass_bonus": 0.192,
+       "detour_bonus": 0.0,

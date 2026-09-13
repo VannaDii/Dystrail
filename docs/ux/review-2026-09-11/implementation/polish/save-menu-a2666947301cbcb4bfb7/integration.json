@@ -1,0 +1,126 @@
+{
+  "Cargo.toml": {
+    "before": "41d5c1edfc714939a1648f401913bebcf84932ae8f0127a76939533d02110249",
+    "after": "05e31dd389e35f60acbb5ff88311a7151690856ca0a404c7d9aaa75484a738cf"
+  },
+  "dystrail-web/static/continuity.css": {
+    "before": "f3d859118528456bcaae98901146aa8d89356c3fc9abd07a3a4b4520812fea95",
+    "after": "703627846bde2fd194e007d9e253db58b05bbd345ff2e3989ff328dab5ade832"
+  },
+  "dystrail-web/i18n/zh.json": {
+    "before": "df3fae09d3d425d97b5d9cc574bbc30edeefac07c39b8bf5841f9c231fa9b0f5",
+    "after": "ae9e5b3a233615d8ae699c22639597f90981df4225c094d9861058d3368e9514"
+  },
+  "dystrail-web/i18n/tr.json": {
+    "before": "c63eb8b4b78718106e1aaaf9b6f672c3d007c0e40dc5c32a4ddd12d46acbb5dd",
+    "after": "fd25c86832d51340e89977cd88559af2ff1375ba6c210a00dbf8f9e90883e7f0"
+  },
+  "dystrail-web/i18n/mr.json": {
+    "before": "71e47e3035e8efb7fde45ba56234be61ba60c0fb69fce55f0ba9744e6fecf1da",
+    "after": "ab69413aea7850472bb137a95f3447cd9069fcc9a4c4b65abcc3d6bc9c0db93b"
+  },
+  "dystrail-web/i18n/bn.json": {
+    "before": "e69780d193e7083840af23e2f60da977a590f2ef285a6ab5d68e727d1594468e",
+    "after": "f72323882bd09f2a579c07d5f22e99e57ce9fd8a3939740f45767c3ebd467bdd"
+  },
+  "dystrail-web/i18n/ja.json": {
+    "before": "51eeaf4bc52fe20ce02fa761fc0d6cc1672b3906e8c466cb37f362882d31bd8c",
+    "after": "716fbc5301d55ea104b1601d84464229b1f521399843155d57a270ced745b50b"
+  },
+  "dystrail-web/i18n/de.json": {
+    "before": "2112fc9f18b152be77b7629aeb33810c6f1483664d67580d4d76761ea9c1af0d",
+    "after": "9338d304d82b0cdd00ba62ea08db5ac10e0fbe7f6a7fb5b822e76d9c4cab4b97"
+  },
+  "dystrail-web/i18n/ru.json": {
+    "before": "d149fbe729965899fdca16cdc2e7e0cec8163f3d8dd12cacb49d7d420c9eff15",
+    "after": "548b25ff227ee7bd54e70388fb8942eaa2b1510f191632a0cbf7d1a460fdfa71"
+  },
+  "dystrail-web/i18n/ta.json": {
+    "before": "5b2ba80cd3e3ae8dd164800dbdcf075135bc968916b6b98f2d0cf91a79283a38",
+    "after": "04ea94120d138caccc9b14be9eed5f2403c0373d579a247a50ea757213e27f6f"
+  },
+  "dystrail-web/i18n/pt.json": {
+    "before": "a5b604f868706ead17eceae380f98e9663e1f183cc7b677eafcfbd70dda63fcf",
+    "after": "926e572a605186124060de79213964a24ffeaacb9f094d890b31c1394eb992ba"
+  },
+  "dystrail-web/i18n/en.json": {
+    "before": "cdbb8d11ce1d58d9281c6ff1e9451b560a2b5c97e2b23f58f0c07a9ff35a1ce2",
+    "after": "14487d5228babb64bd18b8e335e36162523cf12dc8e6ad236357892bd242b211"
+  },
+  "dystrail-web/i18n/pa.json": {
+    "before": "bcd33f7feaf9082d189d35c56edb6a7a298a852bcbc2d26efb075eaf86a99e94",
+    "after": "857f8d27e8b4bddffded1950b1c0145e8da0bd8af15df0f51e1063a5578d8b0f"
+  },
+  "dystrail-web/i18n/it.json": {
+    "before": "488f22fcb059d493cb5ac4b55f38399111b9bb67903288707d27b6dd6330f03d",
+    "after": "a59cb9539a5077aa6f761155f1d8847c822b8c60c43926a7f256266ef5c218a1"
+  },
+  "dystrail-web/i18n/fr.json": {
+    "before": "8a50f8283772bbd66bbb99c5a29e34e1cb7a4337a75a6cce6291247b4f8850f1",
+    "after": "8c6649c6bb31eca25e580d5cd52e2884caeddc2c28d3cd061f820d91fe261e8e"
+  },
+  "dystrail-web/i18n/hi.json": {
+    "before": "b8bce65c9b39bc58f531d160a43bc1c81459dde5fa0eee6eacb5e00df4a71e9e",
+    "after": "071a115698985b57fd487315e23c7b2e4b73abaa62ce4d8c64b516c5dfac0cb6"
+  },
+  "dystrail-web/i18n/ko.json": {
+    "before": "f45639ea78992da41e6961d7cf6bde0f5963f4600263ae338d7573258fd8d8d0",
+    "after": "1f3d6618138a2fa92933d6357564b54c6636c5d3ae8b74f454b1654a9a4b82d1"
+  },
+  "dystrail-web/i18n/te.json": {
+    "before": "4a4ab3abcc779cffec1f63a0c4059dad861a9c3a0dfc2df738e7c2d0fef14e8a",
+    "after": "08dd8a8523410f89dae779a2a77d9292a5a8259046af71c89cfbf70d41f4ebea"
+  },
+  "dystrail-web/i18n/id.json": {
+    "before": "50d674746f5e7ea7d28836ed57412ca95aa73bb6839664d526f46e7269a7a4bc",
+    "after": "471b279d089bdb6a40faf4cef97bbbf597d011098ea25b4276e2b51ef6a78d2d"
+  },
+  "dystrail-web/i18n/es.json": {
+    "before": "2ceabd760aacb70908096a53463c2ed2f9bb4dde86ea683230cc0ceb19093d7d",
+    "after": "ba60cf4d4a3640f76709e5e97a9b0ed75c4c31fe1a89bc57fca98842f74609ed"
+  },
+  "dystrail-web/i18n/ar.json": {
+    "before": "97ff18195fbf4a055ad6b8b5f188089e18f38cdea670308626ceb5cc4614ba63",
+    "after": "5e8ed22e155d55523e0253d7c9e8dc9bbb1e2cd4992dfe8d267b8949fbdd304a"
+  },
+  "dystrail-web/i18n/jv.json": {
+    "before": "dec7bbaf52f8c8da05f2da35a7647c9f8e40dbf2b7299d2f5c2649e9593876d5",
+    "after": "803ff20083e01b5709568f57b6e82547e49f8ae03a38cadb2ffe12d1177b9b1a"
+  },
+  "dystrail-web/src/components/ui/journey_icon.rs": {
+    "before": "38ab9acfea6afa850bb4a3626b6b03faa85a802ea1bfdb6bd18b38c0d59deefa",
+    "after": "9348db19c89f1a5feb1c5cb44489e12e06e4583641ebe6cad1e0d906be132248"
+  },
+  "dystrail-web/src/components/ui/save_drawer/mod.rs": {
+    "before": "a04984b1297b2289e261e7949c74743c463d9904c407d33a876b3f1c484355e4",
+    "after": "f8e7f90c3da2fe76646f73a10fd59e2c1d09196a12c7a9c13948a0a9f8bbc896"
+  },
+  "dystrail-web/src/components/ui/save_drawer/focus.rs": {
+    "before": "2f92da3bc64a2c310377db102e44ae5e1099cc666e7137179a0ae7cde71490ce",
+    "after": "2f3a3148efa745d239c3850a1b810f09c23a9b3f14bee53cf3d1baa98ece4b9d"
+  },
+  "dystrail-web/src/components/ui/save_drawer/tests.rs": {
+    "before": "3ef02183a6800582a6bb91cedf858f7146732a60dfed8b267bee7d6b1c82d2fb",
+    "after": "f3e5e44fd164409c11e7a569ee203b0eeb146e4ca2c8efeea0b87da8f66492f7"
+  },
+  "dystrail-web/src/components/ui/save_drawer/transfer.rs": {
+    "before": null,
+    "after": "a92f8f1f74b0aba151dfbbbcdf7f6b05fc0070d11e809ee62a84b3ef849db071"
+  },
+  "dystrail-web/src/components/ui/save_drawer/view.rs": {
+    "before": "6587cd47061785ebb20f23637464a1571b1273f510d2932b6c03efa29aa4ca25",
+    "after": "64a4f0bf8c03b1c4969f4e75a771ec42fb6c99a7c18db0801fecd14c2ef8c45b"
+  },
+  "dystrail-web/src/app/view/mod.rs": {
+    "before": "a09b80806c199d9ca537435cfc4933021cdd9cd534be91aee9f940645c2cb55f",
+    "after": "174124541c5d1bf17c315120c9d134898a69015d23febf07b41729711f574b74"
+  },
+  "dystrail-web/src/app/view/handlers/mod.rs": {
+    "before": "b7a1a87afc4a91bff4615894820a5f6ab71c1b0a666cfdc250cae401eb29e193",
+    "after": "c1b62f3b3e1838db1a8aaeba5010e6e28007a5162201f51445cc0b2228de5680"
+  },
+  "dystrail-web/src/app/view/handlers/storage.rs": {
+    "before": "99cf0c977f3898a7462b1e0786677159ce1ae3701af493fb95ee558879438c60",
+    "after": "e40ac9ec45f02dda4e1c6cdd42112d7188ff2ddc7bd56e5cd05a8e775fd2202e"
+  }
+}

@@ -54,8 +54,8 @@ pub fn resolve_crossing<R: RngCore>(ctx: CrossingContext<'_>, rng: &mut R) -> Cr
     let result = if draw < pass_weight {
         CrossingResult::Pass
     } else if draw < detour_threshold {
-        let detour_days = detour_days_for_sample(ctx.policy, sample);
-        CrossingResult::Detour(detour_days)
+        let detour_hours = detour_hours_for_sample(ctx.policy, sample);
+        CrossingResult::Detour(detour_hours)
     } else {
         CrossingResult::TerminalFail
     };
@@ -107,9 +107,9 @@ fn effective_weights(ctx: &CrossingContext<'_>) -> (f32, f32, f32, bool) {
     )
 }
 
-fn detour_days_for_sample(policy: &CrossingPolicy, sample: u32) -> u8 {
-    let min = policy.detour_days.min;
-    let max = policy.detour_days.max;
+fn detour_hours_for_sample(policy: &CrossingPolicy, sample: u32) -> u8 {
+    let min = policy.detour_hours.min;
+    let max = policy.detour_hours.max;
     if min >= max {
         return min;
     }
@@ -286,12 +286,12 @@ mod tests {
     }
 
     #[test]
-    fn detour_days_cover_span_using_single_sample() {
+    fn detour_hours_cover_span_using_single_sample() {
         let policy = CrossingPolicy {
             pass: 0.0,
             detour: 1.0,
             terminal: 0.0,
-            detour_days: DetourPolicy { min: 2, max: 5 },
+            detour_hours: DetourPolicy { min: 2, max: 5 },
             ..CrossingPolicy::default()
         };
 

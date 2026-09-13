@@ -3,43 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dystrail</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <title>Dystopian Trail (Dystrail) — Political Satire Survival Game</title>
+  <meta name="description" content="Play Dystopian Trail, also known as Dystrail: a free political satire survival game. Get six people and one van to D.C. through tariffs, propaganda, and absurdity.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#09131e">
+  <link rel="canonical" href="https://dystrail.com/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dystopian Trail">
+  <meta property="og:title" content="Dystopian Trail — Six people. One van. A country coming apart.">
+  <meta property="og:description" content="A free political satire survival game. Keep your crew alive through tariffs, propaganda, and bureaucratic cruelty on the road to D.C.">
+  <meta property="og:url" content="https://dystrail.com/">
+  <meta property="og:image" content="https://dystrail.com/assets/gameplay-social.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dystopian Trail gameplay: a blue van and its crew on the road to D.C., with survival resources and travel controls.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dystopian Trail — A country coming apart.">
+  <meta name="twitter:description" content="Six people. One van. Play Dystrail, the free political satire survival game, in your browser.">
+  <meta name="twitter:image" content="https://dystrail.com/assets/gameplay-social.jpg">
+  <meta name="twitter:image:alt" content="The six-person Dystopian Trail crew traveling through the Heartland in their blue van.">
+  <link rel="preload" href="/assets/fonts/press-start-2p-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css?v=a0a01e7e7a882120">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://dystrail.com/#website",
+        "url": "https://dystrail.com/",
+        "name": "Dystopian Trail",
+        "alternateName": "Dystrail",
+        "inLanguage": "en",
+        "description": "The official home of Dystopian Trail, the free political satire survival game also known as Dystrail."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://dystrail.com/#webpage",
+        "url": "https://dystrail.com/",
+        "name": "Dystopian Trail (Dystrail) — Political Satire Survival Game",
+        "isPartOf": {"@id": "https://dystrail.com/#website"},
+        "mainEntity": {"@id": "https://dystrail.com/#game"},
+        "inLanguage": "en"
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://dystrail.com/#game",
+        "url": "https://dystrail.com/",
+        "name": "Dystopian Trail",
+        "alternateName": "Dystrail",
+        "description": "A free, single-player political satire survival game inspired by The Oregon Trail. Lead a six-person crew to D.C. through resource shortages, tariffs, propaganda, and bureaucratic absurdity.",
+        "genre": ["Political satire", "Survival", "Adventure"],
+        "gamePlatform": "Web browser",
+        "playMode": "https://schema.org/SinglePlayer",
+        "isAccessibleForFree": true,
+        "image": "https://dystrail.com/assets/gameplay-social.jpg",
+        "screenshot": "https://dystrail.com/assets/gameplay.webp",
+        "sameAs": "https://github.com/VannaDii/Dystrail",
+        "potentialAction": {"@type": "PlayAction", "target": "https://dystrail.com/play/"}
+      }
+    ]
+  }
+  </script>
+  <script src="/site.js" defer></script>
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="grain"></div>
-  <main class="shell">
-    <header class="topline">
-      <div class="wordmark">Dystrail</div>
-      <div class="tag">SNES-lite survival road trip</div>
-    </header>
-
-    <section class="hero">
-      <p class="eyebrow">Oregon Trail took a wrong turn into DC.</p>
-      <h1>Survive the <span class="accent">bureaucratic badlands</span>.</h1>
-      <p class="lede">
-        Stock up, dodge tariffs, outlast filibusters, and keep the Pants Meter below national emergency levels.
-        Built in Rust + Yew, ready in your browser.
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="/play">Play in browser</a>
-        <a class="btn ghost" href="https://github.com/VannaDii/Dystrail">View the code</a>
+  <a class="skip-link" href="#the-game">Skip to the game overview</a>
+  <main>
+    <section class="hero" aria-labelledby="game-title">
+      <picture class="hero-landscape">
+        <source media="(max-width: 600px)" srcset="/assets/prairie-small.webp">
+        <img src="/assets/prairie.webp" width="1536" height="1024" alt="" fetchpriority="high">
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1 id="game-title"><span>Dystopian</span> <span>Trail</span></h1>
+          <p class="tagline"><span>Six people. One van.</span> <span>A country coming apart.</span></p>
+          <p class="hero-description">Keep your crew alive through tariffs, propaganda, and bureaucratic cruelty on the road to D.C.</p>
+          <div class="play-cta">
+            <a class="play-button" href="/play/" aria-describedby="offline-play-note">Play in browser</a>
+            <p class="play-note" id="offline-play-note">…even offline!</p>
+          </div>
+        </div>
+        <picture class="hero-van">
+          <source media="(max-width: 600px)" srcset="/assets/crew-van-small.webp">
+          <img src="/assets/crew-van.webp" width="1536" height="1024" alt="Six unlikely traveling companions packed into a blue van with luggage on the roof." decoding="async">
+        </picture>
       </div>
-      <div class="facts">
-        <span>Deterministic seeds</span>
-        <span>20 languages</span>
-        <span>Retro pixel aesthetic</span>
+    </section>
+    <section class="game-section container" id="the-game" aria-labelledby="game-heading" tabindex="-1">
+      <p class="eyebrow">The game</p>
+      <h2 id="game-heading">The system is broken. Keep moving.</h2>
+      <div class="game-layout">
+        <figure class="gameplay-figure" data-reveal>
+          <picture>
+            <source media="(max-width: 600px)" srcset="/assets/gameplay-small.webp">
+            <img src="/assets/gameplay.webp" width="1280" height="1182" loading="lazy" decoding="async" alt="Actual Dystopian Trail gameplay: guide the van toward D.C., track supplies and crew health, choose your pace, and review the route or make camp.">
+          </picture>
+        </figure>
+        <div class="gameplay-beats">
+          <div class="gameplay-beat" data-reveal>
+            <h3>Pack for the collapse.</h3>
+            <p>Choose a persona. Buy supplies. Leave room for things to go wrong.</p>
+          </div>
+          <div class="gameplay-beat" data-reveal>
+            <h3>Survive the absurdity.</h3>
+            <p>Make ugly choices. Keep the crew together. Get your evidence to D.C.</p>
+          </div>
+          <div class="gameplay-beat" data-reveal>
+            <h3>Make it to D.C.</h3>
+            <p>Bring your crew and evidence of institutional nonsense to the hearing.</p>
+          </div>
+        </div>
+      </div>
+      <section class="about-game" aria-labelledby="about-heading">
+        <h3 id="about-heading">Dystopian Trail. Dystrail, for short.</h3>
+        <p>This is the official home of <strong>Dystopian Trail</strong>, a free, single-player survival game inspired by <cite>The Oregon Trail</cite>. Its political satire takes aim at Trump-era tariffs, DOGE accounting, MAHA health claims, and government propaganda, with real-world source notes inside the game.</p>
+        <p>Choose from six personas, manage scarce supplies, make camp, and face encounters in Classic or The Deep End. Your choices shape who makes it to the hearing in D.C. Read the <a href="/docs/">game guide</a> or explore the <a href="https://github.com/VannaDii/Dystrail">open-source project</a>.</p>
+      </section>
+    </section>
+    <section class="closing" aria-labelledby="closing-heading">
+      <div class="container">
+        <h2 id="closing-heading">We don't have to make this up!</h2>
+        <a class="play-button" href="/play/">Play in browser</a>
       </div>
     </section>
   </main>
-
   <footer class="footer">
-    <span class="tone">Need implementation notes?</span>
-    <a class="docs-link" href="/docs">Docs</a>
+    <div class="container footer-inner">
+      <span>Dystopian Trail</span>
+      <nav aria-label="Game resources">
+        <a href="/docs/">Game guide</a>
+        <a href="https://github.com/VannaDii/Dystrail">Source code</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

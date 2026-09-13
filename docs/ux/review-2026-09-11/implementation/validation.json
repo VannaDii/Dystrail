@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-11",
+  "scope": "Second playthrough UX, explicit costs, expanded political satire, complete content inventory, offline PWA and Chrome/Safari verification",
+  "deployment": "local only",
+  "player_storage": "8081 localStorage untouched; tests used isolated 8083 or disposable server origins",
+  "rust_tests": {
+    "passed": 234,
+    "failed": 0
+  },
+  "clippy": "passed all repository strict groups",
+  "format_and_whitespace": "passed",
+  "coverage_percent": 78.16,
+  "coverage_required_percent": 77,
+  "native_release": "passed",
+  "web_release": "passed",
+  "browser": {
+    "chrome": {
+      "version": "152.0.7977.84",
+      "cases": 32,
+      "assertions": "passed across focused batches",
+      "runner": "Some batches time out during final browser teardown after all test assertions pass. The isolated 9-case PWA/gameplay batch completed cleanly in 18.9 seconds. See individual logs.",
+      "clean_continuity_batch": {
+        "cases": 8,
+        "exit_code": 0,
+        "seconds": 31.3
+      }
+    },
+    "safari": {
+      "version": "26.6.2",
+      "driver": "Apple safaridriver, real Safari on macOS",
+      "checks": 17,
+      "exit_code": 0,
+      "coverage": [
+        "Onboarding: names, unwarped portraits, no focus jump",
+        "Paid starter cart can be emptied and persists across refresh",
+        "Empty departure has no hidden supplies or charges",
+        "Menu dismisses when clicked outside",
+        "Contextual help remains inside viewport and dismisses outside",
+        "Safari manifest and Apple touch icon available; complete offline cache ready",
+        "Arabic layout and selected language survive reload",
+        "Geographic map frames the active route as a full scene",
+        "Heat and cold use state-matched effects in Safari",
+        "Foraging changes supplies and the clock",
+        "Cashless repair lists unavailable alternatives and charges time, sanity and morale",
+        "Number keys select encounter choices; cash reward and matching scene agree",
+        "Exact-town fact, player portrait, random NPC and conversation persist",
+        "Origin stopped: reload, saved crew, town scene and every bundled asset still work",
+        "Complete update replaces old build before game launches and preserves saves",
+        "Interrupted update leaves the last complete version playable",
+        "Abandon uses the selected character\u2019s name and creates a saved ending"
+      ]
+    },
+    "phone": {
+      "engine": "Chrome, Pixel 7 emulation",
+      "current_round_cases_passed": 21,
+      "runner": "15-case gameplay/continuity and 6-case layout batches pass assertions but time out during browser teardown"
+    },
+    "limits": [
+      "No physical iPhone or Android installation was performed.",
+      "Desktop Safari narrow-window resize was not used as evidence of iOS support.",
+      "Chrome installation criteria were checked in a disposable persistent profile; actual OS app installation was not performed.",
+      "Safari offline verification stopped the only game server entirely; Chrome used a disconnected browser context."
+    ]
+  },
+  "offline": {
+    "revision": "9f8ef5cfff07a082595c",
+    "files": 80,
+    "bytes": 75673636,
+    "all_asset_verification": "Chrome and Safari fetched every manifest asset with the origin unavailable; byte counts matched.",
+    "updates": "Both browsers held game startup until a complete new build activated. A simulated missing asset left the last complete build playable and the save intact.",
+    "first_visit": "The full bundle must finish downloading. Menu displays Ready for offline play when complete.",
+    "storage": "Local browser cache and localStorage; site-data clearing removes them."
+  },
+  "content": {
+    "encounters": 59,
+    "choices": 169,
+    "new_encounters": 24,
+    "towns": 28,
+    "source_hooks": 12,
+    "care_reasons": 8,
+    "shared_encounter_settings": 12,
+    "town_backdrops": 3,
+    "languages": [
+      "en",
+      "it",
+      "es",
+      "ar"
+    ],
+    "remaining_locales": "New keys have readable English fallback."
+  },
+  "dependency_audit": {
+    "status": "failed",
+    "vulnerabilities": 7,
+    "denied_warnings": 7,
+    "lockfile_changed": false
+  },
+  "dependency_policy": {
+    "advisories": "failed",
+    "licenses": "passed",
+    "bans": "passed",
+    "sources": "passed"
+  },
+  "campaign_simulation": {
+    "status": "failed",
+    "requested_iterations": 1000,
+    "mode": "Classic",
+    "strategy": "Aggressive",
+    "seed": 1337,
+    "iteration": 273,
+    "reason": "Pants 2 below expected aggressive risk; existing failure unchanged."
+  },
+  "wasm_pack": {
+    "command_completed": true,
+    "tests_discovered": 0
+  },
+  "local_delivery": {
+    "origin": "http://127.0.0.1:8081/play/",
+    "verified": [
+      "HTML",
+      "service worker",
+      "web manifest",
+      "NPC atlas"
+    ],
+    "result": "HTTP 200, correct MIME types, bytes match the tested build"
+  }
+}

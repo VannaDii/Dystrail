@@ -1,0 +1,8 @@
+{
+  "baseRevision": "33dd2b05a6658d330912",
+  "changed": [
+    "dystrail-web/src/components/ui/result_screen/composer.rs"
+  ],
+  "beforeSha256": "b2b858536f262d0e1efd221d968e5e4031fb25a3bbdd98a209699619f8b1b631",
+  "afterSha256": "03c444862e159308e369484fb0bd08c044560074589759251d89301a17f4c4a8"
+}

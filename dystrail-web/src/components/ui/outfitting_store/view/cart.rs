@@ -65,19 +65,17 @@ pub fn render_cart_screen(
         }
     }
 
-    cart_lines.push((0u8, i18n::t("store.cart.checkout")));
-
     html! {
         <section class="panel store-cart-panel" role="region" aria-labelledby="cart-title" onkeydown={on_keydown}>
             <header class="section-header">
                 <h1 id="cart-title">{ i18n::t("store.cart.title") }</h1>
                 <div class="store-cart-summary" aria-live="polite">
-                    <span class="label">{ i18n::t("store.budget") }</span>
+                    <span class="label">{ i18n::t("ux.budget") }</span>
                     <span class="value">{ remaining_str }</span>
                 </div>
             </header>
             { if state.cart.lines.is_empty() {
-                html! { <p class="empty-cart">{ "NONE" }</p> }
+                html! { <p class="empty-cart">{ i18n::t("ux.empty") }</p> }
             } else {
                 html! {
                     <div class="cart-body">
@@ -88,7 +86,7 @@ pub fn render_cart_screen(
                                 let posinset = u8::try_from(i).unwrap_or_default().saturating_add(1);
 
                                 html!{
-                                    <li role="menuitem"
+                                    <li onclick={{ let st = state.clone(); let props = props.clone(); let idx = *idx; Callback::from(move |_| handle_cart_selection(idx, &st, &st, &props)) }} role="menuitem"
                                         tabindex={if focused && !disabled { "0" } else { "-1" }}
                                         data-key={idx.to_string()}
                                         aria-posinset={posinset.to_string()}

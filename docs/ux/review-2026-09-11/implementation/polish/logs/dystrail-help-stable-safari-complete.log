@@ -1,0 +1,598 @@
+Safari 26.6.2
+PASS First launch waits for its complete asset bundle
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+Click Review & depart
+Click Start the journey
+Click Menu ▾
+Click Help & tips
+Click Help & tips
+Click Menu ▾
+Click Menu ▾
+Click Help & tips
+Click Help & tips
+Click Menu ▾
+PASS Help & tips toggles without moving stats, scene, controls or menu at desktop and narrow Safari widths; information remains usable
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    abandoned: false,
+    activities: {
+      foraged_on: null,
+      local_word: null,
+...
+      tags: [
++       'plague_resist',
+        'water_jugs',
+-       'plague_resist'
+      ]
+    },
+    journal: [
+      {
+        after: {
+
+    at file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:105:10
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    current_day_record: null,
+    breakdown: null,
+    score_mult: 0.8,
+    encounter_history: [],
+    crossings_completed: 0,
+    journey_breakdown: {
+      pace_factor: { steady: 0.95, heated: 1, blitz: 1.1 },
+      weather_factor: {
+        ColdSnap: 1.1,
+        Clear: 1,
+        Smoke: 1.1,
+        HeatWave: 1.4,
+        Storm: 1.3
+      },
+      base: 0.04,
+      beta: 0.2
+    },
+    rng_bundle: {
+      health: [ 8559294509292265000, [] ],
+      travel: [ 2474543636833087000, [] ],
+      events: [ 8712065763917773000, [] ],
+      breakdown: [ 12825853047300426000, [] ],
+      boss: [ 14975567108147595000, [] ],
+      encounter: [ 6103402190465589000, [] ],
+      trade: [ 13345056042271873000, [] ],
+      weather: [ 7137987021119877000, [] ],
+      crossing: [ 12441506013987115000, [] ],
+      hunt: [ 7491263072442061000, [] ]
+    },
+    encounters: { force_rotation_pending: false, occurred_today: false },
+    current_day_miles: 0,
+    travel_days: 0,
+    malnutrition_level: 0,
+    ending: null,
+    guards: {
+      deep_aggressive_sanity_guard_used: false,
+      starvation_backstop_used: false,
+      exposure_damage_lockout: false
+    },
+    exec_travel_multiplier: 1,
+    encounter_cooldown: 0,
+    camp: { repair_cooldown: 0, rest_cooldown: 0, forage_cooldown: 0 },
+    endgame: {
+      last_limp_mile: 0,
+      cooldown_days: 0,
+      health_floor: 0,
+      active: false,
+      field_repair_used: false,
+      wear_reset: 0,
+      partial_ratio: 0.5,
+      stop_cap_window: 10,
+      wear_multiplier: 1,
+      resource_priority: [],
+      wear_shave_ratio: 1,
+      wear_reset_used: false,
+      stop_cap_max_full: 2,
+      travel_bias: 1,
+      failure_guard_miles: 1950,
+      policy_key: '',
+      breakdown_scale: 1
+    },
+    disease_cooldown: 0,
+    receipt_bonus_pct: 0,
+    crossing_bribe_attempts: 0,
+    encounter_chance_today: 0.27,
+    scene_subject: null,
+    activities: { foraged_on: null, worked_at: null, local_word: null },
+    recent_encounters: [],
+    journal: [
+      {
+        minute: 480,
+        before: {
+          hp: 10,
+          sanity: 10,
+          allies: 1,
+          morale: 5,
+          supplies: 0,
+          credibility: 7
+        },
+        details: [
+          [ 'Spare Tire', '0 → 1 (+1)' ],
+          [ 'Battery', '0 → 1 (+1)' ],
+          [ 'Cash', '$120 → $49' ]
+        ],
+        resources: [
+          { key: 'play.cash', before: 12000, after: 4900 },
+          { key: 'store.items.spare_tire.name', before: 0, after: 1 },
+          { key: 'store.items.battery.name', before: 0, after: 1 }
+        ],
+        day: 1,
+        title: 'Your loadout',
+        message: 'Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.',
+        after: {
+          hp: 10,
+          sanity: 10,
+          allies: 1,
+          morale: 5,
+          supplies: 16,
+          credibility: 7
+        },
+        place: 'Seattle → Spokane'
+      }
+    ],
+    miles_traveled: 0,
+    crossing_failures: 0,
+    stats: {
+      hp: 10,
+      sanity: 10,
+      allies: 1,
+      morale: 5,
+      supplies: 16,
+      credibility: 7
+    },
+    illness_days_remaining: 0,
+    rotation_travel_days: 5,
+    current_day_reason_tags: [],
+    vehicle: { wear_multiplier: 1, health: 100, wear: 0, breakdown_cooldown: 0 },
+    journey_partial_ratio: 0.5,
+    journey_wear: { base: 0.2, fatigue_k: 0, comfort_miles: 1200 },
+    seed: 5500896596926486000,
+    state_version: 3,
+    weather_state: {
+      coldsnap_streak: 0,
+      today: 'Clear',
+      yesterday: 'Clear',
+      neutral_buffer: 0,
+      extreme_streak: 0,
+      heatwave_streak: 0
+    },
+    crossing_events: [],
+    distance_today_raw: 0,
+    mechanical_policy: 'dystrail_legacy',
+    crossing_bribe_successes: 0,
+    bribes_spent_cents: 0,
+    starvation_days: 0,
+    ally_notice: null,
+    recent_travel_days: [],
+    distance_cap_today: 0,
+    journey_crossing: {
+      bribe: {
+        terminal_penalty: 0,
+        pass_bonus: 0,
+        detour_bonus: 0,
+        diminishing_returns: 0.5
+      },
+      detour: 0.2,
+      detour_days: { min: 1, max: 3 },
+      permit: { eligible: [], disable_terminal: false },
+      pass: 0.7,
+      terminal: 0.1
+    },
+    party: {
+      leader: 'River Safari',
+      companions: [ 'Drew', 'Jamie', 'Dakota', 'Reese', 'Taylor' ],
+      name: 'Safari Receipts',
+      members: [
+        { persona: 'staffer', name: 'Drew', status: 'Active' },
+        { persona: 'satirist', name: 'Jamie', status: 'Active' },
+        { persona: 'whistleblower', name: 'Dakota', status: 'Active' },
+        { persona: 'lobbyist', name: 'Reese', status: 'Active' },
+        { persona: 'organizer', name: 'Taylor', status: 'Active' },
+        {
+          persona: 'journalist',
+          name: 'River Safari',
+          status: 'Active'
+        }
+      ]
+    },
+    partial_distance_today: 0,
+    partial_travel_days: 0,
+    region: 'PacificCoast',
+    crossing_permit_uses: 0,
+    prev_miles_traveled: 0,
+    exec_order_days_remaining: 0,
+    day_state: {
+      day_initialized: false,
+      did_end_of_day: false,
+      traveled_today: false,
+      suppress_stop_ratio: false,
+      partial_traveled_today: false,
+      rest_requested: false,
+      travel_blocked: false
+    },
+    route_services: {
+      talk_reward: null,
+      map_reviewed: null,
+      stop: null,
+      talked_at: null,
+      traded_at: null,
+      route_id: 'journalist',
+      trading: false
+    },
+    clock_minutes: 480,
+    persona_id: 'journalist',
+    rest_threshold: 4,
+    exec_breakdown_bonus: 0,
+    budget_cents: 4900,
+    abandoned: false,
+    season: 'spring',
+    budget: 49,
+    non_travel_days: 0,
+    encounters_today: 0,
+    exec_order_cooldown: 0,
+    rotation_backlog: [],
+    current_day_kind: null,
+    last_breakdown_part: null,
+    journey_part_weights: { tire: 50, alt: 15, battery: 20, pump: 15 },
+    crew_care: { pending: null, reason: 0, last_check_day: 0, strain: {} },
+    distance_today: 0,
+    current_order: null,
+    current_encounter: null,
+    last_damage: null,
+    mode: 'Classic',
+    miles_traveled_actual: 0,
+    weather_travel_multiplier: 1,
+    crossing_detours_taken: 0,
+    exposure_streak_cold: 0,
+    days_with_repair: 0,
+    day_records: [],
+    auto_camp_rest: false,
+    day: 1,
+    encounters_resolved: 0,
+    interactive_repairs: true,
+    diet: 'mixed',
+    vehicle_breakdowns: 0,
+    decision_traces_today: [],
+    trail_distance: 2400,
+    repairs_spent_cents: 0,
+    policy: 'balanced',
+    journey_travel: {
+      mpd_base: 13.5,
+      pace_factor: { blitz: 1.35, heated: 1.2, steady: 1 },
+      weather_factor: {
+        ColdSnap: 0.9,
+        Clear: 1,
+        Smoke: 0.88,
+        HeatWave: 0.8,
+        Storm: 0.85
+      },
+      mpd_min: 6,
+      mpd_max: 24
+    },
+    pace: 'steady',
+    inventory: {
+      tags: [ 'plague_resist', 'water_jugs' ],
+      spares: { tire: 1, alt: 0, battery: 1, pump: 0 }
+    },
+    days_with_camp: 0,
+    features: {
+      exposure_streaks: true,
+      encounter_diversity: true,
+      travel_v2: true
+    },
+    boss: { reached: false, attempted: false, victory: false, ready: false },
+    logs: [
+      'log.booting',
+      'log.persona.selected.satirist',
+      'log.persona.selected.journalist',
+      'log.seed-set'
+    ],
+    weather_impact: null,
+    exposure_streak_heat: 0,
+    mods: {
+      store_discount_pct: 0,
+      receipt_find_pct: 10,
+      satire_sustain: false,
+      eo_heat_pct: 0,
+      bribe_discount_pct: 0
+    },
+    illness_travel_penalty: 1,
+    receipts: [],
+    day_reason_history: []
+  },
+  expected: {
+    current_day_record: null,
+    breakdown: null,
+    score_mult: 0.8,
+    encounter_history: [],
+    crossings_completed: 0,
+    journey_breakdown: {
+      pace_factor: { steady: 0.95, heated: 1, blitz: 1.1 },
+      weather_factor: {
+        Storm: 1.3,
+        Clear: 1,
+        HeatWave: 1.4,
+        Smoke: 1.1,
+        ColdSnap: 1.1
+      },
+      base: 0.04,
+      beta: 0.2
+    },
+    rng_bundle: {
+      health: [ 8559294509292265000, [] ],
+      travel: [ 2474543636833087000, [] ],
+      events: [ 8712065763917773000, [] ],
+      breakdown: [ 12825853047300426000, [] ],
+      boss: [ 14975567108147595000, [] ],
+      encounter: [ 6103402190465589000, [] ],
+      trade: [ 13345056042271873000, [] ],
+      weather: [ 7137987021119877000, [] ],
+      crossing: [ 12441506013987115000, [] ],
+      hunt: [ 7491263072442061000, [] ]
+    },
+    encounters: { force_rotation_pending: false, occurred_today: false },
+    current_day_miles: 0,
+    travel_days: 0,
+    malnutrition_level: 0,
+    ending: null,
+    guards: {
+      deep_aggressive_sanity_guard_used: false,
+      starvation_backstop_used: false,
+      exposure_damage_lockout: false
+    },
+    exec_travel_multiplier: 1,
+    encounter_cooldown: 0,
+    camp: { repair_cooldown: 0, rest_cooldown: 0, forage_cooldown: 0 },
+    endgame: {
+      last_limp_mile: 0,
+      cooldown_days: 0,
+      health_floor: 0,
+      active: false,
+      field_repair_used: false,
+      wear_reset: 0,
+      partial_ratio: 0.5,
+      stop_cap_window: 10,
+      wear_multiplier: 1,
+      resource_priority: [],
+      wear_shave_ratio: 1,
+      wear_reset_used: false,
+      stop_cap_max_full: 2,
+      travel_bias: 1,
+      failure_guard_miles: 1950,
+      policy_key: '',
+      breakdown_scale: 1
+    },
+    disease_cooldown: 0,
+    receipt_bonus_pct: 0,
+    crossing_bribe_attempts: 0,
+    encounter_chance_today: 0.27,
+    scene_subject: null,
+    activities: { foraged_on: null, worked_at: null, local_word: null },
+    recent_encounters: [],
+    journal: [
+      {
+        minute: 480,
+        before: {
+          hp: 10,
+          sanity: 10,
+          allies: 1,
+          morale: 5,
+          supplies: 0,
+          credibility: 7
+        },
+        details: [
+          [ 'Spare Tire', '0 → 1 (+1)' ],
+          [ 'Battery', '0 → 1 (+1)' ],
+          [ 'Cash', '$120 → $49' ]
+        ],
+        resources: [
+          { key: 'play.cash', before: 12000, after: 4900 },
+          { key: 'store.items.spare_tire.name', before: 0, after: 1 },
+          { key: 'store.items.battery.name', before: 0, after: 1 }
+        ],
+        day: 1,
+        title: 'Your loadout',
+        message: 'Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.',
+        after: {
+          hp: 10,
+          sanity: 10,
+          allies: 1,
+          morale: 5,
+          supplies: 16,
+          credibility: 7
+        },
+        place: 'Seattle → Spokane'
+      }
+    ],
+    miles_traveled: 0,
+    crossing_failures: 0,
+    stats: {
+      hp: 10,
+      sanity: 10,
+      allies: 1,
+      morale: 5,
+      supplies: 16,
+      credibility: 7
+    },
+    illness_days_remaining: 0,
+    rotation_travel_days: 5,
+    current_day_reason_tags: [],
+    vehicle: { wear_multiplier: 1, health: 100, wear: 0, breakdown_cooldown: 0 },
+    journey_partial_ratio: 0.5,
+    journey_wear: { base: 0.2, fatigue_k: 0, comfort_miles: 1200 },
+    seed: 5500896596926486000,
+    state_version: 3,
+    weather_state: {
+      coldsnap_streak: 0,
+      today: 'Clear',
+      yesterday: 'Clear',
+      neutral_buffer: 0,
+      extreme_streak: 0,
+      heatwave_streak: 0
+    },
+    crossing_events: [],
+    distance_today_raw: 0,
+    mechanical_policy: 'dystrail_legacy',
+    crossing_bribe_successes: 0,
+    bribes_spent_cents: 0,
+    starvation_days: 0,
+    ally_notice: null,
+    recent_travel_days: [],
+    distance_cap_today: 0,
+    journey_crossing: {
+      bribe: {
+        terminal_penalty: 0,
+        pass_bonus: 0,
+        detour_bonus: 0,
+        diminishing_returns: 0.5
+      },
+      detour: 0.2,
+      detour_days: { min: 1, max: 3 },
+      permit: { eligible: [], disable_terminal: false },
+      pass: 0.7,
+      terminal: 0.1
+    },
+    party: {
+      leader: 'River Safari',
+      companions: [ 'Drew', 'Jamie', 'Dakota', 'Reese', 'Taylor' ],
+      name: 'Safari Receipts',
+      members: [
+        { persona: 'staffer', name: 'Drew', status: 'Active' },
+        { persona: 'satirist', name: 'Jamie', status: 'Active' },
+        { persona: 'whistleblower', name: 'Dakota', status: 'Active' },
+        { persona: 'lobbyist', name: 'Reese', status: 'Active' },
+        { persona: 'organizer', name: 'Taylor', status: 'Active' },
+        {
+          persona: 'journalist',
+          name: 'River Safari',
+          status: 'Active'
+        }
+      ]
+    },
+    partial_distance_today: 0,
+    partial_travel_days: 0,
+    region: 'PacificCoast',
+    crossing_permit_uses: 0,
+    prev_miles_traveled: 0,
+    exec_order_days_remaining: 0,
+    day_state: {
+      day_initialized: false,
+      did_end_of_day: false,
+      traveled_today: false,
+      suppress_stop_ratio: false,
+      partial_traveled_today: false,
+      rest_requested: false,
+      travel_blocked: false
+    },
+    route_services: {
+      talk_reward: null,
+      map_reviewed: null,
+      stop: null,
+      talked_at: null,
+      traded_at: null,
+      route_id: 'journalist',
+      trading: false
+    },
+    clock_minutes: 480,
+    persona_id: 'journalist',
+    rest_threshold: 4,
+    exec_breakdown_bonus: 0,
+    budget_cents: 4900,
+    abandoned: false,
+    season: 'spring',
+    budget: 49,
+    non_travel_days: 0,
+    encounters_today: 0,
+    exec_order_cooldown: 0,
+    rotation_backlog: [],
+    current_day_kind: null,
+    last_breakdown_part: null,
+    journey_part_weights: { tire: 50, alt: 15, battery: 20, pump: 15 },
+    crew_care: { pending: null, reason: 0, last_check_day: 0, strain: {} },
+    distance_today: 0,
+    current_order: null,
+    current_encounter: null,
+    last_damage: null,
+    mode: 'Classic',
+    miles_traveled_actual: 0,
+    weather_travel_multiplier: 1,
+    crossing_detours_taken: 0,
+    exposure_streak_cold: 0,
+    days_with_repair: 0,
+    day_records: [],
+    auto_camp_rest: false,
+    day: 1,
+    encounters_resolved: 0,
+    interactive_repairs: true,
+    diet: 'mixed',
+    vehicle_breakdowns: 0,
+    decision_traces_today: [],
+    trail_distance: 2400,
+    repairs_spent_cents: 0,
+    policy: 'balanced',
+    journey_travel: {
+      mpd_base: 13.5,
+      pace_factor: { blitz: 1.35, heated: 1.2, steady: 1 },
+      weather_factor: {
+        ColdSnap: 0.9,
+        HeatWave: 0.8,
+        Clear: 1,
+        Storm: 0.85,
+        Smoke: 0.88
+      },
+      mpd_min: 6,
+      mpd_max: 24
+    },
+    pace: 'steady',
+    inventory: {
+      tags: [ 'water_jugs', 'plague_resist' ],
+      spares: { tire: 1, alt: 0, battery: 1, pump: 0 }
+    },
+    days_with_camp: 0,
+    features: {
+      exposure_streaks: true,
+      encounter_diversity: true,
+      travel_v2: true
+    },
+    boss: { reached: false, attempted: false, victory: false, ready: false },
+    logs: [
+      'log.booting',
+      'log.persona.selected.satirist',
+      'log.persona.selected.journalist',
+      'log.seed-set'
+    ],
+    weather_impact: null,
+    exposure_streak_heat: 0,
+    mods: {
+      store_discount_pct: 0,
+      receipt_find_pct: 10,
+      satire_sustain: false,
+      eo_heat_pct: 0,
+      bribe_discount_pct: 0
+    },
+    illness_travel_penalty: 1,
+    receipts: [],
+    day_reason_history: []
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.8.2

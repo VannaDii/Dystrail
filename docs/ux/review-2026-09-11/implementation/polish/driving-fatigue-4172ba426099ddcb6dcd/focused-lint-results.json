@@ -1,0 +1,58 @@
+{
+  "source": "/tmp/dystrail-driving-fatigue-preview/source",
+  "commands": [
+    {
+      "label": "format",
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.23
+    },
+    {
+      "label": "clippy-native",
+      "argv": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-Dwarnings",
+        "-Dclippy::all",
+        "-Dclippy::pedantic",
+        "-Dclippy::cargo",
+        "-Dclippy::nursery",
+        "-Aclippy::multiple-crate-versions"
+      ],
+      "exit_code": 0,
+      "seconds": 7.138
+    },
+    {
+      "label": "clippy-wasm",
+      "argv": [
+        "cargo",
+        "clippy",
+        "-p",
+        "dystrail-web",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-Dwarnings",
+        "-Dclippy::all",
+        "-Dclippy::pedantic",
+        "-Dclippy::cargo",
+        "-Dclippy::nursery",
+        "-Aclippy::multiple-crate-versions"
+      ],
+      "exit_code": 0,
+      "seconds": 6.802
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "base_revision": "da9be3bca81423352bf3",
+  "changed_files": [
+    "dystrail-web/src/components/ui/journey_icon.rs"
+  ],
+  "before_sha256": "9348db19c89f1a5feb1c5cb44489e12e06e4583641ebe6cad1e0d906be132248",
+  "change": "Replace the Load history/clock pictogram with a distinct open-folder icon. Existing sizing, stroke, color and action remain unchanged.",
+  "after_sha256": "ba15a5334e6d80a9f2dabb2bc8e0e01f44843ac8a7d1bcc31673b34b09befd02"
+}

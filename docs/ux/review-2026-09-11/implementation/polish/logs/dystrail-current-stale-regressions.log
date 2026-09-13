@@ -1,0 +1,143 @@
+(node:62769) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 24 tests using 1 worker
+
+(node:62792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:62792) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:62792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (4.4s)
+  ✓   2 [chromium] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (1.8s)
+  ✓   3 [chromium] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (2.4s)
+  ✓   4 [chromium] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (2.6s)
+  ✓   5 [chromium] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (3.0s)
+  ✓   6 [chromium] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (2.7s)
+  ✓   7 [chromium] › tests-e2e/second-pass.spec.ts:41:5 › a new political encounter pays cash and exposes its factual hook (2.6s)
+  ✓   8 [chromium] › tests-e2e/second-pass.spec.ts:46:5 › road and progress elements survive consecutive automatic turns (4.6s)
+  ✓   9 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.5s)
+  ✘  10 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (4.4s)
+(node:63544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63544) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:63544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (3.7s)
+  ✘  12 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (32.0s)
+(node:64031) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64031) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:64031) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (4.8s)
+  ✓  14 [mobile] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (3.0s)
+  ✓  15 [mobile] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (3.0s)
+  ✓  16 [mobile] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (3.1s)
+  ✓  17 [mobile] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (3.5s)
+  ✓  18 [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (3.3s)
+  ✓  19 [mobile] › tests-e2e/second-pass.spec.ts:41:5 › a new political encounter pays cash and exposes its factual hook (3.2s)
+  ✓  20 [mobile] › tests-e2e/second-pass.spec.ts:46:5 › road and progress elements survive consecutive automatic turns (5.2s)
+  ✓  21 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (4.2s)
+  ✘  22 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (4.8s)
+(node:65010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65010) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:65010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [mobile] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.6s)
+  ✘  24 [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (31.9s)
+
+
+  1) [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m100[39m
+    Received: [31m83[39m
+
+      17 |  const state=await baseline(page);state.breakdown={part:'FuelPump',day_started:0};state.day_state.travel_blocked=true;state.inventory.spares.pump=1;state.vehicle.health=75;
+      18 |  await importState(page,state);await page.getByRole('button',{name:'Fit your spare Fuel Pump',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+    > 19 |  const after=await savedState(page);expect(after.inventory.spares.pump).toBe(0);expect(after.breakdown).toBeNull();expect(after.vehicle.health).toBe(100);
+         |                                                                                                                                                 ^
+      20 |  await expect(page.locator('.resource-change').filter({hasText:'Fuel Pump'})).toContainText('-1');
+      21 |  await expect(page.locator('.resource-change').filter({hasText:'Vehicle condition'})).toContainText('+25%');await snap(page,'repair');
+      22 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:19:145
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-stale-regressions-results/states-repair-consumes-a-pump-and-shows-the-cost-chromium/error-context.md
+
+  2) [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ──
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: apiRequestContext._wrapApiCall: file data stream has unexpected number of bytes
+
+    Error: locator.click: Test ended.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Continue', exact: true })[22m
+
+
+      39 |  await expect(page.locator('.town-trading .action-grid>button')).toHaveCount(3);await page.getByRole('button',{name:'Get a battery',exact:true}).click();
+      40 |  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);
+    > 41 |  await page.reload();await expect(page.locator('.town-trading')).toBeVisible();
+         |                                                              ^
+      42 |  await expect(page.locator('.town-trading')).toContainText('Community exchange used');
+      43 |  for(const offer of await page.locator('.town-trading .action-grid>button').all())await expect(offer).toBeDisabled();
+      44 |  await page.getByRole('button',{name:'Back to town',exact:true}).click();
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:41:62
+
+    Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+
+    Error Context: ../../../../../tmp/dystrail-current-stale-regressions-results/states-route-store-one-exchange-and-cooldown-recovery-chromium/error-context.md
+
+  3) [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ──────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m100[39m
+    Received: [31m83[39m
+
+      17 |  const state=await baseline(page);state.breakdown={part:'FuelPump',day_started:0};state.day_state.travel_blocked=true;state.inventory.spares.pump=1;state.vehicle.health=75;
+      18 |  await importState(page,state);await page.getByRole('button',{name:'Fit your spare Fuel Pump',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+    > 19 |  const after=await savedState(page);expect(after.inventory.spares.pump).toBe(0);expect(after.breakdown).toBeNull();expect(after.vehicle.health).toBe(100);
+         |                                                                                                                                                 ^
+      20 |  await expect(page.locator('.resource-changes .change').filter({hasText:'Fuel Pump'})).toContainText('-1');
+      21 |  await expect(page.locator('.resource-changes .change').filter({hasText:'Vehicle condition'})).toContainText('+25%');await snap(page,'repair');
+      22 | });
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:19:145
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-stale-regressions-results/states-repair-consumes-a-pump-and-shows-the-cost-mobile/error-context.md
+
+  4) [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Continue', exact: true })[22m
+
+
+      39 |  await expect(page.locator('.town-trading .action-grid>button')).toHaveCount(3);await page.getByRole('button',{name:'Get a battery',exact:true}).click();
+      40 |  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);
+    > 41 |  await page.reload();await expect(page.locator('.town-trading')).toBeVisible();
+         |                                                              ^
+      42 |  await expect(page.locator('.town-trading')).toContainText('Community exchange used');
+      43 |  for(const offer of await page.locator('.town-trading .action-grid>button').all())await expect(offer).toBeDisabled();
+      44 |  await page.getByRole('button',{name:'Back to town',exact:true}).click();
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:41:62
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-current-stale-regressions-results/states-route-store-one-exchange-and-cooldown-recovery-mobile/error-context.md
+
+  4 failed
+    [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ─────────
+    [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ───
+    [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost ───────────
+    [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ─────
+  20 passed (4.6m)

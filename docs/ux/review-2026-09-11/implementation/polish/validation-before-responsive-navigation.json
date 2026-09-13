@@ -1,0 +1,151 @@
+{
+  "checked_at": "2026-09-12T18:04:07.455546+00:00",
+  "build": {
+    "revision": "84804cf5709353f5093a",
+    "files": 87,
+    "bytes": 90472173,
+    "artifact": "/tmp/dystrail-help-stable-web",
+    "preview": "http://127.0.0.1:8180/play/"
+  },
+  "offline_cache": {
+    "browser": "Native Safari 26.6.2",
+    "source_revision": "84804cf5709353f5093a",
+    "files": 87,
+    "bytes": 90472173,
+    "invalid": [],
+    "origin_physically_stopped": true,
+    "fixture": "Matching versioned HTML metadata added for update tests; other assets match the source release.",
+    "evidence": "safari/validation.json"
+  },
+  "native_tests": {
+    "passed": 260,
+    "exit": 0
+  },
+  "chrome_wasm_tests": {
+    "passed": 2,
+    "exit": 0,
+    "log": "logs/dystrail-help-stable-wasm-tests.log"
+  },
+  "strict_clippy": {
+    "native_exit": 0,
+    "wasm_exit": 0
+  },
+  "release_builds": {
+    "native_exit": 0,
+    "web_exit": 0
+  },
+  "formatting": {
+    "cargo_fmt_exit": 0,
+    "git_diff_check_exit": 0
+  },
+  "chrome_regressions": {
+    "gameplay_build": "595e6114615d79492626",
+    "desktop": {
+      "assertions_passed": 67,
+      "runner_exit": 143,
+      "status": "assertions_passed_cleanup_stalled",
+      "unstarted_phone_project_counted": false
+    },
+    "phone": {
+      "passed": 67,
+      "runner_exit": 0,
+      "physical_device": false
+    },
+    "final_package": {
+      "build": "1868d6c37d8c25729dae",
+      "passed": 20,
+      "runner_exit": 0,
+      "scope": [
+        "feedback.spec.ts",
+        "preload.spec.ts",
+        "pwa.spec.ts"
+      ]
+    },
+    "latest_package": {
+      "build": "84804cf5709353f5093a",
+      "passed": 8,
+      "runner_exit": 0,
+      "scope": [
+        "Help preference geometry, keyboard, information access and offline persistence",
+        "First-launch hold/failure/retry, cache eviction and offline relaunch",
+        "Complete-update activation and failed-update rollback"
+      ],
+      "physical_device": false
+    }
+  },
+  "game_client": {
+    "exit": 0,
+    "unmodified": true,
+    "screenshot_visually_reviewed": true,
+    "build": "84804cf5709353f5093a",
+    "screenshot": "evidence/help-build-game-client.png"
+  },
+  "layout": {
+    "ltr_widths": [
+      390,
+      1280
+    ],
+    "rtl_width": 390,
+    "primary_subtitle_alignment_error_px": 0,
+    "inset_stat_backgrounds": false,
+    "help_toggle": {
+      "chrome_widths": [
+        1280,
+        412
+      ],
+      "safari_requested_widths": [
+        1280,
+        600
+      ],
+      "position_and_size_change_px": 0,
+      "optional_tips_excluded_from_accessibility_tree": true,
+      "information_buttons_available": true
+    }
+  },
+  "safari": {
+    "current_build_verified": true,
+    "status": "passed",
+    "browser": "Safari 26.6.2",
+    "build": "84804cf5709353f5093a",
+    "passed": 6,
+    "exit": 0,
+    "evidence": "safari/validation.json",
+    "prior_feedback": {
+      "build": "1868d6c37d8c25729dae",
+      "passed": 18,
+      "exit": 0,
+      "evidence": "safari/feedback/validation.json"
+    },
+    "physical_device_installation": false,
+    "previous_failures": "Retained in logs: hidden/locked windows; new PWA fixture required player name, an instant initial scroll, and set-order normalization. None changed game behavior or removed checks."
+  },
+  "campaign": {
+    "report": "../campaign/validation.json",
+    "status": "unchanged_acceptance_failure",
+    "decision": "../campaign/balance-decision.md",
+    "thresholds_changed": false
+  },
+  "engine_coverage_percent": 78.72,
+  "security_exceptions": "../../../../security/advisory-exceptions.json",
+  "remaining": [
+    "Pending campaign balance decision"
+  ],
+  "completion_audit": {
+    "checked_at": "2026-09-12T18:04:07.455546+00:00",
+    "status": "implementation_verified_campaign_decision_pending",
+    "safari_block_resolved": true,
+    "progress": "Native Safari verification completed; new Help & Tips layout feedback implemented and verified in both browsers.",
+    "next_actions": [
+      "Resolve the previously presented campaign balance decision."
+    ]
+  },
+  "previous_chrome_cache_audit": {
+    "revision": "1868d6c37d8c25729dae",
+    "files": 87,
+    "bytes": 90539342,
+    "missing": [],
+    "invalid": [],
+    "launchGate": false,
+    "offline": "ready"
+  }
+}

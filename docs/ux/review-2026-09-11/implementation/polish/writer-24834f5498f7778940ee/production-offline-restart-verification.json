@@ -1,0 +1,36 @@
+{
+  "revision": "24834f5498f7778940ee",
+  "network": "offline before initial navigation",
+  "profile": "/tmp/dystrail-writer-preview-release-prep/old-production-profile",
+  "errors": [],
+  "uiNavigation": {
+    "before": {
+      "tab": 3,
+      "expanded": true
+    },
+    "after": {
+      "tab": 0,
+      "expanded": true
+    },
+    "reason": "The prior verification clicked The Van to verify six saved crew members; the restart correctly preserved that selection."
+  },
+  "entireSavePreserved": true,
+  "cache": {
+    "revision": "24834f5498f7778940ee",
+    "assets": 101,
+    "keys": 102,
+    "failures": [],
+    "marker": "24834f5498f7778940ee",
+    "images": 67,
+    "decoded": true
+  },
+  "crew": [
+    "Riley",
+    "Jamie",
+    "Avery",
+    "Blair",
+    "Reese",
+    "Release Check"
+  ],
+  "passed": true
+}

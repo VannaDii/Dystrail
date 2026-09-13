@@ -12,7 +12,9 @@ pub use boss::build_boss;
 pub use prefs::{
     build_begin_boot, build_go_home, build_lang_change, build_settings_hc_change, build_toggle_hc,
 };
-pub use storage::{build_export_state, build_import_state, build_load, build_save};
+pub use storage::{
+    build_download_state, build_export_state, build_import_state, build_load, build_save,
+};
 pub use travel::{build_diet_change, build_encounter_choice, build_pace_change, build_travel};
 
 #[derive(Clone)]
@@ -25,6 +27,7 @@ pub struct AppHandlers {
     pub save: Callback<()>,
     pub load: Callback<()>,
     pub export_state: Callback<()>,
+    pub download_state: Callback<()>,
     pub import_state: Callback<String>,
     pub lang_change: Callback<String>,
     pub toggle_hc: Callback<bool>,
@@ -45,6 +48,7 @@ impl AppHandlers {
             save: build_save(state),
             load: build_load(state),
             export_state: build_export_state(state),
+            download_state: build_download_state(state),
             import_state: build_import_state(state),
             lang_change: build_lang_change(state),
             toggle_hc: build_toggle_hc(state),

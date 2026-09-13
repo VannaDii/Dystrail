@@ -15,20 +15,29 @@ pub struct PacingConfig {
     pub enabled: bool,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct PaceCfg {
     pub id: String,
     pub name: String,
-    #[serde(default = "default_one_f32")]
-    pub dist_mult: f32,
+    #[serde(default = "default_speed_mph")]
+    pub speed_mph: f32,
     #[serde(default)]
-    pub distance: f32,
-    #[serde(default)]
+    /// Direct fatigue over 300 driving minutes; parked time does not incur this penalty.
     pub sanity: i32,
     #[serde(default)]
-    pub pants: i32,
-    #[serde(default)]
     pub encounter_chance_delta: f32,
+}
+
+impl Default for PaceCfg {
+    fn default() -> Self {
+        Self {
+            id: String::from("steady"),
+            name: String::from("Steady"),
+            speed_mph: default_speed_mph(),
+            sanity: 0,
+            encounter_chance_delta: 0.0,
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
@@ -38,8 +47,6 @@ pub struct DietCfg {
     #[serde(default)]
     pub sanity: i32,
     #[serde(default)]
-    pub pants: i32,
-    #[serde(default)]
     pub receipt_find_pct_delta: i32,
 }
 
@@ -47,26 +54,12 @@ pub struct DietCfg {
 pub struct PacingLimits {
     #[serde(default = "default_zero_f32")]
     pub encounter_base: f32,
-    #[serde(default = "default_zero_f32")]
-    pub distance_base: f32,
     #[serde(default = "default_distance_penalty_floor")]
     pub distance_penalty_floor: f32,
     #[serde(default = "default_zero_f32")]
     pub encounter_floor: f32,
     #[serde(default = "default_one_f32")]
     pub encounter_ceiling: f32,
-    #[serde(default = "default_zero_i32")]
-    pub pants_floor: i32,
-    #[serde(default = "default_pants_ceiling")]
-    pub pants_ceiling: i32,
-    #[serde(default)]
-    pub passive_relief: i32,
-    #[serde(default = "default_passive_threshold")]
-    pub passive_relief_threshold: i32,
-    #[serde(default)]
-    pub boss_pants_cap: i32,
-    #[serde(default)]
-    pub boss_passive_relief: i32,
 }
 
 impl PacingConfig {
@@ -105,22 +98,14 @@ const fn default_one_f32() -> f32 {
     1.0
 }
 
+const fn default_speed_mph() -> f32 {
+    60.0
+}
+
 const fn default_zero_f32() -> f32 {
     0.0
 }
 
-const fn default_zero_i32() -> i32 {
-    0
-}
-
 const fn default_distance_penalty_floor() -> f32 {
     0.6
-}
-
-const fn default_pants_ceiling() -> i32 {
-    100
-}
-
-const fn default_passive_threshold() -> i32 {
-    0
 }

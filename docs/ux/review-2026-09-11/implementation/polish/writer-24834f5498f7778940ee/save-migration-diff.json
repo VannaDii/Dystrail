@@ -1,0 +1,106 @@
+{
+  "before": "old-production-autosave.json",
+  "after": "production-updated-autosave-first.json",
+  "differences": [
+    {
+      "path": "pending.camp.forage_cooldown",
+      "change": "removed",
+      "before": 0
+    },
+    {
+      "path": "pending.driving_minutes_total",
+      "change": "added",
+      "after": 0
+    },
+    {
+      "path": "pending.encounter_cooldown",
+      "change": "removed",
+      "before": 0
+    },
+    {
+      "path": "pending.journey_travel.mpd_base",
+      "change": "removed",
+      "before": 150
+    },
+    {
+      "path": "pending.journey_travel.mpd_max",
+      "change": "removed",
+      "before": 400
+    },
+    {
+      "path": "pending.journey_travel.mpd_min",
+      "change": "removed",
+      "before": 75
+    },
+    {
+      "path": "pending.journey_travel.pace_factor",
+      "change": "removed",
+      "before": {
+        "heated": 1,
+        "steady": 1,
+        "blitz": 1
+      }
+    },
+    {
+      "path": "pending.last_encounter_driving_minutes",
+      "change": "added",
+      "after": null
+    },
+    {
+      "path": "state.camp.forage_cooldown",
+      "change": "removed",
+      "before": 0
+    },
+    {
+      "path": "state.driving_minutes_total",
+      "change": "added",
+      "after": 0
+    },
+    {
+      "path": "state.encounter_cooldown",
+      "change": "removed",
+      "before": 0
+    },
+    {
+      "path": "state.inventory.tags",
+      "change": "changed",
+      "before": [
+        "water_jugs",
+        "plague_resist"
+      ],
+      "after": [
+        "plague_resist",
+        "water_jugs"
+      ]
+    },
+    {
+      "path": "state.journey_travel.mpd_base",
+      "change": "removed",
+      "before": 150
+    },
+    {
+      "path": "state.journey_travel.mpd_max",
+      "change": "removed",
+      "before": 400
+    },
+    {
+      "path": "state.journey_travel.mpd_min",
+      "change": "removed",
+      "before": 75
+    },
+    {
+      "path": "state.journey_travel.pace_factor",
+      "change": "removed",
+      "before": {
+        "heated": 1,
+        "steady": 1,
+        "blitz": 1
+      }
+    },
+    {
+      "path": "state.last_encounter_driving_minutes",
+      "change": "added",
+      "after": null
+    }
+  ]
+}

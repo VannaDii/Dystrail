@@ -1,0 +1,154 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=e5]: DYSTOPIAN TRAIL
+    - generic [ref=e7]:
+      - button "Menu" [expanded] [active] [ref=e8] [cursor=pointer]: Menu ▾
+      - navigation "Game controls" [ref=e10]:
+        - button "Save" [ref=e11] [cursor=pointer]
+        - button "Load" [ref=e12] [cursor=pointer]
+        - switch "High contrast" [ref=e13] [cursor=pointer]: High contrast
+        - switch "Help & tips" [checked] [ref=e16] [cursor=pointer]: Help & tips
+        - button "Language" [ref=e20] [cursor=pointer]: English ▾
+        - button "Abandon trail" [ref=e21] [cursor=pointer]
+        - generic [ref=e22]:
+          - button "How to install" [ref=e25] [cursor=pointer]
+          - generic [ref=e26]:
+            - status [ref=e27]:
+              - generic [ref=e28]: ✓
+              - generic [ref=e29]: Ready for offline play
+            - 'button "How this works: Offline play" [ref=e31] [cursor=pointer]': "?"
+    - status: Game saved
+  - main [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - region "Crew & condition" [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - term [ref=e38]:
+                - text: Supplies
+                - 'button "How this works: Supplies" [ref=e40] [cursor=pointer]': "?"
+              - definition [ref=e41]: "16"
+            - generic [ref=e42]:
+              - term [ref=e43]:
+                - text: Health
+                - 'button "How this works: Health" [ref=e45] [cursor=pointer]': "?"
+              - definition [ref=e46]: "10"
+            - generic [ref=e47]:
+              - term [ref=e48]:
+                - text: Sanity
+                - 'button "How this works: Sanity" [ref=e50] [cursor=pointer]': "?"
+              - definition [ref=e51]: "10"
+            - generic [ref=e52]:
+              - term [ref=e53]:
+                - text: Credibility
+                - 'button "How this works: Credibility" [ref=e55] [cursor=pointer]': "?"
+              - definition [ref=e56]: "7"
+            - generic [ref=e57]:
+              - term [ref=e58]:
+                - text: Receipts
+                - 'button "How this works: Receipts" [ref=e60] [cursor=pointer]': "?"
+              - definition [ref=e61]: "0"
+            - generic [ref=e62]:
+              - term [ref=e63]:
+                - text: Morale
+                - 'button "How this works: Morale" [ref=e65] [cursor=pointer]': "?"
+              - definition [ref=e66]: "5"
+            - generic [ref=e67]:
+              - term [ref=e68]:
+                - text: Allies
+                - 'button "How this works: Allies" [ref=e70] [cursor=pointer]': "?"
+              - definition [ref=e71]: "1"
+        - figure "Seattle → Spokane The road to D.C." [ref=e72]:
+          - region "Conditions" [ref=e73]:
+            - generic [ref=e74]:
+              - paragraph [ref=e75]: ◷ Day 1 · 08:00
+              - group "Temporary effects" [ref=e76]:
+                - status [ref=e77]:
+                  - generic [ref=e78]:
+                    - generic [ref=e79]: ☼
+                    - strong [ref=e80]: Clear
+                  - generic [ref=e81]: No weather cost
+                  - 'button "How this works: Weather effects" [ref=e83] [cursor=pointer]': ⓘ
+          - generic [ref=e84]:
+            - generic:
+              - paragraph: Seattle → Spokane
+              - heading "The road to D.C." [level=1]
+          - progressbar "Travel progress" [ref=e85]
+        - region "The next leg" [ref=e87]:
+          - generic [ref=e88]: Your turn
+          - generic [ref=e89]:
+            - strong [ref=e90]: Spokane
+            - generic [ref=e91]: 280 mi
+            - generic [ref=e92]:
+              - button "Store availability" [ref=e94] [cursor=pointer]:
+                - img [ref=e95]
+              - button "Community exchange" [ref=e100] [cursor=pointer]:
+                - img [ref=e101]
+          - generic [ref=e105]:
+            - strong [ref=e106]: $49
+            - generic [ref=e107]: Vehicle condition 100%
+            - 'button "How this works: Supply outlook" [ref=e109] [cursor=pointer]': "?"
+      - region "The Trail" [ref=e110]:
+        - generic [ref=e112]:
+          - tablist "Full details" [ref=e113]:
+            - tab "The Trail" [ref=e114] [cursor=pointer]
+            - tab "Conditions" [selected] [ref=e115] [cursor=pointer]
+            - tab "The Van" [ref=e116] [cursor=pointer]
+            - tab "Journal" [ref=e117] [cursor=pointer]
+          - generic [ref=e118]:
+            - switch "Fast mode" [ref=e119] [cursor=pointer]: Fast
+            - button "Camp" [ref=e122] [cursor=pointer]
+            - button "Review route" [ref=e123] [cursor=pointer]
+            - button "Resume travel" [ref=e124] [cursor=pointer]
+        - tabpanel "Conditions" [ref=e125]:
+          - generic [ref=e126]:
+            - 'group "Travel pace How this works: Travel pace" [ref=e127]':
+              - generic [ref=e128]:
+                - text: Travel pace
+                - 'button "How this works: Travel pace" [ref=e130] [cursor=pointer]': "?"
+              - generic [ref=e131]:
+                - button "Steady Distance ×1.00 Sanity +0 Encounter chance +0%" [pressed] [ref=e132] [cursor=pointer]:
+                  - strong [ref=e133]: Steady
+                  - generic [ref=e134]: Distance ×1.00
+                  - generic [ref=e135]: Sanity +0
+                  - generic [ref=e136]: Encounter chance +0%
+                - button "Heated Distance ×1.15 Sanity -1 Encounter chance +5%" [ref=e137] [cursor=pointer]:
+                  - strong [ref=e138]: Heated
+                  - generic [ref=e139]: Distance ×1.15
+                  - generic [ref=e140]: Sanity -1
+                  - generic [ref=e141]: Encounter chance +5%
+                - button "Blitz Distance ×1.30 Sanity -2 Encounter chance +10%" [ref=e142] [cursor=pointer]:
+                  - strong [ref=e143]: Blitz
+                  - generic [ref=e144]: Distance ×1.30
+                  - generic [ref=e145]: Sanity -2
+                  - generic [ref=e146]: Encounter chance +10%
+            - 'group "Information diet How this works: Information diet" [ref=e147]':
+              - generic [ref=e148]:
+                - text: Information diet
+                - 'button "How this works: Information diet" [ref=e150] [cursor=pointer]': "?"
+              - generic [ref=e151]:
+                - button "Quiet Sanity +2 Evidence chance -5%" [ref=e152] [cursor=pointer]:
+                  - strong [ref=e153]: Quiet
+                  - generic [ref=e154]: Sanity +2
+                  - generic [ref=e155]: Evidence chance -5%
+                - button "Mixed Sanity +1 Evidence chance +0%" [pressed] [ref=e156] [cursor=pointer]:
+                  - strong [ref=e157]: Mixed
+                  - generic [ref=e158]: Sanity +1
+                  - generic [ref=e159]: Evidence chance +0%
+                - button "Doomscroll Sanity -2 Evidence chance +8%" [ref=e160] [cursor=pointer]:
+                  - strong [ref=e161]: Doomscroll
+                  - generic [ref=e162]: Sanity -2
+                  - generic [ref=e163]: Evidence chance +8%
+          - region "Weather effects" [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]: ☼
+              - strong [ref=e167]: Clear
+              - 'button "How this works: Weather effects" [ref=e169] [cursor=pointer]': "?"
+            - paragraph [ref=e170]: No weather cost
+    - generic [ref=e171]: © Dystopian Trail
+```

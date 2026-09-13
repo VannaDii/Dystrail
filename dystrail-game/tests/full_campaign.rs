@@ -168,7 +168,6 @@ fn validate_end_state(
     // Trigger crossing helpers explicitly.
     let mut crossing_state = configure_state(42);
     crossing_state.stats.supplies = 12;
-    crossing_state.stats.pants = 8;
     crossing_state.inventory.tags.insert("permit".into());
     assert!(can_use_permit(&crossing_state, &CrossingKind::Checkpoint));
     let _ = apply_permit(&mut crossing_state, &crossing_cfg, CrossingKind::Checkpoint);

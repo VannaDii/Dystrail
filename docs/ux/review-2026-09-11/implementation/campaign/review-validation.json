@@ -1,0 +1,142 @@
+{
+  "review_links": [
+    {
+      "path": "/review/implementation/campaign/README.md",
+      "status": 200,
+      "bytes": 5823,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/campaign/balance-decision.md",
+      "status": 200,
+      "bytes": 1747,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/campaign/campaign.csv",
+      "status": 200,
+      "bytes": 4929607,
+      "type": "text/csv"
+    },
+    {
+      "path": "/review/implementation/campaign/commands.md",
+      "status": 200,
+      "bytes": 4375,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/campaign/validation.json",
+      "status": 200,
+      "bytes": 3939,
+      "type": "application/json"
+    },
+    {
+      "path": "/review/implementation/content/",
+      "status": 200,
+      "bytes": 254456,
+      "type": "text/html"
+    },
+    {
+      "path": "/review/implementation/feedback.md",
+      "status": 200,
+      "bytes": 13862,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/index-round1.html",
+      "status": 200,
+      "bytes": 8622,
+      "type": "text/html"
+    },
+    {
+      "path": "/review/implementation/index-second-playthrough.html",
+      "status": 200,
+      "bytes": 10472,
+      "type": "text/html"
+    },
+    {
+      "path": "/review/implementation/receipts/README.md",
+      "status": 200,
+      "bytes": 5706,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/receipts/evidence/receipts-final-trail-desktop.png",
+      "status": 200,
+      "bytes": 986126,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/receipts/evidence/receipts-offline-outcome-320.png",
+      "status": 200,
+      "bytes": 214330,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/scene-flow/consistency-audit.md",
+      "status": 200,
+      "bytes": 3223,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/west-coast/art-briefs.md",
+      "status": 200,
+      "bytes": 3876,
+      "type": "text/markdown"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/character-origins.png",
+      "status": 200,
+      "bytes": 604718,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/conversation-ar-390.png",
+      "status": 200,
+      "bytes": 38408,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/conversation-en-1280.png",
+      "status": 200,
+      "bytes": 55684,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/conversation-en-390.png",
+      "status": 200,
+      "bytes": 46902,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/desert-road.png",
+      "status": 200,
+      "bytes": 975725,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/map-us-chromium.png",
+      "status": 200,
+      "bytes": 123808,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/mountain-road.png",
+      "status": 200,
+      "bytes": 898983,
+      "type": "image/png"
+    },
+    {
+      "path": "/review/implementation/west-coast/evidence/pnw-road.png",
+      "status": 200,
+      "bytes": 943908,
+      "type": "image/png"
+    }
+  ],
+  "preview_revisions": {
+    "8180": "a24e05514179da6c0b69",
+    "8083": "a24e05514179da6c0b69",
+    "56854": "a24e05514179da6c0b69"
+  },
+  "current_build_named_in_review": true
+}

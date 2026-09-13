@@ -1,0 +1,19 @@
+Safari 26.6.2
+PASS First launch waits for its complete asset bundle
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Continue
+    at click (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:49:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:75:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: null,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.8.2

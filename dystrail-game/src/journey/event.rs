@@ -87,16 +87,16 @@ impl Event {
     }
 }
 
-/// Explainability telemetry for random event selection.
+/// Explainability telemetry for event selection.
 ///
-/// This is populated by phases that select from weighted pools (events/encounters).
+/// Records weighted draws and deterministic rotation decisions.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct EventDecisionTrace {
     /// Identifier for the selection pool (e.g., `otdeluxe.random_events`).
     pub pool_id: String,
-    /// Random draw used to select from the weighted pool.
+    /// Random draw used for selection, or an explicit deterministic decision.
     pub roll: RollValue,
-    /// Candidate weights considered during selection.
+    /// Candidate weights considered during a draw; empty for queue selection.
     pub candidates: Vec<WeightedCandidate>,
     /// Identifier of the selected candidate.
     pub chosen_id: String,
@@ -112,12 +112,13 @@ pub struct WeightedCandidate {
     pub final_weight: f64,
 }
 
-/// Random roll value used by weighted selection.
+/// Random roll used by weighted selection, or a decision requiring no RNG draw.
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "kind", content = "value", rename_all = "snake_case")]
 pub enum RollValue {
     U32(u32),
     F32(f32),
+    Deterministic,
 }
 
 /// Single multiplicative weight factor used in an event selection trace.

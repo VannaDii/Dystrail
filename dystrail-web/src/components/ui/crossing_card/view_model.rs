@@ -37,38 +37,28 @@ pub fn build_crossing_viewmodel(
     };
     let prompt = i18n::t("cross.prompt");
 
-    let mut detour_days = type_cfg.detour.days;
-    let mut detour_pants = type_cfg.detour.pants;
+    let mut detour_hours = type_cfg.detour.hours;
 
-    if let Some(weather_mod) = cfg.global_mods.weather.get(&gs.weather_state.today) {
-        if let Some(extra_days) = weather_mod.detour.days {
-            detour_days += extra_days;
-        }
-        if let Some(extra_pants) = weather_mod.detour.pants {
-            detour_pants += extra_pants;
-        }
+    if let Some(weather_mod) = cfg.global_mods.weather.get(&gs.weather_state.today)
+        && let Some(extra_hours) = weather_mod.detour.hours
+    {
+        detour_hours += extra_hours;
     }
 
-    let days_str = if detour_days >= 0 {
-        format!("+{detour_days}")
+    let hours_str = if detour_hours >= 0 {
+        format!("+{detour_hours}")
     } else {
-        detour_days.to_string()
+        detour_hours.to_string()
     };
     let supplies_str = if type_cfg.detour.supplies >= 0 {
         format!("+{supplies}", supplies = type_cfg.detour.supplies)
     } else {
         type_cfg.detour.supplies.to_string()
     };
-    let pants_str = if detour_pants >= 0 {
-        format!("+{detour_pants}")
-    } else {
-        detour_pants.to_string()
-    };
 
     let mut detour_args = std::collections::BTreeMap::new();
-    detour_args.insert("days", days_str.as_str());
+    detour_args.insert("hours", hours_str.as_str());
     detour_args.insert("supplies", supplies_str.as_str());
-    detour_args.insert("pants", pants_str.as_str());
     let detour_label = i18n::tr("cross.options.detour", Some(&detour_args));
     let detour_desc = i18n::t("cross.desc.detour");
 

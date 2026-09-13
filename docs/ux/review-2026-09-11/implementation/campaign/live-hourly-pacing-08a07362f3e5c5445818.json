@@ -1,0 +1,1414 @@
+{
+  "build": {
+    "server": "08a07362f3e5c5445818",
+    "cache": [
+      "dystopian-trail:/play/:08a07362f3e5c5445818"
+    ]
+  },
+  "cases": {
+    "fresh": {
+      "before": {
+        "day": 1,
+        "minute": 480,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "steady",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 0,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Your loadout",
+          "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+          "before": {
+            "supplies": 0,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.cash",
+              "before": 12000,
+              "after": 4900
+            },
+            {
+              "key": "store.items.spare_tire.name",
+              "before": 0,
+              "after": 1
+            },
+            {
+              "key": "store.items.battery.name",
+              "before": 0,
+              "after": 1
+            }
+          ]
+        }
+      },
+      "after": {
+        "day": 1,
+        "minute": 513,
+        "simMiles": 20.364977,
+        "legMinutes": 60,
+        "pace": "steady",
+        "weather": "ColdSnap",
+        "weatherMultiplier": 0.9,
+        "vehicle": {
+          "wear": 0.05189388,
+          "health": 99.948105,
+          "breakdown_cooldown": 0,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Encounter",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 513,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Traveled",
+          "message": "",
+          "before": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 15,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [
+            [
+              "Weather contribution",
+              "Sanity -1"
+            ]
+          ],
+          "resources": [
+            {
+              "key": "play.miles",
+              "before": 0,
+              "after": 248
+            },
+            {
+              "key": "play.vehicle",
+              "before": 10000,
+              "after": 9995
+            }
+          ]
+        }
+      },
+      "ui": "Supplies\n?\n15\nHealth\n?\n10\nSanity\n?\n10\nCredibility\n?\n7\nReceipts\n?\n0\nMorale\n?\n5\nAllies\n?\n1\n\nDay 1 · 08:33\n\nSteady\nMixed\nSpokane\n255 mi\nCash\n$49\nVehicle condition\n100%\n?\nConditions changed:\n❄\nCold Snap\nSanity -1\ni\n\nSeattle → Spokane\n\nMedia Coach Onboarding\nFinley\nThe Trail\nConditions\nThe Van\nJournal\nFast\nCamp\nRoute\nTravel\nTraveled\nWeather contribution\nSanity -1\nSupplies\n-1\n15 left\nMiles traveled\n+24.8\n0.0 → 24.8\nVehicle condition\n-0.05%\n100.00% → 99.95%\n\nKNOWN EFFECTS\ni\n\nMedia Coach Onboarding\n\nAfter the Trump administration’s Signal scandal, everyone is checking who else is listening. A friendly coach offers quick framing tips before the next checkpoint.\n\n1)\nTake the mini workshop\nSanity +0 · Credibility +2 · Adjusted for current limits\n2)\nSend the aides instead\nMorale +2\n© Dystopian Trail"
+    },
+    "heated": {
+      "before": {
+        "day": 1,
+        "minute": 480,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "heated",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Your loadout",
+          "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+          "before": {
+            "supplies": 0,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.cash",
+              "before": 12000,
+              "after": 4900
+            },
+            {
+              "key": "store.items.spare_tire.name",
+              "before": 0,
+              "after": 1
+            },
+            {
+              "key": "store.items.battery.name",
+              "before": 0,
+              "after": 1
+            }
+          ]
+        }
+      },
+      "after": {
+        "day": 1,
+        "minute": 540,
+        "simMiles": 70,
+        "legMinutes": 60,
+        "pace": "heated",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0.09855001,
+          "health": 99.90145,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 540,
+          "pace": "heated",
+          "diet": "mixed",
+          "place": "",
+          "title": "Traveled",
+          "message": "",
+          "before": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.miles",
+              "before": 0,
+              "after": 700
+            },
+            {
+              "key": "play.vehicle",
+              "before": 10000,
+              "after": 9990
+            }
+          ]
+        }
+      }
+    },
+    "blitz": {
+      "before": {
+        "day": 1,
+        "minute": 480,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "blitz",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Your loadout",
+          "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+          "before": {
+            "supplies": 0,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.cash",
+              "before": 12000,
+              "after": 4900
+            },
+            {
+              "key": "store.items.spare_tire.name",
+              "before": 0,
+              "after": 1
+            },
+            {
+              "key": "store.items.battery.name",
+              "before": 0,
+              "after": 1
+            }
+          ]
+        }
+      },
+      "after": {
+        "day": 1,
+        "minute": 540,
+        "simMiles": 80,
+        "legMinutes": 60,
+        "pace": "blitz",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0.1168,
+          "health": 99.8832,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 540,
+          "pace": "blitz",
+          "diet": "mixed",
+          "place": "",
+          "title": "Traveled",
+          "message": "",
+          "before": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.miles",
+              "before": 0,
+              "after": 800
+            },
+            {
+              "key": "play.vehicle",
+              "before": 10000,
+              "after": 9988
+            }
+          ]
+        }
+      }
+    },
+    "clear_steady_day": {
+      "before": {
+        "day": 1,
+        "minute": 480,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "steady",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Your loadout",
+          "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+          "before": {
+            "supplies": 0,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.cash",
+              "before": 12000,
+              "after": 4900
+            },
+            {
+              "key": "store.items.spare_tire.name",
+              "before": 0,
+              "after": 1
+            },
+            {
+              "key": "store.items.battery.name",
+              "before": 0,
+              "after": 1
+            }
+          ]
+        }
+      },
+      "legs": [
+        {
+          "day": 1,
+          "minute": 540,
+          "simMiles": 60,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.085775,
+            "health": 99.91422,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 540,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 0,
+                "after": 600
+              },
+              {
+                "key": "play.vehicle",
+                "before": 10000,
+                "after": 9991
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 600,
+          "simMiles": 120,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.17155,
+            "health": 99.828445,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 600,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 600,
+                "after": 1200
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9991,
+                "after": 9983
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 660,
+          "simMiles": 180,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.257325,
+            "health": 99.74267,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 660,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 1200,
+                "after": 1800
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9983,
+                "after": 9974
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 720,
+          "simMiles": 240,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.3431,
+            "health": 99.65689,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 720,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 1800,
+                "after": 2400
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9974,
+                "after": 9966
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 780,
+          "simMiles": 300,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.42887503,
+            "health": 99.57111,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 780,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 2400,
+                "after": 3000
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9966,
+                "after": 9957
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 840,
+          "simMiles": 360,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.51465005,
+            "health": 99.48534,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 840,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 3000,
+                "after": 3600
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9957,
+                "after": 9949
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 900,
+          "simMiles": 420,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.60042506,
+            "health": 99.39956,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 900,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 3600,
+                "after": 4200
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9949,
+                "after": 9940
+              }
+            ]
+          }
+        },
+        {
+          "day": 2,
+          "minute": 480,
+          "simMiles": 480,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.6862001,
+            "health": 99.31378,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 2,
+            "minute": 480,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 16,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.elapsed",
+                "before": 1,
+                "after": 2
+              },
+              {
+                "key": "play.miles",
+                "before": 4200,
+                "after": 4800
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9940,
+                "after": 9931
+              }
+            ]
+          }
+        }
+      ],
+      "ui": "Supplies\n?\n16\nHealth\n?\n10\nSanity\n?\n10\nCredibility\n?\n7\nReceipts\n?\n0\nMorale\n?\n5\nAllies\n?\n1\n\nDay 2 · 08:00\n\nSteady\nMixed\nD.C.\nCash\n$49\nVehicle condition\n99%\n?\n☼\nClear\nNo weather cost\ni\n\nThe road to D.C.\nThe Trail\nConditions\nThe Van\nJournal\nFast\nCamp\nRoute\nTravel\nTraveled\nDays elapsed\n+1\n1 → 2\nMiles traveled\n+60.0\n420.0 → 480.0\nVehicle condition\n-0.09%\n99.40% → 99.31%\n© Dystopian Trail"
+    },
+    "forage_steady_day": {
+      "before": {
+        "day": 1,
+        "minute": 480,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "steady",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Travel",
+        "lastEntry": {
+          "action_kind": "travel",
+          "day": 1,
+          "minute": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "Seattle → Spokane",
+          "title": "Your loadout",
+          "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+          "before": {
+            "supplies": 0,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": [
+            {
+              "key": "play.cash",
+              "before": 12000,
+              "after": 4900
+            },
+            {
+              "key": "store.items.spare_tire.name",
+              "before": 0,
+              "after": 1
+            },
+            {
+              "key": "store.items.battery.name",
+              "before": 0,
+              "after": 1
+            }
+          ]
+        }
+      },
+      "forage": {
+        "day": 1,
+        "minute": 600,
+        "simMiles": 0,
+        "legMinutes": 0,
+        "pace": "steady",
+        "weather": "Clear",
+        "weatherMultiplier": 1,
+        "vehicle": {
+          "wear": 0,
+          "health": 100,
+          "breakdown_cooldown": 100,
+          "wear_multiplier": 1
+        },
+        "food": 0,
+        "execMultiplier": 1,
+        "illnessMultiplier": 1,
+        "dayRecords": [],
+        "phase": "Camp",
+        "lastEntry": {
+          "action_kind": "camp",
+          "day": 1,
+          "minute": 600,
+          "pace": "steady",
+          "diet": "mixed",
+          "place": "",
+          "title": "Forage with a local guide",
+          "message": "Your guide identifies what can be gathered safely. The crew returns with food and a clearer head.",
+          "before": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "after": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 7,
+            "morale": 5,
+            "allies": 1
+          },
+          "details": [],
+          "resources": []
+        }
+      },
+      "legs": [
+        {
+          "day": 1,
+          "minute": 660,
+          "simMiles": 60,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.085775,
+            "health": 99.91422,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 660,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 0,
+                "after": 600
+              },
+              {
+                "key": "play.vehicle",
+                "before": 10000,
+                "after": 9991
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 720,
+          "simMiles": 120,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.17155,
+            "health": 99.828445,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 720,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 600,
+                "after": 1200
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9991,
+                "after": 9983
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 780,
+          "simMiles": 180,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.257325,
+            "health": 99.74267,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 780,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 1200,
+                "after": 1800
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9983,
+                "after": 9974
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 840,
+          "simMiles": 240,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.3431,
+            "health": 99.65689,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 840,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 1800,
+                "after": 2400
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9974,
+                "after": 9966
+              }
+            ]
+          }
+        },
+        {
+          "day": 1,
+          "minute": 900,
+          "simMiles": 300,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.42887503,
+            "health": 99.57111,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 1,
+            "minute": 900,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.miles",
+                "before": 2400,
+                "after": 3000
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9966,
+                "after": 9957
+              }
+            ]
+          }
+        },
+        {
+          "day": 2,
+          "minute": 480,
+          "simMiles": 360,
+          "legMinutes": 60,
+          "pace": "steady",
+          "weather": "Clear",
+          "weatherMultiplier": 1,
+          "vehicle": {
+            "wear": 0.51465005,
+            "health": 99.48534,
+            "breakdown_cooldown": 100,
+            "wear_multiplier": 1
+          },
+          "food": 0,
+          "execMultiplier": 1,
+          "illnessMultiplier": 1,
+          "dayRecords": [],
+          "phase": "Travel",
+          "lastEntry": {
+            "action_kind": "travel",
+            "day": 2,
+            "minute": 480,
+            "pace": "steady",
+            "diet": "mixed",
+            "place": "",
+            "title": "Traveled",
+            "message": "",
+            "before": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "after": {
+              "supplies": 18,
+              "hp": 10,
+              "sanity": 10,
+              "credibility": 7,
+              "morale": 5,
+              "allies": 1
+            },
+            "details": [],
+            "resources": [
+              {
+                "key": "play.elapsed",
+                "before": 1,
+                "after": 2
+              },
+              {
+                "key": "play.miles",
+                "before": 3000,
+                "after": 3600
+              },
+              {
+                "key": "play.vehicle",
+                "before": 9957,
+                "after": 9949
+              }
+            ]
+          }
+        }
+      ],
+      "ui": "Supplies\n?\n18\nHealth\n?\n10\nSanity\n?\n10\nCredibility\n?\n7\nReceipts\n?\n0\nMorale\n?\n5\nAllies\n?\n1\n\nDay 2 · 08:00\n\nSteady\nMixed\nD.C.\nCash\n$49\nVehicle condition\n99%\n?\n☼\nClear\nNo weather cost\ni\n\nThe road to D.C.\nThe Trail\nConditions\nThe Van\nJournal\nFast\nCamp\nRoute\nTravel\nTraveled\nDays elapsed\n+1\n1 → 2\nMiles traveled\n+60.0\n300.0 → 360.0\nVehicle condition\n-0.08%\n99.57% → 99.49%\n© Dystopian Trail"
+    }
+  },
+  "errors": []
+}

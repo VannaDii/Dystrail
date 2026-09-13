@@ -11,7 +11,29 @@ use wasm_bindgen::JsValue;
 /// Returns a localized string representation of the percentage.
 #[must_use]
 pub fn fmt_pct(pct: u8) -> String {
-    fmt_number(f64::from(pct))
+    #[cfg(target_arch = "wasm32")]
+    {
+        with_bundle(|bundle| {
+            let locales = js_sys::Array::new();
+            locales.push(&JsValue::from_str(&bundle.lang));
+            let options = Object::new();
+            let _ = Reflect::set(
+                &options,
+                &JsValue::from_str("style"),
+                &JsValue::from_str("percent"),
+            );
+            let nf = Intl::NumberFormat::new(&locales, &options);
+            nf.format()
+                .call1(&nf, &JsValue::from_f64(f64::from(pct) / 100.0))
+                .ok()
+                .and_then(|value| value.as_string())
+                .unwrap_or_else(|| format!("{pct}%"))
+        })
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        format!("{pct}%")
+    }
 }
 
 /// Format a number using the current locale via Intl
@@ -46,7 +68,14 @@ pub fn fmt_date_iso(date_iso: &str) -> String {
     #[cfg(target_arch = "wasm32")]
     {
         with_bundle(|bundle| {
-            let date = Date::new(&JsValue::from_str(date_iso));
+            // Date-only sources describe a calendar day, not UTC midnight.
+            // Local noon preserves that day when the browser formats it.
+            let value = if date_iso.len() == 10 {
+                format!("{date_iso}T12:00:00")
+            } else {
+                date_iso.to_owned()
+            };
+            let date = Date::new(&JsValue::from_str(&value));
             date.to_locale_date_string(&bundle.lang, &JsValue::UNDEFINED)
                 .as_string()
                 .unwrap_or_else(|| date_iso.to_string())
@@ -58,17 +87,18 @@ pub fn fmt_date_iso(date_iso: &str) -> String {
     }
 }
 
-/// Format currency (USD) using the current locale via Intl
+/// Format whole-dollar currency (USD) using the current locale via Intl.
 #[must_use]
 pub fn fmt_currency(cents: i64) -> String {
     fn fallback_usd(cents: i64) -> String {
         let sign = if cents < 0 { "-" } else { "" };
-        let abs = cents.abs();
+        let abs = cents.unsigned_abs();
         let whole = abs / 100;
-        let frac = abs % 100;
-        format!("{sign}${whole}.{frac:02}")
+        format!("{sign}${whole}")
     }
 
+    let cents = crate::game::numbers::whole_dollar_cents(cents);
+    #[cfg(target_arch = "wasm32")]
     let amount = i32::try_from(cents).ok().map(|v| f64::from(v) / 100.0);
     #[cfg(target_arch = "wasm32")]
     {
@@ -90,18 +120,21 @@ pub fn fmt_currency(cents: i64) -> String {
                     &JsValue::from_str("currency"),
                     &JsValue::from_str("USD"),
                 );
+                for key in ["minimumFractionDigits", "maximumFractionDigits"] {
+                    let _ = Reflect::set(&opts, &JsValue::from_str(key), &JsValue::from_f64(0.0));
+                }
                 let nf = Intl::NumberFormat::new(&locales, &opts);
                 nf.format()
                     .call1(&nf, &JsValue::from_f64(amount))
                     .ok()
                     .and_then(|v| v.as_string())
-                    .unwrap_or_else(|| format!("{amount:.2}"))
+                    .unwrap_or_else(|| fallback_usd(cents))
             });
         }
         fallback_usd(cents)
     }
     #[cfg(not(target_arch = "wasm32"))]
     {
-        amount.map_or_else(|| fallback_usd(cents), |a| format!("{a:.2}"))
+        fallback_usd(cents)
     }
 }

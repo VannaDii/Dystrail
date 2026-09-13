@@ -1,0 +1,26 @@
+### Result
+[{"width":1280,"geometry":[{"primaryLeft":97.140625,"subtitleLeft":97.140625,"element":"BUTTON"},{"primaryLeft":97.140625,"subtitleLeft":97.140625,"element":"BUTTON"}]},{"width":390,"geometry":[{"primaryLeft":60.84375,"subtitleLeft":60.84375,"element":"BUTTON"},{"primaryLeft":60.84375,"subtitleLeft":60.84375,"element":"BUTTON"}]}]
+### Ran Playwright code
+```js
+await (async page => {
+  const results=[];
+  for(const width of [1280,390]){
+    await page.setViewportSize({width,height:900});
+    const geometry=await page.evaluate(()=>[...document.querySelectorAll('.encounter-choice button')].map(button=>{
+      const title=button.querySelector('.action-title').getBoundingClientRect();
+      const detail=button.querySelector('.choice-effects').getBoundingClientRect();
+      return {primaryLeft:title.left,subtitleLeft:detail.left,element:button.tagName};
+    }));
+    if(geometry.some(row=>Math.abs(row.primaryLeft-row.subtitleLeft)>1))throw Error(JSON.stringify(geometry));
+    await page.screenshot({path:'output/playwright/hud-choice-'+width+'.png',fullPage:true});
+    results.push({width,geometry});
+  }
+  return results;
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8083/play/encounter
+- Page Title: Dystopian Trail — A Satirical 16-bit Trek to D.C.
+- Console: 0 errors, 4 warnings
+### Events
+- New console entries: .playwright-cli/console-2026-09-12T04-12-24-816Z.log#L52

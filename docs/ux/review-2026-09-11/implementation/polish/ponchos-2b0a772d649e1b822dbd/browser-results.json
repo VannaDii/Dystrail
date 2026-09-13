@@ -1,0 +1,677 @@
+{
+  "revision": "2b0a772d649e1b822dbd",
+  "origin": "http://127.0.0.1:61045/play/",
+  "node": "v24.19.0",
+  "actualDrives": [
+    {
+      "mode": "classic",
+      "carried": false,
+      "seed": 4,
+      "actualMinutes": 60,
+      "weather": "Storm",
+      "weatherImpact": {
+        "day": 1,
+        "weather": "Storm",
+        "supplies": -1,
+        "hp": 0,
+        "sanity": -1
+      },
+      "stats": {
+        "supplies": 18,
+        "hp": 10,
+        "sanity": 7,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "miles": 36.38187,
+      "weatherSpeedMultiplier": 0.9,
+      "encounterChance": 0.55
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "seed": 4,
+      "actualMinutes": 60,
+      "weather": "Storm",
+      "weatherImpact": {
+        "day": 1,
+        "weather": "Storm",
+        "supplies": -1,
+        "hp": 0,
+        "sanity": 0
+      },
+      "stats": {
+        "supplies": 18,
+        "hp": 10,
+        "sanity": 8,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "miles": 36.38187,
+      "weatherSpeedMultiplier": 0.9,
+      "encounterChance": 0.55
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "seed": 4,
+      "actualMinutes": 60,
+      "weather": "Storm",
+      "weatherImpact": {
+        "day": 1,
+        "weather": "Storm",
+        "supplies": -1,
+        "hp": 0,
+        "sanity": -1
+      },
+      "stats": {
+        "supplies": 18,
+        "hp": 10,
+        "sanity": 7,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "miles": 35.49451,
+      "weatherSpeedMultiplier": 0.9,
+      "encounterChance": 0.55
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "seed": 4,
+      "actualMinutes": 60,
+      "weather": "Storm",
+      "weatherImpact": {
+        "day": 1,
+        "weather": "Storm",
+        "supplies": -1,
+        "hp": 0,
+        "sanity": 0
+      },
+      "stats": {
+        "supplies": 18,
+        "hp": 10,
+        "sanity": 8,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "miles": 35.49451,
+      "weatherSpeedMultiplier": 0.9,
+      "encounterChance": 0.55
+    }
+  ],
+  "help": [
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "en",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "en",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "en",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "it",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "it",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "it",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "es",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "es",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "es",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "ar",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "ar",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": false,
+      "language": "ar",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "en",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "en",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "en",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "it",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "it",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "it",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "es",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "es",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "es",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "ar",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "ar",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "language": "ar",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "en",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "en",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "en",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "it",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "it",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "it",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "es",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "es",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "es",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "ar",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "ar",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "language": "ar",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "en",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "en",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "en",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "it",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "it",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "it",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "es",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "es",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "es",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "ar",
+      "width": 320,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "ar",
+      "width": 393,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "language": "ar",
+      "width": 1440,
+      "keyboard": true,
+      "focusRestored": true,
+      "timeStatsUnchanged": true,
+      "protectionText": true,
+      "otherCostsPreserved": true
+    }
+  ],
+  "offline": [
+    {
+      "mode": "classic",
+      "carried": false,
+      "revision": "2b0a772d649e1b822dbd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true,
+      "weatherChargeNotRepeated": true
+    },
+    {
+      "mode": "classic",
+      "carried": true,
+      "revision": "2b0a772d649e1b822dbd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true,
+      "weatherChargeNotRepeated": true
+    },
+    {
+      "mode": "deep",
+      "carried": false,
+      "revision": "2b0a772d649e1b822dbd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true,
+      "weatherChargeNotRepeated": true
+    },
+    {
+      "mode": "deep",
+      "carried": true,
+      "revision": "2b0a772d649e1b822dbd",
+      "state": "ready",
+      "cacheKeys": 120,
+      "statePreserved": true,
+      "weatherChargeNotRepeated": true
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

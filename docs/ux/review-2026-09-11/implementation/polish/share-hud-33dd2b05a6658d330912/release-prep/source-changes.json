@@ -1,0 +1,114 @@
+[
+  {
+    "path": "dystrail-web/src/components/ui/leg_summary.rs",
+    "sha256": "acfdb0c458b67be8edc35f6dc4317fb7cfef1f5be243ff8ee2024ae1d9f30e3f"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/world_view.rs",
+    "sha256": "0f1427551a2e7e4b40bd84a7a9c3df6ed43ecd3081d5b5fc8d89578b0b69bb60"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/result_screen/image.rs",
+    "sha256": "40710b6ca37b2773cd449754866b3d08ca922de9d3af03e490401bbd9a956c42"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/stats_bar/mod.rs",
+    "sha256": "28a5cd13365a12a0d4c1ca4f0743332a1f5267e628e7819310fcd516101eaac7"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/stats_bar/tests.rs",
+    "sha256": "af7554c03f9c3ca4f9bd25584ef2bcc3ceeb2ec939130a09b565a9e256c513cd"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/travel_panel/journal/tests.rs",
+    "sha256": "24f51e491181e17cc1cd43aaeeae0e1c7912e28605e31ba2c5af1fceaf62302a"
+  },
+  {
+    "path": "dystrail-web/src/components/ui/travel_panel/journal/view.rs",
+    "sha256": "1429111e8e785c7a479fb6e44422640f331704e3fb93e8f332c14faa3438c603"
+  },
+  {
+    "path": "dystrail-web/static/continuity.css",
+    "sha256": "b3f99696910fccc084cd69034a49d6313bbcf127c2f21befb232d0227c977e76"
+  },
+  {
+    "path": "dystrail-web/i18n/zh.json",
+    "sha256": "39fac4771a862ef35d88870bcecd58035d9f3c031db635e0cf9f7d3b6d708856"
+  },
+  {
+    "path": "dystrail-web/i18n/tr.json",
+    "sha256": "42a185a1e79139d7761c92e64cba7c1225fd4efc9bbc86a4bb4cdf042a4d2ac8"
+  },
+  {
+    "path": "dystrail-web/i18n/mr.json",
+    "sha256": "b0a01bd1acad7372fd388aa4858defb8af3b08e5afc3614922fdbf58ef7df5f4"
+  },
+  {
+    "path": "dystrail-web/i18n/bn.json",
+    "sha256": "270285ad309fdd5801b5e323f07abb6bd9551144067f06c798e550448c573e70"
+  },
+  {
+    "path": "dystrail-web/i18n/ja.json",
+    "sha256": "29617b8ed2873dd90e96930000aa1d494f7ad71961206408fd263c0828e9cbce"
+  },
+  {
+    "path": "dystrail-web/i18n/de.json",
+    "sha256": "ebd5fed9e37d49b0d9ff5a7f34b246aa8798f5a2e867605c099fac85e67ce19f"
+  },
+  {
+    "path": "dystrail-web/i18n/ru.json",
+    "sha256": "dcddd0c84201a352dddc187603a56d31010b13a1208202a972fdf23c790f5c13"
+  },
+  {
+    "path": "dystrail-web/i18n/ta.json",
+    "sha256": "c0722ee520e0857fbd39d3fd150b51e829252e9e4afb705746d413ffc6abcf5c"
+  },
+  {
+    "path": "dystrail-web/i18n/pt.json",
+    "sha256": "2d44b14dbf9e3f7de57c70a98ebd748dc4e47ec53db0b69906ad9f6b7d1cab30"
+  },
+  {
+    "path": "dystrail-web/i18n/en.json",
+    "sha256": "85a16e55afb20567a2a8f45091b493cabf9cb6e98920719937256a3df23d8691"
+  },
+  {
+    "path": "dystrail-web/i18n/pa.json",
+    "sha256": "5cc40296a86f93b276165b086700a0a74ef22d1c4f40de95a696923b14b3f322"
+  },
+  {
+    "path": "dystrail-web/i18n/it.json",
+    "sha256": "a887401f2a541cf8fa42206820e29d888b37339a6fc276e548be3afbbfcba57b"
+  },
+  {
+    "path": "dystrail-web/i18n/fr.json",
+    "sha256": "9d642b9aa58b592ea49f6d68615f284117b0762dab7700a8398cf0a67fcdd49b"
+  },
+  {
+    "path": "dystrail-web/i18n/hi.json",
+    "sha256": "fc5b57d2cf38846fdb5238cbb446ac0388c8801c921a5b83c41beca936ec5df3"
+  },
+  {
+    "path": "dystrail-web/i18n/ko.json",
+    "sha256": "e20fb4926403d0c13770d7e3339e88d4f1916ca863461c96127fd2fc338eecef"
+  },
+  {
+    "path": "dystrail-web/i18n/te.json",
+    "sha256": "39c2d4c9447bba29b5c40b90aa85a77b167d878577b1b0a77ceab2564f2c357e"
+  },
+  {
+    "path": "dystrail-web/i18n/id.json",
+    "sha256": "396622531d54839dc2e1ed6ee71c659d58dadd572ec598ab97d68fabaf16c54f"
+  },
+  {
+    "path": "dystrail-web/i18n/es.json",
+    "sha256": "9bc679872a8a43d5cadb95d5727df3499de87d083a938bc0b0a766bfefede9fe"
+  },
+  {
+    "path": "dystrail-web/i18n/ar.json",
+    "sha256": "d8ea80efb420a0b4f22d4876d90ad40425e149a74597160a244acb815d1e2a52"
+  },
+  {
+    "path": "dystrail-web/i18n/jv.json",
+    "sha256": "e7fc0cadf5d17b67a245fea9d5ba2f5741d9a0e9722bbe65468da541a309ad9d"
+  }
+]

@@ -1,0 +1,72 @@
+Safari 26.6.2
+Waiting for visible Safari test window: http://127.0.0.1:56922/play/
+PASS First launch stays behind the loading gate while an asset is held or failed, then Retry caches the complete game before launch
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+Click Review & depart
+Click Start the journey
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+PASS Credibility cap, actual struck-out award, unlimited conversation access, and reload persistence
+Click Visit the Store
+Click Leave store
+PASS Leave store aligns vertically with the heading and horizontally under Resume
+Click Take a paid unloading shift
+Click Continue
+Click Journal
+PASS Journal shows dated cards and typed cash change; work completion is centered
+Click Review route
+PASS Map credits sit in the header next to the current town
+Click Import
+Click Fit your spare Battery
+PASS Repair consumes the actual spare and shows vehicle recovery in an outcome card
+Click Import
+PASS Encounter subtitles align beneath the primary text and HUD stats have no inset background
+Click 2) Help load their vans
+PASS Encounter cash uses the same stat-card format and accessible primary button name
+Click Import
+Click 2) Publish both versions
+Click Back to the road
+Click Journal
+PASS Receipt is offered, awarded once, counted in the shared HUD, saved, explained and recorded in the journal
+Click Review route
+Click Import
+PASS The map retains the actual receipt count, including after reload
+Click Import
+Click 1) Take a paid equipment-inventory shift
+PASS Offline encounter awards a second receipt; reload preserves it and all 87 cached assets match their hashes while the origin is unavailable
+Click Import
+Click Camp
+Click Rest
+PASS A full camp day two miles before D.C. costs time without moving the van or triggering the hearing, including after reload
+Click Import
+Click 1) Acknowledge the farewell
+Click Resume travel
+Click Back to the road
+Click Journal
+PASS Ally notice survives reload, waits behind the map, acknowledges once, and stays in the journal
+Click Import
+PASS Removed stat is ignored in old saves; seven stats, concise risk and centered final offline footer
+Click Import
+Click Take a paid unloading shift
+Click Continue
+Click Journal
+PASS Town profile and journal remain readable in the measured native Safari viewport without horizontal overflow
+PASS Journal overflow is contained and its scroll area can receive keyboard focus
+Click The Trail
+Click Talk to locals
+Measured Safari conversation width 600
+PASS Conversation stacks joke and sourced record at a measured narrow Safari width
+Click Back to town
+PASS Conversation context is accessible and Back to town returns to unchanged services
+Safari feedback completed: 18 checks

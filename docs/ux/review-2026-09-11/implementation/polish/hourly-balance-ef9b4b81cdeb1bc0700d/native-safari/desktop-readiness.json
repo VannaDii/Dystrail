@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-09-13T13:13:43.172260+00:00",
+  "sessions": [
+    {
+      "CGSSessionScreenIsLocked": true,
+      "kCGSSessionOnConsoleKey": true
+    }
+  ],
+  "native_browser_attempted": false,
+  "revision": "ef9b4b81cdeb1bc0700d"
+}

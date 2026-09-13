@@ -1,0 +1,13 @@
+{
+  "browser": "Native Safari",
+  "sourceRevision": "78bde678ca4f2ad5591c",
+  "origin": "http://127.0.0.1:59272/play/",
+  "checks": [
+    "First launch waits for its complete asset bundle",
+    "Help & tips toggles without moving stats, scene, controls or menu at desktop and narrow Safari widths; information remains usable",
+    "With the origin stopped, the saved journey relaunches and all 100 cached files match their hashes",
+    "A complete changed release replaces the old version before play and preserves the entire save",
+    "A failed update keeps the previous complete version and the entire save",
+    "After the interrupted update, the complete saved version still relaunches offline"
+  ]
+}

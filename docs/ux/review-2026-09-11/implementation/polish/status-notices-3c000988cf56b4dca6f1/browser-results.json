@@ -1,0 +1,357 @@
+{
+  "revision": "85363a02b2a26488b4ce",
+  "activation": [
+    {
+      "mode": "classic",
+      "order": "WarDeptReorg",
+      "flashed": true
+    },
+    {
+      "mode": "classic",
+      "order": "BookPanic",
+      "flashed": true
+    },
+    {
+      "mode": "classic",
+      "order": "Shutdown",
+      "flashed": true
+    },
+    {
+      "mode": "classic",
+      "order": "TravelBanLite",
+      "flashed": true
+    },
+    {
+      "mode": "classic",
+      "order": "TariffTsunami",
+      "flashed": true
+    },
+    {
+      "mode": "classic",
+      "order": "DoEEliminated",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "WarDeptReorg",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "BookPanic",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "Shutdown",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "TravelBanLite",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "TariffTsunami",
+      "flashed": true
+    },
+    {
+      "mode": "deep",
+      "order": "DoEEliminated",
+      "flashed": true
+    }
+  ],
+  "layouts": [
+    {
+      "mode": "classic",
+      "width": 320,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 177.90625,
+          "y": 285.1875,
+          "width": 134.09375,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 147.53125,
+          "y": 323.1875,
+          "width": 164.46875,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 74.4375,
+          "y": 250,
+          "width": 134.09375,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 220.53125,
+          "y": 250,
+          "width": 164.46875,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 1019.5,
+          "y": 175.9375,
+          "width": 135.09375,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 1162.59375,
+          "y": 175.9375,
+          "width": 156.40625,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 177.90625,
+          "y": 285.1875,
+          "width": 134.09375,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 147.53125,
+          "y": 323.1875,
+          "width": 164.46875,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 74.4375,
+          "y": 250,
+          "width": 134.09375,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 220.53125,
+          "y": 250,
+          "width": 164.46875,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 1019.5,
+          "y": 175.9375,
+          "width": 135.09375,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 1162.59375,
+          "y": 175.9375,
+          "width": 156.40625,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

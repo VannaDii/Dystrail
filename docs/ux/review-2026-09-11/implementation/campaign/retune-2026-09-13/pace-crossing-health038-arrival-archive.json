@@ -1,0 +1,111 @@
+{
+  "candidate": "pace-crossing-health038-arrival",
+  "created_utc": "2026-09-13T08:52:21.992966+00:00",
+  "status": "measurement retained; acceptance failed; not published",
+  "files": {
+    "pace-crossing-health038-arrival-seed4242.log": {
+      "sha256": "f48e0b7cd63741cf0267ede74b85fb49ccbefd49abd5cccd221797288186add6",
+      "bytes": 639
+    },
+    "pace-crossing-health038-arrival-game-lib-tests.log": {
+      "sha256": "bbff09888310bdededa3bd9a448cf266a63f779b61b2f596eabfdc5d9d97c383",
+      "bytes": 15791
+    },
+    "pace-crossing-health038-arrival-inputs.compile1.json": {
+      "sha256": "14f700d72bb3d50dcb98d58c1ca96c0ab95695751893e634fa62a5d3eb3c0836",
+      "bytes": 65809
+    },
+    "pace-crossing-health038-arrival-arrival-tests.log": {
+      "sha256": "8ca3a1bde56c9af831d70d6bd74d1942559a45fe1cec18cbdc29ecce6b9d4121",
+      "bytes": 1084
+    },
+    "pace-crossing-health038-arrival-measurement.md": {
+      "sha256": "044f221d747b500cff2712d7f3ba1e9616e0abe0e0ae55d206ba8e4957ebb249",
+      "bytes": 6483
+    },
+    "pace-crossing-health038-arrival-campaign.log": {
+      "sha256": "ad4611bb865b9a9b93f6d926d4e17cebdd6e0e1f81fbd30a9e1732b732c922de",
+      "bytes": 2607
+    },
+    "pace-crossing-health038-arrival-arrival-tests-1.log": {
+      "sha256": "8ca3a1bde56c9af831d70d6bd74d1942559a45fe1cec18cbdc29ecce6b9d4121",
+      "bytes": 1084
+    },
+    "pace-crossing-health038-arrival-arrival-tests-3.log": {
+      "sha256": "3a87fcfedbd1fd7d90b9f4cef8691bc1f0abb20c9202f0d45829049252b188a8",
+      "bytes": 2655
+    },
+    "pace-crossing-health038-arrival-arrival-tests-2.log": {
+      "sha256": "f848b89523fe4f078aaa1445a7ccd6fcaf1023dce208e0466ed660c4a5dbafa9",
+      "bytes": 2655
+    },
+    "pace-crossing-health038-arrival-clippy-1.log": {
+      "sha256": "d38ffbd4a0b8014bb628d4fa2b12eda6e6ac0253f396501592dfdd78a7beeb55",
+      "bytes": 3847
+    },
+    "pace-crossing-health038-arrival-analysis.json": {
+      "sha256": "6943906cc51329bb885e1d8171b946ca776427da0efe3e68de28442a5c199a27",
+      "bytes": 36244
+    },
+    "pace-crossing-health038-arrival-build.log": {
+      "sha256": "b657663d1d2b98fb4b741774814cbcc5cbf8be893ccfea443c5aff91ada6c361",
+      "bytes": 325
+    },
+    "pace-crossing-health038-arrival-clippy-2.log": {
+      "sha256": "b40899c10324f24e13ce0b6e4a2febc7bb64ad67d9b767d2e286af952fb19e8b",
+      "bytes": 3079
+    },
+    "pace-crossing-health038-arrival-review.md": {
+      "sha256": "c0b88d0dd27f98f64d26c3e6c107864b72745892aad055ed884baae0d451d077",
+      "bytes": 4089
+    },
+    "pace-crossing-health038-arrival-inputs.reviewed.json": {
+      "sha256": "fdcbc9376b7697332b7d9781b2526a61082cb76781d63c2b73f1005dae01afad",
+      "bytes": 65582
+    },
+    "pace-crossing-health038-arrival-base.json": {
+      "sha256": "044a8489659ddbc7356f48d30b8f123679001040e3878323e5eb280f21ed5b09",
+      "bytes": 64301
+    },
+    "pace-crossing-health038-arrival-inputs.json": {
+      "sha256": "b1b66f3e81b8a99aa4288b2bb9d5d928d44ac70f9cbdb8cdce04189766666be0",
+      "bytes": 68908
+    },
+    "pace-crossing-health038-arrival-binary-ready.json": {
+      "sha256": "de3e339a515077a935f5c61f84891edc2f34ce35daa84dba2f537fe76bd2fb9d",
+      "bytes": 434
+    },
+    "pace-crossing-health038-arrival-inputs.clippy1.json": {
+      "sha256": "6647ee2cb15e92fcead5ba96da846114c1186bb1324eac04203287d5b92454c1",
+      "bytes": 66669
+    },
+    "pace-crossing-health038-arrival.patch": {
+      "sha256": "a327e2c0fa9b491dbea5d0b92f36df0c0e62b2326effcb84e8072fbd514ba7dc",
+      "bytes": 19840
+    },
+    "pace-crossing-health038-arrival-clippy-lib.log": {
+      "sha256": "ebbb5880dcb975e879aef496fa8a529677182bba2c3e9b50de6319122deaadae",
+      "bytes": 201
+    },
+    "pace-crossing-health038-arrival-clippy.log": {
+      "sha256": "d38ffbd4a0b8014bb628d4fa2b12eda6e6ac0253f396501592dfdd78a7beeb55",
+      "bytes": 3847
+    },
+    "pace-crossing-health038-arrival-comparison.json": {
+      "sha256": "0b79310eaad8e78707812a9469b7b2f18a7a0847dede84761f6bb1fb23d1afea",
+      "bytes": 34975
+    },
+    "pace-crossing-health038-arrival.reviewed.patch": {
+      "sha256": "d0d75264fea64e30b5db75c99c67378ab170d8555adcd8546dddf8329cb516f3",
+      "bytes": 19303
+    },
+    "pace-crossing-health038-arrival-results.csv.gz": {
+      "sha256": "9c81c53aef185fb177ad338ced3347c5d8f69db0cf1ca34692bba34b276ba3bd",
+      "bytes": 52889,
+      "uncompressed_sha256": "f1d2e0981f299051a64d678088d9517d0a2b14f9c1aa6e538067587dbc5f4aaf",
+      "uncompressed_bytes": 685078,
+      "gzip_mtime": 0,
+      "gzip_filename": ""
+    }
+  }
+}

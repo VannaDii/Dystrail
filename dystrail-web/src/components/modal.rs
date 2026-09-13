@@ -19,6 +19,7 @@ pub struct Props {
 
 #[function_component(Modal)]
 pub fn modal(props: &Props) -> Html {
+    crate::i18n::use_language();
     if !props.open {
         return Html::default();
     }

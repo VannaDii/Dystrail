@@ -1,0 +1,101 @@
+(node:66129) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:66149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:66149) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:66149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.6s)
+  ✓  2 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (2.6s)
+  ✓  3 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (3.7s)
+  ✘  4 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (32.0s)
+(node:66859) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:66859) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:66859) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (4.5s)
+  ✓  6 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (3.3s)
+  ✓  7 [mobile] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.7s)
+  ✘  8 [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (32.0s)
+
+
+  1) [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ──
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Resume travel', exact: true })[22m
+    [2m    - locator resolved to <button disabled="disabled" class="retro-btn-primary">Resume travel</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not enabled[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not enabled[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    42 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not enabled[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      46 |  await page.getByRole('button',{name:'Review & depart',exact:true}).filter({visible:true}).first().click();await page.getByRole('button',{name:'Buy supplies & return',exact:true}).click();
+      47 |  const bought=await savedState(page);expect(bought.stats.supplies).toBe(9);expect(bought.budget_cents).toBe(state.budget_cents-500);expect(bought.day).toBe(state.day);
+    > 48 |  await fastMode(page,true);await page.getByRole('button',{name:'Depart town',exact:true}).click();await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+         |                                                                                                                                                                    ^
+      49 |  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state.day),{timeout:10000}).toBeGreaterThan(state.day);
+      50 |  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+      51 |  expect((await savedState(page)).camp.rest_cooldown).toBe(0);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:48:164
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-hud-final-state-results/states-route-store-one-exchange-and-cooldown-recovery-chromium/error-context.md
+
+  2) [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Resume travel', exact: true })[22m
+    [2m    - locator resolved to <button disabled="disabled" class="retro-btn-primary">Resume travel</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not enabled[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not enabled[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    41 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not enabled[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      46 |  await page.getByRole('button',{name:'Review & depart',exact:true}).filter({visible:true}).first().click();await page.getByRole('button',{name:'Buy supplies & return',exact:true}).click();
+      47 |  const bought=await savedState(page);expect(bought.stats.supplies).toBe(9);expect(bought.budget_cents).toBe(state.budget_cents-500);expect(bought.day).toBe(state.day);
+    > 48 |  await fastMode(page,true);await page.getByRole('button',{name:'Depart town',exact:true}).click();await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+         |                                                                                                                                                                    ^
+      49 |  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state.day),{timeout:10000}).toBeGreaterThan(state.day);
+      50 |  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+      51 |  expect((await savedState(page)).camp.rest_cooldown).toBe(0);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:48:164
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-hud-final-state-results/states-route-store-one-exchange-and-cooldown-recovery-mobile/error-context.md
+
+  2 failed
+    [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ───
+    [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery ─────
+  6 passed (2.5m)

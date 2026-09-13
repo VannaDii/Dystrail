@@ -1,0 +1,28 @@
+import {test,expect} from '@playwright/test';
+import {baseline,importState,savedState,openMenu,snap} from './helpers';
+import {atTown} from './geography';
+import fs from 'node:fs';
+const recovery=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
+test('temporary policy effects explain actual penalties and remain available with tips off',async({page})=>{
+ const gs=await baseline(page);gs.current_order='TravelBanLite';gs.exec_order_days_remaining=3;await importState(page,gs);
+ const policy=page.locator('.policy-indicator');await expect(policy).toContainText('Sanity -1/day');await expect(policy).toContainText('Distance −12%');await expect(policy).toContainText('3 days left');
+ await expect(page.getByRole('group',{name:'Temporary effects',exact:true})).toContainText('Clear');await policy.getByRole('button').click();await expect(page.locator('.policy-details [data-stat="play.distance"] strong')).toHaveText('-12%');await page.keyboard.press('Escape');
+ await openMenu(page);await page.getByRole('switch',{name:'Help & tips',exact:true}).click();await page.locator('.wordmark').click();await policy.getByRole('button').click();await expect(page.locator('.viewport-help')).toContainText('including rest days');await page.keyboard.press('Escape');
+ await snap(page,'temporary-effects');
+});
+test('town inventory, selectable trades and repeat conversations retain the real state',async({page})=>{
+ const gs=await baseline(page);atTown(gs,'Madison');gs.stats.supplies=8;gs.inventory.spares.battery=0;gs.inventory.spares.tire=1;gs.route_services.talked_at=null;gs.route_services.traded_at=null;
+ await importState(page,gs);await expect(page.locator('.turn-receipt')).toHaveCount(gs.journal.length-(gs.turn_journal_start??Math.max(0,gs.journal.length-1)));await expect(page.getByRole('button',{name:'Visit the Store',exact:true})).toBeVisible();
+ for(const name of ['The Trail','Conditions','The Van','Journal'])await expect(page.getByRole('tab',{name,exact:true})).toBeVisible();
+ await page.getByRole('tab',{name:'The Van',exact:true}).click();await expect(page.locator('.van-inventory')).toContainText('Battery');await page.getByRole('button',{name:'Trade with locals',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','trade');await expect(page.locator('.town-trading .action-button')).toHaveCount(3);await snap(page,'town-trading');
+ await page.getByRole('button',{name:'Get a battery',exact:true}).click();const traded=(await recovery(page)).state;expect(traded.stats.supplies).toBe(4);expect(traded.inventory.spares.battery).toBe(1);await expect(page.locator('.town-trading .action-button:disabled')).toHaveCount(3);await page.reload();await expect(page.locator('.town-trading')).toBeVisible();await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.trail-log')).toContainText('Trade 4 supplies');
+ await page.getByRole('button',{name:'Back to town',exact:true}).click();const talk=page.getByRole('button',{name:'Talk to locals',exact:true});await expect(talk).toBeEnabled();await expect(talk.locator('small')).toContainText('Receipts +1');await talk.click();await expect(page.locator('.local-conversation')).toBeVisible();const first=(await recovery(page)).state;expect(first.receipts.length).toBe(traded.receipts.length+1);expect(first.stats.credibility).toBe(traded.stats.credibility);
+ await page.getByRole('button',{name:'Back to town',exact:true}).click();await expect(talk).toBeEnabled();await expect(talk.locator('s')).toHaveText('Receipts +1');await talk.click();await expect(page.locator('.local-conversation')).toBeVisible();const second=(await recovery(page)).state;expect(second.stats).toEqual(first.stats);expect(second.receipts).toEqual(first.receipts);expect(second.clock_minutes).toBe(first.clock_minutes);expect(second.journal).toEqual(first.journal);await snap(page,'town-conversation');
+ const cards=await page.locator('.scene-speaker').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect(),f=e.closest('figcaption')!.getBoundingClientRect(),n=e.querySelector('span')!.getBoundingClientRect();return {r:{top:r.top,bottom:r.bottom,left:r.left,right:r.right},f:{top:f.top,bottom:f.bottom,left:f.left,right:f.right},n:{width:n.width,bottom:n.bottom}};}));
+ expect(cards).toHaveLength(2);for(const c of cards){expect(c.r.top).toBeGreaterThanOrEqual(c.f.top);expect(c.r.bottom).toBeLessThan(c.f.bottom);expect(c.n.width).toBeCloseTo(c.r.right-c.r.left,0);}
+});
+test('required decisions keep a disabled Resume control and all reference tabs',async({page})=>{
+ const gs=await baseline(page);gs.breakdown={part:'Battery',day_started:gs.day};gs.inventory.spares.battery=1;await importState(page,gs);
+ await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeDisabled();const fit=page.getByRole('button',{name:'Fit your spare Battery',exact:true});await expect(fit.locator('small')).toContainText('Battery −1');await fit.click();await expect(page.locator('.aftermath-panel')).toBeVisible();await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeDisabled();await page.getByRole('tab',{name:'The Van',exact:true}).click();await expect(page.locator('.van-inventory')).toBeVisible();
+ const data=JSON.parse(fs.readFileSync('static/assets/data/game.json','utf8'));gs.breakdown=null;gs.current_encounter=data[0];await importState(page,gs);await expect(page.locator('.encounter-panel')).toBeVisible();await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeDisabled();await expect(page.locator('.encounter-choice button small').first()).toBeVisible();await expect(page.getByRole('button',{name:'Route',exact:true})).toBeDisabled();await snap(page,'encounter-stable-controls');
+});

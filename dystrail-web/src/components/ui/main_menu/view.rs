@@ -14,6 +14,7 @@ pub struct MainMenuProps {
 
 #[function_component(MainMenu)]
 pub fn main_menu(p: &MainMenuProps) -> Html {
+    crate::i18n::use_language();
     let focus_idx = use_state(|| 1_u8);
     let list_ref = use_node_ref();
     let setsize = 9_u8; // 1..8 and 0

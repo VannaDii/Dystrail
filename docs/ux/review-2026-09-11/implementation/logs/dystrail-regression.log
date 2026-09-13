@@ -1,0 +1,84 @@
+
+Running 15 tests using 2 workers
+
+(node:76771) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76770) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76770) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76771) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (1.1s)
+  ✓   2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (3.7s)
+  ✓   3 [chromium] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (5.5s)
+  ✓   5 [chromium] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (3.5s)
+  ✘   4 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (6.8s)
+(node:76902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [chromium] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (3.5s)
+  ✓   7 [chromium] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (2.9s)
+  ✓   8 [chromium] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (805ms)
+  ✓   9 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.7s)
+  ✓  10 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (5.8s)
+  ✓  11 [chromium] › tests-e2e/scenes.spec.ts:37:5 › menu controls, pointer cursors and help stay inside viewport at either edge (3.7s)
+  ✓  12 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.7s)
+  ✓  13 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (3.3s)
+  ✘  15 [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (3.2s)
+  ✓  14 [chromium] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (5.5s)
+
+
+  1) [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.store-cart-summary .value')
+    Expected: [32m"$[7m17[27m.00"[39m
+    Received: [31m"$[7m88[27m.00"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.store-cart-summary .value')[22m
+    [2m    9 × locator resolved to <dd class="value">$88.00</dd>[22m
+    [2m      - unexpected value "$88.00"[22m
+
+
+       9 |  await snap(page,'setup');await setup(page);
+      10 |  await page.getByRole('group',{name:'Fuel Pump',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+    > 11 |  await expect(page.locator('.store-cart-summary .value')).toHaveText('$17.00');
+         |                                                           ^
+      12 |  await page.reload();await expect(page.locator('.store-cart-summary .value')).toHaveText('$17.00');
+      13 |  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
+      14 |  await snap(page,'outfitting');
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/journey.spec.ts:11:59
+
+    Error Context: ../../../../../tmp/dystrail-regression-results/journey-outfitting-recover-de3cd-travel-manual-save-and-camp-chromium/error-context.md
+
+  2) [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ──
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'Visit supply store' }) resolved to 2 elements:
+        1) <button type="button" class="help-trigger" aria-expanded="false" aria-label="How this works: Visit supply store">▣</button> aka getByRole('button', { name: 'How this works: Visit supply' })
+        2) <button>Visit supply store</button> aka getByRole('button', { name: 'Visit supply store', exact: true })
+
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Visit supply store' })[22m
+
+
+      35 |  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);
+      36 |  await page.reload();await expect(page.getByRole('button',{name:'Community exchange used'})).toBeDisabled();
+    > 37 |  await page.getByRole('button',{name:'Visit supply store'}).click();await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
+         |                                                             ^
+      38 |  await page.getByRole('button',{name:'Review & depart',exact:true}).filter({visible:true}).first().click();await page.getByRole('button',{name:'Buy supplies & return',exact:true}).click();
+      39 |  const bought=await savedState(page);expect(bought.stats.supplies).toBe(9);expect(bought.budget_cents).toBe(state.budget_cents-500);expect(bought.day).toBe(state.day);
+      40 |  await page.getByRole('button',{name:'Depart town',exact:true}).click();await page.getByRole('button',{name:'Resume travel',exact:true}).click();await settle(page);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/states.spec.ts:37:61
+
+    Error Context: ../../../../../tmp/dystrail-regression-results/states-route-store-one-exchange-and-cooldown-recovery-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp 
+    [chromium] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery ───
+  13 passed (30.4s)

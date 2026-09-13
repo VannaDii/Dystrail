@@ -1,0 +1,489 @@
+{
+  "weather_impact": {
+    "day": 1,
+    "weather": "Storm",
+    "supplies": -1,
+    "hp": 0,
+    "sanity": -1
+  },
+  "interactive_repairs": true,
+  "activities": {
+    "foraged_on": null,
+    "worked_at": null,
+    "local_word": null
+  },
+  "abandoned": false,
+  "clock_minutes": 540,
+  "driving_minutes_total": 60,
+  "pace_fatigue_remainder": 0,
+  "last_encounter_driving_minutes": 600,
+  "journal": [
+    {
+      "action_kind": "travel",
+      "day": 1,
+      "minute": 480,
+      "pace": "steady",
+      "diet": "mixed",
+      "place": "Seattle → Spokane",
+      "title": "Your loadout",
+      "message": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
+      "before": {
+        "supplies": 0,
+        "hp": 10,
+        "sanity": 10,
+        "credibility": 7,
+        "morale": 5,
+        "allies": 1
+      },
+      "after": {
+        "supplies": 16,
+        "hp": 10,
+        "sanity": 10,
+        "credibility": 7,
+        "morale": 5,
+        "allies": 1
+      },
+      "details": [],
+      "resources": [
+        {
+          "key": "play.cash",
+          "before": 12000,
+          "after": 4900
+        },
+        {
+          "key": "store.items.spare_tire.name",
+          "before": 0,
+          "after": 1
+        },
+        {
+          "key": "store.items.battery.name",
+          "before": 0,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "action_kind": "travel",
+      "day": 1,
+      "minute": 540,
+      "pace": "steady",
+      "diet": "mixed",
+      "place": "Seattle → Spokane",
+      "title": "Traveled",
+      "message": "",
+      "before": {
+        "supplies": 20,
+        "hp": 10,
+        "sanity": 7,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "after": {
+        "supplies": 18,
+        "hp": 10,
+        "sanity": 7,
+        "credibility": 7,
+        "morale": 10,
+        "allies": 1
+      },
+      "details": [
+        [
+          "Weather contribution",
+          "Supplies -1 · Sanity -1"
+        ]
+      ],
+      "resources": [
+        {
+          "key": "play.miles",
+          "before": 0,
+          "after": 432
+        },
+        {
+          "key": "play.driving_time",
+          "before": 0,
+          "after": 60
+        },
+        {
+          "key": "play.vehicle",
+          "before": 10000,
+          "after": 9981
+        }
+      ]
+    }
+  ],
+  "turn_journal_start": 1,
+  "ally_notice": null,
+  "crew_care": {
+    "reason": 0,
+    "strain": {},
+    "pending": null,
+    "last_check_day": 100
+  },
+  "scene_subject": null,
+  "route_services": {
+    "stop": null,
+    "trading": false,
+    "route_id": "journalist",
+    "traded_at": null,
+    "talked_at": null,
+    "talk_reward": null,
+    "map_reviewed": null
+  },
+  "mode": "Deep",
+  "mechanical_policy": "dystrail_legacy",
+  "seed": 4,
+  "state_version": 3,
+  "day": 1,
+  "region": "PacificCoast",
+  "season": "spring",
+  "stats": {
+    "supplies": 18,
+    "hp": 10,
+    "sanity": 7,
+    "credibility": 7,
+    "morale": 10,
+    "allies": 1
+  },
+  "budget": 49,
+  "budget_cents": 4900,
+  "inventory": {
+    "spares": {
+      "tire": 1,
+      "battery": 1,
+      "alt": 0,
+      "pump": 0
+    },
+    "tags": []
+  },
+  "persona_id": "journalist",
+  "score_mult": 0.8,
+  "mods": {
+    "receipt_find_pct": 10,
+    "store_discount_pct": 0,
+    "eo_heat_pct": 0,
+    "bribe_discount_pct": 0,
+    "satire_sustain": false
+  },
+  "features": {
+    "travel_v2": true,
+    "encounter_diversity": true,
+    "exposure_streaks": true
+  },
+  "party": {
+    "leader": "Vanna Audit",
+    "companions": [
+      "Avery",
+      "Quinn",
+      "Rowan",
+      "Jamie",
+      "Drew"
+    ],
+    "name": "The Receipts",
+    "members": [
+      {
+        "persona": "staffer",
+        "name": "Avery",
+        "status": "Active"
+      },
+      {
+        "persona": "satirist",
+        "name": "Quinn",
+        "status": "Active"
+      },
+      {
+        "persona": "whistleblower",
+        "name": "Rowan",
+        "status": "Active"
+      },
+      {
+        "persona": "lobbyist",
+        "name": "Jamie",
+        "status": "Active"
+      },
+      {
+        "persona": "organizer",
+        "name": "Drew",
+        "status": "Active"
+      },
+      {
+        "persona": "journalist",
+        "name": "Vanna Audit",
+        "status": "Active"
+      }
+    ]
+  },
+  "auto_camp_rest": false,
+  "rest_threshold": 4,
+  "trail_distance": 2400,
+  "miles_traveled": 35.49451,
+  "miles_traveled_actual": 35.49451,
+  "vehicle_breakdowns": 0,
+  "crossings_completed": 0,
+  "crossing_detours_taken": 0,
+  "crossing_failures": 0,
+  "crossing_permit_uses": 0,
+  "crossing_bribe_attempts": 0,
+  "crossing_bribe_successes": 0,
+  "crossing_events": [],
+  "starvation_days": 0,
+  "malnutrition_level": 0,
+  "exposure_streak_heat": 0,
+  "exposure_streak_cold": 0,
+  "disease_cooldown": 0,
+  "guards": {
+    "deep_aggressive_sanity_guard_used": false,
+    "starvation_backstop_used": false,
+    "exposure_damage_lockout": false
+  },
+  "boss": {
+    "ready": false,
+    "reached": false,
+    "attempted": false,
+    "victory": false
+  },
+  "ending": null,
+  "pace": "steady",
+  "diet": "mixed",
+  "receipt_bonus_pct": 0,
+  "encounter_chance_today": 0.55,
+  "encounters": {
+    "occurred_today": false,
+    "force_rotation_pending": false
+  },
+  "distance_today": 35.49451,
+  "leg_minutes": 60,
+  "distance_today_raw": 35.49451,
+  "partial_distance_today": 18.1022,
+  "distance_cap_today": 35.49451,
+  "day_records": [],
+  "journey_partial_ratio": 0.51,
+  "journey_travel": {
+    "weather_factor": {
+      "ColdSnap": 0.9,
+      "HeatWave": 0.76,
+      "Smoke": 0.86,
+      "Storm": 0.8,
+      "Clear": 1
+    }
+  },
+  "journey_wear": {
+    "base": 0.73,
+    "fatigue_k": 0.245,
+    "comfort_miles": 1750
+  },
+  "journey_breakdown": {
+    "base": 0.015,
+    "beta": 0.185,
+    "pace_factor": {
+      "heated": 1.16,
+      "blitz": 1.38,
+      "steady": 0.97
+    },
+    "weather_factor": {
+      "Clear": 1,
+      "ColdSnap": 1.12,
+      "Smoke": 1.18,
+      "Storm": 1.32,
+      "HeatWave": 1.45
+    }
+  },
+  "journey_part_weights": {
+    "tire": 40,
+    "battery": 24,
+    "alt": 20,
+    "pump": 16
+  },
+  "journey_crossing": {
+    "pass": 0.66,
+    "detour": 0.24,
+    "terminal": 0.1,
+    "detour_hours": {
+      "min": 1,
+      "max": 4
+    },
+    "bribe": {
+      "pass_bonus": 0.192,
+      "detour_bonus": 0,
+      "terminal_penalty": 0.045,
+      "diminishing_returns": 0.38
+    },
+    "permit": {
+      "disable_terminal": true,
+      "eligible": [
+        "checkpoint"
+      ]
+    }
+  },
+  "journey_daily": {
+    "supplies": {
+      "base": 1,
+      "pace": {},
+      "diet": {},
+      "weather": {},
+      "exec": {}
+    },
+    "sanity": {
+      "base": 0,
+      "pace": {},
+      "diet": {},
+      "weather": {},
+      "exec": {}
+    },
+    "health": {
+      "decay": 0.12,
+      "rest_heal": 0,
+      "weather": {},
+      "exec": {}
+    }
+  },
+  "daily_remainders": {
+    "supplies": 0,
+    "sanity": 0,
+    "health": -120000
+  },
+  "logs": [
+    "log.booting",
+    "log.persona.selected.organizer",
+    "log.persona.selected.journalist",
+    "log.seed-set"
+  ],
+  "receipts": [],
+  "encounters_resolved": 0,
+  "prev_miles_traveled": 0,
+  "travel_days": 0,
+  "partial_travel_days": 0,
+  "non_travel_days": 0,
+  "days_with_camp": 0,
+  "days_with_repair": 0,
+  "day_state": {
+    "rest_requested": false,
+    "traveled_today": true,
+    "partial_traveled_today": false,
+    "travel_blocked": false,
+    "day_initialized": true,
+    "did_end_of_day": false,
+    "suppress_stop_ratio": false
+  },
+  "encounters_today": 0,
+  "encounter_history": [
+    0
+  ],
+  "recent_encounters": [],
+  "repairs_spent_cents": 0,
+  "bribes_spent_cents": 0,
+  "current_order": null,
+  "exec_order_days_remaining": 0,
+  "exec_order_cooldown": 0,
+  "exec_travel_multiplier": 1,
+  "exec_breakdown_bonus": 0,
+  "weather_travel_multiplier": 0.9,
+  "illness_travel_penalty": 1,
+  "illness_days_remaining": 0,
+  "current_encounter": null,
+  "vehicle": {
+    "wear": 0.18693842,
+    "health": 99.813065,
+    "breakdown_cooldown": 99,
+    "wear_multiplier": 1
+  },
+  "breakdown": null,
+  "weather_state": {
+    "today": "Storm",
+    "yesterday": "Clear",
+    "extreme_streak": 1,
+    "heatwave_streak": 0,
+    "coldsnap_streak": 0,
+    "neutral_buffer": 0
+  },
+  "camp": {
+    "rest_cooldown": 0,
+    "repair_cooldown": 0
+  },
+  "endgame": {
+    "active": false,
+    "field_repair_used": false,
+    "last_limp_mile": 0,
+    "failure_guard_miles": 1950,
+    "health_floor": 0,
+    "wear_reset": 0,
+    "cooldown_days": 0,
+    "partial_ratio": 0.5,
+    "wear_multiplier": 1,
+    "policy_key": "",
+    "resource_priority": [],
+    "travel_bias": 1,
+    "stop_cap_window": 10,
+    "stop_cap_max_full": 2,
+    "breakdown_scale": 1,
+    "wear_shave_ratio": 1,
+    "wear_reset_used": false
+  },
+  "rotation_travel_days": 6,
+  "policy": "balanced",
+  "recent_travel_days": [],
+  "day_reason_history": [],
+  "rotation_backlog": [],
+  "rng_bundle": {
+    "weather": [
+      11795943396363045000,
+      [
+        "U32",
+        "U32"
+      ]
+    ],
+    "health": [
+      17403217894259120000,
+      [
+        "U32"
+      ]
+    ],
+    "travel": [
+      8605329385874326000,
+      []
+    ],
+    "events": [
+      10213286859248585000,
+      [
+        "U32",
+        "U32"
+      ]
+    ],
+    "breakdown": [
+      1216789051969705000,
+      []
+    ],
+    "encounter": [
+      5697616546340901000,
+      []
+    ],
+    "crossing": [
+      13478805754350248000,
+      []
+    ],
+    "boss": [
+      5973953168087519000,
+      []
+    ],
+    "trade": [
+      6671241396703874000,
+      []
+    ],
+    "hunt": [
+      6727330337837959000,
+      []
+    ]
+  },
+  "last_damage": null,
+  "decision_traces_today": [],
+  "current_day_record": {
+    "day_index": 0,
+    "kind": "travel",
+    "miles": 35.49451,
+    "tags": []
+  },
+  "current_day_kind": "travel",
+  "current_day_reason_tags": [],
+  "current_day_miles": 35.49451,
+  "last_breakdown_part": null
+}

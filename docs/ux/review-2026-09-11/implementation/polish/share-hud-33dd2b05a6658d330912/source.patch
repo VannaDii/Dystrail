@@ -1,0 +1,685 @@
+--- a/dystrail-web/src/components/ui/leg_summary.rs
++++ b/dystrail-web/src/components/ui/leg_summary.rs
+@@ -16,10 +16,11 @@
+         {destination(gs)}{resources(gs)}
+     </section>}
+ }
+-pub fn render_hud(gs: &GameState) -> Html {
+-    html! {<div class="hud-trip-context">
+-        {destination(gs)}{resources(gs)}
+-    </div>}
++pub fn render_hud_resources(gs: &GameState) -> Html {
++    html! {<div class="hud-trip-context">{resources(gs)}</div>}
++}
++pub fn render_hud_destination(gs: &GameState) -> Html {
++    html! {<div class="hud-trip-context">{destination(gs)}</div>}
+ }
+ fn destination(gs: &GameState) -> Html {
+     let town = gs
+--- a/dystrail-web/src/components/ui/world_view.rs
++++ b/dystrail-web/src/components/ui/world_view.rs
+@@ -66,7 +66,7 @@
+     html! {<><div class={classes!("world-view",p.local_npc.is_some().then_some("world-conversation"))} data-region={format!("{:?}",gs.region)} data-day={gs.day.to_string()}>
+         <StatsBar part={HudPart::Resources} stats={gs.stats.clone()} receipts={gs.receipts.len()} day={gs.day} region={gs.region} />
+         <JourneyScene show_cast={false} local_npc={p.local_npc} region={Some(gs.region)} {subject} road_asset={Some(crate::game::route::road_scene(gs).to_owned())} party={Some(gs.party.clone())} {stage} day={gs.day} {hour} deep={gs.mode.is_deep()} weather={Some(gs.weather_state.today)} moving={p.moving}>
+-            <StatsBar trip_context={super::leg_summary::render_hud(gs)} pace={Some(gs.pace)} diet={Some(gs.diet)} part={HudPart::Conditions} moving={p.moving} clock_hour={hour} clock_minute={u8::try_from(gs.continuity.clock_minutes % 60).unwrap_or(0)} stats={gs.stats.clone()} receipts={gs.receipts.len()} day={gs.day} region={gs.region} persona_id={gs.persona_id.clone()} exec_order={gs.current_order} policy_readout={gs.current_order.map(|order|stats_bar::policy::readout(gs,order))} weather={Some(crate::app::phase::build_weather_badge(gs,&weather_cfg))} weather_readout={Some(stats_bar::weather::readout(gs,&weather_cfg))} />
++            <StatsBar trip_resources={super::leg_summary::render_hud_resources(gs)} trip_destination={super::leg_summary::render_hud_destination(gs)} pace={Some(gs.pace)} diet={Some(gs.diet)} part={HudPart::Conditions} moving={p.moving} clock_hour={hour} clock_minute={u8::try_from(gs.continuity.clock_minutes % 60).unwrap_or(0)} stats={gs.stats.clone()} receipts={gs.receipts.len()} day={gs.day} region={gs.region} persona_id={gs.persona_id.clone()} exec_order={gs.current_order} policy_readout={gs.current_order.map(|order|stats_bar::policy::readout(gs,order))} weather={Some(crate::app::phase::build_weather_badge(gs,&weather_cfg))} weather_readout={Some(stats_bar::weather::readout(gs,&weather_cfg))} />
+             <figcaption class={classes!("scene-footer",has_cast.then_some("has-cast"),p.local_npc.is_some().then_some("has-conversation"))}>
+                 <div class="scene-caption"><p class="scene-location">{super::route_map::location::location(gs)}</p><h1 id="screen-title" tabindex="-1">{&p.title}if let Some(text)=&p.help_text {<super::context_help::ContextHelp title={p.title.clone()} text={text.clone()} />}</h1></div>
+                 {cast}
+--- a/dystrail-web/src/components/ui/result_screen/image.rs
++++ b/dystrail-web/src/components/ui/result_screen/image.rs
+@@ -5,7 +5,6 @@
+ 
+ struct ShareTheme {
+     panel: String,
+-    raised: String,
+     inset: String,
+     border: String,
+     text: String,
+@@ -37,7 +36,6 @@
+         };
+         Ok(Self {
+             panel: token("--panel")?,
+-            raised: token("--panel-raised")?,
+             inset: token("--panel-inset")?,
+             border: token("--panel-border")?,
+             text: token("--text-bright")?,
+@@ -95,54 +93,78 @@
+         cell_w,
+         cell_h,
+         0.0,
+-        0.0,
++        112.0,
+         1200.0,
+-        534.0,
+-    )?;
+-    fill(ctx, &theme.scrim, 0.0, 0.0, 1200.0, 534.0);
+-    fill(ctx, &theme.accent, 48.0, 99.0, 310.0, 5.0);
++        392.0,
++    )?;
++    ctx.set_global_alpha(0.6);
++    fill(ctx, &theme.scrim, 0.0, 112.0, 1200.0, 392.0);
++    ctx.set_global_alpha(1.0);
++    line(
++        ctx,
++        "DYSTOPIAN TRAIL",
++        56.0,
++        74.0,
++        &format!("bold 38px {}", theme.title_font),
++        &theme.text,
++    )?;
++    fill(ctx, &theme.accent, 56.0, 99.0, 330.0, 4.0);
++    let portrait_x = if post.rtl { 840.0 } else { 56.0 };
++    fill(ctx, &theme.inset, portrait_x, 156.0, 304.0, 304.0);
++    ctx.draw_image_with_html_image_element_and_dw_and_dh(
++        avatar,
++        portrait_x + 10.0,
++        166.0,
++        284.0,
++        284.0,
++    )?;
++    ctx.set_stroke_style_str(&theme.accent);
++    ctx.set_line_width(2.0);
++    ctx.stroke_rect(portrait_x, 156.0, 304.0, 304.0);
+     js_sys::Reflect::set(
+         ctx,
+         &"direction".into(),
+         &if post.rtl { "rtl" } else { "ltr" }.into(),
+     )?;
+-    line(
+-        ctx,
+-        "DYSTOPIAN TRAIL",
+-        48.0,
+-        75.0,
+-        &format!("bold 34px {}", theme.title_font),
+-        &theme.text,
+-    )?;
+-    ctx.set_font(&format!("bold 48px {}", theme.title_font));
+-    wrapped(ctx, &post.headline, 48.0, 169.0, 1060.0, 55.0, 3)?;
+-    fill(ctx, &theme.inset, 914.0, 282.0, 238.0, 238.0);
+-    ctx.draw_image_with_html_image_element_and_dw_and_dh(avatar, 918.0, 286.0, 230.0, 230.0)?;
+-    ctx.set_font(&format!("bold 34px {}", theme.body_font));
++    let identity_x = if post.rtl { 792.0 } else { 408.0 };
++    ctx.set_shadow_color("#000");
++    ctx.set_shadow_blur(10.0);
++    fit_name(ctx, &post.player, &theme.body_font)?;
+     ctx.set_fill_style_str(&theme.text);
+-    wrapped(ctx, &post.player, 48.0, 367.0, 820.0, 39.0, 2)?;
+-    line(
+-        ctx,
+-        &format!("{} · {}", post.persona, post.mode),
+-        48.0,
+-        457.0,
+-        &format!("24px {}", theme.body_font),
+-        &theme.dim,
+-    )?;
+-    line(
+-        ctx,
+-        &post.location,
+-        48.0,
+-        501.0,
+-        &format!("bold 24px {}", theme.body_font),
++    let name_end = wrapped(ctx, &post.player, identity_x, 252.0, 736.0, 58.0, 2)?;
++    ctx.set_font(&format!("30px {}", theme.body_font));
++    ctx.set_fill_style_str(&theme.text);
++    let role_end = wrapped(
++        ctx,
++        &post.persona,
++        identity_x,
++        name_end + 48.0,
++        736.0,
++        36.0,
++        2,
++    )?;
++    line(
++        ctx,
++        &post.mode,
++        identity_x,
++        role_end + 42.0,
++        &format!("bold 26px {}", theme.body_font),
+         &theme.accent,
+     )?;
++    ctx.set_shadow_blur(0.0);
++    let start = if post.rtl { 1144.0 } else { 56.0 };
++    ctx.set_font(&format!("bold 46px {}", theme.title_font));
++    ctx.set_fill_style_str(&theme.text);
++    wrapped(ctx, &post.headline, start, 579.0, 1088.0, 52.0, 2)?;
++    ctx.set_font(&format!("bold 28px {}", theme.body_font));
++    ctx.set_fill_style_str(&theme.accent);
++    wrapped(ctx, &post.location, start, 694.0, 1088.0, 32.0, 1)?;
+     line(
+         ctx,
+         &post.progress,
+-        48.0,
+-        584.0,
+-        &format!("24px {}", theme.body_font),
++        start,
++        736.0,
++        &format!("26px {}", theme.body_font),
+         &theme.dim,
+     )?;
+     Ok(())
+@@ -152,47 +174,39 @@
+     for (index, (label, value)) in post.stats.iter().enumerate() {
+         let column = u32::try_from(index % 3).unwrap_or(0);
+         let row = u32::try_from(index / 3).unwrap_or(0);
+-        let x = 48.0 + f64::from(if post.rtl { 2 - column } else { column }) * 376.0;
+-        let y = 622.0 + f64::from(row) * 175.0;
+-        fill(ctx, &theme.raised, x, y, 352.0, 151.0);
+-        ctx.set_stroke_style_str(&theme.border);
+-        ctx.set_line_width(2.0);
+-        ctx.stroke_rect(x, y, 352.0, 151.0);
+-        ctx.set_font(&format!("22px {}", theme.body_font));
+-        ctx.set_fill_style_str(&theme.text);
+-        wrapped(ctx, label, x + 22.0, y + 36.0, 308.0, 24.0, 2)?;
++        let x = 56.0 + f64::from(if post.rtl { 2 - column } else { column }) * 376.0;
++        let y = 794.0 + f64::from(row) * 150.0;
++        fill(ctx, &theme.border, x, y, 336.0, 1.0);
++        let start = x + if post.rtl { 336.0 } else { 0.0 };
+         line(
+             ctx,
+             value,
+-            x + 22.0,
+-            y + 117.0,
+-            &format!("bold 46px {}", theme.body_font),
+-            &theme.accent,
++            start,
++            y + 62.0,
++            &format!("bold 50px {}", theme.body_font),
++            &theme.text,
+         )?;
+-    }
+-    fill(ctx, &theme.accent, 48.0, 996.0, 1104.0, 3.0);
+-    line(
+-        ctx,
+-        &crate::i18n::t("result.labels.seed"),
+-        48.0,
+-        1045.0,
+-        &format!("20px {}", theme.body_font),
++        ctx.set_font(&format!("24px {}", theme.body_font));
++        ctx.set_fill_style_str(&theme.dim);
++        wrapped(ctx, label, start, y + 101.0, 336.0, 27.0, 2)?;
++    }
++    fill(ctx, &theme.accent, 56.0, 1105.0, 1088.0, 2.0);
++    let start = if post.rtl { 1144.0 } else { 56.0 };
++    line(
++        ctx,
++        &format!("{}  {}", crate::i18n::t("result.labels.seed"), post.seed),
++        start,
++        1159.0,
++        &format!("24px {}", theme.body_font),
+         &theme.dim,
+     )?;
+-    line(
+-        ctx,
+-        &post.seed,
+-        48.0,
+-        1087.0,
+-        &format!("bold 29px {}", theme.title_font),
+-        &theme.text,
+-    )?;
++    js_sys::Reflect::set(ctx, &"direction".into(), &"ltr".into())?;
+     line(
+         ctx,
+         "dystrail.com",
+-        48.0,
+-        1150.0,
+-        &format!("bold 26px {}", theme.title_font),
++        if post.rtl { 56.0 } else { 934.0 },
++        1159.0,
++        &format!("bold 28px {}", theme.title_font),
+         &theme.accent,
+     )?;
+     Ok(())
+@@ -223,7 +237,7 @@
+ fn line(ctx: &Canvas, text: &str, x: f64, y: f64, font: &str, color: &str) -> Result<(), JsValue> {
+     ctx.set_font(font);
+     ctx.set_fill_style_str(color);
+-    ctx.set_text_align("left");
++    ctx.set_text_align("start");
+     ctx.fill_text(text, x, y)
+ }
+ fn wrapped(
+@@ -234,38 +248,59 @@
+     width: f64,
+     height: f64,
+     limit: usize,
+-) -> Result<(), JsValue> {
+-    ctx.set_text_align("left");
++) -> Result<f64, JsValue> {
++    ctx.set_text_align("start");
++    let mut lines = text_lines(ctx, text, width)?;
++    if lines.len() > limit {
++        lines.truncate(limit);
++        if let Some(last) = lines.last_mut() {
++            while ctx.measure_text(&format!("{last}…"))?.width() > width && !last.is_empty() {
++                last.pop();
++            }
++            last.push('…');
++        }
++    }
++    let mut baseline = y;
++    for (index, text) in lines.iter().enumerate() {
++        baseline = y + f64::from(u32::try_from(index).unwrap_or(0)) * height;
++        ctx.fill_text(text.trim(), x, baseline)?;
++    }
++    Ok(baseline)
++}
++
++fn fit_name(ctx: &Canvas, name: &str, family: &str) -> Result<(), JsValue> {
++    for size in (32..=52).rev() {
++        ctx.set_font(&format!("bold {size}px {family}"));
++        if text_lines(ctx, name, 736.0)?.len() <= 2 {
++            break;
++        }
++    }
++    Ok(())
++}
++
++fn text_lines(ctx: &Canvas, text: &str, width: f64) -> Result<Vec<String>, JsValue> {
+     let mut lines = vec![String::new()];
+-    for character in text.chars() {
++    for word in text.split_inclusive(char::is_whitespace) {
+         let last = lines
+             .last_mut()
+             .ok_or_else(|| JsValue::from_str("Missing text line"))?;
+-        let candidate = format!("{last}{character}");
+-        if ctx.measure_text(&candidate)?.width() <= width {
+-            last.push(character);
+-        } else if lines.len() < limit {
+-            lines.push(character.to_string());
+-        } else {
+-            while let Some(last) = lines.last_mut() {
+-                if ctx.measure_text(&format!("{last}…"))?.width() <= width || last.is_empty() {
+-                    last.push('…');
+-                    break;
+-                }
+-                last.pop();
++        if !last.is_empty() && ctx.measure_text(&format!("{last}{word}"))?.width() > width {
++            lines.push(String::new());
++        }
++        for character in word.chars() {
++            let last = lines
++                .last_mut()
++                .ok_or_else(|| JsValue::from_str("Missing text line"))?;
++            if ctx.measure_text(&format!("{last}{character}"))?.width() > width {
++                lines.push(character.to_string());
++            } else {
++                last.push(character);
+             }
+-            break;
+-        }
+-    }
+-    for (index, text) in lines.iter().enumerate() {
+-        ctx.fill_text(
+-            text.trim(),
+-            x,
+-            y + f64::from(u32::try_from(index).unwrap_or(0)) * height,
+-        )?;
+-    }
+-    Ok(())
+-}
++        }
++    }
++    Ok(lines)
++}
++
+ pub struct RenderTask {
+     pub promise: js_sys::Promise,
+     pub callback: Closure<dyn FnMut(Option<Blob>)>,
+--- a/dystrail-web/src/components/ui/stats_bar/mod.rs
++++ b/dystrail-web/src/components/ui/stats_bar/mod.rs
+@@ -55,7 +55,9 @@
+     #[prop_or_default]
+     pub weather_readout: Option<weather::Readout>,
+     #[prop_or_default]
+-    pub trip_context: Html,
++    pub trip_resources: Html,
++    #[prop_or_default]
++    pub trip_destination: Html,
+ }
+ 
+ #[function_component(StatsBar)]
+@@ -81,15 +83,15 @@
+         </dl>
+         }
+         if p.part!=HudPart::Resources {
+-        <div class="hud-context-row"><div class="hud-journey-settings"><p class="hud-context">{super::journey_icon::render("clock")}<super::game_clock::GameClock day={p.day} hour={p.clock_hour} minute={p.clock_minute} moving={p.moving} /></p>
+-            if let Some(pace)=p.pace {<span class="hud-setting" aria-label={format!("{}: {}",i18n::t("play.pace"),i18n::t(&format!("play.{}",pace.as_str())))}>{super::journey_icon::render(pace.as_str())}{i18n::t(&format!("play.{}",pace.as_str()))}</span>}
+-            if let Some(diet)=p.diet {<span class="hud-setting" aria-label={format!("{}: {}",i18n::t("play.diet"),i18n::t(&format!("play.{}",diet.as_str())))}>{super::journey_icon::render(diet.as_str())}{i18n::t(&format!("play.{}",diet.as_str()))}</span>}
++        <div class="hud-context-row"><div class="hud-primary-row"><div class="hud-journey-settings"><p class="hud-context">{super::journey_icon::render("clock")}<super::game_clock::GameClock day={p.day} hour={p.clock_hour} minute={p.clock_minute} moving={p.moving} /></p>
++            if let Some(pace)=p.pace {<span class="hud-setting" aria-label={format!("{}: {}",i18n::t("play.pace"),i18n::t(&format!("play.{}",pace.as_str())))}>{super::journey_icon::render(pace.as_str())}<span class="hud-setting-name">{i18n::t(&format!("play.{}",pace.as_str()))}</span></span>}
++            if let Some(diet)=p.diet {<span class="hud-setting" aria-label={format!("{}: {}",i18n::t("play.diet"),i18n::t(&format!("play.{}",diet.as_str())))}>{super::journey_icon::render(diet.as_str())}<span class="hud-setting-name">{i18n::t(&format!("play.{}",diet.as_str()))}</span></span>}
+         </div>
+-        {p.trip_context.clone()}
++        {p.trip_resources.clone()}</div><div class="hud-dynamic-row">{p.trip_destination.clone()}
+         <div class="hud-conditions" role="group" aria-label={i18n::t("eo.hud.area")}>
+             if let Some(w)=&p.weather {<weather::WeatherIndicator badge={w.clone()} readout={p.weather_readout.clone()} />}
+             if let Some(order)=p.exec_order {<policy::PolicyIndicator {order} readout={p.policy_readout.clone()} />}
+-        </div></div>
++        </div></div></div>
+         }
+     </section> }
+ }
+--- a/dystrail-web/src/components/ui/stats_bar/tests.rs
++++ b/dystrail-web/src/components/ui/stats_bar/tests.rs
+@@ -28,7 +28,8 @@
+         persona_id: None,
+         policy_readout: None,
+         weather_readout: None,
+-        trip_context: Html::default(),
++        trip_resources: Html::default(),
++        trip_destination: Html::default(),
+         weather: Some(WeatherBadge {
+             weather: Weather::Clear,
+             mitigated: false,
+@@ -76,7 +77,8 @@
+         persona_id: None,
+         policy_readout: None,
+         weather_readout: None,
+-        trip_context: Html::default(),
++        trip_resources: Html::default(),
++        trip_destination: Html::default(),
+         weather: None,
+     };
+ 
+--- a/dystrail-web/src/components/ui/travel_panel/journal/tests.rs
++++ b/dystrail-web/src/components/ui/travel_panel/journal/tests.rs
+@@ -229,7 +229,7 @@
+     assert_eq!(html.matches("class=\"journal-event\"").count(), 2);
+     assert_eq!(html.matches("class=\"journal-raw-entry\"").count(), 3);
+     assert_eq!(html.matches("<details class=\"journal-raw\">").count(), 2);
+-    assert!(html.contains("Full details"));
++    assert!(html.contains("The Day's Events"));
+     assert!(html.contains("+120.0"));
+     assert!(html.contains("2 h driving"));
+     assert!(!html.contains("data-stat=\"play.driving_time\""));
+--- a/dystrail-web/src/components/ui/travel_panel/journal/view.rs
++++ b/dystrail-web/src/components/ui/travel_panel/journal/view.rs
+@@ -35,7 +35,7 @@
+             {stat_card::render_changes(&first.before, &last.after, &resources)}
+         </article>
+         <details class="journal-raw">
+-            <summary>{i18n::t("ux.details")}<span>{count}</span></summary>
++            <summary>{i18n::t("ux.day_events")}<span>{count}</span></summary>
+             <ol class="journal-raw-list">
+                 {for day.entries.iter().map(|entry| raw_entry(entry))}
+             </ol>
+--- a/dystrail-web/static/continuity.css
++++ b/dystrail-web/static/continuity.css
+@@ -1,4 +1,7 @@
+ /* Journey pacing: a scene, one immediate decision, optional detail. */
++html { scroll-padding-block-start:88px; }
++.game-header { position:sticky; top:0; z-index:100; }
++.top-game-menu-panel { max-height:calc(100dvh - 88px); overflow-y:auto; }
+ .world-view .journey-scene { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
+ .world-view .journey-scene:not(.scene-road) { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
+ .world-view .journey-scene:not(.scene-road) .scene-art { inset:112px 0 0; }
+@@ -614,7 +617,7 @@
+ .outcome-screen .aftermath-panel>.resource-changes { flex:0 1 auto; max-width:100%; justify-content:flex-start; margin:0; gap:12px; }
+ .outcome-actions { position:sticky; bottom:0; z-index:8; display:flex; justify-content:flex-end; padding:12px 24px max(12px,env(safe-area-inset-bottom)); background:var(--panel); border-top:1px solid var(--panel-border); }
+ .outcome-actions>button { display:flex; justify-content:center; align-items:center; gap:10px; min-width:220px; max-width:100%; min-height:48px; }
+-.game-shell:has(.outcome-screen)>.game-header { z-index:10; }
++.game-shell:has(.outcome-screen)>.game-header { z-index:100; }
+ @media(max-width:700px) {
+  .outcome-screen .aftermath-panel { padding:18px 14px; gap:16px; }
+  .outcome-summary .outcome-copy { font-size:16px; }
+@@ -839,6 +842,7 @@
+ .resource-hud .hud-stat:first-child { border-inline-start:0; }
+ .resource-hud .hud-stat dt { min-height:20px; line-height:1.25; }
+ .conditions-hud .hud-context-row { justify-content:flex-start; }
++.hud-primary-row,.hud-dynamic-row { display:contents; }
+ .conditions-hud .hud-journey-settings .hud-context { max-width:none; }
+ .conditions-hud .hud-conditions { margin-inline-start:auto; justify-content:flex-end; gap:8px; }
+ .conditions-hud .weather-indicator { display:flex; flex-wrap:nowrap; align-items:center; gap:8px; text-align:start; }
+@@ -857,29 +861,29 @@
+  .resource-hud .hud-stat dt { min-height:18px; font-size:11px; gap:2px; }
+  .resource-hud .hud-stat dd { font-size:20px; line-height:1.1; margin:2px 0 0; }
+  .resource-hud .hud-stat .help-trigger { width:18px; min-width:18px; height:18px; min-height:18px; }
+- .conditions-hud .hud-context-row { display:grid; grid-template-columns:minmax(0,1fr) max-content; align-items:center; gap:2px 8px; margin:0; padding:0; }
+- .conditions-hud .hud-journey-settings { grid-column:1; grid-row:1; display:flex; flex-wrap:wrap; align-items:center; gap:2px 10px; min-width:0; width:auto; min-height:28px; }
+- .conditions-hud .hud-journey-settings .hud-context,.conditions-hud .hud-setting { min-height:26px; font-size:12px; line-height:1.3; gap:5px; }
+- .conditions-hud .hud-trip-context { grid-column:1/-1; grid-row:2; display:flex; flex-wrap:nowrap; align-items:center; gap:10px; min-width:0; padding-block:2px; border:0; }
++ .conditions-hud .hud-context-row { display:flex; flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:4px; margin:0; padding:0; }
++ .conditions-hud .hud-journey-settings,.conditions-hud .hud-trip-context,.conditions-hud .hud-trip-context .leg-resources,.conditions-hud .hud-conditions { display:contents; }
++ .conditions-hud .hud-primary-row { width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; min-width:0; }
++ .conditions-hud .hud-primary-row .hud-context,.conditions-hud .hud-primary-row .leg-indicator { flex:none; }
++ .conditions-hud .hud-setting { min-width:0; flex:0 1 auto; }
++ .conditions-hud .hud-setting-name { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
++ .conditions-hud .leg-cash { margin-inline-start:auto; }
++ .conditions-hud .hud-journey-settings .hud-context,.conditions-hud .hud-setting,.conditions-hud .hud-trip-context .leg-indicator,.conditions-hud .hud-trip-context .leg-indicator>strong,.conditions-hud .hud-trip-context .leg-destination,.conditions-hud .hud-trip-context .leg-destination>strong { min-height:26px; font-size:12px; line-height:1.3; gap:5px; }
++ .conditions-hud .hud-trip-context .leg-indicator>strong,.conditions-hud .hud-trip-context .leg-destination>strong { min-height:0; }
++ .conditions-hud .hud-dynamic-row { width:100%; display:flex; align-items:center; flex-wrap:wrap; gap:4px 8px; min-width:0; }
+  .conditions-hud .hud-trip-context .leg-destination { flex:1 1 auto; min-width:0; white-space:normal; flex-wrap:wrap; gap:3px 5px; }
+- .conditions-hud .hud-trip-context .leg-resources { display:flex; flex:0 0 auto; align-items:center; justify-content:flex-end; flex-wrap:nowrap; gap:10px; min-width:0; }
+- .conditions-hud .hud-trip-context .leg-indicator,.conditions-hud .hud-trip-context .leg-destination,.conditions-hud .hud-trip-context .leg-indicator>strong,.conditions-hud .hud-trip-context .leg-destination>strong { min-height:26px; font-size:12px; line-height:1.3; }
+- .conditions-hud .hud-trip-context .leg-indicator { gap:5px; }
+- .conditions-hud .hud-trip-context .leg-indicator>strong,.conditions-hud .hud-trip-context .leg-destination>strong { min-height:0; }
+- .conditions-hud .hud-trip-context .leg-resources>.context-help { display:inline-flex; margin:0; }
++ .conditions-hud .weather-indicator { flex:0 1 auto; min-width:0; max-width:100%; margin-inline-start:auto; }
+  .conditions-hud .journey-icon,.conditions-hud .weather-icon { width:18px; height:18px; flex:none; }
+- .conditions-hud .hud-conditions { grid-column:2; grid-row:1; display:flex; flex-wrap:wrap; width:auto; min-width:0; margin:0; gap:4px 12px; }
+- .conditions-hud .weather-name { gap:5px; white-space:normal; }
++ .conditions-hud .weather-name { gap:5px; min-width:0; white-space:normal; }
++ .conditions-hud .weather-name strong { overflow-wrap:anywhere; }
++ .conditions-hud .weather-indicator .context-help { flex:none; }
+  .conditions-hud .context-help .help-trigger { display:grid; place-items:center; width:24px; min-width:24px; height:24px; min-height:24px; padding:0; }
+- .conditions-hud .hud-conditions:has(.policy-indicator) { grid-column:1/-1; grid-row:3; }
+- .conditions-hud .hud-context-row:has(.policy-indicator) .hud-journey-settings { grid-column:1/-1; }
+- .conditions-hud .hud-conditions:empty { display:none; }
+-}
+-@media(max-width:380px) {
+- .conditions-hud .hud-context-row { grid-template-columns:minmax(0,1fr); }
+- .conditions-hud .hud-journey-settings { grid-column:1; }
+- .conditions-hud .hud-conditions { grid-column:1; grid-row:3; }
+- .conditions-hud .hud-trip-context,.conditions-hud .hud-trip-context .leg-resources { gap:8px; }
++}
++
++@media(max-width:420px) {
++ .conditions-hud .hud-primary-row { gap:6px; }
++ .conditions-hud .hud-journey-settings .hud-context,.conditions-hud .hud-setting,.conditions-hud .hud-trip-context .leg-indicator,.conditions-hud .hud-trip-context .leg-indicator>strong { font-size:11px; gap:4px; }
++ .conditions-hud .hud-journey-settings .journey-icon,.conditions-hud .leg-indicator .journey-icon { width:16px; height:16px; }
+ }
+ 
+ /* Source explanations retain their date, evidence and satire context as separate lines. */
+--- a/dystrail-web/i18n/zh.json
++++ b/dystrail-web/i18n/zh.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "当天事件",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/tr.json
++++ b/dystrail-web/i18n/tr.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Günün Olayları",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/mr.json
++++ b/dystrail-web/i18n/mr.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "दिवसाच्या घटना",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/bn.json
++++ b/dystrail-web/i18n/bn.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "দিনের ঘটনাবলি",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/ja.json
++++ b/dystrail-web/i18n/ja.json
+@@ -633,6 +633,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "その日の出来事",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/de.json
++++ b/dystrail-web/i18n/de.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Ereignisse des Tages",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/ru.json
++++ b/dystrail-web/i18n/ru.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "События дня",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/ta.json
++++ b/dystrail-web/i18n/ta.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "அன்றைய நிகழ்வுகள்",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/pt.json
++++ b/dystrail-web/i18n/pt.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Acontecimentos do dia",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/en.json
++++ b/dystrail-web/i18n/en.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "The Day's Events",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/pa.json
++++ b/dystrail-web/i18n/pa.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "ਦਿਨ ਦੀਆਂ ਘਟਨਾਵਾਂ",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/it.json
++++ b/dystrail-web/i18n/it.json
+@@ -625,6 +625,7 @@
+     "code_error": "Inserisci un codice CL- o DP- valido che termini con due cifre.",
+     "budget": "Budget rimanente",
+     "details": "Tutti i dettagli",
++    "day_events": "Gli eventi del giorno",
+     "road": "Tieni duro.",
+     "road_deep": "La realtà è una scelta politica.",
+     "next_day": "Viaggia un giorno",
+--- a/dystrail-web/i18n/fr.json
++++ b/dystrail-web/i18n/fr.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Événements du jour",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/hi.json
++++ b/dystrail-web/i18n/hi.json
+@@ -632,6 +632,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "दिन की घटनाएँ",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/ko.json
++++ b/dystrail-web/i18n/ko.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "오늘의 일들",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/te.json
++++ b/dystrail-web/i18n/te.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "రోజు సంఘటనలు",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/id.json
++++ b/dystrail-web/i18n/id.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Kejadian hari ini",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",
+--- a/dystrail-web/i18n/es.json
++++ b/dystrail-web/i18n/es.json
+@@ -625,6 +625,7 @@
+     "code_error": "Introduce un código CL- o DP- válido que termine en dos cifras.",
+     "budget": "Presupuesto restante",
+     "details": "Todos los detalles",
++    "day_events": "Sucesos del día",
+     "road": "Aguanta el tipo.",
+     "road_deep": "La realidad es una decisión política.",
+     "next_day": "Viajar un día",
+--- a/dystrail-web/i18n/ar.json
++++ b/dystrail-web/i18n/ar.json
+@@ -625,6 +625,7 @@
+     "code_error": "أدخل رمزاً صالحاً يبدأ بـ CL- أو DP- وينتهي برقمين.",
+     "budget": "الميزانية المتبقية",
+     "details": "كل التفاصيل",
++    "day_events": "أحداث اليوم",
+     "road": "تماسك.",
+     "road_deep": "الواقع قرار سياسي.",
+     "next_day": "سافر يوماً واحداً",
+--- a/dystrail-web/i18n/jv.json
++++ b/dystrail-web/i18n/jv.json
+@@ -625,6 +625,7 @@
+     "code_error": "Enter a valid CL- or DP- run code ending in two digits.",
+     "budget": "Remaining budget",
+     "details": "Full details",
++    "day_events": "Kedadeyan dina iki",
+     "road": "Keep it together.",
+     "road_deep": "Reality is a policy choice.",
+     "next_day": "Travel one day",

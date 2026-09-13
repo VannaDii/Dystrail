@@ -1,0 +1,38 @@
+{
+  "verified_at": "2026-09-13T12:01:16.347228+00:00",
+  "url": "https://dystrail.com/play/",
+  "revision": "23cf83a1a7d5f9d02de9",
+  "commit": "7ea6499d97cf6baa64819766a22d7e880a555176",
+  "branch": "release/final-workshop-2026-09-13",
+  "run_url": "https://github.com/VannaDii/Dystrail/actions/runs/34755822315",
+  "jobs": {
+    "package": "success",
+    "deploy": "success"
+  },
+  "artifact": "/tmp/dystrail-final-workshop-build/web",
+  "release_checkout": "/tmp/dystrail-workshop-release",
+  "offline_manifest_sha256": "ed71b1de32d940fab89fad58a9a63ba846b030842e2ec75e420e5a1771006c09",
+  "release_manifest_sha256": "96589d2da26c6a91e2e2e0951d700b7a5e298339795fe15d5ac30bef6b7e87f5",
+  "live_payload_files_verified": 199,
+  "offline_assets_verified": 119,
+  "preserved_non_game_files": 59,
+  "preserved_hashed_game_assets": 22,
+  "deleted_files": [],
+  "canonical_routes_verified": 6,
+  "live_bytes_and_mime_passed": true,
+  "temporary_policy_removed": true,
+  "branch_policies_after": [
+    {
+      "id": 39031816,
+      "name": "main",
+      "type": "branch"
+    }
+  ],
+  "browser_saved_install_verification": "Owned and reported separately by the coordinating task",
+  "evidence": {
+    "http": "/tmp/dystrail-workshop-release-prep/production-http-verification.json",
+    "deployment": "/tmp/dystrail-workshop-release-prep/deployment-run.json",
+    "staging": "/tmp/dystrail-workshop-release-prep/staging-verification.json",
+    "policies_after": "/tmp/dystrail-workshop-release-prep/branch-policies-after.json"
+  }
+}

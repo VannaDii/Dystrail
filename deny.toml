@@ -18,8 +18,8 @@ multiple-versions = "warn"
 
 [advisories]
 ignore = [
-    "RUSTSEC-2024-0370",  # proc-macro-error unmaintained but used by yew
-    "RUSTSEC-2024-0436",  # paste unmaintained but used by thirtyfour (selenium testing)
+    "RUSTSEC-2024-0370",  # SUPPLY-002; exact versions and expiry checked before audit
+    "RUSTSEC-2025-0141",  # SUPPLY-001; exact versions and expiry checked before audit
 ]
 
 [sources]

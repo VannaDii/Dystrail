@@ -1,0 +1,31 @@
+(node:51478) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:51498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51498) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:51498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.3s)
+  ✓   2 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.8s)
+  ✓   3 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (3.8s)
+  ✓   4 [chromium] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.0s)
+  ✓   5 [chromium] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.0s)
+  ✓   6 [chromium] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.1s)
+  ✓   7 [chromium] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.7s)
+(node:52248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:52248) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:52248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [mobile] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.8s)
+  ✓   9 [mobile] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (3.5s)
+  ✓  10 [mobile] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (4.4s)
+  ✓  11 [mobile] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.6s)
+  ✓  12 [mobile] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.7s)
+  ✓  13 [mobile] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.7s)
+  ✓  14 [mobile] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (3.2s)
+
+  14 passed (1.5m)

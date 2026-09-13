@@ -1,0 +1,22 @@
+{
+  "dystrail-game": {
+    "baseline_files": 50,
+    "final_files": 50,
+    "changed": []
+  },
+  "dystrail-tester": {
+    "baseline_files": 23,
+    "final_files": 23,
+    "changed": []
+  },
+  "dystrail-web/i18n": {
+    "baseline_files": 20,
+    "final_files": 20,
+    "changed": []
+  },
+  "dystrail-web/static/assets/data": {
+    "baseline_files": 22,
+    "final_files": 22,
+    "changed": []
+  }
+}

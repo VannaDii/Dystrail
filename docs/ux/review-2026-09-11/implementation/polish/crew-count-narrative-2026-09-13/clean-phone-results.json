@@ -1,0 +1,30 @@
+{
+  "revision": "1c145d89fef4fbab75a9",
+  "origin": "http://127.0.0.1:8180/play/",
+  "node": "v24.19.0",
+  "cases": [
+    {
+      "id": "overnight_briefing",
+      "mode": "classic",
+      "screenshot": "en-overnight_briefing-phone-clean.png",
+      "viewport": [
+        393,
+        852
+      ],
+      "temporary_notice_absent": true,
+      "capture_state": "imported encounter after temporary notification cleared naturally"
+    },
+    {
+      "id": "beltway_briefing",
+      "mode": "deep",
+      "screenshot": "en-beltway_briefing-phone-clean.png",
+      "viewport": [
+        393,
+        852
+      ],
+      "temporary_notice_absent": true,
+      "capture_state": "imported encounter after temporary notification cleared naturally"
+    }
+  ],
+  "errors": []
+}

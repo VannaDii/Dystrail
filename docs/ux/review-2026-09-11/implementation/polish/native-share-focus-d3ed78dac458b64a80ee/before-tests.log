@@ -1,0 +1,44 @@
+(node:37738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:37760) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:37760) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:37760) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (11.1s)
+
+
+  1) [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeFocused[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('dialog').getByRole('button', { name: 'Share image & post', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toBeFocused" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Share image & post', exact: true })[22m
+    [2m    9 × locator resolved to <button class="retro-btn-primary">Share image & post</button>[22m
+    [2m      - unexpected value "inactive"[22m
+
+
+      67 |     await expect(dialog.locator('.share-status')).toContainText(message);
+      68 |     await expect(share).toBeEnabled();
+    > 69 |     await expect(share).toBeFocused();
+         |                         ^
+      70 |     await expect(dialog.getByLabel('Your post')).toHaveValue(text);
+      71 |     await page.keyboard.press('Tab');
+      72 |     await expect(dialog.getByRole('button', {name:'Close', exact:true})).toBeFocused();
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/sharing.spec.ts:69:25
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-native-share-focus/before-tests/sharing-copy-and-native-sh-5f66e-llation-failure-and-handoff-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff 

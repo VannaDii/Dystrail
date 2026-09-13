@@ -1,0 +1,4679 @@
+{
+  "revision": "a9ff83cd924a07fdf4ec",
+  "cases": [
+    {
+      "mode": "classic",
+      "width": 393,
+      "overflow": false,
+      "cards": [
+        {
+          "text": "Rations Pack",
+          "rect": {
+            "x": 38,
+            "y": 170,
+            "width": 317,
+            "height": 103,
+            "bottom": 273,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 307
+              },
+              "label": "store-item-rations store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Water Jugs",
+          "rect": {
+            "x": 38,
+            "y": 273,
+            "width": 317,
+            "height": 103,
+            "bottom": 376,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 307
+              },
+              "label": "store-item-water store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Spare Tire",
+          "rect": {
+            "x": 38,
+            "y": 418,
+            "width": 317,
+            "height": 103,
+            "bottom": 521,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 307
+              },
+              "label": "store-item-spare_tire store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Battery",
+          "rect": {
+            "x": 38,
+            "y": 521,
+            "width": 317,
+            "height": 103,
+            "bottom": 624,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 307
+              },
+              "label": "store-item-battery store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Alternator",
+          "rect": {
+            "x": 38,
+            "y": 624,
+            "width": 317,
+            "height": 103,
+            "bottom": 727,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 307
+              },
+              "label": "store-item-alternator store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Fuel Pump",
+          "rect": {
+            "x": 38,
+            "y": 727,
+            "width": 317,
+            "height": 103,
+            "bottom": 830,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 307
+              },
+              "label": "store-item-fuel_pump store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Masks",
+          "rect": {
+            "x": 38,
+            "y": 872,
+            "width": 317,
+            "height": 103,
+            "bottom": 975,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 307
+              },
+              "label": "store-item-masks store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Warm Coats",
+          "rect": {
+            "x": 38,
+            "y": 975,
+            "width": 317,
+            "height": 103,
+            "bottom": 1078,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 307
+              },
+              "label": "store-item-coats store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Ponchos",
+          "rect": {
+            "x": 38,
+            "y": 1078,
+            "width": 317,
+            "height": 103,
+            "bottom": 1181,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 307
+              },
+              "label": "store-item-ponchos store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Press Pass",
+          "rect": {
+            "x": 38,
+            "y": 1223,
+            "width": 317,
+            "height": 103,
+            "bottom": 1326,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 307
+              },
+              "label": "store-item-press_pass store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Legal Fund",
+          "rect": {
+            "x": 38,
+            "y": 1326,
+            "width": 317,
+            "height": 103,
+            "bottom": 1429,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 307
+              },
+              "label": "store-item-legal_fund store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        }
+      ],
+      "checkout": {
+        "x": 38,
+        "y": 716,
+        "width": 317,
+        "height": 136,
+        "bottom": 852,
+        "right": 355
+      },
+      "reachable": [
+        {
+          "name": "Rations Pack",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 301,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 80,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 301,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 80,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 301,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 80,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Water Jugs",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spare Tire",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Battery",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Alternator",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fuel Pump",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Masks",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Warm Coats",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ponchos",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Press Pass",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Legal Fund",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "visible": true,
+        "color": "rgb(243, 206, 105)",
+        "width": "3px",
+        "style": "solid",
+        "accent": "#f3ce69"
+      },
+      "help": {
+        "x": 61,
+        "y": 131,
+        "width": 320,
+        "height": 214,
+        "right": 381,
+        "bottom": 345,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "text": "Outfit your van\n\nYour starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted."
+      }
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "overflow": false,
+      "cards": [
+        {
+          "text": "Rations Pack",
+          "rect": {
+            "x": 38,
+            "y": 320.1875,
+            "width": 244,
+            "height": 115,
+            "bottom": 435.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 386.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 430.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 386.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 430.1875,
+                "right": 234
+              },
+              "label": "store-item-rations store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 386.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 430.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Water Jugs",
+          "rect": {
+            "x": 38,
+            "y": 435.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 538.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 489.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 533.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 489.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 533.1875,
+                "right": 234
+              },
+              "label": "store-item-water store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 489.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 533.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Spare Tire",
+          "rect": {
+            "x": 38,
+            "y": 580.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 683.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 634.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 678.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 634.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 678.1875,
+                "right": 234
+              },
+              "label": "store-item-spare_tire store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 634.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 678.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Battery",
+          "rect": {
+            "x": 38,
+            "y": 683.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 786.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 737.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 781.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 737.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 781.1875,
+                "right": 234
+              },
+              "label": "store-item-battery store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 737.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 781.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Alternator",
+          "rect": {
+            "x": 38,
+            "y": 786.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 889.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 840.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 884.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 840.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 884.1875,
+                "right": 234
+              },
+              "label": "store-item-alternator store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 840.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 884.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Fuel Pump",
+          "rect": {
+            "x": 38,
+            "y": 889.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 992.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 943.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 987.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 943.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 987.1875,
+                "right": 234
+              },
+              "label": "store-item-fuel_pump store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 943.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 987.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Masks",
+          "rect": {
+            "x": 38,
+            "y": 1034.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1137.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1088.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1132.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1088.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1132.1875,
+                "right": 234
+              },
+              "label": "store-item-masks store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1088.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1132.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Warm Coats",
+          "rect": {
+            "x": 38,
+            "y": 1137.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1240.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1191.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1235.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1191.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1235.1875,
+                "right": 234
+              },
+              "label": "store-item-coats store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1191.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1235.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Ponchos",
+          "rect": {
+            "x": 38,
+            "y": 1240.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1343.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1294.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1338.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1294.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1338.1875,
+                "right": 234
+              },
+              "label": "store-item-ponchos store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1294.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1338.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Press Pass",
+          "rect": {
+            "x": 38,
+            "y": 1385.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1488.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1439.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1483.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1439.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1483.1875,
+                "right": 234
+              },
+              "label": "store-item-press_pass store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1439.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1483.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Legal Fund",
+          "rect": {
+            "x": 38,
+            "y": 1488.1875,
+            "width": 244,
+            "height": 115,
+            "bottom": 1603.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1554.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1598.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1554.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1598.1875,
+                "right": 234
+              },
+              "label": "store-item-legal_fund store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1554.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1598.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        }
+      ],
+      "checkout": {
+        "x": 38,
+        "y": 704,
+        "width": 244,
+        "height": 148,
+        "bottom": 852,
+        "right": 282
+      },
+      "reachable": [
+        {
+          "name": "Rations Pack",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Water Jugs",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spare Tire",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Battery",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Alternator",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fuel Pump",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Masks",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Warm Coats",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ponchos",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Press Pass",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Legal Fund",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "visible": true,
+        "color": "rgb(243, 206, 105)",
+        "width": "3px",
+        "style": "solid",
+        "accent": "#f3ce69"
+      },
+      "help": {
+        "x": 12,
+        "y": 166.1875,
+        "width": 296,
+        "height": 214,
+        "right": 308,
+        "bottom": 380.1875,
+        "color": "rgb(21, 37, 50)",
+        "background": "rgb(248, 234, 198)",
+        "text": "Outfit your van\n\nYour starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted."
+      }
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "overflow": false,
+      "cards": [
+        {
+          "text": "Rations Pack",
+          "rect": {
+            "x": 38,
+            "y": 170,
+            "width": 317,
+            "height": 103,
+            "bottom": 273,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 307
+              },
+              "label": "store-item-rations store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 224,
+                "width": 44,
+                "height": 44,
+                "bottom": 268,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Water Jugs",
+          "rect": {
+            "x": 38,
+            "y": 273,
+            "width": 317,
+            "height": 103,
+            "bottom": 376,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 307
+              },
+              "label": "store-item-water store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 327,
+                "width": 44,
+                "height": 44,
+                "bottom": 371,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Spare Tire",
+          "rect": {
+            "x": 38,
+            "y": 418,
+            "width": 317,
+            "height": 103,
+            "bottom": 521,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 307
+              },
+              "label": "store-item-spare_tire store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 472,
+                "width": 44,
+                "height": 44,
+                "bottom": 516,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Battery",
+          "rect": {
+            "x": 38,
+            "y": 521,
+            "width": 317,
+            "height": 103,
+            "bottom": 624,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 307
+              },
+              "label": "store-item-battery store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 575,
+                "width": 44,
+                "height": 44,
+                "bottom": 619,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Alternator",
+          "rect": {
+            "x": 38,
+            "y": 624,
+            "width": 317,
+            "height": 103,
+            "bottom": 727,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 307
+              },
+              "label": "store-item-alternator store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 678,
+                "width": 44,
+                "height": 44,
+                "bottom": 722,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Fuel Pump",
+          "rect": {
+            "x": 38,
+            "y": 727,
+            "width": 317,
+            "height": 103,
+            "bottom": 830,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 307
+              },
+              "label": "store-item-fuel_pump store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 781,
+                "width": 44,
+                "height": 44,
+                "bottom": 825,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Masks",
+          "rect": {
+            "x": 38,
+            "y": 872,
+            "width": 317,
+            "height": 103,
+            "bottom": 975,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 307
+              },
+              "label": "store-item-masks store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 926,
+                "width": 44,
+                "height": 44,
+                "bottom": 970,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Warm Coats",
+          "rect": {
+            "x": 38,
+            "y": 975,
+            "width": 317,
+            "height": 103,
+            "bottom": 1078,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 307
+              },
+              "label": "store-item-coats store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1029,
+                "width": 44,
+                "height": 44,
+                "bottom": 1073,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Ponchos",
+          "rect": {
+            "x": 38,
+            "y": 1078,
+            "width": 317,
+            "height": 103,
+            "bottom": 1181,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 307
+              },
+              "label": "store-item-ponchos store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1132,
+                "width": 44,
+                "height": 44,
+                "bottom": 1176,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Press Pass",
+          "rect": {
+            "x": 38,
+            "y": 1223,
+            "width": 317,
+            "height": 103,
+            "bottom": 1326,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 307
+              },
+              "label": "store-item-press_pass store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1277,
+                "width": 44,
+                "height": 44,
+                "bottom": 1321,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Legal Fund",
+          "rect": {
+            "x": 38,
+            "y": 1326,
+            "width": 317,
+            "height": 103,
+            "bottom": 1429,
+            "right": 355
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 219,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 263
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 263,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 307
+              },
+              "label": "store-item-legal_fund store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 307,
+                "y": 1380,
+                "width": 44,
+                "height": 44,
+                "bottom": 1424,
+                "right": 351
+              },
+              "label": "Add +1"
+            }
+          ]
+        }
+      ],
+      "checkout": {
+        "x": 38,
+        "y": 716,
+        "width": 317,
+        "height": 136,
+        "bottom": 852,
+        "right": 355
+      },
+      "reachable": [
+        {
+          "name": "Rations Pack",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 300,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 81,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 300,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 81,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 300,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 81,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Water Jugs",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 350,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spare Tire",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 495,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Battery",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 598,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Alternator",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 701,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fuel Pump",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 804,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Masks",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 219,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 134,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 949,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Warm Coats",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 200,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ponchos",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 303,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Press Pass",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 448,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Legal Fund",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 219,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 263,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 307,
+                "y": 551,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 986,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "visible": true,
+        "color": "rgb(241, 177, 211)",
+        "width": "3px",
+        "style": "solid",
+        "accent": "#f1b1d3"
+      },
+      "help": {
+        "x": 61,
+        "y": 132,
+        "width": 320,
+        "height": 214,
+        "right": 381,
+        "bottom": 346,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "text": "Outfit your van\n\nYour starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted."
+      }
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "overflow": false,
+      "cards": [
+        {
+          "text": "Rations Pack",
+          "rect": {
+            "x": 38,
+            "y": 321.1875,
+            "width": 244,
+            "height": 115,
+            "bottom": 436.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 387.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 431.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 387.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 431.1875,
+                "right": 234
+              },
+              "label": "store-item-rations store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 387.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 431.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Water Jugs",
+          "rect": {
+            "x": 38,
+            "y": 436.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 539.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 490.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 534.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 490.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 534.1875,
+                "right": 234
+              },
+              "label": "store-item-water store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 490.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 534.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Spare Tire",
+          "rect": {
+            "x": 38,
+            "y": 581.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 684.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 635.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 679.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 635.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 679.1875,
+                "right": 234
+              },
+              "label": "store-item-spare_tire store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 635.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 679.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Battery",
+          "rect": {
+            "x": 38,
+            "y": 684.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 787.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 738.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 782.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 738.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 782.1875,
+                "right": 234
+              },
+              "label": "store-item-battery store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 738.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 782.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Alternator",
+          "rect": {
+            "x": 38,
+            "y": 787.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 890.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 841.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 885.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 841.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 885.1875,
+                "right": 234
+              },
+              "label": "store-item-alternator store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 841.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 885.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Fuel Pump",
+          "rect": {
+            "x": 38,
+            "y": 890.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 993.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 944.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 988.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 944.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 988.1875,
+                "right": 234
+              },
+              "label": "store-item-fuel_pump store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 944.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 988.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Masks",
+          "rect": {
+            "x": 38,
+            "y": 1035.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1138.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1089.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1133.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1089.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1133.1875,
+                "right": 234
+              },
+              "label": "store-item-masks store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1089.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1133.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Warm Coats",
+          "rect": {
+            "x": 38,
+            "y": 1138.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1241.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1192.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1236.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1192.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1236.1875,
+                "right": 234
+              },
+              "label": "store-item-coats store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1192.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1236.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Ponchos",
+          "rect": {
+            "x": 38,
+            "y": 1241.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1344.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1295.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1339.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1295.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1339.1875,
+                "right": 234
+              },
+              "label": "store-item-ponchos store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1295.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1339.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Press Pass",
+          "rect": {
+            "x": 38,
+            "y": 1386.1875,
+            "width": 244,
+            "height": 103,
+            "bottom": 1489.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1440.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1484.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1440.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1484.1875,
+                "right": 234
+              },
+              "label": "store-item-press_pass store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1440.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1484.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        },
+        {
+          "text": "Legal Fund",
+          "rect": {
+            "x": 38,
+            "y": 1489.1875,
+            "width": 244,
+            "height": 115,
+            "bottom": 1604.1875,
+            "right": 282
+          },
+          "imageLoaded": true,
+          "controls": [
+            {
+              "rect": {
+                "x": 146,
+                "y": 1555.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1599.1875,
+                "right": 190
+              },
+              "label": "Remove -1"
+            },
+            {
+              "rect": {
+                "x": 190,
+                "y": 1555.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1599.1875,
+                "right": 234
+              },
+              "label": "store-item-legal_fund store-quantity-label"
+            },
+            {
+              "rect": {
+                "x": 234,
+                "y": 1555.1875,
+                "width": 44,
+                "height": 44,
+                "bottom": 1599.1875,
+                "right": 278
+              },
+              "label": "Add +1"
+            }
+          ]
+        }
+      ],
+      "checkout": {
+        "x": 38,
+        "y": 704,
+        "width": 244,
+        "height": 148,
+        "bottom": 852,
+        "right": 282
+      },
+      "reachable": [
+        {
+          "name": "Rations Pack",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 438.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 9,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Water Jugs",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 416,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spare Tire",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 561,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Battery",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 664,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Alternator",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 767,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fuel Pump",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 870,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Masks",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 146,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 134.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1015,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Warm Coats",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 176.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ponchos",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 279.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Press Pass",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 424.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Legal Fund",
+          "controls": [
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": true,
+              "rect": {
+                "x": 146,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "−"
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 190,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "INPUT",
+                "cls": "store-qty",
+                "text": ""
+              }
+            },
+            {
+              "visible": true,
+              "uncovered": true,
+              "disabled": false,
+              "rect": {
+                "x": 234,
+                "y": 539.1875,
+                "width": 44,
+                "height": 44
+              },
+              "scrollY": 1076,
+              "hit": {
+                "tag": "BUTTON",
+                "cls": "store-qty-btn",
+                "text": "+"
+              }
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "visible": true,
+        "color": "rgb(241, 177, 211)",
+        "width": "3px",
+        "style": "solid",
+        "accent": "#f1b1d3"
+      },
+      "help": {
+        "x": 12,
+        "y": 168.1875,
+        "width": 296,
+        "height": 214,
+        "right": 308,
+        "bottom": 382.1875,
+        "color": "rgb(46, 29, 46)",
+        "background": "rgb(243, 224, 236)",
+        "text": "Outfit your van\n\nYour starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted."
+      }
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

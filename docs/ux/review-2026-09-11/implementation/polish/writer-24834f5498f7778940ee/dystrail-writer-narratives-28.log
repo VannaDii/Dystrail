@@ -1,0 +1,71 @@
+(node:96260) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 44 tests using 2 workers
+
+(node:96284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96285) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96284) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:96285) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:96285) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests-e2e/writer-narratives.spec.ts:175:5 › revision 5 source contains all 28 town remarks and 25 named narrative fields (15ms)
+  ✓   3 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: raw milk, with care costs shown before choosing (2.8s)
+  ✓   4 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: heat warning, with care costs shown before choosing (2.3s)
+  ✓   5 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: five accomplishments, with care costs shown before choosing (2.7s)
+  ✓   1 [chromium] › tests-e2e/writer-narratives.spec.ts:192:5 › all 28 town conversations show their own revised remark and sourced fact offline (8.3s)
+  ✓   6 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: wellness sample, with care costs shown before choosing (2.3s)
+  ✓   7 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: renamed detours, with care costs shown before choosing (2.3s)
+  ✓   9 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: Signal work chat, with care costs shown before choosing (2.3s)
+  ✓   8 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: tariff invoice, with care costs shown before choosing (2.8s)
+  ✓  11 [chromium] › tests-e2e/writer-narratives.spec.ts:269:5 › critical care saves the named companion for the advertised supplies and hour (1.9s)
+  ✓  10 [chromium] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: food parcels, with care costs shown before choosing (2.8s)
+  ✓  12 [chromium] › tests-e2e/writer-narratives.spec.ts:282:5 › leaving a critically ill companion with the aid team is safe and persists (1.9s)
+  ✓  13 [chromium] › tests-e2e/writer-narratives.spec.ts:301:5 › continuing before illness becomes critical leaves the companion unwell (1.4s)
+  ✓  15 [chromium] › tests-e2e/writer-narratives.spec.ts:329:5 › the player cannot use companion departure and their fatal choice ends this named journey (1.4s)
+  ✓  14 [chromium] › tests-e2e/writer-narratives.spec.ts:314:5 › the explicitly fatal companion choice records death without ending the player journey (1.9s)
+  ✓  16 [chromium] › tests-e2e/writer-narratives.spec.ts:348:5 › unaffordable care stays disabled while a safe companion departure remains available (1.8s)
+  ✓  17 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 0: Jules is named and the crew is unchanged (3.1s)
+  ✓  18 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 1: Kit is named and the crew is unchanged (3.1s)
+  ✓  19 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 2: Ari is named and the crew is unchanged (3.1s)
+  ✓  20 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 3: Blair is named and the crew is unchanged (3.1s)
+  ✓  21 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 4: Casey is named and the crew is unchanged (3.1s)
+(node:96617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96617) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:96617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [mobile] › tests-e2e/writer-narratives.spec.ts:175:5 › revision 5 source contains all 28 town remarks and 25 named narrative fields (15ms)
+  ✓  22 [chromium] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 5: Devon is named and the crew is unchanged (3.0s)
+(node:96648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96648) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:96648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: raw milk, with care costs shown before choosing (2.8s)
+  ✓  26 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: heat warning, with care costs shown before choosing (2.3s)
+  ✓  24 [mobile] › tests-e2e/writer-narratives.spec.ts:192:5 › all 28 town conversations show their own revised remark and sourced fact offline (8.3s)
+  ✓  27 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: five accomplishments, with care costs shown before choosing (2.3s)
+  ✓  28 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: wellness sample, with care costs shown before choosing (2.3s)
+  ✓  29 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: renamed detours, with care costs shown before choosing (2.8s)
+  ✓  30 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: tariff invoice, with care costs shown before choosing (2.7s)
+  ✓  31 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: Signal work chat, with care costs shown before choosing (2.3s)
+  ✓  33 [mobile] › tests-e2e/writer-narratives.spec.ts:269:5 › critical care saves the named companion for the advertised supplies and hour (1.8s)
+  ✓  32 [mobile] › tests-e2e/writer-narratives.spec.ts:245:7 › named crew incident: food parcels, with care costs shown before choosing (2.7s)
+  ✓  34 [mobile] › tests-e2e/writer-narratives.spec.ts:282:5 › leaving a critically ill companion with the aid team is safe and persists (1.9s)
+  ✓  35 [mobile] › tests-e2e/writer-narratives.spec.ts:301:5 › continuing before illness becomes critical leaves the companion unwell (1.9s)
+  ✓  37 [mobile] › tests-e2e/writer-narratives.spec.ts:329:5 › the player cannot use companion departure and their fatal choice ends this named journey (1.4s)
+  ✓  36 [mobile] › tests-e2e/writer-narratives.spec.ts:314:5 › the explicitly fatal companion choice records death without ending the player journey (1.9s)
+  ✓  38 [mobile] › tests-e2e/writer-narratives.spec.ts:348:5 › unaffordable care stays disabled while a safe companion departure remains available (1.8s)
+  ✓  39 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 0: Jules is named and the crew is unchanged (3.1s)
+  ✓  40 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 1: Kit is named and the crew is unchanged (3.5s)
+  ✓  41 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 2: Ari is named and the crew is unchanged (3.5s)
+  ✓  42 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 3: Blair is named and the crew is unchanged (3.6s)
+  ✓  43 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 4: Casey is named and the crew is unchanged (3.1s)
+  ✓  44 [mobile] › tests-e2e/writer-narratives.spec.ts:367:7 › outside ally departure 5: Devon is named and the crew is unchanged (3.6s)
+
+  44 passed (1.0m)

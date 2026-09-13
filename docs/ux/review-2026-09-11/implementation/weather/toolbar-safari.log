@@ -1,0 +1,56 @@
+Safari 26.6.2
+Click Choose your character
+Click Journalist
+Click Continue
+PASS Onboarding: names, unwarped portraits, no focus jump
+Click Continue
+Click Empty the van
+PASS Paid starter cart can be emptied and persists across refresh
+Click Review & depart
+Click Start the journey
+PASS Empty departure has no hidden supplies or charges
+PASS Menu dismisses when clicked outside
+PASS Contextual help remains inside viewport and dismisses outside
+PASS Safari manifest and Apple touch icon available; complete offline cache ready
+PASS Fast, Camp, Review route and Resume share one row with detail controls in the same toolbar
+Click Fast
+Click Conditions
+Click The Van
+Click Journal
+Click Journal
+PASS Fast toggle persists, detail panels switch without spending a turn, and old Step saves restore as Normal
+Click العربية
+Click English
+PASS Arabic layout and selected language survive reload
+Click Review route
+Click Continue the journey
+PASS Geographic map frames the active route as a full scene
+Click Import
+Click Import
+PASS Heat and cold use state-matched effects in Safari
+Click Import
+Click Resume travel
+Click Pause travel
+PASS Weather applies real costs and notifies inline while travel continues; reload never repeats costs
+Click Import
+Click Import
+PASS Weather indicator includes exposure, contextual help, and clears obsolete damage in clear conditions
+Click Import
+Click Forage with a local guide
+PASS Foraging changes supplies and the clock
+Click Import
+Click Call local radio; work in exchange for repairs
+PASS Cashless repair lists unavailable alternatives and charges time, sanity and morale
+Click Import
+PASS Number keys select encounter choices; cash reward and matching scene agree
+Click Import
+Click Talk to locals · Credibility +1
+PASS Exact-town fact, player portrait, random NPC and conversation persist
+PASS Origin stopped: reload, saved crew, town scene and every bundled asset still work
+PASS Complete update replaces old build before game launches and preserves saves
+PASS Interrupted update leaves the last complete version playable
+Click Back to town
+Click Abandon trail
+Click End this journey
+PASS Abandon uses the selected character’s name and creates a saved ending
+Safari completed: 21 checks

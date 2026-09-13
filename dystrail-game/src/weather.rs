@@ -65,7 +65,6 @@ const fn default_travel_mult() -> f32 {
 pub struct WeatherEffect {
     pub supplies: i32,
     pub sanity: i32,
-    pub pants: i32,
     pub enc_delta: f32,
     #[serde(default = "default_travel_mult")]
     pub travel_mult: f32,
@@ -77,8 +76,6 @@ pub struct WeatherMitigation {
     pub tag: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub sanity: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub pants: Option<i32>,
 }
 
 /// Executive order modifiers for weather encounters
@@ -92,8 +89,6 @@ pub struct ExecWeatherMod {
 pub struct WeatherLimits {
     pub max_extreme_streak: i32,
     pub encounter_cap: f32,
-    pub pants_floor: i32,
-    pub pants_ceiling: i32,
 }
 
 /// Complete weather system configuration
@@ -165,7 +160,7 @@ impl WeatherConfig {
         }
 
         // Check that all regions have weights
-        for region in [Region::Heartland, Region::RustBelt, Region::Beltway] {
+        for region in Region::ALL {
             let Some(region_weights) = self.weights.get(&region) else {
                 return Err(format!("Missing weights for region: {region:?}"));
             };
@@ -202,8 +197,6 @@ impl WeatherConfig {
             limits: WeatherLimits {
                 max_extreme_streak: 2,
                 encounter_cap: 0.35,
-                pants_floor: 0,
-                pants_ceiling: 100,
             },
             effects: HashMap::new(),
             mitigation: HashMap::new(),
@@ -312,28 +305,28 @@ pub fn select_weather_for_today(
 fn seasonal_override<R: Rng>(season: Season, current: Weather, rng: &mut R) -> Weather {
     match season {
         Season::Winter => {
-            if rng.r#gen::<f32>() < 0.20 {
+            if rng.r#gen::<f32>() < 0.05 {
                 Weather::ColdSnap
             } else {
                 current
             }
         }
         Season::Summer => {
-            if rng.r#gen::<f32>() < 0.20 {
+            if rng.r#gen::<f32>() < 0.05 {
                 Weather::HeatWave
             } else {
                 current
             }
         }
         Season::Fall => {
-            if rng.r#gen::<f32>() < 0.15 {
+            if rng.r#gen::<f32>() < 0.0375 {
                 Weather::Storm
             } else {
                 current
             }
         }
         Season::Spring => {
-            if rng.r#gen::<f32>() < 0.12 {
+            if rng.r#gen::<f32>() < 0.03 {
                 Weather::Smoke
             } else {
                 current
@@ -384,6 +377,8 @@ fn apply_neutral_buffer<R: Rng>(
 /// Apply weather effects to game state
 pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     let today = gs.weather_state.today;
+    let before = gs.stats.clone();
+    gs.continuity.weather_impact = None;
     update_weather_streaks(&mut gs.weather_state, today);
 
     let Some(effect) = cfg.effects.get(&today) else {
@@ -391,9 +386,10 @@ pub fn apply_weather_effects(gs: &mut GameState, cfg: &WeatherConfig) {
     };
 
     gs.weather_travel_multiplier = effect.travel_mult.max(0.1);
-    let (delta_sup, delta_san, delta_pants) = apply_mitigation(effect, cfg, gs);
-    apply_stat_changes(gs, cfg, delta_sup, delta_san, delta_pants, effect.enc_delta);
+    let (delta_sup, delta_san) = apply_mitigation(effect, cfg, gs);
+    apply_stat_changes(gs, cfg, delta_sup, delta_san, effect.enc_delta);
     apply_exposure(gs, today);
+    gs.continuity.weather_impact = Some(crate::weather_impact::WeatherImpact::between(&before, gs));
 }
 
 fn apply_stat_changes(
@@ -401,37 +397,27 @@ fn apply_stat_changes(
     cfg: &WeatherConfig,
     delta_sup: i32,
     delta_san: i32,
-    delta_pants: i32,
     delta_enc: f32,
 ) {
     gs.stats.supplies += delta_sup;
     gs.stats.sanity += delta_san;
-    gs.stats.pants =
-        (gs.stats.pants + delta_pants).clamp(cfg.limits.pants_floor, cfg.limits.pants_ceiling);
+
     gs.encounter_chance_today =
         (gs.encounter_chance_today + delta_enc).clamp(0.0, cfg.limits.encounter_cap);
 }
 
-fn apply_mitigation(
-    effect: &WeatherEffect,
-    cfg: &WeatherConfig,
-    gs: &GameState,
-) -> (i32, i32, i32) {
-    let mut delta_san = effect.sanity;
-    let mut delta_pants = effect.pants;
-    if let Some(mitigation) = cfg
+fn apply_mitigation(effect: &WeatherEffect, cfg: &WeatherConfig, gs: &GameState) -> (i32, i32) {
+    let delta_san = if let Some(mitigation) = cfg
         .mitigation
         .get(&gs.weather_state.today)
         .filter(|m| gs.inventory.tags.contains(&m.tag))
+        && let Some(san) = mitigation.sanity
     {
-        if let Some(san) = mitigation.sanity {
-            delta_san = san;
-        }
-        if let Some(pants) = mitigation.pants {
-            delta_pants = pants;
-        }
-    }
-    (effect.supplies, delta_san, delta_pants)
+        san
+    } else {
+        effect.sanity
+    };
+    (effect.supplies, delta_san)
 }
 
 fn apply_exposure(gs: &mut GameState, today: Weather) {

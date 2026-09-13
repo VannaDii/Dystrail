@@ -1,0 +1,60 @@
+{
+  "revision": "fd85d61ff87f8e40619b",
+  "preview_published": true,
+  "production_published": false,
+  "production_hold": "Writers are replacing unfinished prompts; refresh their revision before deployment.",
+  "manifest_sha256": "4bec23c27b317fe36084c2866f8c017d57b2cf511464f7bfe9a3dacc25c05256",
+  "asset_count": 101,
+  "source_document": "https://docs.google.com/document/d/1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+  "source_revision": "ANLCKQmTwZ-7mRL7Unrfjo8vAxq-Roix7nDfNeKcHisjazvbi1mKPP11LvOPYoM6sKDbLv8n64VhFBY5uVvST-aVoWC_QQQbcXIHylug0bc",
+  "writer_changed_fields": 22,
+  "writer_changed_scenes": 3,
+  "excluded_unfinished_responses": 3,
+  "browser": {
+    "full_run": {
+      "passed": 208,
+      "failed": 6,
+      "exit": 1,
+      "note": "All failures were the new writer fixture fetching a nonexistent JSON URL."
+    },
+    "writer_rerun": {
+      "passed": 6,
+      "failed": 0,
+      "exit": 0
+    },
+    "combined_passed": 214
+  },
+  "native": {
+    "passed": 319,
+    "failed": 3,
+    "exit": 101,
+    "remaining": [
+      "journey_config_snapshot_stable",
+      "deterministic_csv_digest_for_fixed_seed",
+      "deterministic_journey_digest_baseline"
+    ]
+  },
+  "wasm": {
+    "passed": 2,
+    "exit": 0
+  },
+  "strict_clippy": {
+    "native": 0,
+    "wasm": 0
+  },
+  "builds": {
+    "native_release": 0,
+    "trunk_release": 0
+  },
+  "format_exit": 0,
+  "security": {
+    "audit": 0,
+    "deny": 0,
+    "exception_validation": 0
+  },
+  "game_client_exit": 0,
+  "camp_sanity_recovery": 4,
+  "shared_source_experiment_excluded": {
+    "camp_sanity_recovery": 6
+  }
+}

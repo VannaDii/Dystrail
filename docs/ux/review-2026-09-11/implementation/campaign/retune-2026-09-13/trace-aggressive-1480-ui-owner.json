@@ -1,0 +1,46 @@
+{
+  "evidence_type": "read-only current source, no fresh browser run",
+  "root": "/Users/vanna/Source/Dystrail",
+  "files": {
+    "dystrail-web/src/app/activities.rs": {
+      "shared_sha256": "4daa4cd9506bd29b4f7e5da128941d2740e8d916c544edb963dd087974e7a74b",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/app/history.rs": {
+      "shared_sha256": "f0b0fa2cb0decc992190574ba0230f0982b66a7db30ca6df06acb7f92f01562e",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/app/view/handlers/travel.rs": {
+      "shared_sha256": "992b1ddad0421ad2599d47a6dca2bdad37b199fea1ad1a2cdd23b20c954eb603",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/app/view/phases/aftermath.rs": {
+      "shared_sha256": "703c4263b958c4ac63227c41ed71934b0c12d0df3673df466af04df89996903e",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/app/view/phases/camp.rs": {
+      "shared_sha256": "b622dca882aa384886535d9cd2c5dd2b6d2b697ff44b7f14150b4a27ac80e997",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/app/recovery.rs": {
+      "shared_sha256": "c728bc8980cc4befb49ec447bc87bacf74973837a5764edf6d27010a535f7ff5",
+      "same_as_traced_source": true
+    },
+    "dystrail-web/src/components/ui/travel_panel/pace.rs": {
+      "shared_sha256": "32ce5fae876a987d6ae9acf38aa0914d870821472dbeba02f37751905daaafe9",
+      "same_as_traced_source": false
+    },
+    "dystrail-web/src/components/ui/camp_panel/mod.rs": {
+      "shared_sha256": "b04417d1d18dec75ae87ca9a41540c3b685cbbe9831a0bf04a3ea5ec863c07ad",
+      "same_as_traced_source": true
+    },
+    "dystrail-game/src/activities.rs": {
+      "shared_sha256": "27af164f36c58b02251b86515350f655e3e2e17fb9c466c0160e86359c24513d",
+      "same_as_traced_source": true
+    },
+    "dystrail-game/src/journal.rs": {
+      "shared_sha256": "7a043f74207d662a02f82a3ddd1a7d8dc3a5a7a209c7584e34510bbd8c60adc7",
+      "same_as_traced_source": true
+    }
+  }
+}

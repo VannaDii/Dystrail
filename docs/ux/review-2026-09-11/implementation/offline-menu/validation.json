@@ -1,0 +1,28 @@
+{
+  "build": "79387147b691d54008d8",
+  "preview": "http://127.0.0.1:8180/play/",
+  "chrome": {
+    "passed": 8,
+    "exit_code": 0,
+    "projects": [
+      "desktop",
+      "phone"
+    ],
+    "install_prompt": "event fixture; no app installed"
+  },
+  "safari": {
+    "version": "26.6.2",
+    "passed": 22,
+    "exit_code": 0
+  },
+  "rust": {
+    "tests": 236,
+    "clippy": "passed",
+    "native_release": "passed",
+    "trunk_release": "passed"
+  },
+  "i18n": {
+    "locales": 20,
+    "missing_keys": []
+  }
+}

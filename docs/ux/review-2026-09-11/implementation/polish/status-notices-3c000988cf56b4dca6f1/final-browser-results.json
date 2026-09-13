@@ -1,0 +1,102 @@
+{
+  "revision": "3c000988cf56b4dca6f1",
+  "activation": [],
+  "layouts": [
+    {
+      "mode": "classic",
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 74.4375,
+          "y": 250,
+          "width": 134.09375,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 220.53125,
+          "y": 250,
+          "width": 164.46875,
+          "height": 34,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)",
+            "rgb(243, 206, 105)"
+          ],
+          "contained": true
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "pills": [
+        {
+          "weather": "HeatWave",
+          "x": 1019.5,
+          "y": 175.9375,
+          "width": 135.09375,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        },
+        {
+          "policy": "war_dept_reorg",
+          "x": 1162.59375,
+          "y": 175.9375,
+          "width": 156.40625,
+          "height": 32,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "animation": "weather-notification",
+          "borders": [
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)",
+            "rgb(241, 177, 211)"
+          ],
+          "contained": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

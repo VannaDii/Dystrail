@@ -1,0 +1,21 @@
+classic/unprotected actual Storm: {"day":1,"weather":"Storm","supplies":-1,"hp":0,"sanity":-1}
+classic/equipped actual Storm: {"day":1,"weather":"Storm","supplies":-1,"hp":0,"sanity":0}
+classic/unprotected/en: localized help 320/393/1440 passed
+classic/unprotected/it: localized help 320/393/1440 passed
+classic/unprotected/es: localized help 320/393/1440 passed
+classic/unprotected/ar: localized help 320/393/1440 passed
+classic/equipped/en: localized help 320/393/1440 passed
+classic/equipped/it: localized help 320/393/1440 passed
+classic/equipped/es: localized help 320/393/1440 passed
+classic/equipped/ar: localized help 320/393/1440 passed
+deep/unprotected actual Storm: {"day":1,"weather":"Storm","supplies":-1,"hp":0,"sanity":-1}
+deep/equipped actual Storm: {"day":1,"weather":"Storm","supplies":-1,"hp":0,"sanity":0}
+deep/unprotected/en: localized help 320/393/1440 passed
+deep/unprotected/it: localized help 320/393/1440 passed
+deep/unprotected/es: localized help 320/393/1440 passed
+deep/unprotected/ar: localized help 320/393/1440 passed
+deep/equipped/en: localized help 320/393/1440 passed
+deep/equipped/it: localized help 320/393/1440 passed
+deep/equipped/es: localized help 320/393/1440 passed
+deep/equipped/ar: localized help 320/393/1440 passed
+PASS: four actual equipped/unprotected Storm drives, 48 localized help checks, four offline reloads, no repeated costs or browser errors

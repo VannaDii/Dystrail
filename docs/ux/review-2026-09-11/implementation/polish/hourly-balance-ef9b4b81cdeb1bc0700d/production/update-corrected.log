@@ -1,0 +1,7 @@
+Checking the real published update against the preserved production installation
+Updated production cache and prior save verified {"revision":"ef9b4b81cdeb1bc0700d","assets":119,"images":68,"ruleChanges":[{"path":["journey_crossing","pass"],"before":0.66,"after":0.7},{"path":["journey_crossing","detour"],"before":0.24,"after":0.085},{"path":["journey_crossing","terminal"],"before":0.1,"after":0.215},{"path":["journey_crossing","detour_hours","max"],"before":3,"after":2},{"path":["journey_daily","health","decay"],"before":0.12,"after":0.38}]}
+AssertionError [ERR_ASSERTION]: Saved crew member is not visible: Riley
+
+false !== true
+
+    at file:///private/tmp/dystrail-balance-production-check/verify-published-update.mjs:105:57

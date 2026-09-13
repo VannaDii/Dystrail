@@ -1,0 +1,71 @@
+{
+  "it": {
+    "sat_alternator_tariff": {
+      "desc": "Il meccanico dice che il dazio di Trump lo paga la Cina. A quanto pare Cina è il nome della tua carta di debito.",
+      "choice_0": "Compra il kit stradale",
+      "log_0": "Ottieni le scorte. La Cina non si è ancora offerta di dividere il conto.",
+      "choice_1": "Chiedi al meccanico di spiegare la fattura",
+      "log_1": "Ricambi, dazio, ricarico, commissione di gestione della libertà. La libertà è l’unica voce senza diritto di reso.",
+      "log_2": "Te ne vai prima che il commesso imponga un dazio sulla conversazione."
+    },
+    "sat_billion_pothole": {
+      "desc": "Il tabellone in stile DOGE annuncia otto miliardi di risparmi. Qualcuno controlla gli zeri. La buca chiede se qualcuno ha cercato una pala.",
+      "log_0": "I risparmi si restringono. La buca conserva le dimensioni originali.",
+      "log_1": "Tu ripari la strada. Il cruscotto dell’efficienza si prende il merito.",
+      "log_2": "La buca resta la parte più trasparente del bilancio."
+    },
+    "sat_cabinet_guest": {
+      "desc": "Il posto di blocco ha adottato il protocollo Signal dell’amministrazione: chat sicura, fiducia assoluta e qualcuno che chiede se questo è il club del libro.",
+      "choice_0": "Controlla tutti i nomi prima di condividere il percorso",
+      "log_0": "Il paziente del dentista esce dalla chat. La sicurezza nazionale migliora senza aggiornare il software.",
+      "log_1": "Ospite esterno 4 reagisce con un cuore. L’intelligence non è mai stata così incoraggiante.",
+      "log_2": "Esci dalla chat prima di essere promosso a segretario del Pranzo."
+    }
+  },
+  "es": {
+    "sat_alternator_tariff": {
+      "desc": "El mecánico dice que China paga el arancel de Trump. Al parecer, China es el nombre de tu tarjeta de débito.",
+      "choice_0": "Compra el kit de carretera",
+      "log_0": "Consigues las provisiones. China aún no se ha ofrecido a dividir la cuenta.",
+      "choice_1": "Pide al mecánico que explique la factura",
+      "log_1": "Piezas, arancel, margen, gastos de gestión de la libertad. La libertad es lo único que no admite devoluciones.",
+      "log_2": "Te vas antes de que el dependiente ponga un arancel a la conversación."
+    },
+    "sat_billion_pothole": {
+      "desc": "El tablero al estilo DOGE anuncia ocho mil millones en ahorros. Alguien revisa los ceros. El bache pregunta si alguien ha buscado una pala.",
+      "log_0": "Los ahorros se encogen. El bache conserva sus dimensiones originales.",
+      "log_1": "Tú arreglas la carretera. El panel de eficiencia se lleva el mérito.",
+      "log_2": "El bache sigue siendo la parte más transparente del presupuesto."
+    },
+    "sat_cabinet_guest": {
+      "desc": "El control ha adoptado el protocolo Signal de la administración: un chat seguro, confianza absoluta y alguien preguntando si este es el club de lectura.",
+      "choice_0": "Comprueba todos los nombres antes de compartir la ruta",
+      "log_0": "El paciente del dentista sale del chat. La seguridad nacional mejora sin actualizar el software.",
+      "log_1": "Invitado externo 4 reacciona con un corazón. La inteligencia nunca había sido tan alentadora.",
+      "log_2": "Sales del chat antes de que te asciendan a secretario del Almuerzo."
+    }
+  },
+  "ar": {
+    "sat_alternator_tariff": {
+      "desc": "يقول الميكانيكي إن الصين تدفع رسوم ترامب الجمركية. يبدو أن الصين هي اسم بطاقة الخصم الخاصة بك.",
+      "choice_0": "اشتر عدة الطريق",
+      "log_0": "تحصل على المؤن. لم تعرض الصين بعد أن تتقاسم الفاتورة.",
+      "choice_1": "اطلب من الميكانيكي شرح الفاتورة",
+      "log_1": "قطع، ورسوم جمركية، وهامش ربح، ورسوم مناولة الحرية. الحرية هي البند الوحيد الذي لا يمكن إرجاعه.",
+      "log_2": "تغادر قبل أن يفرض البائع رسوماً جمركية على المحادثة."
+    },
+    "sat_billion_pothole": {
+      "desc": "تعلن لوحة على طريقة DOGE توفير ثمانية مليارات. يدقق أحدهم في الأصفار. تسأل الحفرة إن كان أحد قد بحث عن مجرفة.",
+      "log_0": "تتقلص الوفورات. تحتفظ الحفرة بأبعادها الأصلية.",
+      "log_1": "تصلح الطريق. تنسب لوحة الكفاءة الفضل إلى نفسها.",
+      "log_2": "تظل الحفرة أكثر أجزاء الميزانية شفافية."
+    },
+    "sat_cabinet_guest": {
+      "desc": "اعتمد الحاجز بروتوكول الإدارة على سيغنال: محادثة آمنة، وثقة تامة، وشخص يسأل إن كانت هذه مجموعة نادي القراءة.",
+      "choice_0": "تحقق من أسماء الجميع قبل مشاركة الطريق",
+      "log_0": "يغادر مريض طبيب الأسنان المحادثة. يتحسن الأمن القومي دون تحديث البرنامج.",
+      "log_1": "يرسل «ضيف خارجي 4» قلباً. لم تكن الاستخبارات بهذا التشجيع من قبل.",
+      "log_2": "تغادر المحادثة قبل ترقيتك إلى وزير الغداء."
+    }
+  }
+}

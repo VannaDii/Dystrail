@@ -1,0 +1,315 @@
+{
+  "url": "http://127.0.0.1:53903/play/",
+  "revision": "ef9b4b81cdeb1bc0700d",
+  "sourceHashes": {
+    "pacing": "bcf99ae4f3a3c511a62dab1e57aa60a16c0037eca9bc4509ad8f37910e0f20ff",
+    "camp": "fbcac939ee540c6019de1bdfc3f6b67a095b38bd132e7fd563b0f50fb1c8f96f"
+  },
+  "cases": [
+    {
+      "mode": "classic",
+      "width": 1440,
+      "conditions": {
+        "dietSanity": [
+          3,
+          2,
+          -2
+        ],
+        "mph": [
+          60,
+          70,
+          80
+        ],
+        "selections": [
+          {
+            "pace": "steady",
+            "diet": "quiet"
+          },
+          {
+            "pace": "heated",
+            "diet": "mixed"
+          },
+          {
+            "pace": "blitz",
+            "diet": "doom"
+          }
+        ],
+        "settingsChangesCostNothing": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/conditions-classic-1440.png"
+      },
+      "rest": [
+        {
+          "beforeSanity": 2,
+          "preview": "Sanity +8, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-2.png"
+        },
+        {
+          "beforeSanity": 9,
+          "preview": "Sanity +1, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-9.png"
+        },
+        {
+          "beforeSanity": 10,
+          "preview": "Sanity +0, Health +0, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-10.png"
+        }
+      ],
+      "breakdown": {
+        "disabled": true,
+        "forgedSavedCampPhaseBlocked": true,
+        "savedStateUnchanged": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-classic-1440.png"
+      }
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "conditions": {
+        "dietSanity": [
+          3,
+          2,
+          -2
+        ],
+        "mph": [
+          60,
+          70,
+          80
+        ],
+        "selections": [
+          {
+            "pace": "steady",
+            "diet": "quiet"
+          },
+          {
+            "pace": "heated",
+            "diet": "mixed"
+          },
+          {
+            "pace": "blitz",
+            "diet": "doom"
+          }
+        ],
+        "settingsChangesCostNothing": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/conditions-classic-393.png"
+      },
+      "rest": [
+        {
+          "beforeSanity": 2,
+          "preview": "Sanity +8, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-2.png"
+        },
+        {
+          "beforeSanity": 9,
+          "preview": "Sanity +1, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-9.png"
+        },
+        {
+          "beforeSanity": 10,
+          "preview": "Sanity +0, Health +0, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-10.png"
+        }
+      ],
+      "breakdown": {
+        "disabled": true,
+        "forgedSavedCampPhaseBlocked": true,
+        "savedStateUnchanged": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-classic-393.png"
+      }
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "conditions": {
+        "dietSanity": [
+          3,
+          2,
+          -2
+        ],
+        "mph": [
+          60,
+          70,
+          80
+        ],
+        "selections": [
+          {
+            "pace": "steady",
+            "diet": "quiet"
+          },
+          {
+            "pace": "heated",
+            "diet": "mixed"
+          },
+          {
+            "pace": "blitz",
+            "diet": "doom"
+          }
+        ],
+        "settingsChangesCostNothing": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/conditions-deep-1440.png"
+      },
+      "rest": [
+        {
+          "beforeSanity": 2,
+          "preview": "Sanity +8, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-2.png"
+        },
+        {
+          "beforeSanity": 9,
+          "preview": "Sanity +1, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-9.png"
+        },
+        {
+          "beforeSanity": 10,
+          "preview": "Sanity +0, Health +0, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-10.png"
+        }
+      ],
+      "breakdown": {
+        "disabled": true,
+        "forgedSavedCampPhaseBlocked": true,
+        "savedStateUnchanged": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-deep-1440.png"
+      }
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "conditions": {
+        "dietSanity": [
+          3,
+          2,
+          -2
+        ],
+        "mph": [
+          60,
+          70,
+          80
+        ],
+        "selections": [
+          {
+            "pace": "steady",
+            "diet": "quiet"
+          },
+          {
+            "pace": "heated",
+            "diet": "mixed"
+          },
+          {
+            "pace": "blitz",
+            "diet": "doom"
+          }
+        ],
+        "settingsChangesCostNothing": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/conditions-deep-393.png"
+      },
+      "rest": [
+        {
+          "beforeSanity": 2,
+          "preview": "Sanity +8, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-2.png"
+        },
+        {
+          "beforeSanity": 9,
+          "preview": "Sanity +1, Health +1, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-9.png"
+        },
+        {
+          "beforeSanity": 10,
+          "preview": "Sanity +0, Health +0, Supplies -1 · 1 day",
+          "afterSanity": 10,
+          "supplyDelta": -1,
+          "dayDelta": 1,
+          "stationary": true,
+          "persisted": true,
+          "screenshot": "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-10.png"
+        }
+      ],
+      "breakdown": {
+        "disabled": true,
+        "forgedSavedCampPhaseBlocked": true,
+        "savedStateUnchanged": true,
+        "screenshot": "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-deep-393.png"
+      }
+    }
+  ],
+  "screenshots": [
+    "/private/tmp/dystrail-final-balance-browser/conditions-classic-1440.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-2.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-9.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-1440-sanity-10.png",
+    "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-classic-1440.png",
+    "/private/tmp/dystrail-final-balance-browser/conditions-classic-393.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-2.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-9.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-classic-393-sanity-10.png",
+    "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-classic-393.png",
+    "/private/tmp/dystrail-final-balance-browser/conditions-deep-1440.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-2.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-9.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-1440-sanity-10.png",
+    "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-deep-1440.png",
+    "/private/tmp/dystrail-final-balance-browser/conditions-deep-393.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-2.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-9.png",
+    "/private/tmp/dystrail-final-balance-browser/rest-deep-393-sanity-10.png",
+    "/private/tmp/dystrail-final-balance-browser/breakdown-blocks-rest-deep-393.png"
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "passed": true
+}

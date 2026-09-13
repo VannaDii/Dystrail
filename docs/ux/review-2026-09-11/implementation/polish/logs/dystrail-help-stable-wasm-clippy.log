@@ -1,0 +1,17 @@
+   Compiling serde_json v1.0.145
+   Compiling num-traits v0.2.19
+    Checking futures v0.3.31
+    Checking pinned v0.1.0
+    Checking gloo-utils v0.2.0
+    Checking gloo-worker v0.5.0
+    Checking gloo-storage v0.3.0
+    Checking gloo-net v0.5.0
+    Checking gloo-history v0.2.2
+    Checking gloo-console v0.3.0
+    Checking dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+    Checking gloo v0.11.0
+    Checking tokise v0.2.0
+    Checking yew v0.21.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+    Checking yew-router v0.18.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+    Checking dystrail-web v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-web)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.18s

@@ -1,0 +1,126 @@
+{
+  "browser": "Native Safari",
+  "revision": "1868d6c37d8c25729dae",
+  "checks": [
+    "First launch stays behind the loading gate while an asset is held or failed, then Retry caches the complete game before launch",
+    "Credibility cap, actual struck-out award, unlimited conversation access, and reload persistence",
+    "Leave store aligns vertically with the heading and horizontally under Resume",
+    "Journal shows dated cards and typed cash change; work completion is centered",
+    "Map credits sit in the header next to the current town",
+    "Repair consumes the actual spare and shows vehicle recovery in an outcome card",
+    "Encounter subtitles align beneath the primary text and HUD stats have no inset background",
+    "Encounter cash uses the same stat-card format and accessible primary button name",
+    "Receipt is offered, awarded once, counted in the shared HUD, saved, explained and recorded in the journal",
+    "The map retains the actual receipt count, including after reload",
+    "Offline encounter awards a second receipt; reload preserves it and all 87 cached assets match their hashes while the origin is unavailable",
+    "A full camp day two miles before D.C. costs time without moving the van or triggering the hearing, including after reload",
+    "Ally notice survives reload, waits behind the map, acknowledges once, and stays in the journal",
+    "Removed stat is ignored in old saves; seven stats, concise risk and centered final offline footer",
+    "Town profile and journal remain readable in the measured native Safari viewport without horizontal overflow",
+    "Journal overflow is contained and its scroll area can receive keyboard focus",
+    "Conversation stacks joke and sourced record at a measured narrow Safari width",
+    "Conversation context is accessible and Back to town returns to unchanged services"
+  ],
+  "viewports": [
+    {
+      "name": "loading-held",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "loading-retry",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "town-capped-reward",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "store-alignment",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "journal",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "map-credits",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "repair-cards",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "aligned-choices",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-offer",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-outcome",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-journal",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-map",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "evidence-offline",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "late-route-stationary-camp",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "ally-departure",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "offline-footer",
+      "width": 1280,
+      "height": 928
+    },
+    {
+      "name": "town-narrow",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "journal-narrow",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "conversation-measured",
+      "width": 600,
+      "height": 908
+    },
+    {
+      "name": "conversation-desktop",
+      "width": 1280,
+      "height": 928
+    }
+  ]
+}

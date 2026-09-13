@@ -1,0 +1,128 @@
+{
+  "checked_at": "2026-09-12T22:31:03.024707+00:00",
+  "build": "56213723b1c62ed89b93",
+  "offline_cache": {
+    "files": 100,
+    "bytes": 104083461,
+    "all_hashes_verified": true,
+    "origins": [
+      "http://127.0.0.1:8180/play/",
+      "http://127.0.0.1:8083/play/",
+      "http://127.0.0.1:56854/play/"
+    ],
+    "browser_storage_modified_by_publisher": false
+  },
+  "native_tests": {
+    "passed": 267,
+    "exit_code": 0
+  },
+  "chrome_wasm_tests": {
+    "registered_tests_passed": 2,
+    "exit_code": 0
+  },
+  "strict_clippy": {
+    "native": true,
+    "wasm32": true,
+    "groups": [
+      "all",
+      "pedantic",
+      "cargo",
+      "nursery"
+    ],
+    "allow": [
+      "multiple-crate-versions"
+    ]
+  },
+  "release_builds": {
+    "native": true,
+    "trunk": true
+  },
+  "formatting": {
+    "rustfmt": true,
+    "diff_check": true
+  },
+  "chrome_regressions": [
+    {
+      "scope": "New compact entries, manual maps and collapsible tabs; desktop and phone",
+      "passed": 6,
+      "exit_code": 1,
+      "limitation": "All assertions passed; browser shutdown exceeded the 90-second suite deadline."
+    },
+    {
+      "scope": "New interactions, isolated desktop rerun",
+      "passed": 3,
+      "exit_code": 1,
+      "limitation": "All assertions passed; browser shutdown exceeded the 65-second suite deadline."
+    },
+    {
+      "scope": "New interactions, isolated phone rerun",
+      "passed": 3,
+      "exit_code": 0
+    },
+    {
+      "scope": "Map geography/timing, queued decisions, current-turn history, outcomes; desktop",
+      "passed": 15,
+      "exit_code": 0
+    },
+    {
+      "scope": "Same regression scenarios; phone",
+      "passed": 15,
+      "exit_code": 1,
+      "limitation": "All assertions passed; shutdown exceeded the 120-second suite deadline."
+    }
+  ],
+  "game_client": {
+    "unmodified_client": true,
+    "exit_code": 0,
+    "screenshots_inspected": true
+  },
+  "safari": {
+    "inventory_status_navigation_groups": 14,
+    "offline_update_groups": 6,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "build": "56213723b1c62ed89b93",
+    "real_browser": true,
+    "locale_runtime_smoke": 20
+  },
+  "i18n": {
+    "locales": 20,
+    "required_leaf_keys": 1099,
+    "missing_keys": 0,
+    "new_labels_translated": true,
+    "rtl_checked": "Native Safari inventory and Chrome route/layout; earlier conversation checks",
+    "limitation": "New rich narrative content still falls back to English in 16 locales; key completeness is not a human translation review.",
+    "runtime_smoke": {
+      "browser": "Native Safari",
+      "locales": 20,
+      "exit_code": 0,
+      "surfaces": [
+        "Journal",
+        "Manual Route map"
+      ]
+    }
+  },
+  "engine_coverage_percent": 78.81,
+  "covered_lines": 3511,
+  "measured_lines": 4455,
+  "security": {
+    "advisory_exception_validator_exit": 0,
+    "cargo_audit_exit": 0,
+    "cargo_deny_exit": 0,
+    "existing_warnings_retained": true,
+    "maintenance_exceptions": "docs/security/dependency-maintenance.md"
+  },
+  "campaign": {
+    "runs": 8000,
+    "measurement": "../campaign/validation-2026-09-12.json",
+    "acceptance": "failed unchanged gates; decision pending",
+    "gameplay_unchanged_since_measurement": true
+  },
+  "remaining": [
+    "Decide campaign acceptance: preserve current gameplay and revise old target bands, or retune to those bands.",
+    "Chrome runner shutdown intermittently times out after all assertions pass; retained as a runner failure, not a clean suite pass.",
+    "Physical-device home-screen installation has not been performed."
+  ]
+}

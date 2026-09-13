@@ -1,0 +1,601 @@
+{
+  "revision": "2b0a772d649e1b822dbd",
+  "bytes": 109966945,
+  "assets": [
+    {
+      "path": "continuity-f40f85e4abf3719f.css",
+      "bytes": 72955,
+      "integrity": "sha256-WyBUf5SnVGvvy6df01c3JKHHORfILGVP9clYkaR9o9U="
+    },
+    {
+      "path": "dystrail-web-42bbd1fb00a75ab.js",
+      "bytes": 63950,
+      "integrity": "sha256-3Hy2ORKNgzToKHzLaXGUXlTmPF/of4sej5mFj5gTcRQ="
+    },
+    {
+      "path": "dystrail-web-42bbd1fb00a75ab_bg.wasm",
+      "bytes": 6440820,
+      "integrity": "sha256-ZmHiwciEfLkQ93zic4ML4mPugZ6lIMHdx5lR0f5s6O8="
+    },
+    {
+      "path": "index.html",
+      "bytes": 10604,
+      "integrity": "sha256-PqkQ87fgBHHZzi1xRSworjadnzY2mYXGbZnhEaUC2qQ="
+    },
+    {
+      "path": "journey-5fe63ee3f473b890.css",
+      "bytes": 33441,
+      "integrity": "sha256-lJgF0vgZr2L377wLuNViPars2FkK+MldM9sm5rE5d8g="
+    },
+    {
+      "path": "results-49acad5bb38c9d37.css",
+      "bytes": 2839,
+      "integrity": "sha256-GtDVN1caGvQ02GxmwPMlOPuwSKxZa/0U5FMKTnrVtEA="
+    },
+    {
+      "path": "static/assets/data/boss.json",
+      "bytes": 386,
+      "integrity": "sha256-1PvO/g2Cyl0/iiEpJKpo3RTbBijnY7WL8j0xpjFPTlw="
+    },
+    {
+      "path": "static/assets/data/camp.json",
+      "bytes": 133,
+      "integrity": "sha256-IPoNC6l9lSmVSmg6MgaiWfirR1BtxyZjuQd6iULoiN4="
+    },
+    {
+      "path": "static/assets/data/crossings.json",
+      "bytes": 4062,
+      "integrity": "sha256-8qZktpdhRHHoQwhkSMYjd1WCxUH4g0JkuAxck/5asPc="
+    },
+    {
+      "path": "static/assets/data/endgame.json",
+      "bytes": 1006,
+      "integrity": "sha256-lzXdPXUrgJ9rcAej9IuqUnVYz5NSBwRiY14hPeFYKkc="
+    },
+    {
+      "path": "static/assets/data/exec_orders.json",
+      "bytes": 764,
+      "integrity": "sha256-uMSVhZnbPSbZA4KR25FB+mjyRkVfaVazHocOmXEpqPI="
+    },
+    {
+      "path": "static/assets/data/game.json",
+      "bytes": 96770,
+      "integrity": "sha256-b1erBiOQ1dMUX/eV3qnGQzdcgvkZJeKrsONqF0fi+ow="
+    },
+    {
+      "path": "static/assets/data/journey/classic.json",
+      "bytes": 1366,
+      "integrity": "sha256-sQk04X0K9zjbImrfjjWwCvQir/7eoJF4y0P3p7rM4bk="
+    },
+    {
+      "path": "static/assets/data/journey/deep.json",
+      "bytes": 1355,
+      "integrity": "sha256-piGgBHhe8LO2y1bz9ldl8GXFRmMd85C/LCU+yQ4lbr8="
+    },
+    {
+      "path": "static/assets/data/journey/overlays/aggressive.json",
+      "bytes": 215,
+      "integrity": "sha256-ydf+EVO1C/a9oLcXtOjqeJOsY6uK26UDfrwOIYosioI="
+    },
+    {
+      "path": "static/assets/data/journey/overlays/balanced.json",
+      "bytes": 483,
+      "integrity": "sha256-kppJYWvYWQASvD2fgR9tNIuHIoFcVPJpDTdDwUvX2V8="
+    },
+    {
+      "path": "static/assets/data/journey/overlays/conservative.json",
+      "bytes": 243,
+      "integrity": "sha256-mhx49eTv3jjhCDNAPvA5UnD/wqswuwlprc8mxFxaRsc="
+    },
+    {
+      "path": "static/assets/data/journey/overlays/monte_carlo.json",
+      "bytes": 371,
+      "integrity": "sha256-JXURkqbhdByfvaXh8btHTGbiEJobLg9yV44gwj1m+c8="
+    },
+    {
+      "path": "static/assets/data/journey/overlays/resource_manager.json",
+      "bytes": 674,
+      "integrity": "sha256-PK1oU0+tpgz4uQ17176aq2533w4AUKMt+8AdNR/ODdU="
+    },
+    {
+      "path": "static/assets/data/pacing.json",
+      "bytes": 863,
+      "integrity": "sha256-D/1hlSco38dI8JQ+uJLaAe3mZXU3w7f3eVxs4xI2uPc="
+    },
+    {
+      "path": "static/assets/data/personas.json",
+      "bytes": 1989,
+      "integrity": "sha256-XQJ+Gx7LXPSKeCwQ7oxAAynqwbKuqKMm0OirVymlpLI="
+    },
+    {
+      "path": "static/assets/data/result.json",
+      "bytes": 535,
+      "integrity": "sha256-UaQXvm34VT/FZjyV1WCnaiotMOX54cptTSesz+apXVY="
+    },
+    {
+      "path": "static/assets/data/satire-sources.json",
+      "bytes": 18172,
+      "integrity": "sha256-ZxQSDLXQingCxG4dvGSjItBUTu0KE2UtDdnu4SXs4D8="
+    },
+    {
+      "path": "static/assets/data/store.json",
+      "bytes": 3607,
+      "integrity": "sha256-5cC5KaHMcPUJXhV49eIJYLJmuTqiamOT/SrPDhVH3kU="
+    },
+    {
+      "path": "static/assets/data/town-facts.json",
+      "bytes": 93314,
+      "integrity": "sha256-GyDZ6zIBIo/2CSawPgoXSYb46Vdf6kZHw50GCDG0qKs="
+    },
+    {
+      "path": "static/assets/data/town-profiles.json",
+      "bytes": 50237,
+      "integrity": "sha256-Eai0Rwt4RWs6C0o6TXsZTYD6sr+kuycCyUgWbOwl12U="
+    },
+    {
+      "path": "static/assets/data/vehicle.json",
+      "bytes": 536,
+      "integrity": "sha256-0n1kTb2jAaUbYRQd31WMFCSAP0Qe6Z41RlHVKBDq+2A="
+    },
+    {
+      "path": "static/assets/data/weather.json",
+      "bytes": 1898,
+      "integrity": "sha256-c6HExqy81gTNqEDxUD1dcfANsP4/KnJknTH7OVEef0o="
+    },
+    {
+      "path": "static/continuity.css",
+      "bytes": 72955,
+      "integrity": "sha256-WyBUf5SnVGvvy6df01c3JKHHORfILGVP9clYkaR9o9U="
+    },
+    {
+      "path": "static/favicon.ico",
+      "bytes": 1340,
+      "integrity": "sha256-jd8/7p3rudQB7uZCY7HsUTHTltuYbBp3vOxn4xfzZ1Y="
+    },
+    {
+      "path": "static/fonts/README.md",
+      "bytes": 3105,
+      "integrity": "sha256-RLWiAh+F5oqs13L5gh+xE1nQsAGSbVe4dIHKu1chaQo="
+    },
+    {
+      "path": "static/fonts/atkinson-hyperlegible-next-OFL.txt",
+      "bytes": 4431,
+      "integrity": "sha256-rKakKFgJZdIpfRtxgELdQnwqlEPs47DQLXWOFh4MQDA="
+    },
+    {
+      "path": "static/fonts/atkinson-next-italic.woff2",
+      "bytes": 52692,
+      "integrity": "sha256-NEkcWof3EdMUY3li9pJn0ox98+1JgILJkM37vALr8/I="
+    },
+    {
+      "path": "static/fonts/atkinson-next-normal.woff2",
+      "bytes": 48188,
+      "integrity": "sha256-q94a1c94uaxXXvkNmR8ukQHrCztmaL3poA4uHifZmv0="
+    },
+    {
+      "path": "static/fonts/courier-prime-OFL.txt",
+      "bytes": 4403,
+      "integrity": "sha256-mnVa8JK0lJRMmfRxvm/d0ZsAakSP79xHF+TuCqCal7A="
+    },
+    {
+      "path": "static/fonts/courier-prime-bold-latin-ext.woff2",
+      "bytes": 7216,
+      "integrity": "sha256-B4x4CYDrbcSGWp1zi4Iw4NO1F1s6597n7El411r278M="
+    },
+    {
+      "path": "static/fonts/courier-prime-bold-latin.woff2",
+      "bytes": 11588,
+      "integrity": "sha256-BmIkFXE7QVDBj0SJ23yIUDANnz5VBR/HjtM9yojF/wg="
+    },
+    {
+      "path": "static/fonts/noto-sans-arabic-OFL.txt",
+      "bytes": 4382,
+      "integrity": "sha256-B/xwv+uYXMGoeoWH0KDIC6sRyGydw/2VtvDLMy+YPpY="
+    },
+    {
+      "path": "static/fonts/noto-sans-arabic-arabic.woff2",
+      "bytes": 166152,
+      "integrity": "sha256-ac3wvwBf3JzBP7WoWBaX65uo92GuryVfxxfRTGLDiJE="
+    },
+    {
+      "path": "static/fonts/noto-sans-arabic-latin-ext.woff2",
+      "bytes": 16800,
+      "integrity": "sha256-6/G7igYqpmk7Ufvq9rjTDWRWhp4/FpIw5MNcxguWqvs="
+    },
+    {
+      "path": "static/fonts/noto-sans-arabic-latin.woff2",
+      "bytes": 31368,
+      "integrity": "sha256-INUTEeGH4P9b6db+JPCZ6XvmzFgweNbyccdNaJIM0eA="
+    },
+    {
+      "path": "static/fonts/provenance.json",
+      "bytes": 5749,
+      "integrity": "sha256-r4vtTKJbMgEP9Nkbf3lBQ8FQA5mVZjNh0ctpbLdp4qE="
+    },
+    {
+      "path": "static/fonts.css",
+      "bytes": 2868,
+      "integrity": "sha256-6PcUF7mVGlVvbqKibuw57SfA/uYgmuHj7YsGF3v8mh0="
+    },
+    {
+      "path": "static/img/app-icon-192.png",
+      "bytes": 1527,
+      "integrity": "sha256-bzuFnGbETCk9sDmwHwCRo1CTv6QU8wHc2p3Ik3UCCsw="
+    },
+    {
+      "path": "static/img/app-icon-512.png",
+      "bytes": 3967,
+      "integrity": "sha256-jU9i/eIOR18VNs8GXsCe4ex06uEfPWAXn4RZ97u+xwE="
+    },
+    {
+      "path": "static/img/app-icon.svg",
+      "bytes": 815,
+      "integrity": "sha256-rctI5K2YFY12ghR5+OgRlJDBRE7P96XL/ciz53dUu7o="
+    },
+    {
+      "path": "static/img/items/alternator-v1.png",
+      "bytes": 1489143,
+      "integrity": "sha256-rQU0iEqf1ka5114bNff3pPPBN5QHXHrq5qFf8J87ePc="
+    },
+    {
+      "path": "static/img/items/battery-v1.png",
+      "bytes": 997605,
+      "integrity": "sha256-RBb/6XOfMGtLVRg0GYDRslbFJDL0FXqxLuEuP6TNoYs="
+    },
+    {
+      "path": "static/img/items/coats-v1.png",
+      "bytes": 1232801,
+      "integrity": "sha256-wnx+1DSzAeFguAzXM7qBQBD3ii16TKIR714Fb6XpAqc="
+    },
+    {
+      "path": "static/img/items/fuel_pump-v1.png",
+      "bytes": 762415,
+      "integrity": "sha256-hWu4hu12zRbf8Bw12NOPHDppS/Tis31Blc1xH0AUSRY="
+    },
+    {
+      "path": "static/img/items/legal_fund-v1.png",
+      "bytes": 1300626,
+      "integrity": "sha256-y33QsUxiNBrcOCp1Q+PSt05wcO8aqpseg1lBWdv1eBQ="
+    },
+    {
+      "path": "static/img/items/masks-v1.png",
+      "bytes": 855098,
+      "integrity": "sha256-rb8sQigxCNyU/WpktP3BlEf026zhR/GJgsWKk1bBLM4="
+    },
+    {
+      "path": "static/img/items/ponchos-v1.png",
+      "bytes": 807819,
+      "integrity": "sha256-j8+eMHrt5vGzSqcp9vIuhyzOVsdH7zk7rZ+DSqcmQVc="
+    },
+    {
+      "path": "static/img/items/press_pass-v1.png",
+      "bytes": 773384,
+      "integrity": "sha256-SO38afGX+rhsEOGs1TAowBJkfhmmBXZs6gmw91fbAvs="
+    },
+    {
+      "path": "static/img/items/rations-v1.png",
+      "bytes": 997755,
+      "integrity": "sha256-JeI9myCL+dX5d5AYA0RedmBnJlO2bFG07wReD169KR0="
+    },
+    {
+      "path": "static/img/items/spare_tire-v1.png",
+      "bytes": 970054,
+      "integrity": "sha256-aQj2qFn2jFGzaLBUA5wxLQq297gfk/un1ireLVxwhnM="
+    },
+    {
+      "path": "static/img/items/water-v1.png",
+      "bytes": 842624,
+      "integrity": "sha256-Q0C7tEPyKrWJDVIqkLAEFwkPmpICnOHcBxPkYN1vZU4="
+    },
+    {
+      "path": "static/img/journey/beltway.png",
+      "bytes": 2040003,
+      "integrity": "sha256-pZofaAEFshNOcPgaD6W9lCdgYLiE5yimYp/mj1QhjQs="
+    },
+    {
+      "path": "static/img/journey/camp.png",
+      "bytes": 2072571,
+      "integrity": "sha256-zQEStEn+CY0zRdNS9wuhXUAVdKV2IraZ0LRRoDVY4Zs="
+    },
+    {
+      "path": "static/img/journey/enc-bridge.png",
+      "bytes": 2647779,
+      "integrity": "sha256-KWxY/berlFonMy9utghF4AZHk6OS18lLW6hf8w/edMM="
+    },
+    {
+      "path": "static/img/journey/enc-checkpoint.png",
+      "bytes": 2283910,
+      "integrity": "sha256-K6B8t8bXz5DvqIU39pXss6wb5T1XQC/Jo4GE0G3gT0s="
+    },
+    {
+      "path": "static/img/journey/enc-civic.png",
+      "bytes": 1947370,
+      "integrity": "sha256-B5AJTub1xaGY+VIKmGQmUIBBUemSTzzJeQocLptwivA="
+    },
+    {
+      "path": "static/img/journey/enc-clinic.png",
+      "bytes": 2283216,
+      "integrity": "sha256-M5gUVv4rZrzFZZ5IBBa9LBDXPgy8b1Ze0pTxPi4tkFo="
+    },
+    {
+      "path": "static/img/journey/enc-community.png",
+      "bytes": 2346165,
+      "integrity": "sha256-z9eIvppKeZ2dzjk+tW50vQ+NJiygPv9l34AG+5ba4vE="
+    },
+    {
+      "path": "static/img/journey/enc-convoy.png",
+      "bytes": 1626803,
+      "integrity": "sha256-dEB31mIOKno+9j+PG098iAfGeR/yE3RBKl6kgjdDHzo="
+    },
+    {
+      "path": "static/img/journey/enc-media-workshop.png",
+      "bytes": 2023985,
+      "integrity": "sha256-fvGT0jxTAVoslAwmNUQJcNAOh3pb8HfwEZcCn4K8LbY="
+    },
+    {
+      "path": "static/img/journey/enc-night-briefing.png",
+      "bytes": 2246195,
+      "integrity": "sha256-U85rI983Q7WGY2a38f92N6Uvdq5M9kxuJ6vx5uUkKD8="
+    },
+    {
+      "path": "static/img/journey/enc-radio.png",
+      "bytes": 2020811,
+      "integrity": "sha256-xgY9QcPaMvkP4K7sM5+Vtt1cItaqQldaOuLJzer18HA="
+    },
+    {
+      "path": "static/img/journey/enc-service.png",
+      "bytes": 2315284,
+      "integrity": "sha256-oC13DCjS70rsuZnYgs1tNucwMREtIRZqb+yUOCaFSv4="
+    },
+    {
+      "path": "static/img/journey/enc-street.png",
+      "bytes": 2418739,
+      "integrity": "sha256-eUaYA3KVvo+k93s+gnST2Qzwl2ICPZuMNFEWwiafwcM="
+    },
+    {
+      "path": "static/img/journey/encounter-settings-v2.png",
+      "bytes": 2651329,
+      "integrity": "sha256-uC5WBonBN5zt9JoEp/q9BX3KfvpchH3LfRrYB/j3/2Q="
+    },
+    {
+      "path": "static/img/journey/encounter-settings-v3.png",
+      "bytes": 2550832,
+      "integrity": "sha256-11oA3Ggvrmj3/GyoaJMW3Mt+f7GFLRj80N6xZlZHAx0="
+    },
+    {
+      "path": "static/img/journey/journey-settings-v1.png",
+      "bytes": 2676019,
+      "integrity": "sha256-bQI8Tgyi20R6Bb48JrpVBIICTYzdOBUYBLgw0CKR1lU="
+    },
+    {
+      "path": "static/img/journey/milk-classic.png",
+      "bytes": 2259184,
+      "integrity": "sha256-LnVkaXtRt01mdsihccWweLNsdWdgrU6DxEHmwefO3mE="
+    },
+    {
+      "path": "static/img/journey/milk-deep.png",
+      "bytes": 2319105,
+      "integrity": "sha256-TQ4kvh5v5Wzf5m3308AdjTs6h5CCrlDpA43mEDFXOvM="
+    },
+    {
+      "path": "static/img/journey/occupant-journalist.png",
+      "bytes": 923191,
+      "integrity": "sha256-RTxqZdNUM/sBUO5eLV+60tGoLicyJ46wyaIi3NCNqQ8="
+    },
+    {
+      "path": "static/img/journey/occupant-lobbyist.png",
+      "bytes": 704662,
+      "integrity": "sha256-8l13erYCIMiUcvcLUBOb6rFj79mh3SuTeOg2RzPt4Cs="
+    },
+    {
+      "path": "static/img/journey/occupant-organizer.png",
+      "bytes": 918041,
+      "integrity": "sha256-nbRCU+S7DQqFCgsb03zptsdAwprOziXpLfemnzLR/NE="
+    },
+    {
+      "path": "static/img/journey/occupant-satirist.png",
+      "bytes": 861064,
+      "integrity": "sha256-GhoT3i39GHqZjwsgmokn+D7nci/8gltwaKtOne1YgjA="
+    },
+    {
+      "path": "static/img/journey/occupant-staffer.png",
+      "bytes": 830029,
+      "integrity": "sha256-pKUsl6Ds2HHFRc2KJMyL9qwPscu8XFwymyASLq85QT0="
+    },
+    {
+      "path": "static/img/journey/occupant-whistleblower.png",
+      "bytes": 791621,
+      "integrity": "sha256-swxygN6qJd+U8w9Y37bgB2gg8sH/dBt1loZvIRQ4Vmg="
+    },
+    {
+      "path": "static/img/journey/open-appalachian-ridge.png",
+      "bytes": 2098848,
+      "integrity": "sha256-UqUMzALKwyCsLjQ7k/NnyE3rpIwcNm/70qyqytA2GqU="
+    },
+    {
+      "path": "static/img/journey/open-beltway-parkway.png",
+      "bytes": 2185024,
+      "integrity": "sha256-wm6d9CMiogH2rrFuCRpltIETQtIyQMbu4l7HP6O+QMw="
+    },
+    {
+      "path": "static/img/journey/open-beltway-suburbs.png",
+      "bytes": 2101757,
+      "integrity": "sha256-AaNOh3VMlbIdjJWjdJbUqAcjVcnJb4+EMDJ2xKD5Hv8="
+    },
+    {
+      "path": "static/img/journey/open-california-hills.png",
+      "bytes": 2180418,
+      "integrity": "sha256-RlbFTrddaHJAJVKe1Fe3BIPeJpMTDYcKC6PAy9i8NNs="
+    },
+    {
+      "path": "static/img/journey/open-great-basin.png",
+      "bytes": 2142670,
+      "integrity": "sha256-WjZvVEhobSdS4J3pbZQDNae4BywnR668k0V7axP1Qo4="
+    },
+    {
+      "path": "static/img/journey/open-heartland-orchard.png",
+      "bytes": 2072146,
+      "integrity": "sha256-SIhr15oEblu3dPevJlkubjf6YYtXYHwSVGSPDSP0T4g="
+    },
+    {
+      "path": "static/img/journey/open-heartland-prairie.png",
+      "bytes": 2060522,
+      "integrity": "sha256-3mPSLjxBoWtR23HAdQTSPdpPSY2qvcROoYZYprgOUMs="
+    },
+    {
+      "path": "static/img/journey/open-mountain-west.png",
+      "bytes": 2011219,
+      "integrity": "sha256-Gc9IJS2y53PsVHUkLAq1C2dhN1ckCxHnVtLkpZmaxec="
+    },
+    {
+      "path": "static/img/journey/open-pacific-northwest.png",
+      "bytes": 2178508,
+      "integrity": "sha256-M/KDpq9N5ABzEA6StcBd2xs30yQEPodrLS6C9lC0uaM="
+    },
+    {
+      "path": "static/img/journey/open-rustbelt-foundry.png",
+      "bytes": 2243397,
+      "integrity": "sha256-lfMpdlfHGhvMx3qCHOZ8ABsME1lInvanPIZMrh9BcBc="
+    },
+    {
+      "path": "static/img/journey/open-rustbelt-lakeside.png",
+      "bytes": 2191114,
+      "integrity": "sha256-RI7S0VufMHi0Lh8PAM5R/Af+kEiqnmlDDqKEOVJpXrE="
+    },
+    {
+      "path": "static/img/journey/open-southwest-desert.png",
+      "bytes": 2285860,
+      "integrity": "sha256-g9vGgc0vbwBrjOmmNchBBUNB7t2eYqqruQo6F1Cz8pc="
+    },
+    {
+      "path": "static/img/journey/personas.png",
+      "bytes": 1655363,
+      "integrity": "sha256-SD8xnKblY6OYkIdODxzL3x4KY5YaNdiA5nPvf1iqfZs="
+    },
+    {
+      "path": "static/img/journey/road-classic.png",
+      "bytes": 1797286,
+      "integrity": "sha256-T416L+Iv2U9jxS5BprY4pJukq1PUSwXuFBO0aFuF8RE="
+    },
+    {
+      "path": "static/img/journey/road-deep.png",
+      "bytes": 1813215,
+      "integrity": "sha256-PVH6z6kHEkJg3EOqonUssPXz+T4AIU0oOy67z+WYJkY="
+    },
+    {
+      "path": "static/img/journey/rustbelt.png",
+      "bytes": 2102071,
+      "integrity": "sha256-QsABGhqco3E09JP8OwBb0gQMDMiTRY0ZzHBeKapj0W8="
+    },
+    {
+      "path": "static/img/journey/standing-crew-v1.png",
+      "bytes": 1741499,
+      "integrity": "sha256-B5WB09UBUZyKjz3GZbcWkyWPNs34coGRF4XXqb1I1RA="
+    },
+    {
+      "path": "static/img/journey/town-npcs-v1.png",
+      "bytes": 1844512,
+      "integrity": "sha256-JJz3KMAou//xVcXNBoD3TrUYWckPdpp3FM6NpU62Ajo="
+    },
+    {
+      "path": "static/img/journey/van-crew.png",
+      "bytes": 1442842,
+      "integrity": "sha256-mm4siqOgc6Pc51wT8ruhdfC3d+BEjAY6M+ii+2FfHbo="
+    },
+    {
+      "path": "static/img/journey/van-empty.png",
+      "bytes": 1665790,
+      "integrity": "sha256-jmbPF7onpg/YLpK4GoyAvLOJhz/StjihIzghRKJswyI="
+    },
+    {
+      "path": "static/img/journey/western-settings-v1.png",
+      "bytes": 3253583,
+      "integrity": "sha256-iFGbTPGGQsEeGnZGN+ZOtEe+lVgVF3VyVZfCzfxr0os="
+    },
+    {
+      "path": "static/img/logo-temp.png",
+      "bytes": 20392,
+      "integrity": "sha256-uTWlPjCbvaJ+j2ddhwutFnRrfs0QZ3OmwbN5qvtObK0="
+    },
+    {
+      "path": "static/img/logo.png",
+      "bytes": 20306,
+      "integrity": "sha256-ekzbd8JyDVZyoUyx4D6un4Ks2Z0G3ptBz6IUkZYlbkk="
+    },
+    {
+      "path": "static/img/map/us-states.svg",
+      "bytes": 196191,
+      "integrity": "sha256-iZ6+Fw19v7/5a68RFqisixLyUiQkzOP7BSuLlgU6rCI="
+    },
+    {
+      "path": "static/img/palette.png",
+      "bytes": 1627,
+      "integrity": "sha256-+d/z7G+bwwlevL+mlw4O+wtE/DfSxndl1MsaRjiB1L0="
+    },
+    {
+      "path": "static/img/social-card.png",
+      "bytes": 28969,
+      "integrity": "sha256-TM4ZkiG3SEvWSkzAWDOTu0u+meRwerY+mBnacFiftpI="
+    },
+    {
+      "path": "static/img/spritesheet.png",
+      "bytes": 695,
+      "integrity": "sha256-Bph0MpRE/++gjN7HscmOTugqbYzvIHvyc8yO9P4lp7k="
+    },
+    {
+      "path": "static/img/status/cash-v1.png",
+      "bytes": 1253484,
+      "integrity": "sha256-uS87YUi8J9yVevHUMKbBrSztceSRQuqDUk9rLY4Yojc="
+    },
+    {
+      "path": "static/img/status/distance-v1.png",
+      "bytes": 1143953,
+      "integrity": "sha256-uzeAI94iLMoaEBRM7bvblcxXlU03K0SI6TXrdH0HTKU="
+    },
+    {
+      "path": "static/journey.css",
+      "bytes": 33441,
+      "integrity": "sha256-lJgF0vgZr2L377wLuNViPars2FkK+MldM9sm5rE5d8g="
+    },
+    {
+      "path": "static/licenses/lucide.txt",
+      "bytes": 3208,
+      "integrity": "sha256-tJUEe9k6mwaRNREHb1BNq6F9W76z4GUPO7U6QiAynFc="
+    },
+    {
+      "path": "static/manifest.webmanifest",
+      "bytes": 573,
+      "integrity": "sha256-CaGwA9xs6A/fMiqC5YRLeHEcqVZeuwzt7VCNrVoJIx0="
+    },
+    {
+      "path": "static/offline-client.js",
+      "bytes": 13311,
+      "integrity": "sha256-Z7WddtGr4sO/AvmJxeekDhTtQULM3bQpLlyvCOTUAe0="
+    },
+    {
+      "path": "static/results.css",
+      "bytes": 2839,
+      "integrity": "sha256-GtDVN1caGvQ02GxmwPMlOPuwSKxZa/0U5FMKTnrVtEA="
+    },
+    {
+      "path": "static/styles.css",
+      "bytes": 21476,
+      "integrity": "sha256-O+SbSURZfHAD8J5ewAIwG/dFvNxLBSDoN3izpbH60qs="
+    },
+    {
+      "path": "static/theme.css",
+      "bytes": 3497,
+      "integrity": "sha256-SG9yIcZHz3gMLFdZbXqDHPJbLNztf46hr6Fs1BItw5A="
+    },
+    {
+      "path": "styles-e7334a516cfa8071.css",
+      "bytes": 21476,
+      "integrity": "sha256-O+SbSURZfHAD8J5ewAIwG/dFvNxLBSDoN3izpbH60qs="
+    },
+    {
+      "path": "theme-a00fef3fd7d22679.css",
+      "bytes": 3497,
+      "integrity": "sha256-SG9yIcZHz3gMLFdZbXqDHPJbLNztf46hr6Fs1BItw5A="
+    }
+  ]
+}

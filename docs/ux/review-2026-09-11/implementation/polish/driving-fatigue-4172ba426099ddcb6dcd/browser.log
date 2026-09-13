@@ -1,0 +1,49 @@
+classic/en: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/it: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/es: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/ar: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/zh: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/hi: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/fr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/bn: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/pt: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/ru: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/ja: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/de: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/id: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/jv: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/ko: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/mr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/pa: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/ta: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/te: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/tr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/en: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/it: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/es: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/ar: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/zh: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/hi: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/fr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/bn: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/pt: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/ru: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/ja: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/de: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/id: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/jv: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/ko: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/mr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/pa: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/ta: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/te: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+deep/tr: 320, 393, 1440 periods/icons/geometry; both keyboard help popups pass
+classic/steady: five actual hours 300 miles, sanity 8, fractional offline reload pass
+classic/heated: five actual hours 350 miles, sanity 7, fractional offline reload pass
+classic/blitz: five actual hours 400 miles, sanity 6, fractional offline reload pass
+classic: stationary forage uses two hours, no pace fatigue, +2 supplies/+1 sanity
+deep/steady: five actual hours 300 miles, sanity 8, fractional offline reload pass
+deep/heated: five actual hours 350 miles, sanity 7, fractional offline reload pass
+deep/blitz: five actual hours 400 miles, sanity 6, fractional offline reload pass
+deep: stationary forage uses two hours, no pace fatigue, +2 supplies/+1 sanity
+PASS 120 localized layouts, 80 keyboard/help invariance cases, six real five-hour drives, two stationary forage cases, offline reloads, zero browser errors

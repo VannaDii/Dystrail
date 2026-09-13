@@ -1,0 +1,144 @@
+{
+  "base": "/tmp/dystrail-crew-count-narrative/release-source",
+  "source": "/tmp/dystrail-driving-fatigue-preview/source",
+  "verified_base_revision": "1c145d89fef4fbab75a9",
+  "integration_manifests": {
+    "/tmp/dystrail-retune-2026-09-13/pace-engine-integration.json": "ffdb77d94fa7d8c91ad0991032d8f3cf98658523c4b0e014e59f68568027929f",
+    "/tmp/dystrail-retune-2026-09-13/pace-ui-integration.json": "fc80070bd3a629924642bcb833a8a616a47f98ed3638642e32b7055e99356328"
+  },
+  "files": {
+    "dystrail-game/src/journal.rs": {
+      "before": "c0967b362765e9a495f8bce3db71195f3b6b85095044b4c9d3afd2dc2fa67531",
+      "after": "7a043f74207d662a02f82a3ddd1a7d8dc3a5a7a209c7584e34510bbd8c60adc7"
+    },
+    "dystrail-game/src/pacing.rs": {
+      "before": "1cc07f35585d61dc5b6941039bb3e29605378dc72a01cbf058a9dbeed6c6afc5",
+      "after": "67f2e897d92978517ff1a86f6ff2b06b7f447b3265e65a1f3c3302fd8e078ba1"
+    },
+    "dystrail-game/src/state.rs": {
+      "before": "37271a8274b490b7da94849317b8bbf46955054dfb4c09edf7418bef8508652f",
+      "after": "91b7f8307c05f05cf4b044f59fd3c3918fe809ce9e4e5f768792d24cbf53e6d6"
+    },
+    "dystrail-game/src/travel_time.rs": {
+      "before": "d20dac6cad3b88d8a5f517e1e6d0ae581336d9494094c61e602f3f11fa0b95dd",
+      "after": "76284ad980c4c0adb047018030d6d61d24f494550fa6da0f05f9c6f11fce0b1a"
+    },
+    "dystrail-web/i18n/ar.json": {
+      "before": "4209618b8152c0e54e893ad347e689232122b8bcc1a92283604107b552b8e5b5",
+      "after": "814b6ec04ce3e79fd00b1d02474bdb880ab3d58265804af84bd90fbcb2a74d77"
+    },
+    "dystrail-web/i18n/bn.json": {
+      "before": "0377ba14563c9ac862b2b7d62be725ded24c60b20655726428580d7634b95093",
+      "after": "98d9cb5bcf9031c6fda66b3f56ec0757bd437fc6c291d09b87dd99ceeef87063"
+    },
+    "dystrail-web/i18n/de.json": {
+      "before": "c1ffa2a1c7521ffe1e96fe298879b414cf8ae3a839599780ebc09c8d67e0d38a",
+      "after": "e4b201202077373af57853d6addae6c5a59281ce7245a0e4d97c288ae5616af4"
+    },
+    "dystrail-web/i18n/en.json": {
+      "before": "0dc8897f620b3baad32cfa9564bab61b3c7bc27f4f7f7590ef3dff1738e1d553",
+      "after": "d9cbd01ece6ff8be36eccd68647ef0a36c4e003127029b0eed586e7c992a4dec"
+    },
+    "dystrail-web/i18n/es.json": {
+      "before": "f98a4b90895109d27b724c7872b04e0b04950616aab5bf6bdb7aeb0508b80ada",
+      "after": "9f0172e6434592ae90197f9b622119c3311e1819a4ba417f3c8d3491f474bcf6"
+    },
+    "dystrail-web/i18n/fr.json": {
+      "before": "7a42b577aab851dd8847e0dd09959c097b4a2488f80cd7382fd8d4c961e939fe",
+      "after": "1015f2ee927f250eac5d344f829bfe5e719d46a1d9cac85e738d34ed3279a95b"
+    },
+    "dystrail-web/i18n/hi.json": {
+      "before": "b04375d7bd70b022e682fd5755eb50b05acf1f9c9321d7dcf78ae772654eb49a",
+      "after": "e060715e1e623b388441e07082a3e073dae5b54a0a52ea9270f42b3cb1a1ded3"
+    },
+    "dystrail-web/i18n/id.json": {
+      "before": "5badd07fc2e939ceb53cae1467ad787f0a2e82640e190178f251fe95bc1fd7a8",
+      "after": "40b2e523f34bb5a9d07d9b3c8d016020efa22487384ac27707bba124ac520817"
+    },
+    "dystrail-web/i18n/it.json": {
+      "before": "00ccb5ed3f644fdbcbcc77ff8590ed3282aea1bcf2f75b797e74c4e434bb6eab",
+      "after": "2320a132643d46e2dd3047b448abbe3eb6b7c7a29457f87563a4199356c7cbda"
+    },
+    "dystrail-web/i18n/ja.json": {
+      "before": "85ca4c45454bbb3f1b33ea27b484af04e6bff2c82304d14c114d59724bc8cb8d",
+      "after": "4bfc90557f69c4ca5c00c8fa655c7cf4e170e1a9f2d7eaa2e1814d2b3a525745"
+    },
+    "dystrail-web/i18n/jv.json": {
+      "before": "2783356c981a656d6f3c6a9dd52287df7c53ff5bb2bd4efa80ee749582558a25",
+      "after": "6faf7d7f7a2f2462e780de483d60801de7401a2a641895aafca990ef0ccfd887"
+    },
+    "dystrail-web/i18n/ko.json": {
+      "before": "18806f6de9dbc60f5e4720f6ebb694c6d0922128a5820cc4fa59ec3a73a6972a",
+      "after": "9c60542d9dba98d380a2c5c3c7df6ff31071c2b9ce7617e7ad0ac33ae8bd6a6e"
+    },
+    "dystrail-web/i18n/mr.json": {
+      "before": "6f348b65e6c41c84ad15fbed91de6d530bc73e914138fee8b0999489c8d7b933",
+      "after": "6138d544d7dcee39d4780a82d37df729062cb6aed062cba107a9fc7ddfab44a0"
+    },
+    "dystrail-web/i18n/pa.json": {
+      "before": "936fa952fb331b8746065a2a9e3ffd18e1e24c85416aaef80831a044ce04300e",
+      "after": "90a7f4259553c090378ab62e3b839290f85da64ac64d73a169c56706a8c9b8a6"
+    },
+    "dystrail-web/i18n/pt.json": {
+      "before": "446a394c2fa804a3e3f335b3ae168b5669c457f01b769504d552ba8d61dad424",
+      "after": "1c25acc4c389c3ca2e5f854e45ea6f41e61ae12ab7bf1c6ceb403b88acc94b7c"
+    },
+    "dystrail-web/i18n/ru.json": {
+      "before": "61affc6c0ef32cc45e92b54edcde7f913021605e8bbb4a7d1309adfbdcb3794a",
+      "after": "da8e90c5ccbf5aa43a2ca3689bdff61449c2139acc2321c445bac41512877d22"
+    },
+    "dystrail-web/i18n/ta.json": {
+      "before": "30d0e5a3ec3979fdc4740e3bdcb255f27a3150dcc252ae022d3b91eff3049da1",
+      "after": "f2304bef9a6d0c4d2f489c1e9d9ca80a9c6ecc9af55cf335b3550c97072b96ae"
+    },
+    "dystrail-web/i18n/te.json": {
+      "before": "cab2a5155a7b01e81677dd50a72a720b833b8fc9e72f7b747348c2055d773a0e",
+      "after": "69e2e0915bdf5a5891d9fc9fed78994b1ebb44f0e1b6c40769e4091f48b871d9"
+    },
+    "dystrail-web/i18n/tr.json": {
+      "before": "8702cd07043180a92253d1dee8341dda0b6529539c70d0cf6402f7382db3b21a",
+      "after": "f028e76126c0c7e6a34f9c10fb3d89d7e790dc2780626ed5f36c1f80fd189da5"
+    },
+    "dystrail-web/i18n/zh.json": {
+      "before": "0003b9498faa1e408a7cd21782a386b242428226874d53d3e8b7450921dabb7d",
+      "after": "bc9e60f89fb47d93bc157f3a17467ebdb5119bf3f68c20ba8cf6cbf144c7e297"
+    },
+    "dystrail-web/src/components/ui/travel_panel/pace.rs": {
+      "before": "24e6048a218dbf4f31e6416a1b2f1ebf17a29ad40997d9c84dda1fa0d185f212",
+      "after": "32ce5fae876a987d6ae9acf38aa0914d870821472dbeba02f37751905daaafe9"
+    }
+  },
+  "total_source_entries": 634,
+  "changed_files": [
+    "dystrail-game/src/journal.rs",
+    "dystrail-game/src/pacing.rs",
+    "dystrail-game/src/state.rs",
+    "dystrail-game/src/travel_time.rs",
+    "dystrail-web/i18n/ar.json",
+    "dystrail-web/i18n/bn.json",
+    "dystrail-web/i18n/de.json",
+    "dystrail-web/i18n/en.json",
+    "dystrail-web/i18n/es.json",
+    "dystrail-web/i18n/fr.json",
+    "dystrail-web/i18n/hi.json",
+    "dystrail-web/i18n/id.json",
+    "dystrail-web/i18n/it.json",
+    "dystrail-web/i18n/ja.json",
+    "dystrail-web/i18n/jv.json",
+    "dystrail-web/i18n/ko.json",
+    "dystrail-web/i18n/mr.json",
+    "dystrail-web/i18n/pa.json",
+    "dystrail-web/i18n/pt.json",
+    "dystrail-web/i18n/ru.json",
+    "dystrail-web/i18n/ta.json",
+    "dystrail-web/i18n/te.json",
+    "dystrail-web/i18n/tr.json",
+    "dystrail-web/i18n/zh.json",
+    "dystrail-web/src/components/ui/travel_panel/pace.rs"
+  ],
+  "unchanged_source_entries": 609,
+  "camp_rest_sanity": 4,
+  "all_content_and_config_json_bytes_preserved": true,
+  "all_locale_encounter_copy_preserved": true,
+  "source_tree_sha256": "6d6732a4d66cb12783e272c4105af9f07aae9208f19434448854c9f639ddb885"
+}

@@ -1,0 +1,21 @@
+{
+  "expected": "24834f5498f7778940ee",
+  "profile": "/tmp/dystrail-writer-preview-release-prep/old-production-profile",
+  "url": "https://dystrail.com/play/",
+  "errors": [],
+  "updated": {
+    "revision": "24834f5498f7778940ee",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 67,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js"
+  },
+  "ruleChanges": [],
+  "addedStateKeys": [
+    "driving_minutes_total",
+    "last_encounter_driving_minutes"
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Saved player state changed: camp\n+ actual - expected\n\n  {\n-   forage_cooldown: 0,\n    repair_cooldown: 0,\n    rest_cooldown: 0\n  }\n\n    at file:///private/tmp/dystrail-writer-preview-release-prep/verify-published-update.mjs:37:16"
+}

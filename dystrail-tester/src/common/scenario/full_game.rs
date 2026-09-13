@@ -2,7 +2,7 @@ use anyhow::{Context, Result};
 
 use super::SimulationScenario;
 use crate::logic::game_tester::SimulationSummary;
-use crate::logic::{GameplayStrategy, SimulationPlan, default_policy_setup};
+use crate::logic::{GameplayStrategy, SimulationPlan};
 use dystrail_game::GameMode;
 
 const FULL_GAME_MAX_DAYS: u32 = 200;
@@ -32,9 +32,7 @@ pub fn full_game_balanced_scenario() -> SimulationScenario {
 }
 
 pub fn full_game_plan(mode: GameMode, strategy: GameplayStrategy) -> SimulationPlan {
-    SimulationPlan::new(mode, strategy)
-        .with_max_days(FULL_GAME_MAX_DAYS)
-        .with_setup(default_policy_setup(strategy))
+    SimulationPlan::new(mode, strategy).with_max_days(FULL_GAME_MAX_DAYS)
 }
 
 fn ensure_basic_progress(summary: &SimulationSummary, min_days: u32) -> Result<()> {
@@ -74,11 +72,6 @@ pub fn full_game_conservative_expectation(summary: &SimulationSummary) -> Result
     ensure_basic_progress(summary, 2)?;
 
     anyhow::ensure!(
-        summary.metrics.final_pants <= 110,
-        "Conservative run should keep pants under control, observed {}",
-        summary.metrics.final_pants
-    );
-    anyhow::ensure!(
         summary.metrics.vehicle_breakdowns >= 0,
         "Vehicle breakdown count should be non-negative, observed {}",
         summary.metrics.vehicle_breakdowns
@@ -89,11 +82,6 @@ pub fn full_game_conservative_expectation(summary: &SimulationSummary) -> Result
 pub fn full_game_aggressive_expectation(summary: &SimulationSummary) -> Result<()> {
     ensure_basic_progress(summary, 2)?;
 
-    anyhow::ensure!(
-        summary.metrics.final_pants >= 3,
-        "Aggressive runs should accumulate risk, observed pants {}",
-        summary.metrics.final_pants
-    );
     let encounters = usize::try_from(summary.metrics.encounters_faced)
         .context("encounters_faced should be non-negative")?;
     anyhow::ensure!(

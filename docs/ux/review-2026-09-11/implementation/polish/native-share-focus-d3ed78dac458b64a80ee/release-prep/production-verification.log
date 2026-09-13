@@ -1,0 +1,76 @@
+Frozen game worker, index and offline manifest are available d3ed78dac458b64a80ee
+{
+  "revision": "d3ed78dac458b64a80ee",
+  "files": 207,
+  "preserved_nonplay_files": 59,
+  "passed": true,
+  "failed": [],
+  "canonical": [
+    {
+      "url": "https://dystrail.com/",
+      "final_url": "https://dystrail.com/",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "0",
+      "bytes": 8204,
+      "sha256": "7cd1372b3253f2929dc97750f6d534e664d9dafbbdb02b53631753720e942667",
+      "matches": true
+    },
+    {
+      "url": "https://dystrail.com/play/",
+      "final_url": "https://dystrail.com/play/",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "0",
+      "bytes": 10608,
+      "sha256": "309eab4d32b956ec3017e01cf295c8f7a037cbce29e21e3c4b1bc06ceb66f5bd",
+      "matches": true
+    },
+    {
+      "url": "https://dystrail.com/docs/",
+      "final_url": "https://dystrail.com/docs/",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "0",
+      "bytes": 21642,
+      "sha256": "309c01926c5a48992ce0476a86c9639d47f7f526383a006a38cc7254c25d16b3",
+      "matches": true
+    },
+    {
+      "url": "http://dystrail.com/play/",
+      "final_url": "https://dystrail.com/play/",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "0",
+      "bytes": 10608,
+      "sha256": "309eab4d32b956ec3017e01cf295c8f7a037cbce29e21e3c4b1bc06ceb66f5bd",
+      "matches": true
+    },
+    {
+      "url": "https://www.dystrail.com/play/",
+      "final_url": "https://dystrail.com/play/",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "1",
+      "bytes": 10608,
+      "sha256": "309eab4d32b956ec3017e01cf295c8f7a037cbce29e21e3c4b1bc06ceb66f5bd",
+      "matches": true
+    },
+    {
+      "url": "https://dystrail.com/styles.css?v=a0a01e7e7a882120",
+      "final_url": "https://dystrail.com/styles.css?v=a0a01e7e7a882120",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "cache_control": "max-age=600",
+      "age": "1",
+      "bytes": 8382,
+      "sha256": "a0a01e7e7a8821209fc6adf2b071a67d20dfdb7650dc575a74ee0823477ab1dc",
+      "matches": true
+    }
+  ]
+}

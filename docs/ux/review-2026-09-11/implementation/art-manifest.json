@@ -1,0 +1,125 @@
+{
+  "created": "2026-09-11",
+  "direction": "Clean, outlined 16-bit pixel art; institutional satire; believable proportions. Background settings contain no fixed crew members.",
+  "rendering": "SVG viewBox selects atlas cells without stretching. Existing transparent persona portraits are selected separately from active crew, with editable names. Road scenes use the existing normal van with three rows of two dynamic occupants.",
+  "sources": [
+    {
+      "asset": "dystrail-web/static/img/journey/encounter-settings-v2.png",
+      "generated_source": "exec-20974c56-c66e-420e-92c9-022fcf82d0cf.png",
+      "sha256": "b82e560689c1379cedf49a04a7fabd057dca7efa5c847dcb7d1ad807f8f7ff64",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "grid": {
+        "columns": 3,
+        "rows": 4
+      },
+      "cells": {
+        "0": "media workshop",
+        "1": "mutual aid",
+        "2": "bridge",
+        "3": "garage",
+        "4": "civic hearing",
+        "5": "checkpoint",
+        "6": "clinic",
+        "7": "radio desk",
+        "8": "city street",
+        "9": "convoy",
+        "10": "dairy",
+        "11": "night briefing"
+      }
+    },
+    {
+      "asset": "dystrail-web/static/img/journey/journey-settings-v1.png",
+      "generated_source": "exec-837d84fe-54d0-4c24-904a-2f3401d394a5.png",
+      "sha256": "0b2f845a624b72296d24be02338e3940ea81722efbde95cb94e77d4fcfc1f4d8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "grid": {
+        "columns": 2,
+        "rows": 3
+      },
+      "cells": {
+        "0": "Heartland town",
+        "1": "Rust Belt town",
+        "2": "Beltway town",
+        "3": "recovery camp",
+        "4": "D.C. ending",
+        "5": "roadside ending"
+      }
+    },
+    {
+      "asset": "dystrail-web/static/img/journey/town-npcs-v1.png",
+      "generated_source": "exec-ebf9ecdc-44b8-4255-937f-fc94b285e90d.png",
+      "sha256": "249cf728c028bbfff155c5cd0680f74eb51859c90f769a7714ce8da54eb6023a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "grid": {
+        "columns": 3,
+        "rows": 2
+      },
+      "usage": "Six varied fictional residents; exact town facts and independently rendered player portraits."
+    },
+    {
+      "asset": "dystrail-web/static/img/journey/standing-crew-v1.png",
+      "generated_source": "exec-57e55b44-948a-4409-b1d4-03de094c3e94.png",
+      "sha256": "079581d3d501519c8a8f3dc665b71693258f36cdf87281911785d7a9bd48d510",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "grid": {
+        "columns": 3,
+        "rows": 2
+      },
+      "cells": {
+        "0": "journalist",
+        "1": "organizer",
+        "2": "whistleblower",
+        "3": "lobbyist",
+        "4": "staffer",
+        "5": "satirist"
+      },
+      "usage": "Stationary road scene only: draw active crew independently outside the empty van. Runtime SVG color key removes the generated magenta matte; full atlas is decoded and cached before launch.",
+      "verification": "Compact discussion formation and foreground occlusion verified in local preview 135051c37b00eb6eeff0 with Chrome desktop/phone, standard game client and native Safari crew/offline check. Only present crew stand beside the parked van. Full Safari run interrupted later; production remains 08a07362f3e5c5445818."
+    }
+  ],
+  "rejected": [
+    "The first encounter atlas placed the Capitol in a generic street; an image edit removed that landmark.",
+    "Both generated full-body character sheets had painted checkerboards instead of real transparency. Neither is installed or rendered. Existing verified RGBA occupant portraits remain authoritative.",
+    "September 12 transparent-background attempts returned opaque checkerboard pixels. The installed standing atlas instead uses an explicit magenta color key rendered by SVG; no checkerboard asset is installed."
+  ],
+  "checks": [
+    "All six personas rotate through scene casting; preferred subjects must still be active.",
+    "Dead and departed members do not appear in the active van or scene portraits. Ending roster portraits explicitly retain their recorded fate.",
+    "D.C. Capitol establishing art is reserved for arrival at the destination.",
+    "Geography remains supplied by the real road routes and map data; illustrations are stylized settings, not literal town photographs."
+  ],
+  "application_icon": {
+    "source": "dystrail-web/static/img/app-icon.svg",
+    "exports": [
+      192,
+      512
+    ],
+    "method": "Original native pixel-grid SVG, rasterized in Chrome; normal blue van on a road."
+  },
+  "current_scene_usage": {
+    "enc-civic": 10,
+    "enc-bridge": 3,
+    "enc-community": 7,
+    "enc-street": 5,
+    "enc-radio": 12,
+    "enc-media-workshop": 4,
+    "enc-service": 5,
+    "enc-night-briefing": 2,
+    "milk-classic": 2,
+    "enc-checkpoint": 4,
+    "enc-convoy": 3,
+    "enc-clinic": 2
+  }
+}

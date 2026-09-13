@@ -1,0 +1,3356 @@
+{
+  "candidate": "pace-crossing-health038-arrival-activity-poncho",
+  "row_count": 2000,
+  "all_numeric_failures": [
+    {
+      "scenario": "Classic - Aggressive",
+      "guard": "each-run moving-day ratio",
+      "count": 37,
+      "minimum": 0.9,
+      "observed": 0.8148148148148148
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "each-run moving-day ratio",
+      "count": 12,
+      "minimum": 0.9,
+      "observed": 0.8181818181818182
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "guard": "mean internal campaign distance",
+      "observed": 2100.0656,
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    {
+      "scenario": "Classic - Conservative",
+      "guard": "each-run moving-day ratio",
+      "count": 1,
+      "minimum": 0.9,
+      "observed": 0.8928571428571429
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "guard": "each-run moving-day ratio",
+      "count": 26,
+      "minimum": 0.9,
+      "observed": 0.84
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "guard": "each-run moving-day ratio",
+      "count": 22,
+      "minimum": 0.9,
+      "observed": 0.8461538461538461
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "guard": "mean internal campaign distance",
+      "observed": 2123.1192,
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    {
+      "scenario": "Deep - Conservative",
+      "guard": "each-run moving-day ratio",
+      "count": 1,
+      "minimum": 0.9,
+      "observed": 0.8928571428571429
+    },
+    {
+      "scenario": "Deep - Resource Manager",
+      "guard": "each-run moving-day ratio",
+      "count": 2,
+      "minimum": 0.9,
+      "observed": 0.875
+    }
+  ],
+  "comparisons": {
+    "pace-crossing-health038": {
+      "failed_categories_before": 6,
+      "failed_categories_after": 9,
+      "individual_ratio_failures_before": 125,
+      "individual_ratio_failures_after": 101,
+      "scenarios": {
+        "Classic - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 24.28,
+              "after": 23.896,
+              "delta": -0.38400000000000034
+            },
+            "mean_miles": {
+              "before": 2086.266,
+              "after": 2075.6,
+              "delta": -10.666000000000167
+            },
+            "mean_physical_mpd": {
+              "before": 133.06004,
+              "after": 134.00784,
+              "delta": 0.9478000000000009
+            },
+            "mean_ratio": {
+              "before": 0.9325668316868317,
+              "after": 0.9375662560001233,
+              "delta": 0.004999424313291589
+            },
+            "min_ratio": {
+              "before": 0.8461538461538461,
+              "after": 0.8148148148148148,
+              "delta": -0.031339031339031376
+            },
+            "mean_unique_per_20": {
+              "before": 7.112987325717761,
+              "after": 7.054412895960723,
+              "delta": -0.05857442975703808
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.204,
+              "after": 0.196,
+              "delta": -0.00799999999999998
+            },
+            "survival": {
+              "before": 0.992,
+              "after": 0.988,
+              "delta": -0.0040000000000000036
+            },
+            "milestone": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "bribe_success": {
+              "before": 0.8335745296671491,
+              "after": 0.8376327769347496,
+              "delta": 0.004058247267600512
+            },
+            "crossing_failure": {
+              "before": 0.0107095046854083,
+              "after": 0.01478494623655914,
+              "delta": 0.004075441551150841
+            },
+            "dominant_failure": {
+              "before": 0.9245283018867925,
+              "after": 0.9105691056910569,
+              "delta": -0.013959196195735601
+            },
+            "mean_camp_days": {
+              "before": 2.012,
+              "after": 1.9,
+              "delta": -0.1120000000000001
+            },
+            "mean_repair_days": {
+              "before": 0.436,
+              "after": 0.444,
+              "delta": 0.008000000000000007
+            },
+            "mean_nonmoving_days": {
+              "before": 1.652,
+              "after": 1.512,
+              "delta": -0.1399999999999999
+            }
+          },
+          "ratio_failures_before": 40,
+          "ratio_failures_after": 37,
+          "ratio_seeds_fixed": [
+            1339,
+            1340,
+            1351,
+            1359,
+            1362,
+            1369,
+            1376,
+            1392,
+            1397,
+            1405,
+            1416,
+            1418,
+            1422,
+            1431,
+            1436,
+            1437,
+            1440,
+            1458,
+            1484,
+            1488,
+            1491,
+            1512,
+            1524,
+            1533,
+            1534,
+            1543,
+            1549,
+            1559,
+            1561,
+            1575
+          ],
+          "ratio_seeds_introduced": [
+            1342,
+            1344,
+            1352,
+            1380,
+            1400,
+            1403,
+            1407,
+            1414,
+            1421,
+            1447,
+            1449,
+            1455,
+            1460,
+            1461,
+            1470,
+            1471,
+            1472,
+            1481,
+            1487,
+            1503,
+            1519,
+            1521,
+            1536,
+            1560,
+            1563,
+            1569,
+            1579
+          ],
+          "ratio_seeds_retained": [
+            1386,
+            1387,
+            1439,
+            1452,
+            1478,
+            1480,
+            1486,
+            1505,
+            1513,
+            1548
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 37,
+              "minimum": 0.9,
+              "observed": 0.8148148148148148
+            }
+          ],
+          "endings": {
+            "boss.victory": 49,
+            "boss_vote_failed": 78,
+            "sanity": 112,
+            "collapse_crossing": 11
+          }
+        },
+        "Classic - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 21.052,
+              "after": 21.016,
+              "delta": -0.036000000000001364
+            },
+            "mean_miles": {
+              "before": 2104.9396,
+              "after": 2100.0656,
+              "delta": -4.874000000000251
+            },
+            "mean_physical_mpd": {
+              "before": 133.51464,
+              "after": 132.36592,
+              "delta": -1.1487200000000257
+            },
+            "mean_ratio": {
+              "before": 0.9553528626879321,
+              "after": 0.9581699057600243,
+              "delta": 0.0028170430720921846
+            },
+            "min_ratio": {
+              "before": 0.8181818181818182,
+              "after": 0.8181818181818182,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 6.767683830501222,
+              "after": 6.611195585091237,
+              "delta": -0.15648824540998518
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.404,
+              "after": 0.432,
+              "delta": 0.02799999999999997
+            },
+            "boss_win": {
+              "before": 0.232,
+              "after": 0.22,
+              "delta": -0.01200000000000001
+            },
+            "survival": {
+              "before": 0.824,
+              "after": 0.816,
+              "delta": -0.008000000000000007
+            },
+            "milestone": {
+              "before": 0.696,
+              "after": 0.692,
+              "delta": -0.0040000000000000036
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.49032258064516127,
+              "after": 0.4810126582278481,
+              "delta": -0.009309922417313155
+            },
+            "mean_camp_days": {
+              "before": 1.164,
+              "after": 1.152,
+              "delta": -0.01200000000000001
+            },
+            "mean_repair_days": {
+              "before": 0.32,
+              "after": 0.308,
+              "delta": -0.01200000000000001
+            },
+            "mean_nonmoving_days": {
+              "before": 0.98,
+              "after": 0.952,
+              "delta": -0.028000000000000025
+            }
+          },
+          "ratio_failures_before": 9,
+          "ratio_failures_after": 12,
+          "ratio_seeds_fixed": [
+            1364,
+            1379,
+            1392,
+            1403,
+            1418,
+            1514,
+            1519,
+            1537,
+            1584
+          ],
+          "ratio_seeds_introduced": [
+            1340,
+            1386,
+            1405,
+            1425,
+            1450,
+            1456,
+            1461,
+            1486,
+            1492,
+            1516,
+            1538,
+            1581
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 12,
+              "minimum": 0.9,
+              "observed": 0.8181818181818182
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2100.0656,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "boss.victory": 55,
+            "collapse_breakdown": 65,
+            "collapse_crossing": 76,
+            "boss_vote_failed": 36,
+            "sanity": 17,
+            "collapse_disease": 1
+          }
+        },
+        "Classic - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.712,
+              "after": 26.768,
+              "delta": 0.05600000000000094
+            },
+            "mean_miles": {
+              "before": 2095.7012,
+              "after": 2095.2,
+              "delta": -0.5012000000001535
+            },
+            "mean_physical_mpd": {
+              "before": 115.23367999999999,
+              "after": 115.54468,
+              "delta": 0.31100000000000705
+            },
+            "mean_ratio": {
+              "before": 0.9857069246207177,
+              "after": 0.9807946753119167,
+              "delta": -0.0049122493088010755
+            },
+            "min_ratio": {
+              "before": 0.9285714285714286,
+              "after": 0.8928571428571429,
+              "delta": -0.0357142857142857
+            },
+            "mean_unique_per_20": {
+              "before": 7.254582437297279,
+              "after": 7.270725444204304,
+              "delta": 0.01614300690702475
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "boss_win": {
+              "before": 0.316,
+              "after": 0.316,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.8373333333333334,
+              "after": 0.8373333333333334,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.008,
+              "after": 0.008,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.416,
+              "after": 0.448,
+              "delta": 0.03200000000000003
+            },
+            "mean_repair_days": {
+              "before": 0.28,
+              "after": 0.276,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.388,
+              "after": 0.524,
+              "delta": 0.136
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1374
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 79,
+            "boss_vote_failed": 165,
+            "collapse_crossing": 6
+          }
+        },
+        "Classic - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.384,
+              "after": 23.416,
+              "delta": 0.03200000000000003
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 127.06888000000001,
+              "after": 127.65552,
+              "delta": 0.5866399999999885
+            },
+            "mean_ratio": {
+              "before": 0.9838431884057971,
+              "after": 0.9781374581939799,
+              "delta": -0.005705730211817195
+            },
+            "min_ratio": {
+              "before": 0.9166666666666666,
+              "after": 0.9166666666666666,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 7.039485638998683,
+              "after": 6.965068288233506,
+              "delta": -0.0744173507651773
+            },
+            "min_unique_per_20": {
+              "before": 5.217391304347826,
+              "after": 5.0,
+              "delta": -0.21739130434782616
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.28,
+              "after": 0.276,
+              "delta": -0.0040000000000000036
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.376,
+              "after": 0.38,
+              "delta": 0.0040000000000000036
+            },
+            "mean_repair_days": {
+              "before": 0.308,
+              "after": 0.28,
+              "delta": -0.02799999999999997
+            },
+            "mean_nonmoving_days": {
+              "before": 0.384,
+              "after": 0.52,
+              "delta": 0.136
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 0,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [],
+          "ratio_seeds_retained": [],
+          "failures": [],
+          "endings": {
+            "boss.victory": 69,
+            "boss_vote_failed": 180,
+            "sanity": 1
+          }
+        },
+        "Deep - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.324,
+              "after": 23.32,
+              "delta": -0.004000000000001336
+            },
+            "mean_miles": {
+              "before": 2050.1756,
+              "after": 2059.7455999999997,
+              "delta": 9.569999999999709
+            },
+            "mean_physical_mpd": {
+              "before": 136.66132,
+              "after": 136.31804,
+              "delta": -0.3432799999999929
+            },
+            "mean_ratio": {
+              "before": 0.9296044187696362,
+              "after": 0.9350021294647382,
+              "delta": 0.005397710695101976
+            },
+            "min_ratio": {
+              "before": 0.8461538461538461,
+              "after": 0.84,
+              "delta": -0.006153846153846176
+            },
+            "mean_unique_per_20": {
+              "before": 7.222889713185365,
+              "after": 7.1922107805238245,
+              "delta": -0.03067893266154087
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.98,
+              "after": 0.992,
+              "delta": 0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.724,
+              "after": 0.668,
+              "delta": -0.05599999999999994
+            },
+            "survival": {
+              "before": 0.984,
+              "after": 0.992,
+              "delta": 0.008000000000000007
+            },
+            "milestone": {
+              "before": 0.98,
+              "after": 0.992,
+              "delta": 0.01200000000000001
+            },
+            "bribe_success": {
+              "before": 0.8740849194729137,
+              "after": 0.8661764705882353,
+              "delta": -0.007908448884678343
+            },
+            "crossing_failure": {
+              "before": 0.006711409395973154,
+              "after": 0.00267379679144385,
+              "delta": -0.0040376126045293045
+            },
+            "dominant_failure": {
+              "before": 0.927536231884058,
+              "after": 0.9759036144578314,
+              "delta": 0.048367382573773376
+            },
+            "mean_camp_days": {
+              "before": 2.12,
+              "after": 2.032,
+              "delta": -0.08800000000000008
+            },
+            "mean_repair_days": {
+              "before": 0.396,
+              "after": 0.376,
+              "delta": -0.020000000000000018
+            },
+            "mean_nonmoving_days": {
+              "before": 1.668,
+              "after": 1.536,
+              "delta": -0.1319999999999999
+            }
+          },
+          "ratio_failures_before": 40,
+          "ratio_failures_after": 26,
+          "ratio_seeds_fixed": [
+            1339,
+            1344,
+            1358,
+            1367,
+            1374,
+            1375,
+            1390,
+            1400,
+            1405,
+            1406,
+            1407,
+            1418,
+            1422,
+            1424,
+            1430,
+            1446,
+            1475,
+            1480,
+            1481,
+            1484,
+            1494,
+            1512,
+            1523,
+            1524,
+            1530,
+            1533,
+            1547,
+            1550,
+            1566,
+            1571,
+            1573,
+            1575
+          ],
+          "ratio_seeds_introduced": [
+            1369,
+            1380,
+            1383,
+            1391,
+            1435,
+            1453,
+            1454,
+            1461,
+            1500,
+            1519,
+            1521,
+            1529,
+            1536,
+            1539,
+            1558,
+            1560,
+            1562,
+            1568
+          ],
+          "ratio_seeds_retained": [
+            1341,
+            1363,
+            1387,
+            1464,
+            1501,
+            1505,
+            1526,
+            1544
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 26,
+              "minimum": 0.9,
+              "observed": 0.84
+            }
+          ],
+          "endings": {
+            "boss.victory": 167,
+            "sanity": 81,
+            "collapse_crossing": 2
+          }
+        },
+        "Deep - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 21.644,
+              "after": 21.468,
+              "delta": -0.17599999999999838
+            },
+            "mean_miles": {
+              "before": 2131.7248,
+              "after": 2123.1192,
+              "delta": -8.605599999999868
+            },
+            "mean_physical_mpd": {
+              "before": 132.59584,
+              "after": 131.09044,
+              "delta": -1.5054000000000087
+            },
+            "mean_ratio": {
+              "before": 0.9456482174504277,
+              "after": 0.9578160939503705,
+              "delta": 0.012167876499942776
+            },
+            "min_ratio": {
+              "before": 0.8181818181818182,
+              "after": 0.8461538461538461,
+              "delta": 0.027972027972027913
+            },
+            "mean_unique_per_20": {
+              "before": 6.589018838810143,
+              "after": 6.482779076639946,
+              "delta": -0.1062397621701976
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.648,
+              "after": 0.652,
+              "delta": 0.0040000000000000036
+            },
+            "boss_win": {
+              "before": 0.208,
+              "after": 0.212,
+              "delta": 0.0040000000000000036
+            },
+            "survival": {
+              "before": 0.824,
+              "after": 0.82,
+              "delta": -0.0040000000000000036
+            },
+            "milestone": {
+              "before": 0.696,
+              "after": 0.696,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.7524752475247525,
+              "after": 0.7037037037037037,
+              "delta": -0.04877154382104876
+            },
+            "mean_camp_days": {
+              "before": 1.896,
+              "after": 1.748,
+              "delta": -0.1479999999999999
+            },
+            "mean_repair_days": {
+              "before": 0.316,
+              "after": 0.292,
+              "delta": -0.02400000000000002
+            },
+            "mean_nonmoving_days": {
+              "before": 1.268,
+              "after": 1,
+              "delta": -0.268
+            }
+          },
+          "ratio_failures_before": 36,
+          "ratio_failures_after": 22,
+          "ratio_seeds_fixed": [
+            1337,
+            1341,
+            1353,
+            1364,
+            1377,
+            1388,
+            1403,
+            1406,
+            1418,
+            1422,
+            1441,
+            1442,
+            1463,
+            1464,
+            1471,
+            1475,
+            1486,
+            1496,
+            1502,
+            1516,
+            1529,
+            1538,
+            1540,
+            1541,
+            1547,
+            1555,
+            1557,
+            1570,
+            1579,
+            1585
+          ],
+          "ratio_seeds_introduced": [
+            1367,
+            1379,
+            1383,
+            1432,
+            1444,
+            1456,
+            1461,
+            1507,
+            1519,
+            1522,
+            1527,
+            1532,
+            1536,
+            1543,
+            1577,
+            1581
+          ],
+          "ratio_seeds_retained": [
+            1440,
+            1450,
+            1480,
+            1504,
+            1520,
+            1576
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 22,
+              "minimum": 0.9,
+              "observed": 0.8461538461538461
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2123.1192,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "sanity": 22,
+            "boss_vote_failed": 88,
+            "boss.victory": 53,
+            "collapse_breakdown": 10,
+            "collapse_crossing": 76,
+            "collapse_disease": 1
+          }
+        },
+        "Deep - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.888,
+              "after": 26.892,
+              "delta": 0.003999999999997783
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 114.9024,
+              "after": 115.19436,
+              "delta": 0.2919600000000031
+            },
+            "mean_ratio": {
+              "before": 0.9838304492442423,
+              "after": 0.9812668771841185,
+              "delta": -0.0025635720601238088
+            },
+            "min_ratio": {
+              "before": 0.9259259259259259,
+              "after": 0.8928571428571429,
+              "delta": -0.033068783068783025
+            },
+            "mean_unique_per_20": {
+              "before": 7.266949220383703,
+              "after": 7.192128814225366,
+              "delta": -0.07482040615833707
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.32,
+              "after": 0.324,
+              "delta": 0.0040000000000000036
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.868,
+              "after": 0.868,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0,
+              "after": 0,
+              "delta": 0
+            },
+            "mean_camp_days": {
+              "before": 0.428,
+              "after": 0.432,
+              "delta": 0.0040000000000000036
+            },
+            "mean_repair_days": {
+              "before": 0.34,
+              "after": 0.344,
+              "delta": 0.003999999999999948
+            },
+            "mean_nonmoving_days": {
+              "before": 0.44,
+              "after": 0.512,
+              "delta": 0.07200000000000001
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1516
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 81,
+            "boss_vote_failed": 169
+          }
+        },
+        "Deep - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.44,
+              "after": 23.468,
+              "delta": 0.027999999999998693
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 126.87096,
+              "after": 127.69292,
+              "delta": 0.8219600000000042
+            },
+            "mean_ratio": {
+              "before": 0.9831704347826087,
+              "after": 0.9758973122529644,
+              "delta": -0.007273122529644294
+            },
+            "min_ratio": {
+              "before": 0.9166666666666666,
+              "after": 0.875,
+              "delta": -0.04166666666666663
+            },
+            "mean_unique_per_20": {
+              "before": 7.003283267457181,
+              "after": 6.90355836627141,
+              "delta": -0.09972490118577149
+            },
+            "min_unique_per_20": {
+              "before": 5.0,
+              "after": 5.217391304347826,
+              "delta": 0.21739130434782616
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.276,
+              "after": 0.28,
+              "delta": 0.0040000000000000036
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0,
+              "after": 0,
+              "delta": 0
+            },
+            "mean_camp_days": {
+              "before": 0.424,
+              "after": 0.396,
+              "delta": -0.02799999999999997
+            },
+            "mean_repair_days": {
+              "before": 0.416,
+              "after": 0.408,
+              "delta": -0.008000000000000007
+            },
+            "mean_nonmoving_days": {
+              "before": 0.4,
+              "after": 0.576,
+              "delta": 0.17599999999999993
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 2,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1391,
+            1499
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 2,
+              "minimum": 0.9,
+              "observed": 0.875
+            }
+          ],
+          "endings": {
+            "boss.victory": 70,
+            "boss_vote_failed": 180
+          }
+        }
+      }
+    },
+    "pace-crossing-health038-arrival": {
+      "failed_categories_before": 6,
+      "failed_categories_after": 9,
+      "individual_ratio_failures_before": 123,
+      "individual_ratio_failures_after": 101,
+      "scenarios": {
+        "Classic - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 24.256,
+              "after": 23.896,
+              "delta": -0.35999999999999943
+            },
+            "mean_miles": {
+              "before": 2085.8,
+              "after": 2075.6,
+              "delta": -10.200000000000273
+            },
+            "mean_physical_mpd": {
+              "before": 132.97672,
+              "after": 134.00784,
+              "delta": 1.0311199999999872
+            },
+            "mean_ratio": {
+              "before": 0.9341342856211506,
+              "after": 0.9375662560001233,
+              "delta": 0.003431970378972693
+            },
+            "min_ratio": {
+              "before": 0.84,
+              "after": 0.8148148148148148,
+              "delta": -0.0251851851851852
+            },
+            "mean_unique_per_20": {
+              "before": 7.043938439660179,
+              "after": 7.054412895960723,
+              "delta": 0.010474456300543444
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.216,
+              "after": 0.196,
+              "delta": -0.01999999999999999
+            },
+            "survival": {
+              "before": 0.992,
+              "after": 0.988,
+              "delta": -0.0040000000000000036
+            },
+            "milestone": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "bribe_success": {
+              "before": 0.8318713450292398,
+              "after": 0.8376327769347496,
+              "delta": 0.005761431905509817
+            },
+            "crossing_failure": {
+              "before": 0.0107095046854083,
+              "after": 0.01478494623655914,
+              "delta": 0.004075441551150841
+            },
+            "dominant_failure": {
+              "before": 0.9252336448598131,
+              "after": 0.9105691056910569,
+              "delta": -0.014664539168756208
+            },
+            "mean_camp_days": {
+              "before": 1.992,
+              "after": 1.9,
+              "delta": -0.09200000000000008
+            },
+            "mean_repair_days": {
+              "before": 0.428,
+              "after": 0.444,
+              "delta": 0.016000000000000014
+            },
+            "mean_nonmoving_days": {
+              "before": 1.624,
+              "after": 1.512,
+              "delta": -0.1120000000000001
+            }
+          },
+          "ratio_failures_before": 51,
+          "ratio_failures_after": 37,
+          "ratio_seeds_fixed": [
+            1354,
+            1356,
+            1358,
+            1362,
+            1369,
+            1373,
+            1376,
+            1397,
+            1416,
+            1422,
+            1431,
+            1435,
+            1440,
+            1441,
+            1465,
+            1468,
+            1475,
+            1491,
+            1495,
+            1504,
+            1506,
+            1524,
+            1528,
+            1540,
+            1549,
+            1559,
+            1567,
+            1571,
+            1575,
+            1580
+          ],
+          "ratio_seeds_introduced": [
+            1342,
+            1344,
+            1386,
+            1403,
+            1421,
+            1447,
+            1470,
+            1471,
+            1480,
+            1481,
+            1503,
+            1519,
+            1521,
+            1536,
+            1563,
+            1569
+          ],
+          "ratio_seeds_retained": [
+            1352,
+            1380,
+            1387,
+            1400,
+            1407,
+            1414,
+            1439,
+            1449,
+            1452,
+            1455,
+            1460,
+            1461,
+            1472,
+            1478,
+            1486,
+            1487,
+            1505,
+            1513,
+            1548,
+            1560,
+            1579
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 37,
+              "minimum": 0.9,
+              "observed": 0.8148148148148148
+            }
+          ],
+          "endings": {
+            "boss.victory": 49,
+            "boss_vote_failed": 78,
+            "sanity": 112,
+            "collapse_crossing": 11
+          }
+        },
+        "Classic - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 21.048,
+              "after": 21.016,
+              "delta": -0.03200000000000003
+            },
+            "mean_miles": {
+              "before": 2100.7124,
+              "after": 2100.0656,
+              "delta": -0.6467999999999847
+            },
+            "mean_physical_mpd": {
+              "before": 132.38252,
+              "after": 132.36592,
+              "delta": -0.01660000000001105
+            },
+            "mean_ratio": {
+              "before": 0.9585053734358849,
+              "after": 0.9581699057600243,
+              "delta": -0.00033546767586067894
+            },
+            "min_ratio": {
+              "before": 0.88,
+              "after": 0.8181818181818182,
+              "delta": -0.06181818181818177
+            },
+            "mean_unique_per_20": {
+              "before": 6.611562781823651,
+              "after": 6.611195585091237,
+              "delta": -0.0003671967324141434
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.428,
+              "after": 0.432,
+              "delta": 0.0040000000000000036
+            },
+            "boss_win": {
+              "before": 0.24,
+              "after": 0.22,
+              "delta": -0.01999999999999999
+            },
+            "survival": {
+              "before": 0.816,
+              "after": 0.816,
+              "delta": 0.0
+            },
+            "milestone": {
+              "before": 0.692,
+              "after": 0.692,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.5205479452054794,
+              "after": 0.4810126582278481,
+              "delta": -0.03953528697763131
+            },
+            "mean_camp_days": {
+              "before": 1.228,
+              "after": 1.152,
+              "delta": -0.07600000000000007
+            },
+            "mean_repair_days": {
+              "before": 0.304,
+              "after": 0.308,
+              "delta": 0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.932,
+              "after": 0.952,
+              "delta": 0.019999999999999907
+            }
+          },
+          "ratio_failures_before": 7,
+          "ratio_failures_after": 12,
+          "ratio_seeds_fixed": [
+            1346,
+            1367,
+            1376,
+            1380,
+            1482,
+            1504
+          ],
+          "ratio_seeds_introduced": [
+            1340,
+            1386,
+            1405,
+            1425,
+            1456,
+            1461,
+            1486,
+            1492,
+            1516,
+            1538,
+            1581
+          ],
+          "ratio_seeds_retained": [
+            1450
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 12,
+              "minimum": 0.9,
+              "observed": 0.8181818181818182
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2100.0656,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "boss.victory": 55,
+            "collapse_breakdown": 65,
+            "collapse_crossing": 76,
+            "boss_vote_failed": 36,
+            "sanity": 17,
+            "collapse_disease": 1
+          }
+        },
+        "Classic - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.748,
+              "after": 26.768,
+              "delta": 0.019999999999999574
+            },
+            "mean_miles": {
+              "before": 2095.2,
+              "after": 2095.2,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 115.03663999999999,
+              "after": 115.54468,
+              "delta": 0.5080400000000083
+            },
+            "mean_ratio": {
+              "before": 0.9857481930585379,
+              "after": 0.9807946753119167,
+              "delta": -0.004953517746621228
+            },
+            "min_ratio": {
+              "before": 0.9259259259259259,
+              "after": 0.8928571428571429,
+              "delta": -0.033068783068783025
+            },
+            "mean_unique_per_20": {
+              "before": 7.261405415573931,
+              "after": 7.270725444204304,
+              "delta": 0.0093200286303734
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "boss_win": {
+              "before": 0.316,
+              "after": 0.316,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.8373333333333334,
+              "after": 0.8373333333333334,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.008,
+              "after": 0.008,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.456,
+              "after": 0.448,
+              "delta": -0.008000000000000007
+            },
+            "mean_repair_days": {
+              "before": 0.28,
+              "after": 0.276,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.388,
+              "after": 0.524,
+              "delta": 0.136
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1374
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 79,
+            "boss_vote_failed": 165,
+            "collapse_crossing": 6
+          }
+        },
+        "Classic - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.388,
+              "after": 23.416,
+              "delta": 0.027999999999998693
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 126.94,
+              "after": 127.65552,
+              "delta": 0.7155199999999979
+            },
+            "mean_ratio": {
+              "before": 0.9846486956521739,
+              "after": 0.9781374581939799,
+              "delta": -0.006511237458194041
+            },
+            "min_ratio": {
+              "before": 0.9166666666666666,
+              "after": 0.9166666666666666,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 6.951198945981555,
+              "after": 6.965068288233506,
+              "delta": 0.013869342251950911
+            },
+            "min_unique_per_20": {
+              "before": 5.0,
+              "after": 5.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.276,
+              "after": 0.276,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.38,
+              "after": 0.38,
+              "delta": 0.0
+            },
+            "mean_repair_days": {
+              "before": 0.28,
+              "after": 0.28,
+              "delta": 0.0
+            },
+            "mean_nonmoving_days": {
+              "before": 0.364,
+              "after": 0.52,
+              "delta": 0.15600000000000003
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 0,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [],
+          "ratio_seeds_retained": [],
+          "failures": [],
+          "endings": {
+            "boss.victory": 69,
+            "boss_vote_failed": 180,
+            "sanity": 1
+          }
+        },
+        "Deep - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.38,
+              "after": 23.32,
+              "delta": -0.05999999999999872
+            },
+            "mean_miles": {
+              "before": 2049.6248,
+              "after": 2059.7455999999997,
+              "delta": 10.12079999999969
+            },
+            "mean_physical_mpd": {
+              "before": 136.46972,
+              "after": 136.31804,
+              "delta": -0.15167999999999893
+            },
+            "mean_ratio": {
+              "before": 0.9284702758111454,
+              "after": 0.9350021294647382,
+              "delta": 0.006531853653592767
+            },
+            "min_ratio": {
+              "before": 0.84,
+              "after": 0.84,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 7.099420492550927,
+              "after": 7.1922107805238245,
+              "delta": 0.09279028797289701
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.98,
+              "after": 0.992,
+              "delta": 0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.756,
+              "after": 0.668,
+              "delta": -0.08799999999999997
+            },
+            "survival": {
+              "before": 0.984,
+              "after": 0.992,
+              "delta": 0.008000000000000007
+            },
+            "milestone": {
+              "before": 0.98,
+              "after": 0.992,
+              "delta": 0.01200000000000001
+            },
+            "bribe_success": {
+              "before": 0.8690476190476191,
+              "after": 0.8661764705882353,
+              "delta": -0.0028711484593837433
+            },
+            "crossing_failure": {
+              "before": 0.006711409395973154,
+              "after": 0.00267379679144385,
+              "delta": -0.0040376126045293045
+            },
+            "dominant_failure": {
+              "before": 0.9180327868852459,
+              "after": 0.9759036144578314,
+              "delta": 0.05787082757258544
+            },
+            "mean_camp_days": {
+              "before": 2.16,
+              "after": 2.032,
+              "delta": -0.1280000000000001
+            },
+            "mean_repair_days": {
+              "before": 0.372,
+              "after": 0.376,
+              "delta": 0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 1.696,
+              "after": 1.536,
+              "delta": -0.15999999999999992
+            }
+          },
+          "ratio_failures_before": 42,
+          "ratio_failures_after": 26,
+          "ratio_seeds_fixed": [
+            1339,
+            1345,
+            1346,
+            1376,
+            1384,
+            1385,
+            1405,
+            1407,
+            1408,
+            1413,
+            1418,
+            1426,
+            1430,
+            1432,
+            1436,
+            1446,
+            1466,
+            1470,
+            1477,
+            1478,
+            1481,
+            1484,
+            1494,
+            1497,
+            1504,
+            1512,
+            1524,
+            1549,
+            1567,
+            1573,
+            1575,
+            1577,
+            1583,
+            1585
+          ],
+          "ratio_seeds_introduced": [
+            1341,
+            1369,
+            1383,
+            1391,
+            1435,
+            1454,
+            1461,
+            1501,
+            1519,
+            1521,
+            1526,
+            1529,
+            1536,
+            1539,
+            1544,
+            1558,
+            1562,
+            1568
+          ],
+          "ratio_seeds_retained": [
+            1363,
+            1380,
+            1387,
+            1453,
+            1464,
+            1500,
+            1505,
+            1560
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 26,
+              "minimum": 0.9,
+              "observed": 0.84
+            }
+          ],
+          "endings": {
+            "boss.victory": 167,
+            "sanity": 81,
+            "collapse_crossing": 2
+          }
+        },
+        "Deep - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 21.632,
+              "after": 21.468,
+              "delta": -0.16400000000000148
+            },
+            "mean_miles": {
+              "before": 2122.3948,
+              "after": 2123.1192,
+              "delta": 0.7244000000000597
+            },
+            "mean_physical_mpd": {
+              "before": 131.38308,
+              "after": 131.09044,
+              "delta": -0.2926400000000058
+            },
+            "mean_ratio": {
+              "before": 0.948356158053719,
+              "after": 0.9578160939503705,
+              "delta": 0.009459935896651506
+            },
+            "min_ratio": {
+              "before": 0.84,
+              "after": 0.8461538461538461,
+              "delta": 0.006153846153846176
+            },
+            "mean_unique_per_20": {
+              "before": 6.429953580718798,
+              "after": 6.482779076639946,
+              "delta": 0.05282549592114805
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.636,
+              "after": 0.652,
+              "delta": 0.016000000000000014
+            },
+            "boss_win": {
+              "before": 0.212,
+              "after": 0.212,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 0.82,
+              "after": 0.82,
+              "delta": 0.0
+            },
+            "milestone": {
+              "before": 0.696,
+              "after": 0.696,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.7169811320754716,
+              "after": 0.7037037037037037,
+              "delta": -0.01327742837176793
+            },
+            "mean_camp_days": {
+              "before": 1.868,
+              "after": 1.748,
+              "delta": -0.1200000000000001
+            },
+            "mean_repair_days": {
+              "before": 0.296,
+              "after": 0.292,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 1.224,
+              "after": 1,
+              "delta": -0.22399999999999998
+            }
+          },
+          "ratio_failures_before": 23,
+          "ratio_failures_after": 22,
+          "ratio_seeds_fixed": [
+            1338,
+            1359,
+            1404,
+            1405,
+            1421,
+            1470,
+            1471,
+            1474,
+            1492,
+            1496,
+            1547
+          ],
+          "ratio_seeds_introduced": [
+            1379,
+            1440,
+            1456,
+            1461,
+            1519,
+            1522,
+            1536,
+            1543,
+            1576,
+            1581
+          ],
+          "ratio_seeds_retained": [
+            1367,
+            1383,
+            1432,
+            1444,
+            1450,
+            1480,
+            1504,
+            1507,
+            1520,
+            1527,
+            1532,
+            1577
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 22,
+              "minimum": 0.9,
+              "observed": 0.8461538461538461
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2123.1192,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "sanity": 22,
+            "boss_vote_failed": 88,
+            "boss.victory": 53,
+            "collapse_breakdown": 10,
+            "collapse_crossing": 76,
+            "collapse_disease": 1
+          }
+        },
+        "Deep - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.864,
+              "after": 26.892,
+              "delta": 0.027999999999998693
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 114.75704,
+              "after": 115.19436,
+              "delta": 0.4373199999999997
+            },
+            "mean_ratio": {
+              "before": 0.9859208454380868,
+              "after": 0.9812668771841185,
+              "delta": -0.004653968253968244
+            },
+            "min_ratio": {
+              "before": 0.9259259259259259,
+              "after": 0.8928571428571429,
+              "delta": -0.033068783068783025
+            },
+            "mean_unique_per_20": {
+              "before": 7.207567153663705,
+              "after": 7.192128814225366,
+              "delta": -0.015438339438339277
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.324,
+              "after": 0.324,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.868,
+              "after": 0.868,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0,
+              "after": 0,
+              "delta": 0
+            },
+            "mean_camp_days": {
+              "before": 0.428,
+              "after": 0.432,
+              "delta": 0.0040000000000000036
+            },
+            "mean_repair_days": {
+              "before": 0.348,
+              "after": 0.344,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.384,
+              "after": 0.512,
+              "delta": 0.128
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1516
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 81,
+            "boss_vote_failed": 169
+          }
+        },
+        "Deep - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.448,
+              "after": 23.468,
+              "delta": 0.019999999999999574
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 126.90012,
+              "after": 127.69292,
+              "delta": 0.7927999999999997
+            },
+            "mean_ratio": {
+              "before": 0.9826741238471673,
+              "after": 0.9758973122529644,
+              "delta": -0.006776811594202958
+            },
+            "min_ratio": {
+              "before": 0.9166666666666666,
+              "after": 0.875,
+              "delta": -0.04166666666666663
+            },
+            "mean_unique_per_20": {
+              "before": 6.905969960474309,
+              "after": 6.90355836627141,
+              "delta": -0.0024115942028988258
+            },
+            "min_unique_per_20": {
+              "before": 5.217391304347826,
+              "after": 5.217391304347826,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.284,
+              "after": 0.28,
+              "delta": -0.003999999999999948
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0,
+              "after": 0,
+              "delta": 0
+            },
+            "mean_camp_days": {
+              "before": 0.4,
+              "after": 0.396,
+              "delta": -0.0040000000000000036
+            },
+            "mean_repair_days": {
+              "before": 0.408,
+              "after": 0.408,
+              "delta": 0.0
+            },
+            "mean_nonmoving_days": {
+              "before": 0.412,
+              "after": 0.576,
+              "delta": 0.16399999999999998
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 2,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1391,
+            1499
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 2,
+              "minimum": 0.9,
+              "observed": 0.875
+            }
+          ],
+          "endings": {
+            "boss.victory": 70,
+            "boss_vote_failed": 180
+          }
+        }
+      }
+    },
+    "pace-crossing-health038-activity": {
+      "failed_categories_before": 8,
+      "failed_categories_after": 9,
+      "individual_ratio_failures_before": 104,
+      "individual_ratio_failures_after": 101,
+      "scenarios": {
+        "Classic - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 24.068,
+              "after": 23.896,
+              "delta": -0.1720000000000006
+            },
+            "mean_miles": {
+              "before": 2086.2204,
+              "after": 2075.6,
+              "delta": -10.620400000000245
+            },
+            "mean_physical_mpd": {
+              "before": 133.66772,
+              "after": 134.00784,
+              "delta": 0.34011999999998466
+            },
+            "mean_ratio": {
+              "before": 0.9362223209640601,
+              "after": 0.9375662560001233,
+              "delta": 0.0013439350360632263
+            },
+            "min_ratio": {
+              "before": 0.8571428571428571,
+              "after": 0.8148148148148148,
+              "delta": -0.042328042328042326
+            },
+            "mean_unique_per_20": {
+              "before": 7.140063420637334,
+              "after": 7.054412895960723,
+              "delta": -0.08565052467661172
+            },
+            "min_unique_per_20": {
+              "before": 5.0,
+              "after": 4.0,
+              "delta": -1.0
+            },
+            "boss_reach": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.156,
+              "after": 0.196,
+              "delta": 0.04000000000000001
+            },
+            "survival": {
+              "before": 0.996,
+              "after": 0.988,
+              "delta": -0.008000000000000007
+            },
+            "milestone": {
+              "before": 0.968,
+              "after": 0.956,
+              "delta": -0.01200000000000001
+            },
+            "bribe_success": {
+              "before": 0.8340807174887892,
+              "after": 0.8376327769347496,
+              "delta": 0.003552059445960376
+            },
+            "crossing_failure": {
+              "before": 0.0107095046854083,
+              "after": 0.01478494623655914,
+              "delta": 0.004075441551150841
+            },
+            "dominant_failure": {
+              "before": 0.9333333333333333,
+              "after": 0.9105691056910569,
+              "delta": -0.02276422764227648
+            },
+            "mean_camp_days": {
+              "before": 1.92,
+              "after": 1.9,
+              "delta": -0.020000000000000018
+            },
+            "mean_repair_days": {
+              "before": 0.436,
+              "after": 0.444,
+              "delta": 0.008000000000000007
+            },
+            "mean_nonmoving_days": {
+              "before": 1.552,
+              "after": 1.512,
+              "delta": -0.040000000000000036
+            }
+          },
+          "ratio_failures_before": 37,
+          "ratio_failures_after": 37,
+          "ratio_seeds_fixed": [
+            1339,
+            1340,
+            1359,
+            1389,
+            1405,
+            1436,
+            1448,
+            1458,
+            1464,
+            1488,
+            1491,
+            1500,
+            1506,
+            1552,
+            1561,
+            1584,
+            1585
+          ],
+          "ratio_seeds_introduced": [
+            1352,
+            1380,
+            1400,
+            1403,
+            1414,
+            1449,
+            1455,
+            1460,
+            1470,
+            1471,
+            1472,
+            1481,
+            1503,
+            1513,
+            1519,
+            1548,
+            1569
+          ],
+          "ratio_seeds_retained": [
+            1342,
+            1344,
+            1386,
+            1387,
+            1407,
+            1421,
+            1439,
+            1447,
+            1452,
+            1461,
+            1478,
+            1480,
+            1486,
+            1487,
+            1505,
+            1521,
+            1536,
+            1560,
+            1563,
+            1579
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 37,
+              "minimum": 0.9,
+              "observed": 0.8148148148148148
+            }
+          ],
+          "endings": {
+            "boss.victory": 49,
+            "boss_vote_failed": 78,
+            "sanity": 112,
+            "collapse_crossing": 11
+          }
+        },
+        "Classic - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 20.916,
+              "after": 21.016,
+              "delta": 0.09999999999999787
+            },
+            "mean_miles": {
+              "before": 2102.0052,
+              "after": 2100.0656,
+              "delta": -1.939600000000155
+            },
+            "mean_physical_mpd": {
+              "before": 133.526,
+              "after": 132.36592,
+              "delta": -1.160080000000022
+            },
+            "mean_ratio": {
+              "before": 0.9581649000106248,
+              "after": 0.9581699057600243,
+              "delta": 5.005749399433768e-06
+            },
+            "min_ratio": {
+              "before": 0.8181818181818182,
+              "after": 0.8181818181818182,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 6.813036268723225,
+              "after": 6.611195585091237,
+              "delta": -0.20184068363198815
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.416,
+              "after": 0.432,
+              "delta": 0.016000000000000014
+            },
+            "boss_win": {
+              "before": 0.224,
+              "after": 0.22,
+              "delta": -0.0040000000000000036
+            },
+            "survival": {
+              "before": 0.832,
+              "after": 0.816,
+              "delta": -0.016000000000000014
+            },
+            "milestone": {
+              "before": 0.688,
+              "after": 0.692,
+              "delta": 0.0040000000000000036
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.4840764331210191,
+              "after": 0.4810126582278481,
+              "delta": -0.0030637748931710007
+            },
+            "mean_camp_days": {
+              "before": 1.116,
+              "after": 1.152,
+              "delta": 0.03599999999999981
+            },
+            "mean_repair_days": {
+              "before": 0.344,
+              "after": 0.308,
+              "delta": -0.035999999999999976
+            },
+            "mean_nonmoving_days": {
+              "before": 0.928,
+              "after": 0.952,
+              "delta": 0.02399999999999991
+            }
+          },
+          "ratio_failures_before": 11,
+          "ratio_failures_after": 12,
+          "ratio_seeds_fixed": [
+            1351,
+            1364,
+            1403,
+            1544
+          ],
+          "ratio_seeds_introduced": [
+            1450,
+            1486,
+            1492,
+            1516,
+            1538
+          ],
+          "ratio_seeds_retained": [
+            1340,
+            1386,
+            1405,
+            1425,
+            1456,
+            1461,
+            1581
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 12,
+              "minimum": 0.9,
+              "observed": 0.8181818181818182
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2100.0656,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "boss.victory": 55,
+            "collapse_breakdown": 65,
+            "collapse_crossing": 76,
+            "boss_vote_failed": 36,
+            "sanity": 17,
+            "collapse_disease": 1
+          }
+        },
+        "Classic - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.724,
+              "after": 26.768,
+              "delta": 0.04400000000000048
+            },
+            "mean_miles": {
+              "before": 2095.7556,
+              "after": 2095.2,
+              "delta": -0.5556000000001404
+            },
+            "mean_physical_mpd": {
+              "before": 115.66044,
+              "after": 115.54468,
+              "delta": -0.11575999999999453
+            },
+            "mean_ratio": {
+              "before": 0.9817124566532363,
+              "after": 0.9807946753119167,
+              "delta": -0.0009177813413195901
+            },
+            "min_ratio": {
+              "before": 0.9259259259259259,
+              "after": 0.8928571428571429,
+              "delta": -0.033068783068783025
+            },
+            "mean_unique_per_20": {
+              "before": 7.254755342297771,
+              "after": 7.270725444204304,
+              "delta": 0.01597010190653325
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "boss_win": {
+              "before": 0.316,
+              "after": 0.316,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 0.976,
+              "after": 0.976,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.8373333333333334,
+              "after": 0.8373333333333334,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.008,
+              "after": 0.008,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.416,
+              "after": 0.448,
+              "delta": 0.03200000000000003
+            },
+            "mean_repair_days": {
+              "before": 0.28,
+              "after": 0.276,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.496,
+              "after": 0.524,
+              "delta": 0.028000000000000025
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1374
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 79,
+            "boss_vote_failed": 165,
+            "collapse_crossing": 6
+          }
+        },
+        "Classic - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.384,
+              "after": 23.416,
+              "delta": 0.03200000000000003
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 127.88088,
+              "after": 127.65552,
+              "delta": -0.2253600000000091
+            },
+            "mean_ratio": {
+              "before": 0.9778034782608696,
+              "after": 0.9781374581939799,
+              "delta": 0.000333979933110351
+            },
+            "min_ratio": {
+              "before": 0.875,
+              "after": 0.9166666666666666,
+              "delta": 0.04166666666666663
+            },
+            "mean_unique_per_20": {
+              "before": 7.039410276679843,
+              "after": 6.965068288233506,
+              "delta": -0.07434198844633677
+            },
+            "min_unique_per_20": {
+              "before": 5.217391304347826,
+              "after": 5.0,
+              "delta": -0.21739130434782616
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.28,
+              "after": 0.276,
+              "delta": -0.0040000000000000036
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 0.36,
+              "after": 0.38,
+              "delta": 0.020000000000000018
+            },
+            "mean_repair_days": {
+              "before": 0.308,
+              "after": 0.28,
+              "delta": -0.02799999999999997
+            },
+            "mean_nonmoving_days": {
+              "before": 0.528,
+              "after": 0.52,
+              "delta": -0.008000000000000007
+            }
+          },
+          "ratio_failures_before": 2,
+          "ratio_failures_after": 0,
+          "ratio_seeds_fixed": [
+            1351,
+            1443
+          ],
+          "ratio_seeds_introduced": [],
+          "ratio_seeds_retained": [],
+          "failures": [],
+          "endings": {
+            "boss.victory": 69,
+            "boss_vote_failed": 180,
+            "sanity": 1
+          }
+        },
+        "Deep - Aggressive": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.272,
+              "after": 23.32,
+              "delta": 0.04800000000000182
+            },
+            "mean_miles": {
+              "before": 2056.5588,
+              "after": 2059.7455999999997,
+              "delta": 3.1867999999999483
+            },
+            "mean_physical_mpd": {
+              "before": 136.59564,
+              "after": 136.31804,
+              "delta": -0.27760000000000673
+            },
+            "mean_ratio": {
+              "before": 0.9337661883044491,
+              "after": 0.9350021294647382,
+              "delta": 0.0012359411602890225
+            },
+            "min_ratio": {
+              "before": 0.84,
+              "after": 0.84,
+              "delta": 0.0
+            },
+            "mean_unique_per_20": {
+              "before": 7.265118290405248,
+              "after": 7.1922107805238245,
+              "delta": -0.07290750988142314
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.988,
+              "after": 0.992,
+              "delta": 0.0040000000000000036
+            },
+            "boss_win": {
+              "before": 0.704,
+              "after": 0.668,
+              "delta": -0.03599999999999992
+            },
+            "survival": {
+              "before": 0.992,
+              "after": 0.992,
+              "delta": 0.0
+            },
+            "milestone": {
+              "before": 0.988,
+              "after": 0.992,
+              "delta": 0.0040000000000000036
+            },
+            "bribe_success": {
+              "before": 0.8709677419354839,
+              "after": 0.8661764705882353,
+              "delta": -0.004791271347248549
+            },
+            "crossing_failure": {
+              "before": 0.004016064257028112,
+              "after": 0.00267379679144385,
+              "delta": -0.001342267465584262
+            },
+            "dominant_failure": {
+              "before": 0.9594594594594594,
+              "after": 0.9759036144578314,
+              "delta": 0.01644415499837193
+            },
+            "mean_camp_days": {
+              "before": 2.06,
+              "after": 2.032,
+              "delta": -0.028000000000000025
+            },
+            "mean_repair_days": {
+              "before": 0.396,
+              "after": 0.376,
+              "delta": -0.020000000000000018
+            },
+            "mean_nonmoving_days": {
+              "before": 1.56,
+              "after": 1.536,
+              "delta": -0.02400000000000002
+            }
+          },
+          "ratio_failures_before": 33,
+          "ratio_failures_after": 26,
+          "ratio_seeds_fixed": [
+            1344,
+            1345,
+            1347,
+            1351,
+            1356,
+            1359,
+            1362,
+            1367,
+            1375,
+            1385,
+            1400,
+            1403,
+            1418,
+            1422,
+            1425,
+            1436,
+            1439,
+            1443,
+            1507,
+            1510,
+            1530,
+            1547,
+            1551,
+            1557,
+            1571
+          ],
+          "ratio_seeds_introduced": [
+            1341,
+            1363,
+            1369,
+            1380,
+            1383,
+            1391,
+            1435,
+            1453,
+            1461,
+            1500,
+            1519,
+            1521,
+            1526,
+            1529,
+            1536,
+            1558,
+            1560,
+            1562
+          ],
+          "ratio_seeds_retained": [
+            1387,
+            1454,
+            1464,
+            1501,
+            1505,
+            1539,
+            1544,
+            1568
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 26,
+              "minimum": 0.9,
+              "observed": 0.84
+            }
+          ],
+          "endings": {
+            "boss.victory": 167,
+            "sanity": 81,
+            "collapse_crossing": 2
+          }
+        },
+        "Deep - Balanced": {
+          "metrics": {
+            "mean_days": {
+              "before": 21.472,
+              "after": 21.468,
+              "delta": -0.004000000000001336
+            },
+            "mean_miles": {
+              "before": 2131.8124,
+              "after": 2123.1192,
+              "delta": -8.693199999999706
+            },
+            "mean_physical_mpd": {
+              "before": 132.22628,
+              "after": 131.09044,
+              "delta": -1.1358400000000017
+            },
+            "mean_ratio": {
+              "before": 0.9559366661800731,
+              "after": 0.9578160939503705,
+              "delta": 0.0018794277702973705
+            },
+            "min_ratio": {
+              "before": 0.8181818181818182,
+              "after": 0.8461538461538461,
+              "delta": 0.027972027972027913
+            },
+            "mean_unique_per_20": {
+              "before": 6.595463934455239,
+              "after": 6.482779076639946,
+              "delta": -0.11268485781529325
+            },
+            "min_unique_per_20": {
+              "before": 4.0,
+              "after": 4.0,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 0.64,
+              "after": 0.652,
+              "delta": 0.01200000000000001
+            },
+            "boss_win": {
+              "before": 0.192,
+              "after": 0.212,
+              "delta": 0.01999999999999999
+            },
+            "survival": {
+              "before": 0.828,
+              "after": 0.82,
+              "delta": -0.008000000000000007
+            },
+            "milestone": {
+              "before": 0.696,
+              "after": 0.696,
+              "delta": 0.0
+            },
+            "bribe_success": {
+              "before": 0.7411095305832148,
+              "after": 0.7411095305832148,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.10810810810810811,
+              "after": 0.10810810810810811,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0.7037037037037037,
+              "after": 0.7037037037037037,
+              "delta": 0.0
+            },
+            "mean_camp_days": {
+              "before": 1.776,
+              "after": 1.748,
+              "delta": -0.028000000000000025
+            },
+            "mean_repair_days": {
+              "before": 0.308,
+              "after": 0.292,
+              "delta": -0.016000000000000014
+            },
+            "mean_nonmoving_days": {
+              "before": 1.012,
+              "after": 1,
+              "delta": -0.01200000000000001
+            }
+          },
+          "ratio_failures_before": 20,
+          "ratio_failures_after": 22,
+          "ratio_seeds_fixed": [
+            1337,
+            1364,
+            1393,
+            1403,
+            1406,
+            1463,
+            1486,
+            1496,
+            1502,
+            1529,
+            1538,
+            1541,
+            1557
+          ],
+          "ratio_seeds_introduced": [
+            1379,
+            1383,
+            1432,
+            1444,
+            1456,
+            1480,
+            1507,
+            1519,
+            1527,
+            1532,
+            1536,
+            1543,
+            1576,
+            1577,
+            1581
+          ],
+          "ratio_seeds_retained": [
+            1367,
+            1440,
+            1450,
+            1461,
+            1504,
+            1520,
+            1522
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 22,
+              "minimum": 0.9,
+              "observed": 0.8461538461538461
+            },
+            {
+              "guard": "mean internal campaign distance",
+              "observed": 2123.1192,
+              "minimum": 1900,
+              "maximum": 2100
+            }
+          ],
+          "endings": {
+            "sanity": 22,
+            "boss_vote_failed": 88,
+            "boss.victory": 53,
+            "collapse_breakdown": 10,
+            "collapse_crossing": 76,
+            "collapse_disease": 1
+          }
+        },
+        "Deep - Conservative": {
+          "metrics": {
+            "mean_days": {
+              "before": 26.9,
+              "after": 26.892,
+              "delta": -0.007999999999999119
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 115.28384,
+              "after": 115.19436,
+              "delta": -0.08947999999999467
+            },
+            "mean_ratio": {
+              "before": 0.9801979678048643,
+              "after": 0.9812668771841185,
+              "delta": 0.0010689093792541904
+            },
+            "min_ratio": {
+              "before": 0.9,
+              "after": 0.8928571428571429,
+              "delta": -0.0071428571428571175
+            },
+            "mean_unique_per_20": {
+              "before": 7.260704823656547,
+              "after": 7.192128814225366,
+              "delta": -0.06857600943118136
+            },
+            "min_unique_per_20": {
+              "before": 5.925925925925926,
+              "after": 5.925925925925926,
+              "delta": 0.0
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.328,
+              "after": 0.324,
+              "delta": -0.0040000000000000036
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.868,
+              "after": 0.868,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 0,
+              "after": 0,
+              "delta": 0
+            },
+            "mean_camp_days": {
+              "before": 0.436,
+              "after": 0.432,
+              "delta": -0.0040000000000000036
+            },
+            "mean_repair_days": {
+              "before": 0.336,
+              "after": 0.344,
+              "delta": 0.007999999999999952
+            },
+            "mean_nonmoving_days": {
+              "before": 0.54,
+              "after": 0.512,
+              "delta": -0.028000000000000025
+            }
+          },
+          "ratio_failures_before": 0,
+          "ratio_failures_after": 1,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1516
+          ],
+          "ratio_seeds_retained": [],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 1,
+              "minimum": 0.9,
+              "observed": 0.8928571428571429
+            }
+          ],
+          "endings": {
+            "boss.victory": 81,
+            "boss_vote_failed": 169
+          }
+        },
+        "Deep - Resource Manager": {
+          "metrics": {
+            "mean_days": {
+              "before": 23.46,
+              "after": 23.468,
+              "delta": 0.007999999999999119
+            },
+            "mean_miles": {
+              "before": 2100.0,
+              "after": 2100.0,
+              "delta": 0.0
+            },
+            "mean_physical_mpd": {
+              "before": 127.50764,
+              "after": 127.69292,
+              "delta": 0.18528000000000588
+            },
+            "mean_ratio": {
+              "before": 0.9775463768115942,
+              "after": 0.9758973122529644,
+              "delta": -0.001649064558629787
+            },
+            "min_ratio": {
+              "before": 0.88,
+              "after": 0.875,
+              "delta": -0.0050000000000000044
+            },
+            "mean_unique_per_20": {
+              "before": 7.0111731225296445,
+              "after": 6.90355836627141,
+              "delta": -0.10761475625823458
+            },
+            "min_unique_per_20": {
+              "before": 5.0,
+              "after": 5.217391304347826,
+              "delta": 0.21739130434782616
+            },
+            "boss_reach": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "boss_win": {
+              "before": 0.28,
+              "after": 0.28,
+              "delta": 0.0
+            },
+            "survival": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "milestone": {
+              "before": 1,
+              "after": 1,
+              "delta": 0
+            },
+            "bribe_success": {
+              "before": 0.8226666666666667,
+              "after": 0.8226666666666667,
+              "delta": 0.0
+            },
+            "crossing_failure": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0
+            },
+            "dominant_failure": {
+              "before": 1.0,
+              "after": 0,
+              "delta": -1.0
+            },
+            "mean_camp_days": {
+              "before": 0.412,
+              "after": 0.396,
+              "delta": -0.01599999999999996
+            },
+            "mean_repair_days": {
+              "before": 0.412,
+              "after": 0.408,
+              "delta": -0.0040000000000000036
+            },
+            "mean_nonmoving_days": {
+              "before": 0.536,
+              "after": 0.576,
+              "delta": 0.039999999999999925
+            }
+          },
+          "ratio_failures_before": 1,
+          "ratio_failures_after": 2,
+          "ratio_seeds_fixed": [],
+          "ratio_seeds_introduced": [
+            1499
+          ],
+          "ratio_seeds_retained": [
+            1391
+          ],
+          "failures": [
+            {
+              "guard": "each-run moving-day ratio",
+              "count": 2,
+              "minimum": 0.9,
+              "observed": 0.875
+            }
+          ],
+          "endings": {
+            "boss.victory": 70,
+            "boss_vote_failed": 180
+          }
+        }
+      }
+    }
+  },
+  "evidence_hashes": {
+    "pace-crossing-health038-analysis.json": "c6c06f15fa3d73283bb0d19475d633458128a02e4c15c0e19ab7109d5a0019ab",
+    "pace-crossing-health038-arrival-analysis.json": "6943906cc51329bb885e1d8171b946ca776427da0efe3e68de28442a5c199a27",
+    "pace-crossing-health038-activity-analysis.json": "a53d18d5695af3f638e08c0848ac4abfb567d31b194c455ab4914f764148959c",
+    "pace-crossing-health038-arrival-activity-poncho-inputs.json": "04cc30db90165df732e5fa10fa85851c559a503117e6c887660511e085881415",
+    "pace-crossing-health038-arrival-activity-poncho-analysis.json": "c52fb524a491cdd972bc8083e02120f954ae01365c923db28134e40b1cca753c",
+    "pace-crossing-health038-arrival-activity-poncho-results.csv": "09798309788488996d8d073e3ff30ff3cae5440dbe9d178673b9085087fd4ea7",
+    "pace-crossing-health038-arrival-activity-poncho-campaign.log": "89abac08868d30d0ed5caf088e3175f17c81834fa97362b9ea6d279a5f346037"
+  },
+  "new_conservative_rm_counterexamples": [
+    {
+      "scenario": "Classic - Conservative",
+      "seed": 1374,
+      "ratio": 0.8928571428571429,
+      "days_survived": "28",
+      "miles_traveled": "2100.0",
+      "travel_days": "22",
+      "partial_travel_days": "3",
+      "non_travel_days": "3",
+      "days_with_camp": "2",
+      "days_with_repair": "0",
+      "crossing_events": "3",
+      "crossing_detours_taken": "1",
+      "ending_cause": "boss_vote_failed"
+    },
+    {
+      "scenario": "Deep - Conservative",
+      "seed": 1516,
+      "ratio": 0.8928571428571429,
+      "days_survived": "28",
+      "miles_traveled": "2100.0",
+      "travel_days": "24",
+      "partial_travel_days": "1",
+      "non_travel_days": "3",
+      "days_with_camp": "2",
+      "days_with_repair": "0",
+      "crossing_events": "3",
+      "crossing_detours_taken": "0",
+      "ending_cause": "boss.victory"
+    },
+    {
+      "scenario": "Deep - Resource Manager",
+      "seed": 1391,
+      "ratio": 0.88,
+      "days_survived": "25",
+      "miles_traveled": "2100.0",
+      "travel_days": "22",
+      "partial_travel_days": "0",
+      "non_travel_days": "3",
+      "days_with_camp": "2",
+      "days_with_repair": "0",
+      "crossing_events": "3",
+      "crossing_detours_taken": "1",
+      "ending_cause": "boss_vote_failed"
+    },
+    {
+      "scenario": "Deep - Resource Manager",
+      "seed": 1499,
+      "ratio": 0.875,
+      "days_survived": "24",
+      "miles_traveled": "2100.0",
+      "travel_days": "21",
+      "partial_travel_days": "0",
+      "non_travel_days": "3",
+      "days_with_camp": "2",
+      "days_with_repair": "0",
+      "crossing_events": "3",
+      "crossing_detours_taken": "0",
+      "ending_cause": "boss_vote_failed"
+    }
+  ]
+}

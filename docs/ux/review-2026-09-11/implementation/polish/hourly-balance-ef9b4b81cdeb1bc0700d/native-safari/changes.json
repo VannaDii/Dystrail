@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "file": "safari-smoke.mjs",
+      "changed": true,
+      "before_sha256": "0e1caea4664566d87774c00ab817545532ca9c162ad67b3d899033ad7f835dad",
+      "after_sha256": "9e2e5a1f0f34733ec330f41bd316a062247cf551c5b90ec266be2c9a397c81c3"
+    },
+    {
+      "file": "safari-feedback.mjs",
+      "changed": false,
+      "before_sha256": "bec3485fa660bd3fd93f87ddc80bae0479550cfcd9d9f4718629a5ef9dc8d2fc",
+      "after_sha256": "bec3485fa660bd3fd93f87ddc80bae0479550cfcd9d9f4718629a5ef9dc8d2fc"
+    }
+  ],
+  "exact_statement_changes": 2,
+  "adjacent_stale_final_care_labels_found": [],
+  "functional_assertions_and_timeouts_preserved": true,
+  "native_safari_launched": false
+}

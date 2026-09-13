@@ -1,0 +1,15 @@
+[
+  {
+    "path": "dystrail-game/tests/data_shapes.rs",
+    "before": "725eddd8aac60d4f702097e6874c583e8f45c3b7659665058b927c20418f74d4",
+    "after": "b10eb17563d539a8e43e36fef83d0df90faf9b1eca2633813f182b4d95d803dc",
+    "expected": "0x7858_a458_b840_b44c"
+  },
+  {
+    "path": "dystrail-tester/src/logic/playability.rs",
+    "before": "80d4821649e18b1c05ed17850234c8199f80c2a4eacfd80d6ff7af96828dee64",
+    "after": "fdcd9451d30aba7b01c14f24275f6bb2091a6ef99cb905adbdbcfa69679a6ba8",
+    "runtime_unchanged": true,
+    "experience_guards_unchanged": true
+  }
+]

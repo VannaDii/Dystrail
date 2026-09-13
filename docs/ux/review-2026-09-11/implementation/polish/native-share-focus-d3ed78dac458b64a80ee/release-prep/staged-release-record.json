@@ -1,0 +1,8 @@
+{
+  "parent_verified_signal_received": true,
+  "dispatch_on_hold": false,
+  "revision": "d3ed78dac458b64a80ee",
+  "commit": "99ae520b19f1ef8eb259d2211229fe954e4d3803",
+  "basis": "12 focused browser checks, 79 frontend unit tests, strict native and Wasm lint, release build, update plus closed-browser offline restart passed. Actual native share sheet and cancellation observed on prior artifact; focused native return check pending on this build.",
+  "native_final_focus_observed": false
+}

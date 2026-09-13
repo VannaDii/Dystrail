@@ -1,0 +1,6 @@
+{
+  "revision": "7ad4e188a8bb40584dd7",
+  "published": false,
+  "cause": "Temporary Trunk invocation omitted --public-url /play/; built root-relative URLs yielded 404 on isolated /play/ server.",
+  "correction": "Rebuild the identical source with --public-url /play/. Native checks remain valid; browser and skill smoke must rerun."
+}

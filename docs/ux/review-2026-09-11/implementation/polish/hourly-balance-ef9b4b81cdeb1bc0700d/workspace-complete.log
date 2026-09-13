@@ -1,0 +1,1194 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_game-1c9adb096c90e442)
+
+running 213 tests
+test activities::tests::gathering_preserves_capacity_health_and_town_guards ... ok
+test boss::tests::balanced_defaults_match_const_fns ... ok
+test activities::tests::activity_settlement_does_not_expand_same_day_lazy_initialization ... ok
+test boss::tests::default_config_has_minimum_rounds_and_passes ... ok
+test boss::tests::balanced_biases_load_from_assets ... ok
+test activities::tests::activity_settlement_exact_day_end_does_not_start_tomorrow ... ok
+test coverage_anchor::tests::checksum_executes ... ok
+test activities::tests::late_gathering_starts_its_shared_cooldown_when_the_work_finishes ... ok
+test activities::tests::activity_settlement_same_day_actions_do_not_repeat_daily_costs ... ok
+test activities::tests::activity_settlement_preserves_capped_reward_before_next_day_diet_cost ... ok
+test crew_care::tests::losing_the_player_ends_the_journey_with_a_player_specific_message ... ok
+test camp::explicit_breakdown_tests::camping_cannot_spend_time_resources_or_consume_a_spare_during_breakdown ... ok
+test crossings::resolver::tests::crossing_consumes_single_draw ... ok
+test crossings::resolver::tests::detour_hours_cover_span_using_single_sample ... ok
+test crossings::resolver::tests::diminishing_returns_apply_to_bribes ... ok
+test crossings::resolver::tests::permit_disables_terminal ... ok
+test activities::tests::activity_settlement_overnight_work_returns_current_day_costs_and_clock ... ok
+test boss::tests::run_boss_probability_branches_cover_edges ... ok
+test activities::tests::activity_settlement_overnight_gathering_keeps_reward_cost_and_cooldown ... ok
+test activities::tests::gathering_and_paid_work_cannot_be_farmed_by_reloading ... ok
+test data::tests::mandatory_cash_and_supply_costs_are_atomic_and_rewards_reach_the_wallet ... ok
+test data::tests::test_encounter_data_from_json ... ok
+test data::tests::test_encounter_data_from_array ... ok
+test crew_care::tests::natural_check_care_deferral_and_absence_are_persistent ... ok
+test camp::explicit_breakdown_tests::camp_and_roadside_forage_share_costs_and_cooldown ... ok
+test day_accounting::tests::day_record_serialization_roundtrip_is_stable ... ok
+test crossings::tests::apply_detour_spends_hours_without_inventing_miles ... ok
+test day_accounting::tests::ledger_metrics_align_with_distance ... ok
+test day_accounting::tests::fractional_legs_keep_their_distance_below_odometer_precision ... ok
+test day_accounting::tests::late_route_camping_never_moves_the_van_or_finishes_the_route ... ok
+test day_accounting::tests::ledger_travel_ratio_matches_manual_computation ... ok
+test encounters::tests::determine_selection_falls_back ... ok
+test encounters::tests::pick_encounter_respects_rotation_queue ... ok
+test day_accounting::tests::recent_stops_cannot_create_distance ... ok
+test encounters::tests::rotation_backlog_skips_recent_encounters ... ok
+test day_accounting::tests::ledger_metrics_match_state_distance ... ok
+test encounters::tests::weighted_choice_prefers_higher_weight ... ok
+test encounters::tests::queue_selected_repeats_emit_traces_without_consuming_rng ... ok
+test endgame::tests::config_defaults_load ... ok
+test encounters::tests::selection_exhausts_the_eligible_region_and_mode_before_repeating ... ok
+test day_accounting::tests::record_travel_day_applies_transitions ... ok
+test encounters::tests::weighted_selection_emits_decision_trace ... ok
+test endgame::tests::policy_key_resolves ... ok
+test activities::tests::activity_settlement_reload_and_zero_time_do_not_charge_again ... ok
+test journal::tests::an_empty_or_out_of_range_turn_has_no_entries ... ok
+test endgame::tests::field_repair_consumes_resources ... ok
+test journal::tests::an_after_hours_repair_uses_all_four_hours_of_the_next_active_day ... ok
+test journey::daily::tests::daily_health_collapse_does_not_blame_an_explicitly_repaired_vehicle ... ok
+test evidence::tests::base_evidence_is_guaranteed_and_bonus_is_bounded ... ok
+test journal::tests::turn_history_preserves_every_action_and_resets_only_when_travel_begins ... ok
+test journey::daily::tests::destroyed_vehicle_keeps_terminal_priority_over_daily_health_collapse ... ok
+test journey::daily::tests::health_decay_and_rest_heal_interplay ... ok
+test journey::daily::tests::applies_pace_diet_weather_and_exec_multipliers ... ok
+test journey::daily::tests::sanitize_guards_invalid_entries ... ok
+test journey::daily::tests::zero_ticks_and_rest_healing_keep_the_cause_until_new_health_loss ... ok
+test endgame::tests::one_time_wear_reset_applies_once ... ok
+test journey::daily::tests::daily_decay_preserves_the_cause_when_health_is_already_depleted ... ok
+test journey::daily_overlay::tests::a_partial_daily_override_retains_food_healing_and_other_weather_values ... ok
+test journey::event::tests::decision_trace_roundtrips ... ok
+test journal::tests::clock_and_actual_history_survive_save_without_navigation_time ... ok
+test journey::event::tests::legacy_log_event_roundtrips_and_has_stable_id ... ok
+test encounters::tests::unseen_selection_uses_weights_even_with_an_alphabetical_rotation_queue ... ok
+test data::tests::every_region_offers_evidence_in_both_modes ... ok
+test journey::daily::tests::fractional_daily_costs_accumulate_and_survive_a_saved_journey ... ok
+test journey::tests::journey_cfg_missing_fields_use_defaults ... ok
+test journey::tests::policy_conversion_roundtrip ... ok
+test journey::tests::journey_config_rejects_invalid_ratio ... ok
+test journal::tests::old_saves_ignore_the_retired_stat_without_changing_other_resources ... ok
+test journey::tests::resource_manager_overlay_adjusts_part_weights ... ok
+test journey::tests::travel_day_kind_ratio_flag ... ok
+test journey::tests::policy_catalog_resolves_family_and_overlay ... ok
+test mechanics::otdeluxe90s::tests::default_policy_includes_required_parity_defaults ... ok
+test mechanics::otdeluxe90s::tests::default_policy_matches_extracted_trail_and_store_constants ... ok
+test journey::rng_save::tests::mixed_draws_continue_after_serializing_game_state ... ok
+test journey::rng_save::tests::session_from_state_keeps_stream_position ... ok
+test numbers::tests::ceil_clamps_and_handles_nan ... ok
+test numbers::tests::clamp_handles_non_finite ... ok
+test numbers::tests::rounders_cover_ranges ... ok
+test party::tests::legacy_names_survive_upgrade ... ok
+test party::tests::names_are_unique_reproducible_and_do_not_repopulate_absent_members ... ok
+test personas::tests::test_persona_json_parsing ... ok
+test journey::tests::rng_bundle_uses_domain_hmac ... ok
+test repairs::tests::interactive_travel_cannot_silently_install_an_available_part ... ok
+test journey::session::tests::session_construction_sets_policy_and_state ... ok
+test repairs::tests::purchase_uses_the_store_price_and_only_charges_delivery_outside_town ... ok
+test result::tests::high_score_triggers_victory ... ok
+test repairs::tests::repairs_are_costed_atomic_and_allow_a_cashless_exit ... ok
+test result::tests::hunger_collapse_maps_to_hunger_keys ... ok
+test result::tests::persona_resolution_and_headlines ... ok
+test repairs::tests::destroyed_vehicle_does_not_silently_spend_parts_or_cash ... ok
+test result::tests::vehicle_failure_uses_detailed_keys ... ok
+test route_services::tests::capped_social_stats_offer_a_receipt_instead_of_an_empty_reward ... ok
+test route_services::tests::town_rewards_are_varied_visible_and_claimed_once_across_saves ... ok
+test seed::tests::dp_orange_42_stable ... ok
+test seed::tests::encode_decode_roundtrips_code ... ok
+test seed::tests::retired_code_word_preserves_the_saved_seed ... ok
+test seed::tests::test_parse_share_code ... ok
+test repairs::tests::a_paid_or_fitted_repair_reduces_the_wear_that_causes_repeat_breakdowns ... ok
+test day_accounting::tests::fractional_days_reconcile_with_odometer_and_saved_open_day ... ok
+test data::tests::shipped_evidence_choices_award_save_and_score_their_receipt_once ... ok
+test journey::tests::reseed_resets_rng_bundle ... ok
+test journey::session::tests::session_from_state_resets_policy_and_ticks ... ok
+test journey::tests::tick_day_emits_events_with_stable_day_id_when_day_is_consumed ... ok
+test journey::tests::journey_config_partial_ratio_clamped ... ok
+test evidence::tests::news_diet_bonus_does_not_accumulate_across_days ... ok
+test route::tests::real_routes_have_distinct_origins_ordered_mileage_and_a_dc_finish ... ok
+test route_services::tests::arrival_trade_cost_and_departure_survive_save ... ok
+test route::tests::geography_and_scenes_follow_the_selected_route_and_survive_save ... ok
+test journey::session::tests::route_scale_is_ready_before_departure_and_stable_after_reload ... ok
+test state::crossing_arrival_tests::crossing_arrival_preserves_the_first_checkpoint_alternate_route ... ok
+test state::crossing_arrival_tests::crossing_arrival_already_reached_milestones_do_not_rewind_or_credit_driving ... ok
+test state::crossing_arrival_tests::crossing_arrival_costs_that_fill_the_day_settle_it_without_driving_during_the_stop ... ok
+test state::crossing_arrival_tests::encounter_resolution_preserves_requested_rest_and_does_not_bypass_breakdowns ... ok
+test journey::tests::tick_day_surfaces_and_drains_decision_traces ... ok
+test state::crossing_arrival_tests::encounter_arrival_opens_the_reached_town_without_passing_it ... ok
+test journey::session::tests::daily_costs_apply_once_when_pace_initializes_the_day_and_after_reload ... ok
+test state::crossing_arrival_tests::encounter_resolution_rejects_invalid_or_unaffordable_choices_without_spending_time ... ok
+test state::crossing_arrival_tests::overnight_encounter_settles_new_day_costs_once ... ok
+test state::tests::allows_two_spaced_encounters_before_daily_cap ... ok
+test state::crossing_arrival_tests::crossing_arrival_terminal_at_day_end_retains_the_approach_without_an_empty_next_day ... ok
+test state::tests::beginning_a_day_while_parked_does_not_wear_the_vehicle ... ok
+test state::tests::camp_cooldowns_tick_once_per_completed_day ... ok
+test state::tests::classic_field_repair_guard_handles_zero_distance ... ok
+test state::tests::breakdown_consumes_spare_and_clears_block ... ok
+test state::tests::compute_miles_variations_cover_paths ... ok
+test state::tests::breakdown_without_spare_resolves_after_stall ... ok
+test state::tests::deep_aggressive_compose_uses_supplies_then_funds ... ok
+test state::tests::crossing_pass_and_detour_spend_time_without_driving_wear ... ok
+test state::tests::breakdown_uses_part_weights ... ok
+test state::tests::deep_aggressive_safeguards_and_compose ... ok
+test state::tests::crossing_records_never_invent_a_bribe_attempt ... ok
+test state::crossing_arrival_tests::crossing_arrival_mid_hour_resolves_once_and_preserves_pass_detour_and_terminal_costs ... ok
+test state::tests::aggressive_emergency_and_field_repair_paths ... ok
+test state::tests::early_readiness_preserves_mode_policy_and_terminal_guards ... ok
+test state::tests::encounter_penalties_and_boosts_apply ... ok
+test state::tests::encounter_recording_updates_history ... ok
+test state::tests::encounter_minimum_gap_uses_ninety_then_one_hundred_twenty_driving_minutes ... ok
+test state::tests::eight_hour_drought_bypasses_soft_cap_and_defers_when_no_unseen_scene_is_eligible ... ok
+test state::illness_protection_tests::masks_do_not_guarantee_immunity_or_treat_existing_illness ... ok
+test state::tests::encounter_rides_cannot_bypass_a_breakdown ... ok
+test state::tests::deep_aggressive_readiness_unlocks_on_progress_without_time_or_rng ... ok
+test state::tests::encounter_rides_preserve_earlier_driving_within_the_choice_time ... ok
+test state::tests::encounter_soft_cap_reduces_chance ... ok
+test state::tests::end_of_day_variants_cover_remaining_paths ... ok
+test state::tests::enumeration_roundtrips_cover_branches ... ok
+test state::tests::encounter_rides_respect_current_speed_and_remaining_daylight ... ok
+test state::tests::exec_order_effects_cover_all_variants ... ok
+test state::tests::exposure_sets_kind ... ok
+test state::tests::exec_order_expires_and_sets_cooldown ... ok
+test state::crossing_arrival_tests::crossing_arrival_respects_earlier_towns_and_the_route_endpoint ... ok
+test state::tests::encounter_schedule_and_weighted_choice_survive_save_reload ... ok
+test state::tests::exec_order_drain_clamped_to_zero ... ok
+test state::tests::final_approach_still_respects_remaining_daylight ... ok
+test state::tests::clinic_choices_spend_only_the_short_visit_and_preserve_earlier_driving ... ok
+test state::tests::illness_rolls_cover_positive_and_cooldown_paths ... ok
+test state::tests::first_checkpoint_permits_and_successful_bribes_remain_passes ... ok
+test state::tests::ledger_records_capture_tags_and_counts ... ok
+test state::tests::driving_drought_introduces_two_distinct_early_encounters_in_both_modes ... ok
+test state::tests::later_checkpoint_and_bridge_failures_still_end_the_journey ... ok
+test state::tests::no_miles_on_camp ... ok
+test state::tests::illness_triggers_when_guard_conditions_met ... ok
+test state::tests::misc_state_path_exercise ... ok
+test state::tests::ledger_serializes_and_roundtrips ... ok
+test state::tests::max_two_encounters_per_day ... ok
+test state::tests::rest_and_delay_helpers_cannot_create_or_erase_movement ... ok
+test state::tests::repeated_stops_do_not_award_unearned_miles ... ok
+test state::tests::fractional_route_remainder_uses_only_the_final_driving_minute ... ok
+test journey::rng_save::tests::a_resumed_journey_matches_an_uninterrupted_journey ... ok
+test state::tests::sanity_guard_recovers_without_inventing_distance ... ok
+test state::tests::starvation_sets_hunger_collapse ... ok
+test state::tests::rest_travel_credit_logs_when_enabled ... ok
+test state::tests::starvation_stacks_damage ... ok
+test state::tests::stationary_stops_preserve_travel_and_rotation_history ... ok
+test state::tests::strategy_does_not_secretly_change_the_selected_travel_pace ... ok
+test state::tests::travel_ratio_recent_handles_edge_cases ... ok
+test state::tests::travel_wear_scales_with_pace_weather_and_fatigue ... ok
+test state::tests::stationary_work_and_camp_cannot_unlock_early_readiness ... ok
+test state::tests::repair_guards_and_limp_paths_execute ... ok
+test state::tests::vehicle_terminal_sets_ending ... ok
+test store::tests::cart_manipulation_and_totals ... ok
+test store::tests::store_lookup_variants ... ok
+test state::tests::work_and_camp_do_not_advance_encounter_exposure ... ok
+test store::tests::whole_dollar_prices_match_affordability_and_saved_balances ... ok
+test travel_time::tests::hourly_probabilities_compose_to_the_configured_daily_risk ... ok
+test tests::create_game_defaults_to_balanced_strategy ... ok
+test tests::engine_creates_and_roundtrips_state ... ok
+test state::tests::pace_fatigue_charges_the_final_minute_once_and_no_more_after_arrival ... ok
+test state::tests::exact_endpoint_arrival_charges_only_its_driving_time_and_cannot_repeat ... ok
+test travel_time::tests::pace_fatigue_keeps_sanity_nonnegative ... ok
+test state::tests::overnight_briefing_choices_still_request_a_full_rest ... ok
+test travel_time::tests::pace_fatigue_does_not_replace_daily_diet_or_generic_daily_effects ... ok
+test travel_time::tests::pace_fatigue_on_a_short_drive_is_part_of_its_stats_and_not_weather_cost ... ok
+test travel_time::tests::pace_fatigue_partial_minutes_survive_pace_changes_and_zero_time ... ok
+test travel_time::tests::pace_fatigue_is_not_earned_by_work_camp_or_menu_time ... ok
+test travel_time::tests::pace_fatigue_remainder_survives_reload_and_older_saves_default_to_zero ... ok
+test travel_time::tests::stops_use_the_driving_budget_and_reload_cannot_restore_it ... ok
+test travel_time::tests::rest_preserves_miles_already_driven_and_never_credits_stationary_days ... ok
+test state::tests::steady_clear_progress_uses_hours_and_the_actual_road_distance ... ok
+test travel_time::tests::stationary_clock_chunks_record_only_days_with_elapsed_time ... ok
+test travel_time::tests::unfinished_work_carries_into_tomorrow_and_daily_costs_apply_once ... ok
+test weather_impact::tests::receipt_observes_cold_protection_and_stat_floors ... ok
+test weather_impact::tests::weather_receipt_includes_exposure_and_gear_then_clears ... ok
+test travel_time::tests::each_hour_of_foraging_reduces_distance_by_one_hour_at_the_actual_speed ... ok
+test state::tests::first_checkpoint_denials_are_clocked_detours_with_honest_bribe_records ... ok
+test repairs::tests::pending_breakdowns_block_all_automatic_recovery_before_a_day_starts ... ok
+test state::crossing_arrival_tests::crossing_arrival_in_the_final_minute_keeps_the_exact_boundary_for_every_route_and_pace ... ok
+test state::crossing_arrival_tests::encounter_arrival_includes_choice_and_crossing_time_without_duplicate_resolution ... ok
+test state::tests::health_and_sanity_boosts_apply ... ok
+test travel_time::tests::pace_fatigue_full_day_cost_is_independent_of_driving_chunk_size ... ok
+test state::tests::ally_attrition_and_exec_order_paths ... ok
+test state::illness_protection_tests::masks_reduce_new_illness_risk_without_erasing_unprotected_risk ... ok
+test state::illness_protection_tests::masks_protection_survives_reload_and_cooldown_still_prevents_rolls ... ok
+test journey::session::tests::hourly_pace_caps_are_consistent_for_every_route_and_strategy ... ok
+
+test result: ok. 213 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/coverage_sweep.rs (/Users/vanna/Source/Dystrail/target/debug/deps/coverage_sweep-b45010d65cef1194)
+
+running 24 tests
+test day_accounting_transition_matrix_covers_edges ... ok
+test pacing_and_personas_cover_fallbacks ... ok
+test camp_disabled_and_breakdown_paths ... ok
+test seed_error_paths_cover_invalid_cases ... ok
+test camp_actions_cover_branches ... ok
+test result_endings_branching ... ok
+test state_apply_choice_handles_missing_encounter ... ok
+test day_accounting_ratio_and_sanitize ... ok
+test store_pricing_variants ... ok
+test endgame_controller_and_failure_guard ... ok
+test seed_and_result_paths_cover_branches ... ok
+test boss_outcomes_cover_all_paths ... ok
+test crossing_config_thresholds_cover_branches ... ok
+test game_engine_smoke_and_storage_paths ... ok
+test store_cart_and_inventory_flows ... ok
+test weather_variants_cover_branches ... ok
+test vehicle_and_weather_paths ... ok
+test camp_multi_day_sequences_cover_loops ... ok
+test crossing_resolution_covers_branches ... ok
+test encounter_rotation_and_weights_cover_branches ... ok
+test boss_probability_edges_cover_low_and_high ... ok
+test journey_controller_tick_yields_day_record ... ok
+test journey_controller_applies_partial_ratio ... ok
+test full_content_walkthrough ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/data_shapes.rs (/Users/vanna/Source/Dystrail/target/debug/deps/data_shapes-a4ad2850254766fb)
+
+running 2 tests
+test journey_config_snapshot_stable ... FAILED
+test game_state_serialization_preserves_day_records ... ok
+
+failures:
+
+---- journey_config_snapshot_stable stdout ----
+
+thread 'journey_config_snapshot_stable' (72783369) panicked at dystrail-game/tests/data_shapes.rs:40:5:
+assertion `left == right` failed: journey config snapshot changed
+{
+  "classic:aggressive": {
+    "breakdown": {
+      "base": 0.017999999225139618,
+      "beta": 0.10000000149011612,
+      "pace_factor": {
+        "blitz": 1.3799999952316284,
+        "heated": 1.159999966621399,
+        "steady": 0.9800000190734863
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.100000023841858,
+        "HeatWave": 1.350000023841858,
+        "Smoke": 1.149999976158142,
+        "Storm": 1.25
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.0,
+        "diminishing_returns": 0.4000000059604645,
+        "pass_bonus": 0.20000000298023224,
+        "terminal_penalty": 0.20000000298023224
+      },
+      "detour": 0.1599999964237213,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.7200000286102295,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.11999999731779099
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.8999999761581421,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 18,
+      "battery": 22,
+      "pump": 16,
+      "tire": 44
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7799999713897705,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.8199999928474426
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.100000023841858,
+      "comfort_miles": 1250.0,
+      "fatigue_k": 0.14000000059604645
+    }
+  },
+  "classic:balanced": {
+    "breakdown": {
+      "base": 0.014999999664723873,
+      "beta": 0.1850000023841858,
+      "pace_factor": {
+        "blitz": 1.2799999713897705,
+        "heated": 1.0800000429153442,
+        "steady": 0.9399999976158142
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.100000023841858,
+        "HeatWave": 1.350000023841858,
+        "Smoke": 1.149999976158142,
+        "Storm": 1.25
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.0,
+        "diminishing_returns": 0.3799999952316284,
+        "pass_bonus": 0.19200000166893005,
+        "terminal_penalty": 0.04500000178813934
+      },
+      "detour": 0.08500000089406967,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.699999988079071,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.2150000035762787
+    },
+    "daily": {
+      "health": {
+        "decay": 0.3799999952316284,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.8999999761581421,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 18,
+      "battery": 22,
+      "pump": 16,
+      "tire": 44
+    },
+    "partial_ratio": 0.5099999904632568,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7799999713897705,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.8199999928474426
+      }
+    },
+    "victory_miles": 2400.0,
+    "wear": {
+      "base": 0.7300000190734863,
+      "comfort_miles": 1750.0,
+      "fatigue_k": 0.24500000476837158
+    }
+  },
+  "classic:conservative": {
+    "breakdown": {
+      "base": 0.013000000268220901,
+      "beta": 0.10000000149011612,
+      "pace_factor": {
+        "blitz": 1.1799999475479126,
+        "heated": 1.0199999809265137,
+        "steady": 0.8999999761581421
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.100000023841858,
+        "HeatWave": 1.350000023841858,
+        "Smoke": 1.149999976158142,
+        "Storm": 1.25
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.0,
+        "diminishing_returns": 0.4000000059604645,
+        "pass_bonus": 0.20000000298023224,
+        "terminal_penalty": 0.20000000298023224
+      },
+      "detour": 0.1599999964237213,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.7200000286102295,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.11999999731779099
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.8999999761581421,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 18,
+      "battery": 22,
+      "pump": 16,
+      "tire": 44
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7799999713897705,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.8199999928474426
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.0,
+      "comfort_miles": 1250.0,
+      "fatigue_k": 0.09000000357627869
+    }
+  },
+  "classic:resource_manager": {
+    "breakdown": {
+      "base": 0.014000000432133675,
+      "beta": 0.10000000149011612,
+      "pace_factor": {
+        "blitz": 1.2799999713897705,
+        "heated": 1.0800000429153442,
+        "steady": 0.9399999976158142
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.100000023841858,
+        "HeatWave": 1.350000023841858,
+        "Smoke": 1.149999976158142,
+        "Storm": 1.25
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.05000000074505806,
+        "diminishing_returns": 0.3499999940395355,
+        "pass_bonus": 0.25,
+        "terminal_penalty": 0.25
+      },
+      "detour": 0.17000000178813934,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.7799999713897705,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "bridge_out",
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.05000000074505806
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.8999999761581421,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 18,
+      "battery": 24,
+      "pump": 20,
+      "tire": 38
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.8999999761581421,
+        "Smoke": 0.9399999976158142,
+        "Storm": 0.9200000166893005
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.100000023841858,
+      "comfort_miles": 1250.0,
+      "fatigue_k": 0.14000000059604645
+    }
+  },
+  "deep:aggressive": {
+    "breakdown": {
+      "base": 0.017999999225139618,
+      "beta": 0.1599999964237213,
+      "pace_factor": {
+        "blitz": 1.3799999952316284,
+        "heated": 1.159999966621399,
+        "steady": 0.9800000190734863
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.1200000047683716,
+        "HeatWave": 1.4500000476837158,
+        "Smoke": 1.1799999475479126,
+        "Storm": 1.3200000524520874
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.019999999552965164,
+        "diminishing_returns": 0.44999998807907104,
+        "pass_bonus": 0.20000000298023224,
+        "terminal_penalty": 0.20000000298023224
+      },
+      "detour": 0.11999999731779099,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.800000011920929,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.07999999821186066
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.9200000166893005,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 20,
+      "battery": 24,
+      "pump": 16,
+      "tire": 40
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7599999904632568,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.800000011920929
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.100000023841858,
+      "comfort_miles": 1150.0,
+      "fatigue_k": 0.14000000059604645
+    }
+  },
+  "deep:balanced": {
+    "breakdown": {
+      "base": 0.014999999664723873,
+      "beta": 0.1850000023841858,
+      "pace_factor": {
+        "blitz": 1.3799999952316284,
+        "heated": 1.159999966621399,
+        "steady": 0.9700000286102295
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.1200000047683716,
+        "HeatWave": 1.4500000476837158,
+        "Smoke": 1.1799999475479126,
+        "Storm": 1.3200000524520874
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.0,
+        "diminishing_returns": 0.3799999952316284,
+        "pass_bonus": 0.19200000166893005,
+        "terminal_penalty": 0.04500000178813934
+      },
+      "detour": 0.08500000089406967,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.699999988079071,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.2150000035762787
+    },
+    "daily": {
+      "health": {
+        "decay": 0.3799999952316284,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.9200000166893005,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 20,
+      "battery": 24,
+      "pump": 16,
+      "tire": 40
+    },
+    "partial_ratio": 0.5099999904632568,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7599999904632568,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.800000011920929
+      }
+    },
+    "victory_miles": 2400.0,
+    "wear": {
+      "base": 0.7300000190734863,
+      "comfort_miles": 1750.0,
+      "fatigue_k": 0.24500000476837158
+    }
+  },
+  "deep:conservative": {
+    "breakdown": {
+      "base": 0.013000000268220901,
+      "beta": 0.1599999964237213,
+      "pace_factor": {
+        "blitz": 1.1799999475479126,
+        "heated": 1.0199999809265137,
+        "steady": 0.8999999761581421
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.1200000047683716,
+        "HeatWave": 1.4500000476837158,
+        "Smoke": 1.1799999475479126,
+        "Storm": 1.3200000524520874
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.019999999552965164,
+        "diminishing_returns": 0.44999998807907104,
+        "pass_bonus": 0.20000000298023224,
+        "terminal_penalty": 0.20000000298023224
+      },
+      "detour": 0.11999999731779099,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.800000011920929,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.07999999821186066
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.9200000166893005,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 20,
+      "battery": 24,
+      "pump": 16,
+      "tire": 40
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.7599999904632568,
+        "Smoke": 0.8600000143051147,
+        "Storm": 0.800000011920929
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.0,
+      "comfort_miles": 1250.0,
+      "fatigue_k": 0.09000000357627869
+    }
+  },
+  "deep:resource_manager": {
+    "breakdown": {
+      "base": 0.014000000432133675,
+      "beta": 0.1599999964237213,
+      "pace_factor": {
+        "blitz": 1.3799999952316284,
+        "heated": 1.159999966621399,
+        "steady": 0.9700000286102295
+      },
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 1.1200000047683716,
+        "HeatWave": 1.4500000476837158,
+        "Smoke": 1.1799999475479126,
+        "Storm": 1.3200000524520874
+      }
+    },
+    "crossing": {
+      "bribe": {
+        "detour_bonus": 0.05000000074505806,
+        "diminishing_returns": 0.3499999940395355,
+        "pass_bonus": 0.25,
+        "terminal_penalty": 0.25
+      },
+      "detour": 0.17000000178813934,
+      "detour_hours": {
+        "max": 2,
+        "min": 1
+      },
+      "pass": 0.7799999713897705,
+      "permit": {
+        "disable_terminal": true,
+        "eligible": [
+          "bridge_out",
+          "checkpoint"
+        ]
+      },
+      "terminal": 0.05000000074505806
+    },
+    "daily": {
+      "health": {
+        "decay": 0.0,
+        "exec": {},
+        "rest_heal": 0.0,
+        "weather": {}
+      },
+      "sanity": {
+        "base": 0.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      },
+      "supplies": {
+        "base": 1.0,
+        "diet": {},
+        "exec": {},
+        "pace": {},
+        "weather": {}
+      }
+    },
+    "guards": {
+      "min_travel_ratio": 0.9200000166893005,
+      "target_days_max": 30,
+      "target_days_min": 8,
+      "target_distance": 2000.0
+    },
+    "part_weights": {
+      "alt": 18,
+      "battery": 24,
+      "pump": 20,
+      "tire": 38
+    },
+    "partial_ratio": 0.5,
+    "travel": {
+      "weather_factor": {
+        "Clear": 1.0,
+        "ColdSnap": 0.8999999761581421,
+        "HeatWave": 0.8999999761581421,
+        "Smoke": 0.9399999976158142,
+        "Storm": 0.9200000166893005
+      }
+    },
+    "victory_miles": 2100.0,
+    "wear": {
+      "base": 1.100000023841858,
+      "comfort_miles": 1150.0,
+      "fatigue_k": 0.14000000059604645
+    }
+  }
+}
+  left: 8671861783457215564
+ right: 9319954278824958114
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    journey_config_snapshot_stable
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `-p dystrail-game --test data_shapes`
+     Running tests/full_campaign.rs (/Users/vanna/Source/Dystrail/target/debug/deps/full_campaign-24017a4127c26034)
+
+running 1 test
+test full_campaign_exercises_core_systems ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/stat_acceptance.rs (/Users/vanna/Source/Dystrail/target/debug/deps/stat_acceptance-ad520e04f23fb650)
+
+running 4 tests
+test crossing_distribution_matches_policy_weights ... ok
+test bribe_increases_pass_and_reduces_terminal ... ok
+test breakdown_probability_tracks_base_rate ... ok
+test endgame_breakdown_scale_reduces_breaks ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/system_coverage.rs (/Users/vanna/Source/Dystrail/target/debug/deps/system_coverage-be05513fd8464f36)
+
+running 8 tests
+test encounter_data_static_loader_is_empty ... ok
+test pacing_accessors_are_resilient ... ok
+test store_cart_covers_operations ... ok
+test vehicle_system_behaviour ... ok
+test weather_config_validation_flags_missing_data ... ok
+test camp_actions_cover_key_paths ... ok
+test weather_effects_and_selection ... ok
+test boss_minigame_exercises_outcomes ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/weather_paths.rs (/Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-50abb0f502cb39cf)
+
+running 5 tests
+test ponchos_protect_sanity_in_storms_without_changing_other_weather_costs ... ok
+test neutral_buffer_prefers_smoke_when_weighted ... ok
+test weather_selection_and_effects_cover_branches ... ok
+test neutral_buffer_defaults_to_clear_when_no_neutral_weights ... ok
+test select_weather_is_deterministic_for_same_seed ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_tester-40c244eb73e62419)
+
+running 25 tests
+test logic::game_tester::tests::boss_flags_only_when_attempted ... ok
+test logic::seeds::tests::resolves_numeric_and_share_code ... ok
+test logic::simulation::tests::a_completed_camp_day_resets_the_clock_without_driving ... ok
+test logic::playability::tests::encounter_catalog_contains_rotation_additions ... ok
+test logic::simulation::tests::care_spends_supplies_and_a_fatal_deferral_stops_all_later_actions ... ok
+test logic::playability::tests::validate_targets_enforce_deep_crossing_failure_cap ... ok
+test logic::playability::tests::validate_targets_enforce_average_miles_per_day_band ... ok
+test logic::playability::tests::validate_targets_enforce_distance_window ... ok
+test logic::playability::tests::validate_targets_enforce_classic_crossing_failure_cap ... ok
+test logic::playability::tests::validate_targets_accepts_balanced_sample_data ... ok
+test logic::game_tester::tests::boss_config_loads_balanced_biases ... ok
+test logic::game_tester::tests::store_purchases_match_shelf_prices_capacity_and_available_cash ... ok
+test logic::simulation::tests::roadside_repairs_use_owned_parts_then_affordable_player_options ... ok
+test logic::simulation::tests::town_and_route_preparation_match_the_configured_journey ... ok
+test logic::simulation::tests::gathering_uses_the_players_cost_and_persisted_cooldown ... ok
+test logic::game_tester::tests::balanced_setup_applies_persona_and_store_plan ... ok
+test logic::simulation::tests::final_hearing_spends_two_hours_once_and_records_every_stationary_day ... ok
+test logic::game_tester::tests::miles_reflect_miles_traveled ... ok
+test logic::playability::tests::deterministic_journey_digest_baseline ... FAILED
+test logic::game_tester::tests::balanced_run_survives_past_day_45 ... ok
+test logic::playability::tests::generates_records_for_each_scenario ... ok
+test logic::playability::tests::deterministic_csv_digest_for_fixed_seed ... FAILED
+test logic::playability::tests::aggregates_match_record_counts ... ok
+test logic::seeds::tests::expands_all_share_codes ... ok
+test logic::playability::tests::balanced_samples_hit_survival_and_boss_targets ... ok
+
+failures:
+
+---- logic::playability::tests::deterministic_journey_digest_baseline stdout ----
+
+thread 'logic::playability::tests::deterministic_journey_digest_baseline' (72783455) panicked at dystrail-tester/src/logic/playability.rs:1298:9:
+assertion `left == right` failed: journey ledger digest drifted; update baseline if intentional
+  left: [254, 238, 20, 122, 234, 9, 172, 152, 222, 36, 134, 207, 8, 50, 70, 184, 253, 224, 232, 22, 87, 176, 75, 73, 164, 101, 155, 113, 67, 180, 142, 189]
+ right: [119, 47, 185, 75, 143, 178, 235, 124, 7, 160, 121, 106, 184, 88, 95, 106, 255, 188, 53, 147, 246, 149, 62, 54, 39, 126, 40, 12, 207, 13, 136, 161]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- logic::playability::tests::deterministic_csv_digest_for_fixed_seed stdout ----
+
+thread 'logic::playability::tests::deterministic_csv_digest_for_fixed_seed' (72783454) panicked at dystrail-tester/src/logic/playability.rs:1141:9:
+assertion `left == right` failed: canonical CSV digest drifted; update baseline if intentional
+  left: [91, 89, 71, 146, 165, 106, 251, 89, 124, 200, 57, 239, 189, 211, 136, 178, 52, 237, 87, 105, 13, 131, 179, 140, 175, 224, 240, 155, 146, 192, 60, 120]
+ right: [250, 181, 157, 164, 247, 155, 25, 225, 94, 187, 32, 180, 92, 225, 5, 32, 211, 65, 5, 237, 219, 68, 171, 175, 124, 106, 163, 23, 45, 249, 181, 89]
+
+
+failures:
+    logic::playability::tests::deterministic_csv_digest_for_fixed_seed
+    logic::playability::tests::deterministic_journey_digest_baseline
+
+test result: FAILED. 23 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.44s
+
+error: test failed, to rerun pass `-p dystrail-tester --bin dystrail-tester`
+     Running unittests src/lib.rs (/Users/vanna/Source/Dystrail/target/debug/deps/dystrail_web-8d0f6887bc20eb5d)
+
+running 79 tests
+test a11y::tests::status_helpers_are_noops_without_dom ... ok
+test a11y::tests::focus_css_includes_sr_only_helpers ... ok
+test app::tests::route_phase_mappings_cover_all_states ... ok
+test components::ui::journey_scene::composition::tests::roadside_briefing_stays_outdoors_through_day_and_night ... ok
+test components::ui::journey_scene::composition::tests::outdoor_crew_discussions_keep_western_geography ... ok
+test components::ui::journey_scene::composition::tests::indoor_atlas_is_six_distinct_square_cells ... ok
+test components::ui::journey_scene::encounters::tests::revised_encounter_locations_replace_historical_theme_assignments ... ok
+test app::aftermath::tests::completed_boss_resumes_results_even_without_an_explicit_ending ... ok
+test components::ui::journey_scene::tests::roads_change_by_region_and_day_without_rng ... ok
+test app::aftermath::tests::reports_actual_capped_changes ... ok
+test app::history::tests::completed_driving_stays_in_its_day_while_next_morning_work_keeps_its_time ... ok
+test components::ui::journey_scene::composition::tests::casting_rotates_and_never_revives_absent_people ... ok
+test components::ui::leg_summary::tests::outlook_uses_eight_completed_travel_days_instead_of_eight_actions ... ok
+test components::ui::leg_summary::tests::rollover_costs_close_the_original_day_in_old_and_new_saves ... ok
+test components::ui::leg_summary::tests::purchases_and_care_change_the_days_actual_net_use ... ok
+test components::ui::leg_summary::tests::localized_titles_and_repeated_hourly_snapshots_preserve_daily_net_use ... ok
+test components::ui::leg_summary::tests::steady_stock_days_count_without_cancelling_other_days_consumption ... ok
+test components::ui::leg_summary::tests::unfinished_days_and_non_travel_days_do_not_establish_an_outlook ... ok
+test components::ui::outfitting_store::handlers::quantity::tests::replacing_a_quantity_reuses_its_budget_and_honors_stock_limits ... ok
+test components::ui::result_screen::tests::explicit_journey_cause_wins_over_readiness_and_score ... ok
+test components::ui::result_screen::tests::epilogue_resolution_tracks_victory_state ... ok
+test components::ui::result_screen::tests::headline_resolution_prefers_boss_flags ... ok
+test components::ui::result_screen::tests::parse_numeric_key_identifies_digits ... ok
+test components::ui::persona_select::helpers::tests::initial_character_varies_but_recovery_preserves_the_selection ... ok
+test app::aftermath::tests::abandoning_is_terminal_even_with_unresolved_crew_or_town_stops ... ok
+test components::ui::journey_scene::encounters::tests::every_shipped_encounter_has_an_existing_crew_free_atlas_cell ... ok
+test app::tests::seed_code_validation_handles_expected_formats ... ok
+test components::ui::satire_context::tests::every_encounter_has_a_source_and_an_affordable_way_through ... ok
+test app::receipt::tests::driving_durations_preserve_partial_hours ... ok
+test components::ui::camp_panel::tests::camp_panel_cannot_offer_camping_or_a_generic_repair_during_breakdown ... ok
+test components::ui::leg_summary::tests::outlook_renders_a_shared_stat_card_with_context ... ok
+test components::ui::camp_panel::tests::camp_panel_renders_each_shared_gathering_action_once ... ok
+test components::ui::encounter_card::tests::encounter_renders_effect_tooltips ... ok
+test components::ui::main_menu::tests::main_menu_renders_all_entries_with_seed ... ok
+test components::ui::pace_diet_panel::tests::selection_outcome_covers_all_menu_entries ... ok
+test components::ui::save_drawer::tests::save_drawer_renders_action_buttons_when_open ... ok
+test components::ui::save_drawer::tests::save_drawer_hidden_when_closed ... ok
+test components::ui::settings_dialog::tests::settings_dialog_renders_controls_when_open ... ok
+test components::ui::share_code_bar::tests::share_code_bar_enables_start_for_valid_codes ... ok
+test components::ui::settings_dialog::tests::settings_dialog_returns_empty_when_closed ... ok
+test components::ui::stats_bar::policy::tests::book_panic_explains_actual_cost_protection_and_singular_duration ... ok
+test components::ui::share_code_bar::tests::share_code_bar_marks_invalid_codes ... ok
+test app::map::tests::maps_wait_for_a_safe_gap_and_never_hide_a_decision ... ok
+test app::receipt::tests::mileage_days_and_spares_use_typed_changes ... ok
+test app::town_profile::tests::every_route_stop_has_a_unique_sourced_profile ... ok
+test app::history::tests::an_ally_loss_is_recorded_once_and_waits_for_acknowledgment_after_reload ... ok
+test components::ui::route_map::graphic::tests::vehicle_marker_stays_on_real_road_and_reaches_dc ... ok
+test components::ui::result_screen::tests::result_screen_renders_summary ... ok
+test components::ui::stats_bar::policy::tests::each_order_uses_engine_effects_without_applying_them ... ok
+test components::ui::stat_card::tests::day_rollover_keeps_driving_time_in_the_mileage_card ... ok
+test components::ui::result_screen::tests::final_stat_cards_preserve_score_totals_physical_miles_and_threshold_result ... ok
+test game::tests::web_data_loader_reports_unknown_config ... ok
+test components::ui::route_map::tests::map_shows_the_same_receipt_count_as_the_journey ... ok
+test game::tests::web_data_loader_parses_static_assets ... ok
+test i18n::render::tests::interpolation_handles_braced_forms ... ok
+test i18n::render::tests::plural_selection_defaults ... ok
+test game::tests::engine_factory_wires_default_components ... ok
+test components::ui::stats_bar::tests::stats_bar_announces_exec_order ... ok
+test input::tests::code_maps ... ok
+test input::tests::key_maps ... ok
+test paths::tests::builds_root_prefixed_path_when_base_missing ... ok
+test paths::tests::router_base_is_none_by_default ... ok
+test components::ui::stats_bar::weather::tests::storm_readout_explains_ponchos_and_retains_other_weather_costs ... ok
+test components::ui::stats_bar::tests::stats_bar_renders_core_fields ... ok
+test components::ui::travel_panel::journal::tests::day_totals_use_actual_snapshots_after_spending_recovery_and_refunds ... ok
+test components::ui::travel_panel::journal::tests::a_busy_day_keeps_its_earliest_snapshots_and_all_raw_actions ... ok
+test components::ui::travel_panel::journal::tests::crew_outcomes_and_original_messages_remain_available_after_grouping ... ok
+test components::ui::travel_panel::journal::tests::routine_travel_combines_without_hiding_crew_settings_or_route_changes ... ok
+test components::ui::travel_panel::tests::travel_panel_journal_is_available_during_a_breakdown ... ok
+test i18n::logs::tests::receipts_keep_consequences_without_repeating_scene_transitions ... ok
+test i18n::logs::tests::keys_and_placeholders_do_not_reach_players ... ok
+test components::ui::travel_panel::tests::weather_readout_reports_applied_exposure_without_spending_again ... ok
+test components::ui::travel_panel::journal::tests::journal_renders_one_card_per_day_with_totals_and_disclosed_action_evidence ... ok
+test components::ui::travel_panel::journal::tests::persisted_days_accumulate_actions_without_mutating_the_turn_history ... ok
+test i18n::encounters::tests::localized_copy_and_imported_fallback_stay_readable ... ok
+test app::town_facts::tests::every_real_route_stop_has_a_localized_sourced_fact ... ok
+test i18n_tests::required_feature_keys_exist ... ok
+test i18n_tests::locales_have_balanced_templates ... ok
+test i18n_tests::locales_have_matching_keys ... ok
+
+test result: ok. 79 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/crossing_i18n_tests.rs (/Users/vanna/Source/Dystrail/target/debug/deps/crossing_i18n_tests-17035edd89be8609)
+
+running 3 tests
+test test_crossing_config_structure ... ok
+test test_crossing_i18n_interpolation_structure ... ok
+test test_crossing_i18n_coverage ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+   Doc-tests dystrail_game
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests dystrail_web
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: 2 targets failed:
+    `-p dystrail-game --test data_shapes`
+    `-p dystrail-tester --bin dystrail-tester`

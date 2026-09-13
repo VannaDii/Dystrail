@@ -1,0 +1,11 @@
+Safari 26.6.2
+file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:12
+ const r=await fetch(driver+path,{method,headers:{'Content-Type':'application/json'},...(body===undefined?{}:{body:JSON.stringify(body)})});const d=await r.json();if(!r.ok||d.value?.error)throw new Error(JSON.stringify(d.value));return d.value;
+                                                                                                                                                                                                  ^
+
+Error: {"error":"timeout","message":"","stacktrace":""}
+    at call (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:12:195)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-smoke.mjs:43:2
+
+Node.js v24.19.0

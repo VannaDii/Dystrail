@@ -1,0 +1,42 @@
+{
+  "revision": "ef9b4b81cdeb1bc0700d",
+  "manifest_sha256": "daede4f333b7898a8cd9972af462e616523959655583e67393fea5dfad57fd9e",
+  "runtime_matches_accepted_2000_campaigns": true,
+  "native_tests": 364,
+  "wasm_browser_tests": 2,
+  "full_browser_cases": 408,
+  "first_run_passed": 394,
+  "corrected_fixture_cases_passed": 14,
+  "skipped": 0,
+  "flaky": 0,
+  "case_union_verified": true,
+  "build_checks": [
+    {
+      "check": "format",
+      "exit_code": 0,
+      "seconds": 0.23
+    },
+    {
+      "check": "workspace-tests",
+      "exit_code": 0,
+      "seconds": 16.74
+    },
+    {
+      "check": "clippy-native",
+      "exit_code": 0,
+      "seconds": 9.31
+    },
+    {
+      "check": "clippy-wasm",
+      "exit_code": 0,
+      "seconds": 7.99
+    },
+    {
+      "check": "build",
+      "exit_code": 0,
+      "seconds": 15.54
+    }
+  ],
+  "native_safari": "pending: macOS confirmed locked",
+  "final_validation_passed_for_release": true
+}

@@ -1,0 +1,85 @@
+Safari 26.6.2
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+PASS All eleven shop images are decoded local assets before the store opens
+Click Review & depart
+Click Start the journey
+Click Import
+Click The Van
+PASS The Van has an illustrated trip overview and the crew above every part and equipment item
+Click Journal
+PASS Desktop journal uses the horizontal space and retains boxed resource changes
+Click Import
+Click The Van
+Click The Trail
+PASS Every current-turn entry stays newest first under The Trail through tab navigation and reload
+Click Import
+Click Journal
+PASS Trail and Journal share five compact cards in one row, with historical clock, pace and diet beneath the route
+Click Import
+Click Conditions
+PASS Clock, pace and diet icons update in the top bar; weather has structured effects and a plain i
+Click Help & tips
+PASS Help & tips does not move the HUD
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+Click Import
+Click Talk to locals
+Click Back to town
+Click Talk to locals
+Click Back to town
+PASS Local conversations visibly offer credibility, receipts or allies once, and remain open after claiming
+Click Import
+Click Fit your spare Battery
+PASS The outcome return button stays visible and clickable at every tested scroll position in native Safari
+Click Back to the road
+PASS Breakdown is never automatic; Camp and Travel unlock only after an explicit repair
+Click Import
+Click The Trail
+Click The Trail
+Click Conditions
+Click Conditions
+Click Conditions
+Click The Van
+Click The Van
+Click The Van
+Click Journal
+Click Journal
+Click Journal
+Click Camp
+Click Route
+Click Close map
+PASS All tabs collapse and reopen; a manual map returns to the same screen and selected tab without traveling, including after reload
+Click Import
+Click Journal
+Click English
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+6 !== 3
+
+    at verifyLocales (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-inventory.mjs:77:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-inventory.mjs:143:1133 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 6,
+  expected: 3,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.8.2

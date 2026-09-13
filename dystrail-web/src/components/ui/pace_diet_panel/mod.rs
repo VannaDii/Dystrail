@@ -33,6 +33,7 @@ impl PartialEq for PaceDietPanelProps {
 
 #[function_component(PaceDietPanel)]
 pub fn pace_diet_panel(props: &PaceDietPanelProps) -> Html {
+    crate::i18n::use_language();
     let focused_index = use_state(|| 1_u8);
     let status_message = use_state(String::new);
 

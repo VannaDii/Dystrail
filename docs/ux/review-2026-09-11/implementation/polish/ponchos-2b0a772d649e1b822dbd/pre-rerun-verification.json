@@ -1,0 +1,6 @@
+{
+  "source_inputs_unchanged": 634,
+  "source_sha256": "a81516fc612803a5207d88f37ba3f28dc42cc23a10380e3f9c23a39a8a271123",
+  "correction": "Trunk public URL only; /play/ browser target",
+  "native_checks_still_apply": true
+}

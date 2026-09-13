@@ -1,0 +1,95 @@
+(node:67677) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 18 tests using 2 workers
+
+(node:67678) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:67679) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:67679) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:67678) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:67679) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:67678) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests-e2e/mobile-impact.spec.ts:94:5 › weather and resource help fit short phone viewports and close without spending time (3.7s)
+  ✓   3 [chromium] › tests-e2e/mobile-impact.spec.ts:127:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.3s)
+  ✓   4 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.3s)
+  ✓   5 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.2s)
+  ✓   6 [chromium] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.2s)
+  ✓   7 [chromium] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.2s)
+  ✓   8 [chromium] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.2s)
+  ✓   9 [chromium] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.6s)
+(node:68006) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68006) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:68006) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (7.0s)
+(node:68170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68170) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:68170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [mobile] › tests-e2e/mobile-impact.spec.ts:94:5 › weather and resource help fit short phone viewports and close without spending time (3.6s)
+  ✓  12 [mobile] › tests-e2e/mobile-impact.spec.ts:127:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts (2.2s)
+  ✓  13 [mobile] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.3s)
+  ✓  14 [mobile] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (2.3s)
+  ✓  15 [mobile] › tests-e2e/sharing.spec.ts:71:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.1s)
+  ✓  16 [mobile] › tests-e2e/sharing.spec.ts:88:5 › failed PNG encoding can retry without losing the edited post (2.3s)
+  ✓  17 [mobile] › tests-e2e/sharing.spec.ts:104:5 › closing during image preparation releases the completed image without reopening the dialog (2.2s)
+  ✘  10 [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help (6.2s)
+  ✓  18 [mobile] › tests-e2e/sharing.spec.ts:126:5 › long player names and Arabic share content stay readable on desktop and phone (3.8s)
+
+
+  1) [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help 
+
+    Error: locator.boundingBox: Error: strict mode violation: locator('.weather-indicator') resolved to 2 elements:
+        1) <div role="status" aria-live="polite" aria-atomic="true" data-weather="ColdSnap" class="weather-indicator weather-changed">…</div> aka getByText('Conditions changed: ❄Cold')
+        2) <div role="status" aria-live="polite" aria-atomic="true" data-policy="book_panic" class="weather-indicator policy-indicator weather-changed">…</div> aka getByText('Conditions changed: §Book')
+
+    Call log:
+    [2m  - waiting for locator('.weather-indicator')[22m
+
+
+      66 |     }
+      67 |     for (const part of ['.leg-destination', '.weather-indicator', '.policy-indicator']) {
+    > 68 |       const bounds = (await page.locator(part).boundingBox())!;
+         |                                                ^
+      69 |       expect(bounds.y).toBeGreaterThan(clock.y + 20);
+      70 |       expect(bounds.x).toBeGreaterThanOrEqual(0);
+      71 |       expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/mobile-impact.spec.ts:68:48
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-share-hud-review/release-browser-tests/mobile-impact-phone-HUD-st-f92bc-tured-read-only-impact-help-chromium/error-context.md
+
+  2) [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help 
+
+    Error: locator.boundingBox: Error: strict mode violation: locator('.weather-indicator') resolved to 2 elements:
+        1) <div role="status" aria-live="polite" aria-atomic="true" data-weather="ColdSnap" class="weather-indicator weather-changed">…</div> aka getByText('Conditions changed: ❄Cold')
+        2) <div role="status" aria-live="polite" aria-atomic="true" data-policy="book_panic" class="weather-indicator policy-indicator weather-changed">…</div> aka getByText('Conditions changed: §Book')
+
+    Call log:
+    [2m  - waiting for locator('.weather-indicator')[22m
+
+
+      66 |     }
+      67 |     for (const part of ['.leg-destination', '.weather-indicator', '.policy-indicator']) {
+    > 68 |       const bounds = (await page.locator(part).boundingBox())!;
+         |                                                ^
+      69 |       expect(bounds.y).toBeGreaterThan(clock.y + 20);
+      70 |       expect(bounds.x).toBeGreaterThanOrEqual(0);
+      71 |       expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/mobile-impact.spec.ts:68:48
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-share-hud-review/release-browser-tests/mobile-impact-phone-HUD-st-f92bc-tured-read-only-impact-help-mobile/error-context.md
+
+  2 failed
+    [chromium] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help 
+    [mobile] › tests-e2e/mobile-impact.spec.ts:20:5 › phone HUD stays compact and every policy has structured, read-only impact help 
+  16 passed (59.1s)

@@ -89,20 +89,6 @@ fn journey_cfg_for(policy: PolicyKind, mode: GameMode) -> JourneyCfg {
 
 #[test]
 fn boss_outcomes_cover_all_paths() {
-    // Pants emergency path.
-    let mut pants_state = empty_state();
-    pants_state.stats.pants = 96;
-    pants_state.policy = Some(PolicyKind::Balanced);
-    pants_state.detach_rng_bundle();
-    let mut pants_cfg = BossConfig::load_from_static();
-    pants_cfg.rounds = 1;
-    pants_cfg.pants_gain_per_round = 10;
-    pants_cfg.sanity_loss_per_round = 0;
-    assert_eq!(
-        run_boss_minigame(&mut pants_state, &pants_cfg),
-        BossOutcome::PantsEmergency
-    );
-
     // Exhausted branch.
     let mut exhausted_state = empty_state();
     exhausted_state.stats.sanity = 3;
@@ -110,7 +96,6 @@ fn boss_outcomes_cover_all_paths() {
     let mut exhausted_cfg = BossConfig::load_from_static();
     exhausted_cfg.rounds = 2;
     exhausted_cfg.sanity_loss_per_round = 4;
-    exhausted_cfg.pants_gain_per_round = 0;
     assert_eq!(
         run_boss_minigame(&mut exhausted_state, &exhausted_cfg),
         BossOutcome::Exhausted
@@ -134,7 +119,6 @@ fn boss_outcomes_cover_all_paths() {
     victory_state.detach_rng_bundle();
     let mut victory_cfg = BossConfig::load_from_static();
     victory_cfg.rounds = 1;
-    victory_cfg.pants_gain_per_round = 0;
     victory_cfg.sanity_loss_per_round = 0;
     victory_cfg.base_victory_chance = 1.0;
     victory_cfg.min_chance = 1.0;
@@ -150,7 +134,6 @@ fn boss_outcomes_cover_all_paths() {
     fail_state.stats.morale = 0;
     let mut fail_cfg = BossConfig::load_from_static();
     fail_cfg.rounds = 1;
-    fail_cfg.pants_gain_per_round = 0;
     fail_cfg.base_victory_chance = 0.0;
     fail_cfg.min_chance = 0.0;
     fail_cfg.max_chance = 0.0;
@@ -229,12 +212,6 @@ fn camp_actions_cover_branches() {
     camp_cfg.rest.day = 1;
     camp_cfg.rest.cooldown_days = 1;
     camp_cfg.rest.supplies = -2;
-    camp_cfg.forage.day = 1;
-    camp_cfg.forage.supplies = 2;
-    camp_cfg
-        .forage
-        .region_multipliers
-        .insert("heartland".into(), 1.5);
 
     // Disabled rest.
     let mut disabled_cfg = camp_cfg.clone();
@@ -291,12 +268,6 @@ fn camp_multi_day_sequences_cover_loops() {
     cfg.rest.supplies = -3;
     cfg.rest.hp = 2;
     cfg.rest.sanity = 3;
-    cfg.forage.day = 2;
-    cfg.forage.cooldown_days = 1;
-    cfg.forage.supplies = 4;
-    cfg.forage
-        .region_multipliers
-        .insert("Heartland".into(), 1.5);
 
     let rest = camp::camp_rest(&mut state, &cfg);
     assert!(rest.rested);
@@ -319,31 +290,37 @@ fn camp_multi_day_sequences_cover_loops() {
     cfg.rest.supplies = 2;
     cfg.rest.hp = 0;
     cfg.rest.sanity = 0;
-    cfg.rest.pants = 0;
     state.camp.rest_cooldown = 0;
     let rest_positive = camp::camp_rest(&mut state, &cfg);
     assert!(rest_positive.rested);
 
-    // Forage with positive gain and region multiplier.
-    state.camp.forage_cooldown = 0;
+    // Forage spends two hours and uses the shared gathering cooldown.
+    let day_before = state.day;
+    let minute_before = state.continuity.clock_minutes;
     let forage = camp::camp_forage(&mut state, &cfg);
     assert!(forage.supplies_delta > 0);
-    assert_eq!(state.camp.forage_cooldown, 1);
+    assert_eq!(state.forage_cooldown_days(), 3);
+    assert_eq!(state.day, day_before);
+    assert_eq!(state.continuity.clock_minutes, minute_before + 120);
 
     // Cooldown path.
     let forage_cooldown = camp::camp_forage(&mut state, &cfg);
     assert_eq!(forage_cooldown.message, "log.camp.forage.cooldown");
 
-    // Negative forage branch ensures rounding and sign handling.
-    let mut neg_cfg = cfg.clone();
-    neg_cfg.forage.supplies = -2;
-    let negative = camp::camp_forage(&mut state, &neg_cfg);
-    assert!(negative.supplies_delta <= 0);
+    // Full supplies prevent gathering without spending time or resources.
+    state.continuity.activities.foraged_on = None;
+    state.stats.supplies = 19;
+    let before = serde_json::to_string(&state).unwrap();
+    let full = camp::camp_forage(&mut state, &cfg);
+    assert_eq!(full.supplies_delta, 0);
+    assert_eq!(full.message, "log.camp.forage.disabled");
+    assert_eq!(serde_json::to_string(&state).unwrap(), before);
 }
 
 #[test]
 fn journey_controller_tick_yields_day_record() {
     let mut state = empty_state();
+    state.continuity.clock_minutes = dystrail_game::travel_time::TRAVEL_DAY_END - 60;
     let mut controller = JourneyController::new(
         MechanicalPolicyId::DystrailLegacy,
         PolicyId::Classic,
@@ -517,7 +494,7 @@ fn game_engine_smoke_and_storage_paths() {
 fn pacing_and_personas_cover_fallbacks() {
     let pacing = PacingConfig::default_config();
     let steady = pacing.get_pace_safe("steady");
-    assert!(steady.distance >= 0.0);
+    assert!(steady.speed_mph > 0.0);
     let fallback = pacing.get_pace_safe("unknown");
     assert_eq!(fallback.id, PaceId::Steady.as_str());
 
@@ -538,7 +515,6 @@ fn seed_and_result_paths_cover_branches() {
     state.mode = GameMode::Classic;
     state.stats.hp = 8;
     state.stats.sanity = 7;
-    state.stats.pants = 80;
     state.stats.supplies = 5;
     state.stats.morale = 6;
     state.stats.credibility = 4;
@@ -814,14 +790,10 @@ fn day_accounting_ratio_and_sanitize() {
     state.policy = Some(PolicyKind::Conservative);
     state.recent_travel_days =
         VecDeque::from(vec![TravelDayKind::NonTravel, TravelDayKind::NonTravel]);
-    let (kind, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::NAN);
-    assert_eq!(kind, TravelDayKind::Partial);
-    assert!(
-        state
-            .current_day_reason_tags
-            .iter()
-            .any(|tag| tag == "stop_cap")
-    );
+    let (kind, miles) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::NAN);
+    assert_eq!(kind, TravelDayKind::NonTravel);
+    assert_eq!(miles.to_bits(), 0.0f32.to_bits());
+    assert!(state.ledger.current_day_reason_tags.is_empty());
 
     state.day_state.lifecycle.suppress_stop_ratio = true;
     let (result, _) = record_travel_day(&mut state, TravelDayKind::NonTravel, f32::INFINITY);
@@ -829,7 +801,7 @@ fn day_accounting_ratio_and_sanitize() {
 }
 
 #[test]
-fn camp_disabled_and_negative_paths() {
+fn camp_disabled_and_breakdown_paths() {
     let mut state = empty_state();
     let cfg = CampConfig::default_config();
     let disabled_rest = CampConfig {
@@ -844,10 +816,9 @@ fn camp_disabled_and_negative_paths() {
         "log.camp.rest.disabled"
     );
 
-    let mut disabled_forage = cfg.clone();
-    disabled_forage.forage.day = 0;
+    state.stats.supplies = 20;
     assert_eq!(
-        camp::camp_forage(&mut state, &disabled_forage).message,
+        camp::camp_forage(&mut state, &cfg).message,
         "log.camp.forage.disabled"
     );
 
@@ -1005,9 +976,9 @@ fn crossing_config_thresholds_cover_branches() {
     let cfg = journey_cfg_for(PolicyKind::Balanced, GameMode::Deep);
     let span = u32::from(
         cfg.crossing
-            .detour_days
+            .detour_hours
             .max
-            .saturating_sub(cfg.crossing.detour_days.min),
+            .saturating_sub(cfg.crossing.detour_hours.min),
     ) + 1;
     let remainder = span.saturating_sub(1);
     let mut detour_policy = cfg.crossing.clone();
@@ -1032,7 +1003,7 @@ fn crossing_config_thresholds_cover_branches() {
     assert!(
         matches!(
             detour_outcome.result,
-            CrossingResult::Detour(days) if days == cfg.crossing.detour_days.max
+            CrossingResult::Detour(days) if days == cfg.crossing.detour_hours.max
         ),
         "expected detour days to reach configured maximum"
     );

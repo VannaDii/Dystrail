@@ -1,0 +1,28 @@
+{
+  "source": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-activity-source",
+  "binary_sha256": "bc49a7ce2d5dafc67831a140d73c0d2688d21aff716461a43792f6c743fcf392",
+  "csv_sha256": "ff8478e44ee0b96d25245cd22426f0312847a05f427418a0a6bca7d4c682cfa7",
+  "gzip_csv_roundtrip_exact": true,
+  "gzip_mtime": 0,
+  "gzip_embedded_filename": "",
+  "files": {
+    "pace-crossing-health038-activity-activity-existing.log": "9d05ad7ded15ef9ef0ff1ce7d167c0cf0cf5926a4b7852d3ba2936cba6421b58",
+    "pace-crossing-health038-activity-analysis.json": "a53d18d5695af3f638e08c0848ac4abfb567d31b194c455ab4914f764148959c",
+    "pace-crossing-health038-activity-build.log": "1d7a8541e433e05c839e41fa9925b28ed1fd30eb47b468468c659ade0dd20cd4",
+    "pace-crossing-health038-activity-campaign.log": "66e2a2328dde0c25dfc9ff3e1624b75780b66af12146da300eb7cc5ebf9cf091",
+    "pace-crossing-health038-activity-cargo-released.json": "c039e674992439c1193c81db9596151c93baf8838548ea7390398cd115751e04",
+    "pace-crossing-health038-activity-clock-existing.log": "0d43599f9aa5f59bb2206277994869bba762eaa2255e910dd0b2f862534087b2",
+    "pace-crossing-health038-activity-comparison.json": "18c05b53aff9aab3ae06759576fb37ebb276301d6e11becdb722a635de198677",
+    "pace-crossing-health038-activity-freeze.json": "207d9e6b828850ef4208a0419b36937f34fa89cb3514a91d38537d5d4e99cc43",
+    "pace-crossing-health038-activity-inputs.json": "8208bbbb22d2260b429f06ddbe54458a321587887b67ee93eb43d77d47b72d97",
+    "pace-crossing-health038-activity-journal-existing.log": "6c1469e8cefa8c1c3250479fa9b3621350b9098cac8ca0fa3235564b93ced09c",
+    "pace-crossing-health038-activity-ledger-existing.log": "5d6de4656205eebae97eabcee499d7e72bf0e1a32ba3838bc1a85545da0456a4",
+    "pace-crossing-health038-activity-report-evidence.json": "aa5254659d85389c2db01cdfdca0161fa99eaf4ab837dccc7e0b2d37abd76e56",
+    "pace-crossing-health038-activity-report.md": "764a2d9c0fba9768879b1b04442bd8c9563104aac989a038efe897c4d4940ad6",
+    "pace-crossing-health038-activity-scope.md": "ec97f67829549b152a18b9d319b7fc3ace20cc337830133a5cf75f0730c43c43",
+    "pace-crossing-health038-activity-seed4242.log": "1a4ea26489651ab0d0aa784d8ceeac97b3d27a611647f06bf166febccb818a14",
+    "pace-crossing-health038-activity-settlement-regressions.log": "e617c6798bc6641bb1804386e8be0056d2a2ff0f890a1dc5619ed7ef832627b0",
+    "pace-crossing-health038-activity.patch": "e16c96424bce041058749c4f7bb8bd9ad31c4b53bda0aff1e3b988fc70bf227b",
+    "pace-crossing-health038-activity-results.csv.gz": "dfcaab074390b2f67e4d812d1c7d9534fd6c890b28ac0e0fb02abbd2364bc4c0"
+  }
+}

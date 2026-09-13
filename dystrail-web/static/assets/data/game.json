@@ -1,8 +1,8 @@
 [
   {
     "id": "beltway_briefing",
-    "name": "Beltway Briefing",
-    "desc": "Deep-mode briefers bury you in amendments.",
+    "name": "Department of Renaming Things",
+    "desc": "The meeting hall has a patriotic new name. Your form uses the old one; the amendments use both. The clerk identifies the building by pointing through the window.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -13,39 +13,38 @@
     ],
     "choices": [
       {
-        "label": "Read every line",
+        "label": "Read everything; use a snack pack",
         "effects": {
           "sanity": -2,
           "credibility": 2,
-          "pants": 1,
           "supplies": -1,
-          "log": "You flag riders before they hit the floor."
+          "log": "Snacks gone, instructions matched and saved. You've traced the hall all the way across the street.",
+          "add_receipt": "beltway_briefing"
         }
       },
       {
-        "label": "Skim the highlights",
+        "label": "Skim the bold print",
         "effects": {
           "sanity": 1,
           "credibility": -2,
-          "pants": 4,
-          "log": "Optimism buys you a short night and long edits later."
+          "log": "Two corrections missed. You confidently prepare to visit the building formerly known as the building."
         }
       },
       {
-        "label": "Delegate to staff counsel",
+        "label": "Split the packet six ways",
         "effects": {
           "sanity": 0,
           "credibility": -1,
-          "pants": -2,
-          "log": "Your legal lead triages the stack overnight."
+          "log": "You miss a cross-reference. Six people, six answers. The form has successfully created a committee."
         }
       }
-    ]
+    ],
+    "satire_hook": "names"
   },
   {
     "id": "classic_bridge_crews",
-    "name": "Bridge Maintenance Crew",
-    "desc": "Contractors scramble to reopen a key crossing before nightfall.",
+    "name": "The Efficiency Emergency",
+    "desc": "The council lists five accomplishments from firing the bridge crew. All five mean “fired the bridge crew.” The bridge is closed; former workers need help hauling detour signs.",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -57,28 +56,29 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Donate spare parts to speed the work",
+        "label": "Donate one pack; haul barrier signs",
         "effects": {
           "supplies": -1,
           "hp": -1,
           "credibility": 2,
-          "log": "The crew waves you onto the priority lane."
+          "log": "Supplies donated, arms aching. You haul the signs without once calling yourselves job creators."
         }
       },
       {
-        "label": "Document the backlog for the hotline",
+        "label": "Photograph and report the closure",
         "effects": {
           "credibility": 1,
-          "pants": 2,
-          "log": "Your report pressures the agency to staff up."
+          "log": "You file the dated photo. It shows exactly how much traffic “efficiency” can carry: none.",
+          "add_receipt": "classic_bridge_crews"
         }
       }
-    ]
+    ],
+    "satire_hook": "bullets"
   },
   {
     "id": "classic_civic_potluck",
     "name": "Civic Center Potluck",
-    "desc": "Local organizers insist you eat before the next leg.",
+    "desc": "The notice canceling the federal food fund is taped beside the stew. 'Printouts go under the bowls,' says the cook. 'That's the federal contribution.'",
     "weight": 4,
     "regions": [
       "Heartland"
@@ -88,38 +88,36 @@
     ],
     "choices": [
       {
-        "label": "Stay for stew",
+        "label": "Stay; pack three food bundles",
         "effects": {
           "supplies": 3,
           "sanity": 1,
-          "pants": -2,
-          "log": "Warm food and stories refill everyone."
+          "log": "You eat and pack three bundles. Somebody offers seconds without checking whether you're a corporation."
         }
       },
       {
-        "label": "Carry meals to go",
+        "label": "Pack two bundles; share their story",
         "effects": {
           "supplies": 2,
           "credibility": 1,
-          "pants": 1,
-          "log": "You promise a shout-out on the livestream."
+          "log": "You promise to mention the cooks in Washington. They label the leftovers 'evidence.'"
         }
       },
       {
-        "label": "Donate the stipend back",
+        "label": "Donate one food bundle",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "pants": -1,
-          "log": "Their pantry stocks up while the crew beams."
+          "log": "Your beans join the pantry. The cook offers naming rights to one very unimpressed potato."
         }
       }
-    ]
+    ],
+    "satire_hook": "food"
   },
   {
     "id": "classic_crossing_block_party",
     "name": "Crossing Block Party",
-    "desc": "Residents host a morale party next to the jammed checkpoint.",
+    "desc": "After the order to cut federal library support, librarians stage a cookout: free books, free seating. 'I know,' one says. 'This is how empires fall.'",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -130,37 +128,35 @@
     ],
     "choices": [
       {
-        "label": "Serve at the grill",
+        "label": "Give one food bundle; help grill",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "pants": -1,
-          "log": "Volunteers promise to keep watch overnight."
+          "log": "You grill while a librarian reads horror aloud. The horror is next year's budget."
         }
       },
       {
-        "label": "Headline the mic",
+        "label": "Take the open mic",
         "effects": {
           "credibility": 1,
-          "pants": 1,
-          "log": "Soundbites ripple through the slow-moving line."
+          "log": "'I shouldn't need a muffin mortgage to sit down.' The café workers in line howl."
         }
       },
       {
-        "label": "Share cooling supplies",
+        "label": "Share two water and towel bundles",
         "effects": {
           "supplies": -2,
           "sanity": 1,
-          "pants": -2,
-          "log": "Cold towels calm nerves and lower tempers."
+          "log": "You pass out cold towels. The librarian saves one for the next official who works up a sweat attacking free books."
         }
       }
-    ]
+    ],
+    "satire_hook": "libraries"
   },
   {
     "id": "classic_freeway_mural",
     "name": "Freeway Mural Crew",
-    "desc": "Artists pause your motorcade to finish a solidarity mural.",
+    "desc": "Artists under an overpass named for a billionaire are painting his cleaner. They need help, water and a group photo. His contribution to the portrait is the muddy footprint she’s scrubbing.",
     "weight": 3,
     "regions": [
       "RustBelt"
@@ -170,37 +166,35 @@
     ],
     "choices": [
       {
-        "label": "Climb a ladder with them",
+        "label": "Help paint the base coat",
         "effects": {
           "hp": -1,
           "morale": 2,
-          "pants": 1,
-          "log": "Paint splatters but the livestream loves it."
+          "log": "Arms aching, you finish a coat. The billionaire's sign contributes its usual share of the labor."
         }
       },
       {
-        "label": "Fund their paint run",
+        "label": "Donate two supply packs",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "pants": -1,
-          "log": "Their co-op texts thanks and fresh designs."
+          "log": "Your contribution fits in the photo without its own dedication plaque."
         }
       },
       {
-        "label": "Pose for a quick reveal",
+        "label": "Join the artists’ photo",
         "effects": {
           "credibility": 1,
-          "pants": 0,
-          "log": "The mural trends without blowing schedule."
+          "log": "All six of you squeeze into the photo. The billionaire’s name stays above everyone’s head. Even the overpass has an org chart."
         }
       }
-    ]
+    ],
+    "satire_hook": "names"
   },
   {
     "id": "classic_mail_drop",
     "name": "Mail Drop Pickup",
-    "desc": "Supporters sprint over with a bundle of letters asking for updates.",
+    "desc": "A volunteer brings letters mocking Washington’s five-accomplishment demand, a road pack, and a request to record yours. One retiree lists ‘fed the cat’ twice. The cat requests a third.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -212,41 +206,45 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Read every letter",
+        "label": "Read and save the letters",
         "effects": {
           "sanity": 1,
           "morale": 2,
-          "log": "You share the letters over dinner and spirits lift."
+          "log": "You save the letters, laughing. The cat's performance-management system is just as arbitrary, but considerably fluffier.",
+          "add_receipt": "classic_mail_drop"
         }
       },
       {
-        "label": "Record a thank-you video",
+        "label": "Record a short, accurate reply",
         "effects": {
           "credibility": 2,
           "supplies": 1,
-          "log": "The volunteers upload your message across the network."
+          "log": "Update recorded, road pack collected. Your next five accomplishments will be performed with your mouth full."
         }
       },
       {
-        "label": "Pre-sort the pile",
+        "label": "Sort urgent letters; share one pack",
         "effects": {
           "supplies": -1,
           "morale": 1,
-          "pants": -1,
-          "log": "You surface the urgent letters and build goodwill."
+          "log": "One snack pack fuels sorting. Someone labels the empty wrapper “Employee of the Month.”"
         }
       }
-    ]
+    ],
+    "satire_hook": "bullets"
   },
   {
     "id": "classic_media_training",
-    "name": "Media Coach Onboarding",
-    "desc": "A friendly coach offers quick framing tips before the next checkpoint.",
+    "name": "Who Gets to Say ‘No Comment’?",
+    "desc": "At a free protest workshop, a radio host rehearses questions about the cabinet’s Signal chat. She says ‘I don’t know’ is acceptable. Nobody from customer service believes her.",
     "weight": 2,
     "regions": [
       "Heartland",
       "RustBelt",
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic"
@@ -254,31 +252,34 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Take the mini workshop",
+        "label": "Practice with the published chat",
         "effects": {
           "sanity": 1,
           "credibility": 2,
-          "log": "Your talking points get sharper for the next stand-up."
+          "log": "Transcript checked. Your answer survives a follow-up question without blaming the microphone."
         }
       },
       {
-        "label": "Send the aides instead",
+        "label": "Let crewmates take the microphone",
         "effects": {
           "morale": 2,
-          "pants": -2,
-          "log": "The aides feel prepared and the coach praises your prep."
+          "log": "One does a flawless cabinet impression: talks for two minutes, answers nothing, requests a promotion."
         }
       }
-    ]
+    ],
+    "satire_hook": "signal"
   },
   {
     "id": "classic_mutual_aid",
     "name": "Pop-up Mutual Aid",
-    "desc": "Volunteers flag you down to swap supplies for a quick broadcast boost.",
+    "desc": "Three volunteers offer $10 and a food bundle for loading. Since the federal food-funding cuts, the folding table is the only one that hasn’t worked a double.",
     "weight": 4,
     "regions": [
       "Heartland",
-      "RustBelt"
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic"
@@ -286,37 +287,38 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Share supplies and stream their needs",
+        "label": "Give two bundles; share their appeal",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "The crew relays your callout down the road."
+          "log": "You film the food being unloaded. Your financial transparency report comes with dented cans."
         }
       },
       {
-        "label": "Help load their vans",
+        "label": "Load for $10 and one food bundle",
         "effects": {
           "hp": -1,
           "morale": 2,
           "supplies": 1,
-          "log": "A ten minute lift keeps everyone moving."
+          "log": "Dinner, ten dollars, and a backache. Management is a folding chair. You prefer it.",
+          "cash_cents": 1000
         }
       },
       {
-        "label": "Set up a rapid signal boost",
+        "label": "Give one bundle; post their wishlist",
         "effects": {
           "credibility": 1,
           "supplies": -1,
-          "pants": -2,
-          "log": "Your uplink gets their wishlist trending."
+          "log": "You share the wishlist. It contains beans, rice, and no exciting opportunities for private equity."
         }
       }
-    ]
+    ],
+    "satire_hook": "food"
   },
   {
     "id": "classic_mutual_aid_dispatch",
     "name": "Mutual Aid Dispatch Center",
-    "desc": "Dispatchers dart between radios matching requests to trucks.",
+    "desc": "Food-aid drivers borrow radios to coordinate deliveries after the federal food fund is canceled. Washington cut the money; the loading schedule still says 'ask Kevin.'",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -327,36 +329,36 @@
     ],
     "choices": [
       {
-        "label": "Route your fleet to assist",
+        "label": "Deliver two food bundles in your van",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "pants": -1,
-          "log": "Dispatchers slot you into priority drop-offs."
+          "log": "You make both drop-offs. Nobody commissions a feasibility study of the front steps."
         }
       },
       {
-        "label": "Upgrade their signal chain",
+        "label": "Donate one bundle of radio batteries",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "log": "A clearer net keeps evac traffic flowing."
+          "log": "The radio crackles back. Kevin announces 'We have beans.' Something worth a national address."
         }
       },
       {
-        "label": "Observe and take notes",
+        "label": "Keep a copy of the needs tally",
         "effects": {
           "sanity": 1,
-          "pants": 0,
-          "log": "You document best practices for the debrief."
+          "log": "You keep the tally for Washington. Kevin has listed every shortage. 'Nobody could have known' will have to explain page two.",
+          "add_receipt": "classic_mutual_aid_dispatch"
         }
       }
-    ]
+    ],
+    "satire_hook": "food"
   },
   {
     "id": "classic_neighborhood_watch",
-    "name": "Neighborhood Watch Brief",
-    "desc": "Block captains share overnight intel and missing signage.",
+    "name": "The Street Formerly Known as the Street",
+    "desc": "One street, three official names. Residents offer directions, public help numbers, and a road pack for moving their corrected map board. The pizza driver is touring the town’s entire patriotic history.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -367,36 +369,34 @@
     ],
     "choices": [
       {
-        "label": "Swap hotline contacts",
+        "label": "Check the posted help numbers",
         "effects": {
           "credibility": 2,
-          "pants": -1,
-          "log": "Coordinated texts cover the detour gaps."
+          "log": "Numbers checked and saved. You can now ask “Where are we?” without first hearing about the mayor’s accomplishments."
         }
       },
       {
-        "label": "Repair their posted maps",
+        "label": "Move the board; correct the arrows",
         "effects": {
           "hp": -1,
           "supplies": 1,
-          "pants": -2,
-          "log": "The reroute board keeps families moving."
+          "log": "Sore arms, one road pack earned. The arrows point somewhere besides the mayor's achievements."
         }
       },
       {
-        "label": "Thank them and roll on",
+        "label": "Follow the residents' directions",
         "effects": {
           "morale": 1,
-          "pants": 1,
-          "log": "They cheer you through the checkpoint."
+          "log": "You find the exit. The crew celebrates like somebody's successfully canceled a subscription."
         }
       }
-    ]
+    ],
+    "satire_hook": "names"
   },
   {
     "id": "classic_overpass_stage",
     "name": "Overpass Pop-Up Stage",
-    "desc": "An allied troupe offers to headline a rapid teach-in over the freeway.",
+    "desc": "An overpass troupe stages the federal library cuts. Their billionaire is a sock puppet. 'We tried a real billionaire,' the director says. 'Couldn't afford the subsidies.'",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -408,27 +408,27 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Let them run the program",
+        "label": "Share the troupe's public stream",
         "effects": {
           "credibility": 2,
-          "pants": 2,
-          "log": "The troupe's livestream boosts regional momentum."
+          "log": "You post the show. The sock puppet has better comic timing and fewer conflicts of interest."
         }
       },
       {
-        "label": "Join the panel yourself",
+        "label": "Join the post-show discussion",
         "effects": {
           "hp": -1,
           "morale": 3,
-          "log": "Your remarks rally the crowd but leave you hoarse."
+          "log": "You question the puppet until hoarse. He demands security. The director shuts him in a sock drawer."
         }
       }
-    ]
+    ],
+    "satire_hook": "libraries"
   },
   {
     "id": "classic_press_briefing",
-    "name": "Impromptu Press Briefing",
-    "desc": "Local journalists ask for quick quotes before the convoy moves on.",
+    "name": "Forecast: Still Your Problem",
+    "desc": "A reporter asks about Sharpiegate and bosses denying weather. You remember being told the roads were fine because the store was open. The register must control the jet stream.",
     "weight": 3,
     "regions": [
       "Beltway"
@@ -439,35 +439,35 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Take every question",
+        "label": "Answer with the saved weather alerts",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "The coverage boosts the route's visibility."
+          "log": "You cross-check every date, exhausted. The storm had issued clearer instructions than your shift manager."
         }
       },
       {
-        "label": "Send a written statement",
+        "label": "Send a short account while resting",
         "effects": {
           "hp": 1,
-          "pants": 2,
-          "log": "You save energy but the press notes the dodge."
+          "log": "Feet up, you send two sentences. The passenger seat offers better accommodation than your old employer."
         }
       },
       {
-        "label": "Pull one-on-one interviews",
+        "label": "Record an interview; verify the dates",
         "effects": {
           "credibility": 2,
-          "pants": -1,
-          "log": "Depth pieces win the cycle without sloppy headlines."
+          "log": "You save the verified recording. The warning said ‘stay home.’ Payroll’s version had different weather.",
+          "add_receipt": "classic_press_briefing"
         }
       }
-    ]
+    ],
+    "satire_hook": "weather"
   },
   {
     "id": "classic_press_pool_qna",
-    "name": "Press Pool Q&A",
-    "desc": "Traveling reporters request an extra rotation on the bus.",
+    "name": "An Interview, Between Refills",
+    "desc": "A diner reporter asks to record your trip costs and mileage. You agree. The cabinet gave a journalist airstrike plans without even checking the guest list.",
     "weight": 5,
     "regions": [
       "Beltway"
@@ -477,39 +477,37 @@
     ],
     "choices": [
       {
-        "label": "Open the floor",
+        "label": "Answer with receipts on the table",
         "effects": {
           "credibility": 2,
           "sanity": -1,
-          "pants": 2,
-          "log": "You answer everything and set tomorrow's frame."
+          "log": "You check every total, exhausted. The reporter asks if you bought breakfast or the diner."
         }
       },
       {
-        "label": "Limit to pre-submitted",
+        "label": "Give the mileage from memory",
         "effects": {
           "sanity": 1,
           "credibility": -1,
-          "pants": -1,
-          "log": "The comms desk filters the pile effectively."
+          "log": "Quick, painless, wrong. The reporter checks the map. Your estimate has driven farther than the van."
         }
       },
       {
-        "label": "Hand off to surrogates",
+        "label": "Let a crewmate talk; stretch out",
         "effects": {
           "credibility": 0,
-          "pants": -2,
           "morale": 1,
-          "log": "Your bench keeps the story tight while you rest.",
+          "log": "They take the questions. You become the first person in a political interview to lie down openly.",
           "rest": true
         }
       }
-    ]
+    ],
+    "satire_hook": "signal"
   },
   {
     "id": "classic_radio_phonebank",
     "name": "College Radio Phonebank",
-    "desc": "Students spin up a call-in marathon for signatures.",
+    "desc": "The college station needs spots opposing the federal library cuts. Eight dollars per recording. Your opinion has reached the market value of a sandwich.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -520,77 +518,77 @@
     ],
     "choices": [
       {
-        "label": "Jump on the mic",
+        "label": "Join the live call-in",
         "effects": {
           "credibility": 1,
           "morale": 1,
-          "pants": 1,
-          "log": "You juice the call volume with quick riffs."
+          "log": "'Free Wi-Fi scares billionaires,' you tell listeners. 'People might read the second half of the contract.'"
         }
       },
       {
-        "label": "Train their volunteers",
+        "label": "Share one snack bundle; rehearse calls",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "pants": -2,
-          "log": "Scripts tighten up and the hotline hums."
+          "log": "You pass out snacks and rehearse calls. The script contains fewer apologies than your work emails."
         }
       },
       {
-        "label": "Record evergreen promos",
+        "label": "Record the $8 support spot",
         "effects": {
           "sanity": 1,
-          "pants": 0,
-          "log": "Future listeners will still hear your pitch."
+          "log": "You record the spot and pocket eight dollars. Your unpaid opinions are filing a grievance.",
+          "cash_cents": 800
         }
       }
-    ]
+    ],
+    "satire_hook": "libraries"
   },
   {
     "id": "classic_service_station",
     "name": "Service Station Handoff",
-    "desc": "A union shop offers uptime checks before you push east.",
+    "desc": "The tariff quote has promoted replacement parts to luxury goods. A union mechanic and apprentices offer to fit your spares. “Congratulations. Your wipers are now an inheritance.”",
     "weight": 4,
     "regions": [
       "Heartland",
-      "RustBelt"
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic"
     ],
     "choices": [
       {
-        "label": "Tune up everything",
+        "label": "Use spares; rest during servicing",
         "effects": {
           "supplies": -1,
           "hp": 2,
-          "pants": -1,
-          "log": "They torque every bolt for the road ahead."
+          "log": "Your spares go in; you rest. The waiting-room chair delivers the recovery Washington advertised."
         }
       },
       {
-        "label": "Spot train their apprentices",
+        "label": "Describe the trouble to apprentices",
         "effects": {
           "credibility": 1,
-          "pants": 1,
-          "log": "Skill shares buy future roadside favors."
+          "log": "The apprentices record the symptoms. The van receives more oversight than the tariff plan."
         }
       },
       {
-        "label": "Swap for better wipers",
+        "label": "Fit your spare wipers",
         "effects": {
           "supplies": -1,
-          "pants": 0,
-          "log": "Rain bands seem less ominous now."
+          "log": "Wipers fitted. You can see the road again. The economic outlook remains streaky."
         }
       }
-    ]
+    ],
+    "satire_hook": "tariffs"
   },
   {
     "id": "classic_union_blockade",
     "name": "Union Solidarity Blockade",
-    "desc": "A local union offers to stage a slowdown so you can pass unharassed.",
+    "desc": "Tariff uncertainty halved the shifts. The CEO's bonus somehow retained full-time hours. A steward offers space on the picket and a box of donated road snacks.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -602,40 +600,42 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Coordinate the action",
+        "label": "Take places on the picket",
         "effects": {
           "credibility": 2,
           "morale": 1,
-          "log": "Their action buys you a clear lane and louder endorsements."
+          "log": "You raise your signs. Management reports a troubling rise in employee engagement."
         }
       },
       {
-        "label": "Slip through quietly",
+        "label": "Accept a pack; pass quietly",
         "effects": {
-          "pants": 3,
           "supplies": 1,
-          "log": "You stay discreet but the blockade still slows pursuers."
+          "log": "The steward passes up a road pack. The outside agitators are now carrying snacks."
         }
       },
       {
-        "label": "Coordinate relief snacks",
+        "label": "Share one supply pack",
         "effects": {
           "supplies": -1,
-          "pants": -2,
           "morale": 2,
-          "log": "Union stewards cheer the solidarity."
+          "log": "You open the snacks. The picket's first shareholder meeting distributes actual crackers."
         }
       }
-    ]
+    ],
+    "satire_hook": "tariffs"
   },
   {
     "id": "classic_water_drive",
     "name": "Water Drive Relay",
-    "desc": "A roadside relief post asks for a quick boost to their hydration drive.",
+    "desc": "Drivers offer two supply bundles for unloading beneath Trump’s showerhead headline. 'He needs more pressure,' says a courier. 'My boss texts every time my GPS dot stops.'",
     "weight": 4,
     "regions": [
       "Heartland",
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic"
@@ -643,27 +643,28 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Donate part of the stash",
+        "label": "Donate two water bundles",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "You refill jugs and leave a short training sheet."
+          "log": "Drivers refill their bottles. Your water policy has passed its first test: containing water."
         }
       },
       {
-        "label": "Help with distribution",
+        "label": "Unload for two supply bundles",
         "effects": {
           "hp": -1,
           "supplies": 2,
-          "log": "A coordinated handoff nets you spare filters."
+          "log": "Two bundles earned. Your arms object to being classified as critical infrastructure."
         }
       }
-    ]
+    ],
+    "satire_hook": "shower"
   },
   {
     "id": "deep_circuit_breaker",
-    "name": "Circuit Breaker Audit",
-    "desc": "Engineers beg to inspect the convoy's overloaded power grid.",
+    "name": "One Socket, Six Phones",
+    "desc": "Tariffs have hiked charger prices. Six phones share one overheating adapter. A repair volunteer checks your spares. “Too small to bail out. We’ll have to fix it.”",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -675,37 +676,35 @@
     ],
     "choices": [
       {
-        "label": "Authorize downtime",
+        "label": "Use a spare adapter; rest",
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "pants": -2,
-          "log": "The rolling office powers up safer than before."
+          "log": "The adapter gets replaced; you get a chair. Neither requires a Senate hearing."
         }
       },
       {
-        "label": "Patch and roll",
+        "label": "Unplug everything; continue without charging",
         "effects": {
           "hp": -1,
-          "pants": 2,
-          "log": "Quick fixes hum but risk a later blowout."
+          "log": "Your neck aches over the last charged phone. The other five enjoy tariff protection from electricity."
         }
       },
       {
-        "label": "Commission mobile batteries",
+        "label": "Use two repair packs; document costs",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "pants": -1,
-          "log": "Reserve packs stabilize the briefing room feed."
+          "log": "Fix completed, price notice saved. At last, a rising percentage that isn’t on a price tag."
         }
       }
-    ]
+    ],
+    "satire_hook": "tariffs"
   },
   {
     "id": "deep_field_intel",
-    "name": "Field Intel Courier",
-    "desc": "Community researchers hand over drive images and surveys.",
+    "name": "Carry This to Washington",
+    "desc": "Library volunteers hand you public records for Washington, with private details removed. Their security system is a folder labeled ‘PUBLIC.’ The cabinet should ask about the enterprise plan.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -717,42 +716,44 @@
     ],
     "choices": [
       {
-        "label": "Integrate their findings",
+        "label": "File the evidence — 1 supply",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "pants": -1,
-          "log": "New targets boost your oversight report."
+          "log": "Sources checked, folder packed. Washington’s homework rides on the floor. It didn’t chip in for gas.",
+          "add_receipt": "deep_field_intel"
         }
       },
       {
-        "label": "Provide secure storage",
+        "label": "Donate storage folders — 2 supplies",
         "effects": {
           "supplies": -2,
           "morale": 2,
-          "pants": 0,
-          "log": "They trust you with a critical archive."
+          "log": "Their private copies get separate folders marked ‘PRIVATE.’ The cabinet is welcome to steal this technology."
         }
       },
       {
-        "label": "Scan for leaks",
+        "label": "Check for missed contact details",
         "effects": {
           "sanity": 1,
-          "pants": -2,
-          "log": "You catch a rooted tablet before damage spreads."
+          "log": "You catch a phone number in the public copy. One stroke of a pen; no press conference explaining how secure the pen is."
         }
       }
-    ]
+    ],
+    "satire_hook": "signal"
   },
   {
     "id": "deep_grassroots_signal",
-    "name": "Grassroots Signal Boost",
-    "desc": "Decentralized organizers beam encrypted updates from afar.",
+    "name": "The Rally Address Has Entered the Chat",
+    "desc": "The rally has two addresses in your chat. To improve security after Signal, someone changes the icon to a padlock. Both addresses are now securely wrong.",
     "weight": 3,
     "regions": [
       "Heartland",
       "RustBelt",
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "deep",
@@ -760,38 +761,40 @@
     ],
     "choices": [
       {
-        "label": "Amplify across your channels",
+        "label": "Check and share the organizer’s notice",
         "effects": {
           "credibility": 2,
-          "pants": -1,
-          "log": "Cross-network sharing keeps pressure balanced."
+          "log": "You confirm the address and send the dated link. The padlock gets promoted to decoration."
         }
       },
       {
-        "label": "Vet every packet",
+        "label": "Trace and save the screenshots",
         "effects": {
           "sanity": -1,
-          "pants": 0,
-          "log": "You catch a forged update before it spreads."
+          "log": "You date the screenshots: wrong town, wrong year. Your phone now needs a cigarette.",
+          "add_receipt": "deep_grassroots_signal"
         }
       },
       {
-        "label": "Forward raw feeds",
+        "label": "Forward everything as confirmed",
         "effects": {
           "credibility": -2,
-          "pants": 2,
-          "log": "Unverified blasts generate frantic callbacks."
+          "log": "Your directions send a friend to an empty parking lot. Congratulations on organizing a deeply private rally."
         }
       }
-    ]
+    ],
+    "satire_hook": "signal"
   },
   {
     "id": "deep_media_ambush",
-    "name": "Media Ambush Drill",
-    "desc": "A crisis PR coach ambushes you with rapid-fire hypotheticals.",
+    "name": "Please Hold While We Check Reality",
+    "desc": "At a free protest workshop, a volunteer hands out the Sharpiegate report, then plays Trump arguing with a forecast. Six workers recognize the problem: somebody gave the difficult customer nuclear weapons.",
     "weight": 4,
     "regions": [
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "deep",
@@ -799,37 +802,35 @@
     ],
     "choices": [
       {
-        "label": "Take every question",
+        "label": "Answer using the investigation",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "pants": 2,
-          "log": "You refine answers before the cameras roll."
+          "log": "Your answers match the report. Your patience runs out when ‘the president’ asks to speak to the weather’s manager."
         }
       },
       {
-        "label": "Workshop with staff",
+        "label": "Practice one answer together",
         "effects": {
           "sanity": 1,
-          "pants": -1,
-          "log": "Your team internalizes the new message grid."
+          "log": "You rehearse ‘Show me where it says that.’ Nobody offers the imaginary president a refill."
         }
       },
       {
-        "label": "Postpone for sleep",
+        "label": "Send remembered notes; take a nap",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "pants": -2,
-          "log": "You refuse to drill exhausted and stay sharp later."
+          "log": "Excellent nap. Incorrect summary. The report has your correction waiting when you wake, like a shift supervisor."
         }
       }
-    ]
+    ],
+    "satire_hook": "weather"
   },
   {
     "id": "deep_memorandum_dump",
-    "name": "Memorandum Dump",
-    "desc": "Compressed drives of sealed memos await triage.",
+    "name": "The Public Paper Pile",
+    "desc": "Residents offer cut notices beside DOGE's corrected contract figure. Eight billion became eight million. Their closed service desk has declined to reopen by typo.",
     "weight": 5,
     "regions": [
       "RustBelt"
@@ -840,40 +841,42 @@
     ],
     "choices": [
       {
-        "label": "Sort by threat level",
+        "label": "Sort and save the dated notices",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "pants": 1,
-          "log": "You surface red-flags before the opposition."
+          "log": "Head aching, you file the notices. “Savings” takes three folders; “service” fits under CLOSED.",
+          "add_receipt": "deep_memorandum_dump"
         }
       },
       {
-        "label": "Forward to oversight",
+        "label": "Mail copies using your stationery",
         "effects": {
           "credibility": 1,
-          "pants": -1,
           "supplies": -1,
-          "log": "The committee braces for impact early."
+          "log": "Copies mailed. Washington’s savings plan is now eating into your envelope stash."
         }
       },
       {
-        "label": "Archive for later",
+        "label": "Store the files; close the folder",
         "effects": {
           "sanity": 2,
-          "pants": 0,
-          "log": "You buy a breather but risk surprise later."
+          "log": "Files saved, folder closed. By DOGE standards, you’ve now eliminated all the paperwork."
         }
       }
-    ]
+    ],
+    "satire_hook": "receipts"
   },
   {
     "id": "deep_secure_line",
-    "name": "Secure Line Calibration",
-    "desc": "Techs retool the encrypted switchboard mid-route.",
+    "name": "Private Chat, Public Application",
+    "desc": "The motel manager wants job applications in a chat with his vending-machine guy. ‘It’s encrypted,’ he says. Excellent. Only authorized strangers can read your address.",
     "weight": 3,
     "regions": [
-      "Heartland"
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "deep",
@@ -881,36 +884,35 @@
     ],
     "choices": [
       {
-        "label": "Run the diagnostics",
+        "label": "Check the roster; document the problem",
         "effects": {
           "sanity": 1,
-          "pants": -2,
-          "log": "You eliminate echo leaks before the hearing."
+          "log": "You record stray contacts without private details. The vending-machine guy confirms he is not HR.",
+          "add_receipt": "deep_secure_line"
         }
       },
       {
-        "label": "Send staff instead",
+        "label": "Repeat the manager’s privacy assurance",
         "effects": {
           "credibility": -1,
-          "pants": 0,
-          "log": "They manage without you, but glitches linger."
+          "log": "‘Totally private,’ you tell everyone. A former employee replies, ‘I quit during the Obama administration.’"
         }
       },
       {
-        "label": "Escalate for federal backup",
+        "label": "Get access rules written — 1 supply",
         "effects": {
           "supplies": -1,
           "credibility": 1,
-          "pants": -1,
-          "log": "Agency support patches the relay instantly."
+          "log": "He lists who may see applications. The housekeeper crosses out ‘everyone in the chat.’ One more mess management expects her to clean."
         }
       }
-    ]
+    ],
+    "satire_hook": "signal"
   },
   {
     "id": "deep_state_dirge",
-    "name": "Deep State Dirge",
-    "desc": "A shadowy hearing drags on for hours.",
+    "name": "The Public Comment Endurance Test",
+    "desc": "The hearing on efficiency has spent an hour praising itself. Public comments get three minutes. A cleaner asks whether all that applause is on the clock.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -923,40 +925,38 @@
     "major_repair": false,
     "choices": [
       {
-        "label": "Hold the line",
+        "label": "Use one snack pack; stay and speak",
         "effects": {
           "sanity": -2,
           "credibility": 3,
-          "pants": 2,
           "supplies": -1,
-          "log": "You squeeze concessions into the transcript."
+          "log": "Snacks gone, patience gone, statement recorded. Your three minutes contain more verbs than the chair's hour."
         }
       },
       {
-        "label": "Cut and run",
+        "label": "Withdraw; walk back to the van",
         "effects": {
           "sanity": 1,
           "credibility": -2,
-          "pants": 3,
           "hp": -1,
-          "log": "You duck the cameras and regroup at HQ."
+          "log": "You hike back, aching and unheard. The chair records another successful reduction in public complaints."
         }
       },
       {
-        "label": "Call a hallway recess",
+        "label": "Take a hallway breather",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "pants": -2,
-          "log": "You secure a breather and temper the theatrics."
+          "log": "You miss your turn but recover your patience. The chair thanks the empty microphone for keeping its comments brief."
         }
       }
-    ]
+    ],
+    "satire_hook": "bullets"
   },
   {
     "id": "deep_watch_party",
-    "name": "Whistleblower Watch Party",
-    "desc": "A secure bunker hosts remote testimonies late into the night.",
+    "name": "Public Accountability, Folding Chairs",
+    "desc": "A community screening covers political pressure on weather forecasters. On-screen, nobody remembers who gave the order. The folding chair beneath you has accepted sole responsibility for your suffering.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -968,37 +968,35 @@
     ],
     "choices": [
       {
-        "label": "Moderate live",
+        "label": "Check the discussion against the investigation",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "pants": 1,
-          "log": "You cross-examine while the stream surges."
+          "log": "The dates line up. The excuses don’t. Your headache has excellent supporting documentation."
         }
       },
       {
-        "label": "Clip highlights later",
+        "label": "Save the recording; step outside",
         "effects": {
           "sanity": 1,
-          "pants": -1,
-          "log": "You queue the best testimony for release windows."
+          "log": "You bookmark the discussion and escape the chair. Accountability can continue without conducting experiments on your tailbone."
         }
       },
       {
-        "label": "Let staff recap",
+        "label": "Share a recap from memory; get some sleep",
         "effects": {
           "credibility": -1,
-          "pants": -2,
-          "log": "You rest while trusted aides capture takeaways.",
+          "log": "You sleep through the correction to your forwarded claim. A perfect cabinet performance, minus the salary.",
           "rest": true
         }
       }
-    ]
+    ],
+    "satire_hook": "weather"
   },
   {
     "id": "deep_watchdog_sync",
-    "name": "Watchdog Sync",
-    "desc": "Inspectors general huddle to compare sealed reports.",
+    "name": "Receipts at the Community Table",
+    "desc": "A retired bookkeeper checks DOGE’s billion-to-million correction. She counts six biscuits onto a plate. “Six thousand, if anyone from Washington asks.”",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -1010,40 +1008,42 @@
     ],
     "choices": [
       {
-        "label": "Share your dossiers",
+        "label": "Use your paper; share checked examples",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "pants": -1,
-          "log": "Cross-agency leads seal future subpoenas."
+          "log": "Copies made, checked notes saved. The biscuit tin survives its audit without requiring a spokesperson.",
+          "add_receipt": "deep_watchdog_sync"
         }
       },
       {
-        "label": "Listen quietly",
+        "label": "Listen; ask for the sources",
         "effects": {
           "sanity": 1,
-          "pants": 0,
-          "log": "You bank intelligence without stirring waters."
+          "log": "The totals finally add up. Somebody checks the calculator for a deep-state switch."
         }
       },
       {
-        "label": "Leak summary notes",
+        "label": "Post the unchecked notes",
         "effects": {
           "credibility": -2,
-          "pants": 3,
-          "log": "Anonymous memos raise scrutiny everywhere."
+          "log": "Your total gets corrected. Congratulations: you've brought federal accounting standards to the neighborhood."
         }
       }
-    ]
+    ],
+    "satire_hook": "receipts"
   },
   {
     "id": "fundraiser_detour",
     "name": "Fundraiser Detour",
-    "desc": "You are asked to crash a friendly fundraiser.",
+    "desc": "The fundraiser's corporate sponsor sent a six-foot logo. Nobody brought a pan big enough to cook it. Guests who can spare food are supplying dinner.",
     "weight": 5,
     "regions": [
       "Heartland",
-      "RustBelt"
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic"
@@ -1051,33 +1051,35 @@
     "hard_stop": true,
     "choices": [
       {
-        "label": "Attend and shake hands",
+        "label": "Contribute two bundles and mingle",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "pants": 1,
-          "log": "You take home some leftovers."
+          "log": "You supply actual food. The organizer puts your names above the company that donated a JPEG."
         }
       },
       {
-        "label": "Skip and stay on route",
+        "label": "Skip it; stay on route",
         "effects": {
           "hp": 0,
           "sanity": 1,
-          "log": "You gift the organizers an early briefing.",
-          "supplies": 0,
-          "pants": -1
+          "log": "You skip the speeches. The engine makes fewer promises and is noticeably easier to interrupt.",
+          "supplies": 0
         }
       }
-    ]
+    ],
+    "satire_hook": "food"
   },
   {
     "id": "raw_milk",
-    "name": "Raw Milk Stand",
-    "desc": "A dubious raw milk stand tempts the party.",
+    "name": "Corporate Says It’s Healthy",
+    "desc": "A wellness booth offers free raw milk, wrapped snacks, and MAHA-themed ‘bodily freedom.’ The attendant has a script, research links, and corporate instructions on the correct angle of her smile.",
     "weight": 3,
     "regions": [
-      "Heartland"
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic",
@@ -1086,41 +1088,42 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Drink the milk",
+        "label": "Drink the free milk",
         "effects": {
           "hp": -1,
           "sanity": -1,
-          "pants": 3,
-          "log": "You brave the calcium gamble."
+          "log": "Your stomach begins its own review. The next exit becomes the only policy issue that matters."
         }
       },
       {
-        "label": "Politely decline",
+        "label": "Decline; check the study links",
         "effects": {
           "credibility": 1,
           "morale": 1,
-          "pants": -1,
-          "log": "You hype their safety checklist instead."
+          "log": "The cited study isn’t about milk. You show the attendant. Corporate’s science joins the recycling."
         }
       },
       {
-        "label": "Buy shelf-stable snacks",
+        "label": "Take one free snack pack",
         "effects": {
           "supplies": 1,
-          "pants": 1,
-          "log": "The vendor upsells you sealed treats."
+          "log": "You stash the snacks. Their ingredients list fits on the wrapper without a presidential commission."
         }
       }
-    ]
+    ],
+    "satire_hook": "maha"
   },
   {
     "id": "tariff_whiplash",
     "name": "Tariff Whiplash",
-    "desc": "A surprise tariff now applies to... your stuff.",
+    "desc": "A new tariff list demands extra spares for your signed parts trade. Corporate’s “Remain Positive” email supplies the clerk’s script: “Unfortunately, unfortunately, unfortunately.”",
     "weight": 5,
     "regions": [
       "RustBelt",
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "modes": [
       "classic",
@@ -1128,38 +1131,36 @@
     ],
     "choices": [
       {
-        "label": "Pay the tariff",
+        "label": "Check terms; trade two supply packs",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "pants": 2,
-          "log": "You absorb the hit and keep the paperwork tidy."
+          "log": "Two packs gone; surcharge documented. Your signature apparently approved whatever number came next."
         }
       },
       {
-        "label": "Smuggle it",
+        "label": "Claim the extra pack was included",
         "effects": {
           "supplies": 1,
           "credibility": -1,
-          "pants": 5,
-          "log": "Border Beagle sniffs judgement."
+          "log": "You get the extra pack and lose the benefit of the doubt. Management material."
         }
       },
       {
-        "label": "Lobby for a waiver",
+        "label": "Compare slips; offer one supply pack",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "pants": -1,
-          "log": "A late-night call buys leniency on the manifest."
+          "log": "One pack accepted, corrected terms saved. Corporate's positive-attitude email survives every revision."
         }
       }
-    ]
+    ],
+    "satire_hook": "tariffs"
   },
   {
     "id": "town_hall_drift",
-    "name": "Town Hall Drift",
-    "desc": "A classic-mode town hall needs calming words.",
+    "name": "Has Anyone Tried Paying the Rent?",
+    "desc": "At a housing meeting, a council member prescribes healthier choices using the MAHA report. A tenant asks whether her landlord counts as a parasite. He turns off her microphone.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -1171,40 +1172,38 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Guide the conversation",
+        "label": "Wait your turn to read the rent figures",
         "effects": {
           "credibility": 2,
           "sanity": -1,
           "hp": -1,
-          "pants": 1,
-          "log": "You steer the agenda back to housing."
+          "log": "Standing wears you out. You read the posted rents aloud; he cuts the mic. The room is now officially affordable."
         }
       },
       {
-        "label": "Let them vent",
+        "label": "Stay for the neighbors’ complaints",
         "effects": {
           "sanity": 1,
           "morale": 2,
-          "pants": 3,
           "hp": -1,
-          "log": "You ride out the venting with patient nods."
+          "log": "Your legs ache. A tenant suggests listing the council member on Airbnb: spacious, vacant, difficult to contact."
         }
       },
       {
-        "label": "Break into workgroups",
+        "label": "Retreat; quote rents from memory",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "pants": -2,
-          "log": "Facilitators scoop the loudest voices aside."
+          "log": "The quiet helps. Your ‘rents doubled’ claim fails a phone check. You try again, louder."
         }
       }
-    ]
+    ],
+    "satire_hook": "maha"
   },
   {
     "id": "deep_waystation_boost",
     "name": "Heartland Waystation",
-    "desc": "A local crew waves you onto freshly cleared asphalt.",
+    "desc": "Food-aid drivers offer their fastest shortcut for help with crates, or an easier route over coffee. 'Deliveries still have to arrive,' one says. 'Unlike the federal food money.'",
     "weight": 4,
     "regions": [
       "Heartland"
@@ -1215,29 +1214,31 @@
     ],
     "choices": [
       {
-        "label": "Swap favors and push ahead",
+        "label": "Stack crates; take the fastest shortcut",
         "effects": {
           "travel_bonus_ratio": 0.4,
           "sanity": 1,
-          "log": "Local organizers wave you through their shortcut."
+          "log": "You move the crates and skip the jam. Six workers outmaneuver a planning committee without appointing one."
         }
       },
       {
-        "label": "Share coffee before rolling out",
+        "label": "Drink their coffee; take the easier route",
         "effects": {
           "travel_bonus_ratio": 0.25,
-          "morale": 1
+          "morale": 1,
+          "log": "Coffee improves the directions. The driver narrates the map like the van has acquired a sports commentator."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
-    "chainable": false
+    "chainable": false,
+    "satire_hook": "food"
   },
   {
     "id": "deep_rustbelt_convoy",
     "name": "Rust Belt Convoy",
-    "desc": "Freight drivers offer to pace you past barricades.",
+    "desc": "Tariff paperwork has parked a line of trucks. Drivers offer a fast back-road group or the marked detour. Their cargo has traveled farther between inboxes.",
     "weight": 4,
     "regions": [
       "RustBelt"
@@ -1248,29 +1249,31 @@
     ],
     "choices": [
       {
-        "label": "Draft with the lead truck",
+        "label": "Share a pack; follow the lead",
         "effects": {
           "travel_bonus_ratio": 0.5,
           "supplies": -1,
-          "log": "You hitch into the convoy and chew up miles."
+          "log": "Snacks shared, miles gained. The trucker’s “Follow me” is the shortest trade policy you’ve heard all day."
         }
       },
       {
-        "label": "Hold the middle lane",
+        "label": "Join the marked-detour group",
         "effects": {
           "travel_bonus_ratio": 0.3,
-          "credibility": 1
+          "credibility": 1,
+          "log": "You signal and leave a gap. The trucker approves a trade agreement consisting entirely of waving."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
-    "chainable": false
+    "chainable": false,
+    "satire_hook": "tariffs"
   },
   {
     "id": "deep_beltway_fastpass",
-    "name": "Beltway Fast Pass",
-    "desc": "Policy aides flash badges to keep traffic enforcement off you.",
+    "name": "The Flagger Knows the Way",
+    "desc": "A “DOGE SAVINGS” banner hangs over a closed lane. Beneath it, a flagger offers a fast coned route or an easier merge. Both existed before the banner claimed credit.",
     "weight": 3,
     "regions": [
       "Beltway"
@@ -1281,71 +1284,73 @@
     ],
     "choices": [
       {
-        "label": "Ride the cleared shoulder",
+        "label": "Take the coned route on signal",
         "effects": {
           "travel_bonus_ratio": 0.45,
-          "pants": -1,
-          "log": "Security waves you down the empty lane."
+          "log": "You gain miles. The flagger gets you moving with one hand. The banner requires two poles to stand there."
         }
       },
       {
-        "label": "Split the lane politely",
+        "label": "Wait for the easier merge",
         "effects": {
           "travel_bonus_ratio": 0.28,
-          "sanity": 1
+          "sanity": 1,
+          "log": "You merge smoothly. The back-seat transport committee is reduced to one satisfied grunt."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
-    "chainable": false
+    "chainable": false,
+    "satire_hook": "receipts"
   },
   {
     "id": "clinic_triage",
-    "name": "Clinic Triage",
-    "desc": "A volunteer medic wagon offers hydration and quick checks.",
+    "name": "No Subscription Required",
+    "desc": "After a hot drive, a volunteer medic offers a free check and mentions low supplies. Across the street, a booth sells ‘freedom from modern medicine.’ The insurance industry calls that a deductible.",
     "weight": 4,
     "regions": [
       "Heartland",
       "RustBelt",
-      "Beltway"
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
     ],
     "choices": [
       {
         "label": "Wave them off",
         "effects": {
-          "pants": 1,
           "sanity": -1,
-          "log": "You insist the team keeps moving despite the concern."
+          "log": "You declare everyone fine. Six worried people spend the next mile conducting a medical review by side-eye."
         }
       },
       {
-        "label": "Take a saline break",
+        "label": "Use your water; get checked — 1 supply",
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "rest": true,
-          "log": "Medics insist on fluids and make you sit a spell."
+          "log": "You drink your water and get checked. The bill is so absent you check under the chair."
         }
       },
       {
-        "label": "Donate spare bandages",
+        "label": "Donate and document shortages — 2 supplies",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "rest": true,
-          "log": "You bolster the triage cache and breathe easier."
+          "log": "Bandages donated, shortages logged. The wellness banner covers twelve square feet and absolutely no wounds."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
-    "chainable": false
+    "chainable": false,
+    "satire_hook": "maha"
   },
   {
     "id": "overnight_briefing",
-    "name": "Overnight Briefing",
-    "desc": "Allies urge you to pause, sleep, and align strategy before dawn.",
+    "name": "Five Accomplishments, Six Exhausted People",
+    "desc": "It’s midnight outside the hearing hall. Your comment on five-accomplishment reports is stuck in a six-person fight over commas. The lot attendant offers to text when the doors open.",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -1353,34 +1358,1280 @@
     ],
     "choices": [
       {
-        "label": "Power through the night",
+        "label": "Keep everyone awake; finish the notes",
         "effects": {
           "sanity": -1,
-          "pants": 2,
-          "log": "Another all-nighter leaves everyone frayed."
+          "log": "The notes grow longer. The van becomes an unpaid staff meeting with worse ventilation."
         }
       },
       {
-        "label": "Set guard rotations",
+        "label": "Share one pack; take turns working",
         "effects": {
           "supplies": -1,
           "rest": true,
           "sanity": 1,
-          "log": "Fresh coffee and shifts let the core team sleep."
+          "log": "One supply pack buys rotating naps. Democracy runs on crackers and whoever's least asleep."
         }
       },
       {
-        "label": "Call in the deep bench",
+        "label": "Accept the attendant’s offer; sleep",
         "effects": {
           "allies": 1,
           "rest": true,
-          "pants": -1,
-          "log": "Trusted stand-ins hold the line while you recover."
+          "log": "You sleep; your new ally texts when the doors open. The message ends before anyone asks for a campaign donation."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
-    "chainable": false
+    "chainable": false,
+    "satire_hook": "bullets"
+  },
+  {
+    "id": "sat_straw_reserve",
+    "name": "Emergency Straw Reserve",
+    "desc": "Trump’s straw display blocks the water cooler. The cashier offers $10 to count boxes. ‘We’re free,’ she says, ‘to move this shit again.’",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Buy two water bundles: $6",
+        "effects": {
+          "cash_cents": -600,
+          "supplies": 2,
+          "log": "Six dollars for water, free straws. Washington would like credit for the affordable part."
+        }
+      },
+      {
+        "label": "Count the boxes for $10",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "Ten dollars earned. The manager asks for a second count. Freedom has a closing checklist."
+        }
+      },
+      {
+        "label": "Keep driving; skip the straws",
+        "effects": {
+          "morale": -1,
+          "log": "You pass a 'WE LISTENED' banner. Six broke people try to look more like drinking utensils."
+        }
+      }
+    ],
+    "satire_hook": "straws",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_corn_bullets",
+    "name": "Five Things Corn Did Last Week",
+    "desc": "The farmer copied Washington’s five-accomplishment emails. His worker offers you $8 to type four entries. The corn continues growing without submitting supporting documentation.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Document the work the form omits",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You save her approved account, cross-eyed. Management has converted photosynthesis into a clerical backlog.",
+          "add_receipt": "sat_corn_bullets"
+        }
+      },
+      {
+        "label": "Type her notes for $8",
+        "effects": {
+          "cash_cents": 800,
+          "morale": 1,
+          "log": "You type her notes and pocket eight dollars. The corn has hired a ghostwriter."
+        }
+      },
+      {
+        "label": "Pass on the paperwork",
+        "effects": {
+          "morale": -1,
+          "log": "You leave her filling boxes. Outside, the corn brazenly refuses to network."
+        }
+      }
+    ],
+    "satire_hook": "bullets",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_grant_groceries",
+    "name": "Locally Grown Funding Gap",
+    "desc": "The co-op offers twelve bucks to load crates. Since the federal food fund was canceled, the tomatoes have had to develop a fundraising strategy.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Donate two food bundles",
+        "effects": {
+          "supplies": -2,
+          "allies": 1,
+          "log": "The co-op swaps contact details with you. Your beans have negotiated better connections than your résumé."
+        }
+      },
+      {
+        "label": "Load crates for $12",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "morale": 1,
+          "log": "You load the crates and collect twelve dollars. Your back sends its invoice separately."
+        }
+      },
+      {
+        "label": "Keep your supplies; keep driving",
+        "effects": {
+          "morale": -1,
+          "log": "Back in the van, you discuss incorporating the beans. Maybe then somebody will bail them out."
+        }
+      }
+    ],
+    "satire_hook": "food",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_cow_citations",
+    "name": "The Cow Hasn’t Read It Either",
+    "desc": "A dairy stand’s MAHA-style research links are dead. The cardboard cow smiles through it. Corporate has found a spokesperson who can’t request back pay.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check titles; save the dead links",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "You save the mismatches, squinting. The cow remains the only author you can locate.",
+          "add_receipt": "sat_cow_citations"
+        }
+      },
+      {
+        "label": "Buy two snack packs — $5",
+        "effects": {
+          "cash_cents": -500,
+          "supplies": 2,
+          "log": "Five dollars. Two snack packs. The wrappers make no campaign promises."
+        }
+      },
+      {
+        "label": "Leave the stand",
+        "effects": {
+          "morale": -1,
+          "log": "You leave hungry. The cardboard cow keeps smiling through lunch. Corporate has finally found its model employee."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "milk-classic"
+  },
+  {
+    "id": "sat_forecast_corrected",
+    "name": "Optimism Will Not Dry Your Socks",
+    "desc": "A festival promoter covers a rain warning with a sun sticker. A worker points out the shelter. Trump needed a marker; this guy has outsourced meteorology to the craft aisle.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Shelter and eat — 1 supply",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "log": "You recover over a snack. Outside, the sun sticker makes its first contact with weather."
+        }
+      },
+      {
+        "label": "Trust the sign; reassure the crew",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "log": "You relax and announce clear skies. Then the first raindrop performs a hostile fact-check."
+        }
+      },
+      {
+        "label": "Skip the festival",
+        "effects": {
+          "morale": -1,
+          "log": "You pass the fry stall. Nobody says ‘at least we saved money’ without a death stare."
+        }
+      }
+    ],
+    "satire_hook": "weather",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_parking_gulf",
+    "name": "Gulf of Parking Lot",
+    "desc": "The owner renamed his puddle the Gulf of Premium Parking. He offers you $7 to repaint the sign. The attendant wanted a drain and received an ocean.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Repaint the sign for $7",
+        "effects": {
+          "cash_cents": 700,
+          "sanity": -1,
+          "log": "Seven dollars earned. The owner announces a waterfront upgrade. The attendant resumes asking for a drain."
+        }
+      },
+      {
+        "label": "Check and mark the dry exit",
+        "effects": {
+          "credibility": 2,
+          "log": "You mark the dry exit. The owner's maritime empire ends at a correctly drawn arrow."
+        }
+      },
+      {
+        "label": "Leave before the parking pitch",
+        "effects": {
+          "morale": -1,
+          "log": "You leave the puddle undefeated. The van's cup holder remains your entire waterfront portfolio."
+        }
+      }
+    ],
+    "satire_hook": "names",
+    "scene": "enc-checkpoint"
+  },
+  {
+    "id": "sat_library_minimum",
+    "name": "The Minimum Viable Library",
+    "desc": "A librarian offers $9 for catalog checks while a federal form demands reading’s dollar value. She writes ‘more than this form.’ Invalid currency.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Donate one reading-table snack bundle",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "sanity": 1,
+          "log": "The librarian gives you her contact card. Your crackers now qualify as a suspiciously effective public-private partnership."
+        }
+      },
+      {
+        "label": "Check catalog entries for $9",
+        "effects": {
+          "cash_cents": 900,
+          "sanity": -1,
+          "credibility": 1,
+          "log": "Nine dollars earned and a librarian's endorsement. Your eyes would like books to come in fewer letters."
+        }
+      },
+      {
+        "label": "Get back on the road",
+        "effects": {
+          "morale": -1,
+          "log": "You pass the free-computer sign. Dangerous stuff. Somebody could look up what a union does."
+        }
+      }
+    ],
+    "satire_hook": "libraries",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_tariff_forklift",
+    "name": "The Tariff Relabeling Shift",
+    "desc": "Another tariff update. The dispatcher offers fourteen dollars to move boxes, two supply packs to match labels. “We're bringing jobs back. From that pallet to this pallet.”",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Move the boxes for $14",
+        "effects": {
+          "cash_cents": 1400,
+          "hp": -1,
+          "log": "Fourteen dollars earned. Your shoulders would like to offshore the next box."
+        }
+      },
+      {
+        "label": "Match labels for two supply packs",
+        "effects": {
+          "supplies": 2,
+          "sanity": -1,
+          "log": "Cross-eyed, you collect two road packs. You check whether lunch has also been amended."
+        }
+      },
+      {
+        "label": "Pass on the work",
+        "effects": {
+          "morale": -1,
+          "log": "The boxes stay. So does the gas-money problem."
+        }
+      }
+    ],
+    "satire_hook": "tariffs",
+    "scene": "enc-convoy"
+  },
+  {
+    "id": "sat_alternator_tariff",
+    "name": "The Patriotic Parts Counter",
+    "desc": "The TV says China pays the tariffs. The cashier turns the $12 card reader toward you.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Buy the kit — $12",
+        "effects": {
+          "cash_cents": -1200,
+          "supplies": 3,
+          "log": "You buy the kit. China owes you a beer."
+        }
+      },
+      {
+        "label": "Get a written quote",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "She prints it. “For your reimbursement from China.”",
+          "add_receipt": "sat_alternator_tariff"
+        }
+      },
+      {
+        "label": "Leave with the $12",
+        "effects": {
+          "morale": -1,
+          "log": "The kit stays on the shelf, awaiting payment from Beijing."
+        }
+      }
+    ],
+    "satire_hook": "tariffs",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_billion_pothole",
+    "name": "The Eight-Billion-Dollar Pothole",
+    "desc": "DOGE listed an $8 million contract as $8 billion. A diner owner offers $10 to haul pothole patch. “I checked my math.”",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Save the claim and correction",
+        "effects": {
+          "credibility": 3,
+          "sanity": -1,
+          "log": "You save both. A cashier has to explain a missing quarter. DOGE gets three spare zeroes.",
+          "add_receipt": "sat_billion_pothole"
+        }
+      },
+      {
+        "label": "Haul the bags — earn $10",
+        "effects": {
+          "cash_cents": 1000,
+          "hp": -1,
+          "log": "You haul the bags and pocket $10. Your back would prefer DOGE’s math."
+        }
+      },
+      {
+        "label": "Drive around the damn hole",
+        "effects": {
+          "morale": -1,
+          "log": "Finally, a problem you can solve by moving further left."
+        }
+      }
+    ],
+    "satire_hook": "receipts",
+    "scene": "enc-bridge"
+  },
+  {
+    "id": "sat_bridge_bullets",
+    "name": "Please Account for the Bridge",
+    "desc": "The bridge supervisor demands five accomplishments. The workers have listed every repair. Their report comes back: “More impact.” One points down at the river.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Type, check and save their report",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "log": "Report saved, eyes aching. “Kept the cars out of the river” is somehow the difficult part to explain.",
+          "add_receipt": "sat_bridge_bullets"
+        }
+      },
+      {
+        "label": "Share one lunch pack",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "log": "Your new ally submits “chewed” five times on the wrapper. Lunch now qualifies as more productive than bridge repair."
+        }
+      },
+      {
+        "label": "Take the reopened lane",
+        "effects": {
+          "morale": -1,
+          "log": "You cross the bridge. Its workers are still explaining why that should count."
+        }
+      }
+    ],
+    "satire_hook": "bullets",
+    "scene": "enc-bridge"
+  },
+  {
+    "id": "sat_press_pool_radio",
+    "name": "Reply All, Clock Out",
+    "desc": "A café chat mixes lunch orders with staff messages. A customer asks whether ‘unpaid close’ comes with fries. The cashier offers eight dollars to sort the customer contacts from the staff.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Document the mix-up with permission",
+        "effects": {
+          "credibility": 2,
+          "log": "You show the owner. He creates separate chats and calls it a restructuring."
+        }
+      },
+      {
+        "label": "Sort the contacts for $8",
+        "effects": {
+          "cash_cents": 800,
+          "sanity": -1,
+          "log": "Eight dollars. Forty-seven messages. The owner describes identifying three customers as ‘digital transformation.’"
+        }
+      },
+      {
+        "label": "Skip the job",
+        "effects": {
+          "morale": -1,
+          "log": "You leave without eight dollars. The gas pump has no interest in your work-life balance."
+        }
+      }
+    ],
+    "satire_hook": "signal",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_hydration_pressure",
+    "name": "Hydration Sovereignty",
+    "desc": "The truck stop’s Trump showerhead promotion has soaked its LIMITED GOVERNMENT banner. The clerk offers $9 to hold the stand steady. Free showers require your own soap and considerably less patriotism.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Use one wash-kit bundle; shower",
+        "effects": {
+          "supplies": -1,
+          "sanity": 2,
+          "log": "You emerge clean. The crew declines your suggestion of a ribbon-cutting for the armpits."
+        }
+      },
+      {
+        "label": "Brace the display for $9",
+        "effects": {
+          "cash_cents": 900,
+          "hp": -1,
+          "log": "Nine dollars and aching arms for holding the display upright. The clerk admires the design: 'Saved a fortune on the base.'"
+        }
+      },
+      {
+        "label": "Stay dry; keep driving",
+        "effects": {
+          "morale": -1,
+          "log": "You leave unwashed. The van's air freshener submits a resignation letter."
+        }
+      }
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_museum_grant",
+    "name": "The Exhibit of Pending Funds",
+    "desc": "The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Scan exhibit photos for $11",
+        "effects": {
+          "cash_cents": 1100,
+          "sanity": -1,
+          "log": "You finish the scans and collect eleven dollars. The historical payroll is starting to look competitive."
+        }
+      },
+      {
+        "label": "Share one snack bundle; take tour",
+        "effects": {
+          "supplies": -1,
+          "morale": 2,
+          "log": "The guide shares your snacks beside the company-store exhibit. Your employer's discount scheme suddenly looks less original."
+        }
+      },
+      {
+        "label": "Head back to the van",
+        "effects": {
+          "morale": -1,
+          "log": "The exhibit ends at the eight-hour day. Your phone asks whether you'd like to work tonight."
+        }
+      }
+    ],
+    "satire_hook": "libraries",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_factcheck_shift",
+    "name": "Click Here for Fifteen Dollars",
+    "desc": "An editor offers fifteen dollars to check MAHA’s citations. ‘Can you open a link?’ she asks. You finally encounter a job requirement the report’s authors could not meet.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check and log links for $15",
+        "effects": {
+          "cash_cents": 1500,
+          "sanity": -2,
+          "credibility": 2,
+          "log": "Fifteen dollars earned. Mismatches logged. Your eyes have put in for hazard pay.",
+          "add_receipt": "sat_factcheck_shift"
+        }
+      },
+      {
+        "label": "Vouch for the studies by title",
+        "effects": {
+          "morale": 1,
+          "credibility": -1,
+          "log": "Your cabinet impression gets a laugh. The editor opens a link: wrong paper. ‘Oh. You’re still doing the impression.’"
+        }
+      },
+      {
+        "label": "Pass on the assignment",
+        "effects": {
+          "morale": -1,
+          "log": "You decline. The fuel gauge immediately requests a meeting about your career choices."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "enc-media-workshop"
+  },
+  {
+    "id": "sat_food_shelf",
+    "name": "The Shelf Is Still Hungry",
+    "desc": "The federal food fund vanished. The forms reproduced. A co-op volunteer offers work: 'Backache pays in groceries. Headache pays cash.'",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Pack bags for three food bundles",
+        "effects": {
+          "supplies": 3,
+          "hp": -1,
+          "log": "Three bundles earned. Your shoulders would like their share delivered directly to a heating pad."
+        }
+      },
+      {
+        "label": "Sort delivery forms for $10",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "Ten dollars for matching groceries to addresses. Add a subscription fee and a tech founder could announce he invented delivery."
+        }
+      },
+      {
+        "label": "Skip the shift",
+        "effects": {
+          "morale": -1,
+          "log": "You keep driving. For dinner, the government recommends imagining how much worse socialism would taste."
+        }
+      }
+    ],
+    "satire_hook": "food",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_cabinet_guest",
+    "name": "Manager Approval Required",
+    "desc": "A server on break scrolls through the cabinet’s leaked airstrike chat. “They invited a journalist. I need a manager’s PIN to refund ranch.”",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Read the actual report",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "You save it. Apparently you’re cleared for airstrikes, just not dipping sauce.",
+          "add_receipt": "sat_cabinet_guest"
+        }
+      },
+      {
+        "label": "Retell it from memory—with impressions",
+        "effects": {
+          "morale": 2,
+          "credibility": -2,
+          "log": "The crew laughs. You invent a detail, then defend it. Now you’re doing the whole administration."
+        }
+      },
+      {
+        "label": "Give her back her break",
+        "effects": {
+          "morale": -1,
+          "log": "Two minutes for fries, then back to guarding the strategic ranch reserve."
+        }
+      }
+    ],
+    "satire_hook": "signal",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_name_infrastructure",
+    "name": "The Name Is the Infrastructure",
+    "desc": "The visitor desk’s $6 map shows a grandly renamed bridge, open to traffic. Outside, it’s closed. A clerk draws the detour by hand. The county has rebuilt the map.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Buy the $6 map as evidence",
+        "effects": {
+          "cash_cents": -600,
+          "credibility": 1,
+          "log": "You keep it beside the closure notice. Six dollars for the county’s collectible alternate reality."
+        }
+      },
+      {
+        "label": "Compare notices with the clerk",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You untangle the notices and save the route. The clerk christens your headache “Progress.” It continues hurting."
+        }
+      },
+      {
+        "label": "Leave and follow the posted detour",
+        "effects": {
+          "morale": -1,
+          "log": "You take the detour. The ribbon-cutting photo remains the shortest route across the river."
+        }
+      }
+    ],
+    "satire_hook": "names",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_straw_inspection",
+    "name": "Strategic Straw Inspection",
+    "desc": "A stand owner filming 'straw inspections' waves you into his video. His cashier says Trump's order covers federal purchasing. He requests fewer facts. She's still waiting for her break.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Give cashier one snack; decline video",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1,
+          "log": "She eats your snack on camera. 'I'd like my break now.' His freedom documentary has accidentally acquired a labor demand."
+        }
+      },
+      {
+        "label": "Read and save the actual order",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You save the order and correct him on camera. He asks whether facts come in plastic.",
+          "add_receipt": "sat_straw_inspection"
+        }
+      },
+      {
+        "label": "Decline; wait in the van",
+        "effects": {
+          "morale": -1,
+          "log": "He films another take. Your cup has received more scrutiny than a defense contract."
+        }
+      }
+    ],
+    "satire_hook": "straws",
+    "scene": "enc-checkpoint"
+  },
+  {
+    "id": "sat_shower_force",
+    "name": "The National Shower Demonstration",
+    "desc": "The Trump showerhead demonstration is flooding the sandwich stand. The manager offers twelve bucks to mop. Five buys a shower that hasn't annexed lunch.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Mop up for $12",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "log": "You mop until your back aches and collect twelve dollars. The manager announces that the system is 'self-draining.'"
+        }
+      },
+      {
+        "label": "Buy a $5 wash token",
+        "effects": {
+          "cash_cents": -500,
+          "sanity": 2,
+          "log": "You get clean for five dollars. The water stays in the shower. The manager calls this 'nothing special.'"
+        }
+      },
+      {
+        "label": "Skip both; keep driving",
+        "effects": {
+          "morale": -1,
+          "log": "The manager promises another demonstration. The cleaner begins moving sandwiches to higher ground."
+        }
+      }
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_receipt_museum",
+    "name": "The Museum of Very Large Savings",
+    "desc": "A DOGE exhibit offers $13 to check labels against sources. Beside the billion-to-million correction sits a quarter labeled “One Trillion, Pending Review.”",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check and record labels for $13",
+        "effects": {
+          "cash_cents": 1300,
+          "sanity": -2,
+          "credibility": 2,
+          "log": "Notes saved, head aching, $13 collected. Counting it twice fails to produce $26. You’re clearly unqualified for DOGE.",
+          "add_receipt": "sat_receipt_museum"
+        }
+      },
+      {
+        "label": "Improvise a tour from memory",
+        "effects": {
+          "morale": 2,
+          "credibility": -2,
+          "log": "The crew laughs until you repeat the wrong figure. The curator adds you to the correction."
+        }
+      },
+      {
+        "label": "Skip the exhibit",
+        "effects": {
+          "morale": -1,
+          "log": "You leave the quarter's promotion ceremony. Your own net worth remains offensively well documented."
+        }
+      }
+    ],
+    "satire_hook": "receipts",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_transit_ribbon",
+    "name": "The Ribbon-Cutting Holding Pattern",
+    "desc": "At a display about Chicago’s paused transit funds, organizers offer $9 to tally surveys. A cleaner eyes the ceremonial ribbon. ‘Try cutting my commute.’",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Donate one snack bundle",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "log": "Volunteers add your number beside the survey hotline. Your contribution is listed under 'edible infrastructure.'"
+        }
+      },
+      {
+        "label": "Tally rider surveys for $9",
+        "effects": {
+          "cash_cents": 900,
+          "sanity": -1,
+          "credibility": 1,
+          "log": "Nine dollars and a headache. One nurse lists 'my manager's imagination' under alternative transportation."
+        }
+      },
+      {
+        "label": "Head back to the van",
+        "effects": {
+          "morale": -1,
+          "log": "You drive away. The ribbon remains a zero-emissions vehicle with an exceptionally limited range."
+        }
+      }
+    ],
+    "satire_hook": "transit",
+    "scene": "enc-street"
+  },
+  {
+    "id": "sat_weather_desk",
+    "name": "Six Dollars for Better Weather",
+    "desc": "A vendor offers six dollars to replace a rain warning with ‘Clear skies ahead.’ He cites Trump’s hurricane map. No forecasting experience required. Eyesight discouraged.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Save the sign and official forecast",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "You document the mismatch until your eyes ache. The vendor asks whether facts require a permit.",
+          "add_receipt": "sat_weather_desk"
+        }
+      },
+      {
+        "label": "Hang the false sign for $6",
+        "effects": {
+          "cash_cents": 600,
+          "credibility": -2,
+          "log": "You pocket six dollars. A worker checks their forecast app. Your meteorology career ends at orientation."
+        }
+      },
+      {
+        "label": "Turn down the job",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your integrity. The gas pump regrets it does not participate in that rewards program."
+        }
+      }
+    ],
+    "satire_hook": "weather",
+    "scene": "enc-media-workshop"
+  },
+  {
+    "id": "sat_bibliography_emergency",
+    "name": "This Reference Needs a Pulse",
+    "desc": "The clinic offers $12 to check corrected MAHA references and treatment from your kit. “Washington makes a typo, I lose lunch,” says the receptionist.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check references for $12",
+        "effects": {
+          "cash_cents": 1200,
+          "sanity": -2,
+          "log": "Twelve dollars and a saved correction list. Your brain now displays ‘This page is not responding.’",
+          "add_receipt": "sat_bibliography_emergency"
+        }
+      },
+      {
+        "label": "Accept care using your kit — 1 supply",
+        "effects": {
+          "supplies": -1,
+          "hp": 2,
+          "log": "The nurse uses your kit and you recover. She opens the bandages without making you choose a subscription tier."
+        }
+      },
+      {
+        "label": "Head back to the van",
+        "effects": {
+          "morale": -1,
+          "log": "The van’s second opinion is ‘probably fine.’ Opinions three through six have nothing to add."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "enc-clinic"
+  },
+  {
+    "id": "west_grant_translation",
+    "name": "Patriotic Thesaurus",
+    "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+    "weight": 7,
+    "regions": [
+      "PacificCoast"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_grants",
+    "scene": "enc-media-workshop",
+    "choices": [
+      {
+        "label": "Take the translation shift",
+        "effects": {
+          "cash_cents": 1200,
+          "sanity": -1,
+          "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+        }
+      },
+      {
+        "label": "Publish both versions",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+          "add_receipt": "west_grant_translation"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_rail_replacement",
+    "name": "High-Speed Replacement Van",
+    "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+    "weight": 7,
+    "regions": [
+      "PacificCoast"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_rail",
+    "scene": "enc-street",
+    "choices": [
+      {
+        "label": "Deliver their event supplies",
+        "effects": {
+          "cash_cents": 1500,
+          "supplies": -1,
+          "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+        }
+      },
+      {
+        "label": "Document the missing rail money",
+        "effects": {
+          "credibility": 2,
+          "allies": 1,
+          "sanity": -1,
+          "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+          "add_receipt": "west_rail_replacement"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_laboratory_overhead",
+    "name": "A Building Is Overhead",
+    "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+    "weight": 7,
+    "regions": [
+      "MountainWest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_labs",
+    "scene": "enc-clinic",
+    "choices": [
+      {
+        "label": "Take a paid equipment-inventory shift",
+        "effects": {
+          "cash_cents": 1400,
+          "sanity": -1,
+          "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+          "add_receipt": "west_laboratory_overhead"
+        }
+      },
+      {
+        "label": "Share a supply pack",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "allies": 1,
+          "log": "The research crew returns the favor with basic care and a new contact."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_wind_loyalty",
+    "name": "Wind Loyalty Hearing",
+    "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+    "weight": 7,
+    "regions": [
+      "MountainWest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_wind",
+    "scene": "enc-community",
+    "choices": [
+      {
+        "label": "Help inventory spare parts",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+        }
+      },
+      {
+        "label": "Record the technician’s testimony",
+        "effects": {
+          "credibility": 2,
+          "allies": 1,
+          "sanity": -1,
+          "log": "You gain a contact and an explanation involving actual electricity.",
+          "add_receipt": "west_wind_loyalty"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_desert_pressure",
+    "name": "Desert Shower Freedom",
+    "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+    "weight": 7,
+    "regions": [
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service",
+    "choices": [
+      {
+        "label": "Help shut off the demonstration",
+        "effects": {
+          "supplies": 2,
+          "sanity": 1,
+          "log": "You leave with water and a working understanding of the off switch."
+        }
+      },
+      {
+        "label": "Take the paid plumbing shift",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_beef_passports",
+    "name": "America First, Argentina Next",
+    "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+    "weight": 7,
+    "regions": [
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_beef",
+    "scene": "enc-convoy",
+    "choices": [
+      {
+        "label": "Take the paid manifest shift",
+        "effects": {
+          "cash_cents": 1600,
+          "sanity": -1,
+          "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+        }
+      },
+      {
+        "label": "Compare the speeches with the receipts",
+        "effects": {
+          "credibility": 3,
+          "sanity": -1,
+          "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+          "add_receipt": "west_beef_passports"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
   }
 ]

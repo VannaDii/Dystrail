@@ -1,0 +1,71 @@
+    Checking dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-source/dystrail-game)
+error: the loop variable `crossing` is used to index `CROSSING_MILESTONES`
+   --> dystrail-game/src/state/crossing_arrival_tests.rs:151:29
+    |
+151 |             for crossing in 0..CROSSING_MILESTONES.len() {
+    |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.92.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+    |
+151 -             for crossing in 0..CROSSING_MILESTONES.len() {
+151 +             for (crossing, <item>) in CROSSING_MILESTONES.iter().enumerate() {
+    |
+
+error: field assignment outside of initializer for an instance created with Default::default()
+  --> dystrail-game/src/travel_time.rs:78:17
+   |
+78 |                 gs.pace = pace;
+   |                 ^^^^^^^^^^^^^^^
+   |
+note: consider initializing the variable with `state::GameState { pace: pace, ..Default::default() }` and removing relevant reassignments
+  --> dystrail-game/src/travel_time.rs:77:17
+   |
+77 |                 let mut gs = GameState::default();
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.92.0/index.html#field_reassign_with_default
+   = note: `-D clippy::field-reassign-with-default` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::field_reassign_with_default)]`
+
+error: field assignment outside of initializer for an instance created with Default::default()
+   --> dystrail-game/src/travel_time.rs:119:9
+    |
+119 |         gs.pace = crate::PaceId::Heated;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `state::GameState { pace: crate::PaceId::Heated, ..Default::default() }` and removing relevant reassignments
+   --> dystrail-game/src/travel_time.rs:118:9
+    |
+118 |         let mut gs = GameState::default();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.92.0/index.html#field_reassign_with_default
+
+error: field assignment outside of initializer for an instance created with Default::default()
+   --> dystrail-game/src/travel_time.rs:163:17
+    |
+163 |                 gs.pace = pace;
+    |                 ^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `state::GameState { pace: pace, diet: diet, ..Default::default() }` and removing relevant reassignments
+   --> dystrail-game/src/travel_time.rs:162:17
+    |
+162 |                 let mut gs = GameState::default();
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.92.0/index.html#field_reassign_with_default
+
+error: field assignment outside of initializer for an instance created with Default::default()
+   --> dystrail-game/src/travel_time.rs:249:9
+    |
+249 |         gs.pace = crate::PaceId::Blitz;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: consider initializing the variable with `state::GameState { pace: crate::PaceId::Blitz, ..Default::default() }` and removing relevant reassignments
+   --> dystrail-game/src/travel_time.rs:248:9
+    |
+248 |         let mut gs = GameState::default();
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.92.0/index.html#field_reassign_with_default
+
+error: could not compile `dystrail-game` (lib test) due to 5 previous errors

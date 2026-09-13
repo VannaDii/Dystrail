@@ -16,8 +16,6 @@ pub struct ResultConfig {
 /// Scoring algorithm configuration
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ScoreCfg {
-    pub pants_threshold: i32,
-    pub pants_penalty_per_point: i32,
     pub persona_rounding: Rounding,
     pub final_min: i32,
     pub final_max: i32,
@@ -47,7 +45,6 @@ pub struct EndingCfg {
     pub priority: Vec<String>,
     pub victory_key: String,
     pub boss_loss_key: String,
-    pub pants_key: String,
     pub sanity_key: String,
     pub collapse_key: String,
 }
@@ -80,7 +77,6 @@ pub struct ResultSummary {
     pub allies: i32,
     pub supplies: i32,
     pub credibility: i32,
-    pub pants_pct: i32,
     pub vehicle_breakdowns: i32,
     pub miles_traveled: f32,
     pub malnutrition_days: u32,
@@ -90,8 +86,6 @@ impl Default for ResultConfig {
     fn default() -> Self {
         Self {
             score: ScoreCfg {
-                pants_threshold: 70,
-                pants_penalty_per_point: 2,
                 persona_rounding: Rounding::Nearest,
                 final_min: 0,
                 final_max: 999_999,
@@ -101,7 +95,6 @@ impl Default for ResultConfig {
             },
             endings: EndingCfg {
                 priority: vec![
-                    "pants".to_string(),
                     "sanity".to_string(),
                     "collapse".to_string(),
                     "boss_loss".to_string(),
@@ -109,7 +102,6 @@ impl Default for ResultConfig {
                 ],
                 victory_key: "result.headline.victory".to_string(),
                 boss_loss_key: "result.headline.boss_loss".to_string(),
-                pants_key: "result.headline.pants".to_string(),
                 sanity_key: "result.headline.sanity".to_string(),
                 collapse_key: "result.headline.collapse".to_string(),
             },
@@ -174,7 +166,6 @@ pub fn result_summary(gs: &GameState, cfg: &ResultConfig) -> Result<ResultSummar
         allies: gs.stats.allies,
         supplies: gs.stats.supplies,
         credibility: gs.stats.credibility,
-        pants_pct: gs.stats.pants,
         vehicle_breakdowns: gs.vehicle_breakdowns,
         miles_traveled: gs.miles_traveled_actual,
         malnutrition_days: gs.starvation_days,
@@ -193,12 +184,6 @@ pub fn select_ending(gs: &GameState, cfg: &ResultConfig, boss_won: bool) -> Endi
 
 fn compute_score(gs: &GameState, cfg: &ScoreCfg, mult_cfg: &MultipliersCfg) -> i32 {
     let mut base = gs.journey_score();
-    let pants = gs.stats.pants.max(0);
-
-    if pants > cfg.pants_threshold {
-        base -= (pants - cfg.pants_threshold) * cfg.pants_penalty_per_point;
-    }
-
     base = base.clamp(cfg.final_min, cfg.final_max);
     let multiplier = total_multiplier(gs, mult_cfg);
     let scaled = apply_rounding(f64::from(base) * multiplier, cfg.persona_rounding);
@@ -254,7 +239,7 @@ fn headline_key_for(ending: Ending, cfg: &EndingCfg, cause_token: Option<&str>) 
 
 fn collapse_headline_key(cfg: &EndingCfg, cause: CollapseCause) -> String {
     match cause {
-        CollapseCause::Panic => cfg.pants_key.clone(),
+        CollapseCause::Panic => cfg.sanity_key.clone(),
         CollapseCause::Hunger => format!("{}_{}", cfg.collapse_key, CollapseCause::Hunger.key()),
         CollapseCause::Vehicle => format!("{}_{}", cfg.collapse_key, CollapseCause::Vehicle.key()),
         CollapseCause::Weather => format!("{}_{}", cfg.collapse_key, CollapseCause::Weather.key()),
@@ -324,7 +309,6 @@ mod tests {
                 credibility: 20,
                 morale: 10,
                 allies: 5,
-                ..crate::state::Stats::default()
             },
             day: 45,
             encounters_resolved: 8,

@@ -1,0 +1,377 @@
+--- a/dystrail-tester/src/logic/game_tester.rs
++++ b/dystrail-tester/src/logic/game_tester.rs
+@@ -700,6 +700,8 @@
+ 
+         self.apply_store_loadout(session.state_mut(), plan.strategy, seed);
+         Self::configure_strategy_settings(session.state_mut(), plan.strategy);
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("plan.initialized", session.state());
+ 
+         if self.verbose {
+             log_initial_state(seed, plan, session.state());
+@@ -764,15 +766,32 @@
+             return;
+         }
+         let before = state.clone();
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_conversation.before", state);
+         if state.claim_local_conversation().is_some() {
++            #[cfg(test)]
++            crate::logic::simulation::diagnostic_snapshot("town_conversation.after_effects", state);
+             state.advance_clock(&before, 30);
++            #[cfg(test)]
++            crate::logic::simulation::diagnostic_snapshot("town_conversation.after_clock", state);
+         }
+         let action = if state.stats.supplies <= 10 {
+             Activity::WorkSupplies
+         } else {
+             Activity::WorkCash
+         };
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_work.before", state);
++        #[cfg(test)]
++        println!(
++            "TRACE_ACTIVITY {}",
++            serde_json::json!({"seed": state.seed, "mode": state.mode, "action": action.key(), "allowed": state.can_activity(action)})
++        );
+         let _ = state.perform_activity(action);
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_work.after", state);
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_shopping.before", state);
+         let rations = (20 - state.stats.supplies).max(0) / 3;
+         self.execute_purchase(state, "rations", rations);
+         if state.inventory.spares.tire == 0 {
+@@ -781,7 +800,11 @@
+         if state.inventory.spares.battery == 0 {
+             self.execute_purchase(state, "battery", 1);
+         }
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_shopping.after", state);
+         state.continuity.route_services.stop = None;
++        #[cfg(test)]
++        crate::logic::simulation::diagnostic_snapshot("town_departure.after", state);
+     }
+ }
+ 
+@@ -1322,6 +1345,80 @@
+         GameTester::new(Arc::new(TesterAssets::load_default()), false)
+     }
+ 
++    /// Observation-only replay; existing plans, actions, and acceptance guards stay intact.
++    #[test]
++    fn trace_resource_manager_activity_settlement() {
++        use crate::common::scenario::full_game::{
++            full_game_plan, full_game_resource_manager_expectation,
++        };
++        let tester = build_tester();
++        let strategy = GameplayStrategy::ResourceManager;
++        for (mode, seed) in [(GameMode::Classic, 1351), (GameMode::Deep, 1391)] {
++            let plan = full_game_plan(mode, strategy);
++            let summary = tester.run_plan(&plan, seed);
++            full_game_resource_manager_expectation(&summary)
++                .expect("unchanged scenario expectation");
++            crate::logic::simulation::diagnostic_snapshot("plan.final", &summary.final_state);
++            let metrics = &summary.metrics;
++            println!(
++                "TRACE_SUMMARY {}",
++                serde_json::json!({
++                    "seed": seed,
++                    "mode": mode,
++                    "game_ended": summary.game_ended,
++                    "ending_message": summary.ending_message,
++                    "turn_count": summary.turns.len(),
++                    "days_survived": metrics.days_survived,
++                    "travel_days": metrics.travel_days,
++                    "partial_travel_days": metrics.partial_travel_days,
++                    "non_travel_days": metrics.non_travel_days,
++                    "travel_ratio": metrics.travel_ratio,
++                    "miles_traveled": metrics.miles_traveled,
++                    "avg_miles_per_day": metrics.avg_miles_per_day,
++                    "crossing_events": metrics.crossing_events,
++                    "day_records": summary.final_state.day_records,
++                    "day_reason_history": metrics.day_reason_history,
++                    "open_ledger": summary.final_state.ledger,
++                })
++            );
++            let record = crate::logic::playability::PlayabilityRecord {
++                scenario_name: format!("{mode:?} - {strategy}"),
++                mode,
++                strategy,
++                seed_code: dystrail_game::encode_friendly(mode.is_deep(), seed),
++                seed_value: seed,
++                metrics: metrics.clone(),
++            };
++            let mut csv = Vec::new();
++            crate::logic::reports::generate_csv_report(&mut csv, &[record])
++                .expect("existing CSV serializer");
++            println!(
++                "TRACE_CSV {}",
++                serde_json::json!({
++                    "seed": seed,
++                    "mode": mode,
++                    "csv": String::from_utf8(csv).expect("CSV is UTF-8"),
++                })
++            );
++            for decision in &metrics.decision_log {
++                println!(
++                    "TRACE_DECISION {}",
++                    serde_json::json!({
++                        "seed": seed,
++                        "mode": mode,
++                        "day": decision.day,
++                        "encounter_id": decision.encounter_id,
++                        "encounter_name": decision.encounter_name,
++                        "choice_index": decision.choice_index,
++                        "choice_label": decision.choice_label,
++                        "policy": decision.policy_name,
++                        "rationale": decision.rationale,
++                    })
++                );
++            }
++        }
++    }
++
+     #[test]
+     fn boss_config_loads_balanced_biases() {
+         let assets = TesterAssets::load_default();
+--- a/dystrail-tester/src/logic/simulation.rs
++++ b/dystrail-tester/src/logic/simulation.rs
+@@ -11,6 +11,59 @@
+ 
+ use dystrail_game::pacing::PacingConfig;
+ use dystrail_game::repairs::RepairChoice;
++
++/// Read-only action-boundary output for the isolated seed replay; absent from normal builds.
++#[cfg(test)]
++pub(super) fn diagnostic_snapshot(stage: &str, state: &GameState) {
++    let clock = state.continuity.clock_minutes;
++    let snapshot = serde_json::json!({
++        "stage": stage,
++        "seed": state.seed,
++        "mode": state.mode,
++        "day": state.day,
++        "clock_minutes": clock,
++        "clock": format!("{:02}:{:02}", clock / 60, clock % 60),
++        "pace": state.pace,
++        "diet": state.diet,
++        "stats": state.stats,
++        "cash_cents": state.budget_cents,
++        "driving_minutes_total": state.continuity.driving_minutes_total,
++        "pace_fatigue_remainder": state.continuity.pace_fatigue_remainder,
++        "miles_traveled_actual": state.miles_traveled_actual,
++        "prev_miles_traveled": state.prev_miles_traveled,
++        "distance_today": state.distance_today,
++        "distance_today_raw": state.distance_today_raw,
++        "partial_distance_today": state.partial_distance_today,
++        "distance_cap_today": state.distance_cap_today,
++        "day_state": state.day_state,
++        "rest_threshold": state.rest_threshold,
++        "auto_camp_rest": state.auto_camp_rest,
++        "should_auto_rest": state.should_auto_rest(),
++        "camp": state.camp,
++        "illness_days_remaining": state.illness_days_remaining,
++        "illness_travel_penalty": state.illness_travel_penalty,
++        "disease_cooldown": state.disease_cooldown,
++        "weather": state.weather_state.today,
++        "weather_impact": state.continuity.weather_impact,
++        "activities": state.continuity.activities,
++        "stop": state.continuity.route_services.stop,
++        "crew_care": state.continuity.crew_care,
++        "encounter_id": state.current_encounter.as_ref().map(|encounter| &encounter.id),
++        "breakdown": state.breakdown,
++        "ledger": state.ledger,
++        "completed_day_count": state.day_records.len(),
++        "last_completed_day": state.day_records.last(),
++        "last_day_reason": state.day_reason_history.last(),
++        "crossings_completed": state.crossings_completed,
++        "crossing_detours_taken": state.crossing_detours_taken,
++        "last_crossing": state.crossing_events.last(),
++        "boss": state.boss,
++        "ending": state.ending,
++        "last_log": state.logs.last(),
++        "last_journal_entry": state.continuity.journal.last(),
++    });
++    println!("TRACE_STATE {snapshot}");
++}
+ 
+ /// Configuration for a simulation session.
+ #[derive(Debug, Clone, Copy)]
+@@ -140,6 +193,8 @@
+         policy: &mut dyn PlayerPolicy,
+         visit_stop: impl FnOnce(&mut GameState),
+     ) -> TurnOutcome {
++        #[cfg(test)]
++        diagnostic_snapshot("turn.before", &self.state);
+         // Follow the browser's decision priority before spending time on the road.
+         if self.has_ended() {
+             return self.finished_turn(None);
+@@ -156,6 +211,8 @@
+         visit_stop(&mut self.state);
+         self.gather_before_departure();
+ 
++        #[cfg(test)]
++        diagnostic_snapshot("hearing_rest_request.before", &self.state);
+         if self.state.boss.readiness.ready
+             && !self.state.boss.outcome.attempted
+             && self.state.camp.rest_cooldown == 0
+@@ -163,6 +220,9 @@
+         {
+             self.state.day_state.rest.rest_requested = true;
+         }
++
++        #[cfg(test)]
++        diagnostic_snapshot("hearing_rest_request.after", &self.state);
+ 
+         if let Some(message) = self.camp_before_travel() {
+             return TurnOutcome {
+@@ -175,20 +235,41 @@
+             };
+         }
+ 
++        #[cfg(test)]
++        diagnostic_snapshot("pace_selection.before", &self.state);
+         self.adjust_daily_pace();
++        #[cfg(test)]
++        diagnostic_snapshot("pace_selection.after", &self.state);
+         if !self.state.day_state.lifecycle.day_initialized {
++            #[cfg(test)]
++            diagnostic_snapshot("apply_settings.before", &self.state);
+             self.state.apply_pace_and_diet(&self.pacing_config);
++            #[cfg(test)]
++            diagnostic_snapshot("apply_settings.after", &self.state);
+         }
+ 
+         let before = self.state.clone();
++        #[cfg(test)]
++        diagnostic_snapshot("travel_step.before", &self.state);
+         let outcome = self.controller.tick_day(&mut self.state);
++        #[cfg(test)]
++        diagnostic_snapshot("travel_step.after", &self.state);
++        #[cfg(test)]
++        println!(
++            "TRACE_TRAVEL {}",
++            serde_json::json!({"seed": self.state.seed, "mode": self.state.mode, "log": outcome.log_key, "ended": outcome.ended, "breakdown_started": outcome.breakdown_started})
++        );
+         if self.state.day > before.day
+             || self.state.miles_traveled_actual > before.miles_traveled_actual
+         {
+             self.state
+                 .update_route_services(before.miles_traveled_actual);
+         }
++        #[cfg(test)]
++        diagnostic_snapshot("check_crew.before", &self.state);
+         self.state.check_crew(before.day);
++        #[cfg(test)]
++        diagnostic_snapshot("check_crew.after", &self.state);
+         let mut game_ended = outcome.ended;
+         let mut travel_message = outcome.log_key.clone();
+         let breakdown_started = outcome.breakdown_started;
+@@ -200,7 +281,11 @@
+         if self.state.boss.readiness.ready && !self.state.boss.outcome.attempted {
+             let boss_cfg = self.boss_config.clone();
+             let before = self.state.clone();
++            #[cfg(test)]
++            diagnostic_snapshot("hearing.before", &self.state);
+             let outcome = boss::run_boss_minigame(self.state_mut(), &boss_cfg);
++            #[cfg(test)]
++            diagnostic_snapshot("hearing.after_effects", &self.state);
+             self.state.advance_clock(&before, 120);
+             game_ended = true;
+             travel_message = match outcome {
+@@ -209,6 +294,8 @@
+                 BossOutcome::Exhausted => String::from("log.sanity-collapse"),
+             };
+             self.state.boss.readiness.ready = false;
++            #[cfg(test)]
++            diagnostic_snapshot("hearing.after_clock", &self.state);
+         }
+ 
+         TurnOutcome {
+@@ -243,14 +330,24 @@
+         let camp_cfg = self.camp_config.clone();
+         let before = self.state.clone();
+         if self.state.stats.supplies <= 2 && self.state.can_activity(Activity::Forage) {
++            #[cfg(test)]
++            diagnostic_snapshot("camp_forage.before", &self.state);
+             let outcome = camp::camp_forage(self.state_mut(), &camp_cfg);
++            #[cfg(test)]
++            diagnostic_snapshot("camp_forage.after", &self.state);
+             return Some(outcome.message);
+         }
+         if self.state.day_state.rest.rest_requested || self.state.should_auto_rest() {
++            #[cfg(test)]
++            diagnostic_snapshot("camp_rest.before", &self.state);
+             self.state.day_state.rest.rest_requested = false;
+             let outcome = camp::camp_rest(self.state_mut(), &camp_cfg);
++            #[cfg(test)]
++            diagnostic_snapshot("camp_rest.after_effects", &self.state);
+             if outcome.rested {
+                 self.state.advance_clock(&before, 0);
++                #[cfg(test)]
++                diagnostic_snapshot("camp_rest.after_clock", &self.state);
+                 return Some(outcome.message);
+             }
+         }
+@@ -278,8 +375,14 @@
+             rationale,
+         };
+         let before = self.state.clone();
++        #[cfg(test)]
++        diagnostic_snapshot("encounter.before", &self.state);
+         self.state.apply_choice(safe_index);
++        #[cfg(test)]
++        diagnostic_snapshot("encounter.after_effects", &self.state);
+         self.state.advance_clock(&before, 30);
++        #[cfg(test)]
++        diagnostic_snapshot("encounter.after_clock", &self.state);
+         Some(decision)
+     }
+ 
+@@ -289,8 +392,14 @@
+         }
+         let before = self.state.clone();
+         let choice = if self.state.stats.supplies >= 2 { 0 } else { 2 };
++        #[cfg(test)]
++        diagnostic_snapshot("crew_care.before", &self.state);
+         if self.state.resolve_crew_care(choice).is_some() {
++            #[cfg(test)]
++            diagnostic_snapshot("crew_care.after_effects", &self.state);
+             self.state.advance_clock(&before, 60);
++            #[cfg(test)]
++            diagnostic_snapshot("crew_care.after_clock", &self.state);
+         }
+     }
+ 
+@@ -300,8 +409,14 @@
+             .find(|c| self.state.can_repair(*c));
+         if let Some(choice) = choice {
+             let before = self.state.clone();
++            #[cfg(test)]
++            diagnostic_snapshot("repair.before", &self.state);
+             if self.state.choose_repair(choice) {
++                #[cfg(test)]
++                diagnostic_snapshot("repair.after_effects", &self.state);
+                 self.state.advance_clock(&before, choice.minutes());
++                #[cfg(test)]
++                diagnostic_snapshot("repair.after_clock", &self.state);
+             }
+         }
+     }
+@@ -318,7 +433,16 @@
+         } else {
+             Activity::Forage
+         };
++        #[cfg(test)]
++        diagnostic_snapshot("gather.before", &self.state);
++        #[cfg(test)]
++        println!(
++            "TRACE_ACTIVITY {}",
++            serde_json::json!({"seed": self.state.seed, "mode": self.state.mode, "action": action.key(), "allowed": self.state.can_activity(action)})
++        );
+         let _ = self.state.perform_activity(action);
++        #[cfg(test)]
++        diagnostic_snapshot("gather.after", &self.state);
+     }
+ 
+     fn adjust_daily_pace(&mut self) {

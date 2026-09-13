@@ -1,0 +1,41 @@
+🎮 Dystrail Automated Tester
+================================
+🔁 Acceptance mode enabled: using 250 playability iterations
+🧠 Running Logic Tests
+------------------------------
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 88.5% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 88.0% < 90.0%
+WARN: Classic - Balanced seed CL-ORANGE02 travel ratio 89.3% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 88.0% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 88.0% < 90.0%
+WARN: Classic - Aggressive seed CL-ORANGE02 travel ratio 88.5% < 90.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 92.0% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 88.0% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 88.5% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 87.5% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 88.5% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 reached boss but did not win
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep Aggressive seed DP-BECK03 failed to reach the boss
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Classic - Aggressive average endgame cooldown 0.01 days remaining
+WARN: Classic - Balanced crossing bribe success 69.7% ≤ 70%
+WARN: Classic - Balanced average endgame cooldown 0.02 days remaining
+WARN: Classic - Conservative average endgame cooldown 0.01 days remaining
+WARN: Classic - Resource Manager average endgame cooldown 0.02 days remaining
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Aggressive average endgame cooldown 0.02 days remaining
+WARN: Deep - Balanced crossing bribe success 69.7% ≤ 70%
+WARN: Deep - Conservative average endgame cooldown 0.01 days remaining
+WARN: Deep - Resource Manager average endgame cooldown 0.02 days remaining
+Error: Travel ratio 88.5% < 90% for scenario Classic - Balanced seed CL-ORANGE02

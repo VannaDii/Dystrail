@@ -1,0 +1,276 @@
+{
+  "review_date": "2026-09-11",
+  "origin": "http://127.0.0.1:8082/play/",
+  "preserved_user_origin": "http://127.0.0.1:8081/play/",
+  "base_commit": "e38e5ab",
+  "build_note": "Existing release preview with substantial prior uncommitted work. No game-source edits in this review.",
+  "natural_run": {
+    "mode": "Classic",
+    "persona": "Journalist",
+    "run_code": "CL-ORANGE42",
+    "player": "Alex",
+    "crew": "The Paper Tigers",
+    "extent": "Opening through Day 3; town and endings were fixtures, not naturally reached."
+  },
+  "measurements": {
+    "departure_scroll_top": 930,
+    "departure_document_height": 1830,
+    "desktop_viewport": [
+      1440,
+      900
+    ],
+    "town_services_y_with_journal": 1287.25,
+    "phone_viewport": [
+      390,
+      844
+    ],
+    "phone_document_width": 390,
+    "phone_primary_travel_action_y": 550.7890625,
+    "persona_origin_text": "#f6d68b",
+    "persona_origin_surface": "#eadcb8",
+    "persona_origin_contrast": 1.0347346667
+  },
+  "excluded": [
+    "07-travel-top.png: duplicate bottom-of-page capture; name does not describe position.",
+    "Earlier full-page capture artifacts: setup and persona were replaced by fresh viewport captures."
+  ],
+  "captures": [
+    {
+      "file": "screenshots/01-setup.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:03:13.777561+00:00",
+      "sha256": "10efc2fed33db15cfe3d9f27c9042044b8b1df3fea18db93ede3ef76b0e1e6c7",
+      "kind": "Recaptured through replay / title navigation"
+    },
+    {
+      "file": "screenshots/02-persona.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:04:23.070207+00:00",
+      "sha256": "976c0fa6907a7d24a74f6ba0303f718dea32b71107313e8d9be9b5a3c4cd167b",
+      "kind": "Recaptured through replay / title navigation"
+    },
+    {
+      "file": "screenshots/03-crew.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:50:41.878111+00:00",
+      "sha256": "09bd155b7d923fb9c5d81f2536517050c48c54fd8fe4b5c3435715147333ec70",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/04-outfitting.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:51:44.661624+00:00",
+      "sha256": "7b9fb0ebc675e895a95b95df8c06d633153695fd50f6c96ed6810cbb52053afe",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/05-departure-review.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:52:06.817726+00:00",
+      "sha256": "35fe9036ddf780368adc7ccd468dedaeda4191f8808a31ab0b238ffd014aba49",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/06-travel-idle.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:52:09.971391+00:00",
+      "sha256": "46c3ec466acbf671bbb47662efb095e8867008e4d834dbd4116d82e75891ccc9",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/08-transit.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:52:38.747975+00:00",
+      "sha256": "fc3895f9a6b07d1b52472ca72b3db12080b9d17028d5e75d10a7fcd47148cda3",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/09-map-interlude.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:53:11.728387+00:00",
+      "sha256": "16bfd73e05799bdee462327085d7708179d9510c7c60ea189fb6be54d4d8fe96",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/10-first-encounter.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:53:14.817878+00:00",
+      "sha256": "23df1892cbf01ac6ba15f259ac7b8a2f392f89bb756df4a8fa8bbf8fe0449f1d",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/11-encounter-result.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:53:56.562562+00:00",
+      "sha256": "6ea337eea8f9a995eced4ed1861803d63bf26dab8256f35143d2291ac51d690b",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/12-camp-arrival.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:59:09.612232+00:00",
+      "sha256": "abeea93de324ec1520f8085dc6b0ee3cdf6cb0c1953523bcebd1e6600a7c2422",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/13-camp-rest.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:59:23.550301+00:00",
+      "sha256": "26e4fbe652455e67be2f0032308e2e7756a1302ff483d7b5357aa2b2e5089894",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/14-journal.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:59:34.427419+00:00",
+      "sha256": "b1a157c85a207c470b6cb99f2124545e40b5b62b0a19f8c52f75d8b8d8c90ba2",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/15-top-menu.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T08:59:45.297030+00:00",
+      "sha256": "c5aa40443fa92aee86caa81ab0750f0c06fd13fc1136626826f51cb2ac3295c3",
+      "kind": "Natural opening / UI navigation"
+    },
+    {
+      "file": "screenshots/16-town-arrival-top.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:00:34.600614+00:00",
+      "sha256": "abfb887c567014a2c89a184890b30cce49b7621f325d478e14283697f4f94cc7",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/17-town-services.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:00:51.407955+00:00",
+      "sha256": "2dedeec308cebb4830699d0947deb6b6dc2a34dabb232c2085496d0139db2521",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/18-town-store.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:00:51.889150+00:00",
+      "sha256": "4da7daa6345d54363655d8d80a6181ffbe21616af608cdf8454b4d645f5673fa",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/19-absent-crew-van.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:01:08.652524+00:00",
+      "sha256": "716c2f0c1c97cff7ed6c496acadd18870dfcb21df68dbc794bf629afd583ea84",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/20-absent-crew-encounter.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:01:37.111451+00:00",
+      "sha256": "7d0e637743cdef14cfd952d99b85b70c7ca31d139d46277440e0164acf49a94b",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/21-mobile-road.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:01:58.054193+00:00",
+      "sha256": "1f0f46e1214cde25f07d046434939afc3c065e14ce92dda0d14f03317bc230f6",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/22-mobile-context-help.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:02:10.336235+00:00",
+      "sha256": "d69ceafa4eb2e29944e16ad19917a183656f3442e0430fba9077b6662c7689c8",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/23-language-menu.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:02:50.403567+00:00",
+      "sha256": "5641c052933bd6a2c91a07bccde4da766037b7d86858f33227e3b17094c21992",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/24-failure-ending.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:02:54.277273+00:00",
+      "sha256": "65580f20a5d3e51d72893abbb77bc7d849582dad8df24275d153b0590fbc8c43",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/25-ending-scorecard.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:03:10.623413+00:00",
+      "sha256": "f438c033d0cd47c77014d9d852aaab97fc4cb14b7e8f2879ea79670c5e272545",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/27-final-vote.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:05:51.937560+00:00",
+      "sha256": "90fab0b7817465afcfbeccd0adcb1e9c3ac625e599ec93d885545330473b147a",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/28-vote-result.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:06:10.953564+00:00",
+      "sha256": "8dcc1378c72e6f7ebc366d92467c23e5353f50aaf89db65b026c77373b8e1bff",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/29-map-overview.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:06:53.792898+00:00",
+      "sha256": "d9ab7e4119d91ab4b884c5170ace54eeda09ab313a0150fb68a96dbd1312c39c",
+      "kind": "Controlled state / directed UI check"
+    },
+    {
+      "file": "screenshots/30-map-route.png",
+      "width": 65536,
+      "height": 4292542531,
+      "captured_at": "2026-09-11T09:06:54.115634+00:00",
+      "sha256": "344257656f487068e55f5ee17657ddad605f5c993396e453df74bf6f4db8d4ef",
+      "kind": "Controlled state / directed UI check"
+    }
+  ],
+  "verification": [
+    "Every included screenshot visually inspected in the browser tool.",
+    "Outside dismissal checked for main menu and weather help.",
+    "One numbered encounter choice checked.",
+    "Final result persisted on reload.",
+    "No errors returned by inspected browser error log."
+  ],
+  "limits": [
+    "Single natural opening; no complete natural route.",
+    "Controlled imports establish render and interaction only.",
+    "No exhaustive localization, screen-reader, reduced-motion, balance or accessibility certification.",
+    "No Rust/build/security suite rerun for this review artifact."
+  ]
+}

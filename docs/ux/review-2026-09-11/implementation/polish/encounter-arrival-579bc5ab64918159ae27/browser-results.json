@@ -1,0 +1,64 @@
+{
+  "revision": "579bc5ab64918159ae27",
+  "activation": [
+    {
+      "mode": "classic",
+      "startClock": 480,
+      "outcome": "pass",
+      "exactCrossing": 1250,
+      "drivingMinutes": 1,
+      "elapsedMinutes": 60,
+      "bribeCents": 1000,
+      "crossingResolvedOnce": true,
+      "finalDay": 1,
+      "finalClock": 540,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "classic",
+      "startClock": 765,
+      "outcome": "pass",
+      "exactCrossing": 1250,
+      "drivingMinutes": 1,
+      "elapsedMinutes": 60,
+      "bribeCents": 1000,
+      "crossingResolvedOnce": true,
+      "finalDay": 2,
+      "finalClock": 525,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "startClock": 480,
+      "outcome": "pass",
+      "exactCrossing": 1250,
+      "drivingMinutes": 1,
+      "elapsedMinutes": 60,
+      "bribeCents": 1500,
+      "crossingResolvedOnce": true,
+      "finalDay": 1,
+      "finalClock": 540,
+      "pauseAndOfflineReloadUnchanged": true
+    },
+    {
+      "mode": "deep",
+      "startClock": 765,
+      "outcome": "pass",
+      "exactCrossing": 1250,
+      "drivingMinutes": 1,
+      "elapsedMinutes": 60,
+      "bribeCents": 1500,
+      "crossingResolvedOnce": true,
+      "finalDay": 2,
+      "finalClock": 525,
+      "pauseAndOfflineReloadUnchanged": true
+    }
+  ],
+  "layouts": [],
+  "errors": [],
+  "currentCase": {
+    "mode": "deep",
+    "clock": 765,
+    "detour": false
+  }
+}

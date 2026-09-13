@@ -1,0 +1,29 @@
+{
+  "base_revision": "d9b50a7e45b0bbb19014",
+  "source": "/tmp/dystrail-lane-label-preview/label-source",
+  "changes": [
+    {
+      "path": "dystrail-web/i18n/it.json",
+      "before": "Fino a {speed} mph",
+      "after": "Fino a {speed} mph",
+      "before_sha256": "b877b8eaab3c3c8f3b8e6044b34463d5ee0b8c731da21956e0f9cf54484230fd",
+      "after_sha256": "488f22fcb059d493cb5ac4b55f38399111b9bb67903288707d27b6dd6330f03d"
+    },
+    {
+      "path": "dystrail-web/i18n/es.json",
+      "before": "Hasta {speed} mph",
+      "after": "Hasta {speed} mph",
+      "before_sha256": "2f77e4b7a4578a568a441233a7684cbd5f173df76524ada250bc4d60bc2e98ee",
+      "after_sha256": "2ceabd760aacb70908096a53463c2ed2f9bb4dde86ea683230cc0ceb19093d7d"
+    },
+    {
+      "path": "dystrail-web/i18n/ar.json",
+      "before": "حتى {speed} ميل/ساعة",
+      "after": "حتى {speed} ميل/ساعة",
+      "before_sha256": "f81b2a991a3d786a7e2ca36d13aee2e9afed67b95d75bd7529fa6f0301be8df5",
+      "after_sha256": "97ff18195fbf4a055ad6b8b5f188089e18f38cdea670308626ceb5cc4614ba63"
+    }
+  ],
+  "other_source_files_exact": 630,
+  "css_art_and_gameplay_unchanged": true
+}

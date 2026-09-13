@@ -1,0 +1,178 @@
+{
+  "expected": "24834f5498f7778940ee",
+  "profile": "/tmp/dystrail-writer-preview-release-prep/old-production-profile",
+  "url": "https://dystrail.com/play/",
+  "errors": [],
+  "updated": {
+    "revision": "24834f5498f7778940ee",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 67,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js"
+  },
+  "schemaChanges": [
+    {
+      "stateKey": "state",
+      "key": "forage_cooldown",
+      "before": 0,
+      "after": "absent",
+      "reason": "Retired duplicate camp cooldown; camp.rs:9 has only rest/repair. activities.rs:43 uses the preserved activities.foraged_on field."
+    },
+    {
+      "stateKey": "state",
+      "key": "encounter_cooldown",
+      "before": 0,
+      "after": "absent",
+      "reason": "Retired daily encounter counter; state.rs:3476 and journal.rs:24 use actual driving exposure. The observed old value is zero."
+    },
+    {
+      "stateKey": "state",
+      "key": "mpd_base",
+      "before": 150,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "state",
+      "key": "mpd_max",
+      "before": 400,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "state",
+      "key": "mpd_min",
+      "before": 75,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "state",
+      "key": "pace_factor",
+      "before": {
+        "heated": 1,
+        "steady": 1,
+        "blitz": 1
+      },
+      "after": "absent",
+      "reason": "Retired fixed-mile pace configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "state",
+      "key": "driving_minutes_total",
+      "before": "absent",
+      "after": 0,
+      "reason": "Explicit serde/default values in journal.rs:20-24 and 47-48, correct for this untraveled Day 1 crew."
+    },
+    {
+      "stateKey": "state",
+      "key": "last_encounter_driving_minutes",
+      "before": "absent",
+      "after": null,
+      "reason": "Explicit serde/default values in journal.rs:20-24 and 47-48, correct for this untraveled Day 1 crew."
+    },
+    {
+      "stateKey": "pending",
+      "key": "forage_cooldown",
+      "before": 0,
+      "after": "absent",
+      "reason": "Retired duplicate camp cooldown; camp.rs:9 has only rest/repair. activities.rs:43 uses the preserved activities.foraged_on field."
+    },
+    {
+      "stateKey": "pending",
+      "key": "encounter_cooldown",
+      "before": 0,
+      "after": "absent",
+      "reason": "Retired daily encounter counter; state.rs:3476 and journal.rs:24 use actual driving exposure. The observed old value is zero."
+    },
+    {
+      "stateKey": "pending",
+      "key": "mpd_base",
+      "before": 150,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "pending",
+      "key": "mpd_max",
+      "before": 400,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "pending",
+      "key": "mpd_min",
+      "before": 75,
+      "after": "absent",
+      "reason": "Retired fixed-mile configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "pending",
+      "key": "pace_factor",
+      "before": {
+        "heated": 1,
+        "steady": 1,
+        "blitz": 1
+      },
+      "after": "absent",
+      "reason": "Retired fixed-mile pace configuration; journey/mod.rs:395 retains weather_factor only."
+    },
+    {
+      "stateKey": "pending",
+      "key": "driving_minutes_total",
+      "before": "absent",
+      "after": 0,
+      "reason": "Explicit serde/default values in journal.rs:20-24 and 47-48, correct for this untraveled Day 1 crew."
+    },
+    {
+      "stateKey": "pending",
+      "key": "last_encounter_driving_minutes",
+      "before": "absent",
+      "after": null,
+      "reason": "Explicit serde/default values in journal.rs:20-24 and 47-48, correct for this untraveled Day 1 crew."
+    }
+  ],
+  "ruleChanges": [],
+  "addedStateKeys": [
+    "driving_minutes_total",
+    "last_encounter_driving_minutes"
+  ],
+  "save": {
+    "phase": "Travel",
+    "day": 1,
+    "miles": 0,
+    "stateSha256": "18fb14d60cba09d88b23647d6949aaaa623ce26cce9277a41471030a98067c26",
+    "playerStatePreserved": true
+  },
+  "cache": {
+    "name": "dystopian-trail:/play/:24834f5498f7778940ee",
+    "assets": 101,
+    "keys": 102,
+    "failures": [],
+    "marker": "24834f5498f7778940ee",
+    "cacheNames": [
+      "dystopian-trail:/play/:08a07362f3e5c5445818",
+      "dystopian-trail:/play/:24834f5498f7778940ee"
+    ]
+  },
+  "offline": {
+    "revision": "24834f5498f7778940ee",
+    "readiness": "ready",
+    "screen": "travel",
+    "gate": false,
+    "images": 67,
+    "decoded": true,
+    "controller": "https://dystrail.com/play/sw.js"
+  },
+  "offlineCrewNames": [
+    "Riley",
+    "Jamie",
+    "Avery",
+    "Blair",
+    "Reese",
+    "Release Check"
+  ],
+  "passed": true
+}

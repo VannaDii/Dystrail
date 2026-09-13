@@ -1,0 +1,61 @@
+--- a/dystrail-web/static/assets/data/weather.json
++++ b/dystrail-web/static/assets/data/weather.json
+@@ -45,7 +45,8 @@
+       "sanity": 0
+     },
+     "Storm": {
+-      "tag": "rain_resist"
++      "tag": "rain_resist",
++      "sanity": 0
+     }
+   },
+   "weights": {
+--- a/dystrail-game/tests/weather_paths.rs
++++ b/dystrail-game/tests/weather_paths.rs
+@@ -124,3 +124,46 @@
+     );
+     cfg
+ }
++
++#[test]
++fn ponchos_protect_sanity_in_storms_without_changing_other_weather_costs() {
++    let cfg = WeatherConfig::default_config();
++    for weather in [
++        Weather::Clear,
++        Weather::Storm,
++        Weather::HeatWave,
++        Weather::ColdSnap,
++        Weather::Smoke,
++    ] {
++        let mut unprotected = GameState {
++            weather_state: WeatherState {
++                today: weather,
++                ..WeatherState::default()
++            },
++            ..GameState::default()
++        };
++        unprotected.stats.sanity = 7;
++        let mut protected = unprotected.clone();
++        protected.inventory.tags.insert(String::from("rain_resist"));
++        apply_weather_effects(&mut unprotected, &cfg);
++        apply_weather_effects(&mut protected, &cfg);
++        if weather == Weather::Storm {
++            assert_eq!(unprotected.stats.sanity, 6);
++            assert_eq!(protected.stats.sanity, 7);
++            assert_eq!(protected.stats.supplies, unprotected.stats.supplies);
++            assert_eq!(protected.stats.hp, unprotected.stats.hp);
++        } else {
++            assert_eq!(protected.stats, unprotected.stats, "{weather:?}");
++        }
++        assert_eq!(
++            protected.weather_travel_multiplier.to_bits(),
++            unprotected.weather_travel_multiplier.to_bits()
++        );
++        assert_eq!(
++            protected.encounter_chance_today.to_bits(),
++            unprotected.encounter_chance_today.to_bits()
++        );
++        let impact = protected.continuity.weather_impact.as_ref().unwrap();
++        assert_eq!(impact.sanity, protected.stats.sanity - 7);
++    }
++}

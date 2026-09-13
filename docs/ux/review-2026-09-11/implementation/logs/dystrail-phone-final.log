@@ -1,0 +1,31 @@
+
+Running 15 tests using 2 workers
+
+(node:64832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64833) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64833) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [mobile] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (3.1s)
+  ✓   1 [mobile] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (3.3s)
+  ✓   3 [mobile] › tests-e2e/continuity.spec.ts:43:5 › a named crew decision precedes map review and absence persists in later scenes (2.9s)
+  ✓   4 [mobile] › tests-e2e/continuity.spec.ts:56:5 › each persona map always fits its own traveled route (3.7s)
+  ✓   5 [mobile] › tests-e2e/continuity.spec.ts:69:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (4.5s)
+  ✓   7 [mobile] › tests-e2e/continuity.spec.ts:96:5 › outfitting cannot charge for supplies beyond capacity (446ms)
+  ✓   6 [mobile] › tests-e2e/continuity.spec.ts:82:5 › visibility loss pauses automatic travel and does not resume it on return (5.9s)
+  ✓   8 [mobile] › tests-e2e/continuity.spec.ts:105:5 › encounter forecasts and the journal agree at stat caps (2.7s)
+  ✓   9 [mobile] › tests-e2e/second-pass.spec.ts:6:5 › starter allocation is paid, editable, emptyable and persisted (1.4s)
+  ✓  10 [mobile] › tests-e2e/second-pass.spec.ts:13:5 › ending uses the name of the selected character (2.5s)
+  ✓  11 [mobile] › tests-e2e/second-pass.spec.ts:18:5 › cashless breakdown has an escape with explicit costs across midnight (3.0s)
+  ✓  12 [mobile] › tests-e2e/second-pass.spec.ts:24:5 › foraging and paid town work apply costs and persist their limits (3.3s)
+  ✓  13 [mobile] › tests-e2e/second-pass.spec.ts:31:5 › town facts and player and NPC portraits survive reload (2.7s)
+  ✓  14 [mobile] › tests-e2e/second-pass.spec.ts:38:5 › a new political encounter pays cash and exposes its factual hook (3.0s)
+  ✓  15 [mobile] › tests-e2e/second-pass.spec.ts:43:5 › road and progress elements survive consecutive automatic turns (4.7s)
+[31mTimed out waiting 120s for the test suite to run[39m
+[31mTimed out waiting 120s for the teardown for report begin to run[39m
+
+  15 passed (2.0m)
+  2 errors were not a part of any test, see above for details

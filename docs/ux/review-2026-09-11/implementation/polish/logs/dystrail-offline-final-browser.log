@@ -1,0 +1,37 @@
+(node:78938) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:78960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:78960) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:78960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.3s)
+  ✓   2 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.9s)
+  ✓   3 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (3.9s)
+  ✓   4 [chromium] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.1s)
+  ✓   5 [chromium] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.1s)
+  ✓   6 [chromium] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.2s)
+  ✓   7 [chromium] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.7s)
+  ✓   8 [chromium] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.1s)
+  ✓   9 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (5.6s)
+  ✓  10 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (7.1s)
+(node:79427) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79427) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:79427) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [mobile] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.9s)
+  ✓  12 [mobile] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (3.6s)
+  ✓  13 [mobile] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (4.6s)
+  ✓  14 [mobile] › tests-e2e/feedback.spec.ts:58:5 › ally losses have a persistent acknowledgment and remain in the journal (3.7s)
+  ✓  15 [mobile] › tests-e2e/feedback.spec.ts:69:5 › long journals scroll by keyboard without overlapping the footer (3.7s)
+  ✓  16 [mobile] › tests-e2e/feedback.spec.ts:80:5 › town information, action spacing, journal cards and map credits share the established alignment (3.8s)
+  ✓  17 [mobile] › tests-e2e/feedback.spec.ts:91:5 › legacy danger values are ignored and temporary risk uses the short percent label (3.2s)
+  ✓  18 [mobile] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.5s)
+  ✓  19 [mobile] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (6.3s)
+  ✓  20 [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (7.8s)
+
+  20 passed (1.5m)

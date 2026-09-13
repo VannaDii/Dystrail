@@ -1,0 +1,58 @@
+{
+  "browser": "Native Safari",
+  "revision": "3df25a764a3df269bdbd",
+  "checks": [
+    "All eleven shop images are decoded local assets before the store opens",
+    "The Van shows the crew above every spare and carried or missing equipment item",
+    "Desktop journal uses the horizontal space and retains boxed resource changes",
+    "Every current-turn entry stays newest first under The Trail through tab navigation and reload",
+    "Clock, pace and diet icons update in the top bar; weather has structured effects and a plain i",
+    "Help & tips does not move the HUD",
+    "Local conversations visibly offer credibility, receipts or allies once, and remain open after claiming",
+    "Breakdown is never automatic; Camp and Travel unlock only after an explicit repair",
+    "Wasm renders a real 1200px PNG offline, editable post text and draft links without posting",
+    "Illustrated inventory retains counts and alignment in Arabic"
+  ],
+  "viewports": [
+    {
+      "name": "illustrated-shop",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "illustrated-van",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "compact-journal",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "turn-history-newest-first",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "weather-details",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "explicit-repair",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "offline-share",
+      "width": 1728,
+      "height": 1032
+    },
+    {
+      "name": "arabic-van",
+      "width": 1728,
+      "height": 1032
+    }
+  ]
+}

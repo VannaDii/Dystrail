@@ -1,14 +1,17 @@
 use super::layout::render_body;
 use super::menu::handle_keyboard;
-use super::share::{self, resolved_headline_key, summary};
-use crate::game::{GameState, ResultConfig, ResultSummary};
+use super::share::{self, summary};
+use crate::game::{GameState, ResultConfig};
 use crate::i18n;
+use std::rc::Rc;
 use yew::prelude::*;
 
 /// Properties for the result screen component
 #[derive(Properties, Clone)]
 pub struct Props {
-    pub game_state: GameState,
+    #[prop_or_else(crate::i18n::current_lang)]
+    pub language: String,
+    pub game_state: Rc<GameState>,
     pub result_config: ResultConfig,
     pub boss_won: bool,
     pub on_replay_seed: Callback<()>,
@@ -19,13 +22,21 @@ pub struct Props {
 
 impl PartialEq for Props {
     fn eq(&self, other: &Self) -> bool {
-        self.boss_won == other.boss_won && self.result_config == other.result_config
+        self.language == other.language
+            && Rc::ptr_eq(&self.game_state, &other.game_state)
+            && self.boss_won == other.boss_won
+            && self.result_config == other.result_config
+            && self.on_replay_seed == other.on_replay_seed
+            && self.on_new_run == other.on_new_run
+            && self.on_title == other.on_title
+            && self.on_export == other.on_export
     }
 }
 
 /// Messages for the result screen component
 pub enum Msg {
     MenuAction(u8),
+    CloseShare,
     KeyDown(KeyboardEvent),
     AnnouncementChange(String),
 }
@@ -34,6 +45,7 @@ pub enum Msg {
 pub struct ResultScreen {
     current_focus: u8,
     announcement: String,
+    sharing: bool,
 }
 
 impl Component for ResultScreen {
@@ -42,6 +54,7 @@ impl Component for ResultScreen {
 
     fn create(_ctx: &Context<Self>) -> Self {
         Self {
+            sharing: false,
             current_focus: 1,
             announcement: String::new(),
         }
@@ -49,8 +62,16 @@ impl Component for ResultScreen {
 
     fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
+            Msg::CloseShare => {
+                self.sharing = false;
+                true
+            }
             Msg::MenuAction(action) => {
-                Self::handle_menu_action(ctx, action);
+                if action == 1 {
+                    self.sharing = true;
+                } else {
+                    Self::handle_menu_action(ctx, action);
+                }
                 true
             }
             Msg::KeyDown(e) => {
@@ -83,14 +104,19 @@ impl Component for ResultScreen {
         let on_keydown = ctx.link().callback(Msg::KeyDown);
         let on_menu_action = ctx.link().callback(Msg::MenuAction);
 
-        render_body(
+        let body = render_body(
             props,
             &summary,
             self.current_focus,
             self.announcement.clone(),
+            ctx.link()
+                .callback(|()| Msg::AnnouncementChange(String::new())),
             on_keydown,
             &on_menu_action,
-        )
+        );
+        html! {<>{body}
+            if self.sharing {<super::composer::ShareComposer post={super::post::create(props, &summary)} on_close={ctx.link().callback(|()| Msg::CloseShare)} />}
+        </>}
     }
 }
 
@@ -106,7 +132,6 @@ impl ResultScreen {
         };
 
         match action {
-            1 => Self::copy_share_text(ctx, &summary),
             2 => Self::copy_seed(ctx, &summary.seed),
             3 => props.on_replay_seed.emit(()),
             4 => props.on_new_run.emit(()),
@@ -116,23 +141,25 @@ impl ResultScreen {
         }
     }
 
-    fn copy_share_text(ctx: &Context<Self>, summary: &ResultSummary) {
-        let headline_key = resolved_headline_key(summary, ctx.props());
-        let headline_text = i18n::t(&headline_key);
-        let template = i18n::t("result.share.template");
-        let share_text = share::interpolate_template(&template, summary, &headline_text);
-        Self::copy_to_clipboard(ctx, &share_text);
-    }
-
     fn copy_seed(ctx: &Context<Self>, seed: &str) {
         Self::copy_to_clipboard(ctx, seed);
     }
 
     fn copy_to_clipboard(ctx: &Context<Self>, text: &str) {
-        match share::copy_payload(text) {
-            Ok(()) => Self::announce(ctx, &i18n::t("result.announce.copied")),
-            Err(_) => Self::announce(ctx, &i18n::t("result.announce.copy_failed")),
-        }
+        let link = ctx.link().clone();
+        let text = text.to_owned();
+        wasm_bindgen_futures::spawn_local(async move {
+            let copied = match share::copy_payload(&text) {
+                Ok(promise) => wasm_bindgen_futures::JsFuture::from(promise).await.is_ok(),
+                Err(_) => false,
+            };
+            let key = if copied {
+                "result.announce.copied"
+            } else {
+                "result.announce.copy_failed"
+            };
+            link.send_message(Msg::AnnouncementChange(i18n::t(key)));
+        });
     }
 
     fn announce(ctx: &Context<Self>, message: &str) {
@@ -144,8 +171,10 @@ impl ResultScreen {
 /// Function component wrapper for the Result Screen
 #[function_component(ResultScreenWrapper)]
 pub fn result_screen_wrapper(props: &Props) -> Html {
+    crate::i18n::use_language();
     html! {
         <ResultScreen
+            language={crate::i18n::current_lang()}
             game_state={props.game_state.clone()}
             result_config={props.result_config.clone()}
             boss_won={props.boss_won}

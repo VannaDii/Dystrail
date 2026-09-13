@@ -1,0 +1,1052 @@
+{
+  "config": {
+    "configFile": "/tmp/dystrail-final-workshop-build/test-config.cjs",
+    "rootDir": "/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/tmp/dystrail-final-workshop-build/copy-regression-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/tmp/dystrail-final-workshop-build/copy-regression-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "writer-content.spec.ts",
+          "writer-narratives.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "writer-content.spec.ts",
+      "file": "writer-content.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "writer scene sat_alternator_tariff retains its complete copy and exact choice effects offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:25.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a5b9a84d93f7db96aed2-1f99f258a9802a37e734",
+          "file": "writer-content.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "writer scene sat_billion_pothole retains its complete copy and exact choice effects offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:25.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a5b9a84d93f7db96aed2-c81c956df0960fa067fc",
+          "file": "writer-content.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "writer scene sat_cabinet_guest retains its complete copy and exact choice effects offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3248,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:29.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a5b9a84d93f7db96aed2-d0e9870187649fb972c9",
+          "file": "writer-content.spec.ts",
+          "line": 76,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "title": "writer-narratives.spec.ts",
+      "file": "writer-narratives.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "final workshop source contains all 28 town remarks and 27 narrative fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:29.035Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-83a2e4d125a0f47b546a",
+          "file": "writer-narratives.spec.ts",
+          "line": 179,
+          "column": 5
+        },
+        {
+          "title": "all 28 town conversations show their own revised remark and sourced fact offline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9166,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Minneapolis",
+                      "duration": 1134
+                    },
+                    {
+                      "title": "La Crosse",
+                      "duration": 237
+                    },
+                    {
+                      "title": "Madison",
+                      "duration": 232
+                    },
+                    {
+                      "title": "Chicago",
+                      "duration": 230
+                    },
+                    {
+                      "title": "South Bend",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Toledo",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Cleveland",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Pittsburgh",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Cumberland",
+                      "duration": 236
+                    },
+                    {
+                      "title": "Hagerstown",
+                      "duration": 232
+                    },
+                    {
+                      "title": "Frederick",
+                      "duration": 233
+                    },
+                    {
+                      "title": "D.C.",
+                      "duration": 232
+                    },
+                    {
+                      "title": "Kansas City",
+                      "duration": 239
+                    },
+                    {
+                      "title": "Columbia",
+                      "duration": 229
+                    },
+                    {
+                      "title": "St. Louis",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Springfield, IL",
+                      "duration": 234
+                    },
+                    {
+                      "title": "Denver",
+                      "duration": 233
+                    },
+                    {
+                      "title": "North Platte",
+                      "duration": 234
+                    },
+                    {
+                      "title": "Omaha",
+                      "duration": 234
+                    },
+                    {
+                      "title": "Des Moines",
+                      "duration": 232
+                    },
+                    {
+                      "title": "Iowa City",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Austin",
+                      "duration": 235
+                    },
+                    {
+                      "title": "Waco",
+                      "duration": 237
+                    },
+                    {
+                      "title": "Dallas",
+                      "duration": 244
+                    },
+                    {
+                      "title": "Oklahoma City",
+                      "duration": 234
+                    },
+                    {
+                      "title": "Tulsa",
+                      "duration": 234
+                    },
+                    {
+                      "title": "Joplin",
+                      "duration": 233
+                    },
+                    {
+                      "title": "Springfield, MO",
+                      "duration": 233
+                    }
+                  ],
+                  "startTime": "2026-09-13T11:54:29.058Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-e446a345761b863de674",
+          "file": "writer-narratives.spec.ts",
+          "line": 196,
+          "column": 5
+        },
+        {
+          "title": "named crew incident: raw milk, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2307,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:32.288Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-43da9730d0e50418114a",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: heat warning, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:34.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-9d97c393aaec112d4200",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: five accomplishments, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:36.935Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-d34786c1e145579914d2",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: wellness sample, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:38.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-ad1c80264e6f669901c8",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: renamed detours, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:39.248Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-c5dd91d2750925b91d8b",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: tariff invoice, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2786,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:41.031Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-c2b2cca3c9e6a4df3cd4",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: Signal work chat, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2762,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:41.546Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-835f15f226d06125ec52",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "named crew incident: food parcels, with care costs shown before choosing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:43.822Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-19c650ca285dccd1ea24",
+          "file": "writer-narratives.spec.ts",
+          "line": 249,
+          "column": 7
+        },
+        {
+          "title": "critical care saves the named companion for the advertised supplies and hour",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:44.313Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-acf55c907a6d9a99b8ae",
+          "file": "writer-narratives.spec.ts",
+          "line": 273,
+          "column": 5
+        },
+        {
+          "title": "leaving a critically ill companion with the aid team is safe and persists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1499,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:45.755Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-3250954c2ffa459388a4",
+          "file": "writer-narratives.spec.ts",
+          "line": 286,
+          "column": 5
+        },
+        {
+          "title": "continuing before illness becomes critical leaves the companion unwell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1864,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:46.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-a4325604c46bbe21d3f4",
+          "file": "writer-narratives.spec.ts",
+          "line": 305,
+          "column": 5
+        },
+        {
+          "title": "the explicitly fatal companion choice records death without ending the player journey",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:47.261Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-f445a75fa5b32ec79802",
+          "file": "writer-narratives.spec.ts",
+          "line": 318,
+          "column": 5
+        },
+        {
+          "title": "the player cannot use companion departure and their fatal choice ends this named journey",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:48.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-982a2c615e1b56606a34",
+          "file": "writer-narratives.spec.ts",
+          "line": 333,
+          "column": 5
+        },
+        {
+          "title": "unaffordable care stays disabled while a safe companion departure remains available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:48.715Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-9bf015a15b65aa91a913",
+          "file": "writer-narratives.spec.ts",
+          "line": 352,
+          "column": 5
+        },
+        {
+          "title": "outside ally departure 0: Jules is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3545,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:50.155Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-b13be2bf88aa52f1a6b9",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        },
+        {
+          "title": "outside ally departure 1: Kit is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3126,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:50.419Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-bc5f43e527831a0aab79",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        },
+        {
+          "title": "outside ally departure 2: Ari is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3608,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:53.551Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-b05b93c7bdf76f1859cd",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        },
+        {
+          "title": "outside ally departure 3: Blair is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:53.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-46cd04de33c6d9704530",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        },
+        {
+          "title": "outside ally departure 4: Casey is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3598,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:57.164Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-e6f86a2ddfbdaac7e1fb",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        },
+        {
+          "title": "outside ally departure 5: Devon is named and the crew is unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3580,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-13T11:54:57.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "955426a9c7f33ac7ca53-a420c64003ac65ed4f5b",
+          "file": "writer-narratives.spec.ts",
+          "line": 371,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-13T11:54:25.042Z",
+    "duration": 35904.241,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

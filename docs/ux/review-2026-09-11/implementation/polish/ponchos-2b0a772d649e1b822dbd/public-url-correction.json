@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "trunk",
+    "build",
+    "--release",
+    "--public-url",
+    "/play/",
+    "--dist",
+    "/tmp/dystrail-poncho-preview/web"
+  ],
+  "exit_code": 0,
+  "supersedes_unpublished_revision": "7ad4e188a8bb40584dd7",
+  "revision": "2b0a772d649e1b822dbd",
+  "source_unchanged": true
+}

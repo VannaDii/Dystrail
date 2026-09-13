@@ -1,0 +1,16 @@
+{
+  "source": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-source",
+  "binary_sha256": "3e41e7007d9197cc03a699363dcb045694a1b2ac67b37d1ffeee12a178cc0006",
+  "unchanged_non_balanced_rows": 1500,
+  "csv_sha256": "443b5acf3fb742ae3d2598b653056557653635526076705a174d1beeb054eb20",
+  "gzip_csv_roundtrip_exact": true,
+  "files": {
+    "pace-crossing-health038-analysis.json": "c6c06f15fa3d73283bb0d19475d633458128a02e4c15c0e19ab7109d5a0019ab",
+    "pace-crossing-health038-build.log": "a19771541739e68a422e597c0163fdc48e62d75d496ce48e02fc1e824e824065",
+    "pace-crossing-health038-campaign.log": "2a45b2874399766c24b941c2ce57c1335740196161ca22136b98d5fe103000bc",
+    "pace-crossing-health038-inputs.json": "d2790fc5142009ce95ab21dedf6919135b534f6b692b4bde7dce7ab38623e8b1",
+    "pace-crossing-health038-measurement.md": "cfd7d47e3eca3600764ef66b6154f9270ce8eda107e380e119700c1d56f2297a",
+    "pace-crossing-health038-results.csv.gz": "440523863ae9fcddacf99c6298f663f5fbcd62a5fc9aefc5dca062b5957e5218",
+    "pace-crossing-health038-seed4242.log": "89570c5853b7d00e0b4c20d4bc0ef2dd481a8d4e8efef3b54afc7d628088a9f5"
+  }
+}

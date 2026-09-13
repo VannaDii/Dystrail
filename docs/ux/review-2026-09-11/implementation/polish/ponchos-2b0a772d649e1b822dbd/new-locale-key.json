@@ -1,0 +1,122 @@
+[
+  {
+    "locale": "ar",
+    "key": "weather.panel.ponchos",
+    "value": "تمنع معاطف المطر خسارة الاتزان بسبب العواصف. تبقى تكاليف العواصف الأخرى سارية.",
+    "fallback": false
+  },
+  {
+    "locale": "bn",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "de",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "en",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": false
+  },
+  {
+    "locale": "es",
+    "key": "weather.panel.ponchos",
+    "value": "Los ponchos evitan la pérdida de cordura por las tormentas. Los demás costes de las tormentas se mantienen.",
+    "fallback": false
+  },
+  {
+    "locale": "fr",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "hi",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "id",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "it",
+    "key": "weather.panel.ponchos",
+    "value": "I poncho evitano la perdita di lucidità causata dalle tempeste. Gli altri costi delle tempeste restano.",
+    "fallback": false
+  },
+  {
+    "locale": "ja",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "jv",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "ko",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "mr",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "pa",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "pt",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "ru",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "ta",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "te",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "tr",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  },
+  {
+    "locale": "zh",
+    "key": "weather.panel.ponchos",
+    "value": "Ponchos prevent storm sanity loss. Other storm costs still apply.",
+    "fallback": true
+  }
+]

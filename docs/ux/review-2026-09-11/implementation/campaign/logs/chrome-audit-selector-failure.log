@@ -1,0 +1,40 @@
+(node:9007) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 52 tests using 2 workers
+
+(node:9042) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9043) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9042) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:9043) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:9042) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9043) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (2.0s)
+  ✓   2 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (3.0s)
+  ✓   3 [chromium] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (3.2s)
+  ✓   4 [chromium] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.8s)
+  ✓   5 [chromium] › tests-e2e/feedback.spec.ts:34:5 › advertised receipts become visible awards and survive offline play and reload (3.3s)
+  ✓   6 [chromium] › tests-e2e/feedback.spec.ts:53:5 › ally losses have a persistent acknowledgment and remain in the journal (3.1s)
+  ✓   7 [chromium] › tests-e2e/feedback.spec.ts:64:5 › town information, action spacing, journal cards and map credits share the established alignment (3.1s)
+  ✓   8 [chromium] › tests-e2e/feedback.spec.ts:75:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.6s)
+  ✓   9 [chromium] › tests-e2e/preload.spec.ts:7:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (3.8s)
+  ✓  10 [chromium] › tests-e2e/pwa.spec.ts:11:5 › all assets, saved play and town scenes work after an offline relaunch (5.8s)
+  ✓  12 [chromium] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details are centered (2.5s)
+  ✓  13 [chromium] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.7s)
+  ✓  11 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (7.7s)
+  ✓  14 [chromium] › tests-e2e/scene-flow.spec.ts:30:5 › automatic map keeps moving and closes in five seconds without a second click (10.0s)
+  ✓  15 [chromium] › tests-e2e/scene-flow.spec.ts:38:5 › automatic map can stay open, survives reload, and resumes with one click (11.4s)
+  ✓  17 [chromium] › tests-e2e/scene-flow.spec.ts:54:5 › camp gathering uses cooldown cards, persists and becomes available again (3.1s)
+  ✓  18 [chromium] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (2.7s)
+  ✓  19 [chromium] › tests-e2e/scene-flow.spec.ts:69:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.6s)
+  ✓  16 [chromium] › tests-e2e/scene-flow.spec.ts:46:5 › manual map stays open and resumed travel stops at the next town (10.9s)
+  ✓  21 [chromium] › tests-e2e/scenes.spec.ts:7:5 › encounters have matching settings and never inherit a road backdrop (3.2s)
+  ✓  22 [chromium] › tests-e2e/scenes.spec.ts:18:5 › regional roads follow route geography, full crew van travels, heat haze and clock are synchronized (4.9s)
+  ✓  20 [chromium] › tests-e2e/scene-flow.spec.ts:75:5 › a queued crew decision waits for the automatic map without advancing past it (9.1s)
+  ✓  24 [chromium] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.7s)
+  ✓  25 [chromium] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (3.0s)
+  ✓  26 [chromium] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (2.7s)

@@ -1,0 +1,67 @@
+{
+  "candidate": "pace-crossing-health038-arrival-activity-poncho",
+  "created_utc": "2026-09-13T08:59:12.814689+00:00",
+  "status": "combined diagnostic retained; acceptance failed; not integrated or published",
+  "files": {
+    "pace-crossing-health038-arrival-activity-poncho.patch": {
+      "sha256": "11d6782e2f6bccdb01375dcd354a5ae4a80896e9859b568e90b602ddf05731c2",
+      "bytes": 14600
+    },
+    "pace-crossing-health038-arrival-activity-poncho-weather-tests.log": {
+      "sha256": "d388559b80469d2b93435c96fffc9485fa89485f1d0dd8149924dc35e1dd1541",
+      "bytes": 768
+    },
+    "pace-crossing-health038-arrival-activity-poncho-clippy.log": {
+      "sha256": "955e10bd3950d418d6bd758ea5e0b141ff385e71022f7d195ad28d9d07832122",
+      "bytes": 217
+    },
+    "pace-crossing-health038-arrival-activity-poncho-binary-ready.json": {
+      "sha256": "965fe2781ad4838ba0d6a8efba1a5c33fc76c32edd28cd97c5d135a66e909638",
+      "bytes": 466
+    },
+    "pace-crossing-health038-arrival-activity-poncho-build.log": {
+      "sha256": "411f0d04bd8acbfefae243ecd5e1581c032cf36aff98153bed63f6d790299e1c",
+      "bytes": 357
+    },
+    "pace-crossing-health038-arrival-activity-poncho-inputs.json": {
+      "sha256": "04cc30db90165df732e5fa10fa85851c559a503117e6c887660511e085881415",
+      "bytes": 69518
+    },
+    "pace-crossing-health038-arrival-activity-poncho-comparison.json": {
+      "sha256": "5fe00b1ee0f1fa472af622d9588737b60ae633f827cb3ab9d83d3c6560457aa1",
+      "bytes": 93319
+    },
+    "pace-crossing-health038-arrival-activity-poncho-review.md": {
+      "sha256": "d510d27fe1dbde9b13142ef619c2d8fd4530bfa493cf9ed3520da5f03902230f",
+      "bytes": 1573
+    },
+    "pace-crossing-health038-arrival-activity-poncho-campaign.log": {
+      "sha256": "89abac08868d30d0ed5caf088e3175f17c81834fa97362b9ea6d279a5f346037",
+      "bytes": 2630
+    },
+    "pace-crossing-health038-arrival-activity-poncho-measurement.md": {
+      "sha256": "64b14eb261629ecb0f87752946a06a5ecbce68cda77306f646339311cab7ae7b",
+      "bytes": 5971
+    },
+    "pace-crossing-health038-arrival-activity-poncho-game-lib-tests.log": {
+      "sha256": "c3523b4c0ce80c4014edfaaf444a3dfc8e40f75a823b242f05fd8f84505cd91c",
+      "bytes": 16483
+    },
+    "pace-crossing-health038-arrival-activity-poncho-seed4242.log": {
+      "sha256": "61c68ae5759b0207a819b69b95f862916589ab91cc19ea343268b19bb4748538",
+      "bytes": 671
+    },
+    "pace-crossing-health038-arrival-activity-poncho-analysis.json": {
+      "sha256": "c52fb524a491cdd972bc8083e02120f954ae01365c923db28134e40b1cca753c",
+      "bytes": 33135
+    },
+    "pace-crossing-health038-arrival-activity-poncho-results.csv.gz": {
+      "sha256": "9027d23f63571477f8c43346ba57ad9648db6c2b8f6e2558262da3ec4597ca08",
+      "bytes": 52985,
+      "uncompressed_sha256": "09798309788488996d8d073e3ff30ff3cae5440dbe9d178673b9085087fd4ea7",
+      "uncompressed_bytes": 684884,
+      "gzip_mtime": 0,
+      "gzip_filename": ""
+    }
+  }
+}

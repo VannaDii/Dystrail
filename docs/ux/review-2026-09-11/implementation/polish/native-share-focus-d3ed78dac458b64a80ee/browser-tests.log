@@ -1,0 +1,39 @@
+(node:40167) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 12 tests using 2 workers
+
+(node:40168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40169) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40168) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.8s)
+  ✓   2 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (3.2s)
+  ✓   3 [chromium] › tests-e2e/sharing.spec.ts:87:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.8s)
+  ✓   4 [chromium] › tests-e2e/sharing.spec.ts:104:5 › failed PNG encoding can retry without losing the edited post (2.4s)
+  ✓   5 [chromium] › tests-e2e/sharing.spec.ts:120:5 › closing during image preparation releases the completed image without reopening the dialog (2.4s)
+(node:40296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40296) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [chromium] › tests-e2e/sharing.spec.ts:142:5 › long player names and Arabic share content stay readable on desktop and phone (4.1s)
+(node:40310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:40310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [mobile] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (2.8s)
+  ✓   8 [mobile] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (3.2s)
+  ✓   9 [mobile] › tests-e2e/sharing.spec.ts:87:5 › unsupported sharing and denied clipboard keep the image and editable post available (2.8s)
+  ✓  10 [mobile] › tests-e2e/sharing.spec.ts:104:5 › failed PNG encoding can retry without losing the edited post (3.0s)
+  ✓  11 [mobile] › tests-e2e/sharing.spec.ts:120:5 › closing during image preparation releases the completed image without reopening the dialog (2.5s)
+  ✓  12 [mobile] › tests-e2e/sharing.spec.ts:142:5 › long player names and Arabic share content stay readable on desktop and phone (4.0s)
+
+  12 passed (21.5s)

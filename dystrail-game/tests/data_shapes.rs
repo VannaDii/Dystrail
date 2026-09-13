@@ -8,7 +8,7 @@ use dystrail_game::{
 use serde_json::{Map, Value};
 use twox_hash::XxHash64;
 
-const SNAPSHOT_HASH: u64 = 0x8157_2109_903e_58a2;
+const SNAPSHOT_HASH: u64 = 0x7858_a458_b840_b44c;
 
 #[test]
 fn journey_config_snapshot_stable() {
@@ -56,15 +56,19 @@ fn game_state_serialization_preserves_day_records() {
         StrategyId::Balanced,
         0xFACE_B00C,
     );
-    for _ in 0..3 {
+    for _ in 0..48 {
         let outcome = controller.tick_day(&mut state);
-        assert!(outcome.record.is_some(), "expected day record");
-        if outcome.ended {
+        if let Some(record) = outcome.record {
+            assert_eq!(state.day_records.last(), Some(&record));
+        }
+        if outcome.ended || state.day_records.len() == 3 {
             break;
         }
-        state.day = state.day.saturating_add(1);
-        state.current_day_record = None;
-        state.current_day_kind = None;
+        if state.current_encounter.is_some() {
+            let before = state.clone();
+            state.apply_choice(0);
+            state.advance_clock(&before, 30);
+        }
     }
     assert!(
         !state.day_records.is_empty(),

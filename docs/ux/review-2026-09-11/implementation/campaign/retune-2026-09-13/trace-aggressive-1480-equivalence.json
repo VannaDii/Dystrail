@@ -1,0 +1,609 @@
+{
+  "Classic": {
+    "final_metrics": {
+      "days_survived": true,
+      "travel_days": true,
+      "partial_travel_days": true,
+      "non_travel_days": true,
+      "encounters_faced": true,
+      "unique_encounters": true,
+      "vehicle_breakdowns": true,
+      "days_with_camp": true,
+      "days_with_repair": true,
+      "repairs_spent_cents": true,
+      "final_hp": true,
+      "final_supplies": true,
+      "final_sanity": true,
+      "final_budget_cents": true,
+      "miles_traveled": true,
+      "avg_mpd": true,
+      "travel_ratio": true,
+      "day_reason_history": true,
+      "crossing_events": true,
+      "game_ended": true
+    },
+    "all_observed_metrics_match": true,
+    "decisions_matched": 10,
+    "decisions_match_day_title_label_order_policy": true,
+    "choice_index_verified_against_unchanged_data": true,
+    "summary": {
+      "seed": 1480,
+      "mode": "Classic",
+      "game_ended": true,
+      "ending_message": "log.boss.victory",
+      "turn_count": 71,
+      "days_survived": 24,
+      "travel_days": 20,
+      "partial_travel_days": 1,
+      "non_travel_days": 3,
+      "travel_ratio": 0.875,
+      "miles_traveled": 2099.999755859375,
+      "avg_miles_per_day": 143.79042271205358,
+      "encounters_faced": 10,
+      "unique_encounters": 10,
+      "vehicle_breakdowns": 0,
+      "days_with_camp": 2,
+      "days_with_repair": 0,
+      "repairs_spent_cents": 0,
+      "final_hp": 10,
+      "final_supplies": 19,
+      "final_sanity": 2,
+      "final_budget_cents": 15400,
+      "crossing_events": [
+        {
+          "day": 5,
+          "region": "MountainWest",
+          "season": "spring",
+          "kind": "checkpoint",
+          "permit_used": false,
+          "bribe_attempted": false,
+          "bribe_success": null,
+          "bribe_cost_cents": 0,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        {
+          "day": 11,
+          "region": "Heartland",
+          "season": "spring",
+          "kind": "checkpoint",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1000,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        }
+      ],
+      "day_records": [
+        {
+          "day_index": 0,
+          "kind": "travel",
+          "miles": 151.60952758789062,
+          "tags": []
+        },
+        {
+          "day_index": 1,
+          "kind": "travel",
+          "miles": 113.59123229980469,
+          "tags": []
+        },
+        {
+          "day_index": 2,
+          "kind": "travel",
+          "miles": 177.4457244873047,
+          "tags": []
+        },
+        {
+          "day_index": 3,
+          "kind": "travel",
+          "miles": 69.90507507324219,
+          "tags": []
+        },
+        {
+          "day_index": 4,
+          "kind": "partial",
+          "miles": 170.3868408203125,
+          "tags": [
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 5,
+          "kind": "travel",
+          "miles": 167.9527587890625,
+          "tags": []
+        },
+        {
+          "day_index": 6,
+          "kind": "travel",
+          "miles": 57.267784118652344,
+          "tags": []
+        },
+        {
+          "day_index": 7,
+          "kind": "travel",
+          "miles": 149.63046264648438,
+          "tags": []
+        },
+        {
+          "day_index": 8,
+          "kind": "travel",
+          "miles": 139.55494689941406,
+          "tags": []
+        },
+        {
+          "day_index": 9,
+          "kind": "travel",
+          "miles": 55.86834716796875,
+          "tags": []
+        },
+        {
+          "day_index": 10,
+          "kind": "travel",
+          "miles": 93.88655090332031,
+          "tags": [
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 11,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        {
+          "day_index": 12,
+          "kind": "travel",
+          "miles": 79.28204345703125,
+          "tags": []
+        },
+        {
+          "day_index": 13,
+          "kind": "travel",
+          "miles": 155.08665466308594,
+          "tags": []
+        },
+        {
+          "day_index": 14,
+          "kind": "travel",
+          "miles": 65.37274169921875,
+          "tags": []
+        },
+        {
+          "day_index": 15,
+          "kind": "travel",
+          "miles": 67.34337615966797,
+          "tags": []
+        },
+        {
+          "day_index": 16,
+          "kind": "travel",
+          "miles": 53.4325065612793,
+          "tags": []
+        },
+        {
+          "day_index": 17,
+          "kind": "travel",
+          "miles": 66.9974594116211,
+          "tags": []
+        },
+        {
+          "day_index": 18,
+          "kind": "travel",
+          "miles": 89.81820678710938,
+          "tags": [
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 19,
+          "kind": "travel",
+          "miles": 62.486671447753906,
+          "tags": []
+        },
+        {
+          "day_index": 20,
+          "kind": "travel",
+          "miles": 61.200347900390625,
+          "tags": []
+        },
+        {
+          "day_index": 21,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        {
+          "day_index": 22,
+          "kind": "travel",
+          "miles": 51.88032913208008,
+          "tags": []
+        }
+      ],
+      "day_reason_history": [
+        "",
+        "",
+        "",
+        "",
+        "crossing_pass",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "crossing_pass",
+        "camp",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "crossing_pass",
+        "",
+        "",
+        "camp",
+        "",
+        ""
+      ],
+      "open_ledger": {
+        "current_day_record": {
+          "day_index": 23,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": []
+        },
+        "current_day_kind": null,
+        "current_day_reason_tags": [],
+        "current_day_miles": 0.0
+      },
+      "trace_type": "TRACE_SUMMARY"
+    }
+  },
+  "Deep": {
+    "final_metrics": {
+      "days_survived": true,
+      "travel_days": true,
+      "partial_travel_days": true,
+      "non_travel_days": true,
+      "encounters_faced": true,
+      "unique_encounters": true,
+      "vehicle_breakdowns": true,
+      "days_with_camp": true,
+      "days_with_repair": true,
+      "repairs_spent_cents": true,
+      "final_hp": true,
+      "final_supplies": true,
+      "final_sanity": true,
+      "final_budget_cents": true,
+      "miles_traveled": true,
+      "avg_mpd": true,
+      "travel_ratio": true,
+      "day_reason_history": true,
+      "crossing_events": true,
+      "game_ended": true
+    },
+    "all_observed_metrics_match": true,
+    "decisions_matched": 9,
+    "decisions_match_day_title_label_order_policy": true,
+    "choice_index_verified_against_unchanged_data": true,
+    "summary": {
+      "seed": 1480,
+      "mode": "Deep",
+      "game_ended": true,
+      "ending_message": "log.boss.victory",
+      "turn_count": 67,
+      "days_survived": 23,
+      "travel_days": 19,
+      "partial_travel_days": 1,
+      "non_travel_days": 3,
+      "travel_ratio": 0.8695652173913043,
+      "miles_traveled": 2056.169189453125,
+      "avg_miles_per_day": 147.8287353515625,
+      "encounters_faced": 9,
+      "unique_encounters": 9,
+      "vehicle_breakdowns": 0,
+      "days_with_camp": 2,
+      "days_with_repair": 0,
+      "repairs_spent_cents": 0,
+      "final_hp": 10,
+      "final_supplies": 16,
+      "final_sanity": 3,
+      "final_budget_cents": 13200,
+      "crossing_events": [
+        {
+          "day": 5,
+          "region": "MountainWest",
+          "season": "spring",
+          "kind": "checkpoint",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1000,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        {
+          "day": 11,
+          "region": "Heartland",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        }
+      ],
+      "day_records": [
+        {
+          "day_index": 0,
+          "kind": "travel",
+          "miles": 151.60952758789062,
+          "tags": []
+        },
+        {
+          "day_index": 1,
+          "kind": "travel",
+          "miles": 113.59123229980469,
+          "tags": []
+        },
+        {
+          "day_index": 2,
+          "kind": "travel",
+          "miles": 175.47412109375,
+          "tags": []
+        },
+        {
+          "day_index": 3,
+          "kind": "travel",
+          "miles": 71.87669372558594,
+          "tags": []
+        },
+        {
+          "day_index": 4,
+          "kind": "travel",
+          "miles": 170.38685607910156,
+          "tags": [
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 5,
+          "kind": "travel",
+          "miles": 162.273193359375,
+          "tags": []
+        },
+        {
+          "day_index": 6,
+          "kind": "partial",
+          "miles": 42.725894927978516,
+          "tags": []
+        },
+        {
+          "day_index": 7,
+          "kind": "travel",
+          "miles": 169.8520050048828,
+          "tags": []
+        },
+        {
+          "day_index": 8,
+          "kind": "travel",
+          "miles": 137.93222045898438,
+          "tags": []
+        },
+        {
+          "day_index": 9,
+          "kind": "travel",
+          "miles": 57.491024017333984,
+          "tags": []
+        },
+        {
+          "day_index": 10,
+          "kind": "travel",
+          "miles": 93.88655090332031,
+          "tags": [
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 11,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        {
+          "day_index": 12,
+          "kind": "travel",
+          "miles": 79.28204345703125,
+          "tags": []
+        },
+        {
+          "day_index": 13,
+          "kind": "travel",
+          "miles": 155.0865478515625,
+          "tags": []
+        },
+        {
+          "day_index": 14,
+          "kind": "travel",
+          "miles": 65.37291717529297,
+          "tags": []
+        },
+        {
+          "day_index": 15,
+          "kind": "travel",
+          "miles": 94.11845397949219,
+          "tags": []
+        },
+        {
+          "day_index": 16,
+          "kind": "travel",
+          "miles": 52.291168212890625,
+          "tags": [
+            "endgame_activate",
+            "endgame_active"
+          ]
+        },
+        {
+          "day_index": 17,
+          "kind": "travel",
+          "miles": 41.3635368347168,
+          "tags": [
+            "endgame_active"
+          ]
+        },
+        {
+          "day_index": 18,
+          "kind": "travel",
+          "miles": 92.49578857421875,
+          "tags": [
+            "endgame_active",
+            "crossing_pass"
+          ]
+        },
+        {
+          "day_index": 19,
+          "kind": "travel",
+          "miles": 73.71839904785156,
+          "tags": [
+            "endgame_active"
+          ]
+        },
+        {
+          "day_index": 20,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        {
+          "day_index": 21,
+          "kind": "travel",
+          "miles": 55.341209411621094,
+          "tags": [
+            "endgame_active"
+          ]
+        }
+      ],
+      "day_reason_history": [
+        "",
+        "",
+        "",
+        "",
+        "crossing_pass",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "crossing_pass",
+        "camp",
+        "",
+        "",
+        "",
+        "",
+        "endgame_activate;endgame_active",
+        "endgame_active",
+        "endgame_active;crossing_pass",
+        "endgame_active",
+        "camp",
+        "endgame_active",
+        ""
+      ],
+      "open_ledger": {
+        "current_day_record": {
+          "day_index": 22,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": []
+        },
+        "current_day_kind": null,
+        "current_day_reason_tags": [],
+        "current_day_miles": 0.0
+      },
+      "trace_type": "TRACE_SUMMARY"
+    }
+  }
+}

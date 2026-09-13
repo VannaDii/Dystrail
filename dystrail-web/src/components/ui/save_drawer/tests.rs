@@ -5,11 +5,14 @@ use yew::LocalServerRenderer;
 
 fn base_props(open: bool) -> Props {
     Props {
+        status: String::new(),
         open,
         on_close: Callback::noop(),
         on_save: Callback::noop(),
         on_load: Callback::noop(),
         on_export: Callback::noop(),
+        on_download: Callback::noop(),
+        can_save: true,
         on_import: Callback::from(|_s: String| {}),
         return_focus_id: None,
     }

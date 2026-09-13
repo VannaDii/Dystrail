@@ -1,0 +1,21 @@
+Safari 26.6.2
+PASS First launch waits for its complete asset bundle
+Click Choose your character
+Click Journalist
+Click Continue
+Click Continue
+Click Review & depart
+Click Start the journey
+Click Menu ▾
+Click Help & tips
+Click Help & tips
+Click Menu ▾
+Click Menu ▾
+Click Help & tips
+Click Help & tips
+Click Menu ▾
+PASS Help & tips toggles without moving stats, scene, controls or menu at desktop and narrow Safari widths; information remains usable
+PASS With the origin stopped, the saved journey relaunches and all 87 cached files match their hashes
+PASS A complete changed release replaces the old version before play and preserves the entire save
+PASS A failed update keeps the previous complete version and the entire save
+PASS After the interrupted update, the complete saved version still relaunches offline

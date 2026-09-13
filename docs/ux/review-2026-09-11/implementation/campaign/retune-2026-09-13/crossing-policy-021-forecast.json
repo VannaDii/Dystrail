@@ -1,0 +1,38 @@
+{
+  "scope": "Crossing stream only; no game loop, clock or distance simulation; no candidate source changed.",
+  "weights": {
+    "pass": 0.7,
+    "detour": 0.09,
+    "terminal": 0.21
+  },
+  "totals": {
+    "crossing_events": 699,
+    "crossing_bribe_attempts": 699,
+    "crossing_bribe_successes": 519,
+    "crossing_detours_taken": 101,
+    "crossing_failures": 79
+  },
+  "terminal_by_crossing_index": {
+    "1": 51,
+    "2": 28
+  },
+  "bribe_success": 0.7424892703862661,
+  "terminal_rate": 0.11301859799713877,
+  "effective_bribed_probabilities_by_attempt": [
+    [
+      0.7776809334754944,
+      0.07846556603908539,
+      0.14385353028774261
+    ],
+    [
+      0.7583496570587158,
+      0.08133595436811447,
+      0.16031432151794434
+    ],
+    [
+      0.7467226386070251,
+      0.08306241035461426,
+      0.17021499574184418
+    ]
+  ]
+}

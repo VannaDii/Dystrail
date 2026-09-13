@@ -1,0 +1,26 @@
+
+Running 17 tests using 1 worker
+
+(node:33382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [mobile] › tests-e2e/feedback.spec.ts:8:5 › local conversations retain the actual reward at and below the credibility cap (2.9s)
+  ✓   2 [mobile] › tests-e2e/feedback.spec.ts:24:5 › outcomes show one heading and consistent cash, condition, evidence and part cards (2.7s)
+  ✓   3 [mobile] › tests-e2e/feedback.spec.ts:34:5 › ally losses have a persistent acknowledgment and remain in the journal (2.8s)
+  ✓   4 [mobile] › tests-e2e/feedback.spec.ts:45:5 › town information, action spacing, journal cards and map credits share the established alignment (2.9s)
+  ✓   5 [mobile] › tests-e2e/feedback.spec.ts:56:5 › legacy danger values are ignored and temporary risk uses the short percent label (2.4s)
+  ✓   6 [mobile] › tests-e2e/scene-flow.spec.ts:10:5 › scene footer is flush and repair details are centered (2.3s)
+  ✓   7 [mobile] › tests-e2e/scene-flow.spec.ts:20:5 › The Trail is exclusive tab content, keyboard accessible, with equal action widths (2.5s)
+  ✓   8 [mobile] › tests-e2e/scene-flow.spec.ts:30:5 › automatic map keeps moving and closes in five seconds without a second click (9.8s)
+  ✓   9 [mobile] › tests-e2e/scene-flow.spec.ts:38:5 › automatic map can stay open, survives reload, and resumes with one click (11.1s)
+  ✓  10 [mobile] › tests-e2e/scene-flow.spec.ts:46:5 › manual map stays open and resumed travel stops at the next town (19.5s)
+  ✓  11 [mobile] › tests-e2e/scene-flow.spec.ts:54:5 › camp gathering uses cooldown cards, persists and becomes available again (2.9s)
+  ✓  12 [mobile] › tests-e2e/scene-flow.spec.ts:62:5 › help preference hides only optional tips, persists offline, and keeps information usable (2.5s)
+  ✓  13 [mobile] › tests-e2e/scene-flow.spec.ts:69:5 › critical sanity stays in the stat bar with a bounded pulse and no popup (2.4s)
+  ✓  14 [mobile] › tests-e2e/scene-flow.spec.ts:75:5 › a queued crew decision waits for the automatic map without advancing past it (8.8s)
+  ✓  15 [mobile] › tests-e2e/ux-round.spec.ts:6:5 › temporary policy effects explain actual penalties and remain available with tips off (2.6s)
+  ✓  16 [mobile] › tests-e2e/ux-round.spec.ts:13:5 › town inventory, selectable trades and repeat conversations retain the real state (2.9s)
+  ✓  17 [mobile] › tests-e2e/ux-round.spec.ts:24:5 › required decisions keep a disabled Resume control and all reference tabs (2.5s)
+
+  17 passed (1.4m)

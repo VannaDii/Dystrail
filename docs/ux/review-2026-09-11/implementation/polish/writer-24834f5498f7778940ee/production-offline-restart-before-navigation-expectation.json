@@ -1,0 +1,7 @@
+{
+  "revision": "24834f5498f7778940ee",
+  "network": "offline before initial navigation",
+  "profile": "/tmp/dystrail-writer-preview-release-prep/old-production-profile",
+  "errors": [],
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    aftermath: null,\n    code: 'CL-ORANGE42',\n    journey_detail: {\n      expanded: true,\n+     tab: 0\n-     tab: 3\n    },\n    logs: [],\n    map_automatic: false,\n    map_return: null,\n    pending: {\n\n    at file:///private/tmp/dystrail-writer-preview-release-prep/verify-published-offline-restart.mjs:18:9"
+}

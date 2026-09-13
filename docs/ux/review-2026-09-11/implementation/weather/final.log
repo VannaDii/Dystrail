@@ -1,0 +1,25 @@
+
+Running 10 tests using 1 worker
+
+(node:75345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Weather travel fixture [33m4[39m Heartland Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m, pants: [33m2[39m }
+  ✓   1 [chromium] › tests-e2e/weather.spec.ts:11:5 › weather costs apply during continuous travel, notify inline, and survive reload once (9.6s)
+  ✓   2 [chromium] › tests-e2e/weather.spec.ts:34:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (3.4s)
+  ✓   3 [chromium] › tests-e2e/weather.spec.ts:45:5 › old weather pause checkpoints resume without a weather decision or repeated costs (3.0s)
+  ✓   4 [chromium] › tests-e2e/weather.spec.ts:52:5 › weather indicator respects reduced motion and Arabic layout (945ms)
+  ✓   5 [chromium] › tests-e2e/weather.spec.ts:60:5 › travel actions share one compact row and the scene gets the saved space (3.0s)
+(node:76008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Weather travel fixture [33m4[39m Heartland Storm { day: [33m1[39m, weather: [32m'Storm'[39m, supplies: [33m-1[39m, hp: [33m0[39m, sanity: [33m-1[39m, pants: [33m2[39m }
+  ✓   6 [mobile] › tests-e2e/weather.spec.ts:11:5 › weather costs apply during continuous travel, notify inline, and survive reload once (9.2s)
+  ✓   7 [mobile] › tests-e2e/weather.spec.ts:34:5 › weather receipt shows exposure, clear removes stale losses, and help stays in the viewport (3.6s)
+  ✓   8 [mobile] › tests-e2e/weather.spec.ts:45:5 › old weather pause checkpoints resume without a weather decision or repeated costs (2.4s)
+  ✓   9 [mobile] › tests-e2e/weather.spec.ts:52:5 › weather indicator respects reduced motion and Arabic layout (1.0s)
+  ✓  10 [mobile] › tests-e2e/weather.spec.ts:60:5 › travel actions share one compact row and the scene gets the saved space (2.6s)
+
+  10 passed (1.1m)

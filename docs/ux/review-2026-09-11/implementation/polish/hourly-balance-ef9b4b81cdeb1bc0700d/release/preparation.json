@@ -1,0 +1,22 @@
+{
+  "prepared_at": "2026-09-13T12:37:06.715347+00:00",
+  "checkout": "/tmp/dystrail-hourly-balance-release",
+  "source_base_commit": "7ea6499d97cf6baa64819766a22d7e880a555176",
+  "source_base_revision": "23cf83a1a7d5f9d02de9",
+  "branch": "release/hourly-balance-2026-09-13",
+  "workflow_sha256": "aabfaf84c5a4b8dc2e19d144c75a62ff603aeee344216cb984b6fd0fefcba4f2",
+  "baseline_files": 199,
+  "protected_non_game_files": 59,
+  "existing_hashed_game_assets": 25,
+  "dispatch_on_hold": true,
+  "artifact_staged": false,
+  "new_commit_created": false,
+  "pushed": false,
+  "permissions_changed": false,
+  "dispatch_owner": "Original task with trusted user production authorization",
+  "missing_dependency": "Frozen artifact path, revision, offline manifest SHA-256, and final validation handoff",
+  "ready_scripts": [
+    "stage-artifact.py",
+    "verify-live-release.py"
+  ]
+}

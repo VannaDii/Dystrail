@@ -1,0 +1,45 @@
+{
+  "verified_at": "2026-09-13T07:16:55.479716+00:00",
+  "production_url": "https://dystrail.com/play/",
+  "revision": "a9ff83cd924a07fdf4ec",
+  "commit": "acaa88b1c1f104bf267048d393df2be403f056c9",
+  "branch": "release/visual-refinement-2026-09-12",
+  "run": "https://github.com/VannaDii/Dystrail/actions/runs/34744528068",
+  "run_conclusion": "success",
+  "artifact": "/tmp/dystrail-visual-refine/unit5-web",
+  "offline_manifest_sha256": "18d2e99114f6764b0a734cf80e9157ff31d1b526666c338f51d95be19e521c0b",
+  "release_manifest_sha256": "5bb61c022a37e257c2805f87e58744268c770b961f6d412defc1d4b5635b3198",
+  "total_live_files_verified": 194,
+  "protected_nonplay_files_preserved": 59,
+  "old_hashed_game_assets_preserved": 13,
+  "cache_assets_verified": 119,
+  "cache_keys": 120,
+  "decoded_images": 68,
+  "prepared_fonts_loaded": 7,
+  "all_assets_ready_at_gate_removal": true,
+  "entire_fixture_save_preserved": true,
+  "saved_day": 1,
+  "saved_miles": 0,
+  "saved_crew_members": 6,
+  "save_normalization": "Canonical object key order and unordered state/pending inventory HashSet tags only; no gameplay field exclusions.",
+  "unchanged_state_sha256": "8e782e3950290a64fbb4a7081e0fa68375c9dc1b5f331b22545287f01642a39c",
+  "schema_changes": [],
+  "rule_changes": [],
+  "browser_errors": [],
+  "phone_overflow": false,
+  "temporary_policy_removed": true,
+  "remaining_branch_policy": [
+    {
+      "id": 39031816,
+      "name": "main",
+      "type": "branch"
+    }
+  ],
+  "source_scope": "Engine, tester, 20 locales and 22 content-data files equal prior production. Camp +6 experiment excluded.",
+  "screenshots_inspected": [
+    "output/playwright/production-updated-desktop.png",
+    "output/playwright/production-offline-van-phone.png",
+    "output/playwright/production-restarted-offline-phone-viewport.png"
+  ],
+  "passed": true
+}

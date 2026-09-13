@@ -1,0 +1,1544 @@
+[
+  {
+    "origin": "http://127.0.0.1:8180/play/",
+    "revision": "56213723b1c62ed89b93",
+    "files": 100,
+    "bytes": 104083461,
+    "assets": [
+      {
+        "path": "continuity-dce5eff50af06f92.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8.js",
+        "bytes": 61830,
+        "sha256": "c45f9027bed27d6cc9e21bdcdd4381a9a6494ac1abbcb8eac3e94e8d70ec1a95"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8_bg.wasm",
+        "bytes": 5303303,
+        "sha256": "afd29f35b860a002a1243453f551b028228e3255379daf4f9b30279b168067c1"
+      },
+      {
+        "path": "index.html",
+        "bytes": 10244,
+        "sha256": "921377e4d6f014a6aa7dec8eafc913fb3c86d294e0ca87fad98b1cd1d3ed9f4f"
+      },
+      {
+        "path": "journey-a89ac8735108f2e0.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/assets/data/boss.json",
+        "bytes": 386,
+        "sha256": "d4fbcefe0d82ca5d3f8a212924aa68dd14db0628e763b58bf23d31a6314f4e5c"
+      },
+      {
+        "path": "static/assets/data/camp.json",
+        "bytes": 392,
+        "sha256": "615941c3f8617af3953c11377e0ed6af9269304434a411e4a1c4987a89fd3728"
+      },
+      {
+        "path": "static/assets/data/crossings.json",
+        "bytes": 4056,
+        "sha256": "a68054a15461a7fb511defc865596904eae18019f4f12311c1b651d05fd904c2"
+      },
+      {
+        "path": "static/assets/data/endgame.json",
+        "bytes": 1006,
+        "sha256": "9735dd3d752b809f6b7007a3f48baa527558cf9352070462635e213de1582a47"
+      },
+      {
+        "path": "static/assets/data/exec_orders.json",
+        "bytes": 764,
+        "sha256": "b8c4958599db3d26d9038291db9141fa68f246455f6956b31e870e997129a8f2"
+      },
+      {
+        "path": "static/assets/data/game.json",
+        "bytes": 70830,
+        "sha256": "ebecbe749142251b9a703c1b6c8a5e46e99ec9bda8f33e968bd8f884bd1d9060"
+      },
+      {
+        "path": "static/assets/data/journey/classic.json",
+        "bytes": 1509,
+        "sha256": "abc9b9d38c1b051bc486b1c521afa3179769c444f18cbfb4bf6875d55f38f89b"
+      },
+      {
+        "path": "static/assets/data/journey/deep.json",
+        "bytes": 1513,
+        "sha256": "17678e1c8501e78cac3b368698c48bc36a41f4785b98cd535cce84245a5428b4"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/aggressive.json",
+        "bytes": 347,
+        "sha256": "dba7ab9c9bded32001bce9ed165168a4a1f72fad7054b884d5d037937d8e1f52"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/balanced.json",
+        "bytes": 525,
+        "sha256": "bbd8febee10536ebc5cbb35dd454dbce2ac97052b284d88b7b0b4a744d61bd51"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/conservative.json",
+        "bytes": 394,
+        "sha256": "a5a0bd762c53ee243814f0289e9f93ba1e8ddb47175306da1026e9ca6195a2b2"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/monte_carlo.json",
+        "bytes": 493,
+        "sha256": "91dad3c7a05795ab17b42e40b2d48953dcd6fab05ca509d3526e62f7407229e0"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/resource_manager.json",
+        "bytes": 675,
+        "sha256": "4c836933694e20dc844e8558ab0788384fb69cad07c01f8104001269c9924f8e"
+      },
+      {
+        "path": "static/assets/data/pacing.json",
+        "bytes": 965,
+        "sha256": "a5fc0ec3ec0eeb5f593894cd9d33191373521d0a3f4948180c28f6675135d5f9"
+      },
+      {
+        "path": "static/assets/data/personas.json",
+        "bytes": 1989,
+        "sha256": "5d027e1b1ecb5cf48a782c10ee8c400329eac1b2aea8a326d0e8ab5729a5a4b2"
+      },
+      {
+        "path": "static/assets/data/result.json",
+        "bytes": 535,
+        "sha256": "51a417be6df8553fc5663c95d560a76a2a2d30e5f9e1ca6d4d27accfe6a95d56"
+      },
+      {
+        "path": "static/assets/data/satire-sources.json",
+        "bytes": 18172,
+        "sha256": "6714120cb5d08a7802c46e1dbc64a322d0544eed0a13652d0dd9eee125ece03f"
+      },
+      {
+        "path": "static/assets/data/store.json",
+        "bytes": 3607,
+        "sha256": "e5c0b929a1cc70f5095e1578f5e20960b266b93aa26a6393fd2acf0e1547de45"
+      },
+      {
+        "path": "static/assets/data/town-facts.json",
+        "bytes": 84132,
+        "sha256": "1501610abd5190bfa222a97dc668bec741fb7d785873b7f9c844235d132bd408"
+      },
+      {
+        "path": "static/assets/data/town-profiles.json",
+        "bytes": 50237,
+        "sha256": "11a8b4470b78456b3a0b4a3a4d7b194d80fab2bfa4bb2702c948166cec25d765"
+      },
+      {
+        "path": "static/assets/data/vehicle.json",
+        "bytes": 536,
+        "sha256": "d27d644dbda301a51b61141ddf558c1424803f441ee99e354651d52810eafb60"
+      },
+      {
+        "path": "static/assets/data/weather.json",
+        "bytes": 1879,
+        "sha256": "b2be2ef9302d3063ebdf74835ac1f9ea4018e9d3017c4370ed0ac5318d0aeac9"
+      },
+      {
+        "path": "static/continuity.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "static/favicon.ico",
+        "bytes": 1340,
+        "sha256": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756"
+      },
+      {
+        "path": "static/img/app-icon-192.png",
+        "bytes": 1527,
+        "sha256": "6f3b859c66c44c293db039b01f0091a35093bfa414f301dcda9dc89375020acc"
+      },
+      {
+        "path": "static/img/app-icon-512.png",
+        "bytes": 3967,
+        "sha256": "8d4f62fde20e475f1536cf065ec09ee1ec74eae11f3d60179f8459f7bbbec701"
+      },
+      {
+        "path": "static/img/app-icon.svg",
+        "bytes": 815,
+        "sha256": "adcb48e4ad98158d76821479f8e8119490c1444ecff7a5cbfdc8b3e77754bbba"
+      },
+      {
+        "path": "static/img/items/alternator-v1.png",
+        "bytes": 1489143,
+        "sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7"
+      },
+      {
+        "path": "static/img/items/battery-v1.png",
+        "bytes": 997605,
+        "sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b"
+      },
+      {
+        "path": "static/img/items/coats-v1.png",
+        "bytes": 1232801,
+        "sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7"
+      },
+      {
+        "path": "static/img/items/fuel_pump-v1.png",
+        "bytes": 762415,
+        "sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916"
+      },
+      {
+        "path": "static/img/items/legal_fund-v1.png",
+        "bytes": 1300626,
+        "sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814"
+      },
+      {
+        "path": "static/img/items/masks-v1.png",
+        "bytes": 855098,
+        "sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce"
+      },
+      {
+        "path": "static/img/items/ponchos-v1.png",
+        "bytes": 807819,
+        "sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157"
+      },
+      {
+        "path": "static/img/items/press_pass-v1.png",
+        "bytes": 773384,
+        "sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb"
+      },
+      {
+        "path": "static/img/items/rations-v1.png",
+        "bytes": 997755,
+        "sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d"
+      },
+      {
+        "path": "static/img/items/spare_tire-v1.png",
+        "bytes": 970054,
+        "sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673"
+      },
+      {
+        "path": "static/img/items/water-v1.png",
+        "bytes": 842624,
+        "sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e"
+      },
+      {
+        "path": "static/img/journey/beltway.png",
+        "bytes": 2040003,
+        "sha256": "a59a1f680105b2134e70f81a0fa5bd94276060b884e728a6629fe68f54218d0b"
+      },
+      {
+        "path": "static/img/journey/camp.png",
+        "bytes": 2072571,
+        "sha256": "cd0112b449fe098d3345d352f70ba15d401574a57622b699d0b451a03558e19b"
+      },
+      {
+        "path": "static/img/journey/enc-bridge.png",
+        "bytes": 2647779,
+        "sha256": "296c58fdb7ab945a27332f6eb60845e0064793a392d7c94b5ba85ff30fde74c3"
+      },
+      {
+        "path": "static/img/journey/enc-checkpoint.png",
+        "bytes": 2283910,
+        "sha256": "2ba07cb7c6d7cf90efa88537f695ecb3ac1be53d57402fc9a38184d06de04f4b"
+      },
+      {
+        "path": "static/img/journey/enc-civic.png",
+        "bytes": 1947370,
+        "sha256": "0790094ee6f5c5a198f9520a98642650804151e9924f3cc9790a1c2e9b708af0"
+      },
+      {
+        "path": "static/img/journey/enc-clinic.png",
+        "bytes": 2283216,
+        "sha256": "33981456fe2b66bcc5659e480416bd2c10d73e0cbc6f565ed294f13e2e2d905a"
+      },
+      {
+        "path": "static/img/journey/enc-community.png",
+        "bytes": 2346165,
+        "sha256": "cfd788be9a4a799d9dce393eb56e74bd0f8d262ca03eff65df8006fb96dae2f1"
+      },
+      {
+        "path": "static/img/journey/enc-convoy.png",
+        "bytes": 1626803,
+        "sha256": "744077d6620e2a7a3ef63f8f1b4f7c8807c6791ff21374412a5ea48237431f3a"
+      },
+      {
+        "path": "static/img/journey/enc-media-workshop.png",
+        "bytes": 2023985,
+        "sha256": "7ef193d23c53015a2c940c2635440970d00e877a5bf077f01197029f82bc2db6"
+      },
+      {
+        "path": "static/img/journey/enc-night-briefing.png",
+        "bytes": 2246195,
+        "sha256": "53ce6b23df3743b5866366b7f1ff7637a52f76ae4cf64c6e27abf1e6e524283f"
+      },
+      {
+        "path": "static/img/journey/enc-radio.png",
+        "bytes": 2020811,
+        "sha256": "c6063d41c3da32f90fe0aeec339f95b6dd5c22d6aa42575a3ae2c9cdeaf5f070"
+      },
+      {
+        "path": "static/img/journey/enc-service.png",
+        "bytes": 2315284,
+        "sha256": "a02d770c28d2ef4aecb999d882cd6d36e73031112d21166a6fec943826854afe"
+      },
+      {
+        "path": "static/img/journey/enc-street.png",
+        "bytes": 2418739,
+        "sha256": "794698037295be8fa4f77b3e827493d90cf09762023d9b8c345116c2269fc1c3"
+      },
+      {
+        "path": "static/img/journey/encounter-settings-v2.png",
+        "bytes": 2651329,
+        "sha256": "b82e560689c1379cedf49a04a7fabd057dca7efa5c847dcb7d1ad807f8f7ff64"
+      },
+      {
+        "path": "static/img/journey/journey-settings-v1.png",
+        "bytes": 2676019,
+        "sha256": "6d023c4e0ca2db447a05be3c26ba550482024d8cdd38151804b830d02291d655"
+      },
+      {
+        "path": "static/img/journey/milk-classic.png",
+        "bytes": 2259184,
+        "sha256": "2e7564697b51b74d6676c8a171c5b078b36c756760ad4e83c441e6c1e7cede61"
+      },
+      {
+        "path": "static/img/journey/milk-deep.png",
+        "bytes": 2319105,
+        "sha256": "4d0e24be1e6fe56cdfe66df7d3c01d8d3b3a879082ae50e9038de61031573af3"
+      },
+      {
+        "path": "static/img/journey/occupant-journalist.png",
+        "bytes": 923191,
+        "sha256": "453c6a65d35433fb0150ee5e2d5fbad2d1a82e2732278eb0c9a222dcd08da90f"
+      },
+      {
+        "path": "static/img/journey/occupant-lobbyist.png",
+        "bytes": 704662,
+        "sha256": "f25d777ab60220c89472f70b50139beab163efd9a1dd2b9378e8364733ede02b"
+      },
+      {
+        "path": "static/img/journey/occupant-organizer.png",
+        "bytes": 918041,
+        "sha256": "9db44253e4bb0d0a850a0b1bd37ce9b6c740c29acece25e92df7a69f32d1fcd1"
+      },
+      {
+        "path": "static/img/journey/occupant-satirist.png",
+        "bytes": 861064,
+        "sha256": "1a1a13de2dfd187a998f0b209a8927f83ee7722ffc825b7068ab4e9ded588230"
+      },
+      {
+        "path": "static/img/journey/occupant-staffer.png",
+        "bytes": 830029,
+        "sha256": "a4a52c97a0ecd871c545cd8a24cc8bf6ac0fb1cbbc5c5c329b20122eaf39413d"
+      },
+      {
+        "path": "static/img/journey/occupant-whistleblower.png",
+        "bytes": 791621,
+        "sha256": "b30c7280deaa25df94f30f58dfb6e0076820f2c1ff741b7596866f2114385668"
+      },
+      {
+        "path": "static/img/journey/open-appalachian-ridge.png",
+        "bytes": 2098848,
+        "sha256": "52a50ccc02cac320ac2e343b93f367c84deba48c1c366ffbd2acaacad0361aa5"
+      },
+      {
+        "path": "static/img/journey/open-beltway-parkway.png",
+        "bytes": 2185024,
+        "sha256": "c26e9df42322a201f6aeb16e091a65b4811342d23240c6eee25ec73fa3be40cc"
+      },
+      {
+        "path": "static/img/journey/open-beltway-suburbs.png",
+        "bytes": 2101757,
+        "sha256": "01a34e87754c95b21d8c95a37496d4a8072355c9c96f8f84303276c4a0f91eff"
+      },
+      {
+        "path": "static/img/journey/open-california-hills.png",
+        "bytes": 2180418,
+        "sha256": "4656c54eb75d68724025529ed457b70483de2693130d870a0ba3c0cbd8bc34db"
+      },
+      {
+        "path": "static/img/journey/open-great-basin.png",
+        "bytes": 2142670,
+        "sha256": "5a366f5448686d2752e09de96d940335a7b8072c2747aebc93457b6b13f5428e"
+      },
+      {
+        "path": "static/img/journey/open-heartland-orchard.png",
+        "bytes": 2072146,
+        "sha256": "48886bd79a046e5bb774f7af26592e6e37fa618b57607c1254648f0d23f44f88"
+      },
+      {
+        "path": "static/img/journey/open-heartland-prairie.png",
+        "bytes": 2060522,
+        "sha256": "de63d22e3c41a16b51db71c07504d23dda4f498daabdc44ea18658a6b80e50cb"
+      },
+      {
+        "path": "static/img/journey/open-mountain-west.png",
+        "bytes": 2011219,
+        "sha256": "19cf48252db2e773ec5475242c0ab50b67613757240b11e756d2e4a5999ac5e7"
+      },
+      {
+        "path": "static/img/journey/open-pacific-northwest.png",
+        "bytes": 2178508,
+        "sha256": "33f283a6af4de40073100e92b5c05ddb1b37d324043e876b2d2e82f650b4b9a3"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-foundry.png",
+        "bytes": 2243397,
+        "sha256": "95f3297657c71a1bccc77a821ce67c001b0c1359489ef6a73c864cae1f417017"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-lakeside.png",
+        "bytes": 2191114,
+        "sha256": "448ed2d15b9f3078b42e1f0f00ce51fc07fe9048aa9e69430ea2843952695eb1"
+      },
+      {
+        "path": "static/img/journey/open-southwest-desert.png",
+        "bytes": 2285860,
+        "sha256": "83dbc681cd2f6f006b8ce9a635c841054341eedd9e62aaabb90a3a1750b3f297"
+      },
+      {
+        "path": "static/img/journey/personas.png",
+        "bytes": 1655363,
+        "sha256": "483f319ca6e563a39890874e0f1ccbdf1e0a63961a35d880e673ef7f58aa7d9b"
+      },
+      {
+        "path": "static/img/journey/road-classic.png",
+        "bytes": 1797286,
+        "sha256": "4f8d7a2fe22fd94f63c52e41a6b638a49ba4ab53d44b05ee1413b4685b85f111"
+      },
+      {
+        "path": "static/img/journey/road-deep.png",
+        "bytes": 1813215,
+        "sha256": "3d51facfa907124260dc43aaa2752cb0f5f3f93e00214d283b2ebbcfe5982646"
+      },
+      {
+        "path": "static/img/journey/rustbelt.png",
+        "bytes": 2102071,
+        "sha256": "42c0011a1a9ca37134f493fc3b005bd2040c0cc893458d19cc705e29aa63d16f"
+      },
+      {
+        "path": "static/img/journey/town-npcs-v1.png",
+        "bytes": 1844512,
+        "sha256": "249cf728c028bbfff155c5cd0680f74eb51859c90f769a7714ce8da54eb6023a"
+      },
+      {
+        "path": "static/img/journey/van-crew.png",
+        "bytes": 1442842,
+        "sha256": "9a6e2c8aa3a073a3dce75c13f2bba175f0b777e0448c063a33e8a2fb615f1dba"
+      },
+      {
+        "path": "static/img/journey/van-empty.png",
+        "bytes": 1665790,
+        "sha256": "8e66cf17ba27a60fd82e92b81a8c80bcb389873fd2b638a123382144a26cc322"
+      },
+      {
+        "path": "static/img/journey/western-settings-v1.png",
+        "bytes": 3253583,
+        "sha256": "88519b4cf18642c11e1a764637e64eb447be9558151775725597c2cdfc6bd28b"
+      },
+      {
+        "path": "static/img/logo-temp.png",
+        "bytes": 20392,
+        "sha256": "b935a53e309bbda27e8f675d870bad16746b7ecd106773a6c1b379aafb4e6cad"
+      },
+      {
+        "path": "static/img/logo.png",
+        "bytes": 20306,
+        "sha256": "7a4cdb77c2720d5672a14cb1e03eae9f82acd99d06de9b41cfa2149196256e49"
+      },
+      {
+        "path": "static/img/map/us-states.svg",
+        "bytes": 196191,
+        "sha256": "899ebe170d7dbfbff96baf1116a8ac8b12f2522424cce3fb052b8b96053aac22"
+      },
+      {
+        "path": "static/img/palette.png",
+        "bytes": 1627,
+        "sha256": "f9dff3ec6f9bc3095ebcbfa6970e0efb0b44fc37d2c67765d4cb1a463881d4bd"
+      },
+      {
+        "path": "static/img/social-card.png",
+        "bytes": 28969,
+        "sha256": "4cce199221b7484bd64a4cc0583393bb4bbe99e4707ab63e9819da70589fb692"
+      },
+      {
+        "path": "static/img/spritesheet.png",
+        "bytes": 695,
+        "sha256": "069874329444ffefa08cdec7b1c98e4ee82a6d8cef207bf273cc8ef4fe25a7b9"
+      },
+      {
+        "path": "static/img/status/cash-v1.png",
+        "bytes": 1253484,
+        "sha256": "b92f3b6148bc27dc957af1d430a6c1ad2ced71e49142ea83524f6b2d8e18a237"
+      },
+      {
+        "path": "static/img/status/distance-v1.png",
+        "bytes": 1143953,
+        "sha256": "bb378023de222cca1a10144cedbbdb95cc57954d372b4488e935eb747d074ca5"
+      },
+      {
+        "path": "static/journey.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/licenses/lucide.txt",
+        "bytes": 3208,
+        "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+      },
+      {
+        "path": "static/manifest.webmanifest",
+        "bytes": 573,
+        "sha256": "09a1b003dc6ce80fdf322a82e5844b78711ca9565ebb0ceded508dad5a09231d"
+      },
+      {
+        "path": "static/offline-client.js",
+        "bytes": 10062,
+        "sha256": "c79786d76114b675b4f7fae2b218d385435be563645d0d611cb012cfd8b38c45"
+      },
+      {
+        "path": "static/styles.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "styles-4fc42e80fa523138.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 16938,
+        "sha256": "55cca0fb473fa50ef59fd8b533a9eb9e6d75c83b27aa9182757299783d96d256"
+      }
+    ],
+    "save_storage_touched": false
+  },
+  {
+    "origin": "http://127.0.0.1:8083/play/",
+    "revision": "56213723b1c62ed89b93",
+    "files": 100,
+    "bytes": 104083461,
+    "assets": [
+      {
+        "path": "continuity-dce5eff50af06f92.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8.js",
+        "bytes": 61830,
+        "sha256": "c45f9027bed27d6cc9e21bdcdd4381a9a6494ac1abbcb8eac3e94e8d70ec1a95"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8_bg.wasm",
+        "bytes": 5303303,
+        "sha256": "afd29f35b860a002a1243453f551b028228e3255379daf4f9b30279b168067c1"
+      },
+      {
+        "path": "index.html",
+        "bytes": 10244,
+        "sha256": "921377e4d6f014a6aa7dec8eafc913fb3c86d294e0ca87fad98b1cd1d3ed9f4f"
+      },
+      {
+        "path": "journey-a89ac8735108f2e0.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/assets/data/boss.json",
+        "bytes": 386,
+        "sha256": "d4fbcefe0d82ca5d3f8a212924aa68dd14db0628e763b58bf23d31a6314f4e5c"
+      },
+      {
+        "path": "static/assets/data/camp.json",
+        "bytes": 392,
+        "sha256": "615941c3f8617af3953c11377e0ed6af9269304434a411e4a1c4987a89fd3728"
+      },
+      {
+        "path": "static/assets/data/crossings.json",
+        "bytes": 4056,
+        "sha256": "a68054a15461a7fb511defc865596904eae18019f4f12311c1b651d05fd904c2"
+      },
+      {
+        "path": "static/assets/data/endgame.json",
+        "bytes": 1006,
+        "sha256": "9735dd3d752b809f6b7007a3f48baa527558cf9352070462635e213de1582a47"
+      },
+      {
+        "path": "static/assets/data/exec_orders.json",
+        "bytes": 764,
+        "sha256": "b8c4958599db3d26d9038291db9141fa68f246455f6956b31e870e997129a8f2"
+      },
+      {
+        "path": "static/assets/data/game.json",
+        "bytes": 70830,
+        "sha256": "ebecbe749142251b9a703c1b6c8a5e46e99ec9bda8f33e968bd8f884bd1d9060"
+      },
+      {
+        "path": "static/assets/data/journey/classic.json",
+        "bytes": 1509,
+        "sha256": "abc9b9d38c1b051bc486b1c521afa3179769c444f18cbfb4bf6875d55f38f89b"
+      },
+      {
+        "path": "static/assets/data/journey/deep.json",
+        "bytes": 1513,
+        "sha256": "17678e1c8501e78cac3b368698c48bc36a41f4785b98cd535cce84245a5428b4"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/aggressive.json",
+        "bytes": 347,
+        "sha256": "dba7ab9c9bded32001bce9ed165168a4a1f72fad7054b884d5d037937d8e1f52"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/balanced.json",
+        "bytes": 525,
+        "sha256": "bbd8febee10536ebc5cbb35dd454dbce2ac97052b284d88b7b0b4a744d61bd51"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/conservative.json",
+        "bytes": 394,
+        "sha256": "a5a0bd762c53ee243814f0289e9f93ba1e8ddb47175306da1026e9ca6195a2b2"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/monte_carlo.json",
+        "bytes": 493,
+        "sha256": "91dad3c7a05795ab17b42e40b2d48953dcd6fab05ca509d3526e62f7407229e0"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/resource_manager.json",
+        "bytes": 675,
+        "sha256": "4c836933694e20dc844e8558ab0788384fb69cad07c01f8104001269c9924f8e"
+      },
+      {
+        "path": "static/assets/data/pacing.json",
+        "bytes": 965,
+        "sha256": "a5fc0ec3ec0eeb5f593894cd9d33191373521d0a3f4948180c28f6675135d5f9"
+      },
+      {
+        "path": "static/assets/data/personas.json",
+        "bytes": 1989,
+        "sha256": "5d027e1b1ecb5cf48a782c10ee8c400329eac1b2aea8a326d0e8ab5729a5a4b2"
+      },
+      {
+        "path": "static/assets/data/result.json",
+        "bytes": 535,
+        "sha256": "51a417be6df8553fc5663c95d560a76a2a2d30e5f9e1ca6d4d27accfe6a95d56"
+      },
+      {
+        "path": "static/assets/data/satire-sources.json",
+        "bytes": 18172,
+        "sha256": "6714120cb5d08a7802c46e1dbc64a322d0544eed0a13652d0dd9eee125ece03f"
+      },
+      {
+        "path": "static/assets/data/store.json",
+        "bytes": 3607,
+        "sha256": "e5c0b929a1cc70f5095e1578f5e20960b266b93aa26a6393fd2acf0e1547de45"
+      },
+      {
+        "path": "static/assets/data/town-facts.json",
+        "bytes": 84132,
+        "sha256": "1501610abd5190bfa222a97dc668bec741fb7d785873b7f9c844235d132bd408"
+      },
+      {
+        "path": "static/assets/data/town-profiles.json",
+        "bytes": 50237,
+        "sha256": "11a8b4470b78456b3a0b4a3a4d7b194d80fab2bfa4bb2702c948166cec25d765"
+      },
+      {
+        "path": "static/assets/data/vehicle.json",
+        "bytes": 536,
+        "sha256": "d27d644dbda301a51b61141ddf558c1424803f441ee99e354651d52810eafb60"
+      },
+      {
+        "path": "static/assets/data/weather.json",
+        "bytes": 1879,
+        "sha256": "b2be2ef9302d3063ebdf74835ac1f9ea4018e9d3017c4370ed0ac5318d0aeac9"
+      },
+      {
+        "path": "static/continuity.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "static/favicon.ico",
+        "bytes": 1340,
+        "sha256": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756"
+      },
+      {
+        "path": "static/img/app-icon-192.png",
+        "bytes": 1527,
+        "sha256": "6f3b859c66c44c293db039b01f0091a35093bfa414f301dcda9dc89375020acc"
+      },
+      {
+        "path": "static/img/app-icon-512.png",
+        "bytes": 3967,
+        "sha256": "8d4f62fde20e475f1536cf065ec09ee1ec74eae11f3d60179f8459f7bbbec701"
+      },
+      {
+        "path": "static/img/app-icon.svg",
+        "bytes": 815,
+        "sha256": "adcb48e4ad98158d76821479f8e8119490c1444ecff7a5cbfdc8b3e77754bbba"
+      },
+      {
+        "path": "static/img/items/alternator-v1.png",
+        "bytes": 1489143,
+        "sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7"
+      },
+      {
+        "path": "static/img/items/battery-v1.png",
+        "bytes": 997605,
+        "sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b"
+      },
+      {
+        "path": "static/img/items/coats-v1.png",
+        "bytes": 1232801,
+        "sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7"
+      },
+      {
+        "path": "static/img/items/fuel_pump-v1.png",
+        "bytes": 762415,
+        "sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916"
+      },
+      {
+        "path": "static/img/items/legal_fund-v1.png",
+        "bytes": 1300626,
+        "sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814"
+      },
+      {
+        "path": "static/img/items/masks-v1.png",
+        "bytes": 855098,
+        "sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce"
+      },
+      {
+        "path": "static/img/items/ponchos-v1.png",
+        "bytes": 807819,
+        "sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157"
+      },
+      {
+        "path": "static/img/items/press_pass-v1.png",
+        "bytes": 773384,
+        "sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb"
+      },
+      {
+        "path": "static/img/items/rations-v1.png",
+        "bytes": 997755,
+        "sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d"
+      },
+      {
+        "path": "static/img/items/spare_tire-v1.png",
+        "bytes": 970054,
+        "sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673"
+      },
+      {
+        "path": "static/img/items/water-v1.png",
+        "bytes": 842624,
+        "sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e"
+      },
+      {
+        "path": "static/img/journey/beltway.png",
+        "bytes": 2040003,
+        "sha256": "a59a1f680105b2134e70f81a0fa5bd94276060b884e728a6629fe68f54218d0b"
+      },
+      {
+        "path": "static/img/journey/camp.png",
+        "bytes": 2072571,
+        "sha256": "cd0112b449fe098d3345d352f70ba15d401574a57622b699d0b451a03558e19b"
+      },
+      {
+        "path": "static/img/journey/enc-bridge.png",
+        "bytes": 2647779,
+        "sha256": "296c58fdb7ab945a27332f6eb60845e0064793a392d7c94b5ba85ff30fde74c3"
+      },
+      {
+        "path": "static/img/journey/enc-checkpoint.png",
+        "bytes": 2283910,
+        "sha256": "2ba07cb7c6d7cf90efa88537f695ecb3ac1be53d57402fc9a38184d06de04f4b"
+      },
+      {
+        "path": "static/img/journey/enc-civic.png",
+        "bytes": 1947370,
+        "sha256": "0790094ee6f5c5a198f9520a98642650804151e9924f3cc9790a1c2e9b708af0"
+      },
+      {
+        "path": "static/img/journey/enc-clinic.png",
+        "bytes": 2283216,
+        "sha256": "33981456fe2b66bcc5659e480416bd2c10d73e0cbc6f565ed294f13e2e2d905a"
+      },
+      {
+        "path": "static/img/journey/enc-community.png",
+        "bytes": 2346165,
+        "sha256": "cfd788be9a4a799d9dce393eb56e74bd0f8d262ca03eff65df8006fb96dae2f1"
+      },
+      {
+        "path": "static/img/journey/enc-convoy.png",
+        "bytes": 1626803,
+        "sha256": "744077d6620e2a7a3ef63f8f1b4f7c8807c6791ff21374412a5ea48237431f3a"
+      },
+      {
+        "path": "static/img/journey/enc-media-workshop.png",
+        "bytes": 2023985,
+        "sha256": "7ef193d23c53015a2c940c2635440970d00e877a5bf077f01197029f82bc2db6"
+      },
+      {
+        "path": "static/img/journey/enc-night-briefing.png",
+        "bytes": 2246195,
+        "sha256": "53ce6b23df3743b5866366b7f1ff7637a52f76ae4cf64c6e27abf1e6e524283f"
+      },
+      {
+        "path": "static/img/journey/enc-radio.png",
+        "bytes": 2020811,
+        "sha256": "c6063d41c3da32f90fe0aeec339f95b6dd5c22d6aa42575a3ae2c9cdeaf5f070"
+      },
+      {
+        "path": "static/img/journey/enc-service.png",
+        "bytes": 2315284,
+        "sha256": "a02d770c28d2ef4aecb999d882cd6d36e73031112d21166a6fec943826854afe"
+      },
+      {
+        "path": "static/img/journey/enc-street.png",
+        "bytes": 2418739,
+        "sha256": "794698037295be8fa4f77b3e827493d90cf09762023d9b8c345116c2269fc1c3"
+      },
+      {
+        "path": "static/img/journey/encounter-settings-v2.png",
+        "bytes": 2651329,
+        "sha256": "b82e560689c1379cedf49a04a7fabd057dca7efa5c847dcb7d1ad807f8f7ff64"
+      },
+      {
+        "path": "static/img/journey/journey-settings-v1.png",
+        "bytes": 2676019,
+        "sha256": "6d023c4e0ca2db447a05be3c26ba550482024d8cdd38151804b830d02291d655"
+      },
+      {
+        "path": "static/img/journey/milk-classic.png",
+        "bytes": 2259184,
+        "sha256": "2e7564697b51b74d6676c8a171c5b078b36c756760ad4e83c441e6c1e7cede61"
+      },
+      {
+        "path": "static/img/journey/milk-deep.png",
+        "bytes": 2319105,
+        "sha256": "4d0e24be1e6fe56cdfe66df7d3c01d8d3b3a879082ae50e9038de61031573af3"
+      },
+      {
+        "path": "static/img/journey/occupant-journalist.png",
+        "bytes": 923191,
+        "sha256": "453c6a65d35433fb0150ee5e2d5fbad2d1a82e2732278eb0c9a222dcd08da90f"
+      },
+      {
+        "path": "static/img/journey/occupant-lobbyist.png",
+        "bytes": 704662,
+        "sha256": "f25d777ab60220c89472f70b50139beab163efd9a1dd2b9378e8364733ede02b"
+      },
+      {
+        "path": "static/img/journey/occupant-organizer.png",
+        "bytes": 918041,
+        "sha256": "9db44253e4bb0d0a850a0b1bd37ce9b6c740c29acece25e92df7a69f32d1fcd1"
+      },
+      {
+        "path": "static/img/journey/occupant-satirist.png",
+        "bytes": 861064,
+        "sha256": "1a1a13de2dfd187a998f0b209a8927f83ee7722ffc825b7068ab4e9ded588230"
+      },
+      {
+        "path": "static/img/journey/occupant-staffer.png",
+        "bytes": 830029,
+        "sha256": "a4a52c97a0ecd871c545cd8a24cc8bf6ac0fb1cbbc5c5c329b20122eaf39413d"
+      },
+      {
+        "path": "static/img/journey/occupant-whistleblower.png",
+        "bytes": 791621,
+        "sha256": "b30c7280deaa25df94f30f58dfb6e0076820f2c1ff741b7596866f2114385668"
+      },
+      {
+        "path": "static/img/journey/open-appalachian-ridge.png",
+        "bytes": 2098848,
+        "sha256": "52a50ccc02cac320ac2e343b93f367c84deba48c1c366ffbd2acaacad0361aa5"
+      },
+      {
+        "path": "static/img/journey/open-beltway-parkway.png",
+        "bytes": 2185024,
+        "sha256": "c26e9df42322a201f6aeb16e091a65b4811342d23240c6eee25ec73fa3be40cc"
+      },
+      {
+        "path": "static/img/journey/open-beltway-suburbs.png",
+        "bytes": 2101757,
+        "sha256": "01a34e87754c95b21d8c95a37496d4a8072355c9c96f8f84303276c4a0f91eff"
+      },
+      {
+        "path": "static/img/journey/open-california-hills.png",
+        "bytes": 2180418,
+        "sha256": "4656c54eb75d68724025529ed457b70483de2693130d870a0ba3c0cbd8bc34db"
+      },
+      {
+        "path": "static/img/journey/open-great-basin.png",
+        "bytes": 2142670,
+        "sha256": "5a366f5448686d2752e09de96d940335a7b8072c2747aebc93457b6b13f5428e"
+      },
+      {
+        "path": "static/img/journey/open-heartland-orchard.png",
+        "bytes": 2072146,
+        "sha256": "48886bd79a046e5bb774f7af26592e6e37fa618b57607c1254648f0d23f44f88"
+      },
+      {
+        "path": "static/img/journey/open-heartland-prairie.png",
+        "bytes": 2060522,
+        "sha256": "de63d22e3c41a16b51db71c07504d23dda4f498daabdc44ea18658a6b80e50cb"
+      },
+      {
+        "path": "static/img/journey/open-mountain-west.png",
+        "bytes": 2011219,
+        "sha256": "19cf48252db2e773ec5475242c0ab50b67613757240b11e756d2e4a5999ac5e7"
+      },
+      {
+        "path": "static/img/journey/open-pacific-northwest.png",
+        "bytes": 2178508,
+        "sha256": "33f283a6af4de40073100e92b5c05ddb1b37d324043e876b2d2e82f650b4b9a3"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-foundry.png",
+        "bytes": 2243397,
+        "sha256": "95f3297657c71a1bccc77a821ce67c001b0c1359489ef6a73c864cae1f417017"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-lakeside.png",
+        "bytes": 2191114,
+        "sha256": "448ed2d15b9f3078b42e1f0f00ce51fc07fe9048aa9e69430ea2843952695eb1"
+      },
+      {
+        "path": "static/img/journey/open-southwest-desert.png",
+        "bytes": 2285860,
+        "sha256": "83dbc681cd2f6f006b8ce9a635c841054341eedd9e62aaabb90a3a1750b3f297"
+      },
+      {
+        "path": "static/img/journey/personas.png",
+        "bytes": 1655363,
+        "sha256": "483f319ca6e563a39890874e0f1ccbdf1e0a63961a35d880e673ef7f58aa7d9b"
+      },
+      {
+        "path": "static/img/journey/road-classic.png",
+        "bytes": 1797286,
+        "sha256": "4f8d7a2fe22fd94f63c52e41a6b638a49ba4ab53d44b05ee1413b4685b85f111"
+      },
+      {
+        "path": "static/img/journey/road-deep.png",
+        "bytes": 1813215,
+        "sha256": "3d51facfa907124260dc43aaa2752cb0f5f3f93e00214d283b2ebbcfe5982646"
+      },
+      {
+        "path": "static/img/journey/rustbelt.png",
+        "bytes": 2102071,
+        "sha256": "42c0011a1a9ca37134f493fc3b005bd2040c0cc893458d19cc705e29aa63d16f"
+      },
+      {
+        "path": "static/img/journey/town-npcs-v1.png",
+        "bytes": 1844512,
+        "sha256": "249cf728c028bbfff155c5cd0680f74eb51859c90f769a7714ce8da54eb6023a"
+      },
+      {
+        "path": "static/img/journey/van-crew.png",
+        "bytes": 1442842,
+        "sha256": "9a6e2c8aa3a073a3dce75c13f2bba175f0b777e0448c063a33e8a2fb615f1dba"
+      },
+      {
+        "path": "static/img/journey/van-empty.png",
+        "bytes": 1665790,
+        "sha256": "8e66cf17ba27a60fd82e92b81a8c80bcb389873fd2b638a123382144a26cc322"
+      },
+      {
+        "path": "static/img/journey/western-settings-v1.png",
+        "bytes": 3253583,
+        "sha256": "88519b4cf18642c11e1a764637e64eb447be9558151775725597c2cdfc6bd28b"
+      },
+      {
+        "path": "static/img/logo-temp.png",
+        "bytes": 20392,
+        "sha256": "b935a53e309bbda27e8f675d870bad16746b7ecd106773a6c1b379aafb4e6cad"
+      },
+      {
+        "path": "static/img/logo.png",
+        "bytes": 20306,
+        "sha256": "7a4cdb77c2720d5672a14cb1e03eae9f82acd99d06de9b41cfa2149196256e49"
+      },
+      {
+        "path": "static/img/map/us-states.svg",
+        "bytes": 196191,
+        "sha256": "899ebe170d7dbfbff96baf1116a8ac8b12f2522424cce3fb052b8b96053aac22"
+      },
+      {
+        "path": "static/img/palette.png",
+        "bytes": 1627,
+        "sha256": "f9dff3ec6f9bc3095ebcbfa6970e0efb0b44fc37d2c67765d4cb1a463881d4bd"
+      },
+      {
+        "path": "static/img/social-card.png",
+        "bytes": 28969,
+        "sha256": "4cce199221b7484bd64a4cc0583393bb4bbe99e4707ab63e9819da70589fb692"
+      },
+      {
+        "path": "static/img/spritesheet.png",
+        "bytes": 695,
+        "sha256": "069874329444ffefa08cdec7b1c98e4ee82a6d8cef207bf273cc8ef4fe25a7b9"
+      },
+      {
+        "path": "static/img/status/cash-v1.png",
+        "bytes": 1253484,
+        "sha256": "b92f3b6148bc27dc957af1d430a6c1ad2ced71e49142ea83524f6b2d8e18a237"
+      },
+      {
+        "path": "static/img/status/distance-v1.png",
+        "bytes": 1143953,
+        "sha256": "bb378023de222cca1a10144cedbbdb95cc57954d372b4488e935eb747d074ca5"
+      },
+      {
+        "path": "static/journey.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/licenses/lucide.txt",
+        "bytes": 3208,
+        "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+      },
+      {
+        "path": "static/manifest.webmanifest",
+        "bytes": 573,
+        "sha256": "09a1b003dc6ce80fdf322a82e5844b78711ca9565ebb0ceded508dad5a09231d"
+      },
+      {
+        "path": "static/offline-client.js",
+        "bytes": 10062,
+        "sha256": "c79786d76114b675b4f7fae2b218d385435be563645d0d611cb012cfd8b38c45"
+      },
+      {
+        "path": "static/styles.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "styles-4fc42e80fa523138.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 16938,
+        "sha256": "55cca0fb473fa50ef59fd8b533a9eb9e6d75c83b27aa9182757299783d96d256"
+      }
+    ],
+    "save_storage_touched": false
+  },
+  {
+    "origin": "http://127.0.0.1:56854/play/",
+    "revision": "56213723b1c62ed89b93",
+    "files": 100,
+    "bytes": 104083461,
+    "assets": [
+      {
+        "path": "continuity-dce5eff50af06f92.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8.js",
+        "bytes": 61830,
+        "sha256": "c45f9027bed27d6cc9e21bdcdd4381a9a6494ac1abbcb8eac3e94e8d70ec1a95"
+      },
+      {
+        "path": "dystrail-web-145ffa64eb5697d8_bg.wasm",
+        "bytes": 5303303,
+        "sha256": "afd29f35b860a002a1243453f551b028228e3255379daf4f9b30279b168067c1"
+      },
+      {
+        "path": "index.html",
+        "bytes": 10244,
+        "sha256": "921377e4d6f014a6aa7dec8eafc913fb3c86d294e0ca87fad98b1cd1d3ed9f4f"
+      },
+      {
+        "path": "journey-a89ac8735108f2e0.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/assets/data/boss.json",
+        "bytes": 386,
+        "sha256": "d4fbcefe0d82ca5d3f8a212924aa68dd14db0628e763b58bf23d31a6314f4e5c"
+      },
+      {
+        "path": "static/assets/data/camp.json",
+        "bytes": 392,
+        "sha256": "615941c3f8617af3953c11377e0ed6af9269304434a411e4a1c4987a89fd3728"
+      },
+      {
+        "path": "static/assets/data/crossings.json",
+        "bytes": 4056,
+        "sha256": "a68054a15461a7fb511defc865596904eae18019f4f12311c1b651d05fd904c2"
+      },
+      {
+        "path": "static/assets/data/endgame.json",
+        "bytes": 1006,
+        "sha256": "9735dd3d752b809f6b7007a3f48baa527558cf9352070462635e213de1582a47"
+      },
+      {
+        "path": "static/assets/data/exec_orders.json",
+        "bytes": 764,
+        "sha256": "b8c4958599db3d26d9038291db9141fa68f246455f6956b31e870e997129a8f2"
+      },
+      {
+        "path": "static/assets/data/game.json",
+        "bytes": 70830,
+        "sha256": "ebecbe749142251b9a703c1b6c8a5e46e99ec9bda8f33e968bd8f884bd1d9060"
+      },
+      {
+        "path": "static/assets/data/journey/classic.json",
+        "bytes": 1509,
+        "sha256": "abc9b9d38c1b051bc486b1c521afa3179769c444f18cbfb4bf6875d55f38f89b"
+      },
+      {
+        "path": "static/assets/data/journey/deep.json",
+        "bytes": 1513,
+        "sha256": "17678e1c8501e78cac3b368698c48bc36a41f4785b98cd535cce84245a5428b4"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/aggressive.json",
+        "bytes": 347,
+        "sha256": "dba7ab9c9bded32001bce9ed165168a4a1f72fad7054b884d5d037937d8e1f52"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/balanced.json",
+        "bytes": 525,
+        "sha256": "bbd8febee10536ebc5cbb35dd454dbce2ac97052b284d88b7b0b4a744d61bd51"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/conservative.json",
+        "bytes": 394,
+        "sha256": "a5a0bd762c53ee243814f0289e9f93ba1e8ddb47175306da1026e9ca6195a2b2"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/monte_carlo.json",
+        "bytes": 493,
+        "sha256": "91dad3c7a05795ab17b42e40b2d48953dcd6fab05ca509d3526e62f7407229e0"
+      },
+      {
+        "path": "static/assets/data/journey/overlays/resource_manager.json",
+        "bytes": 675,
+        "sha256": "4c836933694e20dc844e8558ab0788384fb69cad07c01f8104001269c9924f8e"
+      },
+      {
+        "path": "static/assets/data/pacing.json",
+        "bytes": 965,
+        "sha256": "a5fc0ec3ec0eeb5f593894cd9d33191373521d0a3f4948180c28f6675135d5f9"
+      },
+      {
+        "path": "static/assets/data/personas.json",
+        "bytes": 1989,
+        "sha256": "5d027e1b1ecb5cf48a782c10ee8c400329eac1b2aea8a326d0e8ab5729a5a4b2"
+      },
+      {
+        "path": "static/assets/data/result.json",
+        "bytes": 535,
+        "sha256": "51a417be6df8553fc5663c95d560a76a2a2d30e5f9e1ca6d4d27accfe6a95d56"
+      },
+      {
+        "path": "static/assets/data/satire-sources.json",
+        "bytes": 18172,
+        "sha256": "6714120cb5d08a7802c46e1dbc64a322d0544eed0a13652d0dd9eee125ece03f"
+      },
+      {
+        "path": "static/assets/data/store.json",
+        "bytes": 3607,
+        "sha256": "e5c0b929a1cc70f5095e1578f5e20960b266b93aa26a6393fd2acf0e1547de45"
+      },
+      {
+        "path": "static/assets/data/town-facts.json",
+        "bytes": 84132,
+        "sha256": "1501610abd5190bfa222a97dc668bec741fb7d785873b7f9c844235d132bd408"
+      },
+      {
+        "path": "static/assets/data/town-profiles.json",
+        "bytes": 50237,
+        "sha256": "11a8b4470b78456b3a0b4a3a4d7b194d80fab2bfa4bb2702c948166cec25d765"
+      },
+      {
+        "path": "static/assets/data/vehicle.json",
+        "bytes": 536,
+        "sha256": "d27d644dbda301a51b61141ddf558c1424803f441ee99e354651d52810eafb60"
+      },
+      {
+        "path": "static/assets/data/weather.json",
+        "bytes": 1879,
+        "sha256": "b2be2ef9302d3063ebdf74835ac1f9ea4018e9d3017c4370ed0ac5318d0aeac9"
+      },
+      {
+        "path": "static/continuity.css",
+        "bytes": 52444,
+        "sha256": "74ddfdb95be40fa666afacb0315f0580a3474c51a6e9787a6ba6245b9be012f7"
+      },
+      {
+        "path": "static/favicon.ico",
+        "bytes": 1340,
+        "sha256": "8ddf3fee9debb9d401eee64263b1ec5131d396db986c1a77bcec67e317f36756"
+      },
+      {
+        "path": "static/img/app-icon-192.png",
+        "bytes": 1527,
+        "sha256": "6f3b859c66c44c293db039b01f0091a35093bfa414f301dcda9dc89375020acc"
+      },
+      {
+        "path": "static/img/app-icon-512.png",
+        "bytes": 3967,
+        "sha256": "8d4f62fde20e475f1536cf065ec09ee1ec74eae11f3d60179f8459f7bbbec701"
+      },
+      {
+        "path": "static/img/app-icon.svg",
+        "bytes": 815,
+        "sha256": "adcb48e4ad98158d76821479f8e8119490c1444ecff7a5cbfdc8b3e77754bbba"
+      },
+      {
+        "path": "static/img/items/alternator-v1.png",
+        "bytes": 1489143,
+        "sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7"
+      },
+      {
+        "path": "static/img/items/battery-v1.png",
+        "bytes": 997605,
+        "sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b"
+      },
+      {
+        "path": "static/img/items/coats-v1.png",
+        "bytes": 1232801,
+        "sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7"
+      },
+      {
+        "path": "static/img/items/fuel_pump-v1.png",
+        "bytes": 762415,
+        "sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916"
+      },
+      {
+        "path": "static/img/items/legal_fund-v1.png",
+        "bytes": 1300626,
+        "sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814"
+      },
+      {
+        "path": "static/img/items/masks-v1.png",
+        "bytes": 855098,
+        "sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce"
+      },
+      {
+        "path": "static/img/items/ponchos-v1.png",
+        "bytes": 807819,
+        "sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157"
+      },
+      {
+        "path": "static/img/items/press_pass-v1.png",
+        "bytes": 773384,
+        "sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb"
+      },
+      {
+        "path": "static/img/items/rations-v1.png",
+        "bytes": 997755,
+        "sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d"
+      },
+      {
+        "path": "static/img/items/spare_tire-v1.png",
+        "bytes": 970054,
+        "sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673"
+      },
+      {
+        "path": "static/img/items/water-v1.png",
+        "bytes": 842624,
+        "sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e"
+      },
+      {
+        "path": "static/img/journey/beltway.png",
+        "bytes": 2040003,
+        "sha256": "a59a1f680105b2134e70f81a0fa5bd94276060b884e728a6629fe68f54218d0b"
+      },
+      {
+        "path": "static/img/journey/camp.png",
+        "bytes": 2072571,
+        "sha256": "cd0112b449fe098d3345d352f70ba15d401574a57622b699d0b451a03558e19b"
+      },
+      {
+        "path": "static/img/journey/enc-bridge.png",
+        "bytes": 2647779,
+        "sha256": "296c58fdb7ab945a27332f6eb60845e0064793a392d7c94b5ba85ff30fde74c3"
+      },
+      {
+        "path": "static/img/journey/enc-checkpoint.png",
+        "bytes": 2283910,
+        "sha256": "2ba07cb7c6d7cf90efa88537f695ecb3ac1be53d57402fc9a38184d06de04f4b"
+      },
+      {
+        "path": "static/img/journey/enc-civic.png",
+        "bytes": 1947370,
+        "sha256": "0790094ee6f5c5a198f9520a98642650804151e9924f3cc9790a1c2e9b708af0"
+      },
+      {
+        "path": "static/img/journey/enc-clinic.png",
+        "bytes": 2283216,
+        "sha256": "33981456fe2b66bcc5659e480416bd2c10d73e0cbc6f565ed294f13e2e2d905a"
+      },
+      {
+        "path": "static/img/journey/enc-community.png",
+        "bytes": 2346165,
+        "sha256": "cfd788be9a4a799d9dce393eb56e74bd0f8d262ca03eff65df8006fb96dae2f1"
+      },
+      {
+        "path": "static/img/journey/enc-convoy.png",
+        "bytes": 1626803,
+        "sha256": "744077d6620e2a7a3ef63f8f1b4f7c8807c6791ff21374412a5ea48237431f3a"
+      },
+      {
+        "path": "static/img/journey/enc-media-workshop.png",
+        "bytes": 2023985,
+        "sha256": "7ef193d23c53015a2c940c2635440970d00e877a5bf077f01197029f82bc2db6"
+      },
+      {
+        "path": "static/img/journey/enc-night-briefing.png",
+        "bytes": 2246195,
+        "sha256": "53ce6b23df3743b5866366b7f1ff7637a52f76ae4cf64c6e27abf1e6e524283f"
+      },
+      {
+        "path": "static/img/journey/enc-radio.png",
+        "bytes": 2020811,
+        "sha256": "c6063d41c3da32f90fe0aeec339f95b6dd5c22d6aa42575a3ae2c9cdeaf5f070"
+      },
+      {
+        "path": "static/img/journey/enc-service.png",
+        "bytes": 2315284,
+        "sha256": "a02d770c28d2ef4aecb999d882cd6d36e73031112d21166a6fec943826854afe"
+      },
+      {
+        "path": "static/img/journey/enc-street.png",
+        "bytes": 2418739,
+        "sha256": "794698037295be8fa4f77b3e827493d90cf09762023d9b8c345116c2269fc1c3"
+      },
+      {
+        "path": "static/img/journey/encounter-settings-v2.png",
+        "bytes": 2651329,
+        "sha256": "b82e560689c1379cedf49a04a7fabd057dca7efa5c847dcb7d1ad807f8f7ff64"
+      },
+      {
+        "path": "static/img/journey/journey-settings-v1.png",
+        "bytes": 2676019,
+        "sha256": "6d023c4e0ca2db447a05be3c26ba550482024d8cdd38151804b830d02291d655"
+      },
+      {
+        "path": "static/img/journey/milk-classic.png",
+        "bytes": 2259184,
+        "sha256": "2e7564697b51b74d6676c8a171c5b078b36c756760ad4e83c441e6c1e7cede61"
+      },
+      {
+        "path": "static/img/journey/milk-deep.png",
+        "bytes": 2319105,
+        "sha256": "4d0e24be1e6fe56cdfe66df7d3c01d8d3b3a879082ae50e9038de61031573af3"
+      },
+      {
+        "path": "static/img/journey/occupant-journalist.png",
+        "bytes": 923191,
+        "sha256": "453c6a65d35433fb0150ee5e2d5fbad2d1a82e2732278eb0c9a222dcd08da90f"
+      },
+      {
+        "path": "static/img/journey/occupant-lobbyist.png",
+        "bytes": 704662,
+        "sha256": "f25d777ab60220c89472f70b50139beab163efd9a1dd2b9378e8364733ede02b"
+      },
+      {
+        "path": "static/img/journey/occupant-organizer.png",
+        "bytes": 918041,
+        "sha256": "9db44253e4bb0d0a850a0b1bd37ce9b6c740c29acece25e92df7a69f32d1fcd1"
+      },
+      {
+        "path": "static/img/journey/occupant-satirist.png",
+        "bytes": 861064,
+        "sha256": "1a1a13de2dfd187a998f0b209a8927f83ee7722ffc825b7068ab4e9ded588230"
+      },
+      {
+        "path": "static/img/journey/occupant-staffer.png",
+        "bytes": 830029,
+        "sha256": "a4a52c97a0ecd871c545cd8a24cc8bf6ac0fb1cbbc5c5c329b20122eaf39413d"
+      },
+      {
+        "path": "static/img/journey/occupant-whistleblower.png",
+        "bytes": 791621,
+        "sha256": "b30c7280deaa25df94f30f58dfb6e0076820f2c1ff741b7596866f2114385668"
+      },
+      {
+        "path": "static/img/journey/open-appalachian-ridge.png",
+        "bytes": 2098848,
+        "sha256": "52a50ccc02cac320ac2e343b93f367c84deba48c1c366ffbd2acaacad0361aa5"
+      },
+      {
+        "path": "static/img/journey/open-beltway-parkway.png",
+        "bytes": 2185024,
+        "sha256": "c26e9df42322a201f6aeb16e091a65b4811342d23240c6eee25ec73fa3be40cc"
+      },
+      {
+        "path": "static/img/journey/open-beltway-suburbs.png",
+        "bytes": 2101757,
+        "sha256": "01a34e87754c95b21d8c95a37496d4a8072355c9c96f8f84303276c4a0f91eff"
+      },
+      {
+        "path": "static/img/journey/open-california-hills.png",
+        "bytes": 2180418,
+        "sha256": "4656c54eb75d68724025529ed457b70483de2693130d870a0ba3c0cbd8bc34db"
+      },
+      {
+        "path": "static/img/journey/open-great-basin.png",
+        "bytes": 2142670,
+        "sha256": "5a366f5448686d2752e09de96d940335a7b8072c2747aebc93457b6b13f5428e"
+      },
+      {
+        "path": "static/img/journey/open-heartland-orchard.png",
+        "bytes": 2072146,
+        "sha256": "48886bd79a046e5bb774f7af26592e6e37fa618b57607c1254648f0d23f44f88"
+      },
+      {
+        "path": "static/img/journey/open-heartland-prairie.png",
+        "bytes": 2060522,
+        "sha256": "de63d22e3c41a16b51db71c07504d23dda4f498daabdc44ea18658a6b80e50cb"
+      },
+      {
+        "path": "static/img/journey/open-mountain-west.png",
+        "bytes": 2011219,
+        "sha256": "19cf48252db2e773ec5475242c0ab50b67613757240b11e756d2e4a5999ac5e7"
+      },
+      {
+        "path": "static/img/journey/open-pacific-northwest.png",
+        "bytes": 2178508,
+        "sha256": "33f283a6af4de40073100e92b5c05ddb1b37d324043e876b2d2e82f650b4b9a3"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-foundry.png",
+        "bytes": 2243397,
+        "sha256": "95f3297657c71a1bccc77a821ce67c001b0c1359489ef6a73c864cae1f417017"
+      },
+      {
+        "path": "static/img/journey/open-rustbelt-lakeside.png",
+        "bytes": 2191114,
+        "sha256": "448ed2d15b9f3078b42e1f0f00ce51fc07fe9048aa9e69430ea2843952695eb1"
+      },
+      {
+        "path": "static/img/journey/open-southwest-desert.png",
+        "bytes": 2285860,
+        "sha256": "83dbc681cd2f6f006b8ce9a635c841054341eedd9e62aaabb90a3a1750b3f297"
+      },
+      {
+        "path": "static/img/journey/personas.png",
+        "bytes": 1655363,
+        "sha256": "483f319ca6e563a39890874e0f1ccbdf1e0a63961a35d880e673ef7f58aa7d9b"
+      },
+      {
+        "path": "static/img/journey/road-classic.png",
+        "bytes": 1797286,
+        "sha256": "4f8d7a2fe22fd94f63c52e41a6b638a49ba4ab53d44b05ee1413b4685b85f111"
+      },
+      {
+        "path": "static/img/journey/road-deep.png",
+        "bytes": 1813215,
+        "sha256": "3d51facfa907124260dc43aaa2752cb0f5f3f93e00214d283b2ebbcfe5982646"
+      },
+      {
+        "path": "static/img/journey/rustbelt.png",
+        "bytes": 2102071,
+        "sha256": "42c0011a1a9ca37134f493fc3b005bd2040c0cc893458d19cc705e29aa63d16f"
+      },
+      {
+        "path": "static/img/journey/town-npcs-v1.png",
+        "bytes": 1844512,
+        "sha256": "249cf728c028bbfff155c5cd0680f74eb51859c90f769a7714ce8da54eb6023a"
+      },
+      {
+        "path": "static/img/journey/van-crew.png",
+        "bytes": 1442842,
+        "sha256": "9a6e2c8aa3a073a3dce75c13f2bba175f0b777e0448c063a33e8a2fb615f1dba"
+      },
+      {
+        "path": "static/img/journey/van-empty.png",
+        "bytes": 1665790,
+        "sha256": "8e66cf17ba27a60fd82e92b81a8c80bcb389873fd2b638a123382144a26cc322"
+      },
+      {
+        "path": "static/img/journey/western-settings-v1.png",
+        "bytes": 3253583,
+        "sha256": "88519b4cf18642c11e1a764637e64eb447be9558151775725597c2cdfc6bd28b"
+      },
+      {
+        "path": "static/img/logo-temp.png",
+        "bytes": 20392,
+        "sha256": "b935a53e309bbda27e8f675d870bad16746b7ecd106773a6c1b379aafb4e6cad"
+      },
+      {
+        "path": "static/img/logo.png",
+        "bytes": 20306,
+        "sha256": "7a4cdb77c2720d5672a14cb1e03eae9f82acd99d06de9b41cfa2149196256e49"
+      },
+      {
+        "path": "static/img/map/us-states.svg",
+        "bytes": 196191,
+        "sha256": "899ebe170d7dbfbff96baf1116a8ac8b12f2522424cce3fb052b8b96053aac22"
+      },
+      {
+        "path": "static/img/palette.png",
+        "bytes": 1627,
+        "sha256": "f9dff3ec6f9bc3095ebcbfa6970e0efb0b44fc37d2c67765d4cb1a463881d4bd"
+      },
+      {
+        "path": "static/img/social-card.png",
+        "bytes": 28969,
+        "sha256": "4cce199221b7484bd64a4cc0583393bb4bbe99e4707ab63e9819da70589fb692"
+      },
+      {
+        "path": "static/img/spritesheet.png",
+        "bytes": 695,
+        "sha256": "069874329444ffefa08cdec7b1c98e4ee82a6d8cef207bf273cc8ef4fe25a7b9"
+      },
+      {
+        "path": "static/img/status/cash-v1.png",
+        "bytes": 1253484,
+        "sha256": "b92f3b6148bc27dc957af1d430a6c1ad2ced71e49142ea83524f6b2d8e18a237"
+      },
+      {
+        "path": "static/img/status/distance-v1.png",
+        "bytes": 1143953,
+        "sha256": "bb378023de222cca1a10144cedbbdb95cc57954d372b4488e935eb747d074ca5"
+      },
+      {
+        "path": "static/journey.css",
+        "bytes": 32147,
+        "sha256": "2076b6c653f1f68281f21274e19c552b01c9f3c0e3d1e7954cbc6b4bf5ba085a"
+      },
+      {
+        "path": "static/licenses/lucide.txt",
+        "bytes": 3208,
+        "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+      },
+      {
+        "path": "static/manifest.webmanifest",
+        "bytes": 573,
+        "sha256": "09a1b003dc6ce80fdf322a82e5844b78711ca9565ebb0ceded508dad5a09231d"
+      },
+      {
+        "path": "static/offline-client.js",
+        "bytes": 10062,
+        "sha256": "c79786d76114b675b4f7fae2b218d385435be563645d0d611cb012cfd8b38c45"
+      },
+      {
+        "path": "static/styles.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "styles-4fc42e80fa523138.css",
+        "bytes": 22153,
+        "sha256": "c85d1b6a7c72c9d5d755ca1f4724ccec0351bbf6f60433acd8f9eb5289f65e1c"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 16938,
+        "sha256": "55cca0fb473fa50ef59fd8b533a9eb9e6d75c83b27aa9182757299783d96d256"
+      }
+    ],
+    "save_storage_touched": false
+  }
+]

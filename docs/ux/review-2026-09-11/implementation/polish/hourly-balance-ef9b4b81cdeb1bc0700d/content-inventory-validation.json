@@ -1,0 +1,69 @@
+{
+  "source_root": "/tmp/dystrail-final-balance-build/source",
+  "output_root": "/tmp/dystrail-final-inventory/docs/ux/review-2026-09-11/implementation/content",
+  "counts": {
+    "encounters": 65,
+    "ordered_encounter_choices": 187,
+    "towns": 51,
+    "care_incidents": 8,
+    "care_choice_labels": 24,
+    "ally_departure_messages": 6,
+    "scene_compositions": 18,
+    "political_hooks": 17,
+    "systems": 13
+  },
+  "checks": {
+    "json_counts_match_frozen_source": true,
+    "csv_rows_and_order_match_json": true,
+    "embedded_html_json_equals_inventory_json": true,
+    "html_metric_counts_match": true,
+    "encounter_names_descriptions_choices_effects_and_outcomes_match_source": true,
+    "encounter_english_locale_copy_matches_source": true,
+    "town_facts_all_locale_comments_and_source_links_match": true,
+    "care_reasons_and_choice_labels_match_english_source": true,
+    "ally_departure_copy_matches_english_source": true,
+    "camp_configuration_matches_source": true
+  },
+  "accepted_tuning_check": {
+    "camp_configured_sanity_recovery": 10,
+    "camp_sanity_recovery_is_capped": true,
+    "day_end_conditions_still_apply": true,
+    "daily_diet_sanity": {
+      "quiet": 3,
+      "mixed": 2,
+      "doom": -2
+    },
+    "evidence_bonus_diet_modifiers": {
+      "quiet": -5,
+      "mixed": 0,
+      "doom": 8
+    },
+    "hardcoded_description_conflicts": [],
+    "note": "The generator has no fixed camp-rest or daily-diet sanity claim to update. Camp configuration is read directly; forage remains its separate +1 action before any new-day effects."
+  },
+  "existing_export_scope": {
+    "care_authored_outcome_messages_included": false,
+    "pacing_configuration_included": false,
+    "note": "The existing schema exports care reasons and common choice labels; shared-care authored outcomes and the pacing configuration are not exported. No new export scope was added."
+  },
+  "generator": {
+    "changed": false,
+    "before_sha256": "c5b4c983085ded1db59a5522f7e2941f93a5db71f54c3e9ca2be8de90ec1a3f5",
+    "after_sha256": "c5b4c983085ded1db59a5522f7e2941f93a5db71f54c3e9ca2be8de90ec1a3f5"
+  },
+  "outputs": [
+    {
+      "path": "/tmp/dystrail-final-inventory/docs/ux/review-2026-09-11/implementation/content/inventory.json",
+      "sha256": "77c695f109d6bb6bacd7bedfe95bedcffc9a8e54e62ba320c02974491f4e908d"
+    },
+    {
+      "path": "/tmp/dystrail-final-inventory/docs/ux/review-2026-09-11/implementation/content/encounter-options.csv",
+      "sha256": "fca3983dbd231f49bfefe84bcf75d6609e56a2e24342a86cad811beeb1fac8de"
+    },
+    {
+      "path": "/tmp/dystrail-final-inventory/docs/ux/review-2026-09-11/implementation/content/index.html",
+      "sha256": "5ab80d5e5e6d79b35eaa42403261f6922436e2116eb5cd57d75e8cab3de095bc"
+    }
+  ],
+  "mismatches": []
+}

@@ -1,0 +1,12 @@
+Safari 26.6.2
+PASS First launch waits for its complete asset bundle
+file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:45
+  throw new Error('Native Safari condition timed out');
+        ^
+
+Error: Native Safari condition timed out
+    at until (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:45:9)
+    at async click (file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:48:3)
+    at async file:///Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/safari-pwa.mjs:76:3
+
+Node.js v26.8.2

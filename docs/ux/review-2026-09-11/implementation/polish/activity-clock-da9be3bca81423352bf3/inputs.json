@@ -1,0 +1,10 @@
+{
+  "base_revision": "6f8ee335b0133a02b499",
+  "base_source": "/tmp/dystrail-masks-preview/source",
+  "changed_files": [
+    "dystrail-game/src/activities.rs"
+  ],
+  "before_sha256": "27af164f36c58b02251b86515350f655e3e2e17fb9c466c0160e86359c24513d",
+  "after_sha256": "493f48adf6787d2c3e9e5f9d0832a3376f3869808a11f9160a4d12a56e5215b9",
+  "scope": "Only settle a new day after a timed activity actually crosses overnight and spends time there; unchanged costs, rewards, time and mileage. All tuning config retained from masks preview."
+}

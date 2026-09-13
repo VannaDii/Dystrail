@@ -1,0 +1,7 @@
+{
+  "binary": "/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-tester",
+  "sha256": "192dbddc7ea44cbfa8c4dabd7155ffe93e7412593a3c1bfc4edad3b72938847b",
+  "compiled_source_path_verified": "/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-source/dystrail-tester",
+  "source_tree_sha256": "50ce05dc9e7ab74fee9ce698f749017c06677eba8c360309d9cccb816d159b04",
+  "source_unchanged_after_build": true
+}

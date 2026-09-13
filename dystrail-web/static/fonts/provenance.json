@@ -1,0 +1,102 @@
+{
+  "retrieved_utc": "2026-09-13",
+  "google_fonts_css_source": "https://fonts.googleapis.com/css2?family=Courier+Prime%3Awght%40700&family=Noto+Sans+Arabic%3Awght%40400..800&display=block",
+  "atkinson_source_commit": "7925f50f649b3813257faf2f4c0b381011f434f1",
+  "google_fonts_license_commit": "809e4d8b8d7e9364a914909bb777679606c178b8",
+  "faces": [
+    {
+      "family": "Atkinson Hyperlegible Next",
+      "style": "normal",
+      "weight": "400 800",
+      "file": "atkinson-next-normal.woff2",
+      "source": "https://raw.githubusercontent.com/googlefonts/atkinson-hyperlegible-next/7925f50f649b3813257faf2f4c0b381011f434f1/fonts/webfonts/AtkinsonHyperlegibleNext%5Bwght%5D.woff2",
+      "bytes": 48188,
+      "sha256": "abde1ad5cf78b9ac575ef90d991f2e9101eb0b3b6668bde9a00e2e1e27d99afd",
+      "unicode_range": null
+    },
+    {
+      "family": "Atkinson Hyperlegible Next",
+      "style": "italic",
+      "weight": "400 800",
+      "file": "atkinson-next-italic.woff2",
+      "source": "https://raw.githubusercontent.com/googlefonts/atkinson-hyperlegible-next/7925f50f649b3813257faf2f4c0b381011f434f1/fonts/webfonts/AtkinsonHyperlegibleNext-Italic%5Bwght%5D.woff2",
+      "bytes": 52692,
+      "sha256": "34491c5a87f711d314637962f69267d28c7df3ed498082c990cdfbbc02ebf3f2",
+      "unicode_range": null
+    },
+    {
+      "family": "Courier Prime",
+      "style": "normal",
+      "weight": "700",
+      "file": "courier-prime-bold-latin-ext.woff2",
+      "source": "https://fonts.gstatic.com/s/courierprime/v11/u-4k0q2lgwslOqpF_6gQ8kELY7pMT-7fq9PrNX2-Ag.woff2",
+      "bytes": 7216,
+      "sha256": "078c780980eb6dc4865a9d738b8230e0d3b5175b3ae7dee7ec4978d75af6efc3",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF"
+    },
+    {
+      "family": "Courier Prime",
+      "style": "normal",
+      "weight": "700",
+      "file": "courier-prime-bold-latin.woff2",
+      "source": "https://fonts.gstatic.com/s/courierprime/v11/u-4k0q2lgwslOqpF_6gQ8kELY7pMT-Dfq9PrNX0.woff2",
+      "bytes": 11588,
+      "sha256": "06622415713b4150c18f4489db7c8850300d9f3e55051fc78ed33dca88c5ff08",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+    },
+    {
+      "family": "Noto Sans Arabic",
+      "style": "normal",
+      "weight": "400 800",
+      "file": "noto-sans-arabic-arabic.woff2",
+      "source": "https://fonts.gstatic.com/s/notosansarabic/v33/nwpCtLGrOAZMl5nJ_wfgRg3DrWFZWsnVBJ_sS6tlqHHFlj4wv4rqxzLIhjE.woff2",
+      "bytes": 166152,
+      "sha256": "69cdf0bf005fdc9cc13fb5a8581697eb9ba8f761aeaf255fc717d14c62c38891",
+      "unicode_range": "U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1"
+    },
+    {
+      "family": "Noto Sans Arabic",
+      "style": "normal",
+      "weight": "400 800",
+      "file": "noto-sans-arabic-latin-ext.woff2",
+      "source": "https://fonts.gstatic.com/s/notosansarabic/v33/nwpCtLGrOAZMl5nJ_wfgRg3DrWFZWsnVBJ_sS6tlqHHFlj47v4rqxzLIhjE.woff2",
+      "bytes": 16800,
+      "sha256": "ebf1bb8a062aa6693b51fbeaf6b8d30d6456869e3f169230e4c35cc60b96aafb",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF"
+    },
+    {
+      "family": "Noto Sans Arabic",
+      "style": "normal",
+      "weight": "400 800",
+      "file": "noto-sans-arabic-latin.woff2",
+      "source": "https://fonts.gstatic.com/s/notosansarabic/v33/nwpCtLGrOAZMl5nJ_wfgRg3DrWFZWsnVBJ_sS6tlqHHFlj41v4rqxzLI.woff2",
+      "bytes": 31368,
+      "sha256": "20d51311e187e0ff5be9d6fe24f099e97be6cc583078d6f271c74d68920cd1e0",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+    }
+  ],
+  "licenses": [
+    {
+      "family": "Atkinson Hyperlegible Next",
+      "file": "atkinson-hyperlegible-next-OFL.txt",
+      "source": "https://raw.githubusercontent.com/googlefonts/atkinson-hyperlegible-next/7925f50f649b3813257faf2f4c0b381011f434f1/OFL.txt",
+      "sha256": "aca6a428580965d2297d1b718042dd427c2a9443ece3b0d02d758e161e0c4030"
+    },
+    {
+      "family": "Courier Prime",
+      "file": "courier-prime-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/courierprime/OFL.txt",
+      "sha256": "9a755af092b494944c99f471be6fddd19b006a448fefdc4717e4ee0aa09a97b0"
+    },
+    {
+      "family": "Noto Sans Arabic",
+      "file": "noto-sans-arabic-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/notosansarabic/OFL.txt",
+      "sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96"
+    }
+  ],
+  "excluded_google_subsets": [
+    "Noto Sans Arabic math",
+    "Noto Sans Arabic symbols"
+  ]
+}

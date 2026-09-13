@@ -1,0 +1,30 @@
+
+Running 17 tests using 2 workers
+
+(node:68533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68534) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68534) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [mobile] › tests-e2e/continuity.spec.ts:29:5 › stationary rest records actual changes and survives manual loading (1.8s)
+  ✓   1 [mobile] › tests-e2e/continuity.spec.ts:9:5 › abandon is cancelable, saves a crew ending, and leaves the manual slot intact (1.9s)
+  ✓   3 [mobile] › tests-e2e/continuity.spec.ts:43:5 › a named crew decision precedes map review and absence persists in later scenes (1.6s)
+  ✓   4 [mobile] › tests-e2e/continuity.spec.ts:56:5 › each persona map always fits its own traveled route (2.3s)
+  ✓   5 [mobile] › tests-e2e/continuity.spec.ts:69:5 › one Resume carries two quiet travel actions; pausing and reload never replay them (3.2s)
+  ✓   7 [mobile] › tests-e2e/continuity.spec.ts:96:5 › outfitting cannot charge for supplies beyond capacity (328ms)
+  ✓   8 [mobile] › tests-e2e/continuity.spec.ts:104:5 › encounter forecasts and the journal agree at stat caps (1.4s)
+  ✓   6 [mobile] › tests-e2e/continuity.spec.ts:82:5 › visibility loss pauses automatic travel and does not resume it on return (5.1s)
+  ✓   9 [mobile] › tests-e2e/crew.spec.ts:3:5 › player and crew names recover during onboarding and absent members leave their seats (1.7s)
+  ✓  10 [mobile] › tests-e2e/map.spec.ts:5:5 › map is a periodic full scene with real geography and exact recovery (1.4s)
+  ✓  11 [mobile] › tests-e2e/map.spec.ts:18:5 › real towns, regional scenes and encounter geography agree (2.0s)
+  ✓  12 [mobile] › tests-e2e/map.spec.ts:28:5 › every persona previews and saves a distinct geographic origin (1.4s)
+  ✓  13 [mobile] › tests-e2e/map.spec.ts:35:5 › geographic scene remains readable in Arabic and reduced motion (742ms)
+  ✓  15 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (1.6s)
+  ✓  14 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (2.5s)
+  ✓  16 [mobile] › tests-e2e/states.spec.ts:22:5 › regions, weather details, final vote and terminal reload (3.5s)
+  ✓  17 [mobile] › tests-e2e/states.spec.ts:32:5 › route store, one exchange and cooldown recovery (4.9s)
+
+  17 passed (46.0s)

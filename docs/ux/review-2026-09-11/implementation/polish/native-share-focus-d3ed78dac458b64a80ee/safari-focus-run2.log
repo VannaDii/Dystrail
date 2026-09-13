@@ -1,0 +1,20 @@
+{
+  "browser": "Native Safari",
+  "revision": "d3ed78dac458b64a80ee",
+  "basis": "Real Safari keyboard and focus behavior with controlled share promises; actual OS handoff is recorded separately.",
+  "checks": [
+    "Classic cancel: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Classic fail: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Classic success: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Classic: Escape closes dialog, focus returns to opener and complete saved game is unchanged",
+    "Deep cancel: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Deep fail: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Deep success: status, preserved draft, enabled button, restored focus and forward/reverse focus trap",
+    "Deep: Escape closes dialog, focus returns to opener and complete saved game is unchanged"
+  ],
+  "capabilities": {
+    "browserName": "Safari",
+    "browserVersion": "26.6.2"
+  },
+  "passed": true
+}

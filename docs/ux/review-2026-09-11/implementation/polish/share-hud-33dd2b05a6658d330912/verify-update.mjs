@@ -1,0 +1,34 @@
+import {chromium} from '/Users/vanna/Source/Dystrail/dystrail-web/node_modules/playwright/index.mjs';
+import {createServer} from 'node:http';
+import {readFile,writeFile,mkdir,stat} from 'node:fs/promises';
+import {join,resolve,extname} from 'node:path';
+import assert from 'node:assert/strict';
+const out='/tmp/dystrail-share-hud-review/update-check';await mkdir(out,{recursive:true});
+const prior='8b8fcc3f7004fd8ec354',expected='33dd2b05a6658d330912';
+let root='/tmp/dystrail-tabs-transparent/web';
+const types={'.html':'text/html','.js':'application/javascript','.wasm':'application/wasm','.json':'application/json','.css':'text/css','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2','.webmanifest':'application/manifest+json'};
+const server=createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/play\/?/,'');let file=resolve(root,pathname||'index.html');if(!file.startsWith(root+'/'))throw Error('outside root');try{if(!(await stat(file)).isFile())file=join(root,'index.html')}catch{file=join(root,'index.html')};res.writeHead(200,{'Content-Type':types[extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(await readFile(file));}catch{res.writeHead(404);res.end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/play/`;
+const profile=out+'/disposable-profile',errors=[];let context;
+const report={prior,expected,url,basis:'Exact old and newly published artifacts served on one disposable local origin',errors};
+const launch=async offline=>{const c=await chromium.launchPersistentContext(profile,{headless:true,executablePath:'/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/chrome-launcher.py',viewport:{width:393,height:852},serviceWorkers:'allow',offline});return c};
+const ready=async(page,revision)=>page.waitForFunction(r=>window.dystrailOffline?.revision===r&&window.dystrailOffline.state==='ready'&&!document.querySelector('#launch-gate')&&document.querySelector('#main'),revision,{timeout:120000});
+const save=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')));
+const normalize=value=>{const s=structuredClone(value);for(const k of ['state','pending'])s[k]?.inventory.tags.sort();return s};
+try{
+ context=await launch(false);let page=context.pages()[0]||await context.newPage();page.on('pageerror',e=>errors.push(String(e)));
+ await page.goto(url);await ready(page,prior);
+ await page.getByRole('button',{name:'Choose your character',exact:true}).click();await page.getByRole('radio',{name:'Journalist',exact:true}).click();await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Your name',{exact:true}).fill('Release Review');await page.getByLabel('Crew name',{exact:true}).fill('Saved Crew');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByRole('button',{name:'Review & depart',exact:true}).filter({visible:true}).first().click();await page.getByRole('button',{name:'Start the journey',exact:true}).click();await page.locator('.journey-controls .travel-tabs').waitFor();
+ await page.getByRole('tab',{name:'Journal',exact:true}).click();const before=await save(page);await writeFile(out+'/before.json',JSON.stringify(before,null,2));
+ await context.close();root='/tmp/dystrail-share-hud-review/verified-web';
+ context=await launch(false);page=context.pages()[0]||await context.newPage();page.on('pageerror',e=>errors.push(String(e)));await page.goto(url);await ready(page,expected);
+ assert.deepEqual(normalize(await save(page)),normalize(before),'Update must preserve the full existing save');report.updatePreservedSave=true;
+ assert.match(await page.locator('.journal-raw>summary').first().textContent(),/The Day's Events/);
+ const manifest=JSON.parse(await readFile(root+'/offline-manifest.json','utf8'));
+ report.offlineAssets=await page.evaluate(async({manifest,url})=>{const cache=await caches.open('dystopian-trail:/play/:'+manifest.revision),failures=[];for(const asset of manifest.assets){const response=await cache.match(new URL(asset.path,url));if(!response){failures.push(asset.path+': missing');continue};const bytes=await response.arrayBuffer();const digest=await crypto.subtle.digest('SHA-256',bytes);const hash=btoa(String.fromCharCode(...new Uint8Array(digest)));if(bytes.byteLength!==asset.bytes||'sha256-'+hash!==asset.integrity)failures.push(asset.path+': integrity')};return {count:manifest.assets.length,failures,preparedImages:(window.dystrailPreparedImages||[]).length,imagesReady:(window.dystrailPreparedImages||[]).every(i=>i.complete&&i.naturalWidth>0),fonts:(window.dystrailPreparedFonts||[]).length,fontsReady:(window.dystrailPreparedFonts||[]).every(f=>f.status==='loaded'&&document.fonts.has(f))}},{manifest,url});
+ assert.deepEqual(report.offlineAssets,{count:119,failures:[],preparedImages:68,imagesReady:true,fonts:7,fontsReady:true});
+ await context.setOffline(true);await page.reload();await ready(page,expected);assert.deepEqual(normalize(await save(page)),normalize(before));report.offlineReloadPreservedSave=true;
+ await context.close();context=await launch(true);page=context.pages()[0]||await context.newPage();page.on('pageerror',e=>errors.push(String(e)));await page.goto(url);await ready(page,expected);assert.deepEqual(normalize(await save(page)),normalize(before));report.closedBrowserOfflineRestartPreservedSave=true;
+ const details=page.locator('.journal-raw>summary').first();assert.match(await details.textContent(),/The Day's Events/);await details.click();assert.equal(await details.evaluate(e=>e.parentElement.open),true);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await details.screenshot({path:out+'/day-events-offline.png'});
+ assert.deepEqual(errors,[]);report.passed=true;console.log(JSON.stringify(report,null,2));
+}catch(e){report.failure=String(e.stack||e);console.error(report.failure);process.exitCode=1}finally{await context?.close();await new Promise(r=>server.close(r));await writeFile(out+'/verification.json',JSON.stringify(report,null,2))}

@@ -1,0 +1,3867 @@
+{
+  "Classic": {
+    "stationary_days": [
+      {
+        "day_index": 11,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": [
+          "camp"
+        ]
+      },
+      {
+        "day_index": 21,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": [
+          "camp"
+        ]
+      },
+      {
+        "day_index": 23,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": []
+      }
+    ],
+    "camps": [
+      {
+        "conversation_before": {
+          "stage": "town_conversation.before",
+          "day": 11,
+          "clock": "11:00",
+          "clock_minutes": 660,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 2400,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 55.86834716796875,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "conversation_after": {
+          "stage": "town_conversation.after_clock",
+          "day": 11,
+          "clock": "11:30",
+          "clock_minutes": 690,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 2400,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 55.86834716796875,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_before": {
+          "stage": "town_work.before",
+          "day": 11,
+          "clock": "11:30",
+          "clock_minutes": 690,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 2400,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 55.86834716796875,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_after": {
+          "stage": "town_work.after",
+          "day": 12,
+          "clock": "09:30",
+          "clock_minutes": 570,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 4200,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 11,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 10,
+            "kind": "travel",
+            "miles": 93.88655090332031,
+            "tags": [
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_before": {
+          "stage": "camp_rest.before",
+          "day": 12,
+          "clock": "09:30",
+          "clock_minutes": 570,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 4200,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 11,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 10,
+            "kind": "travel",
+            "miles": 93.88655090332031,
+            "tags": [
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_after": {
+          "stage": "camp_rest.after_clock",
+          "day": 13,
+          "clock": "08:00",
+          "clock_minutes": 480,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 17,
+            "hp": 10,
+            "sanity": 9,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 4200,
+          "driving_minutes_total": 1800,
+          "pace_fatigue_remainder": 0,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 2,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 12,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": null,
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 11,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": [
+              "camp"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_minutes": 180,
+        "active_minutes_left_when_camp_started": 210
+      },
+      {
+        "conversation_before": {
+          "stage": "town_conversation.before",
+          "day": 21,
+          "clock": "12:59",
+          "clock_minutes": 779,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 12300,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2945,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 20,
+              "kind": "travel",
+              "miles": 61.200347900390625,
+              "tags": []
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [],
+            "current_day_miles": 61.200347900390625
+          },
+          "last_completed_day": {
+            "day_index": 19,
+            "kind": "travel",
+            "miles": 62.486671447753906,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "conversation_after": {
+          "stage": "town_conversation.after_clock",
+          "day": 22,
+          "clock": "08:29",
+          "clock_minutes": 509,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 12300,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2945,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 21,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 20,
+            "kind": "travel",
+            "miles": 61.200347900390625,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_before": {
+          "stage": "town_work.before",
+          "day": 22,
+          "clock": "08:29",
+          "clock_minutes": 509,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 12300,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2945,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 21,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 20,
+            "kind": "travel",
+            "miles": 61.200347900390625,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_after": {
+          "stage": "town_work.after",
+          "day": 22,
+          "clock": "11:29",
+          "clock_minutes": 689,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 14100,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2945,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 21,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 20,
+            "kind": "travel",
+            "miles": 61.200347900390625,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_before": {
+          "stage": "camp_rest.before",
+          "day": 22,
+          "clock": "11:29",
+          "clock_minutes": 689,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 20,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 14100,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 21,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 20,
+            "kind": "travel",
+            "miles": 61.200347900390625,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_after": {
+          "stage": "camp_rest.after_clock",
+          "day": 23,
+          "clock": "08:00",
+          "clock_minutes": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 17,
+            "hp": 10,
+            "sanity": 9,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 7
+          },
+          "cash_cents": 14100,
+          "driving_minutes_total": 2849,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 2048.11962890625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 2,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 22,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": null,
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 21,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": [
+              "camp"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_minutes": 180,
+        "active_minutes_left_when_camp_started": 91
+      }
+    ],
+    "hearing": {
+      "hearing.before": {
+        "stage": "hearing.before",
+        "day": 23,
+        "clock": "12:50",
+        "clock_minutes": 770,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 19,
+          "hp": 10,
+          "sanity": 8,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 7
+        },
+        "cash_cents": 15400,
+        "driving_minutes_total": 2929,
+        "pace_fatigue_remainder": 112,
+        "miles_traveled_actual": 2100.0,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": true,
+          "did_end_of_day": false,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 2,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "ColdSnap",
+        "weather_impact": {
+          "day": 23,
+          "weather": "ColdSnap",
+          "supplies": 0,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": {
+            "day_index": 22,
+            "kind": "travel",
+            "miles": 51.88032913208008,
+            "tags": []
+          },
+          "current_day_kind": "travel",
+          "current_day_reason_tags": [],
+          "current_day_miles": 51.88032913208008
+        },
+        "last_completed_day": {
+          "day_index": 21,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": true,
+          "reached": true,
+          "attempted": false,
+          "victory": false
+        }
+      },
+      "hearing.after_effects": {
+        "stage": "hearing.after_effects",
+        "day": 23,
+        "clock": "12:50",
+        "clock_minutes": 770,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 19,
+          "hp": 10,
+          "sanity": 2,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 7
+        },
+        "cash_cents": 15400,
+        "driving_minutes_total": 2929,
+        "pace_fatigue_remainder": 112,
+        "miles_traveled_actual": 2100.0,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": true,
+          "did_end_of_day": false,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 2,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "ColdSnap",
+        "weather_impact": {
+          "day": 23,
+          "weather": "ColdSnap",
+          "supplies": 0,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": {
+            "day_index": 22,
+            "kind": "travel",
+            "miles": 51.88032913208008,
+            "tags": []
+          },
+          "current_day_kind": "travel",
+          "current_day_reason_tags": [],
+          "current_day_miles": 51.88032913208008
+        },
+        "last_completed_day": {
+          "day_index": 21,
+          "kind": "non_travel",
+          "miles": 0.0,
+          "tags": [
+            "camp"
+          ]
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": true,
+          "reached": true,
+          "attempted": true,
+          "victory": true
+        }
+      },
+      "hearing.after_clock": {
+        "stage": "hearing.after_clock",
+        "day": 24,
+        "clock": "09:50",
+        "clock_minutes": 590,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 19,
+          "hp": 10,
+          "sanity": 2,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 7
+        },
+        "cash_cents": 15400,
+        "driving_minutes_total": 2929,
+        "pace_fatigue_remainder": 112,
+        "miles_traveled_actual": 2100.0,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": false,
+          "did_end_of_day": true,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 1,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "ColdSnap",
+        "weather_impact": {
+          "day": 23,
+          "weather": "ColdSnap",
+          "supplies": 0,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": {
+            "day_index": 23,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": []
+          },
+          "current_day_kind": null,
+          "current_day_reason_tags": [],
+          "current_day_miles": 0.0
+        },
+        "last_completed_day": {
+          "day_index": 22,
+          "kind": "travel",
+          "miles": 51.88032913208008,
+          "tags": []
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": false,
+          "reached": true,
+          "attempted": true,
+          "victory": true
+        }
+      }
+    },
+    "crossings": [
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 5,
+          "clock": "12:30",
+          "clock_minutes": 750,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 7,
+            "credibility": 16,
+            "morale": 5,
+            "allies": 0
+          },
+          "cash_cents": 600,
+          "driving_minutes_total": 930,
+          "pace_fatigue_remainder": 30,
+          "miles_traveled_actual": 682.9383544921875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": true,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 5,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 4,
+              "kind": "partial",
+              "miles": 170.3868408203125,
+              "tags": []
+            },
+            "current_day_kind": "partial",
+            "current_day_reason_tags": [],
+            "current_day_miles": 170.3868408203125
+          },
+          "last_completed_day": {
+            "day_index": 3,
+            "kind": "travel",
+            "miles": 69.90507507324219,
+            "tags": []
+          },
+          "last_crossing": null,
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 5,
+          "clock": "13:00",
+          "clock_minutes": 780,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 7,
+            "credibility": 16,
+            "morale": 5,
+            "allies": 0
+          },
+          "cash_cents": 600,
+          "driving_minutes_total": 930,
+          "pace_fatigue_remainder": 30,
+          "miles_traveled_actual": 682.9383544921875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": true,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 5,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 4,
+              "kind": "partial",
+              "miles": 170.3868408203125,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "partial",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 170.3868408203125
+          },
+          "last_completed_day": {
+            "day_index": 3,
+            "kind": "travel",
+            "miles": 69.90507507324219,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 5,
+            "region": "MountainWest",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": false,
+            "bribe_success": null,
+            "bribe_cost_cents": 0,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      },
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 11,
+          "clock": "08:04",
+          "clock_minutes": 484,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 19,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 4000,
+          "driving_minutes_total": 1684,
+          "pace_fatigue_remainder": 184,
+          "miles_traveled_actual": 1253.2127685546875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 55.86834716796875,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 5,
+            "region": "MountainWest",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": false,
+            "bribe_success": null,
+            "bribe_cost_cents": 0,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 11,
+          "clock": "08:34",
+          "clock_minutes": 514,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 19,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 19,
+            "morale": 6,
+            "allies": 3
+          },
+          "cash_cents": 3000,
+          "driving_minutes_total": 1684,
+          "pace_fatigue_remainder": 184,
+          "miles_traveled_actual": 1253.2127685546875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 55.86834716796875,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      },
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 19,
+          "clock": "12:05",
+          "clock_minutes": 725,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 6
+          },
+          "cash_cents": 11200,
+          "driving_minutes_total": 2645,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 1911.6014404296875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 19,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 18,
+              "kind": "travel",
+              "miles": 76.98703002929688,
+              "tags": []
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [],
+            "current_day_miles": 76.98703002929688
+          },
+          "last_completed_day": {
+            "day_index": 17,
+            "kind": "travel",
+            "miles": 66.9974594116211,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 19,
+          "clock": "12:35",
+          "clock_minutes": 755,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 6
+          },
+          "cash_cents": 9700,
+          "driving_minutes_total": 2645,
+          "pace_fatigue_remainder": 32,
+          "miles_traveled_actual": 1911.6014404296875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 19,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 18,
+              "kind": "travel",
+              "miles": 76.98703002929688,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 76.98703002929688
+          },
+          "last_completed_day": {
+            "day_index": 17,
+            "kind": "travel",
+            "miles": 66.9974594116211,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      }
+    ],
+    "stationary_action_observation_counts": {
+      "town_conversation": 15,
+      "town_work": 15,
+      "town_shopping": 15,
+      "crew_care": 2,
+      "camp_rest": 2,
+      "hearing": 1
+    },
+    "all_stationary_actions_preserve_driving_counter_fatigue_remainder_and_miles": true,
+    "travel_step_selected_paces": {
+      "heated": 56,
+      "steady": 13
+    },
+    "diets_observed": [
+      "mixed"
+    ]
+  },
+  "Deep": {
+    "stationary_days": [
+      {
+        "day_index": 11,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": [
+          "camp"
+        ]
+      },
+      {
+        "day_index": 20,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": [
+          "camp"
+        ]
+      },
+      {
+        "day_index": 22,
+        "kind": "non_travel",
+        "miles": 0.0,
+        "tags": []
+      }
+    ],
+    "camps": [
+      {
+        "conversation_before": {
+          "stage": "town_conversation.before",
+          "day": 11,
+          "clock": "11:05",
+          "clock_minutes": 665,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 2500,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 57.491024017333984,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "conversation_after": {
+          "stage": "town_conversation.after_clock",
+          "day": 11,
+          "clock": "11:35",
+          "clock_minutes": 695,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 2500,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 57.491024017333984,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_before": {
+          "stage": "town_work.before",
+          "day": 11,
+          "clock": "11:35",
+          "clock_minutes": 695,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 2500,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "travel",
+              "miles": 93.88655090332031,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 93.88655090332031
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 57.491024017333984,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_after": {
+          "stage": "town_work.after",
+          "day": 12,
+          "clock": "09:35",
+          "clock_minutes": 575,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 4300,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 1937,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 11,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 10,
+            "kind": "travel",
+            "miles": 93.88655090332031,
+            "tags": [
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_before": {
+          "stage": "camp_rest.before",
+          "day": 12,
+          "clock": "09:35",
+          "clock_minutes": 575,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 19,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 3800,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 11,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 10,
+            "kind": "travel",
+            "miles": 93.88655090332031,
+            "tags": [
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_after": {
+          "stage": "camp_rest.after_clock",
+          "day": 13,
+          "clock": "08:00",
+          "clock_minutes": 480,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 9,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 3800,
+          "driving_minutes_total": 1805,
+          "pace_fatigue_remainder": 5,
+          "miles_traveled_actual": 1347.099365234375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 2,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 12,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": null,
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 11,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": [
+              "camp"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_minutes": 180,
+        "active_minutes_left_when_camp_started": 205
+      },
+      {
+        "conversation_before": {
+          "stage": "town_conversation.before",
+          "day": 20,
+          "clock": "12:07",
+          "clock_minutes": 727,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 6
+          },
+          "cash_cents": 10600,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 20,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2877,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 19,
+              "kind": "travel",
+              "miles": 73.71839904785156,
+              "tags": [
+                "endgame_active"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "endgame_active"
+            ],
+            "current_day_miles": 73.71839904785156
+          },
+          "last_completed_day": {
+            "day_index": 18,
+            "kind": "travel",
+            "miles": 92.49578857421875,
+            "tags": [
+              "endgame_active",
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "conversation_after": {
+          "stage": "town_conversation.after_clock",
+          "day": 20,
+          "clock": "12:37",
+          "clock_minutes": 757,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 7
+          },
+          "cash_cents": 10600,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 20,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2877,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 19,
+              "kind": "travel",
+              "miles": 73.71839904785156,
+              "tags": [
+                "endgame_active"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "endgame_active"
+            ],
+            "current_day_miles": 73.71839904785156
+          },
+          "last_completed_day": {
+            "day_index": 18,
+            "kind": "travel",
+            "miles": 92.49578857421875,
+            "tags": [
+              "endgame_active",
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_before": {
+          "stage": "town_work.before",
+          "day": 20,
+          "clock": "12:37",
+          "clock_minutes": 757,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 4,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 7
+          },
+          "cash_cents": 10600,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 20,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2877,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 19,
+              "kind": "travel",
+              "miles": 73.71839904785156,
+              "tags": [
+                "endgame_active"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "endgame_active"
+            ],
+            "current_day_miles": 73.71839904785156
+          },
+          "last_completed_day": {
+            "day_index": 18,
+            "kind": "travel",
+            "miles": 92.49578857421875,
+            "tags": [
+              "endgame_active",
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_after": {
+          "stage": "town_work.after",
+          "day": 21,
+          "clock": "10:37",
+          "clock_minutes": 637,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 7
+          },
+          "cash_cents": 12400,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 20,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": 2877,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 20,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 19,
+            "kind": "travel",
+            "miles": 73.71839904785156,
+            "tags": [
+              "endgame_active"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_before": {
+          "stage": "camp_rest.before",
+          "day": 21,
+          "clock": "10:37",
+          "clock_minutes": 637,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 3,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 7
+          },
+          "cash_cents": 12400,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": true,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 20,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 20,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 19,
+            "kind": "travel",
+            "miles": 73.71839904785156,
+            "tags": [
+              "endgame_active"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "camp_after": {
+          "stage": "camp_rest.after_clock",
+          "day": 22,
+          "clock": "08:00",
+          "clock_minutes": 480,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 10,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 6
+          },
+          "cash_cents": 12400,
+          "driving_minutes_total": 2742,
+          "pace_fatigue_remainder": 236,
+          "miles_traveled_actual": 2000.8284912109375,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 2,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 21,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": null,
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 20,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": [
+              "camp"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "work_minutes": 180,
+        "active_minutes_left_when_camp_started": 143
+      }
+    ],
+    "hearing": {
+      "hearing.before": {
+        "stage": "hearing.before",
+        "day": 23,
+        "clock": "08:00",
+        "clock_minutes": 480,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 20,
+          "hp": 10,
+          "sanity": 8,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 6
+        },
+        "cash_cents": 13200,
+        "driving_minutes_total": 2832,
+        "pace_fatigue_remainder": 26,
+        "miles_traveled_actual": 2056.169677734375,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": false,
+          "did_end_of_day": true,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 1,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "Storm",
+        "weather_impact": {
+          "day": 22,
+          "weather": "Storm",
+          "supplies": -1,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": null,
+          "current_day_kind": null,
+          "current_day_reason_tags": [],
+          "current_day_miles": 0.0
+        },
+        "last_completed_day": {
+          "day_index": 21,
+          "kind": "travel",
+          "miles": 55.341209411621094,
+          "tags": [
+            "endgame_active"
+          ]
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": true,
+          "reached": true,
+          "attempted": false,
+          "victory": false
+        }
+      },
+      "hearing.after_effects": {
+        "stage": "hearing.after_effects",
+        "day": 23,
+        "clock": "08:00",
+        "clock_minutes": 480,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 16,
+          "hp": 10,
+          "sanity": 3,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 6
+        },
+        "cash_cents": 13200,
+        "driving_minutes_total": 2832,
+        "pace_fatigue_remainder": 26,
+        "miles_traveled_actual": 2056.169677734375,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": false,
+          "did_end_of_day": true,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 1,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "Storm",
+        "weather_impact": {
+          "day": 22,
+          "weather": "Storm",
+          "supplies": -1,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": null,
+          "current_day_kind": null,
+          "current_day_reason_tags": [],
+          "current_day_miles": 0.0
+        },
+        "last_completed_day": {
+          "day_index": 21,
+          "kind": "travel",
+          "miles": 55.341209411621094,
+          "tags": [
+            "endgame_active"
+          ]
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": true,
+          "reached": true,
+          "attempted": true,
+          "victory": true
+        }
+      },
+      "hearing.after_clock": {
+        "stage": "hearing.after_clock",
+        "day": 23,
+        "clock": "10:00",
+        "clock_minutes": 600,
+        "pace": "heated",
+        "diet": "mixed",
+        "stats": {
+          "supplies": 16,
+          "hp": 10,
+          "sanity": 3,
+          "credibility": 20,
+          "morale": 7,
+          "allies": 6
+        },
+        "cash_cents": 13200,
+        "driving_minutes_total": 2832,
+        "pace_fatigue_remainder": 26,
+        "miles_traveled_actual": 2056.169677734375,
+        "day_state": {
+          "rest_requested": false,
+          "traveled_today": true,
+          "partial_traveled_today": false,
+          "travel_blocked": false,
+          "day_initialized": false,
+          "did_end_of_day": true,
+          "suppress_stop_ratio": false
+        },
+        "camp": {
+          "rest_cooldown": 1,
+          "repair_cooldown": 0
+        },
+        "rest_threshold": 3,
+        "should_auto_rest": false,
+        "illness_days_remaining": 0,
+        "weather": "Storm",
+        "weather_impact": {
+          "day": 22,
+          "weather": "Storm",
+          "supplies": -1,
+          "hp": 0,
+          "sanity": -1
+        },
+        "stop": null,
+        "ledger": {
+          "current_day_record": {
+            "day_index": 22,
+            "kind": "non_travel",
+            "miles": 0.0,
+            "tags": []
+          },
+          "current_day_kind": null,
+          "current_day_reason_tags": [],
+          "current_day_miles": 0.0
+        },
+        "last_completed_day": {
+          "day_index": 21,
+          "kind": "travel",
+          "miles": 55.341209411621094,
+          "tags": [
+            "endgame_active"
+          ]
+        },
+        "last_crossing": {
+          "day": 19,
+          "region": "RustBelt",
+          "season": "spring",
+          "kind": "bridge_out",
+          "permit_used": false,
+          "bribe_attempted": true,
+          "bribe_success": true,
+          "bribe_cost_cents": 1500,
+          "bribe_chance": null,
+          "bribe_roll": null,
+          "detour_reason": null,
+          "detour_taken": false,
+          "detour_hours": null,
+          "detour_base_supplies_delta": null,
+          "detour_extra_supplies_loss": null,
+          "terminal_threshold": 0.0,
+          "terminal_roll": null,
+          "outcome": "passed"
+        },
+        "boss": {
+          "ready": false,
+          "reached": true,
+          "attempted": true,
+          "victory": true
+        }
+      }
+    },
+    "crossings": [
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 5,
+          "clock": "12:37",
+          "clock_minutes": 757,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 6,
+            "credibility": 16,
+            "morale": 5,
+            "allies": 1
+          },
+          "cash_cents": 1100,
+          "driving_minutes_total": 937,
+          "pace_fatigue_remainder": 37,
+          "miles_traveled_actual": 682.9382934570312,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 5,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 4,
+              "kind": "travel",
+              "miles": 170.38685607910156,
+              "tags": []
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [],
+            "current_day_miles": 170.38685607910156
+          },
+          "last_completed_day": {
+            "day_index": 3,
+            "kind": "travel",
+            "miles": 71.87669372558594,
+            "tags": []
+          },
+          "last_crossing": null,
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 6,
+          "clock": "08:07",
+          "clock_minutes": 487,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 18,
+            "hp": 10,
+            "sanity": 6,
+            "credibility": 16,
+            "morale": 5,
+            "allies": 1
+          },
+          "cash_cents": 100,
+          "driving_minutes_total": 937,
+          "pace_fatigue_remainder": 37,
+          "miles_traveled_actual": 682.9382934570312,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": false,
+            "did_end_of_day": true,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 5,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 5,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 4,
+            "kind": "travel",
+            "miles": 170.38685607910156,
+            "tags": [
+              "crossing_pass"
+            ]
+          },
+          "last_crossing": {
+            "day": 5,
+            "region": "MountainWest",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      },
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 11,
+          "clock": "08:09",
+          "clock_minutes": 489,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 17,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 4000,
+          "driving_minutes_total": 1689,
+          "pace_fatigue_remainder": 189,
+          "miles_traveled_actual": 1253.2127685546875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": []
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 57.491024017333984,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 5,
+            "region": "MountainWest",
+            "season": "spring",
+            "kind": "checkpoint",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1000,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 11,
+          "clock": "08:39",
+          "clock_minutes": 519,
+          "pace": "steady",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 17,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 20,
+            "morale": 7,
+            "allies": 3
+          },
+          "cash_cents": 2500,
+          "driving_minutes_total": 1689,
+          "pace_fatigue_remainder": 189,
+          "miles_traveled_actual": 1253.2127685546875,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": false,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Clear",
+          "weather_impact": {
+            "day": 11,
+            "weather": "Clear",
+            "supplies": 0,
+            "hp": 0,
+            "sanity": 0
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 10,
+              "kind": "non_travel",
+              "miles": 0.0,
+              "tags": [
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": null,
+            "current_day_reason_tags": [
+              "crossing_pass"
+            ],
+            "current_day_miles": 0.0
+          },
+          "last_completed_day": {
+            "day_index": 9,
+            "kind": "travel",
+            "miles": 57.491024017333984,
+            "tags": []
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      },
+      {
+        "before": {
+          "stage": "travel_step.before",
+          "day": 19,
+          "clock": "10:21",
+          "clock_minutes": 621,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 6
+          },
+          "cash_cents": 10800,
+          "driving_minutes_total": 2606,
+          "pace_fatigue_remainder": 206,
+          "miles_traveled_actual": 1908.9224853515625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 19,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 18,
+              "kind": "travel",
+              "miles": 74.30813598632812,
+              "tags": [
+                "endgame_active"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "endgame_active"
+            ],
+            "current_day_miles": 74.30813598632812
+          },
+          "last_completed_day": {
+            "day_index": 17,
+            "kind": "travel",
+            "miles": 41.3635368347168,
+            "tags": [
+              "endgame_active"
+            ]
+          },
+          "last_crossing": {
+            "day": 11,
+            "region": "Heartland",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "after": {
+          "stage": "travel_step.after",
+          "day": 19,
+          "clock": "10:51",
+          "clock_minutes": 651,
+          "pace": "heated",
+          "diet": "mixed",
+          "stats": {
+            "supplies": 16,
+            "hp": 10,
+            "sanity": 5,
+            "credibility": 20,
+            "morale": 8,
+            "allies": 6
+          },
+          "cash_cents": 9300,
+          "driving_minutes_total": 2606,
+          "pace_fatigue_remainder": 206,
+          "miles_traveled_actual": 1908.9224853515625,
+          "day_state": {
+            "rest_requested": false,
+            "traveled_today": true,
+            "partial_traveled_today": false,
+            "travel_blocked": false,
+            "day_initialized": true,
+            "did_end_of_day": false,
+            "suppress_stop_ratio": false
+          },
+          "camp": {
+            "rest_cooldown": 0,
+            "repair_cooldown": 0
+          },
+          "rest_threshold": 3,
+          "should_auto_rest": false,
+          "illness_days_remaining": 0,
+          "weather": "Storm",
+          "weather_impact": {
+            "day": 19,
+            "weather": "Storm",
+            "supplies": -1,
+            "hp": 0,
+            "sanity": -1
+          },
+          "stop": null,
+          "ledger": {
+            "current_day_record": {
+              "day_index": 18,
+              "kind": "travel",
+              "miles": 74.30813598632812,
+              "tags": [
+                "endgame_active",
+                "crossing_pass"
+              ]
+            },
+            "current_day_kind": "travel",
+            "current_day_reason_tags": [
+              "endgame_active",
+              "crossing_pass"
+            ],
+            "current_day_miles": 74.30813598632812
+          },
+          "last_completed_day": {
+            "day_index": 17,
+            "kind": "travel",
+            "miles": 41.3635368347168,
+            "tags": [
+              "endgame_active"
+            ]
+          },
+          "last_crossing": {
+            "day": 19,
+            "region": "RustBelt",
+            "season": "spring",
+            "kind": "bridge_out",
+            "permit_used": false,
+            "bribe_attempted": true,
+            "bribe_success": true,
+            "bribe_cost_cents": 1500,
+            "bribe_chance": null,
+            "bribe_roll": null,
+            "detour_reason": null,
+            "detour_taken": false,
+            "detour_hours": null,
+            "detour_base_supplies_delta": null,
+            "detour_extra_supplies_loss": null,
+            "terminal_threshold": 0.0,
+            "terminal_roll": null,
+            "outcome": "passed"
+          },
+          "boss": {
+            "ready": false,
+            "reached": false,
+            "attempted": false,
+            "victory": false
+          }
+        },
+        "active_minutes": 30
+      }
+    ],
+    "stationary_action_observation_counts": {
+      "town_conversation": 14,
+      "town_work": 14,
+      "town_shopping": 14,
+      "crew_care": 2,
+      "camp_rest": 2,
+      "hearing": 1
+    },
+    "all_stationary_actions_preserve_driving_counter_fatigue_remainder_and_miles": true,
+    "travel_step_selected_paces": {
+      "heated": 62,
+      "steady": 3
+    },
+    "diets_observed": [
+      "mixed"
+    ]
+  }
+}

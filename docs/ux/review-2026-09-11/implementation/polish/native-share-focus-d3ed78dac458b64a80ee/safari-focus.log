@@ -1,0 +1,5 @@
+Error: {"error":"element not interactable","message":"","stacktrace":""}
+    at call (file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:10:76)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async click (file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:15:100)
+    at async file:///private/tmp/dystrail-native-share-focus/safari-focus.mjs:33:3

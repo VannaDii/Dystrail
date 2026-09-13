@@ -1,3 +1,4 @@
+use crate::components::ui::journey_scene::SceneStage;
 use crate::components::ui::stats_bar::WeatherBadge;
 use crate::game::GameState;
 use std::rc::Rc;
@@ -18,11 +19,7 @@ impl PartialEq for EncounterPageProps {
 
 #[function_component(EncounterPage)]
 pub fn encounter_page(props: &EncounterPageProps) -> Html {
-    let stats = props.state.stats.clone();
-    let day = props.state.day;
-    let region = props.state.region;
-    let exec_order = props.state.current_order;
-    let persona_id = props.state.persona_id.clone();
+    crate::i18n::use_language();
     let encounter = props.state.current_encounter.clone();
 
     encounter.map_or_else(
@@ -32,18 +29,17 @@ pub fn encounter_page(props: &EncounterPageProps) -> Html {
         |enc| {
             html! {
                 <>
-                    <crate::components::ui::stats_bar::StatsBar
-                        {stats}
-                        {day}
-                        {region}
-                        exec_order={exec_order}
-                        persona_id={persona_id}
-                        weather={Some(props.weather.clone())}
-                    />
+                    <crate::components::ui::world_view::WorldView state={props.state.clone()} title={crate::i18n::encounter_text(&enc.id,"name",&enc.name)} stage={Some(SceneStage::Encounter(enc.id.clone()))} decision={html! {
                     <crate::components::ui::encounter_card::EncounterCard
+                        key={crate::i18n::current_lang()}
                         encounter={enc}
+                        stats={props.state.stats.clone()}
+                        cash={props.state.budget_cents}
+                        receipts={props.state.receipts.len()}
+                        receipt_bonus_chance={props.state.receipt_bonus_chance()}
                         on_choice={props.on_choice.clone()}
                     />
+                    }} />
                 </>
             }
         },

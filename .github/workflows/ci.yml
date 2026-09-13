@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "release/complete-game-source-*"]
+    paths-ignore: ["docs/**", "README.md", "progress.md"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -23,7 +25,7 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
           components: clippy, rustfmt
           targets: wasm32-unknown-unknown
 
@@ -31,7 +33,10 @@ jobs:
         run: cargo fmt --all -- --check
 
       - name: Cargo clippy (pedantic)
-        run: cargo clippy --workspace --all-targets --all-features -- -D warnings -W clippy::pedantic
+        run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings -W clippy::pedantic
+
+      - name: Wasm clippy (pedantic)
+        run: cargo clippy -p dystrail-web --target wasm32-unknown-unknown --all-features --locked -- -D warnings -W clippy::pedantic
 
   tests:
     runs-on: ubuntu-latest
@@ -42,22 +47,28 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
           components: clippy
           targets: wasm32-unknown-unknown
 
       - name: Install wasm-pack
-        run: cargo install wasm-pack --locked
+        run: cargo install wasm-pack --version 0.13.1 --locked
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Install Chrome and its matching driver
+        id: chrome
+        uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: stable
+          install-chromedriver: true
 
       - name: Cargo test (workspace)
         run: cargo test --workspace --all-features -- --nocapture
 
       - name: wasm-bindgen tests (chrome, headless)
         working-directory: dystrail-web
-        run: wasm-pack test --headless --chrome
+        env:
+          WASM_BINDGEN_BENCH_RESULT: ${{ github.workspace }}/target/wbg_benchmark.json
+        run: wasm-pack test --headless --chrome --chromedriver "${{ steps.chrome.outputs.chromedriver-path }}"
 
   i18n-coverage:
     runs-on: ubuntu-latest
@@ -68,7 +79,7 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
           components: rustfmt
 
       - name: Locale coverage tests
@@ -85,7 +96,7 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
 
       - name: Install audit/deny
         run: |
@@ -93,7 +104,9 @@ jobs:
           cargo install cargo-deny --locked
 
       - name: cargo audit
-        run: cargo audit --file audit.toml --deny warnings
+        run: |
+          python3 scripts/check_advisory_exceptions.py
+          cargo audit --deny warnings
 
       - name: cargo deny
         run: cargo deny check licenses bans advisories sources
@@ -108,13 +121,13 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
           targets: wasm32-unknown-unknown
 
       - name: Install trunk and wasm-pack
         run: |
-          cargo install trunk --locked
-          cargo install wasm-pack --locked
+          cargo install trunk --version 0.21.14 --locked
+          cargo install wasm-pack --version 0.13.1 --locked
 
       - name: Install wasm-opt (binaryen)
         run: |
@@ -146,7 +159,7 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
 
       - name: Logic QA sweep
         run: cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console
@@ -161,11 +174,11 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: 1.92.0
           targets: wasm32-unknown-unknown
 
       - name: Install trunk
-        run: cargo install trunk --locked
+        run: cargo install trunk --version 0.21.14 --locked
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -189,6 +202,7 @@ jobs:
         run: npx playwright test --reporter=line --trace on --video on
 
       - name: Upload Playwright artifacts (video/trace)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: e2e-a11y-artifacts

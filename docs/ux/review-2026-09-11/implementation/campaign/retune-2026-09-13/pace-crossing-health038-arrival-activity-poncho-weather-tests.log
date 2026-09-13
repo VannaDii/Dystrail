@@ -1,0 +1,13 @@
+   Compiling dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/pace-crossing-health038-arrival-activity-poncho-source/dystrail-game)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.81s
+     Running tests/weather_paths.rs (/Users/vanna/Source/Dystrail/target/debug/deps/weather_paths-698485da85f3b30e)
+
+running 5 tests
+test ponchos_protect_sanity_in_storms_without_changing_other_weather_costs ... ok
+test neutral_buffer_defaults_to_clear_when_no_neutral_weights ... ok
+test weather_selection_and_effects_cover_branches ... ok
+test neutral_buffer_prefers_smoke_when_weighted ... ok
+test select_weather_is_deterministic_for_same_seed ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,88 @@
+(node:82674) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:82694) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82694) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:82694) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-P3805M --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=82695 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82695:64686070:0912/151330.159192:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+166ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] Trying to load the allocator multiple times. This is *not* supported. [30m+126ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686092:0912/151330.293329:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+8ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686170:0912/151330.293519:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686092:0912/151330.294396:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686170:0912/151330.294441:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686092:0912/151330.294961:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686170:0912/151330.295003:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686092:0912/151330.295285:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686170:0912/151330.295327:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686092:0912/151330.295421:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82701:64686170:0912/151330.295457:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695][err] [82695:64686075:0912/151332.509424:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT [30m+2s[0m
+  ✓  1 [chromium] › tests-e2e/entry-layout.spec.ts:14:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (2.7s)
+  [30;1mpw:browser [0m[pid=82695] <gracefully close start> [30m+452ms[0m
+  [30;1mpw:browser [0m[pid=82695] <process did exit: exitCode=0, signal=null> [30m+131ms[0m
+  [30;1mpw:browser [0m[pid=82695] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82695] finished temporary directories cleanup [30m+7ms[0m
+  [30;1mpw:browser [0m[pid=82695] <gracefully close end> [30m+0ms[0m
+(node:82741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82741) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:82741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  [30;1mpw:browser [0m<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/2s/41j195jn11g15z70rbxdpqt40000gn/T/playwright_chromiumdev_profile-xKql05 --remote-debugging-pipe --no-startup-window [30m+0ms[0m
+  [30;1mpw:browser [0m<launched> pid=82742 [30m+1ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82742:64686656:0912/151333.405301:ERROR:net/cert/internal/trust_store_mac.cc:807] Error parsing certificate: [30m+106ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] ERROR: Failed normalizing string [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err]   tag: 19 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] ERROR: Failed normalizing subject [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err]  [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] Trying to load the allocator multiple times. This is *not* supported. [30m+113ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686671:0912/151333.530774:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+13ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686730:0912/151333.531067:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686671:0912/151333.531231:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686730:0912/151333.531269:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686671:0912/151333.531351:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686730:0912/151333.531391:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686671:0912/151333.531486:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686730:0912/151333.531528:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686671:0912/151333.531627:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742][err] [82746:64686730:0912/151333.531664:ERROR:ui/display/mac/cv_display_link_mac.mm:195] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670 [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742] <gracefully close start> [30m+2s[0m
+  [30;1mpw:browser [0m[pid=82742] <process did exit: exitCode=0, signal=null> [30m+128ms[0m
+  [30;1mpw:browser [0m[pid=82742] starting temporary directories cleanup [30m+0ms[0m
+  [30;1mpw:browser [0m[pid=82742] finished temporary directories cleanup [30m+6ms[0m
+  [30;1mpw:browser [0m[pid=82742] <gracefully close end> [30m+0ms[0m
+  ✘  2 [mobile] › tests-e2e/entry-layout.spec.ts:14:5 › Trail and Journal share compact right-hand cards and retain historical journey settings (1.7s)
+
+
+  1) [mobile] › tests-e2e/entry-layout.spec.ts:14:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+       9 |  const fits=await page.locator(selector).evaluate(e=>{
+      10 |   const r=e.getBoundingClientRect();return [...e.querySelectorAll('.stat-card')].every(c=>{const b=c.getBoundingClientRect();return b.left>=r.left&&b.right<=r.right&&b.width>100;});
+    > 11 |  });expect(fits).toBe(true);
+         |                  ^
+      12 | }
+      13 |
+      14 | test('Trail and Journal share compact right-hand cards and retain historical journey settings',async({page,isMobile})=>{
+        at containedCards (/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/entry-layout.spec.ts:11:18)
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/entry-layout.spec.ts:35:2
+
+    Error Context: ../../../../../tmp/dystrail-compact-entries-final-browser/entry-layout-Trail-and-Jou-5fb09-historical-journey-settings-mobile/error-context.md
+
+  1 failed
+    [mobile] › tests-e2e/entry-layout.spec.ts:14:5 › Trail and Journal share compact right-hand cards and retain historical journey settings 
+  1 passed (5.5s)

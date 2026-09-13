@@ -1,0 +1,7 @@
+{
+  "binary": "/tmp/dystrail-retune-2026-09-13/pace-crossing-tester",
+  "sha256": "be823287a2e9ec1ec08817c9ccca33d0db7fbda4ee3191b90886d1756481f080",
+  "compiled_source_path_verified": "/private/tmp/dystrail-retune-2026-09-13/pace-crossing-source/dystrail-tester",
+  "build_log": "/tmp/dystrail-retune-2026-09-13/pace-crossing-build.log",
+  "cargo_target_released": true
+}

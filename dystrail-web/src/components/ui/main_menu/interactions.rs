@@ -32,6 +32,13 @@ pub fn focus_effect(list_ref: NodeRef, focus_idx: &UseStateHandle<u8>) {
     let focus_idx = focus_idx.clone();
     use_effect_with(*focus_idx, move |idx| {
         if let Some(list) = list_ref.cast::<web_sys::Element>() {
+            if !web_sys::window()
+                .and_then(|w| w.document())
+                .and_then(|d| d.active_element())
+                .is_some_and(|active| list.contains(Some(&active)))
+            {
+                return;
+            }
             let sel = format!("[role='menuitem'][data-key='{idx}']");
             if let Ok(Some(el)) = list.query_selector(&sel) {
                 let _ = el

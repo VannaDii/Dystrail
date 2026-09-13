@@ -1,43 +1,36 @@
 {
   "limits": {
     "max_extreme_streak": 3,
-    "encounter_cap": 1.0,
-    "pants_floor": 0,
-    "pants_ceiling": 100
+    "encounter_cap": 1.0
   },
   "effects": {
     "Clear": {
       "supplies": 0,
       "sanity": 0,
-      "pants": 0,
       "enc_delta": 0.0,
       "travel_mult": 1.0
     },
     "Storm": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
-      "pants": 2,
       "enc_delta": 0.05,
       "travel_mult": 0.9
     },
     "HeatWave": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
-      "pants": 1,
       "enc_delta": 0.03,
       "travel_mult": 0.9
     },
     "ColdSnap": {
       "supplies": 0,
       "sanity": -1,
-      "pants": 0,
       "enc_delta": 0.0,
       "travel_mult": 0.9
     },
     "Smoke": {
-      "supplies": 1,
+      "supplies": -1,
       "sanity": -1,
-      "pants": 1,
       "enc_delta": 0.03,
       "travel_mult": 0.92
     }
@@ -53,30 +46,51 @@
     },
     "Storm": {
       "tag": "rain_resist",
-      "pants": 1
+      "sanity": 0
     }
   },
   "weights": {
     "Heartland": {
-      "Clear": 60,
+      "Clear": 300,
       "Storm": 15,
       "HeatWave": 10,
       "ColdSnap": 10,
       "Smoke": 5
     },
     "RustBelt": {
-      "Clear": 55,
+      "Clear": 275,
       "Storm": 20,
       "HeatWave": 8,
       "ColdSnap": 12,
       "Smoke": 5
     },
     "Beltway": {
-      "Clear": 50,
+      "Clear": 250,
       "Storm": 25,
       "HeatWave": 10,
       "ColdSnap": 10,
       "Smoke": 5
+    },
+    "PacificCoast": {
+      "Clear": 300,
+      "Storm": 19,
+      "HeatWave": 8,
+      "ColdSnap": 5,
+      "Smoke": 8
+    },
+    "MountainWest": {
+      "Clear": 300,
+      "Storm": 13,
+      "HeatWave": 7,
+      "ColdSnap": 13,
+      "Smoke": 7
+    },
+    "Southwest": {
+      "Clear": 310,
+      "Storm": 10,
+      "HeatWave": 19,
+      "ColdSnap": 3,
+      "Smoke": 6
     }
   },
   "exec_mods": {

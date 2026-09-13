@@ -8,11 +8,12 @@ lint:
     cargo check --workspace
     cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
     cargo test --workspace --all --all-features --locked -- --nocapture
-    wasm-pack test --headless --chrome dystrail-web
+    WASM_BINDGEN_BENCH_RESULT="$PWD/target/wbg_benchmark.json" wasm-pack test --headless --chrome dystrail-web
     cargo tarpaulin --packages dystrail-game --fail-under 77
 
 security:
-    cargo audit --file audit.toml --deny warnings
+    python3 scripts/check_advisory_exceptions.py
+    cargo audit --deny warnings
     cargo deny check licenses bans advisories sources
 
 build-release:

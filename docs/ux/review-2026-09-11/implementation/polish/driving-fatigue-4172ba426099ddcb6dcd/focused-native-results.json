@@ -1,0 +1,30 @@
+{
+  "source": "/tmp/dystrail-driving-fatigue-preview/source",
+  "inputs_unchanged": true,
+  "commands": [
+    {
+      "label": "pace-native",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "dystrail-game",
+        "pace_fatigue"
+      ],
+      "exit_code": 0,
+      "seconds": 5.634
+    },
+    {
+      "label": "web-native",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "dystrail-web",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "seconds": 7.3
+    }
+  ]
+}

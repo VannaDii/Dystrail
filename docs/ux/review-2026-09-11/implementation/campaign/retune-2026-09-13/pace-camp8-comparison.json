@@ -1,0 +1,6669 @@
+{
+  "comparison": "pace (camp +6) \u2192 pace-camp8 (camp +8)",
+  "row_count": 2000,
+  "verified_seeds_per_scenario": [
+    1337,
+    1338,
+    1339,
+    1340,
+    1341,
+    1342,
+    1343,
+    1344,
+    1345,
+    1346,
+    1347,
+    1348,
+    1349,
+    1350,
+    1351,
+    1352,
+    1353,
+    1354,
+    1355,
+    1356,
+    1357,
+    1358,
+    1359,
+    1360,
+    1361,
+    1362,
+    1363,
+    1364,
+    1365,
+    1366,
+    1367,
+    1368,
+    1369,
+    1370,
+    1371,
+    1372,
+    1373,
+    1374,
+    1375,
+    1376,
+    1377,
+    1378,
+    1379,
+    1380,
+    1381,
+    1382,
+    1383,
+    1384,
+    1385,
+    1386,
+    1387,
+    1388,
+    1389,
+    1390,
+    1391,
+    1392,
+    1393,
+    1394,
+    1395,
+    1396,
+    1397,
+    1398,
+    1399,
+    1400,
+    1401,
+    1402,
+    1403,
+    1404,
+    1405,
+    1406,
+    1407,
+    1408,
+    1409,
+    1410,
+    1411,
+    1412,
+    1413,
+    1414,
+    1415,
+    1416,
+    1417,
+    1418,
+    1419,
+    1420,
+    1421,
+    1422,
+    1423,
+    1424,
+    1425,
+    1426,
+    1427,
+    1428,
+    1429,
+    1430,
+    1431,
+    1432,
+    1433,
+    1434,
+    1435,
+    1436,
+    1437,
+    1438,
+    1439,
+    1440,
+    1441,
+    1442,
+    1443,
+    1444,
+    1445,
+    1446,
+    1447,
+    1448,
+    1449,
+    1450,
+    1451,
+    1452,
+    1453,
+    1454,
+    1455,
+    1456,
+    1457,
+    1458,
+    1459,
+    1460,
+    1461,
+    1462,
+    1463,
+    1464,
+    1465,
+    1466,
+    1467,
+    1468,
+    1469,
+    1470,
+    1471,
+    1472,
+    1473,
+    1474,
+    1475,
+    1476,
+    1477,
+    1478,
+    1479,
+    1480,
+    1481,
+    1482,
+    1483,
+    1484,
+    1485,
+    1486,
+    1487,
+    1488,
+    1489,
+    1490,
+    1491,
+    1492,
+    1493,
+    1494,
+    1495,
+    1496,
+    1497,
+    1498,
+    1499,
+    1500,
+    1501,
+    1502,
+    1503,
+    1504,
+    1505,
+    1506,
+    1507,
+    1508,
+    1509,
+    1510,
+    1511,
+    1512,
+    1513,
+    1514,
+    1515,
+    1516,
+    1517,
+    1518,
+    1519,
+    1520,
+    1521,
+    1522,
+    1523,
+    1524,
+    1525,
+    1526,
+    1527,
+    1528,
+    1529,
+    1530,
+    1531,
+    1532,
+    1533,
+    1534,
+    1535,
+    1536,
+    1537,
+    1538,
+    1539,
+    1540,
+    1541,
+    1542,
+    1543,
+    1544,
+    1545,
+    1546,
+    1547,
+    1548,
+    1549,
+    1550,
+    1551,
+    1552,
+    1553,
+    1554,
+    1555,
+    1556,
+    1557,
+    1558,
+    1559,
+    1560,
+    1561,
+    1562,
+    1563,
+    1564,
+    1565,
+    1566,
+    1567,
+    1568,
+    1569,
+    1570,
+    1571,
+    1572,
+    1573,
+    1574,
+    1575,
+    1576,
+    1577,
+    1578,
+    1579,
+    1580,
+    1581,
+    1582,
+    1583,
+    1584,
+    1585,
+    1586
+  ],
+  "changed_row_count": 199,
+  "changed_field_counts": {
+    "final_sanity": 164,
+    "final_supplies": 92,
+    "travel_days": 49,
+    "non_travel_days": 80,
+    "avg_mpd": 62,
+    "travel_ratio": 83,
+    "rotation_events": 27,
+    "day_reason_history": 117,
+    "vehicle_breakdowns": 7,
+    "final_budget_cents": 62,
+    "days_with_repair": 7,
+    "ending_type": 60,
+    "ending_cause": 60,
+    "boss_won": 41,
+    "days_survived": 38,
+    "final_hp": 15,
+    "days_with_camp": 35,
+    "unique_per_20_days": 57,
+    "encounters_faced": 31,
+    "unique_encounters": 31,
+    "partial_travel_days": 22,
+    "exec_order_cooldown": 25,
+    "exec_order_days_remaining": 9,
+    "exposure_streak_cold": 15,
+    "exec_order_active": 8,
+    "miles_traveled": 16,
+    "repairs_spent_cents": 3,
+    "exposure_streak_heat": 5,
+    "endgame_cooldown_days": 1
+  },
+  "prior_failed_rows": 207,
+  "failed_rows": 208,
+  "scenarios": {
+    "Classic - Aggressive": {
+      "changed_rows": 95,
+      "prior_failure_count": 40,
+      "failure_count": 40,
+      "resolved": [
+        1362,
+        1392,
+        1416,
+        1436,
+        1439,
+        1486,
+        1534
+      ],
+      "new": [
+        1346,
+        1395,
+        1403,
+        1420,
+        1457,
+        1495,
+        1540
+      ],
+      "persisting": [
+        1339,
+        1340,
+        1351,
+        1359,
+        1369,
+        1376,
+        1386,
+        1387,
+        1397,
+        1405,
+        1418,
+        1422,
+        1431,
+        1437,
+        1440,
+        1452,
+        1458,
+        1478,
+        1480,
+        1484,
+        1488,
+        1491,
+        1505,
+        1512,
+        1513,
+        1524,
+        1533,
+        1543,
+        1548,
+        1549,
+        1559,
+        1561,
+        1575
+      ]
+    },
+    "Classic - Balanced": {
+      "changed_rows": 1,
+      "prior_failure_count": 52,
+      "failure_count": 52,
+      "resolved": [],
+      "new": [],
+      "persisting": [
+        1339,
+        1345,
+        1359,
+        1361,
+        1362,
+        1365,
+        1366,
+        1368,
+        1376,
+        1383,
+        1384,
+        1385,
+        1386,
+        1394,
+        1404,
+        1410,
+        1415,
+        1418,
+        1420,
+        1423,
+        1426,
+        1428,
+        1429,
+        1433,
+        1439,
+        1448,
+        1463,
+        1466,
+        1476,
+        1486,
+        1487,
+        1489,
+        1497,
+        1503,
+        1504,
+        1512,
+        1514,
+        1519,
+        1527,
+        1529,
+        1534,
+        1536,
+        1540,
+        1544,
+        1545,
+        1556,
+        1562,
+        1563,
+        1568,
+        1569,
+        1570,
+        1572
+      ]
+    },
+    "Classic - Conservative": {
+      "changed_rows": 0,
+      "prior_failure_count": 0,
+      "failure_count": 0,
+      "resolved": [],
+      "new": [],
+      "persisting": []
+    },
+    "Classic - Resource Manager": {
+      "changed_rows": 0,
+      "prior_failure_count": 0,
+      "failure_count": 0,
+      "resolved": [],
+      "new": [],
+      "persisting": []
+    },
+    "Deep - Aggressive": {
+      "changed_rows": 102,
+      "prior_failure_count": 40,
+      "failure_count": 42,
+      "resolved": [
+        1387,
+        1422,
+        1446,
+        1571
+      ],
+      "new": [
+        1403,
+        1421,
+        1443,
+        1450,
+        1465,
+        1513
+      ],
+      "persisting": [
+        1339,
+        1341,
+        1344,
+        1358,
+        1363,
+        1367,
+        1374,
+        1375,
+        1390,
+        1400,
+        1405,
+        1406,
+        1407,
+        1418,
+        1424,
+        1430,
+        1464,
+        1475,
+        1480,
+        1481,
+        1484,
+        1494,
+        1501,
+        1505,
+        1512,
+        1523,
+        1524,
+        1526,
+        1530,
+        1533,
+        1544,
+        1547,
+        1550,
+        1566,
+        1573,
+        1575
+      ]
+    },
+    "Deep - Balanced": {
+      "changed_rows": 1,
+      "prior_failure_count": 75,
+      "failure_count": 74,
+      "resolved": [
+        1380
+      ],
+      "new": [],
+      "persisting": [
+        1338,
+        1339,
+        1341,
+        1344,
+        1349,
+        1350,
+        1359,
+        1362,
+        1365,
+        1366,
+        1367,
+        1369,
+        1384,
+        1386,
+        1387,
+        1388,
+        1392,
+        1397,
+        1398,
+        1400,
+        1401,
+        1404,
+        1405,
+        1406,
+        1410,
+        1411,
+        1412,
+        1415,
+        1418,
+        1422,
+        1432,
+        1433,
+        1440,
+        1441,
+        1446,
+        1450,
+        1451,
+        1456,
+        1465,
+        1466,
+        1471,
+        1472,
+        1474,
+        1475,
+        1479,
+        1480,
+        1481,
+        1486,
+        1491,
+        1496,
+        1498,
+        1504,
+        1505,
+        1507,
+        1510,
+        1516,
+        1518,
+        1527,
+        1529,
+        1531,
+        1535,
+        1536,
+        1537,
+        1540,
+        1543,
+        1547,
+        1550,
+        1555,
+        1556,
+        1557,
+        1563,
+        1570,
+        1577,
+        1583
+      ]
+    },
+    "Deep - Conservative": {
+      "changed_rows": 0,
+      "prior_failure_count": 0,
+      "failure_count": 0,
+      "resolved": [],
+      "new": [],
+      "persisting": []
+    },
+    "Deep - Resource Manager": {
+      "changed_rows": 0,
+      "prior_failure_count": 0,
+      "failure_count": 0,
+      "resolved": [],
+      "new": [],
+      "persisting": []
+    }
+  },
+  "changed_rows": [
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1339,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1341,
+      "fields": {
+        "final_supplies": {
+          "before": "16",
+          "after": "20"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.920"
+        },
+        "rotation_events": {
+          "before": "5",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||camp|crossing_pass||||||||repair|camp|crossing_pass||||",
+          "after": "|||||crossing_pass||||camp|crossing_pass||||||||repair|crossing_pass||camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1346,
+      "fields": {
+        "vehicle_breakdowns": {
+          "before": "2",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "14200",
+          "after": "15700"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "143.79"
+        },
+        "days_with_repair": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.875"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||repair||crossing_pass|||camp||||||crossing_pass|repair|camp|||",
+          "after": "||||crossing_pass|||repair||crossing_pass|||camp||||||crossing_pass|||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1350,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1352,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "rotation_events": {
+          "before": "5",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "camp||||||crossing_pass|||||crossing_pass|camp||||||camp|||crossing_pass|||",
+          "after": "camp||||||crossing_pass|||||crossing_pass|camp|||||||camp||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1356,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1357,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1361,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1362,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "14900",
+          "after": "15400"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.885",
+          "after": "0.920"
+        },
+        "unique_per_20_days": {
+          "before": "6.15",
+          "after": "6.40"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||crossing_pass|camp||||||||camp||crossing_pass|||camp|",
+          "after": "|||||crossing_pass|||||crossing_pass|camp||||||||crossing_pass|camp||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1365,
+      "fields": {
+        "final_supplies": {
+          "before": "19",
+          "after": "20"
+        },
+        "travel_days": {
+          "before": "24",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.920"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1368,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1370,
+      "fields": {
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||camp|crossing_pass|||||camp||||crossing_pass|||",
+          "after": "|||||crossing_pass|||||camp|crossing_pass||||||camp|||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1371,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1375,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1377,
+      "fields": {
+        "encounters_faced": {
+          "before": "8",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "1"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "9"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "unique_per_20_days": {
+          "before": "6.40",
+          "after": "7.20"
+        },
+        "rotation_events": {
+          "before": "5",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||camp||||crossing_pass|||camp|||||crossing_pass|camp||||",
+          "after": "|||||crossing_pass||camp||||crossing_pass|||||||camp||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1380,
+      "fields": {
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||crossing_pass||camp|||||||crossing_pass|camp|||camp|",
+          "after": "||||crossing_pass||||||crossing_pass||camp|||||||crossing_pass|camp||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1385,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1386,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1387,
+      "fields": {
+        "final_supplies": {
+          "before": "19",
+          "after": "16"
+        },
+        "final_budget_cents": {
+          "before": "12700",
+          "after": "13200"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "4",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "131.29"
+        },
+        "travel_ratio": {
+          "before": "0.846",
+          "after": "0.885"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|camp||||||crossing_pass|camp||||||camp|||crossing_pass;camp||||",
+          "after": "||||crossing_pass|camp||||||crossing_pass|camp|||||||camp||crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1388,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1392,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "0"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.885",
+          "after": "0.920"
+        },
+        "unique_per_20_days": {
+          "before": "6.92",
+          "after": "7.20"
+        },
+        "rotation_events": {
+          "before": "8",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||camp||||crossing_pass||||camp||repair|||crossing_pass|||camp||",
+          "after": "||||crossing_pass|||camp||||crossing_pass|||||camp|repair|||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1395,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "26"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "15400",
+          "after": "14500"
+        },
+        "travel_days": {
+          "before": "24",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.885"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.15"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "||||detour||||||detour||||camp||||camp||crossing_pass||||",
+          "after": "||||detour||||||detour||||camp||||||crossing_pass|camp||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1396,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "exec_order_cooldown": {
+          "before": "7",
+          "after": "8"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||||||camp|||crossing_pass||||camp|",
+          "after": "||||crossing_pass|||||crossing_pass||||||camp|||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1400,
+      "fields": {
+        "final_hp": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "19"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "2"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "exec_order_cooldown": {
+          "before": "3",
+          "after": "4"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.920"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||repair|||repair||crossing_pass;camp||||||||crossing_pass|camp|||camp|",
+          "after": "||||crossing_pass||repair|||repair||crossing_pass;camp|||||||||crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1401,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "16000",
+          "after": "14500"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1403,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "25"
+        },
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "20"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "11300",
+          "after": "10800"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.880"
+        },
+        "unique_per_20_days": {
+          "before": "7.50",
+          "after": "8.00"
+        },
+        "rotation_events": {
+          "before": "5",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||repair|crossing_pass||camp|||repair||||crossing_pass|camp||||",
+          "after": "||||crossing_pass||||repair|crossing_pass||camp|||repair||||crossing_pass|||camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1404,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "5.83",
+          "after": "6.09"
+        },
+        "day_reason_history": {
+          "before": "||||camp|crossing_pass|||||crossing_pass|||||camp||||crossing_pass||||",
+          "after": "||||camp|crossing_pass|||||crossing_pass|||||camp||||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1405,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1407,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1413,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1414,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1416,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "15000",
+          "after": "14500"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "120.78"
+        },
+        "exec_order_days_remaining": {
+          "before": "2",
+          "after": "1"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.885",
+          "after": "0.962"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||camp||||detour|camp||||||||crossing_pass||camp|||",
+          "after": "|||||crossing_pass||camp||||detour|camp||||||||camp||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1420,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "exec_order_active": {
+          "before": "shutdown",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "2",
+          "after": "0"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.880"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.40"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1421,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1422,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1424,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1433,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1436,
+      "fields": {
+        "days_survived": {
+          "before": "21",
+          "after": "19"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "8",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "10100",
+          "after": "8800"
+        },
+        "miles_traveled": {
+          "before": "1927.1",
+          "after": "1902.2"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "153.94",
+          "after": "151.96"
+        },
+        "exec_order_cooldown": {
+          "before": "2",
+          "after": "4"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.857",
+          "after": "0.947"
+        },
+        "unique_per_20_days": {
+          "before": "7.62",
+          "after": "8.00"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||crossing_pass|camp|||repair|||camp|||crossing_fail",
+          "after": "|||||crossing_pass|||||crossing_pass|camp|||repair||||crossing_fail"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1437,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1438,
+      "fields": {
+        "final_supplies": {
+          "before": "17",
+          "after": "20"
+        },
+        "final_budget_cents": {
+          "before": "14200",
+          "after": "13700"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||camp|||detour|||||||||detour|camp|||",
+          "after": "|||||crossing_pass||||camp|||detour|||||||detour||||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1439,
+      "fields": {
+        "final_supplies": {
+          "before": "14",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "15500",
+          "after": "15000"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "131.29"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.880",
+          "after": "0.920"
+        },
+        "day_reason_history": {
+          "before": "|||repair||crossing_pass||||camp||crossing_pass|||||camp||||crossing_pass|||camp|",
+          "after": "|||repair||crossing_pass||||camp||crossing_pass|||||||camp|||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1441,
+      "fields": {
+        "final_supplies": {
+          "before": "20",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "12900",
+          "after": "13400"
+        },
+        "travel_days": {
+          "before": "24",
+          "after": "25"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "120.78"
+        },
+        "exec_order_cooldown": {
+          "before": "7",
+          "after": "6"
+        },
+        "travel_ratio": {
+          "before": "0.923",
+          "after": "0.962"
+        },
+        "day_reason_history": {
+          "before": "repair|||||detour||||camp||crossing_pass|||||||camp||crossing_pass|||camp||",
+          "after": "repair|||||detour||||camp||crossing_pass|||||||camp||crossing_pass||||camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1442,
+      "fields": {
+        "final_hp": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "20"
+        },
+        "partial_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "exec_order_cooldown": {
+          "before": "0",
+          "after": "1"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.920"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||camp|repair||detour|||||||||crossing_pass|camp||||",
+          "after": "||||crossing_pass|||camp|repair||detour|||||||||crossing_pass|||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1446,
+      "fields": {
+        "final_sanity": {
+          "before": "4",
+          "after": "5"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1450,
+      "fields": {
+        "final_supplies": {
+          "before": "18",
+          "after": "20"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "116.14",
+          "after": "120.78"
+        },
+        "exec_order_cooldown": {
+          "before": "1",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.963",
+          "after": "0.926"
+        },
+        "day_reason_history": {
+          "before": "|||||detour|||||detour|||||camp||||||crossing_pass|camp||||",
+          "after": "|||||detour|||||detour|||||camp||||||crossing_pass||camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1452,
+      "fields": {
+        "vehicle_breakdowns": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "15000",
+          "after": "11900"
+        },
+        "repairs_spent_cents": {
+          "before": "0",
+          "after": "3100"
+        },
+        "days_with_repair": {
+          "before": "0",
+          "after": "1"
+        },
+        "day_reason_history": {
+          "before": "|||camp|||crossing_pass|||||crossing_pass|||camp||||||crossing_pass||camp|||",
+          "after": "|||camp|||crossing_pass|||||crossing_pass|||camp|||||||repair;crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1453,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1455,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1456,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "24"
+        },
+        "encounters_faced": {
+          "before": "8",
+          "after": "9"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "9"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "|||||detour|||||crossing_pass||||camp||||crossing_pass||||",
+          "after": "|||||detour|||||crossing_pass||||camp||||crossing_pass|||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1457,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "vehicle_breakdowns": {
+          "before": "2",
+          "after": "1"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "10300",
+          "after": "12500"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "23",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "days_with_repair": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.880"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp||||camp|||crossing_pass;repair||repair|||camp|",
+          "after": "||||crossing_pass|||||crossing_pass||camp||||||camp||repair|crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1461,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "7"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "|camp||||crossing_pass||||crossing_pass||||||||camp|crossing_pass||||camp|",
+          "after": "|camp||||crossing_pass||||crossing_pass||||||||camp|crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1465,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "19"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "4",
+          "after": "5"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.67"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||camp||crossing_pass||||||||detour||||camp||",
+          "after": "||||crossing_pass||||camp||crossing_pass||||||||detour|||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1466,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "26"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "exposure_streak_heat": {
+          "before": "2",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.923"
+        },
+        "unique_per_20_days": {
+          "before": "8.80",
+          "after": "8.46"
+        },
+        "day_reason_history": {
+          "before": "||||||detour|||||camp|detour|||||camp||||crossing_pass||camp|repair",
+          "after": "||||||detour|||||camp|detour|||||camp||||crossing_pass|||camp|repair"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1468,
+      "fields": {
+        "final_supplies": {
+          "before": "17",
+          "after": "20"
+        },
+        "final_budget_cents": {
+          "before": "15400",
+          "after": "14900"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|||camp|||||||crossing_pass|camp|||",
+          "after": "||||crossing_pass|||||crossing_pass|||camp||||||crossing_pass|||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1471,
+      "fields": {
+        "final_supplies": {
+          "before": "18",
+          "after": "20"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "exec_order_cooldown": {
+          "before": "8",
+          "after": "9"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||camp|crossing_pass|||||||camp|crossing_pass||||",
+          "after": "||||crossing_pass||||||camp|crossing_pass|||||||crossing_pass|camp||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1478,
+      "fields": {
+        "final_supplies": {
+          "before": "20",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||crossing_pass;repair|camp|||||||crossing_pass|||camp||",
+          "after": "||||crossing_pass||||||crossing_pass;repair|camp||||||||crossing_pass||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1480,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1484,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1486,
+      "fields": {
+        "final_hp": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "18"
+        },
+        "final_budget_cents": {
+          "before": "16000",
+          "after": "15500"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "143.79",
+          "after": "137.25"
+        },
+        "travel_ratio": {
+          "before": "0.875",
+          "after": "0.917"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||camp|||crossing_pass|||||||camp|||crossing_pass|camp|||",
+          "after": "||||crossing_pass||camp|||crossing_pass||||||||camp||crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1491,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1492,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "18"
+        },
+        "final_budget_cents": {
+          "before": "15000",
+          "after": "15500"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "5",
+          "after": "8"
+        },
+        "unique_per_20_days": {
+          "before": "7.50",
+          "after": "6.67"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||camp|crossing_pass|||||camp|||crossing_pass||||",
+          "after": "||||crossing_pass||||||camp|crossing_pass||||||camp|||crossing_pass|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1494,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1495,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "25"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "20"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "15500",
+          "after": "15000"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.880"
+        },
+        "unique_per_20_days": {
+          "before": "8.33",
+          "after": "8.00"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||crossing_pass||||camp||||crossing_pass|camp||||",
+          "after": "||||crossing_pass||||||crossing_pass||||camp|||||crossing_pass|||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1497,
+      "fields": {
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "encounters_faced": {
+          "before": "8",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "19"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "9"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "unique_per_20_days": {
+          "before": "6.40",
+          "after": "7.20"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||||repair|crossing_pass||repair||||crossing_pass||||camp|repair||||crossing_pass|||camp|",
+          "after": "||||repair|crossing_pass||repair||||crossing_pass||||camp|repair||||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1498,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "encounters_faced": {
+          "before": "8",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "16000",
+          "after": "15500"
+        },
+        "partial_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "8.33"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||crossing_pass|camp|||||||camp||crossing_pass||||",
+          "after": "|||||crossing_pass||||crossing_pass|camp||||||||camp|crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1502,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1505,
+      "fields": {
+        "encounters_faced": {
+          "before": "10",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "17",
+          "after": "20"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "16000",
+          "after": "15500"
+        },
+        "partial_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "4"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "143.79"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "7"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.880",
+          "after": "0.840"
+        },
+        "unique_per_20_days": {
+          "before": "8.00",
+          "after": "6.40"
+        },
+        "day_reason_history": {
+          "before": "||||camp|crossing_pass|||||crossing_pass|camp|||||||||crossing_pass||camp||",
+          "after": "||||camp|crossing_pass|||||crossing_pass||camp||||||||crossing_pass||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1506,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1507,
+      "fields": {
+        "final_supplies": {
+          "before": "19",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "15000",
+          "after": "15500"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||||camp||crossing_pass|||camp||",
+          "after": "||||crossing_pass|||||crossing_pass||camp|||||camp||crossing_pass||||camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1508,
+      "fields": {
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||crossing_pass||camp|||||camp|||crossing_pass|||",
+          "after": "|||||crossing_pass|||||crossing_pass||camp|||||||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1509,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "9",
+          "after": "4"
+        },
+        "miles_traveled": {
+          "before": "1924.4",
+          "after": "1923.2"
+        },
+        "travel_days": {
+          "before": "17",
+          "after": "18"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "153.73",
+          "after": "145.55"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.900",
+          "after": "0.950"
+        },
+        "day_reason_history": {
+          "before": "||camp|||crossing_pass|||||crossing_pass||||camp||||camp|crossing_fail",
+          "after": "||camp|||crossing_pass|||||crossing_pass||||camp|||||crossing_fail"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1510,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "ending_type": {
+          "before": "Boss Vote Failed - Game Over",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss_vote_failed",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||crossing_pass||||camp|||||detour||||camp|",
+          "after": "|||||crossing_pass|||||crossing_pass||||camp|||||detour||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1523,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "14000",
+          "after": "14500"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "exec_order_active": {
+          "before": "",
+          "after": "book_panic"
+        },
+        "exec_order_days_remaining": {
+          "before": "0",
+          "after": "3"
+        },
+        "travel_ratio": {
+          "before": "0.923",
+          "after": "0.960"
+        },
+        "unique_per_20_days": {
+          "before": "6.15",
+          "after": "6.40"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||repair||crossing_pass|camp||||camp||||crossing_pass|||||",
+          "after": "||||crossing_pass|||||repair||crossing_pass|camp||||||camp||crossing_pass||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1532,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1534,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "14500",
+          "after": "15000"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "131.29"
+        },
+        "travel_ratio": {
+          "before": "0.880",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "6.40",
+          "after": "6.67"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||||||camp||||crossing_pass|||camp||",
+          "after": "||||crossing_pass|||||crossing_pass||||||camp||||crossing_pass|||camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1535,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "14900",
+          "after": "15400"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "137.25",
+          "after": "131.29"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||detour|||camp||||||detour||camp|||",
+          "after": "||||crossing_pass|||||detour|||camp||||||detour||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1536,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "14300",
+          "after": "14800"
+        },
+        "partial_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "120.78",
+          "after": "125.82"
+        },
+        "exec_order_cooldown": {
+          "before": "4",
+          "after": "5"
+        },
+        "exposure_streak_heat": {
+          "before": "0",
+          "after": "1"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.962",
+          "after": "0.960"
+        },
+        "unique_per_20_days": {
+          "before": "8.46",
+          "after": "8.80"
+        },
+        "day_reason_history": {
+          "before": "|camp||||crossing_pass|||||crossing_pass||camp|||||repair||crossing_pass||||camp||",
+          "after": "|camp||||crossing_pass|||||crossing_pass||camp|||||repair|||crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1539,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1540,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "24",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "131.29"
+        },
+        "exposure_streak_heat": {
+          "before": "0",
+          "after": "1"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.923",
+          "after": "0.885"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||camp||crossing_pass|||||camp||||crossing_pass||||camp|",
+          "after": "|||||crossing_pass||||camp||crossing_pass|||||camp||||crossing_pass|||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1544,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1554,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "13",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.962",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "8.46",
+          "after": "8.80"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|camp|||||detour||||camp||||||crossing_pass||repair||camp|",
+          "after": "||||crossing_pass|camp|||||detour||||camp||||||crossing_pass||repair||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1556,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "vehicle_breakdowns": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "15500",
+          "after": "12400"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "partial_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "125.82"
+        },
+        "repairs_spent_cents": {
+          "before": "0",
+          "after": "3100"
+        },
+        "days_with_repair": {
+          "before": "0",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "1.000"
+        },
+        "rotation_events": {
+          "before": "8",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||||detour|||||crossing_pass|camp||||||||camp|crossing_pass||||",
+          "after": "||||detour|||||crossing_pass|camp||||||||camp|crossing_pass||repair||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1559,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1560,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1564,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1567,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "7"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "19"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "7"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "5.60"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||camp|crossing_pass|||||||camp|||detour;camp||||",
+          "after": "||||crossing_pass|||||camp|crossing_pass|||||||camp|||detour||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1568,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_hp": {
+          "before": "7",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "18",
+          "after": "17"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||||||crossing_pass||camp|||",
+          "after": "||||crossing_pass|||||crossing_pass||camp||||||||crossing_pass|camp|||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1571,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "3"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|repair||||camp||crossing_pass||||||||camp||crossing_pass|||",
+          "after": "||||crossing_pass|repair||||camp||crossing_pass||||||||crossing_pass|||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1576,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1577,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Boss Vote Failed - Game Over"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss_vote_failed"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1578,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1580,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1583,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "18"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "131.29",
+          "after": "137.25"
+        },
+        "exec_order_cooldown": {
+          "before": "3",
+          "after": "4"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "day_reason_history": {
+          "before": "||||detour|||||crossing_pass||||||camp|||crossing_pass||||camp|",
+          "after": "||||detour|||||crossing_pass||||||camp|||crossing_pass|||||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1585,
+      "fields": {
+        "final_supplies": {
+          "before": "17",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "13100",
+          "after": "13600"
+        },
+        "partial_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "125.82",
+          "after": "120.78"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "1.000"
+        },
+        "day_reason_history": {
+          "before": "repair|||||detour||||||crossing_pass||||||camp|||crossing_pass||camp||",
+          "after": "repair|||||detour||||||crossing_pass||||||camp|||crossing_pass|||camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Aggressive",
+      "seed": 1586,
+      "fields": {
+        "day_reason_history": {
+          "before": "|||repair|crossing_pass||||||detour||camp|||||||crossing_pass|||camp||",
+          "after": "|||repair|crossing_pass||||||detour||camp||||||||crossing_pass||camp||"
+        }
+      }
+    },
+    {
+      "scenario": "Classic - Balanced",
+      "seed": 1583,
+      "fields": {
+        "final_supplies": {
+          "before": "18",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "24200",
+          "after": "24700"
+        },
+        "travel_days": {
+          "before": "20",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "134.38",
+          "after": "128.53"
+        },
+        "exec_order_cooldown": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.958"
+        },
+        "day_reason_history": {
+          "before": "||||detour|||||crossing_pass||||||camp|crossing_pass|||||camp||",
+          "after": "||||detour|||||crossing_pass||||||camp|crossing_pass||||||camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1337,
+      "fields": {
+        "days_survived": {
+          "before": "22",
+          "after": "24"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "11"
+        },
+        "final_budget_cents": {
+          "before": "11400",
+          "after": "13200"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "141.57",
+          "after": "135.14"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.955",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "7.27",
+          "after": "6.67"
+        },
+        "day_reason_history": {
+          "before": "||||repair|crossing_pass||||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|endgame_active",
+          "after": "||||repair|crossing_pass||||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1338,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1339,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1342,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "8",
+          "after": "7"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "3"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "7"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "6.09"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "||||camp|crossing_pass||||detour||||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||camp|crossing_pass||||detour|||||||endgame_activate;endgame_active|camp|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1344,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "13",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "12100"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.40"
+        },
+        "day_reason_history": {
+          "before": "||||detour||||||crossing_pass||camp||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;detour|endgame_active|endgame_active|endgame_active",
+          "after": "||||detour||||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;detour|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1346,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "10"
+        },
+        "final_budget_cents": {
+          "before": "13100",
+          "after": "13600"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass;repair;endgame_cooldown|camp|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass;repair;endgame_cooldown|endgame_active;endgame_cooldown|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1349,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1351,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1352,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1356,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "11",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "exec_order_cooldown": {
+          "before": "4",
+          "after": "5"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "7.50",
+          "after": "7.83"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||detour||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active",
+          "after": "||||crossing_pass|||||detour||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1357,
+      "fields": {
+        "final_supplies": {
+          "before": "14",
+          "after": "11"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "12700",
+          "after": "13200"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||detour|camp||||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||crossing_pass||||||detour|camp||||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1360,
+      "fields": {
+        "vehicle_breakdowns": {
+          "before": "1",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "13000",
+          "after": "15700"
+        },
+        "miles_traveled": {
+          "before": "2059.7",
+          "after": "2061.7"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "134.62",
+          "after": "141.17"
+        },
+        "repairs_spent_cents": {
+          "before": "2700",
+          "after": "0"
+        },
+        "days_with_repair": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "0.913"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active;repair|endgame_active;endgame_cooldown|",
+          "after": "||||crossing_pass|||||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|"
+        },
+        "endgame_cooldown_days": {
+          "before": "1",
+          "after": "0"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1364,
+      "fields": {
+        "final_supplies": {
+          "before": "16",
+          "after": "15"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||camp||detour|||||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|",
+          "after": "||||crossing_pass||||camp||detour|||||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1365,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "14"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2055.4"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "134.34"
+        },
+        "exec_order_active": {
+          "before": "doe_eliminated",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "day_reason_history": {
+          "before": "||||repair|crossing_pass|||||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|endgame_active",
+          "after": "||||repair|crossing_pass|||||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1370,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "encounters_faced": {
+          "before": "7",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "9",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "15100",
+          "after": "14600"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "unique_encounters": {
+          "before": "7",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "5.83",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||camp|crossing_pass|||||camp|endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active",
+          "after": "|||||crossing_pass|||||camp|crossing_pass|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1371,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1374,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1376,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "13100"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "travel_days": {
+          "before": "20",
+          "after": "21"
+        },
+        "partial_travel_days": {
+          "before": "3",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "135.14"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "9"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "8.00",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "||||camp|crossing_pass|||||crossing_pass|||||||camp||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|",
+          "after": "||||camp|crossing_pass|||||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1377,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "23"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "129.26"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.958"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||camp|||crossing_pass|||camp||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|",
+          "after": "|||||crossing_pass||camp|||crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1380,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "24"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "14200",
+          "after": "13700"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "6.67"
+        },
+        "day_reason_history": {
+          "before": "||camp|||crossing_pass||||camp|crossing_pass|||||||endgame_activate;endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||camp|||crossing_pass||||||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1381,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "12700",
+          "after": "13200"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "unique_per_20_days": {
+          "before": "7.83",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|camp|||||||camp|endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass|camp|||||||endgame_activate;endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1387,
+      "fields": {
+        "final_hp": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "3"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "129.26"
+        },
+        "days_with_camp": {
+          "before": "4",
+          "after": "3"
+        },
+        "travel_ratio": {
+          "before": "0.880",
+          "after": "0.920"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|camp||||||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|",
+          "after": "||||crossing_pass|camp||||||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1388,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1391,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "2"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1392,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "12",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||camp||||crossing_pass|||||camp|repair||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active",
+          "after": "||||crossing_pass||camp||||crossing_pass|||||camp|repair||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1399,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1403,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "3"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2056.2"
+        },
+        "travel_days": {
+          "before": "20",
+          "after": "19"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "140.79"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.875"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||camp|crossing_pass|repair|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|endgame_active|",
+          "after": "||||crossing_pass|||||camp|crossing_pass|repair|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1405,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1406,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1410,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "16",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "2"
+        },
+        "final_budget_cents": {
+          "before": "11400",
+          "after": "13700"
+        },
+        "miles_traveled": {
+          "before": "2063.4",
+          "after": "2067.6"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "134.87",
+          "after": "135.14"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "7.50",
+          "after": "7.83"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|camp|||detour|||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|",
+          "after": "|||||crossing_pass|camp|||detour|||camp|||||endgame_activate;endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1412,
+      "fields": {
+        "final_supplies": {
+          "before": "15",
+          "after": "14"
+        },
+        "final_budget_cents": {
+          "before": "11600",
+          "after": "12100"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|repair||||||camp|crossing_pass||||||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|",
+          "after": "||||crossing_pass|repair||||||camp|crossing_pass||||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1413,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "22"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "vehicle_breakdowns": {
+          "before": "2",
+          "after": "1"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "11700",
+          "after": "13700"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "0"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "days_with_repair": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.913",
+          "after": "0.955"
+        },
+        "unique_per_20_days": {
+          "before": "7.83",
+          "after": "7.27"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "|repair|||crossing_pass||||||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;repair;endgame_cooldown|camp|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "|repair|||crossing_pass||||||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1415,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1416,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||camp||||detour||camp||||camp|endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "|||||crossing_pass||camp||||detour||camp|||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1417,
+      "fields": {
+        "final_supplies": {
+          "before": "12",
+          "after": "15"
+        },
+        "exec_order_active": {
+          "before": "shutdown",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "3",
+          "after": "0"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active;camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1420,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "2"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "partial_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "123.87",
+          "after": "129.26"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "travel_ratio": {
+          "before": "1.000",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "7.50",
+          "after": "6.67"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "|repair|||crossing_pass||||||crossing_pass||camp|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "|repair|||crossing_pass||||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1421,
+      "fields": {
+        "final_supplies": {
+          "before": "15",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "141.57"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.875"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||crossing_pass|||camp|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||crossing_pass||||||crossing_pass|||camp|||||endgame_activate;endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1422,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "encounters_faced": {
+          "before": "11",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "14"
+        },
+        "final_budget_cents": {
+          "before": "9500",
+          "after": "10000"
+        },
+        "miles_traveled": {
+          "before": "2065.5",
+          "after": "2067.6"
+        },
+        "travel_days": {
+          "before": "19",
+          "after": "20"
+        },
+        "partial_travel_days": {
+          "before": "4",
+          "after": "3"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "129.13",
+          "after": "129.26"
+        },
+        "unique_encounters": {
+          "before": "11",
+          "after": "10"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.885",
+          "after": "0.920"
+        },
+        "unique_per_20_days": {
+          "before": "8.46",
+          "after": "8.00"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "|||||detour||camp||||crossing_pass||||||camp|repair|endgame_activate;endgame_active;endgame_cooldown|endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|",
+          "after": "|||||detour||camp||||crossing_pass|||||camp|repair|endgame_activate;endgame_active;endgame_cooldown|endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1423,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "135.14"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "1.000",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "7.83",
+          "after": "8.70"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||camp|crossing_pass||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||camp|crossing_pass|||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1424,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1427,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "22"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "9",
+          "after": "12"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "exposure_streak_heat": {
+          "before": "1",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "7.27"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||crossing_pass|||camp|||repair||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active",
+          "after": "|||||crossing_pass||||crossing_pass|||camp|||repair||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1433,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "16"
+        },
+        "final_budget_cents": {
+          "before": "13200",
+          "after": "12700"
+        },
+        "miles_traveled": {
+          "before": "2057.9",
+          "after": "2067.6"
+        },
+        "partial_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "134.50",
+          "after": "141.57"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "7"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "0.913"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "||||detour|||||camp|crossing_pass|||||||endgame_activate;endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|",
+          "after": "||||detour|||||camp|crossing_pass|||||||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1436,
+      "fields": {
+        "final_supplies": {
+          "before": "14",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        },
+        "miles_traveled": {
+          "before": "2061.7",
+          "after": "2067.6"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "134.75",
+          "after": "129.26"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.958"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||camp|crossing_pass|||repair|||endgame_activate;endgame_active|endgame_active;detour|endgame_active|endgame_active|endgame_active;camp|endgame_active|",
+          "after": "|||||crossing_pass|||||camp|crossing_pass|||repair|||endgame_activate;endgame_active|endgame_active;detour|endgame_active|endgame_active|endgame_active|endgame_active;camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1437,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1438,
+      "fields": {
+        "final_supplies": {
+          "before": "15",
+          "after": "10"
+        },
+        "final_budget_cents": {
+          "before": "13700",
+          "after": "14200"
+        },
+        "exec_order_active": {
+          "before": "book_panic",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "1",
+          "after": "0"
+        },
+        "exec_order_cooldown": {
+          "before": "0",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||camp||detour||||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;detour;camp|endgame_active|endgame_active|",
+          "after": "|||||crossing_pass|||camp||detour||||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;detour|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1439,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "12100"
+        },
+        "miles_traveled": {
+          "before": "2062.1",
+          "after": "2067.6"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "134.77",
+          "after": "129.26"
+        },
+        "exec_order_cooldown": {
+          "before": "1",
+          "after": "0"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.958"
+        },
+        "day_reason_history": {
+          "before": "|||repair||crossing_pass||||camp|||crossing_pass|||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|endgame_active|",
+          "after": "|||repair||crossing_pass||||camp|||crossing_pass|||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active;camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1440,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2064.0"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "141.33"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "1.000",
+          "after": "0.955"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||repair|crossing_pass||||camp||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active;camp|endgame_active",
+          "after": "||||crossing_pass||||repair|crossing_pass||||camp||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1442,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "22"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "11",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "11600",
+          "after": "11200"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "7.27"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||camp|repair|||crossing_pass|repair||camp||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active",
+          "after": "||||crossing_pass||camp|repair|||crossing_pass|repair|||||camp|endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1443,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "12"
+        },
+        "final_budget_cents": {
+          "before": "14600",
+          "after": "15100"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "135.14"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.880"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.40"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "|||camp|||crossing_pass|||||detour||||camp|||endgame_activate;endgame_active|endgame_active|endgame_active;camp|endgame_active;crossing_pass|endgame_active|endgame_active|",
+          "after": "|||camp|||crossing_pass|||||detour||||camp|||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass;camp|endgame_active|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1445,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "4"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||camp|detour||||||endgame_activate;endgame_active|endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "|||||crossing_pass|||||camp|detour||||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active;camp|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1446,
+      "fields": {
+        "final_hp": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "2"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "129.26"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.880",
+          "after": "0.920"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass|||||crossing_pass|||camp|repair|||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;detour|camp|endgame_active|",
+          "after": "|||||crossing_pass|||||crossing_pass|||camp|repair|||endgame_activate;endgame_active|endgame_active|endgame_active;detour|endgame_active|endgame_active;camp|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1450,
+      "fields": {
+        "final_supplies": {
+          "before": "14",
+          "after": "10"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "13600"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "141.57"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.875"
+        },
+        "day_reason_history": {
+          "before": "|||||detour|camp|||||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active;camp|endgame_active",
+          "after": "|||||detour|camp|||||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1454,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1455,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1456,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1457,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "25"
+        },
+        "vehicle_breakdowns": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_supplies": {
+          "before": "13",
+          "after": "11"
+        },
+        "final_budget_cents": {
+          "before": "12200",
+          "after": "11200"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "days_with_repair": {
+          "before": "0",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.920"
+        },
+        "unique_per_20_days": {
+          "before": "8.33",
+          "after": "8.00"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||camp|crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active;camp|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||camp|crossing_pass|||||camp|||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass;repair;endgame_cooldown|endgame_active;endgame_cooldown|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1461,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1465,
+      "fields": {
+        "final_budget_cents": {
+          "before": "13700",
+          "after": "15700"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "partial_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "141.57"
+        },
+        "exposure_streak_cold": {
+          "before": "1",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.875"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||camp||||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active;detour|endgame_active|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||camp||||crossing_pass||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;detour|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1467,
+      "fields": {
+        "final_supplies": {
+          "before": "14",
+          "after": "12"
+        },
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "13200",
+          "after": "13700"
+        },
+        "miles_traveled": {
+          "before": "2061.7",
+          "after": "2067.6"
+        },
+        "avg_mpd": {
+          "before": "141.17",
+          "after": "141.57"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|repair||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active;camp|endgame_active|",
+          "after": "||||crossing_pass|||||crossing_pass|repair||||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1468,
+      "fields": {
+        "final_supplies": {
+          "before": "15",
+          "after": "12"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "12700",
+          "after": "13200"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|",
+          "after": "||||crossing_pass|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1469,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1471,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1472,
+      "fields": {
+        "encounters_faced": {
+          "before": "11",
+          "after": "10"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "23"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "129.26"
+        },
+        "unique_encounters": {
+          "before": "11",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "9.17",
+          "after": "8.33"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||camp|||crossing_pass||camp||repair||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "|||||crossing_pass||camp|||crossing_pass||camp||repair||||endgame_activate;endgame_active|endgame_active;camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1482,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "13",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "days_with_camp": {
+          "before": "2",
+          "after": "1"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||camp|crossing_pass|||||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||camp|crossing_pass|||||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1484,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1491,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1492,
+      "fields": {
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "10",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "exec_order_cooldown": {
+          "before": "6",
+          "after": "7"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||camp||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active",
+          "after": "||||crossing_pass||||camp||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1493,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1496,
+      "fields": {
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "14200",
+          "after": "14700"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1498,
+      "fields": {
+        "encounters_faced": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "1"
+        },
+        "partial_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "129.26"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "7.83",
+          "after": "8.70"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||camp|crossing_pass|||||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "|||||crossing_pass||||camp|crossing_pass|||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1504,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "encounters_faced": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "11",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "0"
+        },
+        "final_budget_cents": {
+          "before": "14600",
+          "after": "13600"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "21"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "0"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "9"
+        },
+        "exec_order_active": {
+          "before": "",
+          "after": "book_panic"
+        },
+        "exec_order_days_remaining": {
+          "before": "0",
+          "after": "2"
+        },
+        "exec_order_cooldown": {
+          "before": "8",
+          "after": "0"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "8.00",
+          "after": "7.83"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "5"
+        },
+        "day_reason_history": {
+          "before": "||camp||||detour|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active",
+          "after": "||camp||||detour|||||crossing_pass;camp||||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1505,
+      "fields": {
+        "encounters_faced": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "12"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "15100",
+          "after": "14100"
+        },
+        "travel_days": {
+          "before": "17",
+          "after": "19"
+        },
+        "partial_travel_days": {
+          "before": "4",
+          "after": "2"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "9"
+        },
+        "exec_order_cooldown": {
+          "before": "8",
+          "after": "7"
+        },
+        "exposure_streak_heat": {
+          "before": "1",
+          "after": "0"
+        },
+        "exposure_streak_cold": {
+          "before": "0",
+          "after": "1"
+        },
+        "unique_per_20_days": {
+          "before": "8.33",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "||||camp||crossing_pass|||||camp|crossing_pass|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|",
+          "after": "||||camp||crossing_pass||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1506,
+      "fields": {
+        "days_survived": {
+          "before": "24",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Victory - Boss Defeated",
+          "after": "Sanity Depleted - Game Over"
+        },
+        "ending_cause": {
+          "before": "boss.victory",
+          "after": "sanity"
+        },
+        "final_supplies": {
+          "before": "10",
+          "after": "12"
+        },
+        "final_sanity": {
+          "before": "4",
+          "after": "0"
+        },
+        "boss_won": {
+          "before": "true",
+          "after": "false"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "exec_order_cooldown": {
+          "before": "7",
+          "after": "8"
+        },
+        "days_with_camp": {
+          "before": "3",
+          "after": "2"
+        },
+        "travel_ratio": {
+          "before": "0.917",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "6.96"
+        },
+        "day_reason_history": {
+          "before": "|||||crossing_pass||||camp|crossing_pass|||||||endgame_activate;endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|camp|endgame_active",
+          "after": "|||||crossing_pass||||camp|crossing_pass|||||||endgame_activate;endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1507,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1508,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "14"
+        },
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "travel_ratio": {
+          "before": "0.920",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "|||||detour|||||camp|crossing_pass||||||camp||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|",
+          "after": "|||||detour|||||camp|crossing_pass||||||endgame_activate;endgame_active|camp|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1509,
+      "fields": {
+        "encounters_faced": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "14",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "4"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2057.9"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "20"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "134.50"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "9"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "8.33",
+          "after": "7.50"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||camp|||crossing_pass||||crossing_pass||||repair|camp||endgame_activate;endgame_active|endgame_active|endgame_active;camp|endgame_active|endgame_active;detour|endgame_active|endgame_active|",
+          "after": "||camp|||crossing_pass||||crossing_pass||||repair|camp||endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;detour|camp|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1513,
+      "fields": {
+        "final_supplies": {
+          "before": "15",
+          "after": "16"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "20"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "3"
+        },
+        "avg_mpd": {
+          "before": "141.57",
+          "after": "148.65"
+        },
+        "exec_order_active": {
+          "before": "book_panic",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "3",
+          "after": "0"
+        },
+        "travel_ratio": {
+          "before": "0.913",
+          "after": "0.870"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|||camp||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass|||camp||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1516,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "12",
+          "after": "10"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "4"
+        },
+        "final_budget_cents": {
+          "before": "13700",
+          "after": "14200"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "unique_encounters": {
+          "before": "10",
+          "after": "9"
+        },
+        "exec_order_active": {
+          "before": "travel_ban_lite",
+          "after": ""
+        },
+        "exec_order_days_remaining": {
+          "before": "3",
+          "after": "0"
+        },
+        "unique_per_20_days": {
+          "before": "8.33",
+          "after": "7.50"
+        },
+        "day_reason_history": {
+          "before": "|||camp||detour|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "|||camp||detour|||||crossing_pass||camp|||||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1519,
+      "fields": {
+        "days_survived": {
+          "before": "25",
+          "after": "24"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "8"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "13"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "12200"
+        },
+        "partial_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "123.87",
+          "after": "129.26"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "8"
+        },
+        "exec_order_cooldown": {
+          "before": "5",
+          "after": "6"
+        },
+        "travel_ratio": {
+          "before": "0.960",
+          "after": "0.958"
+        },
+        "unique_per_20_days": {
+          "before": "7.20",
+          "after": "6.67"
+        },
+        "rotation_events": {
+          "before": "7",
+          "after": "6"
+        },
+        "day_reason_history": {
+          "before": "|||||detour||camp||||crossing_pass||||camp|||camp|endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "|||||detour||camp||||crossing_pass||||camp|||endgame_activate;endgame_active;camp|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1520,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1525,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1528,
+      "fields": {
+        "final_supplies": {
+          "before": "13",
+          "after": "15"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "13700",
+          "after": "13200"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|||camp|||||camp|endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass|||camp||||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1534,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass|camp|||||||endgame_activate;endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||crossing_pass|camp|||||||endgame_activate;endgame_active|endgame_active;crossing_pass|camp|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1535,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1536,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "partial_travel_days": {
+          "before": "2",
+          "after": "1"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "135.14"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "0.917"
+        },
+        "day_reason_history": {
+          "before": "|camp||||crossing_pass|||||crossing_pass|||camp||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "|camp||||crossing_pass|||||crossing_pass|||camp||||endgame_activate;endgame_active|endgame_active|camp|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1547,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1549,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1555,
+      "fields": {
+        "days_survived": {
+          "before": "22",
+          "after": "23"
+        },
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "9",
+          "after": "10"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "15100",
+          "after": "13100"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2056.5"
+        },
+        "non_travel_days": {
+          "before": "0",
+          "after": "1"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "134.41"
+        },
+        "unique_encounters": {
+          "before": "9",
+          "after": "10"
+        },
+        "travel_ratio": {
+          "before": "1.000",
+          "after": "0.957"
+        },
+        "unique_per_20_days": {
+          "before": "8.18",
+          "after": "8.70"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||crossing_pass||camp||||endgame_activate;endgame_active;camp|endgame_active|endgame_active|endgame_active;detour|endgame_active|endgame_active",
+          "after": "||||crossing_pass||||||crossing_pass||camp||||endgame_activate;endgame_active|endgame_active|endgame_active;camp|endgame_active;detour|endgame_active|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1557,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "final_budget_cents": {
+          "before": "13100",
+          "after": "14600"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "travel_days": {
+          "before": "23",
+          "after": "24"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "129.26",
+          "after": "123.87"
+        },
+        "travel_ratio": {
+          "before": "0.958",
+          "after": "1.000"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||repair||crossing_pass|camp|||||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||||repair||crossing_pass|camp|||||endgame_activate;endgame_active|endgame_active;camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1558,
+      "fields": {
+        "miles_traveled": {
+          "before": "2050.2",
+          "after": "2050.6"
+        },
+        "avg_mpd": {
+          "before": "134.00",
+          "after": "134.02"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1560,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1562,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "22"
+        },
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "encounters_faced": {
+          "before": "8",
+          "after": "7"
+        },
+        "final_supplies": {
+          "before": "15",
+          "after": "13"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "13200",
+          "after": "14200"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        },
+        "travel_days": {
+          "before": "20",
+          "after": "21"
+        },
+        "non_travel_days": {
+          "before": "2",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "141.57",
+          "after": "135.14"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "7"
+        },
+        "travel_ratio": {
+          "before": "0.913",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "6.36"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass|||||crossing_pass||camp|||camp|||endgame_activate;endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|endgame_active|",
+          "after": "||||crossing_pass|||||crossing_pass||camp||||camp||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1564,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1565,
+      "fields": {
+        "day_reason_history": {
+          "before": "||||crossing_pass|||camp|||crossing_pass|||||camp|||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||crossing_pass|||camp|||crossing_pass||||||camp||endgame_activate;endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1569,
+      "fields": {
+        "ending_type": {
+          "before": "Sanity Depleted - Game Over",
+          "after": "Victory - Boss Defeated"
+        },
+        "ending_cause": {
+          "before": "sanity",
+          "after": "boss.victory"
+        },
+        "final_sanity": {
+          "before": "0",
+          "after": "1"
+        },
+        "boss_won": {
+          "before": "false",
+          "after": "true"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1571,
+      "fields": {
+        "encounters_faced": {
+          "before": "8",
+          "after": "9"
+        },
+        "final_budget_cents": {
+          "before": "12600",
+          "after": "12100"
+        },
+        "travel_days": {
+          "before": "21",
+          "after": "22"
+        },
+        "non_travel_days": {
+          "before": "3",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "141.57",
+          "after": "135.14"
+        },
+        "unique_encounters": {
+          "before": "8",
+          "after": "9"
+        },
+        "travel_ratio": {
+          "before": "0.875",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "6.67",
+          "after": "7.50"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||repair|||camp||crossing_pass|||||camp||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|",
+          "after": "||||crossing_pass||repair|||camp||crossing_pass||||||camp|endgame_activate;endgame_active|endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1572,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1573,
+      "fields": {
+        "final_sanity": {
+          "before": "3",
+          "after": "4"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1577,
+      "fields": {
+        "days_survived": {
+          "before": "23",
+          "after": "24"
+        },
+        "final_supplies": {
+          "before": "12",
+          "after": "16"
+        },
+        "final_sanity": {
+          "before": "1",
+          "after": "3"
+        },
+        "final_budget_cents": {
+          "before": "11500",
+          "after": "10500"
+        },
+        "miles_traveled": {
+          "before": "2067.6",
+          "after": "2056.2"
+        },
+        "non_travel_days": {
+          "before": "1",
+          "after": "2"
+        },
+        "avg_mpd": {
+          "before": "135.14",
+          "after": "134.39"
+        },
+        "travel_ratio": {
+          "before": "0.957",
+          "after": "0.917"
+        },
+        "unique_per_20_days": {
+          "before": "6.96",
+          "after": "6.67"
+        },
+        "day_reason_history": {
+          "before": "||||crossing_pass||||||camp|crossing_pass||repair|||endgame_activate;endgame_active|endgame_active|camp|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active",
+          "after": "||||crossing_pass||||||camp|crossing_pass||repair|||endgame_activate;endgame_active|endgame_active|endgame_active;crossing_pass|endgame_active|endgame_active|camp|endgame_active|"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1578,
+      "fields": {
+        "final_sanity": {
+          "before": "1",
+          "after": "2"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1580,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Aggressive",
+      "seed": 1581,
+      "fields": {
+        "final_sanity": {
+          "before": "2",
+          "after": "3"
+        }
+      }
+    },
+    {
+      "scenario": "Deep - Balanced",
+      "seed": 1380,
+      "fields": {
+        "days_survived": {
+          "before": "26",
+          "after": "25"
+        },
+        "final_hp": {
+          "before": "10",
+          "after": "9"
+        },
+        "final_supplies": {
+          "before": "19",
+          "after": "17"
+        },
+        "final_budget_cents": {
+          "before": "20700",
+          "after": "21200"
+        },
+        "travel_days": {
+          "before": "22",
+          "after": "25"
+        },
+        "non_travel_days": {
+          "before": "4",
+          "after": "0"
+        },
+        "avg_mpd": {
+          "before": "134.38",
+          "after": "118.25"
+        },
+        "days_with_camp": {
+          "before": "4",
+          "after": "3"
+        },
+        "travel_ratio": {
+          "before": "0.846",
+          "after": "1.000"
+        },
+        "unique_per_20_days": {
+          "before": "6.15",
+          "after": "6.40"
+        },
+        "rotation_events": {
+          "before": "6",
+          "after": "7"
+        },
+        "day_reason_history": {
+          "before": "||camp|||crossing_pass||||camp|detour|||||endgame_activate;endgame_active|endgame_active|endgame_active;detour|camp|endgame_active|endgame_active|endgame_active|camp|endgame_active|endgame_active|",
+          "after": "||camp|||crossing_pass||||detour|||camp||||endgame_activate;endgame_active|endgame_active;detour|endgame_active|endgame_active;camp|endgame_active|endgame_active|endgame_active|endgame_active|endgame_active"
+        }
+      }
+    }
+  ]
+}

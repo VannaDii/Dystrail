@@ -1,0 +1,15 @@
+{
+  "before": "595e6114615d79492626",
+  "after": "1868d6c37d8c25729dae",
+  "files": 87,
+  "bytes": 90539342,
+  "removed": [
+    "static/assets/.DS_Store"
+  ],
+  "added": [],
+  "changed": [
+    "dystrail-web-d680ae4e1a9f2f8b.js",
+    "dystrail-web-d680ae4e1a9f2f8b_bg.wasm",
+    "index.html"
+  ]
+}

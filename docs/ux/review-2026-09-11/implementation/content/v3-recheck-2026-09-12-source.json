@@ -1,0 +1,5449 @@
+{
+  "documentId": "1vpTHulSOqEjwTg5tHzUugQgs_Y-mKLTbhNVXMi5R_io",
+  "title": "Dystrail Satire Workshop — v3 · Complete First-Pass Rewrite",
+  "revisionId": "ANLCKQl9fa3EVncY7ZON9xm43nAjG8uJ__Ide8AyCksgmo4wzoKQYzcvtPYw3FE8qB7XM5epJiX_GXsqtSlAOEjOIhggTob2x1wgGELmZjc",
+  "tabId": null,
+  "paragraphs": [
+    {
+      "text": "Dystrail satire workshop",
+      "startIndex": 1,
+      "endIndex": 25,
+      "tabId": "t.0",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Edit the English directly. Each entry gives the situation, a lead-in, and the player’s choices with the response after each choice. Keep the action clear; make the joke about the policy, boast, or bureaucracy. Aim for one or two sentences per lead-in, a short choice, and one sentence per response. Approved copy will go back into the game before translations are updated.",
+      "startIndex": 26,
+      "endIndex": 398,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Three to try first",
+      "startIndex": 399,
+      "endIndex": 417,
+      "tabId": "t.0",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "These are proposed alternatives. Keep the lead-in you like, or replace it. The other tabs contain current English starters for the rest of the review.",
+      "startIndex": 418,
+      "endIndex": 568,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The Patriotic Parts Counter",
+      "startIndex": 569,
+      "endIndex": 596,
+      "tabId": "t.0",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Trump’s parts tariffs reach a fictional roadside shop. Your crew can buy an emergency kit, question the invoice, or leave.",
+      "startIndex": 597,
+      "endIndex": 729,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choose or rewrite the lead-in",
+      "startIndex": 730,
+      "endIndex": 759,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The mechanic says China is paying Trump’s tariff. China appears to be the name of your debit card.",
+      "startIndex": 760,
+      "endIndex": 858,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The roadside kit comes with a patriotic surcharge. Apparently freedom isn’t free, and neither is the sticker.",
+      "startIndex": 859,
+      "endIndex": 968,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The shop has two prices: before the tariff announcement and after the tariff announcement. Both are your problem.",
+      "startIndex": 969,
+      "endIndex": 1082,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1083,
+      "endIndex": 1102,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Buy the roadside kit. → You get the supplies. China still hasn’t offered to split the bill.",
+      "startIndex": 1103,
+      "endIndex": 1194,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Ask the mechanic to explain the invoice. → Parts, tariff, markup, freedom handling fee. Freedom is the only item with no return policy.",
+      "startIndex": 1195,
+      "endIndex": 1330,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving. → You leave before the clerk tariffs the conversation.",
+      "startIndex": 1331,
+      "endIndex": 1398,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Eight-Billion-Dollar Pothole",
+      "startIndex": 1399,
+      "endIndex": 1431,
+      "tabId": "t.0",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A fictional DOGE-style board overstates savings while a pothole stays unfixed. The real hook is one contract entry corrected from $8 billion to $8 million.",
+      "startIndex": 1432,
+      "endIndex": 1597,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choose or rewrite the lead-in",
+      "startIndex": 1598,
+      "endIndex": 1627,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The DOGE-style board claims eight billion in savings. Someone checks the zeroes. The pothole asks whether anyone has checked for a shovel.",
+      "startIndex": 1628,
+      "endIndex": 1766,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The savings board has lost three zeroes. The pothole has lost no depth.",
+      "startIndex": 1767,
+      "endIndex": 1838,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The board declares the pothole eliminated. Your suspension has filed a dissenting opinion.",
+      "startIndex": 1839,
+      "endIndex": 1929,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1930,
+      "endIndex": 1949,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Count the zeroes on camera. → The savings shrink. The hole retains its original dimensions.",
+      "startIndex": 1950,
+      "endIndex": 2041,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Take the paid patching shift. → You fix the road. The efficiency dashboard takes the credit.",
+      "startIndex": 2042,
+      "endIndex": 2134,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving. → The pothole remains the most transparent part of the budget.",
+      "startIndex": 2135,
+      "endIndex": 2210,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Cabinet Chat: Guest Access",
+      "startIndex": 2211,
+      "endIndex": 2237,
+      "tabId": "t.0",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A fictional checkpoint chat has unknown guests. The hook is the Trump administration’s Signal chat accidentally including a journalist during military-operation discussions.",
+      "startIndex": 2238,
+      "endIndex": 2421,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choose or rewrite the lead-in",
+      "startIndex": 2422,
+      "endIndex": 2451,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The checkpoint has adopted the administration’s Signal protocol: a secure chat, total confidence, and someone asking whether this is the book club.",
+      "startIndex": 2452,
+      "endIndex": 2599,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "“End-to-end encrypted,” says the checkpoint officer. “We just haven’t checked who’s at either end.”",
+      "startIndex": 2600,
+      "endIndex": 2699,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The briefing is classified. The invite link is on the lunch menu.",
+      "startIndex": 2700,
+      "endIndex": 2765,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2766,
+      "endIndex": 2785,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Check everyone’s name before sharing the route. → The dentist’s patient leaves. National security improves without a software update.",
+      "startIndex": 2786,
+      "endIndex": 2919,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Post the itinerary and a thumbs-up. → External Guest 4 reacts with a heart. Intelligence has never been so affirming.",
+      "startIndex": 2920,
+      "endIndex": 3037,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving. → You leave the chat before being promoted to Secretary of Lunch.",
+      "startIndex": 3038,
+      "endIndex": 3116,
+      "tabId": "t.0",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Money and paperwork",
+      "startIndex": 1,
+      "endIndex": 20,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Rewrite the lead-ins, choices, and responses below. These are current English starters; preserve what each choice does. Before the arrow is the button; after it is the response.",
+      "startIndex": 21,
+      "endIndex": 198,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Tariffs",
+      "startIndex": 199,
+      "endIndex": 206,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: a patriotic promise reaches an ordinary customer as a bigger bill. Background",
+      "startIndex": 207,
+      "endIndex": 294,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Service Station Handoff",
+      "startIndex": 295,
+      "endIndex": 318,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A union shop offers vehicle checks while parts prices are rising; get a tune-up, teach apprentices, or replace the wipers.",
+      "startIndex": 319,
+      "endIndex": 451,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 452,
+      "endIndex": 459,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A union shop offers uptime checks before you push east.",
+      "startIndex": 460,
+      "endIndex": 515,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 516,
+      "endIndex": 535,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Tune up everything → They torque every bolt for the road ahead.",
+      "startIndex": 536,
+      "endIndex": 599,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Spot train their apprentices → Skill shares buy future roadside favors.",
+      "startIndex": 600,
+      "endIndex": 671,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Swap for better wipers → Rain bands seem less ominous now.",
+      "startIndex": 672,
+      "endIndex": 730,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Union Solidarity Blockade",
+      "startIndex": 731,
+      "endIndex": 756,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Union members affected by tariff uncertainty offer a protective slowdown; coordinate it, pass quietly, or provide snacks.",
+      "startIndex": 757,
+      "endIndex": 888,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 889,
+      "endIndex": 896,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A local union offers to stage a slowdown so you can pass unharassed.",
+      "startIndex": 897,
+      "endIndex": 965,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 966,
+      "endIndex": 985,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Coordinate the action → Their action buys you a clear lane and louder endorsements.",
+      "startIndex": 986,
+      "endIndex": 1069,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Slip through quietly → You stay discreet but the blockade still slows pursuers.",
+      "startIndex": 1070,
+      "endIndex": 1149,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Coordinate relief snacks → Union stewards cheer the solidarity.",
+      "startIndex": 1150,
+      "endIndex": 1213,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Circuit Breaker Audit",
+      "startIndex": 1214,
+      "endIndex": 1235,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Engineers find the convoy’s power system overloaded while replacement parts are costly; stop for repairs, patch it, or buy batteries.",
+      "startIndex": 1236,
+      "endIndex": 1379,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1380,
+      "endIndex": 1387,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Engineers beg to inspect the convoy's overloaded power grid.",
+      "startIndex": 1388,
+      "endIndex": 1448,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1449,
+      "endIndex": 1468,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Authorize downtime → The rolling office powers up safer than before.",
+      "startIndex": 1469,
+      "endIndex": 1537,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Patch and roll → Quick fixes hum but risk a later blowout.",
+      "startIndex": 1538,
+      "endIndex": 1596,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Commission mobile batteries → Reserve packs stabilize the briefing room feed.",
+      "startIndex": 1597,
+      "endIndex": 1674,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Tariff Whiplash",
+      "startIndex": 1675,
+      "endIndex": 1690,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A clerk presents a fresh tariff bill for supplies; pay, smuggle the goods, or seek a waiver.",
+      "startIndex": 1691,
+      "endIndex": 1793,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1794,
+      "endIndex": 1801,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Your previous emergency has been ruled invalid. Please pay for the replacement emergency. The clerk has a fresh tariff stamp and absolutely no refund cash.",
+      "startIndex": 1802,
+      "endIndex": 1957,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1958,
+      "endIndex": 1977,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Pay the tariff → You absorb the hit and keep the paperwork tidy.",
+      "startIndex": 1978,
+      "endIndex": 2042,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Smuggle it → Border Beagle sniffs judgement.",
+      "startIndex": 2043,
+      "endIndex": 2087,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Lobby for a waiver → A late-night call buys leniency on the manifest.",
+      "startIndex": 2088,
+      "endIndex": 2157,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Rust Belt Convoy",
+      "startIndex": 2158,
+      "endIndex": 2174,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Freight drivers dealing with tariff disruption offer an escort past barricades; follow the lead truck or stay in the middle.",
+      "startIndex": 2175,
+      "endIndex": 2309,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2310,
+      "endIndex": 2317,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Freight drivers offer to pace you past barricades.",
+      "startIndex": 2318,
+      "endIndex": 2368,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2369,
+      "endIndex": 2388,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Draft with the lead truck → You hitch into the convoy and chew up miles.",
+      "startIndex": 2389,
+      "endIndex": 2461,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Hold the middle lane → [Write a short response.]",
+      "startIndex": 2462,
+      "endIndex": 2510,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Tariff Relabeling Shift",
+      "startIndex": 2511,
+      "endIndex": 2538,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A freight yard keeps relabeling shipments as tariff rules change; take a paid shift, trade paperwork help for supplies, or leave.",
+      "startIndex": 2539,
+      "endIndex": 2678,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2679,
+      "endIndex": 2686,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A freight yard responding to Trump’s tariffs needs help moving boxes between CURRENT RATE and PLEASE CHECK AGAIN. The labels are wearing out first.",
+      "startIndex": 2687,
+      "endIndex": 2834,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2835,
+      "endIndex": 2854,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take a paid loading shift → You earn actual dollars moving hypothetical certainty.",
+      "startIndex": 2855,
+      "endIndex": 2937,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Trade paperwork help for supplies → The dispatcher pays in snacks with a stable exchange rate.",
+      "startIndex": 2938,
+      "endIndex": 3032,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 3033,
+      "endIndex": 3104,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "DOGE accounting",
+      "startIndex": 3105,
+      "endIndex": 3120,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: celebrate impressive savings before checking the arithmetic. The historical hook is a specific $8 billion entry corrected to $8 million. Background",
+      "startIndex": 3121,
+      "endIndex": 3278,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Memorandum Dump",
+      "startIndex": 3279,
+      "endIndex": 3294,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A pile of sealed memos needs scrutiny after a much-publicized DOGE accounting error; prioritize, pass to oversight, or archive it.",
+      "startIndex": 3295,
+      "endIndex": 3435,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 3436,
+      "endIndex": 3443,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Compressed drives of sealed memos await triage.",
+      "startIndex": 3444,
+      "endIndex": 3491,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 3492,
+      "endIndex": 3511,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Sort by threat level → You surface red-flags before the opposition.",
+      "startIndex": 3512,
+      "endIndex": 3579,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Forward to oversight → The committee braces for impact early.",
+      "startIndex": 3580,
+      "endIndex": 3641,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Archive for later → You buy a breather but risk surprise later.",
+      "startIndex": 3642,
+      "endIndex": 3705,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Watchdog Sync",
+      "startIndex": 3706,
+      "endIndex": 3719,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Inspectors compare reports after DOGE’s billion-to-million correction; contribute evidence, listen, or leak a summary.",
+      "startIndex": 3720,
+      "endIndex": 3848,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 3849,
+      "endIndex": 3856,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Inspectors general huddle to compare sealed reports.",
+      "startIndex": 3857,
+      "endIndex": 3909,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 3910,
+      "endIndex": 3929,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Share your dossiers → Cross-agency leads seal future subpoenas.",
+      "startIndex": 3930,
+      "endIndex": 3993,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Listen quietly → You bank intelligence without stirring waters.",
+      "startIndex": 3994,
+      "endIndex": 4057,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Leak summary notes → Anonymous memos raise scrutiny everywhere.",
+      "startIndex": 4058,
+      "endIndex": 4121,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Beltway Fast Pass",
+      "startIndex": 4122,
+      "endIndex": 4139,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Policy aides who insist on accountable government offer you privileged access through traffic; take the shoulder or ease through the lane.",
+      "startIndex": 4140,
+      "endIndex": 4288,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4289,
+      "endIndex": 4296,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Policy aides flash badges to keep traffic enforcement off you.",
+      "startIndex": 4297,
+      "endIndex": 4359,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4360,
+      "endIndex": 4379,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Ride the cleared shoulder → Security waves you down the empty lane.",
+      "startIndex": 4380,
+      "endIndex": 4447,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Split the lane politely → [Write a short response.]",
+      "startIndex": 4448,
+      "endIndex": 4499,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Museum of Very Large Savings",
+      "startIndex": 4500,
+      "endIndex": 4532,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A museum exaggerates donation totals while commemorating DOGE’s accounting error; audit it for pay, applaud the numbers, or leave.",
+      "startIndex": 4533,
+      "endIndex": 4673,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4674,
+      "endIndex": 4681,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The exhibit commemorating DOGE’s billion-to-million correction has a donation box labeled TRILLIONS. The curator needs someone who understands decimal places.",
+      "startIndex": 4682,
+      "endIndex": 4840,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4841,
+      "endIndex": 4860,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Audit the exhibit for an honorarium → The museum pays thirteen dollars. You verify all thirteen.",
+      "startIndex": 4861,
+      "endIndex": 4957,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Applaud the trillion-dollar quarter → The applause is tremendous. The accounting is performance art.",
+      "startIndex": 4958,
+      "endIndex": 5058,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 5059,
+      "endIndex": 5130,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Five accomplishments",
+      "startIndex": 5131,
+      "endIndex": 5151,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: proving useful work took place becomes more work than doing it. The hook is the administration’s demand for five weekly accomplishments. Background",
+      "startIndex": 5152,
+      "endIndex": 5309,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The Efficiency Emergency",
+      "startIndex": 5310,
+      "endIndex": 5334,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An efficiency drive dismissed a bridge crew that has returned to help anyway; contribute parts or document the unfinished work.",
+      "startIndex": 5335,
+      "endIndex": 5472,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 5473,
+      "endIndex": 5480,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "An efficiency drive dismissed the bridge crew. The crew came back to help anyway; the savings board still celebrates their eliminated salaries. Lend a hand or document what the board leaves out.",
+      "startIndex": 5481,
+      "endIndex": 5675,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 5676,
+      "endIndex": 5695,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Donate spare parts to speed the work → The crew waves you onto the priority lane.",
+      "startIndex": 5696,
+      "endIndex": 5777,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Document the backlog for the hotline → Your report pressures the agency to staff up.",
+      "startIndex": 5778,
+      "endIndex": 5862,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Mail Drop Pickup",
+      "startIndex": 5863,
+      "endIndex": 5879,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Supporters deliver letters asking what you have accomplished; read them, record a reply, or sort urgent requests.",
+      "startIndex": 5880,
+      "endIndex": 6003,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6004,
+      "endIndex": 6011,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Supporters sprint over with a bundle of letters asking for updates.",
+      "startIndex": 6012,
+      "endIndex": 6079,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6080,
+      "endIndex": 6099,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Read every letter → You share the letters over dinner and spirits lift.",
+      "startIndex": 6100,
+      "endIndex": 6171,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Record a thank-you video → The volunteers upload your message across the network.",
+      "startIndex": 6172,
+      "endIndex": 6253,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Pre-sort the pile → You surface the urgent letters and build goodwill.",
+      "startIndex": 6254,
+      "endIndex": 6324,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Deep State Dirge",
+      "startIndex": 6325,
+      "endIndex": 6341,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A hearing about accountability drags on; keep pushing, leave, or call a recess.",
+      "startIndex": 6342,
+      "endIndex": 6431,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6432,
+      "endIndex": 6439,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A shadowy hearing drags on for hours.",
+      "startIndex": 6440,
+      "endIndex": 6477,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6478,
+      "endIndex": 6497,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Hold the line → You squeeze concessions into the transcript.",
+      "startIndex": 6498,
+      "endIndex": 6558,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Cut and run → You duck the cameras and regroup at HQ.",
+      "startIndex": 6559,
+      "endIndex": 6612,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Call a hallway recess → You secure a breather and temper the theatrics.",
+      "startIndex": 6613,
+      "endIndex": 6684,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Overnight Briefing",
+      "startIndex": 6685,
+      "endIndex": 6703,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Your exhausted team still faces another accountability briefing; work all night, rotate guards, or call in relief.",
+      "startIndex": 6704,
+      "endIndex": 6828,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6829,
+      "endIndex": 6836,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Allies urge you to pause, sleep, and align strategy before dawn.",
+      "startIndex": 6837,
+      "endIndex": 6901,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6902,
+      "endIndex": 6921,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Power through the night → Another all-nighter leaves everyone frayed.",
+      "startIndex": 6922,
+      "endIndex": 6991,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Set guard rotations → Fresh coffee and shifts let the core team sleep.",
+      "startIndex": 6992,
+      "endIndex": 7062,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Call in the deep bench → Trusted stand-ins hold the line while you recover.",
+      "startIndex": 7063,
+      "endIndex": 7138,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Five Things Corn Did Last Week",
+      "startIndex": 7139,
+      "endIndex": 7169,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A farm applies the five-accomplishment email demand to its corn; defend the crop, help with paperwork for pay, or leave.",
+      "startIndex": 7170,
+      "endIndex": 7300,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7301,
+      "endIndex": 7308,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A farm office has adopted the administration’s five-bullet emails. The corn has submitted four. Management suspects loafing.",
+      "startIndex": 7309,
+      "endIndex": 7433,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 7434,
+      "endIndex": 7453,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Document the fifth accomplishment: growing → The crop keeps its job. You need a quiet minute.",
+      "startIndex": 7454,
+      "endIndex": 7547,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Help the farmer file for a small fee → Your invoice contains five bullet points. All five say paid.",
+      "startIndex": 7548,
+      "endIndex": 7647,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 7648,
+      "endIndex": 7719,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Please Account for the Bridge",
+      "startIndex": 7720,
+      "endIndex": 7749,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Bridge workers must describe their work in five accomplishment bullets; translate the work into paperwork, bring lunch, or leave.",
+      "startIndex": 7750,
+      "endIndex": 7889,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7890,
+      "endIndex": 7897,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A bridge crew must list five accomplishments in the style of the administration’s emails. Preventing collapse apparently counts as only one.",
+      "startIndex": 7898,
+      "endIndex": 8038,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 8039,
+      "endIndex": 8058,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Translate structural engineering into five bullets → The bridge is still standing. The email is finally long enough.",
+      "startIndex": 8059,
+      "endIndex": 8175,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Bring lunch while they finish the report → The crew can eat without documenting each bite.",
+      "startIndex": 8176,
+      "endIndex": 8266,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 8267,
+      "endIndex": 8338,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Renaming things",
+      "startIndex": 8339,
+      "endIndex": 8354,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: a grand new name is offered as a substitute for fixing the thing. The hook is Trump’s federal geographic renaming order. Background",
+      "startIndex": 8355,
+      "endIndex": 8496,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Department of Renaming Things",
+      "startIndex": 8497,
+      "endIndex": 8526,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Your travel permit no longer matches the renamed destination; decide how to untangle the amendments.",
+      "startIndex": 8527,
+      "endIndex": 8637,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 8638,
+      "endIndex": 8645,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Your permit names yesterday’s destination. Today’s amendments rename it again. The bridge remains structurally unsound, but its name has never been stronger.",
+      "startIndex": 8646,
+      "endIndex": 8803,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 8804,
+      "endIndex": 8823,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Read every line → You flag riders before they hit the floor.",
+      "startIndex": 8824,
+      "endIndex": 8884,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Skim the highlights → Optimism buys you a short night and long edits later.",
+      "startIndex": 8885,
+      "endIndex": 8960,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Delegate to staff counsel → Your legal lead triages the stack overnight.",
+      "startIndex": 8961,
+      "endIndex": 9033,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Freeway Mural Crew",
+      "startIndex": 9034,
+      "endIndex": 9052,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Artists are painting a solidarity mural during a wave of official renaming; join in, fund supplies, or pose for the reveal.",
+      "startIndex": 9053,
+      "endIndex": 9186,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 9187,
+      "endIndex": 9194,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Artists pause your motorcade to finish a solidarity mural.",
+      "startIndex": 9195,
+      "endIndex": 9253,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 9254,
+      "endIndex": 9273,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Climb a ladder with them → Paint splatters but the livestream loves it.",
+      "startIndex": 9274,
+      "endIndex": 9345,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Fund their paint run → Their co-op texts thanks and fresh designs.",
+      "startIndex": 9346,
+      "endIndex": 9412,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Pose for a quick reveal → The mural trends without blowing schedule.",
+      "startIndex": 9413,
+      "endIndex": 9481,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Neighborhood Watch Brief",
+      "startIndex": 9482,
+      "endIndex": 9506,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Block captains are dealing with renamed roads and missing signs; exchange contacts, fix maps, or continue.",
+      "startIndex": 9507,
+      "endIndex": 9623,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 9624,
+      "endIndex": 9631,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Block captains share overnight intel and missing signage.",
+      "startIndex": 9632,
+      "endIndex": 9689,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 9690,
+      "endIndex": 9709,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Swap hotline contacts → Coordinated texts cover the detour gaps.",
+      "startIndex": 9710,
+      "endIndex": 9774,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Repair their posted maps → The reroute board keeps families moving.",
+      "startIndex": 9775,
+      "endIndex": 9842,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Thank them and roll on → They cheer you through the checkpoint.",
+      "startIndex": 9843,
+      "endIndex": 9906,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Gulf of Parking Lot",
+      "startIndex": 9907,
+      "endIndex": 9926,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A rest stop renames a puddle and charges for its new status; paint the sign for pay, fix the route map, or leave.",
+      "startIndex": 9927,
+      "endIndex": 10050,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 10051,
+      "endIndex": 10058,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Following Trump’s renaming spree, a rest stop declares its puddle the Gulf of Premium Parking. The fee applies at low tide too.",
+      "startIndex": 10059,
+      "endIndex": 10186,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 10187,
+      "endIndex": 10206,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Paint the new sign for seven dollars → A puddle gains prestige. You gain gas money.",
+      "startIndex": 10207,
+      "endIndex": 10290,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Mark the actual exit on the map → The crew escapes without recognizing the puddle’s sovereignty.",
+      "startIndex": 10291,
+      "endIndex": 10387,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 10388,
+      "endIndex": 10459,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Name Is the Infrastructure",
+      "startIndex": 10460,
+      "endIndex": 10490,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An office has given a missing bridge a grand new name; buy a detour permit, demand a usable route, or leave.",
+      "startIndex": 10491,
+      "endIndex": 10609,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 10610,
+      "endIndex": 10617,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The renaming office has learned from Trump’s geographic order. Your missing bridge is now called The Tremendous Connection. The river has not signed off.",
+      "startIndex": 10618,
+      "endIndex": 10771,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 10772,
+      "endIndex": 10791,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Pay for the newly named detour permit → The permit is excellent. You still take the detour.",
+      "startIndex": 10792,
+      "endIndex": 10883,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Demand a route with physical pavement → The clerk locates a road that exists outside the press release.",
+      "startIndex": 10884,
+      "endIndex": 10987,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 10988,
+      "endIndex": 11059,
+      "tabId": "t.5bhbm0veor3n",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Food and services",
+      "startIndex": 1,
+      "endIndex": 18,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Rewrite the lead-ins, choices, and responses below. These are current English starters; preserve what each choice does. Before the arrow is the button; after it is the response.",
+      "startIndex": 19,
+      "endIndex": 196,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Food support",
+      "startIndex": 197,
+      "endIndex": 209,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: a cancellation notice or polished explanation cannot feed anyone. The hook is USDA’s cancellation of the LFPA25 local-food purchasing program. Background",
+      "startIndex": 210,
+      "endIndex": 373,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Civic Center Potluck",
+      "startIndex": 374,
+      "endIndex": 394,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Neighbors hold a potluck after local-food purchasing support was canceled; eat, take meals along, or give back.",
+      "startIndex": 395,
+      "endIndex": 516,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 517,
+      "endIndex": 524,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Local organizers insist you eat before the next leg.",
+      "startIndex": 525,
+      "endIndex": 577,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 578,
+      "endIndex": 597,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Stay for stew → Warm food and stories refill everyone.",
+      "startIndex": 598,
+      "endIndex": 652,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Carry meals to go → You promise a shout-out on the livestream.",
+      "startIndex": 653,
+      "endIndex": 715,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Donate the stipend back → Their pantry stocks up while the crew beams.",
+      "startIndex": 716,
+      "endIndex": 786,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Pop-up Mutual Aid",
+      "startIndex": 787,
+      "endIndex": 804,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Volunteers replacing canceled food support need supplies and attention; donate, load vans, or broadcast their needs.",
+      "startIndex": 805,
+      "endIndex": 931,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 932,
+      "endIndex": 939,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Volunteers flag you down to swap supplies for a quick broadcast boost.",
+      "startIndex": 940,
+      "endIndex": 1010,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1011,
+      "endIndex": 1030,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Share supplies and stream their needs → The crew relays your callout down the road.",
+      "startIndex": 1031,
+      "endIndex": 1114,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Help load their vans → A ten minute lift keeps everyone moving.",
+      "startIndex": 1115,
+      "endIndex": 1178,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Set up a rapid signal boost → Your uplink gets their wishlist trending.",
+      "startIndex": 1179,
+      "endIndex": 1250,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Mutual Aid Dispatch Center",
+      "startIndex": 1251,
+      "endIndex": 1277,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A mutual-aid dispatch desk is matching food requests to trucks; offer vehicles, improve communications, or learn from them.",
+      "startIndex": 1278,
+      "endIndex": 1411,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1412,
+      "endIndex": 1419,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Dispatchers dart between radios matching requests to trucks.",
+      "startIndex": 1420,
+      "endIndex": 1480,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1481,
+      "endIndex": 1500,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Route your fleet to assist → Dispatchers slot you into priority drop-offs.",
+      "startIndex": 1501,
+      "endIndex": 1575,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Upgrade their signal chain → A clearer net keeps evac traffic flowing.",
+      "startIndex": 1576,
+      "endIndex": 1646,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Observe and take notes → You document best practices for the debrief.",
+      "startIndex": 1647,
+      "endIndex": 1716,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Fundraiser Detour",
+      "startIndex": 1717,
+      "endIndex": 1734,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A friendly fundraiser is filling a food-support gap; attend or stay on the route.",
+      "startIndex": 1735,
+      "endIndex": 1826,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1827,
+      "endIndex": 1834,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "You are asked to crash a friendly fundraiser.",
+      "startIndex": 1835,
+      "endIndex": 1880,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1881,
+      "endIndex": 1900,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Attend and shake hands → You take home some leftovers.",
+      "startIndex": 1901,
+      "endIndex": 1955,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Skip and stay on route → You gift the organizers an early briefing.",
+      "startIndex": 1956,
+      "endIndex": 2023,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Heartland Waystation",
+      "startIndex": 2024,
+      "endIndex": 2044,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Food-aid organizers welcome you onto a cleared stretch of road; exchange favors or stop for coffee.",
+      "startIndex": 2045,
+      "endIndex": 2154,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2155,
+      "endIndex": 2162,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A local crew waves you onto freshly cleared asphalt.",
+      "startIndex": 2163,
+      "endIndex": 2215,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2216,
+      "endIndex": 2235,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Swap favors and push ahead → Local organizers wave you through their shortcut.",
+      "startIndex": 2236,
+      "endIndex": 2314,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Share coffee before rolling out → [Write a short response.]",
+      "startIndex": 2315,
+      "endIndex": 2374,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Locally Grown Funding Gap",
+      "startIndex": 2375,
+      "endIndex": 2400,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A co-op has food and hungry neighbors but has lost expected purchasing support; donate supplies, take a paid loading shift, or leave.",
+      "startIndex": 2401,
+      "endIndex": 2544,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2545,
+      "endIndex": 2552,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "After the LFPA25 cancellation, this food co-op has vegetables, hungry neighbors and a federal explanation that contains no recipes.",
+      "startIndex": 2553,
+      "endIndex": 2684,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2685,
+      "endIndex": 2704,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Contribute two supply bundles → Dinner survives its encounter with federal priorities.",
+      "startIndex": 2705,
+      "endIndex": 2791,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Take the co-op’s paid loading shift → The co-op pays you. The crates decline to become lighter.",
+      "startIndex": 2792,
+      "endIndex": 2887,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 2888,
+      "endIndex": 2959,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Shelf Is Still Hungry",
+      "startIndex": 2960,
+      "endIndex": 2985,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A co-op needs people to fill the gap left by canceled food purchasing funds; pack food for supplies, do paperwork for pay, or leave.",
+      "startIndex": 2986,
+      "endIndex": 3128,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 3129,
+      "endIndex": 3136,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The LFPA25 cancellation has inspired an agency sign: FOOD ACCESS STREAMLINED. Volunteers are streamlining potatoes into actual bags.",
+      "startIndex": 3137,
+      "endIndex": 3269,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 3270,
+      "endIndex": 3289,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Help pack food in exchange for three bundles → Your crew gets supplies. Your arms get a government-sized workload.",
+      "startIndex": 3290,
+      "endIndex": 3404,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Handle the co-op’s paid delivery paperwork → The co-op pays ten dollars for forms that finally correspond to food.",
+      "startIndex": 3405,
+      "endIndex": 3519,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 3520,
+      "endIndex": 3591,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Libraries and culture",
+      "startIndex": 3592,
+      "endIndex": 3613,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: public culture has to justify its existence through increasingly absurd paperwork. The hook is the order to reduce the Institute of Museum and Library Services; the scenes are fictional. Background",
+      "startIndex": 3614,
+      "endIndex": 3821,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Crossing Block Party",
+      "startIndex": 3822,
+      "endIndex": 3842,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Residents rally for public culture beside a backed-up checkpoint; help with food, take the microphone, or cool the crowd.",
+      "startIndex": 3843,
+      "endIndex": 3974,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 3975,
+      "endIndex": 3982,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Residents host a morale party next to the jammed checkpoint.",
+      "startIndex": 3983,
+      "endIndex": 4043,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4044,
+      "endIndex": 4063,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Serve at the grill → Volunteers promise to keep watch overnight.",
+      "startIndex": 4064,
+      "endIndex": 4128,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Headline the mic → Soundbites ripple through the slow-moving line.",
+      "startIndex": 4129,
+      "endIndex": 4195,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Share cooling supplies → Cold towels calm nerves and lower tempers.",
+      "startIndex": 4196,
+      "endIndex": 4263,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Overpass Pop-Up Stage",
+      "startIndex": 4264,
+      "endIndex": 4285,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A troupe offers a roadside teach-in about threatened public-culture funding; let them lead or join the panel.",
+      "startIndex": 4286,
+      "endIndex": 4405,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4406,
+      "endIndex": 4413,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "An allied troupe offers to headline a rapid teach-in over the freeway.",
+      "startIndex": 4414,
+      "endIndex": 4484,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4485,
+      "endIndex": 4504,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Let them run the program → The troupe's livestream boosts regional momentum.",
+      "startIndex": 4505,
+      "endIndex": 4581,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Join the panel yourself → Your remarks rally the crowd but leave you hoarse.",
+      "startIndex": 4582,
+      "endIndex": 4658,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "College Radio Phonebank",
+      "startIndex": 4659,
+      "endIndex": 4682,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Students run a radio campaign for public culture; go on air, coach volunteers, or record messages for later.",
+      "startIndex": 4683,
+      "endIndex": 4801,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4802,
+      "endIndex": 4809,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Students spin up a call-in marathon for signatures.",
+      "startIndex": 4810,
+      "endIndex": 4861,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4862,
+      "endIndex": 4881,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Jump on the mic → You juice the call volume with quick riffs.",
+      "startIndex": 4882,
+      "endIndex": 4943,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Train their volunteers → Scripts tighten up and the hotline hums.",
+      "startIndex": 4944,
+      "endIndex": 5009,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Record evergreen promos → Future listeners will still hear your pitch.",
+      "startIndex": 5010,
+      "endIndex": 5080,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Minimum Viable Library",
+      "startIndex": 5081,
+      "endIndex": 5107,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A library prepares an absurdly reduced service after the IMLS reduction order; support readers, digitize its catalog for pay, or leave.",
+      "startIndex": 5108,
+      "endIndex": 5253,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 5254,
+      "endIndex": 5261,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "After Trump’s IMLS reduction order, a librarian prepares an emergency plan: one book, chained to a printer that only prints funding applications.",
+      "startIndex": 5262,
+      "endIndex": 5407,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 5408,
+      "endIndex": 5427,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Supply the volunteer reading table → The children get stories with endings.",
+      "startIndex": 5428,
+      "endIndex": 5503,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Digitize the backup catalog for pay → You preserve the books. The application still wants a fax.",
+      "startIndex": 5504,
+      "endIndex": 5600,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 5601,
+      "endIndex": 5672,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Exhibit of Pending Funds",
+      "startIndex": 5673,
+      "endIndex": 5701,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A museum turns an unresolved grant application into an exhibit; digitize collections for pay, support a tour, or leave.",
+      "startIndex": 5702,
+      "endIndex": 5831,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 5832,
+      "endIndex": 5839,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Following the IMLS reduction order, this museum opens a new exhibit: a velvet rope around the grant application. Nobody may touch its outcome.",
+      "startIndex": 5840,
+      "endIndex": 5982,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 5983,
+      "endIndex": 6002,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Digitize exhibits for the museum’s day rate → You preserve history before the application becomes an artifact.",
+      "startIndex": 6003,
+      "endIndex": 6113,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Support the volunteer tour → The tour has facts, unlike the funding timetable.",
+      "startIndex": 6114,
+      "endIndex": 6192,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 6193,
+      "endIndex": 6264,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Straws",
+      "startIndex": 6265,
+      "endIndex": 6271,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: a drinking utensil receives the attention normally reserved for a national emergency. The hook is Trump’s paper-straw procurement order. Background",
+      "startIndex": 6272,
+      "endIndex": 6429,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Emergency Straw Reserve",
+      "startIndex": 6430,
+      "endIndex": 6453,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A depot prioritizes plastic straws over drinking water; buy water, take a paid inventory shift, or leave.",
+      "startIndex": 6454,
+      "endIndex": 6569,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6570,
+      "endIndex": 6577,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A roadside depot celebrates Trump’s straw order with a mountain of plastic straws. The water shipment is still pending approval.",
+      "startIndex": 6578,
+      "endIndex": 6706,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6707,
+      "endIndex": 6726,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Buy water from the uncelebrated cooler → Water reaches your crew without a signing ceremony.",
+      "startIndex": 6727,
+      "endIndex": 6819,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Inventory the strategic straws for pay → You earn ten dollars and lose the ability to hear the word strategic calmly.",
+      "startIndex": 6820,
+      "endIndex": 6937,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 6938,
+      "endIndex": 7009,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Strategic Straw Inspection",
+      "startIndex": 7010,
+      "endIndex": 7036,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A checkpoint turns the paper-straw procurement order into a loyalty test for a cup; offer a drink, read the actual order, or leave.",
+      "startIndex": 7037,
+      "endIndex": 7178,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7179,
+      "endIndex": 7186,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A checkpoint has interpreted Trump’s paper-straw order as a border doctrine. Your reusable cup is being questioned about its affiliations.",
+      "startIndex": 7187,
+      "endIndex": 7325,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 7326,
+      "endIndex": 7345,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Offer a sealed drink to end the inspection → The inspector finds the beverage ideologically sufficient.",
+      "startIndex": 7346,
+      "endIndex": 7449,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Read the actual procurement order aloud → The cup is released without charges.",
+      "startIndex": 7450,
+      "endIndex": 7528,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 7529,
+      "endIndex": 7600,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Shower pressure",
+      "startIndex": 7601,
+      "endIndex": 7616,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: ordinary plumbing becomes a presidential achievement. The hook is Trump’s showerhead order. Background",
+      "startIndex": 7617,
+      "endIndex": 7729,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Water Drive Relay",
+      "startIndex": 7730,
+      "endIndex": 7747,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A relief post needs drinking water while the political debate is about shower pressure; donate water or help distribute it.",
+      "startIndex": 7748,
+      "endIndex": 7881,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7882,
+      "endIndex": 7889,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A roadside relief post asks for a quick boost to their hydration drive.",
+      "startIndex": 7890,
+      "endIndex": 7961,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 7962,
+      "endIndex": 7981,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Donate part of the stash → You refill jugs and leave a short training sheet.",
+      "startIndex": 7982,
+      "endIndex": 8058,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Help with distribution → A coordinated handoff nets you spare filters.",
+      "startIndex": 8059,
+      "endIndex": 8129,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Hydration Sovereignty",
+      "startIndex": 8130,
+      "endIndex": 8151,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A truck stop celebrates presidential shower-pressure policy with a broken demonstration; use the ordinary shower, fix the booth for pay, or leave.",
+      "startIndex": 8152,
+      "endIndex": 8308,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 8309,
+      "endIndex": 8316,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A truck stop inspired by Trump’s showerhead order advertises executive water pressure. The demonstration has washed the suggestion box into the road.",
+      "startIndex": 8317,
+      "endIndex": 8466,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 8467,
+      "endIndex": 8486,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take the ordinary shower → You get clean without declaring a constitutional victory.",
+      "startIndex": 8487,
+      "endIndex": 8571,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Help repair the demonstration stand for pay → The plumbing accepts your wrench more readily than a proclamation.",
+      "startIndex": 8572,
+      "endIndex": 8684,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 8685,
+      "endIndex": 8756,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The National Shower Demonstration",
+      "startIndex": 8757,
+      "endIndex": 8790,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A shower-pressure promotion needs someone to control its hose; take a paid maintenance shift, buy a normal wash, or leave.",
+      "startIndex": 8791,
+      "endIndex": 8923,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 8924,
+      "endIndex": 8931,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A promotional booth for Trump’s showerhead order needs a volunteer to hold the hose. Its pressure is presidential; its fasteners are municipal.",
+      "startIndex": 8932,
+      "endIndex": 9075,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 9076,
+      "endIndex": 9095,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take the paid maintenance shift → You earn twelve dollars restraining executive water pressure.",
+      "startIndex": 9096,
+      "endIndex": 9191,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Buy a normal wash token → You wash off the road without becoming part of the demonstration.",
+      "startIndex": 9192,
+      "endIndex": 9283,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 9284,
+      "endIndex": 9355,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Transit",
+      "startIndex": 9356,
+      "endIndex": 9363,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: ceremony and announcements are ready before anything people can ride. The hook is Chicago’s transit funding pause, not a claim that every project was canceled. Background",
+      "startIndex": 9364,
+      "endIndex": 9544,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The Ribbon-Cutting Holding Pattern",
+      "startIndex": 9545,
+      "endIndex": 9579,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Transit advocates have ceremony supplies but paused funding; contribute supplies, take a paid survey shift, or leave.",
+      "startIndex": 9580,
+      "endIndex": 9707,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 9708,
+      "endIndex": 9715,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A transit advocacy booth displays Chicago’s funding-pause news. The ribbon is ready, the scissors are ready, and neither is accepted as public transportation.",
+      "startIndex": 9716,
+      "endIndex": 9874,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 9875,
+      "endIndex": 9894,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Supply the volunteers’ outreach table → The campaign gets lunch. Commuters still need actual transit.",
+      "startIndex": 9895,
+      "endIndex": 9996,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Take a paid rider-survey shift → You collect nine dollars and several unusually specific sighs.",
+      "startIndex": 9997,
+      "endIndex": 10092,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 10093,
+      "endIndex": 10164,
+      "tabId": "t.hnz3abpdqe3b",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Media and health",
+      "startIndex": 1,
+      "endIndex": 17,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Rewrite the lead-ins, choices, and responses below. These are current English starters; preserve what each choice does. Before the arrow is the button; after it is the response.",
+      "startIndex": 18,
+      "endIndex": 195,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Signal and access",
+      "startIndex": 196,
+      "endIndex": 213,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: encryption gets praised while nobody checks who has been invited. The hook is the administration’s Signal chat accidentally including a journalist. Background",
+      "startIndex": 214,
+      "endIndex": 382,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Media Coach Onboarding",
+      "startIndex": 383,
+      "endIndex": 405,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A coach offers a quick media workshop after the Signal scandal; attend yourself or send your aides.",
+      "startIndex": 406,
+      "endIndex": 515,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 516,
+      "endIndex": 523,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A friendly coach offers quick framing tips before the next checkpoint.",
+      "startIndex": 524,
+      "endIndex": 594,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 595,
+      "endIndex": 614,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take the mini workshop → Your talking points get sharper for the next stand-up.",
+      "startIndex": 615,
+      "endIndex": 694,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Send the aides instead → The aides feel prepared and the coach praises your prep.",
+      "startIndex": 695,
+      "endIndex": 776,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Press Pool Q&A",
+      "startIndex": 777,
+      "endIndex": 791,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Reporters want more access to the bus; take live questions, screen them in advance, or send surrogates.",
+      "startIndex": 792,
+      "endIndex": 905,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 906,
+      "endIndex": 913,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Traveling reporters request an extra rotation on the bus.",
+      "startIndex": 914,
+      "endIndex": 971,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 972,
+      "endIndex": 991,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Open the floor → You answer everything and set tomorrow's frame.",
+      "startIndex": 992,
+      "endIndex": 1056,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Limit to pre-submitted → The comms desk filters the pile effectively.",
+      "startIndex": 1057,
+      "endIndex": 1126,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Hand off to surrogates → Your bench keeps the story tight while you rest.",
+      "startIndex": 1127,
+      "endIndex": 1200,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Field Intel Courier",
+      "startIndex": 1201,
+      "endIndex": 1220,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Researchers bring files and surveys after a public chat-security scandal; use their findings, store them safely, or check for leaks.",
+      "startIndex": 1221,
+      "endIndex": 1363,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1364,
+      "endIndex": 1371,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Community researchers hand over drive images and surveys.",
+      "startIndex": 1372,
+      "endIndex": 1429,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1430,
+      "endIndex": 1449,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Integrate their findings → New targets boost your oversight report.",
+      "startIndex": 1450,
+      "endIndex": 1517,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Provide secure storage → They trust you with a critical archive.",
+      "startIndex": 1518,
+      "endIndex": 1582,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Scan for leaks → You catch a rooted tablet before damage spreads.",
+      "startIndex": 1583,
+      "endIndex": 1648,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Grassroots Signal Boost",
+      "startIndex": 1649,
+      "endIndex": 1672,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Organizers send encrypted updates; share them, verify them first, or forward everything unchecked.",
+      "startIndex": 1673,
+      "endIndex": 1781,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 1782,
+      "endIndex": 1789,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Decentralized organizers beam encrypted updates from afar.",
+      "startIndex": 1790,
+      "endIndex": 1848,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 1849,
+      "endIndex": 1868,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Amplify across your channels → Cross-network sharing keeps pressure balanced.",
+      "startIndex": 1869,
+      "endIndex": 1946,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Vet every packet → You catch a forged update before it spreads.",
+      "startIndex": 1947,
+      "endIndex": 2010,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Forward raw feeds → Unverified blasts generate frantic callbacks.",
+      "startIndex": 2011,
+      "endIndex": 2076,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "National Security Family Plan",
+      "startIndex": 2077,
+      "endIndex": 2106,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A supposedly secure briefing chat contains relatives and service providers; audit the invite list, delegate, or request a formal review.",
+      "startIndex": 2107,
+      "endIndex": 2253,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2254,
+      "endIndex": 2261,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The encrypted checkpoint chat includes a cousin, a caterer, and your entire party. The encryption works. The invitation list needs diagnostics. The technicians await your decision.",
+      "startIndex": 2262,
+      "endIndex": 2442,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 2443,
+      "endIndex": 2462,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Audit the guest list → You remove the accidental guests. The encryption was never the problem.",
+      "startIndex": 2463,
+      "endIndex": 2557,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Send staff instead → Your staff sort out the invitations while you miss the briefing.",
+      "startIndex": 2558,
+      "endIndex": 2643,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Request a formal access review → The review consumes supplies but produces a documented access list.",
+      "startIndex": 2644,
+      "endIndex": 2744,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Unscheduled Press Pool",
+      "startIndex": 2745,
+      "endIndex": 2767,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A dispatcher has mixed lunch orders and a sensitive briefing in one chat; separate the channels, rebuild contacts for pay, or leave.",
+      "startIndex": 2768,
+      "endIndex": 2910,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 2911,
+      "endIndex": 2918,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "After the administration’s Signal fiasco, a convoy dispatcher discovers the lunch-order chat also contains tomorrow’s security briefing. And a restaurant critic.",
+      "startIndex": 2919,
+      "endIndex": 3080,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 3081,
+      "endIndex": 3100,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Separate lunch from the sensitive channel → The critic is removed. The sandwiches remain under review.",
+      "startIndex": 3101,
+      "endIndex": 3203,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Rebuild the contact list for a fee → Eight dollars buys more contact hygiene than the old system had.",
+      "startIndex": 3204,
+      "endIndex": 3305,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 3306,
+      "endIndex": 3377,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Weather and spin",
+      "startIndex": 3378,
+      "endIndex": 3394,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: the forecast is edited to please authority; the weather declines to cooperate. The historical hook is Sharpiegate. Background",
+      "startIndex": 3395,
+      "endIndex": 3530,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Impromptu Press Briefing",
+      "startIndex": 3531,
+      "endIndex": 3555,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Journalists want quotes before departure; answer openly, send a statement, or offer individual interviews.",
+      "startIndex": 3556,
+      "endIndex": 3672,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 3673,
+      "endIndex": 3680,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Local journalists ask for quick quotes before the convoy moves on.",
+      "startIndex": 3681,
+      "endIndex": 3747,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 3748,
+      "endIndex": 3767,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take every question → The coverage boosts the route's visibility.",
+      "startIndex": 3768,
+      "endIndex": 3833,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Send a written statement → You save energy but the press notes the dodge.",
+      "startIndex": 3834,
+      "endIndex": 3907,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Pull one-on-one interviews → Depth pieces win the cycle without sloppy headlines.",
+      "startIndex": 3908,
+      "endIndex": 3989,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Media Ambush Drill",
+      "startIndex": 3990,
+      "endIndex": 4008,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A media coach uses Sharpiegate-style pressure to test your answers; practice yourself, train staff, or rest.",
+      "startIndex": 4009,
+      "endIndex": 4127,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4128,
+      "endIndex": 4135,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A crisis PR coach ambushes you with rapid-fire hypotheticals.",
+      "startIndex": 4136,
+      "endIndex": 4197,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4198,
+      "endIndex": 4217,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take every question → You refine answers before the cameras roll.",
+      "startIndex": 4218,
+      "endIndex": 4283,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Workshop with staff → Your team internalizes the new message grid.",
+      "startIndex": 4284,
+      "endIndex": 4350,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Postpone for sleep → You refuse to drill exhausted and stay sharp later.",
+      "startIndex": 4351,
+      "endIndex": 4423,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Whistleblower Watch Party",
+      "startIndex": 4424,
+      "endIndex": 4449,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Whistleblowers testify late into the night about political interference with evidence; moderate, save clips, or let staff recap.",
+      "startIndex": 4450,
+      "endIndex": 4588,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 4589,
+      "endIndex": 4596,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A secure bunker hosts remote testimonies late into the night.",
+      "startIndex": 4597,
+      "endIndex": 4658,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 4659,
+      "endIndex": 4678,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Moderate live → You cross-examine while the stream surges.",
+      "startIndex": 4679,
+      "endIndex": 4737,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Clip highlights later → You queue the best testimony for release windows.",
+      "startIndex": 4738,
+      "endIndex": 4811,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Let staff recap → You rest while trusted aides capture takeaways.",
+      "startIndex": 4812,
+      "endIndex": 4877,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "The Forecast Has Been Corrected",
+      "startIndex": 4878,
+      "endIndex": 4909,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A publicity desk has redrawn a bad forecast as sunshine; follow real shelter advice, trust the drawing, or leave.",
+      "startIndex": 4910,
+      "endIndex": 5033,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 5034,
+      "endIndex": 5041,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Inspired by Sharpiegate, the local spin desk has drawn sunshine over the rain radar. The windshield refuses to cooperate.",
+      "startIndex": 5042,
+      "endIndex": 5163,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 5164,
+      "endIndex": 5183,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Use the forecaster’s actual shelter advice → You stay dry. The marker remains scientifically unnecessary.",
+      "startIndex": 5184,
+      "endIndex": 5289,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Trust the freshly drawn sun → The briefing is cheerful. Your socks are a rebuttal.",
+      "startIndex": 5290,
+      "endIndex": 5372,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 5373,
+      "endIndex": 5444,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Alternative Weather Desk",
+      "startIndex": 5445,
+      "endIndex": 5469,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A contractor wants favorable weather drawn onto an unfavorable forecast; publish the original, take money to alter it, or leave.",
+      "startIndex": 5470,
+      "endIndex": 5608,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 5609,
+      "endIndex": 5616,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A briefing contractor has learned the wrong lesson from Sharpiegate: every unfavorable forecast needs a thicker pen. You are offered the corrections desk.",
+      "startIndex": 5617,
+      "endIndex": 5771,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 5772,
+      "endIndex": 5791,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Publish the meteorologist’s original chart → The weather is unchanged. The record is finally accurate.",
+      "startIndex": 5792,
+      "endIndex": 5894,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Accept six dollars to redraw the sunshine → The chart improves politically. The clouds remain insubordinate.",
+      "startIndex": 5895,
+      "endIndex": 6003,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 6004,
+      "endIndex": 6075,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Wellness and evidence",
+      "startIndex": 6076,
+      "endIndex": 6097,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The joke: scientific confidence arrives before the supporting science. The hook is the MAHA report’s nonexistent studies and citation errors, later corrected by HHS. Background",
+      "startIndex": 6098,
+      "endIndex": 6274,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Raw Milk Stand",
+      "startIndex": 6275,
+      "endIndex": 6289,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A wellness stall promotes raw milk with dubious research citations; drink it, decline, or buy sealed snacks.",
+      "startIndex": 6290,
+      "endIndex": 6408,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6409,
+      "endIndex": 6416,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The vendor’s health claims cite nine studies, three of which are expected to exist shortly. A medal-wearing cow lends institutional credibility.",
+      "startIndex": 6417,
+      "endIndex": 6561,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6562,
+      "endIndex": 6581,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Drink the milk → You brave the calcium gamble.",
+      "startIndex": 6582,
+      "endIndex": 6628,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Politely decline → You hype their safety checklist instead.",
+      "startIndex": 6629,
+      "endIndex": 6688,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Buy shelf-stable snacks → The vendor upsells you sealed treats.",
+      "startIndex": 6689,
+      "endIndex": 6752,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Town Hall Drift",
+      "startIndex": 6753,
+      "endIndex": 6768,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A town hall has drifted into health claims and disputed studies; redirect it, let people vent, or organize workgroups.",
+      "startIndex": 6769,
+      "endIndex": 6897,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 6898,
+      "endIndex": 6905,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A classic-mode town hall needs calming words.",
+      "startIndex": 6906,
+      "endIndex": 6951,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 6952,
+      "endIndex": 6971,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Guide the conversation → You steer the agenda back to housing.",
+      "startIndex": 6972,
+      "endIndex": 7034,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Let them vent → You ride out the venting with patient nods.",
+      "startIndex": 7035,
+      "endIndex": 7094,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Break into workgroups → Facilitators scoop the loudest voices aside.",
+      "startIndex": 7095,
+      "endIndex": 7163,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Clinic Triage",
+      "startIndex": 7164,
+      "endIndex": 7177,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Volunteer medics offer practical care amid inflated wellness claims; decline, accept fluids, or donate bandages.",
+      "startIndex": 7178,
+      "endIndex": 7300,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7301,
+      "endIndex": 7308,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A volunteer medic wagon offers hydration and quick checks.",
+      "startIndex": 7309,
+      "endIndex": 7367,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 7368,
+      "endIndex": 7387,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Wave them off → You insist the team keeps moving despite the concern.",
+      "startIndex": 7388,
+      "endIndex": 7457,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Take a saline break → Medics insist on fluids and make you sit a spell.",
+      "startIndex": 7458,
+      "endIndex": 7529,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Donate spare bandages → You bolster the triage cache and breathe easier.",
+      "startIndex": 7530,
+      "endIndex": 7602,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Peer-Reviewed by the Cow",
+      "startIndex": 7603,
+      "endIndex": 7627,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A wellness vendor claims scientific authority from a cow and questionable citations; check the studies, buy sealed food, or leave.",
+      "startIndex": 7628,
+      "endIndex": 7768,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 7769,
+      "endIndex": 7776,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A MAHA-inspired vendor assures you that every health claim has a citation. The bibliography is mostly the cow’s LinkedIn endorsements.",
+      "startIndex": 7777,
+      "endIndex": 7911,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 7912,
+      "endIndex": 7931,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Check whether the studies exist → Several citations retire to spend more time with their families.",
+      "startIndex": 7932,
+      "endIndex": 8030,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Buy sealed snacks instead → Your lunch has an ingredients list and no honorary doctorate.",
+      "startIndex": 8031,
+      "endIndex": 8120,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 8121,
+      "endIndex": 8192,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Citation Repair Is Hiring",
+      "startIndex": 8193,
+      "endIndex": 8218,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A newspaper needs help repairing MAHA-related citations; take the paid assignment, wave away the errors, or leave.",
+      "startIndex": 8219,
+      "endIndex": 8343,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 8344,
+      "endIndex": 8351,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "A local paper needs a freelancer after the MAHA report’s citation errors. The editor promises more real dollars than some references had real authors.",
+      "startIndex": 8352,
+      "endIndex": 8502,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 8503,
+      "endIndex": 8522,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take the paid fact-checking assignment → Fifteen dollars. Several broken citations. One intact standard of evidence.",
+      "startIndex": 8523,
+      "endIndex": 8639,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Declare the links spiritually valid → The editor declines your services. Confidence briefly replaces verification.",
+      "startIndex": 8640,
+      "endIndex": 8754,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 8755,
+      "endIndex": 8826,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Bibliography Emergency Room",
+      "startIndex": 8827,
+      "endIndex": 8854,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A clinic treats missing research references as an emergency; check citations for pay, use ordinary care supplies, or leave.",
+      "startIndex": 8855,
+      "endIndex": 8988,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lead-in",
+      "startIndex": 8989,
+      "endIndex": 8996,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "After the MAHA report’s errors, a clinic has opened a citation triage desk. The references have impressive titles but no detectable authors.",
+      "startIndex": 8997,
+      "endIndex": 9137,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Choices → responses",
+      "startIndex": 9138,
+      "endIndex": 9157,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Take the paid reference-checking shift → Twelve dollars earned. The bibliography regains a pulse.",
+      "startIndex": 9158,
+      "endIndex": 9255,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Use the clinic’s ordinary care supplies → Your crew improves under a treatment that exists.",
+      "startIndex": 9256,
+      "endIndex": 9347,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Keep moving → You keep your resources and leave the opportunity behind.",
+      "startIndex": 9348,
+      "endIndex": 9419,
+      "tabId": "t.w3pknsnu8gcm",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": true
+    },
+    {
+      "text": "Town conversations",
+      "startIndex": 1,
+      "endIndex": 19,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Write one resident’s sharp, conversational reaction to the local situation. The scenario is the factual setup; the resident line below is the editable satire. Keep proposed cuts, warnings, and temporary interruptions distinct from events that happened.",
+      "startIndex": 20,
+      "endIndex": 272,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Minneapolis",
+      "startIndex": 273,
+      "endIndex": 284,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The University of Minnesota reported dozens of terminated federal research awards and affected staff in 2025. Background",
+      "startIndex": 285,
+      "endIndex": 415,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 416,
+      "endIndex": 431,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The lab coats are expensive. Trump says we can replace them with red hats and confidence.",
+      "startIndex": 432,
+      "endIndex": 521,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "La Crosse",
+      "startIndex": 522,
+      "endIndex": 531,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A proposed federal budget threatened the local river-and-wildlife research center. Closure was proposed, not established. Background",
+      "startIndex": 532,
+      "endIndex": 674,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 675,
+      "endIndex": 690,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Apparently the Mississippi can monitor itself. It just needs a LinkedIn account and a willingness to work unpaid.",
+      "startIndex": 691,
+      "endIndex": 804,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Madison",
+      "startIndex": 805,
+      "endIndex": 812,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: UW–Madison created emergency bridge funding to keep interrupted or terminated research projects going in 2025. Background",
+      "startIndex": 813,
+      "endIndex": 944,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 945,
+      "endIndex": 960,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "We built a bridge to keep the science going. The administration is still taking bids on a troll to live underneath.",
+      "startIndex": 961,
+      "endIndex": 1076,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Chicago",
+      "startIndex": 1077,
+      "endIndex": 1084,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Federal officials announced a pause in transit-project funding in October 2025, including the Red Line Extension. Background",
+      "startIndex": 1085,
+      "endIndex": 1219,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 1220,
+      "endIndex": 1235,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "You cannot commute on a funding review. We checked. It has no doors.",
+      "startIndex": 1236,
+      "endIndex": 1304,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "South Bend",
+      "startIndex": 1305,
+      "endIndex": 1315,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Notre Dame cut its budget, kept a hiring freeze, and paused new construction amid federal funding and tax pressures in 2025. Background",
+      "startIndex": 1316,
+      "endIndex": 1461,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 1462,
+      "endIndex": 1477,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Touchdown Jesus still has his arms up. Human Resources says that does not count as two available staff positions.",
+      "startIndex": 1478,
+      "endIndex": 1591,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Toledo",
+      "startIndex": 1592,
+      "endIndex": 1598,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A local printer reported tariff pressure on paper and printing plates, including a supplier surcharge. Background",
+      "startIndex": 1599,
+      "endIndex": 1722,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 1723,
+      "endIndex": 1738,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Trump promised to make foreign countries pay. Somehow our invoice keeps answering to “foreign countries.”",
+      "startIndex": 1739,
+      "endIndex": 1844,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Cleveland",
+      "startIndex": 1845,
+      "endIndex": 1854,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Cleveland schools were told their GEAR UP college-preparation grant would end in September 2025. Background",
+      "startIndex": 1855,
+      "endIndex": 1972,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 1973,
+      "endIndex": 1988,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Pull yourself up by your bootstraps. The college counselor who could explain where the straps are has been defunded.",
+      "startIndex": 1989,
+      "endIndex": 2105,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Pittsburgh",
+      "startIndex": 2106,
+      "endIndex": 2116,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Pitt reported 91 terminated federal research awards and a $42 million loss by June 2025. Background",
+      "startIndex": 2117,
+      "endIndex": 2226,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 2227,
+      "endIndex": 2242,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The new peer-review process has one question: have you tried researching something the president already believes?",
+      "startIndex": 2243,
+      "endIndex": 2357,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Cumberland",
+      "startIndex": 2358,
+      "endIndex": 2368,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The C&O Canal park, which reaches Cumberland, lost five employees amid federal staffing cuts in 2025. Background",
+      "startIndex": 2369,
+      "endIndex": 2491,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 2492,
+      "endIndex": 2507,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The canal has no water in the budget. The administration suggests paddling harder.",
+      "startIndex": 2508,
+      "endIndex": 2590,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Hagerstown",
+      "startIndex": 2591,
+      "endIndex": 2601,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Local letter carriers organized a rally against proposals to privatize or restructure the Postal Service. Background",
+      "startIndex": 2602,
+      "endIndex": 2728,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 2729,
+      "endIndex": 2744,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Neither snow nor rain can stop the mail. Trump would like to test whether a billionaire with a spreadsheet can.",
+      "startIndex": 2745,
+      "endIndex": 2856,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Frederick",
+      "startIndex": 2857,
+      "endIndex": 2866,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A Maryland layoff notice listed 90 HHS positions in Frederick for elimination in 2025. Background",
+      "startIndex": 2867,
+      "endIndex": 2974,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 2975,
+      "endIndex": 2990,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Make America Healthy Again. Please allow six to eight weeks for your replacement epidemiologist to arrive from the gift shop.",
+      "startIndex": 2991,
+      "endIndex": 3116,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "D.C.",
+      "startIndex": 3117,
+      "endIndex": 3121,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Hamilton canceled its planned Kennedy Center run after Trump took control of the center’s board. Background",
+      "startIndex": 3122,
+      "endIndex": 3239,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 3240,
+      "endIndex": 3255,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Trump finally found a way to silence Hamilton without reading any of the Federalist Papers.",
+      "startIndex": 3256,
+      "endIndex": 3347,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Kansas City",
+      "startIndex": 3348,
+      "endIndex": 3359,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Harvesters learned that expected federal shipments of milk, eggs, cheese, and meat had been canceled. Background",
+      "startIndex": 3360,
+      "endIndex": 3482,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 3483,
+      "endIndex": 3498,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Egg prices were too high, so they canceled the eggs. You cannot blame inflation for a truck that never arrives.",
+      "startIndex": 3499,
+      "endIndex": 3610,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Columbia",
+      "startIndex": 3611,
+      "endIndex": 3619,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A Mizzou lake scientist turned to homeowners’ associations and public donations after research cuts. Background",
+      "startIndex": 3620,
+      "endIndex": 3741,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 3742,
+      "endIndex": 3757,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Making America great again, one GoFundMe for algae at a time. Please select a tip before checking whether the water is safe.",
+      "startIndex": 3758,
+      "endIndex": 3882,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "St. Louis",
+      "startIndex": 3883,
+      "endIndex": 3892,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The local food bank described how canceled LFPA25 purchasing support disrupted the link between local farmers and hungry neighbors. Background",
+      "startIndex": 3893,
+      "endIndex": 4045,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 4046,
+      "endIndex": 4061,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Farm to table has a new middleman: the cancellation notice. Very low calories. Excellent shelf life.",
+      "startIndex": 4062,
+      "endIndex": 4162,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Springfield, IL",
+      "startIndex": 4163,
+      "endIndex": 4178,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Lincoln Home closed to visitors during the October 2025 federal shutdown. Background",
+      "startIndex": 4179,
+      "endIndex": 4273,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 4274,
+      "endIndex": 4289,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lincoln managed Gettysburg in 272 words. This administration needed one more: CLOSED.",
+      "startIndex": 4290,
+      "endIndex": 4375,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Denver",
+      "startIndex": 4376,
+      "endIndex": 4382,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: FEMA rescinded $24 million intended to reimburse Denver for migrant shelter, food, and medical care in 2025. Background",
+      "startIndex": 4383,
+      "endIndex": 4512,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 4513,
+      "endIndex": 4528,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "First you pay to shelter people. Then D.C. decides the real waste was reimbursing you.",
+      "startIndex": 4529,
+      "endIndex": 4615,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "North Platte",
+      "startIndex": 4616,
+      "endIndex": 4628,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The weather office reduced balloon launches to once daily after NOAA staffing cuts in 2025. Background",
+      "startIndex": 4629,
+      "endIndex": 4741,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 4742,
+      "endIndex": 4757,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Forecast: half the data, all the confidence. The president has a Sharpie if the storm goes somewhere inconvenient.",
+      "startIndex": 4758,
+      "endIndex": 4872,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Omaha",
+      "startIndex": 4873,
+      "endIndex": 4878,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: UNMC warned that an announced NIH overhead cap threatened research infrastructure. This was a warning, not a confirmed loss. Background",
+      "startIndex": 4879,
+      "endIndex": 5024,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 5025,
+      "endIndex": 5040,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Lab freezers are overhead now. Apparently the samples can stay cold by thinking about the budget.",
+      "startIndex": 5041,
+      "endIndex": 5138,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Des Moines",
+      "startIndex": 5139,
+      "endIndex": 5149,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Canceled local-food purchasing funds cut a market connecting Iowa farmers with schools and food assistance. Background",
+      "startIndex": 5150,
+      "endIndex": 5278,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 5279,
+      "endIndex": 5294,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Buy American. Unless an American farmer was counting on the purchase. Then buy them a folding table for the fundraiser.",
+      "startIndex": 5295,
+      "endIndex": 5414,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Iowa City",
+      "startIndex": 5415,
+      "endIndex": 5424,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Nearly $1 million was canceled for the International Writing Program; its fall residency was expected to shrink by half. Background",
+      "startIndex": 5425,
+      "endIndex": 5566,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 5567,
+      "endIndex": 5582,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Trump cut the international writers. By any reasonable definition, the plot just got thinner.",
+      "startIndex": 5583,
+      "endIndex": 5676,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Austin",
+      "startIndex": 5677,
+      "endIndex": 5683,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Humanities Texas paused programs, including veterans’ reading groups, after its operating grant was canceled. Background",
+      "startIndex": 5684,
+      "endIndex": 5814,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 5815,
+      "endIndex": 5830,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Support our troops. Just not if they get together to discuss a book.",
+      "startIndex": 5831,
+      "endIndex": 5899,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Waco",
+      "startIndex": 5900,
+      "endIndex": 5904,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: SNAP payments stopped during the November 2025 shutdown; Trump then announced partial funding. Background",
+      "startIndex": 5905,
+      "endIndex": 6020,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 6021,
+      "endIndex": 6036,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Half the benefits, all the appetite. A perfectly balanced budget if you only count the press release.",
+      "startIndex": 6037,
+      "endIndex": 6138,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Dallas",
+      "startIndex": 6139,
+      "endIndex": 6145,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: UT Southwestern warned that the announced NIH overhead cap could cost more than $100 million a year if unchanged. That was an estimate, not a realized loss. Background",
+      "startIndex": 6146,
+      "endIndex": 6323,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 6324,
+      "endIndex": 6339,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Make America Healthy Again. Just do not include the cost of figuring out how.",
+      "startIndex": 6340,
+      "endIndex": 6417,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Oklahoma City",
+      "startIndex": 6418,
+      "endIndex": 6431,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The regional food bank warned that canceled local-food purchasing support would hurt farmers and food assistance. Background",
+      "startIndex": 6432,
+      "endIndex": 6566,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 6567,
+      "endIndex": 6582,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "America First has entered the pantry. It is checking whether the empty shelf has a sufficiently patriotic attitude.",
+      "startIndex": 6583,
+      "endIndex": 6698,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Tulsa",
+      "startIndex": 6699,
+      "endIndex": 6704,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: The health department faced uncertainty from DOGE cuts, with federal grants supplying about 30% of revenue. This was exposure, not a confirmed loss. Background",
+      "startIndex": 6705,
+      "endIndex": 6874,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 6875,
+      "endIndex": 6890,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The department has a contingency plan for the contingency plan. DOGE is investigating this suspicious duplication of planning.",
+      "startIndex": 6891,
+      "endIndex": 7017,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Joplin",
+      "startIndex": 7018,
+      "endIndex": 7024,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Crosslines uses Ozarks Food Harvest, which reported a $3 million gap after canceled USDA food orders. Background",
+      "startIndex": 7025,
+      "endIndex": 7147,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 7148,
+      "endIndex": 7163,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Emergency food assistance, now with the food removed. The emergency is still fully funded.",
+      "startIndex": 7164,
+      "endIndex": 7254,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Springfield, MO",
+      "startIndex": 7255,
+      "endIndex": 7270,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Ozarks Food Harvest reported a $3 million food gap following USDA cancellations in 2025. Background",
+      "startIndex": 7271,
+      "endIndex": 7380,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Resident’s line",
+      "startIndex": 7381,
+      "endIndex": 7396,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "The savings are enormous if hungry people do not count as an expense.",
+      "startIndex": 7397,
+      "endIndex": 7466,
+      "tabId": "t.e4vbtrh2qo76",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Crew moments",
+      "startIndex": 1,
+      "endIndex": 13,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "TITLE",
+      "isListItem": false
+    },
+    {
+      "text": "Edit the short story that explains what happened to a crew member or ally. Keep {name} exactly as written; the game fills in the person’s name.",
+      "startIndex": 14,
+      "endIndex": 157,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Someone needs care",
+      "startIndex": 158,
+      "endIndex": 176,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "The crew member is struggling. Make the policy or absurd claim the target of the joke. The shared choices remain clear: provide care, leave the person with local care, or press on. Pressing on can be fatal when their condition is critical.",
+      "startIndex": 177,
+      "endIndex": 416,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Raw-milk promise",
+      "startIndex": 417,
+      "endIndex": 433,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member becomes ill after drinking raw milk at a MAHA-themed stall.",
+      "startIndex": 434,
+      "endIndex": 517,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 518,
+      "endIndex": 532,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} tried raw milk from a MAHA-themed stall. The promised health revolution has become a stomach emergency.",
+      "startIndex": 533,
+      "endIndex": 643,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Marker forecast",
+      "startIndex": 644,
+      "endIndex": 659,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member becomes dehydrated after trusting a politically altered weather forecast.",
+      "startIndex": 660,
+      "endIndex": 757,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 758,
+      "endIndex": 772,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} trusted a sunshine forecast corrected with a marker. The resulting dehydration has no comment for the press.",
+      "startIndex": 773,
+      "endIndex": 888,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Five accomplishments",
+      "startIndex": 889,
+      "endIndex": 909,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member loses sleep producing an accomplishment report for a DOGE-inspired supervisor.",
+      "startIndex": 910,
+      "endIndex": 1012,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 1013,
+      "endIndex": 1027,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} spent the night reconstructing five accomplishments for a DOGE-inspired camp supervisor. Sleep did not make the list.",
+      "startIndex": 1028,
+      "endIndex": 1152,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Unverified cure",
+      "startIndex": 1153,
+      "endIndex": 1168,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member becomes nauseated after trying a wellness cure with dubious citations.",
+      "startIndex": 1169,
+      "endIndex": 1263,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 1264,
+      "endIndex": 1278,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} sampled a wellness cure whose bibliography was inspired by the MAHA report. The nausea has better documentation.",
+      "startIndex": 1279,
+      "endIndex": 1398,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Renamed detours",
+      "startIndex": 1399,
+      "endIndex": 1414,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: Conflicting renamed routes leave a crew member exhausted.",
+      "startIndex": 1415,
+      "endIndex": 1482,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 1483,
+      "endIndex": 1497,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} followed three freshly renamed detours. The road gained prestige; {name} lost sleep.",
+      "startIndex": 1498,
+      "endIndex": 1589,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Tariff invoice",
+      "startIndex": 1590,
+      "endIndex": 1604,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member is worn out trying to understand a parts bill.",
+      "startIndex": 1605,
+      "endIndex": 1675,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 1676,
+      "endIndex": 1690,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} spent hours verifying a parts invoice after the latest tariff explanation. They are exhausted and still on hold.",
+      "startIndex": 1691,
+      "endIndex": 1810,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Overnight group chat",
+      "startIndex": 1811,
+      "endIndex": 1831,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An accidental briefing-chat invitation keeps a crew member awake.",
+      "startIndex": 1832,
+      "endIndex": 1907,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 1908,
+      "endIndex": 1922,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} was accidentally added to a Signal-inspired overnight briefing chat. The notifications have outlasted their sanity.",
+      "startIndex": 1923,
+      "endIndex": 2045,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Food-aid lifting",
+      "startIndex": 2046,
+      "endIndex": 2062,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: A crew member strains their back replacing lost food support with volunteer labor.",
+      "startIndex": 2063,
+      "endIndex": 2155,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "What happened?",
+      "startIndex": 2156,
+      "endIndex": 2170,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} strained their back loading food parcels after a co-op meeting about the LFPA25 cancellation. The press release weighed less.",
+      "startIndex": 2171,
+      "endIndex": 2303,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "An ally stops helping",
+      "startIndex": 2304,
+      "endIndex": 2325,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_1",
+      "isListItem": false
+    },
+    {
+      "text": "Write a brief exit message that makes the reason clear. These are story moments, with no choice buttons.",
+      "startIndex": 2326,
+      "endIndex": 2430,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "MAGA conversion",
+      "startIndex": 2431,
+      "endIndex": 2446,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally changes political sides and leaves the crew’s chat.",
+      "startIndex": 2447,
+      "endIndex": 2516,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 2517,
+      "endIndex": 2526,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} texts: “I’m MAGA now.” They leave your group chat and return only to explain that losing an ally is actually a tremendous victory.",
+      "startIndex": 2527,
+      "endIndex": 2664,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Office eliminated",
+      "startIndex": 2665,
+      "endIndex": 2682,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally loses their job after a DOGE-style office closure and cannot keep helping.",
+      "startIndex": 2683,
+      "endIndex": 2775,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 2776,
+      "endIndex": 2785,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} has to stop helping after their office is DOGE’d out of existence. Their job is gone, but a dashboard confidently reports improved morale.",
+      "startIndex": 2786,
+      "endIndex": 2931,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Second job",
+      "startIndex": 2932,
+      "endIndex": 2942,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally takes another job to cover higher equipment costs and has no time to help.",
+      "startIndex": 2943,
+      "endIndex": 3035,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 3036,
+      "endIndex": 3045,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} takes a second job to cover a tariff-swollen equipment bill. They can no longer help your crew: apparently the foreign country paying the tariff is their apartment.",
+      "startIndex": 3046,
+      "endIndex": 3217,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Merchandise career",
+      "startIndex": 3218,
+      "endIndex": 3236,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally leaves campaign work to sell Trump-branded merchandise.",
+      "startIndex": 3237,
+      "endIndex": 3310,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 3311,
+      "endIndex": 3320,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} quits the campaign to sell Trump-branded merchandise. The free exchange of ideas now requires a $60 starter kit.",
+      "startIndex": 3321,
+      "endIndex": 3440,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Truth Social spiral",
+      "startIndex": 3441,
+      "endIndex": 3460,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally blocks the crew after embracing conspiracy claims online.",
+      "startIndex": 3461,
+      "endIndex": 3536,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 3537,
+      "endIndex": 3546,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} blocks the crew after a weekend on Truth Social. Your carefully gathered receipts have been reclassified as a deep-state stationery operation.",
+      "startIndex": 3547,
+      "endIndex": 3696,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Protest injury",
+      "startIndex": 3697,
+      "endIndex": 3711,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "HEADING_2",
+      "isListItem": false
+    },
+    {
+      "text": "Scenario: An ally sprains an ankle at an anti-Trump protest and goes home to recover.",
+      "startIndex": 3712,
+      "endIndex": 3797,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "Exit line",
+      "startIndex": 3798,
+      "endIndex": 3807,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    },
+    {
+      "text": "{name} sprains an ankle at an anti-Trump protest and heads home to recover. The organizer calls it Infrastructure Week: one person actually fixing a support problem.",
+      "startIndex": 3808,
+      "endIndex": 3973,
+      "tabId": "t.7s63fsgx99si",
+      "namedStyleType": "NORMAL_TEXT",
+      "isListItem": false
+    }
+  ],
+  "document_url": "https://docs.google.com/document/d/1vpTHulSOqEjwTg5tHzUugQgs_Y-mKLTbhNVXMi5R_io"
+}

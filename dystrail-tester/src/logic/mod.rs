@@ -8,7 +8,7 @@ pub mod tester;
 
 pub use game_tester::{
     DEFAULT_POLICY_SIM_DAYS, GameTester, PlayabilityMetrics, SimulationExpectation, SimulationPlan,
-    TesterAssets, default_policy_setup,
+    TesterAssets,
 };
 pub use playability::{
     PlayabilityAggregate, PlayabilityRecord, aggregate_playability, run_playability_analysis,

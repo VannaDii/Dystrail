@@ -1,0 +1,1581 @@
+{
+  "revision": "d9b50a7e45b0bbb19014",
+  "validationFailures": [
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 60 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 62.453125,
+          "y": 878.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 21,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 70 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 163.78125,
+          "y": 878.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 122.328125,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 80 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 265.109375,
+          "y": 878.71875,
+          "width": 16.703125,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 223.65625,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 60 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 59.921875,
+          "y": 878.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 21,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 70 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 161.25,
+          "y": 878.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 122.328125,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 80 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 262.578125,
+          "y": 898.96875,
+          "width": 16.6875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 223.65625,
+          "y": 916.515625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 60 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 254.3125,
+          "y": 876.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 239.15625,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 70 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 154.140625,
+          "y": 876.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 137.828125,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 80 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 51.6875,
+          "y": 876.71875,
+          "width": 16.6875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 36.5,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 60 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 62.453125,
+          "y": 878.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 21,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 70 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 163.78125,
+          "y": 878.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 122.328125,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "text": "Fino a 80 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 265.109375,
+          "y": 878.71875,
+          "width": 16.703125,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 223.65625,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 60 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 59.921875,
+          "y": 878.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 21,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 70 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 161.25,
+          "y": 878.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 122.328125,
+          "y": 896.265625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "text": "Hasta 80 mph",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 262.578125,
+          "y": 898.96875,
+          "width": 16.6875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 223.65625,
+          "y": 916.515625,
+          "width": 26.640625,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 60 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 254.3125,
+          "y": 876.71875,
+          "width": 16.71875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 239.15625,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 70 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 154.140625,
+          "y": 876.71875,
+          "width": 15.5625,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 137.828125,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "text": "حتى 80 ميل/ساعة",
+      "reason": "stranded speed unit",
+      "number": [
+        {
+          "x": 51.6875,
+          "y": 876.71875,
+          "width": 16.6875,
+          "height": 17
+        }
+      ],
+      "unit": [
+        {
+          "x": 36.5,
+          "y": 894.265625,
+          "width": 59.84375,
+          "height": 17
+        }
+      ]
+    }
+  ],
+  "roads": [
+    {
+      "name": "beltway-suburbs",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 160.88221709006928
+    },
+    {
+      "name": "beltway-parkway",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 181.68591224018476
+    },
+    {
+      "name": "great-basin",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 830,
+      "brightness": 191.40646651270208
+    },
+    {
+      "name": "heartland-prairie",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 161.62355658198615
+    },
+    {
+      "name": "mountain-west",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 187.79676674364896
+    },
+    {
+      "name": "appalachian-ridge",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 166.13625866050808
+    },
+    {
+      "name": "rustbelt-foundry",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 173.78983833718246
+    },
+    {
+      "name": "california-hills",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 157.7459584295612
+    },
+    {
+      "name": "southwest-desert",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 830,
+      "brightness": 184.28175519630486
+    },
+    {
+      "name": "pacific-northwest",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 830,
+      "brightness": 133.1108545034642
+    },
+    {
+      "name": "heartland-orchard",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 832,
+      "brightness": 157.79445727482678
+    },
+    {
+      "name": "rustbelt-lakeside",
+      "width": 1536,
+      "height": 1024,
+      "sourceY": 831,
+      "brightness": 166.8337182448037
+    }
+  ],
+  "geometry": [
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.50396728515625,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "classic",
+      "width": 320,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.6832275390625,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 25.287148437500036,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 25.287148437500036,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.64654541015625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.50396728515625,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.07525634765625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 11.8258056640625,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.6832275390625,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 12.2545166015625,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 25.287148437500036,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "beltway-suburbs",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "beltway-parkway",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "great-basin",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "heartland-prairie",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "mountain-west",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "appalachian-ridge",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "rustbelt-foundry",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "california-hills",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "southwest-desert",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "pacific-northwest",
+      "maxSuspensionPx": 2,
+      "clearancePx": 23.685585937500036,
+      "sourceStripeY": 830
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "heartland-orchard",
+      "maxSuspensionPx": 2,
+      "clearancePx": 25.287148437500036,
+      "sourceStripeY": 832
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "road": "rustbelt-lakeside",
+      "maxSuspensionPx": 2,
+      "clearancePx": 24.486367187500036,
+      "sourceStripeY": 831
+    }
+  ],
+  "parked": [
+    {
+      "mode": "classic",
+      "width": 320,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "classic",
+      "width": 393,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "classic",
+      "width": 1440,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "classic",
+      "width": 1920,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "deep",
+      "width": 320,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "deep",
+      "width": 393,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "deep",
+      "width": 1440,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    },
+    {
+      "mode": "deep",
+      "width": 1920,
+      "vanAndCrewUnchanged": true,
+      "crewCount": 6
+    }
+  ],
+  "labels": [
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "it",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "es",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    },
+    {
+      "mode": "classic",
+      "language": "ar",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "it",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Fino a 60 mph",
+        "Fino a 70 mph",
+        "Fino a 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "es",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "Hasta 60 mph",
+        "Hasta 70 mph",
+        "Hasta 80 mph"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 320,
+      "localized": true,
+      "unitsWithNumbers": false,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 393,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    },
+    {
+      "mode": "deep",
+      "language": "ar",
+      "width": 1440,
+      "localized": true,
+      "unitsWithNumbers": true,
+      "noOverflow": true,
+      "text": [
+        "حتى 60 ميل/ساعة",
+        "حتى 70 ميل/ساعة",
+        "حتى 80 ميل/ساعة"
+      ]
+    }
+  ],
+  "screenshots": [
+    "/tmp/dystrail-lane-label-preview/lane-classic-desktop.png",
+    "/tmp/dystrail-lane-label-preview/lane-deep-phone.png"
+  ],
+  "errors": [
+    {
+      "type": "console",
+      "message": "Error: closure invoked recursively or after being dropped\n    at imports.wbg.__wbg___wbindgen_throw_dd24417ed36fc46e (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:382:15)\n    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3780]:0x280c87\n    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3144]:0x27456c\n    at wasm_bindgen__convert__closures_____invoke__hcf03173ab6db607d (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:260:10)\n    at real (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:164:20)\n    at ClockController._callFirstTimer (eval at evaluate (:290:30), <anonymous>:279:20)\n    at ClockController._runTo (eval at evaluate (:290:30), <anonymous>:114:33)\n    at eval (eval at evaluate (:290:30), <anonymous>:162:38)"
+    },
+    {
+      "type": "console",
+      "message": "Error: closure invoked recursively or after being dropped\n    at imports.wbg.__wbg___wbindgen_throw_dd24417ed36fc46e (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:382:15)\n    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3780]:0x280c87\n    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3144]:0x27456c\n    at wasm_bindgen__convert__closures_____invoke__hcf03173ab6db607d (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:260:10)\n    at real (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:164:20)\n    at ClockController._callFirstTimer (eval at evaluate (:290:30), <anonymous>:279:20)\n    at ClockController._runTo (eval at evaluate (:290:30), <anonymous>:114:33)\n    at eval (eval at evaluate (:290:30), <anonymous>:162:38)"
+    }
+  ],
+  "tire": {
+    "width": 1536,
+    "height": 1024,
+    "opaqueBottom": 936
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     message: 'Error: closure invoked recursively or after being dropped\\n' +\n+       '    at imports.wbg.__wbg___wbindgen_throw_dd24417ed36fc46e (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:382:15)\\n' +\n+       '    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3780]:0x280c87\\n' +\n+       '    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3144]:0x27456c\\n' +\n+       '    at wasm_bindgen__convert__closures_____invoke__hcf03173ab6db607d (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:260:10)\\n' +\n+       '    at real (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:164:20)\\n' +\n+       '    at ClockController._callFirstTimer (eval at evaluate (:290:30), <anonymous>:279:20)\\n' +\n+       '    at ClockController._runTo (eval at evaluate (:290:30), <anonymous>:114:33)\\n' +\n+       '    at eval (eval at evaluate (:290:30), <anonymous>:162:38)',\n+     type: 'console'\n+   },\n+   {\n+     message: 'Error: closure invoked recursively or after being dropped\\n' +\n+       '    at imports.wbg.__wbg___wbindgen_throw_dd24417ed36fc46e (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:382:15)\\n' +\n+       '    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3780]:0x280c87\\n' +\n+       '    at http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9_bg.wasm:wasm-function[3144]:0x27456c\\n' +\n+       '    at wasm_bindgen__convert__closures_____invoke__hcf03173ab6db607d (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:260:10)\\n' +\n+       '    at real (http://127.0.0.1:63965/play/dystrail-web-db8055e1a825d1c9.js:164:20)\\n' +\n+       '    at ClockController._callFirstTimer (eval at evaluate (:290:30), <anonymous>:279:20)\\n' +\n+       '    at ClockController._runTo (eval at evaluate (:290:30), <anonymous>:114:33)\\n' +\n+       '    at eval (eval at evaluate (:290:30), <anonymous>:162:38)',\n+     type: 'console'\n+   }\n+ ]\n- []\n\n    at /private/tmp/dystrail-lane-label-preview/browser.cjs:46:118"
+}

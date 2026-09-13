@@ -1,0 +1,26 @@
+{
+  "preview": "7050e40f35ec177a2368",
+  "full_chrome": {
+    "tests": 186,
+    "exit": 0,
+    "elapsed": "5.7 minutes",
+    "log": "logs/dystrail-entry-polish-complete.log"
+  },
+  "focused_chrome": {
+    "tests": 6,
+    "exit": 0
+  },
+  "safari": {
+    "groups": 15,
+    "exit": 0,
+    "locales": 20
+  },
+  "scope": [
+    "Mandatory title for every Trail entry",
+    "No top Journal divider",
+    "Rounded active tabs",
+    "All five phone stat cards stay inside the viewport"
+  ],
+  "retuning_included": false,
+  "historical_failures_retained": true
+}

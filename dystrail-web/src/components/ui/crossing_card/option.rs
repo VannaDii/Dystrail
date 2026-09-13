@@ -14,6 +14,7 @@ pub struct CrossingOptionProps {
 
 #[function_component(CrossingOption)]
 pub fn crossing_option(p: &CrossingOptionProps) -> Html {
+    crate::i18n::use_language();
     let idx = p.index;
     let on_click = {
         let on = p.on_activate.clone();

@@ -1,0 +1,408 @@
+{
+  "row_count": 2000,
+  "scenarios": {
+    "Classic - Aggressive": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 22.08,
+      "mean_miles": 2082.4,
+      "mean_physical_mpd": 138.61756,
+      "mean_ratio": 0.9824387351778656,
+      "min_ratio": 0.9130434782608695,
+      "mean_unique_per_20": 6.582108789760964,
+      "min_unique_per_20": 4.0,
+      "mean_encounters": 7.34,
+      "mean_unique": 7.34,
+      "boss_reach": 0.964,
+      "boss_win": 0.312,
+      "survival": 0.984,
+      "milestone": 0.964,
+      "bribe_success": 0.8389355742296919,
+      "crossing_failure": 0.012064343163538873,
+      "crossing_event_count": 746,
+      "bribe_attempt_count": 714,
+      "bribe_success_count": 599,
+      "crossing_failure_count": 9,
+      "mean_camp_days": 0.184,
+      "mean_repair_days": 0.356,
+      "mean_nonmoving_days": 0.4,
+      "mean_breakdowns": 0.356,
+      "days_range": [
+        10,
+        24
+      ],
+      "physical_mpd_range": [
+        131.29,
+        179.74
+      ],
+      "encounter_range": [
+        4,
+        10
+      ],
+      "endings": {
+        "boss.victory": 78,
+        "boss_vote_failed": 163,
+        "collapse_crossing": 9
+      },
+      "failure_families": {
+        "crossing": 9
+      },
+      "dominant_failure": 1.0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Classic - Balanced": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 19.44,
+      "mean_miles": 2081.8136,
+      "mean_physical_mpd": 139.0956,
+      "mean_ratio": 0.9832904347826087,
+      "min_ratio": 0.9130434782608695,
+      "mean_unique_per_20": 5.967833992094862,
+      "min_unique_per_20": 3.0,
+      "mean_encounters": 6.64,
+      "mean_unique": 6.64,
+      "boss_reach": 0.368,
+      "boss_win": 0.228,
+      "survival": 0.788,
+      "milestone": 0.672,
+      "bribe_success": 0.7417503586800573,
+      "crossing_failure": 0.11764705882352941,
+      "crossing_event_count": 697,
+      "bribe_attempt_count": 697,
+      "bribe_success_count": 517,
+      "crossing_failure_count": 82,
+      "mean_camp_days": 0.112,
+      "mean_repair_days": 0.268,
+      "mean_nonmoving_days": 0.388,
+      "mean_breakdowns": 0.268,
+      "days_range": [
+        9,
+        25
+      ],
+      "physical_mpd_range": [
+        123.18,
+        171.08
+      ],
+      "encounter_range": [
+        3,
+        10
+      ],
+      "endings": {
+        "collapse_breakdown": 76,
+        "boss.victory": 57,
+        "collapse_crossing": 82,
+        "boss_vote_failed": 35
+      },
+      "failure_families": {
+        "vehicle": 76,
+        "crossing": 82
+      },
+      "dominant_failure": 0.5189873417721519,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Classic - Conservative": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 25.372,
+      "mean_miles": 2095.2,
+      "mean_physical_mpd": 121.26604,
+      "mean_ratio": 0.985780865060865,
+      "min_ratio": 0.9230769230769231,
+      "mean_unique_per_20": 6.521791808191808,
+      "min_unique_per_20": 5.384615384615384,
+      "mean_encounters": 8.272,
+      "mean_unique": 8.272,
+      "boss_reach": 0.976,
+      "boss_win": 0.312,
+      "survival": 1,
+      "milestone": 0.976,
+      "bribe_success": 0.8373333333333334,
+      "crossing_failure": 0.008,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 628,
+      "crossing_failure_count": 6,
+      "mean_camp_days": 0.244,
+      "mean_repair_days": 0.236,
+      "mean_nonmoving_days": 0.368,
+      "mean_breakdowns": 0.236,
+      "days_range": [
+        20,
+        27
+      ],
+      "physical_mpd_range": [
+        112.47,
+        137.38
+      ],
+      "encounter_range": [
+        7,
+        12
+      ],
+      "endings": {
+        "boss.victory": 78,
+        "boss_vote_failed": 166,
+        "collapse_crossing": 6
+      },
+      "failure_families": {
+        "crossing": 6
+      },
+      "dominant_failure": 1.0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Classic - Resource Manager": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 22.54,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 132.01956,
+      "mean_ratio": 0.9823333333333334,
+      "min_ratio": 0.9130434782608695,
+      "mean_unique_per_20": 6.373438735177865,
+      "min_unique_per_20": 5.217391304347826,
+      "mean_encounters": 7.18,
+      "mean_unique": 7.18,
+      "boss_reach": 1,
+      "boss_win": 0.28,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.8226666666666667,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 617,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.196,
+      "mean_repair_days": 0.26,
+      "mean_nonmoving_days": 0.408,
+      "mean_breakdowns": 0.26,
+      "days_range": [
+        22,
+        24
+      ],
+      "physical_mpd_range": [
+        127.0,
+        139.1
+      ],
+      "encounter_range": [
+        6,
+        9
+      ],
+      "endings": {
+        "boss.victory": 70,
+        "boss_vote_failed": 180
+      },
+      "failure_families": {},
+      "dominant_failure": 0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Aggressive": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 21.364,
+      "mean_miles": 2059.8372,
+      "mean_physical_mpd": 141.65959999999998,
+      "mean_ratio": 0.9807890080933559,
+      "min_ratio": 0.9090909090909091,
+      "mean_unique_per_20": 6.752719744024091,
+      "min_unique_per_20": 5.0,
+      "mean_encounters": 7.244,
+      "mean_unique": 7.244,
+      "boss_reach": 0.992,
+      "boss_win": 0.992,
+      "survival": 0.992,
+      "milestone": 0.992,
+      "bribe_success": 0.8653576437587658,
+      "crossing_failure": 0.00267379679144385,
+      "crossing_event_count": 748,
+      "bribe_attempt_count": 713,
+      "bribe_success_count": 617,
+      "crossing_failure_count": 2,
+      "mean_camp_days": 0.224,
+      "mean_repair_days": 0.284,
+      "mean_nonmoving_days": 0.42,
+      "mean_breakdowns": 0.284,
+      "days_range": [
+        10,
+        23
+      ],
+      "physical_mpd_range": [
+        134.5,
+        179.74
+      ],
+      "encounter_range": [
+        5,
+        10
+      ],
+      "endings": {
+        "boss.victory": 248,
+        "collapse_crossing": 2
+      },
+      "failure_families": {
+        "crossing": 2
+      },
+      "dominant_failure": 1.0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Balanced": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 19.624,
+      "mean_miles": 2096.1472,
+      "mean_physical_mpd": 137.98296,
+      "mean_ratio": 0.9876721739130435,
+      "min_ratio": 0.9166666666666666,
+      "mean_unique_per_20": 5.906724110671937,
+      "min_unique_per_20": 3.0,
+      "mean_encounters": 6.644,
+      "mean_unique": 6.644,
+      "boss_reach": 0.616,
+      "boss_win": 0.232,
+      "survival": 0.788,
+      "milestone": 0.672,
+      "bribe_success": 0.7417503586800573,
+      "crossing_failure": 0.11764705882352941,
+      "crossing_event_count": 697,
+      "bribe_attempt_count": 697,
+      "bribe_success_count": 517,
+      "crossing_failure_count": 82,
+      "mean_camp_days": 0.152,
+      "mean_repair_days": 0.228,
+      "mean_nonmoving_days": 0.292,
+      "mean_breakdowns": 0.228,
+      "days_range": [
+        9,
+        25
+      ],
+      "physical_mpd_range": [
+        118.25,
+        171.08
+      ],
+      "encounter_range": [
+        3,
+        10
+      ],
+      "endings": {
+        "boss.victory": 58,
+        "boss_vote_failed": 96,
+        "collapse_crossing": 82,
+        "collapse_breakdown": 14
+      },
+      "failure_families": {
+        "crossing": 82,
+        "vehicle": 14
+      },
+      "dominant_failure": 0.8541666666666666,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Conservative": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 25.464,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 121.08691999999999,
+      "mean_ratio": 0.9855348148148149,
+      "min_ratio": 0.9230769230769231,
+      "mean_unique_per_20": 6.482812535612536,
+      "min_unique_per_20": 5.384615384615384,
+      "mean_encounters": 8.256,
+      "mean_unique": 8.256,
+      "boss_reach": 1,
+      "boss_win": 0.316,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.868,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 651,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.256,
+      "mean_repair_days": 0.248,
+      "mean_nonmoving_days": 0.376,
+      "mean_breakdowns": 0.248,
+      "days_range": [
+        25,
+        27
+      ],
+      "physical_mpd_range": [
+        112.47,
+        126.53
+      ],
+      "encounter_range": [
+        7,
+        11
+      ],
+      "endings": {
+        "boss.victory": 79,
+        "boss_vote_failed": 171
+      },
+      "failure_families": {},
+      "dominant_failure": 0,
+      "record_ratio_failures": [],
+      "failures": []
+    },
+    "Deep - Resource Manager": {
+      "n": 250,
+      "seed_min": 1337,
+      "seed_max": 1586,
+      "mean_days": 22.6,
+      "mean_miles": 2100.0,
+      "mean_physical_mpd": 131.83044,
+      "mean_ratio": 0.9811739130434782,
+      "min_ratio": 0.9130434782608695,
+      "mean_unique_per_20": 6.324387351778657,
+      "min_unique_per_20": 5.0,
+      "mean_encounters": 7.148,
+      "mean_unique": 7.148,
+      "boss_reach": 1,
+      "boss_win": 0.284,
+      "survival": 1,
+      "milestone": 1,
+      "bribe_success": 0.8226666666666667,
+      "crossing_failure": 0.0,
+      "crossing_event_count": 750,
+      "bribe_attempt_count": 750,
+      "bribe_success_count": 617,
+      "crossing_failure_count": 0,
+      "mean_camp_days": 0.244,
+      "mean_repair_days": 0.32,
+      "mean_nonmoving_days": 0.436,
+      "mean_breakdowns": 0.32,
+      "days_range": [
+        22,
+        24
+      ],
+      "physical_mpd_range": [
+        127.0,
+        139.1
+      ],
+      "encounter_range": [
+        6,
+        9
+      ],
+      "endings": {
+        "boss.victory": 71,
+        "boss_vote_failed": 179
+      },
+      "failure_families": {},
+      "dominant_failure": 0,
+      "record_ratio_failures": [],
+      "failures": []
+    }
+  },
+  "all_failures": []
+}

@@ -1,0 +1,56 @@
+--- pace-source/dystrail-game/src/travel_time.rs
++++ pace-checked-source/dystrail-game/src/travel_time.rs
+@@ -74,8 +74,10 @@
+             (crate::PaceId::Blitz, 2),
+         ] {
+             for chunks in [vec![300], vec![60; 5], vec![1; 300], vec![59, 1, 90, 150]] {
+-                let mut gs = GameState::default();
+-                gs.pace = pace;
++                let mut gs = GameState {
++                    pace,
++                    ..GameState::default()
++                };
+                 gs.stats.sanity = 8;
+                 for minutes in chunks {
+                     gs.spend_driving_time(minutes);
+@@ -115,8 +117,10 @@
+ 
+     #[test]
+     fn pace_fatigue_remainder_survives_reload_and_older_saves_default_to_zero() {
+-        let mut gs = GameState::default();
+-        gs.pace = crate::PaceId::Heated;
++        let mut gs = GameState {
++            pace: crate::PaceId::Heated,
++            ..GameState::default()
++        };
+         gs.stats.sanity = 8;
+         gs.spend_driving_time(137);
+         let saved = serde_json::to_string(&gs).unwrap();
+@@ -159,9 +163,11 @@
+                 crate::PaceId::Heated,
+                 crate::PaceId::Blitz,
+             ] {
+-                let mut gs = GameState::default();
+-                gs.pace = pace;
+-                gs.diet = diet;
++                let mut gs = GameState {
++                    pace,
++                    diet,
++                    ..GameState::default()
++                };
+                 gs.stats.sanity = 4;
+                 gs.weather_state.neutral_buffer = 100;
+                 gs.journey_daily.sanity.base = 1.0;
+@@ -245,8 +251,10 @@
+ 
+     #[test]
+     fn pace_fatigue_keeps_sanity_nonnegative() {
+-        let mut gs = GameState::default();
+-        gs.pace = crate::PaceId::Blitz;
++        let mut gs = GameState {
++            pace: crate::PaceId::Blitz,
++            ..GameState::default()
++        };
+         gs.stats.sanity = 1;
+         gs.spend_driving_time(300);
+         assert_eq!(gs.stats.sanity, 0);

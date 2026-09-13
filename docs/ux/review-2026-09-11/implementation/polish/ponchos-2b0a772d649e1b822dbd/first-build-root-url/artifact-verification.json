@@ -1,0 +1,26 @@
+{
+  "revision": "7ad4e188a8bb40584dd7",
+  "assets_verified": 119,
+  "bytes": 109966895,
+  "weather-native": {
+    "group_counts": [
+      6,
+      2,
+      0,
+      0,
+      0,
+      2,
+      3
+    ],
+    "passed": 13
+  },
+  "web-native": {
+    "group_counts": [
+      79,
+      3,
+      0
+    ],
+    "passed": 82
+  },
+  "service_worker_manifest_matches": true
+}

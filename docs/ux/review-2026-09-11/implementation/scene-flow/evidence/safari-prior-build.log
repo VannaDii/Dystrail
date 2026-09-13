@@ -1,0 +1,90 @@
+Safari 26.6.2
+PASS First launch holds gameplay until every scene and game asset is cached
+PASS Start button aligns with the Deep End column
+Click Choose your character
+Click Whistleblower
+PASS Random character is selected and persisted without focus jumps; mission and action alignment are correct
+PASS Number-key character selection transfers focus so arrow navigation works
+Click Journalist
+Click Continue
+PASS Onboarding: names, compact transparent portraits, no focus jump
+Click Continue
+Click Empty the van
+PASS Paid starter cart can be emptied and persists across refresh
+Click Review & depart
+Click Start the journey
+PASS Empty departure has no hidden supplies or charges
+Click How to install
+PASS Offline status spans the menu, help is centered, and labeled installation guidance opens correctly
+PASS Menu dismisses when clicked outside
+PASS Contextual help remains inside viewport and dismisses outside
+PASS Safari manifest and Apple touch icon available; complete offline cache ready
+PASS Fast, Camp, Review route and Resume share one row with detail controls in the same toolbar
+Click Fast
+Click Conditions
+Click The Van
+Click Journal
+Click The Trail
+PASS Fast toggle persists, detail panels switch without spending a turn, and old Step saves restore as Normal
+PASS Resources and turn bars sit outside the art, flush to the scene; action widths match
+Click Conditions
+Click The Trail
+PASS The Trail is its own tab and does not intrude into Conditions, The Van, or Journal
+Click Help & tips
+Click Help & tips
+PASS Help preference persists across reload; service information remains usable when tips are off
+Click العربية
+Click English
+PASS Arabic layout and selected language survive reload
+Click Review route
+Click Continue the journey
+Click Pause travel
+PASS Geographic map frames the active route as a full scene
+Click Import
+Click Resume travel
+Click Pause travel
+PASS Automatic map travels in the background, closes after five seconds, and needs no extra Resume click
+Click Import
+Click Resume travel
+Click Stay on map
+Click Resume travel
+Click Pause travel
+PASS Stay on map cancels automatic closing and travel, persists on reload, and resumes with one click
+Click Import
+Click Import
+PASS Heat and cold use state-matched effects in Safari
+Click Import
+Click Resume travel
+Click Pause travel
+PASS Weather applies real costs and notifies inline while travel continues; reload never repeats costs
+Click Import
+Click Import
+PASS Weather indicator includes exposure, contextual help, and clears obsolete damage in clear conditions
+Click Import
+Click Camp
+Click Forage with a local guide
+Click Continue
+PASS Camp gathering applies costs, returns to camp, and displays persisted cooldown cards
+Click Import
+Click Call local radio; work in exchange for repairs
+PASS Repair outcomes center their details and charge time, sanity and morale
+Click Import
+PASS Critical sanity uses the stat warning and three-second pulse without a popup
+Click Import
+PASS Number keys select encounter choices; cash reward and matching scene agree
+Click Import
+Click Talk to localsCredibility +1
+PASS Exact-town fact, player portrait, random NPC and conversation persist
+PASS Origin stopped: reload, saved crew, town scene and every bundled asset still work
+PASS Complete update replaces old build before game launches and preserves saves
+PASS Interrupted update leaves the last complete version playable
+Click Back to town
+Click Abandon trail
+Click End this journey
+PASS Abandon uses the selected character’s name and creates a saved ending
+Click Import
+PASS Early illness result uses the real route location, full scorecard and player identity, not a D.C. arrival or another crew member
+PASS Bottom result export stays in place and confirms the action inside the viewport
+Click Import
+PASS Importing a different ending on the same day refreshes the result and player card
+Safari completed: 35 checks

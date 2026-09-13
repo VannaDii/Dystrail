@@ -28,10 +28,6 @@ pub struct PersonaMods {
     pub bribe_discount_pct: i32,
     #[serde(default)]
     pub satire_sustain: bool,
-    #[serde(default)]
-    pub pants_relief: i32,
-    #[serde(default)]
-    pub pants_relief_threshold: i32,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

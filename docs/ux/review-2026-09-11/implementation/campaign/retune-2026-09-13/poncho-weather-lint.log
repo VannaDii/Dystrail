@@ -1,0 +1,12 @@
+    Checking libc v0.2.178
+    Checking serde v1.0.228
+    Checking thiserror v2.0.17
+    Checking smallvec v1.15.1
+    Checking getrandom v0.2.16
+    Checking cpufeatures v0.2.17
+    Checking sha2 v0.10.9
+    Checking rand_core v0.6.4
+    Checking rand_chacha v0.3.1
+    Checking rand v0.8.8
+    Checking dystrail-game v0.1.0 (/private/tmp/dystrail-retune-2026-09-13/poncho-source/dystrail-game)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.10s

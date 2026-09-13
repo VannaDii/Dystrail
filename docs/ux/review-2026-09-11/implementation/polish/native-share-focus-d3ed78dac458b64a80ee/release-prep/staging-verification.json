@@ -1,0 +1,21 @@
+{
+  "artifact": "/private/tmp/dystrail-native-share-focus/web",
+  "revision": "d3ed78dac458b64a80ee",
+  "artifact_manifest_sha256": "dfd2928f2fe5414aa4e9a8ad614e019376ffd6b39b63dad526d5aac483f1bbad",
+  "game_assets": 119,
+  "total_files": 207,
+  "protected_files": 59,
+  "preserved_hashed_assets": 31,
+  "changed": [
+    "404.html",
+    "play/index.html",
+    "play/offline-manifest.json",
+    "play/sw.js"
+  ],
+  "added": [
+    "play/dystrail-web-d0c4beeb35f279f0.js",
+    "play/dystrail-web-d0c4beeb35f279f0_bg.wasm"
+  ],
+  "removed": [],
+  "passed": true
+}

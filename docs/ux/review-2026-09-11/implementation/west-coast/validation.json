@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-11",
+  "revision": "f6b4922d52c336b3eec9",
+  "preview": "http://127.0.0.1:8180/play/",
+  "content_inventory": "http://127.0.0.1:8083/review/implementation/content/",
+  "assets": 88,
+  "bytes": 90547018,
+  "assets_verified_over_http": true,
+  "native_tests": {
+    "passed": 247,
+    "failed": 0
+  },
+  "strict_clippy": "passed",
+  "format": "passed",
+  "native_release": "passed",
+  "web_release": "passed",
+  "engine_coverage_percent": 79.05,
+  "engine_coverage_required_percent": 77,
+  "chrome": {
+    "full_batch": {
+      "revision": "0461560ac4668ed8c9a6",
+      "desktop": 30,
+      "phone": 30,
+      "passed": 60
+    },
+    "final_targeted_batch": {
+      "revision": "f6b4922d52c336b3eec9",
+      "desktop": 12,
+      "phone": 12,
+      "passed": 24
+    },
+    "manual_localization": "English, Spanish, Italian, Arabic at 1280 and 390 CSS pixels; no horizontal overflow",
+    "channel": "Installed Google Chrome",
+    "failed": 0
+  },
+  "safari": {
+    "browser": "Native Safari 26.6.2",
+    "revision": "f6b4922d52c336b3eec9",
+    "checks_passed": 11,
+    "measured_widths": [
+      1728
+    ],
+    "phone_viewport_verified": false,
+    "resize_limit": "Native Safari ignored window resize requests. Current passes are explicitly desktop checks."
+  },
+  "content": {
+    "encounters": 65,
+    "choices": 187,
+    "towns": 51,
+    "encounter_compositions": 12,
+    "road_backgrounds": 12,
+    "town_compositions": 7,
+    "ally_departure_messages": 6
+  },
+  "compatibility": "User explicitly waived prior-run compatibility. No route-version or saved-route migration layer retained.",
+  "known_limits": [
+    "No physical phone home-screen installation performed.",
+    "Current dependency audit: 7 vulnerabilities and 7 warnings. Deny advisories fail; bans, licenses and sources pass.",
+    "Current campaign acceptance fails Classic - Balanced seed CL-ORANGE02: travel ratio 79.3% below 90%. Thresholds were not weakened.",
+    "Twelve encounter compositions are shared across 65 encounters; town art is regional rather than a unique depiction of each city.",
+    "Current Safari viewport could not be narrowed; responsive phone coverage is installed Chrome."
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "Classic-1351": {
+    "all_48_fields_exact": true,
+    "fields": {
+      "scenario": true,
+      "mode": true,
+      "strategy": true,
+      "seed_code": true,
+      "seed_value": true,
+      "days_survived": true,
+      "ending_type": true,
+      "ending_cause": true,
+      "encounters_faced": true,
+      "vehicle_breakdowns": true,
+      "final_hp": true,
+      "final_supplies": true,
+      "final_sanity": true,
+      "final_budget_cents": true,
+      "boss.reached": true,
+      "boss_won": true,
+      "miles_traveled": true,
+      "travel_days": true,
+      "partial_travel_days": true,
+      "non_travel_days": true,
+      "avg_mpd": true,
+      "unique_encounters": true,
+      "repairs_spent_cents": true,
+      "bribes_spent_cents": true,
+      "exec_order_active": true,
+      "exec_order_days_remaining": true,
+      "exec_order_cooldown": true,
+      "exposure_streak_heat": true,
+      "exposure_streak_cold": true,
+      "days_with_camp": true,
+      "days_with_repair": true,
+      "travel_ratio": true,
+      "unique_per_20_days": true,
+      "rotation_events": true,
+      "reached_2k_by_150": true,
+      "crossing_events": true,
+      "crossing_permit_uses": true,
+      "crossing_bribe_attempts": true,
+      "crossing_bribe_successes": true,
+      "crossing_detours_taken": true,
+      "crossing_failures": true,
+      "crossing_failure_rate": true,
+      "crossing_bribe_success_rate": true,
+      "day_reason_history": true,
+      "endgame_active": true,
+      "endgame_field_repair_used": true,
+      "endgame_cooldown_days": true,
+      "stop_cap_conversions": true
+    },
+    "metric_differences": {},
+    "decisions_count": 7,
+    "decisions_match_order_day_name_label_policy": true,
+    "choice_ids_and_indices_match_unchanged_game_data": true,
+    "decision_sequence": [
+      {
+        "day": 1,
+        "encounter_name": "No Subscription Required",
+        "choice_label": "Sit for the medic’s care and open your water",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 2,
+        "encounter_name": "Tariff Whiplash",
+        "choice_label": "Insist an extra pack was part of the deal",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 6,
+        "encounter_name": "A Building Is Overhead",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 8,
+        "encounter_name": "College Radio Phonebank",
+        "choice_label": "Join the live call-in",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 10,
+        "encounter_name": "The Tariff Relabeling Shift",
+        "choice_label": "Match the labels for two road packs",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 15,
+        "encounter_name": "Mail Drop Pickup",
+        "choice_label": "Record a short thank-you for the volunteer to share",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 20,
+        "encounter_name": "Please Account for the Bridge",
+        "choice_label": "Wish them luck and take the reopened lane",
+        "policy": "Resource Manager"
+      }
+    ],
+    "expected_decision_sequence": [
+      {
+        "day": 1,
+        "encounter_name": "No Subscription Required",
+        "choice_label": "Sit for the medic’s care and open your water",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 2,
+        "encounter_name": "Tariff Whiplash",
+        "choice_label": "Insist an extra pack was part of the deal",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 6,
+        "encounter_name": "A Building Is Overhead",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 8,
+        "encounter_name": "College Radio Phonebank",
+        "choice_label": "Join the live call-in",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 10,
+        "encounter_name": "The Tariff Relabeling Shift",
+        "choice_label": "Match the labels for two road packs",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 15,
+        "encounter_name": "Mail Drop Pickup",
+        "choice_label": "Record a short thank-you for the volunteer to share",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 20,
+        "encounter_name": "Please Account for the Bridge",
+        "choice_label": "Wish them luck and take the reopened lane",
+        "policy": "Resource Manager"
+      }
+    ]
+  },
+  "Deep-1391": {
+    "all_48_fields_exact": true,
+    "fields": {
+      "scenario": true,
+      "mode": true,
+      "strategy": true,
+      "seed_code": true,
+      "seed_value": true,
+      "days_survived": true,
+      "ending_type": true,
+      "ending_cause": true,
+      "encounters_faced": true,
+      "vehicle_breakdowns": true,
+      "final_hp": true,
+      "final_supplies": true,
+      "final_sanity": true,
+      "final_budget_cents": true,
+      "boss.reached": true,
+      "boss_won": true,
+      "miles_traveled": true,
+      "travel_days": true,
+      "partial_travel_days": true,
+      "non_travel_days": true,
+      "avg_mpd": true,
+      "unique_encounters": true,
+      "repairs_spent_cents": true,
+      "bribes_spent_cents": true,
+      "exec_order_active": true,
+      "exec_order_days_remaining": true,
+      "exec_order_cooldown": true,
+      "exposure_streak_heat": true,
+      "exposure_streak_cold": true,
+      "days_with_camp": true,
+      "days_with_repair": true,
+      "travel_ratio": true,
+      "unique_per_20_days": true,
+      "rotation_events": true,
+      "reached_2k_by_150": true,
+      "crossing_events": true,
+      "crossing_permit_uses": true,
+      "crossing_bribe_attempts": true,
+      "crossing_bribe_successes": true,
+      "crossing_detours_taken": true,
+      "crossing_failures": true,
+      "crossing_failure_rate": true,
+      "crossing_bribe_success_rate": true,
+      "day_reason_history": true,
+      "endgame_active": true,
+      "endgame_field_repair_used": true,
+      "endgame_cooldown_days": true,
+      "stop_cap_conversions": true
+    },
+    "metric_differences": {},
+    "decisions_count": 10,
+    "decisions_match_order_day_name_label_policy": true,
+    "choice_ids_and_indices_match_unchanged_game_data": true,
+    "decision_sequence": [
+      {
+        "day": 1,
+        "encounter_name": "No Subscription Required",
+        "choice_label": "Sit for the medic’s care and open your water",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 2,
+        "encounter_name": "Patriotic Thesaurus",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 3,
+        "encounter_name": "Please Hold While We Check Reality",
+        "choice_label": "Practice one calm answer together in the van",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 5,
+        "encounter_name": "A Building Is Overhead",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 7,
+        "encounter_name": "Wind Loyalty Hearing",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 9,
+        "encounter_name": "Heartland Waystation",
+        "choice_label": "Help stack empty crates, then take the shortcut",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 13,
+        "encounter_name": "Optimism Will Not Dry Your Socks",
+        "choice_label": "Trust the sign and reassure the crew",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 15,
+        "encounter_name": "The Cow Hasn’t Read It Either",
+        "choice_label": "Buy $5 of sealed snacks",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 17,
+        "encounter_name": "The Patriotic Parts Counter",
+        "choice_label": "Buy the kit — $12",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 22,
+        "encounter_name": "The Exhibit of Pending Funds",
+        "choice_label": "Thank the guide and get back on the road",
+        "policy": "Resource Manager"
+      }
+    ],
+    "expected_decision_sequence": [
+      {
+        "day": 1,
+        "encounter_name": "No Subscription Required",
+        "choice_label": "Sit for the medic’s care and open your water",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 2,
+        "encounter_name": "Patriotic Thesaurus",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 3,
+        "encounter_name": "Please Hold While We Check Reality",
+        "choice_label": "Practice one calm answer together in the van",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 5,
+        "encounter_name": "A Building Is Overhead",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 7,
+        "encounter_name": "Wind Loyalty Hearing",
+        "choice_label": "Keep moving",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 9,
+        "encounter_name": "Heartland Waystation",
+        "choice_label": "Help stack empty crates, then take the shortcut",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 13,
+        "encounter_name": "Optimism Will Not Dry Your Socks",
+        "choice_label": "Trust the sign and reassure the crew",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 15,
+        "encounter_name": "The Cow Hasn’t Read It Either",
+        "choice_label": "Buy $5 of sealed snacks",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 17,
+        "encounter_name": "The Patriotic Parts Counter",
+        "choice_label": "Buy the kit — $12",
+        "policy": "Resource Manager"
+      },
+      {
+        "day": 22,
+        "encounter_name": "The Exhibit of Pending Funds",
+        "choice_label": "Thank the guide and get back on the road",
+        "policy": "Resource Manager"
+      }
+    ]
+  }
+}

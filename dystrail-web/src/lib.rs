@@ -1,4 +1,5 @@
 #![forbid(unsafe_code)]
+#[cfg(not(test))]
 use wasm_bindgen::prelude::*;
 
 pub mod a11y;
@@ -13,7 +14,10 @@ pub mod input;
 pub mod pages;
 pub mod paths;
 pub mod router;
+#[cfg(all(test, target_arch = "wasm32"))]
+mod wasm_tests;
 
+#[cfg(not(test))]
 #[wasm_bindgen(start)]
 pub fn start() {
     #[cfg(feature = "console_error_panic_hook")]
