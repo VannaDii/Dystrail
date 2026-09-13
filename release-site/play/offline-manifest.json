@@ -1,6 +1,6 @@
 {
-  "revision": "33dd2b05a6658d330912",
-  "bytes": 109599606,
+  "revision": "d3ed78dac458b64a80ee",
+  "bytes": 109553527,
   "assets": [
     {
       "path": "continuity-583a687216545eeb.css",
@@ -8,19 +8,19 @@
       "integrity": "sha256-s/mWlpEPzMCEzWkDSknWMTu88SfC8hvvsjLQInyXfnY="
     },
     {
-      "path": "dystrail-web-b981d731a27978df.js",
+      "path": "dystrail-web-d0c4beeb35f279f0.js",
       "bytes": 66183,
-      "integrity": "sha256-wKVXoqvr5trt6sdFisOUvGCPK/OSgf6dag1Jokkylbo="
+      "integrity": "sha256-dgIbdCkbVr/n/YzMVErf4IZzOQOO1x1Qce6knzIXcUg="
     },
     {
-      "path": "dystrail-web-b981d731a27978df_bg.wasm",
-      "bytes": 6088840,
-      "integrity": "sha256-8f3udpfvSijNHGxVqaFqgJ21G8IJKkM82e/f+3sVyWM="
+      "path": "dystrail-web-d0c4beeb35f279f0_bg.wasm",
+      "bytes": 6042761,
+      "integrity": "sha256-9A465a28fe2qJbnNLaFZuYQT8zBWSF04Qhe9zYczCDI="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-WXyCruXf11Qk0YVMc4zFsa7+7YUY3acMD5K0PEybxmQ="
+      "integrity": "sha256-MJ6rTTK5VuwwF+Ac8pXI96A3y84p4h48SxvAbOtm9b0="
     },
     {
       "path": "journey-5fe63ee3f473b890.css",
