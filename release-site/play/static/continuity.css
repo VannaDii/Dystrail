@@ -1,7 +1,9 @@
 /* Journey pacing: a scene, one immediate decision, optional detail. */
 html { scroll-padding-block-start:88px; }
 .game-header { position:sticky; top:0; z-index:100; }
-.top-game-menu-panel { max-height:calc(100dvh - 88px); overflow-y:auto; }
+.top-game-menu-panel { max-height:var(--menu-max-height,calc(100dvh - 24px)); overflow-y:auto; }
+/* Keep every language in the menu's scroll area, including keyboard focus. */
+.top-game-menu-panel .language-options { position:static; min-width:0; max-height:none; overflow:visible; margin-block-start:6px; box-shadow:none; }
 .world-view .journey-scene { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
 .world-view .journey-scene:not(.scene-road) { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
 .world-view .journey-scene:not(.scene-road) .scene-art { inset:112px 0 0; }
@@ -279,7 +281,8 @@ button:disabled { cursor:not-allowed; }
 }
 .offline-status {grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 8px;padding-top:12px;border-top:1px solid var(--border-color,var(--border-subtle));font-size:12px;min-width:0;}
 .offline-summary {display:flex;align-items:center;gap:8px;line-height:1.4;text-align:start;}
-.offline-state-icon {flex:0 0 20px;display:grid;place-items:center;width:20px;height:20px;line-height:1;font-size:15px;border:1px solid currentColor;border-radius:50%;}
+.offline-state-icon {flex:0 0 20px;display:grid;place-items:center;width:20px;height:20px;line-height:1;}
+.offline-state-icon .journey-icon {width:20px;height:20px;}
 .offline-status[data-offline=ready] .offline-state-icon {color:var(--positive-text);}
 .offline-status[data-offline=error] .offline-state-icon,.offline-status[data-offline=unavailable] .offline-state-icon {color:var(--accent);}
 .offline-status .context-help {margin:0;}
@@ -392,9 +395,8 @@ button:disabled { cursor:not-allowed; }
 .persona-mods h4 { font:700 13px var(--body-font); margin:0 0 8px; }
 .persona-mods p { font-size:14px; line-height:1.5; margin:0; }
 .persona-scoring { font-size:12px; line-height:1.5; color:var(--paper-muted); margin:0; padding-top:12px; border-top:1px solid var(--paper-border); }
-.persona-select .persona-actions { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:20px; margin-top:24px; padding-top:18px; border-top:1px solid var(--panel-border); }
-.persona-actions #persona-helper { margin:0; font-size:14px; line-height:1.5; color:var(--text-dim); }
-.persona-select .persona-actions button { width:auto; min-width:160px; margin:0; }
+.controls.setup-actions { display:flex; justify-content:space-between; gap:20px; margin-block-start:24px; padding-block-start:18px; border-block-start:1px solid var(--panel-border); }
+.controls.setup-actions button { inline-size:auto; min-inline-size:160px; margin:0; }
 
 /* Result identity belongs to the player, and the scorecard is always readable. */
 .result-art .journey-scene { aspect-ratio:auto; min-height:380px; }
@@ -421,7 +423,7 @@ button:disabled { cursor:not-allowed; }
  .persona-preview-header p { font-size:14px; line-height:1.5; min-height:0; }
  .persona-mods { min-height:0; }
  .persona-starting { padding-block:10px; }
- .persona-select .persona-actions button { min-width:112px; }
+ .controls.setup-actions button { min-inline-size:112px; }
  .result-art .result-art-caption { grid-template-columns:minmax(0,1fr); gap:22px; padding:24px 20px; min-height:450px; }
  .result-art-caption .result-profile { justify-self:start; max-width:100%; }
  .ending-scorecard { margin-inline:16px; padding:16px; }

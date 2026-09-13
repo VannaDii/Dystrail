@@ -1,31 +1,31 @@
 {
-  "revision": "837bb4f404afd0f3f7fc",
-  "bytes": 109554039,
+  "revision": "d6fc9d303f700bc08f88",
+  "bytes": 109583630,
   "assets": [
     {
-      "path": "continuity-5a5e8a697bf9e7c4.css",
-      "bytes": 76601,
-      "integrity": "sha256-BKK5E2Oja23h7vLIjbaQy830OYZe8ZFWDLnvarsW8EA="
+      "path": "continuity-5539805a057cd68d.css",
+      "bytes": 76730,
+      "integrity": "sha256-a8p1WDUZ7eKpYfmOtEkx5l+wa3Gw1bsvdSuBjj690Nk="
     },
     {
-      "path": "dystrail-web-d0c4beeb35f279f0.js",
-      "bytes": 66183,
-      "integrity": "sha256-dgIbdCkbVr/n/YzMVErf4IZzOQOO1x1Qce6knzIXcUg="
+      "path": "dystrail-web-d09ee9a1b3c5d844.js",
+      "bytes": 66960,
+      "integrity": "sha256-yV8OLTkiB5OcgmR2R8yA4Pbv6XtZaODhy+0njlMjy3Q="
     },
     {
-      "path": "dystrail-web-d0c4beeb35f279f0_bg.wasm",
-      "bytes": 6042761,
-      "integrity": "sha256-9A465a28fe2qJbnNLaFZuYQT8zBWSF04Qhe9zYczCDI="
+      "path": "dystrail-web-d09ee9a1b3c5d844_bg.wasm",
+      "bytes": 6070800,
+      "integrity": "sha256-LpE6AgMAlAYcMoZywMjUigoSY1AnntKyWueuc5oZbRY="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-r09qOlfXmprEcTuo7OsuxitLX30RdKtltyY7SFd/lyI="
+      "integrity": "sha256-bL5h2HJPJeQFyuBiWfSRwOhaES9twagsllTUu8gI5Vw="
     },
     {
-      "path": "journey-5fe63ee3f473b890.css",
-      "bytes": 33441,
-      "integrity": "sha256-lJgF0vgZr2L377wLuNViPars2FkK+MldM9sm5rE5d8g="
+      "path": "journey-804028b1424fa9ec.css",
+      "bytes": 33693,
+      "integrity": "sha256-hjn0W5Eiag8479UJ/ZOkXroC+roBv0JEZM2gOg4BKPQ="
     },
     {
       "path": "results-49acad5bb38c9d37.css",
@@ -59,8 +59,8 @@
     },
     {
       "path": "static/assets/data/game.json",
-      "bytes": 80025,
-      "integrity": "sha256-fwQXXF5lrGq0hEX9i2yOxXAbgqHFqdoN0sNxmafL/MI="
+      "bytes": 80007,
+      "integrity": "sha256-RjmvdbUfOdzGfyeK3rE9JwzCXE3MXiWvUMHVEDfZbDM="
     },
     {
       "path": "static/assets/data/journey/classic.json",
@@ -69,8 +69,8 @@
     },
     {
       "path": "static/assets/data/journey/deep.json",
-      "bytes": 1355,
-      "integrity": "sha256-I3MrXkr2zu8SNNw87/HhUTtgstKSFkFG47nrR45XCkM="
+      "bytes": 1498,
+      "integrity": "sha256-eChP4DykaCoICdHs3pd5/wW/tq6pLPKMA1auDnAJ2gI="
     },
     {
       "path": "static/assets/data/journey/overlays/aggressive.json",
@@ -80,7 +80,7 @@
     {
       "path": "static/assets/data/journey/overlays/balanced.json",
       "bytes": 485,
-      "integrity": "sha256-P8HUu8GM7MWOR5qupjYgvxnYDGDjRDVppwr+A8BqquE="
+      "integrity": "sha256-nAZcLUKeul9siOCBUta1o6MYTsMJA0EhOAYKXqmhJHc="
     },
     {
       "path": "static/assets/data/journey/overlays/conservative.json",
@@ -144,8 +144,8 @@
     },
     {
       "path": "static/continuity.css",
-      "bytes": 76601,
-      "integrity": "sha256-BKK5E2Oja23h7vLIjbaQy830OYZe8ZFWDLnvarsW8EA="
+      "bytes": 76730,
+      "integrity": "sha256-a8p1WDUZ7eKpYfmOtEkx5l+wa3Gw1bsvdSuBjj690Nk="
     },
     {
       "path": "static/favicon.ico",
@@ -554,8 +554,8 @@
     },
     {
       "path": "static/journey.css",
-      "bytes": 33441,
-      "integrity": "sha256-lJgF0vgZr2L377wLuNViPars2FkK+MldM9sm5rE5d8g="
+      "bytes": 33693,
+      "integrity": "sha256-hjn0W5Eiag8479UJ/ZOkXroC+roBv0JEZM2gOg4BKPQ="
     },
     {
       "path": "static/licenses/lucide.txt",
@@ -579,8 +579,8 @@
     },
     {
       "path": "static/styles.css",
-      "bytes": 21476,
-      "integrity": "sha256-O+SbSURZfHAD8J5ewAIwG/dFvNxLBSDoN3izpbH60qs="
+      "bytes": 21420,
+      "integrity": "sha256-GGUv5DAC7NEVVNxPoHqBNJ5qIqg+pzDFNabYOQtmhFc="
     },
     {
       "path": "static/theme.css",
@@ -588,9 +588,9 @@
       "integrity": "sha256-SG9yIcZHz3gMLFdZbXqDHPJbLNztf46hr6Fs1BItw5A="
     },
     {
-      "path": "styles-e7334a516cfa8071.css",
-      "bytes": 21476,
-      "integrity": "sha256-O+SbSURZfHAD8J5ewAIwG/dFvNxLBSDoN3izpbH60qs="
+      "path": "styles-a4dde57c900fd65a.css",
+      "bytes": 21420,
+      "integrity": "sha256-GGUv5DAC7NEVVNxPoHqBNJ5qIqg+pzDFNabYOQtmhFc="
     },
     {
       "path": "theme-a00fef3fd7d22679.css",
