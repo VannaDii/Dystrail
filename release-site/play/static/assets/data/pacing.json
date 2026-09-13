@@ -3,8 +3,6 @@
     {
       "id": "steady",
       "name": "Steady",
-      "dist_mult": 1.0,
-      "distance": 0,
       "sanity": 0,
       "encounter_chance_delta": 0.0,
       "speed_mph": 60
@@ -12,8 +10,6 @@
     {
       "id": "heated",
       "name": "Heated",
-      "dist_mult": 1.1666666666666667,
-      "distance": 0,
       "sanity": -1,
       "encounter_chance_delta": 0.05,
       "speed_mph": 70
@@ -21,8 +17,6 @@
     {
       "id": "blitz",
       "name": "Blitz",
-      "dist_mult": 1.3333333333333333,
-      "distance": 0,
       "sanity": -2,
       "encounter_chance_delta": 0.1,
       "speed_mph": 80
@@ -39,7 +33,7 @@
       "id": "mixed",
       "name": "Mixed",
       "receipt_find_pct_delta": 0,
-      "sanity": 2
+      "sanity": 1
     },
     {
       "id": "doom",
@@ -50,7 +44,6 @@
   ],
   "limits": {
     "encounter_base": 0.5,
-    "distance_base": 150,
     "distance_penalty_floor": 0.6
   }
 }

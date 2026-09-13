@@ -7,14 +7,6 @@
       "HeatWave": 0.78,
       "ColdSnap": 0.9,
       "Smoke": 0.86
-    },
-    "mpd_base": 150,
-    "mpd_min": 75,
-    "mpd_max": 400,
-    "pace_factor": {
-      "steady": 1,
-      "heated": 1,
-      "blitz": 1
     }
   },
   "partial_ratio": 0.5,
