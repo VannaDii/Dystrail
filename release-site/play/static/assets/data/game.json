@@ -1,0 +1,2636 @@
+[
+  {
+    "id": "beltway_briefing",
+    "name": "Department of Renaming Things",
+    "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Your permit names yesterday’s destination. Today’s amendments rename it again. The bridge remains structurally unsound, but its name has never been stronger. Read the amendments, skim the summary, or let counsel untangle the paperwork.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Read every line",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "supplies": -1,
+          "log": "You flag riders before they hit the floor.",
+          "add_receipt": "beltway_briefing"
+        }
+      },
+      {
+        "label": "Skim the highlights",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "log": "Optimism buys you a short night and long edits later."
+        }
+      },
+      {
+        "label": "Delegate to staff counsel",
+        "effects": {
+          "sanity": 0,
+          "credibility": -1,
+          "log": "Your legal lead triages the stack overnight."
+        }
+      }
+    ],
+    "satire_hook": "names"
+  },
+  {
+    "id": "classic_bridge_crews",
+    "name": "The Efficiency Emergency",
+    "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. An efficiency drive dismissed the bridge crew. The crew came back to help anyway; the savings board still celebrates their eliminated salaries. Lend a hand or document what the board leaves out.",
+    "weight": 3,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Donate spare parts to speed the work",
+        "effects": {
+          "supplies": -1,
+          "hp": -1,
+          "credibility": 2,
+          "log": "The crew waves you onto the priority lane."
+        }
+      },
+      {
+        "label": "Document the backlog for the hotline",
+        "effects": {
+          "credibility": 1,
+          "log": "Your report pressures the agency to staff up.",
+          "add_receipt": "classic_bridge_crews"
+        }
+      }
+    ],
+    "satire_hook": "bullets"
+  },
+  {
+    "id": "classic_civic_potluck",
+    "name": "Civic Center Potluck",
+    "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Local organizers insist you eat before the next leg.",
+    "weight": 4,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Stay for stew",
+        "effects": {
+          "supplies": 3,
+          "sanity": 1,
+          "log": "Warm food and stories refill everyone."
+        }
+      },
+      {
+        "label": "Carry meals to go",
+        "effects": {
+          "supplies": 2,
+          "credibility": 1,
+          "log": "You promise a shout-out on the livestream."
+        }
+      },
+      {
+        "label": "Donate the stipend back",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "log": "Their pantry stocks up while the crew beams."
+        }
+      }
+    ],
+    "satire_hook": "food"
+  },
+  {
+    "id": "classic_crossing_block_party",
+    "name": "Crossing Block Party",
+    "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. Residents host a morale party next to the jammed checkpoint.",
+    "weight": 3,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Serve at the grill",
+        "effects": {
+          "supplies": -1,
+          "morale": 2,
+          "log": "Volunteers promise to keep watch overnight."
+        }
+      },
+      {
+        "label": "Headline the mic",
+        "effects": {
+          "credibility": 1,
+          "log": "Soundbites ripple through the slow-moving line."
+        }
+      },
+      {
+        "label": "Share cooling supplies",
+        "effects": {
+          "supplies": -2,
+          "sanity": 1,
+          "log": "Cold towels calm nerves and lower tempers."
+        }
+      }
+    ],
+    "satire_hook": "libraries"
+  },
+  {
+    "id": "classic_freeway_mural",
+    "name": "Freeway Mural Crew",
+    "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Artists pause your motorcade to finish a solidarity mural.",
+    "weight": 3,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Climb a ladder with them",
+        "effects": {
+          "hp": -1,
+          "morale": 2,
+          "log": "Paint splatters but the livestream loves it."
+        }
+      },
+      {
+        "label": "Fund their paint run",
+        "effects": {
+          "supplies": -2,
+          "credibility": 2,
+          "log": "Their co-op texts thanks and fresh designs."
+        }
+      },
+      {
+        "label": "Pose for a quick reveal",
+        "effects": {
+          "credibility": 1,
+          "log": "The mural trends without blowing schedule."
+        }
+      }
+    ],
+    "satire_hook": "names"
+  },
+  {
+    "id": "classic_mail_drop",
+    "name": "Mail Drop Pickup",
+    "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. Supporters sprint over with a bundle of letters asking for updates.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Read every letter",
+        "effects": {
+          "sanity": 1,
+          "morale": 2,
+          "log": "You share the letters over dinner and spirits lift.",
+          "add_receipt": "classic_mail_drop"
+        }
+      },
+      {
+        "label": "Record a thank-you video",
+        "effects": {
+          "credibility": 2,
+          "supplies": 1,
+          "log": "The volunteers upload your message across the network."
+        }
+      },
+      {
+        "label": "Pre-sort the pile",
+        "effects": {
+          "supplies": -1,
+          "morale": 1,
+          "log": "You surface the urgent letters and build goodwill."
+        }
+      }
+    ],
+    "satire_hook": "bullets"
+  },
+  {
+    "id": "classic_media_training",
+    "name": "Media Coach Onboarding",
+    "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. A friendly coach offers quick framing tips before the next checkpoint.",
+    "weight": 2,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Take the mini workshop",
+        "effects": {
+          "sanity": 1,
+          "credibility": 2,
+          "log": "Your talking points get sharper for the next stand-up."
+        }
+      },
+      {
+        "label": "Send the aides instead",
+        "effects": {
+          "morale": 2,
+          "log": "The aides feel prepared and the coach praises your prep."
+        }
+      }
+    ],
+    "satire_hook": "signal"
+  },
+  {
+    "id": "classic_mutual_aid",
+    "name": "Pop-up Mutual Aid",
+    "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Volunteers flag you down to swap supplies for a quick broadcast boost.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Share supplies and stream their needs",
+        "effects": {
+          "supplies": -2,
+          "credibility": 2,
+          "log": "The crew relays your callout down the road."
+        }
+      },
+      {
+        "label": "Help load their vans",
+        "effects": {
+          "hp": -1,
+          "morale": 2,
+          "supplies": 1,
+          "log": "A ten minute lift keeps everyone moving.",
+          "cash_cents": 1000
+        }
+      },
+      {
+        "label": "Set up a rapid signal boost",
+        "effects": {
+          "credibility": 1,
+          "supplies": -1,
+          "log": "Your uplink gets their wishlist trending."
+        }
+      }
+    ],
+    "satire_hook": "food"
+  },
+  {
+    "id": "classic_mutual_aid_dispatch",
+    "name": "Mutual Aid Dispatch Center",
+    "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. Dispatchers dart between radios matching requests to trucks.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Route your fleet to assist",
+        "effects": {
+          "supplies": -2,
+          "credibility": 2,
+          "log": "Dispatchers slot you into priority drop-offs."
+        }
+      },
+      {
+        "label": "Upgrade their signal chain",
+        "effects": {
+          "supplies": -1,
+          "morale": 2,
+          "log": "A clearer net keeps evac traffic flowing."
+        }
+      },
+      {
+        "label": "Observe and take notes",
+        "effects": {
+          "sanity": 1,
+          "log": "You document best practices for the debrief.",
+          "add_receipt": "classic_mutual_aid_dispatch"
+        }
+      }
+    ],
+    "satire_hook": "food"
+  },
+  {
+    "id": "classic_neighborhood_watch",
+    "name": "Neighborhood Watch Brief",
+    "desc": "Trump’s geographic renaming order has inspired another round of local rebranding. Block captains share overnight intel and missing signage.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Swap hotline contacts",
+        "effects": {
+          "credibility": 2,
+          "log": "Coordinated texts cover the detour gaps."
+        }
+      },
+      {
+        "label": "Repair their posted maps",
+        "effects": {
+          "hp": -1,
+          "supplies": 1,
+          "log": "The reroute board keeps families moving."
+        }
+      },
+      {
+        "label": "Thank them and roll on",
+        "effects": {
+          "morale": 1,
+          "log": "They cheer you through the checkpoint."
+        }
+      }
+    ],
+    "satire_hook": "names"
+  },
+  {
+    "id": "classic_overpass_stage",
+    "name": "Overpass Pop-Up Stage",
+    "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. An allied troupe offers to headline a rapid teach-in over the freeway.",
+    "weight": 3,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Let them run the program",
+        "effects": {
+          "credibility": 2,
+          "log": "The troupe's livestream boosts regional momentum."
+        }
+      },
+      {
+        "label": "Join the panel yourself",
+        "effects": {
+          "hp": -1,
+          "morale": 3,
+          "log": "Your remarks rally the crowd but leave you hoarse."
+        }
+      }
+    ],
+    "satire_hook": "libraries"
+  },
+  {
+    "id": "classic_press_briefing",
+    "name": "Impromptu Press Briefing",
+    "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. Local journalists ask for quick quotes before the convoy moves on.",
+    "weight": 3,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Take every question",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "The coverage boosts the route's visibility."
+        }
+      },
+      {
+        "label": "Send a written statement",
+        "effects": {
+          "hp": 1,
+          "log": "You save energy but the press notes the dodge."
+        }
+      },
+      {
+        "label": "Pull one-on-one interviews",
+        "effects": {
+          "credibility": 2,
+          "log": "Depth pieces win the cycle without sloppy headlines.",
+          "add_receipt": "classic_press_briefing"
+        }
+      }
+    ],
+    "satire_hook": "weather"
+  },
+  {
+    "id": "classic_press_pool_qna",
+    "name": "Press Pool Q&A",
+    "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Traveling reporters request an extra rotation on the bus.",
+    "weight": 5,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Open the floor",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "log": "You answer everything and set tomorrow's frame."
+        }
+      },
+      {
+        "label": "Limit to pre-submitted",
+        "effects": {
+          "sanity": 1,
+          "credibility": -1,
+          "log": "The comms desk filters the pile effectively."
+        }
+      },
+      {
+        "label": "Hand off to surrogates",
+        "effects": {
+          "credibility": 0,
+          "morale": 1,
+          "log": "Your bench keeps the story tight while you rest.",
+          "rest": true
+        }
+      }
+    ],
+    "satire_hook": "signal"
+  },
+  {
+    "id": "classic_radio_phonebank",
+    "name": "College Radio Phonebank",
+    "desc": "Trump’s order to shrink IMLS has made the future of public culture the subject of this gathering. Students spin up a call-in marathon for signatures.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Jump on the mic",
+        "effects": {
+          "credibility": 1,
+          "morale": 1,
+          "log": "You juice the call volume with quick riffs."
+        }
+      },
+      {
+        "label": "Train their volunteers",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "log": "Scripts tighten up and the hotline hums."
+        }
+      },
+      {
+        "label": "Record evergreen promos",
+        "effects": {
+          "sanity": 1,
+          "log": "Future listeners will still hear your pitch.",
+          "cash_cents": 800
+        }
+      }
+    ],
+    "satire_hook": "libraries"
+  },
+  {
+    "id": "classic_service_station",
+    "name": "Service Station Handoff",
+    "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. A union shop offers uptime checks before you push east.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "choices": [
+      {
+        "label": "Tune up everything",
+        "effects": {
+          "supplies": -1,
+          "hp": 2,
+          "log": "They torque every bolt for the road ahead."
+        }
+      },
+      {
+        "label": "Spot train their apprentices",
+        "effects": {
+          "credibility": 1,
+          "log": "Skill shares buy future roadside favors."
+        }
+      },
+      {
+        "label": "Swap for better wipers",
+        "effects": {
+          "supplies": -1,
+          "log": "Rain bands seem less ominous now."
+        }
+      }
+    ],
+    "satire_hook": "tariffs"
+  },
+  {
+    "id": "classic_union_blockade",
+    "name": "Union Solidarity Blockade",
+    "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. A local union offers to stage a slowdown so you can pass unharassed.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Coordinate the action",
+        "effects": {
+          "credibility": 2,
+          "morale": 1,
+          "log": "Their action buys you a clear lane and louder endorsements."
+        }
+      },
+      {
+        "label": "Slip through quietly",
+        "effects": {
+          "supplies": 1,
+          "log": "You stay discreet but the blockade still slows pursuers."
+        }
+      },
+      {
+        "label": "Coordinate relief snacks",
+        "effects": {
+          "supplies": -1,
+          "morale": 2,
+          "log": "Union stewards cheer the solidarity."
+        }
+      }
+    ],
+    "satire_hook": "tariffs"
+  },
+  {
+    "id": "classic_water_drive",
+    "name": "Water Drive Relay",
+    "desc": "Trump’s showerhead order has inspired a debate about water pressure while actual water needs moving. A roadside relief post asks for a quick boost to their hydration drive.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Donate part of the stash",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "log": "You refill jugs and leave a short training sheet."
+        }
+      },
+      {
+        "label": "Help with distribution",
+        "effects": {
+          "hp": -1,
+          "supplies": 2,
+          "log": "A coordinated handoff nets you spare filters."
+        }
+      }
+    ],
+    "satire_hook": "shower"
+  },
+  {
+    "id": "deep_circuit_breaker",
+    "name": "Circuit Breaker Audit",
+    "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Engineers beg to inspect the convoy's overloaded power grid.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Authorize downtime",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "log": "The rolling office powers up safer than before."
+        }
+      },
+      {
+        "label": "Patch and roll",
+        "effects": {
+          "hp": -1,
+          "log": "Quick fixes hum but risk a later blowout."
+        }
+      },
+      {
+        "label": "Commission mobile batteries",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "log": "Reserve packs stabilize the briefing room feed."
+        }
+      }
+    ],
+    "satire_hook": "tariffs"
+  },
+  {
+    "id": "deep_field_intel",
+    "name": "Field Intel Courier",
+    "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Community researchers hand over drive images and surveys.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Integrate their findings",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "log": "New targets boost your oversight report.",
+          "add_receipt": "deep_field_intel"
+        }
+      },
+      {
+        "label": "Provide secure storage",
+        "effects": {
+          "supplies": -2,
+          "morale": 2,
+          "log": "They trust you with a critical archive."
+        }
+      },
+      {
+        "label": "Scan for leaks",
+        "effects": {
+          "sanity": 1,
+          "log": "You catch a rooted tablet before damage spreads."
+        }
+      }
+    ],
+    "satire_hook": "signal"
+  },
+  {
+    "id": "deep_grassroots_signal",
+    "name": "Grassroots Signal Boost",
+    "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. Decentralized organizers beam encrypted updates from afar.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Amplify across your channels",
+        "effects": {
+          "credibility": 2,
+          "log": "Cross-network sharing keeps pressure balanced."
+        }
+      },
+      {
+        "label": "Vet every packet",
+        "effects": {
+          "sanity": -1,
+          "log": "You catch a forged update before it spreads.",
+          "add_receipt": "deep_grassroots_signal"
+        }
+      },
+      {
+        "label": "Forward raw feeds",
+        "effects": {
+          "credibility": -2,
+          "log": "Unverified blasts generate frantic callbacks."
+        }
+      }
+    ],
+    "satire_hook": "signal"
+  },
+  {
+    "id": "deep_media_ambush",
+    "name": "Media Ambush Drill",
+    "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. A crisis PR coach ambushes you with rapid-fire hypotheticals.",
+    "weight": 4,
+    "regions": [
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take every question",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You refine answers before the cameras roll."
+        }
+      },
+      {
+        "label": "Workshop with staff",
+        "effects": {
+          "sanity": 1,
+          "log": "Your team internalizes the new message grid."
+        }
+      },
+      {
+        "label": "Postpone for sleep",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1,
+          "log": "You refuse to drill exhausted and stay sharp later."
+        }
+      }
+    ],
+    "satire_hook": "weather"
+  },
+  {
+    "id": "deep_memorandum_dump",
+    "name": "Memorandum Dump",
+    "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Compressed drives of sealed memos await triage.",
+    "weight": 5,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Sort by threat level",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You surface red-flags before the opposition.",
+          "add_receipt": "deep_memorandum_dump"
+        }
+      },
+      {
+        "label": "Forward to oversight",
+        "effects": {
+          "credibility": 1,
+          "supplies": -1,
+          "log": "The committee braces for impact early."
+        }
+      },
+      {
+        "label": "Archive for later",
+        "effects": {
+          "sanity": 2,
+          "log": "You buy a breather but risk surprise later."
+        }
+      }
+    ],
+    "satire_hook": "receipts"
+  },
+  {
+    "id": "deep_secure_line",
+    "name": "National Security Family Plan",
+    "desc": "After the Trump administration’s Signal scandal, everyone is checking who else is listening. The encrypted checkpoint chat includes a cousin, a caterer, and your entire party. The encryption works. The invitation list needs diagnostics. The technicians await your decision.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Audit the guest list",
+        "effects": {
+          "sanity": 1,
+          "log": "You remove the accidental guests. The encryption was never the problem.",
+          "add_receipt": "deep_secure_line"
+        }
+      },
+      {
+        "label": "Send staff instead",
+        "effects": {
+          "credibility": -1,
+          "log": "Your staff sort out the invitations while you miss the briefing."
+        }
+      },
+      {
+        "label": "Request a formal access review",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1,
+          "log": "The review consumes supplies but produces a documented access list."
+        }
+      }
+    ],
+    "satire_hook": "signal"
+  },
+  {
+    "id": "deep_state_dirge",
+    "name": "Deep State Dirge",
+    "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. A shadowy hearing drags on for hours.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "major_repair": false,
+    "choices": [
+      {
+        "label": "Hold the line",
+        "effects": {
+          "sanity": -2,
+          "credibility": 3,
+          "supplies": -1,
+          "log": "You squeeze concessions into the transcript."
+        }
+      },
+      {
+        "label": "Cut and run",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "hp": -1,
+          "log": "You duck the cameras and regroup at HQ."
+        }
+      },
+      {
+        "label": "Call a hallway recess",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1,
+          "log": "You secure a breather and temper the theatrics."
+        }
+      }
+    ],
+    "satire_hook": "bullets"
+  },
+  {
+    "id": "deep_watch_party",
+    "name": "Whistleblower Watch Party",
+    "desc": "Sharpiegate is the training example: evidence must survive the person holding the marker. A secure bunker hosts remote testimonies late into the night.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Moderate live",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You cross-examine while the stream surges."
+        }
+      },
+      {
+        "label": "Clip highlights later",
+        "effects": {
+          "sanity": 1,
+          "log": "You queue the best testimony for release windows."
+        }
+      },
+      {
+        "label": "Let staff recap",
+        "effects": {
+          "credibility": -1,
+          "log": "You rest while trusted aides capture takeaways.",
+          "rest": true
+        }
+      }
+    ],
+    "satire_hook": "weather"
+  },
+  {
+    "id": "deep_watchdog_sync",
+    "name": "Watchdog Sync",
+    "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Inspectors general huddle to compare sealed reports.",
+    "weight": 4,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Share your dossiers",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "log": "Cross-agency leads seal future subpoenas.",
+          "add_receipt": "deep_watchdog_sync"
+        }
+      },
+      {
+        "label": "Listen quietly",
+        "effects": {
+          "sanity": 1,
+          "log": "You bank intelligence without stirring waters."
+        }
+      },
+      {
+        "label": "Leak summary notes",
+        "effects": {
+          "credibility": -2,
+          "log": "Anonymous memos raise scrutiny everywhere."
+        }
+      }
+    ],
+    "satire_hook": "receipts"
+  },
+  {
+    "id": "fundraiser_detour",
+    "name": "Fundraiser Detour",
+    "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. You are asked to crash a friendly fundraiser.",
+    "weight": 5,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "hard_stop": true,
+    "choices": [
+      {
+        "label": "Attend and shake hands",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "log": "You take home some leftovers."
+        }
+      },
+      {
+        "label": "Skip and stay on route",
+        "effects": {
+          "hp": 0,
+          "sanity": 1,
+          "log": "You gift the organizers an early briefing.",
+          "supplies": 0
+        }
+      }
+    ],
+    "satire_hook": "food"
+  },
+  {
+    "id": "raw_milk",
+    "name": "Raw Milk Stand",
+    "desc": "The MAHA report’s citation errors have arrived before its promised confidence. The vendor’s health claims cite nine studies, three of which are expected to exist shortly. A medal-wearing cow lends institutional credibility. Drink the milk, decline, or choose sealed snacks.",
+    "weight": 3,
+    "regions": [
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep_end"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Drink the milk",
+        "effects": {
+          "hp": -1,
+          "sanity": -1,
+          "log": "You brave the calcium gamble."
+        }
+      },
+      {
+        "label": "Politely decline",
+        "effects": {
+          "credibility": 1,
+          "morale": 1,
+          "log": "You hype their safety checklist instead."
+        }
+      },
+      {
+        "label": "Buy shelf-stable snacks",
+        "effects": {
+          "supplies": 1,
+          "log": "The vendor upsells you sealed treats."
+        }
+      }
+    ],
+    "satire_hook": "maha"
+  },
+  {
+    "id": "tariff_whiplash",
+    "name": "Tariff Whiplash",
+    "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Your previous emergency has been ruled invalid. Please pay for the replacement emergency. The clerk has a fresh tariff stamp and absolutely no refund cash. Pay, smuggle supplies, or lobby for a waiver.",
+    "weight": 5,
+    "regions": [
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Pay the tariff",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1,
+          "log": "You absorb the hit and keep the paperwork tidy."
+        }
+      },
+      {
+        "label": "Smuggle it",
+        "effects": {
+          "supplies": 1,
+          "credibility": -1,
+          "log": "Border Beagle sniffs judgement."
+        }
+      },
+      {
+        "label": "Lobby for a waiver",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "log": "A late-night call buys leniency on the manifest."
+        }
+      }
+    ],
+    "satire_hook": "tariffs"
+  },
+  {
+    "id": "town_hall_drift",
+    "name": "Town Hall Drift",
+    "desc": "The MAHA report’s citation errors have arrived before its promised confidence. A classic-mode town hall needs calming words.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "modes": [
+      "classic"
+    ],
+    "chainable": false,
+    "choices": [
+      {
+        "label": "Guide the conversation",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "hp": -1,
+          "log": "You steer the agenda back to housing."
+        }
+      },
+      {
+        "label": "Let them vent",
+        "effects": {
+          "sanity": 1,
+          "morale": 2,
+          "hp": -1,
+          "log": "You ride out the venting with patient nods."
+        }
+      },
+      {
+        "label": "Break into workgroups",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1,
+          "log": "Facilitators scoop the loudest voices aside."
+        }
+      }
+    ],
+    "satire_hook": "maha"
+  },
+  {
+    "id": "deep_waystation_boost",
+    "name": "Heartland Waystation",
+    "desc": "The LFPA25 cancellation is today’s topic; neighbors are supplying what the talking points cannot. A local crew waves you onto freshly cleared asphalt.",
+    "weight": 4,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Swap favors and push ahead",
+        "effects": {
+          "travel_bonus_ratio": 0.4,
+          "sanity": 1,
+          "log": "Local organizers wave you through their shortcut."
+        }
+      },
+      {
+        "label": "Share coffee before rolling out",
+        "effects": {
+          "travel_bonus_ratio": 0.25,
+          "morale": 1
+        }
+      }
+    ],
+    "hard_stop": false,
+    "major_repair": false,
+    "chainable": false,
+    "satire_hook": "food"
+  },
+  {
+    "id": "deep_rustbelt_convoy",
+    "name": "Rust Belt Convoy",
+    "desc": "Trump’s auto-parts tariffs have turned this roadside conversation into an economics seminar nobody enrolled in. Freight drivers offer to pace you past barricades.",
+    "weight": 4,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Draft with the lead truck",
+        "effects": {
+          "travel_bonus_ratio": 0.5,
+          "supplies": -1,
+          "log": "You hitch into the convoy and chew up miles."
+        }
+      },
+      {
+        "label": "Hold the middle lane",
+        "effects": {
+          "travel_bonus_ratio": 0.3,
+          "credibility": 1
+        }
+      }
+    ],
+    "hard_stop": false,
+    "major_repair": false,
+    "chainable": false,
+    "satire_hook": "tariffs"
+  },
+  {
+    "id": "deep_beltway_fastpass",
+    "name": "Beltway Fast Pass",
+    "desc": "After DOGE’s billion-to-million correction, this group insists on counting the zeroes itself. Policy aides flash badges to keep traffic enforcement off you.",
+    "weight": 3,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Ride the cleared shoulder",
+        "effects": {
+          "travel_bonus_ratio": 0.45,
+          "log": "Security waves you down the empty lane."
+        }
+      },
+      {
+        "label": "Split the lane politely",
+        "effects": {
+          "travel_bonus_ratio": 0.28,
+          "sanity": 1
+        }
+      }
+    ],
+    "hard_stop": false,
+    "major_repair": false,
+    "chainable": false,
+    "satire_hook": "receipts"
+  },
+  {
+    "id": "clinic_triage",
+    "name": "Clinic Triage",
+    "desc": "The MAHA report’s citation errors have arrived before its promised confidence. A volunteer medic wagon offers hydration and quick checks.",
+    "weight": 4,
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "choices": [
+      {
+        "label": "Wave them off",
+        "effects": {
+          "sanity": -1,
+          "log": "You insist the team keeps moving despite the concern."
+        }
+      },
+      {
+        "label": "Take a saline break",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "rest": true,
+          "log": "Medics insist on fluids and make you sit a spell."
+        }
+      },
+      {
+        "label": "Donate spare bandages",
+        "effects": {
+          "supplies": -2,
+          "credibility": 2,
+          "rest": true,
+          "log": "You bolster the triage cache and breathe easier."
+        }
+      }
+    ],
+    "hard_stop": false,
+    "major_repair": false,
+    "chainable": false,
+    "satire_hook": "maha"
+  },
+  {
+    "id": "overnight_briefing",
+    "name": "Overnight Briefing",
+    "desc": "The administration’s five-accomplishment emails have arrived here in spirit, if not in competence. Allies urge you to pause, sleep, and align strategy before dawn.",
+    "weight": 3,
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "choices": [
+      {
+        "label": "Power through the night",
+        "effects": {
+          "sanity": -1,
+          "log": "Another all-nighter leaves everyone frayed."
+        }
+      },
+      {
+        "label": "Set guard rotations",
+        "effects": {
+          "supplies": -1,
+          "rest": true,
+          "sanity": 1,
+          "log": "Fresh coffee and shifts let the core team sleep."
+        }
+      },
+      {
+        "label": "Call in the deep bench",
+        "effects": {
+          "allies": 1,
+          "rest": true,
+          "log": "Trusted stand-ins hold the line while you recover."
+        }
+      }
+    ],
+    "hard_stop": false,
+    "major_repair": false,
+    "chainable": false,
+    "satire_hook": "bullets"
+  },
+  {
+    "id": "sat_straw_reserve",
+    "name": "Emergency Straw Reserve",
+    "desc": "A roadside depot celebrates Trump’s straw order with a mountain of plastic straws. The water shipment is still pending approval.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Buy water from the uncelebrated cooler",
+        "effects": {
+          "cash_cents": -600,
+          "supplies": 2,
+          "log": "Water reaches your crew without a signing ceremony."
+        }
+      },
+      {
+        "label": "Inventory the strategic straws for pay",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "You earn ten dollars and lose the ability to hear the word strategic calmly."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "straws",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_corn_bullets",
+    "name": "Five Things Corn Did Last Week",
+    "desc": "A farm office has adopted the administration’s five-bullet emails. The corn has submitted four. Management suspects loafing.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Document the fifth accomplishment: growing",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "The crop keeps its job. You need a quiet minute.",
+          "add_receipt": "sat_corn_bullets"
+        }
+      },
+      {
+        "label": "Help the farmer file for a small fee",
+        "effects": {
+          "cash_cents": 800,
+          "morale": 1,
+          "log": "Your invoice contains five bullet points. All five say paid."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "bullets",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_grant_groceries",
+    "name": "Locally Grown Funding Gap",
+    "desc": "After the LFPA25 cancellation, this food co-op has vegetables, hungry neighbors and a federal explanation that contains no recipes.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Contribute two supply bundles",
+        "effects": {
+          "supplies": -2,
+          "allies": 1,
+          "log": "Dinner survives its encounter with federal priorities."
+        }
+      },
+      {
+        "label": "Take the co-op’s paid loading shift",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "morale": 1,
+          "log": "The co-op pays you. The crates decline to become lighter."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "food",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_cow_citations",
+    "name": "Peer-Reviewed by the Cow",
+    "desc": "A MAHA-inspired vendor assures you that every health claim has a citation. The bibliography is mostly the cow’s LinkedIn endorsements.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check whether the studies exist",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "Several citations retire to spend more time with their families.",
+          "add_receipt": "sat_cow_citations"
+        }
+      },
+      {
+        "label": "Buy sealed snacks instead",
+        "effects": {
+          "cash_cents": -500,
+          "supplies": 2,
+          "log": "Your lunch has an ingredients list and no honorary doctorate."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "milk-classic"
+  },
+  {
+    "id": "sat_forecast_corrected",
+    "name": "The Forecast Has Been Corrected",
+    "desc": "Inspired by Sharpiegate, the local spin desk has drawn sunshine over the rain radar. The windshield refuses to cooperate.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Use the forecaster’s actual shelter advice",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "log": "You stay dry. The marker remains scientifically unnecessary."
+        }
+      },
+      {
+        "label": "Trust the freshly drawn sun",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "log": "The briefing is cheerful. Your socks are a rebuttal."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "weather",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_parking_gulf",
+    "name": "Gulf of Parking Lot",
+    "desc": "Following Trump’s renaming spree, a rest stop declares its puddle the Gulf of Premium Parking. The fee applies at low tide too.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Paint the new sign for seven dollars",
+        "effects": {
+          "cash_cents": 700,
+          "sanity": -1,
+          "log": "A puddle gains prestige. You gain gas money."
+        }
+      },
+      {
+        "label": "Mark the actual exit on the map",
+        "effects": {
+          "credibility": 2,
+          "log": "The crew escapes without recognizing the puddle’s sovereignty."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "names",
+    "scene": "enc-checkpoint"
+  },
+  {
+    "id": "sat_library_minimum",
+    "name": "The Minimum Viable Library",
+    "desc": "After Trump’s IMLS reduction order, a librarian prepares an emergency plan: one book, chained to a printer that only prints funding applications.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Supply the volunteer reading table",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "sanity": 1,
+          "log": "The children get stories with endings."
+        }
+      },
+      {
+        "label": "Digitize the backup catalog for pay",
+        "effects": {
+          "cash_cents": 900,
+          "sanity": -1,
+          "credibility": 1,
+          "log": "You preserve the books. The application still wants a fax."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "libraries",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_tariff_forklift",
+    "name": "The Tariff Relabeling Shift",
+    "desc": "A freight yard responding to Trump’s tariffs needs help moving boxes between CURRENT RATE and PLEASE CHECK AGAIN. The labels are wearing out first.",
+    "weight": 6,
+    "regions": [
+      "Heartland"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take a paid loading shift",
+        "effects": {
+          "cash_cents": 1400,
+          "hp": -1,
+          "log": "You earn actual dollars moving hypothetical certainty."
+        }
+      },
+      {
+        "label": "Trade paperwork help for supplies",
+        "effects": {
+          "supplies": 2,
+          "sanity": -1,
+          "log": "The dispatcher pays in snacks with a stable exchange rate."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "tariffs",
+    "scene": "enc-convoy"
+  },
+  {
+    "id": "sat_alternator_tariff",
+    "name": "The Patriotic Parts Counter",
+    "desc": "The mechanic says China is paying Trump’s tariff. China appears to be the name of your debit card.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Buy the roadside kit",
+        "effects": {
+          "cash_cents": -1200,
+          "supplies": 3,
+          "log": "You get the supplies. China still hasn’t offered to split the bill."
+        }
+      },
+      {
+        "label": "Ask the mechanic to explain the invoice",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "Parts, tariff, markup, freedom handling fee. Freedom is the only item with no return policy.",
+          "add_receipt": "sat_alternator_tariff"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You leave before the clerk tariffs the conversation."
+        }
+      }
+    ],
+    "satire_hook": "tariffs",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_billion_pothole",
+    "name": "The Eight-Billion-Dollar Pothole",
+    "desc": "The DOGE-style board claims eight billion in savings. Someone checks the zeroes. The pothole asks whether anyone has checked for a shovel.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Count the zeroes on camera",
+        "effects": {
+          "credibility": 3,
+          "sanity": -1,
+          "log": "The savings shrink. The hole retains its original dimensions.",
+          "add_receipt": "sat_billion_pothole"
+        }
+      },
+      {
+        "label": "Take the paid patching shift",
+        "effects": {
+          "cash_cents": 1000,
+          "hp": -1,
+          "log": "You fix the road. The efficiency dashboard takes the credit."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "The pothole remains the most transparent part of the budget."
+        }
+      }
+    ],
+    "satire_hook": "receipts",
+    "scene": "enc-bridge"
+  },
+  {
+    "id": "sat_bridge_bullets",
+    "name": "Please Account for the Bridge",
+    "desc": "A bridge crew must list five accomplishments in the style of the administration’s emails. Preventing collapse apparently counts as only one.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Translate structural engineering into five bullets",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "log": "The bridge is still standing. The email is finally long enough.",
+          "add_receipt": "sat_bridge_bullets"
+        }
+      },
+      {
+        "label": "Bring lunch while they finish the report",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "log": "The crew can eat without documenting each bite."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "bullets",
+    "scene": "enc-bridge"
+  },
+  {
+    "id": "sat_press_pool_radio",
+    "name": "Unscheduled Press Pool",
+    "desc": "After the administration’s Signal fiasco, a convoy dispatcher discovers the lunch-order chat also contains tomorrow’s security briefing. And a restaurant critic.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Separate lunch from the sensitive channel",
+        "effects": {
+          "credibility": 2,
+          "log": "The critic is removed. The sandwiches remain under review."
+        }
+      },
+      {
+        "label": "Rebuild the contact list for a fee",
+        "effects": {
+          "cash_cents": 800,
+          "sanity": -1,
+          "log": "Eight dollars buys more contact hygiene than the old system had."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "signal",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_hydration_pressure",
+    "name": "Hydration Sovereignty",
+    "desc": "A truck stop inspired by Trump’s showerhead order advertises executive water pressure. The demonstration has washed the suggestion box into the road.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take the ordinary shower",
+        "effects": {
+          "supplies": -1,
+          "sanity": 2,
+          "log": "You get clean without declaring a constitutional victory."
+        }
+      },
+      {
+        "label": "Help repair the demonstration stand for pay",
+        "effects": {
+          "cash_cents": 900,
+          "hp": -1,
+          "log": "The plumbing accepts your wrench more readily than a proclamation."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_museum_grant",
+    "name": "The Exhibit of Pending Funds",
+    "desc": "Following the IMLS reduction order, this museum opens a new exhibit: a velvet rope around the grant application. Nobody may touch its outcome.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Digitize exhibits for the museum’s day rate",
+        "effects": {
+          "cash_cents": 1100,
+          "sanity": -1,
+          "log": "You preserve history before the application becomes an artifact."
+        }
+      },
+      {
+        "label": "Support the volunteer tour",
+        "effects": {
+          "supplies": -1,
+          "morale": 2,
+          "log": "The tour has facts, unlike the funding timetable."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "libraries",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_factcheck_shift",
+    "name": "Citation Repair Is Hiring",
+    "desc": "A local paper needs a freelancer after the MAHA report’s citation errors. The editor promises more real dollars than some references had real authors.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take the paid fact-checking assignment",
+        "effects": {
+          "cash_cents": 1500,
+          "sanity": -2,
+          "credibility": 2,
+          "log": "Fifteen dollars. Several broken citations. One intact standard of evidence.",
+          "add_receipt": "sat_factcheck_shift"
+        }
+      },
+      {
+        "label": "Declare the links spiritually valid",
+        "effects": {
+          "morale": 1,
+          "credibility": -1,
+          "log": "The editor declines your services. Confidence briefly replaces verification."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "enc-media-workshop"
+  },
+  {
+    "id": "sat_food_shelf",
+    "name": "The Shelf Is Still Hungry",
+    "desc": "The LFPA25 cancellation has inspired an agency sign: FOOD ACCESS STREAMLINED. Volunteers are streamlining potatoes into actual bags.",
+    "weight": 6,
+    "regions": [
+      "RustBelt"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Help pack food in exchange for three bundles",
+        "effects": {
+          "supplies": 3,
+          "hp": -1,
+          "log": "Your crew gets supplies. Your arms get a government-sized workload."
+        }
+      },
+      {
+        "label": "Handle the co-op’s paid delivery paperwork",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "The co-op pays ten dollars for forms that finally correspond to food."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "food",
+    "scene": "enc-community"
+  },
+  {
+    "id": "sat_cabinet_guest",
+    "name": "Cabinet Chat: Guest Access",
+    "desc": "The checkpoint has adopted the administration’s Signal protocol: a secure chat, total confidence, and someone asking whether this is the book club.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Check everyone’s name before sharing the route",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "The dentist’s patient leaves. National security improves without a software update.",
+          "add_receipt": "sat_cabinet_guest"
+        }
+      },
+      {
+        "label": "Post the itinerary and a thumbs-up",
+        "effects": {
+          "morale": 2,
+          "credibility": -2,
+          "log": "External Guest 4 reacts with a heart. Intelligence has never been so affirming."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You leave the chat before being promoted to Secretary of Lunch."
+        }
+      }
+    ],
+    "satire_hook": "signal",
+    "scene": "enc-radio"
+  },
+  {
+    "id": "sat_name_infrastructure",
+    "name": "The Name Is the Infrastructure",
+    "desc": "The renaming office has learned from Trump’s geographic order. Your missing bridge is now called The Tremendous Connection. The river has not signed off.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Pay for the newly named detour permit",
+        "effects": {
+          "cash_cents": -600,
+          "credibility": 1,
+          "log": "The permit is excellent. You still take the detour."
+        }
+      },
+      {
+        "label": "Demand a route with physical pavement",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "The clerk locates a road that exists outside the press release."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "names",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_straw_inspection",
+    "name": "Strategic Straw Inspection",
+    "desc": "A checkpoint has interpreted Trump’s paper-straw order as a border doctrine. Your reusable cup is being questioned about its affiliations.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Offer a sealed drink to end the inspection",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1,
+          "log": "The inspector finds the beverage ideologically sufficient."
+        }
+      },
+      {
+        "label": "Read the actual procurement order aloud",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "The cup is released without charges.",
+          "add_receipt": "sat_straw_inspection"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "straws",
+    "scene": "enc-checkpoint"
+  },
+  {
+    "id": "sat_shower_force",
+    "name": "The National Shower Demonstration",
+    "desc": "A promotional booth for Trump’s showerhead order needs a volunteer to hold the hose. Its pressure is presidential; its fasteners are municipal.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take the paid maintenance shift",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "log": "You earn twelve dollars restraining executive water pressure."
+        }
+      },
+      {
+        "label": "Buy a normal wash token",
+        "effects": {
+          "cash_cents": -500,
+          "sanity": 2,
+          "log": "You wash off the road without becoming part of the demonstration."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service"
+  },
+  {
+    "id": "sat_receipt_museum",
+    "name": "The Museum of Very Large Savings",
+    "desc": "The exhibit commemorating DOGE’s billion-to-million correction has a donation box labeled TRILLIONS. The curator needs someone who understands decimal places.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Audit the exhibit for an honorarium",
+        "effects": {
+          "cash_cents": 1300,
+          "sanity": -2,
+          "credibility": 2,
+          "log": "The museum pays thirteen dollars. You verify all thirteen.",
+          "add_receipt": "sat_receipt_museum"
+        }
+      },
+      {
+        "label": "Applaud the trillion-dollar quarter",
+        "effects": {
+          "morale": 2,
+          "credibility": -2,
+          "log": "The applause is tremendous. The accounting is performance art."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "receipts",
+    "scene": "enc-civic"
+  },
+  {
+    "id": "sat_transit_ribbon",
+    "name": "The Ribbon-Cutting Holding Pattern",
+    "desc": "A transit advocacy booth displays Chicago’s funding-pause news. The ribbon is ready, the scissors are ready, and neither is accepted as public transportation.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Supply the volunteers’ outreach table",
+        "effects": {
+          "supplies": -1,
+          "allies": 1,
+          "log": "The campaign gets lunch. Commuters still need actual transit."
+        }
+      },
+      {
+        "label": "Take a paid rider-survey shift",
+        "effects": {
+          "cash_cents": 900,
+          "sanity": -1,
+          "credibility": 1,
+          "log": "You collect nine dollars and several unusually specific sighs."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "transit",
+    "scene": "enc-street"
+  },
+  {
+    "id": "sat_weather_desk",
+    "name": "Alternative Weather Desk",
+    "desc": "A briefing contractor has learned the wrong lesson from Sharpiegate: every unfavorable forecast needs a thicker pen. You are offered the corrections desk.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Publish the meteorologist’s original chart",
+        "effects": {
+          "sanity": -1,
+          "credibility": 3,
+          "log": "The weather is unchanged. The record is finally accurate.",
+          "add_receipt": "sat_weather_desk"
+        }
+      },
+      {
+        "label": "Accept six dollars to redraw the sunshine",
+        "effects": {
+          "cash_cents": 600,
+          "credibility": -2,
+          "log": "The chart improves politically. The clouds remain insubordinate."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "weather",
+    "scene": "enc-media-workshop"
+  },
+  {
+    "id": "sat_bibliography_emergency",
+    "name": "Bibliography Emergency Room",
+    "desc": "After the MAHA report’s errors, a clinic has opened a citation triage desk. The references have impressive titles but no detectable authors.",
+    "weight": 6,
+    "regions": [
+      "Beltway"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "choices": [
+      {
+        "label": "Take the paid reference-checking shift",
+        "effects": {
+          "cash_cents": 1200,
+          "sanity": -2,
+          "log": "Twelve dollars earned. The bibliography regains a pulse.",
+          "add_receipt": "sat_bibliography_emergency"
+        }
+      },
+      {
+        "label": "Use the clinic’s ordinary care supplies",
+        "effects": {
+          "supplies": -1,
+          "hp": 2,
+          "log": "Your crew improves under a treatment that exists."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "morale": -1,
+          "log": "You keep your resources and leave the opportunity behind."
+        }
+      }
+    ],
+    "satire_hook": "maha",
+    "scene": "enc-clinic"
+  },
+  {
+    "id": "west_grant_translation",
+    "name": "Patriotic Thesaurus",
+    "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+    "weight": 7,
+    "regions": [
+      "PacificCoast"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_grants",
+    "scene": "enc-media-workshop",
+    "choices": [
+      {
+        "label": "Take the translation shift",
+        "effects": {
+          "cash_cents": 1200,
+          "sanity": -1,
+          "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+        }
+      },
+      {
+        "label": "Publish both versions",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+          "add_receipt": "west_grant_translation"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_rail_replacement",
+    "name": "High-Speed Replacement Van",
+    "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+    "weight": 7,
+    "regions": [
+      "PacificCoast"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_rail",
+    "scene": "enc-street",
+    "choices": [
+      {
+        "label": "Deliver their event supplies",
+        "effects": {
+          "cash_cents": 1500,
+          "supplies": -1,
+          "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+        }
+      },
+      {
+        "label": "Document the missing rail money",
+        "effects": {
+          "credibility": 2,
+          "allies": 1,
+          "sanity": -1,
+          "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+          "add_receipt": "west_rail_replacement"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_laboratory_overhead",
+    "name": "A Building Is Overhead",
+    "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+    "weight": 7,
+    "regions": [
+      "MountainWest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_labs",
+    "scene": "enc-clinic",
+    "choices": [
+      {
+        "label": "Take a paid equipment-inventory shift",
+        "effects": {
+          "cash_cents": 1400,
+          "sanity": -1,
+          "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+          "add_receipt": "west_laboratory_overhead"
+        }
+      },
+      {
+        "label": "Share a supply pack",
+        "effects": {
+          "supplies": -1,
+          "hp": 1,
+          "allies": 1,
+          "log": "The research crew returns the favor with basic care and a new contact."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_wind_loyalty",
+    "name": "Wind Loyalty Hearing",
+    "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+    "weight": 7,
+    "regions": [
+      "MountainWest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_wind",
+    "scene": "enc-community",
+    "choices": [
+      {
+        "label": "Help inventory spare parts",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+        }
+      },
+      {
+        "label": "Record the technician’s testimony",
+        "effects": {
+          "credibility": 2,
+          "allies": 1,
+          "sanity": -1,
+          "log": "You gain a contact and an explanation involving actual electricity.",
+          "add_receipt": "west_wind_loyalty"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_desert_pressure",
+    "name": "Desert Shower Freedom",
+    "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+    "weight": 7,
+    "regions": [
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "shower",
+    "scene": "enc-service",
+    "choices": [
+      {
+        "label": "Help shut off the demonstration",
+        "effects": {
+          "supplies": 2,
+          "sanity": 1,
+          "log": "You leave with water and a working understanding of the off switch."
+        }
+      },
+      {
+        "label": "Take the paid plumbing shift",
+        "effects": {
+          "cash_cents": 1200,
+          "hp": -1,
+          "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  },
+  {
+    "id": "west_beef_passports",
+    "name": "America First, Argentina Next",
+    "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+    "weight": 7,
+    "regions": [
+      "Southwest"
+    ],
+    "modes": [
+      "classic",
+      "deep",
+      "deep_end"
+    ],
+    "satire_hook": "west_beef",
+    "scene": "enc-convoy",
+    "choices": [
+      {
+        "label": "Take the paid manifest shift",
+        "effects": {
+          "cash_cents": 1600,
+          "sanity": -1,
+          "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+        }
+      },
+      {
+        "label": "Compare the speeches with the receipts",
+        "effects": {
+          "credibility": 3,
+          "sanity": -1,
+          "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+          "add_receipt": "west_beef_passports"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "effects": {
+          "log": "The crew leaves the offer behind."
+        }
+      }
+    ]
+  }
+]

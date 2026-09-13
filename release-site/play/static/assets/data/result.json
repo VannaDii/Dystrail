@@ -1,0 +1,26 @@
+{
+  "score": {
+    "persona_rounding": "nearest",
+    "final_min": 0,
+    "final_max": 999999
+  },
+  "multipliers": {
+    "display_bonus_deep": 0.05
+  },
+  "endings": {
+    "priority": [
+      "sanity",
+      "collapse",
+      "boss_loss",
+      "victory"
+    ],
+    "victory_key": "result.headline.victory",
+    "boss_loss_key": "result.headline.boss_loss",
+    "sanity_key": "result.headline.sanity",
+    "collapse_key": "result.headline.collapse"
+  },
+  "limits": {
+    "share_seed_maxlen": 32,
+    "share_persona_maxlen": 24
+  }
+}

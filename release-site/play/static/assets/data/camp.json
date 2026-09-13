@@ -1,0 +1,23 @@
+{
+  "rest": {
+    "sanity": 4,
+    "hp": 1,
+    "supplies": -1,
+    "day": 1,
+    "cooldown_days": 2,
+    "recovery_day": true
+  },
+  "forage": {
+    "supplies": 8,
+    "day": 1,
+    "cooldown_days": 3,
+    "region_multipliers": {
+      "Heartland": 0.75,
+      "RustBelt": 1.0,
+      "Beltway": 1.15,
+      "PacificCoast": 1.0,
+      "MountainWest": 0.75,
+      "Southwest": 0.5
+    }
+  }
+}

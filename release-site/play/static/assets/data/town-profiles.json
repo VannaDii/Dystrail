@@ -1,0 +1,920 @@
+[
+  {
+    "town": "Minneapolis",
+    "state": "Minnesota",
+    "population": 430324,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/PST045225",
+    "attraction": {
+      "en": "The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing.",
+      "it": "Il ponte Stone Arch aprì nel 1883 per i treni e poi divenne un passaggio pedonale e ciclabile.",
+      "es": "El puente Stone Arch abrió en 1883 para trenes y después pasó a peatones y ciclistas.",
+      "ar": "افتتح جسر ستون آرتش عام 1883 للقطارات ثم أصبح معبراً للمشاة والدراجات."
+    },
+    "attraction_source": "https://www.minneapolisparks.org/parks-destinations/historical_sites/stone_arch_bridge/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2743000"
+  },
+  {
+    "town": "La Crosse",
+    "state": "Wisconsin",
+    "population": 50784,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/lacrossecitywisconsin/PST045225",
+    "attraction": {
+      "en": "Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world.",
+      "it": "Riverside Park si affaccia sul Mississippi; i giardini dell’amicizia ospitano piante di tutto il mondo.",
+      "es": "Riverside Park mira al Mississippi; sus jardines de amistad tienen plantas de todo el mundo.",
+      "ar": "يطل ريفرسايد بارك على المسيسيبي وتضم حدائق الصداقة نباتات من أنحاء العالم."
+    },
+    "attraction_source": "https://explorelacrosse.com/things-to-do/sights-attractions/riverside-park/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "5540775"
+  },
+  {
+    "town": "Madison",
+    "state": "Wisconsin",
+    "population": 286233,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/madisoncitywisconsin/PST045225",
+    "attraction": {
+      "en": "Downtown Madison occupies an isthmus between Lakes Mendota and Monona.",
+      "it": "Il centro di Madison occupa un istmo tra i laghi Mendota e Monona.",
+      "es": "El centro de Madison ocupa un istmo entre los lagos Mendota y Monona.",
+      "ar": "يقع وسط ماديسون على برزخ بين بحيرتي ميندوتا ومونونا."
+    },
+    "attraction_source": "https://em.danecounty.gov/documents/pdf/2022-Hazard-Mitigation-Plan/DCNHMP22---3---Muni-Section---Cities-.pdf",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "5548000"
+  },
+  {
+    "town": "Chicago",
+    "state": "Illinois",
+    "population": 2731585,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/chicagocityillinois/PST045225",
+    "attraction": {
+      "en": "Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture.",
+      "es": "Cloud Gate, en Millennium Park, refleja Chicago en una escultura de acero pulido.",
+      "it": "Cloud Gate, nel Millennium Park, riflette Chicago in una scultura d’acciaio lucidato.",
+      "ar": "تعكس منحوتة كلاود غيت الفولاذية المصقولة في ميلينيوم بارك أفق شيكاغو."
+    },
+    "attraction_source": "https://www.millenniumparkfoundation.org/art-architecture",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1714000"
+  },
+  {
+    "town": "South Bend",
+    "state": "Indiana",
+    "population": 103201,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/southbendcityindiana/PST045225",
+    "attraction": {
+      "en": "South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season.",
+      "it": "L’East Race Waterway è un percorso urbano per rafting. La città ne ha annunciato la chiusura per lavori nella stagione 2026.",
+      "es": "East Race Waterway es un canal urbano de aguas bravas. La ciudad anunció su cierre por mejoras durante la temporada 2026.",
+      "ar": "إيست ريس ووترواي مجرى حضري للمياه السريعة. أعلنت المدينة إغلاقه للتحديث في موسم 2026."
+    },
+    "attraction_source": "https://311.southbendin.gov/knowledgecenter/article/?id=KA-04513",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1871000"
+  },
+  {
+    "town": "Toledo",
+    "state": "Ohio",
+    "population": 263423,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/toledocityohio/PST045225",
+    "attraction": {
+      "en": "Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie.",
+      "it": "Glass City Center si trova nel centro di Toledo, vicino al Maumee e a circa sei miglia dal lago Erie.",
+      "es": "Glass City Center está en el centro de Toledo, cerca del Maumee y a unas seis millas del lago Erie.",
+      "ar": "يقع غلاس سيتي سنتر في وسط توليدو قرب نهر ماومي وعلى نحو ستة أميال من بحيرة إيري."
+    },
+    "attraction_source": "https://www.glasscitycenter.com/p/events/location",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3977000"
+  },
+  {
+    "town": "Cleveland",
+    "state": "Ohio",
+    "population": 363608,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/clevelandcityohio/PST045225",
+    "attraction": {
+      "en": "The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response.",
+      "it": "Il Cuyahoga sfocia nel lago Erie a Cleveland. L’incendio del 1969 contribuì alla risposta nazionale all’inquinamento idrico.",
+      "es": "El Cuyahoga desemboca en el lago Erie en Cleveland. Su incendio de 1969 impulsó la respuesta nacional a la contaminación del agua.",
+      "ar": "يصب كوياهوغا في بحيرة إيري عند كليفلاند. ساهم حريقه عام 1969 في تحفيز الاستجابة الوطنية لتلوث المياه."
+    },
+    "attraction_source": "https://www.nps.gov/articles/000/cuyahoga-national-heritage-river.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3916000"
+  },
+  {
+    "town": "Pittsburgh",
+    "state": "Pennsylvania",
+    "population": 307632,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/pittsburghcitypennsylvania/PST045225",
+    "attraction": {
+      "en": "Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers.",
+      "it": "Il Three Rivers Water Trail di Pittsburgh dà accesso ai fiumi Allegheny, Monongahela e Ohio.",
+      "es": "Three Rivers Water Trail de Pittsburgh da acceso a los ríos Allegheny, Monongahela y Ohio.",
+      "ar": "يوفر مسار الأنهار الثلاثة في بيتسبرغ الوصول إلى أنهار أليغيني ومونونغاهيلا وأوهايو."
+    },
+    "attraction_source": "https://www.nps.gov/places/three-rivers-water-trail.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4261000"
+  },
+  {
+    "town": "Cumberland",
+    "state": "Maryland",
+    "population": 18799,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/cumberlandcitymaryland/PST045225",
+    "attraction": {
+      "en": "The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here.",
+      "it": "Il canale C&O raggiunse Cumberland nel 1850. Qui l’alzaia incontra il Great Allegheny Passage.",
+      "es": "El canal C&O llegó a Cumberland en 1850. Aquí su camino de sirga se une a Great Allegheny Passage.",
+      "ar": "وصلت قناة سي أند أو إلى كمبرلاند عام 1850. يلتقي مسارها هنا بمسار غريت أليغيني."
+    },
+    "attraction_source": "https://pubs.nps.gov/eTIC/OLYM-POPO/POHE_866_124321_0001_of_0046.pdf",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2421325"
+  },
+  {
+    "town": "Hagerstown",
+    "state": "Maryland",
+    "population": 44228,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/hagerstowncitymaryland/PST045225",
+    "attraction": {
+      "en": "Jonathan Hager founded the settlement in 1762. His house survives as a city museum.",
+      "it": "Jonathan Hager fondò l’insediamento nel 1762. La sua casa è oggi un museo cittadino.",
+      "es": "Jonathan Hager fundó el asentamiento en 1762. Su casa se conserva como museo municipal.",
+      "ar": "أسس جوناثان هاغر البلدة عام 1762. ما زال منزله قائماً كمتحف للمدينة."
+    },
+    "attraction_source": "https://www.hagerstownmd.org/309/Jonathan-Hager-House-Museum",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2436075"
+  },
+  {
+    "town": "Frederick",
+    "state": "Maryland",
+    "population": 92059,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/frederickcitymaryland/PST045225",
+    "attraction": {
+      "en": "Downtown Frederick is known for its clustered church spires.",
+      "it": "Il centro di Frederick è noto per le guglie delle sue chiese.",
+      "es": "El centro de Frederick es conocido por las agujas de sus iglesias.",
+      "ar": "يشتهر وسط فريدريك بأبراج كنائسه المتجاورة."
+    },
+    "attraction_source": "https://www.visitfrederick.org/plugins/maps/map/downtown-frederick/5be4a7fea62e703dcef330bd/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2430325"
+  },
+  {
+    "town": "D.C.",
+    "state": "D.C.",
+    "population": 693645,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/districtofcolumbiadistrictofcolumbia/PST045225",
+    "attraction": {
+      "en": "The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products.",
+      "it": "Il canale C&O collegava comunità del Potomac ai mercati di D.C. e trasportava carbone, legname e prodotti agricoli.",
+      "es": "El canal C&O conectaba comunidades del Potomac con mercados de D.C.; transportaba carbón, madera y productos agrícolas.",
+      "ar": "ربطت قناة سي أند أو مجتمعات بوتوماك بأسواق D.C. ونقلت الفحم والأخشاب والمنتجات الزراعية."
+    },
+    "attraction_source": "https://www.nps.gov/choh/index.htm?vm=r",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1150000"
+  },
+  {
+    "town": "Kansas City",
+    "state": "Missouri",
+    "population": 521220,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/kansascitycitymissouri/PST045225",
+    "attraction": {
+      "en": "Kansas City’s many public fountains gave it the nickname City of Fountains.",
+      "it": "Le numerose fontane pubbliche hanno dato a Kansas City il nome di Città delle fontane.",
+      "es": "Las numerosas fuentes públicas dieron a Kansas City el apodo Ciudad de las Fuentes.",
+      "ar": "منحت النوافير العامة الكثيرة كانساس سيتي لقب مدينة النوافير."
+    },
+    "attraction_source": "https://www.visitkc.com/articles/first-timers-guide-kansas-city/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2938000"
+  },
+  {
+    "town": "Columbia",
+    "state": "Missouri",
+    "population": 130851,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/columbiacitymissouri/PST045225",
+    "attraction": {
+      "en": "The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine.",
+      "it": "Il sentiero MKT segue un’ex ferrovia dal centro di Columbia al Katy Trail vicino a McBaine.",
+      "es": "El sendero MKT sigue una antigua vía desde el centro de Columbia hasta Katy Trail, cerca de McBaine.",
+      "ar": "يتبع مسار إم كيه تي خطاً حديدياً قديماً من وسط كولومبيا إلى مسار كاتي قرب ماكبين."
+    },
+    "attraction_source": "https://www.como.gov/trails/mkt-nature-and-fitness-trail/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2915670"
+  },
+  {
+    "town": "St. Louis",
+    "state": "Missouri",
+    "population": 278144,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/stlouiscitymissouri/PST045225",
+    "attraction": {
+      "en": "The Gateway Arch is 630 feet tall and equally wide at ground level.",
+      "it": "Il Gateway Arch è alto 630 piedi e altrettanto largo al suolo.",
+      "es": "Gateway Arch mide 630 pies de alto y lo mismo de ancho en su base.",
+      "ar": "يبلغ ارتفاع غيتواي آرتش 630 قدماً ويساوي عرضه عند الأرض."
+    },
+    "attraction_source": "https://www.nps.gov/jeff/faqs.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2965000"
+  },
+  {
+    "town": "Springfield, IL",
+    "state": "Illinois",
+    "population": 112989,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/springfieldcityillinois/PST045225",
+    "attraction": {
+      "en": "Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861.",
+      "it": "Abraham Lincoln comprò la casa tra Eighth e Jackson Streets nel 1844 e partì per D.C. nel 1861.",
+      "es": "Abraham Lincoln compró la casa de Eighth y Jackson Streets en 1844 y partió hacia D.C. en 1861.",
+      "ar": "اشترى أبراهام لينكولن منزل شارعَي إيث وجاكسون عام 1844 وغادر إلى D.C. عام 1861."
+    },
+    "attraction_source": "https://home.nps.gov/liho/learn/historyculture/alincolnbio.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1772000"
+  },
+  {
+    "town": "Denver",
+    "state": "Colorado",
+    "population": 740613,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/denvercitycolorado/PST045225",
+    "attraction": {
+      "en": "Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol.",
+      "it": "L’altitudine di un miglio di Denver è commemorata sui gradini ovest del Campidoglio del Colorado.",
+      "es": "La altitud de una milla de Denver está conmemorada en los escalones occidentales del Capitolio de Colorado.",
+      "ar": "تُخلد درجات الجهة الغربية من كابيتول كولورادو ارتفاع دنفر البالغ ميلاً."
+    },
+    "attraction_source": "https://content.leg.colorado.gov/sites/default/files/images/visitor_brochure_for_web_accessible.pdf",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0820000"
+  },
+  {
+    "town": "North Platte",
+    "state": "Nebraska",
+    "population": 22524,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/northplattecitynebraska/PST045225",
+    "attraction": {
+      "en": "Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track.",
+      "it": "Bailey Yard di Union Pacific a North Platte è un grande scalo ferroviario con 315 miglia di binari.",
+      "es": "Bailey Yard de Union Pacific en North Platte es un gran centro ferroviario con 315 millas de vías.",
+      "ar": "بيلي يارد التابع ليونيون باسيفيك في نورث بلات مركز فرز قطارات يضم 315 ميلاً من السكك."
+    },
+    "attraction_source": "https://www.visitnorthplatte.com/things-to-do/attractions/trains-railroads/bailey-yard/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3135000"
+  },
+  {
+    "town": "Omaha",
+    "state": "Nebraska",
+    "population": 488797,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/omahacitynebraska/PST045225",
+    "attraction": {
+      "en": "The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa.",
+      "it": "Il ponte pedonale Bob Kerrey attraversa il Missouri tra Nebraska e Iowa.",
+      "es": "El puente peatonal Bob Kerrey cruza el Missouri entre Nebraska e Iowa.",
+      "ar": "يعبر جسر بوب كيري للمشاة نهر ميزوري بين نبراسكا وآيوا."
+    },
+    "attraction_source": "https://www.visitomaha.com/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3137000"
+  },
+  {
+    "town": "Des Moines",
+    "state": "Iowa",
+    "population": 212086,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/desmoinescityiowa/PST045225",
+    "attraction": {
+      "en": "The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres.",
+      "it": "Il Pappajohn Sculpture Park aprì nel centro di Des Moines nel 2009 su 4,4 acri.",
+      "es": "Pappajohn Sculpture Park abrió en el centro de Des Moines en 2009, en 4,4 acres.",
+      "ar": "افتتحت حديقة باباجون للنحت في وسط دي موين عام 2009 على مساحة 4.4 أفدنة."
+    },
+    "attraction_source": "https://desmoinesartcenter.org/visit/pappajohn-sculpture-park/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1921000"
+  },
+  {
+    "town": "Iowa City",
+    "state": "Iowa",
+    "population": 76229,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/iowacitycityiowa/PST045225",
+    "attraction": {
+      "en": "Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States.",
+      "it": "Iowa City divenne Città della letteratura UNESCO nel novembre 2008, la prima negli Stati Uniti.",
+      "es": "Iowa City fue designada Ciudad de Literatura UNESCO en noviembre de 2008, la primera de Estados Unidos.",
+      "ar": "أصبحت آيوا سيتي مدينة أدب لليونسكو في نوفمبر 2008، وهي الأولى في الولايات المتحدة."
+    },
+    "attraction_source": "https://www.iowacityofliterature.org/wp-content/uploads/2023/09/2022-2023-Annual-Report.pdf",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1938595"
+  },
+  {
+    "town": "Austin",
+    "state": "Texas",
+    "population": 1002632,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/austincitytexas/PST045225",
+    "attraction": {
+      "en": "The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies.",
+      "it": "Il ponte Congress Avenue ospita una delle più grandi colonie urbane di pipistrelli del Nord America.",
+      "es": "El puente Congress Avenue alberga una de las mayores colonias urbanas de murciélagos de Norteamérica.",
+      "ar": "يؤوي جسر كونغرس أفينيو إحدى أكبر مستعمرات الخفافيش الحضرية في أمريكا الشمالية."
+    },
+    "attraction_source": "https://www.austintexas.gov/page/bats",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4805000"
+  },
+  {
+    "town": "Waco",
+    "state": "Texas",
+    "population": 147788,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/wacocitytexas/PST045225",
+    "attraction": {
+      "en": "Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young.",
+      "it": "Il monumento Waco Mammoth conserva una mandria di mammut colombiani con femmine e piccoli.",
+      "es": "Waco Mammoth conserva una manada de mamuts colombinos con hembras y crías.",
+      "ar": "يحفظ نصب واكو ماموث قطيع حضانة من الماموث الكولومبي يضم إناثاً وصغاراً."
+    },
+    "attraction_source": "https://www.nps.gov/places/waco-mammoth-herd.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4876000"
+  },
+  {
+    "town": "Dallas",
+    "state": "Texas",
+    "population": 1329491,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/dallascitytexas/PST045225",
+    "attraction": {
+      "en": "Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art.",
+      "es": "Fair Park conserva una gran colección de arquitectura art déco de los años treinta, museos y arte público.",
+      "it": "Fair Park conserva una grande raccolta di architettura Art Déco degli anni Trenta, musei e arte pubblica.",
+      "ar": "يضم فير بارك مجموعة كبيرة من عمارة آرت ديكو من الثلاثينيات، ومتاحف وفنون عامة."
+    },
+    "attraction_source": "https://www.fairparkdallas.com/sites-and-attractions",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4819000"
+  },
+  {
+    "town": "Oklahoma City",
+    "state": "Oklahoma",
+    "population": 719849,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/oklahomacitycityoklahoma/PST045225",
+    "attraction": {
+      "en": "The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993.",
+      "it": "Il canale Bricktown era uno dei nove progetti MAPS approvati dagli elettori nel 1993.",
+      "es": "El canal Bricktown fue uno de nueve proyectos MAPS aprobados por votantes en 1993.",
+      "ar": "كانت قناة بريكتاون أحد تسعة مشاريع في مبادرة مابس التي أقرها الناخبون عام 1993."
+    },
+    "attraction_source": "https://www.okc.gov/News-articles/Bricktown-Canal-celebrates-25-year-milestone",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4055000"
+  },
+  {
+    "town": "Tulsa",
+    "state": "Oklahoma",
+    "population": 416209,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/tulsacityoklahoma/PST045225",
+    "attraction": {
+      "en": "Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004.",
+      "it": "Il ponte 11th Street attraversava l’Arkansas nel 1917; nel 2004 fu intitolato a Cyrus Avery, sostenitore della Route 66.",
+      "es": "El puente de 11th Street cruzaba el Arkansas en 1917; en 2004 recibió el nombre de Cyrus Avery, impulsor de Route 66.",
+      "ar": "عبر جسر الشارع الحادي عشر نهر أركنساس عام 1917 وسُمي باسم سايروس أفيري الداعم لطريق 66 عام 2004."
+    },
+    "attraction_source": "https://www.nps.gov/places/11th-street-arkansas-river-bridge.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4075000"
+  },
+  {
+    "town": "Joplin",
+    "state": "Missouri",
+    "population": 53930,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/joplincitymissouri/PST045225",
+    "attraction": {
+      "en": "Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage.",
+      "it": "Joplin crebbe come città mineraria di piombo e zinco. Il museo storico ne conserva la memoria.",
+      "es": "Joplin creció como ciudad minera de plomo y zinc. Su museo histórico conserva ese patrimonio.",
+      "ar": "نمت جوبلين كبلدة لتعدين الرصاص والزنك ويحفظ متحفها التاريخي هذا التراث."
+    },
+    "attraction_source": "https://www.joplin-museum.org/faq",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2937592"
+  },
+  {
+    "town": "Springfield, MO",
+    "state": "Missouri",
+    "population": 169847,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/springfieldcitymissouri/PST045225",
+    "attraction": {
+      "en": "The name Route 66 was proposed from Springfield on April 30, 1926.",
+      "it": "Il nome Route 66 fu proposto da Springfield il 30 aprile 1926.",
+      "es": "El nombre Route 66 se propuso desde Springfield el 30 de abril de 1926.",
+      "ar": "اقتُرح اسم طريق 66 من سبرينغفيلد في 30 أبريل 1926."
+    },
+    "attraction_source": "https://www.springfieldmo.org/about-springfield/history/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "2970000"
+  },
+  {
+    "town": "Seattle",
+    "state": "Washington",
+    "population": 784777,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/seattlecitywashington/PST045225",
+    "attraction": {
+      "en": "Pike Place Market — the waterfront public market.",
+      "es": "Pike Place Market: el mercado público junto al litoral.",
+      "it": "Pike Place Market: il mercato pubblico sul lungomare.",
+      "ar": "سوق بايك بليس العام قرب الواجهة البحرية."
+    },
+    "attraction_source": "https://www.pikeplacemarket.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "5363000"
+  },
+  {
+    "town": "Portland",
+    "state": "Oregon",
+    "population": 635109,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/portlandcityoregon/PST045225",
+    "attraction": {
+      "en": "Washington Park — gardens, museums and wooded trails.",
+      "es": "Washington Park: jardines, museos y senderos arbolados.",
+      "it": "Washington Park: giardini, musei e sentieri nel bosco.",
+      "ar": "حديقة واشنطن: حدائق ومتاحف ومسارات بين الأشجار."
+    },
+    "attraction_source": "https://www.explorewashingtonpark.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4159000"
+  },
+  {
+    "town": "San Francisco",
+    "state": "California",
+    "population": 826079,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/sanfranciscocitycalifornia/PST045225",
+    "attraction": {
+      "en": "The Presidio — a former military post turned national park site.",
+      "es": "El Presidio: un antiguo puesto militar convertido en parque nacional.",
+      "it": "Il Presidio: un ex presidio militare diventato area di parco nazionale.",
+      "ar": "بريسيديو: موقع عسكري سابق أصبح جزءاً من الحدائق الوطنية."
+    },
+    "attraction_source": "https://www.nps.gov/prsf/index.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0667000"
+  },
+  {
+    "town": "Los Angeles",
+    "state": "California",
+    "population": 3869089,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/PST045225",
+    "attraction": {
+      "en": "Griffith Observatory — astronomy and views across the city.",
+      "es": "Observatorio Griffith: astronomía y vistas de la ciudad.",
+      "it": "Osservatorio Griffith: astronomia e panorami sulla città.",
+      "ar": "مرصد غريفيث: علم الفلك وإطلالات على المدينة."
+    },
+    "attraction_source": "https://griffithobservatory.lacity.gov/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0644000"
+  },
+  {
+    "town": "Sacramento",
+    "state": "California",
+    "population": 536449,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/sacramentocitycalifornia/PST045225",
+    "attraction": {
+      "en": "California State Railroad Museum — locomotives and the story of western rail.",
+      "es": "Museo Estatal del Ferrocarril: locomotoras e historia ferroviaria del oeste.",
+      "it": "Museo ferroviario statale della California: locomotive e storia delle ferrovie dell’Ovest.",
+      "ar": "متحف سكك حديد كاليفورنيا: قاطرات وتاريخ السكك في الغرب."
+    },
+    "attraction_source": "https://www.californiarailroad.museum/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0664000"
+  },
+  {
+    "town": "San Diego",
+    "state": "California",
+    "population": 1406106,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/sandiegocitycalifornia/PST045225",
+    "attraction": {
+      "en": "Balboa Park — museums, gardens and Spanish Colonial Revival architecture.",
+      "es": "Parque Balboa: museos, jardines y arquitectura neocolonial española.",
+      "it": "Balboa Park: musei, giardini e architettura neocoloniale spagnola.",
+      "ar": "حديقة بالبوا: متاحف وحدائق وعمارة مستوحاة من الطراز الاستعماري الإسباني."
+    },
+    "attraction_source": "https://balboapark.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0666000"
+  },
+  {
+    "town": "Spokane",
+    "state": "Washington",
+    "population": 230783,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/spokanecitywashington/PST045225",
+    "attraction": {
+      "en": "Riverfront Park — Spokane Falls and the former world’s fair grounds.",
+      "es": "Riverfront Park: las cataratas de Spokane y la antigua exposición universal.",
+      "it": "Riverfront Park: le cascate di Spokane e l’ex area dell’esposizione universale.",
+      "ar": "حديقة ريفرفرونت: شلالات سبوكان وموقع المعرض العالمي السابق."
+    },
+    "attraction_source": "https://my.spokanecity.org/riverfrontspokane/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "5367000"
+  },
+  {
+    "town": "Missoula",
+    "state": "Montana",
+    "population": 78903,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/missoulacitymontana/PST045225",
+    "attraction": {
+      "en": "A Carousel for Missoula — a community-built, hand-carved carousel.",
+      "es": "A Carousel for Missoula: un carrusel de madera tallado y construido por la comunidad.",
+      "it": "A Carousel for Missoula: una giostra intagliata a mano, costruita dalla comunità.",
+      "ar": "دوامة ميسولا: خيول منحوتة يدوياً ومشروع أنجزه المجتمع المحلي."
+    },
+    "attraction_source": "https://missoulacarousel.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3050200"
+  },
+  {
+    "town": "Billings",
+    "state": "Montana",
+    "population": 121239,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/billingscitymontana/PST045225",
+    "attraction": {
+      "en": "Moss Mansion — a historic house museum.",
+      "es": "Moss Mansion: una casa histórica convertida en museo.",
+      "it": "Moss Mansion: una dimora storica trasformata in museo.",
+      "ar": "قصر موس: منزل تاريخي تحول إلى متحف."
+    },
+    "attraction_source": "https://mossmansion.com/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3006550"
+  },
+  {
+    "town": "Rapid City",
+    "state": "South Dakota",
+    "population": 80589,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/rapidcitycitysouthdakota/PST045225",
+    "attraction": {
+      "en": "Nearby Mount Rushmore — the carved granite memorial in the Black Hills.",
+      "es": "Cerca: monte Rushmore, el monumento tallado en granito de las Black Hills.",
+      "it": "Nelle vicinanze: il Monte Rushmore, monumento scolpito nel granito delle Black Hills.",
+      "ar": "بالقرب: جبل راشمور، النصب المنحوت في غرانيت بلاك هيلز."
+    },
+    "attraction_source": "https://www.nps.gov/moru/index.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4652980"
+  },
+  {
+    "town": "Sioux Falls",
+    "state": "South Dakota",
+    "population": 213748,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/siouxfallscitysouthdakota/PST045225",
+    "attraction": {
+      "en": "Falls Park — the waterfalls of the Big Sioux River.",
+      "es": "Falls Park: las cascadas del río Big Sioux.",
+      "it": "Falls Park: le cascate del fiume Big Sioux.",
+      "ar": "حديقة فولز: شلالات نهر بيغ سيو."
+    },
+    "attraction_source": "https://www.experiencesiouxfalls.com/falls-park",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4659020"
+  },
+  {
+    "town": "Boise",
+    "state": "Idaho",
+    "population": 238429,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/boisecitycityidaho/PST045225",
+    "attraction": {
+      "en": "Idaho State Capitol — the state’s historic seat of government.",
+      "es": "Capitolio de Idaho: la sede histórica del gobierno estatal.",
+      "it": "Campidoglio dell’Idaho: la sede storica del governo statale.",
+      "ar": "كابيتول أيداهو: المقر التاريخي لحكومة الولاية."
+    },
+    "attraction_source": "https://capitolcommission.idaho.gov/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "1608830"
+  },
+  {
+    "town": "Salt Lake City",
+    "state": "Utah",
+    "population": 218428,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/saltlakecitycityutah/PST045225",
+    "attraction": {
+      "en": "Natural History Museum of Utah — fossils and the landscapes of the Intermountain West.",
+      "es": "Museo de Historia Natural de Utah: fósiles y paisajes del oeste intermontano.",
+      "it": "Museo di storia naturale dello Utah: fossili e paesaggi dell’Ovest intermontano.",
+      "ar": "متحف يوتا للتاريخ الطبيعي: أحافير ومناظر الغرب بين الجبال."
+    },
+    "attraction_source": "https://nhmu.utah.edu/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4967000"
+  },
+  {
+    "town": "Reno",
+    "state": "Nevada",
+    "population": 283621,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/renocitynevada/PST045225",
+    "attraction": {
+      "en": "National Automobile Museum — historic cars and recreated street scenes.",
+      "es": "Museo Nacional del Automóvil: coches históricos y calles de época recreadas.",
+      "it": "Museo nazionale dell’automobile: auto storiche e strade d’epoca ricostruite.",
+      "ar": "المتحف الوطني للسيارات: سيارات تاريخية وشوارع قديمة معاد إنشاؤها."
+    },
+    "attraction_source": "https://automuseum.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3260600"
+  },
+  {
+    "town": "Cheyenne",
+    "state": "Wyoming",
+    "population": 66507,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/cheyennecitywyoming/PST045225",
+    "attraction": {
+      "en": "Cheyenne Depot Museum — railroad history in the restored Union Pacific depot.",
+      "es": "Museo del Depósito de Cheyenne: historia ferroviaria en la estación restaurada de Union Pacific.",
+      "it": "Cheyenne Depot Museum: storia ferroviaria nell’ex stazione Union Pacific restaurata.",
+      "ar": "متحف محطة شايان: تاريخ السكك الحديدية في محطة يونيون باسيفيك المرممة."
+    },
+    "attraction_source": "https://www.cheyennedepotmuseum.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "5613900"
+  },
+  {
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "population": 679817,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/lasvegascitynevada/PST045225",
+    "attraction": {
+      "en": "The Neon Museum — rescued signs from Las Vegas history.",
+      "es": "Museo del Neón: rótulos rescatados de la historia de Las Vegas.",
+      "it": "Museo del neon: insegne salvate dalla storia di Las Vegas.",
+      "ar": "متحف النيون: لافتات محفوظة من تاريخ لاس فيغاس."
+    },
+    "attraction_source": "https://neonmuseum.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3240000"
+  },
+  {
+    "town": "Flagstaff",
+    "state": "Arizona",
+    "population": 77260,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/flagstaffcityarizona/PST045225",
+    "attraction": {
+      "en": "Lowell Observatory — the observatory where Pluto was discovered.",
+      "es": "Observatorio Lowell: donde se descubrió Plutón.",
+      "it": "Osservatorio Lowell: il luogo della scoperta di Plutone.",
+      "ar": "مرصد لويل: حيث اكتُشف بلوتو."
+    },
+    "attraction_source": "https://lowell.edu/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0423620"
+  },
+  {
+    "town": "Albuquerque",
+    "state": "New Mexico",
+    "population": 556588,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico/PST045225",
+    "attraction": {
+      "en": "Albuquerque Museum — art and history near Old Town.",
+      "es": "Museo de Albuquerque: arte e historia junto al casco antiguo.",
+      "it": "Museo di Albuquerque: arte e storia accanto alla città vecchia.",
+      "ar": "متحف ألبوكيركي: الفن والتاريخ قرب البلدة القديمة."
+    },
+    "attraction_source": "https://www.cabq.gov/artsculture/albuquerque-museum",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "3502000"
+  },
+  {
+    "town": "Amarillo",
+    "state": "Texas",
+    "population": 205130,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/amarillocitytexas/PST045225",
+    "attraction": {
+      "en": "Nearby Palo Duro Canyon State Park — red-rock canyon trails.",
+      "es": "Cerca: parque estatal del cañón Palo Duro, con senderos entre rocas rojizas.",
+      "it": "Nelle vicinanze: il parco statale del canyon Palo Duro, con sentieri tra rocce rosse.",
+      "ar": "بالقرب: حديقة وادي بالو دورو ومسارات الصخور الحمراء."
+    },
+    "attraction_source": "https://tpwd.texas.gov/state-parks/palo-duro-canyon",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4803000"
+  },
+  {
+    "town": "Phoenix",
+    "state": "Arizona",
+    "population": 1665481,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/phoenixcityarizona/PST045225",
+    "attraction": {
+      "en": "Heard Museum — American Indian art and culture.",
+      "es": "Museo Heard: arte y cultura de los pueblos indígenas de Estados Unidos.",
+      "it": "Museo Heard: arte e cultura dei popoli nativi americani.",
+      "ar": "متحف هيرد: فن وثقافة الشعوب الأصلية الأمريكية."
+    },
+    "attraction_source": "https://heard.org/",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0455000"
+  },
+  {
+    "town": "Tucson",
+    "state": "Arizona",
+    "population": 548371,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/tucsoncityarizona/PST045225",
+    "attraction": {
+      "en": "Saguaro National Park — giant cacti on both sides of Tucson.",
+      "es": "Parque Nacional Saguaro: cactus gigantes a ambos lados de Tucson.",
+      "it": "Parco nazionale dei Saguaro: cactus giganti sui due lati di Tucson.",
+      "ar": "حديقة ساغوارو الوطنية: صبّار عملاق على جانبي توسان."
+    },
+    "attraction_source": "https://www.nps.gov/sagu/index.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "0477000"
+  },
+  {
+    "town": "El Paso",
+    "state": "Texas",
+    "population": 683012,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/elpasocitytexas/PST045225",
+    "attraction": {
+      "en": "Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute.",
+      "es": "Monumento Nacional Chamizal: un acuerdo pacífico sobre la frontera entre México y Estados Unidos.",
+      "it": "Memoriale nazionale Chamizal: la soluzione pacifica di una disputa di confine tra Stati Uniti e Messico.",
+      "ar": "نصب شاميزال الوطني: تسوية سلمية لنزاع حدودي بين الولايات المتحدة والمكسيك."
+    },
+    "attraction_source": "https://www.nps.gov/cham/index.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4824000"
+  },
+  {
+    "town": "San Antonio",
+    "state": "Texas",
+    "population": 1548422,
+    "population_year": 2025,
+    "population_source": "https://www.census.gov/quickfacts/fact/table/sanantoniocitytexas/PST045225",
+    "attraction": {
+      "en": "San Antonio Missions — historic mission sites along the river.",
+      "es": "Misiones de San Antonio: conjuntos históricos junto al río.",
+      "it": "Missioni di San Antonio: complessi storici lungo il fiume.",
+      "ar": "بعثات سان أنطونيو: مواقع تاريخية على امتداد النهر."
+    },
+    "attraction_source": "https://www.nps.gov/saan/index.htm",
+    "population_as_of": "2025-07-01",
+    "population_checked": "2026-09-12",
+    "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+    "population_fips": "4865000"
+  }
+]

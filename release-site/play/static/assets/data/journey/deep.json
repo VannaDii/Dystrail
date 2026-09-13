@@ -1,0 +1,87 @@
+{
+  "victory_miles": 2100.0,
+  "travel": {
+    "weather_factor": {
+      "Clear": 1.0,
+      "Storm": 0.8,
+      "HeatWave": 0.76,
+      "ColdSnap": 0.9,
+      "Smoke": 0.86
+    },
+    "mpd_base": 150,
+    "mpd_min": 75,
+    "mpd_max": 400,
+    "pace_factor": {
+      "steady": 1,
+      "heated": 1,
+      "blitz": 1
+    }
+  },
+  "partial_ratio": 0.5,
+  "wear": {
+    "base": 1.0,
+    "fatigue_k": 0.14,
+    "comfort_miles": 1150.0
+  },
+  "breakdown": {
+    "base": 0.015,
+    "beta": 0.16,
+    "pace_factor": {
+      "steady": 0.97,
+      "heated": 1.16,
+      "blitz": 1.38
+    },
+    "weather_factor": {
+      "Clear": 1.0,
+      "Storm": 1.32,
+      "HeatWave": 1.45,
+      "ColdSnap": 1.12,
+      "Smoke": 1.18
+    }
+  },
+  "part_weights": {
+    "tire": 40,
+    "battery": 24,
+    "alt": 20,
+    "pump": 16
+  },
+  "crossing": {
+    "pass": 0.8,
+    "detour": 0.12,
+    "terminal": 0.08,
+    "detour_hours": {
+      "min": 1,
+      "max": 4
+    },
+    "bribe": {
+      "pass_bonus": 0.2,
+      "detour_bonus": 0.02,
+      "terminal_penalty": 0.2,
+      "diminishing_returns": 0.45
+    },
+    "permit": {
+      "disable_terminal": true,
+      "eligible": [
+        "checkpoint"
+      ]
+    }
+  },
+  "guards": {
+    "min_travel_ratio": 0.92,
+    "target_distance": 2000.0,
+    "target_days_min": 8,
+    "target_days_max": 30
+  },
+  "daily": {
+    "supplies": {
+      "base": 1
+    },
+    "sanity": {
+      "base": 0.0
+    },
+    "health": {
+      "decay": 0.0,
+      "rest_heal": 0.0
+    }
+  }
+}

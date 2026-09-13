@@ -1,0 +1,23 @@
+{
+  "travel": {
+    "weather_factor": {
+      "Storm": 0.87,
+      "HeatWave": 0.84,
+      "Smoke": 0.9
+    }
+  },
+  "partial_ratio": 0.68,
+  "wear": {
+    "base": 0.6,
+    "fatigue_k": 0.09
+  },
+  "breakdown": {
+    "base": 0.022000000000000002,
+    "weather_factor": {
+      "Storm": 1.08,
+      "HeatWave": 1.12,
+      "ColdSnap": 1.0,
+      "Smoke": 1.03
+    }
+  }
+}

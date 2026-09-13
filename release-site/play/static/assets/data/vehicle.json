@@ -1,0 +1,32 @@
+{
+  "base_breakdown_chance": 0.005,
+  "pace_factor": {
+    "steady": 1.0,
+    "heated": 1.2,
+    "blitz": 1.5
+  },
+  "weather_factor": {
+    "Clear": 1.0,
+    "Storm": 1.3,
+    "HeatWave": 1.4,
+    "ColdSnap": 1.1,
+    "Smoke": 1.1
+  },
+  "part_weights": {
+    "tire": 50,
+    "battery": 20,
+    "alt": 15,
+    "pump": 15
+  },
+  "repair_costs": {
+    "use_spare_supplies": 1,
+    "hack_supplies": 3,
+    "hack_cred": 1,
+    "hack_day": 1
+  },
+  "mechanic_hook": {
+    "enabled": false,
+    "chance_clear": 0.15,
+    "day_cost": 1
+  }
+}

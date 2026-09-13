@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "shutdown": [
+      { "day": 0, "sanity": 0, "supplies": 0 },
+      { "day": 45, "sanity": -1, "supplies": -1 }
+    ],
+    "militarize": [
+      { "day": 0, "sanity": -1, "supplies": -1 },
+      { "day": 40, "sanity": -2, "supplies": -2 }
+    ],
+    "deregulate": [
+      { "day": 0, "sanity": -1, "supplies": -1 },
+      { "day": 35, "sanity": -1, "supplies": -1 }
+    ],
+    "taxcuts": [
+      { "day": 0, "sanity": 0, "supplies": 0 },
+      { "day": 40, "sanity": -1, "supplies": -1 }
+    ],
+    "tariffs": [
+      { "day": 0, "sanity": -1, "supplies": -1 },
+      { "day": 40, "sanity": -2, "supplies": -2 }
+    ],
+    "gag": [
+      { "day": 0, "sanity": -2, "supplies": -1 },
+      { "day": 45, "sanity": -3, "supplies": -1 }
+    ]
+  }
+}

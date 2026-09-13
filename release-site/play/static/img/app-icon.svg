@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 64 64" shape-rendering="crispEdges">
+<title>Dystopian Trail</title><path fill="#102432" d="M0 0h64v64H0z"/>
+<path fill="#243f4a" d="M26 5h12l18 59H8z"/><path fill="#f4c95b" d="M31 6h2v5h-2zm0 9h2v6h-2zm-1 34h4v9h-4z"/>
+<path fill="#080f19" d="M19 20h26v5h4v19H15V25h4zM17 42h8v6h-8zm22 0h8v6h-8z"/>
+<path fill="#007cc3" d="M21 21h22v5h4v16H17V26h4z"/><path fill="#29b6ee" d="M21 22h22v3H21zm-3 15h28v4H18z"/>
+<path fill="#091620" d="M22 26h20v9H22z"/><path fill="#92d4df" d="M23 27h8v6h-8zm10 0h8v6h-8z"/>
+<path fill="#f8e7b6" d="M18 37h5v4h-5zm23 0h5v4h-5z"/><path fill="#26303c" d="M26 38h12v3H26z"/>
+<path fill="#f4c95b" d="M23 17h7v4h-7z"/><path fill="#e88028" d="M30 15h10v6H30z"/>
+<path fill="#132733" d="M20 20h24v2H20z"/>
+</svg>
