@@ -27,13 +27,13 @@
       "id": "quiet",
       "name": "Quiet",
       "receipt_find_pct_delta": -5,
-      "sanity": 2
+      "sanity": 3
     },
     {
       "id": "mixed",
       "name": "Mixed",
       "receipt_find_pct_delta": 0,
-      "sanity": 1
+      "sanity": 2
     },
     {
       "id": "doom",
@@ -43,7 +43,7 @@
     }
   ],
   "limits": {
-    "encounter_base": 0.5,
+    "encounter_base": 0.35,
     "distance_penalty_floor": 0.6
   }
 }

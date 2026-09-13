@@ -1,6 +1,6 @@
 {
-  "revision": "23cf83a1a7d5f9d02de9",
-  "bytes": 109570603,
+  "revision": "ef9b4b81cdeb1bc0700d",
+  "bytes": 109575557,
   "assets": [
     {
       "path": "continuity-9fbba1ffa519bf16.css",
@@ -8,19 +8,19 @@
       "integrity": "sha256-cDYnhGveL9GU4AfZ4lPbWLBbvTRf8uOYn/Mo2rWt6DI="
     },
     {
-      "path": "dystrail-web-f7d23691fc60f04f.js",
-      "bytes": 65789,
-      "integrity": "sha256-2xaLZKmpvqDvFfSILmd4bLznsxBc9BokrTWFwRZng40="
+      "path": "dystrail-web-8b6936b87ebd95d9.js",
+      "bytes": 65793,
+      "integrity": "sha256-5wCd8fCFMO7QeI3uUltiKL3dp/v6yGi+aRmm+tID9Go="
     },
     {
-      "path": "dystrail-web-f7d23691fc60f04f_bg.wasm",
-      "bytes": 6060837,
-      "integrity": "sha256-ELDkfH/MnTDaMrqy8H+v1ROfophvPwb9X6U92YpMRko="
+      "path": "dystrail-web-8b6936b87ebd95d9_bg.wasm",
+      "bytes": 6065777,
+      "integrity": "sha256-bwj/JF7sFQN9doFMYdF2nMRSOGcoiG30VlL/HLNZ/sE="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-aCvSg5ahOVjObR9yUyCflYRIViVA4bk+OWhNGu2YdJs="
+      "integrity": "sha256-Pb+uEb2UDxKw8EnjFtIWnApfl960qf1CT6zWMcUBDQ0="
     },
     {
       "path": "journey-5fe63ee3f473b890.css",
@@ -39,8 +39,8 @@
     },
     {
       "path": "static/assets/data/camp.json",
-      "bytes": 133,
-      "integrity": "sha256-IPoNC6l9lSmVSmg6MgaiWfirR1BtxyZjuQd6iULoiN4="
+      "bytes": 134,
+      "integrity": "sha256-+8rJOe5UDGAZ3hvfw/a2eglbOL0TLn/VY7D1D7HI+W8="
     },
     {
       "path": "static/assets/data/crossings.json",
@@ -65,12 +65,12 @@
     {
       "path": "static/assets/data/journey/classic.json",
       "bytes": 1366,
-      "integrity": "sha256-sQk04X0K9zjbImrfjjWwCvQir/7eoJF4y0P3p7rM4bk="
+      "integrity": "sha256-ynGb1akQvnlsom2i4dMEwrKasJeDZeyR7gqtNQH9waA="
     },
     {
       "path": "static/assets/data/journey/deep.json",
       "bytes": 1355,
-      "integrity": "sha256-piGgBHhe8LO2y1bz9ldl8GXFRmMd85C/LCU+yQ4lbr8="
+      "integrity": "sha256-I3MrXkr2zu8SNNw87/HhUTtgstKSFkFG47nrR45XCkM="
     },
     {
       "path": "static/assets/data/journey/overlays/aggressive.json",
@@ -79,8 +79,8 @@
     },
     {
       "path": "static/assets/data/journey/overlays/balanced.json",
-      "bytes": 483,
-      "integrity": "sha256-kppJYWvYWQASvD2fgR9tNIuHIoFcVPJpDTdDwUvX2V8="
+      "bytes": 485,
+      "integrity": "sha256-P8HUu8GM7MWOR5qupjYgvxnYDGDjRDVppwr+A8BqquE="
     },
     {
       "path": "static/assets/data/journey/overlays/conservative.json",
@@ -99,8 +99,8 @@
     },
     {
       "path": "static/assets/data/pacing.json",
-      "bytes": 863,
-      "integrity": "sha256-D/1hlSco38dI8JQ+uJLaAe3mZXU3w7f3eVxs4xI2uPc="
+      "bytes": 864,
+      "integrity": "sha256-vPma5POjxRGmLaseV6pgoWwAN+ypvEUJrY83kQ4PIP8="
     },
     {
       "path": "static/assets/data/personas.json",
@@ -139,8 +139,8 @@
     },
     {
       "path": "static/assets/data/weather.json",
-      "bytes": 1898,
-      "integrity": "sha256-c6HExqy81gTNqEDxUD1dcfANsP4/KnJknTH7OVEef0o="
+      "bytes": 1904,
+      "integrity": "sha256-TqcKz7e6O2U8VtzkGrO/y6uKIM0RFqv34zEEQxTKiu8="
     },
     {
       "path": "static/continuity.css",

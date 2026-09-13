@@ -43,7 +43,7 @@
     "terminal": 0.08,
     "detour_hours": {
       "min": 1,
-      "max": 4
+      "max": 2
     },
     "bribe": {
       "pass_bonus": 0.2,

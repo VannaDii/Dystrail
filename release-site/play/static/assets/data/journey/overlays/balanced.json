@@ -12,13 +12,13 @@
   },
   "daily": {
     "health": {
-      "decay": 0.12
+      "decay": 0.38
     }
   },
   "crossing": {
-    "pass": 0.66,
-    "detour": 0.24,
-    "terminal": 0.1,
+    "pass": 0.7,
+    "detour": 0.085,
+    "terminal": 0.215,
     "bribe": {
       "pass_bonus": 0.192,
       "detour_bonus": 0.0,
