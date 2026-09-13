@@ -852,6 +852,11 @@ html.hc .journal .journal-event-heading,html.hc .journal .journal-event-context,
 .resource-hud .hud-stat dd { font-weight:700; }
 .conditions-hud .game-clock,.conditions-hud .weather-name,.conditions-hud .leg-indicator>strong,.conditions-hud .leg-destination>strong { font-weight:600; }
 .conditions-hud .hud-trip-context .leg-resources { gap:12px; }
+@media(min-width:801px) {
+ /* One spacing rhythm, without an empty stop for a disabled optional tip. */
+ .conditions-hud .hud-journey-settings { display:contents; }
+ .conditions-hud .hud-trip-context .leg-resources>.context-help-hidden { display:none; }
+}
 @media(max-width:800px) {
  .world-view>.resource-hud { padding:6px 10px; }
  .resource-hud .critical-stats { grid-template-columns:repeat(12,minmax(0,1fr)); row-gap:4px; }

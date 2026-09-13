@@ -64,10 +64,28 @@ jobs:
       - name: Cargo test (workspace)
         run: cargo test --workspace --all-features -- --nocapture
 
+      - name: Select the Chrome installed with the driver
+        env:
+          TEST_CHROME_BINARY: ${{ steps.chrome.outputs.chrome-path }}
+          WASM_BINDGEN_TEST_WEBDRIVER_JSON: ${{ runner.temp }}/dystrail-webdriver.json
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          browser = Path(os.environ["TEST_CHROME_BINARY"])
+          assert browser.is_file(), browser
+          Path(os.environ["WASM_BINDGEN_TEST_WEBDRIVER_JSON"]).write_text(
+              json.dumps({"goog:chromeOptions": {"binary": str(browser)}})
+          )
+          PY
+
       - name: wasm-bindgen tests (chrome, headless)
         working-directory: dystrail-web
         env:
           WASM_BINDGEN_BENCH_RESULT: ${{ github.workspace }}/target/wbg_benchmark.json
+          WASM_BINDGEN_TEST_WEBDRIVER_JSON: ${{ runner.temp }}/dystrail-webdriver.json
         run: wasm-pack test --headless --chrome --chromedriver "${{ steps.chrome.outputs.chromedriver-path }}"
 
   i18n-coverage:
