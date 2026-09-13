@@ -84,8 +84,10 @@
           <h1 id="game-title"><span>Dystopian</span> <span>Trail</span></h1>
           <p class="tagline"><span>Six people. One van.</span> <span>A country coming apart.</span></p>
           <p class="hero-description">Keep your crew alive through tariffs, propaganda, and bureaucratic cruelty on the road to D.C.</p>
-          <a class="play-button" href="/play/">Play in browser</a>
-          <p class="play-note">No download or connection required</p>
+          <div class="play-cta">
+            <a class="play-button" href="/play/" aria-describedby="offline-play-note">Play in browser</a>
+            <p class="play-note" id="offline-play-note">…even offline!</p>
+          </div>
         </div>
         <picture class="hero-van">
           <source media="(max-width: 600px)" srcset="/assets/crew-van-small.webp">

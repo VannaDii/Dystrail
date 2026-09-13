@@ -1,6 +1,6 @@
 @font-face{font-family:"Press Start 2P";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/press-start-2p-latin.woff2") format("woff2")}
 @font-face{font-family:"Space Grotesk";font-style:normal;font-weight:400 700;font-display:swap;src:url("/assets/fonts/space-grotesk-latin.woff2") format("woff2")}
-:root{color-scheme:dark;--navy:#09131e;--white:#fff6df;--gold:#f3ce69;--muted:#c4d2da;--body-font:"Space Grotesk","Trebuchet MS",sans-serif;--display-font:"Press Start 2P","Courier New",monospace}
+:root{color-scheme:dark;--navy:#09131e;--white:#fff6df;--gold:#f3ce69;--copper:#78451f;--muted:#c4d2da;--body-font:"Space Grotesk","Trebuchet MS",sans-serif;--display-font:"Press Start 2P","Courier New",monospace}
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--navy);scroll-behavior:smooth}
 body{margin:0;color:var(--white);font:400 1.125rem/1.6 var(--body-font)}
@@ -25,7 +25,9 @@ h1::after{content:"";display:block;width:3.85em;height:.055em;min-height:4px;bac
 .play-button{display:inline-flex;align-items:center;justify-content:center;width:min(100%,24rem);min-height:5rem;padding:.8rem 1.5rem;border:1px solid #fce09b;border-radius:5px;background:var(--gold);color:#09131e;text-decoration:none;text-align:center;font-size:1.9rem;line-height:1.25;font-weight:700;letter-spacing:-.035em;box-shadow:0 4px 0 #b6842b;transition:background-color .16s ease,transform .16s ease,box-shadow .16s ease}
 .play-button:hover{background:#ffdc7c;transform:translateY(-2px);box-shadow:0 6px 0 #b6842b}
 .play-button:active{transform:translateY(3px);box-shadow:0 1px 0 #b6842b}
-.play-note{margin:.8rem 0 0;font-size:1rem;line-height:1.6;text-shadow:0 1px 4px #04121e}
+.play-cta{display:flex;flex-direction:column;align-items:center;isolation:isolate;width:min(100%,24rem)}
+.play-cta .play-button{position:relative;z-index:1;width:100%}
+.play-note{width:76%;margin:-.5rem 0 0;padding:.9rem .75rem .45rem;border:1px solid #b6842b;border-top:0;border-radius:0 0 6px 6px;background:var(--copper);color:var(--white);font-size:1.125rem;font-weight:600;line-height:1.4;text-align:center;box-shadow:0 3px 0 #4b2b19}
 .hero-van{display:block;position:absolute;width:53%;right:5%;bottom:12.7%;z-index:1;animation:van-arrive 4.2s cubic-bezier(.25,.25,.55,1) both}
 .hero-van img{width:100%}
 .game-section{padding-top:2.75rem;padding-bottom:2rem}
@@ -84,7 +86,8 @@ h3{margin:0 0 1.4rem;font-size:clamp(1.45rem,2.15vw,1.9rem);line-height:1.25;let
   .tagline{font-size:1.4rem;line-height:1.3;margin-bottom:.9rem}
   .hero-description{max-width:34rem;margin-bottom:1.3rem;font-size:1.075rem;line-height:1.48}
   .play-button{width:100%;min-height:3.75rem;font-size:1.6rem;padding:.7rem 1rem}
-  .play-note{margin:.65rem auto 0;font-size:.875rem;text-align:center}
+  .play-cta{width:100%}
+  .play-note{font-size:1rem}
   .hero-van{position:relative;width:100%;max-width:34rem;right:auto;bottom:auto;margin:0 auto}
   .game-section{padding-top:2rem}
   .eyebrow{font-size:.9rem;margin-bottom:1rem}
@@ -105,4 +108,4 @@ h3{margin:0 0 1.4rem;font-size:clamp(1.45rem,2.15vw,1.9rem);line-height:1.25;let
   .footer nav{gap:1.25rem}
   .footer a + a{padding-left:1.25rem}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none !important;transition:none !important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-van,.is-revealed{animation:none}.play-button{transition:none}}
