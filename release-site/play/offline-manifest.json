@@ -1,26 +1,26 @@
 {
-  "revision": "1c145d89fef4fbab75a9",
-  "bytes": 109953920,
+  "revision": "23cf83a1a7d5f9d02de9",
+  "bytes": 109570603,
   "assets": [
     {
-      "path": "continuity-f40f85e4abf3719f.css",
-      "bytes": 72955,
-      "integrity": "sha256-WyBUf5SnVGvvy6df01c3JKHHORfILGVP9clYkaR9o9U="
+      "path": "continuity-9fbba1ffa519bf16.css",
+      "bytes": 76047,
+      "integrity": "sha256-cDYnhGveL9GU4AfZ4lPbWLBbvTRf8uOYn/Mo2rWt6DI="
     },
     {
-      "path": "dystrail-web-570cefe4596abd42.js",
-      "bytes": 63950,
-      "integrity": "sha256-3AyJWekQexzuFI8jlUeFZnSAKncxJ4Q+/J3JMyIHtGo="
+      "path": "dystrail-web-f7d23691fc60f04f.js",
+      "bytes": 65789,
+      "integrity": "sha256-2xaLZKmpvqDvFfSILmd4bLznsxBc9BokrTWFwRZng40="
     },
     {
-      "path": "dystrail-web-570cefe4596abd42_bg.wasm",
-      "bytes": 6427810,
-      "integrity": "sha256-FFPcWUMsOp/sanNdfSX8LUc/8QPsYfCDWP1auzU7RwA="
+      "path": "dystrail-web-f7d23691fc60f04f_bg.wasm",
+      "bytes": 6060837,
+      "integrity": "sha256-ELDkfH/MnTDaMrqy8H+v1ROfophvPwb9X6U92YpMRko="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-usSQ9FC3ve5wzbKyWpN5KkoDv12qd74qSX9a2EfQGtA="
+      "integrity": "sha256-aCvSg5ahOVjObR9yUyCflYRIViVA4bk+OWhNGu2YdJs="
     },
     {
       "path": "journey-5fe63ee3f473b890.css",
@@ -59,8 +59,8 @@
     },
     {
       "path": "static/assets/data/game.json",
-      "bytes": 96770,
-      "integrity": "sha256-b1erBiOQ1dMUX/eV3qnGQzdcgvkZJeKrsONqF0fi+ow="
+      "bytes": 80025,
+      "integrity": "sha256-fwQXXF5lrGq0hEX9i2yOxXAbgqHFqdoN0sNxmafL/MI="
     },
     {
       "path": "static/assets/data/journey/classic.json",
@@ -124,8 +124,8 @@
     },
     {
       "path": "static/assets/data/town-facts.json",
-      "bytes": 93314,
-      "integrity": "sha256-GyDZ6zIBIo/2CSawPgoXSYb46Vdf6kZHw50GCDG0qKs="
+      "bytes": 85673,
+      "integrity": "sha256-cPWEP52B8Q6lnbdLhn1X+SsmjlvdHkRdOpjY+bOAq/g="
     },
     {
       "path": "static/assets/data/town-profiles.json",
@@ -139,13 +139,13 @@
     },
     {
       "path": "static/assets/data/weather.json",
-      "bytes": 1879,
-      "integrity": "sha256-sr4u+TAtMGPr33SDWsH56kAY6dMBfENw7QrFMY0K6sk="
+      "bytes": 1898,
+      "integrity": "sha256-c6HExqy81gTNqEDxUD1dcfANsP4/KnJknTH7OVEef0o="
     },
     {
       "path": "static/continuity.css",
-      "bytes": 72955,
-      "integrity": "sha256-WyBUf5SnVGvvy6df01c3JKHHORfILGVP9clYkaR9o9U="
+      "bytes": 76047,
+      "integrity": "sha256-cDYnhGveL9GU4AfZ4lPbWLBbvTRf8uOYn/Mo2rWt6DI="
     },
     {
       "path": "static/favicon.ico",

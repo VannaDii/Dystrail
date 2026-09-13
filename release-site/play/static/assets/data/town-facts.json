@@ -13,10 +13,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "I clean those labs. I get written up for leaving a smudge on the glass. They can leave a whole research project without funding and call it efficiency.",
-      "es": "Yo limpio esos laboratorios. Me sancionan por dejar una mancha en el cristal. Ellos pueden dejar todo un proyecto de investigación sin fondos y llamarlo eficiencia.",
-      "it": "Pulisco quei laboratori. Mi richiamano se lascio un alone sul vetro. Loro possono lasciare un intero progetto di ricerca senza fondi e chiamarla efficienza.",
-      "ar": "أنظّف تلك المختبرات. أتلقّى إنذارًا إن تركت لطخة على الزجاج. أما هم فيستطيعون ترك مشروع بحث كامل بلا تمويل ويسمّون ذلك كفاءة."
+      "en": "I miss a spot cleaning the lab, I get written up. They delete its funding and get a podium.",
+      "es": "Si me dejo una mancha limpiando el laboratorio, me sancionan. Ellos le borran los fondos y les dan un podio.",
+      "it": "Se mi sfugge una macchia pulendo il laboratorio, mi richiamano. Loro gli cancellano i fondi e ricevono un podio.",
+      "ar": "إن فاتتني بقعة وأنا أنظّف المختبر، أتلقى إنذارًا. هم يحذفون تمويله ويحصلون على منصة خطابة."
     }
   },
   {
@@ -33,10 +33,10 @@
     "evidence_status": "proposed",
     "supporting_sources": [],
     "comment": {
-      "en": "They’re talking about closing the river research center. I guess the Mississippi will call ahead if it finds anything toxic. Hopefully it knows the extension.",
-      "es": "Se está hablando de cerrar el centro de investigación del río. Supongo que el Mississippi llamará con antelación si encuentra algo tóxico. A ver si se sabe la extensión.",
-      "it": "Parlano di chiudere il centro di ricerca sul fiume. Immagino che il Mississippi telefonerà in anticipo se trova qualcosa di tossico. Speriamo conosca l’interno.",
-      "ar": "يتحدّثون عن إغلاق مركز أبحاث النهر. أفترض أن المسيسيبي سيتّصل مسبقًا إن وجد شيئًا سامًا. آمل أن يعرف الرقم الداخلي."
+      "en": "Close the river lab? Great. We’ll ask the fish to rate the water from one to five stars.",
+      "es": "¿Cerrar el laboratorio del río? Genial. Pediremos a los peces que puntúen el agua de una a cinco estrellas.",
+      "it": "Chiudere il laboratorio del fiume? Ottimo. Chiederemo ai pesci di dare all'acqua da una a cinque stelle.",
+      "ar": "إغلاق مختبر النهر؟ رائع. سنطلب من الأسماك تقييم الماء من نجمة إلى خمس."
     }
   },
   {
@@ -53,10 +53,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The university found bridge money. We’ve all done that—move this week’s grocery money to last week’s bill and call the problem solved until Friday.",
-      "es": "La universidad consiguió financiación provisional. Eso lo hemos hecho todos: pasar el dinero de la compra de esta semana a la factura de la semana pasada y dar el problema por resuelto hasta el viernes.",
-      "it": "L’università ha trovato dei fondi ponte. L’abbiamo fatto tutti: sposti i soldi della spesa di questa settimana sulla bolletta della settimana scorsa e chiami il problema risolto fino a venerdì.",
-      "ar": "وجدت الجامعة تمويلًا مؤقتًا يسدّ الفجوة. كلنا فعلنا ذلك: ننقل مال بقالة هذا الأسبوع إلى فاتورة الأسبوع الماضي، ونعلن حل المشكلة حتى الجمعة."
+      "en": "The lab got temporary ‘bridge funding.’ Good. I was worried we’d have to start researching under one.",
+      "es": "El laboratorio consiguió «financiación puente» temporal. Bien. Me preocupaba que tuviéramos que investigar debajo de uno.",
+      "it": "Il laboratorio ha ottenuto «fondi ponte» temporanei. Bene. Temevo che dovessimo cominciare a fare ricerca sotto uno.",
+      "ar": "حصل المختبر على «تمويل جسري» مؤقت. جيد. كنت أخشى أن نضطر لبدء الأبحاث تحت جسر."
     }
   },
   {
@@ -73,10 +73,10 @@
     "evidence_status": "announced pause",
     "supporting_sources": [],
     "comment": {
-      "en": "They paused money for extending the train line. Apparently a shorter commute is something I can earn by already having a better job.",
-      "es": "Dejaron en pausa los fondos para ampliar la línea de tren. Al parecer, puedo ganarme un trayecto al trabajo más corto si ya tengo un empleo mejor.",
-      "it": "Hanno sospeso i soldi per prolungare la linea ferroviaria. A quanto pare, posso guadagnarmi un tragitto casa-lavoro più breve avendo già un lavoro migliore.",
-      "ar": "أوقفوا مؤقتًا تمويل تمديد خط القطار. يبدو أن تقصير رحلة ذهابي إلى العمل مكافأة أستحقها إذا كانت لديّ أصلًا وظيفة أفضل."
+      "en": "They’ve paused the train extension. My boss says I should’ve left home before the funding cut.",
+      "es": "Han suspendido la ampliación del tren. Mi jefe dice que tendría que haber salido de casa antes del recorte de fondos.",
+      "it": "Hanno sospeso il prolungamento del treno. Il capo dice che avrei dovuto uscire di casa prima del taglio ai fondi.",
+      "ar": "علّقوا توسعة القطار. يقول مديري إنه كان عليّ مغادرة المنزل قبل قطع التمويل."
     }
   },
   {
@@ -93,10 +93,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They froze hiring. The work’s still arriving piping hot, and apparently we can all just pick up a second tray.",
-      "es": "Congelaron las contrataciones. El trabajo sigue llegando bien calentito y, al parecer, todos podemos cargar con una segunda bandeja.",
-      "it": "Hanno congelato le assunzioni. Il lavoro continua ad arrivare bollente, e a quanto pare possiamo tutti prendere un secondo vassoio.",
-      "ar": "جمّدوا التوظيف. ما زال العمل يصل ساخنًا من الفرن، ويبدو أننا نستطيع جميعًا حمل صينية ثانية ببساطة."
+      "en": "Hiring’s frozen. I’m covering three jobs. Funny how the workload survived the cold snap.",
+      "es": "Las contrataciones están congeladas. Yo cubro tres puestos. Curioso que la carga de trabajo sobreviviera a la ola de frío.",
+      "it": "Le assunzioni sono congelate. Io copro tre posti. Buffo che il carico di lavoro sia sopravvissuto alla gelata.",
+      "ar": "التوظيف مجمّد. وأنا أغطي ثلاث وظائف. عجيب كيف نجت أعباء العمل من موجة الصقيع."
     }
   },
   {
@@ -113,10 +113,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Paper costs more, plates cost more, and the customer wants last year’s price. If tariffs are making us rich, mine must still be jammed in the printer.",
-      "es": "El papel cuesta más, las planchas cuestan más y el cliente quiere el precio del año pasado. Si los aranceles nos están haciendo ricos, lo mío debe de seguir atascado en la impresora.",
-      "it": "La carta costa di più, le lastre costano di più e il cliente vuole il prezzo dell’anno scorso. Se i dazi ci stanno rendendo ricchi, la mia parte dev’essere ancora inceppata nella stampante.",
-      "ar": "الورق أغلى، وألواح الطباعة أغلى، والعميل يريد سعر العام الماضي. إن كانت الرسوم الجمركية تجعلنا أثرياء، فلا بد أن ثروتي ما زالت عالقة في الطابعة."
+      "en": "Tariffs made our paper cost more. We’re printing the ‘economic victory’ flyers double-sided to afford it.",
+      "es": "Los aranceles encarecieron nuestro papel. Imprimimos los folletos de «victoria económica» a doble cara para poder pagarlos.",
+      "it": "I dazi ci hanno rincarato la carta. Stampiamo i volantini della «vittoria economica» fronte-retro per poterceli permettere.",
+      "ar": "رفعت الرسوم الجمركية سعر ورقنا. نطبع منشورات «النصر الاقتصادي» على الوجهين كي نستطيع دفع ثمنها."
     }
   },
   {
@@ -133,10 +133,10 @@
     "evidence_status": "announced termination",
     "supporting_sources": [],
     "comment": {
-      "en": "They say anyone can go to college. Then they cut the people who help you apply. I guess it’s only the American Dream if your parents already know the password.",
-      "es": "Dicen que cualquiera puede ir a la universidad. Luego recortan al personal que te ayuda a solicitar plaza. Supongo que solo es el sueño americano si tus padres ya se saben la contraseña.",
-      "it": "Dicono che chiunque possa andare all’università. Poi tagliano le persone che ti aiutano a fare domanda. Immagino che sia il Sogno Americano solo se i tuoi genitori conoscono già la password.",
-      "ar": "يقولون إن أي شخص يستطيع الالتحاق بالجامعة. ثم يقلّصون عدد الذين يساعدونك في التقديم. أفترض أنه لا يكون الحلم الأمريكي إلا إذا كان والداك يعرفان كلمة المرور سلفًا."
+      "en": "They cut college counseling. The American Dream now requires a parent who knows a guy.",
+      "es": "Recortaron la orientación universitaria. El sueño americano ahora exige un progenitor con contactos.",
+      "it": "Hanno tagliato l'orientamento universitario. Il sogno americano ora richiede un genitore che conosca qualcuno.",
+      "ar": "قطعوا الإرشاد الجامعي. يتطلب الحلم الأمريكي الآن أبًا أو أمًا يعرفان شخصًا نافذًا."
     }
   },
   {
@@ -153,10 +153,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They want breakthrough research on a break-room budget. I can barely keep people from stealing my yogurt under those conditions.",
-      "es": "Quieren investigación revolucionaria con el presupuesto de una sala de descanso. En esas condiciones, bastante tengo con evitar que me roben el yogur.",
-      "it": "Vogliono ricerca rivoluzionaria con il budget della saletta delle pause. In quelle condizioni riesco a malapena a evitare che mi rubino lo yogurt.",
-      "ar": "يريدون أبحاثًا رائدة بميزانية غرفة استراحة. بالكاد أستطيع منع الناس من سرقة زباديَّ في هذه الظروف."
+      "en": "They cut our research grants. Maybe if we discovered a new tax loophole, Congress would fund the lab.",
+      "es": "Nos recortaron las becas de investigación. Quizá si descubriéramos un nuevo agujero fiscal, el Congreso financiaría el laboratorio.",
+      "it": "Hanno tagliato i nostri fondi per la ricerca. Magari se scoprissimo una nuova scappatoia fiscale, il Congresso finanzierebbe il laboratorio.",
+      "ar": "قطعوا منح أبحاثنا. ربما لو اكتشفنا ثغرة ضريبية جديدة، لَموّل الكونغرس المختبر."
     }
   },
   {
@@ -173,10 +173,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They cut park staff. The towpath didn’t get shorter and the trash didn’t learn manners. Come see our newest attraction: the Historic Overflowing Bin.",
-      "es": "Recortaron el personal del parque. El camino de sirga no se hizo más corto y la basura no aprendió modales. Vengan a ver nuestra nueva atracción: el Contenedor Histórico Desbordado.",
-      "it": "Hanno tagliato il personale del parco. Il sentiero lungo il canale non si è accorciato e la spazzatura non ha imparato le buone maniere. Venite a vedere la nostra nuova attrazione: lo Storico Cestino Traboccante.",
-      "ar": "قلّصوا طاقم الحديقة. لم يقصر ممر السحب على ضفة القناة، ولم تتعلّم القمامة حسن السلوك. تعالوا شاهدوا أحدث معالمنا: الحاوية التاريخية الطافحة."
+      "en": "Five park staff cut. The trash is now a self-guided exhibit.",
+      "es": "Cinco trabajadores menos en el parque. La basura ya es una exposición autoguiada.",
+      "it": "Cinque addetti del parco tagliati. La spazzatura ora è una mostra autoguidata.",
+      "ar": "فصلوا خمسة من موظفي المتنزه. صارت القمامة الآن معرضًا ذاتي الإرشاد."
     }
   },
   {
@@ -193,10 +193,10 @@
     "evidence_status": "planned protest",
     "supporting_sources": [],
     "comment": {
-      "en": "They want the mail run like a private business. Great. Can’t wait for every birthday card to ask whether I’d like to upgrade to Postal Plus.",
-      "es": "Quieren que el correo funcione como una empresa privada. Estupendo. Qué ganas de que cada tarjeta de cumpleaños me pregunte si quiero pasarme a Postal Plus.",
-      "it": "Vogliono gestire la posta come un’impresa privata. Fantastico. Non vedo l’ora che ogni biglietto d’auguri mi chieda se voglio passare a Postal Plus.",
-      "ar": "يريدون إدارة البريد كشركة خاصة. رائع. لا أطيق انتظار أن تسألني كل بطاقة عيد ميلاد إن كنت أرغب في الترقية إلى «بوستال بلس»."
+      "en": "Privatize the mail? Can’t wait for Mom’s birthday card to arrive after this unskippable ad.",
+      "es": "¿Privatizar el correo? No veo la hora de que la tarjeta de cumpleaños de mamá llegue después de este anuncio que no se puede saltar.",
+      "it": "Privatizzare la posta? Non vedo l'ora che il biglietto di compleanno della mamma arrivi dopo questo annuncio che non si può saltare.",
+      "ar": "خصخصة البريد؟ لا أطيق انتظار بطاقة عيد ميلاد أمي التي ستصل بعد هذا الإعلان غير القابل للتخطي."
     }
   },
   {
@@ -213,10 +213,10 @@
     "evidence_status": "layoff notice",
     "supporting_sources": [],
     "comment": {
-      "en": "The layoff notice has ninety jobs on it. They call it streamlining. I’ve been streamlining my grocery cart all week, and I’m still waiting for the improvement.",
-      "es": "El aviso de despido incluye noventa puestos. Lo llaman optimizar. Llevo toda la semana optimizando mi carrito de la compra y sigo esperando la mejora.",
-      "it": "Sull’avviso dei licenziamenti ci sono novanta posti. Lo chiamano snellimento. Io sto snellendo il carrello della spesa da tutta la settimana e aspetto ancora il miglioramento.",
-      "ar": "يتضمّن إشعار التسريح تسعين وظيفة. يسمّون ذلك ترشيدًا. وأنا أرشّد محتويات عربة بقالتي طوال الأسبوع، وما زلت أنتظر التحسّن."
+      "en": "Ninety HHS layoffs on the notice. My landlord says government efficiency is not an accepted payment method.",
+      "es": "Noventa despidos del HHS en el aviso. Mi casero dice que la eficiencia gubernamental no es un método de pago aceptado.",
+      "it": "Novanta licenziamenti dell'HHS sull'avviso. Il padrone di casa dice che l'efficienza del governo non è un metodo di pagamento accettato.",
+      "ar": "تسعون تسريحًا من وزارة الصحة والخدمات الإنسانية في الإشعار. يقول مالك بيتي إن الكفاءة الحكومية ليست وسيلة دفع مقبولة."
     }
   },
   {
@@ -233,10 +233,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Hamilton pulled out. I work concessions. They had a fight about who gets to tell the American story; I was hoping to sell a pretzel during it.",
-      "es": "Hamilton se retiró. Yo trabajo en los puestos de comida. Se pelearon por quién tiene derecho a contar la historia de Estados Unidos; yo esperaba vender un pretzel mientras tanto.",
-      "it": "Hamilton si è tirato indietro. Io lavoro al punto ristoro. Loro hanno litigato su chi può raccontare la storia americana; io speravo di vendere un pretzel nel frattempo.",
-      "ar": "انسحب عرض «هاملتون». أعمل في بيع المأكولات. تشاجروا بشأن من يحق له رواية القصة الأمريكية؛ وكنت آمل بيع قطعة بريتزل أثناء ذلك."
+      "en": "Trump takes over the Kennedy Center. Hamilton cancels; I lose concession shifts. Finally, a president brave enough to confront Big Pretzel.",
+      "es": "Trump toma el control del Kennedy Center. Hamilton cancela; pierdo turnos en los puestos de comida. Por fin, un presidente valiente que se enfrenta al Gran Pretzel.",
+      "it": "Trump prende il controllo del Kennedy Center. Hamilton cancella; perdo turni ai chioschi. Finalmente un presidente abbastanza coraggioso da affrontare Big Pretzel.",
+      "ar": "يسيطر ترامب على مركز كينيدي. يُلغى هاملتون؛ وأخسر ورديات بيع المأكولات. أخيرًا، رئيس شجاع بما يكفي لمواجهة لوبي البريتزل."
     }
   },
   {
@@ -253,10 +253,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The milk and eggs were supposed to come on a truck. Now we’ve got a cancellation notice. If Washington’s recipe for dinner starts with ‘print the email,’ they can keep it.",
-      "es": "La leche y los huevos tenían que llegar en un camión. Ahora tenemos un aviso de cancelación. Si la receta de Washington para la cena empieza por «imprime el correo», se la pueden quedar.",
-      "it": "Il latte e le uova dovevano arrivare su un camion. Ora abbiamo un avviso di cancellazione. Se la ricetta di Washington per la cena comincia con «stampa l’email», possono tenersela.",
-      "ar": "كان يفترض أن يأتي الحليب والبيض على شاحنة. بدلًا من ذلك، وصلنا إشعار إلغاء. إذا بدأت وصفة واشنطن للعشاء بعبارة «اطبع الرسالة الإلكترونية»، فلتحتفظ بها."
+      "en": "USDA canceled our food shipment. Tonight’s special: lightly sautéed notification email.",
+      "es": "El USDA canceló nuestro envío de comida. Especial de esta noche: correo de notificación ligeramente salteado.",
+      "it": "L'USDA ha cancellato la nostra spedizione di cibo. Specialità della sera: email di notifica leggermente saltata in padella.",
+      "ar": "ألغت وزارة الزراعة شحنة طعامنا. طبق الليلة: رسالة إشعار مشوّحة قليلًا."
     }
   },
   {
@@ -273,10 +273,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Now the lake scientist has to ask homeowners’ associations for research money. Scientific consensus requires approval from the people who fined me for my bins.",
-      "es": "Ahora quien investiga el lago tiene que pedir dinero para investigar a las asociaciones de propietarios. El consenso científico necesita la aprobación de la gente que me multó por los cubos de basura.",
-      "it": "Ora lo scienziato del lago deve chiedere soldi per la ricerca alle associazioni di proprietari di case. Il consenso scientifico richiede l’approvazione delle persone che mi hanno multato per i bidoni.",
-      "ar": "صار عالم البحيرة مضطرًا لطلب مال الأبحاث من جمعيات أصحاب المنازل. يتطلّب الإجماع العلمي موافقة الذين غرّموني بسبب حاويات قمامتي."
+      "en": "The lake scientist needs HOA funding. First, the algae must be an approved shade of green.",
+      "es": "El científico del lago necesita fondos de la asociación de propietarios. Primero, las algas deben tener un tono de verde aprobado.",
+      "it": "Lo scienziato del lago ha bisogno dei fondi dell'associazione dei proprietari. Prima, le alghe devono essere di una tonalità di verde approvata.",
+      "ar": "يحتاج عالم البحيرة تمويل جمعية ملاك البيوت. أولًا، يجب أن تكون الطحالب بدرجة خضراء معتمدة."
     }
   },
   {
@@ -293,10 +293,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The farmer has food. We have people who need food. Washington has found a way to stand between them and call itself out of the way.",
-      "es": "El agricultor tiene comida. Nosotros tenemos gente que necesita comida. Washington ha encontrado la forma de ponerse en medio y decir que se está quitando de en medio.",
-      "it": "L’agricoltore ha il cibo. Noi abbiamo persone che ne hanno bisogno. Washington ha trovato il modo di mettersi in mezzo e dire che si è tolta di mezzo.",
-      "ar": "لدى المزارع طعام. ولدينا أناس يحتاجون إلى الطعام. وجدت واشنطن طريقة للوقوف بينهم والقول إنها ابتعدت عن الطريق."
+      "en": "Washington cut the program buying farmers’ food for hungry neighbors. Apparently the middleman wasn’t rich enough.",
+      "es": "Washington recortó el programa que compraba comida a agricultores para vecinos con hambre. Al parecer, el intermediario no era bastante rico.",
+      "it": "Washington ha tagliato il programma che comprava cibo dai contadini per i vicini affamati. A quanto pare l'intermediario non era abbastanza ricco.",
+      "ar": "قطعت واشنطن البرنامج الذي يشتري غذاء المزارعين للجيران الجائعين. يبدو أن الوسيط لم يكن غنيًا بما يكفي."
     }
   },
   {
@@ -313,10 +313,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Visitors asked why Lincoln’s home was closed. I explained the shutdown. Then they asked when it would end. I sell postcards; I’m not the functioning branch of government.",
-      "es": "Unos visitantes preguntaron por qué estaba cerrada la casa de Lincoln. Les expliqué el cierre del Gobierno. Luego preguntaron cuándo acabaría. Yo vendo postales; no soy la rama del Gobierno que funciona.",
-      "it": "I visitatori chiedevano perché la casa di Lincoln fosse chiusa. Ho spiegato lo shutdown. Poi hanno chiesto quando sarebbe finito. Vendo cartoline; non sono il ramo funzionante del governo.",
-      "ar": "سأل الزوار لماذا أُغلق منزل لينكولن. شرحت لهم الإغلاق الحكومي. ثم سألوا متى سينتهي. أنا أبيع بطاقات بريدية؛ لست السلطة الحكومية التي تعمل كما ينبغي."
+      "en": "The shutdown closed Lincoln’s house. Of the people, by the people, back whenever the fuck we feel like it.",
+      "es": "El cierre federal cerró la casa de Lincoln. Del pueblo, por el pueblo, volveremos cuando nos salga de los cojones.",
+      "it": "Lo shutdown ha chiuso la casa di Lincoln. Del popolo, dal popolo, riapriamo quando cazzo ci pare.",
+      "ar": "أغلق التعطيل الفيدرالي منزل لينكولن. من الشعب، وبالشعب، ونعود حين يحلو لنا، تبًا."
     }
   },
   {
@@ -333,10 +333,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The city paid for shelter, then Washington pulled the reimbursement. I’d try that with my landlord, but apparently only the federal government gets to call owing money a firm stance.",
-      "es": "La ciudad pagó el alojamiento y luego Washington retiró el reembolso. Lo intentaría con mi casero, pero al parecer solo el Gobierno federal puede llamar postura firme a deber dinero.",
-      "it": "La città ha pagato i ripari, poi Washington ha ritirato il rimborso. Proverei a farlo con il mio padrone di casa, ma a quanto pare solo il governo federale può chiamare un debito una posizione ferma.",
-      "ar": "دفعت المدينة كلفة الإيواء، ثم سحبت واشنطن التعويض. كنت سأجرّب ذلك مع مالك مسكني، لكن يبدو أن الحكومة الاتحادية وحدها يحق لها تسمية عدم سداد الديون موقفًا حازمًا."
+      "en": "Washington stiffed us for the shelter bill. When I try that with rent, it’s suddenly a character flaw.",
+      "es": "Washington nos dejó sin pagar la factura del refugio. Cuando intento eso con el alquiler, de pronto es un defecto moral.",
+      "it": "Washington ci ha lasciato il conto del rifugio da pagare. Quando ci provo io con l'affitto, diventa subito un difetto del carattere.",
+      "ar": "تهرّبت واشنطن من دفع فاتورة المأوى. حين أجرّب ذلك مع الإيجار، يصبح فجأة عيبًا أخلاقيًا."
     }
   },
   {
@@ -353,10 +353,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "When they cut the balloon launches back, I started checking the sky between tasks. My knees would like overtime for their new meteorology duties.",
-      "es": "Cuando redujeron los lanzamientos de globos, empecé a mirar el cielo entre tarea y tarea. Mis rodillas quieren cobrar horas extra por sus nuevas funciones meteorológicas.",
-      "it": "Quando hanno ridotto i lanci dei palloni, ho cominciato a controllare il cielo tra un compito e l’altro. Le mie ginocchia vorrebbero gli straordinari per i nuovi incarichi di meteorologia.",
-      "ar": "حين قلّصوا إطلاق مناطيد الطقس، بدأت أتفقّد السماء بين المهام. تطالب ركبتاي بأجر إضافي عن واجباتهما الجديدة في الأرصاد الجوية."
+      "en": "They cut weather-balloon launches. Now we’re getting the forecast from my bad knee. It wants benefits.",
+      "es": "Recortaron los lanzamientos de globos meteorológicos. Ahora mi rodilla mala da el pronóstico. Quiere prestaciones.",
+      "it": "Hanno tagliato i lanci dei palloni meteo. Ora prendiamo le previsioni dal mio ginocchio malandato. Vuole i benefit.",
+      "ar": "قلّلوا إطلاقات بالونات الطقس. الآن نأخذ التوقع من ركبتي المصابة. إنها تطالب بمزايا وظيفية."
     }
   },
   {
@@ -373,10 +373,10 @@
     "evidence_status": "warning about announced policy",
     "supporting_sources": [],
     "comment": {
-      "en": "They call keeping the lab freezers running ‘overhead.’ I guess the samples are supposed to stay cold through personal responsibility. I’ll put a motivational poster on the plug.",
-      "es": "Llaman «gastos generales» a mantener encendidos los congeladores del laboratorio. Supongo que las muestras tienen que conservarse frías a base de responsabilidad personal. Le pondré un cartel motivacional al enchufe.",
-      "it": "Chiamano tenere accesi i congelatori del laboratorio «costi indiretti». Immagino che i campioni debbano restare freddi grazie alla responsabilità individuale. Metterò un poster motivazionale sulla spina.",
-      "ar": "يسمّون إبقاء مجمّدات المختبر تعمل «نفقات غير مباشرة». أفترض أن العيّنات مطالبة بالبقاء باردة بفضل المسؤولية الشخصية. سأضع ملصقًا تحفيزيًا على القابس."
+      "en": "They want to cut the lab’s operating money. Great. We’ll keep the samples cold with fiscal discipline.",
+      "es": "Quieren recortar los gastos de funcionamiento del laboratorio. Genial. Mantendremos las muestras frías con disciplina fiscal.",
+      "it": "Vogliono tagliare i soldi per far funzionare il laboratorio. Ottimo. Terremo i campioni al freddo con la disciplina fiscale.",
+      "ar": "يريدون قطع مال تشغيل المختبر. رائع. سنحافظ على برودة العينات بالانضباط المالي."
     }
   },
   {
@@ -395,10 +395,10 @@
       "https://www.govinfo.gov/content/pkg/CHRG-119shrg63068/pdf/CHRG-119shrg63068.pdf"
     ],
     "comment": {
-      "en": "We had a buyer for local food and people who needed lunch. They canceled the arrangement. Next time we should tell Washington the carrots are a defense contractor.",
-      "es": "Teníamos un comprador para los alimentos locales y gente que necesitaba almorzar. Cancelaron el acuerdo. La próxima vez deberíamos decirle a Washington que las zanahorias son un contratista de defensa.",
-      "it": "Avevamo un acquirente per il cibo locale e persone che avevano bisogno di pranzare. Hanno cancellato l’accordo. La prossima volta dovremmo dire a Washington che le carote sono un fornitore della difesa.",
-      "ar": "كان لدينا مشترٍ للطعام المحلي وأناس يحتاجون إلى الغداء. ألغوا الاتفاق. في المرة المقبلة، علينا أن نخبر واشنطن أن الجزر متعاقد دفاعي."
+      "en": "They cut money for local school food. We’re calling the carrots tactical equipment and trying again.",
+      "es": "Recortaron el dinero para alimentos locales en las escuelas. Vamos a llamar a las zanahorias equipamiento táctico y probar otra vez.",
+      "it": "Hanno tagliato i soldi per il cibo locale nelle scuole. Chiamiamo le carote equipaggiamento tattico e riproviamo.",
+      "ar": "قطعوا مال الغذاء المحلي للمدارس. سنسمّي الجزر معدات تكتيكية ونحاول مجددًا."
     }
   },
   {
@@ -415,10 +415,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They’re talking about half as many visiting writers. I clean guest rooms. The culture war could at least have the decency to leave a tip.",
-      "es": "Se está hablando de traer a la mitad de escritores invitados. Yo limpio las habitaciones de huéspedes. La guerra cultural podría tener al menos la decencia de dejar propina.",
-      "it": "Parlano di dimezzare gli scrittori in visita. Io pulisco le camere degli ospiti. La guerra culturale potrebbe almeno avere la decenza di lasciare una mancia.",
-      "ar": "يتحدّثون عن خفض عدد الكتّاب الزائرين إلى النصف. أنظّف غرف الضيوف. كان بوسع الحرب الثقافية أن تتحلّى على الأقل بما يكفي من الذوق لتترك بقشيشًا."
+      "en": "Cutting the writers’ program cut my housekeeping shifts. The culture war could at least leave a tip.",
+      "es": "Recortar el programa de escritores me recortó los turnos de limpieza. La guerra cultural podría al menos dejar propina.",
+      "it": "Tagliare il programma degli scrittori ha tagliato i miei turni di pulizia. La guerra culturale potrebbe almeno lasciare la mancia.",
+      "ar": "قلّص إلغاء برنامج الكتّاب وردياتي في تنظيف الغرف. كان يمكن لحرب الثقافة أن تترك بقشيشًا على الأقل."
     }
   },
   {
@@ -435,10 +435,10 @@
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They even paused veterans’ book groups. Apparently ‘thank you for your service’ is the whole conversation, and we’re in terrible trouble if anybody has a follow-up question.",
-      "es": "Incluso pusieron en pausa los clubes de lectura de veteranos. Al parecer, «gracias por su servicio» es toda la conversación, y estamos en un lío tremendo si a alguien se le ocurre hacer otra pregunta.",
-      "it": "Hanno sospeso perfino i gruppi di lettura dei veterani. A quanto pare, «grazie per il vostro servizio» è tutta la conversazione, e siamo in grossi guai se qualcuno ha una domanda da fare dopo.",
-      "ar": "علّقوا حتى مجموعات القراءة للمحاربين القدامى. يبدو أن «شكرًا لخدمتك» هي المحادثة كلها، وأننا سنقع في ورطة هائلة إن كان لدى أحد سؤال إضافي."
+      "en": "Veterans’ book group paused. ‘Thank you for your service’ is now the entire syllabus.",
+      "es": "Suspendido el club de lectura de veteranos. «Gracias por vuestro servicio» es ya todo el temario.",
+      "it": "Gruppo di lettura dei veterani sospeso. «Grazie per il vostro servizio» ora è l'intero programma.",
+      "ar": "عُلّقت مجموعة قراءة المحاربين القدامى. صارت «شكرًا لخدمتكم» المنهج بأكمله."
     }
   },
   {
@@ -455,10 +455,10 @@
     "evidence_status": "dated interruption",
     "supporting_sources": [],
     "comment": {
-      "en": "During the shutdown, SNAP cards stopped working. My register still prompted ‘Have a great day.’ I’d like permission to forward that part of the conversation to Washington.",
-      "es": "Durante el cierre del Gobierno, las tarjetas SNAP dejaron de funcionar. Mi caja seguía indicando «Que tenga un buen día». Quisiera permiso para reenviar esa parte de la conversación a Washington.",
-      "it": "Durante lo shutdown, le carte SNAP hanno smesso di funzionare. Il mio registratore di cassa continuava a suggerire «Buona giornata». Vorrei il permesso di inoltrare quella parte della conversazione a Washington.",
-      "ar": "خلال الإغلاق الحكومي، توقّفت بطاقات «SNAP» عن العمل. ومع ذلك، ظل جهاز المحاسبة يلقّنني: «أتمنّى لك يومًا رائعًا». أود الإذن بإحالة هذا الجزء من المحادثة إلى واشنطن."
+      "en": "SNAP stopped. The register asks if I’d like to donate to fight hunger. I’d like to receive, actually.",
+      "es": "SNAP se paró. La caja pregunta si quiero donar para luchar contra el hambre. La verdad, preferiría recibir.",
+      "it": "SNAP si è fermato. La cassa chiede se voglio donare per combattere la fame. A dire il vero, vorrei ricevere.",
+      "ar": "توقف برنامج SNAP. تسألني آلة الدفع إن كنت أريد التبرع لمحاربة الجوع. أريد أن أتلقى، في الواقع."
     }
   },
   {
@@ -475,10 +475,10 @@
     "evidence_status": "estimated risk, not realized loss",
     "supporting_sources": [],
     "comment": {
-      "en": "The hospital warned what that NIH cap could cost. They call utilities and lab space ‘overhead.’ At my house we call that ‘existing indoors,’ and it’s already too expensive.",
-      "es": "El hospital advirtió de lo que podría costar ese límite de los NIH. Llaman «gastos generales» a los suministros básicos y al espacio de laboratorio. En mi casa lo llamamos «existir bajo techo», y ya sale demasiado caro.",
-      "it": "L’ospedale ha avvertito di quanto potrebbe costare quel tetto NIH. Chiamano utenze e spazi di laboratorio «costi indiretti». A casa mia li chiamiamo «esistere al coperto», ed è già troppo caro.",
-      "ar": "حذّر المستشفى من الكلفة المحتملة لذلك السقف على تمويل معاهد الصحة الوطنية «NIH». يسمّون المرافق ومساحات المختبرات «نفقات غير مباشرة». في بيتي نسمّي ذلك «الوجود تحت سقف»، وهو أغلى مما ينبغي أصلًا."
+      "en": "They want to cut the money that keeps our lab open. Apparently the cancer cells can work from home.",
+      "es": "Quieren recortar el dinero que mantiene abierto el laboratorio. Al parecer, las células cancerosas pueden teletrabajar.",
+      "it": "Vogliono tagliare i soldi che tengono aperto il laboratorio. A quanto pare le cellule tumorali possono lavorare da casa.",
+      "ar": "يريدون قطع المال الذي يبقي مختبرنا مفتوحًا. يبدو أن الخلايا السرطانية تستطيع العمل من المنزل."
     }
   },
   {
@@ -495,10 +495,10 @@
     "evidence_status": "warning about canceled funding",
     "supporting_sources": [],
     "comment": {
-      "en": "The food bank’s worried about the cuts. I work full-time, and I’m worried about the food bank. This is a lot of unpaid worrying for a country with that many billionaires.",
-      "es": "Al banco de alimentos le preocupan los recortes. Yo trabajo a jornada completa y me preocupa el banco de alimentos. Es mucha preocupación sin cobrar para un país con tantos multimillonarios.",
-      "it": "Il banco alimentare è preoccupato per i tagli. Io lavoro a tempo pieno e sono in ansia per il banco alimentare. È un sacco di preoccupazione non pagata per un paese con così tanti miliardari.",
-      "ar": "يقلق بنك الطعام بشأن التخفيضات. أعمل بدوام كامل، وأقلق بشأن بنك الطعام. كل هذا القلق بلا أجر كثير على بلد فيه هذا العدد من المليارديرات."
+      "en": "Full-time job, food-bank queue. If hard work made you rich, this line would need valet parking.",
+      "es": "Trabajo a jornada completa, cola del banco de alimentos. Si trabajar duro te hiciera rico, esta fila necesitaría aparcacoches.",
+      "it": "Lavoro a tempo pieno, fila al banco alimentare. Se il duro lavoro rendesse ricchi, questa fila avrebbe bisogno del parcheggiatore.",
+      "ar": "وظيفة بدوام كامل وصفّ بنك طعام. لو كان العمل الجاد يصنع الثراء، لاحتاج هذا الصف خدمة ركن سيارات."
     }
   },
   {
@@ -515,10 +515,10 @@
     "evidence_status": "funding exposure, not a confirmed loss",
     "supporting_sources": [],
     "comment": {
-      "en": "They’re keeping our health department guessing about funding. I can’t even request Tuesday off without a form. Washington gets to leave public health on ‘we’ll let you know.’",
-      "es": "Tienen a nuestro departamento de salud adivinando qué pasará con los fondos. Yo ni siquiera puedo pedir el martes libre sin un formulario. Washington puede dejar la salud pública en «ya te avisaremos».",
-      "it": "Tengono il nostro dipartimento della salute a indovinare i finanziamenti. Io non posso nemmeno chiedere martedì libero senza un modulo. Washington può lasciare la sanità pubblica in modalità «vi faremo sapere».",
-      "ar": "يتركون إدارة الصحة لدينا تخمّن مصير التمويل. لا أستطيع حتى طلب إجازة الثلاثاء من دون نموذج. أما واشنطن فيُسمح لها بترك الصحة العامة معلّقة على «سنخبركم لاحقًا»."
+      "en": "The health department’s funding is uncertain. Germs, meanwhile, have renewed their contract.",
+      "es": "Los fondos del departamento de salud son inciertos. Los gérmenes, mientras tanto, han renovado su contrato.",
+      "it": "I fondi del dipartimento sanitario sono incerti. I germi, intanto, hanno rinnovato il contratto.",
+      "ar": "تمويل دائرة الصحة غير مؤكد. أما الجراثيم فجددت عقدها."
     }
   },
   {
@@ -537,10 +537,10 @@
       "https://www.yahoo.com/news/usda-cuts-food-aid-affect-035900949.html"
     ],
     "comment": {
-      "en": "The food network has a three-million-dollar gap. They ask us to donate a tin, and we do. I’d like to see a billionaire discover he’s been put down for the next three million.",
-      "es": "La red de alimentos tiene un déficit de tres millones de dólares. Nos piden que donemos una lata y lo hacemos. Me gustaría ver a un multimillonario descubrir que lo han apuntado para poner los próximos tres millones.",
-      "it": "La rete alimentare ha un buco da tre milioni di dollari. Ci chiedono di donare una scatoletta, e lo facciamo. Vorrei vedere un miliardario scoprire che l’hanno segnato per i prossimi tre milioni.",
-      "ar": "لدى شبكة الغذاء فجوة قدرها ثلاثة ملايين دولار. يطلبون منا التبرّع بعلبة، فنفعل. أود رؤية ملياردير يكتشف أنه سُجّل لتغطية الملايين الثلاثة التالية."
+      "en": "USDA left the food bank three million short. I donated beans. My name had better be on the fucking building.",
+      "es": "El USDA dejó al banco de alimentos con tres millones menos. Yo doné judías. Más les vale poner mi nombre en el puto edificio.",
+      "it": "L'USDA ha lasciato al banco alimentare un buco di tre milioni. Io ho donato fagioli. Sarà meglio che il mio nome sia su quel cazzo di edificio.",
+      "ar": "تركت وزارة الزراعة بنك الطعام بعجز ثلاثة ملايين. تبرعت بالفاصولياء. من الأفضل أن يضعوا اسمي على المبنى اللعين."
     }
   },
   {
@@ -557,10 +557,10 @@
     "evidence_status": "reported funding gap",
     "supporting_sources": [],
     "comment": {
-      "en": "At the food drive, everybody brings what they can. Washington brought a three-million-dollar gap. We’ve asked it not to sign up for the potluck again.",
-      "es": "En la recogida de alimentos, cada cual trae lo que puede. Washington ha traído un déficit de tres millones de dólares. Le hemos pedido que no vuelva a apuntarse a la comida compartida.",
-      "it": "Alla raccolta di cibo, tutti portano quello che possono. Washington ha portato un buco da tre milioni di dollari. Le abbiamo chiesto di non iscriversi più alla cena condivisa.",
-      "ar": "في حملة الطعام، يحضر الجميع ما يستطيعون. أحضرت واشنطن فجوة قدرها ثلاثة ملايين دولار. طلبنا منها ألّا تسجّل نفسها للمائدة المشتركة مرة أخرى."
+      "en": "USDA canceled three million dollars in food. Washington’s contribution to the potluck is an empty tray labeled SAVINGS.",
+      "es": "El USDA canceló tres millones de dólares en comida. La aportación de Washington a la cena comunitaria es una bandeja vacía que dice AHORROS.",
+      "it": "L'USDA ha cancellato tre milioni di dollari di cibo. Il contributo di Washington alla cena condivisa è un vassoio vuoto con scritto RISPARMI.",
+      "ar": "ألغت وزارة الزراعة طعامًا بقيمة ثلاثة ملايين دولار. مساهمة واشنطن في العشاء المشترك صينية فارغة مكتوب عليها وفورات."
     }
   },
   {
