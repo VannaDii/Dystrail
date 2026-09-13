@@ -1,11 +1,11 @@
 {
-  "revision": "ef9b4b81cdeb1bc0700d",
-  "bytes": 109575557,
+  "revision": "8b8fcc3f7004fd8ec354",
+  "bytes": 109575711,
   "assets": [
     {
-      "path": "continuity-9fbba1ffa519bf16.css",
-      "bytes": 76047,
-      "integrity": "sha256-cDYnhGveL9GU4AfZ4lPbWLBbvTRf8uOYn/Mo2rWt6DI="
+      "path": "continuity-46888eac4583f0ba.css",
+      "bytes": 76124,
+      "integrity": "sha256-jxTqJgyLw/Hf2wVRZDVfrJG7xJzO4r6zLUMUjmlvCeU="
     },
     {
       "path": "dystrail-web-8b6936b87ebd95d9.js",
@@ -20,7 +20,7 @@
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-Pb+uEb2UDxKw8EnjFtIWnApfl960qf1CT6zWMcUBDQ0="
+      "integrity": "sha256-3Xe39WgJRgqsHnoA5vW7Ry9+0YZMqWs0vKjn0evs7zM="
     },
     {
       "path": "journey-5fe63ee3f473b890.css",
@@ -144,8 +144,8 @@
     },
     {
       "path": "static/continuity.css",
-      "bytes": 76047,
-      "integrity": "sha256-cDYnhGveL9GU4AfZ4lPbWLBbvTRf8uOYn/Mo2rWt6DI="
+      "bytes": 76124,
+      "integrity": "sha256-jxTqJgyLw/Hf2wVRZDVfrJG7xJzO4r6zLUMUjmlvCeU="
     },
     {
       "path": "static/favicon.ico",
