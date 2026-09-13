@@ -1,6 +1,6 @@
 {
-  "revision": "a9ff83cd924a07fdf4ec",
-  "bytes": 109955593,
+  "revision": "1c145d89fef4fbab75a9",
+  "bytes": 109953920,
   "assets": [
     {
       "path": "continuity-f40f85e4abf3719f.css",
@@ -8,19 +8,19 @@
       "integrity": "sha256-WyBUf5SnVGvvy6df01c3JKHHORfILGVP9clYkaR9o9U="
     },
     {
-      "path": "dystrail-web-f13d054e90d6aade.js",
+      "path": "dystrail-web-570cefe4596abd42.js",
       "bytes": 63950,
-      "integrity": "sha256-9QUaph8dKohX8cbmtqMTvy+k77S6PkNiAkQQzdS2Evo="
+      "integrity": "sha256-3AyJWekQexzuFI8jlUeFZnSAKncxJ4Q+/J3JMyIHtGo="
     },
     {
-      "path": "dystrail-web-f13d054e90d6aade_bg.wasm",
-      "bytes": 6429414,
-      "integrity": "sha256-8vFSZZJR5wh+c05X19KQkF81Hd0uMYd+ADAKpZRwoHA="
+      "path": "dystrail-web-570cefe4596abd42_bg.wasm",
+      "bytes": 6427810,
+      "integrity": "sha256-FFPcWUMsOp/sanNdfSX8LUc/8QPsYfCDWP1auzU7RwA="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-Eat3swpuXBoUTf4tCYHc73Cl9A2bhwhpfW8avtD8Z/g="
+      "integrity": "sha256-usSQ9FC3ve5wzbKyWpN5KkoDv12qd74qSX9a2EfQGtA="
     },
     {
       "path": "journey-5fe63ee3f473b890.css",
@@ -59,8 +59,8 @@
     },
     {
       "path": "static/assets/data/game.json",
-      "bytes": 96839,
-      "integrity": "sha256-2wuUcqQoPwJysxRYKDqREnO91YsXJhdWr97osp590T8="
+      "bytes": 96770,
+      "integrity": "sha256-b1erBiOQ1dMUX/eV3qnGQzdcgvkZJeKrsONqF0fi+ow="
     },
     {
       "path": "static/assets/data/journey/classic.json",

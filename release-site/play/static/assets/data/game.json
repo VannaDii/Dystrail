@@ -31,11 +31,11 @@
         }
       },
       {
-        "label": "Split the packet between the six of you",
+        "label": "Split the packet among the crew",
         "effects": {
           "sanity": 0,
           "credibility": -1,
-          "log": "Everyone reads a share, but the cross-references get muddled. You've assembled six ordinary people's understanding of a form designed to defeat approximately seven."
+          "log": "Everyone reads a share, but the cross-references get muddled. You've assembled the crew's understanding of a form designed to defeat a slightly larger group."
         }
       }
     ],
@@ -210,7 +210,7 @@
         "effects": {
           "sanity": 1,
           "morale": 2,
-          "log": "You read every page. Six people in a van feel less alone, and the cat's performance review gets a unanimous vote of no confidence.",
+          "log": "You read every page. Everyone in the van feels less alone, and the cat's performance review gets a unanimous vote of no confidence.",
           "add_receipt": "classic_mail_drop"
         }
       },
@@ -333,7 +333,7 @@
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "You follow the volunteer's directions and make both drop-offs. Six people, one van, two deliveries. You resist announcing a Department."
+          "log": "You follow the volunteer's directions and make both drop-offs. One crew, one van, two deliveries. You resist announcing a Department."
         }
       },
       {
@@ -387,7 +387,7 @@
         "label": "Thank them and follow their directions",
         "effects": {
           "morale": 1,
-          "log": "They wave you off by the right exit. The six of you enjoy a rare government-adjacent experience that ends with knowing where you're going."
+          "log": "They wave you off by the right exit. You enjoy a rare government-adjacent experience that ends with knowing where you're going."
         }
       }
     ],
@@ -467,7 +467,7 @@
   {
     "id": "classic_press_pool_qna",
     "name": "An Interview, Between Refills",
-    "desc": "At a diner, a local reporter asks why six people are spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
+    "desc": "At a diner, a local reporter asks why your crew is spending their last comfortable dollars driving toward Washington. She checks that everyone is happy to be recorded. Nobody has been accidentally added to this interview, putting it one procedure ahead of the cabinet’s Signal chat.",
     "weight": 5,
     "regions": [
       "Beltway"
@@ -588,7 +588,7 @@
   {
     "id": "classic_union_blockade",
     "name": "Union Solidarity Blockade",
-    "desc": "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and six people who understand being told to tighten their belts.",
+    "desc": "Outside a parts factory, workers are protesting reduced shifts while the company blames tariff uncertainty. Management's bonus schedule remains remarkably certain. A steward spots your Washington signs and waves you over. There's room beside the picket, a box of donated road snacks, and a crew that understands being told to tighten their belts.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -600,11 +600,11 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Ask where six more people can help",
+        "label": "Ask where your crew can help",
         "effects": {
           "credibility": 2,
           "morale": 1,
-          "log": "You take the spots the steward suggests. Six tired travelers make a decent line when somebody finally lets them stand together."
+          "log": "You take the spots the steward suggests. Your tired crew makes a decent line when somebody finally lets them stand together."
         }
       },
       {
@@ -680,7 +680,7 @@
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "log": "He checks the replacement while you stretch and rest. The adapter cools down. So do six people who've been negotiating over battery percentages."
+          "log": "He checks the replacement while you stretch and rest. The adapter cools down. So do the people who've been negotiating over battery percentages."
         }
       },
       {
@@ -1055,7 +1055,7 @@
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "You put food on the table and explain the trip. The organizers remember the six people who contributed something they could open and eat."
+          "log": "You put food on the table and explain the trip. The organizers remember the crew who contributed something they could open and eat."
         }
       },
       {
@@ -1295,7 +1295,7 @@
         "effects": {
           "travel_bonus_ratio": 0.28,
           "sanity": 1,
-          "log": "She waves you into a steady flow. You get moving without six people simultaneously explaining how to drive, a substantial public benefit."
+          "log": "She waves you into a steady flow. You get moving without the whole crew simultaneously explaining how to drive, a substantial public benefit."
         }
       }
     ],
@@ -1349,7 +1349,7 @@
   },
   {
     "id": "overnight_briefing",
-    "name": "Five Accomplishments, Six Exhausted People",
+    "name": "Five Accomplishments, One Exhausted Crew",
     "desc": "Parked for the night, you try to finish tomorrow's comment about the five-accomplishment demands. Today's crew accomplishments include finding a toilet and not crying in it. A night attendant offers to let you know when the nearby public venue opens. You can keep working, take turns, or accept the help.",
     "weight": 3,
     "regions": [
@@ -1378,7 +1378,7 @@
         "effects": {
           "allies": 1,
           "rest": true,
-          "log": "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about six strangers."
+          "log": "You gain a local supporter and a chance to rest. Nobody asks him for five reasons to care about strangers."
         }
       }
     ],
@@ -1421,7 +1421,7 @@
         "label": "Leave the display and keep driving",
         "effects": {
           "morale": -1,
-          "log": "Back in the van, somebody wonders how to get six broke people declared a threatened drinking utensil. The funding prospects might improve."
+          "log": "Back in the van, somebody wonders how to get a broke crew declared a threatened drinking utensil. The funding prospects might improve."
         }
       }
     ],
@@ -1588,7 +1588,7 @@
         "label": "Skip the festival and keep driving",
         "effects": {
           "morale": -1,
-          "log": "You drive past the food stalls while rain freckles the glass. Six people share the same unspoken grief about the fries."
+          "log": "You drive past the food stalls while rain freckles the glass. The crew shares the same unspoken grief about the fries."
         }
       }
     ],
@@ -1722,7 +1722,7 @@
   {
     "id": "sat_alternator_tariff",
     "name": "The Patriotic Parts Counter",
-    "desc": "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. The six of you check whether you can afford another one.",
+    "desc": "The clerk shows you the tariff surcharge on a roadside kit.\n\n“Washington sets it,” she says. “They just put me within yelling distance.”\n\nBehind her, the TV calls the tariffs an economic victory. You check whether you can afford another one.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1888,7 +1888,7 @@
   {
     "id": "sat_hydration_pressure",
     "name": "Hydration Sovereignty",
-    "desc": "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With six people sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
+    "desc": "The truck stop's showerhead celebration has soaked its own LIMITED GOVERNMENT banner. The cashier offers nine dollars to help brace the display. Regular showers are free for the promotion if you bring soap. With your crew sharing a van, you've finally found a presidential announcement relevant to everyone's underwear.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1919,7 +1919,7 @@
         "label": "Skip the promotion and keep moving",
         "effects": {
           "morale": -1,
-          "log": "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like six people who still need a shower."
+          "log": "The damp banner flaps behind you. The crew concludes that freedom smells suspiciously like a crew that still needs a shower."
         }
       }
     ],
@@ -2379,7 +2379,7 @@
         "label": "Head back to the van",
         "effects": {
           "morale": -1,
-          "log": "You leave the job and the chairs behind. Your health plan returns to six people asking whether everyone is ‘probably fine.’"
+          "log": "You leave the job and the chairs behind. Your health plan returns to the crew asking whether everyone is ‘probably fine.’"
         }
       }
     ],
