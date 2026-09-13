@@ -8,7 +8,9 @@ const heldAsset='static/img/journey/town-npcs-v1.png';
 test('first launch waits for every asset, retries failure, and repairs missing cached art before play',async({browser})=>{
  test.setTimeout(65000);
  let hold=true,fail=true,waiting=false,release:()=>void=()=>{};
+ let reachable=true;
  const server=createServer(async(req,res)=>{
+  if(!reachable){req.socket.destroy();return;}
   const path=new URL(req.url!,'http://fixture').pathname.replace(/^\/play\//,'');res.setHeader('Cache-Control','no-store');
   if(path===heldAsset){if(hold)await new Promise<void>(resolve=>{release=resolve;waiting=true;});if(fail){res.statusCode=503;res.end('temporary failure');return;}}
   const file=!path||!path.includes('.')?'index.html':path;
@@ -22,10 +24,13 @@ test('first launch waits for every asset, retries failure, and repairs missing c
   fail=false;await page.locator('#launch-retry').click();await expect(page.locator('#main')).toBeVisible({timeout:30000});await expect(page.locator('#launch-gate')).toHaveCount(0);
   const missing=await page.evaluate(async()=>{const m=await(await fetch('offline-manifest.json')).json();const cache=await caches.open('dystopian-trail:/play/:'+m.revision);return(await Promise.all(m.assets.map(async(a:any)=>await cache.match(new URL(a.path,document.baseURI))?null:a.path))).filter(Boolean);});expect(missing).toEqual([]);
   // A marker is insufficient: simulate one evicted image, then reload offline.
-  await page.evaluate(async path=>{for(const name of await caches.keys())if(name.startsWith('dystopian-trail:'))await(await caches.open(name)).delete(new URL(path,document.baseURI));},heldAsset);
-  await context.setOffline(true);await page.reload({waitUntil:'domcontentloaded'});await expect(page.locator('#launch-retry')).toBeVisible({timeout:12000});await expect(page.locator('#main')).toHaveCount(0);
-  await context.setOffline(false);hold=true;waiting=false;await page.locator('#launch-retry').click();await expect.poll(()=>waiting).toBe(true);await expect(page.locator('#main')).toHaveCount(0);hold=false;release();await expect(page.locator('#main')).toBeVisible();
-  await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();expect(await page.evaluate(async path=>(await(await fetch(path)).arrayBuffer()).byteLength,heldAsset)).toBe(readFileSync(join(built,heldAsset)).byteLength);
+  // Headless Chromium can leave service-worker fetches online under setOffline.
+  // Refuse fixture connections too, so the missing asset cannot be repaired.
+  reachable=false;await context.setOffline(true);expect(await page.evaluate(()=>navigator.onLine)).toBe(false);
+  const evicted=await page.evaluate(async path=>{let removed=false;for(const name of await caches.keys())if(name.startsWith('dystopian-trail:'))removed=await(await caches.open(name)).delete(new URL(path,document.baseURI))||removed;return removed;},heldAsset);expect(evicted).toBe(true);
+  await page.reload({waitUntil:'domcontentloaded'});await expect(page.locator('#launch-retry')).toBeVisible({timeout:12000});await expect(page.locator('#main')).toHaveCount(0);
+  hold=true;waiting=false;reachable=true;await context.setOffline(false);await page.locator('#launch-retry').click();await expect.poll(()=>waiting).toBe(true);await expect(page.locator('#main')).toHaveCount(0);hold=false;release();await expect(page.locator('#main')).toBeVisible();
+  reachable=false;await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();expect(await page.evaluate(async path=>(await(await fetch(path)).arrayBuffer()).byteLength,heldAsset)).toBe(readFileSync(join(built,heldAsset)).byteLength);
  }finally{release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
 });
 

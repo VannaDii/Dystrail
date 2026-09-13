@@ -13,7 +13,7 @@ export default defineConfig({
   fullyParallel: true,
   workers: 2,
   reporter: 'list',
-  use: { channel, launchOptions: chromeLauncher, baseURL, trace: 'retain-on-failure', video: process.env.CI ? 'on' : 'off', headless: true },
+  use: { channel, launchOptions: chromeLauncher, baseURL, trace: 'retain-on-failure', video: process.env.CI ? 'retain-on-failure' : 'off', headless: true },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile', use: { ...devices['Pixel 7'] } },

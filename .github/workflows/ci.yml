@@ -225,7 +225,7 @@ jobs:
         working-directory: dystrail-web
         env:
           PUBLIC_URL: /play
-        run: npx playwright test --reporter=line --trace on --shard=${{ matrix.shard }}/8
+        run: npx playwright test --reporter=line --shard=${{ matrix.shard }}/8
 
       - name: Upload Playwright artifacts (video/trace)
         if: always()
