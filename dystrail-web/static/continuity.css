@@ -395,8 +395,8 @@ button:disabled { cursor:not-allowed; }
 .persona-mods h4 { font:700 13px var(--body-font); margin:0 0 8px; }
 .persona-mods p { font-size:14px; line-height:1.5; margin:0; }
 .persona-scoring { font-size:12px; line-height:1.5; color:var(--paper-muted); margin:0; padding-top:12px; border-top:1px solid var(--paper-border); }
-.persona-select .persona-actions { display:flex; justify-content:space-between; gap:20px; margin-block-start:24px; padding-block-start:18px; border-block-start:1px solid var(--panel-border); }
-.persona-select .persona-actions button { inline-size:auto; min-inline-size:160px; margin:0; }
+.controls.setup-actions { display:flex; justify-content:space-between; gap:20px; margin-block-start:24px; padding-block-start:18px; border-block-start:1px solid var(--panel-border); }
+.controls.setup-actions button { inline-size:auto; min-inline-size:160px; margin:0; }
 
 /* Result identity belongs to the player, and the scorecard is always readable. */
 .result-art .journey-scene { aspect-ratio:auto; min-height:380px; }
@@ -423,7 +423,7 @@ button:disabled { cursor:not-allowed; }
  .persona-preview-header p { font-size:14px; line-height:1.5; min-height:0; }
  .persona-mods { min-height:0; }
  .persona-starting { padding-block:10px; }
- .persona-select .persona-actions button { min-inline-size:112px; }
+ .controls.setup-actions button { min-inline-size:112px; }
  .result-art .result-art-caption { grid-template-columns:minmax(0,1fr); gap:22px; padding:24px 20px; min-height:450px; }
  .result-art-caption .result-profile { justify-self:start; max-width:100%; }
  .ending-scorecard { margin-inline:16px; padding:16px; }

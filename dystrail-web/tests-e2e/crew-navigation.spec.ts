@@ -1,5 +1,5 @@
 import { expect, Page, test } from '@playwright/test';
-import { openMenu, snap } from './helpers';
+import { openMenu, snap, waitForLaunch } from './helpers';
 
 const crewNames = (page: Page) => page.locator('.crew-name-form input').evaluateAll(inputs =>
   Object.fromEntries(inputs.map(input => [(input as HTMLInputElement).id, (input as HTMLInputElement).value])));
@@ -22,6 +22,14 @@ async function checkActionOrder(page: Page, selector = '.crew-actions', rtl = fa
     expect(Math.abs(nextBox.y - backBox.y)).toBeLessThan(1);
     if (rtl) expect(nextBox.x + nextBox.width).toBeLessThanOrEqual(backBox.x);
     else expect(backBox.x + backBox.width).toBeLessThanOrEqual(nextBox.x);
+    const edges = await actions.evaluate(element => {
+      const box = element.getBoundingClientRect(), style = getComputedStyle(element);
+      return { left: box.left + parseFloat(style.paddingLeft), right: box.right - parseFloat(style.paddingRight) };
+    });
+    const left = rtl ? nextBox : backBox, right = rtl ? backBox : nextBox;
+    expect(Math.abs(left.x - edges.left)).toBeLessThan(1);
+    expect(Math.abs(right.x + right.width - edges.right)).toBeLessThan(1);
+    expect(Math.abs(nextBox.width - backBox.width)).toBeLessThan(1);
   }
   await page.locator(selector === '.crew-actions' ? '.crew-name-card input' : '.persona-tile').last().focus();
   await page.keyboard.press('Tab');
@@ -32,6 +40,7 @@ async function checkActionOrder(page: Page, selector = '.crew-actions', rtl = fa
 
 test('setup Back preserves mode, character, and crew with desktop, phone, and RTL keyboard order', async ({ page }) => {
   await page.goto('./');
+  await waitForLaunch(page);
   await page.getByRole('radio', { name: /The Deep End/ }).check();
   const code = await page.locator('#run-code').inputValue();
   await page.getByRole('button', { name: 'Choose your character', exact: true }).click();
@@ -46,6 +55,7 @@ test('setup Back preserves mode, character, and crew with desktop, phone, and RT
   await expect(page.getByRole('radio', { name: /The Deep End/ })).toBeChecked();
   await expect(page.locator('#run-code')).toHaveValue(code);
   await page.reload();
+  await waitForLaunch(page);
   await expect(page.getByRole('radio', { name: /The Deep End/ })).toBeChecked();
   await page.getByRole('button', { name: 'Choose your character', exact: true }).click();
   await expect(page.getByRole('radio', { name: 'Journalist', exact: true })).toHaveAttribute('aria-checked', 'true');
@@ -84,6 +94,7 @@ test('setup Back preserves mode, character, and crew with desktop, phone, and RT
   await expect.poll(() => page.evaluate(() =>
     JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).pending.party.leader)).toBe('Alex Morgan');
   await page.reload();
+  await waitForLaunch(page);
   await expect(page.locator('#main')).toHaveAttribute('data-screen', 'crew');
   expect(await crewNames(page)).toEqual(names);
 
