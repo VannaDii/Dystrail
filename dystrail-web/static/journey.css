@@ -93,7 +93,8 @@ main#main:focus,#screen-title:focus,#store-title:focus{outline:none;box-shadow:n
 .top-game-menu-panel{position:absolute;inset-inline-end:0;top:calc(100% + 8px);width:min(300px,calc(100vw - 32px));z-index:100;padding:12px;background:var(--panel);border:1px solid var(--button-border);box-shadow:0 12px 30px #0008;border-radius:8px}
 .top-game-menu-panel .header-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .top-game-menu-panel .contrast-switch,.top-game-menu-panel .language-picker{grid-column:1/-1}
-.top-game-menu-panel .language-picker>button{width:100%;text-align:start}
+.top-game-menu-panel .language-picker>button{width:100%;text-align:start;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.top-game-menu-panel .language-picker>button>span{flex-shrink:0}
 .top-game-menu-panel .language-options{width:100%;max-height:min(320px,45vh)}
 .viewport-help{position:fixed;inset:auto;z-index:1000;visibility:hidden;max-height:calc(100dvh - 24px);overflow:auto;box-sizing:border-box;width:min(320px,calc(100vw - 24px));font:400 14px/1.5 var(--body-font);letter-spacing:normal;text-transform:none}
 button,a[href],summary,[role=button],[role=option],[role=radio],[role=switch],label:has(input[type=radio]),label:has(input[type=checkbox]){cursor:pointer}
