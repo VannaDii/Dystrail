@@ -1,0 +1,32 @@
+{
+  "artifact": "/private/tmp/dystrail-source-handoff-20260913/ci-readiness-build",
+  "revision": "4d74dd32fda33b6843e5",
+  "artifact_manifest_sha256": "7332fdcc5d59973cac59e5160707d06a9c143e27e8607e0af9b7b83a011e77f9",
+  "game_assets": 119,
+  "total_files": 213,
+  "protected_files": 58,
+  "preserved_hashed_assets": 33,
+  "changed": [
+    "404.html",
+    "index.html",
+    "play/index.html",
+    "play/offline-manifest.json",
+    "play/static/assets/data/game.json",
+    "play/static/assets/data/journey/deep.json",
+    "play/static/assets/data/journey/overlays/balanced.json",
+    "play/static/continuity.css",
+    "play/static/journey.css",
+    "play/static/styles.css",
+    "play/sw.js"
+  ],
+  "added": [
+    "assets/gameplay-current.jpg",
+    "play/continuity-5539805a057cd68d.css",
+    "play/dystrail-web-d09ee9a1b3c5d844.js",
+    "play/dystrail-web-d09ee9a1b3c5d844_bg.wasm",
+    "play/journey-804028b1424fa9ec.css",
+    "play/styles-a4dde57c900fd65a.css"
+  ],
+  "removed": [],
+  "passed": true
+}

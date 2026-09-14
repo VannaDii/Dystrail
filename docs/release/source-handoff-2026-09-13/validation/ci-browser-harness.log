@@ -1,0 +1,284 @@
+(node:32265) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:57] "GET /play/ HTTP/1.1" 200 -
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:32301) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:32301) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+[1A[2K(node:32301) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/1] [chromium] › tests-e2e/mobile-impact.spec.ts:127:5 › clear-weather phone strip uses two rows with icon-and-value resource readouts
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/ HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/theme-a00fef3fd7d22679.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/styles-e7334a516cfa8071.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/results-49acad5bb38c9d37.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/journey-5fe63ee3f473b890.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/continuity-5a5e8a697bf9e7c4.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/dystrail-web-d0c4beeb35f279f0.js HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/offline-client.js HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/dystrail-web-d0c4beeb35f279f0_bg.wasm HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/courier-prime-bold-latin.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/atkinson-next-normal.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/sw.js HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/app-icon-192.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/dystrail-web-d0c4beeb35f279f0.js HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/continuity-5a5e8a697bf9e7c4.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/dystrail-web-d0c4beeb35f279f0_bg.wasm HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/index.html HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/journey-5fe63ee3f473b890.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/results-49acad5bb38c9d37.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/boss.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/camp.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/crossings.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/endgame.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/exec_orders.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/game.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/classic.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/deep.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/overlays/aggressive.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/overlays/balanced.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/overlays/conservative.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/overlays/monte_carlo.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/journey/overlays/resource_manager.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/personas.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/pacing.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/satire-sources.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/result.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/store.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/town-facts.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/town-profiles.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/vehicle.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/assets/data/weather.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/continuity.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/favicon.ico HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/README.md HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/atkinson-hyperlegible-next-OFL.txt HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/atkinson-next-italic.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/atkinson-next-normal.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/courier-prime-OFL.txt HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/courier-prime-bold-latin.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/noto-sans-arabic-OFL.txt HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/courier-prime-bold-latin-ext.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/noto-sans-arabic-arabic.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/noto-sans-arabic-latin-ext.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/provenance.json HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts/noto-sans-arabic-latin.woff2 HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/fonts.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/app-icon-192.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/app-icon-512.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/app-icon.svg HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/alternator-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/coats-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/battery-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/fuel_pump-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/legal_fund-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/masks-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/press_pass-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/ponchos-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/rations-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/spare_tire-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/items/water-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/beltway.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/camp.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-bridge.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-checkpoint.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-civic.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-clinic.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-community.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-convoy.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-media-workshop.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-night-briefing.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-radio.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-service.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/enc-street.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/encounter-settings-v2.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/journey-settings-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/encounter-settings-v3.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/milk-classic.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/milk-deep.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-journalist.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-lobbyist.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-organizer.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-satirist.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-staffer.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-beltway-parkway.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/occupant-whistleblower.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-appalachian-ridge.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-beltway-suburbs.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-california-hills.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-great-basin.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-heartland-orchard.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-heartland-prairie.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-mountain-west.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-pacific-northwest.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-rustbelt-lakeside.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-rustbelt-foundry.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/open-southwest-desert.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/personas.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/road-classic.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/road-deep.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/rustbelt.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/standing-crew-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/town-npcs-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/van-crew.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/van-empty.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/journey/western-settings-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/logo-temp.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/logo.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/map/us-states.svg HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/palette.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/social-card.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/spritesheet.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/status/cash-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/img/status/distance-v1.png HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/journey.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/licenses/lucide.txt HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/manifest.webmanifest HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/results.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/styles.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/offline-client.js HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/theme-a00fef3fd7d22679.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/styles-e7334a516cfa8071.css HTTP/1.1" 200 -
+
+[1A[2K[WebServer] 127.0.0.1 - - [13/Sep/2026 14:48:58] "GET /play/static/theme.css HTTP/1.1" 200 -
+
+[1A[2K  1 passed (3.4s)

@@ -1,0 +1,1250 @@
+{
+  "conclusion": "success",
+  "headSha": "9622e73a4f8fa250097efde226ac22dcc645b206",
+  "jobs": [
+    {
+      "completedAt": "2026-09-14T00:31:27Z",
+      "conclusion": "success",
+      "databaseId": 103820233674,
+      "name": "lint",
+      "startedAt": "2026-09-14T00:29:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:29:30Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:29:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:38Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:29:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:48Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:29:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:49Z",
+          "conclusion": "success",
+          "name": "Cargo fmt (check)",
+          "number": 4,
+          "startedAt": "2026-09-14T00:29:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:30:50Z",
+          "conclusion": "success",
+          "name": "Cargo clippy (pedantic)",
+          "number": 5,
+          "startedAt": "2026-09-14T00:29:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:31:26Z",
+          "conclusion": "success",
+          "name": "Wasm clippy (pedantic)",
+          "number": 6,
+          "startedAt": "2026-09-14T00:30:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:31:26Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 12,
+          "startedAt": "2026-09-14T00:31:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:31:26Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "startedAt": "2026-09-14T00:31:26Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103820233674"
+    },
+    {
+      "completedAt": "2026-09-14T00:33:58Z",
+      "conclusion": "success",
+      "databaseId": 103820233785,
+      "name": "tests",
+      "startedAt": "2026-09-14T00:29:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:29:30Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:29:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:38Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:29:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:49Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:29:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:30:59Z",
+          "conclusion": "success",
+          "name": "Install wasm-pack",
+          "number": 4,
+          "startedAt": "2026-09-14T00:29:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:31:05Z",
+          "conclusion": "success",
+          "name": "Install Chrome and its matching driver",
+          "number": 5,
+          "startedAt": "2026-09-14T00:30:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:32:55Z",
+          "conclusion": "success",
+          "name": "Cargo test (workspace)",
+          "number": 6,
+          "startedAt": "2026-09-14T00:31:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:32:55Z",
+          "conclusion": "success",
+          "name": "Select the Chrome installed with the driver",
+          "number": 7,
+          "startedAt": "2026-09-14T00:32:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:33:56Z",
+          "conclusion": "success",
+          "name": "wasm-bindgen tests (chrome, headless)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:32:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:33:57Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:33:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:33:57Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:33:57Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103820233785"
+    },
+    {
+      "completedAt": "2026-09-14T00:30:37Z",
+      "conclusion": "success",
+      "databaseId": 103820233790,
+      "name": "i18n-coverage",
+      "startedAt": "2026-09-14T00:29:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:29:30Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:29:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:40Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:29:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:49Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:29:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:30:34Z",
+          "conclusion": "success",
+          "name": "Locale coverage tests",
+          "number": 4,
+          "startedAt": "2026-09-14T00:29:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:30:35Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 8,
+          "startedAt": "2026-09-14T00:30:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:30:35Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-09-14T00:30:35Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103820233790"
+    },
+    {
+      "completedAt": "2026-09-14T00:35:04Z",
+      "conclusion": "success",
+      "databaseId": 103820233886,
+      "name": "security",
+      "startedAt": "2026-09-14T00:29:29Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:29:31Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:29:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:40Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:29:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:29:48Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:29:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:34:52Z",
+          "conclusion": "success",
+          "name": "Install audit/deny",
+          "number": 4,
+          "startedAt": "2026-09-14T00:29:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:34:56Z",
+          "conclusion": "success",
+          "name": "cargo audit",
+          "number": 5,
+          "startedAt": "2026-09-14T00:34:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:01Z",
+          "conclusion": "success",
+          "name": "cargo deny",
+          "number": 6,
+          "startedAt": "2026-09-14T00:34:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:02Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 12,
+          "startedAt": "2026-09-14T00:35:01Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:02Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "startedAt": "2026-09-14T00:35:02Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103820233886"
+    },
+    {
+      "completedAt": "2026-09-14T00:39:34Z",
+      "conclusion": "success",
+      "databaseId": 103821081099,
+      "name": "build",
+      "startedAt": "2026-09-14T00:35:07Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:35:10Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:35:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:27Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:35:10Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:36Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:35:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:37Z",
+          "conclusion": "success",
+          "name": "Install pinned Trunk release",
+          "number": 4,
+          "startedAt": "2026-09-14T00:35:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:35:41Z",
+          "conclusion": "success",
+          "name": "Install pinned wasm-opt (Binaryen 132)",
+          "number": 5,
+          "startedAt": "2026-09-14T00:35:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:37:08Z",
+          "conclusion": "success",
+          "name": "Trunk build (release, wasm-opt)",
+          "number": 6,
+          "startedAt": "2026-09-14T00:35:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:37:13Z",
+          "conclusion": "success",
+          "name": "Upload release dist",
+          "number": 7,
+          "startedAt": "2026-09-14T00:37:08Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:32Z",
+          "conclusion": "success",
+          "name": "Cargo build (workspace release)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:37:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:32Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:39:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:32Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:39:32Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821081099"
+    },
+    {
+      "completedAt": "2026-09-14T00:43:54Z",
+      "conclusion": "success",
+      "databaseId": 103821755247,
+      "name": "qa",
+      "startedAt": "2026-09-14T00:39:38Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:40Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:49Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:56Z",
+          "conclusion": "success",
+          "name": "Setup Rust",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:43:52Z",
+          "conclusion": "success",
+          "name": "Logic QA sweep",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:43:53Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 8,
+          "startedAt": "2026-09-14T00:43:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:43:53Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-09-14T00:43:53Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755247"
+    },
+    {
+      "completedAt": "2026-09-14T00:46:17Z",
+      "conclusion": "success",
+      "databaseId": 103821755338,
+      "name": "tests-e2e-a11y (2)",
+      "startedAt": "2026-09-14T00:39:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:39Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:47Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:50Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:55Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:55Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:16Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:39:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:12Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:15Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:46:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:15Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:46:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:15Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:46:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:15Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:46:15Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755338"
+    },
+    {
+      "completedAt": "2026-09-14T00:47:14Z",
+      "conclusion": "success",
+      "databaseId": 103821755340,
+      "name": "tests-e2e-a11y (4)",
+      "startedAt": "2026-09-14T00:39:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:40Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:49Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:53Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:59Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:00Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:21Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:40:00Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:47:09Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:47:11Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:47:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:47:11Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:47:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:47:12Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:47:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:47:12Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:47:12Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755340"
+    },
+    {
+      "completedAt": "2026-09-14T00:46:50Z",
+      "conclusion": "success",
+      "databaseId": 103821755351,
+      "name": "tests-e2e-a11y (8)",
+      "startedAt": "2026-09-14T00:39:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:39Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:47Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:50Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:55Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:56Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:18Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:39:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:47Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:46:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755351"
+    },
+    {
+      "completedAt": "2026-09-14T00:46:51Z",
+      "conclusion": "success",
+      "databaseId": 103821755354,
+      "name": "tests-e2e-a11y (7)",
+      "startedAt": "2026-09-14T00:39:38Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:40:16Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:40:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:26Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:40:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:32Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:40:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:38Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:40:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:39Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:40:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:41:00Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:40:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:46Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:41:00Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:46:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:48Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:46:48Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755354"
+    },
+    {
+      "completedAt": "2026-09-14T00:45:40Z",
+      "conclusion": "success",
+      "databaseId": 103821755373,
+      "name": "tests-e2e-a11y (1)",
+      "startedAt": "2026-09-14T00:39:38Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:41Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:49Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:52Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:57Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:57Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:28Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:39:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:45:35Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:45:38Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:45:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:45:38Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:45:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:45:38Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:45:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:45:38Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:45:38Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755373"
+    },
+    {
+      "completedAt": "2026-09-14T00:44:47Z",
+      "conclusion": "success",
+      "databaseId": 103821755377,
+      "name": "tests-e2e-a11y (5)",
+      "startedAt": "2026-09-14T00:39:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:39Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:48Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:51Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:55Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:56Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:16Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:39:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:44:42Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:44:45Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:44:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:44:45Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:44:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:44:45Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:44:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:44:45Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:44:45Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755377"
+    },
+    {
+      "completedAt": "2026-09-14T00:46:35Z",
+      "conclusion": "success",
+      "databaseId": 103821755385,
+      "name": "tests-e2e-a11y (6)",
+      "startedAt": "2026-09-14T00:39:39Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:41Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:51Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:58Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:04Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:04Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:40:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:26Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:40:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:28Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:32Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:46:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:32Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:46:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:32Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:46:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:32Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:46:32Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755385"
+    },
+    {
+      "completedAt": "2026-09-14T00:46:30Z",
+      "conclusion": "success",
+      "databaseId": 103821755426,
+      "name": "tests-e2e-a11y (3)",
+      "startedAt": "2026-09-14T00:39:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-14T00:39:39Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-14T00:39:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:46Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-09-14T00:39:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:48Z",
+          "conclusion": "success",
+          "name": "Download the release built by CI",
+          "number": 3,
+          "startedAt": "2026-09-14T00:39:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:53Z",
+          "conclusion": "success",
+          "name": "Setup Node",
+          "number": 4,
+          "startedAt": "2026-09-14T00:39:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:39:53Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-09-14T00:39:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:40:19Z",
+          "conclusion": "success",
+          "name": "Install Playwright browsers",
+          "number": 6,
+          "startedAt": "2026-09-14T00:39:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:27Z",
+          "conclusion": "success",
+          "name": "Run Playwright tests",
+          "number": 7,
+          "startedAt": "2026-09-14T00:40:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:28Z",
+          "conclusion": "success",
+          "name": "Upload Playwright artifacts (video/trace)",
+          "number": 8,
+          "startedAt": "2026-09-14T00:46:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:28Z",
+          "conclusion": "success",
+          "name": "Post Setup Node",
+          "number": 15,
+          "startedAt": "2026-09-14T00:46:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:29Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 16,
+          "startedAt": "2026-09-14T00:46:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-14T00:46:29Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-09-14T00:46:29Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543/job/103821755426"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/VannaDii/Dystrail/actions/runs/34792852543"
+}

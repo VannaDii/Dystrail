@@ -1,0 +1,75 @@
+{
+  "transform": "Text copies normalized to LF with trailing spaces and final blank lines removed; substantive lines unchanged. Original files remain in the recorded CI artifacts and local evidence paths. Existing source-capture records are unchanged.",
+  "files": [
+    {
+      "path": "docs/release/source-handoff-2026-09-13/desktop-status/capture-status.mjs",
+      "original_sha256": "41726df34d3fcf151072684f930b5e4009311aacc1f5700b573d0b463e11733b",
+      "normalized_sha256": "b13272d3bf3df007f0f7be5148b1f4096d226610b94a9924edb406a39d6bb451"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/homepage/capture-current-game.mjs",
+      "original_sha256": "3145c23e601628daa3cf5ec3f73b5db29bd7e3be650007a8ece5b260fc4c3e6b",
+      "normalized_sha256": "3c467aca9169901b0671d05c06dfeb7b39645b53805cb53d93550154397adc04"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/ci-build-failure.log",
+      "original_sha256": "f33f0c8220148b61b75f719c8d9d0511e12deb8797cca9f51f286dd3adb27d29",
+      "normalized_sha256": "53bad899c8f4afac0c579f088df27fcde55147f1ec419f6bfd9d7646150e5db4"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/final-feedback/final-tests.log",
+      "original_sha256": "86d571a42874cd681abc775d3ef3215cf8a64f941ecd9d1f6402934d4f88af6a",
+      "normalized_sha256": "c4b5a40810fdc764043b3ec843c0653600b1cdb84238f784a6c185cc58af42a4"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/full-browser-initial/ci-final-shard-2-excerpts.log",
+      "original_sha256": "bbd4824259237fc28499fcf0a10d97aaf62df7810ca171e0676d39f3910bf0fa",
+      "normalized_sha256": "7e7a75beeafbd463e334b75510716ead3e0c77bee89b5c7e4c6c7d45a2b59d1b"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/full-browser-initial/ci-final-shard-6-excerpts.log",
+      "original_sha256": "5e39a0e89bf751c1fca94d09051ed25ddf2244fa2ce5e99421114722c93c340b",
+      "normalized_sha256": "d004f30b77b51d61ececf5a792cda44c770ab124a1230032fd334146f23877b3"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/full-browser-initial/preload-headless-probe-2.log",
+      "original_sha256": "985acfc9f8fb57e37927ee9ed986aae31954e8a1a7dead42e1f717ef3192199b",
+      "normalized_sha256": "b9cb6006f9264b141b3b3592220fd132f475ee322faee2b37de466739068f9d8"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/geometry-initial/readiness-shard-5-excerpts.log",
+      "original_sha256": "387c3dbeb0b9ecbe598db5377078624393217eb09e37455806641912105c25be",
+      "normalized_sha256": "a59c851e3c3fb25bd4a88cccad97126dd2fa7c02275cea8450e28d6640c546f5"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/initial-ci-failure.log",
+      "original_sha256": "8893683f2a1fc3c7ebe0a433e0818b0ef90ba3f1ddf62461d68cb9e7ee63d21d",
+      "normalized_sha256": "4bb1a30aeccef8f4d0d0bf2dd0c133b3be0adbabe2b597cf905018972bf2607f"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/readiness-initial/recovery-shard-2-excerpts.log",
+      "original_sha256": "92b7c72e07696f6ac18ae546b00c979bde80d7c95ca8243b9d615e599cfbbba2",
+      "normalized_sha256": "73d507776eb4ec479499feda6decd2a5dc22f23e1071e0604ef806d0c0927827"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/readiness-initial/recovery-shard-4-excerpts.log",
+      "original_sha256": "4d603310b8c465085b3c32cafb18cbe305da60c0a17859c4b38112211ebef1d4",
+      "normalized_sha256": "28672208d5092e80dbeb4bc28730f8f491fa3dd357ba0c111ad49b21640625f2"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/readiness-initial/recovery-shard-6-excerpts.log",
+      "original_sha256": "aad5889085738b3c2e395e3e98a5ea5f094cd9224503bb2d5ea05a47e88c9488",
+      "normalized_sha256": "d6913d5382438e13a39dc15eacb890541bdaf845c8b94bf869550309b78e19cd"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/readiness-initial/recovery-shard-8-excerpts.log",
+      "original_sha256": "624b83b17b9f6561039558a085bb0212a2b5bc5748d18ab3dc2b0161d0a9851c",
+      "normalized_sha256": "812fc9be689daf729f234f622f88d160dac70b7639125a4ddab51cc88e0d67f3"
+    },
+    {
+      "path": "docs/release/source-handoff-2026-09-13/validation/readiness-initial/writer-failure-snapshot.md",
+      "original_sha256": "1f095e4a1518860b05f938b2707df1a740e912f7b2c3dc1059f51f37303d5af7",
+      "normalized_sha256": "9faf514586a1806edb6d6e67a35aaad9d056c7e48aa7f727c7d614fee3ec2301"
+    }
+  ]
+}

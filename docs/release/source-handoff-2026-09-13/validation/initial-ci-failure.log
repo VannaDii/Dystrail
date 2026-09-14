@@ -1,0 +1,168 @@
+tests	wasm-bindgen tests (chrome, headless)	﻿2026-09-13T21:31:09.0835302Z ##[group]Run wasm-pack test --headless --chrome --chromedriver "/opt/hostedtoolcache/setup-chrome/chromedriver/stable/x64/chromedriver"
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0836231Z ^[[36;1mwasm-pack test --headless --chrome --chromedriver "/opt/hostedtoolcache/setup-chrome/chromedriver/stable/x64/chromedriver"^[[0m
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0859720Z shell: /usr/bin/bash -e {0}
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0859988Z env:
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0860376Z   CARGO_TERM_COLOR: always
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0860732Z   CARGO_HOME: /home/runner/.cargo
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0860985Z   CARGO_INCREMENTAL: 0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0861354Z   WASM_BINDGEN_BENCH_RESULT: /home/runner/work/Dystrail/Dystrail/target/wbg_benchmark.json
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:09.0861754Z ##[endgroup]
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.1343396Z [INFO]: 🎯  Checking for the Wasm target...
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.3355597Z ^[[1m^[[92m   Compiling^[[0m proc-macro2 v1.0.103
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.3356736Z ^[[1m^[[92m   Compiling^[[0m quote v1.0.42
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.3357510Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-shared v0.2.106
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.3358150Z ^[[1m^[[92m   Compiling^[[0m rustversion v1.0.22
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.5158443Z ^[[1m^[[92m   Compiling^[[0m bumpalo v3.19.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.7161723Z ^[[1m^[[92m   Compiling^[[0m once_cell v1.21.3
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.7482002Z ^[[1m^[[92m   Compiling^[[0m cfg-if v1.0.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.7762829Z ^[[1m^[[92m   Compiling^[[0m unicode-ident v1.0.22
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:10.8454190Z ^[[1m^[[92m   Compiling^[[0m serde_core v1.0.228
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.0741972Z ^[[1m^[[92m   Compiling^[[0m memchr v2.7.6
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.1636618Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen v0.2.106
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.2572657Z ^[[1m^[[92m   Compiling^[[0m syn v2.0.111
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.3391661Z ^[[1m^[[92m   Compiling^[[0m serde v1.0.228
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.4401747Z ^[[1m^[[92m   Compiling^[[0m version_check v0.9.5
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.5561622Z ^[[1m^[[92m   Compiling^[[0m itoa v1.0.15
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.6302131Z ^[[1m^[[92m   Compiling^[[0m ryu v1.0.20
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.7561865Z ^[[1m^[[92m   Compiling^[[0m serde_json v1.0.145
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.7731581Z ^[[1m^[[92m   Compiling^[[0m futures-core v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.8581750Z ^[[1m^[[92m   Compiling^[[0m futures-sink v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.8641266Z ^[[1m^[[92m   Compiling^[[0m thiserror v1.0.69
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:11.9051578Z ^[[1m^[[92m   Compiling^[[0m futures-channel v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.0441437Z ^[[1m^[[92m   Compiling^[[0m pin-project-lite v0.2.16
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.0741203Z ^[[1m^[[92m   Compiling^[[0m futures-task v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.0957002Z ^[[1m^[[92m   Compiling^[[0m slab v0.4.11
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.1659252Z ^[[1m^[[92m   Compiling^[[0m futures-io v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.2051473Z ^[[1m^[[92m   Compiling^[[0m pin-utils v0.1.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.2316742Z ^[[1m^[[92m   Compiling^[[0m typenum v1.19.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.2741754Z ^[[1m^[[92m   Compiling^[[0m generic-array v0.14.7
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.3522958Z ^[[1m^[[92m   Compiling^[[0m winnow v0.5.40
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:12.4895623Z ^[[1m^[[92m   Compiling^[[0m toml_datetime v0.6.11
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:13.1699208Z ^[[1m^[[92m   Compiling^[[0m percent-encoding v2.3.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:13.3011834Z ^[[1m^[[92m   Compiling^[[0m form_urlencoded v1.2.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:13.8932353Z ^[[1m^[[92m   Compiling^[[0m toml_edit v0.19.15
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:13.8960933Z ^[[1m^[[92m   Compiling^[[0m proc-macro-error-attr v1.0.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:13.9831645Z ^[[1m^[[92m   Compiling^[[0m bytes v1.12.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:14.5191798Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-macro-support v0.2.106
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:14.6153806Z ^[[1m^[[92m   Compiling^[[0m syn v1.0.109
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:14.8311712Z ^[[1m^[[92m   Compiling^[[0m fnv v1.0.7
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:14.8629210Z ^[[1m^[[92m   Compiling^[[0m zerocopy v0.8.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:15.2099640Z ^[[1m^[[92m   Compiling^[[0m http v0.2.12
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:16.2714695Z ^[[1m^[[92m   Compiling^[[0m proc-macro-crate v1.3.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:16.7821851Z ^[[1m^[[92m   Compiling^[[0m proc-macro-error v1.0.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:16.8631793Z ^[[1m^[[92m   Compiling^[[0m autocfg v1.5.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:17.0631560Z ^[[1m^[[92m   Compiling^[[0m serde_derive v1.0.228
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:17.2911753Z ^[[1m^[[92m   Compiling^[[0m thiserror-impl v1.0.69
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:17.3181939Z ^[[1m^[[92m   Compiling^[[0m futures-macro v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:17.9629984Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-macro v0.2.106
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:18.1559048Z ^[[1m^[[92m   Compiling^[[0m futures-util v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:18.9413680Z ^[[1m^[[92m   Compiling^[[0m pin-project-internal v1.1.10
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:19.1562152Z ^[[1m^[[92m   Compiling^[[0m js-sys v0.3.83
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.2038258Z ^[[1m^[[92m   Compiling^[[0m pin-project v1.1.10
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.2502367Z ^[[1m^[[92m   Compiling^[[0m gloo-worker-macros v0.1.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.7101791Z ^[[1m^[[92m   Compiling^[[0m futures-executor v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.8591211Z ^[[1m^[[92m   Compiling^[[0m futures v0.3.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.9002152Z ^[[1m^[[92m   Compiling^[[0m pinned v0.1.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:20.9121391Z ^[[1m^[[92m   Compiling^[[0m prettyplease v0.2.37
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.0051705Z ^[[1m^[[92m   Compiling^[[0m libm v0.2.15
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.0708063Z ^[[1m^[[92m   Compiling^[[0m thiserror v2.0.17
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.2233367Z ^[[1m^[[92m   Compiling^[[0m num-traits v0.2.19
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.3101587Z ^[[1m^[[92m   Compiling^[[0m thiserror-impl v2.0.17
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.4183812Z ^[[1m^[[92m   Compiling^[[0m bincode v1.3.3
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:21.4702102Z ^[[1m^[[92m   Compiling^[[0m serde_urlencoded v0.7.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:22.2993970Z ^[[1m^[[92m   Compiling^[[0m block-buffer v0.10.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:22.3696120Z ^[[1m^[[92m   Compiling^[[0m crypto-common v0.1.7
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:22.4215871Z ^[[1m^[[92m   Compiling^[[0m subtle v2.6.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:22.5101913Z ^[[1m^[[92m   Compiling^[[0m hashbrown v0.16.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.0175950Z ^[[1m^[[92m   Compiling^[[0m equivalent v1.0.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.0341694Z ^[[1m^[[92m   Compiling^[[0m virtue v0.0.18
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.0551598Z ^[[1m^[[92m   Compiling^[[0m indexmap v2.12.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.3942272Z ^[[1m^[[92m   Compiling^[[0m ppv-lite86 v0.2.21
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.5791842Z ^[[1m^[[92m   Compiling^[[0m web-sys v0.3.83
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.6272046Z ^[[1m^[[92m   Compiling^[[0m getrandom v0.2.16
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.7371771Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-futures v0.4.56
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.8252712Z ^[[1m^[[92m   Compiling^[[0m serde-wasm-bindgen v0.6.5
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:23.9408216Z ^[[1m^[[92m   Compiling^[[0m gloo-timers v0.3.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:24.0993403Z ^[[1m^[[92m   Compiling^[[0m rand_core v0.6.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:24.1067216Z ^[[1m^[[92m   Compiling^[[0m bincode_derive v2.0.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:24.1681670Z ^[[1m^[[92m   Compiling^[[0m digest v0.10.7
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:24.7523689Z ^[[1m^[[92m   Compiling^[[0m tracing-attributes v0.1.31
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:25.4252094Z ^[[1m^[[92m   Compiling^[[0m implicit-clone-derive v0.1.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:25.6971721Z ^[[1m^[[92m   Compiling^[[0m tracing-core v0.1.35
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:25.7791721Z ^[[1m^[[92m   Compiling^[[0m anyhow v1.0.104
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:25.9997463Z ^[[1m^[[92m   Compiling^[[0m utf8-width v0.1.8
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.0371659Z ^[[1m^[[92m   Compiling^[[0m unty v0.0.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.0635949Z ^[[1m^[[92m   Compiling^[[0m bincode v2.0.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.2101640Z ^[[1m^[[92m   Compiling^[[0m html-escape v0.2.13
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.3771730Z ^[[1m^[[92m   Compiling^[[0m tracing v0.1.43
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.5721928Z ^[[1m^[[92m   Compiling^[[0m implicit-clone v0.6.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.7482537Z ^[[1m^[[92m   Compiling^[[0m yew-macro v0.21.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:26.8862085Z ^[[1m^[[92m   Compiling^[[0m rand_chacha v0.3.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:27.3562363Z ^[[1m^[[92m   Compiling^[[0m console_error_panic_hook v0.1.7
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:27.4377577Z ^[[1m^[[92m   Compiling^[[0m aho-corasick v1.1.4
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:28.4911675Z ^[[1m^[[92m   Compiling^[[0m regex-syntax v0.8.8
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:29.0821344Z ^[[1m^[[92m   Compiling^[[0m base64ct v1.8.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:29.3011530Z ^[[1m^[[92m   Compiling^[[0m rand v0.8.8
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:30.0303066Z ^[[1m^[[92m   Compiling^[[0m regex-automata v0.4.13
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:30.7041560Z ^[[1m^[[92m   Compiling^[[0m hmac v0.12.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:30.7721475Z ^[[1m^[[92m   Compiling^[[0m sha2 v0.10.9
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:31.3051734Z ^[[1m^[[92m   Compiling^[[0m smallvec v1.15.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:31.4663100Z ^[[1m^[[92m   Compiling^[[0m yew-router-macro v0.18.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:31.9081655Z ^[[1m^[[92m   Compiling^[[0m urlencoding v2.1.3
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:31.9101840Z ^[[1m^[[92m   Compiling^[[0m route-recognizer v0.3.1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:32.0339734Z ^[[1m^[[92m   Compiling^[[0m twox-hash v2.1.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:32.1101954Z ^[[1m^[[92m   Compiling^[[0m dystrail-game v0.1.0 (/home/runner/work/Dystrail/Dystrail/dystrail-game)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:32.2401596Z ^[[1m^[[92m   Compiling^[[0m regex v1.12.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:32.6391454Z ^[[1m^[[92m   Compiling^[[0m async-trait v0.1.89
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:33.7572101Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-test-macro v0.3.56
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:33.9682092Z ^[[1m^[[92m   Compiling^[[0m oorandom v11.1.5
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:34.0265408Z ^[[1m^[[92m   Compiling^[[0m cast v0.3.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:34.1398871Z ^[[1m^[[92m   Compiling^[[0m nu-ansi-term v0.50.3
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:34.1582452Z ^[[1m^[[92m   Compiling^[[0m log v0.4.29
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:34.2954327Z ^[[1m^[[92m   Compiling^[[0m wasm-bindgen-test v0.3.56
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.2971548Z ^[[1m^[[92m   Compiling^[[0m gloo-utils v0.2.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.3809110Z ^[[1m^[[92m   Compiling^[[0m gloo-events v0.2.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.4377456Z ^[[1m^[[92m   Compiling^[[0m gloo-file v0.3.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.7018271Z ^[[1m^[[92m   Compiling^[[0m gloo-history v0.2.2
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.8513051Z ^[[1m^[[92m   Compiling^[[0m gloo-console v0.3.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:37.9551632Z ^[[1m^[[92m   Compiling^[[0m gloo-storage v0.3.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.0381560Z ^[[1m^[[92m   Compiling^[[0m gloo-net v0.5.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.1371102Z ^[[1m^[[92m   Compiling^[[0m gloo-worker v0.5.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.1598198Z ^[[1m^[[92m   Compiling^[[0m gloo-dialogs v0.2.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.2233384Z ^[[1m^[[92m   Compiling^[[0m gloo-render v0.2.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.3762807Z ^[[1m^[[92m   Compiling^[[0m gloo v0.11.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.3980292Z ^[[1m^[[92m   Compiling^[[0m tokise v0.2.0
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:38.4596876Z ^[[1m^[[92m   Compiling^[[0m yew v0.21.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:39.5983158Z ^[[1m^[[92m   Compiling^[[0m yew-router v0.18.0 (https://github.com/yewstack/yew?rev=54c20db6cf0f6a3e7b885eb1b6c7b5637bbcb17e#54c20db6)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:40.2599227Z ^[[1m^[[92m   Compiling^[[0m dystrail-web v0.10.0 (/home/runner/work/Dystrail/Dystrail/dystrail-web)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:50.6340717Z ^[[1m^[[92m    Finished^[[0m `dev` profile [unoptimized + debuginfo] target(s) in 40.41s
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:50.6674122Z [INFO]: ⬇️  Installing wasm-bindgen...
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:51.4943513Z ^[[1m^[[92m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:51.4996330Z ^[[1m^[[92m     Running^[[0m unittests src/lib.rs (/home/runner/work/Dystrail/Dystrail/target/wasm32-unknown-unknown/debug/deps/dystrail_web-b8d9b890973fdbbd.wasm)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:59.3731403Z Executing bindgen...
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:59.4741331Z
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:59.4742077Z Running headless tests in Chrome on `http://127.0.0.1:45231/`
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:59.4742731Z Try find `webdriver.json` for configure browser's capabilities:
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:31:59.4743280Z Not found
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.5519870Z Starting new webdriver session...
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.5552583Z Visiting http://127.0.0.1:35033...
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.5553147Z
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.5553570Z driver status: signal: 9 (SIGKILL)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6179656Z driver stdout:
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6180751Z     Starting ChromeDriver 153.0.8010.36 (507c6ee3e2f3b2ca0e660547e5b9ea4820c67f4c-refs/branch-heads/8010@{#906}) on port 45231
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6181637Z     Only local connections are allowed.
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6182466Z     Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6183559Z     ChromeDriver was started successfully on port 45231.
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6183864Z
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6206424Z Error: http status: 404
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6217893Z ^[[1m^[[91merror^[[0m: test failed, to rerun pass `--lib`
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6218269Z
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6218405Z Caused by:
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6219663Z   process didn't exit successfully: `/home/runner/.cache/.wasm-pack/wasm-bindgen-19a14c4aa0d7acb8/wasm-bindgen-test-runner /home/runner/work/Dystrail/Dystrail/target/wasm32-unknown-unknown/debug/deps/dystrail_web-b8d9b890973fdbbd.wasm` (exit status: 1)
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6221528Z ^[[1m^[[92mnote^[[0m: test exited abnormally; to see the full output pass --no-capture to the harness.
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6249422Z Error: Running Wasm tests with wasm-bindgen-test failed
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6250604Z Caused by: Running Wasm tests with wasm-bindgen-test failed
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6251064Z Caused by: failed to execute `cargo test`: exited with exit status: 1
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6252568Z   full command: cd "/home/runner/work/Dystrail/Dystrail/dystrail-web" && CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUNNER="/home/runner/.cache/.wasm-pack/wasm-bindgen-19a14c4aa0d7acb8/wasm-bindgen-test-runner" CHROMEDRIVER="/opt/hostedtoolcache/setup-chrome/chromedriver/stable/x64/chromedriver" WASM_BINDGEN_TEST_ONLY_WEB="1" "cargo" "test" "--target" "wasm32-unknown-unknown"
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6255938Z
+tests	wasm-bindgen tests (chrome, headless)	2026-09-13T21:32:08.6269321Z ##[error]Process completed with exit code 1.

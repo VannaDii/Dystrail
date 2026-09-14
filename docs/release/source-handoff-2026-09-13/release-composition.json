@@ -1,0 +1,10 @@
+{
+  "revision": "837bb4f404afd0f3f7fc",
+  "source_commit": "3525f031fca6d2d5d22464a20f6bb1d39c57a32a",
+  "runtime_baseline": "d3ed78dac458b64a80ee",
+  "runtime_bytes_preserved": true,
+  "reason": "CSS-only change. wasm-bindgen reordered generated closures during a fresh build while retaining the same Trunk filenames; retain the exact verified runtime bytes and immutable asset URLs. Runtime source inputs remain identical.",
+  "css": "continuity-5a5e8a697bf9e7c4.css",
+  "assets": 119,
+  "manifest_sha256": "18efdf62a62400eb2c3ab39defccbc754f2d202493c64095ea20acac0dcf22b8"
+}

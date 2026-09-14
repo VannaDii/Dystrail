@@ -1,0 +1,15 @@
+(node:28709) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:28725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28725) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:28725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (9.2s)
+  ✓  2 [chromium] › tests-e2e/preload.spec.ts:32:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (2.6s)
+  ✓  3 [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves (12.5s)
+
+  3 passed (25.1s)

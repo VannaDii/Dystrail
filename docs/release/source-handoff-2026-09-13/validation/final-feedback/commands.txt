@@ -1,0 +1,21 @@
+Source: bc3586343a1b9844a0a843e797dd553c26d8c5a6
+Local preview: 14f15018f84c82a11fe2
+
+cargo fmt --all -- --check
+cargo test --workspace --all-features --locked
+cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Dclippy::nursery -Aclippy::multiple-crate-versions
+cargo build --release -p dystrail-tester
+target/release/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report csv --output /tmp/dystrail-source-handoff-20260913/campaign-final.csv
+
+From dystrail-web:
+env -u NO_COLOR PUBLIC_URL=/play trunk build --release --public-url /play/ --dist /tmp/dystrail-source-handoff-20260913/final-feedback-build
+
+Language geometry runner:
+python3 /private/tmp/run-dystrail-language-check.py language-final
+
+Full remote browser command (each shard 1 through 8):
+npx playwright test --reporter=line --trace on --shard=<shard>/8
+
+Source workflow and its complete job commands:
+https://github.com/VannaDii/Dystrail/actions/runs/34788295651
+.github/workflows/ci.yml at the source commit above

@@ -1,0 +1,10 @@
+{
+  "source": "67a65af1ae484aa91ab153a2c7adea9131ca1655",
+  "run": 34788730547,
+  "cases": 414,
+  "passed": 412,
+  "failed": 2,
+  "failed_behavior": "Offline retry after deliberate cache eviction, desktop and mobile",
+  "experience_campaigns_passed": 8000,
+  "publication_held": true
+}

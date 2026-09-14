@@ -1,0 +1,8 @@
+{
+  "prior": "d3ed78dac458b64a80ee",
+  "expected": "d6fc9d303f700bc08f88",
+  "url": "http://127.0.0.1:58439/play/",
+  "basis": "Exact old and newly published artifacts served on one disposable local origin",
+  "errors": [],
+  "failure": "AssertionError [ERR_ASSERTION]: Update must preserve the full existing save\n+ actual - expected\n... Skipped lines\n\n  {\n    aftermath: null,\n    code: 'CL-ORANGE42',\n    journey_detail: {\n      expanded: true,\n...\n        health: {\n+         decay: 0.39,\n-         decay: 0.38,\n          exec: {},\n          rest_heal: 0,\n          weather: {}\n        },\n        sanity: {\n\n    at file:///private/tmp/dystrail-source-handoff-20260913/verify-update.mjs:25:9"
+}

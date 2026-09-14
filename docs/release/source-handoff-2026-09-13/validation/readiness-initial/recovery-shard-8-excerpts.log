@@ -1,0 +1,40 @@
+2026-09-13T23:53:00.3865082Z   1) [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_factcheck_shift
+2026-09-13T23:53:00.3866245Z
+2026-09-13T23:53:00.3867433Z     Error: expect(locator).toContainText(expected) failed
+2026-09-13T23:53:00.3868523Z
+2026-09-13T23:53:00.3869037Z     Locator: locator('.journey-scene h1')
+2026-09-13T23:53:00.3870182Z     Expected substring: "Click Here for Fifteen Dollars"
+2026-09-13T23:53:00.3871078Z     Timeout: 5000ms
+2026-09-13T23:53:00.3871740Z     Error: element(s) not found
+2026-09-13T23:53:00.3872632Z
+2026-09-13T23:53:00.3872999Z     Call log:
+2026-09-13T23:53:00.3873870Z       - Expect "toContainText" with timeout 5000ms
+2026-09-13T23:53:00.3874917Z       - waiting for locator('.journey-scene h1')
+2026-09-13T23:53:00.3875588Z
+2026-09-13T23:53:00.3877353Z
+2026-09-13T23:53:00.3878471Z       31 |     for (let choice = 0; choice < story.choices.length; choice++) {
+2026-09-13T23:53:00.3879968Z       32 |       if (choice > 0) await importState(page, gs);
+2026-09-13T23:53:00.3881224Z     > 33 |       await expect(page.locator('.journey-scene h1')).toContainText(story.name);
+2026-09-13T23:53:00.3882563Z          |                                                       ^
+2026-09-13T23:53:00.3883661Z       34 |       await expect(page.locator('.encounter-desc p')).toHaveText(story.desc);
+2026-09-13T23:53:00.3884790Z       35 |       const buttons = page.locator('.encounter-choice button');
+2026-09-13T23:53:00.3885834Z       36 |       await expect(buttons).toHaveCount(story.choices.length);
+2026-09-13T23:53:00.3887049Z         at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/writer-catalog.spec.ts:33:55
+2026-09-13T23:53:00.3887901Z
+2026-09-13T23:53:00.3888898Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-09-13T23:53:00.3892449Z     test-results/writer-catalog-complete-writer-catalog-sat-factcheck-shift-mobile/video.webm
+2026-09-13T23:53:00.3894516Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:53:00.3895340Z
+2026-09-13T23:53:00.3896509Z     Error Context: test-results/writer-catalog-complete-writer-catalog-sat-factcheck-shift-mobile/error-context.md
+2026-09-13T23:53:00.3897747Z
+2026-09-13T23:53:00.3898825Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-09-13T23:53:00.3900561Z     test-results/writer-catalog-complete-writer-catalog-sat-factcheck-shift-mobile/trace.zip
+2026-09-13T23:53:00.3901724Z     Usage:
+2026-09-13T23:53:00.3902556Z
+2026-09-13T23:53:00.3903803Z         npx playwright show-trace test-results/writer-catalog-complete-writer-catalog-sat-factcheck-shift-mobile/trace.zip
+2026-09-13T23:53:00.3905138Z
+2026-09-13T23:53:00.3906459Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:53:00.3907335Z
+2026-09-13T23:53:00.3907517Z
+2026-09-13T23:53:01.3523112Z [5/51] [mobile] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_name_infrastructure
+2026-09-13T23:53:01.6614182Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:53:01] "GET /play/ HTTP/1.1" 200 -

@@ -1,0 +1,40 @@
+2026-09-13T23:52:49.8390583Z   1) [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_museum_grant
+2026-09-13T23:52:49.8391366Z
+2026-09-13T23:52:49.8392163Z     Error: expect(locator).toContainText(expected) failed
+2026-09-13T23:52:49.8392893Z
+2026-09-13T23:52:49.8393483Z     Locator: locator('.journey-scene h1')
+2026-09-13T23:52:49.8394355Z     Expected substring: "The Exhibit of Pending Funds"
+2026-09-13T23:52:49.8394955Z     Timeout: 5000ms
+2026-09-13T23:52:49.8395370Z     Error: element(s) not found
+2026-09-13T23:52:49.8395660Z
+2026-09-13T23:52:49.8395815Z     Call log:
+2026-09-13T23:52:49.8396449Z       - Expect "toContainText" with timeout 5000ms
+2026-09-13T23:52:49.8397225Z       - waiting for locator('.journey-scene h1')
+2026-09-13T23:52:49.8397609Z
+2026-09-13T23:52:49.8397618Z
+2026-09-13T23:52:49.8398001Z       31 |     for (let choice = 0; choice < story.choices.length; choice++) {
+2026-09-13T23:52:49.8398958Z       32 |       if (choice > 0) await importState(page, gs);
+2026-09-13T23:52:49.8399801Z     > 33 |       await expect(page.locator('.journey-scene h1')).toContainText(story.name);
+2026-09-13T23:52:49.8400656Z          |                                                       ^
+2026-09-13T23:52:49.8401487Z       34 |       await expect(page.locator('.encounter-desc p')).toHaveText(story.desc);
+2026-09-13T23:52:49.8402388Z       35 |       const buttons = page.locator('.encounter-choice button');
+2026-09-13T23:52:49.8403177Z       36 |       await expect(buttons).toHaveCount(story.choices.length);
+2026-09-13T23:52:49.8404175Z         at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/writer-catalog.spec.ts:33:55
+2026-09-13T23:52:49.8404795Z
+2026-09-13T23:52:49.8405661Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-09-13T23:52:49.8406966Z     test-results/writer-catalog-complete-writer-catalog-sat-museum-grant-chromium/video.webm
+2026-09-13T23:52:49.8408651Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:52:49.8409211Z
+2026-09-13T23:52:49.8410094Z     Error Context: test-results/writer-catalog-complete-writer-catalog-sat-museum-grant-chromium/error-context.md
+2026-09-13T23:52:49.8411101Z
+2026-09-13T23:52:49.8411876Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-09-13T23:52:49.8413170Z     test-results/writer-catalog-complete-writer-catalog-sat-museum-grant-chromium/trace.zip
+2026-09-13T23:52:49.8414078Z     Usage:
+2026-09-13T23:52:49.8414297Z
+2026-09-13T23:52:49.8415226Z         npx playwright show-trace test-results/writer-catalog-complete-writer-catalog-sat-museum-grant-chromium/trace.zip
+2026-09-13T23:52:49.8416233Z
+2026-09-13T23:52:49.8416938Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:52:49.8417493Z
+2026-09-13T23:52:49.8417502Z
+2026-09-13T23:52:50.6885468Z [5/52] [chromium] › tests-e2e/writer-catalog.spec.ts:16:7 › complete writer catalog: sat_name_infrastructure
+2026-09-13T23:52:50.9509053Z

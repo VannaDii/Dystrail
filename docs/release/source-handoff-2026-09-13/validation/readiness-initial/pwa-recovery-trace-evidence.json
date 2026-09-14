@@ -1,0 +1,26 @@
+{
+  "ci_run": 34790458113,
+  "trace": "/tmp/dystrail-source-handoff-20260913/pwa-recovery-ci-artifact-2/test-results/pwa-a-complete-remote-upda-64c19-s-back-without-losing-saves-chromium/trace.zip",
+  "artifact_revision": "b96a3aac1427901d9af6",
+  "reload_duration_ms": 134.581,
+  "loaded_fixture_version": "two",
+  "failed_asset_status": 503,
+  "failed_asset_request_ms_after_reload": 2801.435,
+  "assertion_timeout_ms": 5000,
+  "gate_at_failure": "Preparing artwork\u2026 98%",
+  "gate_snapshot_timestamp": 83963.458,
+  "local_blob_reads_near_timeout": [
+    {
+      "time": 83800.896,
+      "status": 200
+    },
+    {
+      "time": 83817.476,
+      "status": 200
+    },
+    {
+      "time": 83898.853,
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "revision": "97cc2071c96acca22247",
+  "source_commit": "9622e73a4f8fa250097efde226ac22dcc645b206",
+  "source_ci": 34792852543,
+  "release_commit": "46a43c6efd6ba0b6d91f1d816c43846db942363e",
+  "parent_verified_signal_received": true,
+  "dispatch_on_hold": false,
+  "authorization": "User requested all outstanding work committed, pushed and published. Exact CI artifact passes local file integrity and saved-install/offline checks; publication script independently requires successful full source CI and preserves production files and deployment restrictions.",
+  "source_ci_commit": "9622e73a4f8fa250097efde226ac22dcc645b206",
+  "hold_reason": null,
+  "artifact": "10329020645",
+  "saved_install_verification": "/private/tmp/dystrail-source-handoff-20260913/geometry-update-check/verification.json",
+  "runtime_matches_prior_verified_artifact": false
+}

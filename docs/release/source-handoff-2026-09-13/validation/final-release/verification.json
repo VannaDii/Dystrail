@@ -1,0 +1,30 @@
+{
+  "revision": "97cc2071c96acca22247",
+  "source_commit": "9622e73a4f8fa250097efde226ac22dcc645b206",
+  "source_branch": "release/complete-game-source-2026-09-13",
+  "source_ci": 34792852543,
+  "source_ci_passed": true,
+  "browser_cases": 414,
+  "browser_groups_passed": 8,
+  "campaigns": 8000,
+  "experience_assertions_and_strategies_unchanged": true,
+  "release_commit": "46a43c6efd6ba0b6d91f1d816c43846db942363e",
+  "publication_branch": "release/source-handoff-publication-2026-09-13",
+  "publication_run": 34793790091,
+  "publication_passed": true,
+  "live_files": 213,
+  "canonical_routes": 6,
+  "protected_site_files": 58,
+  "preserved_hashed_assets": 33,
+  "offline_assets": 119,
+  "saved_install_update_and_offline_restart_passed": true,
+  "declared_ruleset_refresh": {
+    "state.journey_daily.health.decay": {
+      "before": 0.38,
+      "after": 0.39
+    }
+  },
+  "main_only_deployment_policy_restored": true,
+  "preview_matches_production": true,
+  "passed": true
+}

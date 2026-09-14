@@ -1,0 +1,27 @@
+{
+  "ci": 34791676955,
+  "source": "ac6f6809153058109cf895b751923db9b13e569d",
+  "revision": "4d74dd32fda33b6843e5",
+  "test": "crew-navigation setup action order / mobile",
+  "snapshots": [
+    {
+      "snapshot": "before@call@832",
+      "time_ms": 76915.485,
+      "scroll_y": 237.0
+    },
+    {
+      "snapshot": "after@call@836",
+      "time_ms": 76942.059,
+      "scroll_y": 201.0
+    }
+  ],
+  "sequential_back_y": 729.796875,
+  "sequential_next_bottom": 745.796875,
+  "scroll_delta": 36.0,
+  "same_frame_button_gap": 20,
+  "all_existing_layout_assertions_retained": true,
+  "correction": "Read both button rectangles and parent edges in one page evaluation",
+  "focused_passes": 6,
+  "correction_commit": "9622e73a4f8fa250097efde226ac22dcc645b206",
+  "next_ci": 34792852543
+}

@@ -1,0 +1,40 @@
+2026-09-13T23:54:05.0275279Z   1) [mobile] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves
+2026-09-13T23:54:05.0276898Z
+2026-09-13T23:54:05.0278127Z     Error: expect(locator).toHaveAttribute(expected) failed
+2026-09-13T23:54:05.0279137Z
+2026-09-13T23:54:05.0279379Z     Locator: locator('#main')
+2026-09-13T23:54:05.0280178Z     Expected: "travel"
+2026-09-13T23:54:05.0280828Z     Timeout: 5000ms
+2026-09-13T23:54:05.0281411Z     Error: element(s) not found
+2026-09-13T23:54:05.0281783Z
+2026-09-13T23:54:05.0281976Z     Call log:
+2026-09-13T23:54:05.0282837Z       - Expect "toHaveAttribute" with timeout 5000ms
+2026-09-13T23:54:05.0283881Z       - waiting for locator('#main')
+2026-09-13T23:54:05.0284367Z
+2026-09-13T23:54:05.0284389Z
+2026-09-13T23:54:05.0285066Z       60 |   await expect.poll(()=>waiting,{timeout:10000}).toBe(true);hold=false;release();
+2026-09-13T23:54:05.0287967Z       61 |   await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two',{timeout:30000});await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:05.0291668Z     > 62 |   version='three';fail=true;await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:05.0293857Z          |                                                                                     ^
+2026-09-13T23:54:05.0295731Z       63 |   await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:05.0298274Z       64 |  } finally{release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
+2026-09-13T23:54:05.0300010Z       65 | });
+2026-09-13T23:54:05.0300809Z         at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/pwa.spec.ts:62:85
+2026-09-13T23:54:05.0301421Z
+2026-09-13T23:54:05.0302350Z     attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-09-13T23:54:05.0303749Z     test-results/pwa-a-complete-remote-upda-64c19-s-back-without-losing-saves-mobile/trace.zip
+2026-09-13T23:54:05.0304737Z     Usage:
+2026-09-13T23:54:05.0304956Z
+2026-09-13T23:54:05.0305924Z         npx playwright show-trace test-results/pwa-a-complete-remote-upda-64c19-s-back-without-losing-saves-mobile/trace.zip
+2026-09-13T23:54:05.0306886Z
+2026-09-13T23:54:05.0307437Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:54:05.0307755Z
+2026-09-13T23:54:05.0307761Z
+2026-09-13T23:54:05.7458741Z [13/52] [mobile] › tests-e2e/scene-flow.spec.ts:42:5 › automatic map can stay open, survives reload, and resumes with one click
+2026-09-13T23:54:05.9351686Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/ HTTP/1.1" 200 -
+2026-09-13T23:54:05.9356860Z
+2026-09-13T23:54:05.9478610Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/static/fonts.css HTTP/1.1" 200 -
+2026-09-13T23:54:05.9479351Z
+2026-09-13T23:54:05.9505643Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/styles-a4dde57c900fd65a.css HTTP/1.1" 200 -
+2026-09-13T23:54:05.9506771Z
+2026-09-13T23:54:05.9589067Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/journey-804028b1424fa9ec.css HTTP/1.1" 200 -

@@ -1,0 +1,24 @@
+{
+  "artifact": "/private/tmp/dystrail-source-handoff-20260913/release-web",
+  "revision": "837bb4f404afd0f3f7fc",
+  "artifact_manifest_sha256": "18efdf62a62400eb2c3ab39defccbc754f2d202493c64095ea20acac0dcf22b8",
+  "game_assets": 119,
+  "total_files": 209,
+  "protected_files": 58,
+  "preserved_hashed_assets": 33,
+  "changed": [
+    "404.html",
+    "index.html",
+    "play/index.html",
+    "play/offline-manifest.json",
+    "play/static/continuity.css",
+    "play/sw.js"
+  ],
+  "added": [
+    "play/continuity-5a5e8a697bf9e7c4.css",
+    "assets/gameplay-current.jpg"
+  ],
+  "removed": [],
+  "passed": true,
+  "source_commit": "2285204419c3dd3055a0fbdf7f763aa74f386b07"
+}

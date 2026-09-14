@@ -1,0 +1,45 @@
+2026-09-14T00:18:05.7028858Z   1) [mobile] › tests-e2e/crew-navigation.spec.ts:41:5 › setup Back preserves mode, character, and crew with desktop, phone, and RTL keyboard order
+2026-09-14T00:18:05.7029751Z
+2026-09-14T00:18:05.7030618Z     Error: expect(received).toBeLessThanOrEqual(expected)
+2026-09-14T00:18:05.7031236Z
+2026-09-14T00:18:05.7031475Z     Expected: <= 729.796875
+2026-09-14T00:18:05.7032008Z     Received:    745.796875
+2026-09-14T00:18:05.7032303Z
+2026-09-14T00:18:05.7032697Z       16 |   const nextBox = (await next.boundingBox())!;
+2026-09-14T00:18:05.7033174Z       17 |   if (mobile) {
+2026-09-14T00:18:05.7033741Z     > 18 |     expect(nextBox.y + nextBox.height).toBeLessThanOrEqual(backBox.y);
+2026-09-14T00:18:05.7034319Z          |                                        ^
+2026-09-14T00:18:05.7034845Z       19 |     expect(Math.abs(nextBox.x - backBox.x)).toBeLessThan(1);
+2026-09-14T00:18:05.7035518Z       20 |     expect(Math.abs(nextBox.width - backBox.width)).toBeLessThan(1);
+2026-09-14T00:18:05.7036007Z       21 |   } else {
+2026-09-14T00:18:05.7036903Z         at checkActionOrder (/home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/crew-navigation.spec.ts:18:40)
+2026-09-14T00:18:05.7037963Z         at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/crew-navigation.spec.ts:76:3
+2026-09-14T00:18:05.7038452Z
+2026-09-14T00:18:05.7039015Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-09-14T00:18:05.7039984Z     test-results/crew-navigation-setup-Back-7a67b-hone-and-RTL-keyboard-order-mobile/video.webm
+2026-09-14T00:18:05.7041010Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-14T00:18:05.7041396Z
+2026-09-14T00:18:05.7042006Z     Error Context: test-results/crew-navigation-setup-Back-7a67b-hone-and-RTL-keyboard-order-mobile/error-context.md
+2026-09-14T00:18:05.7042648Z
+2026-09-14T00:18:05.7043169Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-09-14T00:18:05.7044098Z     test-results/crew-navigation-setup-Back-7a67b-hone-and-RTL-keyboard-order-mobile/trace.zip
+2026-09-14T00:18:05.7045115Z     Usage:
+2026-09-14T00:18:05.7045257Z
+2026-09-14T00:18:05.7045883Z         npx playwright show-trace test-results/crew-navigation-setup-Back-7a67b-hone-and-RTL-keyboard-order-mobile/trace.zip
+2026-09-14T00:18:05.7046544Z
+2026-09-14T00:18:05.7047228Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-14T00:18:05.7047577Z
+2026-09-14T00:18:05.7047583Z
+2026-09-14T00:18:06.4243736Z [17/52] [mobile] › tests-e2e/entry-layout.spec.ts:59:5 › the daily Journal accumulates actual first-final totals and preserves every raw action across days
+2026-09-14T00:18:06.6058335Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/ HTTP/1.1" 200 -
+2026-09-14T00:18:06.6107111Z
+2026-09-14T00:18:06.6248734Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/static/fonts.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6249208Z
+2026-09-14T00:18:06.6250698Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/styles-a4dde57c900fd65a.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6252176Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/theme-a00fef3fd7d22679.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6253477Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/journey-804028b1424fa9ec.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6254847Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/continuity-5539805a057cd68d.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6256189Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/results-49acad5bb38c9d37.css HTTP/1.1" 200 -
+2026-09-14T00:18:06.6267481Z
+2026-09-14T00:18:06.6296233Z
+2026-09-14T00:18:06.6393117Z [WebServer] 127.0.0.1 - - [14/Sep/2026 00:18:06] "GET /play/dystrail-web-d09ee9a1b3c5d844_bg.wasm HTTP/1.1" 200 -

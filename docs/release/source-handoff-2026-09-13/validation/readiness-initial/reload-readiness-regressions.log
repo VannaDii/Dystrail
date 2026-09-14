@@ -1,0 +1,25 @@
+(node:79752) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:79753) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79753) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:79753) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (5.5s)
+  ✓  2 [chromium] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (5.3s)
+  ✓  3 [chromium] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (5.1s)
+  ✓  4 [chromium] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (4.6s)
+(node:79952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79952) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:79952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests-e2e/camp-toggle.spec.ts:7:5 › Camp toggles without time or resource costs and Resume leaves camp in one click (5.5s)
+  ✓  6 [mobile] › tests-e2e/camp-toggle.spec.ts:29:5 › Camp toggles back to town and Resume from town camp departs without another confirmation (5.3s)
+  ✓  7 [mobile] › tests-e2e/camp-toggle.spec.ts:44:5 › even zero-health breakdowns preserve resources and block Camp and Travel until an explicit repair (5.1s)
+  ✓  8 [mobile] › tests-e2e/journey.spec.ts:3:5 › outfitting recovery, direct controls, timed travel, manual save and camp (5.0s)
+
+  8 passed (42.5s)

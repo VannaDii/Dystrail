@@ -1,0 +1,20 @@
+{
+  "source_commit": "bc3586343a1b9844a0a843e797dd553c26d8c5a6",
+  "local_preview_revision": "14f15018f84c82a11fe2",
+  "offline_assets": 119,
+  "workspace_tests_passed": 366,
+  "strict_clippy_passed": true,
+  "campaigns": 8000,
+  "experience_thresholds_changed": false,
+  "automated_strategies_changed": false,
+  "snapshot_fingerprints_updated_for_intentional_retuning": true,
+  "campaign_csv_sha256": "27d2af554c9916da9b3260b5c9bb55a8a00656fb78086665a746fb09513f9f3a",
+  "regression_seed": 1660,
+  "browser_focused_cases_passed": 15,
+  "default_dist_cases_passed": 3,
+  "setup_cases_passed": 4,
+  "language_geometry_cases_passed": 10,
+  "language_count": 20,
+  "source_ci_url": "https://github.com/VannaDii/Dystrail/actions/runs/34788295651",
+  "publication_pending": true
+}

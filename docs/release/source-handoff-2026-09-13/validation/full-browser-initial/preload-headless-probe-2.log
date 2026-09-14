@@ -1,0 +1,43 @@
+(node:60922) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:60927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60927) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:60927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+offline-transfer-probe [{"offline":false,"at":1789342722105},{"offline":false,"at":1789342722347},{"offline":true,"at":1789342723238}]
+  ✘  1 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (17.9s)
+
+
+  1) [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('#launch-retry')
+    Expected: visible
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 12000ms[22m
+    [2m  - waiting for locator('#launch-retry')[22m
+    [2m    4 × locator resolved to <button hidden="" id="launch-retry">Retry download</button>[22m
+    [2m      - unexpected value "hidden"[22m
+
+
+      27 |   // A marker is insufficient: simulate one evicted image, then reload offline.
+      28 |   await page.evaluate(async path=>{for(const name of await caches.keys())if(name.startsWith('dystopian-trail:'))await(await caches.open(name)).delete(new URL(path,document.baseURI));},heldAsset);
+    > 29 |   offline=true;await context.setOffline(true);await page.reload({waitUntil:'domcontentloaded'});await expect(page.locator('#launch-retry')).toBeVisible({timeout:12000});await expect(page.locator('#main')).toHaveCount(0);
+         |                                                                                                                                             ^
+      30 |   offline=false;await context.setOffline(false);hold=true;waiting=false;await page.locator('#launch-retry').click();await expect.poll(()=>waiting).toBe(true);await expect(page.locator('#main')).toHaveCount(0);hold=false;release();await expect(page.locator('#main')).toBeVisible();
+      31 |   offline=true;await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();expect(await page.evaluate(async path=>(await(await fetch(path)).arrayBuffer()).byteLength,heldAsset)).toBe(readFileSync(join(built,heldAsset)).byteLength);
+      32 |  }finally{console.log('offline-transfer-probe',JSON.stringify(transfers));await test.info().attach('offline-transfer-probe',{body:JSON.stringify(transfers),contentType:'application/json'});release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/preload.spec.ts:29:141
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+  1 failed
+    [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play

@@ -1,0 +1,117 @@
+[
+  {
+    "file": "tests-e2e/a11y.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/camp-toggle.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/continuity.spec.ts",
+    "normal_reloads": 5,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/crew.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/entry-layout.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/feedback.spec.ts",
+    "normal_reloads": 6,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/inventory-status.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/journey.spec.ts",
+    "normal_reloads": 4,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/map.spec.ts",
+    "normal_reloads": 3,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/navigation-toggle.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/onboarding-results.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/outcome-reachability.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/scene-flow.spec.ts",
+    "normal_reloads": 6,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/second-pass.spec.ts",
+    "normal_reloads": 4,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/shopping.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/states.spec.ts",
+    "normal_reloads": 3,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/stopped-crew.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/turn-history.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/ux-round.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/weather.spec.ts",
+    "normal_reloads": 4,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/writer-content.spec.ts",
+    "normal_reloads": 1,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/writer-locales.spec.ts",
+    "normal_reloads": 2,
+    "assertions_retained": true
+  },
+  {
+    "file": "tests-e2e/writer-narratives.spec.ts",
+    "normal_reloads": 6,
+    "assertions_retained": true
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "revision": "b96a3aac1427901d9af6",
+  "source_commit": "eaeceeb2f67207df8c91fd87569937ae45ce63b8",
+  "source_ci": 34790458113,
+  "release_commit": "0af24f74af20fbd3263c20cf1415b138adf07447",
+  "parent_verified_signal_received": true,
+  "dispatch_on_hold": false,
+  "authorization": "User requested all outstanding work committed, pushed and published. Exact CI artifact passes local file integrity and saved-install/offline checks; publication script independently requires successful full source CI and preserves production files and deployment restrictions.",
+  "source_ci_commit": "eaeceeb2f67207df8c91fd87569937ae45ce63b8",
+  "hold_reason": null,
+  "artifact": "10328207111",
+  "saved_install_verification": "/private/tmp/dystrail-source-handoff-20260913/latest-source-update-check/verification.json",
+  "runtime_matches_prior_verified_artifact": false
+}

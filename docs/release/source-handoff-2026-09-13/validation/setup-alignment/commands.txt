@@ -1,0 +1,5 @@
+From dystrail-web:
+PLAYTEST_EXTERNAL=1 PLAYTEST_PORT=51401 PLAYTEST_CHANNEL=chrome PLAYTEST_DIST=/tmp/dystrail-source-handoff-20260913/setup-alignment-build npx playwright test tests-e2e/crew-navigation.spec.ts --reporter=line
+
+Original game client:
+node --loader docs/ux/review-2026-09-11/implementation/polish/hourly-balance-ef9b4b81cdeb1bc0700d/skill-client/loader.mjs /Users/vanna/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js --url http://127.0.0.1:51401/play/ --click-selector '.setup-start-row button' --actions-json '{"steps":[{"buttons":[],"frames":60}]}' --iterations 1 --pause-ms 1000 --screenshot-dir /tmp/dystrail-source-handoff-20260913/setup-alignment-game-client

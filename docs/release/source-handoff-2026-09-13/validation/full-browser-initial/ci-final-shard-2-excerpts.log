@@ -1,0 +1,32 @@
+  1) [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#launch-retry')
+    Expected: visible
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 12000ms
+      - waiting for locator('#launch-retry')
+        5 × locator resolved to <button hidden="" id="launch-retry">Retry download</button>
+          - unexpected value "hidden"
+
+
+      24 |   // A marker is insufficient: simulate one evicted image, then reload offline.
+      25 |   await page.evaluate(async path=>{for(const name of await caches.keys())if(name.startsWith('dystopian-trail:'))await(await caches.open(name)).delete(new URL(path,document.baseURI));},heldAsset);
+    > 26 |   await context.setOffline(true);await page.reload({waitUntil:'domcontentloaded'});await expect(page.locator('#launch-retry')).toBeVisible({timeout:12000});await expect(page.locator('#main')).toHaveCount(0);
+         |                                                                                                                                ^
+      27 |   await context.setOffline(false);hold=true;waiting=false;await page.locator('#launch-retry').click();await expect.poll(()=>waiting).toBe(true);await expect(page.locator('#main')).toHaveCount(0);hold=false;release();await expect(page.locator('#main')).toBeVisible();
+      28 |   await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();expect(await page.evaluate(async path=>(await(await fetch(path)).arrayBuffer()).byteLength,heldAsset)).toBe(readFileSync(join(built,heldAsset)).byteLength);
+      29 |  }finally{release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
+        at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/preload.spec.ts:26:128
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/preload-first-launch-waits-cd378-sing-cached-art-before-play-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/preload-first-launch-waits-cd378-sing-cached-art-before-play-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────

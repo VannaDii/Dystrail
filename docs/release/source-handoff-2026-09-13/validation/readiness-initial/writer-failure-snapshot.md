@@ -1,0 +1,133 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=e5]: DYSTOPIAN TRAIL
+    - button "Menu" [ref=e8] [cursor=pointer]: Menu ▾
+  - main [ref=e9]:
+    - generic [ref=e10]:
+      - region "Crew & condition" [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - term [ref=e14]:
+              - text: Supplies
+              - 'button "How this works: Supplies" [ref=e16] [cursor=pointer]': "?"
+            - definition [ref=e17]: "16"
+          - generic [ref=e18]:
+            - term [ref=e19]:
+              - text: Health
+              - 'button "How this works: Health" [ref=e21] [cursor=pointer]': "?"
+            - definition [ref=e22]: "10"
+          - generic [ref=e23]:
+            - term [ref=e24]:
+              - text: Sanity
+              - 'button "How this works: Sanity" [ref=e26] [cursor=pointer]': "?"
+            - definition [ref=e27]: "10"
+          - generic [ref=e28]:
+            - term [ref=e29]:
+              - text: Credibility
+              - 'button "How this works: Credibility" [ref=e31] [cursor=pointer]': "?"
+            - definition [ref=e32]: "7"
+          - generic [ref=e33]:
+            - term [ref=e34]:
+              - text: Receipts
+              - 'button "How this works: Receipts" [ref=e36] [cursor=pointer]': "?"
+            - definition [ref=e37]: "0"
+          - generic [ref=e38]:
+            - term [ref=e39]:
+              - text: Morale
+              - 'button "How this works: Morale" [ref=e41] [cursor=pointer]': "?"
+            - definition [ref=e42]: "8"
+          - generic [ref=e43]:
+            - term [ref=e44]:
+              - text: Allies
+              - 'button "How this works: Allies" [ref=e46] [cursor=pointer]': "?"
+            - definition [ref=e47]: "5"
+      - figure "Seattle → Spokane The Exhibit of Pending Funds River" [ref=e48]:
+        - generic:
+          - img
+        - region "Conditions" [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]:
+                - paragraph [ref=e53]:
+                  - img [ref=e54]
+                  - generic [ref=e57]: Day 1 · 08:00
+                - 'generic "Travel pace: Steady" [ref=e58]':
+                  - img [ref=e59]
+                  - generic [ref=e61]: Steady
+                - 'generic "Information diet: Mixed" [ref=e62]':
+                  - img [ref=e63]
+                  - generic [ref=e66]: Mixed
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - img [ref=e70]
+                  - generic [ref=e74]: Cash
+                  - strong [ref=e75]: $50
+                - generic [ref=e76]:
+                  - img [ref=e77]
+                  - generic [ref=e81]: Vehicle condition
+                  - strong [ref=e82]: 100%
+                - 'button "How this works: Supply outlook" [ref=e84] [cursor=pointer]': "?"
+            - generic [ref=e85]:
+              - generic [ref=e87]:
+                - img [ref=e88]
+                - strong [ref=e91]: Spokane
+                - generic [ref=e92]: 280 mi
+              - group "Temporary effects" [ref=e93]:
+                - status [ref=e94]:
+                  - generic [ref=e95]:
+                    - generic [ref=e96]: ☼
+                    - strong [ref=e97]: Clear
+                  - generic [ref=e98]: No weather cost
+                  - 'button "How this works: Weather effects" [ref=e100] [cursor=pointer]':
+                    - generic [ref=e101]: i
+        - generic [ref=e102]:
+          - generic:
+            - paragraph: Seattle → Spokane
+            - heading "The Exhibit of Pending Funds" [level=1]
+          - generic [ref=e104]: River
+    - region "The Trail" [ref=e105]:
+      - generic [ref=e107]:
+        - tablist "Full details" [ref=e108]:
+          - tab "The Trail" [expanded] [selected] [ref=e109] [cursor=pointer]
+          - tab "Conditions" [ref=e110] [cursor=pointer]
+          - tab "The Van" [ref=e111] [cursor=pointer]
+          - tab "Journal" [ref=e112] [cursor=pointer]
+        - generic [ref=e113]:
+          - switch "Fast mode" [ref=e114] [cursor=pointer]: Fast
+          - button "Camp" [disabled] [ref=e117]:
+            - img [ref=e118]
+            - generic [ref=e120]: Camp
+          - button "Route" [disabled] [ref=e121]:
+            - img [ref=e122]
+            - generic [ref=e125]: Route
+          - button "Travel" [disabled] [ref=e126]:
+            - img [ref=e127]
+            - generic [ref=e131]: Travel
+      - dialog "The Exhibit of Pending Funds" [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]:
+            - text: Known effects
+            - 'button "How this works: Behind the joke" [ref=e136] [cursor=pointer]':
+              - generic [ref=e137]: i
+          - heading "The Exhibit of Pending Funds" [level=2] [ref=e138]
+        - paragraph [ref=e140]: The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'
+        - generic [ref=e141]:
+          - button "1) Scan exhibit photos for $11" [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]: 1)
+            - generic [ref=e145]: Scan exhibit photos for $11
+            - generic [ref=e146]: Cash +$11 · Sanity -1
+          - button "2) Share one snack bundle; take tour" [ref=e148] [cursor=pointer]:
+            - generic [ref=e149]: 2)
+            - generic [ref=e150]: Share one snack bundle; take tour
+            - generic [ref=e151]: Supplies -1 · Morale +2
+          - button "3) Head back to the van" [ref=e153] [cursor=pointer]:
+            - generic [ref=e154]: 3)
+            - generic [ref=e155]: Head back to the van
+            - generic [ref=e156]: Morale -1
+    - generic [ref=e157]: © Dystopian Trail
+```

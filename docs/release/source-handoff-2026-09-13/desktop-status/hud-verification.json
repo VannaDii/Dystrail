@@ -1,0 +1,800 @@
+[
+  {
+    "mode": "Classic",
+    "width": 1440,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 121,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 239.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 320.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 396.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 462.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 538.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 1222.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 1024,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 886.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 850,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 712.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 801,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 663.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 800,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 221.9375,
+        "width": 96.828125,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 147.828125,
+        "y": 221.9375,
+        "width": 58.421875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 216.25,
+        "y": 221.9375,
+        "width": 54.671875,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 615.296875,
+        "y": 221.9375,
+        "width": 44.359375,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 669.65625,
+        "y": 221.9375,
+        "width": 55.34375,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 41,
+        "y": 255.9375,
+        "width": 606.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 655.546875,
+        "y": 251.9375,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 74
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 393,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 8,
+        "y": 188,
+        "width": 87.671875,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 101.671875,
+        "y": 188,
+        "width": 52.46875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 160.140625,
+        "y": 188,
+        "width": 49.03125,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 289.765625,
+        "y": 188,
+        "width": 39.578125,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 335.34375,
+        "y": 188,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 8,
+        "y": 222,
+        "width": 265.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 281.546875,
+        "y": 218,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 72
+    },
+    "errors": []
+  },
+  {
+    "mode": "Classic",
+    "width": 320,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 8,
+        "y": -162.8125,
+        "width": 87.671875,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 101.671875,
+        "y": -162.8125,
+        "width": 52.46875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 160.140625,
+        "y": -162.8125,
+        "width": 49.03125,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 216.765625,
+        "y": -162.8125,
+        "width": 39.578125,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 262.34375,
+        "y": -162.8125,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 8,
+        "y": -128.8125,
+        "width": 192.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 208.546875,
+        "y": -132.8125,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 72
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 1440,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 121,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 239.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 320.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 396.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 462.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 538.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 1222.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 1024,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 886.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 850,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 712.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 801,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 177.9375,
+        "width": 100.828125,
+        "height": 28
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 159.828125,
+        "y": 177.9375,
+        "width": 62.421875,
+        "height": 28
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 240.25,
+        "y": 177.9375,
+        "width": 58.671875,
+        "height": 28
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 316.921875,
+        "y": 177.9375,
+        "width": 47.359375,
+        "height": 28
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 382.28125,
+        "y": 177.9375,
+        "width": 58.34375,
+        "height": 28
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 458.625,
+        "y": 177.9375,
+        "width": 117.40625,
+        "height": 28
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 663.5,
+        "y": 175.9375,
+        "width": 96.5,
+        "height": 32
+      },
+      "height": 42
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 800,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 41,
+        "y": 221.9375,
+        "width": 96.828125,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 147.828125,
+        "y": 221.9375,
+        "width": 58.421875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 216.25,
+        "y": 221.9375,
+        "width": 54.671875,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 615.296875,
+        "y": 221.9375,
+        "width": 44.359375,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 669.65625,
+        "y": 221.9375,
+        "width": 55.34375,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 41,
+        "y": 255.9375,
+        "width": 606.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 655.546875,
+        "y": 251.9375,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 74
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 393,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 8,
+        "y": 188,
+        "width": 87.671875,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 101.671875,
+        "y": 188,
+        "width": 52.46875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 160.140625,
+        "y": 188,
+        "width": 49.03125,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 289.765625,
+        "y": 188,
+        "width": 39.578125,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 335.34375,
+        "y": 188,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 8,
+        "y": 222,
+        "width": 265.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 281.546875,
+        "y": 218,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 72
+    },
+    "errors": []
+  },
+  {
+    "mode": "Deep",
+    "width": 320,
+    "readout": {
+      "clock": {
+        "text": "Day 1 · 08:00",
+        "x": 8,
+        "y": -162.8125,
+        "width": 87.671875,
+        "height": 26
+      },
+      "pace": {
+        "text": "Steady",
+        "x": 101.671875,
+        "y": -162.8125,
+        "width": 52.46875,
+        "height": 26
+      },
+      "diet": {
+        "text": "Mixed",
+        "x": 160.140625,
+        "y": -162.8125,
+        "width": 49.03125,
+        "height": 26
+      },
+      "cash": {
+        "text": "Cash$49",
+        "x": 216.765625,
+        "y": -162.8125,
+        "width": 39.578125,
+        "height": 26
+      },
+      "vehicle": {
+        "text": "Vehicle condition100%",
+        "x": 262.34375,
+        "y": -162.8125,
+        "width": 49.65625,
+        "height": 26
+      },
+      "city": {
+        "text": "Next stopSpokane280 mi",
+        "x": 8,
+        "y": -128.8125,
+        "width": 192.546875,
+        "height": 26
+      },
+      "weather": {
+        "text": "☼ClearNo weather costi",
+        "x": 208.546875,
+        "y": -132.8125,
+        "width": 103.453125,
+        "height": 34
+      },
+      "height": 72
+    },
+    "errors": []
+  }
+]

@@ -1,0 +1,40 @@
+2026-09-13T23:54:04.4342592Z   1) [chromium] › tests-e2e/pwa.spec.ts:33:5 › a complete remote update loads first and an interrupted update falls back without losing saves
+2026-09-13T23:54:04.4343522Z
+2026-09-13T23:54:04.4344341Z     Error: expect(locator).toHaveAttribute(expected) failed
+2026-09-13T23:54:04.4345031Z
+2026-09-13T23:54:04.4345197Z     Locator: locator('#main')
+2026-09-13T23:54:04.4345729Z     Expected: "travel"
+2026-09-13T23:54:04.4346167Z     Timeout: 5000ms
+2026-09-13T23:54:04.4346575Z     Error: element(s) not found
+2026-09-13T23:54:04.4346877Z
+2026-09-13T23:54:04.4347025Z     Call log:
+2026-09-13T23:54:04.4347666Z       - Expect "toHaveAttribute" with timeout 5000ms
+2026-09-13T23:54:04.4348385Z       - waiting for locator('#main')
+2026-09-13T23:54:04.4349090Z
+2026-09-13T23:54:04.4349102Z
+2026-09-13T23:54:04.4349600Z       60 |   await expect.poll(()=>waiting,{timeout:10000}).toBe(true);hold=false;release();
+2026-09-13T23:54:04.4351654Z       61 |   await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two',{timeout:30000});await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:04.4354986Z     > 62 |   version='three';fail=true;await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:04.4356893Z          |                                                                                     ^
+2026-09-13T23:54:04.4358443Z       63 |   await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+2026-09-13T23:54:04.4360536Z       64 |  } finally{release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
+2026-09-13T23:54:04.4361578Z       65 | });
+2026-09-13T23:54:04.4362276Z         at /home/runner/work/Dystrail/Dystrail/dystrail-web/tests-e2e/pwa.spec.ts:62:85
+2026-09-13T23:54:04.4363144Z
+2026-09-13T23:54:04.4363902Z     attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-09-13T23:54:04.4365138Z     test-results/pwa-a-complete-remote-upda-64c19-s-back-without-losing-saves-chromium/trace.zip
+2026-09-13T23:54:04.4366027Z     Usage:
+2026-09-13T23:54:04.4366208Z
+2026-09-13T23:54:04.4367068Z         npx playwright show-trace test-results/pwa-a-complete-remote-upda-64c19-s-back-without-losing-saves-chromium/trace.zip
+2026-09-13T23:54:04.4367952Z
+2026-09-13T23:54:04.4368403Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-13T23:54:04.4368714Z
+2026-09-13T23:54:04.4368720Z
+2026-09-13T23:54:04.5919258Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:04] "GET /play/sw.js HTTP/1.1" 200 -
+2026-09-13T23:54:04.5919909Z
+2026-09-13T23:54:05.0158694Z [14/52] [chromium] › tests-e2e/scene-flow.spec.ts:50:5 › manual map stays open and resumed travel stops at the next town
+2026-09-13T23:54:05.0878169Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/ HTTP/1.1" 200 -
+2026-09-13T23:54:05.0878791Z
+2026-09-13T23:54:05.0975584Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/static/fonts.css HTTP/1.1" 200 -
+2026-09-13T23:54:05.0976327Z
+2026-09-13T23:54:05.0978566Z [WebServer] 127.0.0.1 - - [13/Sep/2026 23:54:05] "GET /play/theme-a00fef3fd7d22679.css HTTP/1.1" 200 -

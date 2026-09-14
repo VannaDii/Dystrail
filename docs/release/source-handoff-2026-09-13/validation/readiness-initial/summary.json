@@ -1,0 +1,20 @@
+{
+  "source_ci": 34790458113,
+  "source_commit": "eaeceeb2f67207df8c91fd87569937ae45ce63b8",
+  "revision": "b96a3aac1427901d9af6",
+  "failed_cases": 4,
+  "campaigns_passed": 8000,
+  "production_published": false,
+  "correction_commit": "ac6f6809153058109cf895b751923db9b13e569d",
+  "focused_writer_cases_passed": 4,
+  "focused_pwa_cases_passed": 2,
+  "journey_camp_cases_passed": 8,
+  "changed_assertions": 0,
+  "changed_timeouts": 0,
+  "next_ci": 34791676955,
+  "normalized_source_comparison": {
+    "files": 25,
+    "only_added_existing_launch_readiness_waits_and_imports": true,
+    "all_existing_assertions_strings_and_timeouts_retained": true
+  }
+}
