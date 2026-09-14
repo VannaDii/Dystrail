@@ -1,29 +1,29 @@
 {
-  "revision": "d75df50dab2d09572dcf",
-  "bytes": 109583768,
+  "revision": "4a35a2024033bd2ce615",
+  "bytes": 109574616,
   "assets": [
     {
-      "path": "continuity-5539805a057cd68d.css",
-      "bytes": 76730,
-      "integrity": "sha256-a8p1WDUZ7eKpYfmOtEkx5l+wa3Gw1bsvdSuBjj690Nk="
+      "path": "continuity-49b4520756a3a5c6.css",
+      "bytes": 76840,
+      "integrity": "sha256-o4M7B2rWuXfY5kCxgGL+5gGiPMMxtousjYSFMjvbUdA="
     },
     {
-      "path": "dystrail-web-d09ee9a1b3c5d844.js",
-      "bytes": 66960,
-      "integrity": "sha256-QuBcQ9uHmPvd6NaTg7pbi8O0Geirl+FtJU5yiBPRNjk="
+      "path": "dystrail-web-d86507e3ae46d12d.js",
+      "bytes": 67112,
+      "integrity": "sha256-JRKrj4nOwz3oTJjypqFNdA9nplMTNcQ11r1mS4ZYbS4="
     },
     {
-      "path": "dystrail-web-d09ee9a1b3c5d844_bg.wasm",
-      "bytes": 6070800,
-      "integrity": "sha256-ZUgpZVVVoMFPTvICWo1ZszVEuwQPYNvbuMciJ9yTpvg="
+      "path": "dystrail-web-d86507e3ae46d12d_bg.wasm",
+      "bytes": 6060838,
+      "integrity": "sha256-dtev8a3riwiNZejNE/2KCZQgwHyOQnEk3oJt+jUCNus="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-LM3lG5fwuGSgT25vulpIvXKp87TjW5kAQFwQm6/mt5I="
+      "integrity": "sha256-U2M/nY4BGPjd58jEJrKCjJlzZiDcaMgB4RxKa9lrxfQ="
     },
     {
-      "path": "journey-38d9ee3e4c7f6a4e.css",
+      "path": "journey-dcd6b8c86fa0cccd.css",
       "bytes": 33831,
       "integrity": "sha256-ONnuPkx/ak42paIbVjGtlD6dJokkOBVoujMVbFenRGQ="
     },
@@ -144,18 +144,13 @@
     },
     {
       "path": "static/continuity.css",
-      "bytes": 76730,
-      "integrity": "sha256-a8p1WDUZ7eKpYfmOtEkx5l+wa3Gw1bsvdSuBjj690Nk="
+      "bytes": 76840,
+      "integrity": "sha256-o4M7B2rWuXfY5kCxgGL+5gGiPMMxtousjYSFMjvbUdA="
     },
     {
       "path": "static/favicon.ico",
       "bytes": 1340,
       "integrity": "sha256-jd8/7p3rudQB7uZCY7HsUTHTltuYbBp3vOxn4xfzZ1Y="
-    },
-    {
-      "path": "static/fonts.css",
-      "bytes": 2868,
-      "integrity": "sha256-6PcUF7mVGlVvbqKibuw57SfA/uYgmuHj7YsGF3v8mh0="
     },
     {
       "path": "static/fonts/README.md",
@@ -216,6 +211,11 @@
       "path": "static/fonts/provenance.json",
       "bytes": 5749,
       "integrity": "sha256-r4vtTKJbMgEP9Nkbf3lBQ8FQA5mVZjNh0ctpbLdp4qE="
+    },
+    {
+      "path": "static/fonts.css",
+      "bytes": 2868,
+      "integrity": "sha256-6PcUF7mVGlVvbqKibuw57SfA/uYgmuHj7YsGF3v8mh0="
     },
     {
       "path": "static/img/app-icon-192.png",
@@ -554,8 +554,8 @@
     },
     {
       "path": "static/journey.css",
-      "bytes": 33693,
-      "integrity": "sha256-hjn0W5Eiag8479UJ/ZOkXroC+roBv0JEZM2gOg4BKPQ="
+      "bytes": 33831,
+      "integrity": "sha256-ONnuPkx/ak42paIbVjGtlD6dJokkOBVoujMVbFenRGQ="
     },
     {
       "path": "static/licenses/lucide.txt",
@@ -569,8 +569,8 @@
     },
     {
       "path": "static/offline-client.js",
-      "bytes": 13311,
-      "integrity": "sha256-Z7WddtGr4sO/AvmJxeekDhTtQULM3bQpLlyvCOTUAe0="
+      "bytes": 13611,
+      "integrity": "sha256-mCj0FbUyFjVqq3s+moW7u/bsqGVdZtp+h91XnrBR+0k="
     },
     {
       "path": "static/results.css",
