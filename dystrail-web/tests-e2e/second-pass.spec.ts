@@ -1,12 +1,12 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
-import {fastMode,baseline,depart,importState,savedState,setup,snap,openMenu} from './helpers';
+import { fastMode,baseline,depart,importState,savedState,setup,snap,openMenu, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 const bank=JSON.parse(readFileSync('static/assets/data/game.json','utf8'));
 test('starter allocation is paid, editable, emptyable and persisted',async({page})=>{
  await setup(page);await expect(page.locator('.loadout-panel')).toContainText('$71');
  await page.getByRole('button',{name:'Empty the van',exact:true}).click();
- await expect(page.locator('.store-item-selected')).toHaveCount(0);await page.reload();await expect(page.locator('.store-item-selected')).toHaveCount(0);for(const input of await page.locator('.store-qty').all())await expect(input).toHaveValue('0');
+ await expect(page.locator('.store-item-selected')).toHaveCount(0);await page.reload();await waitForLaunch(page);await expect(page.locator('.store-item-selected')).toHaveCount(0);for(const input of await page.locator('.store-qty').all())await expect(input).toHaveValue('0');
  await depart(page);const gs=await savedState(page);
  expect(gs.stats.supplies).toBe(0);expect(gs.inventory.spares).toEqual({tire:0,battery:0,alt:0,pump:0});expect(gs.budget_cents).toBe(12000);await snap(page,'empty-departure');
 });
@@ -24,9 +24,9 @@ test('cashless breakdown has an escape with explicit costs across midnight',asyn
 test('foraging and paid town work apply costs and persist their limits',async({page})=>{
  const gs=await baseline(page);gs.stats.supplies=8;gs.stats.sanity=7;await importState(page,gs);
  await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Camp',exact:true}).click();await page.getByRole('button',{name:'Forage with a local guide',exact:true}).click();const foraged=await savedState(page);expect(foraged.stats.supplies).toBe(10);expect(foraged.clock_minutes).toBe(gs.clock_minutes+120);
- await page.getByRole('button',{name:'Continue',exact:true}).click();await page.reload();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');
+ await page.getByRole('button',{name:'Continue',exact:true}).click();await page.reload();await waitForLaunch(page);await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');
  atTown(foraged,'La Crosse');await importState(page,foraged);await page.getByRole('button',{name:'Take a paid unloading shift',exact:true}).click();const worked=await savedState(page);expect(worked.budget_cents).toBe(foraged.budget_cents+1800);expect(worked.stats.sanity).toBe(foraged.stats.sanity-1);
- await page.getByRole('button',{name:'Back to town',exact:true}).click();await page.reload();await expect(page.getByRole('button',{name:'Take a paid unloading shift',exact:true})).toBeDisabled();
+ await page.getByRole('button',{name:'Back to town',exact:true}).click();await page.reload();await waitForLaunch(page);await expect(page.getByRole('button',{name:'Take a paid unloading shift',exact:true})).toBeDisabled();
 });
 test('town facts and player and NPC portraits survive reload',async({page})=>{
  const gs=await baseline(page);atTown(gs,'Madison');await importState(page,gs);
@@ -35,7 +35,7 @@ test('town facts and player and NPC portraits survive reload',async({page})=>{
  const npc=await page.locator('.scene-npc').getAttribute('data-npc');
  const fact=await page.locator('.local-fact').textContent(),remark=await page.locator('.resident-remark').textContent();
  await expect(page.locator('.local-fact')).toContainText('federal awards');await expect(page.locator('.resident-remark')).toContainText('bridge');
- await page.reload();await expect(page.locator('.scene-npc')).toHaveAttribute('data-npc',npc!);
+ await page.reload();await waitForLaunch(page);await expect(page.locator('.scene-npc')).toHaveAttribute('data-npc',npc!);
  await expect(page.locator('.local-fact')).toHaveText(fact!);await expect(page.locator('.resident-remark')).toHaveText(remark!);await snap(page,'town-conversation');
 });
 test('a new political encounter pays cash and exposes its factual hook',async({page})=>{

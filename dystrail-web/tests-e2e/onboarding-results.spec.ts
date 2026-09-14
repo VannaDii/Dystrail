@@ -14,7 +14,7 @@ test('random character persists, selection announces without duplicate footer te
  await page.goto('./');await page.getByRole('button',{name:'Choose your character',exact:true}).click();
  await expect(page.locator('.persona-tile[aria-checked=true]')).toHaveCount(1);const initial=(await checkpoint(page)).pending.persona_id;expect(initial).toBeTruthy();
  await expect(page.locator('#persona-continue')).toBeEnabled();await expect(page.locator('.journey-mission')).toContainText('public hearing in D.C.');await expect(page.locator('#persona-preview')).not.toContainText('public hearing');
- await page.reload();await expect.poll(async()=>(await checkpoint(page)).pending.persona_id).toBe(initial);expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
+ await page.reload();await waitForLaunch(page);await expect.poll(async()=>(await checkpoint(page)).pending.persona_id).toBe(initial);expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('BODY');
  for(const name of ['Journalist','Organizer','Whistleblower','Lobbyist','Staffer','Satirist']){
   await page.getByRole('radio',{name,exact:true}).click();await expect(page.locator('#persona-helper')).toContainText(name);
   await expect(page.locator('#persona-helper')).toHaveClass('sr-only');await expect(page.locator('.persona-actions #persona-helper')).toHaveCount(0);await expect(page.locator('.persona-actions button:visible')).toHaveCount(2);

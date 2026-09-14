@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,openMenu,snap} from './helpers';
+import { baseline,importState,openMenu,snap, waitForLaunch } from './helpers';
 
 const checkpoint=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
 
@@ -14,7 +14,7 @@ test('outcome exit stays reachable at every scroll position and with a short vie
   saved.aftermath.message=Array(10).fill('The battery is fitted. Everyone checks the van and prepares for the next stretch of road.').join(' ');
   localStorage.setItem('dystrail.autosave.v1',JSON.stringify(saved));
  });
- await page.reload();
+ await page.reload();await waitForLaunch(page);
  const restored=await checkpoint(page);
  // Inventory tags are a set; their serialized order may change on reload.
  resolved.state.inventory.tags.sort();restored.state.inventory.tags.sort();

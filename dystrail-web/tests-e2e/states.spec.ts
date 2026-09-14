@@ -1,13 +1,13 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';import {join} from 'node:path';
-import {baseline,importState,savedState,snap,fastMode} from './helpers';
+import { baseline,importState,savedState,snap,fastMode, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 const encounters=JSON.parse(readFileSync(join(__dirname,'../static/assets/data/game.json'),'utf8'));
 test('numbered encounter, persistent aftermath, low sanity and visual results',async({page})=>{
  const state=await baseline(page,true);state.current_encounter=encounters.find((e:{id:string})=>e.id==='raw_milk');state.stats.hp=8;
  await importState(page,state);await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene','enc-community');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-atlas','encounter-settings-v2');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','1');await expect(page.locator('.game-clock')).toContainText('08:00');await snap(page,'milk-deep');
  await page.locator('body').click({position:{x:4,y:4}});await page.keyboard.press('1');await expect(page.locator('.aftermath-panel')).toBeVisible();
- const after=await savedState(page);await page.reload();await expect(page.locator('.aftermath-panel')).toBeVisible();expect((await savedState(page)).stats).toEqual(after.stats);
+ const after=await savedState(page);await page.reload();await waitForLaunch(page);await expect(page.locator('.aftermath-panel')).toBeVisible();expect((await savedState(page)).stats).toEqual(after.stats);
  state.current_encounter=null;state.stats.sanity=1;await importState(page,state);await expect(page.locator('.danger-notice')).toHaveCount(0);await expect(page.locator('.hud-stat.critical')).toBeVisible();await snap(page,'danger');
  state.stats.sanity=0;state.ending={type:'collapse',cause:'panic'};await importState(page,state);
  await expect(page.getByRole('heading',{name:'SANITY FRACTURE',exact:true})).toBeVisible();await expect(page.locator('.result-screen')).not.toContainText(/Pants|steps/);await snap(page,'result');
@@ -30,7 +30,7 @@ test('regions, weather details, final vote and terminal reload',async({page})=>{
  await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene','enc-service-counter');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-atlas','encounter-settings-v3');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','5');
  await page.locator('.encounter-choice button').first().click();await expect(page.locator('#main')).toHaveAttribute('data-screen','aftermath');
  await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','boss');await snap(page,'boss-deep');
- await page.getByRole('button',{name:'Resolve the final vote',exact:true}).dblclick();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+ await page.getByRole('button',{name:'Resolve the final vote',exact:true}).dblclick();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
 });
 test('route store, one exchange and cooldown recovery',async({page})=>{
  const state=await baseline(page);atTown(state,'La Crosse');state.prev_miles_traveled=state.miles_traveled_actual;state.clock_minutes=660;state.stats.supplies=10;state.camp.rest_cooldown=1;
@@ -38,7 +38,7 @@ test('route store, one exchange and cooldown recovery',async({page})=>{
  await importState(page,state);await snap(page,'route-stop');await page.getByRole('button',{name:'Trade with locals',exact:true}).click();
  await expect(page.locator('.town-trading .action-grid>button')).toHaveCount(3);await page.getByRole('button',{name:'Get a battery',exact:true}).click();
  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);expect(traded.clock_minutes).toBe(state.clock_minutes+30);
- await page.reload();await expect(page.locator('.town-trading')).toBeVisible();
+ await page.reload();await waitForLaunch(page);await expect(page.locator('.town-trading')).toBeVisible();
  await expect(page.locator('.town-trading')).toContainText('Community exchange used');
  for(const offer of await page.locator('.town-trading .action-grid>button').all())await expect(offer).toBeDisabled();
  await page.getByRole('button',{name:'Back to town',exact:true}).click();

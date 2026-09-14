@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,snap} from './helpers';
+import { baseline,importState,snap, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 
 const checkpoint=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
@@ -17,7 +17,7 @@ test('Camp toggles without time or resource costs and Resume leaves camp in one 
  await camp.focus();await page.keyboard.press('Space');await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');
  await expect(camp).toHaveAttribute('aria-pressed','false');
  expect((await checkpoint(page)).state.journal).toEqual(gs.journal);
- await camp.click();await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','camp');
+ await camp.click();await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','camp');
  await expect(camp).toHaveAttribute('aria-pressed','true');await expect(resume).toBeEnabled();
  await snap(page,'camp-toggle');
  await resume.click();await expect(page.locator('#main')).toHaveAttribute('data-screen','traveling');
@@ -48,7 +48,7 @@ test('even zero-health breakdowns preserve resources and block Camp and Travel u
  await expect(page.getByRole('button',{name:'Handle breakdown',exact:true})).toHaveCount(0);
  await expect(page.getByRole('button',{name:'Fit your spare Battery',exact:true})).toBeVisible();
  await page.waitForTimeout(3100);const before=(await checkpoint(page)).state;expect(before.breakdown).toEqual(gs.breakdown);expect(before.inventory.spares).toEqual(gs.inventory.spares);expect(before.miles_traveled_actual).toBe(gs.miles_traveled_actual);expect(before.vehicle.health).toBe(0);expect(before.budget_cents).toBe(10000);expect(before.stats).toEqual(gs.stats);expect(before.day).toBe(gs.day);expect(before.clock_minutes).toBe(gs.clock_minutes);
- await page.evaluate(()=>{const c=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);c.phase='Camp';localStorage.setItem('dystrail.autosave.v1',JSON.stringify(c));});await page.reload();
+ await page.evaluate(()=>{const c=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);c.phase='Camp';localStorage.setItem('dystrail.autosave.v1',JSON.stringify(c));});await page.reload();await waitForLaunch(page);
  await expect(page.locator('.camp-modal')).toHaveCount(0);await expect(camp).toBeDisabled();
  await page.getByRole('button',{name:'Fit your spare Battery',exact:true}).click();await page.getByRole('button',{name:'Back to the road',exact:true}).click();
  await expect(camp).toBeEnabled();await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeEnabled();const repaired=(await checkpoint(page)).state;expect(repaired.inventory.spares.battery).toBe(0);expect(repaired.budget_cents).toBe(10000);expect(repaired.vehicle.health).toBe(8);

@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,snap,fastMode} from './helpers';
+import { baseline,importState,snap,fastMode, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 
 const checkpoint=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
@@ -105,6 +105,6 @@ test('stopping displays only present crew outside the van and keeps all readouts
  await expect(page.locator('.van-occupant')).toHaveCount(4);
  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
  await expect(page.locator('.standing-member')).toHaveCount(4);await expect(page.locator('.van-occupant')).toHaveCount(0);
- await context.setOffline(true);await page.reload();
+ await context.setOffline(true);await page.reload();await waitForLaunch(page);
  await expectParkedComposition(page,4);await snap(page,'stopped-crew-offline');
 });

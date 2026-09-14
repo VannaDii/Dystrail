@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,savedState,openMenu,snap,fastMode} from './helpers';
+import { baseline,importState,savedState,openMenu,snap,fastMode, waitForLaunch } from './helpers';
 import {atTown,routes} from './geography';
 const recovery=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
 async function quietMap(page:Page) {
@@ -29,7 +29,7 @@ test('The Trail is exclusive tab content, keyboard accessible, with equal action
  await expect(page.getByRole('tab',{name:'Conditions',exact:true})).toBeFocused();await expect(page.locator('.daily-settings')).toBeVisible();await expect(page.locator('.turn-receipt')).toHaveCount(0);
  await page.keyboard.press('ArrowRight');await expect(page.locator('.van-crew')).toBeVisible();await page.keyboard.press('End');await expect(page.locator('.trail-log')).toBeVisible();
  await page.keyboard.press('Home');await expect(page.locator('.turn-receipt')).toBeVisible();expect((await recovery(page)).state.stats).toEqual(gs.stats);
- await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);s.state.journal.at(-1).message='The next encounter is ready. You made progress along the route. Encounter!';localStorage.setItem('dystrail.autosave.v1',JSON.stringify(s));});await page.reload();await expect(page.locator('.turn-receipt')).not.toContainText('The next encounter');await expect(page.locator('.turn-receipt')).not.toContainText('Encounter!');await snap(page,'trail-report-tabs');
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);s.state.journal.at(-1).message='The next encounter is ready. You made progress along the route. Encounter!';localStorage.setItem('dystrail.autosave.v1',JSON.stringify(s));});await page.reload();await waitForLaunch(page);await expect(page.locator('.turn-receipt')).not.toContainText('The next encounter');await expect(page.locator('.turn-receipt')).not.toContainText('Encounter!');await snap(page,'trail-report-tabs');
 });
 test('automatic map keeps moving and closes in three seconds without a second click',async({page})=>{
  const gs=await quietMap(page);await fastMode(page,false);await page.getByRole('button',{name:'Travel',exact:true}).click();
@@ -37,13 +37,13 @@ test('automatic map keeps moving and closes in three seconds without a second cl
  await expect.poll(async()=>(await recovery(page)).state.journal.length,{timeout:4000}).toBeGreaterThan(opened.state.journal.length);
  await expect(map).toHaveCount(0,{timeout:4000});await expect(page.getByRole('button',{name:'Pause travel',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Pause travel',exact:true}).click();await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');const end=await recovery(page);expect(end.state.journal.length).toBeGreaterThan(gs.journal.length+2);expect(end.state.route_services.map_reviewed).not.toBeNull();
- await page.reload();await expect(map).toHaveCount(0);expect((await recovery(page)).state.journal).toEqual(end.state.journal);
+ await page.reload();await waitForLaunch(page);await expect(map).toHaveCount(0);expect((await recovery(page)).state.journal).toEqual(end.state.journal);
 });
 test('automatic map can stay open, survives reload, and resumes with one click',async({page})=>{
  await quietMap(page);await fastMode(page,false);await page.getByRole('button',{name:'Travel',exact:true}).click();await expect(page.locator('.map-countdown')).toBeVisible();
  await page.getByRole('button',{name:'Stay on map',exact:true}).click();await expect(page.locator('.map-countdown')).toHaveCount(0);await page.waitForTimeout(1300);const parked=await recovery(page);
  await page.waitForTimeout(5200);expect((await recovery(page)).state.journal).toEqual(parked.state.journal);await expect(page.locator('.map-scene')).toBeVisible();await snap(page,'map-stay');
- await page.reload();await expect(page.locator('.map-scene')).toHaveAttribute('data-running','false');
+ await page.reload();await waitForLaunch(page);await expect(page.locator('.map-scene')).toHaveAttribute('data-running','false');
  await page.getByRole('button',{name:'Resume travel',exact:true}).click();await expect(page.getByRole('button',{name:'Pause travel',exact:true})).toBeVisible();await expect(page.locator('.map-scene')).toHaveCount(0);
  await expect.poll(async()=>(await recovery(page)).state.journal.length).toBeGreaterThan(parked.state.journal.length);
 });
@@ -54,13 +54,13 @@ test('manual map stays open and resumed travel stops at the next town',async({pa
  atTown(gs,'La Crosse');gs.miles_traveled_actual-=1.1/routes.find((r:any)=>r.id==='journalist')!.total_miles*gs.trail_distance;gs.miles_traveled=Math.round(gs.miles_traveled_actual);gs.route_services.stop=null;gs.route_services.map_reviewed=null;gs.prev_miles_traveled=gs.miles_traveled_actual;gs.day_state.day_initialized=false;
  // The two earlier crossings are already behind this imported position.
  gs.crossings_completed=2;
- await importState(page,gs);await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);s.phase='Map';s.map_automatic=true;localStorage.setItem('dystrail.autosave.v1',JSON.stringify(s));});await page.reload();await page.getByRole('button',{name:'Resume travel',exact:true}).click();
+ await importState(page,gs);await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);s.phase='Map';s.map_automatic=true;localStorage.setItem('dystrail.autosave.v1',JSON.stringify(s));});await page.reload();await waitForLaunch(page);await page.getByRole('button',{name:'Resume travel',exact:true}).click();
  await expect(page.locator('.town-arrival')).toBeVisible({timeout:12000});await expect(page.locator('.map-scene')).toHaveCount(0);
 });
 test('camp gathering uses cooldown cards, persists and becomes available again',async({page})=>{
  const gs=await baseline(page);gs.stats.supplies=8;await importState(page,gs);await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Camp',exact:true}).click();for(const name of ['Rest','Forage with a local guide','Help glean a nearby farm'])await expect(page.locator('.camp-actions').getByRole('button',{name,exact:true})).toHaveCount(1);await expect(page.locator('.camp-actions').getByRole('button',{name:'Forage',exact:true})).toHaveCount(0);await expect(page.locator('.camp-gather .cooldown-status').first()).toContainText('Ready');
  await page.getByRole('button',{name:'Help glean a nearby farm',exact:true}).click();const used=await savedState(page);expect(used.stats.supplies).toBe(12);expect(used.stats.hp).toBe(gs.stats.hp-1);expect(used.clock_minutes).toBe(gs.clock_minutes+120);
- await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.camp-gather button').first()).toBeDisabled();await page.reload();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');await snap(page,'camp-cooldowns');
+ await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.camp-gather button').first()).toBeDisabled();await page.reload();await waitForLaunch(page);await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeDisabled();await expect(page.locator('.camp-gather').first()).toContainText('3 travel days');await snap(page,'camp-cooldowns');
  used.day+=2;await importState(page,used);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.locator('.camp-gather').first()).toContainText('1 travel days');await expect(page.locator('.camp-gather progress').first()).toHaveAttribute('value','2');
  used.day+=1;await importState(page,used);await page.getByRole('button',{name:'Camp',exact:true}).click();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toBeEnabled();
  atTown(used,'La Crosse');await importState(page,used);await expect(page.getByRole('button',{name:'Take a paid unloading shift',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Forage with a local guide',exact:true})).toHaveCount(0);
@@ -71,7 +71,7 @@ test('help preference hides only optional tips, persists offline, and keeps info
  const before=await layout();
  await toggle.click();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);expect(await layout()).toEqual(before);await expect(page.getByRole('button',{name:'How this works: Supplies',exact:true})).toHaveCount(0);await expect(page.locator('[data-help-kind=info]')).not.toHaveCount(0);await expect(page.getByRole('button',{name:'How to install',exact:true})).toBeVisible();await snap(page,'help-off');
  await page.locator('.wordmark').click();await page.locator('.weather-indicator button').click();await expect(page.locator('.viewport-help')).toBeVisible();await page.keyboard.press('Escape');
- await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toBeVisible();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);await openMenu(page);await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.focus();const offlineBefore=await layout();await page.keyboard.press('Space');await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('[data-help-kind=tip]:visible')).not.toHaveCount(0);expect(await layout()).toEqual(offlineBefore);
+ await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toBeVisible();await expect(page.locator('[data-help-kind=tip]:visible')).toHaveCount(0);await openMenu(page);await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.focus();const offlineBefore=await layout();await page.keyboard.press('Space');await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('[data-help-kind=tip]:visible')).not.toHaveCount(0);expect(await layout()).toEqual(offlineBefore);
 });
 
 test('critical sanity stays in the stat bar with a bounded pulse and no popup',async({page})=>{

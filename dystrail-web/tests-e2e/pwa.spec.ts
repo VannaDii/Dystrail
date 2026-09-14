@@ -4,7 +4,7 @@ import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {createServer} from 'node:http';
-import {baseline,importState,savedState,snap,openMenu} from './helpers';
+import {baseline,importState,savedState,snap,openMenu,waitForLaunch} from './helpers';
 import {atTown} from './geography';
 const built=process.env.PLAYTEST_DIST || resolve(__dirname,'../dist');
 
@@ -58,8 +58,8 @@ test('a complete remote update loads first and an interrupted update falls back 
   version='two';hold=true;await page.reload({waitUntil:'domcontentloaded'});
   await expect(page.locator('#launch-gate')).toBeVisible();await expect(page.locator('#main')).toHaveCount(0);
   await expect.poll(()=>waiting,{timeout:10000}).toBe(true);hold=false;release();
-  await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two',{timeout:30000});await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
-  version='three';fail=true;await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two');expect((await savedState(page)).party).toEqual(gs.party);
-  await context.setOffline(true);await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+  await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two',{timeout:30000});await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
+  version='three';fail=true;await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');await expect(page.locator('meta[name=test-build]')).toHaveAttribute('content','two');expect((await savedState(page)).party).toEqual(gs.party);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await savedState(page)).party).toEqual(gs.party);
  } finally{release();await context.close();server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
 });

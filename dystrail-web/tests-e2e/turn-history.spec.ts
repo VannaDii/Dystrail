@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,savedState,fastMode,snap} from './helpers';
+import { baseline,importState,savedState,fastMode,snap, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 
 const checkpoint=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
@@ -44,7 +44,7 @@ test('every action in the turn stays on The Trail newest first through navigatio
  expect((await checkpoint(page)).journal).toEqual(completed.journal);
  await workDay.locator(':scope > .journal-raw > summary').click();
  await page.getByRole('tab',{name:'The Trail',exact:true}).click();await checkEntries();
- await page.reload();await checkEntries();
+ await page.reload();await waitForLaunch(page);await checkEntries();
  const manual=await savedState(page);await importState(page,manual);await checkEntries();
  await page.getByRole('button',{name:'Talk to locals',exact:true}).click();
  await page.getByRole('button',{name:'Back to town',exact:true}).click();await checkEntries();
@@ -78,7 +78,7 @@ test('routine travel always has a visible title, including empty and transition-
  const headings=page.locator('.turn-receipt .receipt-heading');
  await expect(headings).toHaveText(cases.toReversed().map(c=>c.expected));
  for(const heading of await headings.all())await expect(heading).toBeVisible();
- await page.reload();await expect(headings).toHaveText(cases.toReversed().map(c=>c.expected));
+ await page.reload();await waitForLaunch(page);await expect(headings).toHaveText(cases.toReversed().map(c=>c.expected));
  expect((await checkpoint(page)).journal).toEqual(gs.journal);
  await snap(page,'trail-entry-titles');
 });

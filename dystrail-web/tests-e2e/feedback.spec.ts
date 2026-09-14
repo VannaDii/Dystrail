@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {baseline,importState,openMenu,snap} from './helpers';
+import { baseline,importState,openMenu,snap, waitForLaunch } from './helpers';
 import {atTown,routes} from './geography';
 import fs from 'node:fs';
 const checkpoint=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
@@ -16,7 +16,7 @@ test('local conversations retain the actual reward at and below the credibility 
   expect(first.stats.credibility).toBe(20);expect(first.route_services.talk_reward).toBe(credibility===20?'Receipt':'Credibility');expect(first.receipts.length-gs.receipts.length).toBe(credibility===20?1:0);
   await page.getByRole('button',{name:'Back to town',exact:true}).click();await expect(talk).toBeEnabled();
   await expect(talk.locator('s')).toHaveText(credibility===20?'Receipts +1':'Credibility +1');
-  await page.reload();await talk.click();const repeated=(await checkpoint(page)).state;expect(repeated.stats).toEqual(first.stats);expect(repeated.clock_minutes).toBe(first.clock_minutes);expect(repeated.journal).toEqual(first.journal);
+  await page.reload();await waitForLaunch(page);await talk.click();const repeated=(await checkpoint(page)).state;expect(repeated.stats).toEqual(first.stats);expect(repeated.clock_minutes).toBe(first.clock_minutes);expect(repeated.journal).toEqual(first.journal);
  }
  await page.getByRole('button',{name:'Back to town',exact:true}).click();await snap(page,'town-capped-reward');
 });
@@ -38,16 +38,16 @@ test('advertised receipts become visible awards and survive offline play and rel
  await page.getByRole('button',{name:'2) Publish both versions',exact:true}).click();
  await expect(page.locator('.resource-changes .change').filter({hasText:'Receipts'})).toContainText('Receipts+1');await expect(count).toHaveText('1');
  const awarded=(await checkpoint(page)).state;expect(awarded.receipts).toEqual(['west_grant_translation']);
- await page.reload();await expect(count).toHaveText('1');expect((await checkpoint(page)).state.receipts).toEqual(awarded.receipts);
+ await page.reload();await waitForLaunch(page);await expect(count).toHaveText('1');expect((await checkpoint(page)).state.receipts).toEqual(awarded.receipts);
  await page.getByRole('button',{name:'Back to the road',exact:true}).click();await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.journal-day > .journal-story > .resource-changes').first()).toContainText('Receipts+1');
- await page.getByRole('button',{name:'Route',exact:true}).click();await expect(page.locator('.map-scene')).toBeVisible();await expect(count).toHaveText('1');await page.reload();await expect(page.locator('.map-scene')).toBeVisible();await expect(count).toHaveText('1');await snap(page,'receipts-map');
+ await page.getByRole('button',{name:'Route',exact:true}).click();await expect(page.locator('.map-scene')).toBeVisible();await expect(count).toHaveText('1');await page.reload();await waitForLaunch(page);await expect(page.locator('.map-scene')).toBeVisible();await expect(count).toHaveText('1');await snap(page,'receipts-map');
  await importState(page,awarded);
  await expect.poll(()=>page.evaluate(()=>(window as any).dystrailOffline?.state)).toBe('ready');await context.setOffline(true);
  const offline=(await checkpoint(page)).state;offline.current_encounter=events.find((e:any)=>e.id==='west_laboratory_overhead');await importState(page,offline);
  await page.getByRole('button',{name:'1) Take a paid equipment-inventory shift',exact:true}).click();await expect(count).toHaveText('2');
  await expect(page.locator('.resource-changes .change').filter({hasText:'Receipts'})).toContainText('Receipts+1');await expect(page.locator('.resource-changes .change').filter({hasText:'Cash'})).toContainText('Cash+$14');
  const second=(await checkpoint(page)).state;expect(second.receipts).toEqual(['west_grant_translation','west_laboratory_overhead']);
- await page.reload();await expect(count).toHaveText('2');expect((await checkpoint(page)).state.receipts).toEqual(second.receipts);expect((await checkpoint(page)).state.budget_cents).toBe(second.budget_cents);
+ await page.reload();await waitForLaunch(page);await expect(count).toHaveText('2');expect((await checkpoint(page)).state.receipts).toEqual(second.receipts);expect((await checkpoint(page)).state.budget_cents).toBe(second.budget_cents);
  await page.getByRole('button',{name:'Back to the road',exact:true}).click();await page.getByRole('tab',{name:'Journal',exact:true}).click();
  const receiptDay=page.locator(`.journal-day[data-day="${second.journal.at(-1).day}"]`);
  await expect(receiptDay.locator(':scope > .journal-story > .resource-changes')).toContainText('Receipts+2');
@@ -66,9 +66,9 @@ test('ally losses have a persistent acknowledgment and remain in the journal',as
  gs.current_encounter={...events[0],id:'test_ally_departure',choices:[{label:'Acknowledge the farewell',effects:{allies:-1,morale:-1,log:'An ally has to return home and can no longer help with the hearing.'}}]};
  await importState(page,gs);await page.getByRole('button',{name:'1) Acknowledge the farewell',exact:true}).click();
  await expect(page.locator('#main')).toHaveAttribute('data-screen','ally-loss');await expect(page.locator('.ally-message')).toContainText('return home');await expect(page.locator('.ally-departure .change').filter({hasText:'Allies'})).toContainText('3 → 2');await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeDisabled();
- const lost=(await checkpoint(page)).state;expect(lost.ally_notice).not.toBeNull();expect(lost.journal.at(-1).after.allies).toBe(2);await page.reload();await expect(page.locator('.ally-departure')).toBeVisible();await snap(page,'ally-departure');
+ const lost=(await checkpoint(page)).state;expect(lost.ally_notice).not.toBeNull();expect(lost.journal.at(-1).after.allies).toBe(2);await page.reload();await waitForLaunch(page);await expect(page.locator('.ally-departure')).toBeVisible();await snap(page,'ally-departure');
  // The same pending loss must wait behind an already opened automatic map.
- await page.evaluate(()=>{const c=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);c.phase='Map';c.map_automatic=true;localStorage.setItem('dystrail.autosave.v1',JSON.stringify(c));});await page.reload();await expect(page.locator('.map-scene')).toBeVisible();await page.getByRole('button',{name:'Resume travel',exact:true}).click();await expect(page.locator('.ally-departure')).toBeVisible();
+ await page.evaluate(()=>{const c=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);c.phase='Map';c.map_automatic=true;localStorage.setItem('dystrail.autosave.v1',JSON.stringify(c));});await page.reload();await waitForLaunch(page);await expect(page.locator('.map-scene')).toBeVisible();await page.getByRole('button',{name:'Resume travel',exact:true}).click();await expect(page.locator('.ally-departure')).toBeVisible();
  await page.getByRole('button',{name:'Back to the road',exact:true}).click();await expect(page.locator('.ally-departure')).toHaveCount(0);const acknowledged=(await checkpoint(page)).state;expect(acknowledged.ally_notice).toBeNull();expect(acknowledged.stats.allies).toBe(2);expect(acknowledged.journal).toEqual(lost.journal);await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.journal-day > .journal-story .journal-event-heading').filter({hasText:'return home'})).toBeVisible();
 });
 

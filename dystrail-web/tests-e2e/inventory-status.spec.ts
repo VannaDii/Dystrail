@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,snap,fastMode,openMenu} from './helpers';
+import { baseline,importState,snap,fastMode,openMenu, waitForLaunch } from './helpers';
 import {atTown,routes} from './geography';
 const saved=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
 
@@ -67,7 +67,7 @@ test('local conversations offer all three benefits, are repeatable, and never aw
   await expect(button).toContainText(`${label} +1`);await expect(button.locator('s')).toHaveCount(0);await button.click();
   const once=await saved(page);expect(once.stats.credibility-gs.stats.credibility).toBe(kind===0?1:0);expect(once.receipts.length-gs.receipts.length).toBe(kind===1?1:0);expect(once.stats.allies-gs.stats.allies).toBe(kind===2?1:0);
   await page.getByRole('button',{name:'Back to town',exact:true}).click();await expect(button.locator('s')).toHaveText(`${label} +1`);await expect(button).toBeEnabled();
-  await page.reload();await button.click();const twice=await saved(page);twice.inventory.tags.sort();once.inventory.tags.sort();expect(twice).toEqual({...once,activities:{...once.activities,local_word:expect.any(Number)}});
+  await page.reload();await waitForLaunch(page);await button.click();const twice=await saved(page);twice.inventory.tags.sort();once.inventory.tags.sort();expect(twice).toEqual({...once,activities:{...once.activities,local_word:expect.any(Number)}});
   await page.getByRole('button',{name:'Back to town',exact:true}).click();
  }
 });

@@ -36,7 +36,7 @@ test('every selected tab toggles its content without spending a turn and remains
   await expect(tab).toHaveAttribute('aria-expanded','false');await expect(tab).toHaveAttribute('tabindex','0');
   await tab.focus();await page.keyboard.press('Enter');await expect(tab).toHaveAttribute('aria-selected','true');await expect(page.getByRole('tabpanel',{name,exact:true})).toBeVisible();
  }
- const journal=page.getByRole('tab',{name:'Journal',exact:true});await journal.click();await page.reload();
+ const journal=page.getByRole('tab',{name:'Journal',exact:true});await journal.click();await page.reload();await waitForLaunch(page);
  await expect(page.getByRole('tabpanel')).toHaveCount(0);await expect(journal).toHaveAttribute('tabindex','0');
  await journal.focus();await page.keyboard.press('ArrowLeft');await expect(page.getByRole('tab',{name:'The Van',exact:true})).toBeFocused();await expect(page.getByRole('tabpanel',{name:'The Van',exact:true})).toBeVisible();
  const after=await checkpoint(page);expect(comparable(after.state)).toEqual(comparable(before.state));

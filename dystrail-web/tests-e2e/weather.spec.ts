@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {fastMode,baseline,importState,snap,openMenu} from './helpers';
+import { fastMode,baseline,importState,snap,openMenu, waitForLaunch } from './helpers';
 const checkpoint=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
 async function weatherDetails(page:Page){
  await expect(page.locator('.weather-indicator .weather-impact')).toHaveCount(0);
@@ -33,7 +33,7 @@ test('weather costs apply during continuous travel, notify inline, and survive r
  await page.getByRole('button',{name:'Pause travel',exact:true}).click();
  await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');
  const saved=await checkpoint(page);expect(saved.state.weather_impact).toBeTruthy();
- await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');
+ await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');
  expect((await checkpoint(page)).state.stats).toEqual(saved.state.stats);
  expect((await checkpoint(page)).state.journal).toEqual(saved.state.journal);
  await snap(page,'weather-continuous');
@@ -52,7 +52,7 @@ test('weather receipt shows exposure, clear removes stale losses, and help stays
 test('old weather pause checkpoints resume without a weather decision or repeated costs',async({page})=>{
  const gs=await baseline(page);gs.weather_state.today='ColdSnap';delete gs.weather_impact;await importState(page,gs);
  await page.evaluate(()=>{const saved=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);saved.weather_notice=true;localStorage.setItem('dystrail.autosave.v1',JSON.stringify(saved));});
- await page.reload();await expect(page.locator('.weather-indicator')).toHaveAttribute('data-weather','ColdSnap');await expect(page.locator('.weather-notice')).toHaveCount(0);
+ await page.reload();await waitForLaunch(page);await expect(page.locator('.weather-indicator')).toHaveAttribute('data-weather','ColdSnap');await expect(page.locator('.weather-notice')).toHaveCount(0);
  expect((await checkpoint(page)).state.stats).toEqual(gs.stats);await expect(page.getByRole('button',{name:'Travel',exact:true})).toBeVisible();
  const details=await weatherDetails(page);await expect(details.locator('section').first().locator('p').first()).toHaveText('No weather cost recorded yet.');await expect(details.locator('.weather-explainer')).toHaveText('Applied once per travel day, after gear protection.');await page.keyboard.press('Escape');expect((await checkpoint(page)).state.stats).toEqual(gs.stats);
 });
@@ -87,14 +87,14 @@ test('Fast mode persists, legacy Step saves recover, and toolbar details do not 
  const before=await baseline(page);const toggle=page.getByRole('switch',{name:'Fast mode',exact:true});
  await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.focus();await page.keyboard.press('Space');
  await expect(toggle).toHaveAttribute('aria-checked','true');await expect.poll(async()=>(await checkpoint(page)).travel_speed).toBe('Fast');
- await page.reload();await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('.travel-screen')).toHaveCSS('--travel-duration','900ms');
+ await page.reload();await waitForLaunch(page);await expect(toggle).toHaveAttribute('aria-checked','true');await expect(page.locator('.travel-screen')).toHaveCSS('--travel-duration','900ms');
  await page.getByRole('tab',{name:'Conditions',exact:true}).click();await expect(page.locator('.daily-settings')).toBeVisible();
  await page.getByRole('tab',{name:'The Van',exact:true}).click();await expect(page.locator('.van-crew')).toBeVisible();await expect(page.locator('.daily-settings')).toHaveCount(0);
  await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.trail-log')).toBeVisible();await expect(page.locator('.van-crew')).toHaveCount(0);
  await page.getByRole('tab',{name:'The Trail',exact:true}).click();await expect(page.locator('.trail-log')).toHaveCount(0);
  expect((await checkpoint(page)).state.stats).toEqual(before.stats);expect((await checkpoint(page)).state.journal).toEqual(before.journal);
  await page.evaluate(()=>{const saved=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!);saved.travel_speed='Step';localStorage.setItem('dystrail.autosave.v1',JSON.stringify(saved));});
- await page.reload();await expect(toggle).toHaveAttribute('aria-checked','false');await expect(page.locator('.travel-screen')).toHaveCSS('--travel-duration','2600ms');
+ await page.reload();await waitForLaunch(page);await expect(toggle).toHaveAttribute('aria-checked','false');await expect(page.locator('.travel-screen')).toHaveCSS('--travel-duration','2600ms');
  await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');expect((await checkpoint(page)).state.stats).toEqual(before.stats);
  await expect.poll(async()=>(await checkpoint(page)).travel_speed).toBe('Normal');
  // Even a narrow phone keeps all four actions together without horizontal overflow.

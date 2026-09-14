@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from '@playwright/test';
-import { baseline, importState, openMenu, snap } from './helpers';
+import { baseline, importState, openMenu, snap, waitForLaunch } from './helpers';
 
 const stories = JSON.parse(readFileSync('static/assets/data/game.json', 'utf8'));
 const examples = ['deep_circuit_breaker', 'deep_secure_line', 'sat_weather_desk'];
@@ -18,7 +18,7 @@ for (const [language, option] of [['it', 'Italiano'], ['es', 'Español'], ['ar',
       gs.turn_journal_start = 0;
       await importState(page, gs);
       await context.setOffline(true);
-      await page.reload();
+      await page.reload();await waitForLaunch(page);
       await openMenu(page);
       await page.getByRole('button', { name: 'Language', exact: true }).click();
       await page.getByRole('option', { name: option, exact: true }).click();
@@ -37,7 +37,7 @@ for (const [language, option] of [['it', 'Italiano'], ['es', 'Español'], ['ar',
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await buttons.first().click();
       await expect(page.locator('.outcome-summary')).toContainText(copy[id].log_0);
-      await page.reload();
+      await page.reload();await waitForLaunch(page);
       await expect(page.locator('html')).toHaveAttribute('lang', language);
       await context.setOffline(false);
     });

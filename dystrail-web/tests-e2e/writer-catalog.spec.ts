@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from '@playwright/test';
-import { baseline, importState, snap } from './helpers';
+import { baseline, importState, snap, waitForLaunch } from './helpers';
 
 type Story = {
   id: string;
@@ -27,6 +27,7 @@ for (const story of stories) {
     await importState(page, gs);
     await context.setOffline(true);
     await page.reload();
+    await waitForLaunch(page);
 
     for (let choice = 0; choice < story.choices.length; choice++) {
       if (choice > 0) await importState(page, gs);

@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {baseline,importState,fastMode,snap} from './helpers';
+import { baseline,importState,fastMode,snap, waitForLaunch } from './helpers';
 
 const saved=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
 const cardSizes=(page:Page,selector:string)=>page.locator(selector+' .stat-card').evaluateAll(es=>es.map(e=>{
@@ -52,7 +52,7 @@ test('Trail and Journal share compact right-hand cards and retain historical jou
  await page.getByRole('tab',{name:'Journal',exact:true}).click();
  await expect(entry.locator('.journal-context')).toHaveText('08:00HeatedQuiet');
  expect((await saved(page)).journal).toEqual(gs.journal);
- await page.reload();
+ await page.reload();await waitForLaunch(page);
  await expect(entry.locator('.journal-context')).toHaveText('08:00HeatedQuiet');
 });
 
@@ -98,7 +98,7 @@ test('the daily Journal accumulates actual first-final totals and preserves ever
  await expect(page.locator('.journal-day[data-day="75"] > .journal-story [data-stat="play.miles"] strong')).toHaveText('+60.0');
  await expect(summary.locator('[data-stat="play.miles"] strong')).toHaveText('+120.0');await expect(summary.locator('[data-stat="ux.supplies"] strong')).toHaveText('+8');
  await expect(page.locator('.journal-raw-entry')).toHaveCount(gs.journal.length);
- await page.reload();await expect(days).toHaveCount(3);await expect(summary.locator('[data-stat="ux.supplies"] small')).toHaveText('8 left');
+ await page.reload();await waitForLaunch(page);await expect(days).toHaveCount(3);await expect(summary.locator('[data-stat="ux.supplies"] small')).toHaveText('8 left');
  expect((await saved(page)).journal).toEqual(gs.journal);expect((await saved(page)).turn_journal_start).toBe(1);await snap(page,'daily-journal-next-day');
 });
 

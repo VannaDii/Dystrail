@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {setup,depart,baseline,importState,savedState,openMenu,snap} from './helpers';
+import { setup,depart,baseline,importState,savedState,openMenu,snap, waitForLaunch } from './helpers';
 import {atTown} from './geography';
 
 async function checkoutFits(page:Page) {
@@ -28,7 +28,7 @@ test('illustrated outfitting shows every item without filters and supports exact
  await expect(page.locator('.cart-total')).toHaveText('$61');await expect(page.locator('.cart-cash')).toHaveText('$59');
  await rations.press('ArrowUp');await expect(rations).toHaveValue('3');
  await expect(page.locator('.outfit-category')).toHaveCount(4);
- await page.reload();await expect(rations).toHaveValue('3');
+ await page.reload();await waitForLaunch(page);await expect(rations).toHaveValue('3');
  await snap(page,'compact-outfitting');
  await checkoutFits(page);
  await depart(page);const gs=await savedState(page);
@@ -75,7 +75,7 @@ test('town store shows carried parts, buys once with the shown total, and keeps 
  await expect(page.locator('.town-arrival')).toBeVisible();
  const bought=await savedState(page);expect(bought.budget_cents).toBe(2500);expect(bought.stats.supplies).toBe(15);
  expect(bought.inventory.spares).toEqual({tire:2,battery:1,alt:0,pump:1});expect(bought.clock_minutes).toBe(gs.clock_minutes+30);
- await page.reload();expect((await savedState(page)).budget_cents).toBe(2500);
+ await page.reload();await waitForLaunch(page);expect((await savedState(page)).budget_cents).toBe(2500);
  await page.getByRole('button',{name:'Visit the Store',exact:true}).click();
  await expect(page.getByRole('group',{name:'Battery',exact:true})).toContainText('In van: 1');
  await expect(page.locator('.cart-total')).toHaveText('$0');

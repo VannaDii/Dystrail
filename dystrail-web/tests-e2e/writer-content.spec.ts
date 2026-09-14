@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { baseline, importState, snap } from './helpers';
+import { baseline, importState, snap, waitForLaunch } from './helpers';
 
 // Final authored workshop snapshot, captured 2026-09-13. These pinned strings
 // do not come from the game bundle: an omitted import must fail here.
@@ -93,7 +93,7 @@ for (const story of stories) {
     gs.stats.credibility = 7;
     await importState(page, gs);
     await context.setOffline(true);
-    await page.reload();
+    await page.reload();await waitForLaunch(page);
     for (let choice = 0; choice < 3; choice++) {
       if (choice > 0) await importState(page, gs);
       await expect(page.locator('.journey-scene h1')).toContainText(story.title);

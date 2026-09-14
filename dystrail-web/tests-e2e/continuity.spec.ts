@@ -1,7 +1,7 @@
 import {test,expect,Page} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
-import {fastMode,baseline,importState,savedState,openMenu,snap,setup} from './helpers';
+import { fastMode,baseline,importState,savedState,openMenu,snap,setup, waitForLaunch } from './helpers';
 import {routes} from './geography';
 const encounters=JSON.parse(readFileSync(join(__dirname,'../static/assets/data/game.json'),'utf8'));
 const recovery=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!));
@@ -19,7 +19,7 @@ test('abandon is cancelable, saves a crew ending, and leaves the manual slot int
  await expect(page.locator('#main')).toContainText('The trail ends here');
  await expect(page.locator('.ending-crew li')).toHaveCount(6);
  const ended=(await recovery(page)).state;expect(ended.abandoned).toBe(true);expect(ended.party).toEqual(before.party);
- await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+ await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
  expect((await recovery(page)).state.journal).toEqual(ended.journal);await snap(page,'abandoned');
  await openMenu(page);await page.locator('#save-open-btn').click();await page.locator('.drawer').getByRole('button',{name:'Load',exact:true}).click();
  await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');
@@ -37,7 +37,7 @@ test('stationary rest records actual changes and survives manual loading',async(
  expect(rested.miles_traveled_actual).toBe(state.miles_traveled_actual);expect(rested.journal.at(-1).after).toEqual(rested.stats);
  await importState(page,rested);const latest=page.locator('.turn-receipt').first();await expect(latest).toHaveAttribute('data-action','camp');await expect(latest.locator('.receipt-heading')).toHaveText(rested.journal.at(-1).message);
  await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.trail-log')).toContainText('Camp');
- await page.reload();expect((await savedState(page)).journal).toEqual(rested.journal);
+ await page.reload();await waitForLaunch(page);expect((await savedState(page)).journal).toEqual(rested.journal);
 });
 
 test('late-route camp stays put and never triggers the hearing',async({page})=>{
@@ -54,7 +54,7 @@ test('late-route camp stays put and never triggers the hearing',async({page})=>{
  expect(rested.boss.ready).toBe(false);
  expect(rested.day_records.at(-1).kind).toBe('non_travel');
  expect(rested.day_records.at(-1).miles).toBe(0);
- await page.reload();expect((await recovery(page)).state.miles_traveled_actual).toBe(state.miles_traveled_actual);
+ await page.reload();await waitForLaunch(page);expect((await recovery(page)).state.miles_traveled_actual).toBe(state.miles_traveled_actual);
  await snap(page,'late-route-stationary-camp');
 });
 
@@ -63,7 +63,7 @@ test('a named crew decision precedes map review and absence persists in later sc
  state.current_encounter=encounters.find((e:{id:string})=>e.id==='classic_mutual_aid');state.scene_subject='organizer';
  await importState(page,state);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
  await expect(page.locator('.scene-speaker')).toHaveAttribute('data-subject','organizer');
- await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
+ await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
  await page.getByRole('button',{name:'Leave a companion with the medics',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
  const departed=await savedState(page);expect(departed.party.members.find((m:{persona:string})=>m.persona==='organizer').status).toBe('Departed');
  await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','encounter');
@@ -92,7 +92,7 @@ test('one Resume carries two quiet travel actions; pausing and reload never repl
  await page.getByRole('button',{name:'Travel',exact:true}).click();
  await expect.poll(async()=>(await recovery(page)).state.journal.length,{timeout:7000}).toBeGreaterThanOrEqual(count+2);
  if(await page.getByRole('button',{name:'Pause travel',exact:true}).count()) await page.getByRole('button',{name:'Pause travel',exact:true}).click();
- const paused=await recovery(page);await page.reload();await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');
+ const paused=await recovery(page);await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).not.toHaveAttribute('data-screen','traveling');
  expect((await recovery(page)).state.journal).toEqual(paused.state.journal);
 });
 

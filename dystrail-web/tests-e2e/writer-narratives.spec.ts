@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { test, expect, type Page } from '@playwright/test';
-import { baseline, importState } from './helpers';
+import { baseline, importState, waitForLaunch } from './helpers';
 import { atTown, routes } from './geography';
 
 // Final authored workshop snapshot, captured 2026-09-13. These pinned strings
@@ -208,7 +208,7 @@ test('all 28 town conversations show their own revised remark and sourced fact o
       atTown(state, town, 0);
       await importState(page, state);
       if (first) {
-        await page.reload();
+        await page.reload();await waitForLaunch(page);
         first = false;
       }
       const talk = page.getByRole('button', { name: 'Talk to locals', exact: true });
@@ -250,7 +250,7 @@ for (const [reason, incident] of incidents.entries()) {
     const { state, persona, name } = crewState(await baseline(page), reason, 1);
     await importState(page, state);
     await context.setOffline(true);
-    await page.reload();
+    await page.reload();await waitForLaunch(page);
     await expectNarrative(page, reason, name);
     const care = await expectChoice(page, 'journey.care_action', { morale: 1 });
     await expect(care).toBeEnabled();
@@ -263,7 +263,7 @@ for (const [reason, incident] of incidents.entries()) {
     expect(member.status).toBe('Active');
     expect(after.crew_care.strain[persona]).toBeUndefined();
     expect(after.ending).toBeNull();
-    await page.reload();
+    await page.reload();await waitForLaunch(page);
     expect((await checkpoint(page)).journal).toEqual(after.journal);
     expect((await checkpoint(page)).crew_care.strain[persona]).toBeUndefined();
     await context.setOffline(false);
@@ -296,7 +296,7 @@ test('leaving a critically ill companion with the aid team is safe and persists'
   expect(after.crew_care.strain[persona]).toBeUndefined();
   expect(after.ending).toBeNull();
   await page.locator('#outcome-continue').click();
-  await page.reload();
+  await page.reload();await waitForLaunch(page);
   const restored = await checkpoint(page);
   expect(restored.party.members.find((candidate: any) => candidate.persona === persona).status).toBe('Departed');
   expect(restored.journal).toEqual(after.journal);
@@ -382,7 +382,7 @@ for (const [reason, day, contact] of [
     };
     await importState(page, state);
     await context.setOffline(true);
-    await page.reload();
+    await page.reload();await waitForLaunch(page);
     await page.getByRole('button', { name: '1) Take the call', exact: true }).click();
     await expect(page.locator('#main')).toHaveAttribute('data-screen', 'ally-loss');
     const message = copy(`ally_loss.reason_${reason}`, { name: contact });
@@ -395,7 +395,7 @@ for (const [reason, day, contact] of [
     expect(after.ally_notice.message).toBe(message);
     expect(after.journal).toHaveLength(1);
     expect(after.journal[0].message).toBe(message);
-    await page.reload();
+    await page.reload();await waitForLaunch(page);
     await expect(page.locator('.ally-message')).toHaveText(message);
     await page.locator('#outcome-continue').click();
     await expect(page.locator('.ally-departure')).toHaveCount(0);

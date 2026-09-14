@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';import {join} from 'node:path';
-import {setup,depart,baseline,importState,savedState,snap,openMenu} from './helpers';import {atTown,routes} from './geography';
+import { setup,depart,baseline,importState,savedState,snap,openMenu, waitForLaunch } from './helpers';import {atTown,routes} from './geography';
 const encounters=JSON.parse(readFileSync(join(__dirname,'../static/assets/data/game.json'),'utf8'));
 test('map is a periodic full scene with real geography and exact recovery',async({page})=>{
  await setup(page);await depart(page);await expect(page.locator('.map-scene')).toHaveCount(0);
@@ -8,11 +8,11 @@ test('map is a periodic full scene with real geography and exact recovery',async
  await expect(page.locator('#main')).toHaveAttribute('data-screen','map');await expect(page.locator('.world-view')).toHaveCount(0);
  await expect(page.locator('.us-route-map')).toHaveAttribute('data-route','journalist');await expect(page.locator('.map-scene-itinerary')).toContainText('Spokane');
  await expect(page.locator('.route-traced')).toHaveAttribute('points',/\d/);await expect(page.getByRole('button',{name:'Zoom to route',exact:true})).toHaveCount(0);expect(await page.locator('.us-route-map').getAttribute('viewBox')).not.toBe('0 0 1000 660');
- await snap(page,'map-us');await page.reload();await expect(page.locator('#main')).toHaveAttribute('data-screen','map');
+ await snap(page,'map-us');await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','map');
  await snap(page,'map-route');
  await page.getByRole('button',{name:'Close map',exact:true}).click();await expect(page.locator('.map-scene')).toHaveCount(0);
  const dismissed=await savedState(page);expect(dismissed.route_services).toEqual(beforeMap.route_services);expect(dismissed.journal).toEqual(beforeMap.journal);
- await page.reload();await expect(page.locator('.map-scene')).toHaveCount(0);
+ await page.reload();await waitForLaunch(page);await expect(page.locator('.map-scene')).toHaveCount(0);
 
 });
 test('real towns, regional scenes and encounter geography agree',async({page})=>{
@@ -29,7 +29,7 @@ test('every persona previews and saves a distinct geographic origin',async({page
  await page.goto('./');await page.getByRole('button',{name:'Choose your character',exact:true}).click();
  for(const route of routes){const name=route.id[0].toUpperCase()+route.id.slice(1);await page.getByRole('radio',{name,exact:true}).click();await expect(page.locator('.persona-starting dd').first()).toHaveText(route.stops[0].name);}
  await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Your name',{exact:true}).fill('Alex');await page.getByLabel('Crew name',{exact:true}).fill('Paper Tigers');await page.getByRole('button',{name:'Continue',exact:true}).click();await depart(page);
- const state=await savedState(page);expect(state.route_services.route_id).toBe('satirist');await page.reload();expect((await savedState(page)).route_services.route_id).toBe('satirist');await expect(page.locator('.scene-location')).toContainText('San Diego');
+ const state=await savedState(page);expect(state.route_services.route_id).toBe('satirist');await page.reload();await waitForLaunch(page);expect((await savedState(page)).route_services.route_id).toBe('satirist');await expect(page.locator('.scene-location')).toContainText('San Diego');
 });
 
 test('geographic scene remains readable in Arabic and reduced motion',async({page})=>{
