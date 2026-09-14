@@ -1,5 +1,6 @@
 use crate::i18n::{locales, set_lang, t};
 use yew::prelude::*;
+mod popover;
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub on_lang_change: Callback<String>,
@@ -10,6 +11,8 @@ pub fn language_picker(p: &Props) -> Html {
     crate::i18n::use_language();
     let open = use_state(|| false);
     let node = use_node_ref();
+    let panel = use_node_ref();
+    popover::use_language_popover(node.clone(), panel.clone(), *open);
     let close = {
         let open = open.clone();
         Callback::from(move |()| open.set(false))
@@ -31,11 +34,15 @@ pub fn language_picker(p: &Props) -> Html {
             ) {
                 return;
             }
+            if key == "Escape" && !*open {
+                return;
+            }
             event.prevent_default();
             let Some(root) = node.cast::<web_sys::Element>() else {
                 return;
             };
             if key == "Escape" {
+                event.stop_propagation();
                 open.set(false);
                 if let Ok(Some(button)) = root.query_selector("button")
                     && let Ok(button) = button.dyn_into::<web_sys::HtmlElement>()
@@ -94,7 +101,7 @@ pub fn language_picker(p: &Props) -> Html {
             }
         });
     }
-    html! {            <div class="language-picker" ref={node} onkeydown={language_keys}><button aria-haspopup="listbox" aria-expanded={open.to_string()} onclick={toggle} aria-label={t("nav.language")}>{locales().iter().find(|m|m.code==p.current_lang).map_or("English",|m|m.name)}<span aria-hidden="true">{" ▾"}</span></button>
-        if *open {<div class="language-options" role="listbox" aria-label={t("nav.language")}>{for locales().iter().map(|meta|{let cb=p.on_lang_change.clone();let open=open.clone();let code=meta.code;html!{<button role="option" aria-selected={(code==p.current_lang).to_string()} onclick={Callback::from(move |_|{set_lang(code);cb.emit(code.to_owned());open.set(false);})}>{meta.name}</button>}})}</div>}
+    html! {            <div class="language-picker" ref={node.clone()} onkeydown={language_keys}><button aria-haspopup="listbox" aria-controls="language-options" aria-expanded={open.to_string()} onclick={toggle} aria-label={t("nav.language")}>{locales().iter().find(|m|m.code==p.current_lang).map_or("English",|m|m.name)}<span aria-hidden="true">{" ▾"}</span></button>
+        if *open {<div id="language-options" class="language-options" ref={panel} popover="manual" role="listbox" aria-label={t("nav.language")}>{for locales().iter().map(|meta|{let cb=p.on_lang_change.clone();let open=open.clone();let node=node.clone();let code=meta.code;html!{<button role="option" aria-selected={(code==p.current_lang).to_string()} onclick={Callback::from(move |_|{set_lang(code);cb.emit(code.to_owned());open.set(false);if let Some(root)=node.cast::<web_sys::Element>() && let Ok(Some(button))=root.query_selector("button") {use wasm_bindgen::JsCast;if let Ok(button)=button.dyn_into::<web_sys::HtmlElement>(){let _=button.focus();}}})}>{meta.name}</button>}})}</div>}
     </div>}
 }

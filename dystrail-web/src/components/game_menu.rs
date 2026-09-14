@@ -136,6 +136,7 @@ fn constrain_menu_height(panel: &NodeRef) {
         .document()
         .and_then(|document| document.active_element())
         && panel.contains(Some(&active))
+        && active.closest("[popover]").ok().flatten().is_none()
     {
         let top = panel.get_bounding_client_rect().top() + f64::from(panel.client_top());
         let bottom = top + f64::from(panel.client_height());

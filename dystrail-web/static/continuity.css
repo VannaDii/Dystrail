@@ -2,8 +2,9 @@
 html { scroll-padding-block-start:88px; }
 .game-header { position:sticky; top:0; z-index:100; }
 .top-game-menu-panel { max-height:var(--menu-max-height,calc(100dvh - 24px)); overflow-y:auto; }
-/* Keep every language in the menu's scroll area, including keyboard focus. */
-.top-game-menu-panel .language-options { position:static; min-width:0; max-height:none; overflow:visible; margin-block-start:6px; box-shadow:none; }
+/* A top-layer list never expands or clips against the containing menu. */
+.top-game-menu-panel .language-options { position:fixed; inset:auto; margin:0; min-width:0; box-sizing:border-box; overflow:auto; overscroll-behavior:contain; border-radius:8px; color:var(--text); }
+.language-options[popover]:not(:popover-open) { display:none; }
 .world-view .journey-scene { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
 .world-view .journey-scene:not(.scene-road) { min-height:360px; height:clamp(360px,42vw,430px); aspect-ratio:auto; }
 .world-view .journey-scene:not(.scene-road) .scene-art { inset:112px 0 0; }
