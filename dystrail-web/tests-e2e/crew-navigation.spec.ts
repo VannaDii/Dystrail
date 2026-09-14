@@ -7,13 +7,20 @@ const crewNames = (page: Page) => page.locator('.crew-name-form input').evaluate
 async function checkActionOrder(page: Page, selector = '.crew-actions', rtl = false) {
   const actions = page.locator(selector);
   const buttons = actions.locator('button:visible');
-  const back = actions.locator('.retro-btn-secondary:visible');
-  const next = actions.locator('.retro-btn-primary');
   const mobile = page.viewportSize()!.width <= 700;
   await expect(buttons).toHaveCount(2);
   await expect(buttons.nth(mobile ? 0 : 1)).toHaveClass(/retro-btn-primary/);
-  const backBox = (await back.boundingBox())!;
-  const nextBox = (await next.boundingBox())!;
+  const { backBox, nextBox, edges } = await actions.evaluate(element => {
+    const back = [...element.querySelectorAll<HTMLButtonElement>('.retro-btn-secondary')]
+      .find(button => button.getClientRects().length > 0)!;
+    const next = element.querySelector<HTMLButtonElement>('.retro-btn-primary')!;
+    const box = element.getBoundingClientRect(), style = getComputedStyle(element);
+    return {
+      backBox: back.getBoundingClientRect().toJSON(),
+      nextBox: next.getBoundingClientRect().toJSON(),
+      edges: { left: box.left + parseFloat(style.paddingLeft), right: box.right - parseFloat(style.paddingRight) },
+    };
+  });
   if (mobile) {
     expect(nextBox.y + nextBox.height).toBeLessThanOrEqual(backBox.y);
     expect(Math.abs(nextBox.x - backBox.x)).toBeLessThan(1);
@@ -22,10 +29,6 @@ async function checkActionOrder(page: Page, selector = '.crew-actions', rtl = fa
     expect(Math.abs(nextBox.y - backBox.y)).toBeLessThan(1);
     if (rtl) expect(nextBox.x + nextBox.width).toBeLessThanOrEqual(backBox.x);
     else expect(backBox.x + backBox.width).toBeLessThanOrEqual(nextBox.x);
-    const edges = await actions.evaluate(element => {
-      const box = element.getBoundingClientRect(), style = getComputedStyle(element);
-      return { left: box.left + parseFloat(style.paddingLeft), right: box.right - parseFloat(style.paddingRight) };
-    });
     const left = rtl ? nextBox : backBox, right = rtl ? backBox : nextBox;
     expect(Math.abs(left.x - edges.left)).toBeLessThan(1);
     expect(Math.abs(right.x + right.width - edges.right)).toBeLessThan(1);
