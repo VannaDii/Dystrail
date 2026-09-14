@@ -1,6 +1,12 @@
 /* Runs before the WASM entry point; never writes or clears a player's saves. */
 (() => {
   const root = new URL('../', document.currentScript.src);
+  // The entry URL must be inside the worker scope before installation starts.
+  if (root.pathname !== '/' && location.pathname === root.pathname.slice(0, -1)) {
+    window.dystrailLaunch = new Promise(() => {});
+    location.replace(root.pathname + location.search + location.hash);
+    return;
+  }
   const build = document.querySelector('meta[name="dystrail-build"]')?.content;
   let language = (document.documentElement.lang || 'en').split('-')[0];
   try { language = (localStorage.getItem('dystrail.locale') || language).split('-')[0]; } catch { /* The saved copy still starts when preference storage is unavailable. */ }
