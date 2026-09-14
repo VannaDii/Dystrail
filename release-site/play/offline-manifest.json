@@ -1,6 +1,6 @@
 {
-  "revision": "4a35a2024033bd2ce615",
-  "bytes": 109574616,
+  "revision": "644ac8f90658df167f1d",
+  "bytes": 111495078,
   "assets": [
     {
       "path": "continuity-49b4520756a3a5c6.css",
@@ -8,19 +8,19 @@
       "integrity": "sha256-o4M7B2rWuXfY5kCxgGL+5gGiPMMxtousjYSFMjvbUdA="
     },
     {
-      "path": "dystrail-web-d86507e3ae46d12d.js",
+      "path": "dystrail-web-165de5c191a07990.js",
       "bytes": 67112,
-      "integrity": "sha256-JRKrj4nOwz3oTJjypqFNdA9nplMTNcQ11r1mS4ZYbS4="
+      "integrity": "sha256-A7R701uFA7S8uKWRh4DX4p/AVKUOF26+eKXmc21nDbY="
     },
     {
-      "path": "dystrail-web-d86507e3ae46d12d_bg.wasm",
-      "bytes": 6060838,
-      "integrity": "sha256-dtev8a3riwiNZejNE/2KCZQgwHyOQnEk3oJt+jUCNus="
+      "path": "dystrail-web-165de5c191a07990_bg.wasm",
+      "bytes": 7663203,
+      "integrity": "sha256-+PoBjta89kvqG+J27TN9l/9lKbQU12tWVZjVbs9FUWY="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-U2M/nY4BGPjd58jEJrKCjJlzZiDcaMgB4RxKa9lrxfQ="
+      "integrity": "sha256-ar6TSOjOBJ/JGRupK2KLpEanMzxC4wkJZQvYtTIOfOQ="
     },
     {
       "path": "journey-dcd6b8c86fa0cccd.css",
@@ -59,8 +59,8 @@
     },
     {
       "path": "static/assets/data/game.json",
-      "bytes": 80007,
-      "integrity": "sha256-RjmvdbUfOdzGfyeK3rE9JwzCXE3MXiWvUMHVEDfZbDM="
+      "bytes": 92227,
+      "integrity": "sha256-k8+FGgr/fymq1wZbXUoo47Vo/Qq00AOLuXdEvoeSGzs="
     },
     {
       "path": "static/assets/data/journey/classic.json",
@@ -114,8 +114,8 @@
     },
     {
       "path": "static/assets/data/satire-sources.json",
-      "bytes": 18172,
-      "integrity": "sha256-ZxQSDLXQingCxG4dvGSjItBUTu0KE2UtDdnu4SXs4D8="
+      "bytes": 272593,
+      "integrity": "sha256-HJY4wo/VLVyVEbpMG9G+fIy2AXsrR89Ih7Sh9mOKH08="
     },
     {
       "path": "static/assets/data/store.json",
@@ -124,8 +124,8 @@
     },
     {
       "path": "static/assets/data/town-facts.json",
-      "bytes": 85673,
-      "integrity": "sha256-cPWEP52B8Q6lnbdLhn1X+SsmjlvdHkRdOpjY+bOAq/g="
+      "bytes": 137129,
+      "integrity": "sha256-bwZeKCe5U9zJlIPH9vu+dxhDaF1UgSK27Wekui2QdZY="
     },
     {
       "path": "static/assets/data/town-profiles.json",

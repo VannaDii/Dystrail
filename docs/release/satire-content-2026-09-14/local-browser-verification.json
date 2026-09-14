@@ -1,0 +1,41 @@
+{
+  "base": "http://127.0.0.1:51914",
+  "revision": "1345fde73e66fcc506e0",
+  "cases": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "languages": [
+        "en",
+        "es",
+        "it",
+        "ar"
+      ],
+      "encounters": 65,
+      "offlineReload": true,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "phone",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "languages": [
+        "en",
+        "es",
+        "it",
+        "ar"
+      ],
+      "encounters": 65,
+      "offlineReload": true,
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

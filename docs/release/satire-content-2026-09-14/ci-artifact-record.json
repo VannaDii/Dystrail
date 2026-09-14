@@ -1,0 +1,26 @@
+{
+  "source_commit": "30652f13b5c9b6a28e31487eea5885a305e24ebc",
+  "source_ci": 34811445713,
+  "revision": "644ac8f90658df167f1d",
+  "manifest_sha256": "73f998d112f33e68c27c53a604b8e465c8974bd945bf02870c0241e810904c0a",
+  "artifact": {
+    "id": 10334149939,
+    "node_id": "MDg6QXJ0aWZhY3QxMDMzNDE0OTkzOQ==",
+    "name": "dystrail-web-dist",
+    "size_in_bytes": 101106201,
+    "url": "https://api.github.com/repos/VannaDii/Dystrail/actions/artifacts/10334149939",
+    "archive_download_url": "https://api.github.com/repos/VannaDii/Dystrail/actions/artifacts/10334149939/zip",
+    "expired": false,
+    "digest": "sha256:a6fff25b9b643bca9fa14b2d415c7ebee2e33bb10c431e005b6c6bd0f847ef56",
+    "created_at": "2026-09-14T06:03:19Z",
+    "updated_at": "2026-09-14T06:03:19Z",
+    "expires_at": "2026-12-13T05:56:26Z",
+    "workflow_run": {
+      "id": 34811445713,
+      "repository_id": 1055855032,
+      "head_repository_id": 1055855032,
+      "head_branch": "release/complete-game-source-satire-2026-09-14",
+      "head_sha": "30652f13b5c9b6a28e31487eea5885a305e24ebc"
+    }
+  }
+}
