@@ -8,7 +8,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 payload = root / "release-site"
 manifest = json.loads((root / "release-manifest.json").read_text())
-assert manifest["revision"] == "644ac8f90658df167f1d", "Unexpected preview revision"
+assert manifest["revision"] == "a86157a3121a0272ccc4", "Unexpected preview revision"
 files = {str(path.relative_to(payload)): path for path in payload.rglob("*") if path.is_file()}
 assert set(files) == set(manifest["files"]), "Payload inventory differs from reviewed artifact"
 assert all(not path.is_symlink() for path in payload.rglob("*")), "Unexpected symlink"

@@ -1,10 +1,10 @@
 # Satire content release
 
-Game revision: `644ac8f90658df167f1d`. Previous production revision: `4a35a2024033bd2ce615`.
+Game revision: `a86157a3121a0272ccc4`. Previous production revision: `4a35a2024033bd2ce615`.
 
-Canonical source: [`release/complete-game-source-satire-2026-09-14`](https://github.com/VannaDii/Dystrail/tree/release/complete-game-source-satire-2026-09-14), commit [`30652f13b5c9b6a28e31487eea5885a305e24ebc`](https://github.com/VannaDii/Dystrail/commit/30652f13b5c9b6a28e31487eea5885a305e24ebc). This branch packages the Pages artifact; its legacy source directories are not the canonical game source.
+Canonical source: [`release/complete-game-source-satire-2026-09-14`](https://github.com/VannaDii/Dystrail/tree/release/complete-game-source-satire-2026-09-14), commit [`c56bc90ce023cddb0c7a6e06bf148838d5cd388f`](https://github.com/VannaDii/Dystrail/commit/c56bc90ce023cddb0c7a6e06bf148838d5cd388f). This branch packages the Pages artifact; its legacy source directories are not the canonical game source.
 
-[Source CI](https://github.com/VannaDii/Dystrail/actions/runs/34811445713) produced the exact artifact in `release-site/play`. Publication requires successful completion of every source CI gate.
+[Source CI](https://github.com/VannaDii/Dystrail/actions/runs/34812650017) produced the exact artifact in `release-site/play`. Publication requires successful completion of every source CI gate.
 
 The release imports 177 A-version workshop packages into existing gameplay: 65 encounters with 187 ordered choices, 44 intermediate town conversations, and the care, departures, crossings, orders, repairs, activities, conditions, openings, hearing and ending prose supported by the current game. English, Spanish, Italian and Arabic are included; other language interfaces retain English fallback for new narrative. B/C variants, twelve proposed families, new mechanics and new art are outside this release.
 

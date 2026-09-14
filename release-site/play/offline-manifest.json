@@ -1,5 +1,5 @@
 {
-  "revision": "644ac8f90658df167f1d",
+  "revision": "a86157a3121a0272ccc4",
   "bytes": 111495078,
   "assets": [
     {
@@ -10,17 +10,17 @@
     {
       "path": "dystrail-web-165de5c191a07990.js",
       "bytes": 67112,
-      "integrity": "sha256-A7R701uFA7S8uKWRh4DX4p/AVKUOF26+eKXmc21nDbY="
+      "integrity": "sha256-RP9YYue1clUFck50+lgAgkZARFK7+4Im0d5zj8DW/9M="
     },
     {
       "path": "dystrail-web-165de5c191a07990_bg.wasm",
       "bytes": 7663203,
-      "integrity": "sha256-+PoBjta89kvqG+J27TN9l/9lKbQU12tWVZjVbs9FUWY="
+      "integrity": "sha256-HwJTtH7B8y3PQNJNS6PYTSKoOj1BFSHPmMXfxYlPUzE="
     },
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-ar6TSOjOBJ/JGRupK2KLpEanMzxC4wkJZQvYtTIOfOQ="
+      "integrity": "sha256-C9Eye/5CR5u9L1UncMsB75XbxNcgU4AEOlgyB2ULFKo="
     },
     {
       "path": "journey-dcd6b8c86fa0cccd.css",

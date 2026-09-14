@@ -1,7 +1,7 @@
 {
   "prior": "4a35a2024033bd2ce615",
-  "expected": "644ac8f90658df167f1d",
-  "url": "http://127.0.0.1:52180/play/",
+  "expected": "a86157a3121a0272ccc4",
+  "url": "http://127.0.0.1:55181/play/",
   "basis": "Exact current-production and CI-candidate artifacts served on one disposable local origin",
   "errors": [],
   "updatePreservedSave": true,

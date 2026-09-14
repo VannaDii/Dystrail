@@ -1,7 +1,7 @@
 {
-  "artifact": "/private/tmp/dystrail-satire-publication/ci-artifact",
-  "revision": "644ac8f90658df167f1d",
-  "artifact_manifest_sha256": "73f998d112f33e68c27c53a604b8e465c8974bd945bf02870c0241e810904c0a",
+  "artifact": "/private/tmp/dystrail-satire-publication/ci-artifact-final",
+  "revision": "a86157a3121a0272ccc4",
+  "artifact_manifest_sha256": "701770c772dc9460fafb57545a9cb68e0a64bb67d888e7b39fd09dea34252758",
   "game_assets": 119,
   "total_files": 220,
   "protected_files": 59,
