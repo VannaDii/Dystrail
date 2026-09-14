@@ -2,221 +2,287 @@
   {
     "town": "Minneapolis",
     "text": {
-      "en": "By April 25, 2025, the University of Minnesota reported 72 federal awards terminated during the Trump administration, affecting 220 research personnel.",
-      "es": "Para el 25 de abril de 2025, la Universidad de Minnesota informó de 72 subvenciones federales canceladas bajo Trump, afectando a 220 trabajadores de investigación.",
-      "it": "Al 25 aprile 2025, l’Università del Minnesota segnalava 72 finanziamenti federali cancellati sotto Trump, con conseguenze per 220 addetti alla ricerca.",
-      "ar": "بحلول 25 أبريل 2025، أفادت جامعة مينيسوتا بإلغاء 72 منحة اتحادية في عهد ترامب، مما أثر على 220 من العاملين في البحث."
+      "en": "By April 25, 2025, the University of Minnesota reported 72 terminated federal awards under Trump’s administration, affecting 220 personnel across the university.",
+      "es": "A partir del 25 de abril de 2025, la Universidad de Minnesota informó de 72 fondos federales cancelados durante la administración de Trump, lo que afectó a 220 empleados de toda la universidad.",
+      "it": "Entro il 25 aprile 2025, l'Università del Minnesota ha segnalato 72 finanziamenti federali cancellati durante l'amministrazione Trump, che hanno avuto un impatto su 220 dipendenti dell'università.",
+      "ar": "بحلول 25 أبريل 2025، أعلنت جامعة مينيسوتا عن إلغاء 72 منحة فيدرالية بموجب إدارة ترامب، مما أثر على 220 موظفًا في جميع أنحاء الجامعة."
     },
     "source": "https://research.umn.edu/news/navigating-uncertainty-research-leaders-update-board-regents-impact-federal-funding",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "I miss a spot cleaning the lab, I get written up. They delete its funding and get a podium.",
-      "es": "Si me dejo una mancha limpiando el laboratorio, me sancionan. Ellos le borran los fondos y les dan un podio.",
-      "it": "Se mi sfugge una macchia pulendo il laboratorio, mi richiamano. Loro gli cancellano i fondi e ricevono un podio.",
-      "ar": "إن فاتتني بقعة وأنا أنظّف المختبر، أتلقى إنذارًا. هم يحذفون تمويله ويحصلون على منصة خطابة."
+      "en": "Trump terminated research awards. Seventy-two of them. The university still studies uncertainty; Washington has simply moved the experiment into everyone’s paycheck.",
+      "es": "Trump canceló las becas de investigación. Setenta y dos en total. La universidad sigue estudiando la incertidumbre; Washington simplemente ha trasladado el experimento al salario de todos.",
+      "it": "Trump ha cancellato i finanziamenti per la ricerca. Settanta e due in totale. L'università continua a studiare l'incertezza; Washington ha semplicemente spostato l'esperimento sugli stipendi di tutti.",
+      "ar": "قام ترامب بإلغاء منح البحوث. 72 منها. لا تزال الجامعة تدرس حالة عدم اليقين؛ واشنطن ببساطة نقلت التجربة إلى رواتب الجميع."
+    },
+    "setup": {
+      "en": "At a Minneapolis campus café patio, a lab cleaner shares a table with you.",
+      "es": "En un patio de un café en el campus de Minneapolis, una limpiadora de laboratorio comparte una mesa contigo.",
+      "it": "Ad un caffè del campus di Minneapolis, un addetto alle pulizie condivide un tavolo con te.",
+      "ar": "في تراس مقهى داخل حرم جامعة مينيابوليس، تشارك عاملة معمل طاولة معك."
     }
   },
   {
     "town": "La Crosse",
     "text": {
-      "en": "Trump’s proposed 2026 budget threatened La Crosse’s federal river-and-wildlife research center by eliminating its USGS funding program. Closure was a proposal, not an accomplished fact.",
-      "es": "El presupuesto de Trump para 2026 amenazaba el centro federal de investigación fluvial de La Crosse al eliminar su programa de financiación. El cierre era una propuesta.",
-      "it": "Il bilancio proposto da Trump per il 2026 minacciava il centro federale di ricerca fluviale di La Crosse, eliminandone il programma di finanziamento. La chiusura era proposta, non avvenuta.",
-      "ar": "هددت ميزانية ترامب المقترحة لعام 2026 مركز أبحاث الأنهار والحياة البرية الاتحادي في لاكروس بإلغاء برنامج تمويله. كان الإغلاق مقترحاً، لا أمراً واقعاً."
+      "en": "A November 2025 report said Trump’s proposed federal budget could close La Crosse’s Upper Midwest Environmental Sciences Center. USGS emphasized that the budget had not passed.",
+      "es": "Un informe de noviembre de 2025 indicó que la propuesta de presupuesto federal del gobierno de Trump podría cerrar el Centro de Ciencias Ambientales del Medio Oeste Superior en La Crosse. La USGS enfatizó que el presupuesto aún no había sido aprobado.",
+      "it": "Un rapporto di novembre 2025 ha indicato che la proposta di bilancio federale presentata dall'amministrazione Trump potrebbe portare alla chiusura dell'Upper Midwest Environmental Sciences Center di La Crosse. L'USGS ha sottolineato che il bilancio non era ancora stato approvato.",
+      "ar": "ذكر تقرير صدر في نوفمبر 2025 أن الميزانية الفيدرالية المقترحة في عهد الرئيس ترامب قد تؤدي إلى إغلاق مركز \"العلوم البيئية للغرب الأوسط الأعلى\" في مدينة لا كروس. وأكدت \"خدمة المسح الجيولوجي\" أن الميزانية لم يتم اعتمادها بعد."
     },
     "source": "https://www.wizmnews.com/2025/11/21/closure-of-upper-midwest-environmental-sciences-center-possible-under-proposed-budget/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "proposed",
     "supporting_sources": [],
     "comment": {
-      "en": "Close the river lab? Great. We’ll ask the fish to rate the water from one to five stars.",
-      "es": "¿Cerrar el laboratorio del río? Genial. Pediremos a los peces que puntúen el agua de una a cinco estrellas.",
-      "it": "Chiudere il laboratorio del fiume? Ottimo. Chiederemo ai pesci di dare all'acqua da una a cinque stelle.",
-      "ar": "إغلاق مختبر النهر؟ رائع. سنطلب من الأسماك تقييم الماء من نجمة إلى خمس."
+      "en": "Trump’s budget proposed closing our river science center. The fish cannot lobby. We are teaching one to hold a checkbook, but the ink runs.",
+      "es": "El presupuesto del gobierno de Trump proponía cerrar nuestro centro de estudios del río. Los peces no pueden hacer lobby. Estamos enseñando a uno a sostener un talonario, pero la tinta se corre.",
+      "it": "La proposta di bilancio presentata dall'amministrazione Trump prevedeva la chiusura del nostro centro di ricerca sul fiume. I pesci non possono fare lobbying. Stiamo insegnando a uno a tenere un libretto degli assegni, ma l'inchiostro si smorza.",
+      "ar": "اقترحت ميزانية الرئيس ترامب إغلاق مركزنا لدراسات الأنهار. لا يمكن للأسماك الضغط من أجل الحصول على ما تريد. نحن ندرب إحداها على حمل دفتر شيكات، لكن الحبر يتلطخ."
+    },
+    "setup": {
+      "en": "At a La Crosse riverside bench, a bait-shop worker pauses beside your water jug.",
+      "es": "En un banco a orillas del río en La Crosse, un empleado de una tienda de cebos se detiene junto a su cantimplora.",
+      "it": "Su una panchina lungo il fiume a La Crosse, un addetto a un negozio di esche si ferma accanto alla vostra caraffa d'acqua.",
+      "ar": "على مقعد على ضفاف نهر في مدينة لا كروس، يتوقف عامل محل بيع الطُعم بجوار إبريق الماء الخاص بك."
     }
   },
   {
     "town": "Madison",
     "text": {
-      "en": "In 2025, UW–Madison created emergency bridge funding for research projects whose federal awards had been interrupted or terminated under Trump.",
-      "es": "En 2025, la Universidad de Wisconsin–Madison creó financiación puente para investigaciones cuyas subvenciones federales fueron interrumpidas o canceladas bajo Trump.",
-      "it": "Nel 2025, UW–Madison creò finanziamenti ponte per ricerche i cui fondi federali erano stati interrotti o cancellati sotto Trump.",
-      "ar": "في 2025، أنشأت جامعة ويسكونسن–ماديسون تمويلاً انتقالياً للأبحاث التي عُلّقت منحها الاتحادية أو أُلغيت في عهد ترامب."
+      "en": "UW–Madison launched short-term bridge funding in May 2025 for research projects whose federal awards had been interrupted or terminated under Trump’s administration.",
+      "es": "La Universidad de Wisconsin-Madison (UW–Madison) lanzó una financiación puente a corto plazo en mayo de 2025 para proyectos de investigación cuyos fondos federales habían sido interrumpidos o cancelados durante la administración de Trump.",
+      "it": "A maggio 2025 l’Università del Wisconsin–Madison ha avviato finanziamenti ponte temporanei per progetti di ricerca i cui fondi federali erano stati interrotti o revocati sotto l’amministrazione Trump.",
+      "ar": "أطلقت جامعة UW–Madison برنامج تمويل مؤقت في شهر مايو 2025 لدعم المشاريع البحثية التي توقف أو ألغي تمويلها الفيدرالي بموجب إدارة ترامب."
     },
-    "source": "https://research.wisc.edu/uncategorized/2025/08/06/building-bridges-support-for-research-impacted-by-federal-funding-cuts-gets-a-boost-from-ovcr/",
-    "checked": "2026-09-11",
+    "source": "https://research.wisc.edu/press-release/2025/08/06/building-bridges-support-for-research-impacted-by-federal-funding-cuts-gets-a-boost-from-ovcr/",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The lab got temporary ‘bridge funding.’ Good. I was worried we’d have to start researching under one.",
-      "es": "El laboratorio consiguió «financiación puente» temporal. Bien. Me preocupaba que tuviéramos que investigar debajo de uno.",
-      "it": "Il laboratorio ha ottenuto «fondi ponte» temporanei. Bene. Temevo che dovessimo cominciare a fare ricerca sotto uno.",
-      "ar": "حصل المختبر على «تمويل جسري» مؤقت. جيد. كنت أخشى أن نضطر لبدء الأبحاث تحت جسر."
+      "en": "Trump interrupted research grants, so the university found bridge money. Science is driving on the spare while Washington takes credit for reducing tire expenses.",
+      "es": "Trump interrumpió las becas de investigación, por lo que la universidad encontró fondos puente. La ciencia sigue adelante con el neumático de repuesto mientras Washington se atribuye el mérito de reducir los gastos en neumáticos.",
+      "it": "Trump ha interrotto i finanziamenti per la ricerca, quindi l'università ha trovato fondi temporanei. La scienza procede con la ruota di scorta, mentre Washington si prende i meriti per aver ridotto le spese per gli pneumatici.",
+      "ar": "قام ترامب بتقييد منح البحوث، لذلك وجدت الجامعة مصادر تمويل مؤقتة. العلم يمضي قدمًا بالإطار الاحتياطي، بينما تأخذ واشنطن الفضل في خفض تكاليف الإطارات."
+    },
+    "setup": {
+      "en": "At a Madison campus bus stop, a lab technician watches you check the van’s spare tire.",
+      "es": "En una parada de autobús en el campus de Madison, una técnica de laboratorio observa cómo revisa el neumático de repuesto de la furgoneta.",
+      "it": "Ad una fermata dell'autobus del campus di Madison, un tecnico di laboratorio osserva mentre controlla la ruota di scorta del furgone.",
+      "ar": "في محطة حافلات في حرم جامعة ماديசன்، تراقب فنية معمل بينما تفحصين الإطار الاحتياطي للسيارة."
     }
   },
   {
     "town": "Chicago",
     "text": {
-      "en": "On October 3, 2025, Trump’s budget office announced a $2.1 billion pause affecting Chicago transit projects, including the long-awaited Red Line Extension.",
-      "es": "El 3 de octubre de 2025, la oficina presupuestaria de Trump anunció una pausa de 2.100 millones de dólares para proyectos de transporte de Chicago, incluida la ampliación de la Línea Roja.",
-      "it": "Il 3 ottobre 2025, l’ufficio del bilancio di Trump annunciò il blocco di 2,1 miliardi di dollari per trasporti a Chicago, inclusa l’attesa estensione della Linea Rossa.",
-      "ar": "في 3 أكتوبر 2025، أعلن مكتب ميزانية ترامب تعليق 2.1 مليار دولار لمشاريع النقل في شيكاغو، ومنها تمديد الخط الأحمر المنتظر."
+      "en": "CTA sued Trump’s federal transportation agencies in March 2026 over money paused for its Red Line Extension and Red and Purple Modernization projects.",
+      "es": "CTA demandó a las agencias de transporte federales de Trump en marzo de 2026, debido a la suspensión de fondos destinados a su extensión de la línea roja y a los proyectos de modernización de las líneas roja y púrpura.",
+      "it": "La CTA ha citato in giudizio le agenzie federali per i trasporti di Trump nel marzo 2026, a causa dei fondi sospesi per la sua estensione della linea rossa e per i progetti di modernizzazione della linea rossa e viola.",
+      "ar": "رفعت \"سي تي إيه\" (CTA) دعوى قضائية ضد الوكالات الفيدرالية التابعة لـ\"ترامب\" في مارس 2026، اعتراضًا على الأموال التي تم تعليقها لمشروع \"الخط الأحمر\" وتحديث \"الخط الأحمر والأرجواني\"."
     },
     "source": "https://www.transitchicago.com/chicago-transit-authority-sues-federal-government-over-paused-red-line-extension-and-red--purple-modernization-project-funding/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "announced pause",
     "supporting_sources": [],
     "comment": {
-      "en": "They’ve paused the train extension. My boss says I should’ve left home before the funding cut.",
-      "es": "Han suspendido la ampliación del tren. Mi jefe dice que tendría que haber salido de casa antes del recorte de fondos.",
-      "it": "Hanno sospeso il prolungamento del treno. Il capo dice che avrei dovuto uscire di casa prima del taglio ai fondi.",
-      "ar": "علّقوا توسعة القطار. يقول مديري إنه كان عليّ مغادرة المنزل قبل قطع التمويل."
+      "en": "“Trump’s agencies paused the train money. CTA sued. Apparently the Red Line needs a transfer through federal court before it can reach another neighborhood.”",
+      "es": "“Las agencias de Trump suspendieron los fondos para el tren. CTA demandó. Aparentemente, la línea roja necesita una transferencia a través de la corte federal antes de poder llegar a otro vecindario.”",
+      "it": "\"Le agenzie di Trump hanno sospeso i fondi per il treno. La CTA ha fatto causa. A quanto pare, la linea rossa ha bisogno di un trasferimento attraverso il tribunale federale prima di poter raggiungere un altro quartiere.\"",
+      "ar": "\"عطلت وكالات \"ترامب\" تمويل القطارات. رفعت \"سي تي إيه\" دعوى قضائية. يبدو أن الخط الأحمر يحتاج إلى تحويل عبر المحكمة الفيدرالية قبل أن يتمكن من الوصول إلى حي آخر.\""
+    },
+    "setup": {
+      "en": "At a Chicago station entrance, a hotel cleaner compares train routes with the travelers.",
+      "es": "En la entrada de una estación de tren en Chicago, una empleada de hotel compara rutas de tren con los viajeros.",
+      "it": "All'ingresso di una stazione a Chicago, un addetto alle pulizie di un hotel confronta i percorsi ferroviari con i viaggiatori.",
+      "ar": "في مدخل محطة في شيكاغو، يقارن عامل نظافة الفنادق بين مسارات القطارات مع المسافرين."
     }
   },
   {
     "town": "South Bend",
     "text": {
-      "en": "In June 2025, nearby Notre Dame announced a 2.5% budget cut, continued its staff hiring freeze and paused new construction amid Trump-era funding and tax pressures.",
-      "es": "En junio de 2025, Notre Dame anunció un recorte del 2,5%, mantuvo congeladas las contrataciones y pausó nuevas obras ante presiones fiscales y presupuestarias de la era Trump.",
-      "it": "Nel giugno 2025, Notre Dame annunciò un taglio del 2,5%, mantenne il blocco delle assunzioni e fermò nuove costruzioni tra pressioni fiscali e sui fondi dell’era Trump.",
-      "ar": "في يونيو 2025، أعلنت نوتردام القريبة خفض ميزانيتها 2.5% وأبقت تجميد التوظيف وعلقت البناء الجديد، وسط ضغوط التمويل والضرائب في عهد ترامب."
+      "en": "In June 2025, Notre Dame announced a 2.5% budget reduction and continued its hiring freeze amid Trump-era federal funding and tax uncertainty.",
+      "es": "En junio de 2025, Notre Dame anunció una reducción del 2.5% en el presupuesto y mantuvo la congelación de contrataciones en medio de la incertidumbre sobre los fondos federales y los impuestos de la era Trump.",
+      "it": "Nel giugno 2025, Notre Dame ha annunciato una riduzione del 2,5% del bilancio e ha mantenuto in vigore il blocco delle assunzioni, a causa dell'incertezza sui finanziamenti federali e sulle tasse nell'era Trump.",
+      "ar": "في يونيو 2025، أعلنت جامعة نوتردام عن تخفيض بنسبة 2.5٪ في الميزانية، واستمرت في تجميد التوظيف في ظل حالة عدم اليقين بشأن التمويل والضرائب الفيدرالية في عهد الرئيس ترامب."
     },
     "source": "https://scholastic.nd.edu/issues/notre-dames-response-to-federal-funding-cuts/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Hiring’s frozen. I’m covering three jobs. Funny how the workload survived the cold snap.",
-      "es": "Las contrataciones están congeladas. Yo cubro tres puestos. Curioso que la carga de trabajo sobreviviera a la ola de frío.",
-      "it": "Le assunzioni sono congelate. Io copro tre posti. Buffo che il carico di lavoro sia sopravvissuto alla gelata.",
-      "ar": "التوظيف مجمّد. وأنا أغطي ثلاث وظائف. عجيب كيف نجت أعباء العمل من موجة الصقيع."
+      "en": "Trump’s funding and tax uncertainty put campus hiring on ice. The dishes still arrive hot. Washington has created a hiring freeze with excellent steam.",
+      "es": "La incertidumbre sobre los fondos y los impuestos de Trump dejó en suspenso la contratación en el campus. Los platos aún llegan calientes. Washington ha creado una congelación de contrataciones con una excelente salida de vapor.",
+      "it": "L'incertezza sui finanziamenti e sulle tasse causata dal Presidente Trump ha congelato le assunzioni nel campus. I piatti arrivano comunque caldi. Washington ha creato un blocco delle assunzioni con un'eccellente quantità di vapore.",
+      "ar": "أدت حالة عدم اليقين بشأن التمويل والضرائب في عهد الرئيس ترامب إلى تجميد التوظيف في الحرم الجامعي. الأطباق لا تزال تصل ساخنة. لقد خلقت واشنطنون تجميدًا للتوظيف مع بخار ممتاز."
+    },
+    "setup": {
+      "en": "At a South Bend café, a campus kitchen worker tells you about Notre Dame’s budget notice.",
+      "es": "En un café en South Bend, una empleada de la cocina del campus le habla sobre el aviso de presupuesto de Notre Dame.",
+      "it": "In un caffè a South Bend, un addetto alla cucina del campus vi parla della comunicazione relativa al bilancio dell'Università di Notre Dame.",
+      "ar": "في أحد المقاهي في مدينة ساوث بيند، يتحدث أحد العاملين في مطبخ الحرم الجامعي إليك عن إشعار الميزانية الخاص بجامعة نوتردام."
     }
   },
   {
     "town": "Toledo",
     "text": {
-      "en": "In April 2025, Toledo-area printer Envelope Mart reported tariff pressure on paper and aluminum printing plates; a paper supplier had announced a surcharge.",
-      "es": "En abril de 2025, la imprenta Envelope Mart, cerca de Toledo, informó de presión arancelaria sobre papel y planchas de aluminio; un proveedor anunció un recargo.",
-      "it": "Nell’aprile 2025, Envelope Mart, vicino a Toledo, segnalò rincari da dazi su carta e lastre da stampa in alluminio; un fornitore aveva annunciato un sovrapprezzo.",
-      "ar": "في أبريل 2025، أفادت مطبعة إنفيلوب مارت قرب توليدو بضغط الرسوم الجمركية على الورق وألواح الطباعة، وأعلن مورد ورق رسماً إضافياً."
+      "en": "In April 2025, a Toledo-area envelope maker said a US paper supplier planned a tariff surcharge because some raw materials came from abroad.",
+      "es": "En abril de 2025, un fabricante de sobres en el área de Toledo informó que un proveedor estadounidense de papel planeaba aplicar un recargo debido a que algunas materias primas provenían del extranjero.",
+      "it": "Nell'aprile del 2025, un produttore di buste nella zona di Toledo ha dichiarato che un fornitore americano di carta aveva previsto un aumento dei prezzi a causa dell'importazione di alcune materie prime.",
+      "ar": "في شهر أبريل عام 2025، ذكر أحد مصنعي الظرف في منطقة توليدو أن أحد الموردين الأمريكيين للورق يخطط لفرض رسوم جمركية إضافية بسبب استيراد بعض المواد الخام من الخارج."
     },
     "source": "https://toledofreepress.com/local-businesses-brace-for-tariffs/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Tariffs made our paper cost more. We’re printing the ‘economic victory’ flyers double-sided to afford it.",
-      "es": "Los aranceles encarecieron nuestro papel. Imprimimos los folletos de «victoria económica» a doble cara para poder pagarlos.",
-      "it": "I dazi ci hanno rincarato la carta. Stampiamo i volantini della «vittoria economica» fronte-retro per poterceli permettere.",
-      "ar": "رفعت الرسوم الجمركية سعر ورقنا. نطبع منشورات «النصر الاقتصادي» على الوجهين كي نستطيع دفع ثمنها."
+      "en": "Trump says tariffs protect American business. Our American paper supplier added a surcharge. The envelope industry finally has an answer to what is inside: another bill.",
+      "es": "Trump dice que los aranceles protegen a las empresas estadounidenses. Nuestro proveedor estadounidense de papel añadió un recargo. La industria de los sobres finalmente tiene una respuesta sobre lo que hay dentro: otra factura.",
+      "it": "L'amministrazione Trump afferma che i dazi proteggono le imprese americane. Il nostro fornitore americano di carta ha aggiunto un aumento dei prezzi. L'industria delle buste finalmente ha una risposta a cosa c'è dentro: un'altra bolletta.",
+      "ar": "يقول ترامب إن الرسوم الجمركية تحمي الشركات الأمريكية. أضاف موردنا الأمريكي للورق رسومًا إضافية. أخيرًا، وجدت صناعة الظرف إجابة على ما هو موجود بالداخل: فاتورة أخرى."
+    },
+    "setup": {
+      "en": "At a Toledo print shop’s public counter, a worker discusses tariff surcharges while you buy a postcard.",
+      "es": "En el mostrador público de una imprenta en Toledo, un empleado discute sobre los recargos por aranceles mientras usted compra una postal.",
+      "it": "Al bancone pubblico di una tipografia a Toledo, un addetto alle pulizie discute delle maggiorazioni dovute ai dazi mentre lei acquista una cartolina.",
+      "ar": "في أحد المقاعد المخصصة للجمهور في مطبعة في توليدو، يناقش أحد العمال الرسوم الجمركية الإضافية بينما تشتري بطاقة بريدية."
     }
   },
   {
     "town": "Cleveland",
     "text": {
-      "en": "In September 2025, Trump’s Education Department notified Cleveland schools that their GEAR UP college-preparation grant would end that month.",
-      "es": "En septiembre de 2025, el Departamento de Educación de Trump notificó a las escuelas de Cleveland que su subvención GEAR UP de preparación universitaria terminaría ese mes.",
-      "it": "Nel settembre 2025, il Dipartimento dell’Istruzione di Trump comunicò alle scuole di Cleveland la fine, quel mese, dei fondi GEAR UP per prepararsi all’università.",
-      "ar": "في سبتمبر 2025، أخطرت وزارة تعليم ترامب مدارس كليفلاند بأن منحة GEAR UP للتحضير الجامعي ستنتهي ذلك الشهر."
+      "en": "Representative Shontel Brown said Trump’s administration notified Cleveland schools that GEAR UP college-access funding would end September 30, 2025.",
+      "es": "La representante Shontel Brown dijo que la administración de Trump notificó a las escuelas de Cleveland que la financiación de GEAR UP, un programa de acceso a la universidad, finalizaría el 30 de septiembre de 2025.",
+      "it": "La rappresentante Shontel Brown ha dichiarato che l'amministrazione Trump ha notificato alle scuole di Cleveland che i finanziamenti per il programma GEAR UP, volto a favorire l'accesso all'università, sarebbero terminati il 30 settembre 2025.",
+      "ar": "قالت النائبة شونتيل براون إن إدارة ترامب أبلغت مدارس كليفلاند بإنهاء تمويل برنامج \"GEAR UP\" لدعم الالتحاق بالجامعات، وذلك في 30 سبتمبر 2025."
     },
     "source": "https://shontelbrown.house.gov/media/press-releases/brown-calls-trump-administration-restore-millions-terminated-education-grants",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "announced termination",
     "supporting_sources": [],
     "comment": {
-      "en": "They cut college counseling. The American Dream now requires a parent who knows a guy.",
-      "es": "Recortaron la orientación universitaria. El sueño americano ahora exige un progenitor con contactos.",
-      "it": "Hanno tagliato l'orientamento universitario. Il sogno americano ora richiede un genitore che conosca qualcuno.",
-      "ar": "قطعوا الإرشاد الجامعي. يتطلب الحلم الأمريكي الآن أبًا أو أمًا يعرفان شخصًا نافذًا."
+      "en": "“Trump’s administration cut GEAR UP, the program helping students toward college. The ladder is still available; Washington just repossessed the bottom rungs.”",
+      "es": "“La administración de Trump recortó GEAR UP, el programa que ayuda a los estudiantes a prepararse para la universidad. La escalera sigue ahí, pero Washington acaba de quitar los peldaños inferiores.”",
+      "it": "\"L'amministrazione Trump ha tagliato GEAR UP, il programma che aiutava gli studenti a prepararsi per l'università. La possibilità è ancora disponibile, ma Washington ha ritirato i primi gradini.\"",
+      "ar": "\"قامت إدارة ترامب بتقليص برنامج \"GEAR UP\"، وهو البرنامج الذي يساعد الطلاب على الالتحاق بالجامعات. لا يزال الطريق مفتوحًا، ولكن واشنطن استعادت بعض المراحل الأساسية.\""
+    },
+    "setup": {
+      "en": "Outside a Cleveland school, a lunchroom worker talks with the travelers during dismissal.",
+      "es": "Fuera de una escuela en Cleveland, una empleada del comedor habla con los viajeros durante la salida.",
+      "it": "Davanti a una scuola a Cleveland, un'addetta alla mensa parla con i viaggiatori durante il termine delle lezioni.",
+      "ar": "أمام مدرسة في كليفلاند، يتحدث عامل غرفة الطعام مع المسافرين خلال وقت انتهاء الدوام."
     }
   },
   {
     "town": "Pittsburgh",
     "text": {
-      "en": "By June 11, 2025, Pitt reported 91 research awards terminated by federal agencies under Trump, representing a $42 million loss.",
-      "es": "Para el 11 de junio de 2025, Pitt informó de 91 subvenciones de investigación canceladas por agencias federales bajo Trump, una pérdida de 42 millones de dólares.",
-      "it": "Al 11 giugno 2025, Pitt segnalava 91 finanziamenti di ricerca cancellati dalle agenzie federali sotto Trump, per una perdita di 42 milioni di dollari.",
-      "ar": "بحلول 11 يونيو 2025، أفادت جامعة بيتسبرغ بإلغاء الوكالات الاتحادية في عهد ترامب 91 منحة بحثية، بخسارة قدرها 42 مليون دولار."
+      "en": "At a June 11, 2025 town hall, Pitt reported that federal agencies under Trump had terminated 91 research awards, representing a $42 million loss.",
+      "es": "En una reunión pública del 11 de junio de 2025, Pitt informó que las agencias federales bajo la administración Trump habían cancelado 91 premios de investigación, lo que representa una pérdida de 42 millones de dólares.",
+      "it": "Durante una riunione pubblica del 11 giugno 2025, Pitt ha riferito che le agenzie federali sotto l'amministrazione Trump avevano interrotto 91 progetti di ricerca, con una perdita di 42 milioni di dollari.",
+      "ar": "في اجتماع عام عُقد في 11 يونيو 2025، أعلنت جامعة بيتسبرغ إنهاء الوكالات الفيدرالية، التي كانت تعمل تحت إدارة ترامب، لـ 91 جائزة بحثية، مما يمثل خسارة قدرها 42 مليون دولار."
     },
     "source": "https://www.publicsource.org/trump-administration-higher-education-funding-orders-university-pittsburgh-pitt-cmu-timeline/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They cut our research grants. Maybe if we discovered a new tax loophole, Congress would fund the lab.",
-      "es": "Nos recortaron las becas de investigación. Quizá si descubriéramos un nuevo agujero fiscal, el Congreso financiaría el laboratorio.",
-      "it": "Hanno tagliato i nostri fondi per la ricerca. Magari se scoprissimo una nuova scappatoia fiscale, il Congresso finanzierebbe il laboratorio.",
-      "ar": "قطعوا منح أبحاثنا. ربما لو اكتشفنا ثغرة ضريبية جديدة، لَموّل الكونغرس المختبر."
+      "en": "Trump’s agencies canceled ninety-one Pitt awards. The researchers still have questions. Washington has funded the answer: we cannot afford to find out.",
+      "es": "Las agencias de Trump cancelaron 91 premios de Pitt. Los investigadores todavía tienen preguntas. Washington ha financiado la respuesta: no podemos permitirnos saber la respuesta.",
+      "it": "Le agenzie di Trump hanno cancellato 91 progetti di Pitt. I ricercatori hanno ancora delle domande. Washington ha finanziato la risposta: non possiamo permetterci di scoprirlo.",
+      "ar": "ألغت إدارة ترامب 91 جائزة كانت تقدمها جامعة بيتسبرغ. لا يزال الباحثون لديهم أسئلة. قررت الحكومة الفيدرالية تمويل الإجابة: لا يمكننا تحمل تكلفة معرفة ذلك."
+    },
+    "setup": {
+      "en": "At a Pittsburgh campus food truck, a lab technician joins you at a standing table.",
+      "es": "En un camión de comida en el campus de Pittsburgh, una técnica de laboratorio se une a usted en una mesa.",
+      "it": "Presso un food truck all'interno del campus di Pittsburgh, un tecnico di laboratorio si unisce a lei a un tavolo.",
+      "ar": "في شاحنة بيع الطعام في حرم جامعة بيتسبرغ، ينضم إليك فني مختبر عند طاولة قائمة."
     }
   },
   {
     "town": "Cumberland",
     "text": {
-      "en": "By July 2025, the C&O Canal park, which reaches Cumberland, had lost five employees amid Trump’s federal staffing cuts.",
-      "es": "Para julio de 2025, el parque del canal C&O, que llega a Cumberland, había perdido cinco empleados entre los recortes federales de Trump.",
-      "it": "Entro luglio 2025, il parco del canale C&O, che arriva a Cumberland, aveva perso cinque dipendenti tra i tagli federali di Trump.",
-      "ar": "بحلول يوليو 2025، فقد متنزه قناة C&O الممتد إلى كمبرلاند خمسة موظفين وسط تخفيضات ترامب للعمالة الاتحادية."
+      "en": "After national park firings under Trump in 2025, the C&O Canal separately reported five early retirements, including its only carpenter and arborist.",
+      "es": "Después de los despidos en los parques nacionales durante la administración de Trump en 2025, el Canal C&O informó por separado sobre cinco jubilaciones anticipadas, incluyendo a su único carpintero y a su especialista en jardinería.",
+      "it": "In seguito ai licenziamenti nel sistema dei parchi nazionali avvenuti durante l'amministrazione Trump nel 2025, il Canale C&O ha comunicato separatamente cinque pensionamenti anticipati, tra cui l'unico falegname e l'unico giardiniere.",
+      "ar": "بعد عمليات تسريح الموظفين في الحدائق الوطنية في عهد ترامب في عام 2025، أعلنت قناة \"C&O\" بشكل منفصل عن خمس حالات تقاعد مبكر، بما في ذلك النجار والأخصائي في مجال الأشجار الوحيدين لديها."
     },
     "source": "https://wtop.com/government/2025/07/what-budget-cuts-and-reduced-staffing-could-mean-for-the-national-park-service/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Five park staff cut. The trash is now a self-guided exhibit.",
-      "es": "Cinco trabajadores menos en el parque. La basura ya es una exposición autoguiada.",
-      "it": "Cinque addetti del parco tagliati. La spazzatura ora è una mostra autoguidata.",
-      "ar": "فصلوا خمسة من موظفي المتنزه. صارت القمامة الآن معرضًا ذاتي الإرشاد."
+      "en": "“Trump cut park staff nationally. Here the only carpenter took early retirement. If that bench collapses, we’ll call it a successful transition to meadow.”",
+      "es": "“Trump redujo el personal de los parques a nivel nacional. Aquí, el único carpintero se jubiló anticipadamente. Si ese banco se derrumba, lo llamaremos una transición exitosa hacia un prado.”",
+      "it": "\"L'amministrazione Trump ha ridotto il personale dei parchi a livello nazionale. Qui, l'unico falegname è andato in pensione anticipatamente. Se quella panchina dovesse crollare, la chiameremo una transizione di successo verso un prato.\"",
+      "ar": "\"قلص ترامب عدد العاملين في الحدائق على مستوى البلاد. هنا، تقاعد النجار الوحيد من خلال التقاعد المبكر. إذا انهار ذلك المقعد، سنعتبر ذلك انتقالًا ناجحًا إلى المساحات الخضراء.\""
+    },
+    "setup": {
+      "en": "Beside Cumberland’s canal, a maintenance worker talks with the travelers over lunch.",
+      "es": "Junto al canal de Cumberland, un trabajador de mantenimiento conversa con los viajeros durante el almuerzo.",
+      "it": "Accanto al canale di Cumberland, un addetto alla manutenzione parla con i viaggiatori durante la pausa pranzo.",
+      "ar": "بجانب قناة كامبرلاند، يتحدث عامل صيانة مع المسافرين أثناء تناول الغداء."
     }
   },
   {
     "town": "Hagerstown",
     "text": {
-      "en": "Hagerstown letter carriers organized a March 2025 rally on West Franklin Street against proposals to privatize or restructure the Postal Service.",
-      "es": "Los carteros de Hagerstown organizaron una protesta en marzo de 2025 en West Franklin Street contra propuestas para privatizar o reestructurar el servicio postal.",
-      "it": "I portalettere di Hagerstown organizzarono per marzo 2025 una protesta in West Franklin Street contro proposte di privatizzazione o ristrutturazione delle poste.",
-      "ar": "نظم سعاة بريد هيغرستاون تجمعاً في مارس 2025 بشارع ويست فرانكلين ضد مقترحات خصخصة البريد أو إعادة هيكلته."
+      "en": "Hagerstown postal workers announced a March 2025 anti-privatization rally after Trump and Musk discussed privatizing USPS; the proposal was not an enacted sale.",
+      "es": "Los trabajadores postales de Hagerstown anunciaron una manifestación contra la privatización en marzo de 2025, después de que Trump y Musk discutieran la posibilidad de privatizar el Servicio Postal de los Estados Unidos (USPS); la propuesta no fue una venta formal.",
+      "it": "I dipendenti postali di Hagerstown hanno annunciato una manifestazione contro la privatizzazione per marzo del 2025, dopo che Trump e Musk hanno discusso della privatizzazione di USPS; la proposta non è stata un'effettiva vendita.",
+      "ar": "أعلن موظفو البريد في هاجرستاون عن مظاهرة ضد الخصخصة في مارس 2025، بعد أن ناقش \"ترامب\" و\"مسك\" إمكانية خصخصة خدمة البريد الأمريكية (USPS). هذا الاقتراح لم يتم تحويله إلى عملية بيع حقيقية."
     },
-    "source": "https://radiofreehubcity.com/2025/03/13/rally-against-usps-privatization-to-take-place-in-hagerstown-on-march-23/",
-    "checked": "2026-09-11",
+    "source": "https://apnews.com/article/692d56e701f3853af4ce914832a33124",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "planned protest",
     "supporting_sources": [],
     "comment": {
-      "en": "Privatize the mail? Can’t wait for Mom’s birthday card to arrive after this unskippable ad.",
-      "es": "¿Privatizar el correo? No veo la hora de que la tarjeta de cumpleaños de mamá llegue después de este anuncio que no se puede saltar.",
-      "it": "Privatizzare la posta? Non vedo l'ora che il biglietto di compleanno della mamma arrivi dopo questo annuncio che non si può saltare.",
-      "ar": "خصخصة البريد؟ لا أطيق انتظار بطاقة عيد ميلاد أمي التي ستصل بعد هذا الإعلان غير القابل للتخطي."
+      "en": "Trump and Musk floated privatizing the mail. Great: Grandma can become a premium delivery zone. She has always wanted to live inside a surcharge.",
+      "es": "Trump y Musk plantearon la posibilidad de privatizar el correo. Genial: la abuela podría convertirse en una zona de entrega premium. Siempre ha querido vivir dentro de un recargo.",
+      "it": "Trump e Musk hanno valutato la possibilità di privatizzare il servizio postale. Fantastico: nonna potrebbe diventare una zona di consegna premium. Ha sempre voluto vivere all'interno di un supplemento.",
+      "ar": "طرح \"ترامب\" و\"مسك\" فكرة خصخصة خدمة البريد. هذا رائع: يمكن أن تصبح \"الجدة\" منطقة توصيل متميزة. لقد أرادت دائمًا أن تعيش داخل نظام الرسوم."
+    },
+    "setup": {
+      "en": "Outside a Hagerstown post office, an off-duty carrier talks while you sort postcards.",
+      "es": "Fuera de una oficina de correos en Hagerstown, un cartero fuera de servicio habla mientras usted clasifica postales.",
+      "it": "Davanti a un ufficio postale a Hagerstown, un dipendente in servizio parla mentre voi ordinate cartoline.",
+      "ar": "أمام مكتب بريد في هاجرستاون، يتحدث عامل سابق أثناء قيامكم بترتيب بطاقات بريدية."
     }
   },
   {
     "town": "Frederick",
     "text": {
-      "en": "A March 31, 2025 Maryland layoff notice listed 90 HHS positions in Frederick for elimination during Trump’s federal health-agency cuts.",
-      "es": "Un aviso de despidos de Maryland del 31 de marzo de 2025 enumeró 90 puestos de HHS en Frederick para eliminar durante los recortes sanitarios federales de Trump.",
-      "it": "Un avviso del Maryland del 31 marzo 2025 indicava 90 posti HHS a Frederick da eliminare durante i tagli di Trump alle agenzie sanitarie federali.",
-      "ar": "أدرج إخطار تسريح في ماريلاند بتاريخ 31 مارس 2025 إلغاء 90 وظيفة بوزارة الصحة في فريدريك ضمن تخفيضات ترامب للوكالات الصحية."
+      "en": "Maryland’s March 31, 2025 layoff log listed ninety HHS positions in Frederick for elimination under Trump’s federal cuts, with a stated May 30 effective date.",
+      "es": "El registro de despidos del 31 de marzo de 2025 en Maryland listaba noventa puestos en el Departamento de Salud y Servicios Humanos (HHS) en Frederick que serían eliminados en virtud de los recortes federales de Trump, con una fecha de efectividad prevista para el 30 de mayo.",
+      "it": "Il registro dei licenziamenti del 31 marzo 2025 del Maryland elencava novantatré posizioni dell'HHS a Frederick destinate all'eliminazione a causa dei tagli federali di Trump, con data di decorrenza prevista per il 30 maggio.",
+      "ar": "سجل التسريح الصادر في 31 مارس 2025 في ولاية ماريلاند، ذكر تسعين وظيفة في وزارة الصحة والإنسانية (HHS) في فريدريك، سيتم إلغاؤها بموجب تخفيضات \"ترامب\" الفيدرالية، مع تحديد 30 مايو كتاريخ بدء التنفيذ."
     },
     "source": "https://labor.maryland.gov/employment/rif2025.shtml",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "layoff notice",
     "supporting_sources": [],
     "comment": {
-      "en": "Ninety HHS layoffs on the notice. My landlord says government efficiency is not an accepted payment method.",
-      "es": "Noventa despidos del HHS en el aviso. Mi casero dice que la eficiencia gubernamental no es un método de pago aceptado.",
-      "it": "Novanta licenziamenti dell'HHS sull'avviso. Il padrone di casa dice che l'efficienza del governo non è un metodo di pagamento accettato.",
-      "ar": "تسعون تسريحًا من وزارة الصحة والخدمات الإنسانية في الإشعار. يقول مالك بيتي إن الكفاءة الحكومية ليست وسيلة دفع مقبولة."
+      "en": "Ninety health jobs marked for cuts. If I streamlined the hospital by removing the toilets, I would still have a mop problem.",
+      "es": "Noventa puestos de trabajo en el sector de la salud que fueron objeto de recortes. Si modernizara el hospital eliminando los baños, aún tendría un problema con la escoba.",
+      "it": "Novantatré posti di lavoro nel settore sanitario destinati ai tagli. Se razionalizzassi l'ospedale eliminando i bagni, avrei comunque un problema con lo straccio.",
+      "ar": "تسعون وظيفة في مجال الرعاية الصحية تم تحديدها للتخفيضات. إذا قمت بتبسيط المستشفى عن طريق إزالة المراحيض، سأظل أعاني من مشكلة المماس."
+    },
+    "setup": {
+      "en": "At a Frederick sandwich counter, a hospital porter discusses Trump’s announced federal health cuts.",
+      "es": "En un mostrador de sándwiches en Frederick, un ordenador de hospital discute los recortes federales de atención médica anunciados por Trump.",
+      "it": "Seduti al bancone di un panino a Frederick, un portiere d'ospedale discute dei tagli annunciati da Trump ai servizi sanitari federali.",
+      "ar": "في كشك ساندويتش في فريدريك، يناقش حارس المستشفى تخفيضات الرعاية الصحية الفيدرالية التي أعلن عنها \"ترامب\"."
     }
   },
   {
@@ -242,325 +308,421 @@
   {
     "town": "Kansas City",
     "text": {
-      "en": "In March 2025, Kansas City’s Harvesters food bank learned that the Trump administration had canceled expected shipments of milk, eggs, cheese and meat.",
-      "es": "En marzo de 2025, el banco de alimentos Harvesters de Kansas City supo que la administración Trump había cancelado entregas previstas de leche, huevos, queso y carne.",
-      "it": "Nel marzo 2025, il banco alimentare Harvesters di Kansas City apprese che l’amministrazione Trump aveva cancellato consegne previste di latte, uova, formaggio e carne.",
-      "ar": "في مارس 2025، علم بنك طعام هارفسترز في كانساس سيتي أن إدارة ترامب ألغت شحنات منتظرة من الحليب والبيض والجبن واللحم."
+      "en": "In March 2025, Trump’s USDA canceled expected federal food shipments to Harvesters, serving Kansas and Missouri, including milk, eggs, cheese, chicken and fruit.",
+      "es": "En marzo de 2025, el USDA del gobierno de Trump canceló los envíos federales de alimentos previstos para Harvesters, que presta servicios en Kansas y Missouri, incluyendo leche, huevos, queso, pollo y fruta.",
+      "it": "Nel marzo 2025, l'USDA dell'amministrazione Trump ha cancellato le previste consegne di cibo a livello federale per Harvesters, un'organizzazione che serve il Kansas e il Missouri, inclusi latte, uova, formaggio, pollo e frutta.",
+      "ar": "في شهر مارس 2025، ألغت وزارة الزراعة في عهد الرئيس ترامب عمليات شحن الطعام الفيدرالية المتوقعة إلى منظمة \"هارفيسترز\"، التي تخدم ولايتي كانساس وميسوري، بما في ذلك الحليب والبيض والجبن والدجاج والفواكه."
     },
     "source": "https://www.kcur.org/news/2025-03-28/harvesters-food-bank-deliveries-trump-administration-missouri-kansas",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "USDA canceled our food shipment. Tonight’s special: lightly sautéed notification email.",
-      "es": "El USDA canceló nuestro envío de comida. Especial de esta noche: correo de notificación ligeramente salteado.",
-      "it": "L'USDA ha cancellato la nostra spedizione di cibo. Specialità della sera: email di notifica leggermente saltata in padella.",
-      "ar": "ألغت وزارة الزراعة شحنة طعامنا. طبق الليلة: رسالة إشعار مشوّحة قليلًا."
+      "en": "Trump’s USDA canceled food deliveries. The milk never arrived, but the savings did. Unfortunately, the children keep asking for the kind you can pour.",
+      "es": "El USDA del gobierno de Trump canceló las entregas de alimentos. La leche nunca llegó, pero los ahorros sí. Desafortunadamente, los niños siguen preguntando por la que se puede verter.",
+      "it": "L'USDA dell'amministrazione Trump ha cancellato le consegne di cibo. Il latte non è mai arrivato, ma i risparmi sì. Purtroppo, i bambini continuano a chiedere il tipo che si può versare.",
+      "ar": "ألغت وزارة الزراعة في عهد الرئيس ترامب عمليات توصيل الطعام. لم يصل الحليب، لكن التوفير تحقق. لسوء الحظ، لا يزال الأطفال يسألون باستمرار عن النوع الذي يمكن صبه."
+    },
+    "setup": {
+      "en": "Outside a Kansas City food pantry, a delivery worker discusses a canceled federal order.",
+      "es": "Frente a un banco de alimentos en Kansas City, un repartidor habla sobre un pedido federal cancelado.",
+      "it": "Davanti a una mensa per i poveri a Kansas City, un addetto alle consegne parla di un ordine federale cancellato.",
+      "ar": "أمام أحد مخازن الطعام في مدينة كانساس سيتي، يتحدث عامل توصيل عن طلب فيدرالي تم إلغاؤه."
     }
   },
   {
     "town": "Columbia",
     "text": {
-      "en": "After Trump’s 2025 research cuts, Mizzou lake scientist Rebecca North turned to homeowners’ associations and a public donation button to help support her work.",
-      "es": "Tras los recortes de investigación de Trump en 2025, Rebecca North, científica de lagos en Mizzou, recurrió a asociaciones vecinales y donaciones públicas para sostener su trabajo.",
-      "it": "Dopo i tagli di Trump alla ricerca nel 2025, Rebecca North, studiosa dei laghi a Mizzou, ricorse ad associazioni di proprietari e donazioni pubbliche per sostenere il lavoro.",
-      "ar": "بعد تخفيضات ترامب البحثية في 2025، لجأت عالمة البحيرات في ميزو ريبيكا نورث إلى جمعيات مالكي المنازل والتبرعات العامة لدعم عملها."
+      "en": "Governor Mike Kehoe signed legislation ending Missouri’s paid-sick-leave requirement in August 2025; Columbia employers could still choose to provide it.",
+      "es": "El gobernador Mike Kehoe firmó una legislación que eliminaba el requisito de licencia por enfermedad remunerada en Missouri en agosto de 2025; sin embargo, los empleadores de Columbia aún podían optar por ofrecerla.",
+      "it": "Il governatore Mike Kehoe ha firmato una legge che eliminava l'obbligo per i datori di lavoro del Missouri di offrire congedi retribuiti per malattia, nel mese di agosto 2025; tuttavia, i datori di lavoro di Columbia potevano ancora scegliere di offrirli.",
+      "ar": "وقع حاكم ولاية ميسوري، مايك كيهو، على تشريع ينهي شرط الإجازة المرضية المدفوعة في ولاية ميسوري في أغسطس 2025، ولكن يمكن لأصحاب العمل في كولومبيا الاستمرار في تقديمها إذا رغبوا."
     },
-    "source": "https://www.kbia.org/2026-01-12/research-upheaval-during-trump-administration",
-    "checked": "2026-09-11",
+    "source": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The lake scientist needs HOA funding. First, the algae must be an approved shade of green.",
-      "es": "El científico del lago necesita fondos de la asociación de propietarios. Primero, las algas deben tener un tono de verde aprobado.",
-      "it": "Lo scienziato del lago ha bisogno dei fondi dell'associazione dei proprietari. Prima, le alghe devono essere di una tonalità di verde approvata.",
-      "ar": "يحتاج عالم البحيرة تمويل جمعية ملاك البيوت. أولًا، يجب أن تكون الطحالب بدرجة خضراء معتمدة."
+      "en": "“Governor Kehoe ended Missouri’s paid-sick-leave requirement. My fever can still stay home. It just needs to find somebody else to pay the rent.”",
+      "es": "“El gobernador Kehoe eliminó el requisito de licencia por enfermedad remunerada en Missouri. Mi fiebre aún puede quedarse en casa. Simplemente necesita encontrar a alguien más que pague el alquiler.”",
+      "it": "\"Il governatore Kehoe ha eliminato l'obbligo per i datori di lavoro del Missouri di offrire congedi retribuiti per malattia. La mia febbre può ancora stare a casa. Dovrà solo trovare qualcun altro che paghi l'affitto.\"",
+      "ar": "\"أنهى الحاكم كيهو شرط الإجازة المرضية المدفوعة في ولاية ميسوري. لا يزال بإمكاني البقاء في المنزل عندما أصابني الحمى. ولكن يجب أن أجد شخصًا آخر يدفع الإيجار.\""
+    },
+    "setup": {
+      "en": "At a Columbia laundromat, a restaurant dishwasher waits beside the travelers.",
+      "es": "En una lavandería en Columbia, un lavajillas de restaurante espera junto a los viajeros.",
+      "it": "In una lavanderia a Columbia, un lavapiatti di un ristorante aspetta accanto ai viaggiatori.",
+      "ar": "في مغسلة ملابس في كولومبيا، ينتظر عامل غسيل الأطباق بجانب المسافرين."
     }
   },
   {
     "town": "St. Louis",
     "text": {
-      "en": "In May 2025, the St. Louis Area Foodbank described how Trump’s USDA cancellation of LFPA25 disrupted programs buying local farmers’ food for people facing hunger.",
-      "es": "En mayo de 2025, el banco de alimentos de St. Louis explicó cómo la cancelación de LFPA25 por el USDA de Trump alteró compras a agricultores locales para combatir el hambre.",
-      "it": "Nel maggio 2025, il banco alimentare di St. Louis spiegò come la cancellazione di LFPA25 da parte dell’USDA di Trump sconvolse acquisti da agricoltori locali contro la fame.",
-      "ar": "في مايو 2025، أوضح بنك طعام سانت لويس كيف عطل إلغاء وزارة زراعة ترامب لبرنامج LFPA25 شراء طعام المزارعين المحليين لإغاثة الجياع."
+      "en": "In May 2025, St. Louis Area Foodbank said Trump’s administration canceled its next federal local-farm purchasing round for Illinois; earlier awards could still be spent.",
+      "es": "En mayo de 2025, St. Louis Area Foodbank informó que la administración de Trump canceló la próxima ronda federal de compras a productores locales en Illinois; los fondos de subvenciones ya otorgados aún podían ser utilizados.",
+      "it": "Nel maggio del 2025, St. Louis Area Foodbank ha dichiarato che l'amministrazione Trump aveva cancellato il prossimo ciclo di acquisti da aziende agricole locali in Illinois; i finanziamenti già assegnati potevano ancora essere utilizzati.",
+      "ar": "في شهر مايو عام 2025، ذكرت \"مؤسسة سانت لويس لتوزيع الغذاء\" أن إدارة ترامب ألغت الجولة القادمة من عمليات الشراء من المزارع المحلية في ولاية إلينوي؛ لا يزال بإمكان الجهات التي حصلت على جوائز سابقة إنفاق هذه المبالغ."
     },
     "source": "https://stlfoodbank.org/blog/may2025blog/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Washington cut the program buying farmers’ food for hungry neighbors. Apparently the middleman wasn’t rich enough.",
-      "es": "Washington recortó el programa que compraba comida a agricultores para vecinos con hambre. Al parecer, el intermediario no era bastante rico.",
-      "it": "Washington ha tagliato il programma che comprava cibo dai contadini per i vicini affamati. A quanto pare l'intermediario non era abbastanza ricco.",
-      "ar": "قطعت واشنطن البرنامج الذي يشتري غذاء المزارعين للجيران الجائعين. يبدو أن الوسيط لم يكن غنيًا بما يكفي."
+      "en": "Trump canceled the next local-farm food round. The last one can finish. Apparently hunger is supposed to respect the end of a fiscal paragraph.",
+      "es": "La administración de Trump canceló la próxima ronda de compras a productores locales. La última ronda puede completarse. Aparentemente, el hambre debería respetar el final de un período fiscal.",
+      "it": "L'amministrazione Trump ha cancellato il prossimo ciclo di acquisti da aziende agricole locali. L'ultimo ciclo può essere completato. A quanto pare, la fame dovrebbe rispettare la fine di un paragrafo finanziario.",
+      "ar": "ألغت إدارة ترامب الجولة القادمة من عمليات الشراء من المزارع المحلية. يمكن لإدارة الجولة الأخيرة إكمالها. يبدو أن الجوع يجب أن يحترم نهاية الفقرة المالية."
+    },
+    "setup": {
+      "en": "At a St. Louis grocery exit, a food-bank driver describes the canceled Illinois purchasing round.",
+      "es": "En la salida de un supermercado en St. Louis, un conductor de un banco de alimentos describe la cancelación de la próxima ronda de compras a productores locales de Illinois.",
+      "it": "All'uscita di un supermercato a St. Louis, un autista di un banco alimentare descrive la cancellazione del successivo ciclo di acquisti da aziende agricole locali in Illinois.",
+      "ar": "عند مخرج أحد محلات البقالة في سانت لويس، يصف سائق سيارة توصيل للمخبز عملية إلغاء جولة الشراء من المزارع المحلية في ولاية إلينوي."
     }
   },
   {
     "town": "Springfield, IL",
     "text": {
-      "en": "On October 1, 2025, Springfield’s Lincoln Home closed during the federal shutdown under Trump, leaving visitors unable to tour the presidential home.",
-      "es": "El 1 de octubre de 2025, la casa de Lincoln en Springfield cerró durante el cierre federal bajo Trump, impidiendo las visitas al hogar presidencial.",
-      "it": "Il 1º ottobre 2025, la casa di Lincoln a Springfield chiuse durante lo shutdown federale sotto Trump, impedendo le visite alla dimora presidenziale.",
-      "ar": "في 1 أكتوبر 2025، أغلق منزل لينكولن في سبرينغفيلد خلال الإغلاق الحكومي الاتحادي في عهد ترامب، فتوقفت الجولات للزوار."
+      "en": "On October 1, 2025, the federal shutdown closed Lincoln Home’s visitor center and house tours in Springfield, while the neighborhood grounds remained open.",
+      "es": "El 1 de octubre de 2025, el cierre federal obligó al cierre del centro de visitantes y las visitas guiadas de la Casa Lincoln en Springfield, mientras que los terrenos del vecindario permanecieron abiertos.",
+      "it": "Il 1° ottobre 2025, la chiusura del governo federale ha chiuso il centro visitatori e le visite guidate della Lincoln Home a Springfield, mentre i giardini del quartiere sono rimasti aperti.",
+      "ar": "في الأول من أكتوبر عام 2025، أدى الإغلاق الفيدرالي إلى إغلاق مركز الزوار وجولات المنازل في منزل لينكولن في سبرينغفيلد، بينما ظلت مساحات الحي مفتوحة."
     },
     "source": "https://www.wandtv.com/news/lincoln-home-site-closed-until-further-notice-amid-government-shutdown/article_94ee0b81-24ba-4115-9020-a723d343a04e.html",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "The shutdown closed Lincoln’s house. Of the people, by the people, back whenever the fuck we feel like it.",
-      "es": "El cierre federal cerró la casa de Lincoln. Del pueblo, por el pueblo, volveremos cuando nos salga de los cojones.",
-      "it": "Lo shutdown ha chiuso la casa di Lincoln. Del popolo, dal popolo, riapriamo quando cazzo ci pare.",
-      "ar": "أغلق التعطيل الفيدرالي منزل لينكولن. من الشعب، وبالشعب، ونعود حين يحلو لنا، تبًا."
+      "en": "Congress shut down government and Lincoln tours closed. You could admire democracy through the window. Please do not touch; it was a display model.",
+      "es": "El Congreso paralizó el gobierno y las visitas a Lincoln se suspendieron. Se podía admirar la democracia a través de la ventana. Por favor, no toque; era un modelo de exhibición.",
+      "it": "Il Congresso ha chiuso l'amministrazione pubblica e le visite a Lincoln sono state sospese. Si poteva ammirare la democrazia attraverso la finestra. Si prega di non toccare; era un modello esposto.",
+      "ar": "أدى إغلاق الكونجرس إلى تعطيل عمل الحكومة، وأغلقت جولات \"لينكولن\". يمكنك تقدير الديمقراطية من خلال النافذة. يرجى عدم اللمس؛ كانت مجرد قطعة عرضية."
+    },
+    "setup": {
+      "en": "Near Lincoln Home in Springfield, a cleaner recalls the shutdown while you rest by the neighborhood fence.",
+      "es": "Cerca de la Casa Lincoln en Springfield, un empleado de limpieza recuerda el cierre mientras usted se relaja junto a la valla del vecindario.",
+      "it": "Vicino alla Lincoln Home a Springfield, un addetto alle pulizie ricorda la chiusura mentre lei si riposa vicino alla recinzione del quartiere.",
+      "ar": "بالقرب من منزل لينكولن في سبرينغفيلد، يتذكر عامل نظافة عملية الإغلاق بينما تستريح بالقرب من سياج الحي."
     }
   },
   {
     "town": "Denver",
     "text": {
-      "en": "In April 2025, Trump’s FEMA rescinded $24 million intended to reimburse Denver for shelter, food and medical care for migrants.",
-      "es": "En abril de 2025, la FEMA de Trump retiró 24 millones de dólares destinados a reembolsar a Denver por alojamiento, alimentos y atención médica para migrantes.",
-      "it": "Nell’aprile 2025, la FEMA di Trump revocò 24 milioni di dollari destinati a rimborsare Denver per alloggi, cibo e cure mediche per migranti.",
-      "ar": "في أبريل 2025، سحبت وكالة الطوارئ في عهد ترامب 24 مليون دولار لتعويض دنفر عن إيواء مهاجرين وإطعامهم وعلاجهم."
+      "en": "In April 2025, FEMA denied Denver about $24 million in reimbursement for migrant services the city had already provided.",
+      "es": "En abril de 2025, FEMA denegó a Denver aproximadamente 24 millones de dólares en reembolsos por servicios para inmigrantes que la ciudad ya había proporcionado.",
+      "it": "Nell'aprile 2025, FEMA ha respinto a Denver circa 24 milioni di dollari di rimborso per i servizi per migranti che la città aveva già fornito.",
+      "ar": "في أبريل 2025، رفضت وكالة إدارة الطوارئ الفيدرالية (FEMA) مبلغًا يقدر بـ 24 مليون دولار من تعويضات كانت مدينة دنفر قد قدمتها بالفعل مقابل خدمات للمهاجرين."
     },
     "source": "https://denverite.com/2025/04/29/denver-losing-24-million-federal-funding-explained/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Washington stiffed us for the shelter bill. When I try that with rent, it’s suddenly a character flaw.",
-      "es": "Washington nos dejó sin pagar la factura del refugio. Cuando intento eso con el alquiler, de pronto es un defecto moral.",
-      "it": "Washington ci ha lasciato il conto del rifugio da pagare. Quando ci provo io con l'affitto, diventa subito un difetto del carattere.",
-      "ar": "تهرّبت واشنطن من دفع فاتورة المأوى. حين أجرّب ذلك مع الإيجار، يصبح فجأة عيبًا أخلاقيًا."
+      "en": "Washington said help the arrivals, then refused the reimbursement. I tried that with my landlord: patriotic housing partnership. He still wants the rent.",
+      "es": "Washington dijo: “Ayuden a los recién llegados”, y luego rechazó el reembolso. Yo lo intenté con mi casero: una asociación patriótica para la vivienda. Él aún quiere el alquiler.",
+      "it": "Washington ha detto di aiutare i nuovi arrivati, poi ha rifiutato il rimborso. L'ho provato con il mio proprietario: una partnership patriottica per l'alloggio. Lui comunque vuole l'affitto.",
+      "ar": "قالت الحكومة: \"ساعدوا الوافدين الجدد\"، ثم رفضت صرف التعويضات. لقد حاولت ذلك مع مالكي العقار الخاص بي: شراكة وطنية للإسكان. لكنهم لا يزالون يريدون الإيجار."
+    },
+    "setup": {
+      "en": "At a Denver bus shelter, a kitchen worker tells you about the city’s unpaid federal bill.",
+      "es": "En un refugio de autobús en Denver, una empleada de cocina le cuenta sobre la deuda federal impaga de la ciudad.",
+      "it": "In una pensilina a Denver, un addetto alle cucine racconta ai viaggiatori della fattura non pagata alla città, dovuta al governo federale.",
+      "ar": "في محطة حافلات في دنفر، يتحدث عامل مطبخ معكم عن الديون الفيدرالية غير المسددة التي تراكمت على المدينة."
     }
   },
   {
     "town": "North Platte",
     "text": {
-      "en": "In March 2025, North Platte reduced weather-balloon launches to once a day after Trump-era NOAA staffing cuts left forecasting offices short-handed.",
-      "es": "En marzo de 2025, North Platte redujo a uno diario los lanzamientos de globos meteorológicos tras recortes de personal de NOAA en la era Trump.",
-      "it": "Nel marzo 2025, North Platte ridusse a uno al giorno i lanci di palloni meteorologici dopo i tagli al personale NOAA dell’era Trump.",
-      "ar": "في مارس 2025، خفضت نورث بلات إطلاق بالونات الطقس إلى مرة يومياً بعد أن تركت تخفيضات موظفي NOAA في عهد ترامب مكاتب التنبؤ بنقص في العاملين."
+      "en": "In March 2025, amid Trump-era federal workforce cuts, staffing shortages reduced North Platte’s routine National Weather Service balloon launches from twice daily to once.",
+      "es": "En marzo de 2025, en medio de los recortes de personal federal de la era Trump, la escasez de personal redujo el número de lanzamientos rutinarios de globos del Servicio Meteorológico Nacional en North Platte de dos veces al día a una sola vez.",
+      "it": "Nel marzo del 2025, a causa dei tagli al personale del governo federale avvenuti durante l'era Trump, la carenza di personale ha ridotto le normali operazioni di lancio dei palloni del National Weather Service a North Platte da due volte al giorno a una volta.",
+      "ar": "في شهر مارس 2025، وفي ظل تخفيضات في القوى العاملة الفيدرالية التي تم تطبيقها في عهد ترامب، أدت أوجه القصور في عدد الموظفين إلى تقليل عدد مرات إطلاق بالون الأرصاد الجوية الروتينية في مدينة نورث بلات من مرتين يوميًا إلى مرة واحدة."
     },
-    "source": "https://insideclimatenews.org/news/25032025/noaa-cuts-weather-balloon-launches-due-to-staff-shortages-after-doge-layoffs/",
-    "checked": "2026-09-11",
+    "source": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "They cut weather-balloon launches. Now we’re getting the forecast from my bad knee. It wants benefits.",
-      "es": "Recortaron los lanzamientos de globos meteorológicos. Ahora mi rodilla mala da el pronóstico. Quiere prestaciones.",
-      "it": "Hanno tagliato i lanci dei palloni meteo. Ora prendiamo le previsioni dal mio ginocchio malandato. Vuole i benefit.",
-      "ar": "قلّلوا إطلاقات بالونات الطقس. الآن نأخذ التوقع من ركبتي المصابة. إنها تطالب بمزايا وظيفية."
+      "en": "Trump’s cuts left fewer people to launch weather balloons. One forecast balloon a day instead of two. The afternoon will have to stop doing weather.",
+      "es": "Los recortes de Trump dejaron a menos personas encargadas de lanzar globos meteorológicos. Ahora se lanza un solo globo al día en lugar de dos. Por la tarde, ya no podrán realizar mediciones meteorológicas.",
+      "it": "I tagli di Trump hanno lasciato meno personale per lanciare palloni meteorologici. Un solo pallone meteorologico al giorno invece di due. Nel pomeriggio, si dovrà interrompere l'attività di rilevamento meteorologico.",
+      "ar": "ترامب قلّص عدد العاملين، مما أدى إلى إطلاق عدد أقل من بالونات الأرصاد الجوية. أصبح بالإمكان إطلاق بالونة واحدة فقط في اليوم بدلاً من اثنتين. سيضطر قسم الأرصاد الجوية في فترة ما بعد الظهر إلى التوقف عن العمل."
+    },
+    "setup": {
+      "en": "At a North Platte fuel stop, a farmhand checks the clouds while you fill the van.",
+      "es": "En una estación de servicio en North Platte, un trabajador agrícola mira las nubes mientras llenas la furgoneta.",
+      "it": "Ad una stazione di rifornimento a North Platte, un bracciante agricolo osserva le nuvole mentre fai il pieno al furgone.",
+      "ar": "في محطة وقود في مدينة نورث بلات، تفحص عامل مزرعة الغيوم بينما تملئين السيارة بالوقود."
     }
   },
   {
     "town": "Omaha",
     "text": {
-      "en": "In February 2025, Omaha’s UNMC warned that Trump’s announced 15% NIH overhead cap threatened research infrastructure, utilities and cybersecurity funding.",
-      "es": "En febrero de 2025, UNMC, en Omaha, advirtió que el límite del 15% anunciado por Trump para gastos indirectos del NIH amenazaba infraestructura, servicios y ciberseguridad de investigación.",
-      "it": "Nel febbraio 2025, l’UNMC di Omaha avvertì che il tetto NIH del 15% annunciato da Trump minacciava fondi per infrastrutture, utenze e sicurezza informatica della ricerca.",
-      "ar": "في فبراير 2025، حذرت جامعة نبراسكا الطبية في أوماها من أن سقف ترامب المعلن البالغ 15% للتكاليف غير المباشرة يهدد بنية الأبحاث ومرافقها وأمنها الرقمي."
+      "en": "In February 2025, Omaha’s UNMC warned that Trump’s proposed NIH research-cost cap threatened expenses including laboratory infrastructure, utilities and cybersecurity.",
+      "es": "En febrero de 2025, la UNMC de Omaha advirtió que el límite propuesto por Trump para los costos de investigación del NIH amenazaba gastos que incluyen la infraestructura de laboratorio, los servicios públicos y la ciberseguridad.",
+      "it": "Nel febbraio del 2025, l'UNMC di Omaha ha avvertito che la proposta limitazione dei costi di ricerca del NIH, promossa dall'amministrazione Trump, avrebbe messo a rischio spese come l'infrastruttura di laboratorio, le utenze e la sicurezza informatica.",
+      "ar": "في فبراير 2025، حذرت جامعة نبراسكا الطبية في أوماها (UNMC) من أن الحد المقترح من قبل إدارة ترامب لتكاليف البحث في معهد الصحة الوطني (NIH) يهدد النفقات، بما في ذلك البنية التحتية للمختبرات والمرافق والخدمات الأمنية."
     },
     "source": "https://www.unmc.edu/newsroom/2025/02/09/unmc-statement-on-nih-indirect-cost-guidance/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "warning about announced policy",
     "supporting_sources": [],
     "comment": {
-      "en": "They want to cut the lab’s operating money. Great. We’ll keep the samples cold with fiscal discipline.",
-      "es": "Quieren recortar los gastos de funcionamiento del laboratorio. Genial. Mantendremos las muestras frías con disciplina fiscal.",
-      "it": "Vogliono tagliare i soldi per far funzionare il laboratorio. Ottimo. Terremo i campioni al freddo con la disciplina fiscale.",
-      "ar": "يريدون قطع مال تشغيل المختبر. رائع. سنحافظ على برودة العينات بالانضباط المالي."
+      "en": "Trump’s NIH cap treats the light bill as expendable overhead. Fine. Let the next medical breakthrough develop a natural immunity to darkness.",
+      "es": "El límite impuesto por el NIH de Trump considera el costo de la electricidad como un gasto secundario. Muy bien. Que el próximo avance médico desarrolle una resistencia natural a la oscuridad.",
+      "it": "La limitazione dei costi del NIH, imposta dall'amministrazione Trump, considera la bolletta della luce come una spesa superflua. Bene. Lasciate che la prossima grande scoperta medica sviluppi una resistenza naturale all'oscurità.",
+      "ar": "يرى حد الإنفاق الذي فرضته إدارة ترامب على معهد الصحة الوطني (NIH) أن فاتورة الكهرباء هي مجرد مصروفات إضافية. حسنًا، دعونا نرى الاكتشاف الطبي التالي يتطور ليتمتع بمناعة طبيعية ضد الظلام."
+    },
+    "setup": {
+      "en": "At an Omaha medical-campus bus stop, a cleaner discusses the proposed research-cost cap.",
+      "es": "En una parada de autobús cerca de un centro médico en Omaha, un empleado de limpieza discute sobre el límite propuesto para los costos de investigación.",
+      "it": "Ad una fermata dell'autobus presso un campus medico a Omaha, un addetto alle pulizie discute della proposta limitazione dei costi di ricerca.",
+      "ar": "عند محطة حافلات في مجمع طبي في مدينة أوماها، يتحدث عامل النظافة عن الحد المقترح لتكاليف البحث."
     }
   },
   {
     "town": "Des Moines",
     "text": {
-      "en": "In spring 2025, Trump’s USDA canceled Iowa local-food purchasing funds worth roughly $11.3 million, cutting a market that connected farmers with schools and food assistance.",
-      "es": "En la primavera de 2025, el USDA de Trump canceló unos 11,3 millones de dólares para comprar alimentos locales en Iowa, afectando al mercado entre agricultores, escuelas y ayuda alimentaria.",
-      "it": "Nella primavera 2025, l’USDA di Trump cancellò circa 11,3 milioni di dollari per acquisti alimentari locali in Iowa, colpendo il mercato tra agricoltori, scuole e assistenza alimentare.",
-      "ar": "في ربيع 2025، ألغت وزارة زراعة ترامب نحو 11.3 مليون دولار لشراء الطعام المحلي في آيوا، مما أضر بسوق يصل المزارعين بالمدارس والإغاثة الغذائية."
+      "en": "In 2025, Trump’s USDA ended two Iowa local-food purchasing programs. One orchard needed new buyers for 50,000 pounds of apples.",
+      "es": "En 2025, el USDA de Trump eliminó dos programas locales de compra de alimentos en Iowa. Un huerto necesitó encontrar nuevos compradores para 22,680 kilogramos de manzanas.",
+      "it": "Nel 2025, il USDA di Trump ha interrotto due programmi locali di acquisto di prodotti alimentari in Iowa. Un frutteto aveva bisogno di trovare nuovi acquirenti per 22.680 chilogrammi di mele.",
+      "ar": "في عام 2025، أنهت إدارة \"ترامب\" في وزارة الزراعة الأمريكية برنامجين محليين لشراء المواد الغذائية في ولاية أيوا. واجهت إحدى المزارع الحاجة إلى إيجاد مشترين جدد لـ 50,000 رطل من التفاح."
     },
     "source": "https://www.radioiowa.com/2025/04/02/iowa-farmers-feel-the-impact-of-local-food-programs-being-eliminated/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "statewide local impact",
     "supporting_sources": [
       "https://www.govinfo.gov/content/pkg/CHRG-119shrg63068/pdf/CHRG-119shrg63068.pdf"
     ],
     "comment": {
-      "en": "They cut money for local school food. We’re calling the carrots tactical equipment and trying again.",
-      "es": "Recortaron el dinero para alimentos locales en las escuelas. Vamos a llamar a las zanahorias equipamiento táctico y probar otra vez.",
-      "it": "Hanno tagliato i soldi per il cibo locale nelle scuole. Chiamiamo le carote equipaggiamento tattico e riproviamo.",
-      "ar": "قطعوا مال الغذاء المحلي للمدارس. سنسمّي الجزر معدات تكتيكية ونحاول مجددًا."
+      "en": "Trump’s USDA canceled the local-food programs. The apples still passed inspection. Unfortunately, they failed the new test: being lunch for someone who needs it.",
+      "es": "El USDA de Trump canceló los programas de alimentos locales. Las manzanas aún pasaron la inspección. Desafortunadamente, no superaron la nueva evaluación: no fueron el almuerzo de alguien que lo necesitaba.",
+      "it": "Il USDA di Trump ha cancellato i programmi di prodotti alimentari locali. Le mele sono comunque risultate idonee dopo i controlli. Purtroppo, non hanno superato il nuovo test: non sono state utilizzate per il pranzo di qualcuno che ne aveva bisogno.",
+      "ar": "ألغت إدارة \"ترامب\" في وزارة الزراعة الأمريكية برامج شراء المواد الغذائية المحلية. التفاح لا يزال يمر بالفحص. لسوء الحظ، لم يجتاز الاختبار الجديد: أن يكون وجبة لشخص محتاج."
+    },
+    "setup": {
+      "en": "At a Des Moines produce stall, a delivery worker points to the unsold apples.",
+      "es": "En un puesto de frutas y verduras en Des Moines, un repartidor señala las manzanas que no se han vendido.",
+      "it": "In una bancarella di frutta e verdura a Des Moines, un addetto alle consegne indica le mele che non sono state vendute.",
+      "ar": "في كشك بيع الخضروات في دي موين، يشير عامل توصيل إلى التفاح الذي لم يتم بيعه."
     }
   },
   {
     "town": "Iowa City",
     "text": {
-      "en": "In February 2025, Trump’s State Department canceled nearly $1 million for the University of Iowa’s International Writing Program; its fall residency was expected to shrink by half.",
-      "es": "En febrero de 2025, el Departamento de Estado de Trump canceló casi un millón de dólares para el Programa Internacional de Escritura de Iowa; se esperaba reducir a la mitad su residencia otoñal.",
-      "it": "Nel febbraio 2025, il Dipartimento di Stato di Trump cancellò quasi un milione di dollari al programma internazionale di scrittura dell’Iowa; la residenza autunnale rischiava di dimezzarsi.",
-      "ar": "في فبراير 2025، ألغت خارجية ترامب قرابة مليون دولار لبرنامج الكتابة الدولي بجامعة آيوا؛ وكان متوقعاً أن تتقلص إقامته الخريفية إلى النصف."
+      "en": "In March 2025, State Department grant terminations ended several Iowa writing programs. The university said more than 90% of those federal grant dollars were spent in the US.",
+      "es": "En marzo de 2025, la finalización de las becas del Departamento de Estado puso fin a varios programas de escritura en Iowa. La universidad informó que más del 90% de esos fondos federales se gastaron en los Estados Unidos.",
+      "it": "Nel marzo 2025, la cessazione delle sovvenzioni del Dipartimento di Stato ha portato alla chiusura di diversi programmi di scrittura in Iowa. L'università ha dichiarato che oltre il 90% di quei fondi federali era stato speso negli Stati Uniti.",
+      "ar": "في شهر مارس 2025، أنهت وزارة الخارجية إنهاء العديد من برامج الكتابة في ولاية آيوا. وأفادت الجامعة بأن أكثر من 90٪ من تلك الأموال المخصصة من الحكومة الفيدرالية تم إنفاقها داخل الولايات المتحدة."
     },
     "source": "https://now.uiowa.edu/news/2025/03/us-department-state-halts-international-writing-program-funding",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Cutting the writers’ program cut my housekeeping shifts. The culture war could at least leave a tip.",
-      "es": "Recortar el programa de escritores me recortó los turnos de limpieza. La guerra cultural podría al menos dejar propina.",
-      "it": "Tagliare il programma degli scrittori ha tagliato i miei turni di pulizia. La guerra culturale potrebbe almeno lasciare la mancia.",
-      "ar": "قلّص إلغاء برنامج الكتّاب وردياتي في تنظيف الغرف. كان يمكن لحرب الثقافة أن تترك بقشيشًا على الأقل."
+      "en": "Trump’s State Department cut the writing program. More than ninety percent of its grant money stayed in America. Apparently America First has a spelling exception.",
+      "es": "El Departamento de Estado de Trump recortó el programa de escritura. Más del noventa por ciento de los fondos de la beca se mantuvieron en Estados Unidos. Aparentemente, \"America First\" tiene una excepción ortográfica.",
+      "it": "Il Dipartimento di Stato di Trump ha tagliato i fondi per il programma di scrittura. Più del novanta percento dei fondi derivanti da quelle sovvenzioni è rimasto negli Stati Uniti. Sembra che \"America First\" abbia un'eccezione ortografica.",
+      "ar": "قامت وزارة الخارجية في عهد الرئيس ترامب بتقليص برنامج الكتابة. وظلت أكثر من تسعين بالمائة من أموال المنح الخاصة به داخل أمريكا. يبدو أن \"أمريكا أولاً\" لديها استثناء في الإملاء."
+    },
+    "setup": {
+      "en": "At an Iowa City café window, a dishwasher chats about the writing program’s lost grants.",
+      "es": "En la ventana de un café en Iowa City, un lavavajillas conversa sobre las becas perdidas del programa de escritura.",
+      "it": "Ad una caffetteria a Iowa City, un addetto ai piatti discute delle sovvenzioni perse dal programma di scrittura.",
+      "ar": "في مقهى في مدينة آيوا سيتي، تحدث عامل غسيل الأطباق عن المنح التي فقدتها برامج الكتابة."
     }
   },
   {
     "town": "Austin",
     "text": {
-      "en": "After Trump’s NEH canceled its operating grant in April 2025, Austin-based Humanities Texas paused programs including veterans’ reading groups and family literacy activities.",
-      "es": "Tras cancelar la NEH de Trump su subvención operativa en abril de 2025, Humanities Texas, con sede en Austin, pausó grupos de lectura para veteranos y actividades de alfabetización familiar.",
-      "it": "Dopo la revoca del finanziamento operativo da parte della NEH di Trump nell’aprile 2025, Humanities Texas, ad Austin, sospese gruppi di lettura per veterani e attività di alfabetizzazione familiare.",
-      "ar": "بعد إلغاء هيئة الإنسانيات في عهد ترامب منحتها التشغيلية في أبريل 2025، علقت هيومانيتيز تكساس في أوستن برامج تشمل قراءة المحاربين القدامى ومحو أمية الأسر."
+      "en": "Austin-based Humanities Texas said its veterans’ reading program remained paused in May 2025 after the federal government terminated its operating grant on April 2.",
+      "es": "Humanities Texas, con sede en Austin, informó que su programa de lectura para veteranos permaneció suspendido en mayo de 2025, después de que el gobierno federal cancelara su subvención operativa el 2 de abril.",
+      "it": "L'organizzazione Humanities Texas, con sede ad Austin, ha dichiarato che il suo programma di lettura per i veterani è rimasto sospeso a maggio 2025, dopo che il governo federale aveva interrotto il finanziamento il 2 aprile.",
+      "ar": "ذكرت منظمة \"هيومن تكساس\" التي تتخذ من أوستن مقراً لها، أن برنامج القراءة الخاص بالمحاربين القدامى لا يزال معلقاً في مايو 2025، وذلك بعد أن أنهت الحكومة الفيدرالية منحة التشغيل الخاصة به في الثاني من أبريل."
     },
     "source": "https://www.humanitiestexas.org/news/articles/director-may-2025",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "comment": {
-      "en": "Veterans’ book group paused. ‘Thank you for your service’ is now the entire syllabus.",
-      "es": "Suspendido el club de lectura de veteranos. «Gracias por vuestro servicio» es ya todo el temario.",
-      "it": "Gruppo di lettura dei veterani sospeso. «Grazie per il vostro servizio» ora è l'intero programma.",
-      "ar": "عُلّقت مجموعة قراءة المحاربين القدامى. صارت «شكرًا لخدمتكم» المنهج بأكمله."
+      "en": "“The federal grant vanished. Veterans can still appear in campaign ads; apparently letting them discuss a book is where Washington draws the line.”",
+      "es": "“La subvención federal desapareció. Los veteranos aún pueden aparecer en anuncios de campaña; aparentemente, permitirles hablar sobre un libro es donde Washington pone límites.”",
+      "it": "\"Il finanziamento federale è stato interrotto. I veterani possono ancora apparire nelle campagne pubblicitarie; a quanto pare, permettere loro di discutere di un libro è il limite che Washington si è posto.\"",
+      "ar": "\"انتهت المنحة الفيدرالية. لا يزال بإمكان المحاربين القدامى الظهور في الإعلانات الانتخابية؛ يبدو أن السماح لهم بمناقشة كتاب هو الحد الذي ترسمه واشنطن.\""
+    },
+    "setup": {
+      "en": "Outside an Austin library, a retired delivery driver tells the travelers why a veterans’ reading group paused.",
+      "es": "Frente a una biblioteca en Austin, un exconductor de reparto le explica a los viajeros por qué un grupo de lectura para veteranos se detuvo.",
+      "it": "Davanti a una biblioteca ad Austin, un ex autista in pensione racconta ai viaggiatori il motivo per cui un gruppo di lettura per veterani aveva interrotto i lavori.",
+      "ar": "خارج مكتبة في أوستن، أخبر سائق توصيل متقاعد المسافرين عن سبب توقف مجموعة القراءة الخاصة بالمحاربين القدامى."
     }
   },
   {
     "town": "Waco",
     "text": {
-      "en": "When SNAP payments stopped on November 1, 2025 during the federal shutdown, more than 31,000 McLennan County residents lost their usual food assistance. Trump then announced partial funding.",
-      "es": "Al detenerse los pagos SNAP el 1 de noviembre de 2025 durante el cierre federal, más de 31.000 residentes de McLennan perdieron su ayuda alimentaria habitual. Trump anunció después financiación parcial.",
-      "it": "Quando i pagamenti SNAP si fermarono il 1º novembre 2025 durante lo shutdown, oltre 31.000 residenti della contea di McLennan persero il normale aiuto alimentare. Trump annunciò poi fondi parziali.",
-      "ar": "عندما توقفت مدفوعات SNAP في 1 نوفمبر 2025 خلال الإغلاق الاتحادي، فقد أكثر من 31 ألفاً من سكان مقاطعة ماكلينان مساعدتهم الغذائية المعتادة. ثم أعلن ترامب تمويلاً جزئياً."
+      "en": "On November 4, 2025, KWBU reported over 31,000 McLennan County residents lacked November SNAP access during the shutdown; half payments were announced, but arrival remained unclear.",
+      "es": "El 4 de noviembre de 2025, KWBU informó que más de 31,000 residentes del condado de McLennan no tuvieron acceso a los beneficios de SNAP en noviembre debido a la suspensión del servicio; se anunciaron los pagos correspondientes a la mitad, pero la fecha de entrega aún no estaba clara.",
+      "it": "Il 4 novembre 2025, KWBU ha riportato che oltre 31.000 residenti della contea di McLennan non avevano potuto accedere ai benefici SNAP a causa della chiusura; è stato annunciato il pagamento di metà dei benefici, ma la loro effettiva erogazione rimaneva incerta.",
+      "ar": "في الرابع من نوفمبر 2025، أفادت محطة KWBU أن أكثر من 31 ألفًا من سكان مقاطعة مكلينان لم يتمكنوا من الحصول على برنامج المساعدة الغذائية (SNAP) خلال فترة التوقف؛ حيث أُعلن عن صرف نصف المدفوعات، لكن موعد وصولها ظل غير واضح."
     },
     "source": "https://www.kwbu.org/news/2025-11-04/central-texas-food-banks-brace-for-surge-after-snap-benefits-cut",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "dated interruption",
     "supporting_sources": [],
     "comment": {
-      "en": "SNAP stopped. The register asks if I’d like to donate to fight hunger. I’d like to receive, actually.",
-      "es": "SNAP se paró. La caja pregunta si quiero donar para luchar contra el hambre. La verdad, preferiría recibir.",
-      "it": "SNAP si è fermato. La cassa chiede se voglio donare per combattere la fame. A dire il vero, vorrei ricevere.",
-      "ar": "توقف برنامج SNAP. تسألني آلة الدفع إن كنت أريد التبرع لمحاربة الجوع. أريد أن أتلقى، في الواقع."
+      "en": "Washington announced half the benefits. I cut one sandwich into two. Same accounting method, but mine comes with crusts.",
+      "es": "Washington anunció la entrega de la mitad de los beneficios. Yo corté un sándwich en dos. El mismo método de cálculo, pero el mío viene con la corteza.",
+      "it": "Washington ha annunciato l'erogazione di metà dei benefici. Ho tagliato un panino in due. Stesso metodo di calcolo, ma il mio include la crosta.",
+      "ar": "أعلنت الحكومة الفيدرالية عن صرف نصف المستحقات. قمت بتقطيع شطيرة واحدة إلى شطيرتين. نفس طريقة الحساب، ولكن شطيرتي تأتي مع الأطراف."
+    },
+    "setup": {
+      "en": "At a Waco food pantry bench, a cook recalls November’s delayed food assistance.",
+      "es": "Sentado en un banco frente a un banco de alimentos en Waco, un cocinero recuerda la demora en la asistencia alimentaria de noviembre.",
+      "it": "Su una panchina presso un banco di distribuzione alimentare a Waco, una cuoca ricorda i ritardi nell'assistenza alimentare di novembre.",
+      "ar": "في أحد المقاعد الموجودة في مستودع الطعام في واكو، يتذكر طاهٍ تأخر صرف المساعدات الغذائية في شهر نوفمبر الماضي."
     }
   },
   {
     "town": "Dallas",
     "text": {
-      "en": "In February 2025, UT Southwestern warned that Trump’s announced NIH overhead cap could cost its Dallas research campus more than $100 million annually if left unchanged.",
-      "es": "En febrero de 2025, UT Southwestern advirtió que el límite del NIH anunciado por Trump podría costar a su campus de Dallas más de 100 millones anuales si no cambiaba.",
-      "it": "Nel febbraio 2025, UT Southwestern avvertì che il tetto NIH annunciato da Trump avrebbe potuto costare al campus di Dallas oltre 100 milioni l’anno, se invariato.",
-      "ar": "في فبراير 2025، حذرت جامعة تكساس ساوثويسترن من أن سقف NIH الذي أعلنه ترامب قد يكلف حرم أبحاثها بدالاس أكثر من 100 مليون دولار سنوياً إن بقي دون تغيير."
+      "en": "In February 2025, Dallas’s UT Southwestern warned that the Trump administration’s proposed NIH overhead cap could cost it more than $100 million a year.",
+      "es": "En febrero de 2025, UT Southwestern de Dallas advirtió que la propuesta de la administración de Trump para limitar los gastos generales del NIH podría costarle más de 100 millones de dólares al año.",
+      "it": "Nel febbraio 2025, UT Southwestern di Dallas ha avvertito che il limite massimo per i costi indiretti proposto dall'amministrazione Trump al National Institutes of Health (NIH) potrebbe costare all'istituzione più di 100 milioni di dollari all'anno.",
+      "ar": "في فبراير 2025، حذرت جامعة \"UT Southwestern\" في دالاس من أن القيود المقترحة التي فرضتها إدارة ترامب على النفقات الإدارية لمعهد الصحة الوطني (NIH) قد تكلفها أكثر من 100 مليون دولار سنويًا."
     },
     "source": "https://www.utsouthwestern.edu/about-us/assets/president-message-020925.pdf",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "estimated risk, not realized loss",
     "supporting_sources": [],
     "comment": {
-      "en": "They want to cut the money that keeps our lab open. Apparently the cancer cells can work from home.",
-      "es": "Quieren recortar el dinero que mantiene abierto el laboratorio. Al parecer, las células cancerosas pueden teletrabajar.",
-      "it": "Vogliono tagliare i soldi che tengono aperto il laboratorio. A quanto pare le cellule tumorali possono lavorare da casa.",
-      "ar": "يريدون قطع المال الذي يبقي مختبرنا مفتوحًا. يبدو أن الخلايا السرطانية تستطيع العمل من المنزل."
+      "en": "They call freezers overhead. Let a senator keep his lunch at room temperature and see how fast overhead becomes critical infrastructure.",
+      "es": "Ellos llaman a esos gastos \"gastos generales\". Que un senador se quede con su almuerzo a temperatura ambiente y vea qué tan rápido esos \"gastos generales\" se convierten en infraestructura crítica.",
+      "it": "Chiamano questi costi \"spese generali\". Lasciate che un senatore mantenga il suo pranzo a temperatura ambiente e vedrete quanto velocemente le \"spese generali\" diventano infrastrutture critiche.",
+      "ar": "إنهم يسمون هذه النفقات \"نفقات إدارية\". دعوا أحد أعضاء مجلس الشيوخ يحتفظ بغدائه في درجة حرارة الغرفة، ليروا كم بسرعة تصبح هذه \"النفقات الإدارية\" بنية تحتية حيوية."
+    },
+    "setup": {
+      "en": "Outside a Dallas medical campus, a lab cleaner shares a shaded lunch table.",
+      "es": "Frente a un campus médico en Dallas, una empleada de limpieza de laboratorio comparte una mesa a la sombra durante el almuerzo.",
+      "it": "Di fronte a un campus medico a Dallas, un addetto alle pulizie di un laboratorio condivide un tavolo all'ombra durante la pausa pranzo.",
+      "ar": "خارج حرم طبي في دالاس، تشارك عاملة نظافة المختبر طاولة غداء في منطقة مظللة."
     }
   },
   {
     "town": "Oklahoma City",
     "text": {
-      "en": "In April 2025, the Regional Food Bank of Oklahoma warned that Trump’s cancellation of local-food purchasing funds would hurt farmers and food assistance across its service area.",
-      "es": "En abril de 2025, el banco regional de alimentos de Oklahoma advirtió que la cancelación de compras locales por Trump perjudicaría a agricultores y ayuda alimentaria en su región.",
-      "it": "Nell’aprile 2025, il banco alimentare regionale dell’Oklahoma avvertì che la cancellazione di Trump dei fondi per acquisti locali avrebbe colpito agricoltori e assistenza alimentare.",
-      "ar": "في أبريل 2025، حذر بنك الطعام الإقليمي بأوكلاهوما من أن إلغاء ترامب لتمويل شراء الطعام المحلي سيضر بالمزارعين والإغاثة الغذائية في منطقته."
+      "en": "In April 2025, the Regional Food Bank of Oklahoma warned that Trump-administration cancellation of federal local-food purchasing funds would reduce its ability to meet growing demand.",
+      "es": "En abril de 2025, el Banco de Alimentos Regional de Oklahoma advirtió que la cancelación por parte de la administración Trump de los fondos federales para la compra de alimentos a nivel local reduciría su capacidad para satisfacer la creciente demanda.",
+      "it": "Nell'aprile del 2025, la Regional Food Bank of Oklahoma ha avvertito che l'eliminazione da parte dell'amministrazione Trump dei fondi federali per l'acquisto di prodotti alimentari a livello locale avrebbe ridotto la sua capacità di soddisfare la crescente domanda.",
+      "ar": "في أبريل 2025، حذرت \"بنك الغذاء الإقليمي في أوكلاهوما\" من أن إلغاء إدارة ترامب لتمويل البرامج الفيدرالية لشراء المواد الغذائية على المستوى المحلي سيقلل من قدرتها على تلبية الطلب المتزايد."
     },
     "source": "https://www.kswo.com/2025/04/07/federal-cuts-may-soon-begin-affect-local-food-banks/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "warning about canceled funding",
     "supporting_sources": [],
     "comment": {
-      "en": "Full-time job, food-bank queue. If hard work made you rich, this line would need valet parking.",
-      "es": "Trabajo a jornada completa, cola del banco de alimentos. Si trabajar duro te hiciera rico, esta fila necesitaría aparcacoches.",
-      "it": "Lavoro a tempo pieno, fila al banco alimentare. Se il duro lavoro rendesse ricchi, questa fila avrebbe bisogno del parcheggiatore.",
-      "ar": "وظيفة بدوام كامل وصفّ بنك طعام. لو كان العمل الجاد يصنع الثراء، لاحتاج هذا الصف خدمة ركن سيارات."
+      "en": "Trump’s USDA canceled local-food funding. Now the pantry asks neighbors to fill the gap. Small government comes with a surprisingly large grocery list.",
+      "es": "El USDA de Trump eliminó la financiación para la compra de alimentos a nivel local. Ahora, el banco de alimentos pide a los vecinos que ayuden a cubrir esa falta. Una política de gobierno limitado conlleva una lista de necesidades sorprendentemente extensa.",
+      "it": "L'USDA di Trump ha cancellato i finanziamenti per i prodotti alimentari a livello locale. Ora la dispensa chiede ai vicini di colmare questa lacuna. Una politica di governo ridotto comporta una lista della spesa, sorprendentemente lunga.",
+      "ar": "ألغت إدارة ترامب في وزارة الزراعة تمويل برامج المواد الغذائية المحلية. الآن، يطلب مركز توزيع المواد الغذائية من الجيران سد هذا النقص. يبدو أن تقليص حجم الحكومة يأتي مع قائمة مشتريات كبيرة بشكل مدهش."
+    },
+    "setup": {
+      "en": "Outside an Oklahoma City grocery, a pantry volunteer unloads some donated food.",
+      "es": "Frente a un supermercado en Oklahoma City, un voluntario de un banco de alimentos descarga algunos alimentos donados.",
+      "it": "Davanti a un supermercato a Oklahoma City, un volontario di una dispensa alimentare scarica alcuni generi alimentari donati.",
+      "ar": "أمام أحد محلات البقالة في مدينة أوكلاهوما سيتي، يقوم أحد المتطوعين في مركز توزيع المواد الغذائية بتفريغ بعض المواد الغذائية التي تم التبرع بها."
     }
   },
   {
     "town": "Tulsa",
     "text": {
-      "en": "In March 2025, Tulsa’s health department faced uncertainty from Trump’s DOGE cuts: federal grants supplied more than $13 million, about 30% of its revenue.",
-      "es": "En marzo de 2025, el departamento sanitario de Tulsa afrontó incertidumbre por los recortes de DOGE de Trump: las subvenciones federales aportaban más de 13 millones, cerca del 30% de sus ingresos.",
-      "it": "Nel marzo 2025, la sanità di Tulsa affrontava l’incertezza dei tagli DOGE di Trump: i fondi federali fornivano oltre 13 milioni, circa il 30% delle entrate.",
-      "ar": "في مارس 2025، واجهت دائرة صحة تولسا غموض تخفيضات DOGE التابعة لترامب؛ فالمنح الاتحادية تمثل أكثر من 13 مليون دولار، نحو 30% من إيراداتها."
+      "en": "In March 2025, Tulsa health officials faced uncertainty over Trump-era federal support. Grants had provided over $13 million, about 30% of department revenue, in fiscal 2023–24.",
+      "es": "En marzo de 2025, los funcionarios de salud de Tulsa se enfrentaron a incertidumbre con respecto al apoyo federal de la era de Trump. Las subvenciones habían proporcionado más de 13 millones de dólares, aproximadamente el 30% de los ingresos del departamento, durante el año fiscal 2023-24.",
+      "it": "Nel marzo del 2025, i funzionari sanitari di Tulsa si sono trovati ad affrontare incertezze riguardo al sostegno federale introdotto durante l'amministrazione Trump. Le sovvenzioni avevano fornito oltre 13 milioni di dollari, circa il 30% del bilancio del dipartimento, durante l'esercizio finanziario 2023-24.",
+      "ar": "في شهر مارس 2025، واجه مسؤولو الصحة في تولسا حالة من عدم اليقين بشأن الدعم الفيدرالي الذي كان مخصصًا في عهد الرئيس ترامب. وقد وفرت المنح أكثر من 13 مليون دولار، أي ما يقرب من 30٪ من إيرادات القسم، خلال العام المالي 2023-2024."
     },
     "source": "https://www.publicradiotulsa.org/local-regional/2025-03-14/anxiety-levels-here-are-extremely-high-tulsa-health-department-braces-for-an-unknown-future",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "funding exposure, not a confirmed loss",
     "supporting_sources": [],
     "comment": {
-      "en": "The health department’s funding is uncertain. Germs, meanwhile, have renewed their contract.",
-      "es": "Los fondos del departamento de salud son inciertos. Los gérmenes, mientras tanto, han renovado su contrato.",
-      "it": "I fondi del dipartimento sanitario sono incerti. I germi, intanto, hanno rinnovato il contratto.",
-      "ar": "تمويل دائرة الصحة غير مؤكد. أما الجراثيم فجددت عقدها."
+      "en": "Trump’s cuts have health officials guessing what Washington will fund. I asked whether uncertainty is contagious. They need a grant to find out.",
+      "es": "Los recortes de Trump han dejado a los funcionarios de salud preguntándose qué financiará Washington. Les pregunté si la incertidumbre es contagiosa. Necesitan una subvención para averiguarlo.",
+      "it": "Le riduzioni decise dall'amministrazione Trump stanno lasciando i funzionari sanitari nell'incertezza riguardo a quali finanziamenti saranno disponibili da Washington. Ho chiesto se l'incertezza fosse un problema che si diffonde. Hanno bisogno di una sovvenzione per scoprirlo.",
+      "ar": "تجعل تخفيضات الرئيس ترامب مسؤولي الصحة يتكهنون بما سيقدمه من تمويل من واشنطن. سألتهم عما إذا كان عدم اليقين مُعدٍ. إنهم بحاجة إلى منحة مالية لمعرفة ذلك."
+    },
+    "setup": {
+      "en": "At a Tulsa clinic’s outdoor bench, a cleaner discusses the health department’s funding worries.",
+      "es": "En un banco exterior de una clínica en Tulsa, un empleado de limpieza habla sobre las preocupaciones sobre la financiación del departamento de salud.",
+      "it": "Su una panchina all'aperto di una clinica a Tulsa, un addetto alle pulizie discute delle preoccupazioni relative ai finanziamenti del dipartimento sanitario.",
+      "ar": "في أحد المقاعد الخارجية الموجودة أمام عيادة في تولسا، يناقش أحد العمال وظائف النظافة مخاوف بشأن تمويل وزارة الصحة."
     }
   },
   {
     "town": "Joplin",
     "text": {
-      "en": "Joplin’s Crosslines uses Ozarks Food Harvest, which reported a $3 million gap after Trump’s USDA canceled 2025 food orders.",
-      "es": "Crosslines de Joplin depende de Ozarks Food Harvest, que informó de un déficit de tres millones tras cancelar el USDA de Trump pedidos alimentarios de 2025.",
-      "it": "Crosslines a Joplin usa Ozarks Food Harvest, che segnalò tre milioni di deficit dopo la cancellazione USDA di Trump di ordini alimentari 2025.",
-      "ar": "يعتمد كروسلينز بجوبلين على أوزاركس فود هارفست، التي أعلنت فجوة بثلاثة ملايين بعد إلغاء وزارة زراعة ترامب طلبات طعام لعام 2025."
+      "en": "EPA addressed lead-contaminated soil at 45 properties near Joplin in January 2025. Trump’s later FY2026 budget proposal sought a 54% EPA funding cut.",
+      "es": "La EPA abordó el suelo contaminado con plomo en 45 propiedades cerca de Joplin en enero de 2025. Posteriormente, la propuesta de presupuesto para el año fiscal 2026 del gobierno de Trump solicitó un recorte del 54% en la financiación de la EPA.",
+      "it": "L'EPA ha affrontato il problema del terreno contaminato da piombo in 45 proprietà vicino a Joplin nel gennaio 2025. Successivamente, la proposta di bilancio per il FY2026 presentata dall'amministrazione Trump prevedeva un taglio del 54% dei finanziamenti per l'EPA.",
+      "ar": "تعاملت وكالة حماية البيئة مع التربة الملوثة بالرصاص في 45 عقارًا بالقرب من مدينة جوبلين في شهر يناير 2025. وقيّم اقتراح الرئيس ترامب للميزانية للعام المالي 2026 بخفض تمويل وكالة حماية البيئة بنسبة 54٪."
     },
-    "source": "https://ozarksfoodharvest.org/media/federal-cuts-leave-funding-gap-usda-ozarks-food-harvest/",
-    "checked": "2026-09-11",
+    "source": "https://www.epa.gov/system/files/documents/2025-05/fy-2026-epa-bib.pdf",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "reported funding gap",
     "supporting_sources": [
       "https://www.yahoo.com/news/usda-cuts-food-aid-affect-035900949.html"
     ],
     "comment": {
-      "en": "USDA left the food bank three million short. I donated beans. My name had better be on the fucking building.",
-      "es": "El USDA dejó al banco de alimentos con tres millones menos. Yo doné judías. Más les vale poner mi nombre en el puto edificio.",
-      "it": "L'USDA ha lasciato al banco alimentare un buco di tre milioni. Io ho donato fagioli. Sarà meglio che il mio nome sia su quel cazzo di edificio.",
-      "ar": "تركت وزارة الزراعة بنك الطعام بعجز ثلاثة ملايين. تبرعت بالفاصولياء. من الأفضل أن يضعوا اسمي على المبنى اللعين."
+      "en": "EPA removed lead from local yards. Trump proposed cutting its budget in half. I suppose the children could submit smaller sandboxes.",
+      "es": "La EPA eliminó el plomo de los patios locales. Trump propuso recortar su presupuesto a la mitad. Supongo que los niños podrían presentar areneros más pequeños.",
+      "it": "L'EPA ha rimosso il piombo dai giardini privati. L'amministrazione Trump ha proposto di tagliare il bilancio dell'EPA a metà. Immagino che i bambini potrebbero presentare sandbox più piccole.",
+      "ar": "قامت وكالة حماية البيئة بإزالة الرصاص من الحدائق المحلية. اقترح الرئيس ترامب خفض ميزانيتها إلى النصف. ربما يمكن للأطفال تقديم صناديق رمل أصغر."
+    },
+    "setup": {
+      "en": "At a Joplin neighborhood bench, a groundskeeper keeps muddy work boots away from your food.",
+      "es": "En un banco en un vecindario de Joplin, un jardinero mantiene las botas de trabajo embarradas lejos de su comida.",
+      "it": "Su una panchina in un quartiere di Joplin, un giardiniere tiene gli stivali da lavoro sporchi lontani dal vostro cibo.",
+      "ar": "على مقعد في حي في مدينة جوبلين، يحرص عامل صيانة الحدائق على إبعاد أحذيته الموحلة عن طعامك."
     }
   },
   {
     "town": "Springfield, MO",
     "text": {
-      "en": "In March 2025, Springfield’s Ozarks Food Harvest reported a $3 million food gap following Trump-era USDA cancellations.",
-      "es": "En marzo de 2025, Ozarks Food Harvest de Springfield informó de una brecha alimentaria de tres millones tras cancelaciones del USDA bajo Trump.",
-      "it": "Nel marzo 2025, Ozarks Food Harvest di Springfield segnalò un deficit alimentare di tre milioni dopo cancellazioni dell’USDA sotto Trump.",
-      "ar": "في مارس 2025، أعلنت أوزاركس فود هارفست في سبرينغفيلد فجوة غذائية بثلاثة ملايين بعد إلغاءات وزارة الزراعة في عهد ترامب."
+      "en": "In March 2025, Springfield’s Ozarks Food Harvest estimated that Trump’s USDA cancellations would remove $3 million in food that year; one-third of canceled orders were protein foods.",
+      "es": "En marzo de 2025, Ozarks Food Harvest de Springfield estimó que las cancelaciones del USDA de la administración de Trump eliminarían 3 millones de dólares en alimentos durante ese año; un tercio de los pedidos cancelados correspondían a productos proteicos.",
+      "it": "Nel marzo del 2025, Ozarks Food Harvest di Springfield ha stimato che le revoche del Dipartimento dell'Agricoltura (USDA) dell'amministrazione Trump avrebbero comportato la perdita di 3 milioni di dollari di cibo in quell'anno; un terzo delle ordinazioni cancellate riguardava alimenti proteici.",
+      "ar": "في شهر مارس عام 2025، قدرت منظمة \"أوزاركس للأغذية\" في سبرينغفيلد أن إلغاء وزارة الزراعة الأمريكية (تحت إدارة ترامب) سيؤدي إلى خسارة 3 ملايين دولار من الغذاء خلال ذلك العام؛ كان ثلث الطلبات الملغاة تتعلق بالأطعمة الغنية بالبروتين."
     },
     "source": "https://ozarksfoodharvest.org/media/federal-cuts-leave-funding-gap-usda-ozarks-food-harvest/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "reported funding gap",
     "supporting_sources": [],
     "comment": {
-      "en": "USDA canceled three million dollars in food. Washington’s contribution to the potluck is an empty tray labeled SAVINGS.",
-      "es": "El USDA canceló tres millones de dólares en comida. La aportación de Washington a la cena comunitaria es una bandeja vacía que dice AHORROS.",
-      "it": "L'USDA ha cancellato tre milioni di dollari di cibo. Il contributo di Washington alla cena condivisa è un vassoio vuoto con scritto RISPARMI.",
-      "ar": "ألغت وزارة الزراعة طعامًا بقيمة ثلاثة ملايين دولار. مساهمة واشنطن في العشاء المشترك صينية فارغة مكتوب عليها وفورات."
+      "en": "Trump’s USDA canceled three million dollars in food. A third was protein. The pantry has plenty of explanations, but nobody has found a recipe yet.",
+      "es": "El USDA de la administración de Trump canceló tres millones de dólares en alimentos. Un tercio eran productos proteicos. El almacén tiene muchas explicaciones, pero nadie ha encontrado una receta todavía.",
+      "it": "L'USDA dell'amministrazione Trump ha cancellato tre milioni di dollari di cibo. Un terzo era costituito da alimenti proteici. Il banco alimentare ha molte spiegazioni, ma nessuno ha ancora trovato una ricetta.",
+      "ar": "ألغت وزارة الزراعة الأمريكية (تحت إدارة ترامب) ثلاثة ملايين دولار من الغذاء. كان ثلث هذا المبلغ مخصصًا للأطعمة الغنية بالبروتين. لدى المتجر الكثير من التفسيرات، ولكن لم يتمكن أحد حتى الآن من إيجاد وصفة مناسبة."
+    },
+    "setup": {
+      "en": "At a Springfield food pantry bench, a delivery worker talks about missing federal orders.",
+      "es": "En un banco de un almacén de alimentos en Springfield, un repartidor habla sobre la falta de pedidos federales.",
+      "it": "Su una panchina di un banco alimentare a Springfield, un addetto alle consegne parla delle ordinazioni federali non evase.",
+      "ar": "في أحد المقاعد الموجودة أمام مخزن للأغذية في سبرينغفيلد، يتحدث عامل توصيل عن غياب الطلبات الفيدرالية."
     }
   },
   {
@@ -686,341 +848,443 @@
   {
     "town": "Spokane",
     "source": "https://my.spokanecity.org/news/releases/2025/09/23/proposed-resolution-outlines-city-of-spokanes-federal-priorities/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "Spokane’s September 2025 federal priorities called for restoring a $19.9 million Community Change Grant awarded to the city and Gonzaga, then rescinded by the Trump administration.",
-      "es": "Spokane pidió en septiembre de 2025 recuperar una subvención comunitaria de 19,9 millones de dólares concedida a la ciudad y a Gonzaga, y revocada por Trump.",
-      "it": "Nel settembre 2025 Spokane chiese di ripristinare un finanziamento comunitario di 19,9 milioni di dollari assegnato alla città e a Gonzaga, poi revocato dall’amministrazione Trump.",
-      "ar": "طالبت سبوكان في سبتمبر 2025 بإعادة منحة التغيير المجتمعي البالغة 19.9 مليون دولار، التي مُنحت للمدينة وغونزاغا ثم ألغتها إدارة ترامب."
+      "en": "In September 2025, Spokane reported that Trump’s administration rescinded a $19.9 million grant supporting planned heating, cooling and air-filter improvements for 300 low-income homes.",
+      "es": "En septiembre de 2025, Spokane informó que la administración de Trump revocó una subvención de 19.9 millones de dólares destinada a mejoras planificadas de calefacción, refrigeración y filtros de aire para 300 viviendas de bajos ingresos.",
+      "it": "Nel settembre del 2025, Spokane ha riferito che l'amministrazione Trump ha revocato un finanziamento di 19,9 milioni di dollari destinato a migliorare i sistemi di riscaldamento, raffreddamento e filtri dell'aria in 300 abitazioni a basso reddito.",
+      "ar": "في شهر سبتمبر من عام 2025، أفادت مدينة سبوكان أن إدارة ترامب ألغت منحة مالية بقيمة 19.9 مليون دولار كانت مخصصة لتحسين أنظمة التدفئة والتبريد وفلاتر الهواء في 300 منزل تابع لأسر ذات دخل منخفض."
     },
     "comment": {
-      "en": "Community Change was apparently too literal. They changed the community’s grant balance to zero.",
-      "es": "Cambio Comunitario resultó demasiado literal: cambiaron el saldo de la subvención a cero.",
-      "it": "Cambiamento comunitario era fin troppo letterale: hanno cambiato il saldo del finanziamento in zero.",
-      "ar": "أخذوا «التغيير المجتمعي» بحرفيته: غيّروا رصيد منحة المجتمع إلى صفر."
+      "en": "Trump’s administration rescinded the home-cooling grant. The heat kept its funding. I am applying to become a federally recognized breeze.",
+      "es": "La administración de Trump revocó la subvención para el sistema de refrigeración de las viviendas. El presupuesto para calefacción se mantuvo. Estoy solicitando ser reconocido oficialmente como una brisa a nivel federal.",
+      "it": "L'amministrazione Trump ha revocato il finanziamento per il raffreddamento delle abitazioni. I fondi per il riscaldamento sono stati mantenuti. Sto facendo domanda per diventare ufficialmente riconosciuto come una brezza.",
+      "ar": "ألغت إدارة ترامب منحة تمويل أنظمة التبريد للمنازل. في المقابل، تم الحفاظ على تمويل أنظمة التدفئة. أتقدم بطلب للتعرف رسميًا على \"نسيم\" من قبل الحكومة الفيدرالية."
+    },
+    "setup": {
+      "en": "At a Spokane shaded bus stop, a renter uses a folded paper as a fan.",
+      "es": "En una parada de autobús en Spokane, protegida por la sombra, un inquilino utiliza un papel doblado como abanico.",
+      "it": "A una fermata dell'autobus all'ombra a Spokane, un inquilino usa un foglio di carta piegato come ventaglio.",
+      "ar": "في محطة حافلات مظللة في مدينة سبوكان، يستخدم أحد المستأجرين قطعة ورق مطوية كمروحة."
     }
   },
   {
     "town": "Missoula",
     "source": "https://www.umt.edu/sponsored-programs/exec-orders/funding-freeze.php",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "The University of Montana told researchers on January 29, 2025 that the blanket federal funding-freeze memo was rescinded, while other executive-order reviews and agency pauses remained.",
-      "es": "La Universidad de Montana comunicó el 29 de enero de 2025 que se había retirado la congelación general, pero seguían otras revisiones por decretos y pausas de agencias.",
-      "it": "Il 29 gennaio 2025 l’Università del Montana comunicò la revoca del blocco generale dei fondi, mentre restavano altre revisioni per decreti e pause delle agenzie.",
-      "ar": "أبلغت جامعة مونتانا الباحثين في 29 يناير 2025 بإلغاء مذكرة التجميد الشامل، مع استمرار مراجعات أوامر تنفيذية أخرى وتوقفات لدى الوكالات."
+      "en": "On January 29, 2025, the University of Montana reported that Trump’s blanket federal funding freeze had been rescinded, while other reviews and communication pauses remained.",
+      "es": "El 29 de enero de 2025, la Universidad de Montana informó que la congelación general de fondos federales de Trump había sido revocada, aunque otras evaluaciones y suspensiones de comunicación seguían vigentes.",
+      "it": "Il 29 gennaio 2025, l'Università del Montana ha comunicato che il blocco generale sui finanziamenti federali di Trump era stato revocato, sebbene rimanessero in vigore altre revisioni e sospensioni delle comunicazioni.",
+      "ar": "في 29 يناير 2025، أعلنت جامعة مونتانا أن قرار الرئيس ترامب بتجميد التمويل الفيدرالي بشكل عام قد تم إلغاؤه، بينما استمرت بعض المراجعات وتعليق بعض الاتصالات."
     },
     "comment": {
-      "en": "The freeze thawed, except for the frozen parts. Our political science department has reclassified this as a weather event.",
-      "es": "La congelación se descongeló, salvo las partes congeladas. Ciencias Políticas la ha reclasificado como fenómeno meteorológico.",
-      "it": "Il blocco si è scongelato, tranne le parti congelate. Scienze politiche lo ha riclassificato come fenomeno meteorologico.",
-      "ar": "ذاب التجميد، باستثناء الأجزاء المتجمدة. قسم العلوم السياسية أعاد تصنيفه ظاهرة جوية."
+      "en": "Trump withdrew the blanket funding freeze. Other reviews stayed. The fridge is open, the food is still locked up, and everyone applauds the thaw.",
+      "es": "Trump revocó la congelación general de fondos. Otras evaluaciones permanecieron vigentes. La nevera está abierta, la comida sigue bloqueada y todos aplauden el deshielo.",
+      "it": "Trump ha ritirato il blocco sui finanziamenti. Altre revisioni sono rimaste in vigore. Il frigorifero è aperto, il cibo è ancora chiuso, e tutti applaudono questo allentamento.",
+      "ar": "قام ترامب بسحب قرار التجميد بشكل عام. استمرت بعض المراجعات. الثلاجة مفتوحة، والطعام لا يزال مقيدًا، والجميع يهتفون لـ \"ذوبان الجليد\"."
+    },
+    "setup": {
+      "en": "At a Missoula coffee counter, a university cleaner waits with a folded shift schedule.",
+      "es": "En un mostrador de café en Missoula, una limpiadora de la universidad espera con un horario de turno doblado.",
+      "it": "Ad un bar del caffè di Missoula, un addetto alle pulizie dell'università aspetta con un orario di lavoro piegato.",
+      "ar": "في كاونتر مقهى في مدينة ميسولا، تنتظر عاملة معمل مع جدول العمل مطوي."
     }
   },
   {
     "town": "Billings",
     "source": "https://dphhs.mt.gov/News/2026/May/USDA-Approves-Gov-Junk-Food-Ban-SNAP",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "In May 2026, Trump’s USDA approved Montana’s waiver to restrict soda, candy and certain other foods under SNAP, affecting the rules for shoppers across the state.",
-      "es": "En mayo de 2026, el USDA de Trump aprobó restricciones de Montana sobre refrescos, dulces y otros alimentos de SNAP, cambiando las reglas para compradores de todo el estado.",
-      "it": "Nel maggio 2026 l’USDA di Trump approvò restrizioni del Montana su bibite, dolci e altri alimenti acquistabili con SNAP, modificando le regole per i beneficiari nello stato.",
-      "ar": "في مايو 2026 وافقت وزارة الزراعة في عهد ترامب على قيود مونتانا على المشروبات الغازية والحلوى وأطعمة أخرى ضمن SNAP، بما يغيّر قواعد التسوق في الولاية."
+      "en": "In May 2026, Montana announced federal approval for SNAP restrictions covering candy and prepared desserts while protecting protein bars and fresh baked goods.",
+      "es": "En mayo de 2026, Montana anunció la aprobación federal para restricciones en los beneficios de SNAP que cubren dulces y postres preparados, al tiempo que protege las barras de proteínas y los productos horneados frescos.",
+      "it": "Nel maggio 2026, il Montana ha annunciato l'approvazione federale per restrizioni su prodotti come caramelle e dolci confezionati, pur mantenendo invariate le barrette proteiche e i prodotti da forno freschi.",
+      "ar": "في مايو 2026، أعلنت ولاية مونتانا عن موافقة فيدرالية على فرض قيود على برنامج \"سناب\" (SNAP) تغطي الحلوى والحلويات المصنعة، مع الحفاظ على البار البروتيني والمخبوزات الطازجة."
     },
     "comment": {
-      "en": "Small government has reached the checkout. Please ask the federal cashier whether your granola bar is a moral failure.",
-      "es": "El gobierno mínimo llegó a la caja. Pregunte al cajero federal si su barrita de cereales es un fracaso moral.",
-      "it": "Il governo minimo è arrivato alla cassa. Chiedete al cassiere federale se la vostra barretta è un fallimento morale.",
-      "ar": "وصلت الحكومة الصغيرة إلى صندوق الدفع. اسأل المحاسب الفيدرالي إن كانت حبة الحبوب المغلفة فشلاً أخلاقياً."
+      "en": "“USDA approved Montana’s food ban, with exceptions for protein bars and fresh baked goods. Hunger is simple. Your snack now needs a classification hearing.”",
+      "es": "“El USDA aprobó la prohibición de alimentos de Montana, con excepciones para las barras de proteínas y los productos horneados frescos. El hambre es simple. Ahora su merienda necesita una audiencia de clasificación.”",
+      "it": "\"Il Dipartimento dell'Agricoltura degli Stati Uniti ha approvato il divieto alimentare del Montana, con eccezioni per le barrette proteiche e i prodotti da forno freschi. La fame è una cosa semplice. Ora, anche il vostro snack necessita di un'udienza di classificazione.\"",
+      "ar": "\"وافقت وزارة الزراعة الأمريكية (USDA) على حظر الأغذية في ولاية مونتانا، مع استثناءات للبار البروتيني والمخبوزات الطازجة. الجوع أمر بسيط. الآن، تحتاج وجبة خفيفة إلى جلسة تصنيف.\""
+    },
+    "setup": {
+      "en": "At a Billings supermarket, a shelf stocker compares a protein bar with a pastry beside the travelers.",
+      "es": "En un supermercado en Billings, un empleado que repone estantes compara una barra de proteínas con un pastel, junto a algunos viajeros.",
+      "it": "In un supermercato di Billings, un addetto al rifornimento di scaffali confronta una barretta proteica con una pasticceria, vicino ai viaggiatori.",
+      "ar": "في أحد محلات السوبر ماركت في بيلينغز، يقارن عامل إعادة تخزين الرفوف بين قطعة من البار البروتيني ومعجنات، وذلك بجانب المسافرين."
     }
   },
   {
     "town": "Rapid City",
     "source": "https://www.nps.gov/badl/planyourvisit/fees.htm",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "Nearby Badlands National Park lists June 14 as a 2026 fee-free day for eligible visitors, explicitly labeled Flag Day and President Trump’s birthday.",
-      "es": "El cercano Parque Nacional Badlands incluye el 14 de junio como día gratuito de 2026 para visitantes elegibles: Día de la Bandera y cumpleaños de Trump.",
-      "it": "Il vicino parco nazionale delle Badlands indica il 14 giugno tra le giornate gratuite del 2026 per i visitatori aventi diritto: Festa della bandiera e compleanno di Trump.",
-      "ar": "تدرج حديقة بادلاندز القريبة يوم 14 يونيو ضمن أيام الإعفاء من الرسوم لعام 2026 للزوار المؤهلين، بعنوان يوم العلم وعيد ميلاد الرئيس ترامب."
+      "en": "Nearby Badlands National Park’s 2026 fee-free schedule includes June 14, described as Flag Day and President Trump’s birthday, for US citizens and residents.",
+      "es": "El calendario de acceso gratuito para el Parque Nacional Badlands en 2026 incluye el 14 de junio, descrito como el Día de la Bandera y el cumpleaños del presidente Trump, para ciudadanos y residentes de los Estados Unidos.",
+      "it": "Il calendario 2026, che prevede l'ingresso gratuito in diversi giorni, per il Badlands National Park nelle vicinanze, include il 14 giugno, descritto come la Festa della Bandiera e il compleanno del Presidente Trump, per cittadini e residenti statunitensi.",
+      "ar": "تشمل الخطة المجانية لرسوم دخول منتزه بادلاندز الوطني لعام 2026، تاريخ 14 يونيو، والذي يوافق يوم العلم وعيد ميلاد الرئيس ترامب، وذلك للمواطنين والمقيمين في الولايات المتحدة."
     },
     "comment": {
-      "en": "Millions of years of erosion, finally organized around one man’s birthday. The rocks are awaiting instructions on the cake.",
-      "es": "Millones de años de erosión, por fin organizados en torno al cumpleaños de un hombre. Las rocas esperan instrucciones sobre la tarta.",
-      "it": "Milioni di anni di erosione, finalmente organizzati attorno al compleanno di un uomo. Le rocce aspettano istruzioni sulla torta.",
-      "ar": "ملايين السنين من التعرية نُظمت أخيراً حول عيد ميلاد رجل واحد. الصخور تنتظر تعليمات الكعكة."
+      "en": "Trump made his birthday a free park day. I tried celebrating mine at the gate. Apparently the birthday discount requires executive experience.",
+      "es": "El presidente Trump designó su cumpleaños como un día de acceso gratuito a los parques. Intenté celebrar mi cumpleaños en la entrada, pero aparentemente el descuento por cumpleaños requiere experiencia ejecutiva.",
+      "it": "Il Presidente Trump ha reso il suo compleanno un giorno di ingresso gratuito nei parchi. Ho provato a festeggiare il mio all'ingresso. A quanto pare, lo sconto per il compleanno richiede esperienza dirigenziale.",
+      "ar": "جعل الرئيس ترامب عيد ميلاده يومًا مجانيًا لدخول المنتزه. حاولت الاحتفال بيوم ميلادي عند البوابة، ولكن يبدو أن الخصم الخاص بعيد الميلاد يتطلب خبرة إدارية."
+    },
+    "setup": {
+      "en": "At a Rapid City campground table, a cleaner compares park dates with your route.",
+      "es": "En una mesa de un camping en Rapid City, un empleado de limpieza compara las fechas de apertura del parque con su ruta.",
+      "it": "A un tavolo in un campeggio a Rapid City, un addetto alle pulizie confronta le date di apertura del parco con il vostro itinerario.",
+      "ar": "في طاولة أحد مواقع التخييم في مدينة رابيد سيتي، يقوم عامل نظافة بمقارنة تواريخ زيارة المنتزه بمسارك."
     }
   },
   {
     "town": "Sioux Falls",
     "source": "https://www.kotatv.com/2025/07/31/feeding-south-dakota-asks-south-dakota-lawmakers-3m-due-federal-cuts/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "reported",
     "supporting_sources": [],
     "text": {
-      "en": "Feeding South Dakota asked state lawmakers for $3 million in July 2025 after federal USDA cuts reduced its expected food supply by 1.5 million pounds annually.",
-      "es": "Feeding South Dakota pidió tres millones de dólares a legisladores estatales en julio de 2025 tras perder 1,5 millones de libras anuales de alimentos por recortes federales del USDA.",
-      "it": "Nel luglio 2025 Feeding South Dakota chiese tre milioni di dollari allo stato dopo che i tagli federali USDA avevano ridotto di 1,5 milioni di libbre le forniture alimentari annue previste.",
-      "ar": "طلبت Feeding South Dakota ثلاثة ملايين دولار من مشرعي الولاية في يوليو 2025 بعدما خفضت اقتطاعات وزارة الزراعة الفيدرالية الغذاء المتوقع بمقدار 1.5 مليون رطل سنوياً."
+      "en": "In July 2025, Feeding South Dakota asked state lawmakers for $3 million after Trump-era federal cuts reduced its food supply across the state.",
+      "es": "En julio de 2025, Feeding South Dakota solicitó a los legisladores estatales 3 millones de dólares después de que los recortes federales de la era Trump redujeran su suministro de alimentos en todo el estado.",
+      "it": "Nel luglio 2025, Feeding South Dakota ha chiesto ai legislatori statali 3 milioni di dollari, a seguito dei tagli ai finanziamenti federali dell'era Trump, che avevano ridotto l'approvvigionamento alimentare in tutto lo stato.",
+      "ar": "في يوليو 2025، طلبت منظمة \"فيدينغ ساوث داكوتا\" (Feeding South Dakota) من المشرعين في الولاية ثلاثة ملايين دولار، وذلك بعد أن أدت التخفيضات الفيدرالية في عهد الرئيس ترامب إلى تقليل كمية الغذاء المتاحة في جميع أنحاء الولاية."
     },
     "comment": {
-      "en": "Trump’s efficiency drive found the waste: food that was about to be eaten. We are appealing on behalf of lunch.",
-      "es": "La eficiencia de Trump encontró el despilfarro: comida a punto de comerse. Apelamos en nombre del almuerzo.",
-      "it": "L’efficienza di Trump ha trovato lo spreco: cibo che stava per essere mangiato. Facciamo ricorso a nome del pranzo.",
-      "ar": "حملة كفاءة ترامب وجدت الهدر: طعام كان سيُؤكل. نحن نستأنف الحكم نيابة عن الغداء."
+      "en": "Federal cuts left Feeding South Dakota asking legislators for three million. Hunger now needs a committee hearing. It has prepared some very brief stomach remarks.",
+      "es": "Los recortes federales dejaron a Feeding South Dakota solicitando a los legisladores estatales 3 millones de dólares. Ahora el hambre necesita una audiencia en el comité. Ha preparado algunos comentarios muy breves sobre el estómago.",
+      "it": "I tagli ai finanziamenti federali hanno portato Feeding South Dakota a chiedere ai legislatori 3 milioni di dollari. Ora la fame necessita di un'audizione in commissione. Ha preparato alcuni brevi discorsi, direttamente dal suo stomaco.",
+      "ar": "أدت التخفيضات الفيدرالية إلى قيام منظمة \"فيدينغ ساوث داكوتا\" بطلب ثلاثة ملايين دولار من المشرعين. الآن، يحتاج الجوع إلى جلسة استماع في اللجنة. لقد أعد بعض الملاحظات الموجزة جدًا حول المعدة."
+    },
+    "setup": {
+      "en": "At a Sioux Falls food pantry’s public bench, a delivery worker talks about the funding gap.",
+      "es": "En un banco público de un banco de alimentos en Sioux Falls, un repartidor habla sobre la brecha de financiación.",
+      "it": "Su una panchina pubblica presso un banco alimentare a Sioux Falls, un addetto alle consegne parla della carenza di finanziamenti.",
+      "ar": "في أحد المقاعد العامة في أحد مراكز توزيع المواد الغذائية في مدينة سيوكس فولز، يتحدث عامل توصيل عن الفجوة في التمويل."
     }
   },
   {
     "town": "Boise",
     "source": "https://www.boisestate.edu/research-osp/2025/01/30/federal-funding-update-january-30-2025/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "After the Trump funding-freeze memo was withdrawn in January 2025, Boise State still had to identify research awards at risk under the administration’s other executive orders.",
-      "es": "Tras retirarse la congelación de Trump en enero de 2025, Boise State aún debía identificar subvenciones de investigación amenazadas por los demás decretos de la administración.",
-      "it": "Revocato il blocco dei fondi di Trump nel gennaio 2025, Boise State doveva ancora individuare i finanziamenti alla ricerca a rischio per gli altri decreti dell’amministrazione.",
-      "ar": "بعد سحب مذكرة تجميد تمويل ترامب في يناير 2025، ظلت جامعة بويزي مطالبة بتحديد المنح البحثية المهددة بأوامر الإدارة التنفيذية الأخرى."
+      "en": "On January 30, 2025, Boise State said the Trump administration’s funding-freeze memo was withdrawn, while other executive orders still required reviews of affected awards.",
+      "es": "El 30 de enero de 2025, Boise State anunció que la directiva de congelación de fondos de la administración Trump había sido revocada, aunque otras órdenes ejecutivas aún requerían revisiones de las subvenciones afectadas.",
+      "it": "Il 30 gennaio 2025, Boise State ha dichiarato che il memorandum del governo Trump che aveva sospeso i finanziamenti era stato ritirato, mentre altre direttive esecutive richiedevano ancora la revisione dei finanziamenti interessati.",
+      "ar": "في 30 يناير 2025، ذكرت جامعة بويز ستايت أن مذكرة \"ترامب\" الخاصة بتجميد التمويل قد تم سحبها، بينما لا تزال أوامر تنفيذية أخرى تتطلب مراجعة المكافآت المتأثرة."
     },
     "comment": {
-      "en": "My experiment now has two control groups: the one in the lab and the one refreshing the White House website.",
-      "es": "Mi experimento tiene dos grupos de control: uno en el laboratorio y otro actualizando la web de la Casa Blanca.",
-      "it": "Il mio esperimento ha due gruppi di controllo: quello in laboratorio e quello che aggiorna il sito della Casa Bianca.",
-      "ar": "صار لتجربتي مجموعتا ضبط: واحدة في المختبر وأخرى تحدّث موقع البيت الأبيض باستمرار."
+      "en": "“Trump’s funding freeze was withdrawn, but the other orders still needed checking. Washington canceled the padlock and left the chain.”",
+      "es": "“La congelación de fondos de Trump fue revocada, pero las otras órdenes aún necesitaban ser revisadas. Washington quitó el candado, pero dejó la cadena.”",
+      "it": "\"La sospensione dei finanziamenti di Trump è stata ritirata, ma le altre direttive necessitavano ancora di verifiche. Washington ha tolto il lucchetto, ma ha lasciato la catena.\"",
+      "ar": "\"تم سحب تجميد التمويل الخاص بـ\"ترامب\"، ولكن لا تزال الأوامر الأخرى بحاجة إلى التحقق. ألغت واشنطن القفل، لكنها تركت السلسلة.\""
+    },
+    "setup": {
+      "en": "At a Boise laundromat, a university mailroom worker reads an old funding update beside the travelers.",
+      "es": "En una lavandería en Boise, una empleada del departamento de correo de una universidad lee una actualización antigua sobre financiamiento, junto a algunos viajeros.",
+      "it": "In una lavanderia di Boise, un dipendente dell'ufficio postale universitario legge un vecchio aggiornamento sui finanziamenti, vicino ai viaggiatori.",
+      "ar": "في أحد المغاسل في بويز، يقرأ موظف في قسم البريد في الجامعة تحديثًا قديمًا عن التمويل، وذلك بجانب المسافرين."
     }
   },
   {
     "town": "Salt Lake City",
     "source": "https://www.research.utah.edu/features/u-research-leaders-keep-doing-the-science/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "estimated",
     "supporting_sources": [],
     "text": {
-      "en": "University of Utah leaders estimated in February 2025 that Trump’s proposed NIH overhead cap would cut roughly $45 million from annual research revenue; the policy faced court challenges.",
-      "es": "La Universidad de Utah estimó en febrero de 2025 que el tope de gastos indirectos del NIH propuesto por Trump restaría unos 45 millones de dólares anuales; hubo impugnaciones judiciales.",
-      "it": "Nel febbraio 2025 l’Università dello Utah stimò che il tetto ai costi indiretti NIH proposto da Trump avrebbe tolto circa 45 milioni di dollari annui; la misura fu contestata in tribunale.",
-      "ar": "قدّرت جامعة يوتا في فبراير 2025 أن سقف النفقات غير المباشرة المقترح من NIH في عهد ترامب سيخفض إيرادات البحث بنحو 45 مليون دولار سنوياً؛ وواجهت السياسة طعوناً قضائية."
+      "en": "In 2025, University of Utah research leaders estimated that Trump’s proposed NIH reimbursement reduction would cut university research revenue by about $45 million.",
+      "es": "En 2025, los líderes de investigación de la Universidad de Utah estimaron que la propuesta de reducción del reembolso del NIH de Trump reduciría los ingresos por investigación de la universidad en aproximadamente 45 millones de dólares.",
+      "it": "Nel 2025, i dirigenti della ricerca dell'Università dello Utah hanno stimato che la riduzione proposta da Trump per i rimborsi del National Institutes of Health (NIH) avrebbe ridotto le entrate derivanti dalla ricerca universitaria di circa 45 milioni di dollari.",
+      "ar": "في عام 2025، قدرت قيادات الأبحاث في جامعة ولاية يوتا، أن تخفيضات الرئيس ترامب المقترحة في تعويضات المعهد الوطني للصحة (NIH)، ستؤدي إلى تقليل إيرادات الأبحاث في الجامعة بمبلغ يقدر بحوالي 45 مليون دولار."
     },
     "comment": {
-      "en": "The proposal funds the experiment but not the building. Please conduct your breakthrough somewhere with naturally occurring electrical outlets.",
-      "es": "La propuesta paga el experimento, pero no el edificio. Haga su descubrimiento donde los enchufes crezcan naturalmente.",
-      "it": "La proposta finanzia l’esperimento ma non l’edificio. Fate la vostra scoperta dove le prese elettriche crescono spontanee.",
-      "ar": "المقترح يمول التجربة دون المبنى. يُرجى تحقيق اكتشافكم في مكان تنمو فيه مقابس الكهرباء طبيعياً."
+      "en": "Trump’s NIH proposal threatened forty-five million in research revenue. Apparently the cure should cover its own rent. Has anyone tried asking the disease for a deposit?",
+      "es": "La propuesta del NIH de Trump amenazaba con reducir los ingresos por investigación en 45 millones de dólares. Aparentemente, la cura debe pagar su propio alquiler. ¿Alguien ha intentado pedirle un depósito a la enfermedad?",
+      "it": "La proposta del Presidente Trump riguardante il NIH minacciava 45 milioni di dollari di entrate derivanti dalla ricerca. A quanto pare, la cura dovrebbe coprire le proprie spese. Qualcuno ha provato a chiedere un deposito alla malattia stessa?",
+      "ar": "كانت مقترحات الرئيس ترامب للمعهد الوطني للصحة تهدد بمبلغ 45 مليون دولار من إيرادات الأبحاث. يبدو أن العلاج يجب أن يتحمل تكاليفه الخاصة. هل حاول أحد أن يسأل المرض عن دفعة؟"
+    },
+    "setup": {
+      "en": "At a Salt Lake City campus café patio, a lab cleaner waits for a bus.",
+      "es": "En el patio de un café en el campus de Salt Lake City, un empleado de limpieza de los laboratorios espera un autobús.",
+      "it": "A un caffè all'aperto in un campus a Salt Lake City, un addetto alle pulizie del laboratorio aspetta un autobus.",
+      "ar": "في فناء أحد المقاهي التابعة لجامعة مدينة بحيرة الملح، ينتظر عامل نظافة المختبرات حافلة."
     }
   },
   {
     "town": "Reno",
     "source": "https://www.unr.edu/nevada-today/news/president-messages/2025-02-11-update-nih-funding",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "estimated",
     "supporting_sources": [],
     "text": {
-      "en": "UNR estimated in February 2025 that the Trump-era NIH overhead proposal threatened over $4 million annually. Its president also noted a judge had temporarily blocked the change.",
-      "es": "La UNR estimó en febrero de 2025 que la propuesta de gastos indirectos del NIH amenazaba más de cuatro millones de dólares anuales. Su presidente señaló un bloqueo judicial temporal.",
-      "it": "Nel febbraio 2025 la UNR stimò oltre quattro milioni di dollari annui a rischio per la proposta NIH dell’era Trump. Il rettore segnalò anche un blocco giudiziario temporaneo.",
-      "ar": "قدّرت جامعة نيفادا برينو في فبراير 2025 أن مقترح NIH في عهد ترامب هدد أكثر من أربعة ملايين دولار سنوياً. وأشار رئيسها أيضاً إلى وقف قضائي مؤقت للتغيير."
+      "en": "In February 2025, the University of Nevada, Reno said Trump’s announced research-cost cap threatened over $4 million annually; a court had temporarily blocked it.",
+      "es": "En febrero de 2025, la Universidad de Nevada, Reno, afirmó que el límite de costos de investigación anunciado por Trump amenazaba con reducir en más de 4 millones de dólares anuales; un tribunal había bloqueado temporalmente esta medida.",
+      "it": "Nel febbraio 2025, l'Università del Nevada, Reno, ha dichiarato che i limiti ai costi di ricerca annunciati da Trump minacciavano oltre 4 milioni di dollari all'anno; un tribunale aveva temporaneamente bloccato tale decisione.",
+      "ar": "في فبراير 2025، ذكرت جامعة ولاية نيفادا، رينو، أن القيود التي أعلن عنها الرئيس ترامب على تكاليف الأبحاث، تهدد بمبلغ يزيد عن 4 ملايين دولار سنويًا؛ وقد أصدرت المحكمة قرارًا مؤقتًا بمنع ذلك."
     },
     "comment": {
-      "en": "The lab’s new funding model is roulette. At least the casino publishes the odds before taking your equipment money.",
-      "es": "El nuevo modelo de financiación del laboratorio es la ruleta. Al menos el casino publica las probabilidades antes de llevarse el dinero del equipo.",
-      "it": "Il nuovo finanziamento del laboratorio è la roulette. Almeno il casinò pubblica le probabilità prima di prendere i soldi per le attrezzature.",
-      "ar": "نموذج تمويل المختبر الجديد هو الروليت. الكازينو على الأقل يعلن الاحتمالات قبل أخذ مال المعدات."
+      "en": "Trump proposed capping the money that keeps labs running. Courts paused it. My lunch now has two protections: this cooler and the separation of powers.",
+      "es": "Trump propuso limitar la cantidad de dinero destinada a mantener funcionando los laboratorios. Los tribunales suspendieron esta medida. Ahora mi almuerzo tiene dos protecciones: este enfriador y la separación de poderes.",
+      "it": "Trump aveva proposto di limitare i fondi destinati al funzionamento dei laboratori. I tribunali hanno sospeso tale decisione. Il mio pranzo ora ha due protezioni: questa borsa frigo e la separazione dei poteri.",
+      "ar": "اقترح الرئيس ترامب وضع حد أقصى للمبالغ المخصصة لتشغيل المختبرات. وقد أوقفت المحاكم هذا الإجراء. الآن، يتم حماية غدائي بطريقتين: هذا الصندوق، وفصل السلطات."
+    },
+    "setup": {
+      "en": "At a Reno campus picnic table, a technician shifts a lunch cooler into the shade.",
+      "es": "En una mesa de picnic en el campus de Reno, un técnico mueve un enfriador de comida a la sombra.",
+      "it": "A un tavolo da picnic in un campus a Reno, un tecnico sposta una borsa frigo all'ombra.",
+      "ar": "في طاولة أحد مواقع الترفيه في جامعة رينو، يقوم فني بتحريك صندوق غداء إلى منطقة الظل."
     }
   },
   {
     "town": "Cheyenne",
     "source": "https://sos.wyo.gov/Media/2025/SoS_Release_2025-07-09.pdf",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "In Cheyenne, Wyoming’s secretary of state publicly praised Trump’s July 2025 executive order aimed at ending federal subsidies for wind and solar energy.",
-      "es": "En Cheyenne, el secretario de Estado de Wyoming elogió públicamente el decreto de Trump de julio de 2025 destinado a terminar las ayudas federales a la energía eólica y solar.",
-      "it": "A Cheyenne, il segretario di stato del Wyoming elogiò il decreto di Trump del luglio 2025 volto a porre fine ai sussidi federali per eolico e solare.",
-      "ar": "في شايان، أشاد أمين ولاية وايومنغ علناً بأمر ترامب التنفيذي في يوليو 2025 الهادف لإنهاء الدعم الفيدرالي لطاقة الرياح والشمس."
+      "en": "In July 2025, Wyoming Secretary of State Chuck Gray praised Trump’s order ending wind and solar subsidies while championing coal, oil and gas.",
+      "es": "En julio de 2025, el Secretario de Estado de Wyoming, Chuck Gray, elogió la orden de Trump que eliminaba las subvenciones para la energía eólica y solar, al tiempo que promovía el carbón, el petróleo y el gas.",
+      "it": "Nel luglio 2025, il Segretario di Stato del Wyoming, Chuck Gray, ha elogiato l'ordine di Trump che aveva interrotto i sussidi per l'energia eolica e solare, promuovendo al contempo il carbone, il petrolio e il gas.",
+      "ar": "في يوليو 2025، أشاد \"تشاك غراي\"، سكرتير ولاية وايومنغ، بأمر \"ترامب\" الذي أنهى الدعم المالي لطاقة الرياح والطاقة الشمسية، مع التركيز على الفحم والنفط والغاز."
     },
     "comment": {
-      "en": "We finally found a way to oppose both wind and sunshine. Wyoming’s weather has been referred to the loyalty committee.",
-      "es": "Por fin logramos oponernos al viento y al sol. El clima de Wyoming comparecerá ante el comité de lealtad.",
-      "it": "Finalmente ci opponiamo sia al vento sia al sole. Il meteo del Wyoming è stato deferito al comitato di lealtà.",
-      "ar": "وجدنا أخيراً طريقة لمعارضة الرياح والشمس معاً. أُحيل طقس وايومنغ إلى لجنة الولاء."
+      "en": "“Gray cheered Trump for ending wind and solar subsidies, then cheered coal and oil. A free market, with the secretary of state holding the scorecards.”",
+      "es": "“Gray aplaudió a Trump por eliminar las subvenciones para la energía eólica y solar, y luego aplaudió el carbón y el petróleo. Un mercado libre, con el Secretario de Estado llevando las calificaciones.”",
+      "it": "\"Gray ha esultato per la decisione di Trump di interrompere i sussidi per l'energia eolica e solare, per poi esultare per il carbone e il petrolio. Un libero mercato, con il Segretario di Stato che tiene i conteggi.\"",
+      "ar": "\"أشاد \"غراي\" بـ\"ترامب\" لإنهاء الدعم المالي لطاقة الرياح والطاقة الشمسية، ثم أشاد بالفحم والنفط. سوق حر، مع سكرتير الولاية الذي يحتفظ بقوائم التقييم.\""
+    },
+    "setup": {
+      "en": "At a Cheyenne hardware store, a roofer discusses a state press release with the travelers.",
+      "es": "En una ferretería en Cheyenne, un techador discute un comunicado de prensa estatal con los viajeros.",
+      "it": "In un negozio di ferramenta a Cheyenne, un operaio edile discute di un comunicato stampa statale con i viaggiatori.",
+      "ar": "في أحد متاجر الأدوات في شايان، يناقش عامل تركيب الأسقف بيانًا صحفيًا للولاية مع المسافرين."
     }
   },
   {
     "town": "Las Vegas",
     "source": "https://apnews.com/article/fbcb23cacef7c54f4ecaac0a43ba0703",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "reported",
     "supporting_sources": [],
     "text": {
-      "en": "In 2025, Las Vegas officials linked falling tourism partly to Trump’s tariffs and immigration policies; other economic pressures also mattered.",
-      "es": "En 2025, autoridades de Las Vegas vincularon parte de la caída turística a los aranceles y políticas migratorias de Trump; también influyeron factores económicos.",
-      "it": "Nel 2025 autorità di Las Vegas collegarono parte del calo turistico ai dazi e alle politiche migratorie di Trump, oltre ad altre pressioni economiche.",
-      "ar": "في 2025 ربط مسؤولون في لاس فيغاس تراجع السياحة جزئياً برسوم ترامب وسياساته للهجرة، إلى جانب ضغوط اقتصادية أخرى."
+      "en": "Las Vegas visitation fell 11% year over year in June 2025. Some officials cited Trump’s tariffs and immigration policies among possible causes; no single cause was established.",
+      "es": "La afluencia de visitantes a Las Vegas disminuyó un 11% en comparación con el mismo mes del año anterior en junio de 2025. Algunos funcionarios mencionaron los aranceles y las políticas de inmigración de Trump como posibles causas, aunque no se estableció una causa única.",
+      "it": "A Las Vegas, le visite sono diminuite dell'11% rispetto all'anno precedente a giugno del 2025. Alcuni funzionari hanno indicato tra le possibili cause le tariffe di Trump e le sue politiche sull'immigrazione, ma non è stata individuata una causa specifica.",
+      "ar": "انخفضت أعداد الزوار إلى لاس فيغاس بنسبة 11٪ مقارنة بالعام السابق في شهر يونيو 2025. ذكر بعض المسؤولين أن تعريفات ترامب وسياساته المتعلقة بالهجرة كانت من بين الأسباب المحتملة، ولكن لم يتم تحديد سبب واحد بشكل قاطع."
     },
     "comment": {
-      "en": "The house always wins. Unless the house insults the Canadians until they stop booking rooms.",
-      "es": "La casa siempre gana. Salvo si insulta a los canadienses hasta que dejan de reservar habitaciones.",
-      "it": "Il banco vince sempre. Tranne quando insulta i canadesi finché smettono di prenotare camere.",
-      "ar": "الكازينو يفوز دائماً. إلا إذا أهان الكنديين حتى توقفوا عن حجز الغرف."
+      "en": "Trump wanted fewer foreigners coming in. Some tourists took the hint. My landlord has declined to accept a stronger border instead of rent.",
+      "es": "Trump deseaba que entraran menos extranjeros. Algunos turistas captaron la indirecta. Mi casero se ha negado a aceptar una política migratoria más estricta en lugar de un aumento del alquiler.",
+      "it": "Trump desiderava che ci fossero meno stranieri. Alcuni turisti hanno colto il messaggio. Il mio proprietario si è rifiutato di accettare un rafforzamento delle frontiere invece dell'affitto.",
+      "ar": "أراد ترامب تقليل عدد الأجانب القادمين. فهم بعض السياح الإشارة إلى ذلك. رفض مالكي العقارات قبول تعزيز الحدود بدلاً من زيادة الإيجارات."
+    },
+    "setup": {
+      "en": "At a Las Vegas bus stop, a hotel housekeeper watches an almost empty airport shuttle pass.",
+      "es": "En una parada de autobús en Las Vegas, una empleada de hotel observa pasar un autobús del aeropuerto casi vacío.",
+      "it": "Ad una fermata dell'autobus a Las Vegas, una donna delle pulizie d'albergo osserva il passaggio di uno shuttle aeroportuale quasi vuoto.",
+      "ar": "في محطة الحافلات في مدينة لاس فيغاس، تراقب عاملة فندق مرور حافلة مطار شبه فارغة."
     }
   },
   {
     "town": "Flagstaff",
     "source": "https://www.kjzz.org/text/the-show/2025-06-18/trump-proposal-would-almost-completely-cut-funds-for-grand-canyon-monitoring-and-research-center",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "proposed",
     "supporting_sources": [],
     "text": {
-      "en": "A June 2025 KJZZ interview warned that Trump’s proposed USGS cuts could close Flagstaff’s Grand Canyon Monitoring and Research Center. This was a proposal, not a reported closure.",
-      "es": "Una entrevista de KJZZ de junio de 2025 advirtió que los recortes propuestos por Trump al USGS podrían cerrar el centro de investigación del Gran Cañón en Flagstaff; no era un cierre confirmado.",
-      "it": "Un’intervista KJZZ del giugno 2025 avvertì che i tagli USGS proposti da Trump potevano chiudere il centro di ricerca sul Grand Canyon a Flagstaff; non era una chiusura confermata.",
-      "ar": "حذرت مقابلة KJZZ في يونيو 2025 من أن اقتطاعات ترامب المقترحة لـUSGS قد تغلق مركز أبحاث ومراقبة غراند كانيون في فلاغستاف. كان ذلك مقترحاً لا إغلاقاً مؤكداً."
+      "en": "Trump’s 2025 budget proposal would close Flagstaff’s Grand Canyon Monitoring and Research Center, threatening research used to manage the Colorado River and Glen Canyon Dam.",
+      "es": "La propuesta de presupuesto de Trump para 2025 contemplaba el cierre del Centro de Monitoreo e Investigación del Gran Cañón en Flagstaff, lo que amenazaba la investigación utilizada para gestionar el río Colorado y la presa Glen Canyon.",
+      "it": "La proposta di bilancio del 2025 di Trump avrebbe chiuso il Grand Canyon Monitoring and Research Center di Flagstaff, mettendo a rischio la ricerca utilizzata per gestire il fiume Colorado e la diga di Glen Canyon.",
+      "ar": "كان مقترح ميزانية \"ترامب\" لعام 2025 سيؤدي إلى إغلاق مركز \"فلاغستاف\" لمراقبة الأبحاث المتعلقة بـ \"جراند كانيون\"، مما يهدد الأبحاث المستخدمة لإدارة نهر \"كولورادو\" والسد \"جلين كانيون\"."
     },
     "comment": {
-      "en": "If we stop monitoring the canyon, perhaps nobody will notice the hole in the science budget.",
-      "es": "Si dejamos de vigilar el cañón, quizá nadie note el agujero en el presupuesto científico.",
-      "it": "Se smettiamo di monitorare il canyon, forse nessuno noterà il buco nel bilancio della ricerca.",
-      "ar": "إن توقفنا عن مراقبة الوادي، ربما لا يلاحظ أحد الحفرة في ميزانية العلوم."
+      "en": "Trump proposed closing the canyon’s river-monitoring center. If I stopped checking leaks to save money, I would be called a former plumber.",
+      "es": "Trump propuso el cierre del centro de monitoreo del río en el cañón. Si dejara de revisar las fugas para ahorrar dinero, me llamarían un antiguo fontanero.",
+      "it": "Trump ha proposto di chiudere il centro di monitoraggio del fiume nel canyon. Se smettessi di controllare le perdite per risparmiare denaro, mi chiamerebbero un ex-idraulico.",
+      "ar": "اقترح \"ترامب\" إغلاق مركز مراقبة الأنهار في الكانيون. إذا توقفت عن فحص التسربات لتوفير المال، سيطلقون عليّ اسم سباك سابق."
+    },
+    "setup": {
+      "en": "At a Flagstaff picnic table, a plumber hears you discussing water for the next stretch.",
+      "es": "En una mesa de picnic en Flagstaff, un fontanero escucha su conversación sobre el suministro de agua para el siguiente tramo.",
+      "it": "Seduti a un tavolo da picnic a Flagstaff, un idraulico sente voi discutere della fornitura d'acqua per il prossimo tratto.",
+      "ar": "في طاولة نزهة في فلاغستاف، يستمع سباك إليكم أثناء مناقشتكم حول المياه اللازمة للمرحلة التالية."
     }
   },
   {
     "town": "Albuquerque",
     "source": "https://www.cabq.gov/mayor/news/trump-administration-attempts-to-cancel-money-for-rail-trail",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "Albuquerque said the Trump administration tried to cancel its Rail Trail grant, awarded in 2022 through the federal RAISE program. The city challenged that effort.",
-      "es": "Albuquerque informó de que Trump intentó cancelar la subvención de su Rail Trail, concedida en 2022 por el programa federal RAISE. La ciudad impugnó la medida.",
-      "it": "Albuquerque riferì che l’amministrazione Trump aveva tentato di cancellare il finanziamento Rail Trail, assegnato nel 2022 dal programma federale RAISE. La città si oppose.",
-      "ar": "قالت ألبوكيركي إن إدارة ترامب حاولت إلغاء منحة Rail Trail الممنوحة في 2022 عبر برنامج RAISE الفيدرالي. وطعنت المدينة في المحاولة."
+      "en": "In September 2025, Albuquerque said Trump’s administration tried to withdraw $11.5 million for the Rail Trail while favoring car-based projects.",
+      "es": "En septiembre de 2025, Albuquerque informó que la administración de Trump intentó retirar 11.5 millones de dólares destinados al Rail Trail, favoreciendo proyectos basados en automóviles.",
+      "it": "Nel settembre del 2025, Albuquerque ha denunciato che l'amministrazione Trump aveva tentato di ritirare 11,5 milioni di dollari destinati al Rail Trail, favorendo progetti basati sull'uso di automobili.",
+      "ar": "في سبتمبر 2025، ذكرت ألباكركي أن إدارة ترامب حاولت سحب 11.5 مليون دولار مخصصة لمسار السكة الحديد، مع تفضيل المشاريع التي تعتمد على السيارات."
     },
     "comment": {
-      "en": "The grant was called RAISE. The administration appears to have installed the LOWER update.",
-      "es": "La subvención se llamaba RAISE: elevar. La administración parece haber instalado la actualización BAJAR.",
-      "it": "Il programma si chiamava RAISE: sollevare. L’amministrazione sembra aver installato l’aggiornamento ABBASSA.",
-      "ar": "اسم المنحة RAISE، أي ارفع. يبدو أن الإدارة ثبتت تحديث «اخفض»."
+      "en": "“Trump wants projects for cars.” She points at your shoes. “Put a license plate on those. We might get you a sidewalk.”",
+      "es": "\"Trump quiere proyectos para automóviles.\" Señala tus zapatos. \"Ponle una placa a esos. Quizás te consigamos una acera.\"",
+      "it": "\"Trump vuole progetti per le auto.\" Indica le vostre scarpe. \"Ci metteremo una targa su quelle. Forse vi faremo costruire un marciapiede.\"",
+      "ar": "\"ترامب يريد مشاريع للسيارات.\" تشير إلى أحذيتكم. \"ضعوا لوحة أرقام على هذه الأحذية. قد نحصل لكم على ممر للمشاة.\""
+    },
+    "setup": {
+      "en": "At an Albuquerque bus stop, a warehouse picker studies the crew’s walking route.",
+      "es": "En una parada de autobús en Albuquerque, un empleado de un almacén observa la ruta que sigue el equipo.",
+      "it": "Ad una fermata dell'autobus ad Albuquerque, un addetto al magazzino osserva il percorso a piedi del gruppo.",
+      "ar": "في محطة حافلات في ألباكركي، يدرس أحد عمال المستودعات مسار المشي الخاص بالفريق."
     }
   },
   {
     "town": "Amarillo",
     "source": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "Texas Farm Bureau objected in October 2025 to Trump’s suggestion of importing more Argentine beef to lower prices, warning that it could harm Texas ranchers.",
-      "es": "Texas Farm Bureau se opuso en octubre de 2025 a importar más carne argentina, como sugirió Trump para bajar precios, y advirtió del perjuicio para ganaderos texanos.",
-      "it": "Nell’ottobre 2025 Texas Farm Bureau contestò l’idea di Trump di importare più manzo argentino per abbassare i prezzi, avvertendo dei danni per gli allevatori texani.",
-      "ar": "اعترض مكتب مزارع تكساس في أكتوبر 2025 على اقتراح ترامب استيراد مزيد من لحم البقر الأرجنتيني لخفض الأسعار، محذراً من ضرره بمربي الماشية في تكساس."
+      "en": "Texas Farm Bureau objected in October 2025 to Trump’s proposal for more Argentine beef imports, warning it could hurt Texas ranchers.",
+      "es": "La Asociación de Productores Agrícolas de Texas se opuso en octubre de 2025 a la propuesta de Trump de importar más carne de Argentina, advirtiendo que podría perjudicar a los ganaderos de Texas.",
+      "it": "La Texas Farm Bureau ha espresso in ottobre del 2025 opposizione alla proposta di Trump per maggiori importazioni di carne argentina, avvertendo che ciò potrebbe danneggiare gli allevatori del Texas.",
+      "ar": "اعترضت نقابة مزارعي تكساس في أكتوبر 2025 على اقتراح ترامب بشأن استيراد المزيد من اللحوم الأرجنتينية، محذرةً من أنه قد يضر بالمزارعين في تكساس."
     },
     "comment": {
-      "en": "America First beef has developed a surprising Argentine accent. Our cattle are checking their passports.",
-      "es": "La carne de «Estados Unidos primero» adquirió un sorprendente acento argentino. Nuestro ganado revisa sus pasaportes.",
-      "it": "Il manzo America First ha un sorprendente accento argentino. Il nostro bestiame controlla i passaporti.",
-      "ar": "لحم «أمريكا أولاً» اكتسب لهجة أرجنتينية مفاجئة. ماشيتنا تفحص جوازات سفرها."
+      "en": "“Trump’s cheaper-beef plan upset our ranchers.” He inspects his sandwich. “I’ll notify Argentina when the affordable bit arrives.”",
+      "es": "\"El plan de Trump para carne más barata molestó a nuestros ganaderos.\" Inspecciona su sándwich. \"Notificaré a Argentina cuando llegue la parte 'asequible'.\"",
+      "it": "\"Il piano di Trump per una carne più economica ha creato problemi ai nostri allevatori.\" Esamina il suo panino. \"Avvertirò l'Argentina quando arriverà la parte 'economica'.\"",
+      "ar": "\"خطة ترامب للحوم الأرخص أضرت بمزارعينا.\" يتفقد شطيرته. \"سأبلغ الأرجنتين عندما تصل الأجزاء الرخيصة.\""
+    },
+    "setup": {
+      "en": "At an Amarillo grocery picnic table, a feed-store loader notices the crew dividing a sandwich.",
+      "es": "En una mesa de picnic en un supermercado en Amarillo, un empleado de una tienda de suministros agrícolas observa al equipo compartiendo un sándwich.",
+      "it": "Ad un tavolo da picnic in un supermercato ad Amarillo, un addetto al deposito di un negozio di mangimi osserva il gruppo che divide un panino.",
+      "ar": "في طاولة نزهة في متجر البقالة في أماجيلو، لاحظ أحد عمال تحميل مخزن الأعلاف، الفريق وهم يقسمون شطيرة."
     }
   },
   {
     "town": "Phoenix",
     "source": "https://www.azag.gov/press-release/attorney-general-mayes-safeguards-15-billion-federal-funds-arizona-lawsuits-against",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "Arizona’s attorney general said in August 2025 that lawsuits against the Trump administration had protected $1.5 billion in federal funding while the cases continued.",
-      "es": "La fiscal general de Arizona afirmó en agosto de 2025 que las demandas contra Trump habían protegido 1.500 millones de dólares federales mientras continuaban los casos.",
-      "it": "Nell’agosto 2025 la procuratrice generale dell’Arizona dichiarò che le cause contro Trump avevano protetto 1,5 miliardi di dollari federali mentre i procedimenti proseguivano.",
-      "ar": "قالت المدعية العامة لأريزونا في أغسطس 2025 إن الدعاوى ضد إدارة ترامب حمت تمويلاً فيدرالياً بقيمة 1.5 مليار دولار أثناء استمرار القضايا."
+      "en": "In August 2025, Arizona Attorney General Kris Mayes said lawsuits against Trump-administration actions had protected about $1.5 billion in federal funds for state programs.",
+      "es": "En agosto de 2025, la fiscal general de Arizona, Kris Mayes, dijo que las demandas presentadas contra las acciones de la administración Trump habían protegido aproximadamente mil quinientos millones de dólares en fondos federales para programas estatales.",
+      "it": "Nell'agosto del 2025, Kris Mayes, Procuratore Generale dell'Arizona, ha dichiarato che le azioni legali intraprese contro le decisioni dell'amministrazione Trump avevano protetto circa 1,5 miliardi di dollari di fondi federali destinati ai programmi statali.",
+      "ar": "في أغسطس 2025، قالت كريس مايز، المدعية العامة بولاية أريزونا، إن الدعاوى القضائية المرفوعة ضد إجراءات إدارة ترامب قد حمت ما يقرب من 1.5 مليار دولار من الأموال الفيدرالية المخصصة للبرامج الحكومية."
     },
     "comment": {
-      "en": "Our strongest infrastructure is now the injunction. Unfortunately it provides very little shade.",
-      "es": "Nuestra infraestructura más sólida es ahora la orden judicial. Por desgracia, da muy poca sombra.",
-      "it": "La nostra infrastruttura più solida è ormai l’ingiunzione. Purtroppo fa pochissima ombra.",
-      "ar": "أقوى بنيتنا التحتية الآن هو الأمر القضائي. للأسف لا يوفر إلا قليلاً من الظل."
+      "en": "Mayes says lawsuits protected a billion and a half in federal funds. Washington has added a new grant requirement: bring your own attorney general.",
+      "es": "Mayes dijo que las demandas protegieron mil quinientos millones de dólares en fondos federales. Washington ha añadido un nuevo requisito para las subvenciones: traigan su propio fiscal general.",
+      "it": "Mayes ha affermato che le azioni legali hanno protetto un miliardo e mezzo di dollari di fondi federali. Washington ha aggiunto un nuovo requisito per i finanziamenti: portate il vostro Procuratore Generale.",
+      "ar": "تقول مايز إن الدعاوى القضائية حمت مبلغًا يقرب من مليار ونصف المليار من الأموال الفيدرالية. أضافت الحكومة الفيدرالية شرطًا جديدًا: قدموا محاميهم العام."
+    },
+    "setup": {
+      "en": "At a Phoenix shaded food stop, a care worker discusses Arizona’s fight for federal money.",
+      "es": "En una parada sombreada para adquirir alimentos en Phoenix, un trabajador de atención discute sobre la lucha de Arizona por obtener fondos federales.",
+      "it": "Ad un punto di ristoro all'ombra a Phoenix, un operatore socio-sanitario discute della battaglia dell'Arizona per ottenere fondi federali.",
+      "ar": "في مكان مخصص لتناول الطعام في مدينة فينيكس، يتحدث أحد العاملين في مجال الرعاية عن جهود ولاية أريزونا للحصول على الأموال الفيدرالية."
     }
   },
   {
     "town": "Tucson",
     "source": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/prior-budgets/april-22-2025-study-session.pdf",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "estimated",
     "supporting_sources": [],
     "text": {
-      "en": "Tucson’s April 2025 budget briefing warned that grant-funded jobs could be at risk as Trump administration orders were issued and rescinded. The warning was conditional.",
-      "es": "El informe presupuestario de Tucson de abril de 2025 advirtió que empleos financiados con subvenciones podían peligrar ante decretos de Trump emitidos y retirados. Era una advertencia condicional.",
-      "it": "Il rapporto di bilancio di Tucson dell’aprile 2025 avvertì che i posti finanziati da sovvenzioni potevano essere a rischio mentre Trump emanava e revocava decreti. Era un rischio condizionato.",
-      "ar": "حذر تقرير ميزانية توسان في أبريل 2025 من احتمال تهديد وظائف تمولها المنح، مع إصدار أوامر إدارة ترامب وسحبها. كان التحذير مشروطاً."
+      "en": "Tucson’s April 2025 budget memo reported federal grant portals repeatedly shutting and reopening under Trump; nearly 200 grant-funded jobs could be at risk if support disappeared.",
+      "es": "Un memorándum presupuestario de abril de 2025 en Tucson informó que los portales de subvenciones federales se cerraban y se reabrian repetidamente durante la administración de Trump; casi 200 empleos financiados con subvenciones podrían estar en riesgo si se perdiera el apoyo.",
+      "it": "Nel memo di bilancio di Tucson, datato aprile 2025, si riportava che i portali per le sovvenzioni federali si chiudevano e si riaprivano ripetutamente durante l'amministrazione Trump; quasi 200 posti di lavoro finanziati con sovvenzioni potrebbero essere a rischio se i finanziamenti venissero interrotti.",
+      "ar": "ذكر تقرير الميزانية الصادر عن مدينة توسان في أبريل عام 2025 أن بوابات المنح الفيدرالية كانت تتوقف عن العمل وتُعاد فتحها بشكل متكرر بموجب إدارة ترامب؛ قد يكون ما يقرب من 200 وظيفة ممولة من المنح في خطر إذا انتهت الدعم."
     },
     "comment": {
-      "en": "We added a new budget column: depends what he posts before lunch. The spreadsheet has requested hazard pay.",
-      "es": "Añadimos una columna: depende de lo que publique antes de comer. La hoja de cálculo exige un plus de peligrosidad.",
-      "it": "Abbiamo aggiunto una colonna: dipende da cosa pubblica prima di pranzo. Il foglio di calcolo chiede l’indennità di rischio.",
-      "ar": "أضفنا عمود ميزانية: يتوقف على ما ينشره قبل الغداء. جدول الحسابات يطالب ببدل مخاطر."
+      "en": "Trump’s grant portals kept shutting. Nearly two hundred jobs faced funding risk. New job description: convince a website that Tucson still exists.",
+      "es": "Los portales de subvenciones de la administración de Trump seguían cerrándose. Casi doscientos empleos enfrentaban el riesgo de perder la financiación. Nueva descripción del puesto: convencer a un sitio web de que Tucson todavía existe.",
+      "it": "I portali per le sovvenzioni dell'amministrazione Trump continuavano a chiudersi. Quasi duecento posti di lavoro erano a rischio di perdere i finanziamenti. Nuova descrizione del lavoro: convincere un sito web che Tucson esiste ancora.",
+      "ar": "كانت بوابات المنح الفيدرالية تتوقف عن العمل بشكل متكرر. واجهت ما يقرب من 200 وظيفة خطر فقدان التمويل. الوصف الوظيفي الجديد: إقناع موقع الويب بأن مدينة توسان لا تزال موجودة."
+    },
+    "setup": {
+      "en": "At a Tucson shaded food stop, a city maintenance worker checks a blank phone screen.",
+      "es": "En un lugar sombreado para comprar alimentos en Tucson, un empleado de mantenimiento municipal revisa una pantalla de teléfono en blanco.",
+      "it": "In un'area ombreggiata per l'approvvigionamento di cibo a Tucson, un addetto alla manutenzione della città controlla uno schermo di telefono vuoto.",
+      "ar": "في أحد الأماكن المظللة لتناول الطعام في توسان، يتحقق أحد عمال الصيانة في المدينة من شاشة هاتف فارغة."
     }
   },
   {
     "town": "El Paso",
-    "source": "https://www.7atc.army.mil/Media-News/Video/videoid/963366/dvpTag/2nd/",
-    "checked": "2026-09-11",
+    "source": "https://apnews.com/article/d7d15f23bd755b95cd90cbb9a89df6fa",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "documented",
     "supporting_sources": [],
     "text": {
-      "en": "The Army documented soldiers patrolling a newly designated Texas National Defense Area near El Paso in May 2025, part of the Trump administration’s border militarization.",
-      "es": "El Ejército documentó patrullas en la nueva Área de Defensa Nacional de Texas cerca de El Paso en mayo de 2025, parte de la militarización fronteriza de Trump.",
-      "it": "L’esercito documentò pattuglie nella nuova Area di difesa nazionale del Texas vicino a El Paso nel maggio 2025, parte della militarizzazione del confine sotto Trump.",
-      "ar": "وثق الجيش دوريات في منطقة الدفاع الوطني الجديدة بتكساس قرب إل باسو في مايو 2025، ضمن عسكرة الحدود في عهد ترامب."
+      "en": "In May 2025, Trump’s administration made an El Paso border strip a military zone attached to Fort Bliss. Unauthorized entrants could face military-trespass charges as well as immigration charges.",
+      "es": "En mayo de 2025, la administración de Trump designó una franja fronteriza en El Paso como zona militar adscrita a Fort Bliss. Los que ingresaran sin autorización podrían enfrentar cargos por invasión militar, además de cargos migratorios.",
+      "it": "Nel maggio del 2025, l'amministrazione di Trump ha designato una zona di confine a El Paso come area militare, collegata a Fort Bliss. Chiunque entrasse senza autorizzazione poteva essere accusato di violazione di proprietà militare, oltre che per reati di immigrazione.",
+      "ar": "في مايو 2025، أعلنت إدارة \"ترامب\" تحويل جزء من المنطقة الحدودية في إل باسو إلى منطقة عسكرية تابعة لقاعدة \"بليس\". يمكن أن يواجه الأشخاص الذين يدخلون المنطقة بشكل غير مصرح به اتهامات بالتعدي على ممتلكات عسكرية بالإضافة إلى تهم تتعلق بالهجرة."
     },
     "comment": {
-      "en": "Chamizal celebrates solving a border dispute peacefully. Apparently that was the exhibit the administration skipped.",
-      "es": "Chamizal celebra resolver pacíficamente una disputa fronteriza. Parece que la administración se saltó esa exposición.",
-      "it": "Chamizal celebra una disputa di confine risolta pacificamente. Pare che l’amministrazione abbia saltato quella mostra.",
-      "ar": "شاميزال يحتفي بحل نزاع حدودي سلمياً. يبدو أن الإدارة تجاوزت ذلك المعرض."
+      "en": "Trump made border land part of an Army base. Cross the same dirt, collect an extra charge. Even the ground got promoted before I did.",
+      "es": "Trump convirtió tierras fronterizas en parte de una base del Ejército. Cruzar la misma tierra ahora conlleva un cargo adicional. Incluso el suelo ha sido ascendido, antes que yo.",
+      "it": "Trump ha trasformato un'area di confine in parte di una base dell'Esercito. Attraversare lo stesso terreno, e aggiungere un'ulteriore accusa. Sembra che persino il terreno sia stato promosso prima di me.",
+      "ar": "جعل \"ترامب\" جزءًا من الحدود جزءًا من قاعدة للجيش. عبور نفس الأرض، وتحمل رسومًا إضافية. حتى الأرض حصلت على ترقية، قبل أن أفعل أنا."
+    },
+    "setup": {
+      "en": "At an El Paso food stand, a delivery driver describes the new military border zone.",
+      "es": "En un puesto de comida en El Paso, un conductor de reparto describe la nueva zona militar fronteriza.",
+      "it": "In un banco alimentare a El Paso, un autista di consegne descrive la nuova zona di confine militare.",
+      "ar": "في كشك بيع الطعام في إل باسو، يصف سائق توصيل المنطقة الحدودية العسكرية الجديدة."
     }
   },
   {
     "town": "San Antonio",
     "source": "https://www.mysanantonio.com/news/local/article/head-start-funding-federal-freeze-20061743.php",
-    "checked": "2026-09-11",
+    "checked": "2026-09-13",
     "administration_hook": true,
     "evidence_status": "reported",
     "supporting_sources": [],
     "text": {
-      "en": "Trump’s January 2025 funding freeze left San Antonio preschool providers seeking answers. SAISD said operations would continue while it awaited guidance.",
-      "es": "La congelación de Trump en enero de 2025 dejó a los preescolares de San Antonio buscando respuestas. SAISD mantuvo sus servicios mientras esperaba instrucciones.",
-      "it": "Il blocco dei fondi di Trump nel gennaio 2025 lasciò gli asili di San Antonio in cerca di risposte. SAISD mantenne i servizi in attesa di indicazioni.",
-      "ar": "ترك تجميد تمويل ترامب في يناير 2025 برامج ما قبل المدرسة بسان أنطونيو تبحث عن إجابات. وأبقت SAISD خدماتها جارية بانتظار التوجيه."
+      "en": "During Trump’s January 2025 federal funding-freeze confusion, San Antonio ISD said affected programs would continue while it awaited state and federal guidance.",
+      "es": "Durante la confusión generada por la congelación de fondos federales de Trump en enero de 2025, el distrito escolar de San Antonio ISD anunció que los programas afectados continuarían funcionando mientras esperaba las directrices estatales y federales.",
+      "it": "Durante la confusione causata dal blocco dei finanziamenti federali di Trump nel gennaio 2025, il San Antonio ISD ha dichiarato che i programmi interessati sarebbero rimasti attivi in attesa di indicazioni da parte dello stato e del governo federale.",
+      "ar": "خلال فترة الارتباك التي صاحبت تجميد التمويل الفيدرالي في يناير 2025، أعلنت منطقة سان أنطونيو التعليمية (San Antonio ISD) أن البرامج المتأثرة ستستمر في العمل في حين تنتظر إرشادات من الولاية والحكومة الفيدرالية."
     },
     "comment": {
-      "en": "The children are learning object permanence. The adults are waiting to learn whether the grant still exists.",
-      "es": "Los niños aprenden que los objetos siguen existiendo. Los adultos esperan saber si la subvención también.",
-      "it": "I bambini imparano che gli oggetti continuano a esistere. Gli adulti aspettano di sapere se vale anche per il finanziamento.",
-      "ar": "الأطفال يتعلمون أن الأشياء تظل موجودة. والكبار ينتظرون معرفة إن كان ذلك ينطبق على المنحة."
+      "en": "Trump froze funding; the district kept programs running while waiting for instructions. The children also kept being children. Terrible failure to coordinate with Washington.",
+      "es": "Trump congeló los fondos; el distrito mantuvo los programas en funcionamiento mientras esperaba instrucciones. Los niños también siguieron siendo niños. Una terrible falta de coordinación con Washington.",
+      "it": "Il Presidente Trump ha bloccato i finanziamenti; il distretto ha mantenuto i programmi attivi in attesa di istruzioni. I bambini continuavano a essere bambini. Una pessima mancanza di coordinamento con Washington.",
+      "ar": "قام الرئيس ترامب بتجميد التمويل، واستمرت المنطقة في تشغيل البرامج في انتظار التعليمات. استمر الأطفال في كونهم أطفالًا. كان هناك فشل ذريع في التنسيق مع واشنطن."
+    },
+    "setup": {
+      "en": "At a San Antonio playground bench, a school aide discusses the federal funding freeze.",
+      "es": "En un banco en un parque infantil en San Antonio, una asistente escolar discute la congelación de fondos federales.",
+      "it": "Su una panchina in un parco giochi a San Antonio, un assistente scolastico discute del blocco dei finanziamenti federali.",
+      "ar": "في أحد المقاعد في ملعب في مدينة سان أنطونيو، تتحدث مساعده مدرسية عن تجميد التمويل الفيدرالي."
     }
   }
 ]

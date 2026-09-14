@@ -32,7 +32,7 @@ pub fn render_outfitting(state: &AppState) -> Html {
                     let mut initialized = new_state.with_seed(seed, mode, (*data).clone());
                     let mut report = crate::app::aftermath::Aftermath {
                         title: crate::i18n::t("play.loadout"),
-                        message: crate::i18n::t("journey.mission"),
+                        message: crate::app::workshop::opening(&initialized, "outcome"),
                         scene: crate::components::ui::journey_scene::SceneStage::Travel(
                             initialized.region,
                         ),

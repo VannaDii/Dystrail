@@ -36,6 +36,13 @@ pub fn explain(before: &GameState, after: &GameState, report: &mut Aftermath) {
         &format!("ally_loss.reason_{}", after.day % 6),
         Some(&BTreeMap::from([("name", contact)])),
     );
+    if after.stats.allies == 0 {
+        report.message.push(' ');
+        report.message.push_str(&super::workshop::text(
+            &format!("ALLY-{:02}", after.day % 6 + 1),
+            "final_ally",
+        ));
+    }
 }
 
 pub fn render(app: &AppState) -> Html {

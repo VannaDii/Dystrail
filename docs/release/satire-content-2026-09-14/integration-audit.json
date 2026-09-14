@@ -1,0 +1,118 @@
+{
+  "document": {
+    "revision": "ANLCKQnwMWWXuS4ELr1I0ohWwa1b-7h9hCUDSdGapEtxM96pfap2t9ljAaL7YlDbeOUqHkCw-mxgQk7SVY7QXTBMrGZhoF7TGhpoQofaZjM",
+    "checks": [
+      {
+        "section": "start",
+        "paragraphs": 17,
+        "exact": true
+      },
+      {
+        "section": "classic",
+        "paragraphs": 559,
+        "exact": true
+      },
+      {
+        "section": "deep",
+        "paragraphs": 448,
+        "exact": true
+      },
+      {
+        "section": "shared",
+        "paragraphs": 817,
+        "exact": true
+      },
+      {
+        "section": "towns",
+        "paragraphs": 954,
+        "exact": true
+      },
+      {
+        "section": "care",
+        "paragraphs": 289,
+        "exact": true
+      },
+      {
+        "section": "allies",
+        "paragraphs": 110,
+        "exact": true
+      },
+      {
+        "section": "crossings",
+        "paragraphs": 134,
+        "exact": true
+      },
+      {
+        "section": "orders",
+        "paragraphs": 128,
+        "exact": true
+      },
+      {
+        "section": "repairs",
+        "paragraphs": 182,
+        "exact": true
+      },
+      {
+        "section": "routines",
+        "paragraphs": 122,
+        "exact": true
+      },
+      {
+        "section": "conditions",
+        "paragraphs": 165,
+        "exact": true
+      },
+      {
+        "section": "departures",
+        "paragraphs": 92,
+        "exact": true
+      },
+      {
+        "section": "hearing",
+        "paragraphs": 56,
+        "exact": true
+      },
+      {
+        "section": "endings",
+        "paragraphs": 182,
+        "exact": true
+      },
+      {
+        "section": "reference",
+        "paragraphs": 451,
+        "exact": true
+      }
+    ]
+  },
+  "narrative_packages": 567,
+  "reference_records": 77,
+  "existing_road_families": 65,
+  "mapped_road_variants": 195,
+  "proposed_new_road_families": 12,
+  "ordered_effect_differences": [],
+  "category_counts": {
+    "Gathering, work, barter, and rest": 24,
+    "Ally-departure vignettes": 18,
+    "Crew-care scenarios": 24,
+    "Weather, illness, hunger, and exposure": 27,
+    "Endpoint-context records": 7,
+    "Crossing packages": 12,
+    "Road encounters": 231,
+    "Ending packages": 45,
+    "Hearing introductions and transitions": 6,
+    "Mode descriptions": 2,
+    "Character departure introductions": 18,
+    "Executive-order bulletins": 18,
+    "Persona descriptions": 6,
+    "Town profiles": 51,
+    "Breakdown and repair packages": 12,
+    "Shop-item descriptions": 11,
+    "Town conversations": 132
+  },
+  "production_baseline": {
+    "source_commit": "d7b22770302a2149392a5d34aa981b1f6141087b",
+    "artifact_commit": "22aaa3aa4f12a45127fc5a5583646e492989fe72",
+    "deploy_run": 34799527294
+  },
+  "workspace_changes": "Pre-existing hearing and gameplay changes remain outside this content publication until explicitly included."
+}

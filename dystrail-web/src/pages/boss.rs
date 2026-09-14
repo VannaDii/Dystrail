@@ -45,7 +45,7 @@ pub fn boss_page(props: &BossPageProps) -> Html {
             <section class="panel boss-phase boss-panel">
 
                 <div class="encounter-desc">
-                    <p>{ crate::i18n::t("journey.mission") }</p>
+                    <p>{crate::app::workshop::hearing(&gs,"setup")}</p>
                     <p class="vote-outlook">{crate::game::boss::vote_preview(&gs,&cfg).map_or_else(||crate::i18n::t("journey.vote_exhausted"),|chance|crate::i18n::tr("journey.vote_chance",Some(&BTreeMap::from([("chance",format!("{:.0}",chance*100.0).as_str())]))))}</p>
                     <p>{crate::i18n::t("journey.vote_basis")}</p>
                     <dl class="vote-strengths">{for [("play.credibility",gs.stats.credibility*15),("ux.receipt",i32::try_from(gs.receipts.len()).unwrap_or(0)*8),("play.allies",gs.stats.allies*5),("ux.health",gs.stats.hp*50),("play.morale",gs.stats.morale*25),("ux.supplies",gs.stats.supplies*10)].into_iter().map(|(key,value)|html!{<div><dt>{crate::i18n::t(key)}</dt><dd>{format!("+{value}")}</dd></div>})}</dl>

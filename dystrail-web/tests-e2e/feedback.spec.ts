@@ -35,7 +35,7 @@ test('advertised receipts become visible awards and survive offline play and rel
  const gs=await baseline(page);gs.mods.receipt_find_pct=-100;gs.current_encounter=events.find((e:any)=>e.id==='west_grant_translation');await importState(page,gs);
  const count=page.locator('[data-stat="ux.receipt"] dd');await expect(count).toHaveText('0');
  await expect(page.locator('.encounter-choice').nth(1)).toContainText('Receipts +1');
- await page.getByRole('button',{name:'2) Publish both versions',exact:true}).click();
+ await page.getByRole('button',{name:'2) Keep both public versions',exact:true}).click();
  await expect(page.locator('.resource-changes .change').filter({hasText:'Receipts'})).toContainText('Receipts+1');await expect(count).toHaveText('1');
  const awarded=(await checkpoint(page)).state;expect(awarded.receipts).toEqual(['west_grant_translation']);
  await page.reload();await waitForLaunch(page);await expect(count).toHaveText('1');expect((await checkpoint(page)).state.receipts).toEqual(awarded.receipts);
@@ -44,7 +44,7 @@ test('advertised receipts become visible awards and survive offline play and rel
  await importState(page,awarded);
  await expect.poll(()=>page.evaluate(()=>(window as any).dystrailOffline?.state)).toBe('ready');await context.setOffline(true);
  const offline=(await checkpoint(page)).state;offline.current_encounter=events.find((e:any)=>e.id==='west_laboratory_overhead');await importState(page,offline);
- await page.getByRole('button',{name:'1) Take a paid equipment-inventory shift',exact:true}).click();await expect(count).toHaveText('2');
+ await page.getByRole('button',{name:'1) Sort tags; save the budget comparison',exact:true}).click();await expect(count).toHaveText('2');
  await expect(page.locator('.resource-changes .change').filter({hasText:'Receipts'})).toContainText('Receipts+1');await expect(page.locator('.resource-changes .change').filter({hasText:'Cash'})).toContainText('Cash+$14');
  const second=(await checkpoint(page)).state;expect(second.receipts).toEqual(['west_grant_translation','west_laboratory_overhead']);
  await page.reload();await waitForLaunch(page);await expect(count).toHaveText('2');expect((await checkpoint(page)).state.receipts).toEqual(second.receipts);expect((await checkpoint(page)).state.budget_cents).toBe(second.budget_cents);

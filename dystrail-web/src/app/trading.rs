@@ -25,7 +25,7 @@ pub fn render(app: &AppState) -> Html {
     html! {<>
         <WorldView state={std::rc::Rc::new(gs.clone())} title={i18n::t("journey.trade_open")} stage={Some(SceneStage::Town)} />
         <section class="town-trading" aria-label={i18n::t("journey.trade_open")}><p>{i18n::t(if used {"play2.traded"}else{"journey.trade_help"})}</p>
-            <div class="action-grid">{for (0..3_u8).map(|kind|html!{<ActionButton label={i18n::t(&format!("journey.trade_label_{kind}"))} detail={i18n::t(&format!("journey.trade_{kind}"))} disabled={!gs.can_route_trade(kind)} onclick={choose(app,kind)} />})}</div>
+            <div class="action-grid">{for (0..3_u8).map(|kind|html!{<div class="action-option"><p>{super::workshop::text(super::workshop::trade(kind),"setup")}</p><ActionButton label={i18n::t(&format!("journey.trade_label_{kind}"))} detail={i18n::t(&format!("journey.trade_{kind}"))} disabled={!gs.can_route_trade(kind)} onclick={choose(app,kind)} /></div>})}</div>
             <button onclick={toggle(app,false)}>{i18n::t("trail.listen")}</button>
         </section>
     </>}
@@ -42,7 +42,7 @@ fn choose(app: &AppState, kind: u8) -> Callback<MouseEvent> {
         }
         let mut report = Aftermath {
             title: i18n::t("play2.exchange"),
-            message: i18n::t(&format!("journey.trade_{kind}")),
+            message: super::workshop::text(super::workshop::trade(kind), "outcome"),
             scene: SceneStage::Town,
             before: before.stats.clone(),
             after: session.state().stats.clone(),

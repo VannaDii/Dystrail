@@ -1,0 +1,85 @@
+{
+  "revision": "ANLCKQnwMWWXuS4ELr1I0ohWwa1b-7h9hCUDSdGapEtxM96pfap2t9ljAaL7YlDbeOUqHkCw-mxgQk7SVY7QXTBMrGZhoF7TGhpoQofaZjM",
+  "checks": [
+    {
+      "section": "start",
+      "paragraphs": 17,
+      "exact": true
+    },
+    {
+      "section": "classic",
+      "paragraphs": 559,
+      "exact": true
+    },
+    {
+      "section": "deep",
+      "paragraphs": 448,
+      "exact": true
+    },
+    {
+      "section": "shared",
+      "paragraphs": 817,
+      "exact": true
+    },
+    {
+      "section": "towns",
+      "paragraphs": 954,
+      "exact": true
+    },
+    {
+      "section": "care",
+      "paragraphs": 289,
+      "exact": true
+    },
+    {
+      "section": "allies",
+      "paragraphs": 110,
+      "exact": true
+    },
+    {
+      "section": "crossings",
+      "paragraphs": 134,
+      "exact": true
+    },
+    {
+      "section": "orders",
+      "paragraphs": 128,
+      "exact": true
+    },
+    {
+      "section": "repairs",
+      "paragraphs": 182,
+      "exact": true
+    },
+    {
+      "section": "routines",
+      "paragraphs": 122,
+      "exact": true
+    },
+    {
+      "section": "conditions",
+      "paragraphs": 165,
+      "exact": true
+    },
+    {
+      "section": "departures",
+      "paragraphs": 92,
+      "exact": true
+    },
+    {
+      "section": "hearing",
+      "paragraphs": 56,
+      "exact": true
+    },
+    {
+      "section": "endings",
+      "paragraphs": 182,
+      "exact": true
+    },
+    {
+      "section": "reference",
+      "paragraphs": 451,
+      "exact": true
+    }
+  ]
+}

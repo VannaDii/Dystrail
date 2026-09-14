@@ -50,11 +50,19 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
             .logs
             .iter()
             .skip(before.logs.len())
-            .map(|line| crate::i18n::meaningful_message(&crate::i18n::log_message(line)))
+            .filter(|line| !crate::app::workshop_events::is_crossing(line))
+            .map(|line| {
+                crate::i18n::meaningful_message(&crate::app::workshop_events::message(line))
+            })
             .filter(|line| !line.is_empty())
             .collect();
-        let final_line =
-            crate::i18n::meaningful_message(&crate::i18n::log_message(&outcome.log_key));
+        events.extend(crate::app::workshop_events::crossings(&before, gs));
+        events.extend(crate::app::workshop_events::weather(&before, gs));
+        let final_line = if crate::app::workshop_events::is_crossing(&outcome.log_key) {
+            String::new()
+        } else {
+            crate::i18n::meaningful_message(&crate::app::workshop_events::message(&outcome.log_key))
+        };
         if !final_line.is_empty() && !events.contains(&final_line) {
             events.push(final_line);
         }
@@ -160,11 +168,9 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
         });
         let mut message =
             crate::i18n::encounter_text(&encounter.id, &format!("log_{idx}"), &message);
-        for line in sess.state().logs.iter().skip(before.logs.len()) {
-            if line.starts_with("log.crossing.") {
-                message.push(' ');
-                message.push_str(&crate::i18n::log_message(line));
-            }
+        for line in crate::app::workshop_events::crossings(&before, sess.state()) {
+            message.push(' ');
+            message.push_str(&line);
         }
         let mut logs = (*state.logs).clone();
         logs.push(message.clone());

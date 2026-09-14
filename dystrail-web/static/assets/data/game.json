@@ -1,8 +1,8 @@
 [
   {
     "id": "beltway_briefing",
-    "name": "Department of Renaming Things",
-    "desc": "The meeting hall has a patriotic new name. Your form uses the old one; the amendments use both. The clerk identifies the building by pointing through the window.",
+    "name": "The memory wash",
+    "desc": "A roadside museum copying Trump’s Smithsonian history order has installed a “patriotic rinse.” Your crew is invited to test it with a public eviction account. The dryer returns a story about families discovering fresh air. One sock still contains a bailiff.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -13,38 +13,38 @@
     ],
     "choices": [
       {
-        "label": "Read everything; use a snack pack",
+        "label": "Use your paper; document the rinse",
         "effects": {
           "sanity": -2,
           "credibility": 2,
           "supplies": -1,
-          "log": "Snacks gone, instructions matched and saved. You've traced the hall all the way across the street.",
+          "log": "You use some supplies tracing every altered line, head pounding. The original account survives. The dryer requests a gentler historical cycle.",
           "add_receipt": "beltway_briefing"
         }
       },
       {
-        "label": "Skim the bold print",
+        "label": "Let the rinse improve your account",
         "effects": {
           "sanity": 1,
           "credibility": -2,
-          "log": "Two corrections missed. You confidently prepare to visit the building formerly known as the building."
+          "log": "The cleaned-up account is soothing and wrong. A resident points out that “voluntary camping” began when the locks changed."
         }
       },
       {
-        "label": "Split the packet six ways",
+        "label": "Repeat the display’s version",
         "effects": {
           "sanity": 0,
           "credibility": -1,
-          "log": "You miss a cross-reference. Six people, six answers. The form has successfully created a committee."
+          "log": "You repeat the display’s version and get corrected. The resident brings a key. It fits the history considerably better than the caption."
         }
       }
     ],
-    "satire_hook": "names"
+    "satire_hook": "ENC-D01"
   },
   {
     "id": "classic_bridge_crews",
-    "name": "The Efficiency Emergency",
-    "desc": "The council lists five accomplishments from firing the bridge crew. All five mean “fired the bridge crew.” The bridge is closed; former workers need help hauling detour signs.",
+    "name": "Smaller government",
+    "desc": "DOGE fired the park’s cleaners. The remaining ranger hasn’t had lunch. She offers your crew gloves beside overflowing bins. “Congratulations. You’re the smaller government.”",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -56,29 +56,29 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Donate one pack; haul barrier signs",
+        "label": "Share some food and help clear the bins",
         "effects": {
           "supplies": -1,
           "hp": -1,
           "credibility": 2,
-          "log": "Supplies donated, arms aching. You haul the signs without once calling yourselves job creators."
+          "log": "You share lunch and haul bags until your back aches. She hands you a bin liner. “Uniform allowance.”"
         }
       },
       {
-        "label": "Photograph and report the closure",
+        "label": "Photograph the mess for your D.C. case",
         "effects": {
           "credibility": 1,
-          "log": "You file the dated photo. It shows exactly how much traffic “efficiency” can carry: none.",
+          "log": "You photograph the overflowing bins. She points at the flies. “Only department still recruiting.”",
           "add_receipt": "classic_bridge_crews"
         }
       }
     ],
-    "satire_hook": "bullets"
+    "satire_hook": "ENC-C01"
   },
   {
     "id": "classic_civic_potluck",
-    "name": "Civic Center Potluck",
-    "desc": "The notice canceling the federal food fund is taped beside the stew. 'Printouts go under the bowls,' says the cook. 'That's the federal contribution.'",
+    "name": "Supporting dinner",
+    "desc": "At a pantry preparing for the 2025 SNAP cuts, volunteers welcome your hungry crew and any help you can spare. A senator’s tax-cut leaflet props up the short table leg. It’s finally supporting dinner.",
     "weight": 4,
     "regions": [
       "Heartland"
@@ -88,36 +88,36 @@
     ],
     "choices": [
       {
-        "label": "Stay; pack three food bundles",
+        "label": "Eat; take some food",
         "effects": {
           "supplies": 3,
           "sanity": 1,
-          "log": "You eat and pack three bundles. Somebody offers seconds without checking whether you're a corporation."
+          "log": "You eat and take some food. The tax-cut leaflet stays under the table; removing it would cost everyone their lunch."
         }
       },
       {
-        "label": "Pack two bundles; share their story",
+        "label": "Record the volunteers’ account",
         "effects": {
           "supplies": 2,
           "credibility": 1,
-          "log": "You promise to mention the cooks in Washington. They label the leftovers 'evidence.'"
+          "log": "You record the volunteers and collect some food. They ask you to include the casserole before Washington counts it as unnecessary spending."
         }
       },
       {
-        "label": "Donate one food bundle",
+        "label": "Donate some food",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "log": "Your beans join the pantry. The cook offers naming rights to one very unimpressed potato."
+          "log": "You donate some food. A volunteer tapes your receipt over the senator’s smile. The first thing on that leaflet that fed anyone."
         }
       }
     ],
-    "satire_hook": "food"
+    "satire_hook": "ENC-C02"
   },
   {
     "id": "classic_crossing_block_party",
-    "name": "Crossing Block Party",
-    "desc": "After the order to cut federal library support, librarians stage a cookout: free books, free seating. 'I know,' one says. 'This is how empires fall.'",
+    "name": "Closing-time education",
+    "desc": "Trump ordered steps toward closing the Education Department. At a PTA fundraiser, parents ask your stopped crew to feed the volunteers or record their mock clearance sale. A desk is labelled “POWER RETURNED TO PARENTS.” Two parents are arguing over how to lift it.",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -128,35 +128,35 @@
     ],
     "choices": [
       {
-        "label": "Give one food bundle; help grill",
+        "label": "Share some food; join the sale",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "log": "You grill while a librarian reads horror aloud. The horror is next year's budget."
+          "log": "You share some food and join the parents’ mock auction. The desk goes to whoever can explain long division without crying."
         }
       },
       {
-        "label": "Take the open mic",
+        "label": "Record the parents’ display",
         "effects": {
           "credibility": 1,
-          "log": "'I shouldn't need a muffin mortgage to sit down.' The café workers in line howl."
+          "log": "You record the display for D.C. The chair marked “local control” still has a federal assembly diagram taped underneath."
         }
       },
       {
-        "label": "Share two water and towel bundles",
+        "label": "Provision the quiet reading corner",
         "effects": {
           "supplies": -2,
           "sanity": 1,
-          "log": "You pass out cold towels. The librarian saves one for the next official who works up a sweat attacking free books."
+          "log": "You leave some supplies and settle into the reading corner. The book opens without anyone first abolishing its publisher."
         }
       }
     ],
-    "satire_hook": "libraries"
+    "satire_hook": "ENC-C03"
   },
   {
     "id": "classic_freeway_mural",
-    "name": "Freeway Mural Crew",
-    "desc": "Artists under an overpass named for a billionaire are painting his cleaner. They need help, water and a group photo. His contribution to the portrait is the muddy footprint she’s scrubbing.",
+    "name": "Unmanaged wilderness",
+    "desc": "After the DOGE park firings, neighbors are clearing a picnic shelter that maintenance staff used to handle. They wave your van over for help. A vine has reached the visitor-information window. It’s the first applicant willing to work for sunlight.",
     "weight": 3,
     "regions": [
       "RustBelt"
@@ -166,35 +166,35 @@
     ],
     "choices": [
       {
-        "label": "Help paint the base coat",
+        "label": "Help drag the fallen branches",
         "effects": {
           "hp": -1,
           "morale": 2,
-          "log": "Arms aching, you finish a coat. The billionaire's sign contributes its usual share of the labor."
+          "log": "You drag branches until your shoulders ache. Everyone cheers when the picnic table emerges. It has survived its promotion to wilderness."
         }
       },
       {
-        "label": "Donate two supply packs",
+        "label": "Donate cleanup supplies",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "Your contribution fits in the photo without its own dedication plaque."
+          "log": "You donate some supplies; volunteers add your contribution to their account. The rake’s new handle makes it the park’s best-supported employee."
         }
       },
       {
-        "label": "Join the artists’ photo",
+        "label": "Record the volunteers’ account",
         "effects": {
           "credibility": 1,
-          "log": "All six of you squeeze into the photo. The billionaire’s name stays above everyone’s head. Even the overpass has an org chart."
+          "log": "You record who did the maintenance before the firings. A squirrel interrupts. The volunteer refuses to list it as a contractor."
         }
       }
     ],
-    "satire_hook": "names"
+    "satire_hook": "ENC-C04"
   },
   {
     "id": "classic_mail_drop",
-    "name": "Mail Drop Pickup",
-    "desc": "A volunteer brings letters mocking Washington’s five-accomplishment demand, a road pack, and a request to record yours. One retiree lists ‘fed the cat’ twice. The cat requests a third.",
+    "name": "Return to nonexistent sender",
+    "desc": "At a library stop, volunteers give your crew letters about the nonexistent studies in the first MAHA report. They offer some food for an accurate recorded reply. A retired postman has brought an empty envelope. “That’s all the research we could fit.”",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -210,33 +210,33 @@
         "effects": {
           "sanity": 1,
           "morale": 2,
-          "log": "You save the letters, laughing. The cat's performance-management system is just as arbitrary, but considerably fluffier.",
+          "log": "You read and save the letters, laughing. The postman has underlined “address unknown” so hard the nonexistent study now has a window.",
           "add_receipt": "classic_mail_drop"
         }
       },
       {
-        "label": "Record a short, accurate reply",
+        "label": "Record an accurate reply",
         "effects": {
           "credibility": 2,
           "supplies": 1,
-          "log": "Update recorded, road pack collected. Your next five accomplishments will be performed with your mouth full."
+          "log": "You record the citation corrections and collect some food. The librarian checks the reply exists before pressing play."
         }
       },
       {
-        "label": "Sort urgent letters; share one pack",
+        "label": "Share some food; sort letters",
         "effects": {
           "supplies": -1,
           "morale": 1,
-          "log": "One snack pack fuels sorting. Someone labels the empty wrapper “Employee of the Month.”"
+          "log": "You share some food and sort the letters with the volunteers. Every missing study gets a real paperclip. The science budget is recovering."
         }
       }
     ],
-    "satire_hook": "bullets"
+    "satire_hook": "ENC-C05"
   },
   {
     "id": "classic_media_training",
-    "name": "Who Gets to Say ‘No Comment’?",
-    "desc": "At a free protest workshop, a radio host rehearses questions about the cabinet’s Signal chat. She says ‘I don’t know’ is acceptable. Nobody from customer service believes her.",
+    "name": "The coverage ladder",
+    "desc": "At a health-funding teach-in, volunteers show your stopped crew how the 2025 Medicaid law changes eligibility and spending. They’ve built a demonstration ladder. The bottom rung is labelled “taxpayer.” The first reachable rung has been removed to keep the model affordable.",
     "weight": 2,
     "regions": [
       "Heartland",
@@ -252,27 +252,27 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Practice with the published chat",
+        "label": "Check the law and demonstration",
         "effects": {
           "sanity": 1,
           "credibility": 2,
-          "log": "Transcript checked. Your answer survives a follow-up question without blaming the microphone."
+          "log": "You check the sources and understand the changes. The volunteer restores the missing rung for packing. Even the demonstration needs it to work."
         }
       },
       {
-        "label": "Let crewmates take the microphone",
+        "label": "Watch the volunteers rehearse",
         "effects": {
           "morale": 2,
-          "log": "One does a flawless cabinet impression: talks for two minutes, answers nothing, requests a promotion."
+          "log": "You enjoy the rehearsal. The volunteer playing a senator praises the ladder from a stepladder somebody else brought."
         }
       }
     ],
-    "satire_hook": "signal"
+    "satire_hook": "ENC-C06"
   },
   {
     "id": "classic_mutual_aid",
-    "name": "Pop-up Mutual Aid",
-    "desc": "Three volunteers offer $10 and a food bundle for loading. Since the federal food-funding cuts, the folding table is the only one that hasn’t worked a double.",
+    "name": "Imported freedom",
+    "desc": "Trump’s tariffs have raised a tool co-op’s replacement bill. At your roadside stop, the owner offers $10 and some food for shifting repairable stock. Donated supplies would also help. A broken imported drill is being guarded by a perfectly American padlock.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -287,38 +287,38 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Give two bundles; share their appeal",
+        "label": "Donate some repair supplies",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "You film the food being unloaded. Your financial transparency report comes with dented cans."
+          "log": "You donate some supplies; the co-op records your contribution. The imported drill can finally be repaired using something cheaper than a patriotic speech."
         }
       },
       {
-        "label": "Load for $10 and one food bundle",
+        "label": "Take the lifting job",
         "effects": {
           "hp": -1,
           "morale": 2,
           "supplies": 1,
-          "log": "Dinner, ten dollars, and a backache. Management is a folding chair. You prefer it.",
+          "log": "You earn $10 and some food, sore but laughing. The owner locks the empty crate. “Still cheaper to insure than replace.”",
           "cash_cents": 1000
         }
       },
       {
-        "label": "Give one bundle; post their wishlist",
+        "label": "Share some food; record costs",
         "effects": {
           "credibility": 1,
           "supplies": -1,
-          "log": "You share the wishlist. It contains beans, rice, and no exciting opportunities for private equity."
+          "log": "You share some food and record the changed bills. The owner points to the lunch. “Our first import today without a surcharge.”"
         }
       }
     ],
-    "satire_hook": "food"
+    "satire_hook": "ENC-C07"
   },
   {
     "id": "classic_mutual_aid_dispatch",
-    "name": "Mutual Aid Dispatch Center",
-    "desc": "Food-aid drivers borrow radios to coordinate deliveries after the federal food fund is canceled. Washington cut the money; the loading schedule still says 'ask Kevin.'",
+    "name": "Patriotic cartography",
+    "desc": "Trump’s Gulf renaming has left a roadside map club with old charts and new federal labels. They ask your stopped crew to help prepare a public comparison. The volunteer has carefully checked the coast. It has made no effort to move.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -329,36 +329,36 @@
     ],
     "choices": [
       {
-        "label": "Deliver two food bundles in your van",
+        "label": "Donate supplies for comparison charts",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "You make both drop-offs. Nobody commissions a feasibility study of the front steps."
+          "log": "You donate some supplies and help document the labels. The volunteer uses a ruler to confirm that greatness added no coastline."
         }
       },
       {
-        "label": "Donate one bundle of radio batteries",
+        "label": "Share some food with the club",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "log": "The radio crackles back. Kevin announces 'We have beans.' Something worth a national address."
+          "log": "You share some food, and everyone invents patriotic names for the crumbs. The plate becomes the first disputed territory to disappear."
         }
       },
       {
-        "label": "Keep a copy of the needs tally",
+        "label": "Check and save the charts",
         "effects": {
           "sanity": 1,
-          "log": "You keep the tally for Washington. Kevin has listed every shortage. 'Nobody could have known' will have to explain page two.",
+          "log": "You compare and save the charts, relieved to find the coordinates unchanged. The volunteer gives the compass permission to remain neutral.",
           "add_receipt": "classic_mutual_aid_dispatch"
         }
       }
     ],
-    "satire_hook": "food"
+    "satire_hook": "ENC-C08"
   },
   {
     "id": "classic_neighborhood_watch",
-    "name": "The Street Formerly Known as the Street",
-    "desc": "One street, three official names. Residents offer directions, public help numbers, and a road pack for moving their corrected map board. The pizza driver is touring the town’s entire patriotic history.",
+    "name": "Visitor disinformation",
+    "desc": "After DOGE park staffing cuts, volunteers are making their own visitor guide. They wave your crew into the turnout and offer some food for hauling display boards. The official welcome mural has six smiling rangers. The actual ranger is asking the mural for directions.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -369,34 +369,34 @@
     ],
     "choices": [
       {
-        "label": "Check the posted help numbers",
+        "label": "Record the volunteers’ guide",
         "effects": {
           "credibility": 2,
-          "log": "Numbers checked and saved. You can now ask “Where are we?” without first hearing about the mayor’s accomplishments."
+          "log": "You document the volunteers’ guide and its sources. The ranger circles a working restroom. The mural’s career advice remains disappointing."
         }
       },
       {
-        "label": "Move the board; correct the arrows",
+        "label": "Haul the boards for some food",
         "effects": {
           "hp": -1,
           "supplies": 1,
-          "log": "Sore arms, one road pack earned. The arrows point somewhere besides the mayor's achievements."
+          "log": "You earn some food and a sore shoulder hauling boards. The painted rangers continue their excellent attendance record without lifting anything."
         }
       },
       {
-        "label": "Follow the residents' directions",
+        "label": "Listen to the ranger’s tour",
         "effects": {
           "morale": 1,
-          "log": "You find the exit. The crew celebrates like somebody's successfully canceled a subscription."
+          "log": "You laugh through the ranger’s tour. She introduces the painted staff individually. All six have apparently chosen to work remotely."
         }
       }
     ],
-    "satire_hook": "names"
+    "satire_hook": "ENC-C09"
   },
   {
     "id": "classic_overpass_stage",
-    "name": "Overpass Pop-Up Stage",
-    "desc": "An overpass troupe stages the federal library cuts. Their billionaire is a sock puppet. 'We tried a real billionaire,' the director says. 'Couldn't afford the subsidies.'",
+    "name": "The people's megaphone",
+    "desc": "At a roadside fair, residents protesting unlimited independent political spending ask your crew for testimony or help pushing their parade float. The float is a megaphone stuffed with imitation banknotes. It takes four people to make money talk.",
     "weight": 3,
     "regions": [
       "RustBelt",
@@ -408,27 +408,27 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Share the troupe's public stream",
+        "label": "Record your road-trip testimony",
         "effects": {
           "credibility": 2,
-          "log": "You post the show. The sock puppet has better comic timing and fewer conflicts of interest."
+          "log": "You add your testimony to the residents’ record. The volunteer puts it beside the megaphone. Your voice has arrived without a forklift."
         }
       },
       {
-        "label": "Join the post-show discussion",
+        "label": "Help push the parade float",
         "effects": {
           "hp": -1,
           "morale": 3,
-          "log": "You question the puppet until hoarse. He demands security. The director shuts him in a sock drawer."
+          "log": "You push until your shoulders ache, laughing with the residents. The giant megaphone finally speaks: its wheel squeaks all the way downhill."
         }
       }
     ],
-    "satire_hook": "libraries"
+    "satire_hook": "ENC-C10"
   },
   {
     "id": "classic_press_briefing",
-    "name": "Forecast: Still Your Problem",
-    "desc": "A reporter asks about Sharpiegate and bosses denying weather. You remember being told the roads were fine because the store was open. The register must control the jet stream.",
+    "name": "The cost of the plug",
+    "desc": "Your crew stops at a public briefing on the Trump administration’s proposed NIH overhead cap. A researcher has brought itemized costs, chairs, and an unplugged freezer to explain what “overhead” pays for. The demonstration ice is providing a floor-level impact assessment.",
     "weight": 3,
     "regions": [
       "Beltway"
@@ -439,35 +439,35 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Answer with the saved weather alerts",
+        "label": "Check the cost breakdown",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "You cross-check every date, exhausted. The storm had issued clearer instructions than your shift manager."
+          "log": "You verify the figures with a headache. The researcher adds electricity to the example. The ice has already submitted its objection."
         }
       },
       {
-        "label": "Send a short account while resting",
+        "label": "Sit while the researcher presents",
         "effects": {
           "hp": 1,
-          "log": "Feet up, you send two sentences. The passenger seat offers better accommodation than your old employer."
+          "log": "You sit and ease your sore legs. The researcher quietly plugs in a fan. Overhead immediately improves conditions for the taxpayer."
         }
       },
       {
-        "label": "Record an interview; verify the dates",
+        "label": "Save the researcher’s sourced estimate",
         "effects": {
           "credibility": 2,
-          "log": "You save the verified recording. The warning said ‘stay home.’ Payroll’s version had different weather.",
+          "log": "You save the dated estimate and its proposal status. The researcher sets the papers above the puddle. That shelf is overhead too.",
           "add_receipt": "classic_press_briefing"
         }
       }
     ],
-    "satire_hook": "weather"
+    "satire_hook": "ENC-C11"
   },
   {
     "id": "classic_press_pool_qna",
-    "name": "An Interview, Between Refills",
-    "desc": "A diner reporter asks to record your trip costs and mileage. You agree. The cabinet gave a journalist airstrike plans without even checking the guest list.",
+    "name": "Approved memories",
+    "desc": "Your crew stops at a town museum’s public review, modelled on Trump’s Smithsonian history order. A board member wants an eviction photograph retitled “Family Relocation.” Former residents are waiting to speak. The family’s furniture is still visibly on the pavement.",
     "weight": 5,
     "regions": [
       "Beltway"
@@ -477,37 +477,37 @@
     ],
     "choices": [
       {
-        "label": "Answer with receipts on the table",
+        "label": "Challenge the caption with evidence",
         "effects": {
           "credibility": 2,
           "sanity": -1,
-          "log": "You check every total, exhausted. The reporter asks if you bought breakfast or the diner."
+          "log": "You defend the dated account, head aching. The board member proposes cropping out the sofa. History is improving one cushion at a time."
         }
       },
       {
-        "label": "Give the mileage from memory",
+        "label": "Repeat the board’s reassuring version",
         "effects": {
           "sanity": 1,
           "credibility": -1,
-          "log": "Quick, painless, wrong. The reporter checks the map. Your estimate has driven farther than the van."
+          "log": "You stop arguing and repeat the caption. A former resident corrects you: people usually get to choose where they relocate the refrigerator."
         }
       },
       {
-        "label": "Let a crewmate talk; stretch out",
+        "label": "Rest outside during the debate",
         "effects": {
           "credibility": 0,
           "morale": 1,
-          "log": "They take the questions. You become the first person in a political interview to lie down openly.",
+          "log": "You rest outside and enjoy the quiet. Through the window, the board keeps moving the caption. The sofa hasn’t moved an inch.",
           "rest": true
         }
       }
     ],
-    "satire_hook": "signal"
+    "satire_hook": "ENC-C12"
   },
   {
     "id": "classic_radio_phonebank",
-    "name": "College Radio Phonebank",
-    "desc": "The college station needs spots opposing the federal library cuts. Eight dollars per recording. Your opinion has reached the market value of a sandwich.",
+    "name": "The eight-dollar gulf",
+    "desc": "A marina sign shop offers your stopped crew $8 to check labels following Trump’s federal Gulf renaming. The printer also welcomes witnesses to the old-and-new comparison. The label that says “America” costs more than the patch keeping the boat afloat.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -518,36 +518,36 @@
     ],
     "choices": [
       {
-        "label": "Join the live call-in",
+        "label": "Hear the printer’s comparison",
         "effects": {
           "credibility": 1,
           "morale": 1,
-          "log": "'Free Wi-Fi scares billionaires,' you tell listeners. 'People might read the second half of the contract.'"
+          "log": "You learn the difference and laugh at the samples. The printer holds the old label over a leak. It remains impressively seaworthy."
         }
       },
       {
-        "label": "Share one snack bundle; rehearse calls",
+        "label": "Use your paper; record the changes",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "log": "You pass out snacks and rehearse calls. The script contains fewer apologies than your work emails."
+          "log": "You use some supplies to record the changes accurately. The marina’s coordinates fit on one line. Greatness requires a second sheet."
         }
       },
       {
-        "label": "Record the $8 support spot",
+        "label": "Check the labels for $8",
         "effects": {
           "sanity": 1,
-          "log": "You record the spot and pocket eight dollars. Your unpaid opinions are filing a grievance.",
+          "log": "You earn $8 and settle the spelling. The printer sticks the new name on a bucket. It still needs emptying.",
           "cash_cents": 800
         }
       }
     ],
-    "satire_hook": "libraries"
+    "satire_hook": "ENC-C13"
   },
   {
     "id": "classic_service_station",
-    "name": "Service Station Handoff",
-    "desc": "The tariff quote has promoted replacement parts to luxury goods. A union mechanic and apprentices offer to fit your spares. “Congratulations. Your wipers are now an inheritance.”",
+    "name": "Break-room government",
+    "desc": "Your hot, aching crew stops beside a travelling roofers’ protest against Florida’s ban on local heat mandates. Volunteers have shade and towels but need water. Their display shows a politician praising freedom from regulation beneath an umbrella held by somebody else.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -561,34 +561,34 @@
     ],
     "choices": [
       {
-        "label": "Use spares; rest during servicing",
+        "label": "Use some water; cool down",
         "effects": {
           "supplies": -1,
           "hp": 2,
-          "log": "Your spares go in; you rest. The waiting-room chair delivers the recovery Washington advertised."
+          "log": "You use some water and recover in the shade. The volunteer wrings out a towel. Individual responsibility has soaked the bucket."
         }
       },
       {
-        "label": "Describe the trouble to apprentices",
+        "label": "Record the roofers’ account",
         "effects": {
           "credibility": 1,
-          "log": "The apprentices record the symptoms. The van receives more oversight than the tariff plan."
+          "log": "You record the Florida rule and the roofers’ account. The display’s politician has a permanent parasol; everyone else has a shift rota."
         }
       },
       {
-        "label": "Fit your spare wipers",
+        "label": "Leave some water for workers",
         "effects": {
           "supplies": -1,
-          "log": "Wipers fitted. You can see the road again. The economic outlook remains streaky."
+          "log": "You leave some water for the workers. A roofer pours it into the cooler without first checking whether the county approved compassion."
         }
       }
     ],
-    "satire_hook": "tariffs"
+    "satire_hook": "ENC-C14"
   },
   {
     "id": "classic_union_blockade",
-    "name": "Union Solidarity Blockade",
-    "desc": "Tariff uncertainty halved the shifts. The CEO's bonus somehow retained full-time hours. A steward offers space on the picket and a box of donated road snacks.",
+    "name": "One person, one microphone",
+    "desc": "Residents at a roadside civic picnic are challenging unlimited super-PAC money with accounts from ordinary voters. They welcome your crew’s story and share food for the trip. A donor has lent a powerful loudspeaker. He keeps asking whether it can make him the electorate.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -600,35 +600,35 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Take places on the picket",
+        "label": "Add your account to the record",
         "effects": {
           "credibility": 2,
           "morale": 1,
-          "log": "You raise your signs. Management reports a troubling rise in employee engagement."
+          "log": "You add your account and enjoy the residents’ applause. The donor tests the microphone. It still produces only one person."
         }
       },
       {
-        "label": "Accept a pack; pass quietly",
+        "label": "Take some food for the road",
         "effects": {
           "supplies": 1,
-          "log": "The steward passes up a road pack. The outside agitators are now carrying snacks."
+          "log": "You collect some food. The cook gives everyone the same portion. The loudspeaker donor asks whether she has heard how loudly he contributes."
         }
       },
       {
-        "label": "Share one supply pack",
+        "label": "Share some food; join the picnic",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "log": "You open the snacks. The picket's first shareholder meeting distributes actual crackers."
+          "log": "You share some food and enjoy the picnic. The donor’s speech competes with a crisp packet. The packet has better timing."
         }
       }
     ],
-    "satire_hook": "tariffs"
+    "satire_hook": "ENC-C15"
   },
   {
     "id": "classic_water_drive",
-    "name": "Water Drive Relay",
-    "desc": "Drivers offer two supply bundles for unloading beneath Trump’s showerhead headline. 'He needs more pressure,' says a courier. 'My boss texts every time my GPS dot stops.'",
+    "name": "The protected soup tin",
+    "desc": "Trump’s tariffs have raised a community canner’s packaging bill. At your road stop, she asks for donated supplies or help shifting crates in exchange for some food. She holds up a tin. “This is the bit we’ve made too expensive to throw away.”",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -643,28 +643,28 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Donate two water bundles",
+        "label": "Donate supplies to the canner",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "Drivers refill their bottles. Your water policy has passed its first test: containing water."
+          "log": "You donate some supplies, and she records your help. The soup can now reach people without needing its own investment prospectus."
         }
       },
       {
-        "label": "Unload for two supply bundles",
+        "label": "Move crates for some food",
         "effects": {
           "hp": -1,
           "supplies": 2,
-          "log": "Two bundles earned. Your arms object to being classified as critical infrastructure."
+          "log": "You haul crates until your arms ache and earn some food. The canner asks you to bring back the tins before retiring on them."
         }
       }
     ],
-    "satire_hook": "shower"
+    "satire_hook": "ENC-C16"
   },
   {
     "id": "deep_circuit_breaker",
-    "name": "One Socket, Six Phones",
-    "desc": "Tariffs have hiked charger prices. Six phones share one overheating adapter. A repair volunteer checks your spares. “Too small to bail out. We’ll have to fix it.”",
+    "name": "The freedom treadmill",
+    "desc": "A travelling trade fair celebrates Florida’s ban on local heat mandates with a “voluntary break” treadmill. Your hot crew stops beside it. The water cooler moves farther away whenever the belt turns. A roofer offers shade and asks for water donations.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -676,35 +676,35 @@
     ],
     "choices": [
       {
-        "label": "Use a spare adapter; rest",
+        "label": "Use some water; rest in shade",
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "log": "The adapter gets replaced; you get a chair. Neither requires a Senate hearing."
+          "log": "You use some water and recover beside the roofer. The treadmill records your stationary body as a troubling decline in productivity."
         }
       },
       {
-        "label": "Unplug everything; continue without charging",
+        "label": "Try the demonstration treadmill",
         "effects": {
           "hp": -1,
-          "log": "Your neck aches over the last charged phone. The other five enjoy tariff protection from electricity."
+          "log": "You stumble off with sore shins. The operator congratulates you on freely choosing to approach the cooler, which has reached the next county."
         }
       },
       {
-        "label": "Use two repair packs; document costs",
+        "label": "Donate some water; document the display",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "Fix completed, price notice saved. At last, a rising percentage that isn’t on a price tag."
+          "log": "You donate some water and document the display with the roofer. The cooler becomes accessible as soon as someone unplugs freedom."
         }
       }
     ],
-    "satire_hook": "tariffs"
+    "satire_hook": "ENC-D02"
   },
   {
     "id": "deep_field_intel",
-    "name": "Carry This to Washington",
-    "desc": "Library volunteers hand you public records for Washington, with private details removed. Their security system is a folder labeled ‘PUBLIC.’ The cabinet should ask about the enterprise plan.",
+    "name": "Gift capacity",
+    "desc": "After the Pentagon accepted Qatar’s luxury jet, a roadside workers’ fair built a gift-inspection tunnel. Your crew is invited to compare it with their employer’s strict gift rule. A muffin cannot pass. The aircraft-shaped hole behind it is generously proportioned.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -716,36 +716,36 @@
     ],
     "choices": [
       {
-        "label": "File the evidence — 1 supply",
+        "label": "Use your paper; record the comparison",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "log": "Sources checked, folder packed. Washington’s homework rides on the floor. It didn’t chip in for gas.",
+          "log": "You use some supplies to save the jet report and workplace rule. The inspector measures the muffin again. Still dangerously low altitude.",
           "add_receipt": "deep_field_intel"
         }
       },
       {
-        "label": "Donate storage folders — 2 supplies",
+        "label": "Donate supplies; help decorate the tunnel",
         "effects": {
           "supplies": -2,
           "morale": 2,
-          "log": "Their private copies get separate folders marked ‘PRIVATE.’ The cabinet is welcome to steal this technology."
+          "log": "You donate some supplies and enjoy decorating the tunnel. The muffin gets cardboard wings. The inspector suddenly requires a much smaller ruler."
         }
       },
       {
-        "label": "Check for missed contact details",
+        "label": "Watch from the quiet picnic table",
         "effects": {
           "sanity": 1,
-          "log": "You catch a phone number in the public copy. One stroke of a pen; no press conference explaining how secure the pen is."
+          "log": "You relax at the picnic table. The inspector walks around the aircraft-shaped hole searching for small gifts. The muffin remains under heavy guard."
         }
       }
     ],
-    "satire_hook": "signal"
+    "satire_hook": "ENC-D03"
   },
   {
     "id": "deep_grassroots_signal",
-    "name": "The Rally Address Has Entered the Chat",
-    "desc": "The rally has two addresses in your chat. To improve security after Signal, someone changes the icon to a padlock. Both addresses are now securely wrong.",
+    "name": "The accidental recipient booth",
+    "desc": "A roadside technology fair recreates the Trump officials’ Signal scandal using sandwich plans. Your crew can inspect the recipient list. The demonstration journalist gets every detail. The person making lunch receives a message saying the schedule is too sensitive.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -761,34 +761,34 @@
     ],
     "choices": [
       {
-        "label": "Check and share the organizer’s notice",
+        "label": "Check who received the messages",
         "effects": {
           "credibility": 2,
-          "log": "You confirm the address and send the dated link. The padlock gets promoted to decoration."
+          "log": "You verify the demonstration against the reported scandal. The sandwich maker finally gets the order by asking the journalist what’s for lunch."
         }
       },
       {
-        "label": "Trace and save the screenshots",
+        "label": "Trace and save the message sequence",
         "effects": {
           "sanity": -1,
-          "log": "You date the screenshots: wrong town, wrong year. Your phone now needs a cigarette.",
+          "log": "You save the sequence with a headache. The operator adds another padlock to the lunch box. The message list remains wide open.",
           "add_receipt": "deep_grassroots_signal"
         }
       },
       {
-        "label": "Forward everything as confirmed",
+        "label": "Post that nobody else saw it",
         "effects": {
           "credibility": -2,
-          "log": "Your directions send a friend to an empty parking lot. Congratulations on organizing a deeply private rally."
+          "log": "You post the wrong claim and get corrected. The demonstration journalist has already described the sandwich, its departure time, and the pickle."
         }
       }
     ],
-    "satire_hook": "signal"
+    "satire_hook": "ENC-D04"
   },
   {
     "id": "deep_media_ambush",
-    "name": "Please Hold While We Check Reality",
-    "desc": "At a free protest workshop, a volunteer hands out the Sharpiegate report, then plays Trump arguing with a forecast. Six workers recognize the problem: somebody gave the difficult customer nuclear weapons.",
+    "name": "Return to sender",
+    "desc": "Trump’s order to facilitate closing the Education Department has inspired a roadside “power returned to parents” booth. Your crew is handed an enormous demonstration parcel. Inside are unpaid tasks. The volunteer has helpfully attached a return label addressed to the parent holding it.",
     "weight": 4,
     "regions": [
       "Beltway",
@@ -802,35 +802,35 @@
     ],
     "choices": [
       {
-        "label": "Answer using the investigation",
+        "label": "Question the parcel’s contents",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "Your answers match the report. Your patience runs out when ‘the president’ asks to speak to the weather’s manager."
+          "log": "You document the proposal and question every task, head aching. The volunteer folds the return label into a circle. Local control is complete."
         }
       },
       {
-        "label": "Practice one answer together",
+        "label": "Watch from the quiet doorway",
         "effects": {
           "sanity": 1,
-          "log": "You rehearse ‘Show me where it says that.’ Nobody offers the imaginary president a refill."
+          "log": "You clear your head outside the demonstration. The parcel passes between parents. Nobody can find the end marked “empowerment.”"
         }
       },
       {
-        "label": "Send remembered notes; take a nap",
+        "label": "Announce the department is already abolished",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "log": "Excellent nap. Incorrect summary. The report has your correction waiting when you wake, like a shift supervisor."
+          "log": "You enjoy a simpler story until a teacher corrects you: the closure directive wasn’t an act of Congress. Your parcel needs another label."
         }
       }
     ],
-    "satire_hook": "weather"
+    "satire_hook": "ENC-D05"
   },
   {
     "id": "deep_memorandum_dump",
-    "name": "The Public Paper Pile",
-    "desc": "Residents offer cut notices beside DOGE's corrected contract figure. Eight billion became eight million. Their closed service desk has declined to reopen by typo.",
+    "name": "The patriotic billfold",
+    "desc": "Trump’s tariffs have made a hardware importer’s invoice long enough to carpet his roadside shop. He invites your crew to inspect it. The charge paid by Americans runs past the till. The part where foreigners reimburse him is still awaiting delivery.",
     "weight": 5,
     "regions": [
       "RustBelt"
@@ -841,36 +841,36 @@
     ],
     "choices": [
       {
-        "label": "Sort and save the dated notices",
+        "label": "Check and save the invoice trail",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "Head aching, you file the notices. “Savings” takes three folders; “service” fits under CLOSED.",
+          "log": "You save the verified bill, head aching from following it. The importer rolls up the reimbursement section. It’s the cardboard tube.",
           "add_receipt": "deep_memorandum_dump"
         }
       },
       {
-        "label": "Mail copies using your stationery",
+        "label": "Use your paper; record the charges",
         "effects": {
           "credibility": 1,
           "supplies": -1,
-          "log": "Copies mailed. Washington’s savings plan is now eating into your envelope stash."
+          "log": "You use some supplies to document the charges accurately. The importer marks the American payer. You no longer need the entire floor plan."
         }
       },
       {
-        "label": "Store the files; close the folder",
+        "label": "Step outside for some quiet",
         "effects": {
           "sanity": 2,
-          "log": "Files saved, folder closed. By DOGE standards, you’ve now eliminated all the paperwork."
+          "log": "You clear your head outside. The importer closes the door carefully so it doesn’t pinch the part of the bill that bought the handle."
         }
       }
     ],
-    "satire_hook": "receipts"
+    "satire_hook": "ENC-D06"
   },
   {
     "id": "deep_secure_line",
-    "name": "Private Chat, Public Application",
-    "desc": "The motel manager wants job applications in a chat with his vending-machine guy. ‘It’s encrypted,’ he says. Excellent. Only authorized strangers can read your address.",
+    "name": "The employed calendar",
+    "desc": "A roadside benefits workshop previews Medicaid work checks due from 2027. Your crew is invited to inspect its calendar machine. It stamps every working day “prove it,” then adds a new day for proving it. The cleaner’s week has developed an extension.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -884,35 +884,35 @@
     ],
     "choices": [
       {
-        "label": "Check the roster; document the problem",
+        "label": "Check and save the rollout dates",
         "effects": {
           "sanity": 1,
-          "log": "You record stray contacts without private details. The vending-machine guy confirms he is not HR.",
+          "log": "You save the actual rollout dates and clear up the confusion. The cleaner removes the extra day. It still appears on the paperwork.",
           "add_receipt": "deep_secure_line"
         }
       },
       {
-        "label": "Repeat the manager’s privacy assurance",
+        "label": "Report that the federal rollout already happened",
         "effects": {
           "credibility": -1,
-          "log": "‘Totally private,’ you tell everyone. A former employee replies, ‘I quit during the Obama administration.’"
+          "log": "You repeat the premature claim and get corrected. The calendar machine has confused preparing for the deadline with surviving it."
         }
       },
       {
-        "label": "Get access rules written — 1 supply",
+        "label": "Use your paper; copy the rules",
         "effects": {
           "supplies": -1,
           "credibility": 1,
-          "log": "He lists who may see applications. The housekeeper crosses out ‘everyone in the chat.’ One more mess management expects her to clean."
+          "log": "You use some supplies to copy the rules accurately. The volunteer puts the extra day in a folder. It no longer fits the week."
         }
       }
     ],
-    "satire_hook": "signal"
+    "satire_hook": "ENC-D07"
   },
   {
     "id": "deep_state_dirge",
-    "name": "The Public Comment Endurance Test",
-    "desc": "The hearing on efficiency has spent an hour praising itself. Public comments get three minutes. A cleaner asks whether all that applause is on the clock.",
+    "name": "The unquestioning entrance",
+    "desc": "A fairground classroom inspired by Trump’s anti-indoctrination order admits questions only after they pass a patriotism test. Your crew stops at the gate. The test asks whether you agree with the test. A short exit slide is marked for people who already do.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -925,38 +925,38 @@
     "major_repair": false,
     "choices": [
       {
-        "label": "Use one snack pack; stay and speak",
+        "label": "Use your paper; challenge the lesson",
         "effects": {
           "sanity": -2,
           "credibility": 3,
           "supplies": -1,
-          "log": "Snacks gone, patience gone, statement recorded. Your three minutes contain more verbs than the chair's hour."
+          "log": "You use some supplies documenting the proposal and arguing through the test until your head pounds. Your evidence gets detention for asking follow-ups."
         }
       },
       {
-        "label": "Withdraw; walk back to the van",
+        "label": "Agree; take the quick exit slide",
         "effects": {
           "sanity": 1,
           "credibility": -2,
           "hp": -1,
-          "log": "You hike back, aching and unheard. The chair records another successful reduction in public complaints."
+          "log": "You scrape an elbow on the slide and feel done with it. A teacher corrects your claim that patriotic approval proves historical accuracy."
         }
       },
       {
-        "label": "Take a hallway breather",
+        "label": "Leave without taking the parents’ account",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "log": "You miss your turn but recover your patience. The chair thanks the empty microphone for keeping its comments brief."
+          "log": "You clear your head and leave without the parents’ evidence. The gate counts another visitor who has declined to question it."
         }
       }
     ],
-    "satire_hook": "bullets"
+    "satire_hook": "ENC-D08"
   },
   {
     "id": "deep_watch_party",
-    "name": "Public Accountability, Folding Chairs",
-    "desc": "A community screening covers political pressure on weather forecasters. On-screen, nobody remembers who gave the order. The folding chair beneath you has accepted sole responsibility for your suffering.",
+    "name": "The ordinary-voter table",
+    "desc": "Your crew stops at a diner staging a version of Trump’s meme-coin investor dinner. The ordinary-voter table is behind three velvet ropes. The host offers to explain access. The cutlery has arrived by limousine; the people who wash it are still outside.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -968,35 +968,35 @@
     ],
     "choices": [
       {
-        "label": "Check the discussion against the investigation",
+        "label": "Check the dinner report with workers",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "The dates line up. The excuses don’t. Your headache has excellent supporting documentation."
+          "log": "You verify the investor-access account, head aching. A dishwasher asks the host to introduce him as the person who holds all the forks."
         }
       },
       {
-        "label": "Save the recording; step outside",
+        "label": "Sit at the ordinary counter",
         "effects": {
           "sanity": 1,
-          "log": "You bookmark the discussion and escape the chair. Accountability can continue without conducting experiments on your tailbone."
+          "log": "You clear your head at the quiet counter. The host upgrades a spoon to the private room. It has excellent silver holdings."
         }
       },
       {
-        "label": "Share a recap from memory; get some sleep",
+        "label": "Rest in the van instead",
         "effects": {
           "credibility": -1,
-          "log": "You sleep through the correction to your forwarded claim. A perfect cabinet performance, minus the salary.",
+          "log": "You nap and miss the workers’ account. When you wake, the cutlery has finished its exclusive reception. The dishwashers are still waiting.",
           "rest": true
         }
       }
     ],
-    "satire_hook": "weather"
+    "satire_hook": "ENC-D09"
   },
   {
     "id": "deep_watchdog_sync",
-    "name": "Receipts at the Community Table",
-    "desc": "A retired bookkeeper checks DOGE’s billion-to-million correction. She counts six biscuits onto a plate. “Six thousand, if anyone from Washington asks.”",
+    "name": "The mint with foreign ties",
+    "desc": "Your crew stops at a temp-work desk. The recruiter’s no-gifts briefing runs beneath a report about the Pentagon accepting Qatar’s jet. She seals a complimentary mint in an evidence bag. “Vendor influence.” The mint has achieved a level of scrutiny unavailable to most aircraft.",
     "weight": 4,
     "regions": [
       "RustBelt",
@@ -1008,35 +1008,35 @@
     ],
     "choices": [
       {
-        "label": "Use your paper; share checked examples",
+        "label": "Use your paper; record the comparison",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "log": "Copies made, checked notes saved. The biscuit tin survives its audit without requiring a spokesperson.",
+          "log": "You use some supplies to save the workplace rule and jet report. The recruiter weighs the mint again. Its influence remains pocket-sized.",
           "add_receipt": "deep_watchdog_sync"
         }
       },
       {
-        "label": "Listen; ask for the sources",
+        "label": "Wait outside the briefing",
         "effects": {
           "sanity": 1,
-          "log": "The totals finally add up. Somebody checks the calculator for a deep-state switch."
+          "log": "You clear your head outside. Through the window, the recruiter is still completing the mint’s chain of custody."
         }
       },
       {
-        "label": "Post the unchecked notes",
+        "label": "Repeat that every gift is allowed",
         "effects": {
           "credibility": -2,
-          "log": "Your total gets corrected. Congratulations: you've brought federal accounting standards to the neighborhood."
+          "log": "You repeat the false blanket claim and get corrected. The recruiter points to the workplace rule. The mint remains detained pending lunch."
         }
       }
     ],
-    "satire_hook": "receipts"
+    "satire_hook": "ENC-D10"
   },
   {
     "id": "fundraiser_detour",
-    "name": "Fundraiser Detour",
-    "desc": "The fundraiser's corporate sponsor sent a six-foot logo. Nobody brought a pan big enough to cook it. Guests who can spare food are supplying dinner.",
+    "name": "The unpaid view",
+    "desc": "After DOGE park staff cuts, local volunteers have reopened a picnic area for the afternoon. Your crew is welcome to rest; donated supplies help them manage it. The visitor brochure calls the view priceless. The volunteer has priced the toilet paper separately.",
     "weight": 5,
     "regions": [
       "Heartland",
@@ -1051,29 +1051,29 @@
     "hard_stop": true,
     "choices": [
       {
-        "label": "Contribute two bundles and mingle",
+        "label": "Donate some supplies to the volunteers",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "You supply actual food. The organizer puts your names above the company that donated a JPEG."
+          "log": "You donate some supplies, and the volunteers note your help. A roll goes straight to the restroom. The view remains completely unbothered."
         }
       },
       {
-        "label": "Skip it; stay on route",
+        "label": "Rest at the picnic area",
         "effects": {
           "hp": 0,
           "sanity": 1,
-          "log": "You skip the speeches. The engine makes fewer promises and is noticeably easier to interrupt.",
+          "log": "You rest and clear your head without using supplies. The volunteer turns the brochure face down. The actual view has better staffing.",
           "supplies": 0
         }
       }
     ],
-    "satire_hook": "food"
+    "satire_hook": "ENC-C17"
   },
   {
     "id": "raw_milk",
-    "name": "Corporate Says It’s Healthy",
-    "desc": "A wellness booth offers free raw milk, wrapped snacks, and MAHA-themed ‘bodily freedom.’ The attendant has a script, research links, and corporate instructions on the correct angle of her smile.",
+    "name": "Uniformly absent",
+    "desc": "At a park stop after DOGE firings, volunteers offer your crew some food and ask for help sorting abandoned service-desk stock. A rack holds uniforms for staff who aren’t coming back. It has more name badges than the welcome desk.",
     "weight": 3,
     "regions": [
       "Heartland",
@@ -1088,35 +1088,35 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Drink the free milk",
+        "label": "Help sort the abandoned stock",
         "effects": {
           "hp": -1,
           "sanity": -1,
-          "log": "Your stomach begins its own review. The next exit becomes the only policy issue that matters."
+          "log": "You haul stock until your shoulders and head ache. The ranger finds another uniform. It is immediately qualified to staff the empty desk."
         }
       },
       {
-        "label": "Decline; check the study links",
+        "label": "Record the staffing account",
         "effects": {
           "credibility": 1,
           "morale": 1,
-          "log": "The cited study isn’t about milk. You show the attendant. Corporate’s science joins the recycling."
+          "log": "You record the staffing account and laugh at the ranger’s coat-hanger demonstration. The hangers achieve perfect attendance while declining every visitor request."
         }
       },
       {
-        "label": "Take one free snack pack",
+        "label": "Take some food for the road",
         "effects": {
           "supplies": 1,
-          "log": "You stash the snacks. Their ingredients list fits on the wrapper without a presidential commission."
+          "log": "You take some food from the visitors’ donation. It’s the only queue today with somebody working at both ends."
         }
       }
     ],
-    "satire_hook": "maha"
+    "satire_hook": "ENC-S01"
   },
   {
     "id": "tariff_whiplash",
-    "name": "Tariff Whiplash",
-    "desc": "A new tariff list demands extra spares for your signed parts trade. Corporate’s “Remain Positive” email supplies the clerk’s script: “Unfortunately, unfortunately, unfortunately.”",
+    "name": "Lunch for the slogan",
+    "desc": "At a roadside tariff fair, an importer needs supplies for his public cost display. Across the aisle, a promoter offers your crew some food to repeat “China paid.” The importer has his American bank statement. The promoter has better sandwiches.",
     "weight": 5,
     "regions": [
       "RustBelt",
@@ -1131,36 +1131,36 @@
     ],
     "choices": [
       {
-        "label": "Check terms; trade two supply packs",
+        "label": "Donate supplies to the cost display",
         "effects": {
           "supplies": -2,
           "credibility": 1,
-          "log": "Two packs gone; surcharge documented. Your signature apparently approved whatever number came next."
+          "log": "You donate some supplies; the importer records your help. The American payment finally gets a display board as large as the foreign-payer slogan."
         }
       },
       {
-        "label": "Claim the extra pack was included",
+        "label": "Take the food; repeat the slogan",
         "effects": {
           "supplies": 1,
           "credibility": -1,
-          "log": "You get the extra pack and lose the benefit of the doubt. Management material."
+          "log": "You collect some food and repeat the slogan. The importer corrects you with his payment record. The sandwich has purchased a very small spokesperson."
         }
       },
       {
-        "label": "Compare slips; offer one supply pack",
+        "label": "Use your paper; record the payment",
         "effects": {
           "supplies": -1,
           "credibility": 2,
-          "log": "One pack accepted, corrected terms saved. Corporate's positive-attitude email survives every revision."
+          "log": "You use some supplies to document the actual payment. The importer points to his name. It has remained American throughout the promotion."
         }
       }
     ],
-    "satire_hook": "tariffs"
+    "satire_hook": "ENC-S02"
   },
   {
     "id": "town_hall_drift",
-    "name": "Has Anyone Tried Paying the Rent?",
-    "desc": "At a housing meeting, a council member prescribes healthier choices using the MAHA report. A tenant asks whether her landlord counts as a parasite. He turns off her microphone.",
+    "name": "The approved stairs",
+    "desc": "Parents invite your crew to a fourth-floor meeting about their board’s response to Trump’s anti-indoctrination order. The lift is broken. The proposed lesson teaches that complaining weakens the nation. The staircase offers several opportunities to test the curriculum.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -1172,38 +1172,38 @@
     "chainable": false,
     "choices": [
       {
-        "label": "Wait your turn to read the rent figures",
+        "label": "Climb up; challenge the lesson",
         "effects": {
           "credibility": 2,
           "sanity": -1,
           "hp": -1,
-          "log": "Standing wears you out. You read the posted rents aloud; he cuts the mic. The room is now officially affordable."
+          "log": "You climb and argue the sourced case, legs and head aching. The board asks for a more positive account of the stairs."
         }
       },
       {
-        "label": "Stay for the neighbors’ complaints",
+        "label": "Walk with parents to their picnic",
         "effects": {
           "sanity": 1,
           "morale": 2,
           "hp": -1,
-          "log": "Your legs ache. A tenant suggests listing the council member on Airbnb: spacious, vacant, difficult to contact."
+          "log": "You take the hilly route, legs sore but spirits lifted. A parent marks the broken lift absent. It receives full credit for patriotism."
         }
       },
       {
-        "label": "Retreat; quote rents from memory",
+        "label": "Leave before the meeting",
         "effects": {
           "sanity": 2,
           "credibility": -1,
-          "log": "The quiet helps. Your ‘rents doubled’ claim fails a phone check. You try again, louder."
+          "log": "You leave with a quieter head and no testimony to offer. The board’s attendance sheet has discovered another supporter of the current arrangement."
         }
       }
     ],
-    "satire_hook": "maha"
+    "satire_hook": "ENC-C18"
   },
   {
     "id": "deep_waystation_boost",
-    "name": "Heartland Waystation",
-    "desc": "Food-aid drivers offer their fastest shortcut for help with crates, or an easier route over coffee. 'Deliveries still have to arrive,' one says. 'Unlike the federal food money.'",
+    "name": "The returning jobs lane",
+    "desc": "Trump’s tariffs have a freight yard repeatedly relabelling the same imported stock. Your van reaches the queue as a pallet makes its third patriotic lap. A flagger offers a direct coned lane or an easier merge. The pallet has travelled farther than the job it’s bringing back.",
     "weight": 4,
     "regions": [
       "Heartland"
@@ -1214,31 +1214,31 @@
     ],
     "choices": [
       {
-        "label": "Stack crates; take the fastest shortcut",
+        "label": "Take the direct coned lane",
         "effects": {
           "travel_bonus_ratio": 0.4,
           "sanity": 1,
-          "log": "You move the crates and skip the jam. Six workers outmaneuver a planning committee without appointing one."
+          "log": "You gain road and clear your head. The flagger gets you past the queue. The pallet begins another tour of American manufacturing."
         }
       },
       {
-        "label": "Drink their coffee; take the easier route",
+        "label": "Wait for the easier merge",
         "effects": {
           "travel_bonus_ratio": 0.25,
           "morale": 1,
-          "log": "Coffee improves the directions. The driver narrates the map like the van has acquired a sports commentator."
+          "log": "You gain road through an easy merge. The crew enjoys seeing the same pallet return to the same worker, now wearing a different flag."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
     "chainable": false,
-    "satire_hook": "food"
+    "satire_hook": "ENC-D11"
   },
   {
     "id": "deep_rustbelt_convoy",
-    "name": "Rust Belt Convoy",
-    "desc": "Tariff paperwork has parked a line of trucks. Drivers offer a fast back-road group or the marked detour. Their cargo has traveled farther between inboxes.",
+    "name": "The hydrated shortcut",
+    "desc": "After DOGE park staffing cuts, the remaining ranger is routing visitors around an unattended entrance. She offers your stopped crew a short open service lane if you share some water, or the signed public loop with her account. Her radio keeps asking an empty desk for assistance.",
     "weight": 4,
     "regions": [
       "RustBelt"
@@ -1249,31 +1249,31 @@
     ],
     "choices": [
       {
-        "label": "Share a pack; follow the lead",
+        "label": "Share some water; take the short lane",
         "effects": {
           "travel_bonus_ratio": 0.5,
           "supplies": -1,
-          "log": "Snacks shared, miles gained. The trucker’s “Follow me” is the shortest trade policy you’ve heard all day."
+          "log": "You share some water and gain road through the open lane. The ranger’s radio requests backup. She drinks it herself."
         }
       },
       {
-        "label": "Join the marked-detour group",
+        "label": "Take the public loop; record her account",
         "effects": {
           "travel_bonus_ratio": 0.3,
           "credibility": 1,
-          "log": "You signal and leave a gap. The trucker approves a trade agreement consisting entirely of waving."
+          "log": "You gain road and record the staffing account. The empty desk has excellent radio discipline. It never interrupts anyone."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
     "chainable": false,
-    "satire_hook": "tariffs"
+    "satire_hook": "ENC-D12"
   },
   {
     "id": "deep_beltway_fastpass",
-    "name": "The Flagger Knows the Way",
-    "desc": "A “DOGE SAVINGS” banner hangs over a closed lane. Beneath it, a flagger offers a fast coned route or an easier merge. Both existed before the banner claimed credit.",
+    "name": "Both ways to war",
+    "desc": "A surplus market copied Trump’s “Department of War” secondary title onto its gate. Defence points left; War points right. Both queues meet at the same exit. Your stopped crew gets a choice from the marshal: direct cones or a quieter merge. The gate is winning on both fronts.",
     "weight": 3,
     "regions": [
       "Beltway"
@@ -1284,30 +1284,30 @@
     ],
     "choices": [
       {
-        "label": "Take the coned route on signal",
+        "label": "Follow the direct cones",
         "effects": {
           "travel_bonus_ratio": 0.45,
-          "log": "You gain miles. The flagger gets you moving with one hand. The banner requires two poles to stand there."
+          "log": "You gain road through the direct lane. Behind you, Defence and War continue negotiating access to the same broken gate hinge."
         }
       },
       {
-        "label": "Wait for the easier merge",
+        "label": "Wait for the quieter merge",
         "effects": {
           "travel_bonus_ratio": 0.28,
           "sanity": 1,
-          "log": "You merge smoothly. The back-seat transport committee is reduced to one satisfied grunt."
+          "log": "You gain road and clear your head in the quiet merge. The marshal removes a duplicate arrow. A naming dispute becomes one ordinary exit."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
     "chainable": false,
-    "satire_hook": "receipts"
+    "satire_hook": "ENC-D13"
   },
   {
     "id": "clinic_triage",
-    "name": "No Subscription Required",
-    "desc": "After a hot drive, a volunteer medic offers a free check and mentions low supplies. Across the street, a booth sells ‘freedom from modern medicine.’ The insurance industry calls that a deductible.",
+    "name": "A shift to prove the shift",
+    "desc": "Your tired crew stops at a workshop preparing for Medicaid work checks due from 2027. A cleaner is filling in a practice form during her unpaid break. The form asks why she isn’t working. Volunteers offer a table for your own food and welcome help.",
     "weight": 4,
     "regions": [
       "Heartland",
@@ -1319,77 +1319,77 @@
     ],
     "choices": [
       {
-        "label": "Wave them off",
+        "label": "Read the practice form",
         "effects": {
           "sanity": -1,
-          "log": "You declare everyone fine. Six worried people spend the next mile conducting a medical review by side-eye."
+          "log": "You read until your head aches. The cleaner lists her unpaid break as time spent explaining her unpaid break. The form requests detail."
         }
       },
       {
-        "label": "Use your water; get checked — 1 supply",
+        "label": "Use some food; take a break",
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "log": "You drink your water and get checked. The bill is so absent you check under the chair."
+          "log": "You use some food and recover at the table. The cleaner turns the form face down. It cannot question chewing from that position."
         }
       },
       {
-        "label": "Donate and document shortages — 2 supplies",
+        "label": "Donate supplies to the workshop",
         "effects": {
           "supplies": -2,
           "credibility": 2,
-          "log": "Bandages donated, shortages logged. The wellness banner covers twelve square feet and absolutely no wounds."
+          "log": "You donate some supplies, and volunteers add your help to their account. The cleaner finally gets a spare pen that doesn’t belong to another job."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
     "chainable": false,
-    "satire_hook": "maha"
+    "satire_hook": "ENC-S03"
   },
   {
     "id": "overnight_briefing",
-    "name": "Five Accomplishments, Six Exhausted People",
-    "desc": "It’s midnight outside the hearing hall. Your comment on five-accomplishment reports is stuck in a six-person fight over commas. The lot attendant offers to text when the doors open.",
+    "name": "The safe place to stop",
+    "desc": "After Trump officials’ Signal scandal, a roadside freight desk has put its public rest-area directions through a privacy briefing. Your tired crew is welcome to wait. The dispatcher knows a quiet corner. The briefing presenter has accidentally sent the directions to the biscuit supplier.",
     "weight": 3,
     "regions": [
       "Beltway"
     ],
     "choices": [
       {
-        "label": "Keep everyone awake; finish the notes",
+        "label": "Read the new privacy briefing",
         "effects": {
           "sanity": -1,
-          "log": "The notes grow longer. The van becomes an unpaid staff meeting with worse ventilation."
+          "log": "You read until your head aches. The biscuit supplier knows where you can rest. The people operating the rest area await a secure reply."
         }
       },
       {
-        "label": "Share one pack; take turns working",
+        "label": "Use some food; rest outside",
         "effects": {
           "supplies": -1,
           "rest": true,
           "sanity": 1,
-          "log": "One supply pack buys rotating naps. Democracy runs on crackers and whoever's least asleep."
+          "log": "You use some food and rest with a clearer head. The dispatcher closes the briefing window. The outdoor bench requires no recipient list."
         }
       },
       {
-        "label": "Accept the attendant’s offer; sleep",
+        "label": "Ask the dispatcher about the quiet corner",
         "effects": {
           "allies": 1,
           "rest": true,
-          "log": "You sleep; your new ally texts when the doors open. The message ends before anyone asks for a campaign donation."
+          "log": "The dispatcher becomes a local contact and shows you a place to rest. She writes her number down without adding a journalist."
         }
       }
     ],
     "hard_stop": false,
     "major_repair": false,
     "chainable": false,
-    "satire_hook": "bullets"
+    "satire_hook": "ENC-S04"
   },
   {
     "id": "sat_straw_reserve",
-    "name": "Emergency Straw Reserve",
-    "desc": "Trump’s straw display blocks the water cooler. The cashier offers $10 to count boxes. ‘We’re free,’ she says, ‘to move this shit again.’",
+    "name": "The adhesive boom",
+    "desc": "At a grocery hit by Trump’s tariffs, your crew can buy some food for $6 or earn $10 applying revised prices. The owner has run out of shelf space for the stickers. American manufacturing has begun with a very large order of glue.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1401,36 +1401,36 @@
     ],
     "choices": [
       {
-        "label": "Buy two water bundles: $6",
+        "label": "Buy some food for $6",
         "effects": {
           "cash_cents": -600,
           "supplies": 2,
-          "log": "Six dollars for water, free straws. Washington would like credit for the affordable part."
+          "log": "You pay $6 and collect some food. The cashier peels off the old price. It comes away more reluctantly than the patriotic flag."
         }
       },
       {
-        "label": "Count the boxes for $10",
+        "label": "Apply revised prices for $10",
         "effects": {
           "cash_cents": 1000,
           "sanity": -1,
-          "log": "Ten dollars earned. The manager asks for a second count. Freedom has a closing checklist."
+          "log": "You earn $10 and a headache. By closing time, the shelf is mostly adhesive. The promised manufacturing boom has reached your thumb."
         }
       },
       {
-        "label": "Keep driving; skip the straws",
+        "label": "Pass on shopping and work",
         "effects": {
           "morale": -1,
-          "log": "You pass a 'WE LISTENED' banner. Six broke people try to look more like drinking utensils."
+          "log": "You pass and leave dispirited. The affordability display has put its own prices out of reach."
         }
       }
     ],
-    "satire_hook": "straws",
+    "satire_hook": "ENC-S05",
     "scene": "enc-community"
   },
   {
     "id": "sat_corn_bullets",
-    "name": "Five Things Corn Did Last Week",
-    "desc": "The farmer copied Washington’s five-accomplishment emails. His worker offers you $8 to type four entries. The corn continues growing without submitting supporting documentation.",
+    "name": "Actual-size science",
+    "desc": "A library fair is checking the nonexistent studies from the initial MAHA report. The organizer offers your crew $8 to correct the display cards. The original author table has empty chairs. The corrected version needs actual people, which is proving a serious catering complication.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1442,37 +1442,37 @@
     ],
     "choices": [
       {
-        "label": "Document the work the form omits",
+        "label": "Check and save the citation history",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "You save her approved account, cross-eyed. Management has converted photosynthesis into a clerical backlog.",
+          "log": "You save the original and corrected references with a headache. The organizer cancels the imaginary seating plan. The room becomes smaller and more accurate.",
           "add_receipt": "sat_corn_bullets"
         }
       },
       {
-        "label": "Type her notes for $8",
+        "label": "Correct the display cards for $8",
         "effects": {
           "cash_cents": 800,
           "morale": 1,
-          "log": "You type her notes and pocket eight dollars. The corn has hired a ghostwriter."
+          "log": "You earn $8 and enjoy crossing out the fictional study. It is the first government-inspired job here completed without needing an imaginary qualification."
         }
       },
       {
-        "label": "Pass on the paperwork",
+        "label": "Leave the fair",
         "effects": {
           "morale": -1,
-          "log": "You leave her filling boxes. Outside, the corn brazenly refuses to network."
+          "log": "You leave dispirited. The empty author chair has acquired a ribbon. The organizer still needs somebody who exists to move it."
         }
       }
     ],
-    "satire_hook": "bullets",
+    "satire_hook": "ENC-S06",
     "scene": "enc-radio"
   },
   {
     "id": "sat_grant_groceries",
-    "name": "Locally Grown Funding Gap",
-    "desc": "The co-op offers twelve bucks to load crates. Since the federal food fund was canceled, the tomatoes have had to develop a fundraising strategy.",
+    "name": "The desk survived",
+    "desc": "After DOGE park firings, a campground association is moving the unused service desk into its volunteer tent. They offer your crew $12 for lifting, or welcome supplies. The coordinator calls the desk “excess bureaucracy.” It still has to go somewhere people can ask for toilet paper.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1484,37 +1484,37 @@
     ],
     "choices": [
       {
-        "label": "Donate two food bundles",
+        "label": "Donate supplies to the coordinator",
         "effects": {
           "supplies": -2,
           "allies": 1,
-          "log": "The co-op swaps contact details with you. Your beans have negotiated better connections than your résumé."
+          "log": "You donate some supplies and gain a local contact. The coordinator finds your details easily; the desk’s staff directory has plenty of space."
         }
       },
       {
-        "label": "Load crates for $12",
+        "label": "Move the desk for $12",
         "effects": {
           "cash_cents": 1200,
           "hp": -1,
           "morale": 1,
-          "log": "You load the crates and collect twelve dollars. Your back sends its invoice separately."
+          "log": "You earn $12 with aching arms. The coordinator empties the drawer of unused name badges. Smaller government becomes surprisingly easier to lift."
         }
       },
       {
-        "label": "Keep your supplies; keep driving",
+        "label": "Pass on the request",
         "effects": {
           "morale": -1,
-          "log": "Back in the van, you discuss incorporating the beans. Maybe then somebody will bail them out."
+          "log": "You leave dispirited. The empty service desk remains outside the volunteer tent, continuing its successful transition out of public service."
         }
       }
     ],
-    "satire_hook": "food",
+    "satire_hook": "ENC-S07",
     "scene": "enc-community"
   },
   {
     "id": "sat_cow_citations",
-    "name": "The Cow Hasn’t Read It Either",
-    "desc": "A dairy stand’s MAHA-style research links are dead. The cardboard cow smiles through it. Corporate has found a spokesperson who can’t request back pay.",
+    "name": "The foldout electorate",
+    "desc": "A roadside café hosts a bookkeeper’s public guide to unlimited super-PAC money; some food costs $5. Your crew stops beside a sample donor ledger. The ordinary voter fits on a receipt. The billionaire requires a foldout that has reached the next table.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1526,37 +1526,37 @@
     ],
     "choices": [
       {
-        "label": "Check titles; save the dead links",
+        "label": "Check and save the spending rules",
         "effects": {
           "sanity": -1,
           "credibility": 3,
-          "log": "You save the mismatches, squinting. The cow remains the only author you can locate.",
+          "log": "You save the checked rules and examples, head aching. The bookkeeper folds the billionaire away. Several ordinary voters become visible underneath.",
           "add_receipt": "sat_cow_citations"
         }
       },
       {
-        "label": "Buy two snack packs — $5",
+        "label": "Buy some food for $5",
         "effects": {
           "cash_cents": -500,
           "supplies": 2,
-          "log": "Five dollars. Two snack packs. The wrappers make no campaign promises."
+          "log": "You pay $5 and collect some food. The cook gives your order equal time on the grill. The ledger’s largest donor has not been consulted."
         }
       },
       {
-        "label": "Leave the stand",
+        "label": "Skip the café and guide",
         "effects": {
           "morale": -1,
-          "log": "You leave hungry. The cardboard cow keeps smiling through lunch. Corporate has finally found its model employee."
+          "log": "You leave dispirited. The bookkeeper opens another foldout. The electorate is going to need a larger tablecloth."
         }
       }
     ],
-    "satire_hook": "maha",
+    "satire_hook": "ENC-S08",
     "scene": "milk-classic"
   },
   {
     "id": "sat_forecast_corrected",
-    "name": "Optimism Will Not Dry Your Socks",
-    "desc": "A festival promoter covers a rain warning with a sun sticker. A worker points out the shelter. Trump needed a marker; this guy has outsourced meteorology to the craft aisle.",
+    "name": "Patriotically air-conditioned",
+    "desc": "Florida barred local heat-break rules. At a roadside trade fair, a contractor wants the same freedom here. He praises toughness from inside a refrigerated sales trailer. A worker points you toward shade; the trailer’s exhaust is blowing directly onto her.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1568,36 +1568,36 @@
     ],
     "choices": [
       {
-        "label": "Shelter and eat — 1 supply",
+        "label": "Rest in shade; share food",
         "effects": {
           "supplies": -1,
           "hp": 1,
-          "log": "You recover over a snack. Outside, the sun sticker makes its first contact with weather."
+          "log": "Food and shade restore you. The contractor shuts his trailer window to explain more comfortably why workers need fewer protections."
         }
       },
       {
-        "label": "Trust the sign; reassure the crew",
+        "label": "Praise the freedom to endure",
         "effects": {
           "sanity": 1,
           "credibility": -2,
-          "log": "You relax and announce clear skies. Then the first raindrop performs a hostile fact-check."
+          "log": "His certainty calms you. You repeat it; the worker offers to swap places with his air conditioner. Your authority evaporates."
         }
       },
       {
-        "label": "Skip the festival",
+        "label": "Skip the fair",
         "effects": {
           "morale": -1,
-          "log": "You pass the fry stall. Nobody says ‘at least we saved money’ without a death stare."
+          "log": "You leave irritated. The contractor puts on a cardigan before recording another message about people becoming too sensitive to heat."
         }
       }
     ],
-    "satire_hook": "weather",
+    "satire_hook": "ENC-S09",
     "scene": "enc-radio"
   },
   {
     "id": "sat_parking_gulf",
-    "name": "Gulf of Parking Lot",
-    "desc": "The owner renamed his puddle the Gulf of Premium Parking. He offers you $7 to repaint the sign. The attendant wanted a drain and received an ocean.",
+    "name": "The drain is unpatriotic",
+    "desc": "Trump ordered “Gulf of America” onto federal maps. At a flooded parking stop, the owner offers $7 to repaint his sign. The attendant asks for a drain. He hands her a flag.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1613,31 +1613,31 @@
         "effects": {
           "cash_cents": 700,
           "sanity": -1,
-          "log": "Seven dollars earned. The owner announces a waterfront upgrade. The attendant resumes asking for a drain."
+          "log": "Seven dollars and a headache. The owner salutes the new gulf while you wring the old water out of your socks."
         }
       },
       {
-        "label": "Check and mark the dry exit",
+        "label": "Mark the dry exit",
         "effects": {
           "credibility": 2,
-          "log": "You mark the dry exit. The owner's maritime empire ends at a correctly drawn arrow."
+          "log": "Drivers trust your arrow. The attendant asks whether draining an American gulf now counts as surrendering territory."
         }
       },
       {
-        "label": "Leave before the parking pitch",
+        "label": "Leave the puddle alone",
         "effects": {
           "morale": -1,
-          "log": "You leave the puddle undefeated. The van's cup holder remains your entire waterfront portfolio."
+          "log": "You leave disappointed. His flag falls into the puddle. He blames Mexico."
         }
       }
     ],
-    "satire_hook": "names",
+    "satire_hook": "ENC-S10",
     "scene": "enc-checkpoint"
   },
   {
     "id": "sat_library_minimum",
-    "name": "The Minimum Viable Library",
-    "desc": "A librarian offers $9 for catalog checks while a federal form demands reading’s dollar value. She writes ‘more than this form.’ Invalid currency.",
+    "name": "The raccoon has seniority",
+    "desc": "After DOGE’s park-staff cuts, you stop at a park-side shop. The clerk offers $9 to fold trail leaflets. Outside, a bin overflows beneath AMERICA THE BEAUTIFUL. A raccoon is wearing somebody’s entire picnic.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1649,38 +1649,38 @@
     ],
     "choices": [
       {
-        "label": "Donate one reading-table snack bundle",
+        "label": "Share food with the clerk",
         "effects": {
           "supplies": -1,
           "allies": 1,
           "sanity": 1,
-          "log": "The librarian gives you her contact card. Your crackers now qualify as a suspiciously effective public-private partnership."
+          "log": "You share food and exchange numbers, enjoying a laugh. She locks the door before the raccoon applies for management."
         }
       },
       {
-        "label": "Check catalog entries for $9",
+        "label": "Fold the leaflets for $9",
         "effects": {
           "cash_cents": 900,
           "sanity": -1,
           "credibility": 1,
-          "log": "Nine dollars earned and a librarian's endorsement. Your eyes would like books to come in fewer letters."
+          "log": "Nine dollars and aching eyes. The clerk endorses your careful folding. Washington’s savings now require the gift shop’s wages."
         }
       },
       {
         "label": "Get back on the road",
         "effects": {
           "morale": -1,
-          "log": "You pass the free-computer sign. Dangerous stuff. Somebody could look up what a union does."
+          "log": "You leave disappointed. The raccoon climbs onto the information desk, becoming the first park employee to receive lunch."
         }
       }
     ],
-    "satire_hook": "libraries",
+    "satire_hook": "ENC-S11",
     "scene": "enc-civic"
   },
   {
     "id": "sat_tariff_forklift",
-    "name": "The Tariff Relabeling Shift",
-    "desc": "Another tariff update. The dispatcher offers fourteen dollars to move boxes, two supply packs to match labels. “We're bringing jobs back. From that pallet to this pallet.”",
+    "name": "America First, bend from the knees",
+    "desc": "Trump acknowledged deportations were taking workers from farms and hotels. At a produce yard, a manager offers $14 to move crates or food for sorting labels. His DEPORT THEM ALL sticker remains on the forklift. He has taped HELP WANTED underneath.",
     "weight": 6,
     "regions": [
       "Heartland"
@@ -1692,36 +1692,36 @@
     ],
     "choices": [
       {
-        "label": "Move the boxes for $14",
+        "label": "Move the crates for $14",
         "effects": {
           "cash_cents": 1400,
           "hp": -1,
-          "log": "Fourteen dollars earned. Your shoulders would like to offshore the next box."
+          "log": "Fourteen dollars and a sore back. The manager asks if you know anyone else, briefly expanding his preferred immigration policy to bring friends."
         }
       },
       {
-        "label": "Match labels for two supply packs",
+        "label": "Sort labels for food",
         "effects": {
           "supplies": 2,
           "sanity": -1,
-          "log": "Cross-eyed, you collect two road packs. You check whether lunch has also been amended."
+          "log": "You earn supplies and a headache. The manager keeps searching the help-wanted responses for somebody his bumper sticker has not already fired."
         }
       },
       {
         "label": "Pass on the work",
         "effects": {
           "morale": -1,
-          "log": "The boxes stay. So does the gas-money problem."
+          "log": "You leave without earnings. The manager turns the forklift around so its political position stops addressing the hiring queue."
         }
       }
     ],
-    "satire_hook": "tariffs",
+    "satire_hook": "ENC-S12",
     "scene": "enc-convoy"
   },
   {
     "id": "sat_alternator_tariff",
-    "name": "The Patriotic Parts Counter",
-    "desc": "The TV says China pays the tariffs. The cashier turns the $12 card reader toward you.",
+    "name": "China’s card declined",
+    "desc": "Trump says China pays the tariffs. At a roadside shop, your supplies cost $12. The cashier taps a Chinese flag against the card reader. Declined.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1733,37 +1733,37 @@
     ],
     "choices": [
       {
-        "label": "Buy the kit — $12",
+        "label": "Pay the $12",
         "effects": {
           "cash_cents": -1200,
           "supplies": 3,
-          "log": "You buy the kit. China owes you a beer."
+          "log": "Your payment works. “Congratulations,” she says. “You’re China now.”"
         }
       },
       {
-        "label": "Get a written quote",
+        "label": "Get the itemized quote",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "She prints it. “For your reimbursement from China.”",
+          "log": "She circles the tariff. “China’s very generous with your money.”",
           "add_receipt": "sat_alternator_tariff"
         }
       },
       {
-        "label": "Leave with the $12",
+        "label": "Keep the $12",
         "effects": {
           "morale": -1,
-          "log": "The kit stays on the shelf, awaiting payment from Beijing."
+          "log": "You leave empty-handed. The tariff has successfully protected the supplies from Americans."
         }
       }
     ],
-    "satire_hook": "tariffs",
+    "satire_hook": "ENC-S13",
     "scene": "enc-service"
   },
   {
     "id": "sat_billion_pothole",
-    "name": "The Eight-Billion-Dollar Pothole",
-    "desc": "DOGE listed an $8 million contract as $8 billion. A diner owner offers $10 to haul pothole patch. “I checked my math.”",
+    "name": "A donation you can trip over",
+    "desc": "Super PACs accept unlimited contributions. You stop at an event depot offering $10 to carry a donor’s giant ceremonial cheque. Its accompanying poster says every citizen has a voice. The cheque is too wide to fit through the citizens’ entrance.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1775,37 +1775,37 @@
     ],
     "choices": [
       {
-        "label": "Save the claim and correction",
+        "label": "Save the terms and donor display",
         "effects": {
           "credibility": 3,
           "sanity": -1,
-          "log": "You save both. A cashier has to explain a missing quarter. DOGE gets three spare zeroes.",
+          "log": "You document the arrangement, head aching. The donor’s speech is officially independent; it still requires three people and a loading door.",
           "add_receipt": "sat_billion_pothole"
         }
       },
       {
-        "label": "Haul the bags — earn $10",
+        "label": "Carry the cheque for $10",
         "effects": {
           "cash_cents": 1000,
           "hp": -1,
-          "log": "You haul the bags and pocket $10. Your back would prefer DOGE’s math."
+          "log": "Ten dollars and sore muscles. The donor signs in one effortless stroke; you need to sit down after delivering his free speech."
         }
       },
       {
-        "label": "Drive around the damn hole",
+        "label": "Pass on the job",
         "effects": {
           "morale": -1,
-          "log": "Finally, a problem you can solve by moving further left."
+          "log": "You leave disappointed. A worker removes the public entrance sign so the donor’s equal voice can scrape through sideways."
         }
       }
     ],
-    "satire_hook": "receipts",
+    "satire_hook": "ENC-S14",
     "scene": "enc-bridge"
   },
   {
     "id": "sat_bridge_bullets",
-    "name": "Please Account for the Bridge",
-    "desc": "The bridge supervisor demands five accomplishments. The workers have listed every repair. Their report comes back: “More impact.” One points down at the river.",
+    "name": "Working on proof of working",
+    "desc": "Congress added Medicaid work requirements for 2027. At a community information table, a cleaner practices assembling proof of shifts between shifts. The sample form asks why she missed the workshop. Her payslip is still damp from the job that prevented her attending.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1817,37 +1817,37 @@
     ],
     "choices": [
       {
-        "label": "Type, check and save their report",
+        "label": "Check and save the examples",
         "effects": {
           "sanity": -2,
           "credibility": 2,
-          "log": "Report saved, eyes aching. “Kept the cars out of the river” is somehow the difficult part to explain.",
+          "log": "You document the mismatch, mentally drained. The cleaner’s work prevented her proving she works. The sample answer box is admirably small.",
           "add_receipt": "sat_bridge_bullets"
         }
       },
       {
-        "label": "Share one lunch pack",
+        "label": "Share some lunch",
         "effects": {
           "supplies": -1,
           "allies": 1,
-          "log": "Your new ally submits “chewed” five times on the wrapper. Lunch now qualifies as more productive than bridge repair."
+          "log": "You share food and exchange numbers. She eats while sorting payslips, providing evidence that employment can interfere with both lunch and paperwork."
         }
       },
       {
-        "label": "Take the reopened lane",
+        "label": "Continue the trip",
         "effects": {
           "morale": -1,
-          "log": "You cross the bridge. Its workers are still explaining why that should count."
+          "log": "You leave frustrated. She asks whether attending a workshop about proving work can itself count as work. Nobody has brought that form."
         }
       }
     ],
-    "satire_hook": "bullets",
+    "satire_hook": "ENC-S15",
     "scene": "enc-bridge"
   },
   {
     "id": "sat_press_pool_radio",
-    "name": "Reply All, Clock Out",
-    "desc": "A café chat mixes lunch orders with staff messages. A customer asks whether ‘unpaid close’ comes with fries. The cashier offers eight dollars to sort the customer contacts from the staff.",
+    "name": "Cabinet-level contact management",
+    "desc": "Trump’s team included a journalist in its Signal strike chat. At a café showing the news, the owner offers $8 to clear a tour bus’s tables. The cashier needs his PIN to refund mayonnaise.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1859,35 +1859,35 @@
     ],
     "choices": [
       {
-        "label": "Document the mix-up with permission",
+        "label": "Check the report with her",
         "effects": {
           "credibility": 2,
-          "log": "You show the owner. He creates separate chats and calls it a restructuring."
+          "log": "You confirm the report. The café’s new security procedure is asking who the people in the chat actually are."
         }
       },
       {
-        "label": "Sort the contacts for $8",
+        "label": "Clear the tables for $8",
         "effects": {
           "cash_cents": 800,
           "sanity": -1,
-          "log": "Eight dollars. Forty-seven messages. The owner describes identifying three customers as ‘digital transformation.’"
+          "log": "Eight dollars and a headache. You match forgotten phones to passengers. The café’s standards now exceed national security’s."
         }
       },
       {
         "label": "Skip the job",
         "effects": {
           "morale": -1,
-          "log": "You leave without eight dollars. The gas pump has no interest in your work-life balance."
+          "log": "You leave unpaid. The mayonnaise refund remains behind a stronger security procedure than the airstrikes."
         }
       }
     ],
-    "satire_hook": "signal",
+    "satire_hook": "ENC-S16",
     "scene": "enc-radio"
   },
   {
     "id": "sat_hydration_pressure",
-    "name": "Hydration Sovereignty",
-    "desc": "The truck stop’s Trump showerhead promotion has soaked its LIMITED GOVERNMENT banner. The clerk offers $9 to hold the stand steady. Free showers require your own soap and considerably less patriotism.",
+    "name": "Freedom reaches the tuna",
+    "desc": "Trump ordered showerhead deregulation. At a truck stop, a celebratory display sprays the sandwich counter. The clerk offers $9 to brace it. Ordinary showers are free if you bring soap. The tuna has already exercised its freedom.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1899,11 +1899,11 @@
     ],
     "choices": [
       {
-        "label": "Use one wash-kit bundle; shower",
+        "label": "Use your soap; take a shower",
         "effects": {
           "supplies": -1,
           "sanity": 2,
-          "log": "You emerge clean. The crew declines your suggestion of a ribbon-cutting for the armpits."
+          "log": "Clean at last. On your way out, a tuna sandwich makes a determined break for the drain."
         }
       },
       {
@@ -1911,24 +1911,24 @@
         "effects": {
           "cash_cents": 900,
           "hp": -1,
-          "log": "Nine dollars and aching arms for holding the display upright. The clerk admires the design: 'Saved a fortune on the base.'"
+          "log": "Nine dollars and aching arms. You hold freedom upright while the clerk evacuates the egg mayonnaise."
         }
       },
       {
         "label": "Stay dry; keep driving",
         "effects": {
           "morale": -1,
-          "log": "You leave unwashed. The van's air freshener submits a resignation letter."
+          "log": "You leave unwashed. The display has liberated half the lunch menu; the remaining sandwiches are gathering on higher ground."
         }
       }
     ],
-    "satire_hook": "shower",
+    "satire_hook": "ENC-S17",
     "scene": "enc-service"
   },
   {
     "id": "sat_museum_grant",
-    "name": "The Exhibit of Pending Funds",
-    "desc": "The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'",
+    "name": "Education, some assembly required",
+    "desc": "Trump directed the Education Department’s closure as far as law permits. At a school fundraiser, an organizer offers $11 to sort donated books. A volunteer is using the closure flyer to prop up a broken shelf. Finally, the policy is supporting education.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1940,36 +1940,36 @@
     ],
     "choices": [
       {
-        "label": "Scan exhibit photos for $11",
+        "label": "Sort the books for $11",
         "effects": {
           "cash_cents": 1100,
           "sanity": -1,
-          "log": "You finish the scans and collect eleven dollars. The historical payroll is starting to look competitive."
+          "log": "Eleven dollars and aching eyes. You shelve the books; the closure flyer holds steady in its first successful teaching-support role."
         }
       },
       {
-        "label": "Share one snack bundle; take tour",
+        "label": "Share food with the volunteer",
         "effects": {
           "supplies": -1,
           "morale": 2,
-          "log": "The guide shares your snacks beside the company-store exhibit. Your employer's discount scheme suddenly looks less original."
+          "log": "You share lunch and a laugh. She adds another closure flyer beneath the shelf, strengthening education through repeated calls to dismantle it."
         }
       },
       {
-        "label": "Head back to the van",
+        "label": "Leave the fundraiser",
         "effects": {
           "morale": -1,
-          "log": "The exhibit ends at the eight-hour day. Your phone asks whether you'd like to work tonight."
+          "log": "You leave disappointed. The shelf needs more support; the volunteer asks whether Washington has printed anything else about providing less."
         }
       }
     ],
-    "satire_hook": "libraries",
+    "satire_hook": "ENC-S18",
     "scene": "enc-civic"
   },
   {
     "id": "sat_factcheck_shift",
-    "name": "Click Here for Fifteen Dollars",
-    "desc": "An editor offers fifteen dollars to check MAHA’s citations. ‘Can you open a link?’ she asks. You finally encounter a job requirement the report’s authors could not meet.",
+    "name": "Gold-standard stapling",
+    "desc": "The MAHA report cited nonexistent studies. A copy shop offers $15 to collate report booklets for a public discussion. The printer says missing pages are your fault, but missing science is apparently a formatting issue. He checks your staples more carefully than the references.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -1981,38 +1981,38 @@
     ],
     "choices": [
       {
-        "label": "Check and log links for $15",
+        "label": "Collate and flag errors for $15",
         "effects": {
           "cash_cents": 1500,
           "sanity": -2,
           "credibility": 2,
-          "log": "Fifteen dollars earned. Mismatches logged. Your eyes have put in for hazard pay.",
+          "log": "Fifteen dollars, evidence, and a headache. Every page is now attached to something real, which puts the staples ahead of several citations.",
           "add_receipt": "sat_factcheck_shift"
         }
       },
       {
-        "label": "Vouch for the studies by title",
+        "label": "Praise the impressive references",
         "effects": {
           "morale": 1,
           "credibility": -1,
-          "log": "Your cabinet impression gets a laugh. The editor opens a link: wrong paper. ‘Oh. You’re still doing the impression.’"
+          "log": "Your grand reading gets a laugh. You endorse a nonexistent paper; the printer asks whether your application to the commission is pending."
         }
       },
       {
-        "label": "Pass on the assignment",
+        "label": "Decline the job",
         "effects": {
           "morale": -1,
-          "log": "You decline. The fuel gauge immediately requests a meeting about your career choices."
+          "log": "You leave disappointed. The printer checks another staple, still the only part of the report willing to hold under light pressure."
         }
       }
     ],
-    "satire_hook": "maha",
+    "satire_hook": "ENC-S19",
     "scene": "enc-media-workshop"
   },
   {
     "id": "sat_food_shelf",
-    "name": "The Shelf Is Still Hungry",
-    "desc": "The federal food fund vanished. The forms reproduced. A co-op volunteer offers work: 'Backache pays in groceries. Headache pays cash.'",
+    "name": "Federal savings, local shoulders",
+    "desc": "USDA cancelled local-food purchasing funds. At a co-op loading bay, an organizer offers food for packing donated groceries or $10 for sorting delivery slips. The cancelled order is easy to lift. Everything replacing it is in crates.",
     "weight": 6,
     "regions": [
       "RustBelt"
@@ -2024,36 +2024,36 @@
     ],
     "choices": [
       {
-        "label": "Pack bags for three food bundles",
+        "label": "Pack groceries for food",
         "effects": {
           "supplies": 3,
           "hp": -1,
-          "log": "Three bundles earned. Your shoulders would like their share delivered directly to a heating pad."
+          "log": "You earn supplies and a sore back. The federal savings arrive in your shoulders, considerably heavier than they looked in the announcement."
         }
       },
       {
-        "label": "Sort delivery forms for $10",
+        "label": "Sort delivery slips for $10",
         "effects": {
           "cash_cents": 1000,
           "sanity": -1,
-          "log": "Ten dollars for matching groceries to addresses. Add a subscription fee and a tech founder could announce he invented delivery."
+          "log": "Ten dollars and a headache. Each address gets matched to food; Washington’s contribution remains a remarkably lightweight cancellation notice."
         }
       },
       {
         "label": "Skip the shift",
         "effects": {
           "morale": -1,
-          "log": "You keep driving. For dinner, the government recommends imagining how much worse socialism would taste."
+          "log": "You leave without earnings. The organizer folds the cancellation into a tiny square. Unfortunately, the crates refuse to become equally efficient."
         }
       }
     ],
-    "satire_hook": "food",
+    "satire_hook": "ENC-S20",
     "scene": "enc-community"
   },
   {
     "id": "sat_cabinet_guest",
-    "name": "Manager Approval Required",
-    "desc": "A server on break scrolls through the cabinet’s leaked airstrike chat. “They invited a journalist. I need a manager’s PIN to refund ranch.”",
+    "name": "The sea forgot its new name",
+    "desc": "Trump ordered federal maps to say Gulf of America. At a marine-supply counter, a customer demands an American refund because his old chart still says Mexico. The clerk has the order. The customer checks his shoes for foreign seawater.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2065,37 +2065,37 @@
     ],
     "choices": [
       {
-        "label": "Read the actual report",
+        "label": "Read and save the order",
         "effects": {
           "sanity": -1,
           "credibility": 3,
-          "log": "You save it. Apparently you’re cleared for airstrikes, just not dipping sauce.",
+          "log": "You save the actual naming change, head aching. The clerk explains that the water did not relocate; the customer looks personally betrayed by geography.",
           "add_receipt": "sat_cabinet_guest"
         }
       },
       {
-        "label": "Retell it from memory—with impressions",
+        "label": "Perform the ocean’s citizenship interview",
         "effects": {
           "morale": 2,
           "credibility": -2,
-          "log": "The crew laughs. You invent a detail, then defend it. Now you’re doing the whole administration."
+          "log": "The crew laughs until you invent a maritime border change. The clerk takes the chart away before your geography reaches the fish."
         }
       },
       {
-        "label": "Give her back her break",
+        "label": "Leave the clerk to work",
         "effects": {
           "morale": -1,
-          "log": "Two minutes for fries, then back to guarding the strategic ranch reserve."
+          "log": "You leave irritated. The customer wrings out a sock and asks whether the shop can exchange the water for the patriotic version."
         }
       }
     ],
-    "satire_hook": "signal",
+    "satire_hook": "ENC-S21",
     "scene": "enc-radio"
   },
   {
     "id": "sat_name_infrastructure",
-    "name": "The Name Is the Infrastructure",
-    "desc": "The visitor desk’s $6 map shows a grandly renamed bridge, open to traffic. Outside, it’s closed. A clerk draws the detour by hand. The county has rebuilt the map.",
+    "name": "The map has already won",
+    "desc": "Albuquerque reported a federal attempt to withdraw its Rail Trail grant. At a Beltway transport-book stall, a $6 route print still shows the promised path. The clerk keeps the withdrawal notice beside it. The funding has become harder to locate than the destination.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2107,36 +2107,36 @@
     ],
     "choices": [
       {
-        "label": "Buy the $6 map as evidence",
+        "label": "Buy the print for $6",
         "effects": {
           "cash_cents": -600,
           "credibility": 1,
-          "log": "You keep it beside the closure notice. Six dollars for the county’s collectible alternate reality."
+          "log": "You keep the six-dollar print as evidence. A dotted line remains the cheapest way to deliver infrastructure without anyone having to walk on it."
         }
       },
       {
-        "label": "Compare notices with the clerk",
+        "label": "Compare the notice with the map",
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "You untangle the notices and save the route. The clerk christens your headache “Progress.” It continues hurting."
+          "log": "You save a careful comparison, head aching. The clerk draws the uncertain funding in pencil, finally giving the path an accurate surface."
         }
       },
       {
-        "label": "Leave and follow the posted detour",
+        "label": "Follow the trip onward",
         "effects": {
           "morale": -1,
-          "log": "You take the detour. The ribbon-cutting photo remains the shortest route across the river."
+          "log": "You leave disappointed. The print reaches the destination beautifully; the people who might use the actual path have received a notice instead."
         }
       }
     ],
-    "satire_hook": "names",
+    "satire_hook": "ENC-S22",
     "scene": "enc-civic"
   },
   {
     "id": "sat_straw_inspection",
-    "name": "Strategic Straw Inspection",
-    "desc": "A stand owner filming 'straw inspections' waves you into his video. His cashier says Trump's order covers federal purchasing. He requests fewer facts. She's still waiting for her break.",
+    "name": "Small government inspects your straw",
+    "desc": "Trump ordered federal agencies to stop using paper straws. At a burger stand, the owner films inspections of customers’ drinks as his own patriotic tribute. The cashier points out that customers are not federal agencies. He asks her to stop weakening the border.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2148,11 +2148,11 @@
     ],
     "choices": [
       {
-        "label": "Give cashier one snack; decline video",
+        "label": "Share food; back the cashier",
         "effects": {
           "supplies": -1,
           "credibility": 1,
-          "log": "She eats your snack on camera. 'I'd like my break now.' His freedom documentary has accidentally acquired a labor demand."
+          "log": "You share food and confirm her point. She eats while he carefully investigates whether the burger wrapper is conspiring with the straw."
         }
       },
       {
@@ -2160,7 +2160,7 @@
         "effects": {
           "sanity": -1,
           "credibility": 2,
-          "log": "You save the order and correct him on camera. He asks whether facts come in plastic.",
+          "log": "You save the order through a headache. His federal jurisdiction shrinks until it no longer reaches the milkshake currently in front of him.",
           "add_receipt": "sat_straw_inspection"
         }
       },
@@ -2168,17 +2168,17 @@
         "label": "Decline; wait in the van",
         "effects": {
           "morale": -1,
-          "log": "He films another take. Your cup has received more scrutiny than a defense contract."
+          "log": "You leave irritated. He demands another close-up of the straw, which has now received more oversight than the owner’s payroll."
         }
       }
     ],
-    "satire_hook": "straws",
+    "satire_hook": "ENC-S23",
     "scene": "enc-checkpoint"
   },
   {
     "id": "sat_shower_force",
-    "name": "The National Shower Demonstration",
-    "desc": "The Trump showerhead demonstration is flooding the sandwich stand. The manager offers twelve bucks to mop. Five buys a shower that hasn't annexed lunch.",
+    "name": "The shower has taken the hair",
+    "desc": "Trump ordered showerhead deregulation after years of complaining about water pressure. At a hardware launch, the demonstration blasts the wig off a presidential mannequin. The clerk offers $12 to mop; ordinary traveler showers cost $5. The wig is heading for plumbing reform.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2190,36 +2190,36 @@
     ],
     "choices": [
       {
-        "label": "Mop up for $12",
+        "label": "Mop the floor for $12",
         "effects": {
           "cash_cents": 1200,
           "hp": -1,
-          "log": "You mop until your back aches and collect twelve dollars. The manager announces that the system is 'self-draining.'"
+          "log": "Twelve dollars and a sore back. You catch the wig on the mop, briefly becoming the best-groomed cleaner in the building."
         }
       },
       {
-        "label": "Buy a $5 wash token",
+        "label": "Buy a $5 shower",
         "effects": {
           "cash_cents": -500,
           "sanity": 2,
-          "log": "You get clean for five dollars. The water stays in the shower. The manager calls this 'nothing special.'"
+          "log": "Five dollars buys a proper wash. The ordinary shower leaves your hair attached, an achievement the demonstration has chosen not to emphasize."
         }
       },
       {
-        "label": "Skip both; keep driving",
+        "label": "Skip both offers",
         "effects": {
           "morale": -1,
-          "log": "The manager promises another demonstration. The cleaner begins moving sandwiches to higher ground."
+          "log": "You leave disappointed. The clerk puts the wet wig back on the mannequin, which now looks less certain about freedom."
         }
       }
     ],
-    "satire_hook": "shower",
+    "satire_hook": "ENC-S24",
     "scene": "enc-service"
   },
   {
     "id": "sat_receipt_museum",
-    "name": "The Museum of Very Large Savings",
-    "desc": "A DOGE exhibit offers $13 to check labels against sources. Beside the billion-to-million correction sits a quarter labeled “One Trillion, Pending Review.”",
+    "name": "Same bombs, new letterhead",
+    "desc": "Trump gave the Defense Department “Department of War” as a second name. At a print shop, the printer offers $13 to sort new letterheads. He presents two invoices. “Same bombs. Twice the stationery.”",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2231,38 +2231,38 @@
     ],
     "choices": [
       {
-        "label": "Check and record labels for $13",
+        "label": "Sort the letterheads for $13",
         "effects": {
           "cash_cents": 1300,
           "sanity": -2,
           "credibility": 2,
-          "log": "Notes saved, head aching, $13 collected. Counting it twice fails to produce $26. You’re clearly unqualified for DOGE.",
+          "log": "You sort both names, save the invoices, and earn $13, head aching. The printer needs another cabinet for the expanded letterhead supply.",
           "add_receipt": "sat_receipt_museum"
         }
       },
       {
-        "label": "Improvise a tour from memory",
+        "label": "Improvise the grand unveiling",
         "effects": {
           "morale": 2,
           "credibility": -2,
-          "log": "The crew laughs until you repeat the wrong figure. The curator adds you to the correction."
+          "log": "You announce two armies by mistake. The crew laughs; the printer doubles his quote. You both briefly understand government contracting."
         }
       },
       {
-        "label": "Skip the exhibit",
+        "label": "Pass on the work",
         "effects": {
           "morale": -1,
-          "log": "You leave the quarter's promotion ceremony. Your own net worth remains offensively well documented."
+          "log": "You leave unpaid. The printer asks whether peace needs a separate invoice or whether nobody is ordering that."
         }
       }
     ],
-    "satire_hook": "receipts",
+    "satire_hook": "ENC-S25",
     "scene": "enc-civic"
   },
   {
     "id": "sat_transit_ribbon",
-    "name": "The Ribbon-Cutting Holding Pattern",
-    "desc": "At a display about Chicago’s paused transit funds, organizers offer $9 to tally surveys. A cleaner eyes the ceremonial ribbon. ‘Try cutting my commute.’",
+    "name": "The trail has become a notice",
+    "desc": "Albuquerque reported a federal attempt to withdraw Rail Trail money. At a Beltway supporters’ stall, the printer offers $9 to fold leaflets. A volunteer’s bicycle leans against the funding announcement. It is the only transport here receiving actual support from the paperwork.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2274,37 +2274,37 @@
     ],
     "choices": [
       {
-        "label": "Donate one snack bundle",
+        "label": "Share food with the volunteer",
         "effects": {
           "supplies": -1,
           "allies": 1,
-          "log": "Volunteers add your number beside the survey hotline. Your contribution is listed under 'edible infrastructure.'"
+          "log": "You share food and gain a contact. She moves the leaflet stack under her bicycle’s wobbly stand, getting one useful public service from it."
         }
       },
       {
-        "label": "Tally rider surveys for $9",
+        "label": "Fold the leaflets for $9",
         "effects": {
           "cash_cents": 900,
           "sanity": -1,
           "credibility": 1,
-          "log": "Nine dollars and a headache. One nurse lists 'my manager's imagination' under alternative transportation."
+          "log": "Nine dollars and aching eyes earn an endorsement. You make the withdrawal notice compact enough for people to carry while walking."
         }
       },
       {
         "label": "Head back to the van",
         "effects": {
           "morale": -1,
-          "log": "You drive away. The ribbon remains a zero-emissions vehicle with an exceptionally limited range."
+          "log": "You leave disappointed. The volunteer rings her bicycle bell; the funding notice remains considerably less capable of moving people."
         }
       }
     ],
-    "satire_hook": "transit",
+    "satire_hook": "ENC-S26",
     "scene": "enc-street"
   },
   {
     "id": "sat_weather_desk",
-    "name": "Six Dollars for Better Weather",
-    "desc": "A vendor offers six dollars to replace a rain warning with ‘Clear skies ahead.’ He cites Trump’s hurricane map. No forecasting experience required. Eyesight discouraged.",
+    "name": "The park is open in the photograph",
+    "desc": "DOGE cut national-park staff. At a park-side concession, the owner offers $6 to hang a FULL SERVICE banner over a closed information window. A worker has the staffing notices. The owner says the photograph needs somebody helpful, preferably somebody not asking for wages.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2316,37 +2316,37 @@
     ],
     "choices": [
       {
-        "label": "Save the sign and official forecast",
+        "label": "Save the notices and banner",
         "effects": {
           "sanity": -1,
           "credibility": 3,
-          "log": "You document the mismatch until your eyes ache. The vendor asks whether facts require a permit.",
+          "log": "You document the mismatch, head aching. The helpful employee in the publicity photograph has become a cheaper substitute for someone who can answer questions.",
           "add_receipt": "sat_weather_desk"
         }
       },
       {
-        "label": "Hang the false sign for $6",
+        "label": "Hang the banner for $6",
         "effects": {
           "cash_cents": 600,
           "credibility": -2,
-          "log": "You pocket six dollars. A worker checks their forecast app. Your meteorology career ends at orientation."
+          "log": "You earn $6 and lose trust. A visitor asks the closed window for directions; the banner provides an excellent view of its own confidence."
         }
       },
       {
         "label": "Turn down the job",
         "effects": {
           "morale": -1,
-          "log": "You keep your integrity. The gas pump regrets it does not participate in that rewards program."
+          "log": "You leave unpaid and annoyed. The owner places a cardboard ranger behind the glass. Its first shift goes exactly as well as expected."
         }
       }
     ],
-    "satire_hook": "weather",
+    "satire_hook": "ENC-S27",
     "scene": "enc-media-workshop"
   },
   {
     "id": "sat_bibliography_emergency",
-    "name": "This Reference Needs a Pulse",
-    "desc": "The clinic offers $12 to check corrected MAHA references and treatment from your kit. “Washington makes a typo, I lose lunch,” says the receptionist.",
+    "name": "The bandage exists",
+    "desc": "The MAHA report cited nonexistent studies. At a community health fair, a printer offers $12 to collate discussion leaflets. A nurse can treat you with your supplies. Her bandages have an unfair scientific advantage: she can point to where they are.",
     "weight": 6,
     "regions": [
       "Beltway"
@@ -2358,37 +2358,37 @@
     ],
     "choices": [
       {
-        "label": "Check references for $12",
+        "label": "Collate leaflets for $12",
         "effects": {
           "cash_cents": 1200,
           "sanity": -2,
-          "log": "Twelve dollars and a saved correction list. Your brain now displays ‘This page is not responding.’",
+          "log": "You save the error list, earn $12, and acquire a headache. Every leaflet is physically present; several things it cites remain more ambitious.",
           "add_receipt": "sat_bibliography_emergency"
         }
       },
       {
-        "label": "Accept care using your kit — 1 supply",
+        "label": "Use supplies; accept nursing care",
         "effects": {
           "supplies": -1,
           "hp": 2,
-          "log": "The nurse uses your kit and you recover. She opens the bandages without making you choose a subscription tier."
+          "log": "The nurse uses your supplies and patches you up. One verified source, applied directly."
         }
       },
       {
         "label": "Head back to the van",
         "effects": {
           "morale": -1,
-          "log": "The van’s second opinion is ‘probably fine.’ Opinions three through six have nothing to add."
+          "log": "You leave disappointed. The nurse opens another real bandage beside the report’s much more imaginative approach to supporting a claim."
         }
       }
     ],
-    "satire_hook": "maha",
+    "satire_hook": "ENC-S28",
     "scene": "enc-clinic"
   },
   {
     "id": "west_grant_translation",
-    "name": "Patriotic Thesaurus",
-    "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+    "name": "The grant wants a flag",
+    "desc": "Trump’s patriotic-education order reaches a school-display printer. The printer offers $12 to sort revised classroom captions. A teacher shows you the old and proposed versions: the discussion question has been replaced by a flag large enough to prevent further questions.",
     "weight": 7,
     "regions": [
       "PacificCoast"
@@ -2398,38 +2398,38 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "west_grants",
+    "satire_hook": "ENC-S29",
     "scene": "enc-media-workshop",
     "choices": [
       {
-        "label": "Take the translation shift",
+        "label": "Sort the captions for $12",
         "effects": {
           "cash_cents": 1200,
           "sanity": -1,
-          "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+          "log": "You earn $12 and a headache. The flag fits perfectly over the space where a student might previously have developed an opinion."
         }
       },
       {
-        "label": "Publish both versions",
+        "label": "Keep both public versions",
         "effects": {
           "credibility": 2,
           "sanity": -1,
-          "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+          "log": "You preserve the difference, mentally tired. The proposed lesson has one fewer question and a much more confident answer supplied in advance.",
           "add_receipt": "west_grant_translation"
         }
       },
       {
         "label": "Keep moving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the offer behind. The teacher measures the remaining discussion space, which is now chiefly the gap beneath the flagpole."
         }
       }
     ]
   },
   {
     "id": "west_rail_replacement",
-    "name": "High-Speed Replacement Van",
-    "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+    "name": "The campaign for a path needs a van",
+    "desc": "Albuquerque reported an attempted federal withdrawal of Rail Trail funds. At a coastal transport meeting, an organizer offers $15 to deliver campaign materials using your own packing supplies. A commuter has the correspondence. Once again, the working route belongs to somebody else.",
     "weight": 7,
     "regions": [
       "PacificCoast"
@@ -2439,39 +2439,39 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "west_rail",
+    "satire_hook": "ENC-S30",
     "scene": "enc-street",
     "choices": [
       {
-        "label": "Deliver their event supplies",
+        "label": "Use supplies; make the delivery",
         "effects": {
           "cash_cents": 1500,
           "supplies": -1,
-          "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+          "log": "You spend supplies and earn $15. The posters promising movement reach the meeting because the van never waited for the funding announcement."
         }
       },
       {
-        "label": "Document the missing rail money",
+        "label": "Compare the correspondence with the commuter",
         "effects": {
           "credibility": 2,
           "allies": 1,
           "sanity": -1,
-          "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+          "log": "You gain evidence and a contact, head aching. The promised path currently moves most efficiently when printed small enough for somebody to carry.",
           "add_receipt": "west_rail_replacement"
         }
       },
       {
         "label": "Keep moving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the offer behind. The organizer checks your van’s departure time with more urgency than the campaign’s map has ever received."
         }
       }
     ]
   },
   {
     "id": "west_laboratory_overhead",
-    "name": "A Building Is Overhead",
-    "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+    "name": "Science would like a room",
+    "desc": "Trump’s NIH overhead-cap proposal put research facilities’ running costs at risk. At a laboratory open day, $14 is offered for sorting equipment tags. A nurse offers basic care using shared supplies. The funding display celebrates experiments while treating their building as a suspicious luxury.",
     "weight": 7,
     "regions": [
       "MountainWest"
@@ -2481,39 +2481,39 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "west_labs",
+    "satire_hook": "ENC-S31",
     "scene": "enc-clinic",
     "choices": [
       {
-        "label": "Take a paid equipment-inventory shift",
+        "label": "Sort tags; save the budget comparison",
         "effects": {
           "cash_cents": 1400,
           "sanity": -1,
-          "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+          "log": "Fourteen dollars earned; your eyes ache. The refrigerator’s tag identifies an essential instrument, despite its scandalous habit of needing electricity.",
           "add_receipt": "west_laboratory_overhead"
         }
       },
       {
-        "label": "Share a supply pack",
+        "label": "Share supplies; accept basic care",
         "effects": {
           "supplies": -1,
           "hp": 1,
           "allies": 1,
-          "log": "The research crew returns the favor with basic care and a new contact."
+          "log": "You recover and gain a contact. The nurse uses an actual room, quietly committing several of the proposal’s less glamorous expenses."
         }
       },
       {
         "label": "Keep moving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the offer behind. A researcher closes the door so the experiment can continue benefiting from the controversial invention of indoors."
         }
       }
     ]
   },
   {
     "id": "west_wind_loyalty",
-    "name": "Wind Loyalty Hearing",
-    "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+    "name": "The wind has not read the order",
+    "desc": "Trump paused new federal wind-project approvals. At a turbine-repair stall, a technician offers $10 to sort spare-part labels. He keeps the order under a paperweight. The breeze removes the paperweight’s supporting documents every time somebody praises the pause.",
     "weight": 7,
     "regions": [
       "MountainWest"
@@ -2523,39 +2523,39 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "west_wind",
+    "satire_hook": "ENC-S32",
     "scene": "enc-community",
     "choices": [
       {
-        "label": "Help inventory spare parts",
+        "label": "Sort the labels for $10",
         "effects": {
           "cash_cents": 1000,
           "sanity": -1,
-          "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+          "log": "Ten dollars and a headache. The technician retrieves another page from the hedge; wind continues producing results without waiting for the speech to finish."
         }
       },
       {
-        "label": "Record the technician’s testimony",
+        "label": "Record the technician’s account",
         "effects": {
           "credibility": 2,
           "allies": 1,
           "sanity": -1,
-          "log": "You gain a contact and an explanation involving actual electricity.",
+          "log": "You gain evidence and a contact, mentally tired. He distinguishes paused approvals from moving air, a distinction the flying order demonstrates repeatedly.",
           "add_receipt": "west_wind_loyalty"
         }
       },
       {
         "label": "Keep moving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the offer behind. A speaker asks someone to hold the paperwork still while he explains the advantages of stopping wind development."
         }
       }
     ]
   },
   {
     "id": "west_desert_pressure",
-    "name": "Desert Shower Freedom",
-    "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+    "name": "The tank has run out of freedom",
+    "desc": "Trump ordered showerhead deregulation. At a desert service stop, a celebratory display is draining the tank. The plumber offers water for help shutting it off or $12 for the heavier work. The owner asks whether the empty tank is refusing to cooperate politically.",
     "weight": 7,
     "regions": [
       "Southwest"
@@ -2565,37 +2565,37 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "shower",
+    "satire_hook": "ENC-S33",
     "scene": "enc-service",
     "choices": [
       {
-        "label": "Help shut off the demonstration",
+        "label": "Help shut it off; take water",
         "effects": {
           "supplies": 2,
           "sanity": 1,
-          "log": "You leave with water and a working understanding of the off switch."
+          "log": "You gain water and some peace of mind. The plumber demonstrates the off switch, a technology omitted from the freedom ceremony."
         }
       },
       {
-        "label": "Take the paid plumbing shift",
+        "label": "Do the heavier work for $12",
         "effects": {
           "cash_cents": 1200,
           "hp": -1,
-          "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+          "log": "Twelve dollars and sore muscles. You haul the equipment while the owner asks whether refilling the tank counts as government interference."
         }
       },
       {
-        "label": "Keep moving",
+        "label": "Keep driving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the offer behind. The display coughs; the owner checks the banner instead of the water level."
         }
       }
     ]
   },
   {
     "id": "west_beef_passports",
-    "name": "America First, Argentina Next",
-    "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+    "name": "The flag is not a customs form",
+    "desc": "Trump says tariffs make foreigners pay. At a wholesale depot, $16 is offered to sort shipment labels. The owner puts American flags over imported-stock markings. The dispatcher has the original invoices. The flags have shown no interest in paying the tariff either.",
     "weight": 7,
     "regions": [
       "Southwest"
@@ -2605,30 +2605,30 @@
       "deep",
       "deep_end"
     ],
-    "satire_hook": "west_beef",
+    "satire_hook": "ENC-S34",
     "scene": "enc-convoy",
     "choices": [
       {
-        "label": "Take the paid manifest shift",
+        "label": "Sort shipment labels for $16",
         "effects": {
           "cash_cents": 1600,
           "sanity": -1,
-          "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+          "log": "Sixteen dollars and a headache. Every flag is removed long enough for the box’s actual origin to become inconvenient again."
         }
       },
       {
-        "label": "Compare the speeches with the receipts",
+        "label": "Compare the claim with invoices",
         "effects": {
           "credibility": 3,
           "sanity": -1,
-          "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+          "log": "You save the contradiction through aching eyes. The tariff arrived in dollars payable here, despite the owner’s best efforts to give it a foreign address.",
           "add_receipt": "west_beef_passports"
         }
       },
       {
         "label": "Keep moving",
         "effects": {
-          "log": "The crew leaves the offer behind."
+          "log": "You leave the work behind. The owner adds a larger flag, increasing the box’s patriotism without reducing its bill."
         }
       }
     ]

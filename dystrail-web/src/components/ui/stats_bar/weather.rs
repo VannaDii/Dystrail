@@ -159,7 +159,7 @@ pub fn weather_indicator(p: &Props) -> Html {
         <span class={classes!("weather-name", helpers::weather_sprite_class(p.badge.weather))}><span class="weather-icon" aria-hidden="true">{helpers::weather_symbol(p.badge.weather)}</span><strong>{name}</strong></span>
         if let Some(readout) = &p.readout {
             <span class="sr-only">{&readout.cost}</span>
-            <crate::components::ui::context_help::ContextHelp informational={true} icon={"ⓘ".to_owned()} title={i18n::t("play.weather_effects")} >{details(readout)}</crate::components::ui::context_help::ContextHelp>
+            <crate::components::ui::context_help::ContextHelp informational={true} icon={"ⓘ".to_owned()} title={i18n::t("play.weather_effects")} ><p>{crate::app::workshop::text(crate::app::workshop::weather(p.badge.weather),"onset")}</p>{details(readout)}</crate::components::ui::context_help::ContextHelp>
         }
     </div>}
 }

@@ -1,0 +1,29 @@
+{
+  "selected_packages": 177,
+  "encounters": 65,
+  "ordered_choices": 187,
+  "town_conversations": 44,
+  "endpoint_records_preserved": 7,
+  "ordered_gameplay_effects_unchanged": true,
+  "engine_files_unchanged": true,
+  "scene_art_unchanged": true,
+  "localization": {
+    "es": {
+      "narrative_strings": 899,
+      "missing": 0,
+      "placeholder_errors": []
+    },
+    "it": {
+      "narrative_strings": 899,
+      "missing": 0,
+      "placeholder_errors": []
+    },
+    "ar": {
+      "narrative_strings": 899,
+      "missing": 0,
+      "placeholder_errors": []
+    }
+  },
+  "deferred": "B/C variants, 12 proposed new encounter families, new mechanics and new art",
+  "source_revision": "ANLCKQnwMWWXuS4ELr1I0ohWwa1b-7h9hCUDSdGapEtxM96pfap2t9ljAaL7YlDbeOUqHkCw-mxgQk7SVY7QXTBMrGZhoF7TGhpoQofaZjM"
+}

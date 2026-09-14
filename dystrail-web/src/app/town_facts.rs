@@ -9,6 +9,8 @@ pub struct TownFact {
     pub source: String,
     pub checked: String,
     pub comment: BTreeMap<String, String>,
+    #[serde(default)]
+    pub setup: BTreeMap<String, String>,
 }
 #[must_use]
 pub fn fact(gs: &GameState) -> Option<TownFact> {
@@ -24,6 +26,14 @@ impl TownFact {
         self.text
             .get(&i18n::current_lang())
             .or_else(|| self.text.get("en"))
+            .cloned()
+            .unwrap_or_default()
+    }
+    #[must_use]
+    pub fn setup(&self) -> String {
+        self.setup
+            .get(&i18n::current_lang())
+            .or_else(|| self.setup.get("en"))
             .cloned()
             .unwrap_or_default()
     }
@@ -59,7 +69,7 @@ pub fn render(app: &super::state::AppState) -> Html {
             <div class="conversation-content">
                 <div class="resident-story">
                     <div class="resident-byline"><span class="eyebrow">{i18n::t("trail.local")}</span><span>{fact.town.clone()}</span></div>
-                    <blockquote class="resident-remark"><p>{fact.remark()}</p></blockquote>
+                    <p>{fact.setup()}</p><blockquote class="resident-remark"><p>{fact.remark()}</p></blockquote>
                 </div>
                 <aside class="local-record" aria-labelledby="local-record-heading">
                     <div class="local-record-heading"><h2 id="local-record-heading">{i18n::t("trail.record")}</h2><crate::components::ui::context_help::ContextHelp title={i18n::t("trail.about_conversation")} text={i18n::t("trail.fact_note")} icon={"ⓘ".to_owned()} informational={true} /></div>

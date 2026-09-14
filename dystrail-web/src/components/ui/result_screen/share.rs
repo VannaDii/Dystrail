@@ -13,6 +13,9 @@ pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Prop
         return summary.headline_key.clone();
     }
     if props.game_state.boss.outcome.attempted && !props.boss_won {
+        if props.game_state.stats.sanity <= 0 {
+            return "result.headline.sanity".into();
+        }
         "result.headline.boss_loss".to_string()
     } else if props.boss_won {
         "result.headline.victory".to_string()
@@ -29,6 +32,9 @@ pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Prop
         return summary.epilogue_key.clone();
     }
     if props.game_state.boss.outcome.attempted && !props.boss_won {
+        if props.game_state.stats.sanity <= 0 {
+            return "result.epilogue.sanity".into();
+        }
         "result.epilogue.boss_loss".to_string()
     } else if props.boss_won {
         "result.epilogue.victory".to_string()

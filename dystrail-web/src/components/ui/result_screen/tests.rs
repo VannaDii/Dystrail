@@ -72,6 +72,23 @@ fn epilogue_resolution_tracks_victory_state() {
 }
 
 #[test]
+fn exhausted_hearing_does_not_claim_a_vote_took_place() {
+    let summary = baseline_summary();
+    let mut props = baseline_props();
+    let gs = Rc::make_mut(&mut props.game_state);
+    gs.boss.outcome.attempted = true;
+    gs.stats.sanity = 0;
+    assert_eq!(
+        share::resolved_headline_key(&summary, &props),
+        "result.headline.sanity"
+    );
+    assert_eq!(
+        share::resolved_epilogue_key(&summary, &props),
+        "result.epilogue.sanity"
+    );
+}
+
+#[test]
 fn parse_numeric_key_identifies_digits() {
     assert_eq!(menu::parse_numeric_key("3"), Some(3));
     assert_eq!(menu::parse_numeric_key("0"), Some(0));

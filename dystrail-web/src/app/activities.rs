@@ -16,7 +16,7 @@ pub fn render(app: &AppState) -> Html {
     }
     html! {<section class="roadside-options" aria-label={i18n::t(if town{"trail.town_work"}else{"trail.gather"})}>
         <h2>{i18n::t(if town{"trail.town_work"}else{"trail.gather"})}<crate::components::ui::context_help::ContextHelp title={i18n::t("trail.gather")} text={i18n::t("trail.gather_help")} /></h2>
-        <div class="action-grid">{for Activity::TOWN.into_iter().map(|action|html!{<div class="action-option"><ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={i18n::t(action.key())} detail={i18n::t(&format!("{}_cost",action.key()))} /></div>})}</div>
+        <div class="action-grid">{for Activity::TOWN.into_iter().map(|action|html!{<div class="action-option"><p>{super::workshop::text(super::workshop::activity(action),"setup")}</p><ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={i18n::t(action.key())} detail={i18n::t(&format!("{}_cost",action.key()))} /></div>})}</div>
         if town && gs.continuity.activities.worked_at==gs.continuity.route_services.stop {<p class="action-availability">{i18n::t("trail.work_done")}</p>}
     </section>}
 }
@@ -30,6 +30,7 @@ pub fn render_camp(app: &AppState) -> Html {
     let remaining = gs.forage_cooldown_days();
     html! {<>{for Activity::ROADSIDE.into_iter().map(|action|html!{
         <div class="camp-action camp-gather">
+            <p>{super::workshop::text(super::workshop::activity(action),"setup")}</p>
             <ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={i18n::t(action.key())} detail={i18n::t(&format!("{}_cost",action.key()))} />
 
             {gather_blocker(gs,action).map_or_else(
@@ -74,7 +75,7 @@ fn choose(app: &AppState, action: Activity) -> Callback<MouseEvent> {
         let next = super::aftermath::next_phase(session.state());
         let mut report = Aftermath {
             title: i18n::t(action.key()),
-            message: i18n::t(&format!("{}_done", action.key())),
+            message: super::workshop::text(super::workshop::activity(action), "outcome"),
             scene,
             before: before.stats.clone(),
             after: session.state().stats.clone(),

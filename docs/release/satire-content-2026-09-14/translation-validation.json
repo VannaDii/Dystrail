@@ -1,0 +1,25 @@
+{
+  "source_language": "en",
+  "translations": [
+    "es",
+    "it",
+    "ar"
+  ],
+  "method": "Dedicated local translation model, exact segment alignment and placeholder checks, targeted semantic review and manual corrections.",
+  "review_focus": [
+    "payment direction and costs",
+    "named-person placeholders and deaths versus living departures",
+    "DOGE staff dismissals versus gunfire",
+    "proposals and projected losses versus enacted or observed outcomes",
+    "source dates and numbers",
+    "raccoon and equipment terminology"
+  ],
+  "missing_strings": 0,
+  "placeholder_errors": 0,
+  "files": {
+    "en": "14581567f5783ddbf73ae4222a37c4d598e97e188a09cdcc25c09b67a9092182",
+    "es": "be804b26c7234aa3eeb60aa168140a2eac29b14ee97e432685cb17245f3c6c17",
+    "it": "1670d12be131b30dd4ca9dfdf20e6b283b113909b79c9e44169b3d637b3fa8ff",
+    "ar": "34edf743ee548cf4d8a32c5e4642f40c9438e970fdfb7626df9556ece9f6bafc"
+  }
+}

@@ -19,15 +19,11 @@ pub fn build_boss(state: &AppState) -> Callback<()> {
             *lock.borrow_mut() = true;
             let before = sess.state().clone();
             let cfg = (*boss_config_handle).clone();
-            let _ = sess.with_state_mut(|gs| crate::game::boss::run_boss_minigame(gs, &cfg));
+            let outcome = sess.with_state_mut(|gs| crate::game::boss::run_boss_minigame(gs, &cfg));
             sess.with_state_mut(|gs| {
                 let mut report = crate::app::aftermath::Aftermath {
                     title: crate::i18n::t("boss.title"),
-                    message: crate::i18n::t(if gs.boss.outcome.victory {
-                        "journey.vote_won"
-                    } else {
-                        "journey.vote_lost"
-                    }),
+                    message: crate::app::workshop::hearing_outcome(gs, &cfg, outcome),
                     scene: crate::components::ui::journey_scene::SceneStage::Boss,
                     before: before.stats.clone(),
                     after: gs.stats.clone(),

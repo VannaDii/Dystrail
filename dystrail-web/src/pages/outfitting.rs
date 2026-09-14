@@ -19,6 +19,7 @@ pub fn outfitting_page(props: &OutfittingPageProps) -> Html {
     crate::i18n::use_language();
     html! {
         <section class="panel retro-menu">
+            <p class="scene-narrative">{crate::app::workshop::opening(&props.game_state,"setup")}</p>
             <crate::components::ui::outfitting_store::OutfittingStore
                 game_state={props.game_state.clone()}
                 on_continue={props.on_continue.clone()}

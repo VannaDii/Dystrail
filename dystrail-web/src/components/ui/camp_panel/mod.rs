@@ -57,7 +57,7 @@ pub fn camp_panel(p: &Props) -> Html {
             p.on_state_change.emit((
                 state,
                 i18n::t(if outcome.rested {
-                    "ux.rested"
+                    "workshop.ACT-REST.outcome"
                 } else {
                     "ux.no_change"
                 }),
@@ -97,6 +97,7 @@ pub fn camp_panel(p: &Props) -> Html {
     );
     html! { <section class="camp-modal" aria-labelledby="camp-title">
         <h2 id="camp-title" class="sr-only">{i18n::t("camp.title")}</h2>
+        <p class="scene-narrative">{crate::app::workshop::text("ACT-REST","setup")}</p>
         <div class="camp-actions">
             <div class="camp-action"><ActionButton onclick={rest} disabled={p.game_state.camp.rest_cooldown > 0 || cfg.rest.day == 0} label={rest_label} />{cooldown(p.game_state.camp.rest_cooldown,cfg.rest.cooldown_days,"play2.rest_ready")}</div>
             {p.gathering.clone()}

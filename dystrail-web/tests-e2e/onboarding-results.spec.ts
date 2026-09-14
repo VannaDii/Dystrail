@@ -34,7 +34,7 @@ test('early illness ending matches location and primary player, shows the full s
   gs.trail_distance=2400;gs.day=37;gs.clock_minutes=540;gs.miles_traveled_actual=501.7949;gs.miles_traveled=502;gs.ending={type:'collapse',cause:'disease'};gs.stats.sanity=0;
   gs.route_services={...gs.route_services,route_id:'whistleblower',stop:null};gs.journal.push({day:37,minute:540,place:'Reno → Salt Lake City',title:'A crew member needs help · Willow',message:'Willow died after critical illness went untreated. The crew continues without them.',before:gs.stats,after:gs.stats,details:[]});
  }
- await importState(page,gs);await expect(page.locator('#result-title')).toHaveText('ILLNESS ENDS THE JOURNEY');await expect(page.locator('.result-location')).toContainText('Reno → Salt Lake City');await expect(page.locator('.result-location')).toContainText('21%');
+ await importState(page,gs);await expect(page.locator('#result-title')).toHaveText('Illness Has No Upload Button');await expect(page.locator('.result-location')).toContainText('Reno → Salt Lake City');await expect(page.locator('.result-location')).toContainText('21%');
  const player=gs.party.members.find((m:any)=>m.persona===gs.persona_id).name;
  await expect(page.locator('.result-art .result-profile')).toContainText(player);expect(await page.locator('.result-profile img').evaluate((img:HTMLImageElement)=>img.src===(window as any).dystrailAssetUrls['static/img/journey/occupant-whistleblower.png']&&img.complete&&img.naturalWidth>0)).toBe(true);await expect(page.locator('.result-art .scene-speaker')).toHaveCount(0);await expect(page.locator('.result-art .journey-scene')).toHaveAttribute('data-scene','ending-rest-area');
  await expect(page.locator('.ending-scorecard')).toBeVisible();await expect(page.locator('details.ending-scorecard')).toHaveCount(0);await expect(page.locator('.ending-moments')).not.toContainText('The crew continues without them');await expect(page.locator('.result-screen')).not.toContainText('steps');await snap(page,'illness-ending');
@@ -52,8 +52,8 @@ test('bottom result actions give visible feedback without a page jump',async({pa
 
 test('a fatal player care decision reports the death and ends the run here',async({page})=>{
  const gs=await baseline(page);gs.stats.sanity=1;gs.crew_care.pending=gs.persona_id;gs.crew_care.strain={[gs.persona_id]:3};await importState(page,gs);
- await page.locator('.crew-incident .camp-actions>button').nth(2).click();await expect(page.locator('.aftermath-panel')).toContainText('Vanna Test dies. The journey ends.');
- await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#result-title')).toHaveText('ILLNESS ENDS THE JOURNEY');
+ await page.locator('.crew-incident .camp-actions>button').nth(2).click();await expect(page.locator('.aftermath-panel')).toContainText('You have died after continuing without care. Your journey ends here.');
+ await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#result-title')).toHaveText('Illness Has No Upload Button');
  await expect(page.locator('.result-art .result-profile')).toContainText('Vanna Test');const saved=(await checkpoint(page)).state;expect(saved.ending).toEqual({type:'collapse',cause:'disease'});expect(saved.party.members.find((m:any)=>m.persona===gs.persona_id).status).toBe('Dead');
 });
 

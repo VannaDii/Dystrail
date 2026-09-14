@@ -158,7 +158,7 @@ pub fn policy_indicator(p: &Props) -> Html {
         <span class={classes!("weather-name",super::helpers::exec_sprite_class(p.order))}><span class="weather-icon" aria-hidden="true">{"§"}</span><strong>{&name}</strong></span>
         if let Some(r)=&p.readout {
             <span class="sr-only">{&r.impact}{", "}{&r.duration}</span>
-            <super::super::context_help::ContextHelp informational={true} icon={"i".to_owned()} title={name}>{details(r)}</super::super::context_help::ContextHelp>
+            <super::super::context_help::ContextHelp informational={true} icon={"i".to_owned()} title={name}><p>{crate::app::workshop::text(crate::app::workshop::order(p.order),"activation")}</p>{details(r)}</super::super::context_help::ContextHelp>
         }
     </div>}
 }

@@ -40,9 +40,9 @@ test('town facts and player and NPC portraits survive reload',async({page})=>{
 });
 test('a new political encounter pays cash and exposes its factual hook',async({page})=>{
  const gs=await baseline(page);gs.current_encounter=bank.find((e:any)=>e.id==='sat_corn_bullets');await importState(page,gs);
- await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene','enc-farm-office');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-atlas','encounter-settings-v3');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','4');await page.getByRole('button',{name:'How this works: Behind the joke',exact:true}).click();await expect(page.locator('.viewport-help')).toContainText('five weekly');await expect(page.locator('.viewport-help a')).toHaveAttribute('href',/^https:/);
- await expect(page.locator('.source-explanation time')).toHaveAttribute('datetime','2025-02-28');
- await expect(page.locator('.source-explanation time')).toHaveText('2/28/2025');
+ await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene','enc-farm-office');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-atlas','encounter-settings-v3');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','4');await page.getByRole('button',{name:'How this works: Behind the joke',exact:true}).click();await expect(page.locator('.viewport-help')).toContainText('initial MAHA report');await expect(page.locator('.viewport-help a')).toHaveAttribute('href',/^https:/);
+ await expect(page.locator('.source-explanation time')).toHaveAttribute('datetime','2026-09-13');
+ await expect(page.locator('.source-explanation time')).toHaveText('9/13/2026');
  await expect(page.locator('.source-explanation > p')).toHaveCount(2);
  await expect(page.locator('.source-explanation > p').first()).toHaveAttribute('lang','en');
  await page.keyboard.press('Escape');

@@ -288,43 +288,44 @@
       "success": "Aprobar"
     },
     "epilogue": {
-      "boss_loss": "Llegaste al Congreso pero la votación de cierre fracasó.",
+      "boss_loss": "La votación final es en contra de usted. Usted presentó pruebas, testimonios y un viaje real. El sobre del donante no presentó ninguno de estos elementos y es invitado a cenar.",
       "collapse": "El viaje terminó antes de que pudiera completarse la audiencia.",
-      "collapse_breakdown": "Todos los sistemas se sobrecargaron a la vez. ",
-      "collapse_hunger": "Esperaste demasiado para reabastecerte; ",
-      "collapse_vehicle": "Una falla mecánica agotó todas las reservas hasta que la carrera colapsó.",
-      "collapse_weather": "Los elementos te frenaron y luego te detuvieron. ",
+      "collapse_breakdown": "La avería sin resolver pone fin a la expedición. Trump dijo que los aranceles serían pagados en el extranjero. El presupuesto de reparación ha pasado toda la conversación mirándote directamente.",
+      "collapse_hunger": "El hambre pone fin a la expedición. El Congreso redujo el presupuesto proyectado para ayuda alimentaria y lo calificó como un ahorro. No se puede comer una previsión, aunque ahora contenga un número muy impresionante.",
+      "collapse_vehicle": "El estado del vehículo pone fin a la expedición. Trump le dio a la defensa un nombre más enérgico. Podrías intentar lo mismo con la furgoneta, pero “imparable” ahora estaría obstruyendo el tráfico.",
+      "collapse_weather": "El clima pone fin a la expedición. “Sharpiegate” demostró cómo cambiar una previsión con un bolígrafo. Nadie demostró cómo conducir sobre la corrección.",
       "exposure": "Insolación o congelación, el clima acabó lo que empezó la política.",
-      "generic": "El viaje termina sin terminar, pero el próximo código compartido podría reescribir la historia.",
-      "sanity": "Lo absurdo te rompió antes que el Senado.",
+      "generic": "Este relato no indica cómo terminó el viaje. Después del grupo de chat sobre los planes de bombardeo, revisa la lista de destinatarios. Es posible que el gobierno haya enviado la conclusión a un hombre que vende muebles de jardín.",
+      "sanity": "No puedes seguir adelante; tu cordura está agotada. Los funcionarios que pusieron los planes de bombardeo en un grupo de chat seguirán dándole lecciones a todos sobre juicio. El tuyo, al menos, ha reconocido una emergencia.",
       "vehicle_failure": "La furgoneta de campaña finalmente se rindió. ",
-      "vehicle_failure_vehicle_destroyed": "La furgoneta de campaña finalmente se rindió. ",
-      "victory": "Los historiadores citarán tus recibos. Los cabilderos maldicen tu nombre.",
-      "exposure_cold": "Insolación o congelación, el clima acabó lo que empezó la política.",
-      "exposure_heat": "Insolación o congelación, el clima acabó lo que empezó la política.",
-      "collapse_panic": "El cintillo hizo el resto. El GIF es para siempre.",
-      "collapse_disease": "La enfermedad puso fin al viaje de {name}. Aquí se detuvo el camino.",
-      "collapse_crossing": "El cruce puso fin al viaje. El grupo no pudo seguir.",
-      "incomplete": "El viaje terminó aquí, antes de que concluyera la audiencia pública."
+      "vehicle_failure_vehicle_destroyed": "La furgoneta ha sido destruida. El viaje termina con viajeros estadounidenses incapaces de viajar. La propuesta de aranceles prometió proteger la industria nacional; tu contribución ahora parece ser chatarra.",
+      "victory": "Ganas la votación final. Un lobista te pregunta qué PAC super te apoyó. Le muestras el cambio de lavado. Él busca debajo para encontrar al multimillonario.",
+      "exposure_cold": "La exposición al frío pone fin al viaje. La cena de recaudación de fondos política se mantiene caliente bajo pequeños tapones de plata. Aparentemente, incluso una patata puede obtener una mejor representación.",
+      "exposure_heat": "La exposición al calor pone fin a la expedición. Los políticos que se oponen a las pausas obligatorias por calor para los trabajadores presentan sus argumentos en interiores. Se ha permitido que el termostato se regule sin una audiencia pública.",
+      "collapse_panic": "El pánico pone fin a la expedición. Los funcionarios que extraviaron los planes de bombardeo seguirán explicando que todos los demás están exagerando. Apagas la presentación; es lo primero que debe detener la escalada.",
+      "collapse_disease": "La enfermedad pone fin a la expedición. El Congreso quiere que el trabajo esté documentado antes de que más personas puedan seguir recibiendo beneficios. Tu cuerpo no ha hecho más que luchar. No ha creado una cuenta de acceso.",
+      "collapse_crossing": "El cruce pone fin a la expedición. En la política estadounidense, enormes sumas se mueven libremente como una expresión independiente. Tus personas reales se han encontrado con una barrera menos receptiva.",
+      "incomplete": "Este viaje está inconcluso. En Washington, la cena con los donantes sigue en el calendario. El pollo ha conseguido una cita; tu caso sigue en la carretera."
     },
     "headline": {
-      "boss_loss": "EL FILIBUSTERISMO TE APLASTÓ",
+      "boss_loss": "El tipo de discurso equivocado.",
       "collapse": "VIAJE INTERRUMPIDO",
-      "collapse_breakdown": "Colapso del agotamiento",
-      "collapse_hunger": "Colapso por hambre",
-      "collapse_vehicle": "COLAPSO MECÁNICO",
-      "collapse_weather": "COLAPSO DEL TIEMPO",
+      "collapse_breakdown": "La Factura Ganó.",
+      "collapse_hunger": "Goteo, Boca Abierta.",
+      "collapse_vehicle": "El Vehículo ha Cambiado de Marca.",
+      "collapse_weather": "Clima, Sin Editar.",
       "exposure": "EXPUESTO A LOS ELEMENTOS",
-      "sanity": "FRACTURA DE CORDURA",
+      "sanity": "El Cerebro Rechaza la Presentación.",
       "vehicle_failure": "VEHÍCULO DESTRUIDO",
-      "vehicle_failure_vehicle_destroyed": "VEHÍCULO DESTRUIDO",
-      "victory": "¡APROBASTE LA CLOTURA!",
-      "exposure_cold": "EXPUESTO A LOS ELEMENTOS",
-      "exposure_heat": "EXPUESTO A LOS ELEMENTOS",
-      "collapse_panic": "FRACTURA DE CORDURA",
-      "collapse_disease": "LA ENFERMEDAD PONE FIN AL VIAJE",
-      "collapse_crossing": "EL FINAL EN EL CRUCE",
-      "incomplete": "VIAJE INCONCLUSO"
+      "vehicle_failure_vehicle_destroyed": "Primero América, Última la Furgoneta.",
+      "victory": "El PAC del Distrito.",
+      "exposure_cold": "El Donante Aislado.",
+      "exposure_heat": "Control Local del Termostato.",
+      "collapse_panic": "Nada que Ver, Demasiado que Oír.",
+      "collapse_disease": "La Enfermedad No Tiene Botón de Subida.",
+      "collapse_crossing": "El Dinero Libera la Aduana.",
+      "incomplete": "El Comité Aún Está Algún Lugar Adelante.",
+      "generic": "Un Final Sin Clasificar."
     },
     "labels": {
       "allies": "Aliados",
@@ -682,638 +683,638 @@
   },
   "encounter_copy": {
     "beltway_briefing": {
-      "name": "Departamento de Cambiarles el Nombre a las Cosas",
-      "desc": "El salón de reuniones tiene un nombre patriótico nuevo. Tu formulario usa el antiguo; las enmiendas usan ambos. La empleada identifica el edificio señalándolo por la ventana.",
-      "choice_0": "Leerlo todo; usar un paquete de comida",
-      "log_0": "Comida agotada, instrucciones cotejadas y guardadas. Has seguido la pista del salón hasta el otro lado de la calle.",
-      "choice_1": "Ojear lo que está en negrita",
-      "log_1": "Pasas por alto dos correcciones. Te preparas con seguridad para visitar el edificio antes conocido como el edificio.",
-      "choice_2": "Repartir el expediente entre los seis",
-      "log_2": "Se os escapa una referencia cruzada. Seis personas, seis respuestas. El formulario ha conseguido crear un comité."
+      "name": "El proceso de recordación.",
+      "desc": "Un museo a la vera de la carretera, que imita el orden histórico de la colección del Smithsonian de Trump, ha instalado un “lavado patriótico”. Su equipo es invitado a probarlo con una narrativa pública sobre una desocupación. La secadora devuelve una historia sobre familias que descubren el aire fresco. Un calcetín todavía contiene a un oficial de desalojo.",
+      "choice_0": "Utilice su papel; documente el lavado.",
+      "log_0": "Usted utiliza algunos materiales, trazando cada línea modificada, con la cabeza palpitante. La versión original permanece intacta. La secadora solicita un ciclo histórico más suave.",
+      "choice_1": "Permita que el lavado mejore su versión.",
+      "log_1": "La versión revisada es reconfortante y, sin embargo, incorrecta. Un residente señala que el “acampamiento voluntario” comenzó cuando cambiaron las cerraduras.",
+      "choice_2": "Repita la versión de la exhibición.",
+      "log_2": "Usted repite la versión de la exhibición y recibe una corrección. El residente trae una llave. Encaja mucho mejor con la historia que el pie de foto."
     },
     "classic_bridge_crews": {
-      "name": "La emergencia de la eficiencia",
-      "desc": "El ayuntamiento enumera cinco logros por despedir a la cuadrilla del puente. Los cinco significan «despedimos a la cuadrilla del puente». El puente está cerrado; los antiguos trabajadores necesitan ayuda para cargar señales de desvío.",
-      "choice_0": "Donar un paquete; cargar señales de barrera",
-      "log_0": "Provisiones donadas, brazos doloridos. Cargáis las señales sin llamaros creadores de empleo ni una sola vez.",
-      "choice_1": "Fotografiar y denunciar el cierre",
-      "log_1": "Archivas la foto fechada. Muestra exactamente cuánto tráfico soporta la «eficiencia»: ninguno."
+      "name": "Un gobierno más pequeño.",
+      "desc": "DOGE despidió a los encargados de limpieza del parque. La única guardaparques que queda no ha almorzado. Les ofrece a su equipo guantes junto a contenedores desbordados. “Felicidades. Ustedes son el gobierno más pequeño”.",
+      "choice_0": "Compartan comida y ayuden a limpiar los contenedores.",
+      "log_0": "Comparten el almuerzo y llevan bolsas hasta que les duela la espalda. Le entregan a su equipo una bolsa de basura. “Asignación de uniforme”.",
+      "choice_1": "Fotografíen el desastre para su caso en el Distrito de Columbia.",
+      "log_1": "Fotografían los contenedores desbordados. Ella señala a las moscas. “El único departamento que todavía está contratando”."
     },
     "deep_secure_line": {
-      "name": "Chat privado, solicitud pública",
-      "desc": "El gerente del motel quiere las solicitudes de empleo en un chat con su proveedor de máquinas expendedoras. «Está cifrado», dice. Excelente. Solo los desconocidos autorizados pueden leer tu dirección.",
-      "choice_0": "Revisar la lista; documentar el problema",
-      "log_0": "Registras contactos ajenos sin datos privados. El proveedor de máquinas confirma que no es Recursos Humanos.",
-      "choice_1": "Repetir la garantía de privacidad del gerente",
-      "log_1": "«Totalmente privado», dices a todos. Un antiguo empleado responde: «Lo dejé durante la administración Obama».",
-      "choice_2": "Pedir reglas de acceso por escrito — 1 provisión",
-      "log_2": "Enumera quién puede ver las solicitudes. La trabajadora de limpieza tacha «todos los del chat». Otro desastre que la gerencia espera que limpie ella."
+      "name": "El calendario con empleo",
+      "desc": "Un taller junto a la carretera explica los controles de trabajo de Medicaid previstos a partir de 2027. Os invitan a inspeccionar su máquina de calendarios. Sella cada día trabajado con «demuéstralo» y luego añade otro día para demostrarlo. La semana de la persona encargada de limpiar se ha ampliado.",
+      "choice_0": "Comprobar y guardar las fechas de aplicación",
+      "log_0": "Guardáis las fechas reales de aplicación y aclaráis la confusión. La persona encargada de limpiar retira el día extra. Sigue figurando en el papeleo.",
+      "choice_1": "Decir que la aplicación federal ya ha comenzado",
+      "log_1": "Repetís la afirmación prematura y os corrigen. La máquina de calendarios ha confundido prepararse para el plazo con sobrevivir a él.",
+      "choice_2": "Usar vuestro papel para copiar las reglas",
+      "log_2": "Gastáis algunos suministros en copiar las reglas con precisión. El voluntario guarda el día extra en una carpeta. Ya no cabe en la semana."
     },
     "raw_milk": {
-      "name": "La central dice que es saludable",
-      "desc": "Un puesto de bienestar ofrece leche cruda gratis, comida envasada y «libertad corporal» al estilo MAHA. La empleada tiene un guion, enlaces de investigación e instrucciones corporativas sobre el ángulo correcto de su sonrisa.",
-      "choice_0": "Beber la leche gratis",
-      "log_0": "Tu estómago inicia su propia revisión. La próxima salida se convierte en el único asunto político que importa.",
-      "choice_1": "Rechazarla; comprobar los enlaces a estudios",
-      "log_1": "El estudio citado no trata de leche. Se lo enseñas a la empleada. La ciencia de la empresa acaba en el reciclaje.",
-      "choice_2": "Coger un paquete de comida gratis",
-      "log_2": "Guardas la comida. Su lista de ingredientes cabe en el envoltorio sin necesidad de una comisión presidencial."
+      "name": "Ausentes de forma uniforme.",
+      "desc": "En una parada en un parque, después de los despidos de DOGE, voluntarios ofrecen comida a tu equipo y piden ayuda para clasificar el inventario abandonado del servicio de atención al cliente. Un estante contiene uniformes para el personal que no regresará. Tiene más placas de identificación que el mostrador de recepción.",
+      "choice_0": "Ayuda a clasificar el inventario abandonado.",
+      "log_0": "Traslada el inventario hasta que te duelen los hombros y la cabeza. Un guardaparques encuentra otra uniforme. Inmediatamente está calificada para atender el mostrador vacío.",
+      "choice_1": "Registra la cuenta de personal.",
+      "log_1": "Registras la cuenta de personal y te ríes de la demostración del guardaparques con los perchas. Las perchas alcanzan una asistencia perfecta mientras rechazan todas las solicitudes de los visitantes.",
+      "choice_2": "Lleva algo de comida para el camino.",
+      "log_2": "Tomas algo de comida de las donaciones de los visitantes. Es la única cola hoy en día que tiene a alguien trabajando en ambos extremos."
     },
     "tariff_whiplash": {
-      "name": "El latigazo arancelario",
-      "desc": "Una nueva lista arancelaria exige repuestos extra para tu intercambio de piezas ya firmado. El correo corporativo «Mantén una actitud positiva» le da el guion al empleado: «Lamentablemente, lamentablemente, lamentablemente».",
-      "choice_0": "Revisar los términos; cambiar dos paquetes de provisiones",
-      "log_0": "Dos paquetes menos; recargo documentado. Al parecer, tu firma aprobaba cualquier cifra que viniera después.",
-      "choice_1": "Afirmar que el paquete extra estaba incluido",
-      "log_1": "Consigues el paquete extra y pierdes el beneficio de la duda. Madera de directivo.",
-      "choice_2": "Comparar recibos; ofrecer un paquete de provisiones",
-      "log_2": "Un paquete aceptado, términos corregidos guardados. El correo corporativo sobre actitud positiva sobrevive a todas las revisiones."
+      "name": "Comida para el lema.",
+      "desc": "En una feria de tarifas a la vera de la carretera, un importador necesita suministros para su exhibición de costos públicos. Al otro lado del pasillo, un promotor ofrece a tu equipo algo de comida para que repitan “China pagó”. El importador tiene su extracto bancario estadounidense. El promotor tiene mejores sándwiches.",
+      "choice_0": "Dona suministros para la exhibición de costos.",
+      "log_0": "Donas algunos suministros; el importador registra tu ayuda. El pago estadounidense finalmente obtiene un panel de exhibición tan grande como el lema de los pagadores extranjeros.",
+      "choice_1": "Toma la comida; repite el lema.",
+      "log_1": "Tomas algo de comida y repites el lema. El importador te corrige con su registro de pagos. El sándwich ha contratado a un portavoz muy pequeño.",
+      "choice_2": "Usa tu papel; registra el pago.",
+      "log_2": "Usas algunos suministros para documentar el pago real. El importador señala su nombre. Ha permanecido estadounidense durante toda la promoción."
     },
     "classic_civic_potluck": {
-      "desc": "El aviso que cancela el fondo federal de alimentos está pegado junto al guiso. «Las hojas van debajo de los cuencos», dice quien cocina. «Esa es la aportación federal».",
-      "choice_0": "Quedarte; preparar tres paquetes de comida",
-      "log_0": "Comes y preparas tres paquetes. Alguien ofrece repetir sin comprobar si eres una empresa.",
-      "choice_1": "Preparar dos paquetes; compartir su historia",
-      "log_1": "Prometes mencionar a quienes cocinan en Washington. Etiquetan las sobras como «pruebas».",
-      "choice_2": "Donar un paquete de comida",
-      "log_2": "Tus judías se suman a la despensa. Quien cocina ofrece poner tu nombre a una patata muy poco impresionada.",
-      "name": "Comida compartida en el centro cívico"
+      "desc": "En un almacén que se prepara para los recortes de SNAP de 2025, los voluntarios reciben a su hambriento equipo y agradecen cualquier ayuda que puedan ofrecer. Un folleto sobre la reducción de impuestos de un senador sirve de soporte para la corta pata de la mesa. Finalmente, está sirviendo de apoyo para la cena.",
+      "choice_0": "Comer; tomar algo de comida.",
+      "log_0": "Usted come y toma algo de comida. El folleto sobre la reducción de impuestos permanece debajo de la mesa; retirarlo le costaría el almuerzo a todos.",
+      "choice_1": "Registrar el testimonio de los voluntarios.",
+      "log_1": "Usted registra a los voluntarios y recoge algo de comida. Le piden que incluya el pastel antes de que Washington lo considere un gasto innecesario.",
+      "choice_2": "Donar algo de comida.",
+      "log_2": "Usted dona algo de comida. Un voluntario pega su recibo sobre la sonrisa del senador. La primera cosa en ese folleto que alimentó a alguien.",
+      "name": "Apoyo para la cena."
     },
     "classic_crossing_block_party": {
-      "desc": "Tras la orden de recortar el apoyo federal a las bibliotecas, los bibliotecarios montan una barbacoa: libros gratis, asientos gratis. «Lo sé», dice uno. «Así caen los imperios».",
-      "choice_0": "Dar un paquete de comida; ayudar en la parrilla",
-      "log_0": "Cocinas mientras una bibliotecaria lee terror en voz alta. El terror es el presupuesto del año que viene.",
-      "choice_1": "Tomar el micrófono abierto",
-      "log_1": "«No debería necesitar una hipoteca para un muffin solo por sentarme». El personal de cafetería que espera en la fila se parte de risa.",
-      "choice_2": "Compartir dos paquetes de agua y toallas",
-      "log_2": "Repartes toallas frías. La bibliotecaria guarda una para el próximo cargo público que sude atacando los libros gratis.",
-      "name": "Fiesta vecinal en el cruce"
+      "desc": "Trump ordenó medidas para cerrar el Departamento de Educación. En una recaudación de fondos de la asociación de padres, los padres le piden a su equipo detenido que alimente a los voluntarios o registre su falsa liquidación. Un escritorio está etiquetado “EL PODER HA RETORNADO A LOS PADRES”. Dos padres están discutiendo sobre cómo levantarlo.",
+      "choice_0": "Compartir algo de comida; participar en la venta.",
+      "log_0": "Usted comparte algo de comida y participa en la falsa subasta organizada por los padres. El escritorio es adjudicado a quien pueda explicar la división larga sin llorar.",
+      "choice_1": "Registrar la exhibición de los padres.",
+      "log_1": "Usted registra la exhibición para Washington D.C. La silla marcada “control local” todavía tiene un diagrama de una asamblea federal pegado debajo.",
+      "choice_2": "Proporcionar elementos para el rincón de lectura tranquilo.",
+      "log_2": "Usted deja algunos elementos y se sienta en el rincón de lectura. El libro se abre sin que nadie primero elimine a su editor.",
+      "name": "Formación al final del día."
     },
     "classic_freeway_mural": {
-      "desc": "Bajo un paso elevado con el nombre de un multimillonario, unos artistas pintan a la mujer que limpia su casa. Necesitan ayuda, agua y una foto de grupo. Él aporta al retrato la huella de barro que ella está fregando.",
-      "choice_0": "Ayudar a pintar la capa base",
-      "log_0": "Terminas una capa con los brazos doloridos. El cartel del multimillonario aporta su parte habitual del trabajo.",
-      "choice_1": "Donar dos paquetes de provisiones",
-      "log_1": "Tu aportación cabe en la foto sin necesitar una placa propia.",
-      "choice_2": "Salir en la foto de los artistas",
-      "log_2": "Los seis os apretujáis en la foto. El nombre del multimillonario sigue por encima de todas las cabezas. Hasta el paso elevado tiene organigrama.",
-      "name": "El equipo del mural de la autopista"
+      "desc": "Después de los despidos en parques impulsados por DOGE, los vecinos están limpiando un refugio para picnics que el personal de mantenimiento solía manejar. Le hacen señas para que su furgoneta los ayude. Una enredadera ha llegado hasta la ventana de información para visitantes. Es la primera solicitud dispuesta a trabajar a cambio de luz solar.",
+      "choice_0": "Ayudar a arrastrar las ramas caídas.",
+      "log_0": "Usted arrastra ramas hasta que le duelen los hombros. Todos vitorean cuando la mesa de picnic aparece. Ha sobrevivido a su promoción a naturaleza salvaje.",
+      "choice_1": "Donar elementos de limpieza.",
+      "log_1": "Usted dona algunos elementos; los voluntarios añaden su contribución a su cuenta. El nuevo mango del rastrillo lo convierte en el empleado mejor respaldado del parque.",
+      "choice_2": "Registrar el testimonio de los voluntarios.",
+      "log_2": "Registra quién realizó el mantenimiento antes de los despidos. Una ardilla interrumpe. El voluntario se niega a incluirlo como contratista.",
+      "name": "Naturaleza sin gestión."
     },
     "classic_mail_drop": {
-      "desc": "Un voluntario trae cartas burlándose de la exigencia de Washington de cinco logros, un paquete para el camino y la petición de grabar los vuestros. Un jubilado apunta «dar de comer al gato» dos veces. El gato solicita una tercera.",
-      "choice_0": "Leer y guardar las cartas",
-      "log_0": "Guardas las cartas entre risas. El sistema de evaluación del gato es igual de arbitrario, pero bastante más peludo.",
-      "choice_1": "Grabar una respuesta breve y exacta",
-      "log_1": "Actualización grabada, paquete recogido. Vuestros próximos cinco logros se realizarán con la boca llena.",
-      "choice_2": "Ordenar las cartas urgentes; compartir un paquete",
-      "log_2": "Un paquete de comida alimenta la clasificación. Alguien escribe «Empleado del mes» en el envoltorio vacío.",
-      "name": "Recogida de correspondencia"
+      "desc": "En una parada en la biblioteca, los voluntarios le entregan a tu equipo cartas sobre los estudios inexistentes mencionados en el primer informe de MAHA. Ofrecen algo de comida a cambio de una respuesta registrada y precisa. Un cartero jubilado ha traído un sobre vacío. “Esa es toda la investigación que pudimos incluir.”",
+      "choice_0": "Leer y guardar las cartas.",
+      "log_0": "Lees y guardas las cartas, riendo. El cartero ha subrayado tan intensamente “dirección desconocida” que el estudio inexistente ahora tiene una abertura.",
+      "choice_1": "Registrar una respuesta precisa.",
+      "log_1": "Registras las correcciones de citas y recoges algo de comida. La bibliotecaria verifica que la respuesta existe antes de pulsar el botón de reproducción.",
+      "choice_2": "Compartir comida; clasificar las cartas.",
+      "log_2": "Compartes comida y clasificas las cartas con los voluntarios. Cada estudio faltante recibe un clip real. El presupuesto de ciencia se está recuperando.",
+      "name": "Devolver a remitente inexistente."
     },
     "classic_media_training": {
-      "desc": "En un taller gratuito de protesta, una presentadora de radio ensaya preguntas sobre el chat de Signal del gabinete. Dice que «no lo sé» es una respuesta aceptable. Nadie de atención al cliente la cree.",
-      "name": "¿Quién puede decir «sin comentarios»?",
-      "choice_0": "Practicar con el chat publicado",
-      "log_0": "Transcripción revisada. Tu respuesta supera una repregunta sin culpar al micrófono.",
-      "choice_1": "Dejar el micrófono al grupo",
-      "log_1": "Alguien hace una imitación impecable del gabinete: habla dos minutos, no responde nada, pide un ascenso."
+      "desc": "En una sesión informativa sobre financiación sanitaria, los voluntarios muestran a tu equipo, que está detenido, cómo los cambios en la ley de Medicaid de 2025 afectan los requisitos de elegibilidad y el gasto. Han construido una escalera de demostración. El peldaño inferior está etiquetado “contribuyentes”. El primer peldaño accesible ha sido retirado para mantener el modelo asequible.",
+      "name": "La escalera de cobertura.",
+      "choice_0": "Revisar la ley y la demostración.",
+      "log_0": "Revisas las fuentes y comprendes los cambios. El voluntario vuelve a colocar el peldaño que faltaba para guardarla. Incluso la demostración necesita ese peldaño para funcionar.",
+      "choice_1": "Observar a los voluntarios ensayar.",
+      "log_1": "Disfrutas del ensayo. El voluntario que interpreta a un senador elogia la escalera desde un taburete que otra persona ha traído."
     },
     "classic_mutual_aid": {
-      "desc": "Tres voluntarios ofrecen 10 dólares y un paquete de comida por cargar. Desde los recortes federales de alimentos, la mesa plegable es la única que no ha hecho un turno doble.",
-      "choice_0": "Dar dos paquetes; compartir su llamamiento",
-      "log_0": "Grabas cómo descargan la comida. Tu informe de transparencia financiera viene con latas abolladas.",
-      "choice_1": "Cargar por 10 dólares y un paquete de comida",
-      "log_1": "Cena, diez dólares y dolor de espalda. La dirección es una silla plegable. La prefieres.",
-      "choice_2": "Dar un paquete; publicar su lista de necesidades",
-      "log_2": "Compartes la lista. Contiene judías, arroz y ninguna oportunidad apasionante para el capital privado.",
-      "name": "Puesto temporal de ayuda mutua"
+      "desc": "Los aranceles de Trump han aumentado el costo de reemplazo de una cooperativa de herramientas. En tu parada en la carretera, el propietario ofrece $10 y algo de comida a cambio de piezas reparables. También serían útiles los suministros donados. Un taladro importado roto está siendo custodiado por un candado fabricado en Estados Unidos.",
+      "choice_0": "Donar algunos suministros de reparación.",
+      "log_0": "Donas algunos suministros; la cooperativa registra tu contribución. Finalmente, el taladro importado puede ser reparado utilizando algo más barato que un discurso patriótico.",
+      "choice_1": "Aceptar el trabajo de elevación.",
+      "log_1": "Gana diez dólares y algo de comida, aunque estás adolorido, pero sonriendo. El dueño cierra el contenedor vacío. “Sigue siendo más barato asegurarlo que reemplazarlo.”",
+      "choice_2": "Comparte algo de comida; registra los gastos.",
+      "log_2": "Compartes algo de comida y registras los billetes actualizados. El dueño señala el almuerzo. “Nuestra primera importación hoy sin recargo.”",
+      "name": "Libertad importada."
     },
     "classic_mutual_aid_dispatch": {
-      "desc": "Los conductores de ayuda alimentaria piden radios prestadas para coordinar repartos tras la cancelación del fondo federal de alimentos. Washington cortó el dinero; el horario de carga sigue diciendo «pregúntale a Kevin».",
-      "choice_0": "Repartir dos paquetes de comida en vuestra furgoneta",
-      "log_0": "Hacéis las dos entregas. Nadie encarga un estudio de viabilidad de los escalones de entrada.",
-      "choice_1": "Donar un paquete de pilas para las radios",
-      "log_1": "La radio vuelve a crepitar. Kevin anuncia: «Tenemos judías». Algo que sí merece un discurso a la nación.",
-      "choice_2": "Guardar una copia del recuento de necesidades",
-      "log_2": "Guardas el recuento para Washington. Kevin ha enumerado todo lo que falta. «Nadie podía saberlo» tendrá que explicar la página dos.",
-      "name": "Centro de coordinación de ayuda mutua"
+      "desc": "El cambio de nombre de la región del Golfo por parte de Trump ha dejado a un club de mapas de carreteras con mapas antiguos y nuevas etiquetas federales. Te piden a ti y a tu equipo que ayuden a preparar una comparación pública. El voluntario ha revisado cuidadosamente la costa. No ha hecho ningún esfuerzo por cambiar nada.",
+      "choice_0": "Dona materiales para las comparativas.",
+      "log_0": "Donas algunos materiales y ayudas a documentar las etiquetas. El voluntario usa una regla para confirmar que la nueva designación no ha modificado la línea costera.",
+      "choice_1": "Comparte algo de comida con el club.",
+      "log_1": "Compartes algo de comida, y todos inventan nombres patrióticos para las migajas. El plato se convierte en el primer territorio en disputa que desaparece.",
+      "choice_2": "Revisa y guarda los mapas.",
+      "log_2": "Revisas y guardas los mapas, aliviado de ver que las coordenadas no han cambiado. El voluntario le da permiso al compás para mantenerse neutral.",
+      "name": "Cartografía patriótica."
     },
     "classic_neighborhood_watch": {
-      "desc": "Una calle, tres nombres oficiales. Los vecinos ofrecen indicaciones, teléfonos públicos de ayuda y un paquete para el camino por mover su tablero de mapas corregido. El repartidor de pizza está recorriendo toda la historia patriótica del pueblo.",
-      "name": "La calle antes conocida como la calle",
-      "choice_0": "Comprobar los teléfonos de ayuda publicados",
-      "log_0": "Números comprobados y guardados. Ya puedes preguntar «¿Dónde estamos?» sin oír primero los logros del alcalde.",
-      "choice_1": "Mover el tablero; corregir las flechas",
-      "log_1": "Brazos doloridos, un paquete ganado. Las flechas apuntan a algo distinto de los logros del alcalde.",
-      "choice_2": "Seguir las indicaciones de los vecinos",
-      "log_2": "Encuentras la salida. El grupo lo celebra como si alguien hubiera logrado cancelar una suscripción."
+      "desc": "Después de los recortes de personal de parques impulsados por DOGE, los voluntarios están elaborando su propia guía para visitantes. Te invitan a ti y a tu equipo a detenerse y te ofrecen comida a cambio de transportar paneles de exposición. El mural oficial de bienvenida muestra a seis guardabosques sonrientes. El guardabosque real está preguntándole al mural cómo llegar.",
+      "name": "Desinformación para visitantes.",
+      "choice_0": "Documenta la guía de los voluntarios.",
+      "log_0": "Documentas la guía de los voluntarios y sus fuentes. El guardabosque señala un baño en funcionamiento. Los consejos profesionales del mural siguen siendo decepcionantes.",
+      "choice_1": "Transporta los paneles para conseguir comida.",
+      "log_1": "Ganas algo de comida y un hombro adolorido por transportar los paneles. Los guardabosques pintados continúan con su excelente récord de asistencia sin mover ni una cosa.",
+      "choice_2": "Escucha el recorrido del guardabosque.",
+      "log_2": "Ríes durante el recorrido del guardabosque. Ella presenta al personal pintado individualmente. Al parecer, los seis han elegido trabajar de forma remota."
     },
     "classic_overpass_stage": {
-      "desc": "Una compañía bajo un paso elevado representa los recortes federales a las bibliotecas. Su multimillonario es un títere de calcetín. «Probamos con uno de verdad», dice el director. «No podíamos pagar las subvenciones».",
-      "choice_0": "Compartir la retransmisión pública de la compañía",
-      "log_0": "Publicas la obra. El títere de calcetín tiene mejor ritmo cómico y menos conflictos de intereses.",
-      "choice_1": "Participar en el coloquio",
-      "log_1": "Interrogas al títere hasta quedarte sin voz. Exige seguridad. El director lo encierra en un cajón de calcetines.",
-      "name": "Escenario improvisado bajo el paso elevado"
+      "desc": "En una feria a la vera de la carretera, los residentes protestan contra el gasto político independiente ilimitado y piden a su equipo testimonios o ayuda para empujar su carroza. La carroza es un megáfono lleno de billetes falsos. Se necesitan cuatro personas para que el dinero \"hable\".",
+      "choice_0": "Grabe su testimonio durante el viaje.",
+      "log_0": "Agrega su testimonio al registro de los residentes. Un voluntario lo coloca junto al megáfono. Su voz ha llegado, sin necesidad de un montacargas.",
+      "choice_1": "Ayude a empujar la carroza.",
+      "log_1": "Empujan hasta que les duelen los hombros, riendo con los residentes. El enorme megáfono finalmente \"habla\": su rueda chirría todo el camino cuesta abajo.",
+      "name": "El megáfono del pueblo."
     },
     "classic_press_briefing": {
-      "desc": "Una periodista pregunta por Sharpiegate y los jefes que niegan el tiempo. Recuerdas que te dijeron que las carreteras estaban bien porque la tienda estaba abierta. La caja registradora debe de controlar la corriente en chorro.",
-      "name": "Previsión: sigue siendo tu problema",
-      "choice_0": "Responder con las alertas meteorológicas guardadas",
-      "log_0": "Cotejas cada fecha hasta agotarte. La tormenta había dado instrucciones más claras que tu jefe de turno.",
-      "choice_1": "Enviar un relato breve mientras descansas",
-      "log_1": "Con los pies en alto, envías dos frases. El asiento del acompañante ofrece mejores adaptaciones que tu antiguo empleador.",
-      "choice_2": "Grabar una entrevista; verificar las fechas",
-      "log_2": "Guardas la grabación verificada. La alerta decía «quédate en casa». La versión de nóminas tenía otro tiempo."
+      "desc": "Su equipo se detiene en una presentación pública sobre el límite propuesto por la administración Trump para los gastos generales del NIH. Un investigador ha traído una lista detallada de costos, sillas y un congelador sin enchufar para explicar en qué se destinan los \"gastos generales\". El hielo utilizado en la demostración está proporcionando una evaluación del impacto a nivel del suelo.",
+      "name": "El costo de la inversión.",
+      "choice_0": "Verifique el desglose de costos.",
+      "log_0": "Verifica las cifras con un dolor de cabeza. El investigador agrega electricidad al ejemplo. El hielo ya ha presentado su objeción.",
+      "choice_1": "Siéntese mientras el investigador presenta.",
+      "log_1": "Se sienta y alivia sus piernas adoloridas. El investigador en silencio enchufa un ventilador. Los gastos generales mejoran inmediatamente las condiciones para los contribuyentes.",
+      "choice_2": "Guarde la estimación proporcionada por el investigador.",
+      "log_2": "Guarda la estimación con fecha y su estado de propuesta. El investigador coloca los papeles sobre el charco. Esa estantería también son gastos generales."
     },
     "classic_press_pool_qna": {
-      "desc": "Una periodista en una cafetería pide grabar los costes y las millas de vuestro viaje. Aceptáis. El gabinete le dio a un periodista planes de ataques aéreos sin revisar siquiera la lista de invitados.",
-      "name": "Una entrevista entre cafés",
-      "choice_0": "Responder con los recibos sobre la mesa",
-      "log_0": "Revisas todos los totales hasta agotarte. La periodista pregunta si compraste el desayuno o la cafetería.",
-      "choice_1": "Dar las millas de memoria",
-      "log_1": "Rápido, indoloro, equivocado. La periodista consulta el mapa. Tu estimación ha viajado más que la furgoneta.",
-      "choice_2": "Dejar hablar a alguien del grupo; estirarte",
-      "log_2": "Esa persona contesta. Te conviertes en la primera persona de una entrevista política que se tumba abiertamente."
+      "desc": "Su equipo se detiene en una presentación pública del museo municipal, inspirada en la orden de la historia estadounidense de Trump en el Smithsonian. Un miembro de la junta quiere cambiar el título de una fotografía de desalojo a \"Reubicación Familiar\". Antiguos residentes están esperando para hablar. Los muebles de la familia aún se ven claramente en la acera.",
+      "name": "Recuerdos aprobados.",
+      "choice_0": "Desafíe la leyenda con pruebas.",
+      "log_0": "Defiende la versión con fecha, con un dolor de cabeza. El miembro de la junta propone recortar el sofá. La historia está mejorando, un cojín a la vez.",
+      "choice_1": "Repita la versión tranquilizadora de la junta.",
+      "log_1": "Deja de argumentar y repite la leyenda. Un antiguo residente le corrige: normalmente, las personas eligen dónde reubicar el refrigerador.",
+      "choice_2": "Descanse afuera durante el debate.",
+      "log_2": "Usted se sienta afuera y disfruta del silencio. A través de la ventana, el cartel sigue cambiando. El sofá no se ha movido ni un centímetro."
     },
     "classic_radio_phonebank": {
-      "desc": "La emisora universitaria necesita anuncios contra los recortes federales a las bibliotecas. Ocho dólares por grabación. Tu opinión ha alcanzado el valor de mercado de un bocadillo.",
-      "choice_0": "Participar en el programa de llamadas en directo",
-      "log_0": "«El wifi gratis asusta a los multimillonarios», dices a los oyentes. «La gente podría leer la segunda mitad del contrato».",
-      "choice_1": "Compartir un paquete de comida; ensayar llamadas",
-      "log_1": "Repartes comida y ensayáis las llamadas. El guion contiene menos disculpas que tus correos de trabajo.",
-      "choice_2": "Grabar el anuncio de apoyo de 8 dólares",
-      "log_2": "Grabas el anuncio y te embolsas ocho dólares. Tus opiniones sin sueldo presentan una reclamación laboral.",
-      "name": "Campaña telefónica en la radio universitaria"
+      "desc": "Una tienda de letreros en el puerto ofrece a su equipo, que está detenido, ocho dólares por verificar las etiquetas después del cambio de nombre del Golfo por parte del gobierno federal durante la administración Trump. El impresor también invita a testigos para que comparen el nombre antiguo y el nuevo. La etiqueta que dice “América” cuesta más que la pieza que mantiene la lancha a flote.",
+      "choice_0": "Escuche la comparación del impresor.",
+      "log_0": "Aprende la diferencia y ríe al ver las muestras. El impresor coloca la etiqueta antigua sobre una fuga. Sigue siendo sorprendentemente apta para navegar.",
+      "choice_1": "Utilice su papel; registre los cambios.",
+      "log_1": "Utiliza algunos materiales para registrar los cambios con precisión. Las coordenadas del puerto caben en una línea. Se necesita una hoja adicional para expresar la grandeza.",
+      "choice_2": "Verifique las etiquetas por ocho dólares.",
+      "log_2": "Gana ocho dólares y resuelve la ortografía. El impresor pega el nuevo nombre en un cubo. Todavía necesita ser vaciado.",
+      "name": "La brecha de ocho dólares."
     },
     "classic_service_station": {
-      "desc": "El presupuesto con aranceles ha ascendido los repuestos a artículos de lujo. Un mecánico sindicalizado y sus aprendices ofrecen instalar tus piezas. «Felicidades. Tus limpiaparabrisas ya son una herencia».",
-      "choice_0": "Usar repuestos; descansar durante la revisión",
-      "log_0": "Instalan tus repuestos; tú descansas. La silla de la sala de espera proporciona la recuperación que Washington anunciaba.",
-      "choice_1": "Describir el problema a los aprendices",
-      "log_1": "Los aprendices registran los síntomas. La furgoneta recibe más supervisión que el plan arancelario.",
-      "choice_2": "Instalar tus limpiaparabrisas de repuesto",
-      "log_2": "Limpiaparabrisas instalados. Vuelves a ver la carretera. El panorama económico sigue dejando rayas.",
-      "name": "Entrega en la estación de servicio"
+      "desc": "Su equipo, agotado y adolorido, se detiene junto a una protesta de techadores itinerantes contra la prohibición de Florida sobre las regulaciones locales de calor. Los voluntarios tienen sombra y toallas, pero necesitan agua. Su exhibición muestra a un político elogiando la libertad de las regulaciones, debajo de un paraguas sostenido por otra persona.",
+      "choice_0": "Utilice un poco de agua; refresquése.",
+      "log_0": "Utiliza un poco de agua y te recuperas a la sombra. Un voluntario exprime una toalla. La responsabilidad individual ha empapado el cubo.",
+      "choice_1": "Registre el relato de los techadores.",
+      "log_1": "Registra la norma de Florida y el relato de los techadores. El político en la exhibición tiene un paraguas permanente; todos los demás tienen un sistema de turnos.",
+      "choice_2": "Deje algo de agua para los trabajadores.",
+      "log_2": "Dejas algo de agua para los trabajadores. Un techador la vierte en el enfriador sin verificar primero si el condado aprobó la compasión.",
+      "name": "Gobierno en la sala de descanso."
     },
     "classic_union_blockade": {
-      "desc": "La incertidumbre arancelaria redujo los turnos a la mitad. La prima del director general conservó misteriosamente la jornada completa. Un delegado ofrece sitio en el piquete y una caja de comida donada para el camino.",
-      "choice_0": "Ocupar puestos en el piquete",
-      "log_0": "Levantáis las pancartas. La dirección informa de un aumento preocupante de la participación de los empleados.",
-      "choice_1": "Aceptar un paquete; pasar en silencio",
-      "log_1": "El delegado os acerca un paquete para el camino. Los agitadores de fuera ya llevan comida.",
-      "choice_2": "Compartir un paquete de provisiones",
-      "log_2": "Abrís la comida. La primera junta de accionistas del piquete reparte galletas de verdad.",
-      "name": "Bloqueo de solidaridad sindical"
+      "desc": "Los residentes en un picnic cívico junto a la carretera están desafiando el dinero ilimitado de los super PAC con relatos de votantes comunes. Reciben a su equipo y comparten comida para el viaje. Un donante ha prestado un potente altavoz. Él sigue preguntando si puede utilizarlo para convertirse en el electorado.",
+      "choice_0": "Agregue su cuenta al registro.",
+      "log_0": "Agrega tu cuenta y disfruta de los aplausos de los residentes. El donante prueba el micrófono. Aún solo produce el sonido de una persona.",
+      "choice_1": "Lleva algo de comida para el camino.",
+      "log_1": "Recoges algo de comida. El cocinero les da a todos la misma porción. El donante, a través del altavoz, pregunta si ha oído cuánto contribuye.",
+      "choice_2": "Comparte comida; únete al picnic.",
+      "log_2": "Compartes comida y disfrutas del picnic. El discurso del donante compite con el sonido de un envoltorio de patatas fritas. El envoltorio tiene mejor ritmo.",
+      "name": "Una persona, un micrófono."
     },
     "classic_water_drive": {
-      "desc": "Los conductores ofrecen dos paquetes de provisiones por descargar bajo el titular de las duchas de Trump. «Necesita más presión», dice una mensajera. «Mi jefe escribe cada vez que se para mi punto del GPS».",
-      "choice_0": "Donar dos paquetes de agua",
-      "log_0": "Los conductores rellenan sus botellas. Tu política del agua ha superado su primera prueba: contener agua.",
-      "choice_1": "Descargar por dos paquetes de provisiones",
-      "log_1": "Dos paquetes ganados. Tus brazos se oponen a que los clasifiquen como infraestructura crítica.",
-      "name": "Relevos para repartir agua"
+      "desc": "Los aranceles de Trump han aumentado el costo del embalaje de una empresa local que envasa alimentos. En tu parada en la carretera, te pide que donen suministros o que ayuden a mover cajas a cambio de algo de comida. Levanta una lata. “Esta es la parte que hemos hecho demasiado cara para desecharla.”",
+      "choice_0": "Dona suministros a la empresa que envasa alimentos.",
+      "log_0": "Donas algunos suministros y ella registra tu ayuda. Ahora, la sopa puede llegar a las personas sin necesidad de un folleto informativo propio.",
+      "choice_1": "Mueve cajas para conseguir comida.",
+      "log_1": "Trasladas cajas hasta que te duelen los brazos y obtienes algo de comida. La empresa que envasa alimentos te pide que devuelvas las latas antes de desecharlas.",
+      "name": "La lata de sopa protegida."
     },
     "deep_circuit_breaker": {
-      "desc": "Los aranceles han encarecido los cargadores. Seis móviles comparten un adaptador recalentado. Un voluntario de reparaciones revisa tus repuestos. «Demasiado pequeño para rescatarlo. Habrá que arreglarlo».",
-      "name": "Un enchufe, seis teléfonos",
-      "choice_0": "Usar un adaptador de repuesto; descansar",
-      "log_0": "El adaptador recibe un reemplazo; tú, una silla. Ninguno necesita una audiencia del Senado.",
-      "choice_1": "Desenchufar todo; seguir sin cargar",
-      "log_1": "Te duele el cuello de mirar el último móvil con batería. Los otros cinco disfrutan de protección arancelaria contra la electricidad.",
-      "choice_2": "Usar dos paquetes de reparación; documentar costes",
-      "log_2": "Reparación terminada, aviso de precios guardado. Por fin, un porcentaje que sube fuera de una etiqueta de precio."
+      "desc": "Una feria itinerante celebra la prohibición de Florida sobre las regulaciones locales de calefacción con una cinta de correr que ofrece un “descanso voluntario”. Su equipo se detiene junto a ella. El dispensador de agua se aleja cada vez que la cinta se mueve. Un techador ofrece sombra y solicita donaciones de agua.",
+      "name": "La cinta de correr de la libertad.",
+      "choice_0": "Utilice un poco de agua; descanse a la sombra.",
+      "log_0": "Usted utiliza un poco de agua y se recupera junto al techador. La cinta de correr registra su cuerpo inmóvil como una preocupante disminución en la productividad.",
+      "choice_1": "Pruebe la cinta de correr de demostración.",
+      "log_1": "Usted se tropieza y sale con las espinillas doloridas. El operador lo felicita por elegir libremente acercarse al dispensador de agua, que ha llegado al condado vecino.",
+      "choice_2": "Done algunas botellas de agua; documenten la exhibición.",
+      "log_2": "Ustedes donan algunas botellas de agua y documentan la exhibición junto con el especialista en techado. El refrigerador se vuelve accesible tan pronto como alguien desconecta el sistema \"Freedom\"."
     },
     "deep_field_intel": {
-      "desc": "Voluntarios de la biblioteca te entregan documentos públicos para Washington, sin datos privados. Su sistema de seguridad es una carpeta marcada «PÚBLICO». El gabinete debería preguntar por el plan para empresas.",
-      "name": "Lleva esto a Washington",
-      "choice_0": "Archivar las pruebas — 1 provisión",
-      "log_0": "Fuentes revisadas, carpeta guardada. Los deberes de Washington viajan en el suelo. No han puesto para gasolina.",
-      "choice_1": "Donar carpetas de archivo — 2 provisiones",
-      "log_1": "Sus copias privadas reciben carpetas separadas con la palabra «PRIVADO». El gabinete puede robar esta tecnología cuando quiera.",
-      "choice_2": "Buscar datos de contacto que se hayan escapado",
-      "log_2": "Encuentras un teléfono en la copia pública. Un trazo de bolígrafo; ninguna rueda de prensa explicando lo seguro que es el bolígrafo."
+      "desc": "Después de que el Pentágono aceptó el jet de lujo de Qatar, un evento para trabajadores de la carretera construyó un túnel de inspección de regalos. Su equipo está invitado a compararlo con las estrictas normas de regalos de su empleador. Un muffin no puede pasar. El orificio con forma de avión que hay detrás es considerablemente grande.",
+      "name": "Capacidad de donación.",
+      "choice_0": "Utilicen sus apuntes; registren la comparación.",
+      "log_0": "Ustedes utilizan algunos materiales para guardar el informe del jet y las normas del lugar de trabajo. El inspector mide el muffin nuevamente. Aún a una altitud peligrosamente baja.",
+      "choice_1": "Done materiales; ayuden a decorar el túnel.",
+      "log_1": "Ustedes donan algunos materiales y disfrutan decorando el túnel. El muffin recibe alas de cartón. De repente, el inspector necesita una regla mucho más pequeña.",
+      "choice_2": "Observen desde la tranquila mesa de picnic.",
+      "log_2": "Ustedes se relajan en la mesa de picnic. El inspector camina alrededor del orificio con forma de avión, buscando pequeños regalos. El muffin permanece bajo estricta vigilancia."
     },
     "deep_grassroots_signal": {
-      "desc": "La manifestación tiene dos direcciones en vuestro chat. Para mejorar la seguridad después de Signal, alguien cambia el icono por un candado. Ambas direcciones son ahora erróneas de forma segura.",
-      "name": "La dirección de la manifestación ha entrado en el chat",
-      "choice_0": "Comprobar y compartir el aviso de la organización",
-      "log_0": "Confirmas la dirección y envías el enlace fechado. El candado asciende a decoración.",
-      "choice_1": "Rastrear y guardar las capturas",
-      "log_1": "Fechas las capturas: ciudad equivocada, año equivocado. Tu móvil necesita un cigarrillo.",
-      "choice_2": "Reenviarlo todo como confirmado",
-      "log_2": "Tus indicaciones mandan a una amistad a un aparcamiento vacío. Enhorabuena por organizar una manifestación profundamente privada."
+      "desc": "Un evento de tecnología a un lado de la carretera recrea el escándalo de Signal de los funcionarios de Trump, utilizando planos de sándwiches. Su equipo puede inspeccionar la lista de destinatarios. El periodista que cubre la demostración obtiene todos los detalles. La persona que está preparando el almuerzo recibe un mensaje indicando que el horario es demasiado delicado.",
+      "name": "El puesto para el destinatario accidental.",
+      "choice_0": "Verifiquen quién recibió los mensajes.",
+      "log_0": "Ustedes verifican la demostración en comparación con el escándalo reportado. El que está preparando los sándwiches finalmente recibe el pedido preguntándole al periodista qué hay para el almuerzo.",
+      "choice_1": "Rastreen y guarden la secuencia de mensajes.",
+      "log_1": "Ustedes guardan la secuencia con dolor de cabeza. El operador añade otro candado a la caja de almuerzo. La lista de mensajes permanece completamente visible.",
+      "choice_2": "Publiquen que nadie más lo vio.",
+      "log_2": "Ustedes publican una afirmación incorrecta y son corregidos. El periodista que cubre la demostración ya ha descrito el sándwich, su hora de salida y el pepinillo."
     },
     "deep_media_ambush": {
-      "desc": "En un taller gratuito de protesta, un voluntario reparte el informe de Sharpiegate y luego interpreta a Trump discutiendo con un pronóstico. Seis trabajadores reconocen el problema: alguien le dio armas nucleares al cliente difícil.",
-      "name": "Espere mientras comprobamos la realidad",
-      "choice_0": "Responder usando la investigación",
-      "log_0": "Tus respuestas coinciden con el informe. Se te acaba la paciencia cuando «el presidente» pide hablar con el encargado del tiempo.",
-      "choice_1": "Practicar una respuesta juntos",
-      "log_1": "Ensayáis «Enséñame dónde pone eso». Nadie ofrece rellenarle la bebida al presidente imaginario.",
-      "choice_2": "Enviar notas de memoria; echar una siesta",
-      "log_2": "Siesta excelente. Resumen incorrecto. El informe te tiene una corrección esperando al despertar, como un supervisor de turno."
+      "desc": "La orden de Trump para facilitar el cierre del Departamento de Educación ha inspirado un puesto a un lado de la carretera con el lema \"el poder se devuelve a los padres\". A su equipo se le entrega un enorme paquete de demostración. En su interior hay tareas pendientes. El voluntario ha adjuntado convenientemente una etiqueta de devolución dirigida al padre que lo tiene en sus manos.",
+      "name": "Devolver al remitente.",
+      "choice_0": "Cuestione el contenido del paquete.",
+      "log_0": "Usted documenta la propuesta y cuestiona cada tarea, con un dolor de cabeza. El voluntario dobla la etiqueta de devolución en forma de círculo. El control local está completo.",
+      "choice_1": "Observe desde la tranquila puerta.",
+      "log_1": "Usted despeja su mente fuera de la demostración. El paquete pasa entre los padres. Nadie puede encontrar el extremo marcado con “empoderamiento”.",
+      "choice_2": "Anuncie que el departamento ya ha sido abolido.",
+      "log_2": "Usted disfruta de una historia más sencilla hasta que un profesor le corrige: la directiva de cierre no fue una ley aprobada por el Congreso. Su paquete necesita otra etiqueta."
     },
     "deep_memorandum_dump": {
-      "desc": "Los vecinos ofrecen avisos de recortes junto a la cifra de contrato corregida por DOGE. Ocho mil millones se volvieron ocho millones. Su oficina de atención cerrada se ha negado a reabrir por una errata.",
-      "name": "La pila de documentos públicos",
-      "choice_0": "Ordenar y guardar los avisos fechados",
-      "log_0": "Con dolor de cabeza, archivas los avisos. «Ahorros» ocupa tres carpetas; «servicio» cabe bajo CERRADO.",
-      "choice_1": "Enviar copias con tu material de papelería",
-      "log_1": "Copias enviadas. El plan de ahorro de Washington ya se está comiendo tu reserva de sobres.",
-      "choice_2": "Guardar los archivos; cerrar la carpeta",
-      "log_2": "Archivos guardados, carpeta cerrada. Según los criterios de DOGE, acabas de eliminar todo el papeleo."
+      "desc": "Los aranceles de Trump han hecho que la factura de un importador de artículos de ferretería sea lo suficientemente larga como para cubrir con ella su tienda a la vera de la carretera. Él invita a su equipo a inspeccionarla. El cargo pagado por los estadounidenses supera la caja registradora. La parte en la que los extranjeros le reembolsan aún está pendiente de entrega.",
+      "name": "La billetera patriótica.",
+      "choice_0": "Verifique y guarde el historial de facturas.",
+      "log_0": "Usted guarda la factura verificada, con un dolor de cabeza por haberla seguido. El importador enrolla la sección de reembolso. Es un tubo de cartón.",
+      "choice_1": "Utilice su papel; registre los cargos.",
+      "log_1": "Usted utiliza algunos materiales para documentar los cargos con precisión. El importador marca al pagador estadounidense. Ya no necesita todo el plano de la planta.",
+      "choice_2": "Salga a tomar un poco de aire.",
+      "log_2": "Usted despeja su mente fuera. El importador cierra la puerta con cuidado para no pinchar la parte de la factura que compró el tirador."
     },
     "deep_state_dirge": {
-      "desc": "La audiencia sobre eficiencia lleva una hora elogiándose. Los comentarios del público tienen tres minutos. Una persona de limpieza pregunta si todos esos aplausos cuentan como horas de trabajo.",
-      "name": "La prueba de resistencia de la participación pública",
-      "choice_0": "Usar un paquete de comida; quedarse y hablar",
-      "log_0": "Comida agotada, paciencia agotada, declaración registrada. Tus tres minutos contienen más verbos que la hora de la presidencia.",
-      "choice_1": "Retirarte; volver andando a la furgoneta",
-      "log_1": "Regresas caminando, con dolor y sin que te hayan escuchado. La presidencia registra otra reducción exitosa de las quejas del público.",
-      "choice_2": "Tomar un respiro en el pasillo",
-      "log_2": "Pierdes tu turno pero recuperas la paciencia. La presidencia agradece al micrófono vacío la brevedad de sus comentarios."
+      "desc": "Un aula de una feria, inspirado en la orden de Trump contra la adoctrinación, solo admite preguntas después de que los estudiantes aprueben una prueba de patriotismo. Su equipo se detiene en la puerta. La prueba pregunta si están de acuerdo con la prueba. Hay un tobogán de salida corto para quienes ya están de acuerdo.",
+      "name": "La entrada incondicional.",
+      "choice_0": "Utilice su papel; cuestione la lección.",
+      "log_0": "Utiliza algunos materiales para documentar la propuesta y argumentar en contra de la prueba, hasta que le duele la cabeza. Su evidencia recibe una sanción por hacer preguntas de seguimiento.",
+      "choice_1": "Esté de acuerdo; use el tobogán de salida rápido.",
+      "log_1": "Se raspa el codo en el tobogán y siente que ha terminado. Un profesor corrige su afirmación de que la aprobación patriótica demuestra la exactitud histórica.",
+      "choice_2": "Vaya sin tomar en cuenta el informe de los padres.",
+      "log_2": "Se aclara la mente y se va sin el informe de los padres. La puerta registra a otro visitante que ha rechazado cuestionarlo."
     },
     "deep_watch_party": {
-      "desc": "Una proyección comunitaria aborda la presión política sobre meteorólogos. En pantalla, nadie recuerda quién dio la orden. La silla plegable que te sostiene ha aceptado toda la responsabilidad por tu sufrimiento.",
-      "name": "Rendición de cuentas pública, sillas plegables",
-      "choice_0": "Contrastar el debate con la investigación",
-      "log_0": "Las fechas encajan. Las excusas no. Tu dolor de cabeza tiene documentación justificativa excelente.",
-      "choice_1": "Guardar la grabación; salir fuera",
-      "log_1": "Marcas el debate y escapas de la silla. La rendición de cuentas puede continuar sin experimentar con tu coxis.",
-      "choice_2": "Compartir un resumen de memoria; dormir",
-      "log_2": "Duermes mientras corrigen la afirmación que reenviaste. Una actuación de gabinete perfecta, salvo por el sueldo."
+      "desc": "Su equipo se detiene en un restaurante que recrea una versión de la cena de inversores en criptomonedas de Trump. La mesa para el votante promedio está detrás de tres cuerdas de terciopelo. El anfitrión se ofrece a explicar cómo acceder. La cubertería llegó en un coche de lujo; las personas que la lavan todavía están afuera.",
+      "name": "La mesa para el votante promedio.",
+      "choice_0": "Verifique el informe de la cena con los empleados.",
+      "log_0": "Verifica el registro de acceso para inversores, con la cabeza dolorida. Un lavavajillas le pide al anfitrión que lo presente como la persona que tiene todos los tenedores.",
+      "choice_1": "Siéntese en el mostrador para el público en general.",
+      "log_1": "Se aclara la mente en el mostrador tranquilo. El anfitrión cambia una cuchara por una habitación privada. Tiene excelentes reservas de plata.",
+      "choice_2": "Descanse en la camioneta en cambio.",
+      "log_2": "Se duerme y se pierde el informe de los empleados. Cuando se despierta, la cubertería ha terminado su recepción exclusiva. Los lavavajillas todavía están esperando."
     },
     "deep_watchdog_sync": {
-      "desc": "Una contable jubilada revisa la corrección de DOGE de miles de millones a millones. Cuenta seis galletas en un plato. «Seis mil, si pregunta alguien de Washington».",
-      "name": "Comprobantes en la mesa comunitaria",
-      "choice_0": "Usar tu papel; compartir ejemplos revisados",
-      "log_0": "Copias hechas, notas revisadas guardadas. La lata de galletas supera su auditoría sin necesitar portavoz.",
-      "choice_1": "Escuchar; pedir las fuentes",
-      "log_1": "Por fin cuadran las cuentas. Alguien busca en la calculadora un interruptor del Estado profundo.",
-      "choice_2": "Publicar las notas sin revisar",
-      "log_2": "Te corrigen el total. Enhorabuena: has traído las normas federales de contabilidad al barrio."
+      "desc": "Su equipo se detiene en un mostrador de trabajos temporales. La presentación del reclutador sobre la política de no regalos se muestra debajo de un informe sobre cómo el Pentágono acepta un avión de Qatar. Ella sella una menta en una bolsa de evidencia. “Influencia de proveedores”. La menta ha alcanzado un nivel de escrutinio que la mayoría de los aviones no alcanzan.",
+      "name": "La casa de dulces con conexiones extranjeras.",
+      "choice_0": "Utilicen sus apuntes; registren la comparación.",
+      "log_0": "Utiliza algunos suministros para mantener el cumplimiento de las normas del lugar de trabajo y el informe del proyecto. El reclutador vuelve a evaluar el producto. Su influencia sigue siendo limitada.",
+      "choice_1": "Espera fuera de la sala de briefing.",
+      "log_1": "Te tomas un momento para despejarte, fuera. A través de la ventana, el reclutador sigue completando el proceso de custodia del producto.",
+      "choice_2": "Repite que todo regalo está permitido.",
+      "log_2": "Repites la falsa declaración sobre la cobertura y te corrigen. El reclutador señala las normas del lugar de trabajo. El producto permanece retenido a la espera del almuerzo."
     },
     "fundraiser_detour": {
-      "desc": "La empresa patrocinadora de la recaudación envió un logotipo de casi dos metros. Nadie trajo una sartén lo bastante grande para cocinarlo. Los invitados que pueden compartir comida están poniendo la cena.",
-      "choice_0": "Aportar dos paquetes y relacionarte",
-      "log_0": "Aportáis comida de verdad. La organización pone vuestros nombres por encima de la empresa que donó un JPEG.",
-      "choice_1": "Saltárselo; seguir la ruta",
-      "log_1": "Os saltáis los discursos. El motor hace menos promesas y resulta mucho más fácil de interrumpir.",
-      "name": "Desvío para recaudar fondos"
+      "desc": "Después de los recortes de personal de parques impulsados por DOGE, voluntarios locales han reabierto un área de picnic para la tarde. Tu equipo es bienvenido a descansar; los suministros donados les ayudan a gestionarlo. El folleto para visitantes describe la vista como invaluable. La voluntaria ha fijado un precio aparte para el papel higiénico.",
+      "choice_0": "Dona algunos suministros a los voluntarios.",
+      "log_0": "Donas algunos suministros y los voluntarios registran tu ayuda. Un rollo va directamente al baño. La vista permanece completamente inalterada.",
+      "choice_1": "Descansa en el área de picnic.",
+      "log_1": "Descansas y despejas tu mente sin usar suministros. La voluntaria da vuelta al folleto. La vista real tiene mejor personal.",
+      "name": "La vista sin costo."
     },
     "town_hall_drift": {
-      "desc": "En una reunión sobre vivienda, un concejal receta decisiones más saludables citando el informe MAHA. Una inquilina pregunta si su casero cuenta como parásito. Él le apaga el micrófono.",
-      "name": "¿Alguien ha probado a pagar el alquiler?",
-      "choice_0": "Esperar tu turno para leer los alquileres",
-      "log_0": "Estar de pie te agota. Lees los alquileres publicados; él corta el micro. La sala ya es oficialmente asequible.",
-      "choice_1": "Quedarte a oír las quejas de los vecinos",
-      "log_1": "Te duelen las piernas. Una inquilina sugiere anunciar al concejal en Airbnb: amplio, vacío, difícil de contactar.",
-      "choice_2": "Retirarte; citar los alquileres de memoria",
-      "log_2": "El silencio ayuda. Tu afirmación «los alquileres se duplicaron» no supera una consulta en el móvil. Lo intentas de nuevo, más alto."
+      "desc": "Los padres invitan a tu equipo a una reunión en el cuarto piso para discutir la respuesta de su junta directiva a la orden anti-adoctrinamiento de Trump. El ascensor está fuera de servicio. La lección propuesta enseña que quejarse debilita a la nación. La escalera ofrece varias oportunidades para probar el plan de estudios.",
+      "name": "Las escaleras aprobadas.",
+      "choice_0": "Ascienda; desafíe la lección.",
+      "log_0": "Usted asciende y argumenta el caso presentado, con las piernas y la cabeza cansados. El consejo solicita una descripción más positiva de las escaleras.",
+      "choice_1": "Camine con los padres hasta su picnic.",
+      "log_1": "Usted toma la ruta con pendientes, con las piernas doloridas pero el ánimo elevado. Un padre señala la ausencia del ascensor. Recibe el reconocimiento total por su patriotismo.",
+      "choice_2": "Salga antes de la reunión.",
+      "log_2": "Usted se marcha con la mente más tranquila y sin testimonios que ofrecer. La lista de asistencia del consejo ha descubierto a otro partidario del sistema actual."
     },
     "deep_waystation_boost": {
-      "desc": "Los conductores de ayuda alimentaria ofrecen su atajo más rápido a cambio de ayuda con las cajas, o una ruta más fácil con un café. «Los repartos tienen que llegar», dice uno. «A diferencia del dinero federal para alimentos».",
-      "choice_0": "Apilar cajas; tomar el atajo más rápido",
-      "log_0": "Movéis las cajas y os saltáis el atasco. Seis trabajadores superan a un comité de planificación sin nombrar uno.",
-      "choice_1": "Beber su café; tomar la ruta más fácil",
-      "log_1": "El café mejora las indicaciones. El conductor narra el mapa como si la furgoneta hubiera contratado un comentarista deportivo.",
-      "name": "Parada en el corazón del país"
+      "desc": "Los aranceles de Trump hacen que un patio de almacenamiento vuelva a etiquetar repetidamente la misma mercancía importada. Tu furgoneta llega a la cola mientras un palé realiza su tercera vuelta patriótica. Un señalizador ofrece un carril directo delimitado con conos o una incorporación más sencilla. El palé ha recorrido una distancia mayor que el trabajo que está trayendo de vuelta.",
+      "choice_0": "Toma el carril directo delimitado con conos.",
+      "log_0": "Ganas terreno y te despejas. El señalizador te ayuda a pasar la cola. El palé comienza otra ronda de producción estadounidense.",
+      "choice_1": "Espera la incorporación más sencilla.",
+      "log_1": "Ganas terreno gracias a una incorporación más sencilla. El equipo disfruta viendo el mismo palé regresar al mismo trabajador, que ahora lleva una bandera diferente.",
+      "name": "El carril de reasignación de puestos."
     },
     "deep_rustbelt_convoy": {
-      "desc": "El papeleo arancelario ha parado una fila de camiones. Los conductores ofrecen un grupo rápido por carreteras secundarias o el desvío señalizado. Su carga ha recorrido más distancia entre bandejas de entrada.",
-      "choice_0": "Compartir un paquete; seguir al guía",
-      "log_0": "Comida compartida, millas ganadas. El «Sígueme» del camionero es la política comercial más breve que has oído en todo el día.",
-      "choice_1": "Unirse al grupo del desvío señalizado",
-      "log_1": "Señalizas y dejas un hueco. El camionero aprueba un acuerdo comercial que consiste enteramente en saludarse con la mano.",
-      "name": "Convoy del Rust Belt"
+      "desc": "Después de los recortes de personal de parques impulsados por DOGE, la única guardaparques restante está desviando a los visitantes alrededor de una entrada sin atender. Les ofrece a tu equipo detenido un carril de servicio corto y directo si comparten un poco de agua, o el circuito público señalizado con su cuenta. Su radio sigue solicitando asistencia a un puesto de trabajo vacío.",
+      "choice_0": "Comparte un poco de agua; toma el carril corto.",
+      "log_0": "Compartes un poco de agua y ganas terreno gracias al carril directo. La radio de la guardaparques solicita refuerzos. Ella misma bebe agua.",
+      "choice_1": "Toma el circuito público; registra su cuenta.",
+      "log_1": "Ganas terreno y registras la cuenta de personal. El puesto de trabajo vacío tiene una excelente disciplina en la radio. Nunca interrumpe a nadie.",
+      "name": "El atajo con acceso a agua."
     },
     "deep_beltway_fastpass": {
-      "desc": "Una pancarta de «AHORROS DOGE» cuelga sobre un carril cerrado. Debajo, una persona regulando el tráfico ofrece una ruta rápida entre conos o una incorporación más fácil. Ambas existían antes de que la pancarta se atribuyera el mérito.",
-      "name": "La señalista sabe por dónde",
-      "choice_0": "Tomar la ruta entre conos cuando den la señal",
-      "log_0": "Ganas millas. Quien regula el tráfico os pone en marcha con una mano. La pancarta necesita dos postes para quedarse ahí.",
-      "choice_1": "Esperar la incorporación más fácil",
-      "log_1": "Te incorporas sin problemas. El comité de transportes del asiento trasero se reduce a un gruñido satisfecho."
+      "desc": "Un mercado con excedentes copió el título secundario de Trump, \"Departamento de Guerra\", en su puerta. Defensa a la izquierda; Guerra a la derecha. Ambas colas convergen en la misma salida. Tu equipo detenido recibe una opción de un oficial de seguridad: conos directos o una incorporación más tranquila. La puerta está ganando en ambos frentes.",
+      "name": "Dos caminos hacia el objetivo.",
+      "choice_0": "Sigue los conos directos.",
+      "log_0": "Adquiere espacio en la vía a través del carril directo. Detrás de ti, Defensa y Guerra continúan negociando el acceso al mismo y deteriorado sistema de bisagras de la puerta.",
+      "choice_1": "Espera la incorporación más tranquila.",
+      "log_1": "Adquiere espacio en la vía y despeja tu mente durante la incorporación más tranquila. Un encargado retira una flecha duplicada. Una disputa sobre nombres se convierte en una salida ordinaria."
     },
     "clinic_triage": {
-      "desc": "Tras conducir con calor, un sanitario voluntario ofrece una revisión gratis y comenta que escasean las provisiones. Al otro lado de la calle, un puesto vende «libertad de la medicina moderna». Las aseguradoras lo llaman franquicia.",
-      "name": "Sin suscripción",
-      "choice_0": "Rechazar la ayuda con un gesto",
-      "log_0": "Declaras que todos están bien. Seis personas preocupadas pasan la siguiente milla haciendo una revisión médica a base de miradas de reojo.",
-      "choice_1": "Usar tu agua; recibir una revisión — 1 provisión",
-      "log_1": "Bebes tu agua y recibes una revisión. La factura brilla tanto por su ausencia que buscas debajo de la silla.",
-      "choice_2": "Donar y documentar carencias — 2 provisiones",
-      "log_2": "Vendas donadas, carencias registradas. La pancarta de bienestar cubre más de un metro cuadrado y absolutamente ninguna herida."
+      "desc": "Tu cansado equipo se detiene en un taller que se prepara para las revisiones de Medicaid que vencen en 2027. Una limpiadora está completando un formulario de práctica durante su descanso no remunerado. El formulario pregunta por qué no está trabajando. Los voluntarios ofrecen una mesa para tu propia comida y reciben con agrado la ayuda.",
+      "name": "Un cambio para probar el cambio.",
+      "choice_0": "Leer el formulario de práctica.",
+      "log_0": "Lees hasta que te duele la cabeza. La empleada doméstica enumera su descanso no remunerado como tiempo dedicado a explicar su descanso no remunerado. El formulario solicita detalles.",
+      "choice_1": "Utiliza algo de comida; toma un descanso.",
+      "log_1": "Utilizas algo de comida y te recuperas en la mesa. La empleada doméstica gira el formulario boca abajo. Desde esa posición, no puede cuestionar el hecho de que estés masticando.",
+      "choice_2": "Dona suministros al taller.",
+      "log_2": "Donas algunos suministros y los voluntarios añaden tu ayuda a su registro. La empleada doméstica finalmente encuentra una bolígrafo de repuesto que no pertenece a otro trabajo."
     },
     "overnight_briefing": {
-      "desc": "Es medianoche frente al salón de audiencias. Vuestro comentario sobre los informes de cinco logros se ha atascado en una pelea de seis personas por las comas. El encargado del aparcamiento ofrece avisar por mensaje cuando abran las puertas.",
-      "name": "Cinco logros, seis personas agotadas",
-      "choice_0": "Mantener a todos despiertos; terminar las notas",
-      "log_0": "Las notas se alargan. La furgoneta se convierte en una reunión de personal sin sueldo y con peor ventilación.",
-      "choice_1": "Compartir un paquete; trabajar por turnos",
-      "log_1": "Un paquete de provisiones compra siestas por turnos. La democracia funciona con galletas saladas y quien esté menos dormido.",
-      "choice_2": "Aceptar la oferta del encargado; dormir",
-      "log_2": "Dormís; vuestro nuevo aliado avisa cuando abren las puertas. El mensaje termina antes de que nadie pida una donación de campaña."
+      "desc": "Después del escándalo relacionado con Signal, involucrando a funcionarios de Trump, un mostrador de transporte en la carretera ha sometido las indicaciones de su área de descanso pública a una presentación sobre privacidad. Tu equipo cansado es bienvenido a esperar. El despachador conoce un rincón tranquilo. El presentador de la presentación envió accidentalmente las indicaciones al proveedor de galletas.",
+      "name": "El lugar seguro para detenerse.",
+      "choice_0": "Lee la nueva presentación sobre privacidad.",
+      "log_0": "Lees hasta que te duele la cabeza. El proveedor de galletas sabe dónde puedes descansar. Las personas que operan el área de descanso esperan una respuesta segura.",
+      "choice_1": "Utiliza algo de comida; descansa afuera.",
+      "log_1": "Utilizas algo de comida y descansas con la cabeza más despejada. El despachador cierra la ventana de la presentación. El banco exterior no requiere una lista de destinatarios.",
+      "choice_2": "Pregunta al despachador sobre el rincón tranquilo.",
+      "log_2": "El despachador se convierte en un contacto local y te muestra un lugar para descansar. Escribe su número sin añadir a un periodista."
     },
     "sat_straw_reserve": {
-      "name": "Reserva de emergencia de pajitas",
-      "desc": "La exhibición de pajitas de Trump bloquea el dispensador de agua. La cajera ofrece 10 dólares por contar cajas. «Somos libres», dice, «de volver a mover esta mierda».",
-      "choice_0": "Comprar dos paquetes de agua: 6 dólares",
-      "log_0": "Seis dólares por el agua, pajitas gratis. Washington quiere atribuirse el mérito de la parte asequible.",
-      "choice_1": "Contar las cajas por 10 dólares",
-      "log_1": "Diez dólares ganados. El encargado pide un segundo recuento. La libertad tiene una lista de tareas de cierre.",
-      "choice_2": "Seguir conduciendo; pasar de las pajitas",
-      "log_2": "Pasáis una pancarta de «OS HEMOS ESCUCHADO». Seis personas sin un duro intentan parecerse más a utensilios para beber."
+      "name": "El auge del adhesivo.",
+      "desc": "En una tienda de comestibles afectada por los aranceles de Trump, tu equipo puede comprar comida por $6 o ganar $10 aplicando los precios revisados. El dueño se ha quedado sin espacio en los estantes para las etiquetas. La fabricación estadounidense ha comenzado con un pedido muy grande de pegamento.",
+      "choice_0": "Compra comida por $6.",
+      "log_0": "Pagas $6 y recoges algo de comida. La cajera retira el precio antiguo. Se desprende con más dificultad que la bandera patriótica.",
+      "choice_1": "Aplica los precios revisados por $10.",
+      "log_1": "Ganas $10 y te duele la cabeza. Al cierre, el estante está mayormente cubierto de adhesivo. El prometido auge en la fabricación ha llegado hasta tu pulgar.",
+      "choice_2": "Pasar a las compras y al trabajo.",
+      "log_2": "Usted pasa y se marcha desanimado. La presentación sobre precios ha puesto los costes fuera de su alcance."
     },
     "sat_corn_bullets": {
-      "name": "Cinco cosas que hizo el maíz la semana pasada",
-      "desc": "El granjero ha copiado los correos de Washington que exigen cinco logros. Una trabajadora te ofrece 8 dólares por pasar a limpio cuatro puntos. El maíz sigue creciendo sin aportar documentación justificativa.",
-      "choice_0": "Documentar el trabajo que omite el formulario",
-      "log_0": "Guardas el relato aprobado por ella, con los ojos cruzados. La dirección ha convertido la fotosíntesis en un atasco administrativo.",
-      "choice_1": "Pasar sus notas a limpio por 8 dólares",
-      "log_1": "Pasas sus notas a limpio y te embolsas ocho dólares. El maíz ha contratado a alguien para que le escriba los textos.",
-      "choice_2": "Rechazar el papeleo",
-      "log_2": "La dejas rellenando casillas. Fuera, el maíz se niega descaradamente a hacer contactos."
+      "name": "Ciencia a tamaño real.",
+      "desc": "Un evento en una biblioteca está revisando los estudios inexistentes del informe inicial de MAHA. El organizador ofrece a su equipo $8 para corregir las tarjetas de la presentación. La mesa de los autores originales tiene sillas vacías. La versión corregida necesita personas reales, lo que está resultando una seria complicación en cuanto al catering.",
+      "choice_0": "Revisar y guardar el historial de citas.",
+      "log_0": "Usted guarda las referencias originales y corregidas con un dolor de cabeza. El organizador cancela el plan de asientos imaginario. La sala se vuelve más pequeña y precisa.",
+      "choice_1": "Corregir las tarjetas de la presentación por $8.",
+      "log_1": "Usted gana $8 y disfruta tachando el estudio ficticio. Es el primer trabajo inspirado por el gobierno aquí completado sin necesidad de una cualificación imaginaria.",
+      "choice_2": "Abandonar el evento.",
+      "log_2": "Usted se marcha desanimado. La silla de autor vacía ha adquirido una cinta. El organizador todavía necesita a alguien que exista para moverla."
     },
     "sat_grant_groceries": {
-      "name": "Déficit de financiación de cultivo local",
-      "desc": "La cooperativa ofrece doce dólares por cargar cajas. Desde que cancelaron el fondo federal de alimentos, los tomates han tenido que desarrollar una estrategia de recaudación.",
-      "choice_0": "Donar dos paquetes de comida",
-      "log_0": "La cooperativa intercambia datos de contacto contigo. Tus judías han conseguido mejores contactos que tu currículum.",
-      "choice_1": "Cargar cajas por 12 dólares",
-      "log_1": "Cargas las cajas y cobras doce dólares. Tu espalda envía su factura por separado.",
-      "choice_2": "Guardar tus provisiones; seguir conduciendo",
-      "log_2": "De vuelta en la furgoneta, habláis de constituir las judías como empresa. Quizá así alguien las rescate."
+      "name": "El escritorio sobrevivió.",
+      "desc": "Después de los despidos en parques impulsados por DOGE, una asociación de campamentos está trasladando el escritorio de servicio sin usar a su carpa de voluntarios. Ofrecen a su equipo $12 por trasladarlo, o aceptan suministros. La coordinadora llama al escritorio “exceso de burocracia”. Aún tiene que ir a un lugar donde la gente pueda pedir papel higiénico.",
+      "choice_0": "Donar suministros a la coordinadora.",
+      "log_0": "Usted dona algunos suministros y obtiene un contacto local. La coordinadora encuentra sus datos fácilmente; el directorio del escritorio tiene mucho espacio.",
+      "choice_1": "Trasladar el escritorio por $12.",
+      "log_1": "Usted gana $12 con los brazos doloridos. La coordinadora vacía el cajón de insignias sin usar. Una administración más pequeña resulta sorprendentemente más fácil de levantar.",
+      "choice_2": "Pasar la solicitud.",
+      "log_2": "Usted se marcha desanimado. El escritorio de servicio vacío permanece fuera de la carpa de voluntarios, continuando su exitosa transición fuera del servicio público."
     },
     "sat_cow_citations": {
-      "name": "La vaca tampoco lo ha leído",
-      "desc": "Los enlaces de investigación al estilo MAHA del puesto de lácteos no funcionan. La vaca de cartón sigue sonriendo. La empresa ha encontrado una portavoz que no puede reclamar salarios atrasados.",
-      "choice_0": "Revisar títulos; guardar los enlaces rotos",
-      "log_0": "Guardas las discrepancias, entrecerrando los ojos. La vaca sigue siendo la única autora que consigues localizar.",
-      "choice_1": "Comprar dos paquetes de comida — 5 dólares",
-      "log_1": "Cinco dólares. Dos paquetes de comida. Los envoltorios no hacen promesas electorales.",
-      "choice_2": "Irse del puesto",
-      "log_2": "Te vas con hambre. La vaca de cartón sigue sonriendo durante el almuerzo. La empresa ha encontrado por fin a su empleada modelo."
+      "name": "El padrón electoral plegable.",
+      "desc": "Un café a la carretera alberga una guía pública de un contador sobre el dinero ilimitado de los super PAC; algunos alimentos cuestan $5. Su equipo se detiene junto a un ejemplo de libro de donantes. El votante ordinario cabe en un recibo. El multimillonario requiere un padrón que ha llegado a la siguiente mesa.",
+      "choice_0": "Verifique y guarde las reglas de gasto.",
+      "log_0": "Guarda las reglas y ejemplos que has revisado, sintiendo un dolor de cabeza. El contador guarda al multimillonario. Varios votantes comunes comienzan a ser visibles.",
+      "choice_1": "Compra comida por $5.",
+      "log_1": "Pagas $5 y recibes comida. El cocinero dedica el mismo tiempo a tu pedido en la parrilla. El mayor donante del libro de contabilidad no ha sido consultado.",
+      "choice_2": "Omite la cafetería y la guía.",
+      "log_2": "Te vas desanimado. El contador abre otra sección desplegable. La población va a necesitar un mantel más grande."
     },
     "sat_forecast_corrected": {
-      "name": "El optimismo no te secará los calcetines",
-      "desc": "Un promotor de festivales tapa un aviso de lluvia con una pegatina de sol. Un trabajador señala el refugio. Trump necesitó un rotulador; este ha subcontratado la meteorología al pasillo de manualidades.",
-      "choice_0": "Refugiarte y comer — 1 provisión",
-      "log_0": "Te recuperas con un tentempié. Fuera, la pegatina de sol tiene su primer contacto con el tiempo.",
-      "choice_1": "Confiar en el cartel; tranquilizar al grupo",
-      "log_1": "Te relajas y anuncias cielos despejados. Entonces la primera gota hace una verificación de hechos hostil.",
-      "choice_2": "Saltarse el festival",
-      "log_2": "Pasáis el puesto de frituras. Nadie dice «al menos ahorramos dinero» sin recibir una mirada asesina."
+      "name": "Con aire acondicionado patriótico.",
+      "desc": "Florida prohibió las normas locales sobre el calor. En una feria comercial a la vera de la carretera, un contratista desea la misma libertad aquí. Elogia la fortaleza desde dentro de un remolque de ventas refrigerado. Un trabajador te señala hacia la sombra; el escape del remolque está soplando directamente sobre ella.",
+      "choice_0": "Descansa a la sombra; comparte comida.",
+      "log_0": "La comida y la sombra te revitalizan. El contratista cierra la ventana de su remolque para explicar con mayor comodidad por qué los trabajadores necesitan menos protecciones.",
+      "choice_1": "Elogia la libertad de resistir.",
+      "log_1": "Su certeza te tranquiliza. Lo repites; la trabajadora se ofrece a cambiar de lugar con su aire acondicionado. Tu autoridad se desvanece.",
+      "choice_2": "Omite la feria.",
+      "log_2": "Te vas molesto. El contratista se pone un cárdigan antes de grabar otro mensaje sobre cómo la gente se vuelve demasiado sensible al calor."
     },
     "sat_parking_gulf": {
-      "name": "Golfo del Aparcamiento",
-      "desc": "El dueño rebautizó su charco como Golfo del Aparcamiento Premium. Te ofrece 7 dólares por repintar el cartel. El encargado quería un desagüe y recibió un océano.",
-      "choice_0": "Repintar el cartel por 7 dólares",
-      "log_0": "Siete dólares ganados. El dueño anuncia una mejora del paseo marítimo. El encargado vuelve a pedir un desagüe.",
-      "choice_1": "Comprobar y señalar la salida seca",
-      "log_1": "Señalas la salida seca. El imperio marítimo del dueño termina en una flecha bien dibujada.",
-      "choice_2": "Irse antes del discurso de venta del aparcamiento",
-      "log_2": "Dejas el charco invicto. El portavasos de la furgoneta sigue siendo toda tu cartera de propiedades frente al mar."
+      "name": "El desagüe es antipatriótico.",
+      "desc": "Trump ordenó incluir “Golfo de América” en los mapas federales. En un estacionamiento inundado, el propietario ofrece $7 para repintar su letrero. El empleado pide un desagüe. Él le entrega una bandera.",
+      "choice_0": "Repinta el letrero por $7.",
+      "log_0": "Siete dólares y un dolor de cabeza. El propietario saluda al nuevo golfo mientras tú exprimes el agua de tus calcetines.",
+      "choice_1": "Marca la salida seca.",
+      "log_1": "Los conductores confían en tu flecha. El empleado pregunta si drenar el Golfo de América ahora cuenta como ceder territorio.",
+      "choice_2": "Déjelo en paz.",
+      "log_2": "Se marcha decepcionado. Su bandera cae al charco. Él culpa a México."
     },
     "sat_library_minimum": {
-      "name": "La biblioteca mínima viable",
-      "desc": "Una bibliotecaria ofrece 9 dólares por revisar el catálogo mientras un formulario federal exige el valor de la lectura en dólares. Escribe «más que este formulario». Moneda no válida.",
-      "choice_0": "Donar un paquete de comida para la mesa de lectura",
-      "log_0": "La bibliotecaria te da su tarjeta de contacto. Tus galletas ya cuentan como una colaboración público-privada sospechosamente eficaz.",
-      "choice_1": "Revisar entradas del catálogo por 9 dólares",
-      "log_1": "Nueve dólares ganados y el respaldo de una bibliotecaria. Tus ojos querrían que los libros trajeran menos letras.",
-      "choice_2": "Volver a la carretera",
-      "log_2": "Pasas el cartel de ordenadores gratuitos. Qué peligro. Alguien podría buscar para qué sirve un sindicato."
+      "name": "El mapache tiene antigüedad.",
+      "desc": "Después de los recortes de personal en el parque por parte de DOGE, se detiene en una tienda cerca del parque. La dependienta le ofrece $9 para doblar folletos sobre las rutas. Afuera, un contenedor rebosa debajo de un cartel que dice \"AMÉRICA, LA BELLEZA\". Un mapache lleva puesto todo el picnic de alguien.",
+      "choice_0": "Comparta comida con la dependienta.",
+      "log_0": "Comparte comida e intercambian números, compartiendo una risa. Ella cierra la puerta justo cuando el mapache solicita un puesto de gestión.",
+      "choice_1": "Doble los folletos por $9.",
+      "log_1": "Nueve dólares y ojos cansados. La dependienta aprueba su cuidado doblado. Los ahorros de Washington ahora requieren los salarios de la tienda de regalos.",
+      "choice_2": "Vuelva a la carretera.",
+      "log_2": "Se marcha decepcionado. El mapache se sube al mostrador de información, convirtiéndose en el primer empleado del parque en recibir su almuerzo."
     },
     "sat_tariff_forklift": {
-      "name": "El turno de reetiquetado arancelario",
-      "desc": "Otra actualización arancelaria. El coordinador ofrece catorce dólares por mover cajas, dos paquetes de provisiones por cotejar etiquetas. «Estamos recuperando empleos. De aquel palé a este».",
-      "choice_0": "Mover las cajas por $14",
-      "log_0": "Catorce dólares ganados. Tus hombros querrían deslocalizar la próxima caja.",
-      "choice_1": "Cotejar etiquetas por dos paquetes de provisiones",
-      "log_1": "Con los ojos cruzados, recoges dos paquetes para el camino. Compruebas si también han modificado el almuerzo.",
-      "choice_2": "Rechazar el trabajo",
-      "log_2": "Las cajas se quedan. El problema del dinero para gasolina también."
+      "name": "\"América Primero\", doble las rodillas.",
+      "desc": "Trump reconoció que las deportaciones estaban quitando trabajadores a las granjas y hoteles. En un patio de productos, un gerente ofrece $14 para mover cajas o alimentos para colocar etiquetas. Su calcomanía que dice \"DEPORTENLOS A TODOS\" permanece en la carretilla elevadora. Tiene pegado un cartel que dice \"SE BUSCA AYUDA\".",
+      "choice_0": "Mueva las cajas por $14.",
+      "log_0": "Catorce dólares y una espalda adolorida. El gerente pregunta si conoce a alguien más, expandiendo brevemente su política de inmigración preferida para traer a sus amigos.",
+      "choice_1": "Clasifique las etiquetas para alimentos.",
+      "log_1": "Gana algunos suministros y un dolor de cabeza. El gerente sigue buscando en las respuestas a los anuncios de empleo a alguien a quien su calcomanía ya no haya despedido.",
+      "choice_2": "Rechace el trabajo.",
+      "log_2": "Se marcha sin ganar nada. El gerente gira la carretilla elevadora para que su posición política ya no se dirija a la fila de contrataciones."
     },
     "sat_alternator_tariff": {
-      "name": "El mostrador patriótico de repuestos",
-      "desc": "La tele dice que China paga los aranceles. La cajera gira hacia ti el terminal: 12 dólares.",
-      "choice_0": "Compra el kit — $12.",
-      "log_0": "Compras el kit. China te debe una cerveza.",
-      "choice_1": "Pedir un presupuesto por escrito",
-      "log_1": "Lo imprime. «Para que China te lo reembolse».",
-      "choice_2": "Irte con los 12 dólares",
-      "log_2": "El kit se queda en el estante, esperando el pago de Pekín."
+      "name": "La tarjeta de China fue rechazada.",
+      "desc": "Trump dice que China asume los aranceles. En una tienda a la carretera, tus provisiones cuestan $12. La cajera golpea una bandera china contra el lector de tarjetas. Rechazado.",
+      "choice_0": "Pague los $12.",
+      "log_0": "Su pago se acepta. “Felicidades”, dice ella. “Ahora eres parte de China”.",
+      "choice_1": "Obtenga el desglose detallado.",
+      "log_1": "Ella marca el arancel. “China es muy generosa con su dinero”.",
+      "choice_2": "Conserve los $12.",
+      "log_2": "Se marcha sin nada. El arancel ha protegido con éxito las provisiones de los estadounidenses."
     },
     "sat_billion_pothole": {
-      "name": "El bache de los ocho mil millones de dólares",
-      "desc": "DOGE registró un contrato de 8 millones de dólares como si fueran 8 mil millones. El dueño de una cafetería ofrece 10 dólares por cargar material para tapar baches. «Yo sí revisé las cuentas».",
-      "choice_0": "Guardar la afirmación y la corrección",
-      "log_0": "Guardas ambas. Un cajero tiene que explicar si faltan 25 centavos. DOGE dispone de tres ceros de repuesto.",
-      "choice_1": "Cargar los sacos — ganar 10 dólares",
-      "log_1": "Cargas los sacos y te embolsas 10 dólares. Tu espalda preferiría las cuentas de DOGE.",
-      "choice_2": "Esquivar el maldito bache",
-      "log_2": "Por fin, un problema que se resuelve moviéndose más a la izquierda."
+      "name": "Una donación que puede tropezar.",
+      "desc": "Los Super PACs aceptan contribuciones ilimitadas. Se detiene en un centro de eventos que ofrece $10 para llevar un cheque ceremonial gigante de un donante. Su cartel adjunto dice que cada ciudadano tiene voz. El cheque es demasiado ancho para pasar por la entrada de los ciudadanos.",
+      "choice_0": "Guarde los términos y la información del donante.",
+      "log_0": "Documenta el acuerdo, con un dolor de cabeza. El discurso del donante es oficialmente independiente; sin embargo, todavía requiere tres personas y una puerta de carga.",
+      "choice_1": "Lleve el cheque por $10.",
+      "log_1": "Diez dólares y músculos tensos. El donante firma con un solo movimiento; usted necesita sentarse después de entregar su discurso.",
+      "choice_2": "Rechace la tarea.",
+      "log_2": "Se marcha decepcionado. Un trabajador retira el letrero de la entrada pública para que la voz igual del donante pueda pasar de lado."
     },
     "sat_bridge_bullets": {
-      "name": "Por favor, justifique el puente",
-      "desc": "El supervisor del puente exige cinco logros. Los trabajadores han enumerado todas las reparaciones. Les devuelven el informe: «Más impacto». Uno señala el río, abajo.",
-      "choice_0": "Escribir, revisar y guardar su informe",
-      "log_0": "Informe guardado, ojos doloridos. Por alguna razón, «evitamos que los coches caigan al río» es la parte difícil de explicar.",
-      "choice_1": "Compartir un paquete de almuerzo",
-      "log_1": "Tu nuevo aliado escribe «masticar» cinco veces en el envoltorio. El almuerzo ya cuenta como más productivo que reparar el puente.",
-      "choice_2": "Tomar el carril reabierto",
-      "log_2": "Cruzas el puente. Sus trabajadores siguen explicando por qué eso debería contar."
+      "name": "Trabajando en la prueba de trabajo.",
+      "desc": "El Congreso añadió requisitos de trabajo para Medicaid en 2027. En un puesto de información comunitaria, una empleada practica armando pruebas de turnos entre turnos. El formulario de muestra pregunta por qué faltó al taller. Su recibo de pago aún está húmedo por el trabajo que le impidió asistir.",
+      "choice_0": "Verifique y guarde los ejemplos.",
+      "log_0": "Documenta la discrepancia, mentalmente agotado. El trabajo de la empleada le impidió probar que trabaja. La casilla de respuesta de muestra es admirablemente pequeña.",
+      "choice_1": "Comparta un almuerzo.",
+      "log_1": "Comparten comida e intercambian números. Ella come mientras organiza las nóminas, demostrando que el trabajo puede interferir tanto con el almuerzo como con las tareas administrativas.",
+      "choice_2": "Continúe el viaje.",
+      "log_2": "Se marcha frustrado. Ella pregunta si asistir a un taller sobre cómo probar la situación laboral puede en sí mismo considerarse trabajo. Nadie ha traído ese formulario."
     },
     "sat_press_pool_radio": {
-      "name": "Responder a todos, fichar la salida",
-      "desc": "El chat de una cafetería mezcla pedidos de comida con mensajes de la plantilla. Un cliente pregunta si «cierre sin pagar» viene con patatas. La cajera ofrece ocho dólares por separar los contactos de clientes y empleados.",
-      "choice_0": "Documentar la confusión con permiso",
-      "log_0": "Se lo enseñas al dueño. Crea chats separados y lo llama reestructuración.",
-      "choice_1": "Ordenar los contactos por 8 dólares",
-      "log_1": "Ocho dólares. Cuarenta y siete mensajes. El dueño describe identificar a tres clientes como «transformación digital».",
-      "choice_2": "Rechazar el trabajo",
-      "log_2": "Te vas sin ocho dólares. Al surtidor no le interesa tu conciliación laboral."
+      "name": "Gestión de contactos a nivel ministerial.",
+      "desc": "El equipo de Trump incluyó a un periodista en su chat de Signal. En un café donde se transmitían las noticias, el dueño ofrece 8 dólares para limpiar las mesas de un autobús de turismo. El cajero necesita su PIN para reembolsar la mayonesa.",
+      "choice_0": "Revise el informe con ella.",
+      "log_0": "Confirma el informe. El nuevo procedimiento de seguridad del café está preguntando quiénes son realmente las personas que están en el chat.",
+      "choice_1": "Limpie las mesas por 8 dólares.",
+      "log_1": "Ocho dólares y un dolor de cabeza. Empareja teléfonos olvidados con los pasajeros. Los estándares del café ahora superan los del sistema de seguridad nacional.",
+      "choice_2": "Omita el trabajo.",
+      "log_2": "Se marcha sin recibir el pago. El reembolso de la mayonesa permanece sujeto a un procedimiento de seguridad más riguroso que los ataques aéreos."
     },
     "sat_hydration_pressure": {
-      "name": "Soberanía de la hidratación",
-      "desc": "La promoción de duchas Trump de la parada de camiones ha empapado su pancarta de GOBIERNO LIMITADO. El empleado ofrece 9 dólares por sujetar el expositor. Las duchas gratis requieren jabón propio y bastante menos patriotismo.",
-      "choice_0": "Usar un paquete de aseo; ducharte",
-      "log_0": "Sales con el cuerpo limpio. El grupo rechaza tu propuesta de inaugurar las axilas cortando una cinta.",
-      "choice_1": "Sujetar el expositor por 9 dólares",
-      "log_1": "Nueve dólares y brazos doloridos por mantener el expositor en pie. El empleado admira el diseño: «Se ahorraron una fortuna en la base».",
-      "choice_2": "Quedarte sin mojarte; seguir conduciendo",
-      "log_2": "Te vas sin lavarte. El ambientador de la furgoneta presenta su dimisión."
+      "name": "La libertad llega al atún.",
+      "desc": "Trump ordenó la desregulación de los cabezales de ducha. En una parada de camiones, una exhibición festiva rocía el mostrador de sándwiches. El empleado ofrece 9 dólares para estabilizarla. Las duchas ordinarias son gratuitas si lleva jabón. El atún ya ha ejercido su libertad.",
+      "choice_0": "Use su jabón; dúchese.",
+      "log_0": "Por fin limpio. Al salir, un sándwich de atún intenta con determinación llegar al desagüe.",
+      "choice_1": "Estabilice la exhibición por 9 dólares.",
+      "log_1": "Nueve dólares y brazos adoloridos. Sostiene la libertad en alto mientras el empleado retira la mayonesa de huevo.",
+      "choice_2": "Manténgase seco; siga conduciendo.",
+      "log_2": "Se marcha sin lavarse. La exhibición ha liberado la mitad del menú del almuerzo; los sándwiches restantes se están reuniendo en un lugar más alto."
     },
     "sat_museum_grant": {
-      "name": "La exposición de los fondos pendientes",
-      "desc": "El museo ofrece 11 dólares por escanear fotos mientras espera fondos federales. «Exhibimos salarios de miseria», dice el guía. «Se supone que no debemos demostrarlos».",
-      "choice_0": "Escanear fotos de la exposición por 11 dólares",
-      "log_0": "Terminas los escaneos y cobras once dólares. La nómina histórica empieza a parecer competitiva.",
-      "choice_1": "Compartir un paquete de comida; hacer la visita",
-      "log_1": "El guía comparte vuestra comida junto a la exposición de la tienda de la empresa. El plan de descuentos de tu empleador de pronto parece menos original.",
-      "choice_2": "Volver a la furgoneta",
-      "log_2": "La exposición termina en la jornada de ocho horas. Tu móvil pregunta si te gustaría trabajar esta noche."
+      "name": "Educación, requiere algo de montaje.",
+      "desc": "Trump ordenó el cierre del Departamento de Educación en la medida permitida por la ley. En un evento de recaudación de fondos para una escuela, un organizador ofrece 11 dólares por clasificar libros donados. Un voluntario está utilizando el folleto de cierre para sostener un estante roto. Finalmente, la política está apoyando la educación.",
+      "choice_0": "Clasifique los libros por 11 dólares.",
+      "log_0": "Once dólares y ojos cansados. Usted coloca los libros en los estantes; el folleto de cierre se mantiene firme en su primera función exitosa de apoyo a la enseñanza.",
+      "choice_1": "Comparta comida con el voluntario.",
+      "log_1": "Usted comparte el almuerzo y una risa. Ella coloca otro folleto de cierre debajo del estante, fortaleciendo la educación a través de repetidas llamadas a su desmantelamiento.",
+      "choice_2": "Abandone el evento de recaudación de fondos.",
+      "log_2": "Usted se va decepcionado. El estante necesita más soporte; el voluntario pregunta si Washington ha publicado algo más sobre cómo proporcionar menos."
     },
     "sat_factcheck_shift": {
-      "name": "Haz clic aquí por quince dólares",
-      "desc": "Una editora ofrece quince dólares por comprobar las citas de MAHA. «¿Sabes abrir un enlace?», pregunta. Por fin encuentras un requisito laboral que los autores del informe no pudieron cumplir.",
-      "choice_0": "Revisar y registrar enlaces por 15 dólares",
-      "log_0": "Quince dólares ganados. Discrepancias registradas. Tus ojos han solicitado un plus de peligrosidad.",
-      "choice_1": "Avalar los estudios por el título",
-      "log_1": "Tu imitación del gabinete provoca risas. La editora abre un enlace: estudio equivocado. «Ah. Sigues con la imitación».",
-      "choice_2": "Rechazar el encargo",
-      "log_2": "Lo rechazas. El indicador de combustible pide inmediatamente una reunión sobre tus decisiones profesionales."
+      "name": "Un trabajo de encuadernación de alta calidad.",
+      "desc": "El informe de MAHA citó estudios que no existían. Una imprenta ofrece 15 dólares por organizar folletos de un informe para una discusión pública. El impresor dice que las páginas faltantes son su culpa, pero la falta de ciencia es aparentemente un problema de formato. Él revisa sus grapas con más cuidado que las referencias.",
+      "choice_0": "Organice y señale los errores por 15 dólares.",
+      "log_0": "Quince dólares, evidencia y un dolor de cabeza. Cada página está ahora unida a algo real, lo que coloca las grapas por delante de varias citas.",
+      "choice_1": "Elogie las impresionantes referencias.",
+      "log_1": "Su extensa lectura provoca una risa. Usted aprueba un documento que no existe; el impresor pregunta si su solicitud a la comisión está en trámite.",
+      "choice_2": "Rechace el trabajo.",
+      "log_2": "Usted se va decepcionado. El impresor revisa otra grapa, que sigue siendo la única parte del informe que se mantiene bajo una ligera presión."
     },
     "sat_food_shelf": {
-      "name": "La estantería sigue con hambre",
-      "desc": "El fondo federal de alimentos desapareció. Los formularios se reprodujeron. Una voluntaria de la cooperativa ofrece trabajo: «El dolor de espalda se paga en comida. El de cabeza, en efectivo».",
-      "choice_0": "Preparar bolsas por tres paquetes de comida",
-      "log_0": "Tres paquetes ganados. Tus hombros querrían recibir su parte directamente sobre una almohadilla térmica.",
-      "choice_1": "Ordenar formularios de reparto por 10 dólares",
-      "log_1": "Diez dólares por emparejar comida con direcciones. Añade una suscripción y un fundador tecnológico podría anunciar que ha inventado el reparto.",
-      "choice_2": "Saltarse el turno",
-      "log_2": "Sigues conduciendo. Para cenar, el gobierno recomienda imaginar cuánto peor sabría el socialismo."
+      "name": "Ahorros federales, responsabilidades locales.",
+      "desc": "El USDA canceló los fondos para la compra de productos locales. En un área de carga de una cooperativa, un organizador ofrece comida a cambio de empacar alimentos donados o 10 dólares por clasificar los comprobantes de entrega. La orden cancelada es fácil de levantar. Todo lo que la reemplaza está en cajas.",
+      "choice_0": "Empaque alimentos a cambio de comida.",
+      "log_0": "Usted gana suministros y un dolor de espalda. Los ahorros federales recaen sobre sus hombros, considerablemente más pesados de lo que parecían en el anuncio.",
+      "choice_1": "Clasificar los comprobantes de entrega por $10.",
+      "log_1": "Diez dólares y un dolor de cabeza. Cada dirección se asocia con alimentos; la contribución de Washington sigue siendo un aviso de cancelación notablemente breve.",
+      "choice_2": "Omitir el turno.",
+      "log_2": "Usted se marcha sin ingresos. El organizador dobla el aviso de cancelación en un pequeño cuadrado. Desafortunadamente, los contenedores se niegan a ser igualmente eficientes."
     },
     "sat_cabinet_guest": {
-      "name": "Se requiere autorización del gerente",
-      "desc": "Una camarera en su descanso repasa el chat filtrado del gabinete sobre ataques aéreos. «Invitaron a un periodista. Yo necesito el PIN de un encargado para devolver el dinero de la salsa ranch».",
-      "choice_0": "Leer el reportaje original",
-      "log_0": "Lo guardas. Al parecer tienes autorización para ataques aéreos, pero no para salsas.",
-      "choice_1": "Contarlo de memoria, con imitaciones",
-      "log_1": "El grupo se ríe. Te inventas un detalle y luego lo defiendes. Ahora ya imitas a toda la administración.",
-      "choice_2": "Devolverle su descanso",
-      "log_2": "Dos minutos para las patatas fritas y de vuelta a custodiar la reserva estratégica de ranch."
+      "name": "El mar olvidó su nuevo nombre.",
+      "desc": "Trump ordenó que los mapas federales indicaran \"Golfo de América\". En un mostrador de artículos náuticos, un cliente exige un reembolso estadounidense porque su antiguo mapa todavía indica \"México\". El empleado tiene el pedido. El cliente revisa sus zapatos en busca de agua marina extranjera.",
+      "choice_0": "Leer y guardar el pedido.",
+      "log_0": "Usted guarda el cambio de nombre propiamente dicho, con un dolor de cabeza. El empleado explica que el agua no se ha trasladado; el cliente parece sentirse traicionado personalmente por la geografía.",
+      "choice_1": "Realizar la entrevista de ciudadanía del océano.",
+      "log_1": "La tripulación se ríe hasta que usted inventa un cambio en la frontera marítima. El empleado retira el mapa antes de que su conocimiento de la geografía llegue a los peces.",
+      "choice_2": "Dejar que el empleado trabaje.",
+      "log_2": "Usted se marcha molesto. El cliente exprime un calcetín y pregunta si la tienda puede cambiar el agua por una versión patriótica."
     },
     "sat_name_infrastructure": {
-      "name": "El nombre es la infraestructura",
-      "desc": "El mapa de 6 dólares de la oficina de turismo muestra un puente abierto con un nuevo nombre grandioso. Fuera, está cerrado. Un empleado dibuja el desvío a mano. El condado ha reconstruido el mapa.",
-      "choice_0": "Comprar el mapa de 6 dólares como prueba",
-      "log_0": "Lo guardas junto al aviso de cierre. Seis dólares por la realidad alternativa del condado, edición de coleccionista.",
-      "choice_1": "Comparar los avisos con el empleado",
-      "log_1": "Desenredas los avisos y guardas la ruta. El empleado bautiza tu dolor de cabeza como «Progreso». Sigue doliendo.",
-      "choice_2": "Irte y seguir el desvío señalizado",
-      "log_2": "Tomas el desvío. La foto de la inauguración sigue siendo la ruta más corta para cruzar el río."
+      "name": "El mapa ya ha ganado.",
+      "desc": "Albuquerque informó sobre un intento federal de retirar la subvención para el \"Rail Trail\". En un puesto de libros de transporte cerca de la Beltway, una ruta impresa por $6 todavía muestra el camino prometido. El empleado mantiene el aviso de retirada junto a él. La financiación se ha vuelto más difícil de encontrar que el destino.",
+      "choice_0": "Comprar la impresión por $6.",
+      "log_0": "Usted guarda la impresión de seis dólares como evidencia. Una línea punteada sigue siendo la forma más económica de entregar infraestructura sin que nadie tenga que caminar sobre ella.",
+      "choice_1": "Comparar el aviso con el mapa.",
+      "log_1": "Usted guarda una comparación cuidadosa, con un dolor de cabeza. El empleado dibuja la financiación incierta con un lápiz, finalmente dándole al camino una superficie precisa.",
+      "choice_2": "Continuar el viaje.",
+      "log_2": "Usted se marcha decepcionado. La impresión llega a su destino de manera impecable; las personas que podrían utilizar el camino en realidad han recibido un aviso en su lugar."
     },
     "sat_straw_inspection": {
-      "name": "Inspección estratégica de pajitas",
-      "desc": "El dueño de un puesto graba «inspecciones de pajitas» y te hace señas para salir en el vídeo. Su cajera dice que la orden de Trump se limita a las compras federales. Él pide menos datos. Ella sigue esperando su descanso.",
-      "choice_0": "Dar comida a la cajera; rechazar el vídeo",
-      "log_0": "Se come tu regalo ante la cámara. «Quiero mi descanso ya». Su documental sobre la libertad acaba de incorporar una reivindicación laboral.",
-      "choice_1": "Leer y guardar la orden real",
-      "log_1": "Guardas la orden y lo corriges ante la cámara. Pregunta si los hechos vienen en plástico.",
-      "choice_2": "Rechazar; esperar en la furgoneta",
-      "log_2": "Graba otra toma. Tu vaso ha recibido más escrutinio que un contrato de defensa."
+      "name": "Un pequeño gobierno inspecciona su pajita.",
+      "desc": "Trump ordenó a las agencias federales que dejaran de utilizar pajitas de papel. En un puesto de hamburguesas, el dueño filma inspecciones de las bebidas de los clientes como un tributo patriótico. La cajera señala que los clientes no son agencias federales. Él le pide que deje de debilitar la frontera.",
+      "choice_0": "Compartan comida; apoyen a la cajera.",
+      "log_0": "Usted comparte comida y confirma su punto. Ella come mientras él examina cuidadosamente si el envoltorio de la hamburguesa está conspirando con la pajita.",
+      "choice_1": "Lean y guarden el pedido real.",
+      "log_1": "Usted guarda el pedido a pesar de un fuerte dolor de cabeza. Su jurisdicción federal se reduce hasta el punto de que ya no alcanza el batido que está delante de él.",
+      "choice_2": "Rechacen; esperen en el coche.",
+      "log_2": "Usted se marcha irritado. Él exige otra toma en primer plano de la pajita, que ahora ha recibido más atención que la nómina del dueño."
     },
     "sat_shower_force": {
-      "name": "La demostración nacional de duchas",
-      "desc": "La demostración de la alcachofa de ducha de Trump está inundando el puesto de bocadillos. El encargado ofrece doce dólares por fregar. Cinco compran una ducha que no haya anexionado el almuerzo.",
-      "choice_0": "Fregar por 12 dólares",
-      "log_0": "Friegas hasta que te duele la espalda y cobras doce dólares. El encargado anuncia que el sistema «se drena solo».",
-      "choice_1": "Comprar una ficha de ducha de 5 dólares",
-      "log_1": "Te lavas por cinco dólares. El agua se queda en la ducha. El encargado lo llama «nada especial».",
-      "choice_2": "Rechazar ambas cosas; seguir conduciendo",
-      "log_2": "El encargado promete otra demostración. La persona de limpieza empieza a trasladar los bocadillos a terreno elevado."
+      "name": "La ducha se llevó el cabello.",
+      "desc": "Trump ordenó la desregulación de los cabezales de ducha después de años de quejarse sobre la presión del agua. En el lanzamiento de una tienda de artículos para el hogar, la demostración le arranca la peluca a un maniquí presidencial. El empleado ofrece 12 dólares para limpiar; las duchas para el público en general cuestan 5 dólares. La peluca está en camino a una reforma de la fontanería.",
+      "choice_0": "Limpien el suelo por 12 dólares.",
+      "log_0": "Doce dólares y una espalda adolorida. Usted atrapa la peluca con la mopa, convirtiéndose brevemente en la persona de limpieza mejor peinada del edificio.",
+      "choice_1": "Compran una ducha por 5 dólares.",
+      "log_1": "Cinco dólares les proporciona una ducha adecuada. La ducha normal deja su cabello intacto, un logro que la demostración ha decidido no destacar.",
+      "choice_2": "Rechacen ambas ofertas.",
+      "log_2": "Usted se marcha decepcionado. El empleado vuelve a colocar la peluca mojada en el maniquí, que ahora parece menos seguro sobre la libertad."
     },
     "sat_receipt_museum": {
-      "name": "El museo de los ahorros gigantescos",
-      "desc": "Una exposición sobre DOGE ofrece 13 dólares por cotejar las etiquetas con las fuentes. Junto a la corrección de miles de millones a millones hay una moneda de 25 centavos rotulada «Un billón, pendiente de revisión».",
-      "choice_0": "Revisar y registrar las etiquetas por 13 dólares",
-      "log_0": "Notas guardadas, dolor de cabeza, 13 dólares cobrados. Contarlos dos veces no produce 26. Está claro que no das el perfil para DOGE.",
-      "choice_1": "Improvisar una visita guiada de memoria",
-      "log_1": "El grupo se ríe hasta que repites la cifra equivocada. Quien organiza la exposición te añade a la corrección.",
-      "choice_2": "Saltarse la exposición",
-      "log_2": "Te vas de la ceremonia de ascenso de la moneda. Tu propio patrimonio sigue ofensivamente bien documentado."
+      "name": "Los mismos ataques, pero con un nuevo membrete.",
+      "desc": "Trump le dio al Departamento de Defensa un segundo nombre: “Departamento de Guerra”. En una imprenta, el impresor ofrece 13 dólares por clasificar nuevos membretes. Él presenta dos facturas. “Las mismas bombas. El doble de material de oficina”.",
+      "choice_0": "Clasifica los membretes por 13 dólares.",
+      "log_0": "Clasificas ambos nombres, guardas las facturas y ganas 13 dólares, con un dolor de cabeza. El impresor necesita otro archivador para la creciente cantidad de membretes.",
+      "choice_1": "Improvisa la gran presentación.",
+      "log_1": "Anuncias dos ejércitos por error. El equipo se ríe; el impresor duplica su precio. Ambos comprenden brevemente los contratos gubernamentales.",
+      "choice_2": "Rechace el trabajo.",
+      "log_2": "Te vas sin cobrar. El impresor pregunta si la paz necesita una factura aparte o si nadie está encargando eso."
     },
     "sat_transit_ribbon": {
-      "name": "En espera del corte de cinta",
-      "desc": "En una muestra sobre los fondos de transporte de Chicago suspendidos, los organizadores ofrecen 9 dólares por contar encuestas. Una persona de limpieza mira la cinta ceremonial. «Probad a recortar mi trayecto al trabajo».",
-      "choice_0": "Donar un paquete de comida",
-      "log_0": "Los voluntarios añaden tu número junto al teléfono de la encuesta. Tu aportación figura como «infraestructura comestible».",
-      "choice_1": "Contar encuestas de pasajeros por $9",
-      "log_1": "Nueve dólares y un dolor de cabeza. Una enfermera apunta «la imaginación de mi jefe» en transporte alternativo.",
-      "choice_2": "Volver a la furgoneta",
-      "log_2": "Te marchas en coche. La cinta sigue siendo un vehículo de cero emisiones con una autonomía excepcionalmente limitada."
+      "name": "El camino se ha convertido en un aviso.",
+      "desc": "Albuquerque informó sobre un intento federal de retirar fondos destinados al Rail Trail. En un puesto de apoyo cerca de la Beltway, el impresor ofrece 9 dólares por doblar folletos. La bicicleta de un voluntario está apoyada contra el anuncio de financiación. Es el único medio de transporte que recibe apoyo real a través de los documentos.",
+      "choice_0": "Comparta comida con el voluntario.",
+      "log_0": "Compartes comida y obtienes un contacto. Ella mueve la pila de folletos debajo del tambor tambaleante de su bicicleta, obteniendo así un servicio público útil.",
+      "choice_1": "Doble los folletos por $9.",
+      "log_1": "Nueve dólares y ojos cansados te ganan un respaldo. Haces que el aviso de retirada sea lo suficientemente compacto para que la gente pueda llevarlo mientras camina.",
+      "choice_2": "Regresa al coche.",
+      "log_2": "Te vas decepcionado. La voluntaria toca la campanilla de su bicicleta; el aviso de financiación sigue siendo considerablemente menos efectivo para movilizar a la gente."
     },
     "sat_weather_desk": {
-      "name": "Seis dólares por un tiempo mejor",
-      "desc": "Un vendedor ofrece seis dólares por sustituir un aviso de lluvia por «Cielos despejados por delante». Cita el mapa del huracán de Trump. No se exige experiencia meteorológica. Tener vista se desaconseja.",
-      "choice_0": "Guardar el cartel y el pronóstico oficial",
-      "log_0": "Documentas la discrepancia hasta que te duelen los ojos. El vendedor pregunta si los hechos necesitan permiso.",
-      "choice_1": "Colgar el cartel falso por 6 dólares",
-      "log_1": "Te embolsas seis dólares. Un trabajador consulta su app del tiempo. Tu carrera meteorológica termina en la formación inicial.",
-      "choice_2": "Rechazar el trabajo",
-      "log_2": "Conservas tu integridad. El surtidor lamenta no participar en ese programa de recompensas."
+      "name": "El parque está abierto en la fotografía.",
+      "desc": "DOGE redujo el personal del parque nacional. En un puesto de concesión cerca del parque, el dueño ofrece 6 dólares por colgar un cartel de \"ATENCIÓN COMPLETA\" sobre una ventana de información cerrada. Un empleado tiene los avisos de personal. El dueño dice que la fotografía necesita a alguien útil, preferiblemente a alguien que no esté pidiendo un salario.",
+      "choice_0": "Guarda los avisos y el cartel.",
+      "log_0": "Documentas la discrepancia, con un dolor de cabeza. El empleado servicial que aparece en la fotografía de relaciones públicas se ha convertido en un sustituto más barato para alguien que puede responder preguntas.",
+      "choice_1": "Cuelga el cartel por 6 dólares.",
+      "log_1": "Ganas 6 dólares y pierdes confianza. Un visitante pregunta en la ventana cerrada para obtener indicaciones; el cartel proporciona una excelente vista de su propia seguridad.",
+      "choice_2": "Rechazas el trabajo.",
+      "log_2": "Te vas sin cobrar y molesto. El dueño coloca un guardabosques de cartón detrás del cristal. Su primer turno transcurre exactamente como se esperaba."
     },
     "sat_bibliography_emergency": {
-      "name": "Esta referencia necesita pulso",
-      "desc": "La clínica ofrece 12 dólares por revisar referencias corregidas de MAHA y tratamiento con tu botiquín. «Washington comete una errata y yo pierdo el almuerzo», dice la recepcionista.",
-      "choice_0": "Revisar referencias por 12 dólares",
-      "log_0": "Doce dólares y una lista de correcciones guardada. Tu cerebro muestra «Esta página no responde».",
-      "choice_1": "Aceptar atención con tu botiquín — 1 provisión",
-      "log_1": "La enfermera usa tu botiquín y te recuperas. Abre las vendas sin hacerte elegir un nivel de suscripción.",
-      "choice_2": "Volver a la furgoneta",
-      "log_2": "La segunda opinión de la furgoneta es «seguramente no es nada». Las opiniones tercera a sexta no tienen nada que añadir."
+      "name": "El vendaje existe.",
+      "desc": "El informe de MAHA citó estudios que no existían. En una feria de salud comunitaria, un impresor ofrece $12 para organizar folletos informativos. Una enfermera puede atenderle utilizando sus propios suministros. Sus vendas tienen una ventaja científica innegable: puede señalar dónde están.",
+      "choice_0": "Organice los folletos por $12.",
+      "log_0": "Guarda la lista de errores, gana $12 y te llega un dolor de cabeza. Cada folleto está físicamente presente; varios de los temas que menciona resultan ser más ambiciosos.",
+      "choice_1": "Utilice los suministros; acepte la atención de la enfermera.",
+      "log_1": "La enfermera utiliza sus propios suministros y le presta asistencia. Una fuente verificada, aplicada directamente.",
+      "choice_2": "Regresa al coche.",
+      "log_2": "Se marcha decepcionado. La enfermera coloca otra venda real junto al informe, en contraste con el enfoque mucho más imaginativo de este último para respaldar una afirmación."
     },
     "west_grant_translation": {
-      "name": "Tesauro patriótico",
-      "desc": "Una redactora de subvenciones ofrece trabajo para traducir el mismo proyecto al lenguaje de la revisión de Trump. La acera es ahora un corredor de libertad. El árbol espera autorización.",
-      "choice_0": "Aceptar el turno de traducción",
-      "log_0": "Ganas doce dólares. El proyecto no cambia; sus adjetivos han pasado la inspección.",
-      "choice_1": "Publicar ambas versiones",
-      "log_1": "Conservas el original y la traducción patriótica. Las pruebas no necesitan traducción.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "La subvención requiere una bandera.",
+      "desc": "La orden de educación patriótica de Trump llega a un impresor encargado de las exhibiciones escolares. El impresor ofrece $12 para organizar las leyendas revisadas para el aula. Un profesor le muestra las versiones antiguas y las propuestas: la pregunta de debate ha sido reemplazada por una bandera lo suficientemente grande como para evitar cualquier otra pregunta.",
+      "choice_0": "Organice las leyendas por $12.",
+      "log_0": "Gana $12 y te llega un dolor de cabeza. La bandera encaja perfectamente en el espacio donde un estudiante podría haber desarrollado una opinión.",
+      "choice_1": "Conserve ambas versiones públicas.",
+      "log_1": "Preserva la diferencia, mentalmente agotado. La lección propuesta tiene una pregunta menos y una respuesta mucho más segura, proporcionada de antemano.",
+      "choice_2": "Continúe.",
+      "log_2": "Deja atrás la oferta. El profesor mide el espacio de debate restante, que ahora es principalmente el espacio debajo del mástil."
     },
     "west_rail_replacement": {
-      "name": "Furgoneta de alta velocidad",
-      "desc": "Tras otra disputa por los fondos ferroviarios de Trump, un contratista propone sustituir el tren rápido por furgonetas y lenguaje motivador. El equipo de inauguración también necesita transporte.",
-      "choice_0": "Llevar sus materiales",
-      "log_0": "Cobras quince dólares. Tu furgoneta es lo más operativo de todo el anuncio.",
-      "choice_1": "Documentar los fondos retirados",
-      "log_1": "Un pasajero se suma a tus contactos. La línea de puntos del folleto sigue sin ser una vía.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "La campaña para un camino necesita una furgoneta.",
+      "desc": "Albuquerque informó de un intento de la administración federal de retirar fondos para el Rail Trail. En una reunión sobre transporte costero, un organizador ofrece $15 para entregar materiales de la campaña utilizando sus propios materiales de embalaje. Un viajero tiene la correspondencia. Una vez más, la ruta de trabajo pertenece a otra persona.",
+      "choice_0": "Utilice los suministros; realice la entrega.",
+      "log_0": "Utiliza los suministros y gana $15. Los carteles que prometen movimiento llegan a la reunión porque la furgoneta nunca esperó el anuncio de la financiación.",
+      "choice_1": "Compare la correspondencia con el viajero.",
+      "log_1": "Obtiene pruebas y un contacto, con un dolor de cabeza. La ruta prometida se mueve de la manera más eficiente cuando se imprime lo suficientemente pequeña para que alguien pueda llevarla.",
+      "choice_2": "Continúe.",
+      "log_2": "Deja la oferta atrás. El organizador verifica la hora de salida de su furgoneta con más urgencia de lo que el mapa de la campaña jamás ha recibido."
     },
     "west_laboratory_overhead": {
-      "name": "Un edificio es un gasto indirecto",
-      "desc": "Un laboratorio de montaña se prepara para el tope de gastos indirectos del NIH propuesto por Trump. El presupuesto paga el experimento, pero cuestiona paredes, electricidad y refrigeración.",
-      "choice_0": "Inventariar equipos por un sueldo",
-      "log_0": "Ganas catorce dólares. Confirmas que el congelador es instrumental científico, no una elección de estilo de vida.",
-      "choice_1": "Compartir provisiones",
-      "log_1": "El equipo científico devuelve el favor con cuidados básicos y un nuevo contacto.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "La ciencia necesita una sala.",
+      "desc": "La propuesta de Trump sobre el límite de gastos generales del NIH pone en riesgo los costos de funcionamiento de las instalaciones de investigación. En un día de puertas abiertas del laboratorio, se ofrecen $14 por clasificar las etiquetas de los equipos. Una enfermera ofrece atención básica utilizando suministros compartidos. El panel informativo celebra los experimentos, a la vez que trata el edificio como un lujo sospechoso.",
+      "choice_0": "Clasifica las etiquetas; guarda la comparación de presupuestos.",
+      "log_0": "Se ganaron $14; tus ojos te duelen. La etiqueta del refrigerador identifica un instrumento esencial, a pesar de su escandalosa necesidad de electricidad.",
+      "choice_1": "Comparte los suministros; acepta atención básica.",
+      "log_1": "Te recuperas y obtienes un contacto. La enfermera utiliza una sala real, registrando silenciosamente varios de los gastos menos atractivos de la propuesta.",
+      "choice_2": "Continúe.",
+      "log_2": "Dejas la oferta atrás. Un investigador cierra la puerta para que el experimento pueda seguir beneficiándose de la controvertida invención del espacio interior."
     },
     "west_wind_loyalty": {
-      "name": "Audiencia de lealtad del viento",
-      "desc": "Tras el decreto de Trump contra las ayudas eólicas y solares, una feria energética juzga si la brisa es patriótica. Una técnica necesita ayuda que de verdad mantenga los equipos funcionando.",
-      "choice_0": "Ayudar con el inventario de repuestos",
-      "log_0": "Ganas diez dólares. El viento sigue generando energía sin rellenar el cuestionario de lealtad.",
-      "choice_1": "Registrar el testimonio técnico",
-      "log_1": "Consigues un contacto y una explicación basada en electricidad real.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "El viento no ha leído la orden.",
+      "desc": "Trump suspendió la aprobación de nuevos proyectos eólicos federales. En un puesto de reparación de turbinas, un técnico ofrece $10 por clasificar las etiquetas de las piezas de repuesto. Él guarda la orden debajo de un pisapapeles. La brisa se lleva los documentos de apoyo del pisapapeles cada vez que alguien elogia la suspensión.",
+      "choice_0": "Clasifica las etiquetas por $10.",
+      "log_0": "Diez dólares y un dolor de cabeza. El técnico recupera otra página de la maleza; el viento sigue produciendo resultados sin esperar a que termine el discurso.",
+      "choice_1": "Registra el relato del técnico.",
+      "log_1": "Obtienes pruebas y un contacto, mentalmente agotado. Él distingue las aprobaciones suspendidas del aire en movimiento, una distinción que la orden en vuelo demuestra repetidamente.",
+      "choice_2": "Continúe.",
+      "log_2": "Dejas la oferta atrás. Un orador pide a alguien que mantenga los documentos en su lugar mientras él explica las ventajas de detener el desarrollo eólico."
     },
     "west_desert_pressure": {
-      "name": "Libertad de ducha en el desierto",
-      "desc": "Una parada del desierto celebra el decreto de Trump sobre presión de ducha con una demostración para la que nadie presupuestó agua. La fontanera ofrece terminar antes de vaciar el depósito.",
-      "choice_0": "Ayudar a cerrar la demostración",
-      "log_0": "Te llevas agua y una comprensión práctica del interruptor de apagado.",
-      "choice_1": "Aceptar el turno de fontanería",
-      "log_1": "Ganas doce dólares. Trabajar bajo el fregadero es menos cómodo que anunciar libertad encima.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "El tanque se ha quedado sin libertad.",
+      "desc": "Trump ordenó la desregulación de los cabezales de ducha. En un punto de servicio en el desierto, una exhibición conmemorativa está agotando el tanque. El fontanero ofrece agua a cambio de ayuda para cerrarlo, o $12 por el trabajo más pesado. El propietario pregunta si el tanque vacío se está negando a cooperar políticamente.",
+      "choice_0": "Ayuda a cerrarlo; toma agua.",
+      "log_0": "Obtiene agua y cierta tranquilidad. El fontanero muestra el interruptor, una tecnología que se omitió durante la ceremonia de libertad.",
+      "choice_1": "Realiza las tareas más pesadas por $12.",
+      "log_1": "Doce dólares y músculos doloridos. Tú transportas el equipo mientras el dueño pregunta si rellenar el tanque se considera una injerencia gubernamental.",
+      "choice_2": "Continúa conduciendo.",
+      "log_2": "Rechazas la oferta. La pantalla tose; el dueño revisa el cartel en lugar de comprobar el nivel del agua."
     },
     "west_beef_passports": {
-      "name": "Estados Unidos primero, Argentina después",
-      "desc": "La idea de Trump de importar más carne argentina llegó a un cargadero ganadero. Comparan los discursos de «Estados Unidos primero» con los papeles de importación. El manifiesto necesita otra revisión.",
-      "choice_0": "Revisar el manifiesto por un sueldo",
-      "log_0": "Ganas dieciséis dólares. El país de origen del ganado está más claro que el de la política.",
-      "choice_1": "Comparar discursos y documentos",
-      "log_1": "Añades la contradicción a las pruebas. Nadie ha pedido aún que las vacas se disculpen.",
-      "choice_2": "Seguir adelante",
-      "log_2": "El grupo deja atrás la oferta."
+      "name": "La bandera no es un formulario de aduana.",
+      "desc": "Trump dice que los aranceles hacen que los extranjeros paguen. En un almacén mayorista, se ofrecen $16 para clasificar las etiquetas de envío. El dueño coloca banderas estadounidenses sobre las marcas de productos importados. El despachador tiene las facturas originales. Las banderas tampoco han mostrado interés en pagar el arancel.",
+      "choice_0": "Clasifica las etiquetas de envío por $16.",
+      "log_0": "Dieciséis dólares y un dolor de cabeza. Cada bandera se retira el tiempo suficiente para que el origen real de la caja vuelva a ser inconveniente.",
+      "choice_1": "Compara la declaración con las facturas.",
+      "log_1": "Resuelves la contradicción a través de ojos cansados. El arancel llegó en dólares, pagaderos aquí, a pesar de los mejores esfuerzos del dueño para asignarle una dirección extranjera.",
+      "choice_2": "Continúe.",
+      "log_2": "Dejas el trabajo atrás. El dueño añade una bandera más grande, aumentando el patriotismo de la caja sin reducir su factura."
     }
   },
   "play": {
@@ -1637,14 +1638,14 @@
     "local": "Residente local",
     "listen": "Volver a la ciudad",
     "fact_note": "Los hechos locales tienen fuentes. La persona y su comentario son ficticios.",
-    "care_reason_0": "{name} siente malestar tras probar leche cruda de MAHA. El vendedor culpa al Estado profundo que lleva en el estómago.",
-    "care_reason_1": "{name} tiene deshidratación. El jefe de descarga tachó la alerta de calor con un Sharpie. Al parecer, el sol no acepta correcciones.",
-    "care_reason_2": "{name} pasó la noche enumerando cinco logros para un jefe inspirado en DOGE. Entre el agotamiento, presenta un sexto: horas extra sin cobrar.",
-    "care_reason_3": "{name} vomita tras una muestra de bienestar MAHA. El vendedor cita «investigación no publicada». La refutación se publica en su cubo de muestras.",
-    "care_reason_4": "{name} perdió sueño buscando el camino en una carretera con tres nombres patrióticos. Ninguno era la salida que necesitabais.",
-    "care_reason_5": "{name} pasó la noche reclamando un arancel de reparación. El agotamiento es total. La guerra comercial ha conseguido una victoria decisiva sobre la hora de dormir.",
-    "care_reason_6": "{name} sufre agotamiento por un chat de Signal de un trabajo temporal. El jefe añadió desconocidos, filtró el código de la puerta y se inspiró en el gabinete.",
-    "care_reason_7": "{name} se lesiona la espalda cargando comida donada tras los recortes de reparto del USDA. Washington ha sustituido un presupuesto de reparto por una columna vertebral.",
+    "care_reason_0": "{name} prueba leche cruda en un puesto de “Hagamos a América Saludable de Nuevo”. El vendedor la describe como “llena de bondad”. A juzgar por los gritos provenientes del baño, esa bondad tiene un filo.",
+    "care_reason_1": "Durante un turno remunerado de descarga, {name} se deshidrata. El jefe tachó con un marcador permanente la advertencia sobre el calor, pero aparentemente, el sol no acepta correcciones. #sharpiegate",
+    "care_reason_2": "Después de un turno temporal, {name} se queda despierto demostrando que esas horas cuentan para las normas de trabajo y beneficios de Congreso. Al amanecer, el único trabajo no remunerado es demostrar que trabaja.",
+    "care_reason_3": "{name} prueba un tónico MAHA que promete “limpiar la corrupción” de su cuerpo. Vuelcan en el cubo de muestra. La “corrupción” ha abierto una tienda de recuerdos.",
+    "care_reason_4": "{name} pasa noches en vela intentando conciliar mapas después de que Trump renombró el Golfo y las montañas. La furgoneta todavía necesita el mismo giro. La geografía ha fallado su prueba de lealtad.",
+    "care_reason_5": "{name} pasa la noche discutiendo el arancel de Trump sobre una pieza de la furgoneta. Al amanecer, agita una servilleta blanca ante el lector de tarjetas. Este pide propina.",
+    "care_reason_6": "{name} pierde sueño ayudando a un amigo despedido por DOGE a enumerar su trabajo para una evaluación de eficiencia. Cuentan cinco tareas. Quien pide la lista acaba de crear una sexta.",
+    "care_reason_7": "En un trabajo remunerado para un evento de recaudación de fondos político de un multimillonario, {name} se lesiona en la espalda mientras mueven su autobiografía, “Yo lo Hice Todo Solo”. El donante los pisa para llegar al podio.",
     "behind_joke": "Detrás del chiste",
     "satire_note": "La escena, el diálogo y los precios del juego son sátira ficticia inspirada en este episodio documentado.",
     "supply_outlook": "Previsión de suministros",
@@ -1681,12 +1682,12 @@
   "ally_loss": {
     "title": "Noticias de tus aliados",
     "notice": "Un aliado se ha marchado",
-    "reason_0": "{name} se va para unirse a MAGA. Su mensaje de despedida incluye un código de descuento para gorras rojas. Hasta la traición tiene página de pago.",
-    "reason_1": "Despiden a {name} en un recorte al estilo DOGE. Se va a buscar empleo. La eficiencia ha creado cuarenta horas de trabajo sin sueldo.",
-    "reason_2": "Un arancel de reparación obliga a {name} a dejar de ayudar y aceptar turnos de tarde. «Dijeron que China pagaría. Pues que China cubra mi puto turno».",
-    "reason_3": "{name} se va para vender productos de Trump. Promete seguir luchando contra el fascismo cuando liquide las existencias.",
-    "reason_4": "{name} manda una diatriba de Truth Social, dice «investigad por vuestra cuenta» y luego os bloquea. Revisión por pares completada.",
-    "reason_5": "{name} se tuerce el tobillo protestando y vuelve a casa. «Decidle a Washington que he presentado una moción para sentarme de una puta vez»."
+    "reason_0": "Su contacto externo, {name}, deja de ayudar y se une a una campaña de venta de productos con el logo de MAGA. Su despedida incluye un código de descuento. La conversión política ahora tiene seguimiento de afiliados.",
+    "reason_1": "DOGE elimina el puesto de trabajo de su contacto externo, {name}. Él/Ella se retira para buscar trabajo. Su última tarea fue documentar el valor de documentar su valor.",
+    "reason_2": "Su contacto, {name}, trabaja horas extras para cubrir los costos de reparación inflados por los aranceles y ya no puede seguir ayudando. Ha descubierto qué país extranjero está pagando. Es el que aparece en su dirección.",
+    "reason_3": "Su contacto {name} se marcha para vender mercancía en mítines políticos rivales. Han resuelto el problema bipartidista con dos lectores de tarjetas.",
+    "reason_4": "Su contacto {name} envía un video alegando que los periodistas inventaron el escándalo de Signal, y luego bloquea a todo el equipo. La explicación ahora es más segura que el chat de las explosiones.",
+    "reason_5": "Su contacto {name} se retuerce el tobillo fuera de un evento de recaudación de fondos políticos y se retira. La entrada accesible estaba reservada para los donantes. El acceso igualitario estaba disponible en el siguiente nivel de patrocinio."
   },
   "shopping": {
     "each": "{price} c/u",
@@ -1694,5 +1695,678 @@
     "cash_after": "Dinero tras la compra",
     "clear": "Vaciar carrito",
     "in_van": "En la furgoneta: {count}"
+  },
+  "workshop": {
+    "ACT-BARTERBATTERY": {
+      "title": "Independencia energética",
+      "setup": "Alguien ofrece una batería a cambio de suministros en el punto de intercambio. Trump promete la independencia energética estadounidense en la radio. Preguntas si eso incluye poner en marcha la furgoneta.",
+      "action": "Intercambia suministros por la batería.",
+      "outcome": "Obtienes la batería. La política energética de la furgoneta ahora tiene conexiones."
+    },
+    "ACT-BARTERSUPPLIES": {
+      "title": "Una pequeña redistribución",
+      "setup": "Un residente ofrece comida a cambio de tu neumático de repuesto. El Congreso está debatiendo quién merece ayuda. El residente principalmente quiere un neumático que mantenga el aire.",
+      "action": "Intercambia el neumático de repuesto por suministros.",
+      "outcome": "Obtienes suministros. La elegibilidad se determinó examinando el neumático."
+    },
+    "ACT-BARTERTIRE": {
+      "title": "Gastos independientes",
+      "setup": "En el punto de intercambio comunitario, un residente ofrece un neumático a cambio de suministros. Una radio cercana habla de gastos políticos ilimitados. Preguntas si el neumático viene con un senador.",
+      "action": "Intercambia suministros por el neumático.",
+      "outcome": "El neumático es tuyo. No incluye un senador, pero podría llevarte a algún lugar."
+    },
+    "ACT-CASHWORK": {
+      "title": "Nómina de valores familiares",
+      "setup": "Un restaurante ofrece $18 por una limpieza de tres horas. El dueño elogia la promesa de Trump de \"no gravar las propinas\". Preguntas sobre el salario. Él señala el recipiente para propinas.",
+      "action": "Acepta el turno de limpieza.",
+      "outcome": "Cobráis los $18 y perdéis algo de paciencia. El bote de propinas vacío disfruta de una tarde totalmente libre de impuestos."
+    },
+    "ACT-FOODWORK": {
+      "title": "Tu cena, tu tarea",
+      "setup": "Un almacén ofrece comida a cambio de una tarea de clasificación de tres horas. El Congreso ha recortado el gasto proyectado para la ayuda alimentaria. El voluntario llama a tu caja “el plan de implementación local”.",
+      "action": "Clasifica las donaciones a cambio de comida.",
+      "outcome": "Usted termina cansado y toma la comida. El Congreso puede llamarlo autosuficiencia; usted ha visto las etiquetas de donación."
+    },
+    "ACT-FORAGE": {
+      "title": "No se requiere comprobante de pago.",
+      "setup": "Un guía local lidera una caminata de recolección de alimentos mientras los vecinos discuten las normas del programa de asistencia alimentaria del Congreso. El arbusto de zarzamoras no ha implementado un portal de carga de documentos.",
+      "action": "Recolecte lo que el guía identifica.",
+      "outcome": "Usted recolecta algunos alimentos. El sistema acepta evidencia de que usted tiene hambre. Washington podría querer auditarlo."
+    },
+    "ACT-GLEAN": {
+      "title": "La Cosecha de Aranceles.",
+      "setup": "Un agricultor permite a su equipo recoger los productos que quedan mientras se queja de los aranceles sobre las piezas de los tractores. Sus cultivos se cultivaron localmente. Sus gastos de funcionamiento se han extendido por todo el mundo.",
+      "action": "Recolecte los productos que queden.",
+      "outcome": "Usted trabaja en la hilera y recolecta alimentos, adolorido por el esfuerzo. El agricultor muestra una factura de reparación. “China no ha realizado otro pago”."
+    },
+    "ACT-REST": {
+      "title": "Restauración de la Función Ejecutiva.",
+      "setup": "El equipo puede descansar un día. Después de otra historia sobre la eficiencia de DOGE, alguien sugiere despedir a las personas cansadas. Esto dejaría la camioneta con un número de empleados sorprendentemente bajo.",
+      "action": "Tómense un día para descansar.",
+      "outcome": "El descanso recupera lo que puede. Usted mantiene al personal, incluyendo a la persona que sabe dónde están las llaves."
+    },
+    "ALLY-01": {
+      "title": "La Referencia del \"Sombrero Rojo\".",
+      "setup": "Su contacto externo, {name}, deja de ayudar y se une a una campaña de venta de productos con el logo de MAGA. Su despedida incluye un código de descuento. La conversión política ahora tiene seguimiento de afiliados.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "ALLY-02": {
+      "title": "La Eficiencia Ha Llegado.",
+      "setup": "DOGE elimina el puesto de trabajo de su contacto externo, {name}. Él/Ella se retira para buscar trabajo. Su última tarea fue documentar el valor de documentar su valor.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "ALLY-03": {
+      "title": "América Paga Primero.",
+      "setup": "Su contacto, {name}, trabaja horas extras para cubrir los costos de reparación inflados por los aranceles y ya no puede seguir ayudando. Ha descubierto qué país extranjero está pagando. Es el que aparece en su dirección.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "ALLY-04": {
+      "title": "Proceso de Pago Bipartidista.",
+      "setup": "Su contacto {name} se marcha para vender mercancía en mítines políticos rivales. Han resuelto el problema bipartidista con dos lectores de tarjetas.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "ALLY-05": {
+      "title": "El Grupo de Chat del \"Estado Profundo\"",
+      "setup": "Su contacto {name} envía un video alegando que los periodistas inventaron el escándalo de Signal, y luego bloquea a todo el equipo. La explicación ahora es más segura que el chat de las explosiones.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "ALLY-06": {
+      "title": "La Barrera de la Protesta",
+      "setup": "Su contacto {name} se retuerce el tobillo fuera de un evento de recaudación de fondos políticos y se retira. La entrada accesible estaba reservada para los donantes. El acceso igualitario estaba disponible en el siguiente nivel de patrocinio.",
+      "final_ally": "Ese era vuestro último contacto externo. El equipo que viaja sigue junto; vuestra red de apoyo se ha quedado vacía."
+    },
+    "CARE-01": {
+      "title": "Lleno de Bondad",
+      "setup": "{name} prueba leche cruda en un puesto de “Hagamos a América Saludable de Nuevo”. El vendedor la describe como “llena de bondad”. A juzgar por los gritos provenientes del baño, esa bondad tiene un filo.",
+      "continuing": "{name} sigue sufriendo los efectos de la leche cruda de MAHA. El vendedor ha ascendido los retortijones a proceso depurativo.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "{name} se recupera con cuidado. El vendedor pide un testimonio. Usted ofrece las llaves del baño.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "{name} sigue sufriendo los efectos de la leche cruda de MAHA. El vendedor ha ascendido los retortijones a proceso depurativo.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "{name} se recupera con cuidado. El vendedor pide un testimonio. Usted ofrece las llaves del baño."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-02": {
+      "title": "Pronóstico Ejecutivo",
+      "setup": "Durante un turno remunerado de descarga, {name} se deshidrata. El jefe tachó con un marcador permanente la advertencia sobre el calor, pero aparentemente, el sol no acepta correcciones. #sharpiegate",
+      "continuing": "{name} sigue sufriendo deshidratación. El rotulador Sharpie se ha recuperado por completo y ha vuelto a dirigir.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "Los cuidados restauran a {name}. El sol continúa operando fuera de la cadena de mando del jefe.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "{name} sigue sufriendo deshidratación. El rotulador Sharpie se ha recuperado por completo y ha vuelto a dirigir.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "Los cuidados restauran a {name}. El sol continúa operando fuera de la cadena de mando del jefe."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-03": {
+      "title": "Prueba de Trabajo",
+      "setup": "Después de un turno temporal, {name} se queda despierto demostrando que esas horas cuentan para las normas de trabajo y beneficios de Congreso. Al amanecer, el único trabajo no remunerado es demostrar que trabaja.",
+      "continuing": "El papeleo de las ayudas ha agotado a {name}. Su turno está documentado; la noche que pasó demostrándolo sigue siendo trabajo voluntario.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "El cuidado ayuda a {name} a recuperarse. Guarde los formularios antes de que desarrollen sus propios requisitos.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "El papeleo de las ayudas ha agotado a {name}. Su turno está documentado; la noche que pasó demostrándolo sigue siendo trabajo voluntario.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "El cuidado ayuda a {name} a recuperarse. Guarde los formularios antes de que desarrollen sus propios requisitos."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-04": {
+      "title": "Vacíe el cubo de muestra.",
+      "setup": "{name} prueba un tónico MAHA que promete “limpiar la corrupción” de su cuerpo. Vuelcan en el cubo de muestra. La “corrupción” ha abierto una tienda de recuerdos.",
+      "continuing": "{name} sigue sufriendo los efectos del tónico. El vendedor dice que el malestar demuestra que funciona. Las devoluciones, al parecer, no demuestran nada.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "{name} se recupera con atención. El vendedor ofrece una tarjeta de fidelidad. Sugerís una fregona.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "{name} sigue sufriendo los efectos del tónico. El vendedor dice que el malestar demuestra que funciona. Las devoluciones, al parecer, no demuestran nada.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "{name} se recupera con atención. El vendedor ofrece una tarjeta de fidelidad. Sugerís una fregona."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-05": {
+      "title": "Pérdida Patriótica.",
+      "setup": "{name} pasa noches en vela intentando conciliar mapas después de que Trump renombró el Golfo y las montañas. La furgoneta todavía necesita el mismo giro. La geografía ha fallado su prueba de lealtad.",
+      "continuing": "{name} no puede con el cansancio. Dos mapas discrepan sobre el nombre de algo que no se ha movido.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "El cuidado restaura a {name}. Siga la carretera, que ha logrado mantenerse en el cargo.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "{name} no puede con el cansancio. Dos mapas discrepan sobre el nombre de algo que no se ha movido.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "El cuidado restaura a {name}. Siga la carretera, que ha logrado mantenerse en el cargo."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-06": {
+      "title": "Una Pequeña Guerra Comercial.",
+      "setup": "{name} pasa la noche discutiendo el arancel de Trump sobre una pieza de la furgoneta. Al amanecer, agita una servilleta blanca ante el lector de tarjetas. Este pide propina.",
+      "continuing": "La disputa sobre los aranceles ha agotado a {name}. China no ha enviado un conductor de relevo.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "{name} se recupera con cuidado. Declara un alto el fuego con la impresora de recibos.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "La disputa sobre los aranceles ha agotado a {name}. China no ha enviado un conductor de relevo.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "{name} se recupera con cuidado. Declara un alto el fuego con la impresora de recibos."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-07": {
+      "title": "Cinco Cosas Antes del Desayuno.",
+      "setup": "{name} pierde sueño ayudando a un amigo despedido por DOGE a enumerar su trabajo para una evaluación de eficiencia. Cuentan cinco tareas. Quien pide la lista acaba de crear una sexta.",
+      "continuing": "{name} sigue sin fuerzas. La evaluación ha clasificado el tiempo dedicado a responder a la evaluación como despilfarro administrativo.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "El cuidado restaura a {name}. Registra una tarea completada: mantener a una persona real funcionando.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "{name} sigue sin fuerzas. La evaluación ha clasificado el tiempo dedicado a responder a la evaluación como despilfarro administrativo.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "El cuidado restaura a {name}. Registra una tarea completada: mantener a una persona real funcionando."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "CARE-08": {
+      "title": "Hecho por Uno Mismo, Apoyado por el Equipo.",
+      "setup": "En un trabajo remunerado para un evento de recaudación de fondos político de un multimillonario, {name} se lesiona en la espalda mientras mueven su autobiografía, “Yo lo Hice Todo Solo”. El donante los pisa para llegar al podio.",
+      "continuing": "Las lesiones de {name} persisten. El discurso del donante sobre la autosuficiencia ha necesitado otro par de manos para pasar las páginas.",
+      "critical": "La salud de {name} está en estado crítico. Seguir sin atención ahora provocará su muerte. Si se trata de vuestro personaje, la aventura terminará.",
+      "outcomes": {
+        "helped": "La atención ayuda a {name} a recuperarse. Dejáis que los libros de memorias restantes se levanten solos, tirando de sus propias sobrecubiertas.",
+        "sheltered": "{name} sigue con vida en el refugio y ha dejado la expedición.",
+        "deferred": "Las lesiones de {name} persisten. El discurso del donante sobre la autosuficiencia ha necesitado otro par de manos para pasar las páginas.",
+        "companion_lost": "{name} ha fallecido después de que el grupo siguiera sin buscar atención. Su sitio en la furgoneta está vacío.",
+        "player_lost": "Has muerto tras seguir sin atención. Tu aventura termina aquí."
+      },
+      "choices": {
+        "c0": {
+          "label": "Brindar cuidados",
+          "outcome": "La atención ayuda a {name} a recuperarse. Dejáis que los libros de memorias restantes se levanten solos, tirando de sus propias sobrecubiertas."
+        },
+        "c1": {
+          "label": "Permanecer en un refugio",
+          "outcome": "{name} permanece en el refugio y deja al equipo viajero con vida. El incidente está resuelto."
+        },
+        "c2": {
+          "label": "Continuar",
+          "outcome": "Usted continúa sin prestar atención. {name} sigue enfermo, y el incidente podría empeorar."
+        }
+      }
+    },
+    "COND-CLEAR": {
+      "title": "Sol Sin Regulación.",
+      "continuing": "El clima despejado continúa. El sol no ha respondido a las llamadas del equipo de comunicaciones.",
+      "onset": "Cielo despejado. La radio atribuye la agenda energética a Trump. El sol rechaza el nombramiento en el gabinete.",
+      "recovery": "La sensación de claridad termina. Aparentemente, el sol actúa a su propia voluntad."
+    },
+    "COND-COLD": {
+      "title": "Un Clima Privado.",
+      "continuing": "El frío persiste. La seguridad energética todavía parece estar en interiores.",
+      "onset": "El frío domina el recorrido. El grupo de presión de los combustibles fósiles considera su cena un evento de seguridad energética. Le gustaría asistir a la parte con temperatura ambiente.",
+      "recovery": "El frío disminuye. Sus dedos recuperan la capacidad de disentir de un comunicado de prensa."
+    },
+    "COND-COLDEXPOSURE": {
+      "title": "El Sector del Calor Privado.",
+      "continuing": "El frío sigue siendo perjudicial. Busque protección; el entusiasmo de los donantes no tiene una producción de calor medible.",
+      "onset": "La exposición al frío ahora está causando daño. La promesa de oportunidades del donante político ofrece varios metros cuadrados de cartón. Investiga su política de aislamiento.",
+      "recovery": "La exposición se alivia. Sus manos recuperan la capacidad de dejar el folleto."
+    },
+    "COND-HEAT": {
+      "title": "La Libertad de Sudar.",
+      "continuing": "El calor persiste. La protesta se ha extendido a cada asiento.",
+      "onset": "Una ola de calor se instala sobre el recorrido. Los políticos consideran que las pausas obligatorias por agua son un exceso. Su sudor parece ser una protesta de base.",
+      "recovery": "El calor disminuye. Los asientos comienzan a negociar un retorno a relaciones normales."
+    },
+    "COND-HEATEXPOSURE": {
+      "title": "El Costo del Control Local.",
+      "continuing": "El calor sigue causando daño. Busque protección y atienda al equipo; el lema no tiene una función de enfriamiento.",
+      "onset": "La exposición prolongada al calor ahora está afectando al equipo. Los opositores a los descansos obligatorios por calor prometieron libertad. Su cuerpo lo ha interpretado como permiso para detenerse.",
+      "recovery": "La exposición al calor se alivia. Su cuerpo acepta el cambio sin plantear ninguna objeción constitucional."
+    },
+    "COND-HUNGER": {
+      "title": "Almuerzo \"Efecto Dominó\".",
+      "continuing": "El hambre continúa. Gira el recipiente para mejorar la recepción.",
+      "onset": "Los alimentos escasean. El Congreso ha reducido la financiación prevista para ayuda alimentaria. Alguien sostiene un cuenco vacío debajo de la radio, por si acaso alguna ayuda llega de alguna forma.",
+      "recovery": "La comida alivia el hambre. Llega a través de una persona real, un suministro que la radio había pasado por alto."
+    },
+    "COND-ILLNESS": {
+      "title": "Una entidad sin financiación.",
+      "continuing": "La enfermedad persiste. Su cuerpo sigue siendo un obstáculo fuera de las métricas de éxito del presupuesto.",
+      "onset": "La enfermedad afecta el viaje. El Congreso considera que los recortes en el presupuesto de salud son un ahorro. Su cuerpo desearía saber de dónde proviene lo que le aqueja.",
+      "recovery": "La enfermedad desaparece. La recuperación se ha producido a pesar de los comentarios constantes."
+    },
+    "COND-SMOKE": {
+      "title": "Ahora con más libertad.",
+      "continuing": "El humo persiste. La libertad ha desarrollado un sabor que no se puede eliminar.",
+      "onset": "El humo cubre la carretera. La radio celebra la eliminación de las normas medioambientales. Usted cierra las ventanas para no participar en la celebración.",
+      "recovery": "El humo se disipa. La respiración vuelve a ser una actividad de fondo."
+    },
+    "COND-STORM": {
+      "title": "El mapa está seco.",
+      "continuing": "La lluvia continúa. El mapa del pronóstico es el único territorio que usted controla.",
+      "onset": "Una tormenta azota la furgoneta. Considera la posibilidad de utilizar rotuladores para tachar, pero no hay suficiente tinta para borrar el cielo.",
+      "recovery": "La tormenta pasa. El cielo se ha corregido sin una rueda de prensa."
+    },
+    "CROSS-01": {
+      "title": "Lo suficientemente americano.",
+      "setup": "En el punto de control, un oficial exige una furgoneta fabricada en Estados Unidos. Abre el capó. Él inicia un incidente internacional con el alternador.",
+      "outcomes": {
+        "passage": "Él le permite pasar. El alternador es admitido con una visa de trabajo temporal.",
+        "diversion": "Usted toma una desviación. El alternador sigue siendo sospechosamente bueno en su trabajo.",
+        "permit_receipt": "Su permiso cubre la furgoneta. El alternador está incluido como dependiente. Se utiliza un solo recibo.",
+        "permit_tag": "Su permiso autoriza el paso del vehículo. El alternador está incluido como elemento dependiente. Su etiqueta de permiso sigue disponible.",
+        "bribe_success": "El pago abre la barrera. Su dinero supera la verificación de nacionalidad.",
+        "bribe_failure": "Él recibe el pago y mantiene la barrera bajada. Al parecer, aquí también se aplican los aranceles.",
+        "refused_passage": "El oficial niega el paso. Usted toma la desviación, mientras la supuesta amenaza extranjera sigue cargando la batería."
+      }
+    },
+    "CROSS-02C": {
+      "title": "El Departamento de Barreras.",
+      "setup": "La oficina de cruce ha imitado la \"Oficina de Guerra\" de Trump. La nueva placa es enorme. Detrás de ella, dos trabajadores sostienen la barrera con sus manos.",
+      "outcomes": {
+        "passage": "Usted cruza mientras los trabajadores sostienen la barrera. La placa ofrece un gran apoyo moral.",
+        "diversion": "Usted toma la desviación. El nuevo departamento ha logrado una victoria decisiva sobre el tráfico.",
+        "permit_receipt": "Su permiso le autoriza el paso. Un trabajador levanta la barrera con su presupuesto de defensa real: con ambos brazos. Se utiliza un comprobante.",
+        "permit_tag": "Su permiso le autoriza el paso. Un trabajador levanta la barrera con su presupuesto de defensa real: con ambos brazos. Su etiqueta de permiso sigue disponible.",
+        "bribe_success": "El pago levanta la barrera. El departamento ha descubierto fondos para defensa.",
+        "bribe_failure": "El pago desaparece dentro de la oficina. Los trabajadores todavía solo tienen sus dos brazos originales cada uno.",
+        "terminal_failure": "No puede completar este cruce. La expedición termina bajo una placa lo suficientemente grande como para ocultar el problema."
+      }
+    },
+    "CROSS-02D": {
+      "title": "El Camino de la Pureza.",
+      "setup": "El punto de control ha adoptado las normas de educación patriótica de Trump. El oficial le pregunta si ama a Estados Unidos. Usted responde que sí. Él exige pruebas de que nunca ha querido que se arreglara nada.",
+      "outcomes": {
+        "passage": "Usted pasa. Amar al país se ha separado temporalmente de la paciencia en la fila.",
+        "diversion": "Usted toma la desviación. El oficial registra su elección de ruta como un problema curricular.",
+        "permit_receipt": "Su permiso le autoriza el paso. Al parecer, la documentación ama a Estados Unidos lo suficiente para todos. Se utiliza un comprobante.",
+        "permit_tag": "Su permiso le autoriza el paso. Al parecer, la documentación ama a Estados Unidos lo suficiente para todos. Su etiqueta de permiso sigue disponible.",
+        "bribe_success": "El pago abre el carril. El patriotismo tiene una donación sugerida.",
+        "bribe_failure": "Él recibe el pago y se niega a permitir el paso. Su donación no fue lo suficientemente sincera.",
+        "terminal_failure": "No pueden completar el cruce. La expedición termina con el país insistiendo en que no tiene ningún problema."
+      }
+    },
+    "CROSS-03": {
+      "title": "La libertad de expresión tiene un costo.",
+      "setup": "En el último cruce, el funcionario describe el gasto en campañas como “discurso”. Observa su furgoneta llena de altavoces reales. “Nos referíamos a los plegables”.",
+      "outcomes": {
+        "passage": "Los cruzan. Sus voces han logrado, brevemente, abrirse paso en un mercado que prefiere el dinero en efectivo.",
+        "diversion": "Toman una desviación. Aparentemente, la libertad de expresión incluye una caminata más larga hasta el micrófono.",
+        "permit_receipt": "Su permiso los deja pasar. Por una vez, el papel es escuchado sin necesidad de tener una fotografía impresa en él. Se utiliza un recibo.",
+        "permit_tag": "Su permiso los deja pasar. Por una vez, el papel es escuchado sin necesidad de tener una fotografía impresa en él. Su etiqueta de permiso sigue disponible.",
+        "bribe_success": "El pago abre la barrera. Su dinero ha presentado una declaración concisa y persuasiva.",
+        "bribe_failure": "El dinero es recibido; el paso es denegado. Su discurso ha sido guardado en el bolsillo de alguien.",
+        "terminal_failure": "El cruce pone fin a su expedición. El funcionario describe el silencio como un mercado saludable de ideas."
+      }
+    },
+    "END-COLD": {
+      "title": "El Donante Aislado.",
+      "headline": "El Donante Aislado.",
+      "epilogue": "La exposición al frío pone fin al viaje. La cena de recaudación de fondos política se mantiene caliente bajo pequeños tapones de plata. Aparentemente, incluso una patata puede obtener una mejor representación."
+    },
+    "END-COLLAPSE-BREAKDOWN": {
+      "title": "La Factura Ganó.",
+      "headline": "La Factura Ganó.",
+      "epilogue": "La avería sin resolver pone fin a la expedición. Trump dijo que los aranceles serían pagados en el extranjero. El presupuesto de reparación ha pasado toda la conversación mirándote directamente."
+    },
+    "END-COLLAPSE-CROSSING": {
+      "title": "El Dinero Libera la Aduana.",
+      "headline": "El Dinero Libera la Aduana.",
+      "epilogue": "El cruce pone fin a la expedición. En la política estadounidense, enormes sumas se mueven libremente como una expresión independiente. Tus personas reales se han encontrado con una barrera menos receptiva."
+    },
+    "END-COLLAPSE-DISEASE": {
+      "title": "La Enfermedad No Tiene Botón de Subida.",
+      "headline": "La Enfermedad No Tiene Botón de Subida.",
+      "epilogue": "La enfermedad pone fin a la expedición. El Congreso quiere que el trabajo esté documentado antes de que más personas puedan seguir recibiendo beneficios. Tu cuerpo no ha hecho más que luchar. No ha creado una cuenta de acceso."
+    },
+    "END-COLLAPSE-HUNGER": {
+      "title": "Goteo, Boca Abierta.",
+      "headline": "Goteo, Boca Abierta.",
+      "epilogue": "El hambre pone fin a la expedición. El Congreso redujo el presupuesto proyectado para ayuda alimentaria y lo calificó como un ahorro. No se puede comer una previsión, aunque ahora contenga un número muy impresionante."
+    },
+    "END-COLLAPSE-PANIC": {
+      "title": "Nada que Ver, Demasiado que Oír.",
+      "headline": "Nada que Ver, Demasiado que Oír.",
+      "epilogue": "El pánico pone fin a la expedición. Los funcionarios que extraviaron los planes de bombardeo seguirán explicando que todos los demás están exagerando. Apagas la presentación; es lo primero que debe detener la escalada."
+    },
+    "END-COLLAPSE-VEHICLE": {
+      "title": "El Vehículo ha Cambiado de Marca.",
+      "headline": "El Vehículo ha Cambiado de Marca.",
+      "epilogue": "El estado del vehículo pone fin a la expedición. Trump le dio a la defensa un nombre más enérgico. Podrías intentar lo mismo con la furgoneta, pero “imparable” ahora estaría obstruyendo el tráfico."
+    },
+    "END-COLLAPSE-WEATHER": {
+      "title": "Clima, Sin Editar.",
+      "headline": "Clima, Sin Editar.",
+      "epilogue": "El clima pone fin a la expedición. “Sharpiegate” demostró cómo cambiar una previsión con un bolígrafo. Nadie demostró cómo conducir sobre la corrección."
+    },
+    "END-DESTROYED": {
+      "title": "Primero América, Última la Furgoneta.",
+      "headline": "Primero América, Última la Furgoneta.",
+      "epilogue": "La furgoneta ha sido destruida. El viaje termina con viajeros estadounidenses incapaces de viajar. La propuesta de aranceles prometió proteger la industria nacional; tu contribución ahora parece ser chatarra."
+    },
+    "END-FALLBACK": {
+      "title": "Un Final Sin Clasificar.",
+      "headline": "Un Final Sin Clasificar.",
+      "epilogue": "Este relato no indica cómo terminó el viaje. Después del grupo de chat sobre los planes de bombardeo, revisa la lista de destinatarios. Es posible que el gobierno haya enviado la conclusión a un hombre que vende muebles de jardín."
+    },
+    "END-HEAT": {
+      "title": "Control Local del Termostato.",
+      "headline": "Control Local del Termostato.",
+      "epilogue": "La exposición al calor pone fin a la expedición. Los políticos que se oponen a las pausas obligatorias por calor para los trabajadores presentan sus argumentos en interiores. Se ha permitido que el termostato se regule sin una audiencia pública."
+    },
+    "END-INCOMPLETE": {
+      "title": "El Comité Aún Está Algún Lugar Adelante.",
+      "headline": "El Comité Aún Está Algún Lugar Adelante.",
+      "epilogue": "Este viaje está inconcluso. En Washington, la cena con los donantes sigue en el calendario. El pollo ha conseguido una cita; tu caso sigue en la carretera."
+    },
+    "END-SANITY": {
+      "title": "El Cerebro Rechaza la Presentación.",
+      "headline": "El Cerebro Rechaza la Presentación.",
+      "epilogue": "No puedes seguir adelante; tu cordura está agotada. Los funcionarios que pusieron los planes de bombardeo en un grupo de chat seguirán dándole lecciones a todos sobre juicio. El tuyo, al menos, ha reconocido una emergencia."
+    },
+    "END-VICTORY": {
+      "title": "El PAC del Distrito.",
+      "headline": "El PAC del Distrito.",
+      "epilogue": "Ganas la votación final. Un lobista te pregunta qué PAC super te apoyó. Le muestras el cambio de lavado. Él busca debajo para encontrar al multimillonario."
+    },
+    "END-VOTEFAIL": {
+      "title": "El tipo de discurso equivocado.",
+      "headline": "El tipo de discurso equivocado.",
+      "epilogue": "La votación final es en contra de usted. Usted presentó pruebas, testimonios y un viaje real. El sobre del donante no presentó ninguno de estos elementos y es invitado a cenar."
+    },
+    "HEARING-C": {
+      "title": "Los Ciudadanos de Dos Minutos.",
+      "setup": "Durante la audiencia en D.C., el presidente le concede dos minutos. Los donantes políticos reciben tres horas durante la cena. Aparentemente, el pollo necesita más representación.",
+      "before_vote": "Usted soportó el proceso. Una sola votación ahora decide el caso. Por un momento, el menú se coloca boca abajo.",
+      "exhausted": "Usted no puede soportar el proceso restante. Su audiencia termina antes de la votación; la reserva para la cena se mantiene.",
+      "transitions": {
+        "r0": "La primera etapa procesal agota su energía. El presidente explica, extensamente, cuánto valora el tiempo de todos.",
+        "r1": "Otra etapa del proceso. El menú para la cena con los donantes llega antes de que se haya abordado su caso.",
+        "r2": "La última etapa procesal. El presidente pide brevedad, luego lee las opciones de postre."
+      }
+    },
+    "HEARING-D": {
+      "title": "El Espacio para la Participación Pública.",
+      "setup": "Durante la audiencia en D.C., el sobre de un donante político tiene su propia silla. Usted se encuentra frente al micrófono público. El gasto independiente ilimitado ha desarrollado una excelente postura.",
+      "before_vote": "Usted soportó las etapas. Una sola votación decide el caso. Se permite al sobre observar sin cruzar los brazos.",
+      "exhausted": "Usted no puede soportar las etapas restantes. Su audiencia termina antes de una votación; se invita al sobre a quedarse.",
+      "transitions": {
+        "r0": "La primera etapa procesal agota su energía. El presidente agradece al sobre por tomarse el tiempo.",
+        "r1": "La siguiente etapa se refiere al acceso. Un secretario ajusta el micrófono del sobre.",
+        "r2": "La última etapa procesal. El sobre no ha dicho nada y aún se considera el mayor contribuyente de la sala."
+      }
+    },
+    "OPEN-JOURNALIST": {
+      "title": "Seattle: Añadido a la Conversación.",
+      "setup": "Usted se marcha de Seattle con cinco acompañantes y un cuaderno de un periodista. El equipo de Trump envió accidentalmente planes de amenazas a un periodista. Espera que su gobierno responda a las preguntas casi con la misma facilidad.",
+      "action": "Diríjase a D.C.",
+      "outcome": "La furgoneta sale. Verifica la ruta dos veces, poniéndola por delante del equipo de seguridad nacional."
+    },
+    "OPEN-LOBBYIST": {
+      "title": "Los Ángeles: Acceso, Clase Económica.",
+      "setup": "Todos saben cómo Washington vende acceso. Desafortunadamente, sus cinco acompañantes saben cuánto cuesta la gasolina. Salen de Los Ángeles rumbo a Washington D.C. con experiencia en lobby y una red de donantes que consiste en la guantera.",
+      "action": "Diríjase a D.C.",
+      "outcome": "La furgoneta se dirige hacia el este. Monedas sueltas hacen ruido, sobre todo cuando se topan con un bache."
+    },
+    "OPEN-ORGANIZER": {
+      "title": "Portland: La Fuerza Laboral Pública.",
+      "setup": "DOGE sigue despidiendo empleados públicos y lo llama eficiencia. Organiza un viaje de Portland a Washington D.C. para cinco acompañantes. Ajustar el equipaje de todos en una furgoneta es su primer servicio “público” sospechoso.",
+      "action": "Salida rumbo a Washington D.C.",
+      "outcome": "Se ponen en marcha. Nadie ha sido despedido por señalar que el refrigerador necesita espacio."
+    },
+    "OPEN-SATIRIST": {
+      "title": "San Diego: El Océano Conservó Su Empleo.",
+      "setup": "Trump renombró el Golfo. Usted es un satírico que sale de San Diego con cinco acompañantes para preguntarle a Washington D.C. si cambiar el nombre de la bancarrota también ayuda. La furgoneta vota por “presidencial, temporalmente”.",
+      "action": "Comienzo del viaje.",
+      "outcome": "Se ponen en marcha. El nuevo y prestigioso presupuesto aún requiere gasolina barata."
+    },
+    "OPEN-STAFFER": {
+      "title": "Sacramento: La Marca Perdura.",
+      "setup": "Trump añadió “Departamento de Guerra” a la marca del gobierno. Usted es un miembro del personal que sale de Sacramento con cinco acompañantes para pedir ayuda real a Washington D.C. Llaman a la furgoneta “Confiable”. Nada mecánico ocurre.",
+      "action": "Salida rumbo a Washington D.C.",
+      "outcome": "Se ponen en marcha. La nueva placa pesa menos que una rueda de repuesto en buen estado y logra considerablemente menos."
+    },
+    "OPEN-WHISTLEBLOWER": {
+      "title": "San Francisco: Esencial Hasta Que Sea Eliminado.",
+      "setup": "DOGE llama a la falta de personal “ahorro”. Usted sabe lo que esas personas hacían. Sale de San Francisco con cinco acompañantes y su argumento para Washington D.C. La furgoneta tiene menos departamentos, pero están manteniendo los frenos.",
+      "action": "Conducen hacia Washington D.C.",
+      "outcome": "Se ponen en marcha. Nadie sugiere mejorar la eficiencia de combustible eliminando al conductor."
+    },
+    "ORDER-DEREGULATE": {
+      "title": "Paz, Ahora Con Más Guerra.",
+      "activation": "El gobierno promociona la marca “Departamento de Guerra”. El portavoz lo llama paz a través de la fuerza. Su furgoneta se conformaría con paz a través de un alternador en buen estado.",
+      "expiration": "El proceso de reestructuración finaliza. La furgoneta ha conservado su nombre original, menos amenazante."
+    },
+    "ORDER-GAG": {
+      "title": "Índice de Peligro Extremo.",
+      "activation": "Comunicado urgente: las autoridades imitan la prohibición de Trump sobre la \"adoctrinación\" en las aulas. La lista de lecturas aprobada llega ya pre-aprobada, con instrucciones sobre cómo discutirla libremente.",
+      "expiration": "La alarma disminuye. Una bibliotecaria devuelve los libros a su lugar, donde la gente puede aprender cosas accidentalmente."
+    },
+    "ORDER-MILITARIZE": {
+      "title": "Libertad de Movimiento, Sujeta a Movimiento.",
+      "activation": "Comunicado sobre los puntos de control: las autoridades utilizan la retórica de Trump sobre la seguridad fronteriza para añadir otra inspección en la carretera. El agente pregunta por qué los ciudadanos libres siempre están tratando de ir a algún lugar.",
+      "expiration": "Las inspecciones adicionales terminan. Su destino vuelve a ser un lugar, en lugar de una justificación."
+    },
+    "ORDER-SHUTDOWN": {
+      "title": "Esencial, No Remunerado.",
+      "activation": "Comunicado sobre el cierre: el Congreso ha llegado a un punto muerto. Se pide a los empleados federales que sigan siendo esenciales, pero con un salario opcional.",
+      "expiration": "El cierre finaliza. Los salarios podrían reanudarse, fingiendo que esto fue un problema de programación."
+    },
+    "ORDER-TARIFFS": {
+      "title": "Ayuda Exterior, Bolsillo Nacional.",
+      "activation": "El mensaje de Trump sobre los aranceles dice que los países extranjeros pagarán. Su factura de supermercado se ha ofrecido voluntariamente para ser un país extranjero.",
+      "expiration": "El evento de los aranceles finaliza. Su billetera desearía recuperar su ciudadanía."
+    },
+    "ORDER-TAXCUTS": {
+      "title": "La Educación Ha Abandonado el Edificio.",
+      "activation": "El departamento de educación es eliminado. Las autoridades prometen preservar el aprendizaje. La señal de salida ha sido asignada a las horas de enseñanza restantes.",
+      "expiration": "La orden finaliza. La señal de salida vuelve a su especialidad."
+    },
+    "REPAIR-ALTERNATOR": {
+      "title": "China Llega Tarde.",
+      "setup": "El alternador falla. El reemplazo cuesta más debido a los aranceles de Trump. El mecánico en la radio pregunta quién va a pagar. Usted dice: \"China\". Él pide un chiste más corto.",
+      "outcomes": {
+        "not_completed": "La reparación no está completa. La furgoneta permanece averiada.",
+        "cashless": "Las comunicaciones por radio pueden facilitar la obtención de trabajo a cambio de una pieza usada y una reparación. No se necesita dinero ni repuestos adicionales."
+      },
+      "choices": {
+        "c0": {
+          "label": "Instale la pieza de repuesto a bordo.",
+          "outcome": "Usted instala la pieza de repuesto a bordo. China queda exenta de esta factura en particular."
+        },
+        "c1": {
+          "label": "Compre e instale una pieza de reemplazo.",
+          "outcome": "El taller instala la pieza de reemplazo. Su dinero pasa por la caja con una confianza internacional notable.",
+          "roadside_outcome": "La pieza de reemplazo llega y se instala. El conductor le pregunta por su nombre, lo que determina quién debe pagar."
+        },
+        "c2": {
+          "label": "Intercambie suministros por reparaciones.",
+          "outcome": "Usted intercambia suministros por un alternador usado y lo instala. La empresa asume la responsabilidad de los aranceles."
+        },
+        "c3": {
+          "label": "Solicite trabajo y reparaciones por radio.",
+          "outcome": "Usted realiza el trabajo acordado a cambio de un alternador usado y una reparación. El equipo de China se parece exactamente al suyo."
+        }
+      }
+    },
+    "REPAIR-BATTERY": {
+      "title": "Cinco Logros, Cero Voltios.",
+      "setup": "La batería se agota. Inspirado por DOGE, un compañero le pide que enumere cinco logros. Ha alimentado cada salida. La dirección pregunta qué hizo hoy.",
+      "outcomes": {
+        "not_completed": "La reparación no está completa. La furgoneta permanece averiada.",
+        "cashless": "Las comunicaciones por radio pueden facilitar la obtención de trabajo a cambio de una pieza usada y una reparación. No se necesita dinero ni repuestos adicionales."
+      },
+      "choices": {
+        "c0": {
+          "label": "Instale la pieza de repuesto a bordo.",
+          "outcome": "Se instala la batería de repuesto. Su primer logro es hacer que el tablero deje de ser un espejo."
+        },
+        "c1": {
+          "label": "Compre e instale una pieza de reemplazo.",
+          "outcome": "El taller instala una pieza de reemplazo. Usted aprueba el suministro de electricidad sin necesidad de contratar a un multimillonario para que lo investigue.",
+          "roadside_outcome": "La pieza de reemplazo se entrega y se instala. El conductor ha logrado algo visible antes de enviar un correo electrónico."
+        },
+        "c2": {
+          "label": "Intercambie suministros por reparaciones.",
+          "outcome": "Usted intercambia suministros por una batería usada y la instala. La experiencia sobrevive a otra iniciativa de eficiencia."
+        },
+        "c3": {
+          "label": "Solicite trabajo y reparaciones por radio.",
+          "outcome": "Usted finaliza el trabajo acordado e instala una batería usada. La revisión de productividad de cuatro horas incluye una productividad real."
+        }
+      }
+    },
+    "REPAIR-FUELPUMP": {
+      "title": "Perforar, Bebé, Nada.",
+      "setup": "La bomba de combustible falla. La canción de Trump, “Perforar, bebé, perforar”, suena en la radio. Encontrar más petróleo es una respuesta inusualmente fuerte para la pieza defectuosa incorrecta.",
+      "outcomes": {
+        "not_completed": "La reparación no está completa. La furgoneta permanece averiada.",
+        "cashless": "Las comunicaciones por radio pueden facilitar la obtención de trabajo a cambio de una pieza usada y una reparación. No se necesita dinero ni repuestos adicionales."
+      },
+      "choices": {
+        "c0": {
+          "label": "Instale la pieza de repuesto a bordo.",
+          "outcome": "Usted instala la bomba de repuesto. El combustible llega al motor sin encontrar un nuevo yacimiento petrolero."
+        },
+        "c1": {
+          "label": "Compre e instale una pieza de reemplazo.",
+          "outcome": "La tienda instala una pieza de repuesto. La distribución recibe brevemente más atención que la perforación.",
+          "roadside_outcome": "La pieza de repuesto llega y se instala. El conductor repara la ruta entre el combustible que tiene y el motor que lo necesita."
+        },
+        "c2": {
+          "label": "Intercambie suministros por reparaciones.",
+          "outcome": "Intercambias suministros por una bomba usada y la instalas. Las reservas existentes del tanque finalmente llegan al público."
+        },
+        "c3": {
+          "label": "Solicite trabajo y reparaciones por radio.",
+          "outcome": "Completas el trabajo acordado e instalas una bomba usada. Tus esfuerzos resuelven un problema al que el discurso sobre la perforación no pudo llegar."
+        }
+      }
+    },
+    "REPAIR-TIRE": {
+      "title": "Descenso Gradual de la Banda de Rodadura.",
+      "setup": "Un neumático explota junto a un cartel que anuncia una reducción de impuestos financiada por un multimillonario. Encuentras la banda de rodadura debajo de la palabra \"prosperidad\". Así es la parte que \"desciende\".",
+      "outcomes": {
+        "not_completed": "La reparación no está completa. La furgoneta permanece averiada.",
+        "cashless": "Las comunicaciones por radio pueden facilitar la obtención de trabajo a cambio de una pieza usada y una reparación. No se necesita dinero ni repuestos adicionales."
+      },
+      "choices": {
+        "c0": {
+          "label": "Instale la pieza de repuesto a bordo.",
+          "outcome": "Instalas la llanta de repuesto. La riqueza no se ha redistribuido, pero el peso sí."
+        },
+        "c1": {
+          "label": "Compre e instale una pieza de reemplazo.",
+          "outcome": "La tienda instala la pieza de repuesto. El cartel del multimillonario permanece extrañamente reacio a respaldar.",
+          "roadside_outcome": "La pieza de repuesto llega y se instala. El conductor de reparto trae neumáticos; la economía de \"goteo\" no envió nada."
+        },
+        "c2": {
+          "label": "Intercambie suministros por reparaciones.",
+          "outcome": "Intercambias suministros por un neumático usado y lo instalas. Un intercambio con dos beneficiarios reales se siente sospechosamente radical."
+        },
+        "c3": {
+          "label": "Solicite trabajo y reparaciones por radio.",
+          "outcome": "Terminas el trabajo acordado e instalas un neumático usado. La furgoneta, hecha por uno mismo, necesitó de otras personas nuevamente."
+        }
+      }
+    }
   }
 }

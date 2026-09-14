@@ -16,10 +16,10 @@ mod tests {
     #[test]
     fn localized_copy_and_imported_fallback_stay_readable() {
         for (lang, expected) in [
-            ("en", "Private Chat, Public Application"),
-            ("it", "Chat privata, candidatura pubblica"),
-            ("es", "Chat privado, solicitud pública"),
-            ("ar", "دردشة خاصة، طلب عمل على الملأ"),
+            ("en", "The employed calendar"),
+            ("it", "Il calendario assunto"),
+            ("es", "El calendario con empleo"),
+            ("ar", "التقويم الموظّف"),
         ] {
             crate::i18n::set_lang(lang);
             assert_eq!(

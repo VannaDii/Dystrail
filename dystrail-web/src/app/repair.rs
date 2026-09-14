@@ -17,6 +17,7 @@ pub fn render(app: &AppState) -> Html {
         .map_or("D.C.", |s| s.name.as_str());
     html! {<section class="roadside-options" aria-labelledby="repair-title">
         <h2 id="repair-title">{i18n::tr("trail.repair_title",Some(&std::collections::BTreeMap::from([("part",part.as_str())])))}</h2>
+        <p class="scene-narrative">{super::workshop::text(super::workshop::repair(b.part),"setup")}</p>
         <p>{i18n::tr("trail.repair_context",Some(&std::collections::BTreeMap::from([("town",town)])))}</p>
         <div class="action-grid">{for RepairChoice::ALL.into_iter().map(|choice|{
             let label=i18n::tr(choice.key(),Some(&std::collections::BTreeMap::from([("part",part.as_str()),("cost",i18n::fmt_currency(gs.replacement_cost(b.part)).as_str())])));
@@ -54,9 +55,12 @@ fn choose(app: &AppState, choice: RepairChoice) -> Callback<MouseEvent> {
                 "trail.repair_title",
                 Some(&std::collections::BTreeMap::from([("part", part.as_str())])),
             ),
-            message: i18n::tr(
-                "trail.repaired",
-                Some(&std::collections::BTreeMap::from([("part", part.as_str())])),
+            message: super::workshop::text(
+                super::workshop::repair(b.part),
+                super::workshop::repair_outcome(
+                    choice,
+                    before.continuity.route_services.stop.is_none(),
+                ),
             ),
             scene: crate::components::ui::journey_scene::SceneStage::Breakdown,
             before: before.stats.clone(),

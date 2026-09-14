@@ -119,3 +119,7 @@ mod tests {
 }
 
 pub mod weather_status;
+pub mod workshop;
+pub mod workshop_events;
+#[cfg(test)]
+mod workshop_tests;
