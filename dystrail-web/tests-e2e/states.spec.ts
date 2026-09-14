@@ -10,7 +10,7 @@ test('numbered encounter, persistent aftermath, low sanity and visual results',a
  const after=await savedState(page);await page.reload();await waitForLaunch(page);await expect(page.locator('.aftermath-panel')).toBeVisible();expect((await savedState(page)).stats).toEqual(after.stats);
  state.current_encounter=null;state.stats.sanity=1;await importState(page,state);await expect(page.locator('.danger-notice')).toHaveCount(0);await expect(page.locator('.hud-stat.critical')).toBeVisible();await snap(page,'danger');
  state.stats.sanity=0;state.ending={type:'collapse',cause:'panic'};await importState(page,state);
- await expect(page.getByRole('heading',{name:'SANITY FRACTURE',exact:true})).toBeVisible();await expect(page.locator('.result-screen')).not.toContainText(/Pants|steps/);await snap(page,'result');
+ await expect(page.getByRole('heading',{name:'Nothing to See, Too Much to Hear',exact:true})).toBeVisible();await expect(page.locator('.result-screen')).not.toContainText(/Pants|steps/);await snap(page,'result');
  await page.getByRole('menuitem',{name:/Replay/i}).click();await expect(page.getByRole('radio',{name:'Journalist',exact:true})).toBeVisible();
 });
 test('repair consumes a pump and shows the cost',async({page})=>{
@@ -36,11 +36,11 @@ test('route store, one exchange and cooldown recovery',async({page})=>{
  const state=await baseline(page);atTown(state,'La Crosse');state.prev_miles_traveled=state.miles_traveled_actual;state.clock_minutes=660;state.stats.supplies=10;state.camp.rest_cooldown=1;
  state.seed=42;state.rng_bundle=null;state.encounter_cooldown=100;state.weather_state.neutral_buffer=100;state.day_state.day_initialized=true;state.encounter_chance_today=0;
  await importState(page,state);await snap(page,'route-stop');await page.getByRole('button',{name:'Trade with locals',exact:true}).click();
- await expect(page.locator('.town-trading .action-grid>button')).toHaveCount(3);await page.getByRole('button',{name:'Get a battery',exact:true}).click();
+ await expect(page.locator('.town-trading .action-grid .action-button')).toHaveCount(3);await page.getByRole('button',{name:'Get a battery',exact:true}).click();
  const traded=await savedState(page);expect(traded.stats.supplies).toBe(6);expect(traded.inventory.spares.battery).toBe(state.inventory.spares.battery+1);expect(traded.clock_minutes).toBe(state.clock_minutes+30);
  await page.reload();await waitForLaunch(page);await expect(page.locator('.town-trading')).toBeVisible();
  await expect(page.locator('.town-trading')).toContainText('Community exchange used');
- for(const offer of await page.locator('.town-trading .action-grid>button').all())await expect(offer).toBeDisabled();
+ for(const offer of await page.locator('.town-trading .action-grid .action-button').all())await expect(offer).toBeDisabled();
  await page.getByRole('button',{name:'Back to town',exact:true}).click();
  await page.getByRole('button',{name:'Visit the Store',exact:true}).click();await page.getByRole('group',{name:'Rations Pack',exact:true}).getByRole('button',{name:'Add +1',exact:true}).click();
  await page.getByRole('button',{name:'Buy supplies & return',exact:true}).click();

@@ -16,7 +16,7 @@ for event in events:
  assert [(c['label'],c['effects']['log']) for c in event['choices']]==[(c['label'],c['outcome']) for c in u['choices']]
 path='dystrail-web/static/assets/data/town-facts.json';towns=read(path);newnames={u['town'] for u in units if u['category']=='Town conversations'}
 unchanged=[t for t in towns if t['town'] not in newnames];assert unchanged==[t for t in baseline(path) if t['town'] not in newnames]
-changed=subprocess.check_output(['git','diff','--name-only'],cwd=root,text=True).splitlines()
+changed=subprocess.check_output(['git','diff','f1ed4fe','--name-only'],cwd=root,text=True).splitlines()
 assert not any(p.startswith(('dystrail-game/','dystrail-tester/','site/')) for p in changed)
 assert not any('/static/img/' in p or p.endswith(('.css','Cargo.toml','Cargo.lock')) for p in changed)
 assert len(events)==65 and sum(len(e['choices']) for e in events)==187
