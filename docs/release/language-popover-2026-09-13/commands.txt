@@ -1,0 +1,24 @@
+cargo fmt --all -- --check
+cargo check -p dystrail-web --target wasm32-unknown-unknown --locked
+cargo clippy -p dystrail-web --target wasm32-unknown-unknown --all-features --locked -- -D warnings -W clippy::pedantic
+cargo test -p dystrail-web --all-features --locked
+(cd dystrail-web && env -u NO_COLOR PUBLIC_URL=/play trunk build --release --public-url /play/ --dist /tmp/dystrail-language-popover-20260913/build)
+(cd dystrail-web && PLAYTEST_EXTERNAL=1 PLAYTEST_PORT=51804 PLAYTEST_DIST=/tmp/dystrail-language-popover-20260913/build PLAYTEST_CHANNEL=chrome DYSTRAIL_CHROME_EXECUTABLE=/Users/vanna/Library/Caches/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell npx playwright test tests-e2e/language-popover.spec.ts tests-e2e/a11y.spec.ts --workers=1 --output=/tmp/dystrail-language-popover-20260913/browser-release)
+python3 /tmp/dystrail-share-hud-review/update-preview.py /tmp/dystrail-language-popover-20260913/build /tmp/dystrail-language-popover-20260913/preview-final.json
+git diff --check
+node --check dystrail-web/static/offline-client.js
+(cd dystrail-web && env -u NO_COLOR PUBLIC_URL=/play trunk build --release --public-url /play/ --dist /tmp/dystrail-language-popover-20260913/slash-build)
+(cd dystrail-web && PLAYTEST_EXTERNAL=1 PLAYTEST_PORT=51805 PLAYTEST_DIST=/tmp/dystrail-language-popover-20260913/slash-build PLAYTEST_CHANNEL=chrome DYSTRAIL_CHROME_EXECUTABLE=/Users/vanna/Library/Caches/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell npx playwright test tests-e2e/entry-url.spec.ts tests-e2e/preload.spec.ts tests-e2e/language-popover.spec.ts --workers=1 --output=/tmp/dystrail-language-popover-20260913/slash-browser)
+
+(cd dystrail-web && PLAYTEST_EXTERNAL=1 PLAYTEST_PORT=8180 PLAYTEST_DIST=/tmp/dystrail-language-popover-20260913/ci-entry-build PLAYTEST_CHANNEL=chrome DYSTRAIL_CHROME_EXECUTABLE=/Users/vanna/Library/Caches/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell npx playwright test tests-e2e/offline-status.spec.ts tests-e2e/entry-url.spec.ts --workers=1 --output=/tmp/dystrail-language-popover-20260913/retry-ready)
+python3 /tmp/dystrail-language-popover-20260913/release-prep/prepare-retry-release.py
+# The identity comparison correctly rejected reuse because compiled bytes differed.
+python3 /tmp/dystrail-language-popover-20260913/release-prep/prepare-final-release.py
+python3 /tmp/dystrail-language-popover-20260913/release-prep/adopt-chevron-baseline.py
+# The release checkout needed to fetch the newly published hotfix object before its fast-forward.
+python3 /tmp/dystrail-language-popover-20260913/release-prep/adopt-chevron-baseline-resume.py
+python3 /tmp/dystrail-language-popover-20260913/release-prep/prepare-combined-release.py
+node /tmp/dystrail-language-popover-20260913/release-prep/verify-live-browser.mjs http://127.0.0.1:8180
+python3 /tmp/dystrail-language-popover-20260913/release-prep/finalize-publication.py
+# Finalization verifies all source CI jobs, commits/pushes the exact artifact, publishes, and checks all live bytes and canonical URLs.
+node /tmp/dystrail-language-popover-20260913/release-prep/verify-live-browser.mjs

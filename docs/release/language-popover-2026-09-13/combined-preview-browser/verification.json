@@ -1,0 +1,55 @@
+{
+  "revision": "4a35a2024033bd2ce615",
+  "base": "http://127.0.0.1:8180",
+  "cases": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mode": "classic",
+      "url": "http://127.0.0.1:8180/play/?review=entry%20route#arrival",
+      "controlled": true,
+      "chevron": {
+        "gap": 13.796875,
+        "expected": 13.8
+      },
+      "list": {
+        "topLayer": true,
+        "outside": true,
+        "fits": true
+      },
+      "menuUnchanged": true,
+      "languageCount": 20,
+      "lastLanguageReachable": true,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "phone",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "mode": "deep",
+      "url": "http://127.0.0.1:8180/play/?review=entry%20route#arrival",
+      "controlled": true,
+      "chevron": {
+        "gap": 13.796875,
+        "expected": 13.8
+      },
+      "list": {
+        "topLayer": true,
+        "outside": true,
+        "fits": true
+      },
+      "menuUnchanged": true,
+      "languageCount": 20,
+      "lastLanguageReachable": true,
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

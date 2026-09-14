@@ -1,0 +1,29 @@
+(node:73278) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:73295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:73295) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:73295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details (1.1s)
+  ✓   2 [chromium] › tests-e2e/entry-url.spec.ts:19:5 › bare game URL resumes a saved journey and can then reopen offline (2.7s)
+  ✓   3 [chromium] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: classic (2.3s)
+  ✓   4 [chromium] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: deep (2.2s)
+  ✓   5 [chromium] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (7.8s)
+  ✓   6 [chromium] › tests-e2e/preload.spec.ts:37:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (1.8s)
+(node:73546) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:73546) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:73546) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [mobile] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details (1.1s)
+  ✓   8 [mobile] › tests-e2e/entry-url.spec.ts:19:5 › bare game URL resumes a saved journey and can then reopen offline (2.6s)
+  ✓   9 [mobile] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: classic (2.2s)
+  ✓  10 [mobile] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: deep (2.3s)
+  ✓  11 [mobile] › tests-e2e/preload.spec.ts:8:5 › first launch waits for every asset, retries failure, and repairs missing cached art before play (7.8s)
+  ✓  12 [mobile] › tests-e2e/preload.spec.ts:37:5 › every image is decoded behind the gate and new encounter scenes use only prepared local art (1.9s)
+
+  12 passed (37.0s)

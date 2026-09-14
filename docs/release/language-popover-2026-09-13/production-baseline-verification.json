@@ -1,0 +1,16 @@
+{
+  "revision": "d75df50dab2d09572dcf",
+  "commit": "5722f8b0b36b27c815902359a54a08e77e7c6589",
+  "passed": true,
+  "local_files": 214,
+  "live_checks": {
+    "404.html": "2ccde51b97f0b864a04f6e6fba5a48bd72a9f3b4e35b9900405c109bafe6b792",
+    "index.html": "01e511bebc898d487f0c176c85c44d2068c3be4a705c64afe8ae703c4b7d5ee7",
+    "play/index.html": "2ccde51b97f0b864a04f6e6fba5a48bd72a9f3b4e35b9900405c109bafe6b792",
+    "play/journey-38d9ee3e4c7f6a4e.css": "38d9ee3e4c7f6a4e36a5a21b5631ad943e9d268924381568ba33156c57a74464",
+    "play/offline-manifest.json": "46bf83ee81e5743bf46c26b0db6973fdefbd1d6dc7aef70d8ce5606a66aa6372",
+    "play/sw.js": "c8e868a86ba8930057d599d2ae9271cd560cba935cd795dc8fd9a9593444ca8b"
+  },
+  "previous_baseline": "97cc2071c96acca22247",
+  "basis": "All local payload hashes verified; every changed or added published byte checked live; unchanged bytes retained from previously verified production."
+}

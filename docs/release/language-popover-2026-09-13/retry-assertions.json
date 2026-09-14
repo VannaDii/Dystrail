@@ -1,0 +1,5 @@
+{
+  "all_existing_assertions_and_timeouts_unchanged": true,
+  "change": "Wait for retry navigation and existing launch-ready promise before the same visibility assertion",
+  "failure_evidence": "CI34796470219job103831630891; the failure snapshot contains the fully loaded game"
+}

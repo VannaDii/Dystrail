@@ -1,0 +1,12 @@
+{
+  "revision": "4868ddb0925cb59d18a0",
+  "time": "2026-09-14T01:11:37.105313+00:00",
+  "changed": [
+    "dystrail-web-967c5a854c0e4caa.js",
+    "dystrail-web-967c5a854c0e4caa_bg.wasm",
+    "index.html",
+    "offline-manifest.json",
+    "sw.js"
+  ],
+  "assets": 119
+}

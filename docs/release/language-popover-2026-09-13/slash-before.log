@@ -1,0 +1,41 @@
+(node:72400) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:72401) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72401) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:72401) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details (7.6s)
+
+
+  1) [chromium] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected: [32m"http://127.0.0.1:51804/play[7m/[27m?review=entry%20route#arrival"[39m
+    Received: [31m"http://127.0.0.1:51804/play?review=entry%20route#arrival"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 5000ms[22m
+    [2m    9 × unexpected value "http://127.0.0.1:51804/play?review=entry%20route#arrival"[22m
+
+
+      10 |   canonical.pathname += '/';
+      11 |   await page.goto(bare.href);
+    > 12 |   await expect(page).toHaveURL(canonical.href);
+         |                      ^
+      13 |   await waitForLaunch(page);
+      14 |   await expect(page.locator('#main')).toHaveAttribute('data-screen', 'setup');
+      15 |   expect(await page.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
+        at /Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/entry-url.spec.ts:12:22
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error Context: ../../../../../tmp/dystrail-language-popover-20260913/slash-before/entry-url-bare-game-URL-ad-5d7e4-n-and-preserves-URL-details-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details

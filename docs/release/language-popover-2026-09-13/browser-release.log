@@ -1,0 +1,25 @@
+(node:57046) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:57048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57048) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:57048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (2.8s)
+  ✓  2 [chromium] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (1.7s)
+  ✓  3 [chromium] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: classic (2.2s)
+  ✓  4 [chromium] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: deep (2.2s)
+(node:57185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57185) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:57185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests-e2e/a11y.spec.ts:3:5 › focus stays still, keyboard selection, rich locale, contrast and outside dismissal (2.8s)
+  ✓  6 [mobile] › tests-e2e/a11y.spec.ts:20:5 › context help and reduced motion (1.8s)
+  ✓  7 [mobile] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: classic (2.4s)
+  ✓  8 [mobile] › tests-e2e/language-popover.spec.ts:36:7 › language list floats beyond the menu without resizing or double scrolling: deep (2.1s)
+
+  8 passed (19.0s)

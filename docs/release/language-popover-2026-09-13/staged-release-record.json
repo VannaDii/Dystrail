@@ -1,0 +1,10 @@
+{
+  "revision": "4a35a2024033bd2ce615",
+  "source_commit": "d7b22770302a2149392a5d34aa981b1f6141087b",
+  "source_ci_commit": "d7b22770302a2149392a5d34aa981b1f6141087b",
+  "source_ci": 34798552993,
+  "release_commit": "22aaa3aa4f12a45127fc5a5583646e492989fe72",
+  "dispatch_on_hold": false,
+  "parent_verified_signal_received": true,
+  "saved_install_verification": "/private/tmp/dystrail-language-popover-20260913/chevron-saved-install/verification.json"
+}

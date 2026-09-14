@@ -1,0 +1,25 @@
+(node:86781) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:86782) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:86782) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:86782) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details (1.3s)
+  ✓  2 [chromium] › tests-e2e/entry-url.spec.ts:19:5 › bare game URL resumes a saved journey and can then reopen offline (2.6s)
+  ✓  3 [chromium] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (2.8s)
+  ✓  4 [chromium] › tests-e2e/offline-status.spec.ts:33:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.6s)
+(node:86879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:86879) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:86879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests-e2e/entry-url.spec.ts:4:5 › bare game URL adds its slash before offline preparation and preserves URL details (1.2s)
+  ✓  6 [mobile] › tests-e2e/entry-url.spec.ts:19:5 › bare game URL resumes a saved journey and can then reopen offline (2.7s)
+  ✓  7 [mobile] › tests-e2e/offline-status.spec.ts:11:5 › offline menu uses full width, centers help, and explains installation with a labeled action (2.8s)
+  ✓  8 [mobile] › tests-e2e/offline-status.spec.ts:33:5 › install availability updates while readiness stays unchanged and installed apps hide install controls (1.5s)
+
+  8 passed (17.5s)
