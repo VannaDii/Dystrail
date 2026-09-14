@@ -25,7 +25,8 @@ test('offline menu uses full width, centers help, and explains installation with
  await page.locator('.wordmark').click();await openMenu(page);
  await status(page,'downloading',37);await expect(section).toContainText('37%');await expect(section.locator('progress')).toHaveAttribute('value','37');await snap(page,'offline-menu-downloading');
  await status(page,'error');await expect(section.locator('progress')).toHaveCount(0);await expect(section.getByRole('button',{name:'Retry download',exact:true})).toBeVisible();await snap(page,'offline-menu-error');
- await section.getByRole('button',{name:'Retry download',exact:true}).click();await expect(page.locator('#main')).toBeVisible();await openMenu(page);await expect(section).toHaveAttribute('data-offline','ready');
+ await Promise.all([page.waitForEvent('domcontentloaded'),section.getByRole('button',{name:'Retry download',exact:true}).click()]);
+ await waitForLaunch(page);await expect(page.locator('#main')).toBeVisible();await openMenu(page);await expect(section).toHaveAttribute('data-offline','ready');
  await page.locator('.language-picker>button').click();await page.getByRole('option',{name:/العربية/}).click();await expect(page.locator('html')).toHaveAttribute('dir','rtl');await expect(section).toContainText('جاهز للعب دون اتصال');await expect(section).toContainText('كيفية التثبيت');await snap(page,'offline-menu-arabic');
 });
 
