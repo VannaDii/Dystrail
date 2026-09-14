@@ -1,6 +1,6 @@
 {
-  "revision": "97cc2071c96acca22247",
-  "bytes": 109583630,
+  "revision": "d75df50dab2d09572dcf",
+  "bytes": 109583768,
   "assets": [
     {
       "path": "continuity-5539805a057cd68d.css",
@@ -20,12 +20,12 @@
     {
       "path": "index.html",
       "bytes": 10608,
-      "integrity": "sha256-p8umGb+O+lNRxRU9xL3hEEIj50++M35fOKVre2y6gLk="
+      "integrity": "sha256-LM3lG5fwuGSgT25vulpIvXKp87TjW5kAQFwQm6/mt5I="
     },
     {
-      "path": "journey-804028b1424fa9ec.css",
-      "bytes": 33693,
-      "integrity": "sha256-hjn0W5Eiag8479UJ/ZOkXroC+roBv0JEZM2gOg4BKPQ="
+      "path": "journey-38d9ee3e4c7f6a4e.css",
+      "bytes": 33831,
+      "integrity": "sha256-ONnuPkx/ak42paIbVjGtlD6dJokkOBVoujMVbFenRGQ="
     },
     {
       "path": "results-49acad5bb38c9d37.css",
@@ -153,6 +153,11 @@
       "integrity": "sha256-jd8/7p3rudQB7uZCY7HsUTHTltuYbBp3vOxn4xfzZ1Y="
     },
     {
+      "path": "static/fonts.css",
+      "bytes": 2868,
+      "integrity": "sha256-6PcUF7mVGlVvbqKibuw57SfA/uYgmuHj7YsGF3v8mh0="
+    },
+    {
       "path": "static/fonts/README.md",
       "bytes": 3105,
       "integrity": "sha256-RLWiAh+F5oqs13L5gh+xE1nQsAGSbVe4dIHKu1chaQo="
@@ -211,11 +216,6 @@
       "path": "static/fonts/provenance.json",
       "bytes": 5749,
       "integrity": "sha256-r4vtTKJbMgEP9Nkbf3lBQ8FQA5mVZjNh0ctpbLdp4qE="
-    },
-    {
-      "path": "static/fonts.css",
-      "bytes": 2868,
-      "integrity": "sha256-6PcUF7mVGlVvbqKibuw57SfA/uYgmuHj7YsGF3v8mh0="
     },
     {
       "path": "static/img/app-icon-192.png",
