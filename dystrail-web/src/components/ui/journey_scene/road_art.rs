@@ -8,11 +8,22 @@ pub fn context(stage: &SceneStage) -> Option<(&str, Option<usize>)> {
         SceneStage::EncounterOutcome { unit, choice } => (unit.as_str(), Some(*choice)),
         _ => return None,
     };
-    matches!(unit, "ENC-C01-A" | "ENC-C01-B" | "ENC-C01-C").then_some((unit, choice))
+    supported(unit).then_some((unit, choice))
+}
+
+pub fn supported(unit: &str) -> bool {
+    matches!(
+        unit,
+        "ENC-C01-A" | "ENC-C01-B" | "ENC-C01-C" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C"
+    )
+}
+
+pub fn is_indoors(unit: &str) -> bool {
+    matches!(unit, "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-C")
 }
 
 pub fn aftermath(unit: String, choice: usize) -> SceneStage {
-    if matches!(unit.as_str(), "ENC-C01-A" | "ENC-C01-B" | "ENC-C01-C") {
+    if supported(&unit) {
         SceneStage::EncounterOutcome { unit, choice }
     } else {
         SceneStage::Encounter(unit)
@@ -22,7 +33,7 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     let count = match unit {
-        "ENC-C01-B" => 1,
+        "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };
@@ -61,9 +72,12 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
+    if unit.starts_with("ENC-C03-") {
+        return Some(render_c03(unit, choice));
+    }
     let row = match unit {
         "ENC-C01-A" => 0,
-        "ENC-C01-B" => 1,
+        "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" => 1,
         _ => 2,
     };
     // Photographing changes evidence, not the site. Only the actual help choice
@@ -113,6 +127,35 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
+        "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" => "760 / 504",
         _ => "760 / 360",
     })
+}
+
+/// Offer followed by the three actual committed outcomes, in atlas row order.
+fn render_c03(unit: &str, choice: Option<usize>) -> Html {
+    let cell = choice.filter(|c| *c < 3).map_or(0, |c| c + 1);
+    let dx = (cell % 2) * 768;
+    let dy = (cell / 2) * 512;
+    let atlas = format!("road-{}-20260914", unit[4..].to_ascii_lowercase());
+    let clip = format!("road-frame-{unit}-{cell}");
+    let label = crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"));
+    // Match each retained blank prop face; never stretch typography or art.
+    let (x, y, w, h) = match (unit, cell) {
+        ("ENC-C03-A", 0 | 1) => (284, 332, 252, 104),
+        ("ENC-C03-A", _) => (376, 854 - 512, 240, 92),
+        ("ENC-C03-B", _) => (273, 91, 244, 65),
+        ("ENC-C03-C", 3) => (326, 668 - 512, 96, 40),
+        ("ENC-C03-C", _) => (291, 208, 140, 50),
+        _ => unreachable!(),
+    };
+    html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas.clone()} data-cell={cell.to_string()} viewBox={format!("{} {} 760 504",dx+4,dy+4)} preserveAspectRatio="xMidYMid meet">
+        <defs><clipPath id={clip.clone()}><rect x={(dx+4).to_string()} y={(dy+4).to_string()} width="760" height="504"/></clipPath></defs>
+        <g clip-path={format!("url(#{clip})")}>
+            <image href={crate::paths::asset_path(&format!("static/img/scenes-v2/{atlas}.png"))} width="1536" height="1024"/>
+            <foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={(dy+y).to_string()} width={w.to_string()} height={h.to_string()}>
+                <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style={format!("height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold {}px/1.05 sans-serif;overflow-wrap:anywhere",if unit=="ENC-C03-C" {14} else {24})}>{label}</div>
+            </foreignObject>
+        </g>
+    </svg>}
 }

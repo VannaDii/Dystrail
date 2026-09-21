@@ -1345,6 +1345,42 @@
       "choice_1": "Fotografiar el desastre para vuestro caso en D.C.",
       "log_1": "Fotografiáis los contenedores desbordados. Ella señala las moscas. «El único departamento que sigue contratando».",
       "fact": "La escena satiriza los recortes de personal del Servicio de Parques Nacionales de febrero de 2025. La guardabosques y el encuentro son ficticios."
+    },
+    "ENC-C03-A": {
+      "name": "Educación por liquidación",
+      "desc": "Trump ordenó dar pasos para cerrar el Departamento de Educación. En una colecta escolar, las familias piden a vuestra tripulación que alimente al voluntariado o grabe su liquidación de mentira. Un escritorio lleva el cartel «PODER DEVUELTO A LAS FAMILIAS». Dos personas discuten cómo levantarlo.",
+      "choice_0": "Compartir comida y participar en la subasta",
+      "log_0": "Compartís comida y os sumáis a la subasta de las familias. El escritorio será para quien explique una división larga sin llorar.",
+      "choice_1": "Grabar la exposición de las familias",
+      "log_1": "Grabáis la exposición para D.C. La silla marcada «control local» aún lleva pegado debajo un diagrama federal de montaje.",
+      "choice_2": "Abastecer el rincón de lectura",
+      "log_2": "Dejáis provisiones y os instaláis en el rincón de lectura. El libro se abre sin que nadie tenga que abolir primero su editorial.",
+      "overlay_0": "PODER DEVUELTO A LAS FAMILIAS",
+      "fact": "La orden de marzo de 2025 dispuso avanzar hacia el cierre del Departamento de Educación hasta donde lo permitiera la ley. La orden no abolió por sí misma el departamento."
+    },
+    "ENC-C03-B": {
+      "name": "El ala seca",
+      "desc": "Trump anunció un salón de baile de la Casa Blanca financiado por donantes porque las grandes cenas necesitaban carpas. En un club junto a la carretera celebran una colecta bajo una carpa que aún gotea por su última filtración. Si traéis comida, podréis bautizar la nueva y majestuosa ala. Es el rincón seco.",
+      "choice_0": "Compartir comida y bautizar el ala",
+      "log_0": "Donáis comida y le ponéis vuestro nombre al rincón seco. Alguien coloca allí una silla plegable. Vuestro legado presidencial tiene una plaza.",
+      "choice_1": "Grabar la comparación con el salón",
+      "log_1": "Grabáis el anuncio y el presupuesto del club. Los donantes de Trump compran un salón de baile. Los de aquí, de momento, pueden pagar las palabras «salón de baile».",
+      "choice_2": "Abastecer el rincón tranquilo",
+      "log_2": "Donáis provisiones y os sentáis en paz. El club le pone vuestro nombre al servilletero. El acceso para donantes sale muy barato sin un presidente de por medio.",
+      "overlay_0": "PON NOMBRE A LA NUEVA ALA",
+      "fact": "El anuncio de la Casa Blanca de julio de 2025 decía que Trump y los donantes financiarían la estructura del salón y citaba las carpas usadas para grandes actos. La estimación inicial no era el coste final; la seguridad se asignó por separado al Servicio Secreto."
+    },
+    "ENC-C03-C": {
+      "name": "Tu llamada es un compromiso",
+      "desc": "Un tribunal anuló la norma de la FTC para cancelar con un clic. En una comida vecinal junto a la carretera, alguien intenta cancelar su abono al gimnasio por el altavoz del móvil. Os invita a traer comida o usar la sala tranquila. La música de espera ha sobrevivido a dos cazuelas.",
+      "choice_0": "Compartir comida y dar ánimos",
+      "log_0": "Compartís comida y animáis a quien llama. El gimnasio ofrece tres meses gratis. La respuesta: si alguno incluye poder irse.",
+      "choice_1": "Grabar el intento de cancelación",
+      "log_1": "Con su permiso, grabáis cómo selecciona cancelar. Una voz felicita a quien llama por elegir seguir como miembro. Nadie toca el móvil durante un momento.",
+      "choice_2": "Abastecer la sala tranquila",
+      "log_2": "Donáis provisiones y os instaláis en la sala tranquila. La puerta se abre desde dentro. Pensáis en recomendársela al gimnasio.",
+      "overlay_0": "POR FAVOR, SIGA EN ESPERA",
+      "fact": "En julio de 2025, el Octavo Circuito anuló la norma de la FTC para cancelar con un clic por su procedimiento regulatorio. No declaró legales todas las prácticas que dificultan cancelar; pueden seguir aplicándose otras protecciones al consumidor."
     }
   },
   "play": {

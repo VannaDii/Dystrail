@@ -1345,6 +1345,42 @@
       "choice_1": "Fotografare il disastro per il vostro caso a D.C.",
       "log_1": "Fotografate i bidoni stracolmi. Lei indica le mosche. «L’unico dipartimento che assume ancora».",
       "fact": "La scena ironizza sui tagli al personale del National Park Service del febbraio 2025. La guardiaparco e l’incontro sono inventati."
+    },
+    "ENC-C03-A": {
+      "name": "Istruzione in liquidazione",
+      "desc": "Trump ha ordinato passi verso la chiusura del Dipartimento dell’Istruzione. A una raccolta fondi scolastica, i genitori chiedono al vostro equipaggio fermo di sfamare i volontari o filmare la loro finta svendita. Una scrivania reca «POTERE RESTITUITO AI GENITORI». Due genitori discutono su come sollevarla.",
+      "choice_0": "Condividi cibo e partecipa all’asta",
+      "log_0": "Condividete cibo e partecipate alla finta asta dei genitori. La scrivania andrà a chi saprà spiegare una divisione in colonna senza piangere.",
+      "choice_1": "Filma l’esposizione dei genitori",
+      "log_1": "Filmate l’esposizione per D.C. La sedia con scritto «controllo locale» ha ancora uno schema di montaggio federale incollato sotto.",
+      "choice_2": "Rifornisci l’angolo lettura",
+      "log_2": "Lasciate provviste e vi sistemate nell’angolo lettura. Il libro si apre senza che nessuno debba prima abolirne l’editore.",
+      "overlay_0": "POTERE RESTITUITO AI GENITORI",
+      "fact": "L’ordine del marzo 2025 disponeva passi verso la chiusura del Dipartimento dell’Istruzione nei limiti consentiti dalla legge. Non aboliva di per sé il dipartimento."
+    },
+    "ENC-C03-B": {
+      "name": "L’ala asciutta",
+      "desc": "Trump ha annunciato una sala da ballo della Casa Bianca finanziata da donatori perché le grandi cene richiedevano tendoni. In un circolo lungo la strada si raccolgono fondi sotto un tendone che gocciola ancora dall’ultima infiltrazione. Portate cibo e potrete dare un nome alla nuova, grandiosa ala. È l’angolo asciutto.",
+      "choice_0": "Condividi cibo e battezza la nuova ala",
+      "log_0": "Donate cibo e date il vostro nome all’angolo asciutto. Qualcuno ci porta una sedia pieghevole. La vostra eredità presidenziale ha un posto a sedere.",
+      "choice_1": "Registra il confronto con la sala da ballo",
+      "log_1": "Registrate l’annuncio e il bilancio del circolo. I donatori di Trump comprano una sala da ballo. Questi, per ora, possono permettersi le parole «sala da ballo».",
+      "choice_2": "Rifornisci l’angolo tranquillo",
+      "log_2": "Donate provviste e vi sedete in pace. Il circolo dà il vostro nome al portatovaglioli. L’accesso dei donatori costa pochissimo senza un presidente di mezzo.",
+      "overlay_0": "DAI UN NOME ALLA NUOVA ALA",
+      "fact": "L’annuncio della Casa Bianca del luglio 2025 diceva che Trump e i donatori avrebbero finanziato la struttura della sala, citando i tendoni usati per i grandi eventi. La stima iniziale non era il costo finale; la sicurezza era assegnata separatamente al Secret Service."
+    },
+    "ENC-C03-C": {
+      "name": "La tua chiamata è un impegno",
+      "desc": "Un tribunale ha annullato la regola FTC per disdire con un clic. A un pranzo di vicinato lungo la strada, una persona cerca di disdire l’abbonamento in palestra in vivavoce. Vi invita a portare cibo o a usare la stanza tranquilla. La musica d’attesa è sopravvissuta a due teglie.",
+      "choice_0": "Condividi cibo e fai il tifo",
+      "log_0": "Condividete cibo e fate il tifo per chi chiama. La palestra offre tre mesi gratis. La domanda è se uno dei tre preveda di potersene andare.",
+      "choice_1": "Registra il tentativo di disdetta",
+      "log_1": "Con il suo permesso, filmate la persona mentre seleziona la disdetta. Una voce si congratula per la scelta di restare iscritta. Per un momento nessuno tocca il telefono.",
+      "choice_2": "Rifornisci la stanza tranquilla",
+      "log_2": "Donate provviste e vi sistemate nella stanza tranquilla. La porta si apre dall’interno. Pensate di consigliarla alla palestra.",
+      "overlay_0": "RESTARE IN ATTESA",
+      "fact": "Nel luglio 2025 l’Ottavo Circuito ha annullato la regola FTC per disdire con un clic per ragioni procedurali. Non ha dichiarato lecita ogni pratica che rende difficile disdire; altre tutele dei consumatori possono ancora applicarsi."
     }
   },
   "play": {

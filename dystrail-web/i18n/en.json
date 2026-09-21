@@ -1345,6 +1345,42 @@
       "overlay_0": "CALIBRI",
       "overlay_1": "TIMES NEW ROMAN",
       "fact": "Marco Rubio ordered State Department correspondence back to Times New Roman in December 2025. The order did not require private printers to change fonts; this printer is fictional."
+    },
+    "ENC-C03-A": {
+      "name": "Closing-time education",
+      "desc": "Trump ordered steps toward closing the Education Department. At a PTA fundraiser, parents ask your stopped crew to feed the volunteers or record their mock clearance sale. A desk is labelled “POWER RETURNED TO PARENTS.” Two parents are arguing over how to lift it.",
+      "choice_0": "Share some food; join the sale",
+      "log_0": "You share some food and join the parents’ mock auction. The desk goes to whoever can explain long division without crying.",
+      "choice_1": "Record the parents’ display",
+      "log_1": "You record the display for D.C. The chair marked “local control” still has a federal assembly diagram taped underneath.",
+      "choice_2": "Provision the quiet reading corner",
+      "log_2": "You leave some supplies and settle into the reading corner. The book opens without anyone first abolishing its publisher.",
+      "overlay_0": "POWER RETURNED TO PARENTS",
+      "fact": "The March 2025 executive order directed steps toward closing the Education Department to the extent permitted by law. It did not itself abolish the department."
+    },
+    "ENC-C03-B": {
+      "name": "The dry wing",
+      "desc": "Trump announced a donor-funded White House ballroom because big dinners needed tents. At a roadside social club, members hold a benefit under a leaking marquee. Bring some food and you may name the grand new wing. It’s the dry corner.",
+      "choice_0": "Share some food; name the new wing",
+      "log_0": "You donate some food and name the dry corner after yourself. Someone moves a folding chair into it. Your presidential legacy seats one.",
+      "choice_1": "Record the ballroom comparison",
+      "log_1": "You record the announcement and the club’s budget. Trump’s donors buy a ballroom. These donors can currently afford the word ballroom.",
+      "choice_2": "Supply the quiet picnic corner",
+      "log_2": "You donate supplies and sit quietly. The club names the napkin holder after you. Donor access is very affordable without a president attached.",
+      "overlay_0": "NAME THE NEW WING",
+      "fact": "The July 2025 White House announcement described a ballroom funded by Trump and donors, citing tents used for large events. Its initial estimate was not a final cost; security was assigned separately to the Secret Service."
+    },
+    "ENC-C03-C": {
+      "name": "Your call is a commitment",
+      "desc": "A court threw out the FTC’s click-to-cancel rule. At a roadside potluck, a neighbor is trying to cancel their gym membership on speakerphone. They invite you to bring some food or use the quiet room. The hold music has outlasted two casseroles.",
+      "choice_0": "Share some food; join the exercise",
+      "log_0": "You share some food and cheer them on. The gym offers three free months. They ask whether any of them include leaving.",
+      "choice_1": "Record their cancellation attempt",
+      "log_1": "With their permission, you record them selecting cancellation. A voice congratulates him on choosing continued membership. Nobody touches the phone for a moment.",
+      "choice_2": "Supply the quiet room",
+      "log_2": "You donate some supplies and settle in the quiet room. Its door opens from inside. You consider recommending it to the gym.",
+      "overlay_0": "PLEASE CONTINUE HOLDING",
+      "fact": "In July 2025 the Eighth Circuit vacated the FTC click-to-cancel rule on rulemaking procedural grounds. That did not make every cancellation obstacle lawful; other consumer protections may still apply."
     }
   },
   "play": {

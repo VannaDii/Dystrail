@@ -4923,7 +4923,7 @@
           "ar"
         ],
         "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
-        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+        "remaining": "16 locales; phone prop wording remains in info popup. Former portrait reservation removed; bottom-left RTL and320px overflow check pass in build b968a81085fc350c0dcf."
       }
     },
     {
@@ -4973,7 +4973,7 @@
           "ar"
         ],
         "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
-        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+        "remaining": "16 locales; phone prop wording remains in info popup. Former portrait reservation removed; bottom-left RTL and320px overflow check pass in build b968a81085fc350c0dcf."
       }
     },
     {
@@ -5023,7 +5023,7 @@
           "ar"
         ],
         "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
-        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+        "remaining": "16 locales; phone prop wording remains in info popup. Former portrait reservation removed; bottom-left RTL and320px overflow check pass in build b968a81085fc350c0dcf."
       }
     },
     {
@@ -5164,7 +5164,22 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "b968a81085fc350c0dcf",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_crossing_block_party",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved variant and immutable actual outcome, no simulation RNG",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "5 selector tests; 4 desktop/mobile browser checks across C01/C03, all15 actions, exact resource effects, Arabic at320px, offline",
+        "remaining": "16 locales; mobile prop typography remains in info popup; full outcome-frame composed visual review"
+      }
     },
     {
       "unit": "ENC-C03-B",
@@ -5193,7 +5208,22 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "b968a81085fc350c0dcf",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_crossing_block_party",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved variant and immutable actual outcome, no simulation RNG",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "5 selector tests; 4 desktop/mobile browser checks across C01/C03, all15 actions, exact resource effects, Arabic at320px, offline",
+        "remaining": "16 locales; mobile prop typography remains in info popup; full outcome-frame composed visual review"
+      }
     },
     {
       "unit": "ENC-C03-C",
@@ -5222,7 +5252,22 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "b968a81085fc350c0dcf",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_crossing_block_party",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved variant and immutable actual outcome, no simulation RNG",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "5 selector tests; 4 desktop/mobile browser checks across C01/C03, all15 actions, exact resource effects, Arabic at320px, offline",
+        "remaining": "16 locales; mobile prop typography remains in info popup; full outcome-frame composed visual review"
+      }
     },
     {
       "unit": "ENC-C04-A",

@@ -2,7 +2,7 @@
 use yew::prelude::*;
 
 pub fn encounter(id: &str) -> Html {
-    if matches!(id, "ENC-C01-A" | "ENC-C01-B" | "ENC-C01-C") {
+    if super::journey_scene::road_art::supported(id) {
         let fact = crate::i18n::encounter_text(id, "fact", "");
         return html! {<super::context_help::ContextHelp informational={true} title={crate::i18n::t("trail.behind_joke")} text={fact} />};
     }

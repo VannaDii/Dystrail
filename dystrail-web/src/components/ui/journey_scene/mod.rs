@@ -121,7 +121,7 @@ pub fn journey_scene(p: &Props) -> Html {
     let light = lighting::profile(p.hour);
     let indoors = road_art::context(&p.stage).map_or_else(
         || name.is_some_and(composition::is_indoors),
-        |(unit, _)| unit == "ENC-C01-B",
+        |(unit, _)| road_art::is_indoors(unit),
     );
     let authored = road_art::aspect(&p.stage);
     let authored_style =

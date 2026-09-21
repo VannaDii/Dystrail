@@ -12,28 +12,28 @@ fn hash(seed: u64, family: &str, occurrence: u32) -> u64 {
         })
 }
 
-static C01: std::sync::LazyLock<crate::game::data::Encounter> = std::sync::LazyLock::new(|| {
-    serde_json::from_str::<Vec<crate::game::data::Encounter>>(include_str!(
-        "../../static/assets/data/game.json"
-    ))
-    .expect("shipped encounters are valid")
-    .into_iter()
-    .find(|event| event.id == "classic_bridge_crews")
-    .expect("C01 runtime encounter exists")
-});
+static CANONICAL: std::sync::LazyLock<Vec<crate::game::data::Encounter>> =
+    std::sync::LazyLock::new(|| {
+        serde_json::from_str(include_str!("../../static/assets/data/game.json"))
+            .expect("shipped encounters are valid")
+    });
 
 fn family(gs: &GameState) -> Option<&'static str> {
     let encounter = gs.current_encounter.as_ref()?;
-    // A reused runtime ID alone is not proof that an imported custom event has
-    // the same choices. Authored labels must match the complete shipped effects.
-    (encounter.id == C01.id
-        && encounter.choices.len() == C01.choices.len()
+    let family = match encounter.id.as_str() {
+        "classic_bridge_crews" => "ENC-C01",
+        "classic_crossing_block_party" => "ENC-C03",
+        _ => return None,
+    };
+    let canonical = CANONICAL.iter().find(|event| event.id == encounter.id)?;
+    // Imported custom events must retain their own presentation if any effects differ.
+    (encounter.choices.len() == canonical.choices.len()
         && encounter
             .choices
             .iter()
-            .zip(&C01.choices)
+            .zip(&canonical.choices)
             .all(|(a, b)| a.effects == b.effects))
-    .then_some("ENC-C01")
+    .then_some(family)
 }
 
 pub fn record_outcome(before: &GameState, after: &mut GameState, choice: usize) {
@@ -41,7 +41,10 @@ pub fn record_outcome(before: &GameState, after: &mut GameState, choice: usize) 
         return;
     };
     if encounter_unit(before).is_none()
-        || choice >= C01.choices.len()
+        || before
+            .current_encounter
+            .as_ref()
+            .is_none_or(|event| choice >= event.choices.len())
         || after.current_encounter.is_some()
     {
         return;
@@ -116,8 +119,42 @@ mod tests {
         };
         gs.continuity.visual_content.edition = EDITION;
         gs.continuity.last_encounter_driving_minutes = Some(300);
-        gs.current_encounter = Some(C01.clone());
+        gs.current_encounter = Some(
+            CANONICAL
+                .iter()
+                .find(|event| event.id == "classic_bridge_crews")
+                .unwrap()
+                .clone(),
+        );
         gs
+    }
+    #[test]
+    fn three_choice_family_records_third_outcome_and_rejects_custom_effects() {
+        let mut before = run();
+        before.current_encounter = Some(
+            CANONICAL
+                .iter()
+                .find(|e| e.id == "classic_crossing_block_party")
+                .unwrap()
+                .clone(),
+        );
+        seal_encounter(&mut before);
+        assert!(encounter_unit(&before).unwrap().starts_with("ENC-C03-"));
+        let mut after = before.clone();
+        after.current_encounter = None;
+        record_outcome(&before, &mut after, 2);
+        assert_eq!(
+            after
+                .continuity
+                .visual_content
+                .outcomes
+                .get("ENC-C03/road/300"),
+            Some(&2)
+        );
+        before.current_encounter.as_mut().unwrap().choices[2]
+            .effects
+            .sanity = 99;
+        assert_eq!(encounter_unit(&before), None);
     }
     #[test]
     fn committed_choice_survives_save_and_cannot_be_overwritten() {

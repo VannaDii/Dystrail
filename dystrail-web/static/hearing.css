@@ -169,3 +169,7 @@
 .world-view .scene-authored > .scene-art { position:relative; inset:auto; order:1; flex-shrink:0; width:100%; aspect-ratio:var(--authored-ratio); }
 .world-view .scene-authored .scene-atlas { width:100%; height:100%; }
 @media(max-width:700px) { .scene-authored .road-prop-lettering { display:none; } }
+
+/* The caption portrait was removed: do not reserve its former column. */
+.world-view .journey-scene .scene-footer .scene-caption { padding-inline:20px; text-align:left; }
+@media(max-width:700px) { .world-view .journey-scene .scene-footer .scene-caption { padding-inline:14px; } }
